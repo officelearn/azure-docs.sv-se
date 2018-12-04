@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 03c1afb45ddde994ba79838fc73eb3c16e8510f2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 843271901b8d58c2c5a6c4cf495997498b8278b6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723983"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848858"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 
@@ -209,7 +209,7 @@ Ange en befintlig eller skapa en ny [Åtgärdsgrupp](../monitoring-and-diagnosti
 När du får en avisering kan du använda stegen i följande avsnitt för att felsöka varför användningen är högre än förväntat.
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [Loggsökningar i Log analytics](log-analytics-queries.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
+* Se [Loggsökningar i Log analytics](../azure-monitor/log-query/log-query-overview.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
 * Använd stegen som beskrivs i [Skapa en ny loggavisering](../monitoring-and-diagnostics/alert-metric.md) om du vill meddelas när ett sökvillkor har uppfyllts.
 * Använd [lösningsriktning](../azure-monitor/insights/solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 * Om du vill konfigurera en effektiv princip för insamling av säkerhetshändelse kan du läsa [filtreringsprincipen för Azure Security Center](../security-center/security-center-enable-data-collection.md).

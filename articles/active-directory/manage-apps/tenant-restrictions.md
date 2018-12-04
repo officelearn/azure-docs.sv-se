@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 4a5cb7d15627ac3e48b72567ec3740377b2a0264
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ca3396024fdab31217b00ef7cdd39e4e61504d27
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365678"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851102"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd Klientrestriktioner för att hantera åtkomst till SaaS-molnprogram
 
 Stora organisationer som betona säkerhet vill flytta till molntjänster som Office 365, men behöver veta att användarna bara har åtkomst till resurser som är godkända. Traditionellt har begränsa företag domännamn eller IP-adresser när de vill hantera åtkomst. Den här metoden misslyckas i en värld där SaaS-appar finns i ett offentligt moln, som körs på delade domännamn som outlook.office.com och login.microsoftonline.com. Blockera dessa adresser skulle hindra användare från att komma åt Outlook på webben helt och hållet, i stället för bara att begränsa dem till godkända identiteter och resurser.
 
-Azure Active Directorys lösning i den här utmaningen är en funktion som kallas Klientrestriktioner. Klientrestriktioner gör det möjligt för organisationer att styra åtkomsten till SaaS-molnprogram, utifrån programmen använder för enkel inloggning för Azure AD-klienten. Du kanske vill tillåta åtkomst till din organisations Office 365-program, samtidigt som du förhindrar åtkomst till andra organisationer instanser av dessa samma program.  
+Azure Active Directorys lösning i den här utmaningen är en funktion som kallas Klientrestriktioner. Klientrestriktioner gör det möjligt för organisationer att styra åtkomsten till SaaS-molnprogram, utifrån programmen använder för enkel inloggning för Azure AD-klienten. Du kanske vill tillåta åtkomst till din organisations Office 365-program, samtidigt som du förhindrar åtkomst till andra organisationer instanser av dessa samma program.  
 
 Klientrestriktioner ger organisationer möjlighet att ange en lista över klienter som användarna beviljas åtkomst till. Azure AD sedan ger endast åtkomst till dessa tillåtna klienter.
 
@@ -34,13 +34,13 @@ Den här artikeln fokuserar på Klientrestriktioner för Office 365, men funktio
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Den övergripande lösningen består av följande komponenter: 
+Den övergripande lösningen består av följande komponenter: 
 
-1. **Azure AD** – om den `Restrict-Access-To-Tenants: <permitted tenant list>` är närvarande, Azure AD endast problem säkerhetstoken för tillåtna klienter. 
+1. **Azure AD** – om den `Restrict-Access-To-Tenants: <permitted tenant list>` är närvarande, Azure AD endast problem säkerhetstoken för tillåtna klienter. 
 
-2. **En lokal proxy-serverinfrastruktur** – en proxy-enheten kan SSL-kontroll som har konfigurerats för att infoga rubriken som innehåller listan över tillåtna klienter till trafik till Azure AD. 
+2. **En lokal proxy-serverinfrastruktur** – en proxy-enheten kan SSL-kontroll som har konfigurerats för att infoga rubriken som innehåller listan över tillåtna klienter till trafik till Azure AD. 
 
-3. **Klientprogrammet** – för att stödja Klientrestriktioner, klientprogrammet måste begära token direkt från Azure AD så att trafik kan fångas upp av proxy-infrastruktur. Klientrestriktioner stöds för närvarande genom webbläsarbaserade Office 365-program och Office-klienter när modern autentisering (till exempel OAuth 2.0) används. 
+3. **Klientprogrammet** – för att stödja Klientrestriktioner, klientprogrammet måste begära token direkt från Azure AD så att trafik kan fångas upp av proxy-infrastruktur. Klientrestriktioner stöds för närvarande genom webbläsarbaserade Office 365-program och Office-klienter när modern autentisering (till exempel OAuth 2.0) används. 
 
 4. **Modern autentisering** – molntjänster måste använda modern autentisering för att använda Klientrestriktioner och blockera åtkomst till alla klienter som inte är tillåtet. Office 365 molntjänster måste konfigureras för att använda moderna autentiseringsprotokoll som standard. Den senaste informationen om Office 365-stöd för modern autentisering kan du läsa [uppdateras Office 365 modern autentisering](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
@@ -54,7 +54,7 @@ Det finns två steg för att komma igång med Klientrestriktioner. Det första s
 
 ### <a name="urls-and-ip-addresses"></a>URL: er och IP-adresser
 
-Om du vill använda Klientrestriktioner måste klienterna att kunna ansluta till följande webbadresser som Azure AD för autentisering: login.microsoftonline.com, login.microsoft.com och login.windows.net. Dessutom kommer åt Office 365, dina klienter måste också vara kan ansluta till FQDN: er/URL: er och IP-adresser som definieras i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
+Om du vill använda Klientrestriktioner måste klienterna att kunna ansluta till följande webbadresser som Azure AD för autentisering: login.microsoftonline.com, login.microsoft.com och login.windows.net. Dessutom kommer åt Office 365, dina klienter måste också vara kan ansluta till FQDN: er/URL: er och IP-adresser som definieras i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
 
 ### <a name="proxy-configuration-and-requirements"></a>Proxykonfiguration och krav
 
@@ -62,7 +62,7 @@ Följande konfiguration krävs för att aktivera Klientrestriktioner via proxy-i
 
 #### <a name="prerequisites"></a>Förutsättningar
 
-- Proxyn måste kunna utföra SSL avlyssning, HTTP-huvud infogning och filtrera mål med FQDN: er/URL: er. 
+- Proxyn måste kunna utföra SSL avlyssning, HTTP-huvud infogning och filtrera mål med FQDN: er/URL: er. 
 
 - Klienter måste lita på certifikatkedjan som presenteras av proxyn för SSL-kommunikation. Till exempel om certifikat från en intern PKI används måste det interna utfärdande certifikat certifikatet för rotutfärdare vara betrodda.
 
@@ -72,14 +72,14 @@ Följande konfiguration krävs för att aktivera Klientrestriktioner via proxy-i
 
 Infoga två HTTP-huvuden för varje inkommande begäran till login.microsoftonline.com login.microsoft.com och login.windows.net: *begränsa åtkomst till klienter* och *begränsa åtkomst sammanhangsberoende*.
 
-Rubrikerna bör innehålla följande element: 
-- För *begränsa åtkomst till klienter*, värdet \<tillåts klientlista\>, vilket är en kommaavgränsad lista över klienter som du vill ge användare åtkomst till. Alla domäner som har registrerats hos en klient kan användas för att identifiera klienten i den här listan. Till exempel för att tillåta åtkomst till både Contoso och Fabrikam klienter, namn/värde-par ser ut som:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-- För *begränsa åtkomst sammanhangsberoende*, ett värde av en enskild katalog-ID, deklarera vilken klientorganisation kan du ställa den Klientrestriktioner. Till exempel för att deklarera Contoso som den klient som anger principen Klientrestriktioner namn/värde-par ser ut som: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+Rubrikerna bör innehålla följande element: 
+- För *begränsa åtkomst till klienter*, värdet \<tillåts klientlista\>, vilket är en kommaavgränsad lista över klienter som du vill ge användare åtkomst till. Alla domäner som har registrerats hos en klient kan användas för att identifiera klienten i den här listan. Till exempel för att tillåta åtkomst till både Contoso och Fabrikam klienter, namn/värde-par ser ut som:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- För *begränsa åtkomst sammanhangsberoende*, ett värde av en enskild katalog-ID, deklarera vilken klientorganisation kan du ställa den Klientrestriktioner. Till exempel för att deklarera Contoso som den klient som anger principen Klientrestriktioner namn/värde-par ser ut som: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
 > Du kan hitta din katalog-ID i den [Azure-portalen](https://portal.azure.com). Logga in som administratör, väljer **Azure Active Directory**och välj sedan **egenskaper**.
 
-Om du vill hindra användare från att lägga till egna HTTP-huvud med icke-godkänd klienter, måste proxyn ersätta rubriken Begränsa åtkomst till klienter om det finns redan i den inkommande begäranden. 
+Om du vill hindra användare från att lägga till egna HTTP-huvud med icke-godkänd klienter, måste proxyn ersätta rubriken Begränsa åtkomst till klienter om det finns redan i den inkommande begäranden. 
 
 Klienter måste vara tvungen att använda proxyn för alla begäranden till login.microsoftonline.com login.microsoft.com och login.windows.net. Till exempel om PAC-filer används för att dirigera klienterna till att använda proxy, bör slutanvändare inte kunna redigera eller inaktivera PAC-filer.
 
@@ -116,7 +116,7 @@ Klientrestriktioner stöds för närvarande av Office 365-webbläsarbaserade pro
 
 Outlook och Skype för företag-klienter som har stöd för modern autentisering kan fortfarande kunna använda äldre protokoll mot klienter där modern autentisering inte är aktiverad, vilket effektivt kringgår Klientrestriktioner. Program som använder äldre protokoll blockeras av Klientrestriktioner om de kontaktar login.microsoftonline.com, login.microsoft.com eller login.windows.net under autentiseringen.
 
-Kunder kan välja att implementera begränsningar för att förhindra slutanvändare från att lägga till icke-godkänd e-postkonton i sina profiler för Outlook på Windows. Se exempelvis den [förhindra att lägga till konton för icke-standard Exchange](http://gpsearch.azurewebsites.net/default.aspx?ref=1) grupprincipinställning.
+Kunder kan välja att implementera begränsningar för att förhindra slutanvändare från att lägga till icke-godkänd e-postkonton i sina profiler för Outlook på Windows. Se exempelvis den [förhindra att lägga till konton för icke-standard Exchange](https://gpsearch.azurewebsites.net/default.aspx?ref=1) grupprincipinställning.
 
 ## <a name="testing"></a>Testning
 
@@ -126,8 +126,8 @@ Om du vill prova Klientrestriktioner innan du implementerar för hela organisati
 
 Fiddler är en kostnadsfri webb-proxy som kan användas för att fånga och ändra HTTP/HTTPS-trafik, inklusive lägga till HTTP-huvuden för felsökning. Utför följande steg för att konfigurera Fiddler för att testa Klientrestriktioner:
 
-1.  [Ladda ned och installera Fiddler](http://www.telerik.com/fiddler).
-2.  Konfigurera Fiddler för att dekryptera HTTPS-trafik [Fiddlers hjälpdokumentation](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+1.  [Ladda ned och installera Fiddler](https://www.telerik.com/fiddler).
+2.  Konfigurera Fiddler för att dekryptera HTTPS-trafik [Fiddlers hjälpdokumentation](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 3.  Konfigurera Fiddler för att infoga den *begränsa åtkomst till klienter* och *begränsa åtkomst sammanhangsberoende* rubriker med hjälp av anpassade regler:
   1. I Fiddler Web felsökningsverktyget, väljer du den **regler** menyn och välj **anpassa regler...** att öppna filen CustomRules.
   2. Lägg till följande rader i början av den *OnBeforeRequest* funktion. Ersätt \<klientdomänen\> med en domän registrerad med din klient, till exempel contoso.onmicrosoft.com. Ersätt \<katalog-ID\> med din klients Azure AD-GUID-identifierare.

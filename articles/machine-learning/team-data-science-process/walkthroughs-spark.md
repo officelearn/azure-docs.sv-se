@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a7697d2be1a43af93109bb7bbdab50828275f5aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b7089a034b352366ee6a67e8da3d85c61e9039b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446409"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846274"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>HDInsight Spark data science genomgångar med PySpark och Scala på Azure
 
@@ -40,7 +40,7 @@ Se [avancerad datagranskning och modellering med Spark](spark-advanced-data-expl
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Förutsäg taxitips med hjälp av Scala på Azure Spark
 
-Den [använda Scala med Spark på Azure](scala-walkthrough.md) genomgången använder data från New York-taxibilar för att förutsäga om ett tips är betalas ut och intervallet för mängder förväntas betalas. Den visar hur du använder Scala för övervakade machine learning-uppgifter med de Spark machine learning-biblioteket (MLlib) och SparkML paket på ett Azure HDInsight Spark-kluster. Vi går igenom de aktiviteter som utgör den [Data Science Process](https://aka.ms/datascienceprocess): datainmatning och utforskning, visualisering, funktionsframställning, modellering och förbrukning av modellen. Modeller som byggts är logistic och linjär regression, slumpmässiga skogar och gradient bättre träd.
+Den [använda Scala med Spark på Azure](scala-walkthrough.md) genomgången använder data från New York-taxibilar för att förutsäga om ett tips är betalas ut och intervallet för mängder förväntas betalas. Den visar hur du använder Scala för övervakade machine learning-uppgifter med de Spark machine learning-biblioteket (MLlib) och SparkML paket på ett Azure HDInsight Spark-kluster. Vi går igenom de aktiviteter som utgör den [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): datainmatning och utforskning, visualisering, funktionsframställning, modellering och förbrukning av modellen. Modeller som byggts är logistic och linjär regression, slumpmässiga skogar och gradient bättre träd.
 
 
 ## <a name="next-steps"></a>Nästa steg

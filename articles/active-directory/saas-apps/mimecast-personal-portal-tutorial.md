@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 71ecffebe095fd325837aeb1d6e741a2f3321aea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88952d09672fb4dd2d31878d56a59cb425f53de2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421846"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Självstudier: Azure Active Directory-integrering med Mimecast personliga Portal
 
@@ -60,7 +60,7 @@ Om du vill konfigurera integreringen av Mimecast personliga Portal till Azure AD
 
 **Utför följande steg för att lägga till Mimecast personliga portalen från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -139,7 +139,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | Öppet hav        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
-    > ID-värde är inte verkliga. Uppdatera värdet med det faktiska ID: T. Kontakta [Mimecast personliga Portal klienten supportteamet](http://www.mimecast.com/customer-success/technical-support/) att hämta värdet. 
+    > ID-värde är inte verkliga. Uppdatera värdet med det faktiska ID: T. Kontakta [Mimecast personliga Portal klienten supportteamet](https://www.mimecast.com/customer-success/technical-support/) att hämta värdet. 
 
 1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 

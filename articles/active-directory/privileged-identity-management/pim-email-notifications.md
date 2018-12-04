@@ -11,76 +11,93 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 09/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: de1d29d3ab1b370257c3a2d6b6ff9f677197fc2a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303072"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846903"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
 
-När viktiga händelser inträffar i Azure AD Privileged Identity Management (PIM), skickas e-postmeddelanden. Till exempel skickar PIM e-postmeddelanden för följande händelser:
+Azure AD Privileged Identity Management (PIM) får du reda på när viktiga händelser inträffar, till exempel när en roll tilldelas eller aktiveras. PIM håller dig informerad genom att skicka e-postmeddelanden du och andra deltagare. Dessa e-postmeddelanden kan också innehålla länkar till relevanta uppgifter, sådana aktivera eller förnya en roll. Den här artikeln beskriver hur dessa e-postmeddelanden som ska se ut när de skickas och som tar emot dem.
 
-- När en aktivering av Privilegierade roller väntar på godkännande
-- När en begäran om aktivering av Privilegierade roller är slutförd
-- När en privilegierad roll är aktiverad
-- När en privilegierad roll tilldelas
-- När Azure AD PIM är aktiverat
+## <a name="sender-email-address-and-subject-line"></a>Avsändaren e-postadress och ämne rad
 
-E-postmeddelanden skickas till följande administratörer:
-
-- Privilegierad rolladministratör
-- Säkerhetsadministratör
-
-E-postmeddelanden skickas också till användaren som har den privilegierade rollen för följande händelser:
-
-- När en begäran om aktivering av Privilegierade roller är slutförd
-- När en privilegierad roll tilldelas
-
-Med början vid slutet av juli 2018, har e-postmeddelanden som skickas via PIM nya avsändarens e-postadress och en ny visuell design. Den här uppdateringen påverkar både PIM för Azure AD och PIM för Azure-resurser. Alla händelser som tidigare utlösts ett e-postmeddelande kommer att fortsätta att skicka ett e-postmeddelande. E-postmeddelanden har uppdaterat innehåll att tillhandahålla mer riktad information.
-
-## <a name="sender-email-address"></a>Avsändarens e-postadress
-
-E-postmeddelanden har med början vid slutet av juli 2018, följande adress:
+E-postmeddelanden skickas från PIM för både Azure AD och Azure-resursroller har följande e-postadress för avsändaren:
 
 - E-postadress:  **azure-noreply@microsoft.com**
 - Visningsnamn: Microsoft Azure
 
-Tidigare hade e-postaviseringar följande adress:
+Dessa e-postmeddelanden innehåller en **PIM** prefix i ämnesraden. Här är ett exempel:
 
-- E-postadress:  **azureadnotifications@microsoft.com**
-- Visningsnamn: Microsoft Azure AD-meddelandetjänst
-
-## <a name="email-subject-line"></a>Ämnesraden för e-post
-
-Med början vid slutet av juli 2018, e-postmeddelanden för både Azure AD och Azure-resursroller har en **PIM** prefix i ämnesraden. Här är ett exempel:
-
-- PIM: Alain Charon tilldelades permanent läsarroll för säkerhetskopiering.
+- PIM: Alain Charon har permanent tilldelade rollen Läsare för säkerhetskopiering
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>PIM-e-postmeddelanden för Azure AD-roller
 
-Med början vid slutet av juli 2018, har e-postmeddelanden för PIM för Azure AD-roller en uppdaterad design. Nedan visas ett exempel e-postmeddelande som skickas när en användare aktiverar en privilegierad roll för det fiktiva företaget Contoso.
+PIM skickar e-postmeddelanden när följande händelser inträffar för Azure AD-roller:
+
+- När en aktivering av Privilegierade roller väntar på godkännande
+- När en begäran om aktivering av Privilegierade roller är slutförd
+- När en privilegierad roll tilldelas som
+- När Azure AD PIM är aktiverat
+
+Vem som får dessa e-postmeddelanden för Azure AD-roller beror på din roll och händelsen meddelanden inställning:
+
+| Användare | Rollaktivering väntar på godkännande | Begäran om rollaktivering har slutförts | Rollen är tilldelad som | PIM är aktiverat |
+| --- | --- | --- | --- | --- |
+| Privilegierad rolladministratör</br>(Aktiverat/berättigade) | Ja</br>(endast om inga godkännare som explicit anges) | Ja* | Ja | Ja |
+| Säkerhetsadministratör</br>(Aktiverat/berättigade) | Nej | Ja* | Ja | Ja |
+| Global administratör</br>(Aktiverat/berättigade) | Nej | Ja* | Ja | Ja |
+
+\* Om den [ **meddelanden** inställningen](pim-how-to-change-default-settings.md#notifications) är inställd på **aktivera**.
+
+Nedan visas ett exempel e-postmeddelande som skickas när en användare aktiverar en Azure AD-roll för det fiktiva företaget Contoso.
 
 ![Nytt PIM e-postmeddelande för Azure AD-roller](./media/pim-email-notifications/email-directory-new.png)
 
-När en användare har aktiverat en privilegierad roll kan tittat tidigare e-postmeddelandet som liknar följande.
+### <a name="weekly-pim-digest-email-for-azure-ad-roles"></a>Veckans PIM sammanfattad e-postmeddelande för Azure AD-roller
 
-![Gamla e-PIM för Azure AD-roller](./media/pim-email-notifications/email-directory-old.png)
+En veckovis PIM sammanfattande e-postmeddelande för Azure AD-roller skickas till administratörer med privilegierad roll, säkerhetsadministratörer och globala administratörer som har aktiverat PIM. Den här veckans e-postmeddelande innehåller en ögonblicksbild av PIM-aktiviteter för vecka samt Priviligierade rolltilldelningar. Det är bara tillgängliga för klienter i det offentliga molnet. Här är ett exempel e-postmeddelande:
+
+![Veckans PIM sammanfattad e-postmeddelande för Azure AD-roller](./media/pim-email-notifications/email-directory-weekly.png)
+
+E-postmeddelandet innehåller fyra paneler:
+
+| Panel | Beskrivning |
+| --- | --- |
+| **Användare som har aktiverats** | Antal gånger som användare aktiverat sin berättigad roll i klienten. |
+| **Användare som har gjorts permanenta** | Antal gånger som användare med en berättigad uppgift görs permanent. |
+| **Rolltilldelningar i PIM** | Antal gånger som användare har tilldelats en berättigad roll i PIM. |
+| **Rolltilldelningar utanför PIM** | Antal gånger som användare har tilldelats en permanent roll utanför PIM (i Azure AD). |
+
+Den **översikt över övre rollerna** avsnittet listas de översta fem roller i din klient baserat på totala antalet permanent och berättigade administratörer för varje roll. Den **vidta åtgärder** länken öppnas den [PIM guiden](pim-security-wizard.md) där du kan konvertera permanenta administratörer till berättigade administratörer i batchar.
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>PIM-e-postmeddelanden för Azure-resursroller
 
-E-postmeddelanden för PIM för Azure-resursroller har startar i slutet av juli 2018, en uppdaterad design. Nedan visas ett exempel e-postmeddelande som skickas när en användare har tilldelats en privilegierad roll för det fiktiva företaget Contoso.
+PIM skickar e-postmeddelanden till ägare och administratörer för åtkomst när följande händelser inträffar för Azure-resursroller:
+
+- När en rolltilldelning väntar på godkännande
+- När en roll tilldelas
+- När en roll är snart att gälla
+- När en roll är behörig att utöka
+- När en roll förnyas av en slutanvändare
+- När en begäran om rollaktivering är slutförd
+
+PIM skickar e-post till slutanvändare när följande händelser inträffar för Azure-resursroller:
+
+- När en roll tilldelas till användaren
+- När en användares roll har upphört att gälla
+- När en användares roll har utökats
+- När en användares begäran om rollaktivering är slutförd
+
+Nedan visas ett exempel e-postmeddelande som skickas när en användare har tilldelats en roll för Azure-resurs för det fiktiva företaget Contoso.
 
 ![Nytt PIM e-postmeddelande för Azure-resursroller](./media/pim-email-notifications/email-resources-new.png)
-
-När en användare har tilldelats en privilegierad roll, tittat tidigare e-postmeddelandet som liknar följande.
-
-![Gamla e-PIM för Azure-resursroller](./media/pim-email-notifications/email-resources-old.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

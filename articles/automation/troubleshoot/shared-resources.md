@@ -4,16 +4,16 @@ description: Lär dig hur du felsöker problem med Azure Automation delade resur
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 385d2969e65647ab0b5c5e21c07b127104587e7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263563"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848467"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Felsöka fel med delade resurser
 
@@ -25,11 +25,11 @@ Den här artikeln beskriver lösningar för att lösa problem som du kan köra �
 
 #### <a name="issue"></a>Problem
 
-När du importerar eller uppdaterar dina moduler i Azure automation måste du hitta en modul som har fastnat i den **importera** tillstånd.
+En modul har fastnat i den **importera** tillstånd när du importerar eller uppdatera dina moduler i Azure automation.
 
-#### <a name="error"></a>Fel
+#### <a name="cause"></a>Orsak
 
-Importera PowerShell-moduler är en komplicerad process i flera steg. Den här processen introducerar möjligheten att en modul importeras inte korrekt. Om detta inträffar kan ha fastnat i modulen som du importerar i ett tillfälligt tillstånd. Mer information om den här processen finns [importera en PowerShell-modul]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+Importera PowerShell-moduler är en komplicerad process i flera steg. Den här processen introducerar möjligheten att en modul importeras inte korrekt. Om det här problemet inträffar kan modulen som du importerar ha fastnat i ett tillfälligt tillstånd. Mer information om den här processen finns [importera en PowerShell-modul]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### <a name="resolution"></a>Lösning
 
@@ -38,6 +38,28 @@ För att lösa problemet måste du ta bort den modul som har fastnat i den **imp
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+## <a name="run-as-accounts"></a>Kör som-konton
+
+### <a name="unable-create-update"></a>Scenario: Du kan inte skapa eller uppdatera en Kör som-konto
+
+#### <a name="issue"></a>Problem
+
+När du försöker skapa eller uppdatera en Kör som-konto, visas ett fel som liknar följande felmeddelande visas:
+
+```error
+You do not have permissions to create…
+```
+
+#### <a name="cause"></a>Orsak
+
+Du har inte de behörigheter som du behöver skapa eller uppdatera kör som-kontot eller resursen är låst på en resursgruppsnivå.
+
+#### <a name="resolution"></a>Lösning
+
+Du måste ha behörighet till de olika resurserna som används av kör som-kontot för att skapa eller uppdatera en Kör som-konto. Läs om de behörigheter som krävs för att skapa eller uppdatera en Kör som-konto i [kör som-kontobehörighet](../manage-runas-account.md#permissions).
+
+Om problemet beror på ett lås, kontrollera att låset är ok om du vill ta bort och navigera till den resurs som är låst, högerklicka låset och välj **ta bort** att ta bort låset.
 
 ## <a name="next-steps"></a>Nästa steg
 

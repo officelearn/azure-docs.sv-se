@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 89236575a73325d650f1357ff03abb53bbc7b00c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346430"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848960"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -37,16 +37,6 @@ Om inget annat anges i exemplen i den här artikeln gäller för version 2.x.
 ## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core Tools
 
 [Azure Functions Core Tools] innehåller en version av samma körning som driver Azure Functions-runtime som du kan köra på din lokala utvecklingsdator. Det ger också kommandon för att skapa funktioner, ansluta till Azure och distribuera function-projekt.
-
-### <a name="v1"></a>Version 1.x
-
-Den ursprungliga versionen av verktygen använder Functions 1.x-körningen. Den här versionen använder .NET Framework (4.7) och stöds endast på Windows-datorer. Innan du installerar version 1.x-verktyg, måste du [installera NodeJS](https://docs.npmjs.com/getting-started/installing-node), vilket inkluderar npm.
-
-Använd följande kommando för att installera version 1.x-verktyg:
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
 
 ### <a name="v2"></a>Version 2.x
 
@@ -155,7 +145,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--force`** | Initiera projektet även om det finns befintliga filer i projektet. Den här inställningen skriver över befintliga filer med samma namn. Andra filer i projektmappen påverkas inte. |
 | **`--no-source-control -n`** | Standard skapas för en Git-lagringsplats i version 1.x. I version 2.x, git-lagringsplatsen är inte skapas som standard. |
 | **`--source-control`** | Styr om en git-databas skapas. Som standard är inte en databas skapas. När `true`, en databas har skapats. |
-| **`--worker-runtime`** | Anger CLR för projektet. Värden som stöds är `dotnet`, `node` (JavaScript), och `java`. När inte har angetts uppmanas du att välja din runtime under initieringen. |
+| **`--worker-runtime`** | Anger CLR för projektet. Värden som stöds är `dotnet`, `node` (JavaScript), `java`, och `python`. När inte har angetts uppmanas du att välja din runtime under initieringen. |
 
 > [!IMPORTANT]
 > Som standard version 2.x av de viktigaste verktygen skapar funktionen app-projekt för .NET-runtime som [C#-klass projekt](functions-dotnet-class-library.md) (.csproj). Dessa C#-projekt, som kan användas med Visual Studio eller Visual Studio Code, kompileras under testningen och när du publicerar till Azure. Om du istället vill skapa och arbeta med samma C#-skript (.csx) filer som skapades i version 1.x och i portalen, måste du inkludera den `--csx` parameter när du skapar och distribuerar funktioner.
@@ -420,11 +410,11 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Core Tools stöder två typer av distribution, distribuera funktionen projektfilerna direkt till din funktionsapp och distribuera en anpassad Linux-behållare, vilket stöds bara i version 2.x. Du måste redan ha [skapat en funktionsapp i Azure-prenumerationen](functions-cli-samples.md#create).
 
-I version 2.x, måste du ha [registrerad dina tillägg](#register-extensions) i projektet innan du publicerar. Projekt som kräver kompilering ska byggas så att binärfilerna som kan distribueras.
+I version 2.x, måste du ha [registrerad dina tillägg](#register-extensions) i projektet innan du publicerar. Projekt som kräver kompilering ska byggas så att binärfilerna som kan distribueras. 
 
 ### <a name="project-file-deployment"></a>Projektet filen distribution  
 
-Den vanligaste distributionsmetoden innebär att med hjälp av Core Tools att paketera ditt funktionsappsprojekt och distribuera dem till din funktionsapp. Du kan eventuellt [köra dina funktioner direkt från distributionspaketet](run-functions-from-deployment-package.md).
+Den vanligaste distributionsmetoden innebär att med hjälp av Core Tools att paketera ditt funktionsappsprojekt, binärfiler och beroenden och distribuera dem till din funktionsapp. Du kan eventuellt [köra dina funktioner direkt från distributionspaketet](run-functions-from-deployment-package.md).
 
 Om du vill publicera en Functions-projekt till en funktionsapp i Azure, använda den `publish` kommando:
 
@@ -440,14 +430,14 @@ Den `publish` kommando laddar upp innehållet i projektkatalogen funktioner. Om 
 > När du skapar en funktionsapp i Azure-portalen används version 2.x av funktionskörningen som standard. Att göra funktionen app Använd version 1.x av körning, följer du anvisningarna i [kör version 1.x](functions-versions.md#creating-1x-apps).  
 > Du kan inte ändra runtime-versionen för en funktionsapp som har befintliga funktioner.
 
-Du kan använda följande publicera alternativ som gäller för både versioner, 1.x och 2.x:
+Följande projektet publiceringsalternativ tillkommer för versioner, 1.x och 2.x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publiceringsinställningar i local.settings.json till Azure, där du uppmanas att skriva över om inställningen finns redan. Om du använder lagringsemulatorn kan du ändra appinställningen en [faktiska lagringsanslutning](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Ignorera skrivs appinställningar när `--publish-local-settings -i` används.|
 
-Följande alternativ för publicera stöds bara i version 2.x:
+Följande projektet publiceringsalternativ stöds bara i version 2.x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
@@ -455,6 +445,8 @@ Följande alternativ för publicera stöds bara i version 2.x:
 |**`--list-ignored-files`** | Visar en lista över filer som ignoreras under publicering, som baseras på .funcignore-filen. |
 | **`--list-included-files`** | Visar en lista över filer som har publicerats som baseras på .funcignore-filen. |
 | **`--zip`** | Publicera i Kör från Zip-paketet. Kräver appen att ha AzureWebJobsStorage inställningen. |
+| **`--build-native-deps`** | Hoppar över skapandet .wheels mapp när du publicerar python funktionsappar. |
+| **`--additional-packages`** | Lista över paket som ska installeras när du skapar inbyggda beroenden. Till exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera före publicering verifiering i vissa scenarier. |
 | **`--csx`** | Publicera en C#-skript (.csx) projekt. |
 | **`--no-build`** | Hoppa över att skapa dotnet-funktioner. |

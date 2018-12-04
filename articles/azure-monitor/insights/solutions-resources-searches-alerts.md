@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c496bd6f7ccec4cc08ca5eead02cb06ff3efde09
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 74987d09a9b8979d3c3596c87764f8f3bd4b5795
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715794"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846689"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
 
@@ -27,7 +27,7 @@ ms.locfileid: "51715794"
 > Det här är preliminära dokumentationen för att skapa lösningar för hantering som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.   
 
 
-[Lösningar för hantering av](solutions.md) inkluderar vanligtvis [sparade sökningar](../../log-analytics/log-analytics-queries.md) i Log Analytics för att analysera data som samlas in av lösningen.  De kan också definiera [aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) att meddela användaren eller automatiskt vidta åtgärder som svar på ett kritiskt problem.  Den här artikeln beskriver hur du definierar Log Analytics sparade sökningar och aviseringar i en [Resource Manager-mall](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) så att de kan ingå i [hanteringslösningar](solutions-creating.md).
+[Lösningar för hantering av](solutions.md) inkluderar vanligtvis [sparade sökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att analysera data som samlas in av lösningen.  De kan också definiera [aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) att meddela användaren eller automatiskt vidta åtgärder som svar på ett kritiskt problem.  Den här artikeln beskriver hur du definierar Log Analytics sparade sökningar och aviseringar i en [Resource Manager-mall](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) så att de kan ingå i [hanteringslösningar](solutions-creating.md).
 
 > [!NOTE]
 > Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure](solutions-creating.md)  
@@ -54,9 +54,9 @@ I följande tabell visas den API-versionen för resursen i det här exemplet.
 
 
 ## <a name="saved-searches"></a>Sparade sökningar
-Inkludera [sparade sökningar](../../log-analytics/log-analytics-queries.md) i en lösning för att tillåta användare att köra frågor mot data som samlas in av din lösning.  Sparade sökningar visas under **sparade sökningar** i Azure-portalen.  En sparad sökning krävs också för varje avisering.   
+Inkludera [sparade sökningar](../../azure-monitor/log-query/log-query-overview.md) i en lösning för att tillåta användare att köra frågor mot data som samlas in av din lösning.  Sparade sökningar visas under **sparade sökningar** i Azure-portalen.  En sparad sökning krävs också för varje avisering.   
 
-[Sparade log Analytics-sökningen](../../log-analytics/log-analytics-queries.md) resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches` och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen. 
+[Sparade log Analytics-sökningen](../../azure-monitor/log-query/log-query-overview.md) resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches` och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",

@@ -4,14 +4,14 @@ description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165695"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849181"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -21,7 +21,6 @@ ms.locfileid: "47165695"
 ## <a name="overview"></a>Översikt
 
 Ett Azure Migrate-utvärdering har tre steg. Utvärderingen börjar med en lämplighet analys, följt av storlek, och slutligen en månatlig kostnadsuppskattning. En dator flyttar endast till senare om den godkänns föregående. Till exempel om en dator misslyckas kontrollen Azure-lämplighet, har den markerats som olämpliga för Azure, och ange storlek och kostnad inte göras.
-
 
 ## <a name="azure-suitability-analysis"></a>Analys av azures lämplighet
 
@@ -119,22 +118,14 @@ För prestandabaserade storleksändringar behöver Azure Migrate användningsdat
 
    Nedan angående är de orsaker till varför en utvärdering kan hämta ett låga säkerhetsomdöme:
 
-   **Enstaka identifiering**
+   - Du profilerade inte din miljö för hela den varaktighet för vilken du skapar utvärderingen. Om du skapar utvärderingen med varaktigheten inställd på 1 dag, måste du vänta minst en dag efter att du börjar identifieringen för att alla datapunkter ska ha samlats in.
 
-   - Statistikinställningen i vCenter Server har inte angetts till nivå 3. Eftersom enstaka identifiering modellen beror på statistikinställningarna för vCenter-servern, om statistikinställningen i vCenter Server är lägre än nivå 3, samlas inte prestandadata för disk och nätverk från vCenter-servern. I det här fallet är rekommendationen från Azure Migrate för disk och nätverk inte användningsbaserad. Utan att överväga diskens IOPS/dataflöde kan inte Azure Migrate veta om disken behöver en Premium-disk i Azure. Därför rekommenderar Azure Migrate Standard-diskar för alla diskar.
-   - Statistikinställningen i vCenter Server var inställd på nivå 3 under en kort period innan identifieringen drog. Vi tänker oss exempelvis ett scenario där du ändrar statistikinställningen till nivå 3 i dag och sätter igång identifieringen med insamlingsprogrammet i morgon (efter 24 timmar). Om du skapar en utvärdering för en dag, har du alla datapunkter och säkerhetsomdömet för utvärderingen blir 5 stjärnor. Men om du ändrar varaktigheten i utvärderingsegenskaperna till en månad går säkerhetsomdömet ned om prestandadata från disken och nätverket för den senaste månaden inte är tillgängliga. Om du vill undersöka prestandadata för den senaste månaden rekommenderar vi att du behåller statistikinställningen för vCenter Server på nivå 3 i en månad innan du startar identifieringen.
+   - Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer stängdes av under en viss period så kommer vi inte att kunna samla in prestandadata för den perioden.
 
-   **Kontinuerlig identifiering**
-
-   - Du inte Profilerar din miljö för hela som du skapar utvärderingen. Om du skapar utvärderingen med varaktigheten inställt på 1 dag, måste du vänta minst en dag efter att du börjar identifieringen för alla datapunkter att hämta samlas in.
-
-   **Vanliga orsaker**  
-
-   - Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om alla virtuella datorer stängdes av under en viss period, kommer vi inte att kunna samla in prestandadata för den perioden.
    - Några virtuella datorer skapades under perioden som utvärderingen utförs. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I sådana fall är prestandahistoriken för de nya virtuella datorerna inte med för hela perioden.
 
    > [!NOTE]
-   > Om säkerhetsomdömet för någon utvärdering är lägre än 4 stjärnor för identifiering av en modell, vi rekommenderar att du ändrar i vCenter servernivån för statistikinställningar till 3, väntar så länge som du vill att utvärderingen ska utvärdera (en dag/en vecka/1 månad) och gör sedan identifiering och utvärdering. Vänta minst en dag att profilera miljön för identifiering av kontinuerlig-modellen och sedan *beräkna om* utvärderingen. Om den föregående inte kan utföras kan prestandabaserade storleksändringar kanske inte är tillförlitlig och rekommenderar vi att växla till *som lokalt storlek* genom att ändra utvärderingsegenskaperna.
+   > Om säkerhetsomdömet för någon utvärdering är lägre än 5 stjärnor, rekommenderar vi att du väntar minst en dag att profilera miljön och sedan *beräkna om* utvärderingen. Om det föregående inte kan utföras kan prestandabaserade storleksändringar vara mindre tillförlitliga och därför rekommenderar vi att du byter till *storleksändringar av typen "som lokalt"* genom att ändra utvärderingsegenskaperna.
 
 ## <a name="monthly-cost-estimation"></a>Uppskattning per månad
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7f2b4d870fdcf250f62d41fa4f3ea5bf13d323c3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821097"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847073"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -247,7 +247,7 @@ Angripare kan försöka Privilegierade målkonton att få åtkomst till organisa
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Rekommendationerna från National Institute of Standards och teknik för hantering av incidenter 
 
-Innehåller riktlinjer för incident hantering, särskilt för att analysera incident-relaterade data och bestämma lämpliga svaret på varje incident National Institute Standards and Technology (NIST). Mer information finns i [The (NIST) datorn Security Incident handbok för hantering av (SP 800-61, Revision 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+Innehåller riktlinjer för incident hantering, särskilt för att analysera incident-relaterade data och bestämma lämpliga svaret på varje incident National Institute Standards and Technology (NIST). Mer information finns i [The (NIST) datorn Security Incident handbok för hantering av (SP 800-61, Revision 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Implementera Privileged Identity Management (PIM) för JIT ytterligare administrativa roller
 

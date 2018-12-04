@@ -4,14 +4,14 @@ description: Beskriver hur du undantar VM-diskar från replikering under haverib
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 851da02ebd7486c0e96451a14086eb95d81968b4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7de9dc497b1c9ee29b46aa0d645b7b28676cb22d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213210"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849028"
 ---
 # <a name="exclude-disks-from-replication"></a>Undanta diskar från replikering
 Den här artikeln beskriver hur du undantar diskar från replikering. Det här undantaget kan optimera replikeringsbandbredden som används eller optimera resurser som används av dessa diskar på målsidan.

@@ -4,17 +4,16 @@ description: Skapa edge-jobb i Azure Stream Analytics och distribuera dem till e
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/16/2017
-ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 11/30/2018
+ms.openlocfilehash: 6d3060545946f1f003058932f1ffc50c2a64586f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687443"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846240"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics på IoT Edge (förhandsversion)
 
@@ -197,7 +196,7 @@ Skapa ett jobb med referensdata i Microsoft Edge:
 
 3. Ha en referens-datafil redo på enheten. Placera filen referens data på den lokala enheten för en Windows-behållare och dela den lokala enheten med Docker-behållaren. Skapa en Docker-volym för en Linux-behållare och fylla i datafilen till volymen.
 
-4. Ange sökvägen till filen. Använd den absoluta sökvägen för en windows-enhet. Använd sökvägen på volymen för en Linux-enhet.
+4. Ange sökvägen till filen. Värdoperativsystem för Windows och Windows-behållare kan du använda den absoluta sökvägen: `E:\<PathToFile>\v1.csv`. En Värdoperativsystem för Windows och Linux-behållare eller en Linux OS och Linux-behållare kan du använda sökvägen i volymen: `<VolumeName>/file1.txt`.
 
 ![Nya referensindata för Azure Stream Analytics-jobb på IoT Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
@@ -206,7 +205,6 @@ Referensdata på IoT Edge update utlöses av en distribution. När utlöses, hä
 Det finns två sätt att uppdatera referensdata:
 * Uppdatera sökvägen för referens i ASA-jobb från Azure-portalen.
 * Uppdatera IoT Edge-distribution.
-
 
 ## <a name="license-and-third-party-notices"></a>Licens och meddelanden från tredje part
 * [Azure Stream Analytics på IoT Edge förhandsversionen licensen](https://go.microsoft.com/fwlink/?linkid=862827). 

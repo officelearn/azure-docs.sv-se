@@ -1,10 +1,7 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET API, SDK och resurser | Microsoft Docs'
 description: Lär dig allt om SQL .NET API och SDK, inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version av Azure Cosmos DB .NET SDK.
-services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,12 +9,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0ec1f9cf7847e0eb3c48599a4d52412c1a37560d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389777"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851170"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -50,6 +47,14 @@ ms.locfileid: "49389777"
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
+* Förhandsversion 1 av [Version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) av .NET SDK för en förhandsversion.
+* Target .NET Standard som har stöd för .NET framework 4.6.1+ och .NET Core 2.0 +
+* Ny objektmodell med översta CosmosClient och metoder dela upp på relevanta CosmosDatabases, CosmosContainers och CosmosItems klasser. 
+* Stöd för strömmar. 
+* Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras. 
+
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
 * Uppdaterade System.Net.Security till 4.3.2.
@@ -182,7 +187,7 @@ ms.locfileid: "49389777"
 * Åtgärda ett problem där mellan partition ordning av frågan fortsättning inte fungerar vid sortering på strängfält.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig). Se [aggregering support](sql-api-sql-query.md#Aggregates).
+* Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig). Se [aggregering support](how-to-sql-query.md#Aggregates).
 * Sänkte lägsta dataflöde på partitionerade samlingar från 10,100 RU/s till 2500 RU/s.
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4

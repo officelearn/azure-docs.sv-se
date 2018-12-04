@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6e6db7ef2f2de075aea41a29e69b2c674efafa17
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: cca15447587fcec7253b449d93fc2f644fe6c249
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635364"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851051"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor  
 
@@ -57,7 +57,7 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
 
    > [!NOTE]
 
-   > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med hjälp av loggsökning i log analytics](../log-analytics/log-analytics-queries.md) eller [delade fråga i application insights Analytics](../log-analytics/log-analytics-queries.md). 
+   > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med hjälp av loggsökning i log analytics](../azure-monitor/log-query/log-query-overview.md) eller [delade fråga i application insights Analytics](../azure-monitor/log-query/log-query-overview.md). 
 
 1.  *Loggaviseringar*: när du valt, fråga aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönster från senaste sex timmar att förra veckan.
 
@@ -246,5 +246,5 @@ Lyckade åtgärder 201 återgår till tillståndet skapandet av ny regel för va
 * Lär dig mer om [Loggaviseringar i Azure-aviseringar](monitor-alerts-unified-log.md)
 * Förstå [Webhook-åtgärder för loggaviseringar](monitor-alerts-unified-log-webhook.md)
 * Läs mer om [Application Insights](../application-insights/app-insights-analytics.md)
-* Läs mer om [Log Analytics](../log-analytics/log-analytics-queries.md). 
+* Läs mer om [Log Analytics](../azure-monitor/log-query/log-query-overview.md). 
 

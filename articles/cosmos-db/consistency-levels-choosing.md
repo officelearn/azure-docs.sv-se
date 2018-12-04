@@ -1,20 +1,19 @@
 ---
-title: Välja rätt konsekvensnivå för ditt program som använder Azure Cosmos DB | Microsoft Docs
+title: Välja rätt konsekvensnivå för ditt program som använder Azure Cosmos DB
 description: Välja rätt konsekvensnivå för ditt program i Azure Cosmos DB.
 keywords: konsekvens, prestanda, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2fc21ffde5f3f4b84b2ed025cba5d228e592343f
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: a1c7d750bcd0c3f37d2269aee299e0ccd8c4ef4a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823426"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849300"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>Välja rätt konsekvens för ditt program
 

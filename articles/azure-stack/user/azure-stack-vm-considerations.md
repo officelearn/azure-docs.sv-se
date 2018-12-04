@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: cb02ecb06728f5f36a0d51a3ec22cc8ba5cb44e7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.reviewer: kivenkat
+ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094763"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847532"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Att tänka på när virtuella datorer i Azure Stack
 
@@ -40,7 +40,7 @@ Azure Stack-datorer tillhandahåller behovsbaserade och skalbara datorresurser. 
 | Prestanda för virtuella datorer-diskar | Beror på disktyp och storlek. | Beror på storleken på virtuella datorer som diskarna som är kopplade till, referera till den [VM-storlekar som stöds i Azure Stack](azure-stack-vm-sizes.md) artikeln.
 | API-versioner | Azure har alltid de senaste API-versionerna för alla VM-funktioner. | Azure Stack har stöd för specifika Azure-tjänster och specifika API-versioner för dessa tjänster. Om du vill visa listan över API-versioner som stöds, referera till den [API-versioner](#api-versions) i den här artikeln. |
 |Tillgänglighetsuppsättningar för virtuella datorer|Flera feldomäner (2 eller 3 per region)<br>Flera uppdateringsdomäner<br>Hanterade disksupport|Flera feldomäner (2 eller 3 per region)<br>Flera uppdateringsdomäner (upp till 20)<br>Inget stöd för hanterad disk|
-|Skalningsuppsättningar för virtuella datorer|Automatisk skalning som stöds|Autoskala stöds inte.<br>Lägga till fler instanser i en skalningsuppsättning med portalen, Resource Manager-mallar eller PowerShell.
+|Skalningsuppsättningar för virtuella datorer|Automatisk skalning som stöds|Automatisk skalning inte stöds.<br>Lägga till fler instanser i en skalningsuppsättning med portalen, Resource Manager-mallar eller PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Storlekar för virtuella datorer
 

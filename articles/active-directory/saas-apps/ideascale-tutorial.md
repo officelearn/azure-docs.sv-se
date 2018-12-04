@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 1f6c2c9b01a2f861214240eca054242ec73f3929
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ecb73e4b520936b573254f2cf209d4a02c0fdd32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442708"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Självstudier: Azure Active Directory-integration med IdeaScale
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av IdeaScale i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till IdeaScale från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -121,7 +121,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<companyname>.ideascale.com` |
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [IdeaScale klienten supportteamet](http://support.ideascale.com/) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [IdeaScale klienten supportteamet](https://support.ideascale.com/) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 

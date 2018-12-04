@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 5ddd28838e7db7b7f2798b18028aba56246fda4c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b8ff27413888e1745bd9a83e2e2e8c7b77fba34
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437798"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Självstudier: Azure Active Directory-integration med MCM
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av MCM i Azure AD, som du behöver lägga till 
 
 **Utför följande steg för att lägga till MCM från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://myaba.co.uk/<companyname>`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [MCM klienten supportteamet](http://mcmtechnology.com/support/) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [MCM klienten supportteamet](https://mcmtechnology.com/support/) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -127,7 +127,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/mcm-tutorial/tutorial_general_400.png) 
 
-1. Att konfigurera enkel inloggning på **MCM** sida, som du behöver skicka de hämtade **XML-Metadata för** till [MCM supportteam](http://mcmtechnology.com/support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **MCM** sida, som du behöver skicka de hämtade **XML-Metadata för** till [MCM supportteam](https://mcmtechnology.com/support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,7 +166,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="creating-a-mcm-test-user"></a>Skapa en MCM testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i MCM. Arbeta med [MCM supportteam](http://mcmtechnology.com/support/) att lägga till användare i MCM-plattformen.
+I det här avsnittet skapar du en användare som kallas Britta Simon i MCM. Arbeta med [MCM supportteam](https://mcmtechnology.com/support/) att lägga till användare i MCM-plattformen.
 
 > [!NOTE]
 > Du kan använda alla andra MCM användare konto verktyg för att skapa eller API: er som tillhandahålls av MCM att etablera AAD-användarkonton.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b24d32afed5acfd846f9a8e8316339665524ad2e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249361"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849776"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Security ram: Konfigurationshantering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -507,7 +507,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Aktivera säker start och BitLocker enhetskryptering på Windows 10 IoT Core](https://developer.microsoft.com/windows/iot/win10/sb_bl) |
+| **Referenser**              | [Aktivera säker start och BitLocker enhetskryptering på Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) |
 | **Steg** | Säker Start i UEFI begränsar systemet så att endast körning av binärfiler som signerats av en angiven myndighet. Den här funktionen förhindrar okänd kod körs på plattformen och potentiellt minskad säkerhetstillståndet för den. Aktivera säker Start i UEFI och begränsa listan över certifikatutfärdare som är betrodda för signering av kod. Logga alla kod som visas på enheten med en av de betrodda utfärdarna. |
 
 ## <a id="partition-iot"></a>Kryptera OS och fler partitioner av IoT-enheter med BitLocker

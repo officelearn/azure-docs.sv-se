@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: cdf3fda4228eadc2921c8fbc1bc72702461d04e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 876cb037aab718a91f469f8862c501bb9a29e4d6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642818"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846442"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Referensguide för Vydesigner visualisering delar i Log Analytics
 Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika visualiseringar från Log Analytics-arbetsytan med hjälp av Vydesigner i Azure Log Analytics. Den här artikeln är en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
@@ -363,4 +363,4 @@ I följande tabell beskrivs inställningarna för tröskelvärden:
 | Färg |Färgen som anger tröskelvärdet. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](../../log-analytics/log-analytics-queries.md) för frågorna i delar av visualiseringen.
+* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) för frågorna i delar av visualiseringen.

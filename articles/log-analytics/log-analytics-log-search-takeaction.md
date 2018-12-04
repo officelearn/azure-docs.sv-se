@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 737fea452e80782446fdd4a6252ab6af0caaa1dc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7257dae7c522029e0f09bfbcb076970f6c65baec
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723320"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849385"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Vidta åtgärder med en Automation-Runbook från en Log Analytics log search-resultat
 
@@ -27,11 +27,11 @@ Från en log sökresultat i Azure Log Analytics kan du nu välja **vidta åtgär
 
 ## <a name="components-and-features-used"></a>Komponenter och funktioner som används
 * [Azure Automation-konto](../automation/automation-quickstart-create-account.md)
-* [Log Analytics-arbetsyta](log-analytics-queries.md)
+* [Log Analytics-arbetsyta](../azure-monitor/log-query/log-query-overview.md)
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Att starta runbook från loggsökning
 
-Om du vill vidta åtgärder för en händelse och starta en runbook från sökresultaten log, börja med att skapa en loggsökning och från resultat som du kan anropa en runbook på begäran.  Du kan göra detta från funktionen log search i den [Azure-portalen](log-analytics-queries.md).  I det här exemplet utför vi en loggsökning från Azure-portalen med en grundläggande demonstration av den här funktionen.
+Om du vill vidta åtgärder för en händelse och starta en runbook från sökresultaten log, börja med att skapa en loggsökning och från resultat som du kan anropa en runbook på begäran.  Du kan göra detta från funktionen log search i den [Azure-portalen](../azure-monitor/log-query/log-query-overview.md).  I det här exemplet utför vi en loggsökning från Azure-portalen med en grundläggande demonstration av den här funktionen.
 
 1. I Azure-portalen klickar du på **alla tjänster** och välj **Log Analytics**.  
 2. Välj Log Analytics-arbetsytan.
@@ -50,5 +50,5 @@ Om du väljer en runbook som har konfigurerats för att vara [anropas från en L
     
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska den [Log Analytics logga sökreferens](log-analytics-queries.md) att visa alla sökfält och aspekter som är tillgängliga i Log Analytics.
+* Granska den [Log Analytics logga sökreferens](../azure-monitor/log-query/log-query-overview.md) att visa alla sökfält och aspekter som är tillgängliga i Log Analytics.
 * Information om hur du anropar en Automation-runbook automatiskt, granska [anropa en Azure Automation-runbook från en Log Analytics-aviseringen](../automation/automation-create-alert-triggered-runbook.md).  

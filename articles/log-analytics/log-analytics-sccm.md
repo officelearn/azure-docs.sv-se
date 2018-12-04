@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4e20d787bef4da518765d1eeeb33237ddd612606
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8e30b1ba093e38f81c9a09a0b9107e5a3b2eb768
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721229"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847379"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Anslut Konfigurationshanteraren till Log Analytics
 Du kan ansluta din miljö för System Center Configuration Manager till Azure Log Analytics att synkronisera enheten samlingsdata och referera till dessa samlingar i Log Analytics och Azure Automation.  
@@ -112,7 +112,7 @@ När samlingarna har importerats kan du se hur många datorer med samlingsmedlem
 
 ![Datorgrupper - SCCM-fliken](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-När du klickar på någon öppnas sökning och visar antingen alla importerade grupper eller alla datorer som ingår i varje grupp. Med hjälp av [Loggsökning](log-analytics-queries.md), du kan starta djupgående analys av data för Configuration Manager.
+När du klickar på någon öppnas sökning och visar antingen alla importerade grupper eller alla datorer som ingår i varje grupp. Med hjälp av [Loggsökning](../azure-monitor/log-query/log-query-overview.md), du kan starta djupgående analys av data för Configuration Manager.
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökning](log-analytics-queries.md) att visa detaljerad information om dina data för Configuration Manager.
+* Använd [Loggsökning](../azure-monitor/log-query/log-query-overview.md) att visa detaljerad information om dina data för Configuration Manager.

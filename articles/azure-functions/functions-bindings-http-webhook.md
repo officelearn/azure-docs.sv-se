@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 33f04f9deced7c4bc1c27cea5e8c431d4cd5512a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446797"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849334"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -42,7 +42,7 @@ HTTP-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Http](http://www
 
 ## <a name="trigger"></a>Utlösare
 
-HTTP-utlösare kan du anropa en funktion med en HTTP-begäran. Du kan använda en HTTP-utlösare för att skapa serverfria API: er och svara på webhookar. 
+HTTP-utlösare kan du anropa en funktion med en HTTP-begäran. Du kan använda en HTTP-utlösare för att skapa serverfria API: er och svara på webhookar.
 
 Som standard returnerar en HTTP-utlösare HTTP 200 OK utan en brödtext i Functions 1.x eller HTTP 204 inget innehåll utan en brödtext i Functions 2.x. Om du vill ändra svarstypen, konfigurera en [HTTP-utdatabindning](#output).
 
@@ -53,8 +53,9 @@ Se exempel språkspecifika:
 * [C#](#trigger---c-example)
 * [C#-skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Utlösare – C#-exempel
 
@@ -276,6 +277,61 @@ module.exports = function(context, req) {
 };
 ```
 
+### <a name="trigger---python-example"></a>Utlösare – Python-exempel
+
+I följande exempel visas en utlösare-bindning i en *function.json* fil och en [funkce Pythonu](functions-reference-python.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller brödtexten i HTTP-begäran.
+
+Här är den *function.json* fil:
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
+
+Här är Python-kod:
+
+```python
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
 ### <a name="trigger---java-example"></a>Utlösare - Java-exemplet
 
 I följande exempel visas en utlösare-bindning i en *function.json* fil och en [Java funktionen](functions-reference-java.md) som använder bindningen. Funktionen returnerar ett HTTP-status-kod 200-svar med en begärantext som prefix utlösande begärandetexten med en ”Hello” hälsning.
@@ -307,7 +363,7 @@ Här är den Java-kod:
 ```java
 @FunctionName("hello")
 public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context) 
+                        final ExecutionContext context)
     {
         // default HTTP 200 response code
         return String.format("Hello, %s!", request);
@@ -352,12 +408,11 @@ För C# och F# funktion, kan du deklarera vilken typ av utlösaren indata ska va
 
 Functions-körning ger begärandetexten i stället för Begäranobjektet för JavaScript-funktioner. Mer information finns i den [JavaScript utlösaren exempel](#trigger---javascript-example).
 
-
 ### <a name="customize-the-http-endpoint"></a>Anpassa HTTP-slutpunkt
 
 Som standard när du skapar en funktion för en HTTP-utlösare är funktionen adresserbara med en väg i formatet:
 
-    http://<yourapp>.azurewebsites.net/api/<funcname> 
+    http://<yourapp>.azurewebsites.net/api/<funcname>
 
 Du kan anpassa den här vägen med det valfria `route` indatabindning för egenskapen för HTTP-utlösaren. Till exempel följande *function.json* fil definierar en `route` för en HTTP-utlösare:
 
@@ -389,7 +444,7 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 På så sätt kan function-koden att stödja två parametrar i adressen _kategori_ och _id_. Du kan använda någon [webb-API: et Route begränsningen](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) med parametrarna. Den följande C#-Funktionskoden använder båda parametrarna.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
                                                 ILogger log)
 {
     if (id == null)
@@ -421,7 +476,7 @@ module.exports = function (context, req) {
     }
 
     context.done();
-} 
+}
 ```
 
 Som standard alla funktionen vägar har prefixet *api*. Du kan också anpassa eller ta bort prefix med hjälp av den `http.routePrefix` -egenskapen i din [host.json](functions-host-json.md) fil. I följande exempel tar bort den *api* väg prefix genom att använda en tom sträng för prefix i den *host.json* fil.
@@ -533,17 +588,15 @@ När du använder någon av följande metoder för säkerhet på radnivå app av
 ### <a name="webhooks"></a>Webhooks
 
 > [!NOTE]
-> Webhook-läge är endast tillgänglig för version 1.x av Functions-körning.
+> Webhook-läge är endast tillgänglig för version 1.x av Functions-körning. Den här ändringen gjordes att förbättra prestanda för HTTP-utlösare i version 2.x.
 
-Webhook-läget har ytterligare verifiering för webhook-nyttolaster. I version 2.x, grundläggande HTTP-utlösaren fortfarande fungerar och är den rekommenderade metoden för webhooks.
+I version 1.x, webhook mallar tillhandahåller ytterligare verifiering för webhook-nyttolaster. I version 2.x, grundläggande HTTP-utlösaren fortfarande fungerar och är den rekommenderade metoden för webhooks. 
 
 #### <a name="github-webhooks"></a>GitHub webhooks
 
 För att svara på GitHub webhooks, först skapa din funktion med en HTTP-utlösare och ange den **webHookType** egenskap `github`. Kopiera sedan dess URL och API-nyckeln i den **Lägg till webhook** sidan i din GitHub-lagringsplats. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-Ett exempel finns i [Skapa en funktion som utlöses av en GitHub-webhook](functions-create-github-webhook-triggered-function.md).
 
 #### <a name="slack-webhooks"></a>Slack webhooks
 
@@ -560,7 +613,7 @@ Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-ut
 
 HTTP-begäran längden är begränsad till 100 MB (104,857,600 byte) och URL-längd är begränsad till 4 KB (4 096 byte). Dessa gränser anges av den `httpRuntime` element i en runtime [Web.config-filen](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
-Om en funktion som använder HTTP-utlösaren inte slutförs inom cirka 2,5 minuter, gateway att gälla och returnera ett HTTP 502-fel. Funktionen fortsätter att köras, men kommer inte att returnera ett HTTP-svar. För långvariga funktioner rekommenderar vi att du följer async mönster och returnera en plats där du kan pinga status för begäran. Information om hur lång tid en funktion kan köra finns i [skalning och värdtjänster - standardförbrukningsplanen](functions-scale.md#consumption-plan). 
+Om en funktion som använder HTTP-utlösaren inte slutförs inom cirka 2,5 minuter, gateway att gälla och returnera ett HTTP 502-fel. Funktionen fortsätter att köras, men kommer inte att returnera ett HTTP-svar. För långvariga funktioner rekommenderar vi att du följer async mönster och returnera en plats där du kan pinga status för begäran. Information om hur lång tid en funktion kan köra finns i [skalning och värdtjänster - standardförbrukningsplanen](functions-scale.md#consumption-plan).
 
 ## <a name="trigger---hostjson-properties"></a>Utlösare - host.json egenskaper
 
@@ -574,7 +627,7 @@ Använd HTTP-utdatabindning svarar på http-begäran avsändaren. Den här bindn
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
-I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil. Det finns inga attributegenskaper som motsvarar dessa för C#-klassbibliotek, *function.json* egenskaper. 
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil. Det finns inga attributegenskaper som motsvarar dessa för C#-klassbibliotek, *function.json* egenskaper.
 
 |Egenskap   |Beskrivning  |
 |---------|---------|

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 439ae934484649a5bddb821e6a4cf47f7e77a772
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6373c5c3b613bcc7e01a8c86ad5f9c1af7101f53
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722522"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849317"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i Log Analytics
 
@@ -603,7 +603,7 @@ Loggsökning öppnas och visar information om tillståndet för dina behållare.
 
 ![Loggsökning för behållare](./media/log-analytics-containers/containers-log-search.png)
 
-Härifrån kan redigera du frågan om du vill ändra den för att hitta informationen du är intresserad av. Läs mer om Loggsökningar [Loggsökningar i Log Analytics](log-analytics-queries.md).
+Härifrån kan redigera du frågan om du vill ändra den för att hitta informationen du är intresserad av. Läs mer om Loggsökningar [Loggsökningar i Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Felsöka genom att söka efter en misslyckad behållare
 
@@ -671,4 +671,4 @@ Spara frågor är en standard funktion i Log Analytics. Genom att spara dem, har
 När du skapar en fråga som användbara kan du spara det genom att klicka på **Favoriter** överst på sidan Log Search. Du kan enkelt använda det senare från den **min instrumentpanel** sidan.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Söka loggarna](log-analytics-queries.md) att visa detaljerade data behållarposter.
+* [Söka loggarna](../azure-monitor/log-query/log-query-overview.md) att visa detaljerade data behållarposter.

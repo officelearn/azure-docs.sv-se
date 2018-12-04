@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/2/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: f6a818e0f628924342ddd50322bb54bf1d1d6079
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 27d27f582c1306d8a8370567fd9c6858ad439ca8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976669"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851153"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.

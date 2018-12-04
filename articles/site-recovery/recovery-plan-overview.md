@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 463a7fc51cac6160fbb97fc53077d0b5eda80533
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: cb68b71eece998fa72fccc00de45f81e6d2d778c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215199"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848399"
 ---
 # <a name="about-recovery-plans"></a>Om återställningsplaner
 
@@ -69,7 +69,7 @@ Med den här anpassningen på plats är här vad som händer när du kör en red
     * Ändra webbserverns konfiguration eller regler.
 
 
-## <a name="test-failover"></a>Testa redundans
+## <a name="test-failover"></a>Redundanstest
 
 Du kan använda en återställningsplan för att utlösa ett redundanstest. Använd följande metodtips:
 

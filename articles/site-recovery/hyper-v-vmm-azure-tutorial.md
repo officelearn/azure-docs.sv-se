@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f57dd806e345cad80b8c60424e12211fc74814d6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c4b5a200780761decfdd98289f7e7332244e5645
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213229"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846443"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Konfigurera haveriberedskap för lokala Hyper-V-datorer i VMM-moln till Azure
 
@@ -55,7 +55,7 @@ Innan du börjar är det bra att [granska arkitekturen](concepts-hyper-v-to-azur
 När du har konfigurerat källmiljön kan du installera Azure Site Recovery-providern och Azure Recovery Services-agenten och registrera lokala servrar i valvet. 
 
 1. Klicka på **Källa** i **Förbereda infrastrukturen**.
-2. I **Förbered källa** klickar du på **+ VMM** för att lägga till en VMM-server. I **Lägg till Server**, kontrollerar du att **System Center VMM-server** visas i **servertyp**.
+2. I **Förbered källa** klickar du på **+ VMM** för att lägga till en VMM-server. I **Lägg till server** kontrollerar du att **System Center VMM-server** visas i **Servertyp**.
 3. Hämta installationsprogrammet för Microsoft Azure Site Recovery-providern.
 4. Ladda ned valvregistreringsnyckeln. Du behöver den när du kör installationsprogrammet för providern. Nyckeln är giltig i fem dagar efter att du har genererat den.
 5. Ladda ned Recovery Services-agenten.
@@ -125,7 +125,7 @@ Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringsk
 4. Välj den **contosovmsacct1910171607** storage-konto, och **ContosoASRnet** Azure-nätverk.
 5. I **Virtuella datorer** > **Välj** väljer du den virtuella dator som du vill replikera. Klicka sedan på **OK**.
 
- Du kan följa förloppet för åtgärden **Aktivera skydd** under **Jobb** > **Site Recovery-jobb**. Efter den **Slutför skydd** jobbet har slutförts, den inledande replikeringen är klar och den virtuella datorn är redo för redundans.
+ Du kan följa förloppet för åtgärden **Aktivera skydd** under **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skyddet** är klart är den inledande replikeringen slutförd och den virtuella datorn är redo för redundans.
 
 
 ## <a name="next-steps"></a>Nästa steg

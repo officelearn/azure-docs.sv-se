@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: ca42d6c8ca1333f2ffba77b79584b7092b26f03e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d5c86186cd6ee02d83800c6483a2e35d8f1fb3c7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438604"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Självstudier: Azure Active Directory-integration med eDigitalResearch
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av eDigitalResearch i Azure AD, som du behöver
 
 **Utför följande steg för att lägga till eDigitalResearch från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -115,7 +115,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<company-name>.edigitalresearch.com/login/consume`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [eDigitalResearch supportteamet](http://www.maruedr.com/contact) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [eDigitalResearch supportteamet](https://www.maruedr.com/contact) att hämta dessa värden.
  
 
 
@@ -131,7 +131,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![eDigitalResearch konfiguration](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_configure.png) 
 
-1. Att konfigurera enkel inloggning på **eDigitalResearch** sida, som du behöver skicka de hämtade **certifikatfil (Base64)**, **SAML entitets-ID**, och **utloggning URL: en** till [eDigitalResearch supportteamet](http://www.maruedr.com/contact). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **eDigitalResearch** sida, som du behöver skicka de hämtade **certifikatfil (Base64)**, **SAML entitets-ID**, och **utloggning URL: en** till [eDigitalResearch supportteamet](https://www.maruedr.com/contact). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -172,7 +172,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i eDigitalResearch. 
 
-Arbeta med den [eDigitalResearch supportteamet](http://www.maruedr.com/contact) att hämta användare som har skapats.     
+Arbeta med den [eDigitalResearch supportteamet](https://www.maruedr.com/contact) att hämta användare som har skapats.        
     
  > [!NOTE]
  > Azure Active Directory-kontoinnehavare tar emot ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den blir aktiv.

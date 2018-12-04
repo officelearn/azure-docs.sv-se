@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5ef451da3eae696c3506f25ee9458b3ad3286b07
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a3e0125a66c4b8bbda6e0b7087fe5e0e387d43e4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721190"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847396"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -39,7 +39,7 @@ För många Azure-resurser visas data som samlas in av Azure Monitor direkt i si
 
 ![Mått](media/overview/metrics.png)
 
-Loggdata som samlas in av Azure Monitor lagras i Log Analytics som innehåller en [funktionsrikt frågespråk](../log-analytics/log-analytics-queries.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med den [sidan Log Analytics](../log-analytics/log-analytics-log-search-portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [ aviseringsregler](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Loggdata som samlas in av Azure Monitor lagras i Log Analytics som innehåller en [funktionsrikt frågespråk](../azure-monitor/log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med den [sidan Log Analytics](../log-analytics/log-analytics-log-search-portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [ aviseringsregler](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
 Frågespråket i Log Analytics passar enkla loggfrågor men innehåller även avancerade funktioner som aggregeringar, kopplingar och smart analytics. Du kan snabbt lära dig frågespråket med [flera lektioner](../log-analytics/query-language/get-started-queries.md) som är tillgängliga.  Viss vägledning erbjuds användare som redan är bekanta med [SQL](../log-analytics/query-language/sql-cheatsheet.md) och [Splunk](../log-analytics/query-language/splunk-cheatsheet.md).
 
@@ -85,7 +85,7 @@ Azure Monitor VM insights övervakar dina Azure-datorer (VM) i stor skala genom 
 ![VM-insikter](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Övervakningslösningar
-[Övervakningslösningar](../azure-monitor/insights/solutions.md) är paketerade uppsättningar av logik som ger insikter för ett visst program eller tjänst i Azure Monitor. De samla in data till Log Analytics tillsammans med andra övervakningsdata med [frågor](../log-analytics/log-analytics-queries.md) för analys och [vyer](../azure-monitor/platform/view-designer.md) för visualisering. Övervakningslösningar är [tillgängliga från Microsoft](../azure-monitor/insights/solutions-inventory.md) och partners att tillhandahålla övervakning för olika Azure-tjänster och andra program.
+[Övervakningslösningar](../azure-monitor/insights/solutions.md) är paketerade uppsättningar av logik som ger insikter för ett visst program eller tjänst i Azure Monitor. De samla in data till Log Analytics tillsammans med andra övervakningsdata med [frågor](../azure-monitor/log-query/log-query-overview.md) för analys och [vyer](../azure-monitor/platform/view-designer.md) för visualisering. Övervakningslösningar är [tillgängliga från Microsoft](../azure-monitor/insights/solutions-inventory.md) och partners att tillhandahålla övervakning för olika Azure-tjänster och andra program.
 
 ![Övervakningslösningar](media/overview/solutions-overview.png)
 
@@ -146,4 +146,4 @@ Läs mer om:
 
 * [Mått och loggar](../azure-monitor/platform/data-collection.md) för de data som samlas in av Azure Monitor.
 * [Datakällor](../azure-monitor/platform/data-sources.md) för hur de olika komponenterna i ditt program skickar telemetri.
-* [Log Analytics](../log-analytics/log-analytics-queries.md) för att analysera insamlade data.
+* [Log Analytics](../azure-monitor/log-query/log-query-overview.md) för att analysera insamlade data.

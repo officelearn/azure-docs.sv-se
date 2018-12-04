@@ -3,19 +3,18 @@ title: Arbeta med Azure Cosmos DB Cassandra-API från Spark
 description: Den här artikeln är huvudsidan för Cosmos DB Cassandra API-integration från Spark.
 services: cosmos-db
 author: anagha-microsoft
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: cb58ad60501be43ff4da2db29ab3ad3dfee9aad1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094252"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847141"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB Cassandra-API från Spark
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 77e370e80e423446d17a074b9458e7002f8627dd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad2a9dba54df3ae7a3e2604437c8a65c88dcca94
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448354"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850898"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Självstudier: Azure Active Directory-integration med Panorama9
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av Panorama9 i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till Panorama9 från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **inloggnings-URL** textrutan anger du ett URL: en som: `https://dashboard.panorama9.com/saml/access/3262`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `http://www.panorama9.com/saml20/<tenant-name>`
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Panorama9 klienten supportteamet](https://support.panorama9.com) att hämta dessa värden. 

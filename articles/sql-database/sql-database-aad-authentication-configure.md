@@ -11,20 +11,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 75108853929ea514a6b8660388d71736e74013e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/03/2018
+ms.openlocfilehash: 915aedd23019a91d434444c6da3b67a8c9c15337
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234739"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849198"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL
 
-Den här artikeln visar hur du skapar och fylla i Azure AD och Använd sedan Azure AD med Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt finns i [Azure Active Directory Authentication](sql-database-aad-authentication.md).
+Den här artikeln visar hur du skapar och fylla i Azure AD och Använd sedan Azure AD med Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt finns i [Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
 > [!NOTE]
-> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+> Den här artikeln gäller för Azure SQL-server och att både SQL Database och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
 > [!IMPORTANT]  
 > Ansluta till SQL Server som körs på en Azure virtuell dator stöds inte med ett Azure Active Directory-konto. Använd en domän Active Directory-konto i stället.
 
@@ -65,15 +65,65 @@ Din hanterade instans måste du ha behörighet att läsa Azure AD för att utfö
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4. Välj på banderollen högst upp på Active Directory-administratören sida. Om du är inloggad som Global/företagsadministratör i Azure AD, kan du göra det från Azure portal eller med hjälp av PowerShell.
+4. Välj informationstext högst upp på sidan Active Directory-administratören och bevilja behörighet till den aktuella användaren. Om du är inloggad som Global/företagsadministratör i Azure AD, kan du göra det från Azure portal eller med hjälp av PowerShell med skriptet nedan.
 
     ![bevilja behörigheter-portal](./media/sql-database-aad-authentication/grant-permissions.png)
 
-    ![bevilja behörigheter – powershell](./media/sql-database-aad-authentication/grant-permissions-powershell.png)
+    ```PowerShell
+    # Gives Azure Active Directory read permission to a Service Principal representing the Managed Instance.
+    # Can be executed only by a "Company Administrator" or "Global Administrator" type of user.
 
-    Om du är inloggad som Global/företagsadministratör i Azure AD, kan du göra det från Azure-portalen eller köra ett PowerShell-skript.
+    $aadTenant = "<YourTenantId>" # Enter your tenant ID
+    $managedInstanceName = "MyManagedInstance"
 
-5. När åtgärden har slutförts visas följande meddelande i övre högra hörnet:
+    # Get Azure AD role "Directory Users" and create if it doesn't exist
+    $roleName = "Directory Readers"
+    $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq $roleName}
+    if ($role -eq $null) {
+        # Instantiate an instance of the role template
+        $roleTemplate = Get-AzureADDirectoryRoleTemplate | Where-Object {$_.displayName -eq $roleName}
+        Enable-AzureADDirectoryRole -RoleTemplateId $roleTemplate.ObjectId
+        $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq $roleName}
+    }
+
+    # Get service principal for managed instance
+    $roleMember = Get-AzureADServicePrincipal -SearchString $managedInstanceName
+    $roleMember.Count
+    if ($roleMember -eq $null)
+    {
+        Write-Output "Error: No Service Principals with name '$    ($managedInstanceName)', make sure that managedInstanceName parameter was     entered correctly."
+        exit
+    }
+    if (-not ($roleMember.Count -eq 1))
+    {
+        Write-Output "Error: More than one service principal with name pattern '$    ($managedInstanceName)'"
+        Write-Output "Dumping selected service principals...."
+        $roleMember
+        exit
+    }
+
+    # Check if service principal is already member of readers role
+    $allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
+    $selDirReader = $allDirReaders | where{$_.ObjectId -match     $roleMember.ObjectId}
+
+    if ($selDirReader -eq $null)
+    {
+        # Add principal to readers role
+        Write-Output "Adding service principal '$($managedInstanceName)' to     'Directory Readers' role'..."
+        Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId     $roleMember.ObjectId
+        Write-Output "'$($managedInstanceName)' service principal added to     'Directory Readers' role'..."
+
+        #Write-Output "Dumping service principal '$($managedInstanceName)':"
+        #$allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
+        #$allDirReaders | where{$_.ObjectId -match $roleMember.ObjectId}
+    }
+    else
+    {
+        Write-Output "Service principal '$($managedInstanceName)' is already     member of 'Directory Readers' role'."
+    }
+    ```
+
+5. När åtgärden har slutförts visas följande meddelande i det övre högra hörnet:
 
     ![lyckades](./media/sql-database-aad-authentication/success.png)
 
@@ -81,9 +131,9 @@ Din hanterade instans måste du ha behörighet att läsa Azure AD för att utfö
 
     ![Konfigurera administratör](./media/sql-database-aad-authentication/set-admin.png)
 
-7. På sidan Lägg till administratör, Sök efter en användare väljer du den användare eller grupp som ska vara en administratör och välj sedan **Välj**.
+7. AAD-administratören sidan Sök efter en användare väljer du den användare eller grupp som ska vara en administratör och välj sedan **Välj**.
 
-   Sidan Active Directory visas alla medlemmar och grupper för din Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. Se listan över stöds administratörer i [Azure AD-funktioner och begränsningar](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rollbaserad åtkomstkontroll (RBAC) gäller enbart för Azure-portalen och sprids inte till SQL Server.
+   Sidan Active Directory visas alla medlemmar och grupper för din Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. Se listan över stöds administratörer i [Azure AD-funktioner och begränsningar](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rollbaserad åtkomstkontroll (RBAC) gäller enbart för Azure-portalen och är inte sprids till SQL Server.
 
     ![Lägg till administratör](./media/sql-database-aad-authentication/add-admin.png)
 
@@ -93,8 +143,8 @@ Din hanterade instans måste du ha behörighet att läsa Azure AD för att utfö
 
     Processen att ändra administratören kan ta flera minuter. Ny administratör visas sedan i rutan Active Directory-administratör.
 
-> [!IMPORTANT]
-> När du konfigurerar Azure AD-administratören, kan inte det nya admin-namnet (användare eller grupp) redan finnas i den virtuella huvuddatabasen som en användare för SQL Server-autentisering. Om det finns Azure AD-administratörsinstallation misslyckas och återställer den skapades, vilket betyder att sådana administratör (namn) redan finns. Eftersom SQL Server-autentisering användaren inte är en del av Azure AD, misslyckas alla arbete för att ansluta till servern med hjälp av Azure AD-autentisering.
+När du har etablerat en Azure AD-administratör för din hanterade instans, kan du börja skapa Azure AD-inloggningar (**förhandsversion**) med den <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. Mer information finns i [översikten över Managed-instans](sql-database-managed-instance.md#azure-active-directory-integration).
+
 > [!TIP]
 > Om du vill senare tar bort en administratör kan högst upp på sidan Active Directory-administratör väljer **ta bort administratör**, och välj sedan **spara**.
 
@@ -149,7 +199,7 @@ Cmdlet: ar för att etablera och hantera Azure AD-administratör:
 
 Använd PowerShell-kommandot get-help för att se information om var och en av följande kommandon, till exempel ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
-Följande skript etablerar en administratör Azure AD-grupp med namnet **DBA_Group** (objekt-id `40b79501-b343-44ed-9ce7-da4c8cc7353f`) för den **demo_server** server i en resursgrupp med namnet **grupp-23**:
+Följande skript etablerar en administratör Azure AD-grupp med namnet **DBA_Group** (objekt-ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`) för den **demo_server** server i en resursgrupp med namnet **grupp-23**:
 
 ```powershell
 Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
@@ -213,11 +263,15 @@ Du kan uppfylla dessa krav genom att:
 
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Skapa oberoende databasanvändare i din databas som mappats till Azure AD-identiteter
 
+>[!IMPORTANT]
+>Hanterad instans har nu stöd för Azure AD-inloggningar (**förhandsversion**), vilket gör att du kan skapa inloggningar från Azure AD-användare, grupper eller program. Azure AD-inloggningar ger möjlighet att autentisera till din hanterade instans utan databasanvändare som ska skapas som en oberoende databasanvändare. Mer information finns i [översikten över Managed-instans](sql-database-managed-instance.md#azure-active-directory-integration). Syntax om hur du skapar Azure AD-inloggningar, se <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+
 Azure Active Directory-autentisering kräver databasanvändare som ska skapas som oberoende databasanvändare. En oberoende databasanvändare baserat på en Azure AD-identitet är en databasanvändare som inte har en inloggning i huvuddatabasen, och som mappar till en identitet i Azure AD-katalog som är associerat med databasen. Azure AD-identitet kan vara antingen ett enskilt användarkonto eller en grupp. Läs mer om oberoende databasanvändare, [oberoende databasanvändare-göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
 > Databasanvändare (med undantag för administratörer) kan inte skapas med hjälp av Azure portal. RBAC-roller sprids inte till SQL Server, SQL Database eller SQL Data Warehouse. Azure RBAC-roller som används för att hantera Azure-resurser och gäller inte för databasbehörigheter. Till exempel den **SQL Server-deltagare** rollen ger inte kan ansluta till SQL Database eller SQL Data Warehouse. Åtkomstbehörigheten måste beviljas direkt i databasen med hjälp av Transact-SQL-uttryck.
->
+> [!WARNING]
+> Specialtecken som kolon `:` eller et-tecken `&` när ingår som användarnamn i T-SQL-skapa inloggning och skapa användare instruktioner inte stöds.
 
 Att skapa en Azure AD-baserad innehöll databasanvändare (andra än serveradministratören som äger databasen), ansluta till databasen med en Azure AD-identitet som en användare med minst den **ALTER ANY USER** behörighet. Sedan använder du följande Transact-SQL-syntax:
 
@@ -269,11 +323,14 @@ Kontrollera Azure AD-administratör är rätt konfigurerad genom att ansluta til
 Ansluta till databasen med en Azure AD-identitet som har åtkomst till databasen för att etablera en Azure AD-baserad innehöll databasanvändare (andra än serveradministratören som äger databasen).
 
 > [!IMPORTANT]
-> Support för Azure Active Directory-autentisering är tillgänglig med [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) och [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) i Visual Studio 2015. Augusti 2016-versionen av SSMS innehåller också stöd för Active Directory Universal-autentisering, vilket gör att administratörer kan kräva Multifaktorautentisering med hjälp av ett telefonsamtal, textmeddelande, smartkort och PIN-kod eller mobilapp.
+> Support för Azure Active Directory-autentisering är tillgänglig med [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) och [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) i Visual Studio 2015. Augusti 2016-versionen av SSMS innehåller också stöd för Active Directory Universal-autentisering, vilket gör att administratörer kan kräva Multifaktorautentisering med hjälp av ett telefonsamtal, textmeddelande, smartkort och PIN-kod eller mobilapp. Med hjälp av Azure AD-inloggningar och användare (**förhandsversion**) med SSDT stöds inte för tillfället.
 
-## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Använda en Azure AD-identitet för att ansluta med hjälp av SSMS eller SSDT  
+## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Använda en Azure AD-identitet för att ansluta med hjälp av SSMS eller SSDT
 
 Följande procedurer visar hur du ansluter till en SQL-databas med en Azure AD-identitet med hjälp av SQL Server Management Studio eller SQL Server-databas Tools.
+
+>[!IMPORTANT]
+>Med hjälp av Azure AD-inloggningar och användare (**förhandsversion**) med SSDT stöds inte för tillfället.
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory-integrerad autentisering
 
@@ -290,11 +347,10 @@ Använd den här metoden om du är inloggad Windows med hjälp av Azure Active D
 
 Använd den här metoden när du ansluter med en Azure AD-huvudnamn med hjälp av Azure AD hanterade domän. Du kan också använda den för federerad konton utan åtkomst till domänen, till exempel när du arbetar via fjärranslutning.
 
-Använd den här metoden för att autentisera till SQL DB/DW med Azure AD för intern för federerade Azure AD-användare.
-En intern användare är en explicit skapats i Azure AD och som autentiseras med hjälp av användarnamn och lösenord, medan en federerad användare är en Windows-användare vars domäner är federerad med Azure AD. Den andra metoden som (med användare och lösenord) kan användas när en användare vill använda sin windows-autentiseringsuppgifter, men den lokala datorn inte är ansluten med domänen (dvs. med en fjärråtkomst). I det här fallet en Windows-användare kan ange sitt konto och lösenord och kan autentisera till SQL DB/DW med federerad autentiseringsuppgifter.
+Använd den här metoden för att autentisera till SQL DB/DW med Azure AD för intern eller med federerade Azure AD-användare. En intern användare är en explicit skapats i Azure AD och som autentiseras med hjälp av användarnamn och lösenord, medan en federerad användare är en Windows-användare vars domäner är federerad med Azure AD. Den andra metoden som (med användare och lösenord) kan användas när en användare vill använda sina windows-autentiseringsuppgifter, men en lokal dator inte är ansluten med domänen (till exempel använder en fjärråtkomst). I det här fallet en Windows-användare kan ange sitt konto och lösenord och kan autentisera till SQL DB/DW med federerad autentiseringsuppgifter.
 
 1. Starta Management Studio eller Dataverktyg och i den **Anslut till Server** (eller **Anslut till databasmotor**) i dialogrutan den **autentisering** väljer  **Active Directory - lösenord**.
-2. I den **användarnamn** skriver du ditt Azure Active Directory-användarnamn i formatet **username@domain.com**. Det här måste vara ett konto från Azure Active Directory eller ett konto från en domän federera med Azure Active Directory.
+2. I den **användarnamn** skriver du ditt Azure Active Directory-användarnamn i formatet **username@domain.com**. Användarnamn måste vara ett konto från Azure Active Directory eller ett konto från en domän federera med Azure Active Directory.
 3. I den **lösenord** skriver du ditt lösenord för Azure Active Directory-konto eller federerad domänkonto.
 
     ![Välj AD-lösenordsautentisering][12]

@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: eabae0f3575719c6cb93affefe0a393dd13d1439
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6c44bebad6b54ab673fcbf3b2ef5e5d34c8c6882
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014014"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847736"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Aktivera Multi-Factor authentication i Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C integreras direkt med [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) så att du kan lägga till ett andra säkerhetslager till registrering och inloggning upplevelser i dina program. Du kan aktivera multifaktorautentisering för utan att behöva skriva en enda rad kod. Om du redan har skapat logga in och inloggnings-principer, kan du fortfarande aktivera multifaktorautentisering.
+Azure Active Directory (Azure AD) B2C integreras direkt med [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) så att du kan lägga till ett andra säkerhetslager till registrering och inloggning upplevelser i dina program. Du kan aktivera multifaktorautentisering för utan att behöva skriva en enda rad kod. Om du redan har skapat logga in och logga in användaren flöden, kan du fortfarande aktivera multifaktorautentisering.
 
 Den här funktionen hjälper dig att hantera scenarier som följande program:
 
@@ -28,25 +28,24 @@ Den här funktionen hjälper dig att hantera scenarier som följande program:
 
 ## <a name="set-multi-factor-authentication"></a>Ange multifaktorautentisering
 
-När du skapar en princip har du möjlighet att aktivera Multi-Factor authentication.
+När du skapar ett användarflöde, har du möjlighet att aktivera Multi-Factor authentication.
 
 ![Ange multifaktorautentisering](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-Ange **tillstånd** till **på**.
+Ange **multifaktorautentisering** till **aktiverad**.
 
-Du kan använda **kör nu** på principen för att verifiera upplevelsen. Bekräfta följande scenario:
+Du kan använda **kör användarflödet** att verifiera upplevelsen. Bekräfta följande scenario:
 
 Ett kundkonto skapas i din klient innan steget multifaktorautentisering sker. Under steget uppmanas kunden att ange ett telefonnummer och kontrollera att den. Om verifieringen lyckas är nummer som kopplat till kontot för senare användning. Även om kunden avbryter eller släpper, kan kunden bli ombedd att verifiera ett telefonnummer igen under nästa inloggningen med aktiverat multifaktorautentisering.
 
 ## <a name="add-multi-factor-authentication"></a>Lägg till Multi-Factor authentication
 
-Det är möjligt att aktivera multifaktorautentisering för en princip som du skapade tidigare. 
+Det är möjligt att aktivera multifaktorautentisering för ett användarflöde som du skapade tidigare. 
 
 För att aktivera multifaktorautentisering:
 
-1. Öppna principen och välj sedan **redigera**. 
-2. Välj **multifaktorautentisering**
-3. Ange **tillstånd** till **på**.
-4. Klicka på **Spara** längst upp på sidan.
+1. Öppna användarflödet och välj sedan **egenskaper**. 
+2. Bredvid **multifaktorautentisering**väljer **aktiverad**.
+3. Klicka på **Spara** längst upp på sidan.
 
 

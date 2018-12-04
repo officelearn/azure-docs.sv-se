@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: f35236f369cb1870c4bdfaab77582970b0684966
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 68a2ecc734ab3bbb98d14bef3d30109a2d018781
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720175"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847889"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importera Azure Log Analytics-data till Power BI
 
@@ -32,7 +32,7 @@ Om du vill importera data från en Log Analytics-arbetsytan till Power BI, skapa
 ![Log Analytics till Powerbi](media/log-analytics-powerbi/overview.png)
 
 ## <a name="export-query"></a>Exportera fråga
-Börja med att skapa en [loggsökning](log-analytics-queries.md) som returnerar data från Log Analytics som du vill fylla i Power BI-datauppsättningen.  Sedan kan du exportera den frågan till [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx) som kan användas av Power BI Desktop.
+Börja med att skapa en [loggsökning](../azure-monitor/log-query/log-query-overview.md) som returnerar data från Log Analytics som du vill fylla i Power BI-datauppsättningen.  Sedan kan du exportera den frågan till [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx) som kan användas av Power BI Desktop.
 
 1. Skapa loggsökningen i Log Analytics för att extrahera data för din datauppsättning.
 2. Om du använder loggsökningsportalen, klickar du på **Power BI**.  Om du använder Analytics-portalen, väljer **exportera** > **Power BI frågor (miljoner)**.  Båda dessa alternativ exportera frågan till en textfil med namnet **PowerBIQuery.txt**. 
@@ -80,5 +80,5 @@ Den datauppsättning som skapats i Power BI har samma data som du såg tidigare 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](log-analytics-queries.md) att skapa frågor som kan exporteras till Power BI.
+* Lär dig mer om [loggsökningar](../azure-monitor/log-query/log-query-overview.md) att skapa frågor som kan exporteras till Power BI.
 * Läs mer om [Power BI](https://powerbi.microsoft.com) att skapa visualiseringar baserade på Log Analytics-export.

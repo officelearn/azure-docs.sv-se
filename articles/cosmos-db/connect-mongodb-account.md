@@ -1,22 +1,20 @@
 ---
-title: MongoDB-anslutningssträng för ett Azure Cosmos DB-konto | Microsoft Docs
+title: MongoDB-anslutningssträng för ett Azure Cosmos DB-konto
 description: Lär dig hur du ansluter din MongoDB-app till ett Azure Cosmos DB-konto med hjälp av en anslutningssträng för MongoDB.
 keywords: mongodb-anslutningssträng
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/19/2017
 ms.author: sclyon
-ms.openlocfilehash: ad8d6fe36c289c4c9e37689e1c7d755dc3bf9048
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a78a77e16e9a810c0be03656aa48b02cc8e6e5e6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054556"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849266"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Anslut en MongoDB-program till Azure Cosmos DB
 Lär dig hur du ansluter din MongoDB-app till ett Azure Cosmos DB-konto med hjälp av en anslutningssträng för MongoDB. Du kan sedan använda ett Azure Cosmos DB-databasen som data store för din MongoDB-app. 

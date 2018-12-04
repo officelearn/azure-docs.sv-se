@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/30/2018
-ms.openlocfilehash: e89245a946848e46f3c7c502b6cd0e8017327e07
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 12/03/2018
+ms.openlocfilehash: f3e40f9d10ce3d0515d466e9bbdde324458e624d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419902"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834119"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Använda SQL Database Managed Instance med virtuella nätverk och nästan 100% kompatibilitet
 
@@ -45,9 +45,9 @@ Azure SQL Database Managed Instance kombinerar de bästa funktionerna som finns 
 
 | **PaaS-fördelar** | **Verksamhetskontinuitet** |
 | --- | --- |
-|Ingen maskinvara att köpa och hantering <br>Ingen hantering av fasta kostnader för att hantera underliggande infrastruktur <br>Snabb etablering och skalning av tjänst <br>Automatisk uppdatering och version uppgradering <br>Integrering med andra data PaaS-tjänster |99,99% drifttid  <br>Inbyggda [hög tillgänglighet](sql-database-high-availability.md) <br>Data som skyddas med [automatiska säkerhetskopior](sql-database-automated-backups.md) <br>Kunden kan konfigureras kvarhållningsperiod (fast till 7 dagar i offentlig förhandsversion) <br>Användarinitierad [säkerhetskopior](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Tidpunkt för återställning till tidpunkt databasen](sql-database-recovery-using-backups.md#point-in-time-restore) funktion |
+|Ingen maskinvara att köpa och hantering <br>Ingen hantering av fasta kostnader för att hantera underliggande infrastruktur <br>Snabb etablering och skalning av tjänst <br>Automatisk uppdatering och version uppgradering <br>Integrering med andra data PaaS-tjänster |99,99% drifttid  <br>Inbyggda [hög tillgänglighet](sql-database-high-availability.md) <br>Data som skyddas med [automatiska säkerhetskopior](sql-database-automated-backups.md) <br>Kunden kan konfigureras kvarhållningsperiod <br>Användarinitierad [säkerhetskopior](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Tidpunkt för återställning till tidpunkt databasen](sql-database-recovery-using-backups.md#point-in-time-restore) funktion |
 |**Säkerhet och efterlevnad** | **Hantering**|
-|Isolerad miljö ([VNet-integrering](sql-database-managed-instance-vnet-configuration.md), enskild klient-tjänsten, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), enkel inloggning för support <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Identifiering av hot](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API för att automatisera service etablering och skalning <br>Azure-portalen funktioner för manuell tjänsten etablering och skalning <br>Data Migration Service
+|Isolerad miljö ([VNet-integrering](sql-database-managed-instance-vnet-configuration.md), enskild klient-tjänsten, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), enkel inloggning för support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-inloggningar</a> (**förhandsversion**) <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Identifiering av hot](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API för att automatisera service etablering och skalning <br>Azure-portalen funktioner för manuell tjänsten etablering och skalning <br>Data Migration Service
 
 I följande tabell visas de viktigaste funktionerna i Managed Instance:
 
@@ -84,12 +84,9 @@ Mer information om skillnaden mellan maskinvarugenerationer i [resursgränser f�
 Hanterad instans finns i två tjänstnivåer:
 
 - **Generella**: avsedd för tillämpningar med vanliga prestanda och i/o-svarstidskrav.
-- **Alternativet affärskritisk (förhandsversion)**: avsedd för tillämpningar med låg i/o-svarstidskrav och minimal påverkan på underliggande underhållsåtgärder på arbetsbelastningen.
+- **Alternativet affärskritisk**: avsedd för tillämpningar med låg i/o-svarstidskrav och minimal påverkan på underliggande underhållsåtgärder på arbetsbelastningen.
 
 Båda versionerna garanterar 99,99% tillgänglighet och gör att du kan välja lagringsstorlek oberoende och beräkningskapacitet. Mer information om arkitektur med hög tillgänglighet i Azure SQL Database finns i [hög tillgänglighet och Azure SQL Database](sql-database-high-availability.md).
-
-> [!IMPORTANT]
-> Ändra din tjänstenivå från generell användning till affärskritiska eller vice versa stöds inte i offentlig förhandsversion. Om du vill migrera dina databaser till en instans i olika tjänstnivå du skapa en ny instans, återställa databaser med återställning till tidpunkt från den ursprungliga instansen och sedan släppa ursprunglig instans om det inte behövs längre. Dock kan du skala dina antalet virtuella kärnor och lagring uppåt eller nedåt på en servicenivå utan avbrott.
 
 ### <a name="general-purpose-service-tier"></a>Tjänstnivå för allmänt syfte
 
@@ -103,7 +100,7 @@ Mer information finns i [Storage layer generellt syfte nivån](https://medium.co
 
 Mer information om skillnaden mellan tjänstnivåerna i [resursgränser för hanterad instans](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
-### <a name="business-critical-service-tier-preview"></a>Affärsnivå kritiska-(förhandsversion)
+### <a name="business-critical-service-tier"></a>Kritiska-affärsnivå
 
 Kritiska-affärsnivå har utformats för program med höga i/o-krav. Det erbjuder högsta återhämtning till fel med flera isolerade repliker.
 
@@ -114,9 +111,6 @@ I följande lista beskrivs de främsta egenskaperna för nivån affärskritisk s
 - Inbyggda [hög tillgänglighet](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) utifrån [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) och [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Ytterligare inbyggda [skrivskyddad databasrepliken](sql-database-read-scale-out.md) som kan användas för rapportering och andra skrivskyddade arbetsbelastningar
 - [In-Memory OLTP](sql-database-in-memory.md) som kan användas för arbetsbelastningar med höga prestanda krav  
-
-> [!IMPORTANT]
-> Den **affärskritisk** tjänstnivå finns i en förhandsversion.
 
 Mer information om skillnaden mellan tjänstnivåerna i [resursgränser för hanterad instans](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
@@ -150,13 +144,15 @@ Azure SQL Database innehåller en uppsättning avancerade säkerhetsfunktioner s
 - [Hotidentifiering](sql-database-managed-instance-threat-detection.md) kompletterar [Managed Instance granskning](sql-database-managed-instance-auditing.md) genom att tillhandahålla ett ytterligare säkerhetslager intelligens är inbyggt i tjänsten som identifierar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du aviseras om misstänkta aktiviteter, potentiella svagheter, och SQL-inmatning attacker och avvikande mönster i databasåtkomst. Hotidentifieringsaviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ger information om misstänkt aktivitet och rekommenderar åtgärder att undersöka och åtgärda hot.  
 - [Dynamisk datamaskning](/sql/relational-databases/security/dynamic-data-masking) begränsar exponering av känsliga data genom att maskera den för icke-privilegierade användare. Dynamisk datamaskning förhindrar obehörig åtkomst till känsliga data genom att ange hur mycket av känsliga data som avslöja med minimal påverkan på programnivån. Det är en principbaserad säkerhetsfunktion som fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad.
 - [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security) gör det möjligt att styra åtkomst till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (till exempel av grupmedlemskap eller körning). Säkerheten på radnivå (RLS) förenklar design och kodning av säkerheten i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Till exempel så att anställda har åtkomst till de datarader som är relevanta för deras avdelning eller att begränsa en data-åtkomsten till endast de relevanta data.
-- [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) krypterar Azure SQL Database Managed Instance-datafiler, kallas även kryptera vilande data. TDE utför i realtid i/o-kryptering och dekryptering av de data och loggfiler. Krypteringen använder en databaskrypteringsnyckel (DEK), som lagras i boot databaspost för tillgänglighet under återställningen. Du kan skydda alla dina databaser i Managed Instance med transparent datakryptering. TDE är en SQL-beprövad kryptering i vila-teknik som krävs av många efterlevnadsstandarder för att skydda mot stöld av lagringsmedier. Allmänt tillgängliga förhandsversionen stöds automatisk nyckelhantering-modellen (utförs av PaaS-plattform).
+- [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) krypterar Azure SQL Database Managed Instance-datafiler, kallas även kryptera vilande data. TDE utför i realtid i/o-kryptering och dekryptering av de data och loggfiler. Krypteringen använder en databaskrypteringsnyckel (DEK), som lagras i boot databaspost för tillgänglighet under återställningen. Du kan skydda alla dina databaser i Managed Instance med transparent datakryptering. TDE är SQL Servers beprövade kryptering i vila-teknik som krävs av många efterlevnadsstandarder för att skydda mot stöld av lagringsmedier.
 
 Migrering av en krypterad databas till SQL Managed Instance stöds via Azure Database Migration Service (DMS) eller intern återställning. Om du planerar att migrera krypterade databasen med hjälp av inbyggda återställning är ett obligatoriskt steg i migreringen av befintliga TDE-certifikat från SQL Server på plats eller SQL Server-VM till hanterad instans. Mer information om migreringsalternativ finns i [migrering av SQL Server-instans till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory-integrering
 
-Azure SQL Database Managed Instance stöder traditionella SQL server Database engine-inloggningar och inloggningar som integreras med Azure Active Directory (AAD). AAD-inloggningar är version av Windows databasinloggningar som du använder i din lokala miljö.
+Azure SQL Database Managed Instance stöder traditionella SQL server Database engine-inloggningar och inloggningar som integreras med Azure Active Directory (AAD). AAD-inloggningar (**förhandsversion**) är version av en lokal databasinloggningar som du använder i din lokala miljö. AAD-inloggningar kan du ange användare och grupper från Azure Active Directory-klient som SANT instans omfattar huvudnamn, kan utföra alla åtgärder som på instansnivå, inklusive databasöverskridande frågor i den hanterade instansen.
+
+Introduceras en ny syntax för att skapa AAD inloggningar (**förhandsversion**), **från extern PROVIDER**. Mer information om syntaxen finns i <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, och granska de [etablera en Azure Active Directory-administratör för din hanterade instans](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) artikeln.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integrering och multifaktorautentisering
 
@@ -181,7 +177,7 @@ Auktorisering hänvisar till vad en användare kan göra inom en Azure SQL Datab
 
 Hanterade instans mål användarscenarier med drivrutiner för masslagring Databasmigrering från lokala eller IaaS databasen implementeringar. Hanterad instans stöder flera alternativ för databas-migrering:
 
-### <a name="backup-and-restore"></a>Säkerhetskopiering och återställning  
+### <a name="back-up-and-restore"></a>Säkerhetskopiera och återställa  
 
 Förhållningssätt till Databasmigrering utnyttjar SQL-säkerhetskopior till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till hanterade instansen med hjälp av den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
@@ -193,7 +189,7 @@ Förhållningssätt till Databasmigrering utnyttjar SQL-säkerhetskopior till Az
 
 ### <a name="data-migration-service"></a>Data Migration Service
 
-Azure Database Migration Service är en fullständigt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid. Den här tjänsten effektiviserar uppgifter som krävs för att flytta befintliga från tredje part och SQL Server-databaser till Azure. Distributionsalternativ inkluderar Azure SQL Database Managed Instance och SQL Server i virtuella Azure-datorer i den offentliga förhandsversionen. Se [migrera din lokala databas till Managed Instance med DMS](https://aka.ms/migratetoMIusingDMS).
+Azure Database Migration Service är en fullständigt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid. Den här tjänsten effektiviserar uppgifter som krävs för att flytta befintliga från tredje part och SQL Server-databaser till Azure SQL Database (enkel databas, elastiska pooler och Managed Instance) och SQL Server i Azure VM. Se [migrera din lokala databas till Managed Instance med DMS](https://aka.ms/migratetoMIusingDMS).
 
 ## <a name="sql-features-supported"></a>SQL-funktioner som stöds
 
@@ -232,14 +228,14 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Det här värdet är samma som i SQL-databas.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Det här värdet är samma som i SQL-databas.|
 |`SERVERPROPERTY('EngineEdition')`|8|Det här värdet identifierar Managed Instance.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Komplett instans DNS-namn i följande format:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, där `<instanceName>` är namn som tillhandahålls av kunden, medan `<dnsPrefix>` är automatiskt genererade del av namnet, vilket ger global unikhet för DNS-namn (”wcus17662feb9ce98”, till exempel)|Exempel: min-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Komplett instans DNS-namn i följande format:`<instanceName>`.`<dnsPrefix>`. Database.Windows.NET, där `<instanceName>` är namn som tillhandahålls av kunden, medan `<dnsPrefix>` är automatiskt genererade del av namnet, vilket ger global unikhet för DNS-namn (”wcus17662feb9ce98”, till exempel)|Exempel: min-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du skapar din första hanterad instans finns [snabbstartsguiden](sql-database-managed-instance-get-started.md).
+- Information om hur du skapar din första hanterad instans finns [Snabbstartsguide](sql-database-managed-instance-get-started.md).
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
 - Mer information om konfiguration av virtuella nätverk finns i avsnittet om [konfiguration av virtuella nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md).
 - En Snabbstart som skapar en hanterad instans och återställer en databas från en säkerhetskopia, se [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
 - En självstudie om hur du använder Azure Database Migration Service (DMS) för migrering finns i avsnittet om [migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Avancerade övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i [övervaka Azure SQL Database med Azure SQL Analytics ](../log-analytics/log-analytics-azure-sql.md) 
+- Avancerade övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i [övervaka Azure SQL Database med Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md)
 - Information om priser finns i [priser för SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e66f74edf93688a2793b3f24516f8b14328a8bb9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5afb8e03dedbe09c2c95495fb6ff18333f4c648d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634956"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847600"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimera din SQL-miljö med lösningen för hälsokontroll för SQL Server i Log Analytics
 
@@ -184,7 +184,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
     ```
 
     >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](../../log-analytics/log-analytics-queries.md), och sedan frågan ovan skulle ändras till följande.
+    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](../../azure-monitor/log-query/log-query-overview.md), och sedan frågan ovan skulle ändras till följande.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
     ```
 
     >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](../../log-analytics/log-analytics-queries.md), och sedan frågan ovan skulle ändras till följande.
+    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](../../azure-monitor/log-query/log-query-overview.md), och sedan frågan ovan skulle ändras till följande.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
 * Ja, se [Ignorera rekommendationer](#ignore-recommendations) ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Söka loggarna](../../log-analytics/log-analytics-queries.md) att lära dig hur du analyserar detaljerade SQL-hälsokontroll data och rekommendationer.
+* [Söka loggarna](../../azure-monitor/log-query/log-query-overview.md) att lära dig hur du analyserar detaljerade SQL-hälsokontroll data och rekommendationer.

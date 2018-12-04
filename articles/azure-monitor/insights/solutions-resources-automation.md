@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814646902a88c7170da66397709ff3a8c7b081fd
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 57fda5ea9fdafffd0267f749016ed97b8fc06e15
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715797"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847124"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Att lägga till Azure Automation-resurser i en lösning för hantering (förhandsversion)
 > [!NOTE]
@@ -317,8 +317,8 @@ Runbook bör vara beroende av resursen modulen så att den har skapats innan run
 ### <a name="updating-modules"></a>Uppdatera moduler
 Om du uppdaterar en lösning som innehåller en runbook som använder ett schema, och den nya versionen av din lösning har en ny modul som används av runbook, kan runbook använda den gamla versionen av modulen.  Du bör inkludera följande runbooks i din lösning och skapa ett jobb för att köra dem innan andra runbooks.  Detta säkerställer att uppdateras alla moduler som krävs innan runbooks har lästs in.
 
-* [Uppdatera ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) säkerställer att alla moduler som används av runbooks i din lösning är den senaste versionen.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) ska registrera om alla resurser schema så att runbooks som är kopplad till dem till användning de senaste modulerna.
+* [Uppdatera ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/) säkerställer att alla moduler som används av runbooks i din lösning är den senaste versionen.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/) ska registrera om alla resurser schema så att runbooks som är kopplad till dem till användning de senaste modulerna.
 
 
 

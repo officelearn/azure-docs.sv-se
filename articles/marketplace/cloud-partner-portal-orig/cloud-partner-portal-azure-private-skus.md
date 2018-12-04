@@ -1,5 +1,5 @@
 ---
-title: 'Privat SKU: er | Microsoft Docs'
+title: 'Privat SKU: er och planer | Microsoft Docs'
 description: 'Hur du använder privata SKU: er för att hantera tillgängligheten för erbjudandet.'
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230248"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849215"
 ---
-<a name="private-skus"></a>Privat SKU: er
+<a name="private-skus-and-plans"></a>Privat SKU: er och planer
 ============
 
 Privat SKU: er kan du begränsa tillgängligheten för SKU: er till specifika kunder. När en SKU har markerats som privat, det är inte tillgängligt i alla offentliga katalogen, inklusive på [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Azure-portalen](http://portal.azure.com). På Azure-portalen Se bara kunder med åtkomst till SKU: N den. Dessutom kan ombeds de också att de har åtkomst till privata erbjudanden.
@@ -90,6 +90,11 @@ Exemplet CSV-filinnehåll:
             SubscriptionId,7738d703-3135-4e8d-8b81-1e70379abd9d,Private Customer
 
 När du växlar från manuell inmatning till CSV överför vy eller från CSV till manuell inmatning gamla listan över prenumerations-ID med åtkomst till SKU: N har sparats inte. En varning visas och listan bara skrivas över vid sparar erbjudandet.
+
+<a name="sync-private-subscriptions"></a>Synkronisera privata prenumerationer
+-------------------------
+
+När du lägger till prenumerationer till ett publicerade erbjudande med en privat SKU eller planerar behöver du inte du publicera erbjudandet att lägga till information om publik. Använd bara ett Azure-prenumeration-ID (planer och SKU: er) eller klient-ID (endast planer) för att lägga till publik.
 
 <a name="previewing-private-offers"></a>Förhandsgranska privata erbjudanden
 -------------------------

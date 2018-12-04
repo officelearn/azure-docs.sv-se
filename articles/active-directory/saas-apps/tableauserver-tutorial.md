@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 9986e7984f24e065886f6d0a8b2d06968f778702
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582725"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Självstudier: Azure Active Directory-integration med Tableau Server
 
@@ -175,7 +175,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     >[!NOTE] 
     >Kunden behöver ladda upp alla certifikat i Tableau Server SAML SSO-konfigurationen och kommer få ignoreras i flödet för enkel inloggning.
-    >Om du behöver för att konfigurera SAML på Tableau Server finns i den här artikeln [konfigurera SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >Om du behöver för att konfigurera SAML på Tableau Server finns i den här artikeln [konfigurera SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 80a5b49d27ffc2b75cc9a1092a4d9f17e09bef24
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633205"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848875"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -30,7 +30,7 @@ Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Log 
 - Övervaka administratöraktiviteter för att spåra konfigurationsändringar eller Privilegierade åtgärder.
 - Upptäck och undersök oönskad användarnas beteende och som kan anpassas efter organisationens behov.
 - Visa gransknings- och kompatibilitetskontroller. Du kan till exempel övervaka åtkomst filåtgärder på konfidentiella filer, som kan hjälpa dig med processen gransknings- och kompatibilitetskontroller.
-- Utföra operativa felsökning med hjälp av [loggsökningar](../../log-analytics/log-analytics-queries.md) ovanpå Office 365 aktivitetsdata för din organisation.
+- Utföra operativa felsökning med hjälp av [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) ovanpå Office 365 aktivitetsdata för din organisation.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Följande krävs innan den här lösningen som den installeras och konfigureras.
@@ -709,6 +709,6 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd loggsökningar i [Log Analytics](../../log-analytics/log-analytics-queries.md) för att visa detaljerad uppdateringsinformation.
+* Använd loggsökningar i [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) för att visa detaljerad uppdateringsinformation.
 * [Skapa dina egna instrumentpaneler](../../azure-monitor/platform/dashboards.md) att visa dina favorit Office 365-sökfrågor.
 * [Skapa aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) för att proaktivt aviseras om viktiga Office 365-aktiviteter.  

@@ -5,15 +5,15 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18d705f68ff06621e30c051dac9fb9607fd043ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300944"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850966"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Skapa och exportera certifikat för punkt-till-plats med hjälp av PowerShell
 
@@ -27,7 +27,7 @@ Om du inte har tillgång till en Windows 10 eller Windows Server 2016-dator kan 
 
 Använd cmdleten New-SelfSignedCertificate för att skapa ett självsignerat rotcertifikat. För ytterligare parameterinformation finns i [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Öppna en Windows PowerShell-konsol med utökade privilegier från en dator som kör Windows 10 eller Windows Server 2016.
+1. Öppna en Windows PowerShell-konsol med utökade privilegier från en dator som kör Windows 10 eller Windows Server 2016. De här exemplen fungerar inte i Azure Cloud Shell ”prova”. Du måste köra dessa exempel lokalt.
 2. Använd följande exempel för att skapa det självsignerade rotcertifikatet. I följande exempel skapas ett självsignerat rotcertifikat med namnet ”P2SRootCert” som installeras automatiskt i ”certifikat – aktuell användare\personligt\certifikat”. Du kan visa certifikatet genom att öppna *certmgr.msc*, eller *Hantera användarcertifikat*.
 
   ```powershell
@@ -104,7 +104,7 @@ Om du skapar ytterligare klientcertifikat eller inte använder samma PowerShell-
 
 ### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exportera självsignerade rotcertifikat och lagra den (valfritt) den privata nyckeln
 
-Kan du exportera det självsignerade rotcertifikatet och lagra den på ett säkert sätt som säkerhetskopiering. Om måste vara, du kan installera den på en annan dator och generera mer klienten certifiates senare. Välj rotcertifikat för att exportera det självsignerade rotcertifikatet som PFX-fil, och använda samma steg som beskrivs i [exportera ett klientcertifikat](#clientexport).
+Kan du exportera det självsignerade rotcertifikatet och lagra den på ett säkert sätt som säkerhetskopiering. Om behöver vara du senare kan installera den på en annan dator och generera mer klientcertifikat. Välj rotcertifikat för att exportera det självsignerade rotcertifikatet som PFX-fil, och använda samma steg som beskrivs i [exportera ett klientcertifikat](#clientexport).
 
 ## <a name="clientexport"></a>4. Exportera klientcertifikat
 

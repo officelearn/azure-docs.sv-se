@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394841"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846478"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -78,7 +78,7 @@ Du blir ombedd att inkludera följande information:
 Vårt Registreringsteam för Marketplace ska verifiera registreringsinformationen marketplace i steg 3. När du blivit godkänd, får du ett välkomstmeddelande med autentiseringsuppgifter för kontot och vägledning för att logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 Du kommer att använda den [Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa, publicera och hantera marketplace-erbjudanden. När du får välkomstmeddelandet godkännande kan du omedelbart kan logga in på [Cloud Partner Portal](https://cloudpartner.azure.com) med ditt Microsoft-konto för att få åtkomst till ytterligare teknisk information om publicering på marketplace och skapa ditt erbjudande. 
-*   Mer information om hur du använder Cloud Partner Portal [gå till komma igång-artikeln i Läs avsnittet](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Du måste vara inloggad på partnerportalen i molnet att komma åt informationen.
+*   Mer information om hur du använder Cloud Partner Portal [gå till komma igång-artikeln i Läs avsnittet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Du måste vara inloggad på partnerportalen i molnet att komma åt informationen.
 *   Om du har frågor eller skulle så att du schemalägger en översikt över onboarding-anrop, granska andra artiklar i den här Publiceringsguiden eller öppna en supportbegäran under problemtyp > Marketplace Onboarding från inom partnerportalen i molnet.
 *   Om du inte fått välkomstmeddelandet Kontrollera din skräppostmapp för ett e-postmeddelande med ämnesraden ”Välkommen till Microsoft Marketplace!”. Om det finns ingen e-post i mappen för skräppost, [kontakta Microsoft-supporten](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). På supportsidan väljer: problemtyp > Marketplace Onboarding.  Vårt Registreringsteam för Marketplace Publisher kommer vara glad att hjälpa till med dina frågor. 
 

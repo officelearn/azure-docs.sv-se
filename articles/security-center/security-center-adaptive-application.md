@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ddf9c5e30a27a829a74ccf0985dce30a68f9bbb7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b4023d45c3628df5006d076e01f32bb8f3aa80a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256659"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846257"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Anpassningsbara programkontroller i Azure Security Center
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
@@ -118,7 +118,8 @@ När du har valt skapa skapar Azure Security Center automatiskt lämpliga regler
   - **Tvinga**: i det här läget tvingar programkontrollösningen reglerna, och ser till att program som inte är tillåtna blockeras.
 
    > [!NOTE]
-   > Som vi nämnde tidigare blir alltid en ny princip för programkontroll som standard konfigurerad i läget *Granska*. 
+   > -  **Framtvinga** skyddsläge inaktiveras tills vidare.
+   > - Som vi nämnde tidigare blir alltid en ny princip för programkontroll som standard konfigurerad i läget *Granska*. 
    >
 
 4. Under **principtillägg**, du kan lägga till valfri programsökväg som du vill tillåta. När du lägger till sökvägarna skapar Security Center uppdaterar whielisting-princip för program på de virtuella datorerna i den markerade gruppen av virtuella datorer och skapar lämpliga regler för programmen utöver de regler som redan finns på plats.

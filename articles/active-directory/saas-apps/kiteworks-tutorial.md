@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 88531ee1a98eefdf3ee85b4308150f10417858d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 986640c6af07c5a7ad85cfe8ca1f3d5b8a8aae84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420231"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846002"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Självstudier: Azure Active Directory-integration med Kiteworks
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av Kiteworks i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till Kiteworks från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.kiteworks.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Kiteworks klienten supportteamet](http://accellion.com/support) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Kiteworks klienten supportteamet](https://accellion.com/support) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -201,7 +201,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 Kiteworks stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Kitewors om det inte finns ännu.
 
 >[!NOTE]
->Om du vill skapa en användare manuellt kan du behöva kontakta den [Kiteworks supportteam](http://accellion.com/support).
+>Om du vill skapa en användare manuellt kan du behöva kontakta den [Kiteworks supportteam](https://accellion.com/support).
  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 12ab224481c519db36ae21dd11916649ff0bfbe3
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 3284202ffaa6767a8dd4a6a5050dbdc928075237
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269042"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Självstudier: Azure Active Directory-integrering med ArcGIS Online
 
@@ -126,7 +126,7 @@ I det här avsnittet ska du aktiverar Azure AD enkel inloggning i Azure-portalen
     ![image](./media/arcgis-tutorial/b1-domains_and_urls.png)
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [ArcGIS Online klienten supportteamet](http://support.esri.com/en/) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [ArcGIS Online klienten supportteamet](https://support.esri.com/en/) att hämta dessa värden.
 
 6. På den **SAML-signeringscertifikat** avsnittet, klicka på **hämta** att ladda ned **Federation Metadata XML** och spara xml-filen på datorn.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 470805b2bb77e367887767b95e0f1e04d79c8f9d
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 5b7baffea8e718810a91ea9687a007d36c806aab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830743"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Självstudier: Azure Active Directory-integration med ServiceNow
 
@@ -41,7 +41,7 @@ Om du vill konfigurera Azure AD-integrering med ServiceNow, behöver du följand
 - En Azure AD-prenumeration
 - För ServiceNow, en instans eller klient för ServiceNow Calgary versionen eller senare
 - För ServiceNow Express, en instans av ServiceNow uttryckliga, Helsingfors versionen eller senare
-- ServiceNow-klient måste ha den [flera enkel inloggning på plugin-providern](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) aktiverat. Detta kan göras genom [att skicka en serviceförfrågan](https://hi.service-now.com).
+- ServiceNow-klient måste ha den [flera enkel inloggning på plugin-providern](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) aktiverat. Detta kan göras genom [att skicka en serviceförfrågan](https://hi.service-now.com).
 - Aktivera plugin-programmet för multi-provider för ServiceNow för automatisk konfiguration.
 
 > [!NOTE]

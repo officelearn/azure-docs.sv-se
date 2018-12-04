@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 8b4ed19ede70c3c9b768cfd368e22b0df3e71212
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0dc0df8c766fd1e44158ae79d81d5fd8cc0657f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428951"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847515"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Network Performance Monitor-lösningen: prestandaövervakning
 
@@ -137,4 +137,4 @@ I följande bild visas de grundläggande orsakerna till problemområden till vis
 ![Topologisk karta med nodegenskaper valt](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Nästa steg
-[Söka loggarna](../../log-analytics/log-analytics-queries.md) att visa detaljerad nätverk prestanda dataposter.
+[Söka loggarna](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerad nätverk prestanda dataposter.

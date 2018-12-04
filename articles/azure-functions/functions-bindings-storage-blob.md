@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: c9e6898d83e5bc1360bb5b1539b12bace8acdb3f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4f8135dd26b58b5b285798af5c420aa09b03074b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251047"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850132"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -29,7 +29,7 @@ Den här artikeln förklarar hur du arbetar med Azure Blob storage-bindningar i 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Använd Event Grid-utlösaren i stället för Blob storage-utlösare för Blob storage-konton, för hög skala, eller att undvika förseningar kallstart. Mer information finns i den [utlösaren](#trigger) avsnittet. 
+> Använda Event Grid-utlösaren i stället för Blob storage-utlösare för endast blob storage-konton, för hög skala, eller att undvika förseningar kallstart. Mer information finns i den [utlösaren](#trigger) avsnittet.
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
@@ -79,8 +79,9 @@ Se exempel språkspecifika:
 
 * [C#](#trigger---c-example)
 * [C#-skript (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Utlösare – C#-exempel
 
@@ -179,6 +180,42 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="trigger---python-example"></a>Utlösare – Python-exempel
+
+I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [Python-kod](functions-reference-python.md) som använder bindningen. Funktionen skriver en logg när en blob läggs till eller uppdateras i den `samples-workitems` behållare.
+
+Här är den *function.json* fil:
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myblob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+Strängen `{name}` i blob-utlösare sökvägen `samples-workitems/{name}` skapar en [bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) som du kan använda i Funktionskoden till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
+
+Mer information om *function.json* filegenskaper, finns i den [Configuration](#trigger---configuration) förklaras de här egenskaperna.
+
+Här är Python-kod:
+
+```python
+import logging
+import azure.functions as func
+
+def main(myblob: func.InputStream):
+    logging.info('Python Blob trigger function processed %s', myblob.name)
+```
+
 ### <a name="trigger---java-example"></a>Utlösare - Java-exemplet
 
 I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [Java-kod](functions-reference-java.md) som använder bindningen. Funktionen skriver en logg när en blob läggs till eller uppdateras i den `myblob` behållare.
@@ -228,7 +265,7 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
   ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
-      [BlobTrigger("sample-images/{name}")] Stream image, 
+      [BlobTrigger("sample-images/{name}")] Stream image,
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
   {
       ....
@@ -240,7 +277,7 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
    ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
-      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
+      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
   {
       ....
@@ -329,7 +366,7 @@ Följande exempel utlösare endast för blobbar i den `input` behållaren som b�
 ```json
 "path": "input/original-{name}",
 ```
- 
+
 Om blobnamnet är *ursprungliga Blob1.txt*, värdet för den `name` variabel i Funktionskoden är `Blob1`.
 
 ### <a name="filter-on-file-type"></a>Filtrera efter typ
@@ -348,7 +385,7 @@ Om du vill söka efter klammerparenteser i filnamn, escape-klammerparenteserna m
 "path": "images/{{20140101}}-{name}",
 ```
 
-Om blobben som heter  *{20140101}-soundfile.mp3*, `name` variabelvärdet i Funktionskoden är *soundfile.mp3*. 
+Om blobben som heter  *{20140101}-soundfile.mp3*, `name` variabelvärdet i Funktionskoden är *soundfile.mp3*.
 
 ## <a name="trigger---metadata"></a>Utlösare - metadata
 
@@ -393,7 +430,7 @@ Framtvinga ombearbetning av en blob genom att ta bort blob-kvitto på den blobbe
 
 ## <a name="trigger---poison-blobs"></a>Utlösare – skadliga blobar
 
-När en blob-Utlösarfunktion misslyckas för en viss blob, Azure Functions återförsök som fungerar totalt 5 gånger som standard. 
+När en blob-Utlösarfunktion misslyckas för en viss blob, Azure Functions återförsök som fungerar totalt 5 gånger som standard.
 
 Om alla 5 försök misslyckas, Azure Functions lägger till ett meddelande till en lagringskö med namnet *webjobs-blobtrigger-poison*. Kömeddelande för skadliga BLOB är ett JSON-objekt som innehåller följande egenskaper:
 
@@ -425,8 +462,9 @@ Se exempel språkspecifika:
 
 * [C#](#input---c-example)
 * [C#-skript (.csx)](#input---c-script-example)
-* [JavaScript](#input---javascript-example)
 * [Java](#input---java-example)
+* [JavaScript](#input---javascript-example)
+* [Python](#input---python-example)
 
 ### <a name="input---c-example"></a>Indata - C#-exempel
 
@@ -478,7 +516,7 @@ I den *function.json* filen, den `queueTrigger` metadata-egenskap för att ange 
   ],
   "disabled": false
 }
-``` 
+```
 
 Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
@@ -527,7 +565,7 @@ I den *function.json* filen, den `queueTrigger` metadata-egenskap för att ange 
   ],
   "disabled": false
 }
-``` 
+```
 
 Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
@@ -539,6 +577,57 @@ module.exports = function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
+```
+
+### <a name="input---python-example"></a>Indata - Python-exempel
+
+<!--Same example for input and output. -->
+
+I följande exempel visas blob indata och utdatabindningar i en *function.json* fil och [Python-kod](functions-reference-python.md) som använder bindningarna. Funktionen skapar en kopia av en blob. Funktionen utlöses av ett kömeddelande som innehåller namnet på blobben att kopiera. Den nya bloben heter *{originalblobname}-kopia*.
+
+I den *function.json* filen, den `queueTrigger` metadata-egenskap för att ange blobnamnet på i den `path` egenskaper:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+Den [configuration](#input---configuration) förklaras de här egenskaperna.
+
+Här är Python-kod:
+
+```python
+import logging
+import azure.functions as func
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    return inputblob
 ```
 
 ### <a name="input---java-example"></a>Indata - Java-exemplet
@@ -555,7 +644,7 @@ public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-item
  }
  ```
 
-  I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@BlobInput` anteckning om parametrar vars värde skulle komma från en blob.  Den här anteckningen kan användas med interna Java-typer, Pojo eller kan ha värdet null-värden med hjälp av `Optional<T>`. 
+  I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@BlobInput` anteckning om parametrar vars värde skulle komma från en blob.  Den här anteckningen kan användas med interna Java-typer, Pojo eller kan ha värdet null-värden med hjälp av `Optional<T>`.
 
 
 ## <a name="input---attributes"></a>Indata - attribut
@@ -600,8 +689,8 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ** | Saknas | Måste anges till `blob`. |
 |**riktning** | Saknas | Måste anges till `in`. Undantag anges i den [användning](#input---usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.|
-|**Sökväg** |**BlobPath** | Sökvägen till blobben. | 
-|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**Sökväg** |**BlobPath** | Sökvägen till blobben. |
+|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |Saknas | **Åtkomst** | Anger om du läser eller skriver. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -639,18 +728,19 @@ Se exempel språkspecifika:
 
 * [C#](#output---c-example)
 * [C#-skript (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Resultat – C#-exempel
 
-Följande exempel är en [C#-funktion](functions-dotnet-class-library.md) som använder en blob-utlösare och två blob utdatabindningar. Funktionen som utlöses av skapandet av en avbildningsblob i den *Exempelbilder* behållare. Små och medelstora kopior av avbildningsblobben skapas. 
+Följande exempel är en [C#-funktion](functions-dotnet-class-library.md) som använder en blob-utlösare och två blob utdatabindningar. Funktionen som utlöses av skapandet av en avbildningsblob i den *Exempelbilder* behållare. Små och medelstora kopior av avbildningsblobben skapas.
 
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall,
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
 {
     var imageBuilder = ImageResizer.ImageBuilder.Current;
@@ -710,7 +800,7 @@ I den *function.json* filen, den `queueTrigger` metadata-egenskap för att ange 
   ],
   "disabled": false
 }
-``` 
+```
 
 Den [configuration](#output---configuration) förklaras de här egenskaperna.
 
@@ -759,7 +849,7 @@ I den *function.json* filen, den `queueTrigger` metadata-egenskap för att ange 
   ],
   "disabled": false
 }
-``` 
+```
 
 Den [configuration](#output---configuration) förklaras de här egenskaperna.
 
@@ -771,6 +861,58 @@ module.exports = function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
+```
+
+### <a name="output---python-example"></a>Resultat – Python-exempel
+
+<!--Same example for input and output. -->
+
+I följande exempel visas blob indata och utdatabindningar i en *function.json* fil och [Python-kod](functions-reference-python.md) som använder bindningarna. Funktionen skapar en kopia av en blob. Funktionen utlöses av ett kömeddelande som innehåller namnet på blobben att kopiera. Den nya bloben heter *{originalblobname}-kopia*.
+
+I den *function.json* filen, den `queueTrigger` metadata-egenskap för att ange blobnamnet på i den `path` egenskaper:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "outputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+Den [configuration](#output---configuration) förklaras de här egenskaperna.
+
+Här är Python-kod:
+
+```python
+import logging
+import azure.functions as func
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
+         outputblob: func.Out[func.InputStream]):
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    outputblob.set(inputblob)
 ```
 
 ### <a name="output---java-example"></a>Resultat – Java-exemplet
@@ -800,7 +942,7 @@ Attributets konstruktorn använder sökvägen till blobben och en `FileAccess` p
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
 {
     ...
@@ -812,7 +954,7 @@ Du kan ange den `Connection` egenskapen att ange storage-konto du använder, enl
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
 {
     ...
@@ -832,8 +974,8 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ** | Saknas | Måste anges till `blob`. |
 |**riktning** | Saknas | Måste anges till `out` för en utdatabindning. Undantag anges i den [användning](#output---usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.  Ange `$return` att referera till returvärde för funktion.|
-|**Sökväg** |**BlobPath** | Sökvägen till blobben. | 
-|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**Sökväg** |**BlobPath** | Sökvägen till blobben. |
+|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |Saknas | **Åtkomst** | Anger om du läser eller skriver. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

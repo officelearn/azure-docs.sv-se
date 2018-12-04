@@ -1,21 +1,19 @@
 ---
-title: Vanliga frågor och svar om Azure Cosmos DB | Microsoft Docs
+title: Vanliga och frågor svar om Azure Cosmos DB
 description: Få svar på vanliga frågor och svar om Azure Cosmos DB, en globalt distribuerad databastjänst. Läs mer om kapacitet, prestandanivåer och skalning.
 keywords: Databasfrågor, vanliga frågor, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: sngun
-ms.openlocfilehash: 50d606486a6d80f00424685494eae28a95fe361a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: e4ed9ee34260dfffc0034fb7524a037e957fab3f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164718"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851187"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB vanliga frågor och svar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334643"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850983"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en Linux-dator i Azure med Azure Active Directory-autentisering (förhandsversion)
 
@@ -129,7 +129,7 @@ Först visa offentliga IP-adressen för den virtuella datorn med [az vm show](/c
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Logga in på den virtuella Linux-datorer med hjälp av Azure AD-autentiseringsuppgifter. Den `-l` parametern kan du ange din egen adress för Azure AD-konto. Ange den offentliga IP-adressen för den virtuella datorn som utdata i föregående kommando:
+Logga in på den virtuella Linux-datorer med hjälp av Azure AD-autentiseringsuppgifter. Den `-l` parametern kan du ange din egen adress för Azure AD-konto. Konto-adresser ska anges i alla gemener. Använd den offentliga IP-adressen för den virtuella datorn från föregående kommando:
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps

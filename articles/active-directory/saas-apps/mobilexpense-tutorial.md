@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: fd35cb67d0555919a1340c428bac042b67239469
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d51ced3f264a486288c951def7c23a0d95609ac0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427347"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Självstudier: Azure Active Directory-integration med Mobile Xpense
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av Mobile Xpense i Azure AD, som du behöver l�
 
 **Utför följande steg för att lägga till Mobile Xpense från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -121,7 +121,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<sub-domain>.mobilexpense.com/<customername>`
      
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL. Kontakta [Mobile Xpense klienten supportteamet](http://www.mobilexpense.net/contact) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL. Kontakta [Mobile Xpense klienten supportteamet](https://www.mobilexpense.net/contact) att hämta dessa värden. 
 
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -131,7 +131,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara-knapp](./media/mobilexpense-tutorial/tutorial_general_400.png)
 
-1. Att konfigurera enkel inloggning på **Mobile Xpense** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Mobile Xpense supportteamet](http://www.mobilexpense.net/contact). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Mobile Xpense** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Mobile Xpense supportteamet](https://www.mobilexpense.net/contact). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +170,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-mobile-xpense-test-user"></a>Skapa en Mobile Xpense testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i MobileXpense. fungerar med [MobileXpense supportteamet](http://www.mobilexpense.net/contact) att lägga till användare i MobileXpense-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i MobileXpense. fungerar med [MobileXpense supportteamet](https://www.mobilexpense.net/contact) att lägga till användare i MobileXpense-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

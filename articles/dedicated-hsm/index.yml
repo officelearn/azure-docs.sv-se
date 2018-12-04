@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9eaed5c8d30d902700af25319d91b77aab645dbc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9fac565922a6dd36608455456c66ff2fe940557a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318018"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680420"
 documentType: LandingData
 title: Dokumentation om Dedikerad HSM i Azure
 metadata:
@@ -22,7 +22,7 @@ metadata:
   ms.date: 11/21/2018
   ms.author: barclayn
 abstract:
-  description: Läs mer om dedikerade HSM-funktioner och om de gäller för din miljö.
+  description: Läs mer om funktionen Dedikerad HSM och upptäck om den kan användas i din miljö.
 sections:
 - items:
   - type: list
@@ -33,13 +33,13 @@ sections:
     - href: /azure/dedicated-hsm/overview
       html: <p>Läs mer om vad Dedikerad HSM i Azure handlar om.</p>
       image:
-        src: media/index/i_article.svg
-      title: Översikt över Dedikerad HSM
+        src: media/index/hsm.svg
+      title: Översikt över Dedikerad HSM i Azure
     - href: /azure/dedicated-hsm/faq
-      html: <p>Vanliga frågor och svar.</p>
+      html: <p>Designöverväganden när du använder Dedikerad HSM</p>
       image:
         src: media/index/guide.svg
-      title: VANLIGA FRÅGOR OCH SVAR
+      title: Besluta om distributionsarkitektur
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -62,4 +62,4 @@ sections:
     className: cardsD
     items:
     - title: VANLIGA FRÅGOR OCH SVAR
-      html: <p><a href="/dedicated-hsm/faq/">Vanliga frågor och svar</a></p>
+      html: <p><a href="/azure/dedicated-hsm/faq/">Vanliga frågor och svar</a></p>

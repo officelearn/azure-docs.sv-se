@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/3/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fab03f12f4099fe2df2525cb3a6fa093170d1c79
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037047"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850184"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa installationsprogrammet för Azure-SSIS integration runtime
 
@@ -131,7 +131,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
     c. Välj behållaren anslutna offentlig förhandsversion och dubbelklicka på den `CustomSetupScript` mapp. I den här mappen är följande:
 
-       1. En `Sample` mappen som innehåller en anpassad installation om du vill installera en grundläggande aktivitet på varje nod i din Azure-SSIS IR. Uppgiften gör ingenting men strömsparläge under några sekunder. Mappen innehåller också en `gacutil` mappen som innehåller `gacutil.exe`. Dessutom `main.cmd` innehåller kommentarer för att spara autentiseringsuppgifter för filresurser.
+       1. En `Sample` mappen som innehåller en anpassad installation om du vill installera en grundläggande aktivitet på varje nod i din Azure-SSIS IR. Uppgiften gör ingenting men strömsparläge under några sekunder. Mappen innehåller också en `gacutil` mapp, hela innehåll (`gacutil.exe`, `gacutil.exe.config`, och `1033\gacutlrc.dll`) kan kopieras som är i din behållare. Dessutom `main.cmd` innehåller kommentarer för att spara autentiseringsuppgifter för filresurser.
 
        1. En `UserScenarios` mappen som innehåller flera anpassade inställningar för verkliga scenarier.
 
@@ -146,8 +146,6 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
        1. En `BCP` mappen som innehåller en anpassad installation för att installera SQL Server kommandoradsverktyg (`MsSqlCmdLnUtils.msi`), inklusive program bulk copy program (`bcp`), på varje nod i din Azure-SSIS IR.
 
        1. En `EXCEL` mappen som innehåller en anpassad installation för att installera open source-sammansättningar (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, och `ExcelDataReader.dll`) på varje nod i din Azure-SSIS IR.
-
-       1. En `MSDTC` mappen som innehåller en anpassad installation om du vill ändra nätverks- och säkerhetsfunktioner konfigurationerna för tjänsten Microsoft Distributed Transaction Coordinator (MSDTC) på varje nod för din Azure-SSIS IR. För att säkerställa att MSDTC har startats, Lägg till aktiviteten kör Process i början av Kontrollflöde i din paket för att köra följande kommando: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        1. En `ORACLE ENTERPRISE` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) och konfigurationsfilen för tyst installation (`client.rsp`) att installera Oracle-kopplingar och OCI drivrutinen på varje nod i din Azure-SSIS IR Enterprise Edition. Den här konfigurationen kan du använda Anslutningshanteraren för Oracle-, käll- och målservrarna. Först ladda ned Microsoft Connectors v5.0 för Oracle (`AttunitySSISOraAdaptersSetup.msi` och `AttunitySSISOraAdaptersSetup64.msi`) från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) och den senaste Oracle-klienten – till exempel `winx64_12102_client.zip` – från [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), sedan överföra dem alla tillsammans med `main.cmd` och `client.rsp` i din behållare. Om du använder TNS för att ansluta till Oracle kan du också behöva hämta `tnsnames.ora`, redigera den och överför den till din behållare, så det kan kopieras till Oracle-installationsmappen under installationen.
 

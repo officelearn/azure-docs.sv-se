@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4cce49509a452153815c845d9ab72a1b4a8a5b7f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13a628d37ef67d0a1dc3ad8231229493191c4e7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357440"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849572"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Fel på sidan för ett program efter inloggning
 
@@ -30,7 +30,7 @@ Det finns några möjliga orsaker till varför programmet inte godkände svar fr
 
 -   Om programmet är Azure AD-Galleriprogram, kontrollerar du att du har följt alla steg i artikeln [Felsök SAML-baserad enkel inloggning till program i Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Använd ett verktyg som [Fiddler](http://www.telerik.com/fiddler) att avbilda SAML-begäran, SAML-svar och SAML-token.
+-   Använd ett verktyg som [Fiddler](https://www.telerik.com/fiddler) att avbilda SAML-begäran, SAML-svar och SAML-token.
 
 -   Dela SAML-svar med programleverantören för att vet vad som saknas.
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: ced92cd28c12443234b47353548a9c968cc175ac
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c579bb32fdd43c95f027e6c9f5a6ef656d059d60
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095594"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847413"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: PowerShell
 
@@ -58,24 +58,15 @@ Du kan använda exempelvärdena för att skapa en testmiljö eller hänvisa till
 
 ## <a name="declare"></a>1. Logga in och ange variabler
 
-I det här avsnittet ska du logga in och deklarera värdena som används i den här konfigurationen. De deklarerade värdena används i exempelskripten. Om du vill ändrar du värdena så att de återspeglar din egen miljö. Eller så använder du de deklarerade värdena och går igenom stegen som en övning.
+I det här avsnittet ska du logga in och deklarera de värden som används för den här konfigurationen. De deklarerade värdena används i exempelskripten. Om du vill ändrar du värdena så att de återspeglar din egen miljö. Eller så använder du de deklarerade värdena och går igenom stegen som en övning.
 
-1. Öppna PowerShell-konsolen med förhöjd behörighet och logga in på ditt Azure-konto. Denna cmdlet uppmanar dig att ange autentiseringsuppgifter för inloggningen. När du har loggat in hämtas dina kontoinställningar så att de blir tillgängliga för Azure PowerShell. Om du inte kör PowerShell lokalt och i stället använder Azure Cloud Shell ”prova” i webbläsaren, kan du gå vidare till steg 2 i det här avsnittet.
+### <a name="sign-in"></a>Logga in
 
-  ```azurepowershell
-  Connect-AzureRmAccount
-  ```
-2. Hämta en lista över dina Azure-prenumerationer.
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
 
-  ```azurepowershell-interactive
-  Get-AzureRmSubscription
-  ```
-3. Ange den prenumeration som du vill använda.
+### <a name="declare-variables"></a>Deklarera variabler
 
-  ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
-4. Deklarera de variabler som du vill använda. Använd följande exempel och ersätt värdena med dina egna om det behövs.
+Deklarera de variabler som du vill använda. Använd följande exempel och ersätt värdena med dina egna om det behövs.
 
   ```azurepowershell-interactive
   $VNetName  = "VNet1"

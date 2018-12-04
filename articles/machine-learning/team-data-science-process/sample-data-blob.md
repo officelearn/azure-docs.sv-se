@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5fe7c11bd21e9c2f432f443a6a8dd5880646a1a2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7dbd5f932f2d090a3f9fa8f917d12869a94dc553
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444196"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847090"
 ---
 # <a name="heading"></a>Exempeldata i Azure blob-lagring
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver sampling av data lagras i Azure blob storage genom a
 **Varför prov på dina data?**
 Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Detta underlättar förståelse av data, utforskning och funktioner. Dess roll i Cortana Analytics-processen är att snabbt skapa prototyper för bearbetning av funktions- och machine learning-modeller.
 
-Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Ladda ned och nedåtsampla data
 1. Hämta data från Azure blob storage med hjälp av blobtjänsten från Python-exempelkoden följande: 

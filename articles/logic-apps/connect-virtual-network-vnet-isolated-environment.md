@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/29/2018
-ms.openlocfilehash: 798b50887bcfdf5b4298c37beb1b9eea8f9abdda
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.date: 12/03/2018
+ms.openlocfilehash: 8ad4c356c5826532b94721bc4d9071179e8bd93a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682205"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846704"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps via en integration service-miljö (ISE)
 
@@ -57,19 +57,28 @@ När du skapar en integration service-miljö (ISE) kan du välja ett Azure-nätv
 
 1. I det virtuella nätverket menyn väljer **åtkomstkontroll (IAM)**. 
 
-1. Under **åtkomstkontroll (IAM)**, Välj **Lägg till**. 
+1. Under **åtkomstkontroll (IAM)**, Välj **Lägg till rolltilldelning**. 
 
    ![Lägg till roller](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
 
-1. På den **Lägg till rolltilldelning** fönstret konfigurera varje roll för Azure Logic Apps-tjänsten enligt beskrivningen i tabellen i det här steget. Se till att välja **spara** när du har slutfört varje roll.
+1. På den **Lägg till rolltilldelning** fönstret lägga till rollen krävs i Azure Logic Apps-tjänsten enligt beskrivningen. 
+
+   1. Under **rollen**väljer **Nätverksdeltagare**. 
+   
+   1. Under **tilldela åtkomst till**väljer **Azure AD-användare, grupp eller program**.
+
+   1. Under **Välj**, ange **Azure Logic Apps**. 
+
+   1. När listan visas, väljer **Azure Logic Apps**. 
+
+      > [!TIP]
+      > Om du inte hittar den här tjänsten kan du ange Logic Apps-tjänsten app-ID: `7cd684f4-8a78-49b0-91ec-6a35d38739ba` 
+   
+   1. När du är klar väljer du **Spara**.
+
+   Exempel:
 
    ![Lägg till rolltilldelning](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
-
-   | Roll | Tilldela behörighet till | Välj | 
-   |------|------------------|--------|
-   | **Nätverksdeltagare** | **Azure AD-användare, grupp eller program** | Ange **Azure Logic Apps**. När listan visas, väljer du samma värde. <p>**Tips**: Om du inte hittar den här tjänsten kan du ange Logic Apps-tjänsten app-ID: `7cd684f4-8a78-49b0-91ec-6a35d38739ba` | 
-   | **Klassiska deltagare** | **Azure AD-användare, grupp eller program** | Ange **Azure Logic Apps**. När listan visas, väljer du samma värde. <p>**Tips**: Om du inte hittar den här tjänsten kan du ange Logic Apps-tjänsten app-ID: `7cd684f4-8a78-49b0-91ec-6a35d38739ba` | 
-   |||| 
 
 Mer information finns i [behörigheter för åtkomst till virtuellt nätverk](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
@@ -102,8 +111,31 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
    | **Plats** | Ja | <*Azure-datacenterregion*> | Azure-datacenterregion var du vill distribuera din miljö | 
    | **Kapacitet** | Ja | 0, 1, 2, 3 | Antalet enheter för den här ISE-resursen | 
    | **Virtuellt nätverk** | Ja | <*Azure-virtual-network-name*> | Azure-nätverket där du vill att mata in din miljö så att logic apps i denna miljö kan komma åt det virtuella nätverket. Om du inte har ett nätverk kan du skapa en här. <p>**Viktiga**: du kan *endast* utföra den här inmatning när du skapar din ISE. Men innan du kan skapa den här relationen, se till att du redan [konfigurera rollbaserad åtkomstkontroll i ditt virtuella nätverk för Azure Logic Apps](#vnet-access). | 
-   | **Undernät** | Ja | <*IP-adressintervall*> | En ISE kräver fyra *tom* undernät, som inte har delegering till alla tjänster och som används för att skapa resurser i din miljö. Varje undernät måste uppfylla följande kriterier: <p>-Använder den [Classless Inter-Domain Routing CIDR-formatet](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>– Kräver en klass B-adressutrymme. <br>-Har ett namn som inte börjar med ett tal eller ett bindestreck. <br>-Inkluderar en `/27`, till exempel varje undernät anger ett adressintervall för 32-bitars: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, och `10.0.0.96/27`. <br>-Får inte finnas i samma adressintervallet för det valda virtuella nätverket eller några andra privata IP-adresser där det virtuella nätverket är ansluten. <br>-Måste vara tom. <p><p>**Viktiga**: du *kan inte ändra* dessa IP-adressintervall när du har skapat din miljö. |
+   | **Undernät** | Ja | <*IP-adressintervall*> | En ISE kräver fyra *tom* undernät. De här undernäten är undelegated till alla tjänster och som används för att skapa resurser i din miljö. Du *kan inte ändra* dessa IP-adressintervall när du har skapat din miljö. <p><p>Att skapa varje undernät, [att följa stegen i den här tabellen](#create-subnet). Varje undernät måste uppfylla följande kriterier: <p>-Får inte finnas i samma adressintervallet för det valda virtuella nätverket eller några andra privata IP-adresser där det virtuella nätverket är ansluten. <br>-Använder ett namn som inte börjar med ett tal eller ett bindestreck. <br>-Använder den [Classless Inter-Domain Routing CIDR-formatet](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>– Kräver en klass B-adressutrymme. <br>-Inkluderar en `/27`. Varje undernät anger till exempel ett adressintervall för 32-bitars: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, och `10.0.0.96/27`. <br>-Måste vara tom. |
    |||||
+
+   <a name="create-subnet"></a>
+
+   **Skapa undernät**
+
+   1. Under den **undernät** väljer **hantera undernätskonfiguration**.
+
+      ![Hantera undernätskonfiguration](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+
+   1. På den **undernät** fönstret Välj **undernät**.
+
+      ![Lägga till undernät](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+
+   1. På den **Lägg till undernät** fönstret anger den här informationen.
+
+      * **Namn på**: namnet på ditt undernät
+      * **Adressintervall (CIDR-block)**: intervall för ditt undernät i det virtuella nätverket och i CIDR-format
+
+      ![Lägg till information om undernät](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
+
+   1. När du är klar väljer du **OK**.
+
+   1. Upprepa dessa steg för tre flera undernät.
 
 1. När Azure verifierar har ISE-information, väljer **skapa**, till exempel:
 
@@ -126,7 +158,7 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
 För att skapa logikappar som använder din integration service-environment (ISE), följer du stegen i [så här skapar du en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) men med följande skillnader: 
 
-* När du skapar din logikapp, Välj din ISE i stället för en Azure-region från den **plats** listan från den **integreringstjänstmiljöer** avsnittet, till exempel:
+* När du skapar din logikapp under den **plats** egenskapen, Välj din ISE från den **integreringstjänstmiljöer** avsnittet, till exempel:
 
   ![Välj integreringstjänstmiljö](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
@@ -134,13 +166,15 @@ För att skapa logikappar som använder din integration service-environment (ISE
 
   ![Välj ISE-tjänster](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
 
-* När du mata in din ISE i Azure-nätverk, logikappar i din ISE direkt åtkomst till resurser i det virtuella nätverket. För lokala system i ett virtuellt nätverk som är länkad till en ISE logikappar direkt åtkomst till dessa system med någon av dessa objekt: 
+* När du mata in din ISE i Azure-nätverk, logikappar i din ISE direkt åtkomst till resurser i det virtuella nätverket. För lokala system som är anslutna till ett virtuellt nätverk, att mata in en ISE i nätverket så att dina logikappar har direkt åtkomst dessa system med någon av dessa objekt: 
 
   * ISE-anslutning för systemet, till exempel SQL Server
+  
   * HTTP-åtgärd 
+  
   * Anpassad anslutningsapp
 
-  För lokala system som inte är i ett virtuellt nätverk eller inte har ISE kopplingar först [konfigurera och använda den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md).
+  För lokala system som inte är i ett virtuellt nätverk eller inte har ISE kopplingar först [konfigurera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md).
 
 <a name="create-integration-account-environment"></a>
 
@@ -148,7 +182,7 @@ För att skapa logikappar som använder din integration service-environment (ISE
 
 Om du vill använda en integrering med logic apps i en integreringstjänstmiljö (ISE) måste det integrationskontot måste använda den *samma miljö* som logic apps. Logic apps i en ISE kan referera till integrationskonton i samma ISE. 
 
-Om du vill skapa ett integrationskonto som använder en ISE åtgärderna vanligt i [hur du skapar konton för logikappsintegration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) undantag för den **plats** egenskapen, som nu visar en lista över dina ISEs under  **Integreringstjänstmiljöer** tillsammans med tillgängliga regioner. Välj din ISE i stället för en region, till exempel:
+Om du vill skapa ett integrationskonto som använder en ISE, följer du stegen i [hur du skapar konton för logikappsintegration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) undantag för den **plats** egenskapen där den **integreringstjänstmiljöer**  avsnittet visas nu. Välj i stället dina ISE i stället för en region, till exempel:
 
 ![Välj integreringstjänstmiljö](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

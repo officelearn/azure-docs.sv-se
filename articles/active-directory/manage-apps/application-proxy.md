@@ -15,16 +15,16 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 428f094dae2b9a69b58912190d2959a7dfc467ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 212628c0ec97524e91ab8eaeb766c3e405023aaf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365270"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846172"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Att tillhandahålla säker fjärråtkomst till lokala program
 
-Anställda vill idag att vara produktiva var som helst, när som helst och från valfri enhet. De vill arbeta med sina egna enheter, oavsett om de är bärbara datorer, surfplattor eller telefoner. Och de förväntar sig för att kunna komma åt sina program, både SaaS-appar i molnet och företagets appar lokalt. Att ge åtkomst till lokala program har traditionellt inneburit virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZ-miljöer). Inte bara är dessa lösningar komplexa och svåra att skydda, men de är dyra att konfigurera och hantera.
+I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De vill arbeta med sina egna enheter, oavsett om de är bärbara datorer, surfplattor eller telefoner. Och de förväntar sig för att kunna komma åt sina program, både SaaS-appar i molnet och företagets appar lokalt. Att ge åtkomst till lokala program har traditionellt inneburit virtuella privata nätverk (VPN) eller demilitariserade zoner (DMZ). De här lösningarna är inte bara komplexa och svåra att skydda, utan de är även dyra att konfigurera och hantera.
 
 Det finns ett bättre sätt!
 
@@ -100,5 +100,5 @@ När du publicerar din första app, är det mycket mer du kan göra med Applicat
 * [Arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [Ange en anpassad startsida](application-proxy-configure-custom-home-page.md)
 
-Läs mer om de senaste nyheterna och uppdateringarna i [bloggen om Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
+Läs mer om de senaste nyheterna och uppdateringarna i [bloggen om Application Proxy](https://blogs.technet.com/b/applicationproxyblog/)
 

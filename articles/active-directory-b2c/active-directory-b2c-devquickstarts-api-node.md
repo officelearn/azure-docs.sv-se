@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93c3bd3f902f08c8f019744b3f30745c1fd9fa01
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442431"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847668"
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Säkra ett webb-API med Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -36,7 +36,7 @@ Om du vill göra det här exemplet måste du:
 3. Konfigurera ett klientprogram att anropa ett webb-API för ”uppgiftslistan”.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Skaffa en Azure AD B2C-katalog
-Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient.  En katalog är en behållare för alla användare, appar, grupper och mer.  Om du inte redan har en [skapar du en B2C-katalog](active-directory-b2c-get-started.md) innan du fortsätter.
+Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient.  En katalog är en container för alla användare, appar, grupper och mer.  Om du inte redan har en [skapar du en B2C-katalog](active-directory-b2c-get-started.md) innan du fortsätter.
 
 ## <a name="create-an-application"></a>Skapa ett program
 Därefter måste du skapa en app i B2C-katalogen som ger Azure AD information som krävs för säker kommunikation med din app. I det här fallet representeras både klientappen och webb-API av ett enda **Program-ID** eftersom de omfattar en logisk app. Du skapar en app genom att följa [dessa anvisningar](active-directory-b2c-app-registration.md). Se till att:
@@ -47,7 +47,7 @@ Därefter måste du skapa en app i B2C-katalogen som ger Azure AD information so
 * Kopiera **program-ID:t** som har tilldelats din app. Du behöver dessa data senare.
 
 ## <a name="create-your-policies"></a>Skapa principer
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här programmet innehåller två identitetsupplevelser: registrera sig och logga in. Du måste skapa en princip av varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Tänk på följande när du skapar dina tre principer:
+I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här programmet innehåller två identitetsupplevelser: registrera sig och logga in. Du måste skapa en princip av varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  Tänk på följande när du skapar dina tre principer:
 
 * Välj **visningsnamnet** och andra registreringsattribut i registreringsprincipen.
 * Välj det **visningsnamn** och **objekt-ID** som programmet gör anspråk på i varje princip.  Du kan också välja andra anspråk.
@@ -71,12 +71,12 @@ Den färdiga appen finns också [som en ZIP-fil](https://github.com/AzureADQuick
 ## <a name="download-nodejs-for-your-platform"></a>Ladda ned Node.js för plattformen
 Du behöver en fungerande installation av Node.js. för att kunna använda det här exemplet.
 
-Installera Node.js från [nodejs.org](http://nodejs.org).
+Installera Node.js från [nodejs.org](https://nodejs.org).
 
 ## <a name="install-mongodb-for-your-platform"></a>Installera MongoDB för din plattform
 Du behöver en fungerande installation av MongoDB för att kunna använda det här exemplet. Vi använder MongoDB för att göra dina REST-API:er beständiga över serverinstanser.
 
-Installera MongoDB från [mongodb.org](http://www.mongodb.org).
+Installera MongoDB från [mongodb.org](https://www.mongodb.org).
 
 > [!NOTE]
 > Den här genomgången förutsätter att du använder standardslutpunkterna för MongoDB, vilket (när detta skrivs) är `mongodb://localhost`.

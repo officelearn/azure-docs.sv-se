@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4881f992e5362efc7e4d7ac23898684966a066e0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334898"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891001"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Självstudie: Skapa molnöverskridande skalning lösningar med Azure
 
@@ -60,7 +60,7 @@ I den här självstudien skapar du en exempel-miljö för att:
 
 -   Skapa en Webbapp i klientprenumeration. Anteckna den nya Web App-URL för att använda senare.
 
--   Distribuera VSTS-dator i klientprenumeration.
+-   Distribuera virtuell dator i Azure Pipelines i klientprenumeration.
 
 -   Windows Server 2016-dator med .NET 3.5 krävs. Den här virtuella datorn skapas i klientprenumeration på Azure Stack som privat skapandeagent.
 
@@ -99,9 +99,11 @@ Konfigurera hybrid kontinuerlig integrering och kontinuerlig distribution (CI/CD
 > [!Note]  
 > Azure Stack med rätt avbildningar syndikeras kör (Windows Server och SQL) och App Service-distributionen måste anges. Granska dokumentation om App Service ”[innan du sätter igång med App Service i Azure Stack](../azure-stack-app-service-before-you-get-started.md)” för Azure Stack-operatör.
 
-### <a name="add-code-to-visual-studio-team-services-project"></a>Lägg till kod i Visual Studio Team Services-projekt
+### <a name="add-code-to-azure-repos"></a>Lägg till kod i Azure-lagringsplatser
 
-1. Logga in till Visual Studio Team Services (VSTS) med ett konto som har behörighet för skapande av projekt på VSTS.
+Azure Repos
+
+1. Logga in på Azure-databaser med ett konto som har rättigheter för projekt skapas på Azure-databaser.
 
     Hybrid CI/CD kan använda för både programkoden och infrastrukturkod. Använd [Azure Resource Manager-mallar](https://azure.microsoft.com/resources/templates/) för både privata och värdbaserade molnutveckling.
 
@@ -117,13 +119,13 @@ Konfigurera hybrid kontinuerlig integrering och kontinuerlig distribution (CI/CD
 
     ![Alternativ text](media\azure-stack-solution-cloud-burst\image3.png)
 
-2.  Checka in kod till VSTS med Team Explorer.
+2.  Checka in kod till Azure-centrallager med Team Explorer.
 
-3.  Bekräfta att programkoden har checkats in Visual Studio Team Services.
+3.  Bekräfta att programkoden har checkats in Azure-databaser.
 
 ## <a name="create-the-build-definition"></a>Skapa build-definition
 
-1. Logga in på VSTS att bekräfta möjligheten att skapa byggdefinitioner.
+1. Logga in på Azure-Pipelines för att bekräfta möjligheten att skapa skapa definitioner.
 
 2. Lägg till **- r win10-x64** kod. Detta är nödvändigt att utlösa en självständig distribution med .net Core.
 
@@ -133,11 +135,11 @@ Konfigurera hybrid kontinuerlig integrering och kontinuerlig distribution (CI/CD
 
 ## <a name="use-an-azure-hosted-agent"></a>Använd Azure som värd agent
 
-Använd en värdbaserad agent i VSTS är ett praktiskt alternativ att bygga och distribuera webbappar. Underhåll och uppgraderingar utförs automatiskt av Microsoft Azure, så att du kontinuerliga, oavbruten utveckling, testning och distribution.
+Använd en värdbaserad agent i Azure Pipelines är ett praktiskt alternativ att bygga och distribuera webbappar. Underhåll och uppgraderingar utförs automatiskt av Microsoft Azure, så att du kontinuerliga, oavbruten utveckling, testning och distribution.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Hantera och konfigurera CD-processen
 
-Visual Studio Team Services och Team Foundation Server (TFS) ger en mycket konfigurerbar och hanterbara pipeline för versioner till flera miljöer, till exempel utveckling, mellanlagring, QA och produktionsmiljöer; inklusive att kräva godkännanden på specifika steg.
+Pipelines och Azure DevOps-Server för Azure ger en mycket konfigurerbar och hanterbara pipeline för versioner till flera miljöer, till exempel utveckling, mellanlagring, QA och produktionsmiljöer; inklusive att kräva godkännanden på specifika steg.
 
 ## <a name="create-release-definition"></a>Skapa versionsdefinition
 
@@ -228,11 +230,11 @@ Visual Studio Team Services och Team Foundation Server (TFS) ger en mycket konfi
 21. Spara alla ändringar.
 
 > [!Note]  
-> Vissa inställningar för uppgifter kan ha automatiskt definierats som [miljövariabler](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) när du skapar en versionsdefinition från en mall. De här inställningarna kan inte ändras i Aktivitetsinställningarna; i stället måste miljöobjekt överordnade väljas för att redigera inställningarna
+> Vissa inställningar för uppgifter kan ha automatiskt definierats som [miljövariabler](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) när du skapar en versionsdefinition från en mall. De här inställningarna kan inte ändras i Aktivitetsinställningarna; i stället måste miljöobjekt överordnade väljas för att redigera inställningarna
 
 ## <a name="publish-to-azure-stack-via-visual-studio"></a>Publicera till Azure Stack via Visual Studio
 
-Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (VSTO) Azure Service-appar till Azure Stack. VSTS ansluter till build-agenten, som ansluter till Azure Stack.
+Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (VSTO) Azure Service-appar till Azure Stack. Azure Pipelines ansluter till build-agenten, som ansluter till Azure Stack.
 
 1.  Logga in på VSTO och gå till inställningssidan.
 
@@ -254,18 +256,18 @@ Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (
 
 10. Välj **spara ändringar**.
 
-Nu när det finns information om slutpunkten, är VSTS till Azure Stack-anslutning klart att användas. Build-agenten i Azure Stack får anvisningar från VSTS och agenten meddelar sedan slutpunktsinformation för kommunikation med Azure Stack.
+Nu när information om slutpunkten finns är Pipelines Azure till Azure Stack-anslutningen klar att användas. Build-agenten i Azure Stack får anvisningar från Azure Pipelines och agenten meddelar sedan slutpunktsinformation för kommunikation med Azure Stack.
 
 ## <a name="develop-the-application-build"></a>Utveckla program build
 
 > [!Note]  
 > Azure Stack med rätt avbildningar syndikeras kör (Windows Server och SQL) och App Service-distributionen måste anges. Granska dokumentation om App Service ”[innan du sätter igång med App Service i Azure Stack](../azure-stack-app-service-before-you-get-started.md)” för Azure Stack-operatör.
 
-Använd [Azure Resource Manager-mallar som web](https://azure.microsoft.com/resources/templates/) kod från VSTS för att distribuera till båda molnen.
+Använd [Azure Resource Manager-mallar som web](https://azure.microsoft.com/resources/templates/) kod från Azure-databaser för att distribuera till båda molnen.
 
-### <a name="add-code-to-a-vsts-project"></a>Lägg till kod i ett VSTS-projekt
+### <a name="add-code-to-a-azure-repos-project"></a>Lägg till kod i ett projekt i Azure-lagringsplatser
 
-1.  Logga in på VSTS med ett konto som har behörighet för projektet skapas på Azure Stack. Nästa skärmdump visar hur du ansluter till HybridCICD-projektet.
+1.  Logga in på Azure-databaser med ett konto som har behörighet för projektet skapas på Azure Stack. Nästa skärmdump visar hur du ansluter till HybridCICD-projektet.
 
 2.  **Klona lagringsplatsen** genom att skapa och öppna standard-webbapp.
 
@@ -273,13 +275,13 @@ Använd [Azure Resource Manager-mallar som web](https://azure.microsoft.com/reso
 
 1.  Redigera den **WebApplication.csproj** fil: Välj **Runtimeidentifier** och Lägg sedan till win10 x64. Mer information finns i [självständigt distribution](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentation.
 
-2.  Använd Team Explorer för att kontrollera koden i VSTS.
+2.  Använd Team Explorer för att kontrollera koden i Azure-databaser.
 
-3.  Bekräfta att programkoden har markerats i Visual Studio Team Services.
+3.  Bekräfta att programkoden checkades in Azure-databaser.
 
 ### <a name="create-the-build-definition"></a>Skapa build-definition
 
-1.  Logga in på VSTS med ett konto som kan skapa en byggesdefinition.
+1.  Logga in på Azure-Pipelines med ett konto som kan skapa en byggesdefinition.
 
 2.  Navigera till den **skapa webbprogram** sidan för projektet.
 
@@ -289,17 +291,17 @@ Använd [Azure Resource Manager-mallar som web](https://azure.microsoft.com/reso
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Använd Azure som värd skapandeagent
 
-Med hjälp av en värdbaserad skapandeagent i VSTS är ett praktiskt alternativ för att skapa och distribuera webbappar. Agentunderhåll och uppgraderingar utförs automatiskt av Microsoft Azure, vilket gör det möjligt för en kontinuerlig och oavbruten utvecklingscykeln.
+Med hjälp av en värdbaserad skapandeagent i Pipelines för Azure är ett praktiskt alternativ för att skapa och distribuera webbappar. Agentunderhåll och uppgraderingar utförs automatiskt av Microsoft Azure, vilket gör det möjligt för en kontinuerlig och oavbruten utvecklingscykeln.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Konfigurera kontinuerlig distribution (CD)-processen
 
-Visual Studio Team Services (VSTS) och Team Foundation Server (TFS) ger en mycket konfigurerbar och hanterbara pipeline för versioner till flera miljöer, till exempel utveckling, mellanlagring, kvalitetssäkring (kvalitetskontroll) och produktion. Den här processen kan inkludera att kräva godkännanden i specifika led i programmets hela livscykel.
+Azure Pipelines och Azure DevOps-servern ger en mycket konfigurerbar och hanterbara pipeline för versioner till flera miljöer, till exempel utveckling, mellanlagring, kvalitetssäkring (kvalitetskontroll) och produktion. Den här processen kan inkludera att kräva godkännanden i specifika led i programmets hela livscykel.
 
 #### <a name="create-release-definition"></a>Skapa versionsdefinition
 
 Skapa en versionsdefinition är det sista steget i programmet genereringsprocessen. Den här versionsdefinition används för att skapa en version och distribuera en version.
 
-1.  Logga in på VSTS och gå till **Build and Release** för projektet.
+1.  Logga in på Azure Pipelines och gå till **Build and Release** för projektet.
 
 2.  På den **versioner** fliken **[+]** och välj **skapa versionsdefinition**.
 
@@ -346,7 +348,7 @@ Skapa en versionsdefinition är det sista steget i programmet genereringsprocess
 23. Spara alla ändringar.
 
 > [!Note]  
-> Vissa inställningar för publiceringsuppgifter definieras automatiskt som [miljövariabler](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) när du skapar en versionsdefinition från en mall. De här inställningarna kan inte ändras i Aktivitetsinställningarna, men kan ändras i de överordnade objekten för miljön.
+> Vissa inställningar för publiceringsuppgifter definieras automatiskt som [miljövariabler](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) när du skapar en versionsdefinition från en mall. De här inställningarna kan inte ändras i Aktivitetsinställningarna, men kan ändras i de överordnade objekten för miljön.
 
 ## <a name="create-a-release"></a>Skapa en version
 

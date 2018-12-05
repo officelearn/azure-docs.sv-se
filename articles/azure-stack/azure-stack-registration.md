@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 8d737c9fbf149051a8142f5ff546ea88e648541b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976374"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890559"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -121,8 +121,8 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
 
 2. Lägg till Azure-konto som används för att registrera Azure Stack. Om du vill lägga till kontot, kör den **Add-AzureRmAccount** cmdlet. Du uppmanas att ange dina autentiseringsuppgifter för Azure-konto och du kan behöva använda 2-faktor autentisering baserat på konfigurationen för ditt konto.
 
-   ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+   ```PowerShell
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parameter | Beskrivning |  
@@ -147,11 +147,15 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. Kontrollera sedan du är inloggad rätt kontext i Azure PowerShell i samma PowerShell-session. Det här är den azure-konto som används för att registrera resursprovidern Azure Stack ovan. PowerShell för att köra:
+6. Kontrollera sedan du är inloggad rätt kontext i Azure PowerShell i samma PowerShell-session. Det här är den Azure-konto som används för att registrera resursprovidern Azure Stack ovan. PowerShell för att köra:
 
    ```PowerShell  
-   Add-AzureRmAccount -Environment "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
+
+   | Parameter | Beskrivning |  
+   |-----|-----|
+   | EnvironmentName | Azure-molnet miljö prenumerationsnamnet. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure-prenumeration **AzureChinaCloud**.  |
 
 7. I samma PowerShell-session kör du den **Set-AzsRegistration** cmdlet. PowerShell för att köra:  
 
@@ -182,7 +186,7 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
 2. Lägg till Azure-konto som används för att registrera Azure Stack. Om du vill lägga till kontot, kör den **Add-AzureRmAccount** cmdlet. Du uppmanas att ange dina autentiseringsuppgifter för Azure-konto och du kan behöva använda 2-faktor autentisering baserat på konfigurationen för ditt konto.
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parameter | Beskrivning |  
@@ -298,7 +302,7 @@ Du kan även använda cmdleten Get-innehåll för att den pekar på en fil som i
 
 Följ dessa steg för att verifiera att Azure Stack har registrerats med Azure.
 
-1. Logga in på Azure Stack [administratörsportalen](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;region >. &lt;fqdn >*.
+1. Logga in på Azure Stack [administrationsportalen](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;region >. &lt;fqdn >*.
 2. Välj **alla tjänster**, och sedan under den **ADMINISTRATION** kategori, väljer **Marketplace management** > **Lägg till från Azure**.
 
 Om du ser en lista med objekt som är tillgängliga från Azure (till exempel WordPress) lyckades aktiveringen. Men i frånkopplade miljöer visas inte Azure marketplace-objekt i Azure Stack marketplace.

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c9ac1c228fd3fd4ba666fd7881e387d79929ed9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427258"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869967"
 ---
 # <a name="asdk-release-notes"></a>Viktig information om ASDK  
 Den här artikeln innehåller information om förbättringar, korrigeringar och kända problem i Azure Stack Development Kit (ASDK). Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,32 +46,11 @@ Mer information finns i [Azure Stack syslog-vidarebefordran](../azure-stack-inte
 <!-- TBD - IS ASDK --> 
 - Ett problem där du skapade virtuella datorer på Azure Stack-användarportalen och portalen visas ett felaktigt antal datadiskar som kan ansluta till virtuella datorer i DS-serien har åtgärdats. DS-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
 
-- Följande problem för hanterad disk har korrigerats i 1809 och korrigeras också i 1808 [Azure Stack-snabbkorrigeringen 1.1808.7.113](https://support.microsoft.com/help/4471992/): 
-
-   <!--  2966665 – IS, ASDK --> 
-   - Åtgärdats i vilka kopplar SSD datadiskar till premium-storlek som hanterad disk virtuella datorer (DS, DSv2, Fs, Fs_V2) misslyckades med ett fel: *gick inte att uppdatera diskar för den virtuella datorn 'vmname' fel: begärda åtgärden inte kan utföras eftersom lagringskontotypen ”Premium_LRS” inte stöds för VM-storleken ”Standard_DS/Ds_V2/FS/Fs_v2)*. 
-   
-   - Skapa en hanterad disk VM med hjälp av **createOption**: **bifoga** misslyckas med följande fel: *tidskrävande åtgärden misslyckades med statusen ”misslyckades”. Ytterligare information: ”ett internt körningsfel inträffade”.*
-   Felkod: InternalExecutionError ErrorMessage: ett internt körningsfel har inträffat.
-   
-   Det här problemet har nu åtgärdats.
-
 - <!-- 2702741 -  IS, ASDK --> Ett problem har åtgärdats i vilka offentliga IP-adresser som har distribuerats med hjälp av dynamisk allokering metoden inte har garanterat bevaras när en frigörandet har utfärdats. De finns kvar.
 
 - <!-- 3078022 - IS, ASDK --> Om en virtuell dator var frigörandet innan 1808 gick det inte att uppdatera allokerade efter 1808 uppdateringen.  Det här problemet löses i 1809. Instanser som fanns i det här tillståndet och kunde inte startas kan startas i 1809 med den här snabbkorrigeringen. Korrigeringen förhindrar också att det här problemet igen.
 
-<!-- 3090289 – IS, ASDK --> 
-- Ett problem har åtgärdats där efter att uppdateringen 1808, du kan stöta på följande problem när du distribuerar virtuella datorer med hanterade diskar:
-
-   1. Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
-      1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
-      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
-   2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
-      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4471992).
-      2. Följ stegen i [i den här artikeln](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
-
 - **Olika korrigeringar** för prestanda, stabilitet, säkerhet och det operativsystem som används av Azure Stack
-
 
 ### <a name="changes"></a>Ändringar
 

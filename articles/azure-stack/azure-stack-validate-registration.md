@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/08/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 51753a5324bbbcbf4e951628a42dd3bf425354af
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 209793545078a47f91e8fe34c3f85ffb671a2bdb
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957590"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888179"
 ---
 # <a name="validate-azure-registration"></a>Verifiera Azure-registrering 
 Använd verktyget Azure Stack-beredskap för installation (AzsReadinessChecker) för att verifiera att din Azure-prenumeration är redo att använda med Azure Stack. Verifiera registrering innan du påbörjar en Azure Stack-distributionen. Validerar beredskap för installation:
@@ -46,7 +46,7 @@ Följande krav måste vara på plats.
 **Azure Active Directory-miljö:**
  - Identifiera användarnamnet och lösenordet för ett konto som är ägare till den Azure-prenumeration du vill använda med Azure Stack.  
  - Identifiera prenumerations-ID för Azure-prenumeration du ska använda. 
- - Identifiera AzureEnvironment som du ska använda: *AzureCloud*, *AzureGermanCloud*, eller *AzureChinaCloud*.
+ - Identifiera AzureEnvironment som du ska använda. Värden som stöds för miljön name-parametern är AzureCloud, AzureChinaCloud eller azureusgovernment eller beroende på vilken Azure-prenumeration du använder.
 
 ## <a name="validate-azure-registration"></a>Verifiera Azure-registrering
 1. Öppna en administrativ PowerShell-kommandotolk och kör sedan följande kommando för att installera AzsReadinessChecker på en dator som uppfyller kraven.
@@ -59,21 +59,20 @@ Följande krav måste vara på plats.
      > `$subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` 
 
 4. Från PowerShell-Kommandotolken kör du följande för att starta valideringen av din prenumeration 
-   - Ange värdet för AzureEnvironment som *AzureCloud*, *AzureGermanCloud*, eller *AzureChinaCloud*.  
+   - Ange värdet för AzureEnvironment. Värden som stöds för miljön name-parametern är AzureCloud, AzureChinaCloud eller azureusgovernment eller beroende på vilken Azure-prenumeration du använder.  
    - Ange din Azure Active Directory-administratör och namnet på din Azure Active Directory-klient. 
 
-   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment <environment name> -RegistrationSubscriptionID $subscriptionID`
 
 5. Granska utdata när verktyget körs. Bekräfta att statusen är OK för både inloggning och kraven för enhetsregistrering. En lyckad validering visas som liknar följande:  
-````PowerShell
-Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
-Checking Registration Requirements: OK
 
-Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
-Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
-Invoke-AzsRegistrationValidation Completed
-````
-
+    ```PowerShell
+    Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+    Checking Registration Requirements: OK
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+    Invoke-AzsRegistrationValidation Completed
+    ```
 
 ## <a name="report-and-log-file"></a>Rapporten och loggfilen
 Varje tidsverifiering körs, loggas resultaten till **AzsReadinessChecker.log** och **AzsReadinessCheckerReport.json**. Platsen för filerna visas med verifieringsresultat i PowerShell. 
@@ -90,7 +89,7 @@ Om en verifieringskontroll misslyckas, visas information om felet i PowerShell-f
 I följande exempel ger vägledning om vanliga verifieringsfel.
 
 ### <a name="user-must-be-an-owner-of-the-subscription"></a>Användaren måste vara ägare till prenumerationen   
-````PowerShell
+```PowerShell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
@@ -100,14 +99,14 @@ Additional help URL https://aka.ms/AzsRemediateRegistration
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsRegistrationValidation Completed
-````
+```
 **Orsak** -kontot inte är administratör för Azure-prenumerationen.   
 
 **Lösning** – Använd ett konto som är administratör för den prenumeration som kommer att debiteras för användning från Azure Stack-distributioner.
 
 
 ### <a name="expired-or-temporary-password"></a>Har upphört att gälla eller tillfälliga lösenord 
-````PowerShell
+```PowerShell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
@@ -120,7 +119,7 @@ Timestamp: 2018-10-22 11:16:56Z: The remote server returned an error: (401) Unau
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsRegistrationValidation Completed
-````
+```
 **Orsak** -kontot kan inte logga in eftersom lösenordet har upphört att gälla eller är tillfälligt.     
 
 **Lösning** – i PowerShell kör och följ anvisningarna för att återställa lösenordet. 
@@ -130,17 +129,17 @@ Du kan också logga in på https://portal.azure.com som kontot och användaren t
 
 
 ### <a name="unknown-user-type"></a>Okänd användartyp  
-````PowerShell
+```PowerShell
 Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
 Checking Registration Requirements: Fail 
 Error Details for registration account admin@contoso.onmicrosoft.com:
-Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with unknown_user_type: Unknown Us
+Checking Registration failed with: Retrieving TenantId for subscription <subscription ID> using <account> failed with unknown_user_type: Unknown Us
 er Type
 
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsRegistrationValidation Completed
-````
+```
 **Orsak** -kontot kan inte logga in på den angivna Azure Active Directory-miljön. I det här exemplet *AzureChinaCloud* har angetts som den *AzureEnvironment*.  
 
 **Lösning** – Kontrollera att kontot är giltigt för den angivna Azure-miljön. I PowerShell kör du följande för att verifiera kontot är giltigt för en viss miljö.     

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: a7c11e4bd3ac30c930ec717426c43d4361e32088
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2baadd0bcb5aba401e2dd6cec9a82ca401b3c9bd
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088874"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620497"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -133,9 +133,8 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial**
         "apiVersion": "2017-09-01-preview",
         "type": "Microsoft.DataFactory/factories",
         "location": "[parameters('dataFactoryLocation')]",
-        "properties": {
-            "loggingStorageAccountName": "[parameters('storageAccountName')]",
-            "loggingStorageAccountKey": "[parameters('storageAccountKey')]"
+        "identity": {
+            "type": "SystemAssigned"
         },
         "resources": [{
                 "type": "linkedservices",

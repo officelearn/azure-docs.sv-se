@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: d65c8653bc039b591f1c0fb711dfe68e3fbacd88
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353569"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888519"
 ---
 # <a name="configure-deployment-sources"></a>Konfigurera distributionskällor
 
@@ -38,7 +38,8 @@ Förutom lokal Git stöds följande källkontrollsprovidrar:
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Visa distributionskällor i App Service-administration
 
 1. Logga in på administrationsportalen för Azure Stack (https://adminportal.local.azurestack.external) som tjänstadministratör.
-2. Bläddra till **Resursprovidrar** och välj den **App tjänstadministratören Resource Provider**.  ![App Service Resource Provider-administratör][1]
+2. Bläddra till **alla tjänster** och välj den **Apptjänst**.
+    ![App Service Resource Provider-administratör][1]
 3. Klicka på **källkontrollkonfiguration**. Du kan se listan över alla förinställda källor.
     ![App Service Resource Provider Admin konfiguration av källkontroll][2]
 

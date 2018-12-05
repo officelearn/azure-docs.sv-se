@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 19e7506dac82e4d12d5aecbdb5ae1c14fb944c29
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961543"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877674"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en applösning för geo-distribuerad med Azure och Azure Stack
 
@@ -81,7 +81,7 @@ I den här delen kommer du skapa en webbapp.
 
 > [!div class="checklist"]
 > - Skapa webbappar och publicera
-> - Lägg till kod i VSTS-projekt
+> - Lägg till kod i Azure-lagringsplatser
 > - Peka flera mål i cloud app-versionen.
 > - Hantera och konfigurera CD-processen
 
@@ -108,9 +108,9 @@ Konfigurera hybrid CI/CD för att distribuera Webbapp till Azure och Azure Stack
 > [!Note]  
 > Azure Stack med rätt avbildningar syndikeras kör (Windows Server och SQL) och App Service-distributionen måste anges. Granska dokumentation om App Service ”[innan du sätter igång med App Service i Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)” för Azure Stack-operatör.
 
-#### <a name="add-code-to-vsts-project"></a>Lägg till kod i VSTS-projekt
+#### <a name="add-code-to-azure-repos"></a>Lägg till kod i Azure-lagringsplatser
 
-1. Logga in på Visual Studio med en **konto som har behörighet för skapande av projekt** på VSTS.
+1. Logga in på Visual Studio med en **konto som har behörighet för skapande av projekt** på Azure-databaser.
 
     Hybrid kontinuerlig integrering/kontinuerlig leverans (CI/CD) kan använda för både programkoden och infrastrukturkod. Använd [Azure Resource Manager-mallar](https://azure.microsoft.com/resources/templates/) för både privata och värdbaserade molnutveckling.
 
@@ -126,13 +126,13 @@ Konfigurera hybrid CI/CD för att distribuera Webbapp till Azure och Azure Stack
 
     ![Alternativ text](media\azure-stack-solution-geo-distributed\image3.png)
 
-1.  **Checka in kod till VSTS** med Team Explorer.
+1.  **Checka in kod till Azure-lagringsplatser** med Team Explorer.
 
-2.  Bekräfta att den **programkod** har checkats in Visual Studio Team Services.
+2.  Bekräfta att den **programkod** har checkats in Azure-databaser.
 
 ### <a name="create-the-build-definition"></a>Skapa build-definition
 
-1. **Logga in på VSTS** att bekräfta möjligheten att skapa byggdefinitioner.
+1. **Logga in på Azure Pipelines** att bekräfta möjligheten att skapa byggdefinitioner.
 
 2. Lägg till **- r win10-x64** kod. Detta är nödvändigt att utlösa en självständig distribution med .net Core.
 
@@ -142,11 +142,11 @@ Konfigurera hybrid CI/CD för att distribuera Webbapp till Azure och Azure Stack
 
 **Med hjälp av en Azure-värdbaserade Agent**
 
-Med hjälp av en agent för installation i VSTS är ett praktiskt alternativ att bygga och distribuera webbappar. Underhåll och uppgraderingar utförs automatiskt av Microsoft Azure, så att du kontinuerliga, oavbruten utveckling, testning och distribution.
+Med hjälp av en värdbaserad agent i Azure Pipelines är ett praktiskt alternativ att bygga och distribuera webbappar. Underhåll och uppgraderingar utförs automatiskt av Microsoft Azure, så att du kontinuerliga, oavbruten utveckling, testning och distribution.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Hantera och konfigurera CD-processen
 
-Visual Studio Team Services (VSTS) och Team Foundation Server (TFS) ger en mycket konfigurerbar och hanterbara pipeline för versioner till flera miljöer, till exempel utveckling, mellanlagring, QA och produktionsmiljöer; inklusive att kräva godkännanden på specifika steg.
+Azure DevOps och Azure DevOps-servern ger en mycket konfigurerbar och hanterbara pipeline för versioner till flera miljöer, till exempel utveckling, mellanlagring, QA och produktionsmiljöer; inklusive att kräva godkännanden på specifika steg.
 
 #### <a name="create-release-definition"></a>Skapa versionsdefinition
 

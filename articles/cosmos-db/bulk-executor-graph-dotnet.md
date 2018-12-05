@@ -4,21 +4,18 @@ description: Lär dig hur du använder BulkExecutor-biblioteket för att importe
 services: cosmos-db
 keywords: graph, gremlin, bulk, bulkexecutor, migration, data, cosmosdb, cosmos, database, import
 author: luisbosquez
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 39abf6d6da8a8035cf486ceb30b9c21186bbb925
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: d5a25bd7cab68f77a37b14ba41bf3cc832c2125f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234435"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836720"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda BulkExecutor .NET-diagrambiblioteket för att utföra massåtgärder i Azure Cosmos DB Gremlin API
 

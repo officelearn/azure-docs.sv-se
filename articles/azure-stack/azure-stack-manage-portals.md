@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 58856875fa7d7bb3ba63c489fb17790e68f99aec
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085855"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872194"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Med hjälp av administratörsportalen i Azure Stack
 
@@ -86,6 +86,10 @@ Om du väljer ikonen Hjälp och support (frågetecken) i det övre högra hörne
 
 - Om du använder ett integrerat system, öppnar den här åtgärden en plats där du kan direkt öppna ett supportärende med Microsofts kundsupport (CSS). Referera till [var du kan få support](azure-stack-manage-basics.md#where-to-get-support) att förstå när du ska gå via Microsoft-supporten eller din leverantör maskinvarustöd OEM-tillverkare (original equipment manufacturer).
 - Om du använder i development kit öppnas på Azure Stack-forumwebbplatsen direkt i den här åtgärden. Dessa forum övervakas regelbundet. Eftersom i development kit är en utvecklingsmiljö, det finns inget officiella stöd som erbjuds via Microsoft CSS.
+
+### <a name="quick-access-to-the-azure-roadmap"></a>Snabb åtkomst till Azure-översikt
+
+Om du väljer **hjälp och support** (frågetecken) i det övre högra hörnet av administratören portalen och välj sedan **Azure-översikt**, en ny webbläsarflik öppnas och tar dig till Azure-översikten. Genom att skriva **Azure Stack** i den **produkter** sökrutan visas alla uppdateringar i Azure Stack-översikten.
 
 ## <a name="next-steps"></a>Nästa steg
 

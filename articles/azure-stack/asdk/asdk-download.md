@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: dc301f218855139cfb3a5faa30109dd5a301eb07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054341"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871208"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Ladda ned och extrahera Azure Stack Development Kit (ASDK)
 När du har säkerställt att värddatorn development kit uppfyller de grundläggande kraven för att installera ASDK, är nästa steg att ladda ned och extrahera ASDK distributionspaketet för att få Cloudbuilder.vhdx.
@@ -29,7 +29,7 @@ När du har säkerställt att värddatorn development kit uppfyller de grundläg
 1. Kontrollera att datorn uppfyller följande krav innan du startar hämtning:
 
   - Datorn måste ha minst 60 GB ledigt utrymme på fyra separata, identiska logiska hårddiskar dessutom att operativsystemdisken.
-  - [.NET framework 4.6 (eller en senare version)](https://aka.ms/r6mkiy) måste vara installerad.
+  - [.NET framework 4.6 (eller en senare version)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) måste vara installerad.
 
 2. [Gå till sidan komma igång](https://azure.microsoft.com/overview/azure-stack/try/?v=try) där du kan hämta Azure Stack Development Kit, ange din information och klicka sedan på **skicka**.
 3. Ladda ned och kör den [distribution av förutsättningar för Azure Stack Development Kit](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) kravkontrollen skript. Det här skriptet för fristående går igenom vilka förutsättningar kontroller som utförs av installationsprogrammet för Azure Stack Development Kit. Den gör det möjligt att bekräfta att du uppfyller kraven på maskinvara och programvara innan du laddar ned större paketet för Azure Stack Development Kit.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238634"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864986"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Saker att tänka på för Azure Stack-distribution
 Innan du distribuerar Azure Stack Development Kit (ASDK) måste du kontrollera att värddatorn development kit uppfyller kraven som beskrivs i den här artikeln.
@@ -121,7 +121,7 @@ Endast IPv4 stöds. Du kan inte skapa IPv6-nätverk.
 Kontrollera att det finns en DHCP-server i nätverket som nätverkskortet ansluts till. Om DHCP inte är tillgängligt måste du förbereda ytterligare ett statiskt IPv4-nätverk än det som används av värden. Du måste ange IP-adress och gateway som distributionsparameter.
 
 ### <a name="internet-access"></a>Internet-åtkomst
-Azure Stack kräver åtkomst till Internet, antingen direkt eller via en transparent proxy. Azure Stack har inte stöd för konfigurationen av en webbproxy för att aktivera åtkomst till Internet. Både värddatorns IP-adress och den nya IP-Adressen som tilldelats MAS-BGPNAT01 (via DCHP eller statisk IP-adress) måste kunna få åtkomst till Internet. Portarna 80 och 443 används under domänerna graph.windows.net och login.microsoftonline.com domäner.
+Azure Stack kräver åtkomst till Internet, antingen direkt eller via en transparent proxy. Azure Stack har inte stöd för konfigurationen av en webbproxy för att aktivera åtkomst till Internet. Både värddatorns IP-adress och den nya IP-Adressen som tilldelats AzS-BGPNAT01 (via DCHP eller statisk IP-adress) måste kunna få åtkomst till Internet. Portarna 80 och 443 används under domänerna graph.windows.net och login.microsoftonline.com domäner.
 
 
 ## <a name="next-steps"></a>Nästa steg

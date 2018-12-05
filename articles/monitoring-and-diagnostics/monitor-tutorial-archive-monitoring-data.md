@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: ac8be998a70b31af9829eeeab24902c62fd2fe37
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ab91ac3eb115504727e5ee9e912d070262027cc7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961525"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834085"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arkivera Azure mått och loggdata med hjälp av Azure Storage
 
@@ -198,4 +198,4 @@ I den här kursen får du har lärt dig hur du ställer in så att övervaknings
 Om du vill få ut ännu mer av dina data ska du även skicka dem till Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Komma igång med Log Analytics](../log-analytics/log-analytics-queries.md)
+> [Komma igång med Log Analytics](../azure-monitor/log-query/log-query-overview.md)

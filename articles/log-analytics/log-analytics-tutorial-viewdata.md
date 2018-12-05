@@ -9,18 +9,17 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 46bc932011a3699dbaced8316bc0e1b514c9a385
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f953d13de78702328aef2b75d121e775c5f58f44
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043064"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876805"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visa eller analysera data som samlats in med Log Analytics-loggsökning
 
@@ -32,7 +31,7 @@ I Log Analytics kan du använda loggsökningar genom att konstruera frågor för
 
 Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-arbetsytan](log-analytics-quick-collect-azurevm.md) för att kunna utföra exemplet i självstudien.  
 
-Du kan skapa och redigera frågor på två olika sätt utöver att arbeta interaktivt med returnerade data.  För grundläggande frågor använder du loggsökningssidan i Azure-portalen, och för avancerade frågor kan du använda portalen Avancerad analys. Om du vill veta mer om funktionsskillnaderna mellan de två portalerna kan du läsa informationen om [portaler för att skapa och redigera loggfrågor i Azure Log Analytics](log-analytics-log-search-portals.md)
+Du kan skapa och redigera frågor på två olika sätt utöver att arbeta interaktivt med returnerade data.  För grundläggande frågor använder du loggsökningssidan i Azure-portalen, och för avancerade frågor kan du använda portalen Avancerad analys. Om du vill veta mer om funktionsskillnaderna mellan de två portalerna kan du läsa informationen om [portaler för att skapa och redigera loggfrågor i Azure Log Analytics](../azure-monitor/log-query/portals.md)
 
 I den här självstudien kommer vi att arbeta med loggsökning i Azure-portalen. 
 

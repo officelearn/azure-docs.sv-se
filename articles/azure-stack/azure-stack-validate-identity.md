@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0a46344893c8ad62bd85f9abb84d434c0331d507
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 61562450d484f34385b4e6e111bf62326eaca159
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984204"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888383"
 ---
 # <a name="validate-azure-identity"></a>Verifiera Azure identity 
 Använd verktyget Azure Stack-beredskap för installation (AzsReadinessChecker) för att verifiera att din Azure Active Directory (Azure AD) är klart att användas med Azure Stack. Verifiera din för Azure-identitetslösning innan du påbörjar en Azure Stack-distributionen.  
@@ -48,7 +48,7 @@ Följande krav måste vara på plats.
 **Azure Active Directory-miljö:**
  - Identifiera Azure AD-konto du vill använda för Azure Stack och kontrollera att det är en Azure Active Directory Global administratör.
  - Identifiera namnet på din Azure AD-klient. Innehavarens namn måste vara den *primära* domännamn för din Azure Active Directory. Till exempel *contoso.onmicrosoft.com*. 
- - Identifiera AzureEnvironement som du ska använda: *AzureCloud*, *AzureGermanCloud*, eller *AzureChinaCloud*.
+ - Identifiera AzureEnvironement som du ska använda. Värden som stöds för miljön name-parametern är AzureCloud, AzureChinaCloud eller azureusgovernment eller beroende på vilken Azure-prenumeration du använder.
 
 ## <a name="validate-azure-identity"></a>Verifiera Azure identity 
 1. Öppna en administrativ PowerShell-kommandotolk och kör sedan följande kommando för att installera AzsReadinessChecker på en dator som uppfyller kraven:  
@@ -59,10 +59,10 @@ Följande krav måste vara på plats.
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. Från PowerShell-Kommandotolken kör du följande för att starta valideringen av din Azure AD. 
-   - Ange värdet för AzureEnvironment som *AzureCloud*, *AzureGermanCloud*, eller *AzureChinaCloud*.  
+   - Ange namn-värde miljö för AzureEnvironment. Värden som stöds för miljön name-parametern är AzureCloud, AzureChinaCloud eller azureusgovernment eller beroende på vilken Azure-prenumeration du använder.  
    - Ange din Azure Active Directory klientnamnet för att ersätta *contoso.onmicrosoft.com*. 
 
-   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
+   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. Granska utdata när verktyget körs. Bekräfta att statusen är **OK** för installationskraven. En lyckad validering visas som på följande bild: 
  
 ````PowerShell

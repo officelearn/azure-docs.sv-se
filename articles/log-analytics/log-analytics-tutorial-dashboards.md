@@ -10,18 +10,17 @@ ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 8ab6107279fe546205605b24da53073f49c7a204
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f4d46b7b8ba245c4a7e3eddbe0615c47a1e99096
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014456"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870444"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Skapa och dela instrumentpaneler för Log Analytics
 
@@ -56,7 +55,7 @@ Du uppmanas att välja en prenumeration och resursgrupp som din instrumentpanel 
 
 Skapa grundläggande frågor på en enda rad från loggsökningsportalen i Azure Portal. Loggsökningsportalen kan användas utan att du behöver starta externa portaler och du kan använda den för att utföra en mängd funktioner med loggsökningar, som t.ex. skapa varningsregler, datorgrupper och exportera frågeresultat. 
 
-[Log Analytics-portalen](../log-analytics/query-language/get-started-analytics-portal.md) är en dedikerad portal som tillhandahåller avancerade funktioner som inte finns tillgängliga i loggsökningsportalen. Funktionen ger möjlighet att redigera en fråga på flera rader, köra kod selektivt, sammanhangsberoende Intellisense och Smart Analytics. I Advanced Analytics-portalen kan du skapa en prestandavy i grafisk form, spara den för framtida sökningar och fästa den på den delade instrumentpanelen som skapades tidigare.   
+[Log Analytics-portalen](../azure-monitor/log-query/get-started-portal.md) är en dedikerad portal som tillhandahåller avancerade funktioner som inte finns tillgängliga i loggsökningsportalen. Funktionen ger möjlighet att redigera en fråga på flera rader, köra kod selektivt, sammanhangsberoende Intellisense och Smart Analytics. I Advanced Analytics-portalen kan du skapa en prestandavy i grafisk form, spara den för framtida sökningar och fästa den på den delade instrumentpanelen som skapades tidigare.   
 
 Du kan starta Advanced Analytics-portalen från en länk i loggsökningsportalen.<br> ![Starta Advanced Analytics-portalen](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

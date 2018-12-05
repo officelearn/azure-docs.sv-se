@@ -11,12 +11,12 @@ ms.service: automation
 ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ad9fc7deb73cdcbcf83cc10b9b28f7d7e4ac7661
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6ff8bccc7037782b2709340312f0602b4cd7ab1f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283799"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834340"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Identifiera vilken programvara som är installerad på dina datorer med och utan Azure
 
@@ -70,7 +70,7 @@ Välj **+ Lägg till virtuell Azure-dator**. Sidan **Virtuella datorer** öppnas
 
 ## <a name="onboard-a-non-azure-machine"></a>Publicera en virtuell dator utan Azure
 
-Lägg till datorer utan Azure genom att installera agenten för [Windows](../log-analytics/log-analytics-agent-windows.md) eller [Linux](automation-linux-hrw-install.md), beroende på vilket operativsystem du har. När agenten är installerad går du till ditt Automation-konto och **Inventering** under **KONFIGURATIONSHANTERING**. När du klickar på **Hantera datorer** visas en lista med de datorer som rapporterar till Log Analytics-arbetsytan och som inte har någon aktiverad lösning. Välj lämpligt alternativ för din miljö.
+Lägg till datorer utan Azure genom att installera agenten för [Windows](../azure-monitor/platform/agent-windows.md) eller [Linux](automation-linux-hrw-install.md), beroende på vilket operativsystem du har. När agenten är installerad går du till ditt Automation-konto och **Inventering** under **KONFIGURATIONSHANTERING**. När du klickar på **Hantera datorer** visas en lista med de datorer som rapporterar till Log Analytics-arbetsytan och som inte har någon aktiverad lösning. Välj lämpligt alternativ för din miljö.
 
 * **Aktivera på alla tillgängliga datorer** – Med det här alternativet aktiveras lösningen på alla datorer som rapporterar till Log Analytics-arbetsytan just nu.
 * **Aktivera på alla tillgängliga och framtida datorer** – Med det här alternativet aktiveras lösningen på alla datorer som rapporterar till Log Analytics-arbetsytan och därefter på alla framtida datorer som läggs till i arbetsytan.
@@ -113,7 +113,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Mer information om hur du kör och söker efter loggfiler i Log Analytics finns [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
+Mer information om hur du kör och söker efter loggfiler i Log Analytics finns [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="single-machine-inventory"></a>Inventering för en enda dator
 

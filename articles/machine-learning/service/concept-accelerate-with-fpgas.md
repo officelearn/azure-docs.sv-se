@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
-ms.date: 9/24/2018
-ms.openlocfilehash: 411beacd65915c30338ab415b095acc1a0c8cbe6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: c40837baf66b39d98da17c244f462f356d2b1f26
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238863"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864357"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>Vad är FPGA och Project Brainwave?
 
@@ -37,7 +37,7 @@ FPGA innehåller en matris av programmerbara logiska block och en hierarki av om
 
 [Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) är Microsofts ekonomiskt maskinvaruarkitektur baserat på Intels FPGA enheter att dataexperter och utvecklare som använder för att påskynda i realtid AI-beräkningar.  Den här FPGA-aktiverade arkitekturen erbjuder **prestanda**, **flexibilitet**, och **skala** och är tillgänglig på Azure.
 
-**FPGA gör det möjligt att uppnå med låg latens för i realtid inferensjobb begäranden.** Batchbearbetning innebär att samla in en stor mängd data och skicka den till en processor att förbättra maskinvaruutnyttjandet. Batchbearbetning kan orsaka svarstid eftersom mer data som behöver bearbetas, men det kan förbättra dataflödet. Project Brainwave implementeringar av neurala bearbetningsenheter kräver inte batchbearbetning; Därför kan fördröjningen vara många gånger lägre jämfört med processor- och GPU.
+**FPGA gör det möjligt att uppnå med låg latens för i realtid inferensjobb begäranden.** Asynkrona begäranden (batch) behövs inte. Batchbearbetning kan orsaka svarstid eftersom mer data som behöver bearbetas, men det kan förbättra genomflöde i vissa sammanhang. Project Brainwave implementeringar av neurala bearbetningsenheter kräver inte batchbearbetning; Därför kan fördröjningen vara många gånger lägre jämfört med processor- och GPU.
 
 ### <a name="reconfigurable-power"></a>Omkonfigurerbara power
 **FPGA kan konfigureras för olika typer av machine learning-modeller.** Den här flexibiliteten gör det enklare att påskynda de programmen baserat på den mest optimala numerisk precision och modellen i minnet som används.
@@ -68,7 +68,7 @@ Följande scenarier använder FPGA i Project Brainwave arkitektur:
 
 Här är arbetsflödet för att skapa en avbildning av tjänst i Azure med stöds dnn: er som en upplärda för distribution på Azure FPGA:
 
-1. Använd Azure Machine Learning-SDK för Python för att skapa en tjänstdefinition av som är en fil som beskriver en pipeline med diagram (indata, upplärda och klassificerare) baserat på TensorFlow. Distributionskommandot automatiskt komprimera definitions- och diagram i en ZIP-fil och ladda upp ZIP-filen till Azure Blob storage.  DNN redan har distribuerats på Project Brainwave ska köras på FPGA.
+1. Använd den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) för att skapa en tjänstdefinition, vilket är en fil som beskriver en pipeline med diagram (indata, upplärda och klassificerare) baserat på TensorFlow. Distributionskommandot automatiskt komprimera definitions- och diagram i en ZIP-fil och ladda upp ZIP-filen till Azure Blob storage.  DNN redan har distribuerats på Project Brainwave ska köras på FPGA.
 
 1. Registrera modellen med hjälp av SDK med ZIP-filen i Azure Blob storage.
 

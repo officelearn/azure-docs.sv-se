@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0612a7798d3cc2e43efc296bd2b749735e74f765
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94c03c9aa6e361167b396af5218b308e6cacfafe
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720855"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879816"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Felsökning av aviseringar i Azure Monitor  
 ## <a name="overview"></a>Översikt
@@ -30,7 +30,7 @@ Termen **Loggaviseringar** beskriver aviseringar att fire baserat på en anpassa
 Här följer några vanliga orsaker till varför en konfigurerade [loggvarningsregel i Azure Monitor](alert-log.md) tillstånd inte visar [som *utlösta* när förväntades](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Tid för inmatning av data för loggar
-Log avisering körs regelbundet frågan baserat på [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-analytics.md). Eftersom Log Analytics bearbetar många terabyte med data från tusentals kunder från olika källor i hela världen, är tjänsten sårbara för en varierande tidsfördröjning. Mer information finns i [tid för inmatning av Data i Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Log avisering körs regelbundet frågan baserat på [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-analytics.md). Eftersom Log Analytics bearbetar många terabyte med data från tusentals kunder från olika källor i hela världen, är tjänsten sårbara för en varierande tidsfördröjning. Mer information finns i [tid för inmatning av Data i Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
 
 För att minimera fördröjning för inmatning av data, systemet väntar och försöker aviseringsfrågan flera gånger om den hittar nödvändiga data inte matas ännu. Systemet har ett ökar exponentiellt väntetid som angetts. Vilka log aviseringar endast utlösare när data är tillgängliga så att de fördröjning kan bero på långsam logg för datainmatning. 
 
@@ -56,17 +56,17 @@ Anta exempelvis att en varningsregel för metriska måttenheter-loggen har konfi
 - aviseringslogik tre på varandra följande överträdelser
 - Sammanställd vid som $table
 
-Eftersom kommandot innefattar *... summera efter* och två variabler (tidsstämpel & $table), som tillhandahålls $table till ”sammanställd vid” väljs automatiskt. Sorteras efter fältet resultattabellen *$table* enligt nedan och tittar sedan på flera AggregatedValue för varje tabelltyp (till exempel availabilityResults) för att se om det var efterföljande överträdelser av 3 eller mer.
+Eftersom kommandot innefattar *summera efter* och två variabler (tidsstämpel & $table), som tillhandahålls $table till sammanställda vid väljs automatiskt. Sorteras efter fältet resultattabellen *$table* enligt nedan och tittar sedan på flera AggregatedValue för varje tabelltyp (till exempel availabilityResults) för att se om det var efterföljande överträdelser av 3 eller mer.
 
 ![Metrisk mätning Frågekörningen med flera värden](./media/monitor-alerts-unified/LogMMQuery.png)
 
-Som ”sammanställd” är $table – sorteras data på $table kolumn (som i rött); Vi gruppen och leta efter typer av fältet ”sammanställd vid” (det vill säga) $table – till exempel: värdena för availabilityResults betraktas som en rityta/entitet (som markerade i Orange). I det här värdet diagram/entitet – avisering tjänsten söker efter tre på varandra följande intrång inträffar (som visas i grönt) för vilka aviseringen ska hämta utlöst för tabellvärde ”availabilityResults”. På samma sätt, om för ett annat värde för $table om tre efterföljande överträdelser ses – en annan avisering om utlöses för samma sak; med alert-tjänsten Sortera automatiskt värdena i en rityta/entitet (som i Orange) efter tid.
+Eftersom sammanställd vid $table sorteras data på $table kolumn (som i rött); Vi gruppen och leta efter typer av sammanställda vid fältet (det vill säga) $table till exempel: värdena för availabilityResults betraktas som en rityta/entitet (som markerade i Orange). I det här värdet diagram/entitet avisering tjänsten söker efter tre på varandra följande intrång inträffar (som visas i grönt) för vilka aviseringen ska hämta utlöst för tabellvärde ”availabilityResults”. På samma sätt, om för ett annat värde för $table om tre efterföljande överträdelser ses – en annan avisering om utlöses för samma sak; med alert-tjänsten Sortera automatiskt värdena i en rityta/entitet (som i Orange) efter tid.
 
-Anta nu, metriska måttenheter loggvarningsregler ändrades och frågan var `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` med resten av konfig kvar samma som innan inklusive aviseringslogiken för tre efterföljande överträdelser. Alternativet ”Aggregera på” i det här fallet kommer att som standard: tidsstämpel. Eftersom bara ett värde har angetts i frågan för summera... efter tidsstämpel (det vill säga); liknar tidigare exempel slutet av körningen utdata skulle vara som på bilden nedan. 
+Anta nu, metriska måttenheter loggvarningsregler ändrades och frågan var `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` med resten av konfig kvar samma som innan inklusive aviseringslogiken för tre efterföljande överträdelser. Alternativet ”Aggregera på” i det här fallet kommer att som standard: tidsstämpel. Eftersom bara ett värde har angetts i frågan för summera efter tidsstämpel (det vill säga); liknar tidigare exempel slutet av körningen utdata skulle vara som på bilden nedan. 
 
    ![Metrisk mätning Frågekörningen med rapportanvändare värde](./media/monitor-alerts-unified/LogMMtimestamp.png)
 
-Som ”sammanställd” är timestamp – sorteras data på kolumn för tidsstämpel (som i rött); sedan vi Gruppera efter tidsstämpel – till exempel: värden för `2018-10-17T06:00:00Z` betraktas som en rityta/entitet (som markerade i Orange). I det här värdet diagram/entitet – hittar meddelandetjänst kommer aldrig hämta utlöst inga efterföljande överträdelser förekommer (som varje tidsstämpelvärde har bara en post) och kan därför avisering. Därför i detta fall är måste användaren antingen-
+Eftersom sammanställd vid tidsstämpel sorteras data på kolumn för tidsstämpel (som i rött); sedan vi till exempel gruppera efter tidsstämpel: värden för `2018-10-17T06:00:00Z` betraktas som en rityta/entitet (som markerade i Orange). I det här värdet diagram/entitet hittar aviseringstjänsten kommer aldrig hämta utlöst inga efterföljande överträdelser förekommer (som varje tidsstämpelvärde har bara en post) och kan därför avisering. Därför i detta fall är måste användaren antingen-
 - Lägga till en dummy variabel eller en befintlig variabel (t.ex. $table) korrekt sorteringsmetoden klar med hjälp av ”sammansatt vid” fält som har konfigurerats
 - (Eller) Konfigurera om varningsregel för att använda aviseringslogiken utifrån *Totalt antal överträdelser* i stället på rätt sätt
  
@@ -74,7 +74,7 @@ Som ”sammanställd” är timestamp – sorteras data på kolumn för tidsstä
 Detaljerad nästa är några vanliga orsaker till varför en konfigurerade [loggvarningsregel i Azure Monitor](alert-log.md) kan utlösas när den visas i [Azure Alerts](monitoring-alerts-managing-alert-states.md), när du inte den ska vara aktiverade.
 
 ### <a name="alert-triggered-by-partial-data"></a>Varningen aktiverades av partiella data
-Är Log Analytics och Application Insights Analytics är föremål för inmatning fördröjningar och bearbetning. på grund av som, kan vid tidpunkten när angivna loggvarningsfråga körs – det finnas fall ingen information är tillgänglig eller bara vissa data som är tillgängliga. Mer information finns i [tid för inmatning av Data i Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Är Log Analytics och Application Insights Analytics är föremål för inmatning fördröjningar och bearbetning. på grund av som, kan vid tidpunkten när angivna loggvarningsfråga körs – det finnas fall ingen information är tillgänglig eller bara vissa data som är tillgängliga. Mer information finns i [tid för inmatning av Data i Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
 
 Beroende på hur regeln har konfigurerats, det kan vara felaktigt firing om det finns inga eller partiella data i loggar vid tidpunkten för avisering körning. I sådana fall rekommenderar vi att du kan ändra aviseringsfråga eller konfiguration. 
 
@@ -83,7 +83,7 @@ Exempel: om loggvarningsregel har konfigurerats för att utlösa när antalet re
 ### <a name="alert-query-output-misunderstood"></a>Aviseringsfråga utdata tror många
 Du kan ange logiken för loggaviseringar i en analytics-fråga. Analytics-fråga kan använda olika stordata och matematiska funktioner.  Aviseringar tjänsten kör din fråga med intervall som angetts med data för en angiven tidsperiod. Aviseringar service gör små ändringar i angivna frågan baserat på den aviseringstyp som valts. Detta syns i avsnittet ”fråga för att köras” i *konfigurera signallogiken* skärmen som visas nedan: ![fråga som ska köras](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-Vad som visas i den **fråga som ska köras** rutan är varning Loggtjänsten körs. Du kan köra den angivna frågan samt timespan via [analysportalen](../log-analytics/log-analytics-log-search-portals.md) eller [API för textanalys](https://docs.microsoft.com/rest/api/loganalytics/) om du vill förstå vilka aviseringsfrågan utdata kan finnas innan du skapar aviseringen.
+Vad som visas i den **fråga som ska köras** rutan är varning Loggtjänsten körs. Du kan köra den angivna frågan samt timespan via [analysportalen](../azure-monitor/log-query/portals.md) eller [API för textanalys](https://docs.microsoft.com/rest/api/loganalytics/) om du vill förstå vilka aviseringsfrågan utdata kan finnas innan du skapar aviseringen.
  
 ## <a name="next-steps"></a>Nästa steg
 

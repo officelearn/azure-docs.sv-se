@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390219"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873839"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräkningsmiljöer som du kan använda för att bearbeta och omvandla data. Den innehåller också information om olika konfigurationer (på begäran och ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länkar dessa compute-miljöer i en Azure-datafabrik.
@@ -48,11 +48,7 @@ Observera följande **viktiga** punkter om på begäran HDInsight-länkad tjäns
 * HDInsight-kluster på begäran skapas under din Azure-prenumeration. Är du kunna se kluster i Azure portal när klustret är igång och körs. 
 * Loggarna för jobb som körs på ett HDInsight-kluster på begäran kopieras till lagringskontot som associerats med HDInsight-kluster. ClusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword som definierats i din länkade tjänstdefinitionen används för att logga in i kluster för djupgående felsökning under livscykeln för klustret. 
 * Du debiteras endast för den tid när HDInsight-klustret är igång och jobb som körs.
-* Du kan inte använda en skriptåtgärd med Azure HDInsight på begäran länkad tjänst. Om du behöver installera andra beroenden, till exempel bör använda Azure Automation för att köra ett PowerShell.skript som gör följande:  
-  a. Skapa HDInsight-kluster.  
-  b. Kör en skriptåtgärd för att installera andra beroenden, till exempel.  
-  c. Köra en Data Factory-pipeline.  
-  d. Ta bort klustret.  
+* Skriptåtgärd stöds nu med Azure HDInsight på begäran länkad tjänst.  
 
 > [!IMPORTANT]
 > Det tar vanligtvis **20 minuter** eller mer att etablera ett Azure HDInsight-kluster på begäran.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: a3e0125a66c4b8bbda6e0b7087fe5e0e387d43e4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e1e20e3fb43c9e1480ced956069ce8ac8643e686
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847396"
+ms.locfileid: "52879629"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -39,9 +39,9 @@ För många Azure-resurser visas data som samlas in av Azure Monitor direkt i si
 
 ![Mått](media/overview/metrics.png)
 
-Loggdata som samlas in av Azure Monitor lagras i Log Analytics som innehåller en [funktionsrikt frågespråk](../azure-monitor/log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med den [sidan Log Analytics](../log-analytics/log-analytics-log-search-portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [ aviseringsregler](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Loggdata som samlas in av Azure Monitor lagras i Log Analytics som innehåller en [funktionsrikt frågespråk](../azure-monitor/log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med den [sidan Log Analytics](../azure-monitor/log-query/portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [ aviseringsregler](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
-Frågespråket i Log Analytics passar enkla loggfrågor men innehåller även avancerade funktioner som aggregeringar, kopplingar och smart analytics. Du kan snabbt lära dig frågespråket med [flera lektioner](../log-analytics/query-language/get-started-queries.md) som är tillgängliga.  Viss vägledning erbjuds användare som redan är bekanta med [SQL](../log-analytics/query-language/sql-cheatsheet.md) och [Splunk](../log-analytics/query-language/splunk-cheatsheet.md).
+Frågespråket i Log Analytics passar enkla loggfrågor men innehåller även avancerade funktioner som aggregeringar, kopplingar och smart analytics. Du kan snabbt lära dig frågespråket med [flera lektioner](../azure-monitor/log-query/get-started-queries.md) som är tillgängliga.  Viss vägledning erbjuds användare som redan är bekanta med [SQL](../azure-monitor/log-query/sql-cheatsheet.md) och [Splunk](../azure-monitor/log-query/splunk-cheatsheet.md).
 
 ![Logs](media/overview/logs.png)
 
@@ -61,7 +61,7 @@ Utöka dina data som du samlar in i den faktiska användningen av resurser genom
 [Lägga till en instrumentationspaket i ditt program](../application-insights/app-insights-azure-web-apps.md)att aktivera Application Insights för att samla in detaljerad information om ditt program, inklusive sidvisningar, programförfrågningar och undantag. Ytterligare kontrollera tillgängligheten för ditt program genom att konfigurera en [tillgänglighetstestet](../application-insights/app-insights-monitor-web-app-availability.md) att simulera trafik för användare.
 
 ### <a name="custom-sources"></a>Anpassade källor
-Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Data Collector API](../log-analytics/log-analytics-data-collector-api.md). På så sätt kan du skapa anpassade övervakningsscenarier och utökad övervakning till resurser som inte exponerar telemetri via andra källor.
+Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Data Collector API](../azure-monitor/platform/data-collector-api.md). På så sätt kan du skapa anpassade övervakningsscenarier och utökad övervakning till resurser som inte exponerar telemetri via andra källor.
 
 
 

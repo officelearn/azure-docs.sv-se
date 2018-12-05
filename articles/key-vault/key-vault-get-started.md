@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238407"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864915"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Komma igång med Azure Key Vault
 Med den här artikeln får du hjälp med att komma igång med Azure Key Vault med PowerShell, och den går igenom följande aktiviteter:
@@ -222,14 +222,14 @@ Så här registrerar du programmet i Azure Active Directory:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Till vänster klickar du på **Appregistreringar**. Om du inte ser appregistreringar, klickar du på **fler tjänster**.  
->[!NOTE]
-Du måste välja samma katalog som innehåller Azure-prenumerationen som du skapade nyckelvalvet med. 
+    > [!NOTE]
+    > Du måste välja samma katalog som innehåller Azure-prenumerationen som du skapade nyckelvalvet med. 
 3. Klicka på **Ny programregistrering**.
 4. På bladet **Skapa** anger du ett namn för appen och väljer sedan **WEBBAPP OCH/ELLER WEBB-API** (standardinställningen) och anger **INLOGGNINGS-URL** för din webbapp. Om du inte har den här informationen just nu kan du hitta på den för det här steget (till exempel kan du ange http://test1.contoso.com). Det spelar ingen roll om dessa platser finns eller inte. 
 
     ![Ny programregistrering](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    Kontrollera att du valde **WEBBAPP OCH/ELLER WEBB-API**. Om du inte gjorde det ser du inte **nyckelalternativet** under inställningarna.
+    > [!WARNING]
+    > Kontrollera att du valde **WEBBAPP OCH/ELLER WEBB-API**. Om du inte gjorde det ser du inte **nyckelalternativet** under inställningarna.
 
 5. Klicka på knappen **Skapa**.
 6. När registreringen är klar, visas listan över registrerade appar. Hitta den app som du har registrerat och klicka på den.

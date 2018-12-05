@@ -1,5 +1,5 @@
 items:
-- name: Dokumentation om Azure Machine Learning (förhandsversion)
+- name: Dokumentation om Azure Machine Learning
   href: index.yml
 - name: Översikt
   items:
@@ -25,18 +25,22 @@ items:
     href: quickstart-create-workspace-with-python.md
 - name: Självstudier
   items:
-  - name: 'Utbilda modeller: Del 1'
-    href: tutorial-train-models-with-aml.md
-  - name: 'Distribuera modeller: Del 2'
-    href: tutorial-deploy-models-with-aml.md
-  - name: Lär in automatiska ML-modeller
-    displayName: automl
-    href: tutorial-auto-train-models.md
+  - name: Klassificering av avbildning (MNIST-data)
+    items:
+    - name: 1. Träna en modell
+      href: tutorial-train-models-with-aml.md
+    - name: 2. Distribuera en modell
+      href: tutorial-deploy-models-with-aml.md
+  - name: Regression (data från taxibilar i New York)
+    items:
+    - name: 1. Förbereda data för modellering
+      href: tutorial-data-prep.md
+    - name: 2. Träna en maskininlärningsmodell automatiskt
+      displayName: automl, automated, auto ml,
+      href: tutorial-auto-train-models.md
 - name: Exempel
-  items:
-  - name: Jupyter Notebooks (GitHub)
-    displayName: example, examples
-    href: https://aka.ms/aml-notebooks
+  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  href: samples-notebooks.md
 - name: Begrepp
   items:
   - name: Modellhantering
@@ -52,11 +56,11 @@ items:
     href: how-to-manage-workspace.md
   - name: Konfigurera utvecklingsmiljön 
     items:
-    - name: Konfigurera en miljövariabel
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
+    - name: Konfigurera din utvecklingsmiljö
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: VS Code-verktyg för AI
-      displayName: Visual Studio Code, vscode
+    - name: Visual Studio Code-tillägg
+      displayName: Visual Studio Code, vscode, tools, ai, vs
       items:
       - name: Kom igång
         href: how-to-vscode-tools.md
@@ -75,7 +79,7 @@ items:
   - name: Inlärningsmodeller
     items:
     - name: Konfigurera miljöer för utbildning
-      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Få åtkomst till data under utbildning
       href: how-to-access-data.md
@@ -127,12 +131,16 @@ items:
     - name: Använda i realtid
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
+    - name: Köra batch-förutsägelser
+      href: how-to-run-batch-predictions.md
   - name: Övervaka webbtjänster
     items:
     - name: Samla in och utvärdera modelldata
       href: how-to-enable-data-collection.md
     - name: Övervaka med Application Insights
       href: how-to-enable-app-insights.md
+  - name: Skapa din första pipeline
+    href: how-to-create-your-first-pipeline.md
   - name: Hantera resurskvoter
     displayName: limits
     href: how-to-manage-quotas.md
@@ -368,9 +376,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Äldre problem
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 308c767eb4a4bd332037093e23a1cb53a9fd1dc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 67bf0dfb2939cfd561f4558f9003c36883dcef93
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845067"
+ms.locfileid: "52864833"

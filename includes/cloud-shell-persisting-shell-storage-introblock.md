@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: 6055b70c7df2704a334b7f14c9365863ddafbd5a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164562"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886298"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Spara filer i Azure Cloud Shell
 Cloudshell använder Azure File storage för att spara filer mellan sessioner. På första start uppmanas Cloud Shell du att associera en ny eller befintlig filresurs för att spara filer mellan sessioner.
@@ -35,11 +35,14 @@ Filresursen innehåller också en 5 GB-avbildning som har skapats för dig som a
 
 ## <a name="use-existing-resources"></a>Använda befintliga resurser
 
-Du kan koppla befintliga resurser med hjälp av avancerade alternativet. När storage installationsprogrammet uppmaning visas väljer du **visa avancerade inställningar** att visa ytterligare alternativ. Alternativ fylls i automatiskt storage filter för lokalt redundant lagring (LRS), geo-redundant lagring (GRS) och konton för zonredundant lagring (ZRS). Gå [här vill veta mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option) om replikeringsalternativen för Azure Storage-konton.
+Du kan koppla befintliga resurser med hjälp av avancerade alternativet. När du väljer en Cloud Shell-region som du måste välja ett lagringskonto för säkerhetskopiering som är placerade i samma region. Om din regionen är västra USA än måste du associera en filresurs som finns i västra USA också.
+
+När storage installationsprogrammet uppmaning visas väljer du **visa avancerade inställningar** att visa ytterligare alternativ. Alternativ fylls i automatiskt storage filter för lokalt redundant lagring (LRS), geo-redundant lagring (GRS) och konton för zonredundant lagring (ZRS). 
+
+> [!NOTE]
+> Med GRS- eller ZRS rekommenderas-konton för ytterligare återhämtning för filresursen säkerhetskopiering. Vilken typ av redundans beror på dina mål och pris inställningar. [Mer information om replikeringsalternativen för Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
 
 ![Inställningen i resursen](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
-
-När du väljer en Cloud Shell-region måste du välja för att montera ett lagringskonto för säkerhetskopiering i den regionen också.
 
 ### <a name="supported-storage-regions"></a>Stöds storage-regioner
 Associerade konton måste finnas i samma region som den Cloud Shell-dator som du montera dem till Azure-lagring. Du hittar din aktuella region som du kan köra `env` i Bash och leta upp variabeln `ACC_LOCATION`. Filresurser får en 5 GB-avbildning som skapats för dig att spara din `$Home` directory.

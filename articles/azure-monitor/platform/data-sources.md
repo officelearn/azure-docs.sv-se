@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5b673af317189da1876328c0cad0fa8f510aae4f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cb38a8a4c6e92dae1ed4d505c810027fb93e4a3c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844064"
+ms.locfileid: "52871446"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Datakällor i Azure Monitor
 Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att övervaka hälsotillstånd och prestanda för dina resurser och program som körs på dem. Dessa resurser kan vara i Azure i en annan molnet eller lokalt.  Se [Data som samlas in av Azure Monitor](data-collection.md) mer information om hur dessa data lagras och hur du kan visa den.
@@ -107,7 +107,7 @@ Förutom standardnivån för ett program, kan du behöva övervaka andra resurse
 ![Anpassad insamling](media/data-sources/custom-collection.png)
 
 ### <a name="data-collector-api"></a>API för datainsamling
-Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Data Collector API](../../log-analytics/log-analytics-data-collector-api.md). På så sätt kan du skapa anpassade övervakningsscenarier och utökad övervakning till resurser som inte exponerar telemetri via andra källor.
+Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Data Collector API](../../azure-monitor/platform/data-collector-api.md). På så sätt kan du skapa anpassade övervakningsscenarier och utökad övervakning till resurser som inte exponerar telemetri via andra källor.
 
 ## <a name="next-steps"></a>Nästa steg
 

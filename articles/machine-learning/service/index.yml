@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 96efb64ce7d77da567d587857e4a25ae334a3ffc
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 1add464c85d30622bf0940bf20a483ae22d07ea6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707120"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865326"
 documentType: LandingData
-title: Dokumentation om Azure Machine Learning-tjänst (förhandsversion)
+title: Dokumentation om Azure Machine Learning-tjänsten
 metadata:
-  title: Dokumentation om Azure Machine Learning (förhandsversion) – Självstudier, API-referens | Microsoft Docs
+  title: Dokumentation om Azure Machine Learning – Självstudier, API-referens | Microsoft Docs
   meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
   author: j-martens
@@ -41,6 +41,7 @@ sections:
     style: unordered
     items:
     - html: <a href="quickstart-get-started.md">Kom igång i Azure-portalen</a>
+    - html: <a href="quickstart-create-workspace-with-python.md">Kom igång med Python </a>
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -48,9 +49,10 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Träna en egen maskininlärningsmodell</a>
-    - html: <a href="tutorial-auto-train-models">Låt oss generera och finjustera en modell automatiskt åt dig</a>
-    - html: <a href="tutorial-deploy-models-with-aml">Distribuera en modell som en webbtjänst</a>
+    - html: Bildklassificering (del 1)&#58; <a href="tutorial-train-models-with-aml">Träna din egen maskininlärningsmodell</a>
+    - html: Bildklassificering (del 2)&#58; <a href="tutorial-deploy-models-with-aml">Distribuera modellen</a></br>&nbsp;
+    - html: Regression (del 1)&#58; <a href="tutorial-data-prep">Förbereda datauppgifterna från taxibilar i New York för modellering</a>
+    - html: Regression (del 2)&#58; <a href="tutorial-auto-train-models">Generera en modell med hjälp av automatiserad maskininlärning</a>
   - type: paragraph
     text: '<b>Exempelanteckningsböcker</b>: Utforska Azure Machine Learning med <a href="https://aka.ms/aml-notebooks">dessa Jupyter Notebooks</a>, som finns på GitHub.'
 - title: Referens

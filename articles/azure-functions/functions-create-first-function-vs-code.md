@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce4adface65237ec6f4ed0ef8f8ba9bbdf72355c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c5889d89ec8c913d9300fa85318a16b4eb452d3b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421058"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633766"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Skapa din första funktion med Visual Studio Code
 
@@ -49,39 +49,9 @@ För att slutföra den här snabbstarten behöver du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="install-the-azure-function-extension"></a>Installera Azure Functions-tillägget
+[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
-Azure Functions-tillägget används för att skapa, testa och distribuera funktioner till Azure.
-
-1. Öppna **Tillägg** i Visual Studio Code och sök efter `azure functions`, eller [öppna den här länken i Visual Studio Code](vscode:extension/ms-azuretools.vscode-azurefunctions).
-
-1. Välj **Installera** för att installera tillägget för Visual Studio Code. 
-
-    ![Installera tillägget för Azure Functions](./media/functions-create-first-function-vs-code/vscode-install-extension.png)
-
-1. Starta om Visual Studio Code och välj Azure-ikonen i aktivitetsfältet. Ett Azure Functions-område bör visas i sidofältet.
-
-    ![Azure Functions-område i sidofältet](./media/functions-create-first-function-vs-code/azure-functions-window-vscode.png)
-
-## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt
-
-Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som kan publiceras till en funktionsapp i Azure. Med en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
-
-1. Välj Azure-logotypen i Visual Studio Code så att området **Azure: Funktioner** visas och välj sedan ikonen Skapa nytt projekt.
-
-    ![Skapa ett funktionsapprojekt](./media/functions-create-first-function-vs-code/create-function-app-project.png)
-
-1. Välj en plats för projektarbetsytan och välj **Välj**.
-
-    > [!NOTE]
-    > Den här artikeln har utformats för att genomföras utanför en arbetsyta. Välj i det här fallet inte en projektmapp som ingår i en arbetsyta.
-
-1. Välj språk för ditt funktionsappsprojekt. I den här artikeln används JavaScript.
-    ![Välj projektspråk](./media/functions-create-first-function-vs-code/create-function-app-project-language.png)
-
-1. Välj **Lägg till på arbetsyta** när du uppmanas att göra det.
-
-I Visual Studio Code skapas funktionsappsprojektet på en ny arbetsyta. Det här projektet innehåller konfigurationsfilerna [host.json](functions-host-json.md) och [local.settings.json](functions-run-local.md#local-settings-file), plus eventuella språkspecifika projektfiler. Du får också en ny Git-lagringsplats i projektmappen.
+[!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
 ## <a name="create-an-http-triggered-function"></a>Skapa en HTTP-utlöst funktion
 
@@ -127,57 +97,9 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-Innan du kan publicera appen måste du logga in på Azure.
-
-1. I området **Azure: Funktioner** väljer du **Logga in på Azure...**. Om du inte redan har ett kan du **skapa ett kostnadsfritt Azure-konto**.
-
-    ![Svar för funktion-localhost i webbläsaren](./media/functions-create-first-function-vs-code/functions-sign-into-azure.png)
-
-1. Välj **Kopiera och öppna** när du uppmanas att göra det eller kopiera koden som visas och öppna <https://aka.ms/devicelogin> i webbläsaren.
-
-1. Klistra in den kopierade koden på sidan **Inloggning på enhet**, kontrollera inloggningen för Visual Studio Code och välj sedan **Fortsätt**.  
-
-1. Slutför inloggningen med dina Azure-kontouppgifter. När du har loggat in kan du stänga webbläsaren.
-
-## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
-
-I Visual Studio Code kan du publicera funktionsprojektet direkt på Azure. Samtidigt skapar du en funktionsapp och relaterade resurser i Azure-prenumerationen. Funktionsappen är ett körningssammanhang för dina funktioner. Projektet paketeras och distribueras till den nya funktionsappen i Azure-prenumerationen. 
-
-Den här artikeln förutsätter att du skapar en ny funktionsapp. Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure.
-
-1. I området **Azure: Funktioner** väljer du ikonen Distribuera till funktionsapp.
-
-    ![Funktionsappinställningar](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
-
-1. Välj projektmappen, som är den aktuella arbetsytan.
-
-1. Om du har fler än en prenumeration väljer du den där du vill lagra funktionsappen och väljer sedan **+ Skapa ny funktionsapp**.
-
-1. Ange ett globalt unikt namn som identifierar funktionsappen och tryck på Retur. Giltiga tecken i ett namn på en funktionsapp är `a-z`, `0-9` och `-`.
-
-1. Välj **+ Skapa ny resursgrupp**, ange ett resursgruppsnamn, till exempel `myResourceGroup`, och tryck på Retur. Du kan också använda en befintlig resursgrupp.
-
-1. Välj **+ Skapa nytt lagringskonto**, ange ett globalt unikt namn på det nya lagringskontot som ska användas av funktionsappen och tryck på Retur. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto.
-
-1. Välj en plats i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som används av dina funktioner.
-
-    Funktionsappen börjar skapas när du har valt din plats. Ett meddelande visas när funktionsappen har skapats och distributionspaketet har tillämpats.
-
-1. Välj **Visa utdata** i meddelandena om du vill visa skapande- och distributionsresultatet, inklusive Azure-resurserna som du har skapat.
-
-    ![Utdata från skapande av funktionsapp](./media/functions-create-first-function-vs-code/function-create-notifications.png)
-
-1. Anteckna URL:en för den nya funktionsappen i Azure. Den använder du för att testa funktionen när projektet har publicerats till Azure.
-
-    ![Utdata från skapande av funktionsapp](./media/functions-create-first-function-vs-code/function-create-output.png)
-
-1. I området **Azure: Funktioner** visas nu den nya funktionsappen under din prenumeration. När du expanderar den här noden visas funktionerna i funktionsappen, samt programinställningar och funktionsproxyservrar.
-
-    ![Funktionsappinställningar](./media/functions-create-first-function-vs-code/function-app-project-settings.png)
-
-    Från funktionsappens nod Ctrl-klickar (högerklickar) du för att välja att utföra olika hanterings- och konfigurationsuppgifter för funktionsappen i Azure. Du kan också välja att visa funktionsappen på Azure-portalen.
+[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
 ## <a name="test-your-function-in-azure"></a>Testa din funktion i Azure
 

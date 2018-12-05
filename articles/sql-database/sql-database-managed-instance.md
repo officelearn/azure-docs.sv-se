@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: f3e40f9d10ce3d0515d466e9bbdde324458e624d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e94b9e6d39a8a2694658a4231c54a027523af10c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834119"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889250"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Använda SQL Database Managed Instance med virtuella nätverk och nästan 100% kompatibilitet
 
@@ -214,7 +214,7 @@ Hanterad instans fördelar från att alltid upp-hittills i molnet, vilket inneb�
 
 ### <a name="managed-instance-administration-features"></a>Hanterad instans-funktioner för administration
 
-Hanterade instans aktivera systemadministratören att fokusera på vad som är viktigast för företag. Många system administratör/DBA aktiviteter krävs inte eller är enkel. Till exempel OS / RDBMS installation och korrigeringar, dynamisk instans vid storleksändring och konfiguration, säkerhetskopiering, [databasreplikering](replication-with-sql-database-managed-instance.md) (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfiguration av hälsotillstånd och [prestandaövervakning](../log-analytics/log-analytics-azure-sql.md) dataströmmar.
+Hanterade instans aktivera systemadministratören att fokusera på vad som är viktigast för företag. Många system administratör/DBA aktiviteter krävs inte eller är enkel. Till exempel OS / RDBMS installation och korrigeringar, dynamisk instans vid storleksändring och konfiguration, säkerhetskopiering, [databasreplikering](replication-with-sql-database-managed-instance.md) (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfiguration av hälsotillstånd och [prestandaövervakning](../azure-monitor/insights/azure-sql.md) dataströmmar.
 
 > [!IMPORTANT]
 > En lista över funktioner stöds, delvis stöds och som inte stöds finns i [SQL Database-funktioner](sql-database-features.md). En lista över T-SQL skillnader i hanterade instanser jämfört med SQL Server finns i [hanterad instans T-SQL-skillnader från SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -228,7 +228,7 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Det här värdet är samma som i SQL-databas.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Det här värdet är samma som i SQL-databas.|
 |`SERVERPROPERTY('EngineEdition')`|8|Det här värdet identifierar Managed Instance.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Komplett instans DNS-namn i följande format:`<instanceName>`.`<dnsPrefix>`. Database.Windows.NET, där `<instanceName>` är namn som tillhandahålls av kunden, medan `<dnsPrefix>` är automatiskt genererade del av namnet, vilket ger global unikhet för DNS-namn (”wcus17662feb9ce98”, till exempel)|Exempel: min-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Komplett instans DNS-namn i följande format:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, där `<instanceName>` är namn som tillhandahålls av kunden, medan `<dnsPrefix>` är automatiskt genererade del av namnet, vilket ger global unikhet för DNS-namn (”wcus17662feb9ce98”, till exempel)|Exempel: min-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -237,5 +237,5 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 - Mer information om konfiguration av virtuella nätverk finns i avsnittet om [konfiguration av virtuella nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md).
 - En Snabbstart som skapar en hanterad instans och återställer en databas från en säkerhetskopia, se [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
 - En självstudie om hur du använder Azure Database Migration Service (DMS) för migrering finns i avsnittet om [migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Avancerade övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i [övervaka Azure SQL Database med Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md)
+- Avancerade övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i [övervaka Azure SQL Database med Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)
 - Information om priser finns i [priser för SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

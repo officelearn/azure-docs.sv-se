@@ -1,22 +1,20 @@
 ---
-title: 'Introduktion till Azure Cosmos DB: MongoDB API | Microsoft Docs'
+title: 'Introduktion till Azure Cosmos DB: MongoDB API'
 description: Lär dig hur du kan använda Azure Cosmos DB för att lagra och ställa frågor till omfattande volymer av JSON-dokument med kort svarstid med de populära API:erna för OSS MongoDB.
 keywords: vad är MongoDB
 services: cosmos-db
 author: SnehaGunda
-manager: slyons
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
-ms.openlocfilehash: 1f21065414fec6bbe943014e954ecb45af2bb6b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9acad93382a7a88b7af7c72a7308e64dc428cef5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227883"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864000"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Introduktion till Azure Cosmos DB: MongoDB API
 

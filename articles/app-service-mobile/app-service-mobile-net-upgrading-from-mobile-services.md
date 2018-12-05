@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 25eb5c732927dcfb18bfd92991391ff99d4e3629
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 2d346739cd2e80546aee921317e278c1cff32b34
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918266"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873146"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uppgradera din befintliga .NET Azure-Mobiltjänst till App Service
 App Service Mobile är ett nytt sätt att bygga mobilappar med Microsoft Azure. Mer information finns i [vad är Mobile Apps?].
@@ -68,7 +68,7 @@ Uppgradera det första steget är att skapa Mobile App-resurs som ska vara värd
 
 Skapa sedan instansen för andra programmet genom att följa den [.NET-serverdel skapa instruktioner](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). När du uppmanas att välja du väljer App Service-Plan eller ”värdplan” plan programmets migrerade.
 
-Du kommer förmodligen vill använda samma databas och Notification Hub som du gjorde i mobiltjänster. Du kan kopiera dessa värden genom att öppna [Azure Portal] och navigera till det ursprungliga programmet, klickar **inställningar** > **programinställningar**. Under **anslutningssträngar**, kopiera `MS_NotificationHubConnectionString` och `MS_TableConnectionString`. Navigera till den nya uppgradera platsen och klistra in dem i skriver över alla befintliga värden. Upprepa proceduren för alla andra programinställningar behoven för dina appar. Om du inte använder en migrerad tjänst, kan du läsa anslutningssträngar och app-inställningar från den **konfigurera** fliken för mobiltjänster-avsnitt av den [klassiska Azure-portalen].
+Du kommer förmodligen vill använda samma databas och Notification Hub som du gjorde i mobiltjänster. Du kan kopiera dessa värden genom att öppna [Azure Portal] och navigera till det ursprungliga programmet, klickar **inställningar** > **programinställningar**. Under **anslutningssträngar**, kopiera `MS_NotificationHubConnectionString` och `MS_TableConnectionString`. Navigera till den nya uppgradera platsen och klistra in dem i skriver över alla befintliga värden. Upprepa proceduren för alla andra programinställningar behoven för dina appar. Om du inte använder en migrerad tjänst, kan du läsa anslutningssträngar och app-inställningar från den **konfigurera** fliken för mobiltjänster-avsnitt av den [Klassisk Azure-portal].
 
 Skapa en kopia av ASP.NET-projekt för ditt program och publicera den till den nya platsen. Använd en kopia av ditt klientprogram som uppdateras med den nya URL: en, verifiera att allt fungerar som förväntat.
 
@@ -84,18 +84,23 @@ Det blir ett ganska stort antal Kompilatorfel som följd av skillnaderna mellan 
 ### <a name="base-configuration"></a>Grundläggande konfiguration
 Sedan, i WebApiConfig.cs, kan du ersätta:
 
-        // Use this class to set configuration options for your mobile service
-        ConfigOptions options = new ConfigOptions();
+```csharp
+// Use this class to set configuration options for your mobile service
+ConfigOptions options = new ConfigOptions();
 
-        // Use this class to set WebAPI configuration options
-        HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+// Use this class to set WebAPI configuration options
+HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+```
 
 med 
 
-        HttpConfiguration config = new HttpConfiguration();
-        new MobileAppConfiguration()
-            .UseDefaultConfiguration()
-        .ApplyTo(config);
+```csharp
+HttpConfiguration config = new HttpConfiguration();
+new MobileAppConfiguration()
+    .UseDefaultConfiguration()
+.ApplyTo(config);
+
+```
 
 > [!NOTE]
 > Om du vill lära dig mer om den nya .NET servern SDK och Lägg till/ta bort funktioner från din app kan du se den [Hur du använder SDK för .NET-server] avsnittet.
@@ -110,8 +115,10 @@ Om din app gör användning av autentiseringsfunktioner, måste du också att re
 
 Kontrollera att den `Configuration()` metoden slutar med:
 
-        app.UseWebApi(config)
-        app.UseAppServiceAuthentication(config);
+```csharp
+app.UseWebApi(config)
+app.UseAppServiceAuthentication(config);
+```
 
 Det finns ytterligare ändringar för autentisering som beskrivs i avsnittet fullständiga autentiseringen nedan.
 
@@ -120,7 +127,9 @@ I mobiltjänster hanteras mobila appnamnet som standard schemanamn i Entity Fram
 
 Så att du har samma schema som refereras som tidigare, Använd följande för att ange schemat i DbContext för ditt program:
 
-        string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```csharp
+string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```
 
 Kontrollera att du har MS_MobileServiceName ange i så fall ovan. Du kan också ange en annan schemanamn om ditt program anpassat detta tidigare.
 
@@ -167,28 +176,30 @@ Det enklaste sättet att lösa problemet är att ändra din Dto så att de ärve
 
 Till exempel följande definierar `TodoItem` utan system-egenskaper:
 
-    using System.ComponentModel.DataAnnotations.Schema;
+```csharp
+using System.ComponentModel.DataAnnotations.Schema;
 
-    public class TodoItem : ITableData
-    {
-        public string Text { get; set; }
+public class TodoItem : ITableData
+{
+    public string Text { get; set; }
 
-        public bool Complete { get; set; }
+    public bool Complete { get; set; }
 
-        public string Id { get; set; }
+    public string Id { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? CreatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? CreatedAt { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? UpdatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? UpdatedAt { get; set; }
 
-        [NotMapped]
-        public bool Deleted { get; set; }
+    [NotMapped]
+    public bool Deleted { get; set; }
 
-        [NotMapped]
-        public byte[] Version { get; set; }
-    }
+    [NotMapped]
+    public byte[] Version { get; set; }
+}
+```
 
 Obs: om det uppstår fel på `NotMapped`, lägga till en referens till sammansättningen `System.ComponentModel.DataAnnotations`.
 
@@ -208,12 +219,16 @@ Alla ApiControllers som ska användas av en mobil klient måste nu har den `[Mob
 
 Den `ApiServices` objektet är inte längre ingår i SDK. Du kan använda följande för att komma åt Mobile App-inställningar:
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```csharp
+MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```
 
 På samma sätt sker nu loggning med hjälp av standard ASP.NET-spårning skrivning:
 
-    ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-    traceWriter.Info("Hello, World");  
+```csharp
+ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
+traceWriter.Info("Hello, World");  
+```
 
 ## <a name="authentication"></a>Överväganden för autentisering
 Autentisering-komponenterna i mobiltjänster har nu flyttats till funktionen App Service autentisering/auktorisering. Du kan lära dig om hur du aktiverar det för din webbplats genom att läsa den [Lägg till autentisering till din mobilapp](app-service-mobile-ios-get-started-users.md) avsnittet.
@@ -227,11 +242,15 @@ Om du använde något av de andra märke AuthorizeLevel alternativ, till exempel
 ### <a name="getting-additional-user-information"></a>Ytterligare hämtades
 Du kan få ytterligare information, inklusive åtkomst-token via den `GetAppServiceIdentityAsync()` metoden:
 
-        FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```csharp
+FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```
 
 Om ditt program tar beroenden på användar-ID, till exempel lagra dem i en databas, är det dessutom viktigt att notera att användar-ID mellan mobiltjänster och App Service Mobile Apps är olika. Du kan fortfarande komma Mobile Services användar-ID, men. Alla ProviderCredentials underklasser har en användar-ID-egenskap. Du fortsätter så i exemplet innan:
 
-        string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```csharp
+string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```
 
 Om din app tar eventuella beroenden på användar-ID, är det viktigt att du utnyttja samma registrering med en identitetsprovider om möjligt. Användar-ID är vanligtvis begränsade till programregistrering som användes, så Vi presenterar en ny registrering kan skapa problem med matchande användare till sina data.
 
@@ -243,9 +262,11 @@ När du har en operational mobilappsserverdel kan arbeta du med en ny version av
 
 En av de viktigaste ändringarna mellan versionerna är att konstruktorer inte längre behöver en programnyckel. Du nu skicka bara URL-adressen till din Mobilapp. Till exempel på .NET-klienter den `MobileServiceClient` konstruktorn är nu:
 
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
-        );
+```csharp
+public static MobileServiceClient MobileService = new MobileServiceClient(
+    "https://contoso.azurewebsites.net", // URL of the Mobile App
+);
+```
 
 Du kan läsa om att installera de nya SDK: er och använder den nya strukturen via länkarna nedan:
 
@@ -259,17 +280,12 @@ När du har den nya klientversionen som är redo, prova mot projektet uppgradera
 <!-- URLs. -->
 
 [Azure Portal]: https://portal.azure.com/
-[klassiska Azure-portalen]: https://manage.windowsazure.com/
+[Klassisk Azure-portal]: https://manage.windowsazure.com/
 [Vad är Mobile Apps?]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [SDK för Mobile App-servern]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /azure/scheduler/
 [Webbjobb]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [Hur du använder SDK för .NET-server]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Prissättning för App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [Översikt över SDK för .NET server]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

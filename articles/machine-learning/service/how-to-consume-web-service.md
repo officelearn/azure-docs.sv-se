@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
-ms.date: 10/30/2018
-ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/03/2018
+ms.openlocfilehash: 9b3daca572140229bf2d38cd56f65ce44683f0f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262915"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864408"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
@@ -100,7 +100,7 @@ REST API: et förväntar sig att brödtexten i begäran är ett JSON-dokument me
 > [!IMPORTANT]
 > Strukturen för data måste matcha vilka bedömnings skript och modell i tjänsten expect. Bedömningsskriptet kan ändra data innan det skickas till modellen.
 
-Till exempel modellen i den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exempel förväntar sig en matris med 10 tal. Bedömningsskriptet i det här exemplet skapar en Numpy matris från förfrågan och skickar dem till modellen. I följande exempel visas de data som den här tjänsten förväntas:
+Till exempel modellen i den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exempel förväntar sig en matris med 10 tal. Bedömningsskriptet i det här exemplet skapar en Numpy matris från förfrågan och skickar dem till modellen. I följande exempel visas de data som den här tjänsten förväntas:
 
 ```json
 {
@@ -126,7 +126,7 @@ Webbtjänsten kan acceptera flera uppsättningar av data i en begäran. Den retu
 
 ## <a name="call-the-service-c"></a>Anropa tjänsten (C#)
 
-Det här exemplet visar hur du använder C# att anropa webbtjänsten som skapats från den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exempel:
+Det här exemplet visar hur du använder C# att anropa webbtjänsten som skapats från den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exempel:
 
 ```csharp
 using System;
@@ -215,7 +215,7 @@ Resultatet som returneras liknar följande JSON-dokument:
 
 ## <a name="call-the-service-go"></a>Anropa tjänsten (Go)
 
-Det här exemplet visar hur du använder Go för att anropa webbtjänst som skapats från den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exempel:
+Det här exemplet visar hur du använder Go för att anropa webbtjänst som skapats från den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exempel:
 
 ```go
 package main
@@ -307,7 +307,7 @@ Resultatet som returneras liknar följande JSON-dokument:
 
 ## <a name="call-the-service-java"></a>Anropa tjänsten (Java)
 
-Det här exemplet visar hur du använder Java för att anropa webbtjänst som skapats från den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exempel:
+Det här exemplet visar hur du använder Java för att anropa webbtjänst som skapats från den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exempel:
 
 ```java
 import java.io.IOException;
@@ -387,7 +387,7 @@ Resultatet som returneras liknar följande JSON-dokument:
 
 ## <a name="call-the-service-python"></a>Anropa tjänsten (Python)
 
-Det här exemplet visar hur du använder Python för att anropa webbtjänst som skapats från den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exempel:
+Det här exemplet visar hur du använder Python för att anropa webbtjänst som skapats från den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exempel:
 
 ```python
 import requests

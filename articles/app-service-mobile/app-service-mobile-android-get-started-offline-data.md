@@ -1,6 +1,6 @@
 ---
-title: Aktivera offlinesynkronisering för Azure Mobile App (Android)
-description: Lär dig mer om Apptjänst Mobilappar cache och synkronisering offline data i din Android-App
+title: Aktivera synkronisering offline för din Azure-Mobilapp (Android)
+description: Lär dig hur du använder App Service Mobile Apps för att cache och synkronisering av offlinedata i din Android-App
 documentationcenter: android
 author: conceptdev
 manager: crdun
@@ -13,35 +13,35 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 152702bed0ea061c3cb86e2ff6f88bf204f9d243
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a20c79acce8c9dc9051651a0473fd07b8e62f5de
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27594199"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960353"
 ---
-# <a name="enable-offline-sync-for-your-android-mobile-app"></a>Aktivera offlinesynkronisering av din Android-mobilapp
+# <a name="enable-offline-sync-for-your-android-mobile-app"></a>Aktivera synkronisering offline för din Android-mobilapp
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>Översikt
-Den här kursen ingår funktionen offlinesynkronisering i Azure Mobilappar för Android. Offlinesynkronisering kan slutanvändarna interagera med en mobil app&mdash;visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverksanslutning. Ändringarna sparas i en lokal databas. När enheten är online igen, har ändringarna synkroniserats med fjärr-serverdelen.
+Den här självstudien beskriver funktionen offline-synkronisering i Azure Mobile Apps för Android. Offlinesynkronisering kan slutanvändarna kan interagera med en mobil app&mdash;visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverksanslutning. Ändringarna sparas i en lokal databas. När enheten är online igen kan har de här ändringarna synkroniserats med fjärr-serverdel.
 
-Om det här är din första upplevelse med Azure Mobile Apps bör du först slutföra kursen [skapa en Android-App]. Om du inte använder serverprojekt hämtade Snabbstart, måste du lägga till data access-tilläggspaket projektet. Mer information om server tilläggspaket finns [arbeta med serverdelen .NET SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Om det här är din första erfarenhet med Azure Mobile Apps, bör du först genomföra kursen [skapa en Android-App]. Om du inte använder serverprojekt hämtade Snabbstart, måste du lägga till data access-tillägg-paket i projektet. Läs mer om server-tilläggspaket [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Mer information om funktionen offlinesynkronisering finns i avsnittet [offlinesynkronisering Data i Azure Mobile Apps].
+Mer information om funktionen offline-synkronisering, finns i avsnittet [Datasynkronisering offline i Azure Mobile Apps].
 
-## <a name="update-the-app-to-support-offline-sync"></a>Uppdatera program för att stödja offlinesynkronisering
-Med offlinesynkronisering, för att läsa och skriva från en *sync tabell* (med hjälp av den *IMobileServiceSyncTable* interface), som ingår i en **SQLite** databasen på din enhet.
+## <a name="update-the-app-to-support-offline-sync"></a>Uppdatera appen för att stödja offlinesynkronisering
+Med offlinesynkronisering kan du läsa till och skriva från en *synkronisering tabell* (med hjälp av den *IMobileServiceSyncTable* interface), som ingår i en **SQLite** databasen på din enhet.
 
-För att push och pull-ändringar mellan enheten och Azure Mobile Services måste du använda en *synkroniseringskontext* (*MobileServiceClient.SyncContext*), som du initiera med lokal databas för lagring data lokalt.
+Om du vill skicka och hämta ändringar mellan enheten och Azure Mobile Services, som du använder en *synkroniseringskontext* (*MobileServiceClient.SyncContext*), som du initiera med den lokala databasen att lagra data lokalt.
 
-1. I `TodoActivity.java`, kommentera ut den befintliga definitionen av `mToDoTable` och Avkommentera synkroniserade tabell versionen:
+1. I `TodoActivity.java`, kommentera ut den befintliga definitionen av `mToDoTable` och ta bort kommentarerna synkroniserade tabell versionen:
    
         private MobileServiceSyncTable<ToDoItem> mToDoTable;
-2. I den `onCreate` metod, kommentera befintliga initieringen av `mToDoTable` och Avkommentera den här definitionen:
+2. I den `onCreate` metod, kommentera ut befintliga initieringen av `mToDoTable` och ta bort den här definitionen:
    
         mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
-3. I `refreshItemsFromTable` kommentera ut definitionen av `results` och Avkommentera den här definitionen:
+3. I `refreshItemsFromTable` kommentera ut definitionen av `results` och ta bort den här definitionen:
    
         // Offline Sync
         final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
@@ -75,32 +75,32 @@ För att push och pull-ändringar mellan enheten och Azure Mobile Services måst
         }
 
 ## <a name="test-the-app"></a>Testa appen
-I det här avsnittet testa fungerar med WiFi på och stäng sedan av WiFi att skapa ett offline-scenario.
+I det här avsnittet, testa beteende med Wi-Fi på och inaktiverar Wi-Fi att skapa ett offline-scenario.
 
-När du lägger till data som de lagras i det lokala arkivet SQLite, men inte synkroniserats med den mobila tjänsten tills du trycker på **uppdatera** knappen. Andra appar kan ha olika krav angående när data måste synkroniseras, men för demonstration den här självstudiekursen har användaren explicit begära den.
+När du lägger till dataobjekt de lagras i det lokala arkivet SQLite, men inte har synkroniserats till den mobila tjänsten tills du trycker på den **uppdatera** knappen. Andra appar kan ha olika krav angående när data ska synkroniseras, men för demonstration den här självstudien har du uttryckligen begära den.
 
-När du trycker på knappen startar en ny bakgrundsuppgift. Den första skickar alla ändringar som gjorts i det lokala arkivet med hjälp av synkroniseringskontext hämtar alla ändrade data från Azure till lokala tabellen.
+När du trycker på knappen startar en ny bakgrundsuppgift. Först skickar den alla ändringar som gjorts på det lokala arkivet med synkroniseringskontext och sedan hämtar alla ändrats data från Azure till den lokala tabellen.
 
-### <a name="offline-testing"></a>Testa offline
-1. Placera enheten eller simulator i *Flygplansläge*. Detta skapar ett offline-scenario.
-2. Lägga till några *ToDo* funktioner eller markera vissa objekt som slutförd. Avsluta enheten eller simulator (eller framtvingar stänga appen) och starta om. Kontrollera att dina ändringar har sparats på enheten eftersom de hade i det lokala arkivet SQLite.
-3. Visa innehållet i Azure *TodoItem* tabell antingen med ett SQL-verktyg som *SQL Server Management Studio*, eller en REST-klient som *Fiddler* eller  *Postman*. Kontrollera att de nya objekt har *inte* har synkroniserats till servern
+### <a name="offline-testing"></a>Offlinetestning
+1. Placera enheten eller simulatorn i *Flygplansläge*. Detta skapar ett offline-scenario.
+2. Lägg till några *ToDo* objekt eller markera vissa objekt som slutförd. Avsluta den enheten eller simulatorn (eller tvång stänga appen) och starta om. Kontrollera att dina ändringar har sparats på enheten eftersom de lagras i det lokala arkivet sqlite-felkod.
+3. Visa innehållet i Azure *TodoItem* tabellen antingen med ett SQL-verktyg som *SQL Server Management Studio*, eller en REST-klient som *Fiddler* eller  *Postman*. Kontrollera att de nya objekt har *inte* har synkroniserats till servern
    
-       + För Node.js-serverdel, gå till den [Azure-portalen](https://portal.azure.com/), och i din Mobilapp backend på **enkelt tabeller** > **TodoItem** att visa innehållet i `TodoItem`tabell.
+       + För Node.js-serverdel, går du till den [Azure-portalen](https://portal.azure.com/), och i Mobilappen på serverdelen **enkla tabeller** > **TodoItem** att visa innehållet i `TodoItem`tabell.
        + Visa innehåll antingen med en SQL-verktyget som för en .NET-serverdel *SQL Server Management Studio*, eller en REST-klient som *Fiddler* eller *Postman*.
 4. Aktivera WiFi i enheten eller simulatorn. Tryck sedan på den **uppdatera** knappen.
 5. Visa TodoItem igen i Azure-portalen. Nya och ändrade TodoItems bör nu visas.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-* [offlinesynkronisering Data i Azure Mobile Apps]
-* [Molnet omfattar: Offlinesynkronisering i Azure Mobile Services] \(Obs: videon är på Mobile Services, men offlinesynkronisering fungerar på liknande sätt i Azure Mobile Apps\)
+* [Datasynkronisering offline i Azure Mobile Apps]
+* [Cloud Cover: Offlinesynkronisering i Azure mobila tjänster] \(Obs: videon är på mobiltjänster, men offlinesynkronisering fungerar på liknande sätt i Azure Mobile Apps\)
 
 <!-- URLs. -->
 
-[offlinesynkronisering Data i Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[Datasynkronisering offline i Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 
-[skapa en Android-App]: app-service-mobile-android-get-started.md
+[Skapa en Android-App]: app-service-mobile-android-get-started.md
 
-[Molnet omfattar: Offlinesynkronisering i Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Cloud Cover: Offlinesynkronisering i Azure mobila tjänster]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 

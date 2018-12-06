@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62389edabb6d510fa1294affeb8e874efd18fc06
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678431"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967903"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Visa aktivitetsloggar för RBAC ändringar
 
@@ -117,7 +117,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 Här är de grundläggande stegen för att komma igång:
 
-1. [Skapa en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
 
 1. [Konfigurera Activity Log Analytics-lösningen](../azure-monitor/platform/collect-activity-logs.md#configuration) för arbetsytan.
 
@@ -125,7 +125,7 @@ Här är de grundläggande stegen för att komma igång:
 
    ![Log Analytics-alternativet i portalen](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Du kan också använda den [Loggsökning](../log-analytics/log-analytics-log-search.md) sidan eller [Advanced Analytics-portalen](../log-analytics/query-language/get-started-analytics-portal.md) att fråga efter och visa loggarna. Mer information om de här två alternativen finns i [loggsökningssidan eller Advanced Analytics-portalen](../log-analytics/log-analytics-log-search-portals.md).
+1. Du kan också använda den [Loggsökning](../log-analytics/log-analytics-log-search.md) sidan eller [Advanced Analytics-portalen](../azure-monitor/log-query/get-started-portal.md) att fråga efter och visa loggarna. Mer information om de här två alternativen finns i [loggsökningssidan eller Advanced Analytics-portalen](../azure-monitor/log-query/portals.md).
 
 Här är en fråga som returnerar nya rolltilldelningar ordnade efter mål-resursprovidern:
 

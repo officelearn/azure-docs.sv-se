@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a8744afe3ec3e83e4a543942441118356730347c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057649"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957249"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Kör OpenFoam med Microsoft HPC Pack på ett Linux RDMA-kluster i Azure
 Den här artikeln visar ett sätt att köra OpenFoam i Azure-datorer. Här kan du distribuera ett Microsoft HPC Pack-kluster med Linux-beräkningsnoder i Azure och kör en [OpenFoam](http://openfoam.com/) jobb med Intel MPI. Du kan använda RDMA-kompatibla virtuella datorer i Azure för compute-noder så att compute-noder kommunicerar via RDMA för Azure-nätverk. Andra alternativ för att köra OpenFoam i Azure är fullständigt konfigurerad kommersiella avbildningar på Marketplace, till exempel Ubercloud's [OpenFoam 2.3 på CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud), och genom att köra på [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -46,7 +46,7 @@ Microsoft HPC Pack innehåller funktioner för att köra storskaliga HPC och par
   * Ansluta med SSH för att utföra ytterligare administrativa åtgärder när du har distribuerat Linux-noder. Hitta SSH-anslutningsinformation för varje Linux VM i Azure-portalen.  
 * **Intel MPI** – om du vill köra OpenFOAM på SLES 12 HPC-Databehandlingsnoderna i Azure, måste du installera Intel MPI biblioteket 5 runtime från den [Intel.com plats](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 är förinstallerat på CentOS-baserade HPC-avbildningar.)  Installera Intel MPI på Linux-beräkningsnoder i ett senare steg om det behövs. Om du vill förbereda för det här steget när du har registrerat med Intel, följer du länken i e-postbekräftelsen på relaterade webbsidan. Kopiera sedan länken för filen .tgz lämplig version av Intel MPI. Den här artikeln är baserad på Intel MPI version 5.0.3.048.
 * **OpenFOAM källa Pack** – ladda ned programvaran OpenFOAM källa Pack för Linux från den [OpenFOAM Foundation-webbplatsen](http://openfoam.org/download/2-3-1-source/). Den här artikeln baseras på källan Pack-version 2.3.1, hämtas som OpenFOAM 2.3.1.tgz. Följ anvisningarna senare i den här artikeln för att packa upp och kompilera OpenFOAM på Linux-beräkningsnoder.
-* **EnSight** (valfritt) – att se resultatet av dina OpenFOAM simulering, ladda ned och installera den [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) visualisering och analys-programmet. Licensiering och ladda ned information finns på webbplatsen EnSight.
+* **EnSight** (valfritt) – att se resultatet av dina OpenFOAM simulering, ladda ned och installera den [EnSight](https://www.ansys.com/products/platform/ansys-ensight/data-interfaces) visualisering och analys-programmet. Licensiering och ladda ned information finns på webbplatsen EnSight.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>Skapa ömsesidigt förtroende mellan compute-noder
 När du kör ett jobb mellan noder på flera Linux-noder måste noderna till förtroende för varandra (av **rsh** eller **ssh**). När du skapar HPC Pack-kluster med Microsoft HPC Pack IaaS-distributionsskriptet konfigurerar skriptet automatiskt permanent ömsesidigt förtroende för administratörskontot som du anger. För vanliga användare som du skapar i klustrets domän, ställa in tillfälliga ömsesidigt förtroende mellan noderna när ett jobb har tilldelats dem och ta bort relationen när jobbet har slutförts. Ange ett RSA-nyckelpar i klustret med HPC Pack för förtroendet för att upprätta förtroende för varje användare.
@@ -362,7 +362,7 @@ Nu kan du skicka ett jobb i HPC Cluster Manager. Du måste skicka skript hpcimpi
 10. När jobbet har slutförts kan du hitta jobbresultaten i mappar under C:\OpenFoam\sloshingTank3D och loggfilerna på C:\OpenFoam.
 
 ## <a name="view-results-in-ensight"></a>Visa resultat i EnSight
-Du kan också använda [EnSight](http://www.ensight.com/) att visualisera och analysera resultaten av OpenFOAM jobbet. Mer information om visuella effekter och animeringar inom EnSight finns i det här [video guiden](http://www.ensight.com/ensight.com/envideo/).
+Du kan också använda [EnSight](http://www.ensight.com/) att visualisera och analysera resultaten av OpenFOAM jobbet. 
 
 1. När du har installerat EnSight på huvudnoden, startar du den.
 2. Öppna C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 950ab0b07a97c044b124e56c8d43b79aae29ec88
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b781c4657306beb92e730e22e56e6a75359f4401
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721280"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964142"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -37,7 +37,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 Om du inte har åtkomst till Log Analytics-arbetsytan i Azure-portalen kan du behöva konfigurera behörigheter genom [Azure rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md). Mer information om hur du hanterar behörigheter för arbetsytan finns i [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Information om hur du hanterar behörigheter för aviseringar finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Hur gör jag för att skapa en ny arbetsyta? 
-I listan över arbetsytor i Azure-portalen klickar du på **Lägg till** i listan över arbetsytor.  Fullständig information finns i [skapa en Log Analytics-arbetsyta i Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
+I listan över arbetsytor i Azure-portalen klickar du på **Lägg till** i listan över arbetsytor.  Fullständig information finns i [skapa en Log Analytics-arbetsyta i Azure-portalen](../log-analytics/../azure-monitor/learn/quick-create-workspace.md).
 
 ![Översiktssidan](media/log-analytics-oms-portal-faq/new-workspace.png)
 
@@ -112,7 +112,7 @@ I OMS-portalen kan du installera lösningar från lösningsgalleriet och bort de
 Varningsregler baserat på Log Analytics-frågor hanteras nu i den [unified avisering upplevelse](../monitoring-and-diagnostics/alert-metric.md). Se [utöka aviseringar från Log Analytics i Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) för information om hur du konfigurerar och använder aviseringar i Azure-portalen.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Hur kommer jag åt mina instrumentpaneler?
-Den [min instrumentpanel](../log-analytics/../azure-monitor/platform/dashboards.md) funktionen i Log Analytics är inaktuell. Den här funktionen har tillåtit dig att ha en privat samling av Vydesigner delar och ersätts av den inbyggda funktionen för Azure-instrumentpanelen. Du kan fortsätta att visualisera data i Log Analytics med hjälp av [Vydesigner](../log-analytics/../azure-monitor/platform/view-designer.md) för delade vyer. Du kan även fästa visualiseringar från dessa vyer eller [enskilda frågor](../log-analytics/log-analytics-tutorial-dashboards.md) till Azure-instrumentpaneler.
+Den [min instrumentpanel](../log-analytics/../azure-monitor/platform/dashboards.md) funktionen i Log Analytics är inaktuell. Den här funktionen har tillåtit dig att ha en privat samling av Vydesigner delar och ersätts av den inbyggda funktionen för Azure-instrumentpanelen. Du kan fortsätta att visualisera data i Log Analytics med hjälp av [Vydesigner](../log-analytics/../azure-monitor/platform/view-designer.md) för delade vyer. Du kan även fästa visualiseringar från dessa vyer eller [enskilda frågor](../log-analytics/../azure-monitor/learn/tutorial-logs-dashboards.md) till Azure-instrumentpaneler.
 
 ## <a name="how-do-i-check-my-usage"></a>Hur kontrollerar jag min användning?
 Du kan nu enkelt visa och hantera din användning och kostnader för Log Analytics genom att välja **användning och uppskattade kostnader** i din arbetsyta.
@@ -126,4 +126,4 @@ Under en begränsad tid kan du fortfarande använda portalen via denna URL med A
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hitta och installera lösningar för hantering av](../azure-monitor/insights/solutions.md) med Azure portal.
-- Lär dig mer om [Loggsökning i Azure-portalen](log-analytics-log-search-portals.md).
+- Lär dig mer om [Loggsökning i Azure-portalen](../azure-monitor/log-query/portals.md).

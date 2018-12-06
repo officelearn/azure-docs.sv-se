@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 60675d7d40dbab863677ea120c25986cff61a308
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443516"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960149"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurera webbappar i Azure App Service
 
@@ -179,14 +179,14 @@ Mer information finns i [så här: övervaka status för web-slutpunkt].
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Konfigurera ett anpassat domännamn i Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Distribuera till Mellanlagringsmiljöer för Webbappar i Azure App Service]: ./web-sites-staged-publishing.md
 [Aktivera HTTPS för en app i Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[Så här: övervaka status för web-slutpunkt]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Så här: övervaka status för web-slutpunkt]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Grundläggande övervakning för Web Apps i Azure App Service]: ./web-sites-monitor.md
-[Pipeline-läge]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[Pipeline-läge]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Skala en webbapp i Azure App Service]: ./web-sites-scale.md
 [Prova App Service]: https://azure.microsoft.com/try/app-service/
 

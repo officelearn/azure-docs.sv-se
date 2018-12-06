@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cbedb17bb7563620d0d9db81333d9a79301b4ee0
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 926712d8d38f144c583dcf61c3cd0f078566296a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817516"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964006"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Hur du använder Mobile Apps Node.js-SDK
 
@@ -101,7 +101,7 @@ Du hittar koden för det här grundläggande programmet i den [basicapp exemplet
 
 ### <a name="howto-vs2015-basicapp"></a>Skapa en Node.js-serverdel genom att använda Visual Studio 2015
 
-Visual Studio 2015 kräver ett tillägg för att utveckla Node.js-program i din IDE. Börja genom att installera den [1.1 för Node.js Tools för Visual Studio]. Skapa en Express 4.x-program när du är klar med installationen:
+Visual Studio 2015 kräver ett tillägg för att utveckla Node.js-program i din IDE. Börja genom att installera den [Node.js Tools 1.1 för Visual Studio]. Skapa en Express 4.x-program när du är klar med installationen:
 
 1. Öppna den **nytt projekt** dialogrutan (från **filen** > **New** > **projekt**).
 1. Expandera **mallar** > **JavaScript** > **Node.js**.
@@ -148,11 +148,11 @@ Markera kryssrutan för **bekräftar jag att allt webbinnehåll skrivs**, och v�
 
 ### <a name="download-quickstart"></a>Ladda ned Node.js backend-Snabbstart Kodprojekt med hjälp av Git
 
-När du skapar en Node.js Mobile Apps-serverdelen med hjälp av portalen **Snabbstart** fönstret ett Node.js-projekt skapas och distribueras till din webbplats. Du kan lägga till tabeller och API: er och redigera kodfiler för Node.js-serverdel i portalen. Du kan också använda olika distributionsverktyg för att ladda ned backend-projektet så att du kan lägga till eller ändra tabeller och API: er och sedan publicera projektet. Mer information finns i den [Distributionsguide för Azure App Service].
+När du skapar en Node.js Mobile Apps-serverdelen med hjälp av portalen **Snabbstart** fönstret ett Node.js-projekt skapas och distribueras till din webbplats. Du kan lägga till tabeller och API: er och redigera kodfiler för Node.js-serverdel i portalen. Du kan också använda olika distributionsverktyg för att ladda ned backend-projektet så att du kan lägga till eller ändra tabeller och API: er och sedan publicera projektet. Mer information finns i den [Azure App Service-Distributionsguide].
 
 Följande procedur använder en Git-lagringsplats för att hämta snabbstartskoden för projektet:
 
-1. Installera Git om du inte redan gjort det. De steg som krävs för att installera Git variera mellan olika operativsystem. Operativsystemspecifika distributioner och installationer finns i [installerar Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
+1. Installera Git om du inte redan gjort det. De steg som krävs för att installera Git variera mellan olika operativsystem. Operativsystemspecifika distributioner och installationer finns i [installerar Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
 1. Se [förbereda din lagringsplats](../app-service/app-service-deploy-local-git.md#prepare-your-repository) att aktivera Git-lagringsplats för backend-webbplatsen. Anteckna distributionsanvändarnamn och lösenord.
 1. I fönstret för Mobile Apps-serverdel, notera den **URL för Git-klonen** inställningen.
 1. Kör den `git clone` kommandot med hjälp av URL för Git-klonen. Ange lösenordet vid behov, som i följande exempel:
@@ -171,12 +171,12 @@ Platsen publiceras varje gång en ny uppsättning incheckningar skickas till pla
 
 ### <a name="howto-publish-to-azure"></a>Publicera din Node.js-serverdel i Azure
 
-Microsoft Azure tillhandahåller många metoder för att publicera din Mobile Apps Node.js-serverdel till Azure-tjänsten. Dessa mekanismer är distributionsverktyg som integreras i Visual Studio, kommandoradsverktyg och kontinuerlig distributionsalternativ baserat på källkontroll. Mer information finns i den [Distributionsguide för Azure App Service].
+Microsoft Azure tillhandahåller många metoder för att publicera din Mobile Apps Node.js-serverdel till Azure-tjänsten. Dessa mekanismer är distributionsverktyg som integreras i Visual Studio, kommandoradsverktyg och kontinuerlig distributionsalternativ baserat på källkontroll. Mer information finns i den [Azure App Service-Distributionsguide].
 
 Azure App Service har råd för Node.js-program som du bör granska innan du publicerar backend-servern:
 
-* Så här [ange nod-version]
-* Så här [använder Node-moduler]
+* Så här [Ange nodversionen]
+* Så här [använda Node-moduler]
 
 ### <a name="howto-enable-homepage"></a>Aktivera en startsida för ditt program
 
@@ -192,7 +192,7 @@ Om du bara vill det här alternativet som är tillgängliga när du utvecklar lo
 
 Azure mobile apps Node.js Server SDK tillhandahåller mekanismer för att exponera datatabeller som lagras i Azure SQL Database som webb-API. Den innehåller fem:
 
-| Operation | Beskrivning |
+| Åtgärd | Beskrivning |
 | --- | --- |
 | GET-/tables/*tabellnamn* |Hämta alla poster i tabellen. |
 | GET-/tables/*tablename*/:id |Få en viss post i tabellen. |
@@ -242,7 +242,7 @@ module.exports = table;
 
 Tabeller använder en dynamiskt schema som standard. Om du vill inaktivera dynamiskt schema globalt, ange den `MS_DynamicSchema` appinställningen till false i Azure-portalen.
 
-Du hittar ett komplett exempel i den [todo-exemplet på GitHub].
+Du hittar ett komplett exempel i den [att göra exemplet på GitHub].
 
 ### <a name="howto-staticschema"></a>Definiera tabeller genom att använda ett statiskt schema
 
@@ -909,7 +909,7 @@ Node.js-program har åtkomst till en mängd olika diagnostiklogg verktyg. Node.j
 Du kan använda enkla tabeller för att skapa och arbeta med tabeller direkt i portalen. Du kan ladda upp datauppsättningen enkla tabeller i CSV-format. Observera att du inte kan använda egenskapsnamn (i din CSV-datauppsättning) som står i konflikt med egenskapsnamn som Mobile Apps-serverdel. System-egenskapsnamnen är:
 * createdAt
 * updatedAt
-* borttagen
+* borttaget
 * version
 
 Du kan även redigera tabellåtgärder med hjälp av App Service Editor. När du väljer **enkla tabeller** i platsinställningarna för backend-du lägga till, ändra eller ta bort en tabell. Du kan också se data i tabellen.
@@ -968,27 +968,27 @@ Du kan redigera dina Node.js-backend-skriptfiler i App Service Editor utan att b
 [Konfigurera Google-autentisering]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
 [Konfigurera Microsoft-autentisering]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Konfigurera Twitter-autentisering]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
-[Distributionsguide för Azure App Service]: ../app-service/app-service-deploy-local-git.md
+[Azure App Service-Distributionsguide]: ../app-service/app-service-deploy-local-git.md
 [Övervakning av Azure App Service]: ../app-service/web-sites-monitor.md
 [Aktivera Diagnostisk loggning i Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
 [Felsöka Azure App Service i Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
-[ange nod-version]: ../nodejs-specify-node-version-azure-apps.md
-[använder Node-moduler]: ../nodejs-use-node-modules-azure-apps.md
+[Ange nodversionen]: ../nodejs-specify-node-version-azure-apps.md
+[använda Node-moduler]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Azure Portal]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Löftet]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp exemplet på GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
-[todo-exemplet på GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
+[att göra exemplet på GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
 [katalogen Samples på GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[1.1 för Node.js Tools för Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
+[Node.js Tools 1.1 för Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [MSSQL Node.js-paket]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS mellanprogram]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS mellanprogram]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

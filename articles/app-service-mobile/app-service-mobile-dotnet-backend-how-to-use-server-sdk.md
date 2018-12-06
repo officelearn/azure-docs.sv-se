@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bbba7898329af9d9bca9d35883e3cb4097ca3de4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473721"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968620"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeta med SDK för .NET-serverdelar för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -66,7 +66,7 @@ Installera den [Azure SDK för .NET] [ 4] (version 2.9.0 eller senare) att skapa
 
 1. Öppna den **nytt projekt** dialogrutan (från **filen** > **New** > **projekt...** ).
 2. Expandera **mallar** > **Visual C#**, och välj **Web**.
-3. Välj **ASP.NET-webbprogram**.
+3. Välj **ASP.NET-webbapp**.
 4. Fyll i projektets namn. Klicka sedan på **OK**.
 5. Under *ASP.NET 4.5.2-mallar mallar*väljer **Azure-Mobilapp**. Kontrollera **värd i molnet** att skapa en mobilserverdel i molnet som du kan publicera det här projektet.
 6. Klicka på **OK**.
@@ -131,12 +131,12 @@ Tillägget metoderna är:
 Följande NuGet-baserade tilläggspaket har olika mobila funktioner som kan användas av ditt program. Du aktiverar tillägg under initieringen med hjälp av den **MobileAppConfiguration** objekt.
 
 * [Microsoft.Azure.Mobile.Server.Quickstart] har stöd för den grundläggande Mobile Apps-installationen. Lagts till i konfigurationen genom att anropa den **UseDefaultConfiguration** tilläggsmetod under initieringen. Det här tillägget ingår följande tillägg: meddelanden, autentisering, entiteten, tabeller, mellan domäner och Home-paket. Det här paketet används av den Snabbstart för mobila appar på Azure-portalen.
-* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implementerar standard *den här mobilappen är igång sidan* för rot-webbplats. Lägg till i konfigurationen genom att anropa den **AddMobileAppHomeController** tilläggsmetod.
-* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) innehåller klasser för att arbeta med data och uppsättningar av datapipelinen. Lägg till i konfigurationen genom att anropa den **AddTables** tilläggsmetod.
-* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) gör det möjligt att komma åt data i SQL-databasen Entity Framework. Lägg till i konfigurationen genom att anropa den **AddTablesWithEntityFramework** tilläggsmetod.
+* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implementerar standard *den här mobilappen är igång sidan* för rot-webbplats. Lägg till i konfigurationen genom att anropa den **AddMobileAppHomeController** tilläggsmetod.
+* [Microsoft.Azure.Mobile.Server.Tables](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) innehåller klasser för att arbeta med data och uppsättningar av datapipelinen. Lägg till i konfigurationen genom att anropa den **AddTables** tilläggsmetod.
+* [Microsoft.Azure.Mobile.Server.Entity](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) gör det möjligt att komma åt data i SQL-databasen Entity Framework. Lägg till i konfigurationen genom att anropa den **AddTablesWithEntityFramework** tilläggsmetod.
 * [Microsoft.Azure.Mobile.Server.Authentication] aktiverar autentisering och uppsättningar av OWIN-mellanprogrammet som används för att validera token. Lägg till i konfigurationen genom att anropa den **AddAppServiceAuthentication** och **IAppBuilder**. **UseAppServiceAuthentication** tilläggsmetoder.
 * [Microsoft.Azure.Mobile.Server.Notifications] aktiverar push-meddelanden och definierar en slutpunkt för registrering av push. Lägg till i konfigurationen genom att anropa den **AddPushNotifications** tilläggsmetod.
-* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) skapar en kontrollant som skickar data till äldre webbläsare från din Mobilapp. Lägg till i konfigurationen genom att anropa den **MapLegacyCrossDomainController** tilläggsmetod.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) skapar en kontrollant som skickar data till äldre webbläsare från din Mobilapp. Lägg till i konfigurationen genom att anropa den **MapLegacyCrossDomainController** tilläggsmetod.
 * [Microsoft.Azure.Mobile.Server.Login] AppServiceLoginHandler.CreateToken() metoden, vilket är en statisk metod som används under Anpassad autentiseringsscenarier.
 
 ## <a name="publish-server-project"></a>Så här: publicera serverprojektet
@@ -483,10 +483,10 @@ Använda signeringsnyckeln för den *authSigningKey* parameter i config lokalt p
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
 [Azure Portal]: https://portal.azure.com
-[NuGet.org]: http://www.nuget.org/
-[Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
-[Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
-[Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
-[Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
-[Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
+[NuGet.org]: https://www.nuget.org/
+[Microsoft.Azure.Mobile.Server]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
+[Microsoft.Azure.Mobile.Server.Quickstart]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
+[Microsoft.Azure.Mobile.Server.Authentication]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
+[Microsoft.Azure.Mobile.Server.Login]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
+[Microsoft.Azure.Mobile.Server.Notifications]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx

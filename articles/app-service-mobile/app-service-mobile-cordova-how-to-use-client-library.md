@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6fb8be96c9793e96f1f7d2ad8e212d056d7e9ba5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 358e8cd92fe250741adbbb9208b5e149a5f60216
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467894"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959741"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Hur du använder Apache Cordova-klientbiblioteket för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -167,7 +167,7 @@ Använda Notification Hubs SDK för att skicka push-meddelanden från servern.  
 
 ## <a name="more-information"></a>Mer information
 
-Du hittar detaljerad information om API: et i vår [API-dokumentation](http://azure.github.io/azure-mobile-apps-js-client/).
+Du hittar detaljerad information om API: et i vår [API-dokumentation](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com
@@ -176,7 +176,7 @@ Du hittar detaljerad information om API: et i vår [API-dokumentation](http://az
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova-Plugin för Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[din första Apache Cordova-app]: http://cordova.apache.org/#getstarted
+[din första Apache Cordova-app]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [modul phonegap plugin push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-programmet-enhet]: https://www.npmjs.com/package/cordova-plugin-device

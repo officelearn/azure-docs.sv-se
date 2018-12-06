@@ -13,18 +13,18 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 0de561b177a1474b0ce4f0f203803e8265db5e7a
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 8eef75a6e1f4f05aa6d7ce8f9e6fdda52162d0bc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818354"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960727"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Så här används iOS-klientbiblioteket för Azure Mobile Apps
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Den här guiden lär du dig att utföra vanliga scenarier med senast [Azure Mobile Apps iOS SDK][1]. Om du är nybörjare på Azure Mobile Apps slutföra [Azure Mobile Apps-Snabbstart] för att skapa en serverdel, skapa en tabell och ladda ned ett färdiga iOS Xcode-projekt. I den här guiden fokuserar vi på klientsidan iOS SDK. Mer information om SDK för serversidan för serverdelen finns Server SDK HOWTOs.
+Den här guiden lär du dig att utföra vanliga scenarier med senast [Azure Mobile Apps iOS SDK][1]. Om du är nybörjare på Azure Mobile Apps slutföra [Azure mobila appar Snabbstart] för att skapa en serverdel, skapa en tabell och ladda ned ett färdiga iOS Xcode-projekt. I den här guiden fokuserar vi på klientsidan iOS SDK. Mer information om SDK för serversidan för serverdelen finns Server SDK HOWTOs.
 
 ## <a name="reference-documentation"></a>Referensdokumentation
 
@@ -715,10 +715,10 @@ Du kan använda med Facebook SDK för iOS för att registrera användare i ditt 
 Du kan använda infrastruktur för iOS för att registrera användare i ditt program med Twitter. Flow klientautentisering är bättre än att använda den `loginWithProvider:completion:` metod, eftersom den innehåller en mer interna UX-design och gör att för ytterligare anpassning.
 
 1. Konfigurera mobilappsserverdelen för Twitter-inloggningen genom att följa den [så här konfigurerar du App Service för Twitter-inloggning](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) självstudien.
-2. Lägg till Fabric i projektet genom att följa den [Fabric för iOS – komma igång] dokumentation och hur du konfigurerar TwitterKit.
+2. Lägg till Fabric i projektet genom att följa den [Infrastruktur för iOS – komma igång] dokumentation och hur du konfigurerar TwitterKit.
 
    > [!NOTE]
-   > Som standard skapar Fabric ett Twitter-program. Du kan undvika att skapa ett program genom att registrera använda nyckeln och Konsumenthemligheten som du skapat tidigare med följande kodavsnitt.    Alternativt kan du ersätta de använda nyckeln och Konsumenthemligheten värdena som du anger till App Service med de värden som du ser i den [instrumentpanelen för infrastrukturens]. Om du väljer det här alternativet måste du ange Webbadressen för återanrop ett platshållarvärde som `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+   > Som standard skapar Fabric ett Twitter-program. Du kan undvika att skapa ett program genom att registrera använda nyckeln och Konsumenthemligheten som du skapat tidigare med följande kodavsnitt.    Alternativt kan du ersätta de använda nyckeln och Konsumenthemligheten värdena som du anger till App Service med de värden som du ser i den [Instrumentpanelen för infrastrukturresurser]. Om du väljer det här alternativet måste du ange Webbadressen för återanrop ett platshållarvärde som `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
 
     Om du väljer att använda hemligheter som du skapade tidigare, lägger du till följande kod till ditt ombud för appen:
 
@@ -890,7 +890,7 @@ Du kan använda med Google-inloggning SDK för iOS för att registrera användar
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure Mobile Apps-Snabbstart]: app-service-mobile-ios-get-started.md
+[Azure mobila appar Snabbstart]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
@@ -899,26 +899,26 @@ Du kan använda med Google-inloggning SDK för iOS för att registrera användar
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
 [Azure Portal]: https://portal.azure.com/
-[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-[Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
+[Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
+[Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Dynamiskt Schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[Dynamiskt Schema]: https://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[Create a table]: https://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: https://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-[instrumentpanelen för infrastrukturens]: https://www.fabric.io/home
-[Fabric för iOS – komma igång]: https://docs.fabric.io/ios/fabric/getting-started.html
+[Instrumentpanelen för infrastrukturresurser]: https://www.fabric.io/home
+[Infrastruktur för iOS – komma igång]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
-[2]: http://azure.github.io/azure-mobile-apps-ios-client/
+[2]: https://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
-[5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
+[5]: https://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]:../active-directory/develop/quickstart-v1-ios.md

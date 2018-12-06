@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f9e863146b78fa510ea6f5b6eb9b3aa0fc4ce926
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230843"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965794"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Konfigurera PHP i Azure App Service Web Apps
 
@@ -148,7 +148,7 @@ Zend-tillägg stöds även med hjälp av en **PHP_ZENDEXTENSIONS** nyckel. Om du
 
 App Service Web Apps kan använda en PHP-körning som du anger för att köra PHP-skript i stället för standardkörning för PHP. Runtime som du anger kan konfigureras med en `php.ini` -fil som du även ange. Att använda en anpassad PHP-körning med Web Apps, följa dessa steg.
 
-1. Hämta en icke-trådsäkra, VC9 eller VC11 kompatibel version av PHP för Windows. Nya versioner av PHP för Windows finns här: [ http://windows.php.net/download/ ]. Äldre versioner finns i det här arkivet: [ http://windows.php.net/downloads/releases/archives/ ].
+1. Hämta en icke-trådsäkra, VC9 eller VC11 kompatibel version av PHP för Windows. Nya versioner av PHP för Windows finns här: [ https://windows.php.net/download/ ]. Äldre versioner finns i det här arkivet: [ https://windows.php.net/downloads/releases/archives/ ].
 1. Ändra den `php.ini` -filen för din runtime. Alla konfigurationsinställningar som är endast system-nivå direktiv ignoreras av Web Apps. (Läs om hur endast system-nivå direktiv [lista över php.ini-direktiv]).
 1. Du kan också lägga till tillägg till PHP-körning och aktivera dem i den `php.ini` filen.
 1. Lägg till en `bin` katalogen till rotkatalogen och placera den katalog som innehåller din PHP-körning i den (till exempel `bin\php`).
@@ -196,7 +196,7 @@ Mer information finns i den [PHP Developer Center](https://azure.microsoft.com/d
 >
 
 [kostnadsfri utvärderingsversion]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [Lista över php.ini-direktiv]: http://www.php.net/manual/en/ini.list.php
 [. user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -206,8 +206,8 @@ Mer information finns i den [PHP Developer Center](https://azure.microsoft.com/d
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

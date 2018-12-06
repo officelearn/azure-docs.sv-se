@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 93cbb9a891f83eed623f095f208319c9071e287e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d38c93f1e6e390117ff5d9e8772119ed1c26fd10
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635551"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965538"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hur att publicera Azure övervakar för virtuella datorer (förhandsversion)
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer för att övervaka hälsotillståndet för operativsystemet för dina Azure-datorer och skalningsuppsättningar för virtuella datorer och virtuella datorer i din miljö, inklusive identifiering och mappning av programberoenden som kan vara baserad på dem.  
@@ -48,7 +48,7 @@ Log Analytics-arbetsytan i följande regioner är för närvarande:
 >Azure-datorer kan vara implementerad från alla regioner och är inte begränsad till regionerna som stöds för Log Analytics-arbetsytan.
 >
 
-Om du inte har en arbetsyta kan du skapa den via [Azure CLI](../../log-analytics/log-analytics-quick-create-workspace-cli.md), via [PowerShell](../../log-analytics/log-analytics-quick-create-workspace-posh.md)i den [Azure-portalen](../../log-analytics/log-analytics-quick-create-workspace.md), eller med [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md).  Om du aktiverar övervakning för en virtuell Azure-dator från Azure portal, har du möjlighet att skapa en arbetsyta under den här processen.  
+Om du inte har en arbetsyta kan du skapa den via [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md), via [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)i den [Azure-portalen](../../azure-monitor/learn/quick-create-workspace.md), eller med [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md).  Om du aktiverar övervakning för en virtuell Azure-dator från Azure portal, har du möjlighet att skapa en arbetsyta under den här processen.  
 
 Att aktivera lösningen för den i stor skala scenariot först måste konfigurera följande i din Log Analytics-arbetsyta:
 
@@ -185,7 +185,7 @@ Om du vill aktivera övervakning av Azure-VM i Azure-portalen, gör du följande
 5. På den **Azure Monitor insikter Onboarding** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration, markerar du den i den nedrullningsbara listan.  Listan förväljer standardarbetsytan och plats som den virtuella datorn har distribuerats till i prenumerationen. 
 
     >[!NOTE]
-    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervakningsdata från den virtuella datorn följer du anvisningarna i [skapa en Log Analytics-arbetsyta](../../log-analytics/log-analytics-quick-create-workspace.md) i någon av regionerna som stöds ovan.   
+    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervakningsdata från den virtuella datorn följer du anvisningarna i [skapa en Log Analytics-arbetsyta](../../azure-monitor/learn/quick-create-workspace.md) i någon av regionerna som stöds ovan.   
 
 När du har aktiverat övervakning, kan det ta ungefär 10 minuter innan du kan visa hälsomått för den virtuella datorn. 
 

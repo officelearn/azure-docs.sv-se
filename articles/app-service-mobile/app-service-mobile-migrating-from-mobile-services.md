@@ -1,6 +1,6 @@
 ---
-title: Migrera från Mobile Services i en Apptjänst-Mobilapp
-description: Lär dig hur du enkelt migrera Mobile Services programmet till en App Service-Mobilapp
+title: Migrera från Mobile Services till en App Service-Mobilapp
+description: Lär dig hur du enkelt migrera ditt program för mobiltjänster till en App Service Mobile App
 services: app-service\mobile
 documentationcenter: ''
 author: conceptdev
@@ -14,161 +14,161 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 5001704f47af0c7b07744f1dceb7aa58bdb6448c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158876"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961611"
 ---
 # <a name="article-top"></a>Migrera din befintliga Azure-Mobiltjänst till Azure App Service
-Med den [allmän tillgång till Azure App Service], Azure Mobile Services-platser kan enkelt migrera i för att kunna utnyttja alla funktioner i Azure App Service.  Det här dokumentet beskrivs vad som händer när du migrerar din webbplats från Azure Mobile Services till Azure App Service.
+Med den [allmän tillgänglighet för Azure App Service], Azure Mobile Services-platser kan enkelt migreras på plats kan utnyttja alla funktioner i Azure App Service.  Det här dokumentet beskriver vad som händer när du migrerar din webbplats från Azure Mobile Services till Azure App Service.
 
-## <a name="what-does-migration-do"></a>Vad gör migrering till din webbplats
-Migrering av din Azure-Mobiltjänst stängs din Mobiltjänst i ett [Azure App Service] app utan att påverka koden.  Din Notification Hubs, SQL-anslutningen, autentiseringsinställningar, schemalagda jobb och domännamn ändras inte.  Mobila klienter som använder ditt Azure-Mobiltjänst fortsätta att fungera normalt.  Migreringen startar om tjänsten när den överförs till Azure App Service.
+## <a name="what-does-migration-do"></a>Vad gör migreringen att webbplatsen
+Migrering av din Azure-Mobiltjänst aktiverar din Mobiltjänst till ett [Azure App Service] app utan att påverka koden.  Din Meddelandehubbar, SQL-dataanslutning, autentiseringsinställningarna, schemalagda jobb och domännamn ändras inte.  Mobila klienter med hjälp av Azure mobila tjänster fortsätter att fungera normalt.  Migreringen startar om tjänsten när den överförs till Azure App Service.
 
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
 ## <a name="why-migrate"></a>Varför du bör migrera din plats
-Microsoft rekommenderar att du migrerar din Azure-Mobiltjänst för att dra nytta av funktionerna i Azure Apptjänst, bland annat:
+Microsoft rekommenderar att du migrerar dina Azure mobila tjänster för att kunna utnyttja funktionerna i Azure App Service, inklusive:
 
-* Nya värdfunktioner, inklusive [WebJobs] och [anpassade domännamn].
-* Övervakning och felsökning med [Programinsikter].
-* Inbyggda DevOps-tooling, inklusive [mellanlagring fack], återställning och i produktion testning.
-* [Autoskala], belastningsutjämning, och [prestandaövervakning].
+* Nya värdfunktioner, såsom [WebJobs] och [anpassade domännamn].
+* Övervakning och felsökning med [Application Insights].
+* Inbyggda DevOps-verktyg, inklusive [mellanlagringsplatser], återställa och i produktion testning.
+* [Automatisk skalning], belastningsutjämning, och [prestandaövervakning].
 
-Mer information om fördelarna med Azure App Service finns det [jämfört med Mobile Services. Apptjänst] avsnittet.
+Mer information om fördelarna med Azure App Service finns i den [Mobile Services jämfört med App Service] avsnittet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Innan du påbörjar något större arbete på din webbplats, bör du säkerhetskopiera din Mobiltjänst skript och SQL-databas.
+Innan du påbörjar något större arbete på din webbplats, bör du säkerhetskopiera dina Mobiltjänst skript och SQL-databas.
 
-## <a name="migrating-site"></a>Migrera dina platser
-Alla platser inom en enda Azure-Region migrerar migreringsprocessen.
+## <a name="migrating-site"></a>Migrera dina webbplatser
+Migreringsprocessen migrerar alla platser inom en enda Azure-Region.
 
-För att migrera din plats.
+Att migrera din plats:
 
-1. Logga in på den [klassiska Azure-portalen].
+1. Logga in på den [Klassisk Azure-portal].
 2. Välj en Mobiltjänst i den region som du vill migrera.
 3. Klicka på den **migrera till App Service** knappen.
 
    ![Knappen migrera][0]
 4. Läsa migrera till dialogrutan för Apptjänst.
-5. Ange namnet på din Mobiltjänst i rutan.  Till exempel om ditt domännamn är contoso.azure mobile.net, ange *contoso* i rutan.
+5. Ange namnet på din Mobiltjänst i rutan.  Ange till exempel om ditt domännamn är contoso.azure-mobile.net, sedan *contoso* i rutan.
 6. Klicka på knappen skalstreck.
 
-Övervaka status för migrering i övervakaren aktivitet. Webbplatsen visas som *migrera* i den klassiska Azure-portalen.
+Övervaka status för migreringen i Övervakaren för aktiviteten. Webbplatsen visas som *migrera* i den klassiska Azure-portalen.
 
   ![Aktivitetsövervakning för migrering][1]
 
 Varje migrering kan ta allt från 3 till 15 minuter per mobil tjänst som migreras.  Webbplatsen finns kvar under migreringen.
-Webbplatsen har startats om i slutet av migreringsprocessen.  Platsen är inte tillgänglig under omstarten, vilket kan senaste några sekunder.
+Webbplatsen startas om i slutet av migreringsprocessen.  Platsen är inte tillgänglig under omstarten, vilket kan de senaste några sekunder.
 
 ## <a name="finalizing-migration"></a>Slutför migreringen
-Planera att testa din plats från en mobil klient vid slutet av migreringsprocessen.  Se till att du kan utföra alla vanliga Klientåtgärder utan ändringar av den mobila klienten.  
+Planera att testa din webbplats från en mobil klient vid slutet av migreringsprocessen.  Se till att du kan utföra alla vanliga Klientåtgärder utan ändringar mobila klienten.  
 
-### <a name="update-app-service-tier"></a>Välj en lämplig Apptjänst prisnivån
-Har du mer flexibilitet i priser när du har migrerat till Azure App Service.
+### <a name="update-app-service-tier"></a>Välj en lämplig App Service-prisnivå
+Har du mer flexibilitet i betalningen när du har migrerat till Azure App Service.
 
-1. Logga in på [Azure-portalen].
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på den migrerade mobiltjänst.
-3. Inställningsbladet öppnas som standard.
+1. Logga in på [Azure Portal].
+2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din migrerade mobiltjänst.
+3. Bladet inställningar öppnas som standard.
 4. Klicka på **Apptjänstplan** på menyn Inställningar.
-5. Klicka på den **prisnivån** panelen.
-6. Klicka på panelen som är lämpligt för dina behov och klicka sedan på **Välj**.  Du kan behöva klicka **visa alla** att se tillgängliga prisnivåer.
+5. Klicka på den **prisnivå** panelen.
+6. Klicka på panelen som passar dina behov och klicka sedan på **Välj**.  Du kan behöva klicka på **visa alla** att se alla tillgängliga prisnivåer.
 
-Som en startpunkt rekommenderar vi följande nivåer:
+Som utgångspunkt rekommenderar vi följande nivåer:
 
-| Mobiltjänst prisnivån | Prisnivån för Apptjänst |
+| Mobiltjänst prisnivå | App Service-prisnivå |
 |:--- |:--- |
 | Kostnadsfri |F1 Kostnadsfri |
-| Basic |B1 Basic |
+| Basic |Basic B1 |
 | Standard |S1 Standard |
 
-Det finns betydande flexibilitet i välja rätt prisnivån för ditt program.  Referera till [priser för Apptjänst] fullständig information om priser av din nya App Service.
+Det finns större flexibilitet att välja rätt prisnivån för ditt program.  Referera till [Prissättning för App Service] för fullständig information om priser för din nya App Service.
 
 > [!TIP]
-> Standardnivån för App Service innehåller åtkomst till många funktioner som du kanske vill använda, inklusive [mellanlagring fack], automatiska säkerhetskopieringar och automatisk skalning.  Ta en titt på nya funktioner när du är det!
+> App Service Standard-nivån innehåller åtkomst till många funktioner som du kanske vill använda, inklusive [mellanlagringsplatser], automatisk säkerhetskopiering och automatisk skalning.  Kolla in de nya funktionerna när du är det!
 >
 >
 
-### <a name="review-migration-scheduler-jobs"></a>Granska migrerade schemaläggare
-Schemaläggare visas inte förrän cirka 30 minuter efter migreringen.  Schemalagda jobb fortsätter att köras i bakgrunden.
-Visa schemalagda jobb när de inte visas igen:
+### <a name="review-migration-scheduler-jobs"></a>Granska migrerade Scheduler-jobb
+Scheduler-jobb visas inte förrän cirka 30 minuter efter migreringen.  Schemalagda jobb fortsätter att köras i bakgrunden.
+Visa dina schemalagda jobb när de är synliga igen:
 
-1. Logga in på [Azure-portalen].
-2. Välj **Bläddra >**, ange **schema** i den *Filter* och sedan markera **Scheduler samlingar**.
+1. Logga in på [Azure Portal].
+2. Välj **Bläddra >**, ange **schema** i den *Filter* rutan och välj sedan **Scheduler samlingar**.
 
-Det finns ett begränsat antal kostnadsfria scheduler jobb tillgängliga efter migreringen.  Granska din användning och [Azure Scheduler planer].
+Det finns ett begränsat antal kostnadsfria scheduler-jobb tillgängliga efter migreringen.  Granskar din användning och [Azure Scheduler-planer].
 
-### <a name="configure-cors"></a>Konfigurera CORS vid behov
-Resursdelning för korsande ursprung är en teknik för att tillåta en webbplats att få åtkomst till webb-API i en annan domän.  Om du använder Azure Mobile Services med en associerad webbplats, måste du konfigurera CORS som en del av migreringen.  Om du använder Azure Mobile Services uteslutande på mobila enheter, behöver inte CORS konfigureras utom i sällsynta fall.
+### <a name="configure-cors"></a>Konfigurera CORS om det behövs
+Resursdelning mellan ursprung delning är en teknik för att tillåta en webbplats att komma åt ett webb-API på en annan domän.  Om du använder Azure Mobile Services med en associerad webbplats, måste du konfigurera CORS som en del av migreringen.  Om du använder Azure Mobile Services exklusivt från mobila enheter, behöver inte CORS konfigureras utom i sällsynta fall.
 
-Inställningarna för migrerade CORS är tillgängliga som den **MS_CrossDomainWhitelist** Appinställningen.  För att migrera din plats till funktionen Apptjänst-CORS.
+Dina migrerade CORS-inställningar är tillgängliga som den **MS_CrossDomainWhitelist** Appinställningen.  Migrera din webbplats till funktionen App Services CORS:
 
-1. Logga in på [Azure-portalen].
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på den migrerade mobiltjänst.
-3. Inställningsbladet öppnas som standard.
+1. Logga in på [Azure Portal].
+2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din migrerade mobiltjänst.
+3. Bladet inställningar öppnas som standard.
 4. Klicka på **CORS** i API-menyn.
-5. Ange några tillåtna ursprung i textrutan, tryck på RETUR efter varje kriterium.
-6. Klicka på Spara när listan över tillåtna ursprung är korrekt.
+5. Ange några tillåtna ursprung i rutan, tryck på RETUR efter varje kriterium.
+6. Klicka på knappen Spara när listan över tillåtna ursprung är korrekt.
 
 > [!TIP]
-> En av fördelarna med att använda en Azure App Service är att du kan köra din webbplats och Mobiltjänst på samma plats.  Mer information finns i [nästa steg](#next-steps) avsnitt.
+> En av fördelarna med att använda en Azure App Service är att du kan köra din webbplats och Mobiltjänst på samma plats.  Mer information finns i den [nästa steg](#next-steps) avsnittet.
 >
 >
 
-### <a name="download-publish-profile"></a>Hämta en ny publiceringsprofilen
-Publiceringsprofilen för din webbplats ändras när du migrerar till Azure App Service.  Om du vill publicera webbplatsen från Visual Studio måste en ny publiceringsprofilen.  Hämta nya publiceringsprofilen:
+### <a name="download-publish-profile"></a>Ladda ned en ny publiceringsprofil
+Publiceringsprofilen för din webbplats ändras när du migrerar till Azure App Service.  Om du vill publicera webbplatsen från Visual Studio behöver du en ny publiceringsprofilen.  Så här hämtar nya publiceringsprofilen:
 
-1. Logga in på [Azure-portalen].
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på den migrerade mobiltjänst.
-3. Klicka på **Get publiceringsprofil**.
+1. Logga in på [Azure Portal].
+2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din migrerade mobiltjänst.
+3. Klicka på **hämta publiceringsprofil**.
 
-PublishSettings-filen laddas ned till datorn.  Det kallas vanligtvis *sitename*. PublishSettings.  Importera publiceringsinställningarna till ditt befintliga projekt:
+PublishSettings-filen laddas ned till datorn.  Det kallas vanligtvis *sitename*. PublishSettings.  Importera Publiceringsinställningar till ditt befintliga projekt:
 
-1. Öppna Visual Studio och Azure Mobile Service-projekt.
+1. Öppna Visual Studio och Azure mobila tjänster för projektet.
 2. Högerklicka på projektet i den **Solution Explorer** och välj **publicera...**
 3. Klicka på **Importera**
 4. Klicka på **Bläddra** och välj din hämtade inställningsfilen för publicering.  Klicka på **OK**
-5. Klicka på **Validera anslutningen** se till att publicera inställningarna fungerar.
-6. Klicka på **publicera** att publicera webbplatsen.
+5. Klicka på **Validera anslutningen** att se till att publicera inställningar fungerar.
+6. Klicka på **publicera** att publicera din webbplats.
 
 ## <a name="working-with-your-site"></a>Arbeta med din webbplats efter migrering
-Börjar arbeta med din nya App Service i den [Azure-portalen] efter migreringen.  Följande är några anteckningar på specifika åtgärder som du använde för att utföra i den [klassiska Azure-portalen], tillsammans med motsvarande Apptjänst.
+Börja arbeta med din nya App Service i den [Azure Portal] efter migreringen.  Följande är några anmärkningar om specifika åtgärder som du använde för att utföra i den [Klassisk Azure-portal], tillsammans med motsvarande App Service.
 
 ### <a name="publishing-your-site"></a>Ladda ned och publicera webbplatsen migrerade
-Webbplatsen är tillgänglig via git och FTP- och kan publiceras med olika olika sätt, inklusive WebDeploy, TFS, ett, GitHub och FTP.  Autentiseringsuppgifter för distribution migreras med resten av platsen.  Om du inte har angett dina autentiseringsuppgifter för distribution eller om du inte kommer ihåg dem, kan du återställa dem:
+Webbplatsen är tillgängligt via git eller ftp och kan publiceras med olika olika sätt, inklusive WebDeploy, TFS, Mercurial, GitHub och FTP.  Autentiseringsuppgifter för distribution migreras med resten av din webbplats.  Om du inte har angett dina autentiseringsuppgifter för distribution eller om du inte kommer ihåg dem, kan du återställa dem:
 
-1. Logga in på [Azure-portalen].
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på den migrerade mobiltjänst.
-3. Inställningsbladet öppnas som standard.
-4. Klicka på **distributionsbehörigheterna** i publicering menyn.
-5. Ange nya autentiseringsuppgifter för distribution i rutorna och klicka på Spara.
+1. Logga in på [Azure Portal].
+2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din migrerade mobiltjänst.
+3. Bladet inställningar öppnas som standard.
+4. Klicka på **autentiseringsuppgifter för distribution** i PUBLICERINGEN menyn.
+5. Ange de nya autentiseringsuppgifterna för distribution i rutorna och sedan klicka på knappen Spara.
 
-Du kan använda dessa autentiseringsuppgifter för att klona platsen med git eller konfigurera automatiserad distribution från GitHub, TFS eller ett.  Mer information finns i [Azure App Service dokumentationen].
+Du kan använda dessa autentiseringsuppgifter för att klona platsen med git eller konfigurera automatiska distributioner från GitHub, TFS eller Mercurial.  Mer information finns i [Azure App Service dokumentationen].
 
 ### <a name="appsettings"></a>Programinställningar
-De flesta inställningar för en migrerad Mobiltjänst finns tillgängliga via App-inställningar.  Du kan hämta en lista över app-inställningar från den [Azure-portalen].
-Visa eller ändra inställningarna för appen:
+De flesta inställningar för en mobil tjänst till migrerade är tillgängliga via Appinställningar.  Du kan hämta en lista över de appinställningarna från den [Azure Portal].
+Visar eller ändrar inställningarna för din app:
 
-1. Logga in på [Azure-portalen].
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på den migrerade mobiltjänst.
-3. Inställningsbladet öppnas som standard.
+1. Logga in på [Azure Portal].
+2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din migrerade mobiltjänst.
+3. Bladet inställningar öppnas som standard.
 4. Klicka på **programinställningar** i menyn Allmänt.
-5. Rulla ned till avsnittet App-inställningar och hitta appinställning.
-6. Klicka på värdet för appinställningen redigera värdet.  Klicka på **spara** att spara värdet.
+5. Rulla ned till avsnittet Appinställningar och hitta din app-inställning.
+6. Klicka på värdet på appinställningen som du vill redigera värdet.  Klicka på **spara** att spara värdet.
 
-Du kan uppdatera flera appinställningar samtidigt.
+Du kan uppdatera flera appinställningar på samma gång.
 
 > [!TIP]
-> Det finns två inställningar för program med samma värde.  Du kan till exempel se *ApplicationKey* och *MS\_ApplicationKey*.  Uppdatera båda programinställningar på samma gång.
+> Det finns två programinställningar med samma värde.  Du kan till exempel se *ApplicationKey* och *MS\_ApplicationKey*.  Uppdatera båda programinställningar på samma gång.
 >
 >
 
 ### <a name="authentication"></a>Autentisering
-Alla inställningar för autentisering är tillgängliga som App-inställningar på din migrerade plats.  För att uppdatera autentiseringsinställningarna för, måste du ändra appinställningarna för lämplig.  I följande tabell visas lämpliga app-inställningar för din autentiseringsprovider:
+Alla autentiseringsinställningar är tillgängliga som Appinställningar på webbplatsen migrerade.  För att uppdatera autentiseringsinställningarna för, måste du ändra appinställningarna för lämpliga.  I följande tabell visas lämpliga appinställningarna för din autentiseringsprovider:
 
-| Leverantör | Klient-ID | Klienthemlighet | Andra inställningar |
+| Leverantör | Klientorganisations-ID | Klienthemlighet | Andra inställningar |
 |:--- |:--- |:--- |:--- |
 | Microsoft-konto |**MS\_MicrosoftClientID** |**MS\_MicrosoftClientSecret** |**MS\_MicrosoftPackageSID** |
 | Facebook |**MS\_FacebookAppID** |**MS\_FacebookAppSecret** | |
@@ -176,161 +176,161 @@ Alla inställningar för autentisering är tillgängliga som App-inställningar 
 | Google |**MS\_GoogleClientID** |**MS\_GoogleClientSecret** | |
 | Azure AD |**MS\_AadClientID** | |**MS\_AadTenants** |
 
-Obs: **MS\_AadTenants** lagras som en kommaavgränsad lista över klient domäner (fälten ”tillåtna klienter” i Mobile Services-portalen).
+Obs: **MS\_AadTenants** lagras som en kommaavgränsad lista över klient domäner (fälten ”tillåtna Klientorganisationer” i Mobile Services-portalen).
 
 > [!WARNING]
 > **Använd inte autentiseringsmekanismer i menyn Inställningar**
 >
-> Azure App Service tillhandahåller ett separat ”ingen kod” autentisering och auktorisering system under den *autentisering / auktorisering* menyn Inställningar och (föråldrad) *Mobile autentisering* alternativet under menyn Inställningar.  Dessa alternativ är inte kompatibel med en migrerade Azure-mobiltjänst.  Du kan [uppgraderar platsen](app-service-mobile-net-upgrading-from-mobile-services.md) dra nytta av Azure App Service-autentisering.
+> Azure App Service tillhandahåller ett separat ”Kodlösa” autentisering och auktorisering system under den *autentisering / auktorisering* menyn Inställningar och (föråldrad) *Mobile autentisering* alternativet under menyn Inställningar.  Dessa alternativ är inte kompatibel med en migrerade Azure-mobiltjänst.  Du kan [uppgraderar platsen](app-service-mobile-net-upgrading-from-mobile-services.md) att dra nytta av Azure App Service-autentisering.
 >
 >
 
 ### <a name="easytables"></a>Data
-Den *Data* fliken i Mobile Services har ersatts av *enkelt tabeller* i Azure-portalen.  Öppna enkelt tabeller:
+Den *Data* fliken i mobiltjänster har ersatts av *enkla tabeller* i Azure-portalen.  Öppna enkla tabeller:
 
-1. Logga in på [Azure-portalen].
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på den migrerade mobiltjänst.
-3. Inställningsbladet öppnas som standard.
-4. Klicka på **enkelt tabeller** mobila-menyn.
+1. Logga in på [Azure Portal].
+2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din migrerade mobiltjänst.
+3. Bladet inställningar öppnas som standard.
+4. Klicka på **enkla tabeller** på menyn mobila.
 
 Du kan lägga till en tabell genom att klicka på den **Lägg till** knappen eller få åtkomst till dina befintliga tabeller genom att klicka på ett tabellnamn.  Det finns olika åtgärder som du kan göra från det här bladet, inklusive:
 
 * Ändra tabellbehörigheter
 * Redigera operativa skript
-* Hantera tabellens schema
-* Ta bort tabellen
+* Hantera tabellschemat
+* Tar bort tabellen
 * Rensa innehåll
-* Ta bort specifika rader i tabellen
+* Tar bort specifika rader i tabellen
 
 ### <a name="easyapis"></a>API
-Den *API* fliken i Mobile Services har ersatts av *enkelt API: er* i Azure-portalen.  Öppna enkelt API: er:
+Den *API* fliken i mobiltjänster har ersatts av *enkla API: er* i Azure-portalen.  Öppna enkla API: er:
 
-1. Logga in på [Azure-portalen].
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på den migrerade mobiltjänst.
-3. Inställningsbladet öppnas som standard.
-4. Klicka på **enkelt API: er** mobila-menyn.
+1. Logga in på [Azure Portal].
+2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din migrerade mobiltjänst.
+3. Bladet inställningar öppnas som standard.
+4. Klicka på **enkla API: er** på menyn mobila.
 
-Dina migrerade API: er finns redan i bladet.  Du kan också lägga till en API från det här bladet.  Klicka på API: et för att hantera en specifika API: et.
+Dina migrerade API: er visas redan i bladet.  Du kan också lägga till ett API från det här bladet.  Klicka på API: et för att hantera ett visst API.
 Du kan justera behörigheterna och redigera skripten för API: et från det nya bladet.
 
-### <a name="on-demand-jobs"></a>Jobb för Schemaläggaren
-Alla jobb som Schemaläggaren är tillgängliga via avsnittet Scheduler-Jobbsamlingar.  Åtkomst till dina jobb för Schemaläggaren:
+### <a name="on-demand-jobs"></a>Scheduler-jobb
+Alla scheduler-jobb är tillgängliga via avsnittet Scheduler-Jobbsamlingar.  Öppna scheduler-jobb:
 
-1. Logga in på [Azure-portalen].
-2. Välj **Bläddra >**, ange **schema** i den *Filter* och sedan markera **Scheduler samlingar**.
-3. Välj Jobbsamlingen för webbplatsen.  Det heter *sitename*-jobb.
+1. Logga in på [Azure Portal].
+2. Välj **Bläddra >**, ange **schema** i den *Filter* rutan och välj sedan **Scheduler samlingar**.
+3. Välj Jobbsamlingen för din webbplats.  Namnet är *sitename*-jobb.
 4. Klicka på **inställningar**.
-5. Klicka på **schemaläggare** under hantera.
+5. Klicka på **Scheduler-jobb** under hantera.
 
-Schemalagda jobb visas med den frekvens som du angett innan migreringen.  På begäran-jobben är inaktiverade.  Köra ett jobb på begäran:
+Schemalagda jobb visas med den frekvens som du har angett före migreringen.  På begäran-jobben är inaktiverade.  Köra ett jobb på begäran:
 
 1. Välj det jobb som du vill köra.
 2. Om det behövs klickar du på **aktivera** att aktivera jobbet.
 3. Klicka på **inställningar**, sedan **schema**.
-4. Välj en upprepning av **när**, klicka på **spara**
+4. Välj en upprepning av **när**, klicka sedan på **spara**
 
-Jobb på begäran finns i `App_Data/config/scripts/scheduler post-migration`.  Vi rekommenderar att du konverterar alla jobb för på-begäran till [WebJobs] eller [funktioner].  Skriva nya schemaläggare som [WebJobs] eller [funktioner].
+Jobb på begäran finns i `App_Data/config/scripts/scheduler post-migration`.  Vi rekommenderar att du konverterar alla på begäran-jobb [webjobs] eller [Funktioner].  Skriva ny scheduler-jobb som [WebJobs] eller [Funktioner].
 
-### <a name="notification-hubs"></a>Notification Hubs
-Mobile Services använder Notification Hubs för push-meddelanden.  Följande App-inställningar används för att länka Meddelandehubben till din Mobiltjänst efter migreringen:
+### <a name="notification-hubs"></a>Meddelandehubbar
+Mobiltjänster använder Meddelandehubbar för push-meddelanden.  Följande inställningar för appen används för att länka Notification Hub i dina mobila tjänster efter migreringen:
 
 | Tillämpningsinställning | Beskrivning |
 |:--- |:--- |
-| **MS\_PushEntityNamespace** |Namespace för Notification Hub |
-| **MS\_NotificationHubName** |Namnet på Meddelandehubb |
-| **MS\_NotificationHubConnectionString** |Anslutningssträngen för Notification Hub |
+| **MS\_PushEntityNamespace** |Notification Hub Namespace |
+| **MS\_NotificationHubName** |Namnet på Meddelandehubben |
+| **MS\_NotificationHubConnectionString** |Notification Hub-anslutningssträngen |
 | **MS\_NamespaceName** |Ett alias för MS_PushEntityNamespace |
 
-Din Meddelandehubb hanteras via den [Azure-portalen].  Notera namnet Notification Hub (du hittar detta med hjälp av App-inställningar):
+Din Meddelandehubb hanteras via den [Azure Portal].  Observera Notification Hub-namn (du hittar den med hjälp av Appinställningarna):
 
-1. Logga in på [Azure-portalen].
-2. Välj **Bläddra**> och välj **Notification Hubs**
-3. Klicka på Notification Hub-namn som associeras med den mobila tjänsten.
+1. Logga in på [Azure Portal].
+2. Välj **Bläddra**> och välj sedan **Meddelandehubbar**
+3. Klicka på namnet för Notification Hub som är associerade med den mobila tjänsten.
 
 > [!NOTE]
-> Om din Meddelandehubb är av typen ”Mixed”, är den inte synlig.  ”Blandade” Skriv notification hubs använder både Meddelandehubbar och äldre Service Bus-funktioner.  [Omvandla dina blandat namnområden] innan du fortsätter.  När konverteringen har slutförts, din meddelandehubb som visas i den [Azure-portalen].
+> Om din Notification HUb är av typen ”kombinerad”, är det inte visas.  ”Blandat” Skriv notification hubs använder både Meddelandehubbar och äldre Service Bus-funktionerna.  [Omvandla dina blandat namnområden] innan du fortsätter.  När konverteringen har slutförts, din meddelandehubb som visas i den [Azure Portal].
 >
 >
 
-Mer information finns i [Meddelandehubbar] dokumentation.
+Mer information finns i [Notification Hubs] dokumentation.
 
 > [!TIP]
-> Notification Hubs-hanteringsfunktioner i den [Azure-portalen] är fortfarande under förhandsgranskning.  Den [klassiska Azure-portalen] finns kvar för att hantera alla Meddelandehubbar.
+> Notification Hubs-hanteringsfunktioner i den [Azure Portal] är fortfarande i förhandsversion.  Den [Klassisk Azure-portal] förblir tillgängliga för hantering av alla Meddelandehubbar.
 >
 >
 
 ### <a name="legacy-push"></a>Äldre Push-inställningar
-Om du har konfigurerat Push på mobiltjänsten före införandet på Notification Hubs använder du *äldre push*.  Om du använder Push och du inte ser en Meddelandehubb som visas i konfigurationen och sedan är det troligt att du använder *äldre push*.  Den här funktionen har migrerats med andra funktioner.  Vi rekommenderar dock att du uppgraderar till Meddelandehubbar strax efter att migreringen är klar.
+Om du har konfigurerat Push på mobiltjänsten innan introduktionen på Meddelandehubbar du använder *äldre push*.  Om du använder Push och du inte ser en Meddelandehubb som visas i din konfiguration så är det troligt att du använder *äldre push*.  Den här funktionen har migrerats med alla andra funktioner.  Vi rekommenderar dock att du uppgraderar till Meddelandehubbar strax efter att migreringen är klar.
 
-Under tiden kan alla äldre push-inställningar (med viktiga undantag av APN-certifikatet) som är tillgängliga i App-inställningar.  Uppdatera APN-certifikatet genom att ersätta filen på filsystemet.
+Under tiden kan alla äldre push-inställningar (med viktiga undantag för APN-certifikatet) som är tillgängliga i App-inställningar.  Uppdatera APN-certifikatet genom att ersätta filen på filsystemet.
 
 ### <a name="app-settings"></a>Andra Appinställningar
-Följande ytterligare appinställningar har migrerats från din Mobiltjänst och är tillgängliga under *inställningar* > *Appinställningar*:
+Följande ytterligare inställningar är migrerade från din Mobiltjänst och är tillgängliga under *inställningar* > *Appinställningar*:
 
 | Tillämpningsinställning | Beskrivning |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Namnet på din app |
-| **MS\_MobileServiceDomainSuffix** |Domänprefixet. engångsfaktorautentisering azure-mobile.net |
-| **MS\_ApplicationKey** |Din nyckel för programmet |
-| **MS\_MasterKey** |Huvudnyckeln för din app |
+| **MS\_MobileServiceDomainSuffix** |Domänprefixet. dvs azure-mobile.net |
+| **MS\_ApplicationKey** |Din programnyckel |
+| **MS\_MasterKey** |Din app huvudnyckel |
 
-Program-tangenten och huvudnyckeln är identiska med nycklar för programmet från din ursprungliga mobiltjänst.  I synnerhet skickas nyckeln för programmet av mobila klienter att verifiera deras användning av mobila API: et.
+Programnyckel och huvudnyckeln är identiska med nycklar för programmet från din ursprungliga mobiltjänst.  I synnerhet skickas Programnyckeln av mobila klienter att verifiera deras användning av mobila API: et.
 
 ### <a name="cliequivalents"></a>Kommandoradsverktyget motsvarigheter
-Du kan använda längre den *azure mobila* kommando för att hantera Azure Mobile Services-platsen.  I stället många funktioner har ersatts av den *azure plats* kommando.  Använd följande tabell för att hitta motsvarigheter för vanliga kommandon:
+Du kan använda längre den *azure mobila* kommando för att hantera dina Azure Mobile Services-platsen.  I stället många funktioner har ersatts med den *azure plats* kommando.  Använd följande tabell för att hitta motsvarigheter för vanliga kommandon:
 
 | *Azure Mobile* kommando | Motsvarande *Azure Site* kommando |
 |:--- |:--- |
-| mobila platser |plats för webbplatslista |
-| mobila lista |platslista |
-| mobila visa *namn* |platsen visa *namn* |
-| mobila omstart *namn* |platsen omstart *namn* |
-| mobila Omdistributionen *namn* |Distribuera om distributionen av site *commitId* *namn* |
-| mobila nyckeluppsättning *namn* *typen* *värde* |ta bort platsen appsetting *nyckeln* *namn* <br/> Lägg till webbplats appsetting *nyckeln*=*värdet* *namn* |
-| mobila config listan *namn* |appsetting platslista *namn* |
-| Hämta mobila config *namn* *nyckel* |platsen appsetting visa *nyckeln* *namn* |
-| mobila konfigurationsuppsättning *namn* *nyckel* |ta bort platsen appsetting *nyckeln* *namn* <br/> Lägg till webbplats appsetting *nyckeln*=*värdet* *namn* |
-| mobila domänlistan *namn* |domän platslista *namn* |
-| lägga till mobila domän *namn* *domän* |Lägg till webbplats domän *domän* *namn* |
-| ta bort mobila domän *namn* |ta bort plats-domänen *domän* *namn* |
-| Visa mobila skala *namn* |platsen visa *namn* |
-| mobila skala ändra *namn* |läget för webbplatsen skala *läge* *namn* <br /> platsen skala instanser *instanser* *namn* |
-| mobila appsetting listan *namn* |appsetting platslista *namn* |
-| Lägg till mobila appsetting *namn* *nyckeln* *värde* |Lägg till webbplats appsetting *nyckeln*=*värdet* *namn* |
-| ta bort mobila appsetting *namn* *nyckel* |ta bort platsen appsetting *nyckeln* *namn* |
-| mobila appsetting visa *namn* *nyckel* |ta bort platsen appsetting *nyckeln* *namn* |
+| mobila platser |platslistan för plats |
+| mobila lista |webbplatslista för företagsläge |
+| mobila show *namn* |plats show *namn* |
+| mobila omstart *namn* |plats omstart *namn* |
+| mobila omdistribution *namn* |Distribuera om distributionen av site *commitId* *namn* |
+| mobila nyckeluppsättning *namn* *typ* *värde* |ta bort platsen appsetting *nyckel* *namn* <br/> Lägg till plats appsetting *nyckel*=*värdet* *namn* |
+| mobilkonfiguration lista *namn* |appsetting platslistan *namn* |
+| Hämta mobilkonfiguration *namn* *nyckel* |plats appsetting show *nyckel* *namn* |
+| mobila config set *namn* *nyckel* |ta bort platsen appsetting *nyckel* *namn* <br/> Lägg till plats appsetting *nyckel*=*värdet* *namn* |
+| mobila domänlistan *namn* |plats domänlistan *namn* |
+| Lägg till mobila domän *namn* *domän* |plats domän lägger du till *domän* *namn* |
+| ta bort mobila domän *namn* |platsen domain delete *domän* *namn* |
+| mobila skala show *namn* |plats show *namn* |
+| mobila skala ändra *namn* |plats Skalningsläge *läge* *namn* <br /> plats skala instanserna *instanser* *namn* |
+| mobila appsetting lista *namn* |appsetting platslistan *namn* |
+| Lägg till mobila appsetting *namn* *nyckel* *värde* |Lägg till plats appsetting *nyckel*=*värdet* *namn* |
+| ta bort mobila appsetting *namn* *nyckel* |ta bort platsen appsetting *nyckel* *namn* |
+| mobila appsetting show *namn* *nyckel* |ta bort platsen appsetting *nyckel* *namn* |
 
-Uppdatera autentisering eller inställningar för push-meddelanden genom att uppdatera inställningarna för programmet.
-Redigera filerna och publicera webbplatsen via FTP- eller git.
+Uppdatera autentisering eller inställningar för push-meddelanden genom att uppdatera lämpliga inställningen.
+Redigera filer och publicera din webbplats via ftp eller git.
 
 ### <a name="diagnostics"></a>Diagnostik- och loggning
-Diagnostikloggning är normalt inaktiverat i en Azure App Service.  Så här aktiverar du diagnostikloggning:
+Diagnostisk loggning är normalt inaktiverat i en Azure App Service.  Aktivera Diagnostisk loggning:
 
-1. Logga in på [Azure-portalen].
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på den migrerade mobiltjänst.
-3. Inställningsbladet öppnas som standard.
-4. Välj **diagnostikloggar** funktioner-menyn.
-5. Klicka på **ON** för följande loggar: **programloggning (filsystem)**, **detaljerade felmeddelanden**, och **spårning av misslyckade begäranden**
-6. Klicka på **filsystemet** för Web server-loggning
+1. Logga in på [Azure Portal].
+2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din migrerade mobiltjänst.
+3. Bladet inställningar öppnas som standard.
+4. Välj **diagnostikloggar** under menyn funktioner.
+5. Klicka på **på** för följande loggar: **Programinloggning (filsystem)**, **detaljerade felmeddelanden**, och **spårning av misslyckade begäranden**
+6. Klicka på **filsystem** för webbserver-loggning
 7. Klicka på **Spara**
 
 Visa loggarna:
 
-1. Logga in på [Azure-portalen].
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på den migrerade mobiltjänst.
+1. Logga in på [Azure Portal].
+2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din migrerade mobiltjänst.
 3. Klicka på den **verktyg** knappen
-4. Välj **loggström** Följ-menyn.
+4. Välj **Log Stream** under menyn Följ.
 
-Loggarna visas i fönstret när de skapas.  Du kan också hämta loggarna för senare analys med dina autentiseringsuppgifter för distribution. Mer information finns i [loggning] dokumentation.
+Loggarna visas i fönstret som de skapas.  Du kan också hämta loggar för senare analys med dina autentiseringsuppgifter för distribution. Mer information finns i den [loggning] dokumentation.
 
 ## <a name="known-issues"></a>Kända problem
-### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>Om du tar bort en migreras Mobile App klon orsakar ett avbrott för platsen
-Om du klona migrerade mobiltjänsten med hjälp av Azure PowerShell och sedan ta bort klonen, tas DNS-posten för produktionstjänsten bort.  Platsen är inte längre vara tillgänglig från Internet.  
+### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>Tar bort en migreras Mobile App klon orsakar ett eventuellt strömavbrott
+Om du klona migrerade mobiltjänsten med hjälp av Azure PowerShell och sedan ta bort klonen, tas DNS-posten för produktionstjänsten bort.  Webbplatsen är inte längre vara tillgänglig från Internet.  
 
-Lösning: Om du vill klona webbplatsen göra det via portalen.
+Lösning: Om du vill klona din webbplats kan göra det via portalen.
 
-### <a name="changing-webconfig-does-not-work"></a>Om du ändrar Web.config fungerar inte
-Om du har en ASP.NET-webbplats kan ändras till den `Web.config` filen inte tillämpas.  Azure App Service skapar ett lämpligt `Web.config` filen starten för att stödja Mobile Services runtime.  Du kan åsidosätta vissa inställningar (t.ex anpassade huvuden) med hjälp av en XML-transformation.  Skapa en fil i kallas `applicationHost.xdt` -filen måste hamna på den `D:\home\site` på Azure-tjänsten.  Överför den `applicationHost.xdt` filen via ett anpassat distributionsskriptet eller direkt via Kudu.  Nedan visas ett exempel dokument:
+### <a name="changing-webconfig-does-not-work"></a>Ändra Web.config fungerar inte
+Om du har en ASP.NET-webbplats kan ändras till den `Web.config` filen inte tillämpas.  Azure App Service bygger ett lämpligt `Web.config` fil under starten för mobiltjänster-runtime.  Du kan åsidosätta vissa inställningar (till exempel anpassade huvuden) med hjälp av en XML-transformation.  Skapa en fil i kallas `applicationHost.xdt` -den här filen måste hamnar i den `D:\home\site` på Azure-tjänsten.  Ladda upp den `applicationHost.xdt` filen via ett anpassat distributionsskript eller direkt med hjälp av Kudu.  Nedan visas ett exempel dokument:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -349,23 +349,23 @@ Om du har en ASP.NET-webbplats kan ändras till den `Web.config` filen inte till
 </configuration>
 ```
 
-Mer information finns i [XDT transformera prover] dokumentation på GitHub.
+Mer information finns i den [XDT Transform-exempel] dokumentation på GitHub.
 
-### <a name="migrated-mobile-services-cannot-be-added-to-traffic-manager"></a>Migrerade Mobile Services kan inte läggas till i Traffic Manager
-Du kan inte direkt att välja en migrerade Mobiltjänst för profilen när du skapar en Traffic Manager-profil.  Använda en ”extern slutpunkt”.  Den externa slutpunkten kan endast läggas till via PowerShell.  Mer information finns i [Traffic Manager kursen](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
+### <a name="migrated-mobile-services-cannot-be-added-to-traffic-manager"></a>Migrerade mobiltjänster kan inte läggas till Traffic Manager
+När du skapar en Traffic Manager-profil väljer du det går inte att direkt en migrerade Mobiltjänst till profilen.  Använda en ”extern slutpunkt”.  Den externa slutpunkten kan endast läggas till via PowerShell.  Mer information finns i den [Traffic Manager självstudien](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när ditt program har migrerats till App Service finns ytterligare funktioner som du kan använda:
+Nu när ditt program har migrerats till App Service, finns det fler funktioner som du kan använda:
 
-* Distribution [mellanlagring fack] kan du mellanlagra ändringar på webbplatsen och genomföra A / B-testning.
-* [WebJobs] Ange en ersättning för på-begäran schemalagda jobb.
-* Du kan [kontinuerligt distribuera] webbplatsen genom att länka din webbplats till GitHub, TFS eller ett.
-* Du kan använda [Programinsikter] att övervaka din webbplats.
-* Hantera en webbplats och ett Mobile-API från samma kod.
+* Distribution [mellanlagringsplatser] gör att du kan mellanlagra ändringar på webbplatsen och genomföra A / B-testning.
+* [WebJobs] Ange en ersättning för på begäran-schemalagda jobb.
+* Du kan [kontinuerligt distribuera] webbplatsen genom att länka din webbplats till GitHub, TFS eller Mercurial.
+* Du kan använda [Application Insights] att övervaka din webbplats.
+* Hantera en webbplats och en Mobile API från samma kod.
 
-### <a name="upgrading-your-site"></a>Uppgradera din Mobile Services-plats till Azure Mobile Apps-SDK
-* För Node.js-baserad server projekt, den nya [Mobile Apps Node.js SDK] innehåller flera nya funktioner. Exempelvis kan du nu göra lokal utveckling och felsökning, använda en Node.js-version ovan 0.10 och anpassa med någon Express.js mellanprogram.
-* För. NET-baserad server-projekt, den nya [Mobile Apps SDK NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) har du mer flexibilitet i NuGet-beroenden.  Paketen stöd för den nya App Service-autentiseringen och skapa med ASP.NET-projekt. Mer information om hur du uppgraderar finns [uppgradera din befintliga mobiltjänst .NET till App Service](app-service-mobile-net-upgrading-from-mobile-services.md).
+### <a name="upgrading-your-site"></a>Uppgradera din Mobile Services-plats till Azure SDK för Mobile Apps
+* För Node.js-baserade server-projekt, den nya [Mobile Apps Node.js SDK] har flera nya funktioner. Exempelvis kan kan du nu göra lokal utveckling och felsökning, använda valfri Node.js version ovan 0.10 och anpassa med alla Express.js mellanprogram.
+* För. NET-baserade server-projekt, den nya [Mobile Apps SDK NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) har mer flexibilitet i NuGet-beroenden.  Dessa paket stödja den nya App Service-autentiseringen och sätt ihop med alla ASP.NET-projekt. Mer information om hur du uppgraderar finns [uppgradera din befintliga .NET-Mobiltjänst till App Service](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-migrating-from-mobile-services/migrate-to-app-service-button.PNG
@@ -373,28 +373,28 @@ Nu när ditt program har migrerats till App Service finns ytterligare funktioner
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Priser för Apptjänst]: https://azure.microsoft.com/pricing/details/app-service/
-[Programinsikter]: ../application-insights/app-insights-overview.md
-[Autoskala]: ../app-service/web-sites-scale.md
+[Prissättning för App Service]: https://azure.microsoft.com/pricing/details/app-service/
+[Application Insights]: ../application-insights/app-insights-overview.md
+[Automatisk skalning]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
-[klassiska Azure-portalen]: https://manage.windowsazure.com
-[Azure-portalen]: https://portal.azure.com
+[Klassisk Azure-portal]: https://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
-[Azure Scheduler planer]: ../scheduler/scheduler-plans-billing.md
+[Azure Scheduler-planer]: ../scheduler/scheduler-plans-billing.md
 [kontinuerligt distribuera]: ../app-service/app-service-continuous-deployment.md
 [Omvandla dina blandat namnområden]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
-[curl]: http://curl.haxx.se/
-[anpassade domännamn]: ../app-service/app-service-web-tutorial-custom-domain.md
-[Fiddler]: http://www.telerik.com/fiddler
-[allmän tillgång till Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
+[curl]: https://curl.haxx.se/
+[Anpassade domännamn]: ../app-service/app-service-web-tutorial-custom-domain.md
+[Fiddler]: https://www.telerik.com/fiddler
+[allmän tillgänglighet för Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[loggning]: ../app-service/web-sites-enable-diagnostic-log.md
+[Loggning]: ../app-service/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
-[jämfört med Mobile Services. Apptjänst]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[Meddelandehubbar]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[prestandaövervakning]: ../app-service/web-sites-monitor.md
-[Postman]: http://www.getpostman.com/
-[mellanlagring fack]: ../app-service/web-sites-staged-publishing.md
+[Mobile Services jämfört med App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
+[Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
+[Prestandaövervakning]: ../app-service/web-sites-monitor.md
+[Postman]: https://www.getpostman.com/
+[mellanlagringsplatser]: ../app-service/web-sites-staged-publishing.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
-[XDT transformera prover]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
-[funktioner]: ../azure-functions/functions-overview.md
+[XDT Transform-exempel]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
+[Funktioner]: ../azure-functions/functions-overview.md

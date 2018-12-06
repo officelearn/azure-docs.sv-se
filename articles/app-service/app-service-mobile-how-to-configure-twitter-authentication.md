@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 717772a65d14620547e824d993b5acfe5e259519
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 42d857fe712658ca3c17d824d061742cf7195e39
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250908"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967359"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Så här konfigurerar du App Service-programmet att använda Twitter-inloggning
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -64,6 +64,6 @@ Du är nu redo att använda Twitter för autentisering i din app.
 
 <!-- URLs. -->
 
-[Twitter-utvecklare]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[Twitter-utvecklare]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure Portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

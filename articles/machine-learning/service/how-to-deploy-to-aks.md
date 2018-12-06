@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 5db0efd825a655143828e7ccea73704516893ea2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7df23420445e40efe4ce95c8e55993f6069a1613
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845271"
+ms.locfileid: "52867232"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Hur du distribuerar modeller från Azure Machine Learning-tjänsten till Azure Kubernetes Service
 
@@ -95,6 +95,9 @@ Azure Kubernetes Service använder Docker-avbildningar. Använd följande steg f
     # Wait for the create process to complete
     image.wait_for_creation(show_output = True)
     ```
+
+> [!NOTE]
+> När du skapar en avbildning som använder GPU-acceleration måste GPU-basavbildningen användas på Microsoft Azure-tjänster endast.
 
 ## <a name="create-the-aks-cluster"></a>Skapa AKS-kluster
 

@@ -114,6 +114,10 @@ items:
     items:
     - name: Arbeta med databaser, containrar och objekt
       href: databases-containers-items.md
+    - name: SQL-språkreferens
+      href: sql-api-sql-query-reference.md
+    - name: SQL-frågeexempel
+      href: how-to-sql-query.md
     - name: Indexering
       items:
       - name: Översikt
@@ -262,8 +266,6 @@ items:
         href: /rest/api/cosmos-db/
       - name: REST-resursprovider
         href: /rest/api/cosmos-db-resource-provider/
-      - name: Språksyntax för SQL
-        href: sql-api-sql-query-reference.md
   - name: MongoDB API-dokument
     items:
     - name: Introduktion
@@ -445,8 +447,6 @@ items:
       href: how-to-create-container.md
     - name: Fråga en container
       href: how-to-query-container.md
-    - name: Söka i data med SQL-frågor
-      href: how-to-sql-query.md
   - name: Indexering
     items:
     - name: Konfigurera indexering
@@ -583,9 +583,9 @@ items:
       href: use-cases.md
     - name: Appar för sociala medier
       href: social-media-apps.md
-ms.openlocfilehash: b3094d99c13b228a4a4165a1a1a49a97a7517cb0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 413ec7cc09f748948cab92dd10495b667be06f40
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833728"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961237"

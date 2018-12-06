@@ -9,55 +9,56 @@ manager: cgronlun
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: 7eacc475145dac61db1717f1860e22cedd022262
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 45a5e4c895a0c7a8f76bb34aa5aaf22fa31f4333
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231455"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864867"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Använd ett beräkningsmål träna din modell
 
-Med Azure Machine Learning-tjänsten kan du träna din modell i olika miljöer. Dessa miljöer, kallas __beräkningsmål__, kan vara lokala eller i molnet. I det här dokumentet lär du stöds beräkningsmål och hur de används.
+Med Azure Machine Learning-tjänsten kan du träna din modell på olika beräkningsresurser. Dessa beräkningsresurser, kallas __beräkningsmål__, kan vara lokala eller i molnet. I det här dokumentet lär du dig att stöds beräkningsmål och hur de används.
 
-Beräkningsmål är den resurs som körs dina utbildningsskript, eller som är värd för din modell när det distribueras som en webbtjänst. De kan skapas och hanteras med hjälp av Azure Machine Learning SDK eller CLI. Om du har beräkningsmål som har skapats av en annan process (till exempel Azure portal eller Azure CLI) kan använda du dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
+Beräkningsmål är en resurs där dina utbildningsskript körs eller är värd för din modell när de distribueras som en webbtjänst. Du kan skapa och hantera ett beräkningsmål som använder Azure Machine Learning SDK, Azure-portalen eller Azure CLI. Om du har beräkningsmål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster), kan du använda dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
 
-Du kan börja med lokala körs på din dator och sedan skala uppåt och utåt till andra miljöer, till exempel remote Data Science virtuella datorer med GPU- eller Azure Batch AI. 
+Det finns tre olika kategorier av beräkningsmål som har stöd för Azure Machine Learning:
 
->[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 0.168 
+* __Lokala__: den lokala datorn eller en molnbaserad VM som du använder som en utvecklings-/ experimentmiljön. 
+
+* __Hanterade beräkning__: beräkning av Azure Machine Learning är en beräkning som erbjuder som hanteras av Azure Machine Learning-tjänsten. Det kan du enkelt skapa en eller flera node beräkning för utbildning, testa och batch inferensjobb.
+
+* __Ansluten beräkning__: du kan också ta med din egen Azure-molnet beräkning och koppla den till Azure Machine Learning. Läs mer nedan på stöds beräkningstyper och hur de används.
+
 
 ## <a name="supported-compute-targets"></a>Stöds beräkningsmål
 
-Azure Machine Learning-tjänsten stöder följande beräkningsmål:
+Azure Machine Learning-tjänsten har olika stöd för olika beräkningsmål. En typisk modellen för säkerhetsutveckling börjar med utveckling/experimentering på en liten mängd data. I det här skedet bör du använda en lokal miljö. Den lokala datorn eller en molnbaserad VM. När du skalar upp utbildning på större datauppsättningar eller göra distribuerad utbildning, bör du använda beräkning av Azure Machine Learning för att skapa ett enda eller flera node kluster som skalar varje gång du skickar en körning. Du kan även bifoga dina egna beräkningsresurs, även om stöd för olika scenarier kan variera som beskrivs nedan:
 
-|Beräkningsmål| GPU-acceleration | Automatiserad finjustering av hyperparametrar | Vald automatiserade modell | Kan användas i pipelines|
+|Beräkningsmål| GPU-acceleration | Automatiserad finjustering av hyperparametrar | Automatiserad maskininlärning | Pipeline-vänlig|
 |----|:----:|:----:|:----:|:----:|
 |[Lokal dator](#local)| Kanske | &nbsp; | ✓ | &nbsp; |
-|[Virtuell dator för datavetenskap (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Machine Learning-beräkning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
+|[Fjärransluten virtuell dator](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 > [!IMPORTANT]
-> <a id="pipeline-only"></a>* Azure Databricks och Azure Data Lake Analytics kan __endast__ användas i en pipeline. Mer information om pipelines finns i den [Pipelines i Azure Machine Learning](concept-ml-pipelines.md) dokumentet.
-
-__[Azure Container Instances (ACI)](#aci)__  kan också användas för att träna modeller. Det är en serverlös molntjänst som är kostnadseffektiv och enkel att skapa och arbeta med. ACI har inte stöd för GPU-acceleration, automatiserade hyper parametern inställning, eller automatiserade vald modell. Det kan dessutom inte användas i en pipeline.
-
-Viktiga skillnaderna mellan beräkningsmål är:
-* __GPU-acceleration__: GPU: er är tillgängliga med den virtuella datorn för datavetenskap och Azure Batch AI. Du kan ha åtkomst till en GPU på din lokala dator, beroende på maskinvara, drivrutiner och ramverk som är installerade.
-* __Automatiserad finjustering av hyperparametrar__: Azure Machine Learning automatiserad finjustering optimering hjälper dig att hitta den bästa hyperparametrar för din modell.
-* __Automatiserad vald modell__: Azure Machine Learning-tjänsten kan smart rekommenderar algoritmen och finjustering markerad när du skapar en modell. Vald automatiserade modell hjälper dig att Konvergera till en modell med hög kvalitet snabbare än att försöka manuellt olika kombinationer. Mer information finns i den [självstudie: automatiskt tränar en modell för klassificering med Azure automatiserad Machine Learning](tutorial-auto-train-models.md) dokumentet.
-* __Pipelines__: Azure Machine Learning-tjänsten gör att du kan kombinera olika uppgifter, till exempel inlärning och distribuering i en pipeline. Pipelines kan vara körde parallellt eller i följd och tillhandahålla en tillförlitlig automation-metod. Mer information finns i den [skapa machine learning pipelines med Azure Machine Learning-tjänsten](concept-ml-pipelines.md) dokumentet.
-
-Du kan använda SDK för Azure Machine Learning, Azure CLI eller Azure-portalen för att skapa beräkningsmål. Du kan också använda befintliga beräkningsmål genom att lägga till (koppla) dem till din arbetsyta.
+> <a id="pipeline-only"></a>__*__ Azure Databricks och Azure Data Lake Analytics kan __endast__ användas i en pipeline. Mer information om pipelines finns i den [Pipelines i Azure Machine Learning](concept-ml-pipelines.md) dokumentet.
 
 > [!IMPORTANT]
-> Du kan inte koppla en befintlig instans av Azure-behållare till din arbetsyta. I stället måste du skapa en ny instans.
+> Beräkning av Azure Machine Learning måste skapas från en arbetsyta. Du kan inte koppla befintliga instanser till en arbetsyta.
 >
-> Du kan inte skapa Azure HDInsight, Azure Databricks och Azure Data Lake Store inom en arbetsyta. I stället måste du skapa resursen och sedan ansluta den till din arbetsyta.
+> Andra beräkningsmål måste skapas utanför Azure Machine Learning och sedan ansluts till din arbetsyta.
+
+> [!NOTE]
+> Vissa compute mål förlitar sig på Docker-behållaravbildningar när träna en modell. GPU-basavbildningen måste bara användas på Microsoft Azure-tjänster. För modellträning är dessa tjänster:
+>
+> * Azure Machine Learning-beräkning
+> * Azure Kubernetes Service
+> * Den virtuella datorn för datavetenskap.
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -73,11 +74,14 @@ Arbetsflöde för att utveckla och distribuera en modell med Azure Machine Learn
 > [!IMPORTANT]
 > Utbildning skriptet inte är kopplat till en specifik beräkningsmål. Du kan träna från början på den lokala datorn och sedan växla beräkningsmål utan att behöva skriva om skriptet utbildning.
 
+> [!TIP]
+> När du kopplar ett beräkningsmål med din arbetsyta, antingen genom att skapa hanterade compute eller koppla befintliga beräkning, måste du ange ett namn som din databearbetning. Detta bör vara mellan 2 och 16 tecken.
+
 Växla mellan en beräkningsmål innebär att du skapar en [körningskonfigurationen](concept-azure-machine-learning-architecture.md#run-configuration). Körningskonfigurationen definierar hur du kör skriptet på beräkningsmål.
 
 ## <a name="training-scripts"></a>Utbildningsskript
 
-När du startar en utbildning körning har hela katalogen som innehåller dina utbildningsskript skickats. En ögonblicksbild skapas och skickas till beräkningsmål. Mer information finns i [ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshot).
+När du startar en körning för utbildning, skapas en ögonblicksbild av den katalog som innehåller dina utbildningsskript och skickas till beräkningsmål. Mer information finns i [ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshot).
 
 ## <a id="local"></a>Lokal dator
 
@@ -99,7 +103,6 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
 
-En Jupyter-anteckningsbok som visar utbildning i en miljö med användarhanterade, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### <a name="system-managed-environment"></a>System-hanterad miljö
 
@@ -121,51 +124,140 @@ run_config_system_managed.auto_prepare_environment = True
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
-En Jupyter-anteckningsbok som visar utbildning i en miljö som hanteras av datorn, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+## <a id="amlcompute"></a>Azure Machine Learning-beräkning
 
-## <a id="dsvm"></a>Virtuell dator för datavetenskap
+Beräkning av Azure Machine Learning är en beräkningsinfrastruktur för hanterade som används att enkelt skapa en - till Multi-Factor - node beräkning. Den har skapats __inom din arbetsyteregion__ och är en resurs som kan delas med andra användare i din arbetsyta. Det kan skalas automatiskt när ett jobb skickas och kan placeras i en Azure-nätverk. Den kan köras i en __behållare miljö__, paketera din modell beroenden i en Docker-behållare.
 
-Den lokala datorn kanske inte har beräkning eller GPU-resurser som krävs för att träna modellen. I så fall kan du kan skala upp eller skala ut träningsprocess genom att lägga till ytterligare beräkningsmål, till exempel en Data Science Virtual Machines (DSVM).
+Du kan använda beräkning av Azure Machine Learning för att distribuera träningsprocess över ett kluster med CPU eller GPU-beräkningsnoder i molnet. Mer information om de storlekar som innehåller GPU: er finns i den [GPU-optimerad storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) dokumentation.
+
+> [!NOTE]
+> Beräkning av Azure Machine Learning har standardgränser på t.ex. antalet kärnor som kan allokeras. Mer information finns i den [hantera och begära kvoter för Azure-resurser](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas) dokumentet.
+
+Du kan skapa beräkning av Azure Machine Learning på begäran när du schemalägger en körning eller som en beständig resurs.
+
+### <a name="run-based-creation"></a>Kör-baserade skapas
+
+Du kan skapa en beräkning av Azure Machine Learning som beräkningsmål vid körning. I det här fallet beräkningen som skapas automatiskt för din körning, skalar upp max_nodes som du anger i kör config, och sedan __tas bort automatiskt__ när körningen har slutförts.
+
+Den här funktionen är för närvarande i förhandsversion och kommer inte att fungera med finjustering av Hyperparametrar eller automatiserade Machine Learning-jobb.
+
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+
+#Let us first list the supported VM families for Azure Machine Learning Compute
+AmlCompute.supported_vmsizes()
+
+from azureml.core.runconfig import RunConfiguration
+
+# create a new runconfig object
+run_config = RunConfiguration()
+
+# signal that you want to use AmlCompute to execute script.
+run_config.target = "amlcompute"
+
+# AmlCompute will be created in the same region as workspace. Set vm size for AmlCompute from the list returned above
+run_config.amlcompute.vm_size = 'STANDARD_D2_V2'
+
+```
+
+### <a name="persistent-compute-basic"></a>Beständiga beräkning (grundläggande)
+
+En beständig Azure beräkning av Machine Learning kan återanvändas i flera jobb. Det kan också delas med andra användare i arbetsytan och sparas mellan jobb.
+
+Om du vill skapa en beständig beräkning av Azure Machine Learning-resurs som du anger den `vm_size` och `max_nodes` parametrar. Azure Machine Learning använder smarta standardvärden för resten av parametrarna.  Beräkningen är till exempel ange att automatiskt skala ned till noll noder när de inte används och att skapa dedikerade virtuella datorer att köra dina jobb efter behov. 
+
+* **vm_size**: VM-serie med noder som skapats av beräkning av Azure Machine Learning.
+* **max_nodes**: maximalt antal noder för automatisk skalning i när du kör ett jobb på beräkning av Azure Machine Learning.
+
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+
+# Choose a name for your CPU cluster
+cpu_cluster_name = "cpucluster"
+
+# Verify that cluster does not exist already
+try:
+    cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
+    print('Found existing cluster, use it.')
+except ComputeTargetException:
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                           max_nodes=4)
+    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+
+cpu_cluster.wait_for_completion(show_output=True)
+
+```
+
+### <a name="persistent-compute-advanced"></a>Beständiga beräkning (Avancerat)
+
+Du kan också konfigurera flera avancerade egenskaper när du skapar beräkning av Azure Machine Learning.  Här kan du skapa ett beständiga kluster med fast storlek eller i ett befintligt virtuellt Azure-nätverk i din prenumeration.
+
+Förutom `vm_size` och `max_nodes`, du kan använda följande egenskaper:
+
+* **min_nodes**: minst noder (standard 0 noder) att skala ned medan köra ett jobb på beräkning av Azure Machine Learning.
+* **vm_priority**: Välj mellan ”dedikerad” (standard) och ”lowpriority” virtuella datorer när du skapar beräkning av Azure Machine Learning. Virtuella datorer med låg prioritet använda Azures överflödig kapacitet och är därför billigare men riskerar din körning som återtas.
+* **idle_seconds_before_scaledown**: inaktivitetstid (standard 120 sekunder) för att vänta efter körning är klart innan du automatisk skalning till min_nodes.
+* **vnet_resourcegroup_name**: resursgruppen för den __befintliga__ virtuellt nätverk. Beräkning av Azure Machine Learning har skapats i det här virtuella nätverket.
+* **vnet_name**: namnet på virtuella nätverk. Det virtuella nätverket måste vara i samma region som din Azure Machine Learning-arbetsyta.
+* **subnet_name**: namnet på undernätet i det virtuella nätverket. Azure beräkning av Machine Learning-resurser kommer att tilldelas IP-adresser från det här intervallet i undernätet.
+
+> [!TIP]
+> När du skapar en beständig beräkning av Azure Machine Learning-resurs har också möjlighet att uppdatera dess egenskaper, till exempel min_nodes eller max_nodes. Du bara anropa den `update()` funktionen för den.
+
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+
+# Choose a name for your CPU cluster
+cpu_cluster_name = "cpucluster"
+
+# Verify that cluster does not exist already
+try:
+    cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
+    print('Found existing cluster, use it.')
+except ComputeTargetException:
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                           vm_priority='lowpriority',
+                                                           min_nodes=2,
+                                                           max_nodes=4,
+                                                           idle_seconds_before_scaledown='300',
+                                                           vnet_resourcegroup_name='<my-resource-group>',
+                                                           vnet_name='<my-vnet-name>',
+                                                           subnet_name='<my-subnet-name>')
+    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+
+cpu_cluster.wait_for_completion(show_output=True)
+
+```
+
+
+## <a id="vm"></a>Fjärransluten virtuell dator
+
+Azure Machine Learning har även stöd för att få ut dina egna beräkningsresurs och kopplar den till din arbetsyta. En sådan resurstypen är ett godtyckligt fjärransluten virtuell dator så länge den kan nås från Azure Machine Learning-tjänsten. Det kan vara en Azure-dator eller en fjärransluten server i din organisation eller lokalt. Mer specifikt, beroende på IP-adress och autentiseringsuppgifter (användarnamn/lösenord eller SSH-nyckel) som du kan använda alla tillgängliga virtuella datorer för fjärranslutna körs.
+Du kan använda en inbyggd system conda-miljö, en redan befintlig Python-miljö eller en Docker-behållare. Körning med Docker-behållare kräver att du har Docker-motorn körs på den virtuella datorn. Den här funktionen är särskilt användbart när du vill att en mer flexibel, molnbaserad utveckling/experimentmiljön än den lokala datorn.
+
+> [!TIP]
+> Vi rekommenderar att du använder Data Science Virtual Machine som virtuell Azure-dator med det här scenariot. Det är en förkonfigurerad datavetenskap och AI utvecklingsmiljö i Azure ett granskad urval av verktyg och ramverk för hela livscykeln för ML-utveckling. Mer information om hur du använder Data Science Virtual Machine med Azure Machine Learning finns det [konfigurera en utvecklingsmiljö](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm) dokumentet.
 
 > [!WARNING]
 > Azure Machine Learning har endast stöd för virtuella datorer som kör Ubuntu. När skapar en virtuell dator eller välja en befintlig, du måste välja en som använder Ubuntu.
 
 Följande steg använder SDK för att konfigurera en virtuell dator på datavetenskap (DSVM) som utbildning mål:
 
-1. Skapa eller koppla en virtuell dator
-    
-    * Om du vill skapa en ny DSVM, kontrollera först för att se om du har en DSVM med samma namn, om inte skapa en ny virtuell dator:
-    
-        ```python
-        from azureml.core.compute import DsvmCompute
-        from azureml.core.compute_target import ComputeTargetException
+1. Om du vill koppla en befintlig virtuell dator som en beräkningsmål, måste du ange det fullständigt kvalificerade domännamnet, inloggningsnamn och lösenord för den virtuella datorn.  I det här exemplet ersätter ```<fqdn>``` med offentliga fullständigt kvalificerade domännamnet för den virtuella datorn eller den offentliga IP-adressen. Ersätt ```<username>``` och ```<password>``` med SSH-användare och lösenord för den virtuella datorn:
 
-        compute_target_name = 'mydsvm'
+    ```python
+    from azureml.core.compute import RemoteCompute
 
-        try:
-            dsvm_compute = DsvmCompute(workspace = ws, name = compute_target_name)
-            print('found existing:', dsvm_compute.name)
-        except ComputeTargetException:
-            print('creating new.')
-            dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
-            dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
-            dsvm_compute.wait_for_completion(show_output = True)
-        ```
-    * Om du vill koppla en befintlig virtuell dator som en beräkningsmål, måste du ange det fullständigt kvalificerade domännamnet, inloggningsnamn och lösenord för den virtuella datorn.  I det här exemplet ersätter ```<fqdn>``` med offentliga fullständigt kvalificerade domännamnet för den virtuella datorn eller den offentliga IP-adressen. Ersätt ```<username>``` och ```<password>``` med SSH-användare och lösenord för den virtuella datorn:
+    dsvm_compute = RemoteCompute.attach(ws,
+                                    name="attach-dsvm",
+                                    username='<username>',
+                                    address="<fqdn>",
+                                    ssh_port=22,
+                                    password="<password>")
 
-        ```python
-        from azureml.core.compute import RemoteCompute
-
-        dsvm_compute = RemoteCompute.attach(ws,
-                                        name="attach-dsvm",
-                                        username='<username>',
-                                        address="<fqdn>",
-                                        ssh_port=22,
-                                        password="<password>")
-
-        dsvm_compute.wait_for_completion(show_output=True)
-    
-   It takes around 5 minutes to create the DSVM instance.
+    dsvm_compute.wait_for_completion(show_output=True)
 
 1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 
@@ -197,124 +289,6 @@ Följande steg använder SDK för att konfigurera en virtuell dator på datavete
     run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 
     ```
-
-1. Om du vill ta bort beräkningsresurser när du är klar, Använd följande kod:
-
-    ```python
-    dsvm_compute.delete()
-    ```
-
-En Jupyter-anteckningsbok som visar utbildning på en virtuell dator för datavetenskap, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
-
-## <a id="batch"></a>Azure Batch AI
-
-Om det tar lång tid att träna din modell kan du använda Azure Batch AI för att distribuera utbildningen i ett kluster med beräkningsresurser i molnet. Batch AI kan också konfigureras för att aktivera en GPU-resurs.
-
-I följande exempel söker efter ett befintligt Batch AI-kluster efter namn. Om en hittas, skapas den:
-
-```python
-from azureml.core.compute import BatchAiCompute
-from azureml.core.compute import ComputeTarget
-import os
-
-# choose a name for your cluster
-batchai_cluster_name = os.environ.get("BATCHAI_CLUSTER_NAME", ws.name + "gpu")
-cluster_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 1)
-cluster_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 3)
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_NC6")
-autoscale_enabled = os.environ.get("BATCHAI_CLUSTER_AUTOSCALE_ENABLED", True)
-
-
-if batchai_cluster_name in ws.compute_targets():
-    compute_target = ws.compute_targets()[batchai_cluster_name]
-    if compute_target and type(compute_target) is BatchAiCompute:
-        print('found compute target. just use it. ' + batchai_cluster_name)
-else:
-    print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                vm_priority = 'lowpriority', # optional
-                                                                autoscale_enabled = autoscale_enabled,
-                                                                cluster_min_nodes = cluster_min_nodes, 
-                                                                cluster_max_nodes = cluster_max_nodes)
-
-    # create the cluster
-    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
-    
-    # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
-    print(compute_target.status.serialize())
-```
-
-Om du vill koppla ett befintligt Batch AI-kluster som en beräkningsmål, måste du ange Azure-resurs-ID. Hämta resurs-ID från Azure-portalen med följande steg:
-1. Sök efter `Batch AI` tjänsten under **alla tjänster**
-1. Klicka på arbetsytans namn som klustret tillhör
-1. Välj klustret
-1. Klicka på **egenskaper**
-1. Kopiera den **ID**
-
-I följande exempel använder SDK för att koppla ett kluster till din arbetsyta. I det här exemplet ersätter `<name>` med ett namn för beräkningen. Namnet behöver inte matcha namnet på klustret. Ersätt `<resource-id>` med Azure-resursen ID som beskrivs ovan:
-
-```python
-from azureml.core.compute import BatchAiCompute
-BatchAiCompute.attach(workspace=ws,
-                      name=<name>,
-                      resource_id=<resource-id>)
-```
-
-Du kan också kontrollera Batch AI-kluster eller status med hjälp av följande Azure CLI-kommandon:
-
-- Kontrollera statusen för klustret. Du kan se hur många noder körs med hjälp av `az batchai cluster list`.
-- Kontrollera jobbstatus. Du kan se hur många jobb körs med hjälp av `az batchai job list`.
-
-Det tar cirka 5 minuter för att skapa Batch AI-kluster.
-
-En Jupyter-anteckningsbok som visar utbildning i ett Batch AI-kluster, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
-
-## <a name='aci'></a>Azure Container-instans (ACI)
-
-Azure Container Instances är isolerad behållare som har snabbare starttider och kräver inte användaren att hantera några virtuella datorer. Azure Machine Learning-tjänsten använder Linux-behållare som är tillgängliga i usavästra, eastus, europavästra, europanorra, västra USA 2 och southeastasia regioner. Mer information finns i [regiontillgänglighet](https://docs.microsoft.com/azure/container-instances/container-instances-quotas#region-availability). 
-
-I följande exempel visas hur du använder SDK för att skapa ett beräkningsmål för ACI och träna en modell: 
-
-```python
-from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-
-# create a new runconfig object
-run_config = RunConfiguration()
-
-# signal that you want to use ACI to run script.
-run_config.target = "containerinstance"
-
-# ACI container group is only supported in certain regions, which can be different than the region the Workspace is in.
-run_config.container_instance.region = 'eastus'
-
-# set the ACI CPU and Memory 
-run_config.container_instance.cpu_cores = 1
-run_config.container_instance.memory_gb = 2
-
-# enable Docker 
-run_config.environment.docker.enabled = True
-
-# set Docker base image to the default CPU-based image
-run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-
-# use conda_dependencies.yml to create a conda environment in the Docker image
-run_config.environment.python.user_managed_dependencies = False
-
-# auto-prepare the Docker image when used for the first time (if it is not already prepared)
-run_config.auto_prepare_environment = True
-
-# specify CondaDependencies obj
-run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-```
-
-Det kan ta från några sekunder till några minuter att skapa ett beräkningsmål för ACI.
-
-En Jupyter-anteckningsbok som visar utbildning om Azure Container Instance, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
 ## <a id="databricks"></a>Azure Databricks
 
@@ -416,7 +390,7 @@ except ComputeTargetException:
 > [!TIP]
 > Azure Machine Learning pipelines fungerar bara med data som lagras i datalagret standard för Data Lake Analytics-kontot. Om data som du vill arbeta med är i en icke-standard-store kan du använda en [ `DataTransferStep` ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) att kopiera data innan utbildning.
 
-## <a id="hdinsight"></a>Koppla ett HDInsight-kluster 
+## <a id="hdinsight"></a>Azure HDInsight 
 
 HDInsight är en populär plattform för stordataanalys. Den innehåller Apache Spark, som kan användas för att träna din modell.
 
@@ -482,7 +456,6 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
-En Jupyter-anteckningsbok som visar utbildning med Spark på HDInsight, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
 
 ### <a name="submit-using-a-pipeline"></a>Skicka in via en pipeline
 
@@ -534,41 +507,43 @@ Följ stegen för att visa en lista över beräkningsmål och Använd sedan föl
 
     ![Lägg till beräkning ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
-1. Ange ett namn för beräkningsmål.
-1. Välj den typ av beräkningsresurser kan bifoga för __utbildning__. 
+1. Ange ett namn för beräkningsmål
+1. Välj **beräkning av Machine Learning** som typ av beräkning som ska användas för __utbildning__
 
     > [!IMPORTANT]
-    > Inte alla beräkningsresurser typer kan skapas med hjälp av Azure portal. De typer som kan skapas för träning finns för närvarande:
-    > 
-    > * Virtuell dator
-    > * Batch AI
+    > Du kan bara skapa beräkning av Azure Machine Learning som hanterade beräkningarna för träning
 
-1. Välj __Skapa ny__ och fylla i nödvändig information. 
+1. Fyll i formuläret krävs, särskilt i VM-familjen och det högsta antalet noder ska användas för att skapa beräkningar 
 1. Välj __Skapa__
-1. Du kan visa statusen för att skapa genom att välja beräkningsmål i listan.
+1. Du kan visa status för åtgärden för att skapa genom att välja beräkningsmål i listan
 
-    ![Visa beräkning lista](./media/how-to-set-up-training-targets/View_list.png) därefter visas information om beräkningsmål.
-    ![Visa information](./media/how-to-set-up-training-targets/vm_view.PNG)
-1. Du kan nu skicka en körning mot dessa mål som beskrivs ovan.
+    ![Visa lista med beräkning](./media/how-to-set-up-training-targets/View_list.png)
+
+1. Därefter visas information om beräkningsmål.
+
+    ![Visa information](./media/how-to-set-up-training-targets/compute-target-details.png)
+
+1. Nu kan du skicka en körning mot dessa mål som beskrivs ovan
+
 
 ### <a name="reuse-existing-compute-in-your-workspace"></a>Återanvända befintliga beräkning i din arbetsyta
 
 Följ stegen för att visa en lista över beräkningsmål och klicka sedan återanvända beräkningsmål med hjälp av följande steg:
 
-1. Klicka på den **+** logga att lägga till ett beräkningsmål.
-2. Ange ett namn för beräkningsmål.
-3. Välj typ av beräkningsresurser kan bifoga för utbildning.
+1. Klicka på den **+** logga att lägga till ett beräkningsmål
+2. Ange ett namn för beräkningsmål
+3. Välj den typ av beräkningsresurser kan bifoga för __utbildning__
 
     > [!IMPORTANT]
     > Inte alla beräkningsresurser typer kan kopplas med hjälp av portalen.
     > De typer som kan kopplas till utbildning finns för närvarande:
     > 
-    > * Virtuell dator
-    > * Batch AI
+    > * Fjärransluten virtuell dator
+    > * Databricks
+    > * Data Lake Analytics
+    > * HDInsight
 
-1. Välj Använd befintlig.
-    - När du ansluter Batch AI-kluster, Välj beräkningsmål i listrutan, väljer arbetsytan Batch AI och Batch AI-kluster och klickar **skapa**.
-    - När du ansluter en virtuell dator, ange IP-adressen, användarnamnet och lösenordet, privata/offentliga nycklar och porten och klicka på Skapa.
+1. Fyll i formuläret krävs
 
     > [!NOTE]
     > Microsoft rekommenderar att du använder SSH-nycklar som de är säkrare än lösenord. Lösenord är sårbara för råstyrkeattacker mot attacker, medan SSH-nycklar är beroende av kryptografiska signaturer. Information om hur du skapar SSH-nycklar för användning med Azure virtuella datorer finns i följande dokument:
@@ -576,18 +551,17 @@ Följ stegen för att visa en lista över beräkningsmål och klicka sedan åter
     > * [Skapa och använda SSH-nycklar på Linux eller macOS]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Skapa och använda SSH-nycklar i Windows]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. Du kan visa statusen för Etableringsstatus genom att välja beräkningsmål i listan.
-6. Du kan nu skicka en körning mot dessa mål.
+1. Välj Koppla
+1. Du kan visa status för åtgärden koppla genom att välja beräkningsmål i listan
+1. Nu kan du skicka en körning mot dessa mål som beskrivs ovan
 
 ## <a name="examples"></a>Exempel
-Följande anteckningsböcker demonstrera begreppen i den här artikeln:
-* [01.Getting-Started/02.Train-on-Local/02.Train-on-Local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
-* [01.Getting-Started/04.Train-on-Remote-VM/04.Train-on-Remote-VM.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
-* [01.Getting-Started/03.Train-on-aci/03.Train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci)
-* [01.Getting-Started/05.Train-in-Spark/05.Train-in-Spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
-* [tutorials/01.Train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+Referera till anteckningsböcker på följande platser:
+* [How-to-till-användning – azureml/utbildning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 
-Hämta dessa anteckningsböcker: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+* [självstudier/img-klassificering – del 1 – training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

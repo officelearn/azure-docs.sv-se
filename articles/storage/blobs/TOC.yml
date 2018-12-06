@@ -3,269 +3,294 @@ items:
   href: /azure/storage/
 - name: Översikt
   items:
-  - name: Introduktion
-    href: storage-blobs-introduction.md
-  - name: Välja blobar, filer eller datadiskar
-    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-- name: Snabbstarter
+  - name: Vad är Azure Blob Storage?
+    href: storage-blobs-overview.md
+  expanded: true
+- name: Blob Storage
   items:
-  - name: skapar ett lagringskonto
-    href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Hantera blobar utan kod
+  - name: Översikt
     items:
-    - name: Azure Portal
-      href: storage-quickstart-blobs-portal.md
-    - name: Storage Explorer
-      href: storage-quickstart-blobs-storage-explorer.md
-    - name: PowerShell
-      href: storage-quickstart-blobs-powershell.md
-    - name: CLI
-      href: storage-quickstart-blobs-cli.md
-  - name: Utveckla med blobar
+    - name: Introduktion till bloblagring
+      href: storage-blobs-introduction.md
+  - name: Snabbstarter
+    items:
+    - name: skapar ett lagringskonto
+      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Hantera blobar utan kod
+      items:
+      - name: Azure Portal
+        href: storage-quickstart-blobs-portal.md
+      - name: Storage Explorer
+        href: storage-quickstart-blobs-storage-explorer.md
+      - name: PowerShell
+        href: storage-quickstart-blobs-powershell.md
+      - name: CLI
+        href: storage-quickstart-blobs-cli.md
+    - name: Utveckla med blobar
+      items:
+      - name: .NET
+        href: storage-quickstart-blobs-dotnet.md
+      - name: Java (Storage SDK V10)
+        href: storage-quickstart-blobs-java-v10.md
+      - name: Python
+        href: storage-quickstart-blobs-python.md
+      - name: Go
+        href: storage-quickstart-blobs-go.md
+      - name: Ruby
+        href: storage-quickstart-blobs-ruby.md
+      - name: Node.js (Storage SDK v10)
+        href: storage-quickstart-blobs-nodejs-v10.md
+      - name: JS/HTML
+        href: storage-quickstart-blobs-javascript-client-libraries.md
+      - name: PHP
+        href: storage-quickstart-blobs-php.md
+  - name: Självstudier
+    items:
+    - name: Ladda upp och bearbeta en avbildning
+      items:
+      - name: 1 – Ladda upp och hämta avbildningsdata i molnet
+        href: storage-upload-process-images.md
+      - name: 2 – Utlös Azure Functions för att bearbeta blobar
+        href: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: 3 – Skydda programdata
+        href: storage-secure-access-application.md
+      - name: 4 – Övervaka och felsök lagring
+        href: storage-monitor-troubleshoot-storage-application.md
+    - name: Utforma för hög tillgänglighet i molnlagring
+      items:
+      - name: 1 – Skapa hög tillgänglighet för ditt program
+        href: storage-create-geo-redundant-storage.md
+      - name: 2 – Simulera ett fel med RA-GRS-lagring
+        href: storage-simulate-failure-ragrs-account-app.md
+    - name: Migrera data till molnet med AzCopy
+      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Sök efter ostrukturerade data i molnlagringen
+      href: storage-unstructured-search.md
+    - name: Optimera prestanda och skalbarhet för lagringsprogram
+      items:
+      - name: 1 – Skapa en virtuell dator och ett lagringskonto
+        href: storage-blob-scalable-app-create-vm.md
+      - name: 2 – Ladda upp stora data till ett Azure-lagringskonto
+        href: storage-blob-scalable-app-upload-files.md
+      - name: 3 – Ladda ned stora data från ett Azure-lagringskonto
+        href: storage-blob-scalable-app-download-files.md
+      - name: 4 – Verifiera dataflöde och mått för svarstid
+        href: storage-blob-scalable-app-verify-metrics.md
+  - name: Exempel
     items:
     - name: .NET
-      href: storage-quickstart-blobs-dotnet.md
-    - name: Java (Storage SDK V10)
-      href: storage-quickstart-blobs-java-v10.md
-    - name: Python
-      href: storage-quickstart-blobs-python.md
-    - name: Go
-      href: storage-quickstart-blobs-go.md
-    - name: Ruby
-      href: storage-quickstart-blobs-ruby.md
-    - name: Node.js (Storage SDK v10)
-      href: storage-quickstart-blobs-nodejs-v10.md
-    - name: JS/HTML
-      href: storage-quickstart-blobs-javascript-client-libraries.md
-    - name: PHP
-      href: storage-quickstart-blobs-php.md
-- name: Självstudier
-  items:
-  - name: Ladda upp och bearbeta en avbildning
+      href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Java
+      href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Azure PowerShell
+      href: storage-samples-blobs-powershell.md
+    - name: Azure CLI
+      href: storage-samples-blobs-cli.md
+  - name: Begrepp
     items:
-    - name: 1 – Ladda upp och hämta avbildningsdata i molnet
-      href: storage-upload-process-images.md
-    - name: 2 – Utlös Azure Functions för att bearbeta blobar
-      href: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 3 – Skydda programdata
-      href: storage-secure-access-application.md
-    - name: 4 – Övervaka och felsök lagring
-      href: storage-monitor-troubleshoot-storage-application.md
-  - name: Utforma för hög tillgänglighet i molnlagring
-    items:
-    - name: 1 – Skapa hög tillgänglighet för ditt program
-      href: storage-create-geo-redundant-storage.md
-    - name: 2 – Simulera ett fel med RA-GRS-lagring
-      href: storage-simulate-failure-ragrs-account-app.md
-  - name: Migrera data till molnet med AzCopy
-    href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Sök efter ostrukturerade data i molnlagringen
-    href: storage-unstructured-search.md
-  - name: Optimera prestanda och skalbarhet för lagringsprogram
-    items:
-    - name: 1 – Skapa en virtuell dator och ett lagringskonto
-      href: storage-blob-scalable-app-create-vm.md
-    - name: 2 – Ladda upp stora data till ett Azure-lagringskonto
-      href: storage-blob-scalable-app-upload-files.md
-    - name: 3 – Ladda ned stora data från ett Azure-lagringskonto
-      href: storage-blob-scalable-app-download-files.md
-    - name: 4 – Verifiera dataflöde och mått för svarstid
-      href: storage-blob-scalable-app-verify-metrics.md
-- name: Exempel
-  items:
-  - name: .NET
-    href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Java
-    href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Azure PowerShell
-    href: storage-samples-blobs-powershell.md
-  - name: Azure CLI
-    href: storage-samples-blobs-cli.md
-- name: Begrepp
-  items:
-  - name: Lagringskonton
-    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    items:
-    - name: Hantera ett lagringskonto
-      href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Uppgradera ett lagringskonto
-      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Auktorisering
-    href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    items:
-    - name: Autentisera med Azure AD
-      href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Lagringskonton
+      href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
-      - name: Hantera åtkomstbehörighet med RBAC
-        href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Autentisera från ett program
-        href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Autentisera med hanterade identiteter
-        href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Använda en Azure AD-identitet med CLI eller PowerShell
-        href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Auktorisera med delad nyckel
-      href: /rest/api/storageservices/authorize-with-shared-key
-    - name: Auktorisera med SAS
-      href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Anonym åtkomst till blobar
-      href: storage-manage-access-to-resources.md
-  - name: Dataredundans
-    href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    items:
-    - name: Lokalt redundant lagring
-      href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Zonredundant lagring
-      href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Geografiskt redundant lagring
-      href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Åtkomstnivåer
-    href: storage-blob-storage-tiers.md
-  - name: Hantera Azure Blob Storage-livscykeln
-    href: ../common/storage-lifecycle-managment-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Reagerar på händelser
-    href: storage-blob-event-overview.md
-  - name: Mål för skalbarhet och prestanda
-    href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Checklista för prestanda och skalbarhet
-    href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Samtidighet
-    href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Vägledning om haveriberedskap
-    href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Flytta data till och från lagring
-    href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Funktioner för sidblob
-    href: storage-blob-pageblob-overview.md
-  - name: Azure-diskar
-    items:
-    - name: Premium Storage
+      - name: Hantera ett lagringskonto
+        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Uppgradera ett lagringskonto
+        href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Auktorisering
+      href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
-      - name: Linux
+      - name: Autentisera med Azure AD
+        href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
-        - name: Premium Storage med höga prestanda för virtuella datordiskar
-          href: ../../virtual-machines/linux/premium-storage.md
-        - name: Migrera till Premium Storage med Azure Site Recovery
-          href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
-        - name: Design för hög prestanda
-          href: ../../virtual-machines/linux/premium-storage-performance.md
-      - name: Windows
-        items:
-        - name: Premium Storage med höga prestanda för virtuella datordiskar
-          href: ../../virtual-machines/windows/premium-storage.md
-        - name: Migrera till Premium Storage med Azure Site Recovery
-          href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
-        - name: Design för hög prestanda
-          href: ../../virtual-machines/windows/premium-storage-performance.md
-    - name: Standardlagring
+        - name: Hantera åtkomstbehörighet med RBAC
+          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Autentisera från ett program
+          href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Autentisera med hanterade identiteter
+          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Använda en Azure AD-identitet med CLI eller PowerShell
+          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Auktorisera med delad nyckel
+        href: /rest/api/storageservices/authorize-with-shared-key
+      - name: Auktorisera med SAS
+        href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Anonym åtkomst till blobar
+        href: storage-manage-access-to-resources.md
+    - name: Dataredundans
+      href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
-      - name: Linux
-        items:
-        - name: Standardlagring för virtuella datordiskar
-          href: ../../virtual-machines/linux/standard-storage.md
-      - name: Windows
-        items:
-        - name: Standardlagring för virtuella datordiskar
-          href: ../../virtual-machines/windows/standard-storage.md
-    - name: Felsöka anslutna virtuella hårddiskar
-      href: storage-troubleshoot-vhds.md
+      - name: Lokalt redundant lagring
+        href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Zonredundant lagring
+        href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Geografiskt redundant lagring
+        href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Åtkomstnivåer
+      href: storage-blob-storage-tiers.md
+    - name: Hantera Azure Blob Storage-livscykeln
+      href: ../common/storage-lifecycle-managment-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Reagerar på händelser
+      href: storage-blob-event-overview.md
+    - name: Mål för skalbarhet och prestanda
+      href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Checklista för prestanda och skalbarhet
+      href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Samtidighet
+      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Vägledning om haveriberedskap
+      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Flytta data till och från lagring
+      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Funktioner för sidblob
+      href: storage-blob-pageblob-overview.md
+    - name: Azure-diskar
       items:
-      - name: Linux
+      - name: Premium Storage
         items:
-        - name: Fel vid borttagning av lagringsresurs
-          href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
-        - name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
-          href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
-      - name: Windows
+        - name: Linux
+          items:
+          - name: Premium Storage med höga prestanda för virtuella datordiskar
+            href: ../../virtual-machines/linux/premium-storage.md
+          - name: Migrera till Premium Storage med Azure Site Recovery
+            href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
+          - name: Design för hög prestanda
+            href: ../../virtual-machines/linux/premium-storage-performance.md
+        - name: Windows
+          items:
+          - name: Premium Storage med höga prestanda för virtuella datordiskar
+            href: ../../virtual-machines/windows/premium-storage.md
+          - name: Migrera till Premium Storage med Azure Site Recovery
+            href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
+          - name: Design för hög prestanda
+            href: ../../virtual-machines/windows/premium-storage-performance.md
+      - name: Standardlagring
         items:
-        - name: Fel vid borttagning av lagringsresurs
-          href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
-        - name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
-          href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md
-  - name: Skydda
-    items:
-    - name: Säkerhetsguide
-      href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Konfigurera brandväggar och virtuella nätverk
-      href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Kryptering för vilande data
-      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Kryptering i vila med kundnycklar
-      href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Kräv säker överföring
-      href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Använda Azure CDN för att få åtkomst till blobar med anpassade domäner över https
-      href: storage-https-custom-domain-cdn.md
-    - name: Blobar som inte kan ändras
-      href: storage-blob-immutable-storage.md
-    - name: Avancerat hotskydd (förhandsversion)
-      href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Aktivera säker TLS för Azure Storage-klient
-      href: ../common/storage-security-tls.md
-    - name: Efterlevnadserbjudanden
-      href: ../common/storage-compliance-offerings.md
-  - name: Övervaka och felsök
-    items:
-    - name: Självstudie om felsökning
-      href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Övervaka, diagnostisera och felsöka
-      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Mått och loggning
+        - name: Linux
+          items:
+          - name: Standardlagring för virtuella datordiskar
+            href: ../../virtual-machines/linux/standard-storage.md
+        - name: Windows
+          items:
+          - name: Standardlagring för virtuella datordiskar
+            href: ../../virtual-machines/windows/standard-storage.md
+      - name: Felsöka anslutna virtuella hårddiskar
+        href: storage-troubleshoot-vhds.md
+        items:
+        - name: Linux
+          items:
+          - name: Fel vid borttagning av lagringsresurs
+            href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
+          - name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
+            href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
+        - name: Windows
+          items:
+          - name: Fel vid borttagning av lagringsresurs
+            href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
+          - name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
+            href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md
+    - name: Skydda
       items:
-      - name: Mått i Azure Monitor
-        href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Migrera till nya mått
-        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Lagringsanalys
-        href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Aktivera och visa mått (klassisk)
-        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Importera/exportera data
-    href: ../common/storage-import-export-service.md
-    items:
-    - name: Granska krav
-      href: ../common/storage-import-export-requirements.md
-    - name: Importera data till blobar
-      href: ../common/storage-import-export-data-to-blobs.md
-    - name: Importera data till filer
-      href: ../common/storage-import-export-data-to-files.md
-    - name: Exportera data från blobar
-      href: ../common/storage-import-export-data-from-blobs.md
-    - name: Så här gör du
+      - name: Säkerhetsguide
+        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Konfigurera brandväggar och virtuella nätverk
+        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Kryptering för vilande data
+        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Kryptering i vila med kundnycklar
+        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Kräv säker överföring
+        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Använda Azure CDN för att få åtkomst till blobar med anpassade domäner över https
+        href: storage-https-custom-domain-cdn.md
+      - name: Blobar som inte kan ändras
+        href: storage-blob-immutable-storage.md
+      - name: Avancerat hotskydd (förhandsversion)
+        href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Aktivera säker TLS för Azure Storage-klient
+        href: ../common/storage-security-tls.md
+      - name: Efterlevnadserbjudanden
+        href: ../common/storage-compliance-offerings.md
+    - name: Övervaka och felsök
       items:
-      - name: Visa enhetsstatus
-        href: ../common/storage-import-export-view-drive-status.md
-      - name: Granska jobbstatus
-        href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
-      - name: Reparera importjobb
-        href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
-      - name: Reparera exportjobb
-        href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: ../common/storage-import-export-service-faq.md
-    - name: REST-API
-      href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
-    - name: Kontakta supporten
-      href: ../common/storage-import-export-contact-microsoft-support.md
-    - name: Arkiv
+      - name: Självstudie om felsökning
+        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Övervaka, diagnostisera och felsöka
+        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Mått och loggning
+        items:
+        - name: Mått i Azure Monitor
+          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Migrera till nya mått
+          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Lagringsanalys
+          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Aktivera och visa mått (klassisk)
+          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Importera/exportera data
+      href: ../common/storage-import-export-service.md
       items:
-      - name: Förbereda enheter för import (v1)
-        href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
+      - name: Granska krav
+        href: ../common/storage-import-export-requirements.md
+      - name: Importera data till blobar
+        href: ../common/storage-import-export-data-to-blobs.md
+      - name: Importera data till filer
+        href: ../common/storage-import-export-data-to-files.md
+      - name: Exportera data från blobar
+        href: ../common/storage-import-export-data-from-blobs.md
+      - name: Så här gör du
         items:
-        - name: Ställ in egenskaper och metadata
-          href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
-        - name: Exempel – förbereda enheter för import
-          href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
-        - name: Snabbkommandoreferens för import
-          href: ../common/storage-import-export-tool-quick-reference-v1.md
-      - name: Förbereda enheter för import (v2)
-        href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
+        - name: Visa enhetsstatus
+          href: ../common/storage-import-export-view-drive-status.md
+        - name: Granska jobbstatus
+          href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
+        - name: Reparera importjobb
+          href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
+        - name: Reparera exportjobb
+          href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
+      - name: VANLIGA FRÅGOR OCH SVAR
+        href: ../common/storage-import-export-service-faq.md
+      - name: REST-API
+        href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
+      - name: Kontakta supporten
+        href: ../common/storage-import-export-contact-microsoft-support.md
+      - name: Arkiv
         items:
-        - name: Ställ in egenskaper och metadata
-          href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
-        - name: Exempel – förbereda enheter för import
-          href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
-        - name: Snabbkommandoreferens för import
+        - name: Förbereda enheter för import (v1)
+          href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
+          items:
+          - name: Ställ in egenskaper och metadata
+            href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+          - name: Exempel – förbereda enheter för import
+            href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+          - name: Snabbkommandoreferens för import
+            href: ../common/storage-import-export-tool-quick-reference-v1.md
+        - name: Förbereda enheter för import (v2)
+          href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
+          items:
+          - name: Ställ in egenskaper och metadata
+            href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+          - name: Exempel – förbereda enheter för import
+            href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+          - name: Snabbkommandoreferens för import
+            href: ../common/storage-import-export-tool-quick-reference-v1.md
+        - name: Skapa importjobb
+          href: ../common/storage-import-export-creating-an-import-job.md
+        - name: Skapa exportjobb
+          href: ../common/storage-import-export-creating-an-import-job.md
+        - name: Hämta jobbstatus
+          href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+        - name: Skapa exportjobb
+          href: ../common/storage-import-export-creating-an-import-job.md
+        - name: Räkna upp jobb
+          href: ../common/storage-import-export-enumerating-jobs.md
+        - name: Avbryta och ta bort jobb
+          href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+        - name: Säkerhetskopiera enhetsmanifest
+          href: ../common/storage-import-export-backing-up-drive-manifests.md
+        - name: Räkna upp jobb
+          href: ../common/storage-import-export-enumerating-jobs.md
+        - name: Diagnostik och felåterställning
+          href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+        - name: Kommandon för importjobb
           href: ../common/storage-import-export-tool-quick-reference-v1.md
       - name: Skapa importjobb
         href: ../common/storage-import-export-creating-an-import-job.md
@@ -293,183 +318,365 @@ items:
         href: ../common/storage-import-export-file-format-metadata-and-properties.md
       - name: Tjänsteloggfil
         href: ../common/storage-import-export-file-format-log.md
-- name: Gör så här för att
+  - name: Gör så här för att
+    items:
+    - name: Utveckla med blobar
+      items:
+      - name: REST
+        href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: C++
+        href: storage-c-plus-plus-how-to-use-blobs.md
+      - name: iOS
+        href: storage-ios-how-to-use-blob-storage.md
+      - name: Xamarin
+        href: storage-xamarin-blob-storage.md
+      - name: Äldre SDK:er
+        items:
+        - name: Java (Storage SDK V7)
+          href: storage-quickstart-blobs-java.md
+        - name: Node.js (Storage SDK v2)
+          href: storage-quickstart-blobs-nodejs.md
+    - name: Hantera
+      items:
+      - name: PowerShell
+        href: /powershell/module/azure.storage
+      - name: Azure CLI
+        href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Klassisk Azure CLI
+        href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Hantera blobar med Storage Explorer
+        href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Azure Automation
+        href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Kryptering av klientsidan
+      items:
+      - name: .NET
+        href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Java
+        href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Python
+        href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Konfigurera anslutningssträngar
+      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Utforma HA-appar med RA-GRS
+      href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Kryptera och dekryptera blobar med Azure Key Vault
+      href: storage-encrypt-decrypt-blobs-key-vault.md
+    - name: Ange och hämta egenskaper och metadata
+      href: storage-properties-metadata.md
+    - name: Använda lagringsemulatorn
+      href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Dirigera händelser till en anpassad slutpunkt
+      href: storage-blob-event-quickstart.md
+    - name: Återställa borttagna blobar
+      href: storage-blob-soft-delete.md
+    - name: Konfigurera ett anpassat domännamn
+      href: storage-custom-domain-name.md
+    - name: Söka i Blob Storage med Azure Search
+      href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Var värd för en statisk webbplats
+      href: storage-blob-static-website.md
+    - name: Överföra data
+      items:
+      - name: AzCopy (v10)
+        href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: AzCopy i Windows (v8)
+        href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: AzCopy i Linux (v8)
+        href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Använda Azure Data Factory
+        href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Montera Blob Storage som ett filsystem i Linux
+        href: storage-how-to-mount-container-linux.md
+      - name: Vanliga frågor och svar om lagringsmigrering
+        href: ../common/storage-migration-faq.md
+  - name: Referens
+    items:
+    - name: PowerShell
+      href: /powershell/module/azure.storage
+    - name: Azure CLI
+      href: /cli/azure/storage
+    - name: .NET
+      items:
+      - name: Blobar, köer, tabeller och filer
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
+      - name: Dataförflyttning
+        href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement
+      - name: Resource Manager
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
+    - name: Java
+      items:
+      - name: Blobar, köer, tabeller och filer (v7)
+        href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable
+      - name: Blob SDK (v10)
+        href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/overview/azure/storage
+    - name: Ruby
+      href: http://azure.github.io/azure-storage-ruby
+    - name: PHP
+      href: http://azure.github.io/azure-storage-php/
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/storage
+    - name: C++
+      href: http://azure.github.io/azure-storage-cpp
+    - name: iOS
+      href: http://azure.github.io/azure-storage-ios/
+    - name: Android
+      href: http://azure.github.io/azure-storage-android
+    - name: REST
+      items:
+      - name: Blobar, köer, tabeller och filer
+        href: /rest/api/storageservices
+      - name: Resursprovider
+        href: /rest/api/storagerp
+      - name: Import/Export
+        href: /rest/api/storageimportexport
+  - name: Resurser
+    items:
+    - name: Azure-översikt
+      href: https://azure.microsoft.com/roadmap/?product=storage
+    - name: Azure Storage-klientverktyg
+      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Forum
+      href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
+    - name: Prissättning
+      href: https://azure.microsoft.com/pricing/details/storage/blobs/
+    - name: Priskalkylator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Stack Overflow
+      href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+    - name: Videoklipp
+      href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    - name: Azure Lagringsutforskaren
+      items:
+      - name: Storage Explorer
+        href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Viktig information om Storage Explorer
+        href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Felsöka Storage Explorer
+        href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Storage Explorer-hjälpmedel
+        href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: NuGet-paket
+      items:
+      - name: Azure Storage-klientbibliotek för .NET
+        href: https://www.nuget.org/packages/WindowsAzure.Storage/
+      - name: Azure Storage Data Movement Library
+        href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
+      - name: Azure Configuration Manager
+        href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
+    - name: Källkod
+      items:
+      - name: .NET
+        items:
+        - name: Blobar, köer, tabeller och filer
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
+        - name: Dataförflyttning
+          href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement
+        - name: Resource Manager
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
+      - name: Java
+        items:
+        - name: Blobar, köer, tabeller och filer (v7)
+          href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable
+        - name: Blob SDK (v10)
+          href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview
+      - name: Node.js
+        href: https://docs.microsoft.com/javascript/api/overview/azure/storage
+      - name: Ruby
+        href: http://azure.github.io/azure-storage-ruby
+      - name: PHP
+        href: http://azure.github.io/azure-storage-php/
+      - name: Python
+        href: https://docs.microsoft.com/python/api/overview/azure/storage
+      - name: C++
+        href: http://azure.github.io/azure-storage-cpp
+      - name: iOS
+        href: http://azure.github.io/azure-storage-ios/
+      - name: Android
+        href: http://azure.github.io/azure-storage-android
+      - name: REST
+        items:
+        - name: Blobar, köer, tabeller och filer
+          href: /rest/api/storageservices
+        - name: Resursprovider
+          href: /rest/api/storagerp
+        - name: Import/Export
+          href: /rest/api/storageimportexport
+    - name: Resurser
+      items:
+      - name: Azure-översikt
+        href: https://azure.microsoft.com/roadmap/?category=storage
+      - name: Azure Storage-klientverktyg
+        href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Forum
+        href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
+      - name: Prissättning
+        href: https://azure.microsoft.com/pricing/details/storage/blobs/
+      - name: Priskalkylator
+        href: https://azure.microsoft.com/pricing/calculator/
+      - name: Tjänstuppdateringar
+        href: https://azure.microsoft.com/updates/?product=storage
+      - name: Stack Overflow
+        href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+      - name: Videoklipp
+        href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+      - name: Azure Lagringsutforskaren
+        items:
+        - name: Storage Explorer
+          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Viktig information om Storage Explorer
+          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Felsöka Storage Explorer
+          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Storage Explorer-hjälpmedel
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: NuGet-paket
+        items:
+        - name: Azure Storage-klientbibliotek för .NET
+          href: https://www.nuget.org/packages/WindowsAzure.Storage/
+        - name: Azure Storage Data Movement Library
+          href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
+        - name: Azure Configuration Manager
+          href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
+      - name: Källkod
+        items:
+        - name: .NET
+          items:
+          - name: Blob, kö, tabell och fil
+            href: https://github.com/Azure/azure-storage-net
+          - name: Dataförflyttning
+            href: https://github.com/Azure/azure-storage-net-data-movement
+          - name: Resursprovider
+            href: https://github.com/Azure/azure-sdk-for-net
+        - name: Node.js
+          href: http://azure.github.io/azure-storage-node/
+        - name: Java
+          href: https://github.com/Azure/azure-storage-java
+        - name: C++
+          href: https://github.com/Azure/azure-storage-cpp
+        - name: PHP
+          href: https://github.com/Azure/azure-storage-php
+        - name: Python
+          href: https://github.com/Azure/azure-storage-python
+        - name: Ruby
+          href: https://github.com/Azure/azure-storage-ruby
+        - name: iOS
+          href: https://github.com/Azure/azure-storage-ios
+- name: Data Lake Storage Gen2
   items:
-  - name: Utveckla med blobar
+  - name: Växla till dokumentation om Data Lake Storage Gen1
+    href: /azure/data-lake-store/
+  - name: Översikt
+    items:
+    - name: Introduktion till Data Lake Storage
+      href: ../blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Bearbeta stordata
+      href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Snabbstarter
+    items:
+    - name: Skapa ett Data Lake Storage Gen2-kompatibelt Storage-konto
+      href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Skapa/ansluta Databricks-konto
+      href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Skapa ett HDInsight-kluster
+      href: ../blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Komma igång med Azure Storage Explorer
+      href: ../blobs/data-lake-storage-explorer.md
+  - name: Självstudier
+    items:
+    - name: Extrahera, transformera och läsa in data med Azure Databricks
+      href: ../blobs/data-lake-storage-handle-data-using-databricks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Få åtkomst till Data Lake Storage-data med Databricks med hjälp av Spark
+      href: ../blobs/data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight
+      href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Begrepp
+    items:
+    - name: Drivrutin för Azure Blob FileSystem för Hadoop
+      href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Introduktion till URI för Azure Blob-filsystemet
+      href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Tjänsten Hierarkisk namnrymd
+      href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Bästa praxis
+      href: data-lake-storage-best-practices.md
+    - name: Säkerhet
+      items:
+      - name: Säkerhetsguide för analys av stordata
+        href: ../common/storage-data-lake-storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Kryptering för vilande data
+        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Kryptering för vilande data med kundnycklar
+        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Åtkomstkontroll i Azure Data Lake Storage Gen2
+        href: data-lake-storage-access-control.md
+      - name: Konfigurera brandväggar och virtuella nätverk
+        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Autentisering
+        items:
+        - name: Hantera åtkomstbehörighet med RBAC
+          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Utvärdering av Data Lake Storage Gen2
+      href: ../blobs/data-lake-storage-evaluation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Gör så här för att
+    items:
+    - name: Ange behörigheter med Azure Storage Explorer
+      href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
+    - name: Använda Data Lake Storage Gen2 med Azure HDInsight-kluster
+      href: ../blobs/data-lake-storage-use-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Använda CLI för Hadoop-filsystemet med Data Lake Storage Gen2
+      href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Uppgradera från Data Lake Storage Gen1
+      href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Mata in data
+      items:
+      - name: Kopiera data till Data Lake Storage Gen2 med Distcp
+        href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Kopiera data till Data Lake Storage Gen2 med Azure Data Factory
+        href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Prestanda
+      items:
+      - name: Översikt
+        href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Använda Spark på HDInsight
+        href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Använda Hive på HDInsight
+        href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Använda MapReduce på HDInsight
+        href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Använda Storm på HDInsight
+        href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Ansluta till Azure Databricks
+      href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
+  - name: Referens
     items:
     - name: REST
-      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: C++
-      href: storage-c-plus-plus-how-to-use-blobs.md
-    - name: iOS
-      href: storage-ios-how-to-use-blob-storage.md
-    - name: Xamarin
-      href: storage-xamarin-blob-storage.md
-    - name: Äldre SDK:er
-      items:
-      - name: Java (Storage SDK V7)
-        href: storage-quickstart-blobs-java.md
-      - name: Node.js (Storage SDK v2)
-        href: storage-quickstart-blobs-nodejs.md
-  - name: Hantera
+      href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
+  - name: Resurser
     items:
-    - name: PowerShell för Azure Storage
-      href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: PowerShell i molnet för Kina, myndigheter och Tyskland
-      href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure CLI
-      href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Klassisk Azure CLI
-      href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Hantera blobar med Storage Explorer
-      href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure Automation
-      href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Kryptering av klientsidan
-    items:
-    - name: .NET
-      href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Java
-      href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Python
-      href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Konfigurera anslutningssträngar
-    href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Utforma HA-appar med RA-GRS
-    href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Kryptera och dekryptera blobar med Azure Key Vault
-    href: storage-encrypt-decrypt-blobs-key-vault.md
-  - name: Ange och hämta egenskaper och metadata
-    href: storage-properties-metadata.md
-  - name: Använda lagringsemulatorn
-    href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Dirigera händelser till en anpassad slutpunkt
-    href: storage-blob-event-quickstart.md
-  - name: Återställa borttagna blobar
-    href: storage-blob-soft-delete.md
-  - name: Konfigurera ett anpassat domännamn
-    href: storage-custom-domain-name.md
-  - name: Söka i Blob Storage med Azure Search
-    href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Var värd för en statisk webbplats
-    href: storage-blob-static-website.md
-  - name: Överföra data
-    items:
-    - name: AzCopy (v10)
-      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: AzCopy i Windows (v8)
-      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: AzCopy i Linux (v8)
-      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Använda Azure Data Factory
-      href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Montera Blob Storage som ett filsystem i Linux
-      href: storage-how-to-mount-container-linux.md
-    - name: Vanliga frågor och svar om lagringsmigrering
-      href: ../common/storage-migration-faq.md
-- name: Referens
-  items:
-  - name: PowerShell
-    href: /powershell/module/azure.storage
-  - name: Azure CLI
-    href: /cli/azure/storage
-  - name: .NET
-    items:
-    - name: Blobar, köer, tabeller och filer
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
-    - name: Dataförflyttning
-      href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement
-    - name: Resource Manager
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
-  - name: Java
-    items:
-    - name: Blobar, köer, tabeller och filer (v7)
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable
-    - name: Blob SDK (v10)
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview
-  - name: Node.js
-    href: https://docs.microsoft.com/javascript/api/overview/azure/storage
-  - name: Ruby
-    href: http://azure.github.io/azure-storage-ruby
-  - name: PHP
-    href: http://azure.github.io/azure-storage-php/
-  - name: Python
-    href: https://docs.microsoft.com/python/api/overview/azure/storage
-  - name: C++
-    href: http://azure.github.io/azure-storage-cpp
-  - name: iOS
-    href: http://azure.github.io/azure-storage-ios/
-  - name: Android
-    href: http://azure.github.io/azure-storage-android
-  - name: REST
-    items:
-    - name: Blobar, köer, tabeller och filer
-      href: /rest/api/storageservices
-    - name: Resursprovider
-      href: /rest/api/storagerp
-    - name: Import/Export
-      href: /rest/api/storageimportexport
-- name: Resurser
-  items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?product=storage
-  - name: Azure Storage-klientverktyg
-    href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/storage/blobs/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-  - name: Azure Lagringsutforskaren
-    items:
-    - name: Storage Explorer
-      href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Viktig information om Storage Explorer
-      href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Felsöka Storage Explorer
-      href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Storage Explorer-hjälpmedel
-      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: NuGet-paket
-    items:
-    - name: Azure Storage-klientbibliotek för .NET
-      href: https://www.nuget.org/packages/WindowsAzure.Storage/
-    - name: Azure Storage Data Movement Library
-      href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
-    - name: Azure Configuration Manager
-      href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
-  - name: Källkod
-    items:
-    - name: .NET
-      items:
-      - name: Blob, kö, tabell och fil
-        href: https://github.com/Azure/azure-storage-net
-      - name: Dataförflyttning
-        href: https://github.com/Azure/azure-storage-net-data-movement
-      - name: Resursprovider
-        href: https://github.com/Azure/azure-sdk-for-net
-    - name: Node.js
-      href: http://azure.github.io/azure-storage-node/
-    - name: Java
-      href: https://github.com/Azure/azure-storage-java
-    - name: C++
-      href: https://github.com/Azure/azure-storage-cpp
-    - name: PHP
-      href: https://github.com/Azure/azure-storage-php
-    - name: Python
-      href: https://github.com/Azure/azure-storage-python
-    - name: Ruby
-      href: https://github.com/Azure/azure-storage-ruby
-    - name: iOS
-      href: https://github.com/Azure/azure-storage-ios
-ms.openlocfilehash: d0273edd4660fb0b646844022205243a0af3b6b9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+    - name: Kända problem i Data Lake Storage Gen2
+      href: data-lake-storage-known-issues.md
+    - name: Azure-översikt
+      href: https://azure.microsoft.com/roadmap/?category=storage
+    - name: Azure Storage-klientverktyg
+      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+    - name: Forum
+      href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
+    - name: Prissättning
+      href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+    - name: Priskalkylator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Tjänstuppdateringar
+      href: https://azure.microsoft.com/updates/?product=storage
+    - name: Stack Overflow
+      href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+    - name: Videoklipp
+      href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+ms.openlocfilehash: bda06ecb2adbcf4aeea5e2877f37b4ddf2761d80
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712083"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957529"

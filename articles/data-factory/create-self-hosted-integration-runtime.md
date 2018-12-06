@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284837"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969489"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -49,7 +49,7 @@ När du flyttar data mellan lokalt och molnet, aktiviteten använder en lokal in
 
 Här är ett övergripande dataflöde för sammanfattning av stegen för att kopiera med en lokal IR:
 
-![Översikt på hög nivå](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![Översikt på hög nivå](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. Data-utvecklare skapar en lokal integration runtime i en Azure-datafabrik med hjälp av en PowerShell-cmdlet. Azure-portalen stöder för närvarande inte den här funktionen.
 2. Data-utvecklare skapar en länkad tjänst för ett lokalt datalager genom att ange lokal integration runtime-instans som den ska använda för att ansluta till datalager. Som en del av konfigurationen av den länkade tjänsten använder data utvecklaren Autentiseringshanteraren programmet (för närvarande stöds inte) för att ställa in typer av autentisering och autentiseringsuppgifter. Programmet Autentiseringshanteraren kommunicerar med datalagret för att testa anslutningen och den lokala integreringskörningen att spara autentiseringsuppgifter.
@@ -131,7 +131,7 @@ När det tillgängliga minnet på den lokala Integreringskörningen är låg och
 
 När tillgängligt minne och CPU används inte bra, men körningen av samtidiga jobb når gränsen, ska du skala upp genom att öka antalet samtidiga jobb som kan köras på en nod. Du kanske också vill skala upp när aktiviteter Tidsgränsen nåddes för eftersom lokal IR är överbelastad. Du kan öka den maximala kapaciteten för en nod som du ser i följande bild:  
 
-![Öka samtidiga jobb som kan köras på en nod](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Öka samtidiga jobb som kan köras på en nod](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>Krav för TLS/SSL-certifikat
 
@@ -162,33 +162,33 @@ Titta på följande videoklipp för en tolv minuters introduktion och demonstrat
 
 1. I den lokala Integreringskörningen som ska delas, bevilja behörighet till datafabriken som du vill skapa den länkade IR. 
 
-   ![Knappen för att bevilja behörighet i delningsfliken](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![Knappen för att bevilja behörighet i delningsfliken](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![Val för att tilldela behörigheter](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![Val för att tilldela behörigheter](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. Observera resurs-ID för den lokala Integreringskörningen som ska delas.
 
-   ![Platsen för resurs-ID](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![Platsen för resurs-ID](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. I data factory som behörigheten har beviljats, skapa en ny lokal IR (länk) och ange resurs-ID.
 
-   ![Knappen för att skapa en länkad lokal integration runtime](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![Knappen för att skapa en länkad lokal integration runtime](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![Rutorna för namn och resurs-ID](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![Rutorna för namn och resurs-ID](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### <a name="monitoring"></a>Övervakning 
 
 - **Delade IR**
 
-  ![Val för att söka efter en delad integration runtime](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Val för att söka efter en delad integration runtime](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![Flik för att övervaka](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![Flik för att övervaka](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **Länkade IR**
 
-  ![Val för att hitta en länkad integration runtime](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Val för att hitta en länkad integration runtime](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![Flik för att övervaka](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![Flik för att övervaka](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Kända begränsningar i lokal IR-delning
 
@@ -211,12 +211,12 @@ Titta på följande videoklipp för en tolv minuters introduktion och demonstrat
 
 Om du flyttar du markören över ikonen eller meddelande i meddelandefältet, kan du hitta information om tillståndet för lokal integration runtime.
 
-![Meddelanden i meddelandefältet](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Meddelanden i meddelandefältet](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>Portar och brandvägg
 Det finns två brandväggar att tänka på: den *företagsbrandväggen* som körs på den centrala routern för organisationen, och *Windows-brandväggen* konfigurerad som en daemon på den lokala datorn där den lokal integration runtime har installerats.
 
-![Brandvägg](media\create-self-hosted-integration-runtime\firewall.png)
+![Brandvägg](media/create-self-hosted-integration-runtime/firewall.png)
 
 På den *företagets brandvägg* nivå, måste du konfigurera följande domäner och utgående portar:
 
@@ -249,11 +249,11 @@ Till exempel för att kopiera från ett lokalt datalager till en Azure SQL Datab
 ## <a name="proxy-server-considerations"></a>Proxyserver
 Om nätverksmiljön företagets använder en proxyserver för att få åtkomst till internet, kan du konfigurera den lokala integreringskörningen för att använda rätt proxyinställningar. Du kan ange proxyservern under fasen för första registreringen.
 
-![Ange proxy](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![Ange proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
 Lokal integration runtime använder proxyservern för att ansluta till Molntjänsten. Välj **Ändra-länk** under installationen. Du ser dialogrutan proxy-inställning.
 
-![Ställ in proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![Ställ in proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 Det finns tre alternativ:
 
@@ -272,7 +272,7 @@ När den lokala integreringskörningen har registrerats, om du vill visa eller u
 
 Du kan visa och uppdatera HTTP-proxy med hjälp av verktyget Configuration Manager.
 
-![Visa proxy](media\create-self-hosted-integration-runtime\view-proxy.png)
+![Visa proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > Om du har konfigurerat en proxyserver med NTLM-autentisering körs värdtjänsten för integration runtime under domänkontot. Om du ändrar lösenordet för domänkontot senare, Kom ihåg att uppdatera konfigurationsinställningarna för tjänsten och starta om den i enlighet med detta. Vi rekommenderar att du använder en särskild domän-konto för att få åtkomst till proxyservern som inte behöver du uppdatera lösenordet ofta att på grund av det här kravet.

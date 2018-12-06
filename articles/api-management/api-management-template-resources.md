@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444775"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970339"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management-Mallresurser
 Azure API Management ger följande typer av resurser för användning i utvecklaren portal mallar.  
@@ -176,7 +176,7 @@ Azure API Management ger följande typer av resurser för användning i utveckla
 |WebDocumentationTemplatesDeveloperKey|Ange prenumerationsnyckeln|  
 |WebDocumentationTemplatesJavaApache|Det här exemplet används Apache HTTP-klienten från HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Ange värden för valfria parametrar om så behövs|  
-|WebDocumentationTemplatesPhpPackage|Det här exemplet används HTTP_Request2-paketet. (Mer information: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|Det här exemplet används HTTP_Request2-paketet. (Mer information: https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Ange värden för sökvägsparametrar (visas som {...}) och förfrågans text om det behövs|  
 |WebDocumentationTemplatesRequestBody|Ange förfrågans text|  
 |WebDocumentationTemplatesRequiredParams|Ange värden för följande begärda parametrar|  
@@ -571,13 +571,13 @@ Azure API Management ger följande typer av resurser för användning i utveckla
 |ApiManagementUserLimitReached|Den här tjänsten har nått det maximala antalet tillåtna användare. Uppgradera till en högre prisnivå.|  
   
 ##  <a name="glyphs"></a> Tecken resurser  
- API Management utvecklarportalsmallar kan använda tecknen från [Glyphicons från Bootstrap](http://getbootstrap.com/components/#glyphicons). Den här uppsättningen tecknen innehåller över 250 tecken i teckensnittsformat från den [Glyphicon](http://glyphicons.com/) Halflings ange. Använd följande syntax om du vill använda ett tecken från den här uppsättningen.  
+ API Management utvecklarportalsmallar kan använda tecknen från [Glyphicons från Bootstrap](https://getbootstrap.com/components/#glyphicons). Den här uppsättningen tecknen innehåller över 250 tecken i teckensnittsformat från den [Glyphicon](https://glyphicons.com/) Halflings ange. Använd följande syntax om du vill använda ett tecken från den här uppsättningen.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- Läs den fullständiga listan med tecken [Glyphicons från Bootstrap](http://getbootstrap.com/components/#glyphicons).
+ Läs den fullständiga listan med tecken [Glyphicons från Bootstrap](https://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du arbetar med mallar finns i [hur du anpassar utvecklarportalen API Management med hjälp av mallar](api-management-developer-portal-templates.md).

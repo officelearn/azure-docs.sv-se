@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 98ae7fe0fde922aee28ffc05b64d223a40085447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0b1affb708a8d481a1378fa691b6547865b0b214
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340927"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963597"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Starta och stoppa Azure Stack Development Kit (ASDK)
 Det rekommenderas inte att starta om värddatorn ASDK. I stället bör du följa procedurerna i den här artikeln för att stänga av och starta om tjänsterna ASDK korrekt. 
@@ -62,7 +62,7 @@ Oavsett hur ASDK stängdes, använder du följande steg för att kontrollera att
    ```
 6. Granska utdata för att säkerställa att Azure Stack-tjänster har startat om utan.
 
-Läs mer om rekommenderade procedurerna för att korrekt stänger och startar om Azure Stack-tjänster i [Start och stopp Azure Stack](.\.\azure-stack-start-and-stop.md). 
+Läs mer om rekommenderade procedurerna för att korrekt stänger och startar om Azure Stack-tjänster i [Start och stopp Azure Stack](../azure-stack-start-and-stop.md). 
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>Felsöka start och avstängning 
 Utför dessa steg om Azure Stack-tjänster har inte startar inom två timmar efter power på värddatorn ASDK:
@@ -79,7 +79,7 @@ Utför dessa steg om Azure Stack-tjänster har inte startar inom två timmar eft
    ```powershell
    Test-AzureStack
    ```
-5. Granska utdata och åtgärda eventuella fel. Mer information finns i [kör ett verifieringstest av Azure Stack](.\.\azure-stack-diagnostic-test.md).
+5. Granska utdata och åtgärda eventuella fel. Mer information finns i [kör ett verifieringstest av Azure Stack](../azure-stack-diagnostic-test.md).
 6. Starta om Azure Stack-tjänster från i program-session genom att köra den **Start AzureStack** cmdlet:
 
    ```powershell
@@ -89,4 +89,4 @@ Utför dessa steg om Azure Stack-tjänster har inte startar inom två timmar eft
 Om kör **Start AzureStack** orsakar, gå till den [Supportforum för Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) att få hjälp med felsökning ASDK. 
 
 ## <a name="next-steps"></a>Nästa steg 
-Läs mer om Azure Stack diagnostikverktyg och utfärda loggning, se [diagnostiska verktyg för Azure Stack](.\.\azure-stack-diagnostics.md).
+Läs mer om Azure Stack diagnostikverktyg och utfärda loggning, se [diagnostiska verktyg för Azure Stack](../azure-stack-diagnostics.md).

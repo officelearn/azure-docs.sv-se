@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ff85f2c9ef708c7cbac9be4933541f063a6c95b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b1b8c660dfd6ea6890a940a97f5ff1ec1617c28d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568598"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963393"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Kostnadsinformation för Azure IoT Edge-certifikat
 
@@ -51,7 +51,7 @@ Tillverkaren använder dock en mellanliggande certifikatutfärdare i slutet av k
 
 ### <a name="device-ca-certificate"></a>Enhets-CA-certifikat
 
-Enheten CA-certifikatet genereras från och signerade av det slutliga mellanliggande CA-certifikatet i processen. Det här certifikatet installeras på Edge-enhet, helst i säker lagring, till exempel en maskinvarusäkerhetsmodul (HSM). Certifikat från en enhet identifierar dessutom en IoT Edge-enhet. För IoT Edge är enheten CA-certifikat kan utfärda andra certifikat. Till exempel utfärdar enhetscertifikat CA löv enhetscertifikat som används för att autentisera enheter till den [Azure IoT Device Provisioning Service](..\iot-dps\about-iot-dps.md).
+Enheten CA-certifikatet genereras från och signerade av det slutliga mellanliggande CA-certifikatet i processen. Det här certifikatet installeras på Edge-enhet, helst i säker lagring, till exempel en maskinvarusäkerhetsmodul (HSM). Certifikat från en enhet identifierar dessutom en IoT Edge-enhet. För IoT Edge är enheten CA-certifikat kan utfärda andra certifikat. Till exempel utfärdar enhetscertifikat CA löv enhetscertifikat som används för att autentisera enheter till den [Azure IoT Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge-arbetsbelastning CA
 

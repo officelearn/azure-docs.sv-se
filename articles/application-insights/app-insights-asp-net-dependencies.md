@@ -10,19 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 12/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 767497a6ced0eb54559b9bdd10761b659e32a33f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 034e611f6ea95675dc3169feefe1916a81c50943
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681032"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972379"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: beroende spårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som kallas via HTTP, eller en databas eller ett filsystem. [Application Insights](app-insights-overview.md) mäter hur länge ditt program väntar beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
-
-![exempeldiagram](./media/app-insights-asp-net-dependencies/10-intro.png)
 
 Beroendeövervakare för out-of the box rapporterar för närvarande anrop till dessa typer av beroenden:
 
@@ -30,13 +28,16 @@ Beroendeövervakare för out-of the box rapporterar för närvarande anrop till 
   * SQL-databaser
   * ASP.NET webb- och WCF-tjänster som använder HTTP-baserade bindningar
   * Lokala eller fjärranslutna HTTP-anrop
-  * Azure Cosmos DB, tabell, blob-lagring och kö
+  * Azure Cosmos DB, tabell, blob-lagring och kö 
 * Webbsidor
   * AJAX-anrop
 
 Övervaka fungerar med hjälp av [byte kod instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) runt utvalda metoder. Prestanda försämras är minimal.
 
 Du kan också skriva egna SDK-anrop för att övervaka andra beroenden, både i koden klienten och servern med hjälp av den [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+
+> [!NOTE]
+> Azure Cosmos DB spåras automatiskt endast om [HTTP/HTTPS](../cosmos-db/performance-tips.md#networking) används. TCP-läge samlas inte in av Application Insights.
 
 ## <a name="set-up-dependency-monitoring"></a>Konfigurera beroendeövervakning
 Partiell beroendeinformation som samlas in automatiskt av den [Application Insights SDK](app-insights-asp-net.md). För att få fullständig data kan du installera lämplig agent för värdservern.

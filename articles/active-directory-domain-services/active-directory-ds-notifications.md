@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: f5049d6092bfc6b3f70ebafdc501e02ad9fe7936
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431394"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958533"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Inställningar för meddelanden i Azure AD Domain Services
 
@@ -41,7 +41,7 @@ På sidan visas en lista med alla postmottagare av e-för e-postmeddelanden för
 
 Följande bild är ett exempel på ett e-postmeddelande:
 
-![Exempel e-postmeddelande](.\media\active-directory-domain-services-alerts\email-alert.png)
+![Exempel e-postmeddelande](./media/active-directory-domain-services-alerts/email-alert.png)
 
 E-postmeddelandet anger den hanterade domänen som finns på aviseringen, samt ge tid för identifiering och en länk till sidan om Azure AD Domain Services health i Azure-portalen.
 

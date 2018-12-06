@@ -10,16 +10,16 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: c7464558dd7227303fd7a3cc8be71ca5e2d2cfca
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 76fb61f0f1dd3c1f72c4c6132d1bfdc8b516477a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414972"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955555"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Använda en insights-token för att få insikter om en bild
 
-API:n för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Information om alternativen finns i [vad är Bing Visual Search API?](overview.md). Den här artikeln visar hur du använder en token för insights. Exempel som visar hur du laddar upp en bild för att få insikter, finns Snabbstart ([C#](quickstarts\csharp.md) | [Java](quickstarts\java.md) | [Node.js](quickstarts\nodejs.md)  |  [Python](quickstarts\python.md)).
+API:n för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Information om alternativen finns i [vad är Bing Visual Search API?](overview.md). Den här artikeln visar hur du använder en token för insights. Exempel som visar hur du laddar upp en bild för att få insikter, finns Snabbstart ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
 
 
 Om du skickar visuell sökning till en bildtoken eller webbadress visar följande de formulärdata som visas nedan i brödtexten i POST. Formulärdata måste innehålla rubriken Content-Disposition och dess `name` parametern måste anges till ”knowledgeRequest”. Mer information om `imageInfo`-objektet finns i [begäran](#the-request).

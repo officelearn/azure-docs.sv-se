@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343664"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960659"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrering med Azure Stack-brandväggen
 Du rekommenderas att du använder en brandväggsenhet för att säkra Azure Stack. Även om brandväggar kan hjälpa dig med distribuerade denial of service DDOS-attacker, intrångsidentifiering och innehållsgranskning, kan de också blir en flaskhals för dataflöde för Azure storage-tjänster som blobbar, tabeller och köer.
@@ -49,7 +49,7 @@ I en edge-distribution med Azure Stack direkt bakom edge-routern eller brandväg
 
 Vanligtvis har offentliga dirigerbara IP-adresser angetts för den offentliga VIP-poolen från det externa nätverket vid tidpunkten för distribution. I ett scenario för edge rekommenderas inte att använda offentliga dirigerbara IP-adresser på ett annat nätverk av säkerhetsskäl. Det här scenariot kan en användare att uppleva fullständig lokal kontrollerad molnupplevelse som i ett offentligt moln som Azure.  
 
-![Brandväggen exempel på Azure Stack edge](.\media\azure-stack-firewall\firewallScenarios.png)
+![Brandväggen exempel på Azure Stack edge](./media/azure-stack-firewall/firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranät eller perimeternätverket nätverket brandväggen företagsscenariot
 I en intranät- eller perimeternätverket företagsdistribution med Azure Stack på en multi-zonindelad brandvägg eller mellan gränsbrandväggen och interna, företagets brandvägg. Dess trafiken distribueras sedan mellan säker, perimeternätverk (eller DMZ) och oskyddade zoner som beskrivs nedan:
@@ -58,7 +58,7 @@ I en intranät- eller perimeternätverket företagsdistribution med Azure Stack 
 - **Perimeter zonen**. Perimeternätverket är där externa eller program som webbservrar distribueras vanligen som riktas mot internet. Det är vanligtvis övervakas av en brandvägg för att undvika attacker som DDoS och för intrångsidentifiering (kodar) samtidigt som fortfarande angivna inkommande trafik från internet. Endast en externt nätverk offentliga VIP-pool i Azure-stacken ska placeras i perimeterrnätverkszonen.
 - **Oskyddat zon**. Det här är det externa nätverket internet. Den **är inte** rekommenderas att distribuera Azure Stack i zonen oskyddat.
 
-![Exempel på nätverket Azure Stack perimeternätverket](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Exempel på nätverket Azure Stack perimeternätverket](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>Läs mer
 Läs mer om [portar och protokoll som används av Azure Stack-slutpunkter](azure-stack-integrate-endpoints.md).

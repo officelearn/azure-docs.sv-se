@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 9410d895c791cd860c53542091608263f601b225
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 1009660df94eb145bbc37c27662411032bd87110
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682494"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970951"
 ---
 # <a name="configure-containers"></a>Konfigurera containrar
 
@@ -91,7 +91,7 @@ Den `Authentication` konfigurationsinställningar tillhandahåller alternativ f�
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Den `Billing` konfigurationsinställning anger URI för Ansikts-resursen i Azure används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig slutpunkt URI för en Ansikts-resurs på Azure.
+Den `Billing` konfigurationsinställning anger URI för Ansikts-resursen i Azure används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig slutpunkt URI för en Ansikts-resurs på Azure.
 
 > [!IMPORTANT]
 > Den [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), och [ `Eula` ](#eula-configuration-setting) konfigurationsinställningar som används tillsammans och du måste ange giltiga värden för alla tre dem. Annars startar behållaren inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](face-how-to-install-containers.md#billing).
@@ -143,6 +143,8 @@ Den `Eula` konfigurationsinställning indikerar att du har godkänt licensen fö
 
 > [!IMPORTANT]
 > Den [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), och [ `Eula` ](#eula-configuration-setting) konfigurationsinställningar som används tillsammans och du måste ange giltiga värden för alla tre dem. Annars startar behållaren inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](face-how-to-install-containers.md#billing).
+
+Cognitive Services-behållare är licensierad under ditt avtal som reglerar användningen av Azure. Om du inte har en befintlig avtal som reglerar användningen av Azure, accepterar du att ditt avtal som reglerar användningen av Azure är Microsoft Online-prenumerationsavtalet (som införlivar villkoren för Online Services). För förhandsversioner också samtycker du till den kompletterande användningsvillkor för förhandsversioner av Microsoft Azure. Med hjälp av behållaren godkänner du dessa villkor.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd konfigurationsinställningar
 

@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: c9ac1c228fd3fd4ba666fd7881e387d79929ed9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a4be229e1c491c3062b14e631cfec5b14185bb82
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869967"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957673"
 ---
 # <a name="asdk-release-notes"></a>Viktig information om ASDK  
-Den här artikeln innehåller information om förbättringar, korrigeringar och kända problem i Azure Stack Development Kit (ASDK). Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
+Den här artikeln innehåller information om förbättringar, korrigeringar och kända problem i Azure Stack Development Kit (ASDK). Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](../azure-stack-updates.md#determine-the-current-version).
 
 > Håll dig uppdaterad med Nyheter i ASDK genom att prenumerera på den [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
@@ -180,13 +180,13 @@ Mer information finns i [Azure Stack syslog-vidarebefordran](../azure-stack-inte
 Den här versionen innehåller följande förbättringar och korrigeringar för Azure Stack.  
 
 <!-- 1658937 | ASDK, IS --> 
-- **Starta säkerhetskopieringar på ett fördefinierat schema** – som en enhet, Azure Stack kan nu automatiskt utlösa infrastruktur säkerhetskopieringar med jämna mellanrum för att eliminera mänsklig inblandning. Azure Stack kommer automatiskt att rensa upp den externa resursen för säkerhetskopieringar som är äldre än definierade kvarhållningsperioden. Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Starta säkerhetskopieringar på ett fördefinierat schema** – som en enhet, Azure Stack kan nu automatiskt utlösa infrastruktur säkerhetskopieringar med jämna mellanrum för att eliminera mänsklig inblandning. Azure Stack kommer automatiskt att rensa upp den externa resursen för säkerhetskopieringar som är äldre än definierade kvarhållningsperioden. Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 2496385 | ASDK, IS -->  
-- **Har lagts till dataöverföring tid i den totala tiden för säkerhetskopieringen.** Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Har lagts till dataöverföring tid i den totala tiden för säkerhetskopieringen.** Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 1702130 | ASDK, IS --> 
-- **Kapacitet för säkerhetskopiering externa visar nu rätt kapaciteten för den externa resursen.** (Detta var tidigare hårdkoda till 10 GB.) Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Kapacitet för säkerhetskopiering externa visar nu rätt kapaciteten för den externa resursen.** (Detta var tidigare hårdkoda till 10 GB.) Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](../azure-stack-backup-enable-backup-powershell.md).
  
 <!-- 2753130 |  IS, ASDK   -->  
 - **Azure Resource Manager-mallar stöder nu elementet villkor** – du kan nu distribuera en resurs i en Azure Resource Manager-mall med hjälp av ett villkor. Du kan utforma mallen för att distribuera en resurs baserat på ett villkor som kontrollerar om ett parametervärde finns. Information om hur du använder en mall som ett villkor finns i [villkorsstyrd distribution av en resurs](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) och [Variables-avsnittet av Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) i Azure-dokumentationen. 
@@ -194,7 +194,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
    Du kan också använda mallar som [distribuera resurser till mer än en prenumeration eller resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
 <!--2753073 | IS, ASDK -->  
-- **Versionsstöd för Microsoft.Network-API-resursen har uppdaterats** att inkludera stöd för API-versionen 2017-10-01 från 2015-06-15 för Azure Stack-nätverksresurser. Stöd för resurs-versioner mellan 2017-10-01 och 2015-06-15 ingår inte i den här versionen. Se [överväganden för nätverk i Azure Stack](.\.\user\azure-stack-network-differences.md) för funktionen skillnader.
+- **Versionsstöd för Microsoft.Network-API-resursen har uppdaterats** att inkludera stöd för API-versionen 2017-10-01 från 2015-06-15 för Azure Stack-nätverksresurser. Stöd för resurs-versioner mellan 2017-10-01 och 2015-06-15 ingår inte i den här versionen. Se [överväganden för nätverk i Azure Stack](../user/azure-stack-network-differences.md) för funktionen skillnader.
 
 <!-- 2272116 | IS, ASDK   -->  
 - **Azure Stack har lagt till stöd för omvänd DNS-sökning för utåtriktade Azure Stack-infrastrukturslutpunkter** (som används för portalen, adminportal, hantering och adminmanagement). På så sätt kan Azure Stack extern slutpunkt som ska matchas mot en IP-adress.
@@ -222,7 +222,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 - **Azure Resource Manager innehåller namnet på regionen.** Med den här versionen innehåller objekt som hämtas från Azure Resource Manager nu namnattributet region. Om ett befintligt PowerShell.skript direkt skickar objektet till en annan cmdlet, kan skriptet producera ett fel och misslyckas. Detta är kompatibla Azure Resource Manager-beteende och kräver den anropande klienten att subtrahera attributet region. För mer information om Azure Resource Manager finns [Azure Resource Manager-dokumentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 <!-- TBD | IS, ASDK -->  
-- **Flytta prenumerationer mellan delegerade providrar.** Du kan nu flytta prenumerationer mellan ny eller befintlig delegerad Provider-prenumerationer som hör till samma Directory-klient. Prenumerationer som hör till Providerprenumeration standard kan också flyttas till Providerprenumerationer delegerad i samma katalog-klient. Mer information finns i [delegera erbjudanden i Azure Stack](.\.\azure-stack-delegated-provider.md).
+- **Flytta prenumerationer mellan delegerade providrar.** Du kan nu flytta prenumerationer mellan ny eller befintlig delegerad Provider-prenumerationer som hör till samma Directory-klient. Prenumerationer som hör till Providerprenumeration standard kan också flyttas till Providerprenumerationer delegerad i samma katalog-klient. Mer information finns i [delegera erbjudanden i Azure Stack](../azure-stack-delegated-provider.md).
  
 <!-- 2536808 IS ASDK --> 
 - **Förbättrad virtuella datorn skapas** för virtuella datorer som skapas med avbildningar som du hämtar från Azure marketplace.
@@ -246,7 +246,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 - Säkerhetskopieringen i listan uppdaterar nu när du manuellt ta bort säkerhetskopian från den externa resursen.
 
 <!-- 2360715 |  ASDK, IS -->  
-- När du har konfigurerat datacenter-integrering kan du inte längre komma åt AD FS-metadatafilen från en resurs. Mer information finns i [om du konfigurerar AD FS-integrationen genom att tillhandahålla federation metadatafil](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- När du har konfigurerat datacenter-integrering kan du inte längre komma åt AD FS-metadatafilen från en resurs. Mer information finns i [om du konfigurerar AD FS-integrationen genom att tillhandahålla federation metadatafil](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 <!-- 2388980 | ASDK, IS --> 
 - Vi har åtgärdat ett problem att förhindras användare från som har tilldelats en befintlig offentlig IP-adress som hade tidigare tilldelats en nätverksgränssnitt eller belastningsutjämnaren till en ny nätverksgränssnitt eller belastningsutjämnare.  
@@ -269,7 +269,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 <!--  TBD ASDK --> 
 - Den virtuella dator som värd för behörighet slutpunkten (program) har ökat till 4GB. I ASDK heter den här virtuella datorn AzS-ERCS01.
 
-- <!--  TBD – IS, ASDK --> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](.\.\azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken. 
+- <!--  TBD – IS, ASDK --> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](../azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken. 
 
 ### <a name="known-issues"></a>Kända problem
 
@@ -283,7 +283,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 - Planer som läggs till i en användarprenumeration som en tilläggsplanen kan inte raderas även när du tar bort planen från användarprenumerationen. Planen finns kvar tills de prenumerationer som refererar till tilläggsplanen tas också bort. 
 
 <!--2760466 – IS  ASDK --> 
-- När du installerar en ny Azure Stack-miljö med den här versionen, aviseringen-värde som anger *aktivering krävs* kanske inte visas. [Aktivering](.\.\azure-stack-registration.md) krävs innan du kan använda marketplace syndikering. 
+- När du installerar en ny Azure Stack-miljö med den här versionen, aviseringen-värde som anger *aktivering krävs* kanske inte visas. [Aktivering](../azure-stack-registration.md) krävs innan du kan använda marketplace syndikering. 
 
 <!-- TBD - IS ASDK --> 
 - Två administrativa prenumerationstyper som introducerades med version 1804 ska inte användas. Typerna av prenumeration är **Avläsning av prenumeration**, och **förbrukning prenumeration**. Dessa typer av prenumerationer är **Avläsning av prenumeration**, och **förbrukning prenumeration**. Dessa typer av prenumerationer visas i den nya Azure Stack miljöer från och med version 1804 men ännu inte är redo att användas. Du bör fortsätta att använda den **standard providerprenumeration** typen.
@@ -417,17 +417,17 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 ### <a name="new-features"></a>Nya funktioner
 Den här versionen innehåller följande förbättringar och korrigeringar för Azure Stack.  
 
-- <!-- 1658937 | ASDK, IS --> **Starta säkerhetskopieringar på ett fördefinierat schema** – som en enhet, Azure Stack kan nu automatiskt utlösa infrastruktur säkerhetskopieringar med jämna mellanrum för att eliminera mänsklig inblandning. Azure Stack kommer automatiskt att rensa upp den externa resursen för säkerhetskopieringar som är äldre än definierade kvarhållningsperioden. Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- <!-- 1658937 | ASDK, IS --> **Starta säkerhetskopieringar på ett fördefinierat schema** – som en enhet, Azure Stack kan nu automatiskt utlösa infrastruktur säkerhetskopieringar med jämna mellanrum för att eliminera mänsklig inblandning. Azure Stack kommer automatiskt att rensa upp den externa resursen för säkerhetskopieringar som är äldre än definierade kvarhållningsperioden. Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
-- <!-- 2496385 | ASDK, IS -->  **Har lagts till dataöverföring tid i den totala tiden för säkerhetskopieringen.** Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- <!-- 2496385 | ASDK, IS -->  **Har lagts till dataöverföring tid i den totala tiden för säkerhetskopieringen.** Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
--   <!-- 1702130 | ASDK, IS -->  **Kapacitet för säkerhetskopiering externa visar nu rätt kapaciteten för den externa resursen.** (Detta var tidigare hårdkoda till 10 GB.) Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+-   <!-- 1702130 | ASDK, IS -->  **Kapacitet för säkerhetskopiering externa visar nu rätt kapaciteten för den externa resursen.** (Detta var tidigare hårdkoda till 10 GB.) Mer information finns i [Aktivera säkerhetskopiering för Azure Stack med PowerShell](../azure-stack-backup-enable-backup-powershell.md).
  
 - <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager-mallar stöder nu elementet villkor** – du kan nu distribuera en resurs i en Azure Resource Manager-mall med hjälp av ett villkor. Du kan utforma mallen för att distribuera en resurs baserat på ett villkor som kontrollerar om ett parametervärde finns. Information om hur du använder en mall som ett villkor finns i [villkorsstyrd distribution av en resurs](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) och [Variables-avsnittet av Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) i Azure-dokumentationen. 
 
    Du kan också använda mallar som [distribuera resurser till mer än en prenumeration eller resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
-- <!--2753073 | IS, ASDK -->  **Versionsstöd för Microsoft.Network-API-resursen har uppdaterats** att inkludera stöd för API-versionen 2017-10-01 från 2015-06-15 för Azure Stack-nätverksresurser.  Stöd för resurs-versioner mellan 2017-10-01 och 2015-06-15 ingår inte i den här versionen, men kommer att inkluderas i en framtida version.  Se [överväganden för nätverk i Azure Stack](.\.\user\azure-stack-network-differences.md) för funktionen skillnader.
+- <!--2753073 | IS, ASDK -->  **Versionsstöd för Microsoft.Network-API-resursen har uppdaterats** att inkludera stöd för API-versionen 2017-10-01 från 2015-06-15 för Azure Stack-nätverksresurser.  Stöd för resurs-versioner mellan 2017-10-01 och 2015-06-15 ingår inte i den här versionen, men kommer att inkluderas i en framtida version.  Se [överväganden för nätverk i Azure Stack](../user/azure-stack-network-differences.md) för funktionen skillnader.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack har lagt till stöd för omvänd DNS-sökning för utåtriktade Azure Stack-infrastrukturslutpunkter** (som används för portalen, adminportal, hantering och adminmanagement). På så sätt kan Azure Stack extern slutpunkt som ska matchas mot en IP-adress.
 
@@ -444,11 +444,11 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
   Eftersom den här funktionen är fortfarande i förhandsversion, inte du förlita dig på den i produktionsmiljöer.
 
-  Mer information finns i [Azure Stack syslog-vidarebefordran](.\.\azure-stack-integrate-security.md).
+  Mer information finns i [Azure Stack syslog-vidarebefordran](../azure-stack-integrate-security.md).
 
 - <!-- ####### | IS, ASDK -->  **Azure Resource Manager innehåller namnet på regionen.** Med den här versionen innehåller objekt som hämtas från Azure Resource Manager nu namnattributet region. Om ett befintligt PowerShell.skript direkt skickar objektet till en annan cmdlet, kan skriptet producera ett fel och misslyckas. Detta är kompatibla Azure Resource Manager-beteende och kräver den anropande klienten att subtrahera attributet region. För mer information om Azure Resource Manager finns [Azure Resource Manager-dokumentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
-- <!-- TBD | IS, ASDK -->  **Flytta prenumerationer mellan delegerade providrar.** Du kan nu flytta prenumerationer mellan ny eller befintlig delegerad Provider-prenumerationer som hör till samma Directory-klient. Prenumerationer som hör till Providerprenumeration standard kan också flyttas till Providerprenumerationer delegerad i samma katalog-klient. Mer information finns i [delegera erbjudanden i Azure Stack](.\.\azure-stack-delegated-provider.md).
+- <!-- TBD | IS, ASDK -->  **Flytta prenumerationer mellan delegerade providrar.** Du kan nu flytta prenumerationer mellan ny eller befintlig delegerad Provider-prenumerationer som hör till samma Directory-klient. Prenumerationer som hör till Providerprenumeration standard kan också flyttas till Providerprenumerationer delegerad i samma katalog-klient. Mer information finns i [delegera erbjudanden i Azure Stack](../azure-stack-delegated-provider.md).
  
 - <!-- 2536808 IS ASDK --> **Förbättrad virtuella datorn skapas** för virtuella datorer som skapas med avbildningar som du hämtar från Azure marketplace.
 
@@ -464,7 +464,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 - <!-- 2215948 |  ASDK, IS --> Säkerhetskopieringen i listan uppdaterar nu när du manuellt ta bort säkerhetskopian från den externa resursen.
 
-- <!-- 2360715 |  ASDK, IS -->  När du har konfigurerat datacenter-integrering kan du inte längre komma åt AD FS-metadatafilen från en resurs. Mer information finns i [om du konfigurerar AD FS-integrationen genom att tillhandahålla federation metadatafil](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- <!-- 2360715 |  ASDK, IS -->  När du har konfigurerat datacenter-integrering kan du inte längre komma åt AD FS-metadatafilen från en resurs. Mer information finns i [om du konfigurerar AD FS-integrationen genom att tillhandahålla federation metadatafil](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 - <!-- 2388980 | ASDK, IS --> Vi har åtgärdat ett problem att förhindras användare från som har tilldelats en befintlig offentlig IP-adress som hade tidigare tilldelats en nätverksgränssnitt eller belastningsutjämnaren till en ny nätverksgränssnitt eller belastningsutjämnare.  
 
@@ -511,7 +511,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 - Du kan inte använda drivrutinsuppdateringar med hjälp av en OEM-tillägg-paketet med den här versionen av Azure Stack.  Det finns ingen lösning på problemet.
  
 <!-- TBD - IS ASDK --> 
-- Möjligheten [att öppna en ny supportbegäran i listrutan](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) från inom administratören portalen är inte tillgänglig. I stället använder du följande länk:     
+- Möjligheten [att öppna en ny supportbegäran i listrutan](../azure-stack-manage-portals.md#quick-access-to-help-and-support) från inom administratören portalen är inte tillgänglig. I stället använder du följande länk:     
     - Använd för Azure Stack Development Kit https://aka.ms/azurestackforum.    
 
 <!-- 2403291 - IS ASDK --> 
@@ -605,7 +605,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 <!-- 2292271 - IS ASDK --> 
 - Om du ökar en kvot för en nätverksresurs som är en del av ett erbjudande och en Plan som är associerad med en klientprenumeration, tillämpas inte den nya gränsen till den prenumerationen. Den nya gränsen gäller dock för nya prenumerationer som skapas när kvoten ökas.
 
-  Undvik problemet genom att använda en tilläggsplanen för att öka en kvot för datornätverk när planen är redan associerad med en prenumeration. Läs mer om hur du [tillgängliggöra en tilläggsplanen](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+  Undvik problemet genom att använda en tilläggsplanen för att öka en kvot för datornätverk när planen är redan associerad med en prenumeration. Läs mer om hur du [tillgängliggöra en tilläggsplanen](../azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
 <!-- 2304134 IS ASDK --> 
 - Du kan inte ta bort en prenumeration som har resurser som DNS-zon eller routningstabellen resurser som är associerade med den. Om du vill ta bort prenumerationen har, måste du först radera DNS-zon och routningstabellen resurser från prenumerationen klient.

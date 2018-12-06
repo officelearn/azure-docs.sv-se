@@ -1,20 +1,18 @@
 ---
-title: Arbeta med datum i Azure Cosmos DB | Microsoft Docs
+title: Arbeta med datum i Azure Cosmos DB
 description: Läs mer om hur du arbetar med datum i Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: sngun
-ms.openlocfilehash: d7188270ff5b1edd3b5e396be0cd5fd22e6123c4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 49196df580aec4975a74849e8f2b36c03f6750ad
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855514"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956116"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Arbeta med datum i Azure Cosmos DB
 Azure Cosmos DB ger schemaflexibilitet och omfattande indexering via ett ursprungligt [JSON](http://www.json.org) datamodellen. Alla Azure Cosmos DB-resurser, inklusive databaser, behållare, dokument och lagrade procedurer modelleras och lagras som JSON-dokument. Som ett krav för att bärbara JSON (och Azure Cosmos DB) stöder bara en liten uppsättning grundläggande typer: sträng, nummer, booleskt värde, matris, objekt och Null. JSON är flexibel och tillåta utvecklare och ramverk för att representera mer komplexa typer med hjälp av dessa primitiver och skriva dem som objekt eller matriser. 
@@ -68,7 +66,7 @@ Omfångsfrågor är vanliga med DateTime-värden. Om du behöver hitta alla best
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
     await client.CreateDocumentCollectionAsync("/dbs/orderdb", collection);
 
-Du kan lära dig mer om hur du konfigurerar indexering principer på [indexera Azure Cosmos DB-principer](indexing-policies.md).
+Du kan lära dig mer om hur du konfigurerar indexering principer på [indexera Azure Cosmos DB-principer](index-policy.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Förfrågningar till datum och tid i LINQ
 SQL .NET SDK har automatiskt stöd för frågor till data som lagras i Azure Cosmos DB via LINQ. Följande kodavsnitt visar exempelvis en LINQ-frågan som filter order som levererades under de senaste tre dagarna.
@@ -79,11 +77,11 @@ SQL .NET SDK har automatiskt stöd för frågor till data som lagras i Azure Cos
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-Du kan lära dig mer om Azure Cosmos DB SQL-frågespråket och LINQ-providern på [frågor till Cosmos DB](sql-api-sql-query.md).
+Du kan lära dig mer om Azure Cosmos DB SQL-frågespråket och LINQ-providern på [frågor till Cosmos DB](how-to-sql-query.md).
 
 I den här artikeln har tittat vi på hur du lagrar, index- och fråga efter datum och tid i Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Nästa steg
 * Ladda ned och kör den [kodexempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Läs mer om [SQL-frågor](sql-api-sql-query.md)
-* Läs mer om [indexera Azure Cosmos DB-principer](indexing-policies.md)
+* Läs mer om [SQL-frågor](how-to-sql-query.md)
+* Läs mer om [indexera Azure Cosmos DB-principer](index-policy.md)

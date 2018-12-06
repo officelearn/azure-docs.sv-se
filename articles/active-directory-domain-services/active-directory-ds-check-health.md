@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502185"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969012"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Kontrollera hälsotillståndet för en Azure AD Domain Services-hanterad domän
 
@@ -32,7 +32,7 @@ Med hjälp av sidan health på Azure portal, går det att hålla dig uppdaterad 
 2. Klicka på den domän du vill visa hälsotillståndet för.
 3. I det vänstra navigeringsfönstret klickar du på **hälsotillstånd**.
 
-Följande bild illustrerar en exempelsida för hälsotillstånd: ![exempelsida för hälsotillstånd](.\media\active-directory-domain-services-alerts\health-page.png)
+Följande bild illustrerar en exempelsida för hälsotillstånd: ![exempelsida för hälsotillstånd](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > Den hanterade domänen hälsotillstånd utvärderas för varje timme. Vänta tills nästa utvärderingscykel för att visa uppdaterade hälsotillståndet för din hanterade domän när du har gjort ändringar till din hanterade domän. ”Senast utvärderad” tidsstämpeln i övre högra hörnet visar när hälsotillståndet för din hanterade domän senast utvärderades.
@@ -43,10 +43,10 @@ Statusen uppe till höger på hälsan för sidan anger den övergripande hälsan
 
 | Status | Ikon | Förklaring |
 | --- | :----: | --- |
-| Körs | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | Din hanterade domän fungerar smidigt och har inte några aviseringar som kritiskt eller varning. Den här domänen kan ha informativa aviseringar. |
-| Behöver kontrolleras (varning) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | Det finns inga kritiska aviseringar på din hanterade domän, men det finns en eller flera varningar som behöver åtgärdas. |
-| Behöver kontrolleras (kritisk) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | Det finns en eller flera kritiska aviseringar på din hanterade domän. Du kan också ha aviseringar för varningar och/eller endast i informationssyfte. |
-| Distribuerar | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Din domän håller på att distribueras. |
+| Körs | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Din hanterade domän fungerar smidigt och har inte några aviseringar som kritiskt eller varning. Den här domänen kan ha informativa aviseringar. |
+| Behöver kontrolleras (varning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Det finns inga kritiska aviseringar på din hanterade domän, men det finns en eller flera varningar som behöver åtgärdas. |
+| Behöver kontrolleras (kritisk) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Det finns en eller flera kritiska aviseringar på din hanterade domän. Du kan också ha aviseringar för varningar och/eller endast i informationssyfte. |
+| Distribuerar | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | Din domän håller på att distribueras. |
 
 ## <a name="monitors"></a>Övervakare
 Övervakare är aspekter av din hanterade domän som Azure AD Domain Services övervakar regelbundet. Det bästa sättet att hålla din Övervakare i felfritt tillstånd är att lösa alla aktiva varningar för din hanterade domän.

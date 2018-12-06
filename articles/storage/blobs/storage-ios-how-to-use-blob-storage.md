@@ -6,23 +6,21 @@ author: michaelhauss
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262003"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961934"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Använda Blob storage från iOS
 
 Den här artikeln visar hur du utför vanliga scenarier med Microsoft Azure Blob storage. Exemplen är skrivna i Objective-C och Använd den [Azure Storage-klientbibliotek för iOS](https://github.com/Azure/azure-storage-ios). Scenarier som omfattas är ladda upp, lista, hämta och tar bort blobbar. Mer information om BLOB-objekt finns i den [nästa steg](#next-steps) avsnittet. Du kan också hämta den [exempelapp](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) att snabbt se användningen av Azure Storage i ett iOS-program.
 
-## <a name="what-is-blob-storage"></a>Vad är Blob-lagring?
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
+Mer information om Blob storage finns [introduktion till Azure Blob storage](storage-blobs-introduction.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 

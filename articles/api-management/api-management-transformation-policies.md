@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 6796ecd272c7a1ed1d29c89fbe06c87dc2d4601b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242814"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965384"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -709,7 +709,7 @@ OriginalUrl.
 |----------|-----------------|--------------|
 |XSL-transformering|Rotelement.|Ja|
 |Parameter|Används för att definiera variabler som används i listan i transformeringen|Nej|
-|XSL: stylesheet|Formatmall rotelement. Alla element och attribut som definierats i följer standarden [XSLT-specifikation](http://www.w3.org/TR/xslt)|Ja|
+|XSL: stylesheet|Formatmall rotelement. Alla element och attribut som definierats i följer standarden [XSLT-specifikation](https://www.w3.org/TR/xslt)|Ja|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).

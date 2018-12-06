@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: d228fbde230f89848d895bd1c004724b88de4431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a8d91c0410d2a59e4b22866aa48d36c026f3ee8e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883830"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956303"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Begränsningar för kända problem/migrering med online migreringar till Azure SQL DB
 
@@ -30,7 +30,7 @@ Om din källdatabas består av en eller flera temporala tabeller, Databasmigreri
 
 {”resourceId” ”: /subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>”, ”errorType”: ”databasmigreringsfel”, ”errorEvents”: ”[” avbildning funktioner gick inte att ange. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 meddelande: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] användning av replikering stöds inte med den temporala systemversionstabellen ' [program. Städer], rad: 1 kolumn: -1 ”]”}
  
- ![Den temporala tabellen fel exempel](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![Den temporala tabellen fel exempel](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Lösning**
 
@@ -52,7 +52,7 @@ Mer information finns i artikeln [Temporala tabeller](https://docs.microsoft.com
 
 Du kan se ett SQL-undantag föreslå ”ntext är inte kompatibel med hierarchyid” under ”fullständiga Datainläsningen”-åtgärd:
      
-![exempel för hierarchyid-fel](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![exempel för hierarchyid-fel](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
 **Lösning**
 
@@ -107,7 +107,7 @@ Om du behöver DMS att migrera det exakta tidsstämpelvärde som lagras i källt
 
 När det uppstår migrering fel i statusvyn för databaser information om att välja den **migreringsfel** länken i övre menyfliksområdet kan inte innehålla ytterligare information som är specifika för migreringen felen.
 
-![migreringsfel ingen information-exempel](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+![migreringsfel ingen information-exempel](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
 **Lösning**
 
@@ -115,6 +115,6 @@ Gå till information om specifika felet genom att följa stegen nedan.
 
 1. Stäng bladet Database detaljerad statusinformation om du vill visa skärmen aktivitet migrering.
 
-     ![skärmen aktivitet för migrering](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
+     ![skärmen aktivitet för migrering](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
 2. Välj **se felinformationen** att visa felmeddelanden som hjälper dig att felsöka migreringsfel.

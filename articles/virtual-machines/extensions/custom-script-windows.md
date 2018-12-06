@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282345"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963512"
 ---
 # <a name="custom-script-extension-for-windows"></a>Tillägget för anpassat skript för Windows
 
@@ -37,11 +37,11 @@ Det här dokumentet beskriver hur du använder det anpassade Skripttillägget me
 
 ### <a name="operating-system"></a>Operativsystem
 
-Tillägget för anpassat skript för Linux ska köras på tillägget tillägget stöds OS, mer information finns i det här [artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+Tillägget för anpassat skript för Linux ska köras på tillägget tillägget stöds OSs, mer information finns i det här [artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
 ### <a name="script-location"></a>Skriptplats
 
-Du kan använda tillägget för att använda Azure Blob storage-autentiseringsuppgifter för att få åtkomst till Azure Blob storage. Du kan också kan skriptets placering vara någon where, så länge som den virtuella datorn kan vidarebefordra till den slutpunkten, till exempel GitHub, interna filserver osv.
+Du kan använda tillägget för att använda Azure Blob storage-autentiseringsuppgifter för att få åtkomst till Azure Blob storage. Du kan också kan skriptets placering finnas var som helst, så länge som den virtuella datorn kan vidarebefordra till den slutpunkten, till exempel GitHub, interna filserver osv.
 
 
 ### <a name="internet-connectivity"></a>Internetanslutning
@@ -54,13 +54,13 @@ Om skriptet finns på en lokal server så kan du fortfarande behöver ytterligar
 * Skriva skript som är idempotenta, så om de få kör igen mer än en gång av misstag kan den inte orsakar ändringarna.
 * Se till att skript som inte kräver indata från användaren när de körs.
 * Det är 90 minuter som tillåts för skriptet att köra, något längre resulterar i en misslyckad tillhandahållande av tillägget.
-* Placera inte omstarter i skriptet och detta kan orsaka problem med andra tillägg installeras efter omstarten tillägget kommer inte att fortsätta efter omstarten. 
-* Om du har ett skript som gör att en omstart kan installera program och kör skript osv. Du bör schemalägga omstarten med en schemalagd uppgift i Windows eller med verktyg som DSC eller Chef, Puppet-tillägg.
+* Placera inte omstarter i skriptet, den här åtgärden kan orsaka problem med andra tillägg installeras. Efter omstart tillägget inte fortsätta efter omstarten. 
+* Om du har ett skript som gör att en omstart kan installera program och kör skript osv. Du kan schemalägga omstarten med en schemalagd uppgift i Windows eller med verktyg som DSC eller Chef, Puppet-tillägg.
 * Tillägget körs bara ett skript en gång, om du vill köra ett skript på varje start måste du använda tillägget för att skapa en schemalagd uppgift i Windows.
 * Om du vill schemalägga när ett skript som körs ska du använda tillägget för att skapa en schemalagd uppgift i Windows. 
 * När skriptet körs, visas bara statusen ”transitioning' tillägg från Azure-portalen eller CLI. Om du vill mer frekventa statusuppdateringar ett skript som körs, behöver du skapa en egen lösning.
 * Anpassat skripttillägg internt stöder inte proxy-servrar, men du kan använda ett filöverföringsverktyg som stöder proxyservrar i skriptet som *Curl* 
-* Tänk på inte är standard directory-platser som dina skript eller kommandon kan förlita sig på, har logik för att hantera det.
+* Tänk på icke-standard directory-platser som dina skript eller kommandon kan förlita sig på, har logik för att hantera den här situationen.
 
 
 ## <a name="extension-schema"></a>Tilläggsschema
@@ -92,7 +92,8 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
         "settings": {
             "fileUris": [
                 "script location"
-            ]
+            ],
+            "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
@@ -113,6 +114,7 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 | typ | CustomScriptExtension | sträng |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (t.ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matris |
+| tidsstämpel (t.ex.) | 123456789 | 32-bitars heltal |
 | commandToExecute (t.ex.) | PowerShell - ExecutionPolicy obegränsad - filen konfigurera-musik-app.ps1 | sträng |
 | storageAccountName (t.ex.) | examplestorageacct | sträng |
 | storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q / + hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg == | sträng |
@@ -123,19 +125,20 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 #### <a name="property-value-details"></a>Information om egenskapen
  * `commandToExecute`: (**krävs**, string) startpunktsskriptet att köra. Använd det här fältet i stället om kommandot innehåller hemligheter som lösenord, eller din fileUris är känsliga.
 * `fileUris`: (valfritt, Strängmatrisen) URL: er för filer som ska hämtas.
+* `timestamp` (valfritt, 32-bitars heltal) Använd det här fältet bara för att utlösa en kör av skriptet genom att ändra värdet för det här fältet.  Alla heltalsvärde är godtagbara. Det får endast vara skiljer sig från det tidigare värdet.
 * `storageAccountName`: (valfritt, string) namnet på lagringskontot. Om du anger autentiseringsuppgifter för lagringskontot, alla `fileUris` måste vara URL: er för Azure-BLOB.
 * `storageAccountKey`: (valfritt, string) åtkomstnyckeln för lagringskontot
 
 Följande värden kan anges i antingen offentliga eller skyddade inställningar, tillägget kommer att avslå alla konfigurationer där värdena nedan anges i inställningarna för både offentliga och skyddade.
 * `commandToExecute`
 
-Med offentliga inställningar som kan vara användbart för felsökning, men det rekommenderas starkt att du använder skyddade inställningarna.
+Med offentliga inställningar som kan vara användbart för felsökning, men det rekommenderas att du använder skyddade inställningarna.
 
-Inställningar för offentliga skickas i klartext till den virtuella datorn där skriptet körs.  Skyddade inställningarna är krypterat med en nyckel som bara du känner till Azure och den virtuella datorn. Inställningarna sparas till den virtuella datorn som de skickades, dvs. Om inställningarna krypterades sparas de krypterade på den virtuella datorn. Certifikatet som används för att dekryptera krypterade värden lagras på den virtuella datorn, och används för att dekryptera inställningar (vid behov) vid körning.
+Inställningar för offentliga skickas i klartext till den virtuella datorn där skriptet körs.  Skyddade inställningarna är krypterat med en nyckel som bara du känner till Azure och den virtuella datorn. Inställningarna sparas till den virtuella datorn som de skickades, det vill säga om inställningarna krypterades sparas de krypterade på den virtuella datorn. Certifikatet som används för att dekryptera krypterade värden lagras på den virtuella datorn, och används för att dekryptera inställningar (vid behov) vid körning.
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget för anpassat skript under en malldistribution för Azure Resource Manager. Följande exempel visar hur du använder tillägget för anpassat skript:
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schema, som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget för anpassat skript under en malldistribution för Azure Resource Manager. Följande exempel visar hur du använder tillägget för anpassat skript:
 
 * [Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Distribuera två Nivåprogram på Windows och Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
@@ -199,9 +202,9 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ```
 
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Så här kör du anpassat skript för mer än en gång med CLI
-Om du vill köra det anpassade skripttillägget mer än en gång kan du bara göra detta under dessa förhållanden:
+Om du vill köra det anpassade skripttillägget mer än en gång kan du bara utföra den här åtgärden under dessa förhållanden:
 1. Tillägget ”Name”-parametern är samma som föregående distributionen av tillägget.
-2. Du måste uppdatera konfigurationen annars kommandot igen inte körs, till exempel du kan lägga till i en dynamisk egenskap i kommandot, till exempel en tidsstämpel. 
+2. Du måste uppdatera konfigurationen annars kommandot inte köras igen. Du kan lägga till i en dynamisk egenskap i kommandot, till exempel en tidsstämpel.
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
@@ -224,7 +227,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
 där `<n>` är ett heltal som kan ändras mellan körningar av tillägget.  Den `1.*` värde matchar det faktiska, aktuellt `typeHandlerVersion` värdet för tillägget.  Den faktiska katalogen kan till exempel vara `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
 
-När du kör den `commandToExecute` kommandot tillägget anger den här katalogen (t.ex. `...\Downloads\2`) som den aktuella arbetskatalogen. Detta kan du använda relativa sökvägar för att hitta filer som hämtas den `fileURIs` egenskapen. Se tabellen nedan exempel.
+När du kör den `commandToExecute` kommandot tillägget anger den här katalogen (till exempel `...\Downloads\2`) som den aktuella arbetskatalogen. Den här processen kan du använda relativa sökvägar för att hitta filer som hämtas den `fileURIs` egenskapen. Se tabellen nedan exempel.
 
 Eftersom de absolut sökvägen kan variera över tid, är det bättre att välja relativa skriptfilen sökvägar i den `commandToExecute` string, när det är möjligt. Exempel:
 ```json
@@ -244,4 +247,4 @@ Information om sökvägen när det första segmentet URI sparas i filer som häm
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Du kan även skicka en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).

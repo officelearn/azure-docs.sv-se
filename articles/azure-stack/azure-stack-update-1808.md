@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 12/05/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 37fb4c330004ce87afd900d9cafebb337261ec06
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 88041cf185aeb6ae5cb27f2405b62401cae069d9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568241"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964261"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -163,7 +163,7 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
 > Förbereda distributionen av Azure Stack för tillägget värden. Förbered datorn med hjälp av nedanstående procedur, [förbereda för tillägget för värd för Azure Stack](azure-stack-extension-host-prepare.md).
 
 Installera alla tillämpliga snabbkorrigeringar efter installationen av uppdateringen. Visa mer information i följande artiklar i kunskapsbasen, samt våra [Servicing princip](azure-stack-servicing-policy.md). 
-- [KB 4468920 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.7.113](https://support.microsoft.com/help/4471992/)
+- [KB 4481066 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.9.117](https://support.microsoft.com/help/4481066/)
 
 
 ## <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
@@ -220,7 +220,7 @@ Här följer efter installation kända problem för den här build-versionen.
    
   Kör den [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet för att kontrollera hälsotillståndet för rollinstanser för infrastruktur och skala enhet noder. Om inga problem har identifierats av [Test-AzureStack](azure-stack-diagnostic-test.md), du kan ignorera dessa aviseringar. Om ett problem har identifierats, kan du försöker starta rollinstansen infrastruktur eller nod med hjälp av administrationsportalen eller PowerShell.
 
-  Det här problemet löses i senast [1808 snabbkorrigering versionen](https://support.microsoft.com/help/4471992/), så var noga med att installera snabbkorrigeringen om du upplever problemet.
+  Det här problemet löses i senast [1808 snabbkorrigering versionen](https://support.microsoft.com/help/4481066/), så var noga med att installera snabbkorrigeringen om du upplever problemet.
 
 <!-- 1264761 - IS ASDK --> 
 - Du kan se aviseringar för den **hälsotillstånd controller** komponent som har följande information:  
@@ -269,7 +269,7 @@ Här följer efter installation kända problem för den här build-versionen.
       1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
       2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
    2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
-      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4471992/).
+      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4481066/).
       2. Följ stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
       
 <!-- 3179561 - IS --> 

@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 938f74a543fd7d4f7563d1af8bc7c75e76fbcade
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284378"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960414"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding vanliga frågor och svar
 
@@ -196,9 +196,9 @@ Om du väljer en LUIS-mall och välj den **Välj** knappen i panelen fönstret v
 
 ## <a name="luis-service"></a>LUIS-tjänsten
 
-### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>Är LUIS tillgängligt lokalt eller i privata moln?
-Nej.
+### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>Språkförståelse (LUIS) tillgängliga lokalt eller i privata moln?
 
+Ja, du kan använda LUIS [behållare](luis-container-howto.md) för dessa scenarier om du har den nödvändiga anslutningen att mäta användningen. 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Jag har hört talas om en funktion för Language Understanding eller demo men jag inte kommer ihåg vad den anropades på Build-konferensen för 2018?
 

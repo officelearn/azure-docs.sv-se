@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e10c6580c29784f8d56a31e267c47ec08894113b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5c5bdb8fad60a2e4196c2c9f74764e27cec5ba62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418372"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970781"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Felsöka domän och SSL-certifikat problem i Azure web apps
 
@@ -145,7 +145,7 @@ Alternativt kan använda du metoden HTML webbsidan manuellt verifiera din domän
 3.  Ladda upp den här filen i roten på webbservern som är värd för din domän.
 4.  Välj **uppdatera** att kontrollera certifikatets status. Det kan ta några minuter för att bekräfta att slutföra.
 
-Till exempel om du köper ett standardcertifikat för azure.com med domain verification token 1234abcd, en webbegäran gjorts http://azure.com/1234abcd.html ska returnera 1234abcd. 
+Till exempel om du köper ett standardcertifikat för azure.com med domain verification token 1234abcd, en webbegäran gjorts https://azure.com/1234abcd.html ska returnera 1234abcd. 
 
 > [!IMPORTANT]
 > En certifikatbeställning måste endast 15 dagar så att den domänregistreringen utföras. Certifikatutfärdaren nekar certifikatet efter 15 dagar, och du debiteras inte för certifikatet. I så fall kan du ta bort certifikatet och försök igen.

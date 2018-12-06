@@ -4,16 +4,16 @@ description: Lär dig att felsöka problem med Azure Automation-runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9a60d8c17ba091da7c5eaf0e28160573d5faafa8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094872"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963138"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -337,6 +337,27 @@ PowerShell-cmdlets som gör att underordnad runbook scenario är:
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) – denna cmdlet kan du starta en runbook och skicka parametrar till en runbook
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) – denna cmdlet kan du kontrollera jobbstatus för varje underordnad om det finns åtgärder som måste utföras när den underordnade runbooken har slutförts.
+
+### <a name="429"></a>Scenario: 429: begäran-pris för närvarande är för stor. Försök igen
+
+#### <a name="issue"></a>Problem
+
+Din visas följande felmeddelande när du kör den `Get-AzureRmAutomationJobOutput` cmdlet:
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet kan uppstå vid hämtning av jobbutdata från en runbook som innehåller många [utförliga strömmar](../automation-runbook-output-and-messages.md#verbose-stream).
+
+#### <a name="resolution"></a>Lösning
+
+Det finns två sätt att lösa det här felet:
+
+* Redigera runbook och minska antalet jobbströmmar som det genererar.
+* Minska antalet dataströmmar som ska hämtas när du kör cmdleten. Om du vill kan du ange den `-Stream Output` parametern till den `Get-AzureRmAutomationJobOutput` cmdlet för att hämta endast utdataströmmar. 
 
 ## <a name="common-errors-when-importing-modules"></a>Vanliga fel när du importerar moduler
 

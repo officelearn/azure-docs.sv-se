@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705386"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966831"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Oktober 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i oktober 2018.
@@ -62,6 +62,7 @@ Azure SQL Data Warehouse (SQL DW) har nu integrering med Azure Data Lake Storage
 | **CETAS Parquet-fel i små resursklasser på informationslager DW2000 och mycket mer** | Den här snabbkorrigeringen identifierar en null-referens i den Skapa extern tabell som att Parquet kodsökvägar. |
 |**Identity-kolumnvärdet kan förlora i CTAS åtgärder** | Värdet för en identifiera kolumnen bevaras inte när CTASed till en annan tabell. Rapporteras i en blogg: [ https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/ ](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |
 | **Internt fel i vissa fall när en session avslutas när en fråga körs fortfarande** | Den här korrigeringen utlöses en InvalidOperationException om en session avslutas när frågan körs. |
+| **(Distribuerad i November 2018) Kunden drabbats av en icke-optimal prestanda vid försök att läsa in flera små filer från ADLS (Gen1) med Polybase.** | Skapa en systemprestanda har flaskhals eftersom under AAD Säkerhetsverifieringen för token. Problem med prestanda har du minimera genom att aktivera cachelagring av säkerhetstoken. |
 
 
 ## <a name="next-steps"></a>Nästa steg

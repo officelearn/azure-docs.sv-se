@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/8/2018
-ms.openlocfilehash: 9b036b74141ce2091d2e68b68d10c44a56a8696d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: cd62b60718a35aed9129db61413086266bb9f2c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300700"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971087"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Nätverkstopologier för Azure SQL DB Managed Instance-migrering med hjälp av Azure Database Migration Service
 Den här artikeln beskrivs olika nätverkstopologier som Azure Database Migration Service kan arbeta med för att tillhandahålla en omfattande migreringen från en lokal SQL-servrar till Azure SQL Database Managed Instance.
@@ -24,7 +24,7 @@ Den här artikeln beskrivs olika nätverkstopologier som Azure Database Migratio
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Azure SQL Database Managed Instance konfigurerats för hybridarbetsbelastningar 
 Använd den här topologin om din Azure SQL Database Managed Instance är ansluten till ditt lokala nätverk. Den här metoden ger den mest förenklad nätverksroutning och återger maximalt datagenomflöde under migreringen.
 
-![Nätverkstopologi för Hybridarbetsbelastningar](media\resource-network-topologies\hybrid-workloads.png)
+![Nätverkstopologi för Hybridarbetsbelastningar](media/resource-network-topologies/hybrid-workloads.png)
 
 **Krav**
 - Azure SQL Database Managed Instance och Azure Database Migration Service-instans skapas i samma Azure virtuella nätverk i det här scenariot, men de använder olika undernät.  
@@ -36,7 +36,7 @@ Använd den här nätverkstopologi om miljön kräver en eller flera av följand
 - Om principer för rollbaserad åtkomstkontroll (RBAC) är på plats och du behöver att begränsa användarnas åtkomst till samma prenumeration som är värd för Azure SQL Database Managed Instance.
 - De virtuella nätverken för Azure SQL Database Managed Instance och Azure Database Migration Service finns i olika prenumerationer.
 
-![Nätverkstopologi för hanterad instans isolerad från det lokala nätverket](media\resource-network-topologies\mi-isolated-workload.png)
+![Nätverkstopologi för hanterad instans isolerad från det lokala nätverket](media/resource-network-topologies/mi-isolated-workload.png)
 
 **Krav**
 - Det virtuella nätverket som Azure Database Migration Service använder för det här scenariot måste också vara anslutna till det lokala nätverket med hjälp av antingen (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
@@ -47,7 +47,7 @@ Använd den här nätverkstopologi om miljön kräver en eller flera av följand
 
 Använd den här topologin om SQL Server-källans är värd för en Azure-dator och delar samma virtuella nätverk med Azure SQL Database Managed Instance och Azure Database Migration Service.
 
-![Nätverkstopologi för moln-till-moln-migrering med delade virtuella nätverk](media\resource-network-topologies\cloud-to-cloud.png)
+![Nätverkstopologi för moln-till-moln-migrering med delade virtuella nätverk](media/resource-network-topologies/cloud-to-cloud.png)
 
 **Krav**
 - Inga ytterligare krav.
@@ -59,7 +59,7 @@ Använd den här nätverkstopologi om miljön kräver en eller flera av följand
 - Om principer för rollbaserad åtkomstkontroll (RBAC) är på plats och du behöver att begränsa användarnas åtkomst till samma prenumeration som är värd för Azure SQL Database Managed Instance.
 - De virtuella nätverken som används för Azure SQL Database Managed Instance och Azure Database Migration Service finns i olika prenumerationer.
 
-![Nätverkstopologi för moln-till-moln-migrering med ett isolerat virtuellt nätverk](media\resource-network-topologies\cloud-to-cloud-isolated.png)
+![Nätverkstopologi för moln-till-moln-migrering med ett isolerat virtuellt nätverk](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
 **Krav**
 - Konfigurera [VNET nätverkspeering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) mellan det virtuella nätverket som används för Azure SQL Database Managed Instance och Azure Database Migration Service.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: fd54d3425e342de688c5b573a4c329ab32af0c98
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682001"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961815"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Övervaka resursgrupper med Azure Monitor (förhandsversion)
 
@@ -28,19 +28,19 @@ Moderna program är ofta komplexa och högdistribuerade med diskreta delar som f
 2. Välj en av dina resursgrupper som du vill utforska. (Om du har ett stort antal resursgrupper filtrering av prenumerationen kan ibland vara till hjälp.)
 3. Om du vill få fram användbar information för en resursgrupp, klickar du på **Insights** i menyn till vänster på valfri resursgrupp.
 
-![Skärmbild av insikter översikt översiktssidan med resursgrupper](.\media\resource-group-insights\0001-overview.png)
+![Skärmbild av insikter översikt översiktssidan med resursgrupper](./media/resource-group-insights/0001-overview.png)
 
 ## <a name="resources-with-active-alerts-and-health-issues"></a>Resurser med aktiva aviseringar och hälsoproblem
 
 På översiktssidan visas hur många aviseringar bränts och fortfarande är aktiva, tillsammans med den aktuella Azure Resource Health för varje resurs. Tillsammans, den här informationen kan hjälpa dig att snabbt upptäcka alla resurser som har problem. Aviseringar hjälpa dig att identifiera problem i din kod och hur du har konfigurerat din infrastruktur. Azure Resource Health ytor-problem med själva Azure-plattformen, som inte är specifika för dina enskilda program.
 
-![Skärmbild av Azure Resource Health-fönstret](.\media\resource-group-insights\0002-overview.png)
+![Skärmbild av Azure Resource Health-fönstret](./media/resource-group-insights/0002-overview.png)
 
 ### <a name="azure-resource-health"></a>Azure Resource Health
 
 Om du vill visa Azure Resource Health, kontrollera den **visa Azure Resource Health** kryssrutan ovanför tabellen. Den här kolumnen är dold som standard för att laddas den snabbt.
 
-![Skärmbild med resource health graph har lagts till](.\media\resource-group-insights\0003-overview.png)
+![Skärmbild med resource health graph har lagts till](./media/resource-group-insights/0003-overview.png)
 
 Som standard är resurserna som grupperade efter appnivån och resurstypen. **Appnivån** är en enkel kategorisering av resurstyper, som finns bara inom ramen för resource group insights-översiktssidan. Resurstyper som rör programkod, compute infrastruktur, nätverk, lagring och databaser. Hanteringsverktyg hämta sina egna app-lager och alla andra resurser är kategoriserade som tillhör den **andra** appnivån. Den här grupperingen kan du snabbt se med ett ögonkast vilka delsystem i ditt program är felfria och defekta.
 
@@ -69,33 +69,33 @@ Att testa flikväljaren fel **fel** under **Undersök** på den vänstra menyn.
 
 Vänster menyraden ändras efter att ditt val har gjorts, erbjuder dig nya alternativ.
 
-![Skärmbild av felet översiktsfönstret](.\media\resource-group-insights\00004-failures.png)
+![Skärmbild av felet översiktsfönstret](./media/resource-group-insights/00004-failures.png)
 
 När App Service är valt, visas en galleriet i Azure Monitor arbetsboksmallar.
 
-![Skärmbild av galleriet för arbetsboken](.\media\resource-group-insights\0005-failure-insights-workbook.png)
+![Skärmbild av galleriet för arbetsboken](./media/resource-group-insights/0005-failure-insights-workbook.png)
 
 Välja mallen för fel Insights öppnas arbetsboken.
 
-![Skärmbild av rapport om misslyckade](.\media\resource-group-insights\0006-failure-visual.png)
+![Skärmbild av rapport om misslyckade](./media/resource-group-insights/0006-failure-visual.png)
 
 Du kan välja någon av raderna. Markeringen visas sedan i en grafisk detaljer.
 
-![Skärmbild av information om felet](.\media\resource-group-insights\0007-failure-details.png)
+![Skärmbild av information om felet](./media/resource-group-insights/0007-failure-details.png)
 
 Arbetsböcker abstrahera bort svårt arbetet med att skapa anpassade rapporter och visualiseringar i ett lättanvänt format. Även om vissa användare kan bara vill justera parametrarna fördefinierade, är arbetsböcker helt anpassningsbar.
 
 Välj för att få en uppfattning om hur den här arbetsboken fungerar internt **redigera** i det översta fältet.
 
-![Skärmbild av ytterligare redigera alternativet](.\media\resource-group-insights\0008-failure-edit.png)
+![Skärmbild av ytterligare redigera alternativet](./media/resource-group-insights/0008-failure-edit.png)
 
 Ett antal **redigera** rutor visas nära de olika elementen i arbetsboken. Välj den **redigera** rutan under tabellen av åtgärder.
 
-![Skärmbild av redigeringsrutor](.\media\resource-group-insights\0009-failure-edit-graph.png)
+![Skärmbild av redigeringsrutor](./media/resource-group-insights/0009-failure-edit-graph.png)
 
 Detta visar den underliggande Log Analytics-frågan som driver tabellvisualiseringen.
 
- ![Skärmbild av frågefönstret för log analytics](.\media\resource-group-insights\0010-failure-edit-query.png)
+ ![Skärmbild av frågefönstret för log analytics](./media/resource-group-insights/0010-failure-edit-query.png)
 
 Du kan ändra frågan direkt. Eller du kan använda den som en referens och lånar från den när du utformar dina egna anpassade parametriserade arbetsboken.
 
@@ -103,11 +103,11 @@ Du kan ändra frågan direkt. Eller du kan använda den som en referens och lån
 
 Prestanda erbjuder en egen galleri med arbetsböcker. För App Service erbjuder färdiga programprestanda arbetsboken följande vy:
 
- ![Skärmbild av prestandavy](.\media\resource-group-insights\0011-performance.png)
+ ![Skärmbild av prestandavy](./media/resource-group-insights/0011-performance.png)
 
 I det här fallet om du väljer Redigera visas att den här uppsättningen visuella effekter drivs av Azure Monitor Metrics.
 
- ![Skärmbild av prestandavy med Azure-mått](.\media\resource-group-insights\0012-performance-metrics.png)
+ ![Skärmbild av prestandavy med Azure-mått](./media/resource-group-insights/0012-performance-metrics.png)
 
 ## <a name="troubleshooting"></a>Felsökning
 

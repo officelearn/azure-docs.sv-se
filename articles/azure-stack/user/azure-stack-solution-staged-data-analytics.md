@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837349"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969540"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Självstudie: Skapa en lösning för dataanalys av mellanlagrade data med Azure och Azure Stack 
 
@@ -103,7 +103,7 @@ Storage-konto och blob behållare ska innehålla alla ursprungliga data som gene
 
 4.  Välj **skapa för att skapa lagringskontot**.
 
-    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image1.png)
+    ![Alternativ text](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  Välj namnet på lagringskontot när du skapat.
 
@@ -111,7 +111,7 @@ Storage-konto och blob behållare ska innehålla alla ursprungliga data som gene
 
 7.  Längst ned på bladet välj **+ behållare.** Välj **behållare**.
 
-    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image2.png)
+    ![Alternativ text](media/azure-stack-solution-staged-data-analytics/image2.png)
 
 8.  Namn: **ditt val**
 
@@ -146,31 +146,31 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
     **Exempel:**
 
-    ![Definiera nya funktionsappinställningar](media\azure-stack-solution-staged-data-analytics\image6.png)
+    ![Definiera nya funktionsappinställningar](media/azure-stack-solution-staged-data-analytics/image6.png)
 
 5.  Välj **Skapa** för att etablera och distribuera funktionsappen.
 
 6.  Välj meddelandeikonen i det övre högra hörnet av portalen och titta efter meddelandet **Distribueringen lyckades**.
 
-    ![Definiera nya funktionsappinställningar](media\azure-stack-solution-staged-data-analytics\image7.png)
+    ![Definiera nya funktionsappinställningar](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  Välj **gå till resurs** att visa nya funktionsappen.
 
-![Funktionsappen skapades.](media\azure-stack-solution-staged-data-analytics\image8.png)
+![Funktionsappen skapades.](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Lägga till en funktion i Azure Stack-funktionsappen
 
 1.  Skapa en ny funktion genom att klicka på **Functions**, kommer **+ ny funktion** knappen.
 
-    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image3.png)
+    ![Alternativ text](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  Välj **Timerutlösare**.
 
-    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image4.png)
+    ![Alternativ text](media/azure-stack-solution-staged-data-analytics/image4.png)
 
 3.  Välj **C\#**  som språk och namnet funktionen: `upload-to-azure` schemalägga `0 0 * * * *`, som i CRON-notation är en gång i timmen.
 
-    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image5.png)
+    ![Alternativ text](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Skapa en funktion som utlöses av Blob Storage
 
@@ -178,7 +178,7 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
 2.  I sökfältet skriver `blob` och välj sedan önskat språk för den **Blob-utlösare** mall.
 
-  ![Välj utlösarmallen för Blob Storage.](media\azure-stack-solution-staged-data-analytics\image10.png)
+  ![Välj utlösarmallen för Blob Storage.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
 3.  Använd inställningarna som anges i tabellen nedan:
 
@@ -190,7 +190,7 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
     **Exempel:**
 
-    ![Skapa funktionen som utlöses av Blob Storage.](media\azure-stack-solution-staged-data-analytics\image11.png)
+    ![Skapa funktionen som utlöses av Blob Storage.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
 4.  Välj **skapa** skapa funktionen.
 
@@ -202,7 +202,7 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
 3.  Expandera lagringskontot **Blobbehållare**, och blobben som du skapade tidigare. Välj **överför** och sedan **ladda upp filer**.
 
-    ![Ladda upp en fil till blobcontainern.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Ladda upp en fil till blobcontainern.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  I dialogrutan ladda upp filer väljer du fältet filer. Bläddra till en fil på en lokal dator, till exempel en bildfil, markera den och välj **öppna** och sedan **överför**.
 
@@ -210,7 +210,7 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
     **Exempel:**
 
-    ![Visa meddelande i loggarna.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Visa meddelande i loggarna.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>Skapa ett Azure Stack-lagringskonto
 
@@ -232,9 +232,9 @@ Använd stegen och inställningar som beskrivs ovan för att skapa ett annat kon
 
 4.  Välj **OK.**
 
-    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image14.png)
+    ![Alternativ text](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image15.png)
+    ![Alternativ text](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>Skapa en funktion som utlöses av lagringskön
 
@@ -258,7 +258,7 @@ Använd stegen och inställningar som beskrivs ovan för att skapa ett annat kon
 
 3.  Expandera lagringskontot **Blobbehållare**, och blobben som du skapade tidigare. Välj **överför** och sedan **ladda upp filer.**
 
-    ![Ladda upp en fil till blobcontainern.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Ladda upp en fil till blobcontainern.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  I dialogrutan ladda upp filer väljer du fältet filer. Bläddra till en fil på en lokal dator, till exempel en bildfil, markera den och välj **öppna** och sedan **överför**.
 
@@ -266,7 +266,7 @@ Använd stegen och inställningar som beskrivs ovan för att skapa ett annat kon
 
   **Exempel:**
 
-    ![Visa meddelande i loggarna.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Visa meddelande i loggarna.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Säkert lagrade och används kompatibla data
 

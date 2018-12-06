@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dccbd2d87b5a5616c25caed070a337eff9fa753e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255735"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956660"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -23,7 +23,7 @@ Den här artikeln beskrivs hur du som utvecklare enheten att ansluta MXChip IoT 
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-1. Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i den [en program-snabbstarten för att skapa](quick-deploy-iot-central.md).
+1. Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 1. En DevKit-enhet. Du kan köpa en DevKit enhet [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 
@@ -49,12 +49,12 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXCh
     * Ange enhets-Id **<span style="color:Red">(bör vara gemener)</span>** eller använder den föreslagna enhets-Id.
     * Ange namnet på enheten eller använda det föreslagna namnet
     
-    ![Lägg till enhet](media\concepts-connectivity\add-device.png)
+    ![Lägg till enhet](media/concepts-connectivity/add-device.png)
 
 
 1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID och primära nyckel** för tillagd enhet genom att klicka på **Connect** på enhetssidan.
  
-    ![Anslutningsinformation](media\concepts-connectivity\device-connect.PNG)
+    ![Anslutningsinformation](media/concepts-connectivity/device-connect.PNG)
 
 3. Se till att spara dessa uppgifter som du kommer temporaritly hämta ansluten till internet när du förbereder DevKit enheten. 
 

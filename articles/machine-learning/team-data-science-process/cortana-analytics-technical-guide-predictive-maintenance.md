@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d5f6934385d616390baf336404ddd79d4bc2a490
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443754"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965444"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Teknisk guide till lösningsmallen Cortana Intelligence för förebyggande underhåll i flygindustrin och andra företag
 
@@ -218,7 +218,7 @@ Följande steg hjälper dig hur du visualisera data utdata från Stream Analytic
    * Kontrollera att den ***visualiseringar*** fönstret är öppet och visas på höger sida av skärmen.
 3. När du har data som flödar till Power BI kan börja du visualisera strömmande data. Nedan är en exempel-instrumentpanel med vissa heta sökvägen visualiseringar som fästs till den. Du kan skapa andra instrumentpaneler som baseras på lämpliga datauppsättningar. Beroende på hur länge du kör din datagenerator, skilja dina nummer på visualiseringar sig.
 
-    ![Instrumentpanelsvy](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Instrumentpanelsvy](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Här följer några steg för att skapa någon av panelerna ovan – ”Vagnpark vyn av Sensor 11 vs. Tröskelvärdet 48,26 ”panelen:
    

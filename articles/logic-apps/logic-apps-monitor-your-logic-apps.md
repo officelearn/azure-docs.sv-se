@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4e1a8bd60c71bfc46b3c57cff6a87c5b2477146e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405743"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956456"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -74,7 +74,7 @@ Om du vill få meddelanden om fel eller andra möjliga problem, Ställ in [avise
 
 För bättre felsökning med runtime samt händelser, som du kan ställa in diagnostik loggning med [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics är en tjänst i Azure som övervakar dina molnbaserade och lokala miljöer för att hjälpa dig att bibehålla tillgänglighet och prestanda. 
 
-Innan du börjar måste du har en Log Analytics-arbetsyta. Lär dig [hur du skapar en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md).
+Innan du börjar måste du har en Log Analytics-arbetsyta. Lär dig [hur du skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
 
 1. I den [Azure-portalen](https://portal.azure.com), hitta och välj din logikapp. 
 

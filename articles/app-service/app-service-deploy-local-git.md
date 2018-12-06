@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a4c96ea75bae69fa5a1af13e4e8b908759817e95
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303705"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959333"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure Apptjänst
 
@@ -30,7 +30,7 @@ Den här guiden visar hur du distribuerar din kod till [Azure App Service](app-s
 
 Att följa stegen i den här guiden:
 
-* [Installera Git](http://www.git-scm.com/downloads).
+* [Installera Git](https://www.git-scm.com/downloads).
 * Underhålla en lokal Git-lagringsplats med kod som du vill distribuera.
 
 Om du vill använda en exempellagringsplats om du vill följa med, kör du följande kommando i ditt lokala terminalfönster:

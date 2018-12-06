@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ec51ba28c81e2aa2dbfe2a3dc55d9940c74ff673
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446866"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959860"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure portal
 
-
 ## <a name="task-3-configure-administrative-group"></a>Uppgift 3: Konfigurera administratörsgrupp
+
 I den här konfigurationsåtgärd skapar du en administrativ grupp i Azure AD-katalogen. Den här administrativa specialgrupp kallas *AAD DC-administratörer*. Medlemmar i den här gruppen har beviljats administratörsbehörighet på datorer som är anslutna till en domän till den hanterade domänen. Den här gruppen har lagts till i administratörsgruppen på domänanslutna datorer. Medlemmar i den här gruppen kan dessutom använda Fjärrskrivbord för att fjärransluta till domänanslutna datorer.
 
 > [!NOTE]
@@ -49,14 +49,14 @@ Azure AD Domain Services tillåter antingen fullständig synkronisering av alla 
 ### <a name="full-synchronization"></a>Fullständig synkronisering
 
 1. För fullständig synkronisering, klickar du på ”OK” längst ned på skärmen som fullständig redan väljs.
-    ![Fullständig synkronisering](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+    ![Fullständig synkronisering](./media/active-directory-domain-services-admin-guide/create-sync-all.PNG)
 
 ### <a name="scoped-synchronization"></a>Begränsade synkronisering
 
 1. Växla synkroniseringsknappen ”Databasomfattande” och en grupper-sida visas. Från den här, kan du se vilka grupper har redan markerats som ska synkroniseras till din hanterade domän.
-    ![Begränsade synkronisering](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+    ![Begränsade synkronisering](media/active-directory-domain-services-admin-guide/create-sync-scoped.PNG)
 2. Klicka på **Välj grupper** i det övre navigeringsfältet. Härifrån kan visas gruppväljare för en på sidan. Används för att markera fler grupper som ska synkroniseras med Azure AD Domain Services. När du är klar klickar du på **Välj** att Stäng Väljaren för gruppen och lägga till dessa grupper i den markerade listan.
-    ![Begränsade synkronisering Välj grupper](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+    ![Begränsade synkronisering Välj grupper](media/active-directory-domain-services-admin-guide/create-sync-scoped-groupselect.PNG)
 3. Klicka på **OK** att flytta till sammanfattningssidan.
 
 ## <a name="deploy-your-managed-domain"></a>Distribuera din hanterade domän
@@ -69,8 +69,8 @@ Azure AD Domain Services tillåter antingen fullständig synkronisering av alla 
 
     ![Meddelande - distribution pågår](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
-
 ## <a name="check-the-deployment-status-of-your-managed-domain"></a>Kontrollera distributionsstatusen för din hanterade domän
+
 Processen för etablering av den hanterade domänen kan ta upp till en timme.
 
 1. När distributionen pågår, du kan söka efter ”domain services” i den **Sök efter resurser** sökrutan. Välj **Azure AD Domain Services** från sökresultaten. Den **Azure AD Domain Services** bladet visar den hanterade domänen som håller på att etableras.
@@ -96,10 +96,10 @@ Processen för etablering av den hanterade domänen kan ta upp till en timme.
 
     ![Domain Services – fliken Egenskaper när helt etablerad](./media/getting-started/domain-services-provisioned-properties.png)
 
-
 ## <a name="need-help"></a>Behöver du hjälp?
+
 Det kan ta en timme eller två för båda domänkontrollanterna för din hanterade domän ska etableras. Om distributionen misslyckas eller fastnar i tillståndet ”väntar” i mer än ett par timmar kan passa på att [kontakta Produktteamet för att få hjälp](active-directory-ds-contact-us.md).
 
-
 ## <a name="next-step"></a>Nästa steg
+
 Uppgift 4: [uppdatera DNS-inställningarna för det virtuella Azure-nätverket](active-directory-ds-getting-started-dns.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8e79d05147cae5bf9c46fc1f7c0e7e98574383d5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 39223f49d315e722b13b734b3424d61f630834b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007628"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966152"
 ---
 ## <a name="configuring-homepage"></a>Konfigurera startsida
 
@@ -21,19 +21,19 @@ Startsidan är den sida som läses in när användare som har åtkomst till prog
 
 Här är till exempel startsidan för programmen baserat på mallen ”Contoso Sample”. Välj först för att anpassa startsidan för ditt program, **redigera** längst upp till höger. 
 
-![Startsida för programmen baserat på mallen ”Contoso exemplet”](media\howto-configure-homepage\image1.png)
+![Startsida för programmen baserat på mallen ”Contoso exemplet”](media/howto-configure-homepage/image1.png)
 
 Att välja **redigera**, öppnas instrumentpanelen biblioteket på en panel till vänster. Det finns många typer av paneler och instrumentpanelen primitiver som kan läggas till att anpassa din startsida.
 
-![Instrumentpanelen bibliotek](media\howto-configure-homepage\image2.png)
+![Instrumentpanelen bibliotek](media/howto-configure-homepage/image2.png)
 
 Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Efter som tillhandahåller panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. I det här fallet har vi valt **ange temperatur**. Klicka på **klar** leder till den här panelen visas på startsidan.
 
-![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](media\howto-configure-homepage\image3.png)
+![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](media/howto-configure-homepage/image3.png)
 
 När en operatör visar startsidan, kan de nu se den här panelen som visar de egenskaper eller inställningarna för enheten:
 
-![Fliken ”instrumentpanel” med visas inställningar och egenskaper för panelen](media\howto-configure-homepage\image4.png)
+![Fliken ”instrumentpanel” med visas inställningar och egenskaper för panelen](media/howto-configure-homepage/image4.png)
 
 Experimentera med de olika andra typerna av paneler i biblioteket att upptäcka hur du kan anpassa ditt programs startsida ännu mer.
 

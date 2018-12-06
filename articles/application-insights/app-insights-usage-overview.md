@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: bc80bfacf6896161fae03b9ed93f5fe22e13ada2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725292"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955437"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Användningsanalys med Application Insights
 
@@ -60,26 +60,6 @@ Insikter till höger påpeka intressanta mönster i datauppsättningen.
 * Den **sessioner** rapporten räknar antalet användarsessioner som har åtkomst till din webbplats. En session är en viss aktivitet av en användare som avslutades av en period av inaktivitet av mer än en halvtimme.
 
 [Mer om verktyg för användare, sessioner och händelser](app-insights-usage-segmentation.md)  
-
-## <a name="page-views"></a>Sidvisning
-
-Klicka vidare sidvisningar panelen för att få en detaljerad analys av dina populäraste sidorna från bladet användning:
-
-![Från bladet översikt klickar du på sidan vyer diagrammet](./media/app-insights-usage-overview/05-games.png)
-
-I exemplet ovan är från en webbplats för spel. Diagram, kan vi direkt se:
-
-* Användning inte har förbättrats under den senaste veckan. Kanske är vi dags att fundera över sökmotoroptimering?
-* Tennis är den mest populära spel sidan. Nu ska vi fokusera på att ytterligare förbättringar i den här sidan.
-* I genomsnitt användare gå till sidan Tennis cirka tre gånger per vecka. (Det finns cirka tre gånger så mycket sessioner än användare.)
-* De flesta användare finns på webbplatsen under USA fungerande vecka och i arbetstid. Kanske ska vi tillhandahåller en ”snabb Dölj”-knapp på webbsidan.
-* Den [anteckningar](app-insights-annotations.md) på diagrammet visar när nya versioner av webbplatsen har distribuerats. Ingen av de senaste distributionerna hade en märkbar effekt på användning.
-
-Vad händer om du vill undersöka trafiken till webbplatsen i detalj, som att dela upp av en anpassad egenskap webbplatsen skickar i sin sidvystelemetri?
-
-1. Öppna den **händelser** verktyg i Application Insights-resurs-menyn. Det här verktyget kan du analysera hur många sidvisningar och anpassade händelser har skickats från din app, baserat på en mängd olika alternativ för filtrering, cohorting och segmentering.
-2. Välj ”valfri Sidvisning” i listrutan ”som använt”.
-3. Välj en egenskap som du vill dela din telemetri för sidvisningar i listrutan ”dela med”.
 
 ## <a name="retention---how-many-users-come-back"></a>Kvarhållning – hur många användare kommer tillbaka?
 

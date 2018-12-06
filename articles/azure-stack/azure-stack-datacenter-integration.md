@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720454"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962689"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Överväganden för datacenter-integrering för integrerade Azure Stack-system
 Om du är intresserad av i ett integrerat Azure Stack-system, bör du förstå några av stora planeringsöverväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden för att fatta viktiga infrastruktur för din Azure Stack-system med flera noder. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM som de distribuerar Azure Stack till ditt datacenter.  
@@ -57,7 +57,7 @@ Du behöver tänka på vilken identitetsleverantör som du vill använda för Az
 
 Valfri identity-providern har inte någon bäring på virtuella maskiner, identitetssystem och konton som de använder, oavsett om de kan ansluta till en Active Directory-domän, osv. Det här är separat.
 
-Du kan lära dig mer om hur du väljer en identitetsprovider i den [Azure Stack integrerade system anslutning modeller artikeln](.\azure-stack-connection-models.md).
+Du kan lära dig mer om hur du väljer en identitetsprovider i den [Azure Stack integrerade system anslutning modeller artikeln](./azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>AD FS och Graph-integrering
 Om du väljer att distribuera Azure Stack med hjälp av AD FS som identitetsleverantör, måste du integrera i AD FS-instans på Azure Stack med en befintlig AD FS-instans via ett federationsförtroende. På så sätt kan identiteter i en befintlig Active Directory-skog för att autentisera med resurser i Azure Stack.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: dd7f76e20e43e24c31f5afd8c8d9eb97db04255f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 68c838481120dea7635ac5ea76859a8088d732fb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843231"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957358"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Service Map, du kan visa dina servrar på det sätt som du tänker på dem: sammankopplat system som levererar viktiga tjänster. Service Map ser du anslutningarna mellan servrar, processer, svarstid för inkommande och utgående anslutningar, och portar i alla TCP-anslutna arkitekturer utan konfiguration måste installera en agent.
@@ -38,7 +38,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 2. I sökfältet skriver **Tjänstkarta** och tryck på **RETUR**.
 3. Välj i marketplace-sökresultatsidan **Tjänstkarta** i listan.<br><br> ![Välj lösningen Tjänstkarta från Azure Marketplace-sökresultat](./media/service-map/marketplace-search-results.png)<br>
 4. På den **Tjänstkarta** översiktsfönstret, granska informationen om lösningen och klicka sedan på **skapa** att påbörja onboarding-processen till Log Analytics-arbetsytan.<br><br> ![Integrera lösningen Tjänstkarta](./media/service-map/service-map-onboard.png).
-5. I den **konfigurera en lösning** fönstret, Välj en befintlig eller skapa en ny Log Analytics-arbetsyta.  Mer information om hur du skapar en ny arbetsyta finns [skapa en Log Analytics-arbetsyta i Azure-portalen](../../log-analytics/log-analytics-quick-create-workspace.md). När du har angett informationen som krävs, klickar du på **skapa**.  
+5. I den **konfigurera en lösning** fönstret, Välj en befintlig eller skapa en ny Log Analytics-arbetsyta.  Mer information om hur du skapar en ny arbetsyta finns [skapa en Log Analytics-arbetsyta i Azure-portalen](../../azure-monitor/learn/quick-create-workspace.md). När du har angett informationen som krävs, klickar du på **skapa**.  
 
 Även om informationen har verifierats och lösningen har distribuerats, kan du spåra förloppet under **meddelanden** på menyn. 
 
@@ -353,7 +353,7 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 |RemoteLatitude |Geoplats latitud.  Till exempel *47.68* |
 |RemoteLongitude |Geoplats longitud.  Till exempel *-122.12* |
 
-#### <a name="malicious-ip"></a>Skadlig IP-adress
+#### <a name="malicious-ip"></a>Skadlig IP
 Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig följande egenskaper är ifyllda (de är tom, när den IP-Adressen inte anses vara skadlig) i följande egenskaper för posten:
 
 | Egenskap  | Beskrivning |
@@ -497,7 +497,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ## <a name="rest-api"></a>REST-API
 Alla data för server, process och beroenden i Tjänstkarta är tillgängligt via den [REST-API för Service Map](https://docs.microsoft.com/rest/api/servicemap/).
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostik och användningsdata
+## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata
 Microsoft samlar automatiskt in användnings- och data till din användning av tjänsten Tjänstkarta. Microsoft använder dessa data för att tillhandahålla och förbättra kvaliteten, säkerheten och integriteten för tjänsten Tjänstkarta. Data innehåller information om konfigurationen av din programvara, till exempel operativsystem och version, IP-adress, DNS-namn och namn på arbetsstation för att tillhandahålla korrekta och effektiva funktioner för felsökning. Microsoft samlar inte in namn, adresser eller annan kontaktinformation.
 
 Mer information om insamling och användning finns i den [sekretesspolicyn för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

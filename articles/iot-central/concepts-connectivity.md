@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 7b2dd4e97d23f37c8261e51f3f65e78436493ddc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e90fb6bcfa1bfab59177cbc6c717fefc163a67a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238749"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960105"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -44,12 +44,12 @@ Ansluter en enhet till IoT Central med hjälp av SAS är enkelt och tar bara nå
 1. Lägg till en **riktig enhet** från Device Explorer klickar du på **+ Ny > verkliga** att lägga till en riktig enhet.
     * Ange enhets-Id **<span style="color:Red">(bör vara gemener)</span>** eller använder den föreslagna enhets-Id.
     * Ange namnet på enheten eller använda det föreslagna namnet   
-    ![Lägg till enhet](media\concepts-connectivity\add-device.png)
+    ![Lägg till enhet](media/concepts-connectivity/add-device.png)
 1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID och primära nyckel** för tillagd enhet genom att klicka på **Connect** på enhetssidan.
     * **[Scope-ID](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope)**  per IoT Central-App och genereras av DPS som används för att se till att unikt enhets-ID i en App.
     * **Enhets-Id** är unikt enhets-ID per App, enheten behöver skicka enhets-Id som en del av anropet för registrering.   
     * **Primär nyckel** är en SAS-token genereras av IoT Central för den här specifika enheten. 
-    ![Anslutningsinformation](media\concepts-connectivity\device-connect.PNG)
+    ![Anslutningsinformation](media/concepts-connectivity/device-connect.PNG)
 1. Använd de här anslutningsinformationen **enhetsidentitet, enhetsnamn och den primärnyckeln för enheten** i din kod för enheten att etablera och ansluta din enhet och börja ser de data som flödar genom omedelbart. Om du använder den enhet Följ MxChip [de stegvisa anvisningarna här](howto-connect-devkit.md#add-a-real-device), starta från avsnittet **Förbered enheten DevKit**.   
 
     Nedan finns referenser till andra språk som du kanske vill använda.
@@ -137,13 +137,13 @@ För att ansluta enheter till IoT Central använder X509 certifikat, det finns t
 
     *   **Lägg till X509 rot- eller mellanliggande certifikat** du använder för att generera enhetscertifikat lövmedlemmar. Gå till Administration > enhetsanslutning > certifikat. 
     
-        ![Inställningar för anslutning](media\concepts-connectivity\connection-settings.PNG)
+        ![Inställningar för anslutning](media/concepts-connectivity/connection-settings.PNG)
     *   **Verifiering av certifikat:** verifierar certifikat ägarskap säkerställer att gilgit för certifikatet är tillgång certifikatets privata nyckel. Att verifiera certifikatet
         *  Skapa Verifieringskod, klicka på knappen bredvid fältet verifiering kod för att generera verifieringskoden. 
         *  Skapa ett X.509-certifikat för verifiering med verifieringskoden spara certifikatet som en .cer-fil. 
         *  Ladda upp signerad verifieringscertifikatet och klicka på verifiera.
 
-        ![Inställningar för anslutning](media\concepts-connectivity\verify-cert.png)
+        ![Inställningar för anslutning](media/concepts-connectivity/verify-cert.png)
     *   **Sekundärt certifikat:** under livscykeln för din IoT-lösning, måste du distribuera certifikat. Två av de viktigaste skälen för löpande certifikat skulle vara en säkerhetsöverträdelse och förfallodatum för certifikat. Sekundärt certifikat används för att minska stopptiden för enheter som försöker etablera när du uppdaterar primära certifikatet.
 
     **TESTA ENDAST FÖR** 
@@ -180,7 +180,7 @@ En av de scenarier som IoT Central kan är att generera autentiseringsuppgifter 
 
 Nedan visas flödet för att ansluta enheter med den här funktionen
 
-![Inställningar för anslutning](media\concepts-connectivity\device-connection-flow.PNG)
+![Inställningar för anslutning](media/concepts-connectivity/device-connection-flow.PNG)
 
 
 Följ stegen baserat på ditt val av enheten autentiseringsschemat (X509/SAS)
@@ -188,7 +188,7 @@ Följ stegen baserat på ditt val av enheten autentiseringsschemat (X509/SAS)
 1. **Anslutningsinställningar** 
     * **X509 certifikat:** [Lägg till och verifiera rot-/ mellanliggande certifikat](#connect-devices-using-x509-certificates) och använda den för att generera enhetscertifikat i nästa steg.
     * **SAS:** kopiera den primära nyckeln (den här nyckeln är gruppen SAS-nyckeln för den här IoT Central-program) och använda den för att generera SAS-nycklar för enheten i nästa steg. 
-![Anslutningsinställningar SAS](media\concepts-connectivity\connection-settings-sas.png)
+![Anslutningsinställningar SAS](media/concepts-connectivity/connection-settings-sas.png)
 
 1. **Skapa autentiseringsuppgifter för enhet** 
     *   **Certifikat X509:** generera löv-certifikat för dina enheter med hjälp av den rot-/ mellanliggande certifikat som du har lagt till den här appen. Kontrollera att du använder den **enhets-ID** som en CNAME-post i löv-certifikat och  **<span style="color:Red">(bör vara gemener)</span>**. Här är en [kommandoradsverktyg](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) att generera löv/enheten certifikat för testning.
@@ -232,7 +232,7 @@ Enheten är Registeretd när
 Du kan hämta anslutningssträngen för Iot hub-enhet på Azure IoT Hub med följande steg 
 1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID, enheten primärnyckel** från enhetssidan (till enhetssidan > Klicka på Anslut) 
 
-    ![Anslutningsinformation](media\concepts-connectivity\device-connect.PNG)
+    ![Anslutningsinformation](media/concepts-connectivity/device-connect.PNG)
 
 1. Hämta enhetens anslutningssträng med hjälp av kommandoradsverktyget commnd nedan.
     Använd den nedan anvisningarna för att hämta enhetens anslutningssträng  

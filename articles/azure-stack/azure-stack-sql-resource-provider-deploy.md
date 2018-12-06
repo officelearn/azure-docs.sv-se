@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b4aeaf40244365ed65c10119f8d26e33415e670c
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: e1a52dffe0b87b140ee8f0da9379a33f8b071f39
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889964"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960676"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuera SQL Server-resursprovider i Azure Stack
 
@@ -33,7 +33,7 @@ Använda Azure Stack SQL Server-resursprovidern för att visa SQL-databaser som 
 Det finns flera förutsättningar som måste vara uppfyllda innan du kan distribuera Azure Stack SQL-resursprovider. Utför följande steg på en dator som har åtkomst till privilegierad slutpunkt VM för att uppfylla dessa krav:
 
 - Om du inte redan gjort det, [registrera Azure Stack](azure-stack-registration.md) med Azure så att du kan ladda ned Azure marketplace-objekt.
-- Du måste installera Azure- och Azure Stack PowerShell-moduler på systemet där du kör installationen. Systemet måste vara en Windows 10 eller Windows Server 2016-avbildning med den senaste versionen av .NET-runtime. Se [installera PowerShell för Azure Stack](.\azure-stack-powershell-install.md).
+- Du måste installera Azure- och Azure Stack PowerShell-moduler på systemet där du kör installationen. Systemet måste vara en Windows 10 eller Windows Server 2016-avbildning med den senaste versionen av .NET-runtime. Se [installera PowerShell för Azure Stack](./azure-stack-powershell-install.md).
 - Lägg till nödvändiga Windows Server core VM på Azure Stack Marketplace genom att ladda ned den **Windows Server 2016 Datacenter - Server Core** bild.
 - Ladda ned den SQL-resursprovidern binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog. Resursprovidern har en minsta motsvarande Azure Stack skapa.
 
@@ -54,7 +54,7 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
 
 ### <a name="certificates"></a>Certifikat
 
-_För integrerade system installationer endast_. Du måste ange SQL PaaS PKI-certifikat som beskrivs i den valfria PaaS certifikat i [Azure Stack PKI distributionskrav](.\azure-stack-pki-certs.md#optional-paas-certificates). Placera den .pfx-fil på den plats som den **DependencyFilesLocalPath** parametern. Ange inte ett certifikat för ASDK system.
+_För integrerade system installationer endast_. Du måste ange SQL PaaS PKI-certifikat som beskrivs i den valfria PaaS certifikat i [Azure Stack PKI distributionskrav](./azure-stack-pki-certs.md#optional-paas-certificates). Placera den .pfx-fil på den plats som den **DependencyFilesLocalPath** parametern. Ange inte ett certifikat för ASDK system.
 
 ## <a name="deploy-the-sql-resource-provider"></a>Distribuera SQL-resursprovider
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 5f558ea851d63b08885293efcff3fef600f2cc17
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ac62800e81cece61e9f51c496ace2868629a49a1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726397"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960251"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Hantera åtkomstbehörigheter till Azure Blob- och ködata med RBAC (förhandsversion)
 
@@ -40,14 +40,14 @@ Du kan också definiera anpassade roller för användning med behållare och kö
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Tilldela en roll till ett säkerhetsobjekt
 
-Tilldela en RBAC-roll till en Azure-identitet att ge behörighet till behållare eller köer i lagringskontot. Du kan begränsa rolltilldelning till storage-kontot eller till en specifik behållare eller en kö. I följande tabell sammanfattas åtkomsträttigheterna som beviljas av de inbyggda rollerna, beroende på omfattningen: 
+Tilldela en RBAC-roll till en Azure-identitet att ge behörighet till behållare eller köer i lagringskontot. Du kan begränsa rolltilldelning till storage-kontot eller till en specifik behållare eller en kö. I följande tabell sammanfattas åtkomsträttigheterna som beviljas av de inbyggda rollerna, beroende på omfattningen:
 
-|                                 |     BLOB Data-deltagare                                                 |     BLOB-dataläsare                                                |     Lagringsködata-deltagare                                  |     Lagringsködata-läsare                                 |
-|---------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------|
-|    Begränsad till prenumerationen       |    Läs-/ skrivåtkomst till alla behållare och blobbar i prenumerationen       |    Läsbehörighet till alla behållare och blobbar i prenumerationen       |    Läs-/ skrivåtkomst till alla köer i prenumerationen       |    Läsbehörighet till alla köer i prenumerationen         |
-|    Begränsad till resursgrupp     |    Läs-/ skrivåtkomst till alla behållare och blobbar i resursgruppen.     |    Läsbehörighet till alla behållare och blobbar i resursgruppen.     |    Läs-/ skrivåtkomst till alla köer i resursgruppen     |    Läsbehörighet till alla köer i resursgruppen     |
-|    Begränsad till storage-konto    |    Läs-/ skrivåtkomst till alla behållare och blobbar i lagringskontot    |    Läsbehörighet till alla behållare och blobbar i lagringskontot    |    Läs-/ skrivåtkomst till alla köer i lagringskontot    |    Läsbehörighet till alla köer i lagringskontot    |
-|    Begränsad till behållare/kö    |    Läs/skrivbehörighet till den angivna behållaren och dess blobbar              |    Läsbehörighet till den angivna behållaren och dess blobbar              |    Läs/skrivbehörighet till den angivna kön                  |    Läsbehörighet till den angivna kön                    |
+|Scope|Ägare för BLOB-Data|BLOB Data-deltagare|BLOB-dataläsare|Lagringsködata-deltagare|Lagringsködata-läsare|
+|---|---|---|---|---|---|
+|Prenumerationen-nivå|Läs-/ skrivåtkomst till alla behållare och blobbar i prenumerationen|Läs-/ skrivåtkomst till alla behållare och blobbar i prenumerationen| Läsbehörighet till alla behållare och blobbar i prenumerationen|Läs-/ skrivåtkomst till alla köer i prenumerationen|Läsbehörighet till alla köer i prenumerationen|
+|Resursgrupp|Läs-/ skrivåtkomst till alla behållare och blobbar i resursgruppen.|Läs-/ skrivåtkomst till alla behållare och blobbar i resursgruppen.|Läsbehörighet till alla behållare och blobbar i resursgruppen.|Läs-/ skrivåtkomst till alla köer i resursgruppen|Läsbehörighet till alla köer i resursgruppen|
+|Lagringskontonivån|Läs-/ skrivåtkomst till alla behållare och blobbar i lagringskontot|Läs-/ skrivåtkomst till alla behållare och blobbar i lagringskontot|Läsbehörighet till alla behållare och blobbar i lagringskontot|Läs-/ skrivåtkomst till alla köer i lagringskontot|Läsbehörighet till alla köer i lagringskontot|
+|Behållare/kö-nivå|Läs/skrivbehörighet till den angivna behållaren och dess blobbar|Läs/skrivbehörighet till den angivna behållaren och dess blobbar|Läsbehörighet till den angivna behållaren och dess blobbar|Läs/skrivbehörighet till den angivna kön|Läsbehörighet till den angivna kön|
 
 > [!NOTE]
 > Ägare för Azure Storage-kontot kan tilldelas du automatiskt inte behörighet att komma åt data. Du måste uttryckligen tilldela dig själv en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resursgrupp, storage-konto, eller en behållare eller en kö.
@@ -76,6 +76,9 @@ Tilldela en inbyggd roll som beviljar åtkomst till alla behållare eller köer 
 
 ### <a name="assign-a-role-scoped-to-a-container-or-queue-in-the-azure-portal"></a>Tilldela en roll som är begränsade till en behållare eller en kö i Azure portal
 
+> [!IMPORTANT]
+> Du kan inte göra detta om du använder ett konto med hierarkiskt namnområde ännu aktiverat.
+
 Stegen för att tilldela en inbyggd roll som är begränsade till en behållare eller till en kö är liknande. Proceduren som visas här tilldelas en roll som är begränsade till en behållare, men du kan följa samma steg för att tilldela en roll som är begränsade till en kö: 
 
 1. I den [Azure-portalen](https://portal.azure.com)går du till ditt lagringskonto och visa den **översikt** för kontot.
@@ -99,4 +102,3 @@ Stegen för att tilldela en inbyggd roll som är begränsade till en behållare 
     - [Hantera rollbaserad åtkomstkontroll (RBAC med REST API)](../../role-based-access-control/role-assignments-rest.md)
 - Läs hur du tillåter åtkomst till behållare och köer från i ditt storage-program i [använda Azure AD med Azure Storage-program](storage-auth-aad-app.md).
 - Ytterligare information om Azure AD-integrering för Azure-behållare och köer finns i Azure Storage-teamets blogg publicerar, [meddelande om förhandsversionen av Azure AD-autentisering för Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-- 

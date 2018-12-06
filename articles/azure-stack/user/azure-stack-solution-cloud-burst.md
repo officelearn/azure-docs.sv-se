@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 4881f992e5362efc7e4d7ac23898684966a066e0
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891001"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968211"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Självstudie: Skapa molnöverskridande skalning lösningar med Azure
 
@@ -107,17 +107,17 @@ Azure Repos
 
     Hybrid CI/CD kan använda för både programkoden och infrastrukturkod. Använd [Azure Resource Manager-mallar](https://azure.microsoft.com/resources/templates/) för både privata och värdbaserade molnutveckling.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image1.JPG)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image1.JPG)
 
 2. **Klona lagringsplatsen** genom att skapa och öppna standard-webbapp.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image2.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image2.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Skapa distribution av fristående webbappar för App Services i både moln
 
 1.  Redigera den **WebApplication.csproj** fil. Välj **Runtimeidentifier** och Lägg till **win10 x64**. (Se [Self-contained distribution](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentation.) 
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image3.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image3.png)
 
 2.  Checka in kod till Azure-centrallager med Team Explorer.
 
@@ -129,7 +129,7 @@ Azure Repos
 
 2. Lägg till **- r win10-x64** kod. Detta är nödvändigt att utlösa en självständig distribution med .net Core.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image4.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image4.png)
 
 3. Kör versionen. Den [självständigt distributionsbuild](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processen ska publicera artefakter som kan köras på Azure och Azure Stack.
 
@@ -143,87 +143,87 @@ Pipelines och Azure DevOps-Server för Azure ger en mycket konfigurerbar och han
 
 ## <a name="create-release-definition"></a>Skapa versionsdefinition
 
-![Alternativ text](media\azure-stack-solution-cloud-burst\image5.png)
+![Alternativ text](media/azure-stack-solution-cloud-burst/image5.png)
 
 1.  Välj den **plus** för att lägga till en ny version under den **versioner fliken** på sidan Skapa och släpp i VSO.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image6.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image6.png)
 
 2. Tillämpa Distributionsmall för Azure App Service.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image7.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image7.png)
 
 3. Lägg till artefakt för Azure-molnet build appen under Lägg till artefakt.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image8.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image8.png)
 
 4. Under fliken Pipeline, väljer du den **fas, uppgift** länka av miljön och ange miljövärden för för Azure-molnet.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image9.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image9.png)
 
 5. Ange den **miljönamn** och välj Azure **prenumeration** för Azure Cloud-slutpunkten.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image10.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image10.png)
 
 6. Ange de nödvändiga under miljönamn, **Azure app service-namn**.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image11.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image11.png)
 
 7. Ange **finns VS2017** under agenten kö för Azure värdbaserad molnmiljö.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image12.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image12.png)
 
 8. Distribuera Azure App Service-menyn väljer du det giltiga **paket eller mappen** för miljön. Välj **OK** till **mapplatsen**.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image13.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image13.png)
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image14.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image14.png)
 
 9. Spara alla ändringar och gå tillbaka till **releasepipeline**.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image15.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image15.png)
 
 10. Lägg till en ny artefakt som att välja build för Azure Stack-appen.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image16.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image16.png)
 
 11. Lägg till en mer miljö som använder Azure App Service-distribution.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image17.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image17.png)
 
 12. Namnge den nya miljön Azure Stack.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image18.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image18.png)
 
 13. Hitta Azure Stack-miljön under **uppgift** fliken.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image19.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image19.png)
 
 14. Välj prenumerationen för Azure Stack-slutpunkten.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image20.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image20.png)
 
 15. Ange namnet på Azure Stack webbappen som App service-namn.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image21.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image21.png)
 
 16. Välj Azure Stack-agent.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image22.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image22.png)
 
 17. Under distribuera Azure App Service-avsnittet väljer giltiga **paket eller mappen** för miljön. Välj **OK** till mappen.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image23.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image23.png)
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image24.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image24.png)
 
 18. Lägg till en variabel med namnet under varierande fliken `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, ange värdet som **SANT**, och omfång i Azure Stack.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image25.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image25.png)
 
 19. Välj den **kontinuerlig** utlösaren ikon för distribution i både artefakter och aktivera den **fortsätter** distributionsutlösare.
 
-    ![Alternativ text](media\azure-stack-solution-cloud-burst\image26.png)
+    ![Alternativ text](media/azure-stack-solution-cloud-burst/image26.png)
 
 20. Välj den **före** villkor ikon i Azure Stack-miljön och ange utlösaren som **när utgåvan blir tillgänglig.**
 
@@ -307,7 +307,7 @@ Skapa en versionsdefinition är det sista steget i programmet genereringsprocess
 
 3.  På **Välj en mall**, Välj **Azure App Service-distribution**, och välj sedan **tillämpa**.
 
-4.  På **Lägg till artefakt**, från den ** källa (byggesdefinition) väljer du den Azure-molnet build-app.
+4.  På **Lägg till artefakt**, från den **källa (byggesdefinition)** väljer du den Azure-molnet build-app.
 
 5.  På den **Pipeline** fliken den **1 fas**, **1 aktivitet** länka till **visa miljöuppgifter**.
 
@@ -323,7 +323,7 @@ Skapa en versionsdefinition är det sista steget i programmet genereringsprocess
 
 11. Spara alla ändringar och gå tillbaka till **Pipeline**.
 
-12. På den **Pipeline** fliken **Lägg till artefakt**, och välj den **NorthwindCloud Traders-fartyg** från den ** källa (Build-Definition) ** lista.
+12. På den **Pipeline** fliken **Lägg till artefakt**, och välj den **NorthwindCloud Traders-fartyg** från den **källa (Build-Definition)** lista.
 
 13. På **Välj en mall**, lägga till en annan miljö. Välj **Azure App Service-distribution** och välj sedan **tillämpa**.
 

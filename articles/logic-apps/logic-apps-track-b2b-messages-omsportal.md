@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: aacdaf4ec55b1223ce993a7246ed9f0405a5054e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233573"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957189"
 ---
 # <a name="track-b2b-messages-with-azure-log-analytics"></a>Spåra B2B-meddelanden med Azure Log Analytics
 
@@ -37,11 +37,11 @@ När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrat
 
 * Om du inte redan gjort [publicera diagnostiska data till Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-* När du uppfyller föregående krav måste också en Log Analytics-arbetsyta som du använder för att spåra B2B-kommunikation via Log Analytics. Om du inte har en Log Analytics-arbetsyta kan du läsa [hur du skapar en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md).
+* När du uppfyller föregående krav måste också en Log Analytics-arbetsyta som du använder för att spåra B2B-kommunikation via Log Analytics. Om du inte har en Log Analytics-arbetsyta kan du läsa [hur du skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Installera Logic Apps B2B-lösning
 
-Innan du kan ha Log Analytics spåra B2B-meddelanden för din logikapp, lägga till den **Logic Apps B2B** lösning till Log Analytics. Läs mer om [lägga till lösningar i Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Innan du kan ha Log Analytics spåra B2B-meddelanden för din logikapp, lägga till den **Logic Apps B2B** lösning till Log Analytics. Läs mer om [lägga till lösningar i Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. Hitta ”log analytics” i sökrutan och välj **Log Analytics**.
 

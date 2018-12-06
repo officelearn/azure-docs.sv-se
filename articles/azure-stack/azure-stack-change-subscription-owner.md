@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: e5ce479940faaaae95467fe6d426e999b4c6569f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468678"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959204"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Ändra ägare för en prenumeration för Azure Stack-användare
 
@@ -40,8 +40,8 @@ Det finns två typer av *ägare* som är tilldelade till en prenumeration:
 
 Kör följande skript för att ändra fakturering ägaren till en användarprenumeration. Datorn som du använder för att köra skriptet måste ansluta till Azure Stack och köra Azure Stack PowerShell-modulen 1.3.0 eller senare. Mer information finns i [installera Azure Stack PowerShell](azure-stack-powershell-install.md). 
 
-> [!Note]  
->  Den nya ägaren måste finnas i samma katalog som den befintliga ägaren i flera innehavare Azure Stack. Innan du kan ge en användare som är i en annan katalog ägarskapet för prenumerationen måste du först [bjuda in användaren som gäst i din katalog](../active-directory/b2b/add-users-administrator.md). 
+> [!Note]
+>  Den nya ägaren måste finnas i samma katalog som den befintliga ägaren i flera innehavare Azure Stack. Innan du kan ge en användare som är i en annan katalog ägarskapet för prenumerationen måste du först [bjuda in användaren som gäst i din katalog](../active-directory/b2b/add-users-administrator.md). 
 
 Ersätt följande värden i skriptet innan den körs: 
  

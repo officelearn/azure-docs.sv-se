@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: c4279002f599b26ac0333e442bbca7afaebefebe
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b257226a8bee0258a6bcc57715f959454577524c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837616"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962393"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
 Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](monitoring-overview-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
 
-Log aviseringen består av Loggsökning regler som har skapats för [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Läs mer om användningen i [skapar loggaviseringar i Azure](alert-log.md)
+Log aviseringen består av Loggsökning regler som har skapats för [Azure Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Läs mer om användningen i [skapar loggaviseringar i Azure](alert-log.md)
 
 > [!NOTE]
-> Populära loggdata från [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](monitoring-metric-alerts-logs.md)
+> Populära loggdata från [Azure Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](monitoring-metric-alerts-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Sök loggvarningsregel - definitions- och typer
@@ -29,7 +29,7 @@ Log aviseringen består av Loggsökning regler som har skapats för [Azure Log A
 Loggsökningsregler skapas av Azure-aviseringar för att automatiskt köra angivna loggfrågor med jämna mellanrum.  Om resultatet av loggfrågan matchar särskilda villkor skapas en aviseringspost. Regeln kan sedan automatiskt köra en eller flera åtgärder med hjälp av [Åtgärdsgrupper](monitoring-action-groups.md). 
 
 Regler för log search definieras av följande information:
-- **Loggar frågor**.  Den fråga som körs varje gång regeln utlöses.  Poster som returneras av den här frågan används för att avgöra om en avisering skapas. Analytics-fråga kan även inkludera [schemaläggningskapacitet mellan program anrop](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [mellan arbetsytan anrop och [mellan resurser anrop](../log-analytics/log-analytics-cross-workspace-search.md) förutsatt att användaren har behörighet att externa program. 
+- **Loggar frågor**.  Den fråga som körs varje gång regeln utlöses.  Poster som returneras av den här frågan används för att avgöra om en avisering skapas. Analytics-fråga kan även inkludera [schemaläggningskapacitet mellan program anrop](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [mellan arbetsytan anrop och [mellan resurser anrop](../azure-monitor/log-query/cross-workspace-query.md) förutsatt att användaren har behörighet att externa program. 
 
     > [!IMPORTANT]
     > Användaren måste ha [Azure Monitoring deltagare](monitoring-roles-permissions-security.md) roll för att skapa, ändra och uppdatera loggaviseringar i Azure Monitor, tillsammans med åtkomst & fråga körningsbehörigheter för analytics-mål i varningsregeln eller aviseringsfråga. Om användaren skapar inte har åtkomst till alla analytics mål i varningsregeln eller aviseringsfråga - regeln skapades kan misslyckas eller loggvarningsregel körs med ofullständiga resultat.
@@ -38,7 +38,7 @@ Regler för log search definieras av följande information:
 - **Frekvens**.  Anger hur ofta frågan ska köras. Kan vara ett värde mellan 5 minuter och 24 timmar. Ska vara lika med eller mindre än tidsperioden.  Om värdet är större än hur lång tid, riskerar du poster som saknas.<br>*Anta exempelvis att en tidsperiod på 30 minuter och en frekvens på 60 minuter.  Om frågan körs i 1:00, returnerar poster mellan 12:30 och 1:00.  Nästa gång frågan körs är 2:00 när den skulle returnera poster mellan 1:30 och 2:00.  Alla poster som skapats mellan 01:00 och 1:30 skulle aldrig ska utvärderas.*
 - **Tröskelvärde för**.  Resultatet av loggsökningen utvärderas för att avgöra om en avisering ska skapas.  Tröskelvärdet är olika för olika typer av Varningsregler i log search.
 
-Log search regler oavsett om det för [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events), kan vara av två typer. De olika typerna beskrivs i detalj i avsnitten som följer.
+Log search regler oavsett om det för [Azure Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events), kan vara av två typer. De olika typerna beskrivs i detalj i avsnitten som följer.
 
 - **[Antal resultat](#number-of-results-alert-rules)**. Avisering skapas när antalet poster som returneras av loggsökningen överskrider ett angivet tal.
 - **[Metrisk måttenhet](#metric-measurement-alert-rules)**.  Varning skapad för varje objekt i resultatet av loggsökningen med värden som överskrider angivet tröskelvärde.

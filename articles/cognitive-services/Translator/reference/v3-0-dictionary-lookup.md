@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b51067b9e854566991d49aeb1ff2b1ad13999a51
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127853"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957750"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: Ordlista sökning
 
-Tillhandahåller alternativa översättningar för ett ord och ett litet antal idiomatiskt fraser. Varje översättning har en del av tal- och en lista över tillbaka översättningar. Tillbaka-översättningar att en användare kan förstå översättningen i kontexten. Den [ordlista exempel](.\v3-0-dictionary-examples.md) åtgärden tillåter ytterligare detaljnivån finns i exemplet används varje par för översättning.
+Tillhandahåller alternativa översättningar för ett ord och ett litet antal idiomatiskt fraser. Varje översättning har en del av tal- och en lista över tillbaka översättningar. Tillbaka-översättningar att en användare kan förstå översättningen i kontexten. Den [ordlista exempel](./v3-0-dictionary-examples.md) åtgärden tillåter ytterligare detaljnivån finns i exemplet används varje par för översättning.
 
-## <a name="request-url"></a>Fråge-URL
+## <a name="request-url"></a>URL för begäran
 
 Skicka en `POST` begäran om att:
 
@@ -42,11 +42,11 @@ Parametrarna som skickades mot frågesträngen är:
   </tr>
   <tr>
     <td>från</td>
-    <td>*Obligatoriska parametern*.<br/>Anger språket i indatatexten. Källspråk måste vara något av de [språk som stöds](.\v3-0-languages.md) ingår i den `dictionary` omfång.</td>
+    <td>*Obligatoriska parametern*.<br/>Anger språket i indatatexten. Källspråk måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den `dictionary` omfång.</td>
   </tr>
   <tr>
     <td>till</td>
-    <td>*Obligatoriska parametern*.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](.\v3-0-languages.md) ingår i den `dictionary` omfång.</td>
+    <td>*Obligatoriska parametern*.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den `dictionary` omfång.</td>
   </tr>
 </table>
 
@@ -92,13 +92,13 @@ Följande begränsningar gäller:
 
 Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatamatrisen. En resultatobjektet innehåller följande egenskaper:
 
-  * `normalizedSource`: En sträng som ger formuläret normaliserade källa har löpt ut. Till exempel om begäran är ”JOHN”, att formuläret normaliserade ”john”. Innehållet i det här fältet blir indata till [lookup exempel](.\v3-0-dictionary-examples.md).
+  * `normalizedSource`: En sträng som ger formuläret normaliserade källa har löpt ut. Till exempel om begäran är ”JOHN”, att formuläret normaliserade ”john”. Innehållet i det här fältet blir indata till [lookup exempel](./v3-0-dictionary-examples.md).
     
   * `displaySource`: En sträng som ger källa termen i form av en bäst passar för visning av slutanvändaren. Till exempel, om indata är ”JOHN”, visa formulär visas vanliga stavningen av namnet: ”John”. 
 
   * `translations`: En lista över översättningar för käll-period. Varje element i listan är ett objekt med följande egenskaper:
 
-    * `normalizedTarget`: En sträng som ger normaliserade form av den här termen på språket som mål. Det här värdet ska användas som indata till [lookup exempel](.\v3-0-dictionary-examples.md).
+    * `normalizedTarget`: En sträng som ger normaliserade form av den här termen på språket som mål. Det här värdet ska användas som indata till [lookup exempel](./v3-0-dictionary-examples.md).
 
     * `displayTarget`: En sträng som ger termen i målspråket och i ett formulär med bäst passar för visning av slutanvändaren. I allmänhet bör detta endast skiljer sig från den `normalizedTarget` när det gäller versaler. Till exempel ett egennamn som har ”Juan” `normalizedTarget = "juan"` och `displayTarget = "Juan"`.
 
@@ -125,11 +125,11 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
     
     * `backTranslations`: En lista över ”bakåt översättningar” för mål. Till exempel datakällan ord som mål kan innebära. Listan kommer att innehålla ordet källa som begärdes (t.ex. Om källan word som söktes är ”är det Formlig” så är det säkert att ”är det Formlig” ska ingå i den `backTranslations` listan). Men det är inte säkert att finnas i den första positionen och kan ofta inte. Varje element i den `backTranslations` listan är ett objekt som beskrivs i följande egenskaper:
 
-        * `normalizedText`: En sträng som ger normaliserade form av källkod termen som är en tillbaka-översättning av målet. Det här värdet ska användas som indata till [lookup exempel](.\v3-0-dictionary-examples.md).        
+        * `normalizedText`: En sträng som ger normaliserade form av källkod termen som är en tillbaka-översättning av målet. Det här värdet ska användas som indata till [lookup exempel](./v3-0-dictionary-examples.md).        
 
         * `displayText`: En sträng som ger källa termen som är en tillbaka-översättning av målet i ett formulär som bäst passar för visning av slutanvändaren.
 
-        * `numExamples`: Ett heltal som representerar antalet exempel som är tillgängliga för den här translation-par. Verkliga exempel måste hämtas med ett separat anrop till [lookup exempel](.\v3-0-dictionary-examples.md). Numret är främst avsedd för att underlätta visas i en UX. Ett användargränssnitt kan till exempel lägga till en hyperlänk till tillbaka-översättning om antalet av exemplen är större än noll och visa tillbaka-översättningen som oformaterad text om det finns inga exempel. Observera att det faktiska antalet exempel som returneras av ett anrop till [lookup exempel](.\v3-0-dictionary-examples.md) kan vara mindre än `numExamples`eftersom ytterligare filtrering kan tillämpas direkt att ta bort ”dåliga” exempel.
+        * `numExamples`: Ett heltal som representerar antalet exempel som är tillgängliga för den här translation-par. Verkliga exempel måste hämtas med ett separat anrop till [lookup exempel](./v3-0-dictionary-examples.md). Numret är främst avsedd för att underlätta visas i en UX. Ett användargränssnitt kan till exempel lägga till en hyperlänk till tillbaka-översättning om antalet av exemplen är större än noll och visa tillbaka-översättningen som oformaterad text om det finns inga exempel. Observera att det faktiska antalet exempel som returneras av ett anrop till [lookup exempel](./v3-0-dictionary-examples.md) kan vara mindre än `numExamples`eftersom ytterligare filtrering kan tillämpas direkt att ta bort ”dåliga” exempel.
         
         * `frequencyCount`: Ett heltal som representerar frekvensen för den här translation par i data. Det huvudsakliga syftet med det här fältet är att tillhandahålla ett sätt att sortera tillbaka översättningar så att de vanligaste villkoren är första ett användargränssnitt.
 

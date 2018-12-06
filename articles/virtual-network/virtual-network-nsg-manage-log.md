@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 25d5bd3b798af181b8dd4e7028dd4a531995d464
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 19ea4892bc39d1d577455bb1c21824d6f5f5e9db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682613"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956423"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostisk loggning för en grupp
 
@@ -121,7 +121,7 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Om du inte har en befintlig arbetsyta kan du skapa en med den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Det finns två typer av loggning som du kan aktivera loggar för. 
+Om du inte har en befintlig arbetsyta kan du skapa en med den [Azure-portalen](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Det finns två typer av loggning som du kan aktivera loggar för. 
 
 Ta bort den kategori som du inte vill logga data för i det föregående kommandot om du bara vill logga data i en kategori eller den andra. Om du vill logga in till en annan [mål](#log-destinations) än en Log Analytics-arbetsyta, använder du parametrarna för en Azure [lagringskonto](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

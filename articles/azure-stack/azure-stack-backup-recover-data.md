@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034345"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968740"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Återställa från oåterkallelig dataförlust
 
@@ -40,11 +40,11 @@ Det här scenariot adresser återställa hela installationen om det uppstår ett
 
 Vägen för att skydda Azure startar börjar med säkerhetskopiering av infrastruktur- och app/klienttrafik data separat. Det här dokumentet beskriver hur du skyddar infrastrukturen. 
 
-![Första distributionen av Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Första distributionen av Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
 I värsta fall där alla data går förlorade kan du återställa Azure Stack är processen med att återställa informationen infrastruktur som är unika för den distributionen av Azure Stack och alla användardata. 
 
-![Distribuera om Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Distribuera om Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## <a name="restore"></a>Återställ
 

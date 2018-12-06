@@ -14,17 +14,17 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 32345b0f064aa78dbf1cbb84cb2309138e7bf4f7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 95a689b00d67a9f2c24b4deaf5575464923a1e60
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455393"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961781"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Skicka händelser till Azure Event Hubs med hjälp av C
 
 ## <a name="introduction"></a>Introduktion
-Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Detaljerad översikt över Event Hubs finns i [översikt av Händelsehubbar](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
 Den här självstudien beskrivs hur du skickar händelser till en händelsehubb med ett konsolprogram i C. 
 
@@ -33,6 +33,13 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * En C-utvecklingsmiljö. Den här självstudiekursen förutsätter gcc-stacken på en virtuell Linux-dator med Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
+
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
+Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md).
+
+Hämta värdet för åtkomstnyckeln för event hub genom att följa instruktionerna från artikeln: [hämta anslutningssträngen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckelnamnet är: **RootManageSharedAccessKey**.
+
+Nu kan fortsätta med följande steg i den här självstudien.
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>Skriva kod för att skicka meddelanden till Event Hubs
 I det här avsnittet visar hur du skriver en app för C för att skicka händelser till din event hub. Koden använder Proton AMQP-biblioteket från den [Apache Qpid projekt](http://qpid.apache.org/). Detta motsvarar att använda Service Bus-köer och ämnen med AMQP från C enligt [i det här exemplet](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Mer information finns i den [Qpid Proton dokumentation](http://qpid.apache.org/proton/index.html).

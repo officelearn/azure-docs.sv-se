@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4bfb7dc2b65dc479189ac7920509e1fd8a23ce4f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a641b5bb754c265a4fa5fb7e2fe85989d4813354
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961356"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955181"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrera ditt IoT Central-program
 
@@ -35,12 +35,12 @@ Du använder den **Administration** avsnittet, måste du vara i den **administra
 ### <a name="change-application-name-and-url"></a>Ändra namn och URL: en
 I den **programinställningar** kan du kan ändra namnet och URL: en för ditt program och sedan välja **spara**.
 
-![Inställningssidan för program](media\howto-administer\image0-a.png)
+![Inställningssidan för program](media/howto-administer/image0-a.png)
 
 > [!Note]
 > Om du ändrar din URL måste kan din gamla URL utföras av en annan Azure IoT Central-kund. Om det sker så är det inte längre tillgängliga som du kan använda. När du ändrar din URL gammalt URL: en fungerar inte längre och du behöver att meddela användarna om den nya URL som ska användas.
 
-### <a name="prepare-and-upload-image"></a>Förbereda och ladda upp avbildningen
+### <a name="prepare-and-upload-image"></a>Förbereda och ladda upp avbildning
 Om du vill ändra programavbildningen [Förbered och ladda upp bilder till Azure IoT Central programmet](howto-prepare-images.md).
 
 ### <a name="copy-an-application"></a>Kopiera ett program
@@ -48,11 +48,11 @@ Du kan skapa en kopia av alla program, minus eventuella enhetsinstanser, histori
 
 Klicka på den **kopia** knappen. I dialogrutan, ange information för det nya programmet betala per användning. Klicka sedan på den **kopiera** för att bekräfta att du vill fortsätta. Mer information om fälten i det här formuläret i [skapar ett program](quick-deploy-iot-central.md) Snabbstart.
 
-![Inställningssidan för program](media\howto-administer\appCopy2.png)
+![Inställningssidan för program](media/howto-administer/appCopy2.png)
 
 När appen kopieringen lyckas, går du till det nya programmet som har skapats genom att kopiera ditt program med hjälp av länken som visas.
 
-![Inställningssidan för program](media\howto-administer\appCopy3.png)
+![Inställningssidan för program](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > Kopiera ett program kopierar också definitionen av regler och åtgärder. Men eftersom användare som har åtkomst till den ursprungliga appen inte kopieras till den kopierade app, behöver du lägga till användare manuellt till åtgärder, till exempel e-post som användare är en förutsättning. I allmänhet är det en bra idé att kontrollera de regler och åtgärder för att se till att de är aktuella i den nya appen.
@@ -71,13 +71,13 @@ Mer information finns i [Microsoft-konto hjälp](https://support.microsoft.com/p
 
 1. Om du vill lägga till en användare i ett IoT Central-program går du till den **användare** sidan i den **Administration** avsnittet.
 
-    ![Lista över användare](media\howto-administer\image1.png)
+    ![Lista över användare](media/howto-administer/image1.png)
 
 1. Lägga till en användare på den **användare** väljer **+ Lägg till användare**.
 
 1. Välj en roll för användaren från den **rollen** nedrullningsbara menyn. Mer information om roller i den [hantera roller](#manage-roles) i den här artikeln.
 
-    ![Systemroll](media\howto-administer\image3.png)
+    ![Systemroll](media/howto-administer/image3.png)
 
     > [!NOTE]
     >  Lägga till användare i grupp genom att ange användar-ID för alla användare som du vill lägga till avgränsade med semikolon. Välj en roll från den **rollen** nedrullningsbara menyn. Välj sedan **Spara**.
@@ -117,10 +117,10 @@ Om du vill visa din faktura, går du till den **fakturering** sidan i den **Admi
 
 Du kan konvertera din utvärderingsversion-program till betala per användning. Här är skillnaderna mellan dessa typer av program.
 
-- **Utvärderingsversion** program är kostnadsfria i 7 dagar innan de upphör att gälla. De kan konverteras till betala per användning när som helst innan de upphör att gälla.
-- **Betala per användning** debiteras programmen per enhet, där de första 5 enheterna som är kostnadsfri.
+- **Utvärderingsversioner** är kostnadsfria i 7 dagar innan de upphör att gälla. De kan konverteras till betala per användning när som helst innan de upphör att gälla.
+- **Betala per användning**-program debiteras per enhet, och de fem första enheterna är kostnadsfria.
 
-Läs mer om prissättning på den [Azure IoT Central prissättningssidan](https://azure.microsoft.com/pricing/details/iot-central/).
+Läs mer om prissättning på [sidan med prisinformation för Azure IoT Central.](https://azure.microsoft.com/pricing/details/iot-central/)
     
 Följ dessa steg för att slutföra denna självbetjäningsprocess:
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7c65dceadf8afb6a0eacf268dd953feb8477a8df
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842721"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964024"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Om Azure Site Recovery Deployment Planner för Hyper-V haveriberedskap till Azure
 
@@ -115,9 +115,9 @@ Den rekommenderade konfigurationen för de virtuella datorerna: 8 virtuella proc
 1.  Extrahera .zip-filen.
 Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
-Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den. E:\ASR Deployment Planner_v2.2.zip
+Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den. E:\ASR distribution Planner_v2.3.zip
 
-E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+E:\ASR distribution Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Uppdatera till den senaste versionen av distributionshanteraren
 Om du har en tidigare version av distributionshanteraren gör du något av följande:
@@ -132,7 +132,7 @@ Om du har en tidigare version av distributionshanteraren gör du något av följ
   >Varje ny kapacitetsplanerare är en ackumulerad uppdatering av .zip-filen. Du behöver inte kopiera de senaste filerna till föregående mapp. Du kan skapa och använda en ny mapp.
 
 ## <a name="version-history"></a>Versionshistorik
-Den senaste versionen av ASR-Distributionshanteraren är 2.2.
+Den senaste versionen av ASR-Distributionshanteraren är 2.3.
 Läs sidan med [versionshistorik för ASR-distributionsplaneraren](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) för information om korrigeringarna som har lagts till i varje uppdatering.
 
 

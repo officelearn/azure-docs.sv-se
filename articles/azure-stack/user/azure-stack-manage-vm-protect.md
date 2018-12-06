@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341845"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963921"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Skydda virtuella datorer som distribueras på Azure Stack
 
@@ -58,7 +58,7 @@ Planera din strategi för säkerhetskopiering, återställning och katastrofåte
 | **Azure Stack som distribueras till CSP-datacentret och drivs av CSP: N** | Användare VMs distribueras till CSP drivs Azure Stack. Användare VMs återställts från en säkerhetskopia eller växlas över direkt till Azure. | CSP: N fungerar de primära och sekundära instanserna av Azure Stack i sina egna datacenter. Användare VMs återställas eller redundansväxlats mellan två Azure Stack-instanser. | CSP: N fungerar Azure Stack på den primära platsen. Kundens datacenter är målet för återställning eller redundans. |
 | **Azure Stack som distribueras i kundernas datacenter och drivs av kunden** | Användare VMs distribueras till kunden drivs av Azure Stack. Användare VMs återställts från en säkerhetskopia eller växlas över direkt till Azure. | Kunden fungerar de primära och sekundära instanserna av Azure Stack i sina egna datacenter. Användare VMs återställas eller redundansväxlats mellan två Azure Stack-instanser. | Kunden fungerar Azure Stack på den primära platsen. CSP-datacenter är målet för återställning eller redundans. |
 
-![Källa / mål-kombinationer](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Källa / mål-kombinationer](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>Återställningsmål för program
 
@@ -77,7 +77,7 @@ Ett annat mått är **tiden för Återställ** (MTTR), vilket är den genomsnitt
 
 Det vanligaste protection schemat för VM-baserade program är att använda programvara för säkerhetskopiering. Säkerhetskopiera en virtuell dator vanligtvis innehåller operativsystemet, konfiguration av operativsystem, programmets binärfiler och programdata. Säkerhetskopiorna som skapas genom att ta en ögonblicksbild av volymerna eller diskarna hel virtuell dator. Med Azure Stack, har du flexibiliteten att säkerhetskopiera från inom ramen för gästoperativsystemet eller från Azure Stack-lagring och beräkning API: er. Azure Stack har inte stöd för att möjliggöra säkerhetskopieringar på hypervisornivå.
  
-![Backup-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Backup-restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Återställa programmet kräver att återställa en eller flera virtuella datorer i samma moln eller på ett nytt moln. Du kan använda ett moln i ditt datacenter eller det offentliga molnet. Molnet som du väljer är helt inom din kontroll och baseras på dina krav på sekretess och datasuveränitet.
  
@@ -107,7 +107,7 @@ En alternativ metod för att stöd för hög tillgänglighet är att replikera d
 
 Med den här metoden kan programmet distribueras i ett moln och dess virtuella datorn replikeras till andra molnet. Om en redundans initieras, måste sekundärt virtuella datorer behöver vara påslagna i andra moln. Redundans skapar diskar för virtuella datorer och bifogar dem i vissa situationer. Den här processen kan ta lång tid att slutföra, särskilt i ett program som kräver en specifik Start-sekvens med flera nivåer. Det kan också finnas steg som måste köras innan programmet är redo att börja servar förfrågningar.
 
-![Replikering manuell redundans](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Replikering manuell redundans](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: Nedtid i minuter
  - RPO: Variabeln dataförlust (beroende på replikeringsfrekvensen)

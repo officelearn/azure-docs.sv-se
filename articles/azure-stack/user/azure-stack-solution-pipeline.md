@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280749"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967069"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudie: Distribuera appar till Azure och Azure Stack
 
@@ -126,27 +126,27 @@ Ett huvudnamn för tjänsten kräver en nyckel för autentisering. Använd följ
 
 1. Välj ditt program i **Appregistreringar** i Azure Active Directory.
 
-    ![Välj ett program](media\azure-stack-solution-hybrid-pipeline\000_01.png)
+    ![Välj ett program](media/azure-stack-solution-hybrid-pipeline/000_01.png)
 
 2. Anteckna värdet för **program-ID**. Du använder detta värde när du konfigurerar tjänstslutpunkten i Azure DevOps-tjänsterna.
 
-    ![Program-ID:t](media\azure-stack-solution-hybrid-pipeline\000_02.png)
+    ![Program-ID:t](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
 3. Välj **Inställningar** om du vill generera en autentiseringsnyckel.
 
-    ![Redigera appinställningar](media\azure-stack-solution-hybrid-pipeline\000_03.png)
+    ![Redigera appinställningar](media/azure-stack-solution-hybrid-pipeline/000_03.png)
 
 4. Välj **Nycklar** om du vill generera en autentiseringsnyckel.
 
-    ![Konfigurera inställningar för datornyckel](media\azure-stack-solution-hybrid-pipeline\000_04.png)
+    ![Konfigurera inställningar för datornyckel](media/azure-stack-solution-hybrid-pipeline/000_04.png)
 
 5. Ange en beskrivning för nyckeln och ange varaktigheten för nyckeln. Välj **Spara** när du är klar.
 
-    ![Nyckelbeskrivning och varaktighet](media\azure-stack-solution-hybrid-pipeline\000_05.png)
+    ![Nyckelbeskrivning och varaktighet](media/azure-stack-solution-hybrid-pipeline/000_05.png)
 
     När du har sparat nyckeln, nyckeln **värdet** visas. Kopiera det här värdet eftersom du inte kan hämta det här värdet senare. Du anger den **nyckelvärdet** med program-ID för inloggning som programmet. Lagra nyckelvärdet där programmet kan hämta det.
 
-    ![Nyckel-värde](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+    ![Nyckel-värde](media/azure-stack-solution-hybrid-pipeline/000_06.png)
 
 ### <a name="get-the-tenant-id"></a>Hämta klient-ID
 
@@ -154,15 +154,15 @@ Som en del av konfigurationen av slutpunkten, Azure DevOps-tjänsterna kräver d
 
 1. Välj **Azure Active Directory**.
 
-    ![Azure Active Directory för klient](media\azure-stack-solution-hybrid-pipeline\000_07.png)
+    ![Azure Active Directory för klient](media/azure-stack-solution-hybrid-pipeline/000_07.png)
 
 2. Om du vill hämta klientorganisations-ID:t väljer du **Egenskaper** för din Microsoft Azure Active Directory-klientorganisation.
 
-    ![Visa egenskaper för klient](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+    ![Visa egenskaper för klient](media/azure-stack-solution-hybrid-pipeline/000_08.png)
 
 3. Kopiera **katalog-ID:t**. Det här värdet är ditt klientorganisations-ID.
 
-    ![Katalog-ID](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+    ![Katalog-ID](media/azure-stack-solution-hybrid-pipeline/000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Ge tjänstens huvudnamn behörighet att distribuera resurser i Azure Stack-prenumerationen
 
@@ -172,27 +172,27 @@ Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Be
 
 1. Navigera till den nivå av omfång som du vill tilldela programmet till. Om du vill tilldela en roll prenumerationsområde, väljer du exempelvis **prenumerationer**.
 
-    ![Välj prenumerationer](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+    ![Välj prenumerationer](media/azure-stack-solution-hybrid-pipeline/000_10.png)
 
 2. I **prenumeration**, välj Visual Studio Enterprise.
 
-    ![Visual Studio Enterprise](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+    ![Visual Studio Enterprise](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
 3. I Visual Studio Enterprise, väljer **åtkomstkontroll (IAM)**.
 
-    ![Åtkomstkontroll (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![Åtkomstkontroll (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
 
 4. Välj **Lägg till**.
 
-    ![Lägg till](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+    ![Lägg till](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
 5. I **Lägg till behörigheter**, Välj rollen som du vill tilldela till programmet. I det här exemplet på **ägare** roll.
 
-    ![Ägarrollen](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+    ![Ägarrollen](media/azure-stack-solution-hybrid-pipeline/000_14.png)
 
 6. Som standard visas inte Azure Active Directory-program i de tillgängliga alternativen. För att hitta ditt program, måste du ange dess namn i den **Välj** fält som du vill söka efter den. Välj appen.
 
-    ![Sökresultat för App](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+    ![Sökresultat för App](media/azure-stack-solution-hybrid-pipeline/000_16.png)
 
 7. Välj **spara** Slutför tilldela rollen. Du ser ditt program i listan över användare som har tilldelats en roll för detta omfång.
 
@@ -212,37 +212,37 @@ Skapa en personlig åtkomsttoken för att komma åt Azure DevOps-tjänsterna.
 
 2. Välj **Hantera säkerhet** till sidan för åtkomst-token skapas.
 
-    ![Användarinloggning](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![Användarinloggning](media/azure-stack-solution-hybrid-pipeline/000_17.png)
 
-    ![Välj ett projekt](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Välj ett projekt](media/azure-stack-solution-hybrid-pipeline/000_18.png)
 
-    ![Lägg till personlig åtkomsttoken](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+    ![Lägg till personlig åtkomsttoken](media/azure-stack-solution-hybrid-pipeline/000_18a.png)
 
-    ![Skapa token](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+    ![Skapa token](media/azure-stack-solution-hybrid-pipeline/000_18b.png)
 
 3. Kopiera token.
 
     > [!Note]
     > Spara token information. Den här informationen lagras inte och kommer inte att visas igen när du lämnar sidan.
 
-    ![Personlig åtkomsttoken](media\azure-stack-solution-hybrid-pipeline\000_19.png)
+    ![Personlig åtkomsttoken](media/azure-stack-solution-hybrid-pipeline/000_19.png)
 
 ### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Installera Azure DevOps-tjänsterna skapa agenten i Azure Stack finns skapa Server
 
 1. Ansluta till servern skapa som du har distribuerat på Azure Stack-värden.
 2. Ladda ned och distribuera skapandeagent som en tjänst med ditt personliga åtkomsttoken (PAT) och kör som-konto för VM-administratör.
 
-    ![Ladda ned skapandeagent](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+    ![Ladda ned skapandeagent](media/azure-stack-solution-hybrid-pipeline/010_downloadagent.png)
 
 3. Navigera till mappen för den extraherade skapandeagent. Kör den **config.cmd** filen från en upphöjd kommandotolk.
 
-    ![Extraherade skapandeagent](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+    ![Extraherade skapandeagent](media/azure-stack-solution-hybrid-pipeline/000_20.png)
 
-    ![Registrera skapandeagent](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+    ![Registrera skapandeagent](media/azure-stack-solution-hybrid-pipeline/000_21.png)
 
 4. När config.cmd är klar uppdateras agentmappen version med ytterligare filer. Mappen med extraherad innehållet bör se ut så här:
 
-    ![Skapa mappen uppdatering för agenten](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
+    ![Skapa mappen uppdatering för agenten](media/azure-stack-solution-hybrid-pipeline/009_token_file.png)
 
     Du kan se agenten i mappen Azure DevOps-tjänsterna.
 
@@ -250,23 +250,23 @@ Skapa en personlig åtkomsttoken för att komma åt Azure DevOps-tjänsterna.
 
 Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (VSTO) Azure Service-appar till Azure Stack. Azure DevOps-tjänster som ansluter till build-agenten, som ansluter till Azure Stack.
 
-![NorthwindCloud exempelprogram i VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+![NorthwindCloud exempelprogram i VSTO](media/azure-stack-solution-hybrid-pipeline/012_securityendpoints.png)
 
 1. Logga in på VSTO och gå till inställningssidan.
 2. På **inställningar**väljer **Security**.
 3. I **Azure DevOps tjänster grupper**väljer **Endpoint skapare**.
 
-    ![Skapare av NorthwindCloud slutpunkt](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+    ![Skapare av NorthwindCloud slutpunkt](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
 
 4. På den **medlemmar** fliken **Lägg till**.
 
-    ![Lägg till en medlem](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+    ![Lägg till en medlem](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
 5. I **lägga till användare och grupper**, ange ett användarnamn och Välj användaren i listan med användare.
 6. Välj **spara ändringar**.
 7. I den **Azure DevOps tjänster grupper** väljer **Endpoint administratörer**.
 
-    ![NorthwindCloud Endpoint administratörer](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+    ![NorthwindCloud Endpoint administratörer](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. På den **medlemmar** fliken **Lägg till**.
 9. I **lägga till användare och grupper**, ange ett användarnamn och Välj användaren i listan med användare.
@@ -297,13 +297,13 @@ Du kan skapa en anslutning för tjänsten med hjälp av följande mappning:
 
 Nu när slutpunkten har skapats är DevOps till Azure Stack-anslutningen klar att användas. Build-agenten i Azure Stack får anvisningar från DevOps och agenten meddelar sedan slutpunktsinformation för kommunikation med Azure Stack.
 
-![Skapa agenten Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+![Skapa agenten Azure AD](media/azure-stack-solution-hybrid-pipeline/016_save_changes.png)
 
 ### <a name="create-an-endpoint-for-ad-fs"></a>Skapa en slutpunkt för AD FS
 
 Den senaste uppdateringen till Azure DevOps kan skapa en tjänstanslutning som använder ett huvudnamn för tjänsten med ett certifikat för autentisering. Detta krävs när Azure Stack har distribuerats med AD FS som identitetsprovider. 
 
-![Skapa agenten AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+![Skapa agenten AD FS](media/azure-stack-solution-hybrid-pipeline/image06.png)
 
 Du kan skapa en anslutning för tjänsten med hjälp av följande mappning:
 
@@ -342,17 +342,17 @@ Hybrid CI/CD kan använda för både programkoden och infrastrukturkod. Använd 
 
 1. Logga in på Azure DevOps-tjänster med en organisation som har behörighet för projektet skapas på Azure Stack. Nästa skärmdump visar hur du ansluter till HybridCICD-projektet.
 
-    ![Ansluta till ett projekt](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+    ![Ansluta till ett projekt](media/azure-stack-solution-hybrid-pipeline/017_connect_to_project.png)
 
 2. **Klona lagringsplatsen** genom att skapa och öppna standard-webbapp.
 
-    ![Klonade lagringsplats](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+    ![Klonade lagringsplats](media/azure-stack-solution-hybrid-pipeline/018_link_arm.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Skapa distribution av fristående webbappar för App Services i både moln
 
 1. Redigera den **WebApplication.csproj** fil: Välj **Runtimeidentifier** och Lägg sedan till `win10-x64.` mer information finns i [självständigt distribution](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentation.
 
-    ![Konfigurera Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+    ![Konfigurera Runtimeidentifier](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 
 2. Använd Team Explorer för att kontrollera koden till Azure DevOps-tjänsterna.
 
@@ -366,7 +366,7 @@ Hybrid CI/CD kan använda för både programkoden och infrastrukturkod. Använd 
 
 3. I **argument**, lägga till **- r win10-x64** kod. Detta krävs för att utlösa en självständig distribution med .net Core.
 
-    ![Lägg till argumentet build pipeline](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Lägg till argumentet build pipeline](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 
 4. Kör versionen. Den [självständigt distributionsbuild](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processen ska publicera artefakter som kan köras på Azure och Azure Stack.
 
@@ -385,89 +385,89 @@ Skapa en releasepipeline är det sista steget i ditt program genereringsprocesse
 1. Logga in på Azure DevOps-tjänsterna och gå till **Azure Pipelines** för ditt projekt.
 2. På den **versioner** fliken  **\[ +]** och välj **skapa versionsdefinition**.
 
-   ![Skapa releasepipeline](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Skapa releasepipeline](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
 
 3. På **Välj en mall**, Välj **Azure App Service-distribution**, och välj sedan **tillämpa**.
 
-    ![Använd mall](media\azure-stack-solution-hybrid-pipeline\102.png)
+    ![Använd mall](media/azure-stack-solution-hybrid-pipeline/102.png)
 
 4. På **Lägg till artefakt**, från den **källa (byggesdefinition)** nedrullningsbara menyn, Välj den Azure-molnet build-app.
 
-    ![Lägg till artefakt](media\azure-stack-solution-hybrid-pipeline\103.png)
+    ![Lägg till artefakt](media/azure-stack-solution-hybrid-pipeline/103.png)
 
 5. På den **Pipeline** fliken den **1 fas**, **1 aktivitet** länka till **visa miljöuppgifter**.
 
-    ![Pipelinen i uppgiftsvyn](media\azure-stack-solution-hybrid-pipeline\104.png)
+    ![Pipelinen i uppgiftsvyn](media/azure-stack-solution-hybrid-pipeline/104.png)
 
 6. På den **uppgifter** ange Azure som den **miljönamn** och välj AzureCloud Traders Web EP från den **Azure-prenumeration** listrutan.
 
-    ![Ange miljövariabler](media\azure-stack-solution-hybrid-pipeline\105.png)
+    ![Ange miljövariabler](media/azure-stack-solution-hybrid-pipeline/105.png)
 
 7. Ange den **Azure app service-namn**, vilket är ”northwindtraders” i nästa skärmdumpen.
 
-    ![App service-namn](media\azure-stack-solution-hybrid-pipeline\106.png)
+    ![App service-namn](media/azure-stack-solution-hybrid-pipeline/106.png)
 
 8. Agent-fasen väljer **finns VS2017** från den **fronta agenta** listrutan.
 
-    ![Värdbaserade agent](media\azure-stack-solution-hybrid-pipeline\107.png)
+    ![Värdbaserade agent](media/azure-stack-solution-hybrid-pipeline/107.png)
 
 9. I **distribuera Azure App Service**, Välj det giltiga **paket eller mappen** för miljön.
 
-    ![Markera paket eller mapp](media\azure-stack-solution-hybrid-pipeline\108.png)
+    ![Markera paket eller mapp](media/azure-stack-solution-hybrid-pipeline/108.png)
 
 10. I **Välj fil eller mapp**väljer **OK** till **plats**.
 
-    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\109.png)
+    ![Alternativ Text](media/azure-stack-solution-hybrid-pipeline/109.png)
 
 11. Spara alla ändringar och gå tillbaka till **Pipeline**.
 
-    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\110.png)
+    ![Alternativ Text](media/azure-stack-solution-hybrid-pipeline/110.png)
 
 12. På den **Pipeline** fliken **Lägg till artefakt**, och välj den **NorthwindCloud Traders-fartyg** från den **källa (Build-Definition)** listrutan.
 
-    ![Lägg till ny artefakt](media\azure-stack-solution-hybrid-pipeline\111.png)
+    ![Lägg till ny artefakt](media/azure-stack-solution-hybrid-pipeline/111.png)
 
 13. På **Välj en mall**, lägga till en annan miljö. Välj **Azure App Service-distribution** och välj sedan **tillämpa**.
 
-    ![Välj mall](media\azure-stack-solution-hybrid-pipeline\112.png)
+    ![Välj mall](media/azure-stack-solution-hybrid-pipeline/112.png)
 
 14. Ange ”Azure Stack” som den **miljönamn**.
 
-    ![Miljönamn](media\azure-stack-solution-hybrid-pipeline\113.png)
+    ![Miljönamn](media/azure-stack-solution-hybrid-pipeline/113.png)
 
 15. På den **uppgifter** fliken, hitta och välj Azure Stack.
 
-    ![Azure Stack-miljön](media\azure-stack-solution-hybrid-pipeline\114.png)
+    ![Azure Stack-miljön](media/azure-stack-solution-hybrid-pipeline/114.png)
 
 16. Från den **Azure-prenumeration** listrutan väljer du ”AzureStack Traders fartyg EP” för Azure Stack-slutpunkten.
 
-    ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\115.png)
+    ![Alternativ Text](media/azure-stack-solution-hybrid-pipeline/115.png)
 
 17. Ange Azure Stack webbappens namn som den **App service-namn**.
 
-    ![App service-namn](media\azure-stack-solution-hybrid-pipeline\116.png)
+    ![App service-namn](media/azure-stack-solution-hybrid-pipeline/116.png)
 
 18. Under **val av**, Välj ”AzureStack - bDouglas filnamnsdelen” mellan den **fronta agenta** listrutan.
 
-    ![Välj agent](media\azure-stack-solution-hybrid-pipeline\117.png)
+    ![Välj agent](media/azure-stack-solution-hybrid-pipeline/117.png)
 
 19. För **distribuera Azure App Service**, Välj det giltiga **paket eller mappen** för miljön. På **Välj fil eller mapp**väljer **OK** för mappen **plats**.
 
-    ![Välj paketet eller mapp](media\azure-stack-solution-hybrid-pipeline\118.png)
+    ![Välj paketet eller mapp](media/azure-stack-solution-hybrid-pipeline/118.png)
 
-    ![Godkänn plats](media\azure-stack-solution-hybrid-pipeline\119.png)
+    ![Godkänn plats](media/azure-stack-solution-hybrid-pipeline/119.png)
 
 20. På den **variabeln** fliken, hitta variabeln med namnet **VSTS_ARM_REST_IGNORE_SSL_ERRORS**. Ange variabelvärdet **SANT**, och ange dess räckvidd till **Azure Stack**.
 
-    ![Konfigurera variabeln](media\azure-stack-solution-hybrid-pipeline\120.png)
+    ![Konfigurera variabeln](media/azure-stack-solution-hybrid-pipeline/120.png)
 
 21. På den **Pipeline** fliken den **utlösare av kontinuerlig distribution** ikon för NorthwindCloud Traders-Web-artefakt och ange den **utlösare av kontinuerlig distribution** till **Aktiverat**.  Gör samma sak för artefakten ”NorthwindCloud Traders-fartyg”.
 
-    ![Ställ in utlösare av kontinuerlig distribution](media\azure-stack-solution-hybrid-pipeline\121.png)
+    ![Ställ in utlösare av kontinuerlig distribution](media/azure-stack-solution-hybrid-pipeline/121.png)
 
 22. Azure Stack-miljön, Välj den **före villkor** ikonen Ange utlösaren **efter**.
 
-    ![Uppsättning före villkor utlösare](media\azure-stack-solution-hybrid-pipeline\122.png)
+    ![Uppsättning före villkor utlösare](media/azure-stack-solution-hybrid-pipeline/122.png)
 
 23. Spara alla ändringar.
 
@@ -480,15 +480,15 @@ Nu när du har slutfört ändringar till versionspipelinen, är det dags att sta
 
 1. På den **Pipeline** fliken, öppna den **viktig** nedrullningsbara listan och välj **skapa version**.
 
-    ![Skapa en version](media\azure-stack-solution-hybrid-pipeline\200.png)
+    ![Skapa en version](media/azure-stack-solution-hybrid-pipeline/200.png)
 
 2. Ange en beskrivning för versionen, kontrollera att rätt artefakter är markerade och välj sedan **skapa**. Efter en liten stund visas en banderoll som anger att den nya versionen skapades versionen visas som en länk. Välj länken för att se versionen sammanfattningssidan.
 
-    ![Skapa en banderoll för versionen](media\azure-stack-solution-hybrid-pipeline\201.png)
+    ![Skapa en banderoll för versionen](media/azure-stack-solution-hybrid-pipeline/201.png)
 
 3. Versionen sammanfattningssidan för visar information om versionen. I följande skärmdump för ”Release-2”, den **miljöer** avsnittet visar den **Distributionsstatus** för Azure som ”pågående” och status för Azure Stack är ”SLUTFÖRT”. När distributionsstatusen för Azure-miljön ändras till ”SUCCEEDED”, visas ett popup-meddelande som anger att versionen är klara för godkännande. När en distribution väntar eller har misslyckats, en blå **(i)** informationsikon som visas. Hovra över ikonen så visas ett popup-fönster som innehåller dröjsmål eller underlåtenhet orsaken.
 
-    ![Sammanfattningssida för versionen](media\azure-stack-solution-hybrid-pipeline\202.png)
+    ![Sammanfattningssida för versionen](media/azure-stack-solution-hybrid-pipeline/202.png)
 
 Andra vyer, till exempel listan över versioner, visas också en ikon som indikerar godkännande är väntande. Popup-fönstret för den här ikonen visas miljönamnet och mer information om distribution. Det är enkelt för en administratör, se det övergripande förloppet för versioner och se vilka versioner väntar på godkännande.
 
@@ -502,7 +502,7 @@ Det här avsnittet visar hur du kan övervaka och spåra dina distributioner. Ve
 
 2. När distributionen är klar visas hela loggfilen i den högra rutan. Du kan välja en annan **steg** i den vänstra rutan att visa loggfilen för ett enda steg, till exempel ”initieras jobbet”. Kan visa enskilda loggar gör det enklare att spåra och Felsök delar av den övergripande distributionen. Du kan också **spara** loggfilen för ett steg eller **hämta alla loggar som zip**.
 
-    ![Versionen loggar](media\azure-stack-solution-hybrid-pipeline\203.png)
+    ![Versionen loggar](media/azure-stack-solution-hybrid-pipeline/203.png)
 
 3. Öppna den **sammanfattning** fliken för att se allmän information om versionen. Den här vyn visar information om versionen, de miljöer som det distribuerades till, Distributionsstatus och annan information om versionen.
 

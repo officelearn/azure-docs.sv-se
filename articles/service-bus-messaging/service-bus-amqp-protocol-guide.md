@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821556"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961152"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 i Azure Service Bus och Event Hubs-protokollguide
 
@@ -94,7 +94,7 @@ Länken initieras behållaren ställer motsatt behållaren att godkänna en län
 
 Länkar med namnet och som är associerade med noder. Enligt informationen i början är noder kommunicerar entiteter i en behållare.
 
-I Service Bus är en nod direkt motsvarar en kö, ett ämne, en prenumeration eller en underkön för obeställbara meddelanden i en kö eller prenumeration. Namnet på noden som används i AMQP är därför det relativa namnet på entiteten i Service Bus-namnområdet. Om en kö med namnet `myqueue`, som också är dess nodnamnet för AMQP. En ämnesprenumeration följer reglerna från HTTP-API genom att sorteras i en ”prenumerationer” resurssamling och därför en prenumeration **sub** eller ett ämne **mytopic** har nodnamnet AMQP  **mytopic/prenumerationer/sub**.
+I Service Bus är en nod direkt motsvarar en kö, ett ämne, en prenumeration eller en underkön för obeställbara meddelanden i en kö eller prenumeration. Namnet på noden som används i AMQP är därför det relativa namnet på entiteten i Service Bus-namnområdet. Om en kö med namnet `myqueue`, som också är dess nodnamnet för AMQP. En ämnesprenumeration följer reglerna från HTTP-API genom att sorteras i en ”prenumerationer” resurssamling och därför en prenumeration **sub** på ett ämne **mytopic** har nodnamnet AMQP  **mytopic/prenumerationer/sub**.
 
 Den anslutande klienten krävs också att använda en lokal nodnamnet för att skapa länkar. Service Bus är inte förebyggande om dessa nodnamn och tolkar inte dem. AMQP 1.0-klientstackar använder vanligtvis ett schema för att garantera som dessa tillfälliga nodnamn som är unika inom omfånget för klienten.
 

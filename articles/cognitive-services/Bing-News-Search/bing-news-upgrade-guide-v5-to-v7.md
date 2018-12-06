@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: c6ecb7d4c1e5b648373fcaa3f44c6294329d33c2
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 565c0ed877cf4500131f7ad3099f3c7d3f1a1220
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801173"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955045"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Uppgraderingsguide för Nyheter Sök-API
 
@@ -25,7 +25,7 @@ Den här uppgraderingshandboken identifierar ändringar mellan version 5 och ver
 
 ### <a name="endpoints"></a>Slutpunkter
 
-- Versionsnumret för den slutpunkt som har ändrats från v5 till v7. Till exempel https://api.cognitive.microsoft.com/bing/\ * \*v7.0**/news/search.
+- Versionsnumret för den slutpunkt som har ändrats från v5 till v7. Till exempel https://api.cognitive.microsoft.com/bing/ **v7.0**  /news/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Fel svarsobjekt och felkoder
 
@@ -34,7 +34,6 @@ Den här uppgraderingshandboken identifierar ändringar mellan version 5 och ver
 - Lagt till följande fält i den `Error` objekt.  
   - `subCode`&mdash;Partitionerar felkoden i diskreta buckets, om möjligt
   - `moreDetails`&mdash;Mer information om felet som beskrivs i den `message` fält
-   
 
 - Ersatt v5-felkoder med följande möjliga `code` och `subCode` värden.
 
@@ -77,18 +76,18 @@ Blockerad|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Lagt till produkter som ett möjligt värde som du kan ställa in den [kategori](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) frågeparameter till. Se [kategorier av marknader](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market).  
-    
-- Har lagts till i [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) frågeparameter som returnerar populära ämnen sorterade efter datum med det senaste först.  
-  
+- Lagt till produkter som ett möjligt värde som du kan ställa in den [kategori](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) frågeparameter till. Se [kategorier av marknader](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market).
+
+- Har lagts till i [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) frågeparameter som returnerar populära ämnen sorterade efter datum med det senaste först.
+
 - Har lagts till i [eftersom](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since) frågeparameter som returnerar populära ämnen som har identifierats av Bing på eller efter den angivna Unix-tidsstämpeln för epoch.
 
 ### <a name="object-changes"></a>Objekt ändras
 
-- Har lagts till i `mentions` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) objekt. Den `mentions` fältet innehåller en lista över entiteter (personer eller platser) som hittades i artikeln.  
-  
-- Har lagts till i `video` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) objekt. Den `video` fältet innehåller en video som är relaterad till nyhetsartikeln. Videon är antingen en \<iframe\> som du kan bädda in eller en miniatyr i rörelse.   
-  
-- Har lagts till i `sort` automatiskt till den [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) objekt. Den `sort` fältet visas sorteringsordningen av artiklarna. Till exempel sorteras artiklar efter relevans (standard) eller datum.  
-  
+- Har lagts till i `mentions` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) objekt. Den `mentions` fältet innehåller en lista över entiteter (personer eller platser) som hittades i artikeln.
+
+- Har lagts till i `video` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) objekt. Den `video` fältet innehåller en video som är relaterad till nyhetsartikeln. Videon är antingen en \<iframe\> som du kan bädda in eller en miniatyr i rörelse.
+
+- Har lagts till i `sort` automatiskt till den [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) objekt. Den `sort` fältet visas sorteringsordningen av artiklarna. Till exempel sorteras artiklar efter relevans (standard) eller datum.
+
 - Har lagts till i [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue) objekt som definierar en sorteringsordning. Den `isSelected` fältet som anger om svaret användas sorteringsordning. Om **SANT**, svaret används sorteringsordning. Om `isSelected` är **FALSKT**, du kan använda URL: en i den `url` fält som du vill begära en annan sorteringsordning.

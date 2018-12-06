@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 841982a4ecbfa5241d826beaaae81921b2859596
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018629"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967341"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: transkribera
 
 Konverterar text på ett språk från ett skript till ett annat skript.
 
-## <a name="request-url"></a>Fråge-URL
+## <a name="request-url"></a>URL för begäran
 
 Skicka en `POST` begäran om att:
 
@@ -42,15 +42,15 @@ Parametrarna som skickades mot frågesträngen är:
   </tr>
   <tr>
     <td>language</td>
-    <td>*Obligatoriska parametern*.<br/>Anger språket i texten som ska konverteras från ett skript till en annan. Möjliga språk visas i den `transliteration` omfång hämtas genom att fråga service för dess [språk som stöds](.\v3-0-languages.md).</td>
+    <td>*Obligatoriska parametern*.<br/>Anger språket i texten som ska konverteras från ett skript till en annan. Möjliga språk visas i den `transliteration` omfång hämtas genom att fråga service för dess [språk som stöds](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Obligatoriska parametern*.<br/>Anger det skript som används av indatatexten. Leta upp [språk som stöds](.\v3-0-languages.md) med hjälp av den `transliteration` omfattning, att hitta inkommande skript är tillgängliga för det valda språket.</td>
+    <td>*Obligatoriska parametern*.<br/>Anger det skript som används av indatatexten. Leta upp [språk som stöds](./v3-0-languages.md) med hjälp av den `transliteration` omfattning, att hitta inkommande skript är tillgängliga för det valda språket.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Obligatoriska parametern*.<br/>Anger det utgående skriptet. Leta upp [språk som stöds](.\v3-0-languages.md) med hjälp av den `transliteration` omfattning, att hitta utdata skript är tillgängliga för den valda kombinationen av språk och indata-skript.</td>
+    <td>*Obligatoriska parametern*.<br/>Anger det utgående skriptet. Leta upp [språk som stöds](./v3-0-languages.md) med hjälp av den `transliteration` omfattning, att hitta utdata skript är tillgängliga för den valda kombinationen av språk och indata-skript.</td>
   </tr>
 </table> 
 

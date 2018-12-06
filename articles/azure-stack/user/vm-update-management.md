@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.openlocfilehash: 1ef20dc35b069c5f12c2f31d0979949be27271e0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: be793fa5d346d05e6b7bd9f93f1108b7a3542fa6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324372"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959180"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack-VM-uppdatering och hantering
 Du kan använda följande funktioner i Azure Automation-lösningen för att hantera Windows virtuella datorer som distribueras med hjälp av Azure Stack:
@@ -41,7 +41,7 @@ Flera förutsättningar måste vara uppfyllda innan du använder dessa funktione
 För att använda inventering, ändringsspårning och uppdatering av Azure automation-funktioner för Azure Stack Windows virtuella datorer, måste du först aktivera dessa lösningar i Azure.
 
 > [!TIP]
-> Om du redan har dessa funktioner som aktiverats för virtuella Azure-datorer kan använda du dina befintliga LogAnalytics arbetsyta-autentiseringsuppgifter. Om du redan har en LogAnalytics WorkspaceID och den primärnyckeln som du vill använda kan gå vidare till [nästa avsnitt](.\vm-update-management.md#in-the-azure-stack-administration-portal). I annat fall Fortsätt i det här avsnittet för att skapa ett nytt LogAnalytics arbetsytan och automation-konto.
+> Om du redan har dessa funktioner som aktiverats för virtuella Azure-datorer kan använda du dina befintliga LogAnalytics arbetsyta-autentiseringsuppgifter. Om du redan har en LogAnalytics WorkspaceID och den primärnyckeln som du vill använda kan gå vidare till [nästa avsnitt](./vm-update-management.md#in-the-azure-stack-administration-portal). I annat fall Fortsätt i det här avsnittet för att skapa ett nytt LogAnalytics arbetsytan och automation-konto.
 
 Det första steget i aktiveringen av dessa lösningar är att [skapa en arbetsyta för LogAnalytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) i Azure-prenumerationen. En Log Analytics-arbetsyta är en unik Log Analytics-miljö med en egen databas, datakällor och lösningar. När du har skapat en arbetsyta, Observera WorkspaceID och nyckel. Gå till bladet för arbetsytan om du vill visa den här informationen, klickar du på **avancerade inställningar**, och granska de **arbetsyte-ID** och **primärnyckel** värden. 
 

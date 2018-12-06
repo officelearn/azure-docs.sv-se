@@ -1,7 +1,24 @@
 ---
-Rubrik ”: PowerShell - rotera TDE-skydd – Azure SQL Database | Microsoft Docs beskrivning: Lär dig hur du rotera Transparent datakryptering (TDE)-skydd för en Azure SQL server.
-tjänster: sql database-ms.service: sql database-ms.subservice: säkerhet ms.custom: ms.devlang: ms.topic: Konceptuell författare: aliceku ms.author: aliceku ms.reviewer: vanto manager: jhubbard ms.date: 08/07/2017
---- 
+title: PowerShell - rotera TDE-skydd – Azure SQL Database | Microsoft Docs
+description: Lär dig mer om att rotera Transparent datakryptering (TDE)-skydd för en Azure SQL server.
+services: sql-database
+ms.service: sql-database
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: aliceku
+ms.author: aliceku
+ms.reviewer: vanto
+manager: jhubbard
+ms.date: 08/07/2017
+ms.openlocfilehash: fe8872e0db9f596ca7c58b087b1b061ae91f7384
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957563"
+---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Rotera Transparent datakryptering (TDE)-skydd med hjälp av PowerShell 
 
 Den här artikeln beskriver nyckelrotation för en Azure SQL-server med hjälp av ett TDE-skydd från Azure Key Vault. Rotera en Azure SQL-server TDE-skydd innebär byter till en ny asymmetrisk nyckel som skyddar databaser på servern. Rotation av är en online-åtgärd och tar bara några sekunder att slutföra eftersom det endast dekrypterar återkrypterar databasens datakrypteringsnyckeln, inte hela databasen.

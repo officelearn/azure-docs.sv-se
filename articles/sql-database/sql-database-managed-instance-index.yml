@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 28bdbcbbfa014495feb394bde78a197b274f07d9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7e7d2fed15ba9fbbdddbd19ebfad40b4f9f7c6d0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844183"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962342"
 documentType: LandingData
 title: Hanterad Azure SQL Database-instans
 metadata:
@@ -18,8 +18,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 11/11/2018
-  ms.author: jovanpop-msft
+  ms.date: 12/05/2018
+  ms.author: jovanpop
 abstract:
   description: Azure SQL Database Managed Instance är en fullständigt hanterad SQL Server Database Engine instans i Azure-molnet. Det här är det bästa PaaS-alternativet för att migrera din SQL Server-databas till molnet. Lär dig hur du skapar och använder Managed Instance med våra snabbstarter, självstudier och exempel.
   aside:
@@ -65,6 +65,19 @@ sections:
     - title: Avancerad säkerhet
       href: /azure/sql-database/sql-database-security-index
       html: <p>Skydda din instans och databaser med inbyggda säkerhetsfunktioner för Azure SQL-databas.<p>
+- title: Nya och förhandsversionsfunktioner
+  items:
+  - type: paragraph
+    text: 'Vi är kontinuerligt förbättra Managed Instance med nya funktioner:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="sql-database-managed-instance#business-critical-service-tier">Kritiska-affärsnivå</a> är nu i <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">allmän tillgänglighet (GA)</a>.
+    - html: (Förhandsversion) <a href="https://aka.ms/managed-instance-aadlogins">Skapa Azure AD-inloggningar</a> med <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">skapa inloggning från en extern PROVIDER</a> .
+    - html: (Förhandsversion) Skapa instanser med <a href="https://aka.ms/managed-instance-collation">på servernivå sortering valfri</a>.
+    - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhetskopior upp till 35 dagar</a> för Point-in-time-återställning. Observera att långsiktig kvarhållning av säkerhetskopior (upp till 10 år) fortfarande inte har aktiverats så att du kan använda <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">endast kopiering säkerhetskopior</a> som ett alternativ.
+    - html: (Förhandsversion) Använd <a href="https://aka.ms/managed-instance-failover-groups">geodistribuerad redundansgrupper</a> att behålla en kopia av instansen i en annan region och se till att dina data är tillgängliga även i scenariot regionalt haveri.
+    - html: (Förhandsversion) <a href="https://aka.ms/managed-instance-tde-byok">Ta med era egna krypteringsnycklar</a> medan migrera lokala databaser som redan har aktiverat Transparent datakryptering (TDE).
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
@@ -123,7 +136,6 @@ sections:
     - html: Kontrollera att databasen kan migreras med hjälp av <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Asisstant</a> eller <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">databasen experimentering Assistant</a>.
     - html: Ta med dina databaser till Managed Instance med <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">interna återställning</a> eller <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Datamigreringstjänst</a>.
     - html: Flytta SSIS-paketen till <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, tabellmodeller för SSAS att <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, och rapporter för SSRS att <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>.
-    - html: Optimera din datalagring i <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/">nivån generell användning</a>.
     - html: Hitta de bästa praxis och rekommendationer för <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">skydda din instans</a>.
     - html: Distribuera dina data med <a href="/azure/sql-database/replication-with-sql-database-managed-instance">Transaktionsreplikering</a>.
 - title: Referens

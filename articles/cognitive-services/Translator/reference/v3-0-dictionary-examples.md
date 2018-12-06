@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1e6bd1b7ddb38d0fad33ab9d282f8edc4ff8c765
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129139"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968005"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Speech API 3.0: Exempel ordlista
 
-Innehåller exempel som visar hur termer i ordlistan används i kontexten. Den här åtgärden används tillsammans med [ordlista lookup](.\v3-0-dictionary-lookup.md).
+Innehåller exempel som visar hur termer i ordlistan används i kontexten. Den här åtgärden används tillsammans med [ordlista lookup](./v3-0-dictionary-lookup.md).
 
-## <a name="request-url"></a>Fråge-URL
+## <a name="request-url"></a>URL för begäran
 
 Skicka en `POST` begäran om att:
 
@@ -42,11 +42,11 @@ Parametrarna som skickades mot frågesträngen är:
   </tr>
   <tr>
     <td>från</td>
-    <td>*Obligatoriska parametern*.<br/>Anger språket i indatatexten. Källspråk måste vara något av de [språk som stöds](.\v3-0-languages.md) ingår i den `dictionary` omfång.</td>
+    <td>*Obligatoriska parametern*.<br/>Anger språket i indatatexten. Källspråk måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den `dictionary` omfång.</td>
   </tr>
   <tr>
     <td>till</td>
-    <td>*Obligatoriska parametern*.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](.\v3-0-languages.md) ingår i den `dictionary` omfång.</td>
+    <td>*Obligatoriska parametern*.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den `dictionary` omfång.</td>
   </tr>
 </table>
 
@@ -77,9 +77,9 @@ Begärandehuvuden är:
 
 Brödtexten i begäran är en JSON-matris. Varje matriselement är ett JSON-objekt med följande egenskaper:
 
-  * `Text`: En sträng som anger perioden för sökning. Detta bör vara värdet för en `normalizedText` från tillbaka-översättningar av ett tidigare [ordlista lookup](.\v3-0-dictionary-lookup.md) begäran. Det kan också vara värdet för den `normalizedSource` fält.
+  * `Text`: En sträng som anger perioden för sökning. Detta bör vara värdet för en `normalizedText` från tillbaka-översättningar av ett tidigare [ordlista lookup](./v3-0-dictionary-lookup.md) begäran. Det kan också vara värdet för den `normalizedSource` fält.
 
-  * `Translation`: En sträng som anger den översatta texten som tidigare returnerats av den [ordlista lookup](.\v3-0-dictionary-lookup.md) igen. Detta bör vara värdet från den `normalizedTarget` i den `translations` lista över de [ordlista lookup](.\v3-0-dictionary-lookup.md) svar. Exempel för specifika källa / mål-ordpar returnerar tjänsten.
+  * `Translation`: En sträng som anger den översatta texten som tidigare returnerats av den [ordlista lookup](./v3-0-dictionary-lookup.md) igen. Detta bör vara värdet från den `normalizedTarget` i den `translations` lista över de [ordlista lookup](./v3-0-dictionary-lookup.md) svar. Exempel för specifika källa / mål-ordpar returnerar tjänsten.
 
 Ett exempel är:
 

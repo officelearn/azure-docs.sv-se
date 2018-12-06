@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e5011dbaad5e5935f3aa792bd3a3ed2b271f23bc
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 726159f7450c29385a331b29191c38085a820876
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632441"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957631"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Metodtips för att skapa lösningar för hantering i Azure (förhandsversion)
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "52632441"
 Den här artikeln innehåller metodtips för [skapar en fil för lösningen](solutions-solution-file.md) i Azure.  Den här informationen kommer att uppdateras när ytterligare metoder identifieras.
 
 ## <a name="data-sources"></a>Datakällor
-- Datakällor kan vara [konfigurerats med en Resource Manager-mall](../../log-analytics/log-analytics-template-workspace-configuration.md), men de bör inte ingå i en lösningsfil.  Orsaken är att konfigurera datakällor inte för närvarande är idempotenta, vilket innebär att din lösning kan du skriva över befintliga konfiguration i användarens arbetsyta.<br><br>Din lösning kan exempelvis kräva varnings- och händelser från programmets händelselogg.  Om du anger detta som en datakälla i din lösning, riskerar du tar bort händelser för Information om användaren hade detta konfigurerat på sin arbetsyta.  Om du ingår alla händelser, det kan du samla överdriven informationshändelser i användarens arbetsyta.
+- Datakällor kan vara [konfigurerats med en Resource Manager-mall](../../azure-monitor/platform/template-workspace-configuration.md), men de bör inte ingå i en lösningsfil.  Orsaken är att konfigurera datakällor inte för närvarande är idempotenta, vilket innebär att din lösning kan du skriva över befintliga konfiguration i användarens arbetsyta.<br><br>Din lösning kan exempelvis kräva varnings- och händelser från programmets händelselogg.  Om du anger detta som en datakälla i din lösning, riskerar du tar bort händelser för Information om användaren hade detta konfigurerat på sin arbetsyta.  Om du ingår alla händelser, det kan du samla överdriven informationshändelser i användarens arbetsyta.
 
 - Om din lösning kräver data från en av datakällorna som standard, bör du definiera detta som ett krav.  Tillstånd att kunden måste konfigurera datakällan på egen hand i dokumentationen.  
 - Lägg till en [Flow dataverifieringen](../../azure-monitor/platform/view-designer-tiles.md) meddelandet till alla vyer i din lösning för att instruera användaren på datakällor som måste konfigureras för nödvändiga data samlas in.  Det här meddelandet visas på panelen i vyn när det går inte att hitta nödvändiga data.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877674"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965401"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en applösning för geo-distribuerad med Azure och Azure Stack
 
@@ -114,17 +114,17 @@ Konfigurera hybrid CI/CD för att distribuera Webbapp till Azure och Azure Stack
 
     Hybrid kontinuerlig integrering/kontinuerlig leverans (CI/CD) kan använda för både programkoden och infrastrukturkod. Använd [Azure Resource Manager-mallar](https://azure.microsoft.com/resources/templates/) för både privata och värdbaserade molnutveckling.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image1.JPG)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image1.JPG)
 
 2. **Klona lagringsplatsen** genom att skapa och öppna standard-webbapp.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image2.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image2.png)
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Skapa distribution av webbappar i både moln
 
 1.  Redigera den **WebApplication.csproj** fil: Välj **Runtimeidentifier** och Lägg till **win10 x64**. (Se [Self-contained distribution](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentation.)
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image3.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image3.png)
 
 1.  **Checka in kod till Azure-lagringsplatser** med Team Explorer.
 
@@ -136,7 +136,7 @@ Konfigurera hybrid CI/CD för att distribuera Webbapp till Azure och Azure Stack
 
 2. Lägg till **- r win10-x64** kod. Detta är nödvändigt att utlösa en självständig distribution med .net Core.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image4.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image4.png)
 
 3. **Kör versionen**. Den [självständigt distributionsbuild](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processen ska publicera artefakter som kan köras på Azure och Azure Stack.
 
@@ -151,87 +151,87 @@ Azure DevOps och Azure DevOps-servern ger en mycket konfigurerbar och hanterbara
 #### <a name="create-release-definition"></a>Skapa versionsdefinition
 
 
-![Alternativ text](media\azure-stack-solution-geo-distributed\image5.png)
+![Alternativ text](media/azure-stack-solution-geo-distributed/image5.png)
 
 1.  Välj den **plus** för att lägga till en ny version under den **versioner fliken** på sidan Skapa och släpp av Visual Studio Online (VSO).
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image6.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Tillämpa den **Azure App Service-distribution** mall.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image7.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image7.png)
 
 3. Lägg till artefakt nedrullningsbara menyn **lägga till artefakten** för Azure build molnappen.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image8.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image8.png)
 
 4. Under fliken Pipeline, väljer du den **fas, uppgift** länka av miljön och ange miljövärden för för Azure-molnet.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image9.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image9.png)
 
 5. Ange den **miljönamn** och välj Azure **prenumeration** för Azure Cloud-slutpunkten.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image10.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image10.png)
 
 6. Ange de nödvändiga under miljönamn, **Azure app service-namn**.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image11.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image11.png)
 
 7. Ange **finns VS2017** under agenten kö för Azure värdbaserad molnmiljö.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image12.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image12.png)
 
 8. Distribuera Azure App Service-menyn väljer du det giltiga **paket eller mappen** för miljön. Välj OK om du vill **mapplatsen**.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image13.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image13.png)
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image14.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image14.png)
 
 9. Spara alla ändringar och gå tillbaka till **releasepipeline**.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image15.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image15.png)
 
 10. Lägg till en **nya artefakten** att välja build för Azure Stack-appen.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image16.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image16.png)
 
 11. Lägg till en mer miljö tillämpa den **Azure App Service-distribution.**
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image17.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image17.png)
 
 12. Namnge den nya miljön **Azure Stack.**
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image18.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image18.png)
 
 13. Hitta Azure Stack-miljön under **uppgift** fliken.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image19.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image19.png)
 
 14. Välj den **prenumeration** för Azure Stack-slutpunkten.
 
-  ![Alternativ text](media\azure-stack-solution-geo-distributed\image20.png)
+  ![Alternativ text](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Ange Azure Stack webbappens namn som den **App service-namn**.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image21.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image21.png)
 
 16. Välj den **Azure Stack-agenten**.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image22.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image22.png)
 
 17. Under distribuera Azure App Service-avsnittet väljer giltiga **paket eller mappen** för miljön. Välj OK om du vill **mapplatsen**.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image23.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image23.png)
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image24.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image24.png)
 
 18. Under **variabeln** fliken Lägg till en variabel med namnet `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, ange värdet som `true`, och begränsa omfånget till `Azure Stack`.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image25.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image25.png)
 
 19. Välj den **kontinuerlig** utlösaren ikon för distribution i både artefakter och aktivera den **fortsätter** distributionsutlösare.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image26.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image26.png)
 
 20. Välj den **före** villkor ikon i Azure Stack-miljön och ange utlösaren som **när utgåvan blir tillgänglig.**
 
@@ -244,7 +244,7 @@ Azure DevOps och Azure DevOps-servern ger en mycket konfigurerbar och hanterbara
 
 Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. 
 
-![Alternativ text](media\azure-stack-solution-geo-distributed\image27.png)
+![Alternativ text](media/azure-stack-solution-geo-distributed/image27.png)
 
 > [!div class="checklist"]
 > - Mappa ett befintligt anpassat DNS-namn till Azure Web Apps
@@ -296,7 +296,7 @@ DNS-poster kan visas i **Mina domäner**. Hitta länken **zonfil**, **DNS-poster
 
 Skärmbilden nedan är ett exempel på en sida med DNS-poster:
 
-![Exempelsida för DNS-poster](media\azure-stack-solution-geo-distributed\image28.png)
+![Exempelsida för DNS-poster](media/azure-stack-solution-geo-distributed/image28.png)
 
 1.  Välj i Domännamnsregistrator **Lägg till eller skapa** att skapa en post. Vissa providrar har olika länkar för att lägga till olika posttyper. Läs leverantörens dokumentation.
 
@@ -306,7 +306,7 @@ Skärmbilden nedan är ett exempel på en sida med DNS-poster:
 
 När du lagt till CNAME ser sidan för DNS-poster ut som i följande exempel:
 
-![Portalnavigering till Azure-app](media\azure-stack-solution-geo-distributed\image29.png)
+![Portalnavigering till Azure-app](media/azure-stack-solution-geo-distributed/image29.png)
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Aktivera CNAME-postmappning i Azure
 
@@ -348,9 +348,9 @@ När du lagt till CNAME ser sidan för DNS-poster ut som i följande exempel:
 
   Det kan ta lite tid innan nytt värdnamnen återspeglas i appens **anpassade domäner** sidan. Försök att uppdatera webbläsaren så att informationen uppdateras.
   
-  ![Alternativ text](media\azure-stack-solution-geo-distributed\image31.png) 
+  ![Alternativ text](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  Om det finns ett fel visas ett meddelande om verifieringen längst ned på sidan. ![Verifieringsfel](media\azure-stack-solution-geo-distributed\image32.png)
+  Om det finns ett fel visas ett meddelande om verifieringen längst ned på sidan. ![Verifieringsfel](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  Stegen ovan kan upprepas för att mappa en domän med jokertecken (\*. northwindcloud.com)... På så sätt kan lägga till några ytterligare underdomäner till den här app service utan att behöva skapa en separat CNAME-post för var och en. Följ anvisningarna för Registratorn att konfigurera den här inställningen.
@@ -404,17 +404,17 @@ Binda ett anpassat SSL-certifikat till webbappen, den [apptjänstplan](https://a
 
 2.  I den vänstra menyn, Välj **Apptjänster**, och välj sedan namnet på webbappen.
 
-![Välja webbapp](media\azure-stack-solution-geo-distributed\image33.png)
+![Välja webbapp](media/azure-stack-solution-geo-distributed/image33.png)
 
 #### <a name="check-the-pricing-tier"></a>Kontrollera prisnivån
 
 1.  I det vänstra navigeringsfältet på sidan web app, bläddrar du till den **inställningar** och väljer **skala upp (App Service-plan)**.
 
-    ![Skala upp-menyn](media\azure-stack-solution-geo-distributed\image34.png)
+    ![Skala upp-menyn](media/azure-stack-solution-geo-distributed/image34.png)
 
 1.  Se till att webbappen inte är i den **kostnadsfri** eller **delad** nivå. Webbappens aktuella nivå markeras i en mörkblå ruta.
 
-    ![Kontrollera prisnivå](media\azure-stack-solution-geo-distributed\image35.png)
+    ![Kontrollera prisnivå](media/azure-stack-solution-geo-distributed/image35.png)
 
 Anpassat SSL stöds inte på nivån **Kostnadsfri** eller **Delad**. Följ stegen i nästa avsnitt om du vill skala upp eller **Välj din prisnivå** och hoppar till [ladda upp och binda SSL-certifikatet](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
@@ -424,11 +424,11 @@ Anpassat SSL stöds inte på nivån **Kostnadsfri** eller **Delad**. Följ stege
 
 2.  Välj **Välj**.
 
-![Välja prisnivå](media\azure-stack-solution-geo-distributed\image36.png)
+![Välja prisnivå](media/azure-stack-solution-geo-distributed/image36.png)
 
 Åtgärden har slutförts när meddelandet visas.
 
-![Uppskalningsmeddelande](media\azure-stack-solution-geo-distributed\image37.png)
+![Uppskalningsmeddelande](media/azure-stack-solution-geo-distributed/image37.png)
 
 #### <a name="bind-your-ssl-certificate-and-merge-intermediate-certificates"></a>Binda SSL-certifikat och sammanfoga mellanliggande certifikat
 
@@ -491,11 +491,11 @@ När IIS eller **Certreq.exe** används för att generera certifikatbegäran, in
 
 5.  Välj **Överför**.
 
-![Överför certifikat](media\azure-stack-solution-geo-distributed\image38.png)
+![Överför certifikat](media/azure-stack-solution-geo-distributed/image38.png)
 
 När App Service har överfört certifikatet, visas den i den **SSL-inställningar** sidan.
 
-![Alternativ text](media\azure-stack-solution-geo-distributed\image39.png)
+![Alternativ text](media/azure-stack-solution-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>Binda SSL-certifikatet
 
@@ -514,11 +514,11 @@ När App Service har överfört certifikatet, visas den i den **SSL-inställning
 
     1.  Välj **Lägg till bindning**.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image40.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image40.png)
 
 När App Service har överfört certifikatet, visas den i den **SSL-bindningar** avsnitt.
 
-![Alternativ text](media\azure-stack-solution-geo-distributed\image41.png)
+![Alternativ text](media/azure-stack-solution-geo-distributed/image41.png)
 
 #### <a name="remap-the-a-record-for-ip-ssl"></a>Mappa om A-posten för IP SSL
 
@@ -534,7 +534,7 @@ Den **Custom domain** sidan uppdateras med den nya dedikerade IP-adressen. Kopie
 
 Se till webben ap hanteras olika webbläsare och bläddra till https://<your.custom.domain>to.
 
-![Alternativ text](media\azure-stack-solution-geo-distributed\image42.png)
+![Alternativ text](media/azure-stack-solution-geo-distributed/image42.png)
 
 > [!Note]  
 > Om det inträffar certifikatfel för verifiering, orsaken kan vara ett självsignerat certifikat eller mellanliggande certifikat kan ha varit slutade när du exporterar till PFX-fil.
@@ -545,7 +545,7 @@ Som standard kan alla komma åt webbappen med HTTP. alla HTTP-begäranden till H
 
 På sidan web app väljer **SL inställningar**. I **Endast HTTPS** väljer du **På**.
 
-![Använda HTTPS](media\azure-stack-solution-geo-distributed\image43.png)
+![Använda HTTPS](media/azure-stack-solution-geo-distributed/image43.png)
 
 När åtgärden är klar, går du till någon av de HTTP-webbadresser som pekar på appen. Exempel:
 
@@ -561,7 +561,7 @@ Appen tillåter [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 s
 
 2.  I **TLS-version**, välja den lägsta TLS-versionen.
 
-![Kräv TLS 1.1 eller 1.2](media\azure-stack-solution-geo-distributed\image44.png)
+![Kräv TLS 1.1 eller 1.2](media/azure-stack-solution-geo-distributed/image44.png)
 
 ### <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
@@ -583,7 +583,7 @@ Appen tillåter [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 s
 
     7.  När den globala distribueringen av Traffic Manager-profilen är klar visas den i respektive resursgrupp som en av resurserna.
 
-    ![Alternativ text](media\azure-stack-solution-geo-distributed\image45.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image45.png)
 
 ### <a name="add-traffic-manager-endpoints"></a>Lägga till Traffic Manager-slutpunkter
 
@@ -632,7 +632,7 @@ Appen tillåter [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 s
 
 1.  När båda slutpunkterna har lagts till visas de i **Traffic Manager-profilen** tillsammans med sin övervakningsstatus, som är **Online**.
 
-  ![Alternativ text](media\azure-stack-solution-geo-distributed\image46.png)
+  ![Alternativ text](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Globala företag förlitar sig på Azure Geodistribution funktioner**
 

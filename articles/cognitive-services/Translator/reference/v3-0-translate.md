@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165432"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956995"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: översätta
 
@@ -42,11 +42,11 @@ Parametrarna som skickades mot frågesträngen är:
   </tr>
   <tr>
     <td>från</td>
-    <td>*Valfri parameter*.<br/>Anger språket i indatatexten. Hitta vilka språk är tillgängliga att översätta från genom att leta upp [språk som stöds](.\v3-0-languages.md) med hjälp av den `translation` omfång. Om den `from` parametern inte anges, automatisk språkidentifiering används för att fastställa en källspråket.</td>
+    <td>*Valfri parameter*.<br/>Anger språket i indatatexten. Hitta vilka språk är tillgängliga att översätta från genom att leta upp [språk som stöds](./v3-0-languages.md) med hjälp av den `translation` omfång. Om den `from` parametern inte anges, automatisk språkidentifiering används för att fastställa en källspråket.</td>
   </tr>
   <tr>
     <td>till</td>
-    <td>*Obligatoriska parametern*.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](.\v3-0-languages.md) ingår i den `translation` omfång. Till exempel använda `to=de` att översätta tyska.<br/>Det är möjligt att översätta på flera språk samtidigt genom att upprepa parametern i frågesträngen. Till exempel använda `to=de&to=it` att översätta tyska och italienska.</td>
+    <td>*Obligatoriska parametern*.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den `translation` omfång. Till exempel använda `to=de` att översätta tyska.<br/>Det är möjligt att översätta på flera språk samtidigt genom att upprepa parametern i frågesträngen. Till exempel använda `to=de&to=it` att översätta tyska och italienska.</td>
   </tr>
   <tr>
     <td>textType</td>

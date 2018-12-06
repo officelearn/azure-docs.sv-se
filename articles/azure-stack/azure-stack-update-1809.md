@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2018
+ms.date: 12/05/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314685"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970849"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -57,7 +57,7 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack:
 <!-- TBD - IS ASDK --> 
 - Ett problem där du skapade virtuella datorer på Azure Stack-användarportalen och portalen visas ett felaktigt antal datadiskar som kan ansluta till virtuella datorer i DS-serien har åtgärdats. DS-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
 
-- Följande problem för hanterad disk har korrigerats i 1809 och korrigeras också i 1808 [Azure Stack-snabbkorrigeringen 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- Följande problem för hanterad disk har korrigerats i 1809 och korrigeras också i 1808 [Azure Stack-snabbkorrigeringen 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Åtgärdats i vilka kopplar SSD datadiskar till premium-storlek som hanterad disk virtuella datorer (DS, DSv2, Fs, Fs_V2) misslyckades med ett fel: *gick inte att uppdatera diskar för den virtuella datorn 'vmname' fel: begärda åtgärden inte kan utföras eftersom lagringskontotypen ”Premium_LRS” inte stöds för VM-storleken ”Standard_DS/Ds_V2/FS/Fs_v2)*. 
@@ -78,14 +78,14 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack:
       1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
       2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
    2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
-      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4471992).
+      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4481066).
       2. Följ stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
 
 
 ### <a name="changes"></a>Ändringar
 
 <!-- 2635202 - IS, ASDK -->
-- Infrastruktur-säkerhetskopieringstjänsten flyttas från den [infrastruktur för offentliga nätverk](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) till den [offentliga VIP-nätverket](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Kunder måste se till att tjänsten har åtkomst till lagringsplatsen för säkerhetskopian från det offentliga VIP-nätverket.  
+- Infrastruktur-säkerhetskopieringstjänsten flyttas från den [infrastruktur för offentliga nätverk](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) till den [offentliga VIP-nätverket](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Kunder måste se till att tjänsten har åtkomst till lagringsplatsen för säkerhetskopian från det offentliga VIP-nätverket.  
 
 > [!IMPORTANT]  
 > Om du har en brandvägg som inte tillåter anslutningar från det offentliga VIP-nätverket till filservern innebär ändringen infrastruktur säkerhetskopieringar att misslyckas med ”fel 53 inte gick att hitta nätverkssökvägen”. Det här är en viktig ändring som har ingen rimlig lösning. Baserat på feedback från kunder, återgår Microsoft den här ändringen i en snabbkorrigering. Granska den [efter uppdatering i avsnittet steg](#post-update-steps) för mer information om tillgängliga snabbkorrigeringar för 1809. När snabbkorrigeringen är tillgänglig kan du se till att använda den när du har uppdaterat till 1809 endast om din nätverksprinciper inte tillåter det offentliga VIP-nätverket att få åtkomst till resurser i infrastrukturen. i 1811, kommer den här ändringen tillämpas på alla system. Om du har installerat snabbkorrigeringen i 1809, det finns ingen ytterligare åtgärd krävs.  
@@ -143,7 +143,7 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- Installera den senaste Azure Stack snabbkorrigering för 1808 innan du tillämpar 1809. Mer information finns i [KB 4471992 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.7.113](https://support.microsoft.com/help/4471992/).
+- Installera den senaste Azure Stack snabbkorrigering för 1808 innan du tillämpar 1809. Mer information finns i [KB 4481066 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.9.117](https://support.microsoft.com/help/4481066/).
 
   > [!TIP]  
   > Prenumerera på följande *RRS* eller *Atom* flöden, hålla jämna steg med Azure Stack snabbkorrigeringar:

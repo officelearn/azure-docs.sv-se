@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 03fd91b8412c75a994f55f589179f718189e67a7
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 1dbfd668c2d233d299ee673da92ca203e72942fe
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891171"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957433"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet-referens
 
@@ -29,6 +29,7 @@ Modulen: Microsoft.AzureStack.ReadinessChecker
 Den här modulen innehåller endast en enda cmdlet.  Denna cmdlet utför en eller flera före eller före Underhåll funktioner för Azure Stack.
 
 ## <a name="syntax"></a>Syntax
+
 ```PowerShell
 Start-AzsReadinessChecker
        [-CertificatePath <String>]
@@ -103,7 +104,6 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-
 ```PowerShell
 Start-AzsReadinessChecker
        -AADServiceAdministrator <PSCredential>
@@ -163,15 +163,13 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
+## <a name="description"></a>Beskrivning
 
-
-
-
- ## <a name="description"></a>Beskrivning
 Den **Start AzsReadinessChecker** cmdlet verifierar certifikat, Azure-konton, Azure-prenumerationer och Azure Active kataloger. Köra verifiering innan du distribuerar Azure Stack eller före Azure Stack servicing åtgärder som att hemligheten Rotation. Cmdlet: en kan också användas för att generera loggar certifikatförfrågningar för infrastruktur för certifikat och du kan också PaaS-certifikat.  Cmdlet: en kan slutligen Paketera om PFX-certifikat för att åtgärda vanliga problem med paketering.
 
 ## <a name="examples"></a>Exempel
-**Exempel: Generera en förfrågan om Certifikatsignering**
+
+### <a name="example-generate-certificate-signing-request"></a>Exempel: Generera en förfrågan om Certifikatsignering
 
 ```PowerShell
 $regionName = 'east'
@@ -182,22 +180,26 @@ Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -s
 
 I det här exemplet genererar Start AzsReadinessChecker flera certifikatsignering begäranden (CSR) för certifikat som är lämpliga för en AD FS Azure Stack-distribution med ett regionnamn med ”östra” och ”azurestack.contoso.com” externa FQDN
 
-**Exempel: Verifiera certifikat**
+### <a name="example-validate-certificates"></a>Exempel: Verifiera certifikat
+
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-I det här exemplet PFX-lösenord uppmanas att ange på ett säkert sätt och Start-AzsReadinessChecker kontrollerar den relativa mappen ”certifikat” för certifikat som är giltig för en AAD-distribution med ett regionnamn ”östra” och ”azurestack.contoso.com” externa FQDN 
+I det här exemplet PFX-lösenord uppmanas att ange på ett säkert sätt och Start-AzsReadinessChecker kontrollerar den relativa mappen ”certifikat” för certifikat som är giltig för en AAD-distribution med ett regionnamn ”östra” och ”azurestack.contoso.com” externa FQDN
 
-**Exempel: Verifiera certifikat med distributionsdata (distribution och support)**
+### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Exempel: Verifiera certifikat med distributionsdata (distribution och support)
+
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
+
 I det här exemplet för distribution och support, PFX-lösenord uppmanas att ange på ett säkert sätt och Start-AzsReadinessChecker kontrollerar den relativa mappen ”certifikat” för certifikat som är giltig för en distribution där identitet, region och externa FQDN läses från den distribution data JSON-fil genererats för distribution. 
 
-**Exempel: Verifiera certifikat för PaaS**
+### <a name="example-validate-paas-certificates"></a>Exempel: Verifiera certifikat för PaaS
+
 ```PowerShell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -211,7 +213,8 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName eas
 
 I det här exemplet skapas en hash-tabell med sökvägar och lösenord för att varje PaaS-certifikat. Certifikat kan utelämnas. Start-AzsReadinessChecker kontrollerar varje PFX-sökvägen finns och verifierar dem med hjälp av regionen ”östra” och externa FQDN 'azurestack.contoso.com'.
 
-**Exempel: Verifiera PaaS-certifikat med distributionsdata**
+### <a name="example-validate-paas-certificates-with-deployment-data"></a>Exempel: Verifiera PaaS-certifikat med distributionsdata
+
 ```PowerShell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -225,7 +228,8 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSO
 
 I det här exemplet skapas en hash-tabell med sökvägar och lösenord för att varje PaaS-certifikat. Certifikat kan utelämnas. Start-AzsReadinessChecker kontrollerar varje PFX-sökvägen finns och verifierar dem med hjälp av regionen och externa FQDN läsa från JSON-filen distribution data genereras för distribution. 
 
-**Exempel: Bekräfta Azure identitet**
+### <a name="example-validate-azure-identity"></a>Exempel: Bekräfta Azure identitet
+
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 # Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
@@ -234,8 +238,8 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Azur
 
 I det här exemplet kontoautentiseringsuppgifter tjänstadministratören uppmanas på ett säkert sätt och Start-AzsReadinessChecker kontrollerar Azure-konto och Azure Active Directory är giltiga för ett AAD-distribution med namnet på en klient av ”azurestack.contoso.com”
 
+### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Exempel: Verifiera Azure identitet med hjälp av distributionsdata (distributionsstöd för)
 
-**Exempel: Verifiera Azure identitet med hjälp av distributionsdata (distributionsstöd för)**
 ```PowerSHell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-depploymentdata.json
@@ -243,8 +247,8 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Depl
 
 I det här exemplet kontoautentiseringsuppgifter tjänstadministratören uppmanas på ett säkert sätt och Start-AzsReadinessChecker kontrollerar Azure-konto och Azure Active Directory är giltiga för en AAD-distribution där AzureCloud och TenantName läses från distributionsdata JSON-fil som genererats för distributionen.
 
+### <a name="example-validate-azure-registration"></a>Exempel: Verifiera Azure-registrering
 
-**Exempel: Verifiera Azure-registrering**
 ```PowerShell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "<subscription ID"
@@ -254,8 +258,8 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 I det här exemplet Prenumerationens ägare autentiseringsuppgifter uppmanas på ett säkert sätt och Start-AzsReadinessChecker utför sedan verifieras mot det angivna kontot och prenumeration för att kontrollera att den kan användas för Azure Stack-registrering. 
 
+### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Exempel: Verifiera Azure-registrering med distributionsdata (distributionsgruppen)
 
-**Exempel: Verifiera Azure-registrering med distributionsdata (distributionsgruppen)**
 ```PowerShell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "<subscription ID>"
@@ -264,7 +268,8 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 I det här exemplet Prenumerationens ägare autentiseringsuppgifter uppmanas på ett säkert sätt och Start-AzsReadinessChecker utför sedan verifieras mot det angivna kontot och prenumeration för att kontrollera att den kan användas för Azure Stack-registrering där ytterligare information är läsa från den distribution data JSON-fil som genererats för distributionen.
 
-**Exempel: Import/Export PFX-paket**
+### <a name="example-importexport-pfx-package"></a>Exempel: Import/Export PFX-paket
+
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
@@ -272,24 +277,24 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 I det här exemplet PFX-lösenord uppmanas att ange på ett säkert sätt. Filen ssl.pfx ska importeras till lokala datorns certifikatarkiv och exporteras igen med samma lösenord och sparas som ssl_new.pfx.  Den här proceduren är för användning när certifikatsverifiering som har flaggats som en privat nyckel har inte den lokala datorn attributuppsättningen, certifikatkedjan är bruten, irrelevanta certifikaten finns i PFX eller certifikatkedjan är i fel ordning.
 
+### <a name="example-view-validation-report-deployment-support"></a>Exempel: Visa verifieringsrapport (distributionsstöd för)
 
-**Exempel: Visa verifieringsrapport (distributionsstöd för)**
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 ```
 
 I det här exemplet distributions- eller support-teamet får beredskapsrapporten från kund (Contoso) och Använd Start AzsReadinessChecker för att visa status för den verifiering körningar Contoso utförs.
 
-**Exempel: Visa verifieringsrapport sammanfattning för certifikatet verifiering endast (distribution och support)**
+### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Exempel: Visa verifieringsrapport sammanfattning för certifikatet verifiering endast (distribution och support)
+
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
 ```
 
 I det här exemplet distributions- eller support-teamet får beredskapsrapporten från kunden Contoso och använda Start AzsReadinessChecker för att visa en sammanfattande status för de certifikatet verifiering körningar Contoso utförs.
 
-
-
 ## <a name="required-parameters"></a>Obligatoriska parametrar
+
 > -RegionName
 
 Anger namn på Azure Stack-distributioner område.
@@ -301,7 +306,7 @@ Anger namn på Azure Stack-distributioner område.
 |Acceptera indata från pipeline:      |False         |
 |Acceptera jokertecken: |False         |
 
-> -FQDN    
+> -FQDN
 
 Anger Azure Stack-distributioner externa FQDN, även ett alias som ExternalFQDN och ExternalDomainName.
 |  |  |
@@ -312,9 +317,7 @@ Anger Azure Stack-distributioner externa FQDN, även ett alias som ExternalFQDN 
 |Acceptera indata från pipeline:      |False         |
 |Acceptera jokertecken: |False         |
 
- 
-
-> -IdentitySystem    
+> -IdentitySystem
 
 Anger respektive Azure Stack-distributioner identitetssystem giltiga värden, AAD eller ADFS, för Azure Active Directory och Active Directory Federation Services.
 |  |  |
@@ -326,7 +329,7 @@ Anger respektive Azure Stack-distributioner identitetssystem giltiga värden, AA
 |Acceptera indata från pipeline:      |False         |
 |Acceptera jokertecken: |False         |
 
-> -PfxPassword    
+> -PfxPassword
 
 Anger lösenordet som associeras med certifikat PFX-filer.
 |  |  |
@@ -395,8 +398,9 @@ Anger en ordnad ordlista med ämnet för den certifikat begäran generationen.
 > -RequestType
 
 Anger den SAN-typ av certifikatförfrågan. Giltiga värden MultipleCSR, SingleCSR.
+
 - *MultipleCSR* genererar flera certifikatbegäranden, en för varje tjänst.
-- *SingleCSR* genererar en certifikatbegäran för alla tjänster.   
+- *SingleCSR* genererar en certifikatbegäran för alla tjänster.
 
 |  |  |
 |----------------------------|---------|
@@ -485,10 +489,9 @@ Anger sökvägen för beredskapsrapporten, aktuell katalog- och standard rapport
 |Acceptera indata från pipeline:      |False    |
 |Acceptera jokertecken: |False    |
 
-
-
 ## <a name="optional-parameters"></a>Valfria parametrar
-> -CertificatePath     
+
+> -CertificatePath
 
 Anger sökvägen som endast certifikat krävs certifikat mappar finns.
 
@@ -500,7 +503,6 @@ Krav på mappen för Azure Stack-distribution med Active Directory Federation Se
 
 ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM-administratör, ARM offentlig, diagram, KeyVault, KeyVaultInternal, offentlig Portal
 
-
 |  |  |
 |----------------------------|---------|
 |Ange:                       |Sträng   |
@@ -509,11 +511,9 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM-administratör, ARM offentl
 |Acceptera indata från pipeline:      |False    |
 |Acceptera jokertecken: |False    |
 
-
 > -IncludePaaS  
 
 Anger om PaaS-tjänster/värdnamn ska läggas till certifikat-begäranden.
-
 
 |  |  |
 |----------------------------|------------------|
@@ -523,8 +523,7 @@ Anger om PaaS-tjänster/värdnamn ska läggas till certifikat-begäranden.
 |Acceptera indata från pipeline:      |False             |
 |Acceptera jokertecken: |False             |
 
-
-> -ReportSections        
+> -ReportSections
 
 Anger om du endast vill visa rapporten Sammanfattning utesluter detalj.
 |  |  |
@@ -536,8 +535,7 @@ Anger om du endast vill visa rapporten Sammanfattning utesluter detalj.
 |Acceptera indata från pipeline:      |False    |
 |Acceptera jokertecken: |False    |
 
-
-> -Sammanfattning 
+> -Sammanfattning
 
 Anger om du endast vill visa rapporten Sammanfattning utesluter detalj.
 |  |  |
@@ -548,8 +546,7 @@ Anger om du endast vill visa rapporten Sammanfattning utesluter detalj.
 |Acceptera indata från pipeline:      |False             |
 |Acceptera jokertecken: |False             |
 
-
-> -CleanReport  
+> -CleanReport
 
 Tar bort tidigare historik för körning och verifiering och skriver verifieringar till en ny rapport.
 |  |  |
@@ -561,10 +558,10 @@ Tar bort tidigare historik för körning och verifiering och skriver verifiering
 |Acceptera indata från pipeline:      |False             |
 |Acceptera jokertecken: |False             |
 
-
-> -OutputPath    
+> -OutputPath
 
 Anger anpassad sökväg för att spara beredskap JSON-rapporten och detaljerad loggfil.  Om sökvägen inte redan finns, försöker verktyget att skapa katalogen.
+
 |  |  |
 |----------------------------|------------------|
 |Ange:                       |Sträng            |
@@ -573,8 +570,7 @@ Anger anpassad sökväg för att spara beredskap JSON-rapporten och detaljerad l
 |Acceptera indata från pipeline:      |False             |
 |Acceptera jokertecken: |False             |
 
-
-> -Confirm  
+> -Confirm
 
 Frågar efter bekräftelse innan du kör cmdlet: en.
 |  |  |
@@ -586,8 +582,7 @@ Frågar efter bekräftelse innan du kör cmdlet: en.
 |Acceptera indata från pipeline:      |False             |
 |Acceptera jokertecken: |False             |
 
-
-> -WhatIf  
+> -WhatIf
 
 Visar vad som skulle hända om cmdleten kördes. Cmdleten körs inte.
 |  |  |
@@ -598,5 +593,3 @@ Visar vad som skulle hända om cmdleten kördes. Cmdleten körs inte.
 |Standardvärde:              |False             |
 |Acceptera indata från pipeline:      |False             |
 |Acceptera jokertecken: |False             |
-
- 

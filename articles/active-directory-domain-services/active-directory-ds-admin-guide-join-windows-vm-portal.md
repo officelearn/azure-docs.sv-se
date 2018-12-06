@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158351"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957682"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Anslut en Windows Server-virtuell dator till en hanterad domän
 Den här artikeln visar hur du distribuerar en Windows Server-dator med hjälp av Azure portal. Den visar sedan hur du kopplar den virtuella datorn till en hanterad Azure Active Directory Domain Services (Azure AD DS)-domän.
@@ -30,7 +30,7 @@ Den här artikeln visar hur du distribuerar en Windows Server-dator med hjälp a
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>Steg 1: Skapa en Windows Server-dator
 Om du vill skapa en Windows-dator som är ansluten till det virtuella nätverket där du har aktiverat Azure AD DS, gör du följande:
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Högst upp i det vänstra fönstret, Välj **New**.
 3. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**.
 

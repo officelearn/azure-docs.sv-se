@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 4c58be8f501e72027e1692ceb73552a3f252f92a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 48dfa3180f040af3e8298d418cf71c537477ba5a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38603186"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956966"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Övervaka dina API: er med Azure API Management, Event Hubs och Runscope
 Den [API Management-tjänsten](api-management-key-concepts.md) innehåller många funktioner för att förbättra bearbetningen av HTTP-begäranden som skickas till din HTTP-API. Förekomsten av begäranden och svar är dock tillfälligt. Begäran gjordes och den förs vidare via API Management-tjänsten till ditt serverdels-API. Ditt API bearbetar begäran och svaret som flödar tillbaka via API-konsumenter. API Management-tjänsten ser till att vissa viktig statistik om API: er för visning i instrumentpanelen för Azure portal, men även efteråt som informationen är borta.
@@ -45,7 +45,7 @@ Händelsehubbar har möjlighet att strömma händelser till flera konsumentgrupp
 ## <a name="a-policy-to-send-applicationhttp-messages"></a>En princip för att skicka programmet/HTTP-meddelanden
 En Händelsehubb tar emot händelsedata som en sträng. Innehållet i strängen är upp till dig. Om du vill packa upp en HTTP-begäran och skicka den till Event Hubs, som vi behöva formatera strängen med informationen om begäran eller ett svar. I situationer som detta, om det finns ett befintligt format vi kan återanvända och vi kanske inte att skriva egen kod-parsning. Inledningsvis jag anses vara med hjälp av den [HAR](http://www.softwareishard.com/blog/har-12-spec/) för att skicka HTTP-begäranden och svar. Men är det här formatet optimerad för att lagra en sekvens med HTTP-begäranden i ett format som JSON-baserade. Det finns ett antal obligatoriska element som har lagts till onödig komplexitet för scenariot med att skicka HTTP-meddelande i rörelse.  
 
-En alternativ var att använda den `application/http` medietyp enligt beskrivningen i HTTP-specifikationen [RFC 7230](http://tools.ietf.org/html/rfc7230). Den här medietypen använder exakt samma format som används för att faktiskt skicka HTTP-meddelanden över nätverket, men hela meddelandet kan vara placera i brödtexten i en annan HTTP-begäran. I vårt fall ska vi bara använda brödtext som vårt meddelande för att skicka till Event Hubs. Det är bekvämt, en tolk som finns i [Microsoft ASP.NET Web API 2.2-klient](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotek som kan parsa detta format och konvertera den till ursprungliga `HttpRequestMessage` och `HttpResponseMessage` objekt.
+En alternativ var att använda den `application/http` medietyp enligt beskrivningen i HTTP-specifikationen [RFC 7230](https://tools.ietf.org/html/rfc7230). Den här medietypen använder exakt samma format som används för att faktiskt skicka HTTP-meddelanden över nätverket, men hela meddelandet kan vara placera i brödtexten i en annan HTTP-begäran. I vårt fall ska vi bara använda brödtext som vårt meddelande för att skicka till Event Hubs. Det är bekvämt, en tolk som finns i [Microsoft ASP.NET Web API 2.2-klient](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotek som kan parsa detta format och konvertera den till ursprungliga `HttpRequestMessage` och `HttpResponseMessage` objekt.
 
 Om du vill kunna skapa det här meddelandet vi behöver att dra nytta av C#-baserat [principuttryck](https://msdn.microsoft.com/library/azure/dn910913.aspx) i Azure API Management. Här är principen som skickar ett HTTP-begäran-meddelande till Azure Event Hubs.
 
@@ -159,7 +159,7 @@ Principen för att skicka HTTP-svarsmeddelandet liknar begäran och så fullstä
 Den `set-variable` principen skapas ett värde som kan nås av både den `log-to-eventhub` principen i den `<inbound>` avsnittet och `<outbound>` avsnittet.  
 
 ## <a name="receiving-events-from-event-hubs"></a>Tar emot händelser från Event Hubs
-Händelser från Azure Event Hub tas emot med hjälp av den [AMQP-protokollet](http://www.amqp.org/). Microsoft Service Bus-teamet har gjort klienten bibliotek som är tillgängliga för att underlätta de konsumerande händelserna. Det finns två olika metoder som stöds, en håller på att en *direkt konsument* och den andra använder den `EventProcessorHost` klass. Exempel på dessa två metoder kan hittas i den [Programmeringsguide för Event Hubs](../event-hubs/event-hubs-programming-guide.md). Den korta versionen av skillnaderna är `Direct Consumer` ger dig fullständig kontroll och `EventProcessorHost` gör en del av arbetet mekanik för du men gör du vissa antaganden om hur du bearbetar dessa händelser.  
+Händelser från Azure Event Hub tas emot med hjälp av den [AMQP-protokollet](https://www.amqp.org/). Microsoft Service Bus-teamet har gjort klienten bibliotek som är tillgängliga för att underlätta de konsumerande händelserna. Det finns två olika metoder som stöds, en håller på att en *direkt konsument* och den andra använder den `EventProcessorHost` klass. Exempel på dessa två metoder kan hittas i den [Programmeringsguide för Event Hubs](../event-hubs/event-hubs-programming-guide.md). Den korta versionen av skillnaderna är `Direct Consumer` ger dig fullständig kontroll och `EventProcessorHost` gör en del av arbetet mekanik för du men gör du vissa antaganden om hur du bearbetar dessa händelser.  
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
 I det här exemplet använder vi den `EventProcessorHost` för enkelhetens skull, men det kanske inte det bästa valet för det här scenariot. `EventProcessorHost` gör arbetet med att se till att du inte behöver bekymra dig om threading problem inom en viss händelse processor-klass. I vårt scenario, är vi dock helt enkelt konvertera meddelandet till ett annat format och skicka den tillsammans till en annan tjänst med hjälp av en async-metod. Det finns inget behov för att uppdatera delade tillstånd och därför ingen risk för threading problem. De flesta scenarier med `EventProcessorHost` förmodligen är det bästa valet och det är alternativet enklare.     
@@ -213,7 +213,7 @@ Den `HttpMessage` instans innehåller en `MessageId` GUID som gör att vi kan an
 Den `HttpMessage` instans sedan vidarebefordras till implementeringen av `IHttpMessageProcessor`, vilket är ett gränssnitt som jag skapade för att frikoppla som tar emot och tolkning av händelsen från Azure Event Hub och den faktiska bearbetningen av den.
 
 ## <a name="forwarding-the-http-message"></a>Vidarebefordran av HTTP-meddelande
-I det här exemplet bestämde jag det skulle vara intressant att skicka HTTP-begäran över till [Runscope](http://www.runscope.com). Runscope är en molnbaserad tjänst som specialiserar sig på HTTP-felsökning, loggning och övervakning. De har en kostnadsfri nivå, så att det är enkelt att försök och det gör att vi kan se HTTP-förfrågningar i realtid som passerar genom vår API Management-tjänsten.
+I det här exemplet bestämde jag det skulle vara intressant att skicka HTTP-begäran över till [Runscope](https://www.runscope.com). Runscope är en molnbaserad tjänst som specialiserar sig på HTTP-felsökning, loggning och övervakning. De har en kostnadsfri nivå, så att det är enkelt att försök och det gör att vi kan se HTTP-förfrågningar i realtid som passerar genom vår API Management-tjänsten.
 
 Den `IHttpMessageProcessor` implementering ser ut så här,
 
@@ -260,7 +260,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-Jag kunde dra nytta av en [befintliga klientbibliotek för Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) som gör det enkelt att skicka den `HttpRequestMessage` och `HttpResponseMessage` instanser upp till sina tjänster. För att komma åt Runscope API: et, behöver du ett konto och en API-nyckel. Anvisningar för att hämta en API-nyckel finns i den [skapar program till åtkomst Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) skärmbild.
+Jag kunde dra nytta av en [befintliga klientbibliotek för Runscope](https://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) som gör det enkelt att skicka den `HttpRequestMessage` och `HttpResponseMessage` instanser upp till sina tjänster. För att komma åt Runscope API: et, behöver du ett konto och en API-nyckel. Anvisningar för att hämta en API-nyckel finns i den [skapar program till åtkomst Runscope API](https://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) skärmbild.
 
 ## <a name="complete-sample"></a>Fullständigt exempel
 Den [källkod](https://github.com/darrelmiller/ApimEventProcessor) och tester för exemplet på GitHub. Du behöver en [API Management-tjänsten](get-started-create-service-instance.md), [anslutna Händelsehubben](api-management-howto-log-event-hubs.md), och en [Lagringskonto](../storage/common/storage-create-storage-account.md) att köra exemplet själv.   

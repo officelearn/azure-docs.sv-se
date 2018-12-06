@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379597"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972045"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Förbereda Azure Stack PKI-certifikat för distribution
 Certifikatdatabasen [hämtas från din Certifikatutfärdare valfri](azure-stack-get-pki-certs.md) måste importeras och exporteras med egenskaper som matchar certifikatkrav för Azure Stack.
@@ -38,15 +38,15 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat:
 
 1. I den **guiden Importera certifikat**väljer **lokal dator** som plats för importen. Välj **Nästa**. På följande skärm, klicka på Nästa igen.
 
-    ![Importplats för lokal dator](.\media\prepare-pki-certs\1.png)
+    ![Importplats för lokal dator](./media/prepare-pki-certs/1.png)
 
 1.  Välj **placera alla certifikat i nedanstående arkiv** och välj sedan **förtroende för företag** som plats. Klicka på **OK** att stänga dialogrutan för val av certifikat store och sedan **nästa**.
 
-    ![Konfigurera certifikatarkivet](.\media\prepare-pki-certs\3.png)
+    ![Konfigurera certifikatarkivet](./media/prepare-pki-certs/3.png)
 
     a. Om du importerar en PFX visas med en ytterligare dialogruta. På den **skydd av privat nyckel** anger du lösenordet för din certifikatfiler och sedan aktivera den **Markera den här nyckeln kan exporteras. Detta gör att du kan säkerhetskopiera eller flytta dina nycklar vid ett senare tillfälle** alternativet. Välj **Nästa**.
 
-    ![Markera att nycklarna kan exporteras](.\media\prepare-pki-certs\2.png)
+    ![Markera att nycklarna kan exporteras](./media/prepare-pki-certs/2.png)
 
 1. Klicka på Slutför för att slutföra importen.
 
@@ -58,11 +58,11 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat:
 
 1. Klicka på Arkiv, klicka på Lägg till snapin-modulen Lägg till/ta bort och sedan väljer certifikat.
 
-    ![Lägga till snapin-modulen certifikat](.\media\prepare-pki-certs\mmc-2.png)
+    ![Lägga till snapin-modulen certifikat](./media/prepare-pki-certs/mmc-2.png)
  
 1. Välj datorkonto, klicka på Nästa och sedan välja lokala datorn och Slutför. Klicka på ok om du vill stänga sidan Lägg till/ta bort snapin-modulen.
 
-    ![Lägga till snapin-modulen certifikat](.\media\prepare-pki-certs\mmc-3.png)
+    ![Lägga till snapin-modulen certifikat](./media/prepare-pki-certs/mmc-3.png)
 
 1. Bläddra till certifikat > förtroende för företag > Certifikatplatsen. Kontrollera att du ser ditt certifikat till höger.
 

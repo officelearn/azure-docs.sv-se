@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 061811705b0572059f99300f2a658c5c5b4406c5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839848"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957699"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av Mobilitetstjänsten i replikering från Azure till Azure
 
@@ -66,11 +66,11 @@ När du aktiverar replikering för en virtuell dator antingen startar [från vyn
 
 1. Om det finns nya uppdateringar av mobilitetstjänsten installeras på virtuella datorer i Azure kan se du ett meddelande som läser ”ny Site recovery replikering agentuppdatering är tillgänglig. Klicka för att installera ”.
 
-     ![Replikerade objekt fönster](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Replikerade objekt fönster](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 3. Välj meddelandet för att öppna sidan för val av virtuell dator.
 4. Välj de virtuella datorer som du vill uppgradera mobilitetstjänsten på och välj **OK**.
 
-     ![Replikerade objekt VM-lista](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Replikerade objekt VM-lista](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 Uppdateringen av Mobilitetstjänsten jobbet startar för var och en av de valda virtuella datorerna.
 

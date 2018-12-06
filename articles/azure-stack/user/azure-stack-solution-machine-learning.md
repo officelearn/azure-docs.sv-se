@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7c92b2a060e73484b73a60f9215425cba40ea3f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285126"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966729"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en edge-machine learning-lösning med Azure och Azure Stack
 
@@ -163,23 +163,23 @@ Skapa ett lagringskonto och en behållare för rensa data som ska finnas.
 
 10. Skapa lagringskontot genom att välja **Skapa**.
 
-    ![Alternativ text](\media\azure-stack-solution-machine-learning\image1.png)
+    ![Alternativ text](/media/azure-stack-solution-machine-learning/image1.png)
 
 11.  Välj nyligen skapade lagringskontot.
 
 12.  Välj på **Blobar**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image2.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image2.png)
 
 13.  Välj på **+ behållare** och välj på **behållare**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image3.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image3.png)
 
 14.  Ge behållaren namnet **uploadeddata** och välj åtkomsttyp av **behållare**.
 
 15.  Välj på **skapa**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image4.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image4.png)
 
 ## <a name="step-2-create-a-data-science-virtual-machine"></a>Steg 2: Skapa en virtuell dator för datavetenskap
 
@@ -189,11 +189,11 @@ Skapa en Ubuntu Data Science Virtual Machine (DSVM) i Azure-portalen.
 
 2.  Välj på den **+ ny** länk och Sök efter ”Data Science Virtual Machine för Linux Ubuntu CSP
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image5.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image5.png)
 
 1.  Välj **Data Science Virtual Machine för Linux (Ubuntu)** i listan och följ de anvisningarna på skärmen instruktioner för att skapa DSVM.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image6.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image6.png)
 
 > ! [Viktigt]  
 > **Välj** lösenord ** som den*autentiseringstyp*.
@@ -268,19 +268,19 @@ Använd Azure-portalen för att etablera Azure Machine Learning-konton:
 
 1.  Logga in på den [Azure-portalen](https://portal.azure.com/) med autentiseringsuppgifter för Azure-prenumerationen som ska användas. För att skaffa en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image7.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image7.png)
 
 1.  Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
-    ![Skapa en resurs i Azure-portalen](media\azure-stack-solution-machine-learning\image8.png)
+    ![Skapa en resurs i Azure-portalen](media/azure-stack-solution-machine-learning/image8.png)
 
 1.  Skriv **Machine Learning** i sökfältet. Välj **Machine Learning Experimentation (preview)** i sökresultatet.
 
-    ![Azure Machine Learning-sökning](media\azure-stack-solution-machine-learning\image9.png)
+    ![Azure Machine Learning-sökning](media/azure-stack-solution-machine-learning/image9.png)
 
 1.  I den **Machine Learning-experimentering** rutan, rulla ned till botten och välj **skapa** att börja definiera experimenteringskontot.
 
-    ![Azure Machine Learning – Skapa ett experimenteringskonto](media\azure-stack-solution-machine-learning\image10.png)
+    ![Azure Machine Learning – Skapa ett experimenteringskonto](media/azure-stack-solution-machine-learning/image10.png)
 
 1.  I den **ML-experimentering** fönstret Konfigurera Machine Learning-experimenteringskonto.
 
@@ -299,15 +299,15 @@ Använd Azure-portalen för att etablera Azure Machine Learning-konton:
     | Prisnivå för modellhantering | **DEVTEST** | Välj **ingen prisnivå har valts** att ange prisnivån för det nya modellhanteringskontot. Spara pengar genom att markera DEVTEST-prisnivå om det är tillgängligt för prenumeration (begränsad tillgänglighet). I annat fall väljer du prisnivån S1. Välj Välj för att spara valet prisnivån. |
     | Fäst vid instrumentpanelen | check | Välj den **fäst på instrumentpanelen** så att du enkelt kan spåra Machine Learning-experimenteringskontot på den främre instrumentpanelen på Azure-portalen. |
 
-    ![Konfiguration av Machine Learning-experimenteringskonto](media\azure-stack-solution-machine-learning\image11.png)
+    ![Konfiguration av Machine Learning-experimenteringskonto](media/azure-stack-solution-machine-learning/image11.png)
 
 1.  Välj **Skapa** för att starta processen att skapa ett experimenteringskonto tillsammans med modellhanteringskontot.
 
-    ![Konfiguration av Machine Learning-experimenteringskonto](media\azure-stack-solution-machine-learning\image12.png)
+    ![Konfiguration av Machine Learning-experimenteringskonto](media/azure-stack-solution-machine-learning/image12.png)
 
     Det kan ta en stund att skapa ett konto. Kontrollera status för distributionsprocessen genom att välja meddelandeikonen (klockan) på verktygsfältet i Azure portal.
 
-    ![Meddelanden i Azure Portal](media\azure-stack-solution-machine-learning\image13.png)
+    ![Meddelanden i Azure Portal](media/azure-stack-solution-machine-learning/image13.png)
 
 ### <a name="install-and-log-in-to-workbench"></a>Installera och logga in på workbench 
 
@@ -349,7 +349,7 @@ Azure Machine Learning Workbench är tillgänglig för Windows eller macOS. Visa
 
 1.  Välj plustecknet (+) i fönstret **PROJEKT** och välj **Nytt projekt**.
 
-    ![Ny arbetsyta](media\azure-stack-solution-machine-learning\image14.png)
+    ![Ny arbetsyta](media/azure-stack-solution-machine-learning/image14.png)
 
 1.  Fyll i formulärfälten och välj knappen **Skapa** för att skapa ett nytt projekt i Workbench.
 
@@ -362,11 +362,11 @@ Azure Machine Learning Workbench är tillgänglig för Windows eller macOS. Visa
     | Vald arbetsyta | IrisGarden (om det finns) | Välj en arbetsyta som skapats för experimenteringskonto i Azure-portalen. <br>Med snabbstarten visas arbetsytan med namnet IrisGarden. Annars kan använda arbetsytan med namnet på experimenteringskontot eller en önskad kontonamn. |
     | Projektmall | Klassificera Iris | Mallar innehåller skript och data som används för att utforska produkten. Den här mallen innehåller skript och data som behövs för den här snabbstarten och andra självstudier i den här på dokumentationsplatsen. |
 
-    ![Nytt projekt](media\azure-stack-solution-machine-learning\image15.png)
+    ![Nytt projekt](media/azure-stack-solution-machine-learning/image15.png)
 
 1.  Ett nytt projekt skapas och instrumentpanelen för projektet öppnas med projektet. Utforska projektets startsida, datakällor, anteckningsböcker och källkodsfiler.
 
-    ![Öppna projekt](media\azure-stack-solution-machine-learning\image16.png)
+    ![Öppna projekt](media/azure-stack-solution-machine-learning/image16.png)
 
 ### <a name="attach-a-dsvm-compute-target"></a>Bifoga beräkningsmål DSVM
 
@@ -374,7 +374,7 @@ När DSVM har skapats kan du fästa den i Azure ML-projektet.
 
 1.  Från i Azure ML Workbench-appen startar Azure ML Workbench CLI genom att välja **filen**->**öppna PowerShell**
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image17.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image17.png)
 
 1.  När PowerShell prompten har öppnat använder du följande kommando:
 
@@ -384,19 +384,19 @@ När DSVM har skapats kan du fästa den i Azure ML-projektet.
 
 1.  Följande meddelande:
 
-     ![Alternativ text](media\azure-stack-solution-machine-learning\image18.png)
+     ![Alternativ text](media/azure-stack-solution-machine-learning/image18.png)
 
 1.  Gå till webbplatsen som beskrivs i Kommandotolken och ange koden som har angetts.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image19.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image19.png)
 
 1.  Välj Fortsätt när du uppmanas och sedan Azure ML experimentella kontot är kopplat till det Azure-kontot.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image20.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image20.png)
 
 1.  Azure ML Workbench CLI skickar sedan följande meddelande:
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image21.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image21.png)
 
 1.  När inloggningen för ML-konto och en arbetsyta visas som slutförd kan du bifoga DSVM.
 
@@ -406,7 +406,7 @@ När DSVM har skapats kan du fästa den i Azure ML-projektet.
 
     Följande meddelande visas:
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image22.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image22.png)
 
     ```PowerShell  
         # prepare the Docker image on the DSVM 
@@ -427,15 +427,15 @@ Det här paketet för förberedelse av data kan lämnas senare till en runtime, 
 
     Filen innehåller en tabell med 5 kolumner och 50 rader. Fyra kolumner är numeriska kolumner. Den femte kolumnen är en strängmålkolumn. Ingen av kolumnerna har rubriknamn.
 
-    ![iris.csv](media\azure-stack-solution-machine-learning\image23.png)
+    ![iris.csv](media/azure-stack-solution-machine-learning/image23.png)
 
 1.  I **datavyn** klickar du på plustecknet (**+**) för att lägga till en ny datakälla. Sidan **Lägg till datakälla** öppnas.
 
-    ![Datavy i Azure Machine Learning Workbench](media\azure-stack-solution-machine-learning\image24.png)
+    ![Datavy i Azure Machine Learning Workbench](media/azure-stack-solution-machine-learning/image24.png)
 
 1.  Välj **textfiler (\*.csv, \*.json, \*.txt.,...)** .
 
-    ![Datakällan i Azure Machine Learning Workbench](media\azure-stack-solution-machine-learning\image25.png)
+    ![Datakällan i Azure Machine Learning Workbench](media/azure-stack-solution-machine-learning/image25.png)
 
 1.  Välj **Nästa**.
 
@@ -444,39 +444,39 @@ Det här paketet för förberedelse av data kan lämnas senare till en runtime, 
     > [!Important]  
     > Välj den **iris.csv** fil från den aktuella projektkatalogen för den här övningen. Annars kan misslyckas senare steg.
 
-    ![Välj iris](media\azure-stack-solution-machine-learning\image26.png)
+    ![Välj iris](media/azure-stack-solution-machine-learning/image26.png)
 
 1.  En ny fil med namnet `*iris-1.dsource` skapas. Filens namn är unikt med `-1` eftersom exempelprojektet redan har en onumrerad **iris.dsource** fil.
 
     Filen öppnas och data visas. En serie med kolumnrubriker, från **Column1** till **Column5**, läggs automatiskt till i datauppsättningen. Rulla till slutet och Lägg märke till att den sista raden i datauppsättningen är tom. Raden är tom på grund av den extra radbrytningen i CSV-filen.
 
-    ![Datavy för iris](media\azure-stack-solution-machine-learning\image27.png)
+    ![Datavy för iris](media/azure-stack-solution-machine-learning/image27.png)
 
 1.  Välj knappen **Mått**. Histogram genereras och visas.
 
     Gå tillbaka till datavyn genom att välja den **Data** knappen.
 
-    ![Datavy för iris](media\azure-stack-solution-machine-learning\image28.png)
+    ![Datavy för iris](media/azure-stack-solution-machine-learning/image28.png)
 
 1.  Här visas histogram. En komplett uppsättning statistik som har beräknats för varje kolumn.
 
-    ![Datavy för iris](media\azure-stack-solution-machine-learning\image29.png)
+    ![Datavy för iris](media/azure-stack-solution-machine-learning/image29.png)
 
 1.  Börja skapa ett dataförberedningspaket genom att välja knappen **Förbered**. Dialogrutan **Förbered** öppnas.
 
     Exempelprojektet innehåller en **iris.dprep** dataförberedningsfil som är valt som standard.
 
-    ![Datavy för iris](media\azure-stack-solution-machine-learning\image30.png)
+    ![Datavy för iris](media/azure-stack-solution-machine-learning/image30.png)
 
 1.  Skapa ett nytt dataförberedningspaket genom att välja **+ nytt Dataförberedningspaket** på menyn.
 
-    ![Datavy för iris](media\azure-stack-solution-machine-learning\image31.png)
+    ![Datavy för iris](media/azure-stack-solution-machine-learning/image31.png)
 
 1.  Ange ett nytt värde för paketets namn (med **iris-1**) och välj sedan **OK**.
 
     Ett nytt dataförberedningspaket med namnet **iris-1.dprep** skapas och öppnas i Redigeraren för dataförberedning.
 
-    ![Datavy för iris](media\azure-stack-solution-machine-learning\image32.png)
+    ![Datavy för iris](media/azure-stack-solution-machine-learning/image32.png)
 
     Därefter krävs förberedelse av data.
 
@@ -484,7 +484,7 @@ Det här paketet för förberedelse av data kan lämnas senare till en runtime, 
 
     Måste ange **Sepal Length**, **Sepal Width**, **Petal Length**, **Petal Width**, och **Species** för de fem kolumnerna respektive.
 
-    ![Byta namn på kolumner](media\azure-stack-solution-machine-learning\image33.png)
+    ![Byta namn på kolumner](media/azure-stack-solution-machine-learning/image33.png)
 
 1.  Räkna distinkta värden:
 
@@ -496,23 +496,23 @@ Det här paketet för förberedelse av data kan lämnas senare till en runtime, 
 
         Rutan **Inspectors** (Kontroller) öppnas nedanför data. Ett histogram med fyra staplar visas. Målkolumnen har fyra separata värden: **Iris-virginica**, **Iris-versicolor**,**Iris-setosa**, och en **(null)** värde.
 
-    ![Välj Antal värden](media\azure-stack-solution-machine-learning\image34.png)
+    ![Välj Antal värden](media/azure-stack-solution-machine-learning/image34.png)
 
-    ![Histogram över antal värden](media\azure-stack-solution-machine-learning\image35.png)
+    ![Histogram över antal värden](media/azure-stack-solution-machine-learning/image35.png)
 
 1.  Om du vill filtrera bort null-värden väljer du fältet ”(null)” och sedan minustecknet (**-**).
 
     Sedan blir (null)-raden grå för att visa att den har filtrerats bort.
 
-    ![Filtrera bort null-värden](media\azure-stack-solution-machine-learning\image36.png)
+    ![Filtrera bort null-värden](media/azure-stack-solution-machine-learning/image36.png)
 
 1.  Lägg märke till de enskilda stegen för dataförberedelse som beskrivs i fönstret **STEG**. När är byta namn på kolumner och rader med null-värden är filtrerade, registreras varje åtgärd som ett dataförberedningssteg. Redigera enskilda steg för att justera inställningarna, ändra ordning på stegen och ta bort steg.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image37.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image37.png)
 
 1.  Stäng redigeraren för dataförberedning. Stäng fliken genom att välja **x**-ikonen på fliken **iris-1** med grafikonen. Arbetet sparas automatiskt i den **iris-1.dprep** visas under den **Dataförberedelser** rubrik.
 
-    ![Stäng](media\azure-stack-solution-machine-learning\image38.png)
+    ![Stäng](media/azure-stack-solution-machine-learning/image38.png)
 
 ### <a name="generate-python-code-to-invoke-a-data-preparation-package"></a>Generera Python-kod som anropar ett dataförberedningspaket
 
@@ -522,7 +522,7 @@ Ett dataförberedningspakets utdata kan utforskas direkt en Python eller Jupyter
 
 2.  Högerklicka på filen **iris 1.dprep** och välj alternativet för att **generera fil med kod för dataåtkomst** på snabbmenyn.
 
-    ![Generera kod](media\azure-stack-solution-machine-learning\image39.png)
+    ![Generera kod](media/azure-stack-solution-machine-learning/image39.png)
 
     En ny fil med namnet **iris 1. PY** öppnas med följande rader med kod för att anropa logiken som skapade som ett paket för förberedelse av data:
 
@@ -552,18 +552,18 @@ Ett dataförberedningspakets utdata kan utforskas direkt en Python eller Jupyter
 
 1.  I projektet är öppet väljer du den **filer** knappen (mappikonen) längst till vänster i fönstret att öppna fillistan i projektmappen.
 
-    ![Öppna ett projekt i Azure Machine Learning Workbench](media\azure-stack-solution-machine-learning\image40.png)
+    ![Öppna ett projekt i Azure Machine Learning Workbench](media/azure-stack-solution-machine-learning/image40.png)
 
 1.  Välj Python-skriptfilen **iris_sklearn.py**.
 
-    ![Välj ett skript](media\azure-stack-solution-machine-learning\image41.png)
+    ![Välj ett skript](media/azure-stack-solution-machine-learning/image41.png)
 
     Koden öppnas på en ny textredigeringsflik i Workbench.
 
     > [!Note]  
     > Den kod som visas kanske inte exakt samma som föregående kod eftersom det här exempelprojektet uppdateras ofta.
 
-    ![Öppna en fil](media\azure-stack-solution-machine-learning\image42.png)
+    ![Öppna en fil](media/azure-stack-solution-machine-learning/image42.png)
 
 1.  Granska Python-skriptkoden så att du bekantar dig med kodningsstilen.
 
@@ -615,31 +615,31 @@ Ett dataförberedningspakets utdata kan utforskas direkt en Python eller Jupyter
 
 2.  Hitta fliken med namnet **iris_sklearn.py**.
 
-    ![Hitta flik med skript](media\azure-stack-solution-machine-learning\image43.png)
+    ![Hitta flik med skript](media/azure-stack-solution-machine-learning/image43.png)
 
 1.  I verktygsfältet på fliken väljer **lokala** som körningsmiljö andiris_sklearn.pyas skriptet att köra. De kan redan vara förvalda.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image44.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image44.png)
 
 1.  Flytta till höger i verktygsfältet och enter0.01in den **argument** fält.
 
     Det här värdet motsvarar regulariseringshastigheten för logistic regression-modellen.
 
-    ![Val mellan lokal och skript](media\azure-stack-solution-machine-learning\image45.png)
+    ![Val mellan lokal och skript](media/azure-stack-solution-machine-learning/image45.png)
 
 1.  Klicka på knappen **Kör**. Ett jobb schemaläggs omedelbart. Jobbet står med i fönstret **Jobb** till höger i Workbench-fönstret.
 
-    ![Val mellan lokal och skript](media\azure-stack-solution-machine-learning\image46.png)
+    ![Val mellan lokal och skript](media/azure-stack-solution-machine-learning/image46.png)
 
     Efter en liten stund status för jobbet övergår från **skickar**till **kör**, och slutligen till **slutförd**.
 
 1.  Välj **Slutfört** i jobbstatustexten i fönstret **Jobb**.
 
-    ![Kör sklearn](media\azure-stack-solution-machine-learning\image47.png)
+    ![Kör sklearn](media/azure-stack-solution-machine-learning/image47.png)
 
     Ett popup-fönster öppnas och visar standardutdata (stdout) texten för körningen. Om du vill stänga stdout-texten, Välj den **Stäng** (**x**) längst upp till höger i popup-fönstret.
 
-    ![Standardutdata](media\azure-stack-solution-machine-learning\image48.png)
+    ![Standardutdata](media/azure-stack-solution-machine-learning/image48.png)
 
 1.  I samma Jobbstatus i den **jobb** fönstret väljer du den blå texten **iris_sklearn.py \[n\] **(* n * är körningsnumret) precis ovanför den  **Slutfört** status och starttiden. Fönstret **Körningsegenskaper** öppnas och visar följande information för den specifika körningen:
 
@@ -701,13 +701,13 @@ I Azure Machine Learning Workbench avbildas varje skriptkörning som en post i k
 
 1.  Välj knappen **Körningar** (klockikonen) i det vänstra verktygsfältet för att öppna listan över **Körningar**. Välj sedan **iris_sklearn.py** att visa den **instrumentpanelen för körningar** ofiris_sklearn.py.
 
-    ![Körningsvy](media\azure-stack-solution-machine-learning\image49.png)
+    ![Körningsvy](media/azure-stack-solution-machine-learning/image49.png)
 
 1.  Fliken med **Instrumentpanelen för körningar** öppnas.
 
     Granska statistiken som sparats från de många körningarna. Diagram återges längst upp på fliken. Varje körning har ett på varandra efterföljande nummer och körningsinformation visas i tabellen längst ned på skärmen.
 
-    ![Instrumentpanelen för körningar](media\azure-stack-solution-machine-learning\image50.png)
+    ![Instrumentpanelen för körningar](media/azure-stack-solution-machine-learning/image50.png)
 
 1.  Filtrera tabellen och välj sedan något av diagrammen för att visa status, längd, noggrannhet och regulariseringshastighet för varje körning.
 
@@ -715,11 +715,11 @@ I Azure Machine Learning Workbench avbildas varje skriptkörning som en post i k
 
 3.  Välj bakåtknappen **Körningslista** uppe till vänster i **Jämförelsefönstret** så att du återgår till **Instrumentpanelen för körningar**.
 
-    ![Gå tillbaka till körningslistan](media\azure-stack-solution-machine-learning\image51.png)
+    ![Gå tillbaka till körningslistan](media/azure-stack-solution-machine-learning/image51.png)
 
 1.  Välj en enskild körning så att detaljvyn visas. Observera att statistiken för den valda körningen visas i avsnittet **Körningsegenskaper**. Filerna som skrivits till Utdatamappen visas i den **utdata** avsnittet och ladda ned filerna därifrån.
 
-    ![Körningsinformation](media\azure-stack-solution-machine-learning\image52.png)
+    ![Körningsinformation](media/azure-stack-solution-machine-learning/image52.png)
 
 De två diagrammen, felmatrisen och ROC-kurvan för flera klasser, återges i avsnittet **Visualisering**. Du hittar även alla loggfiler i avsnittet **Loggar**.
 
@@ -840,13 +840,13 @@ De två diagrammen, felmatrisen och ROC-kurvan för flera klasser, återges i av
 
     Välj mappikonen i den vänstra panelen för att visa en lista med alla projektfiler.  Öppna Python-skriptet med namnet **run.py**. Det här skriptet är användbart om du vill loopa över olika regulariseringshastigheter. 
 
-    ![Gå tillbaka till körningslistan](media\azure-stack-solution-machine-learning\image53.png)
+    ![Gå tillbaka till körningslistan](media/azure-stack-solution-machine-learning/image53.png)
 
 1.  Kör experimentet flera gånger med dessa hastigheter.
 
     Det här skriptet startar` aniris_sklearn.pyjob` med en regulariseringshastighet rate-o `10.0` (ett löjligt stort tal). Skriptet halverar sedan till hälften i följande körning och så vidare tills hastigheten är mindre än `0.005`. Skriptet innehåller följande kod:
 
-    ![Gå tillbaka till körningslistan](media\azure-stack-solution-machine-learning\image54.png)
+    ![Gå tillbaka till körningslistan](media/azure-stack-solution-machine-learning/image54.png)
 
 1.  Kör skriptet **run.py** från kommandoraden enligt följande:
 
@@ -906,7 +906,7 @@ Det här kodfragmentet visar hur pickle-utdatafilen skapades. Pickle-utdatafilen
 
     3. Fönstret **Körningsegenskaper** öppnas. I den övre högra delen av fönstret lägga märke till de **utdata** avsnittet. d\. Ladda ned pickle-filen genom att markera kryssrutan bredvid den **model.pkl** och väljer sedan **hämta**. Spara filen i roten för projektmappen. Filen behövs i kommande steg.  
 
-    ![Ladda ned pickle-filen](media\azure-stack-solution-machine-learning\image55.png)
+    ![Ladda ned pickle-filen](media/azure-stack-solution-machine-learning/image55.png)
 
 ### <a name="get-scoring-script-and-schema-files"></a>Hämta bedömning och filer
 
@@ -918,7 +918,7 @@ Om du vill distribuera webbtjänsten tillsammans med modellfilen krävs bedömni
 
 3.  Välj filen **iris_score.py**. Python-skriptet öppnas. Den här filen används som bedömningsfil.
 
-    ![Bedömningsfil](media\azure-stack-solution-machine-learning\image56.png)
+    ![Bedömningsfil](media/azure-stack-solution-machine-learning/image56.png)
 
 1.  Kör skriptet för att skapa schemafilen. Välj miljön **lokalt** och skriptet **score_iris.py** i kommandofältet och välj sedan **Kör**.
 
@@ -1040,7 +1040,7 @@ Docker-motorn måste köras lokalt när du ska utföra följande steg och operat
 
     Se till att ”Provisioning State” har värdet ”Succeeded”, som visas innan du ställer in miljön i steg 5:
 
-    ![Etableringsstatus](media\azure-stack-solution-machine-learning\image57.png)
+    ![Etableringsstatus](media/azure-stack-solution-machine-learning/image57.png)
 
 1.  Konfigurera miljön.
 
@@ -1160,7 +1160,7 @@ Använd följande kommandon för att generera en autentiseringsnyckel i Windows-
     The key fingerprint is: SHA256:lUtUUjzaqWqGeolEPKeBmsnrhcNGM9Dn2OxYatt05SE  <user>@<machine-name>
     The key's randomart image is:  
     ```
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image58.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image58.png)
 
 4. Klistra in viktig information med hjälp av följande kommandon när du har genererat nyckeln: 
     ```Bash
@@ -1217,11 +1217,11 @@ Ge tjänstens huvudnamn åtkomst till prenumerationen så att den kan skapa resu
 
 9.  Välj **+ ny** > **Compute** > **Kubernetes-kluster**. Välj **Skapa**.
 
-    ![Distribuera lösningsmall](media\azure-stack-solution-machine-learning\image59.png)
+    ![Distribuera lösningsmall](media/azure-stack-solution-machine-learning/image59.png)
 
 10\. Välj **grunderna** i den skapa Kubernetes-kluster.
 
-    ![Deploy Solution Template](media\azure-stack-solution-machine-learning\image60.png)
+    ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
 
 11. Ange den **Linux VM-administratörsanvändarnamn**. Användarnamn för Linux-datorer som ingår i Kubernetes-klustret och DVM.
 
@@ -1250,7 +1250,7 @@ Ge tjänstens huvudnamn åtkomst till prenumerationen så att den kan skapa resu
 
 1.  Välj den **inställningar för Azure Stack-stämpel**.
 
-    ![Distribuera lösningsmall](media\azure-stack-solution-machine-learning\image61.png)
+    ![Distribuera lösningsmall](media/azure-stack-solution-machine-learning/image61.png)
 
 2.  Ange den **klient-Azure Resource Manager-slutpunkten**. Det här är Azure Resource Manager-slutpunkt att ansluta för att skapa resursgruppen för Kubernetes-klustret. Slutpunkten från Azure Stack-operatör krävs för ett integrerat system. För de Azure Stack Development Kit (ASDK), Använd `https://management.local.azurestack.external`.
 
@@ -1356,7 +1356,7 @@ När den lokala JSON-filen hämtas i en ny WSL-session använder du följande ko
 
 Konfigurationsinställningar för Kubernetes definieras (se utdata nedan).
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image62.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image62.png)
 
 Starta proxytjänsten lokala:
 
@@ -1366,19 +1366,19 @@ kubectl proxy
 
 Bläddra till kubernetes-kluster Användargränssnittet på följande adress: `https://localhost:8001`.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image63.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image63.png)
 
 Nu har du en plats för att distribuera behållare och en behållare som finns i molnet som du kan se på plats.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image64.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image64.png)
 
 Anpassa den **iris_deployment.yaml** fil (i /*mnt/c/användare/<current user>/dokument/Kube directory*) så **webservicename** och behållare  **Bild** och **namn** matchar distribution, med valfri Kodredigerare val.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image65.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image65.png)
 
 Ange porten behållare som **5001.**
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image66.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image66.png)
 
 Och sedan skapa den **imagePullSecret**:
 
@@ -1409,7 +1409,7 @@ Spara den **iris_deployment.yaml** fil (i /*mnt/c/användare/<current user>/doku
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image67.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
 
 Kontrollera status för distributionen:
 
@@ -1417,7 +1417,7 @@ Kontrollera status för distributionen:
 Kubectl get deployments
 ```
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image68.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
 
 Distributionen kan ta lite tid.
 
@@ -1429,7 +1429,7 @@ Distributionen kan ta lite tid.
 
 2.  Välj sidan projekt **nytt projekt**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image69.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image69.png)
 
 1.  Ge projektet namnet **HybridMLIris**.
 
@@ -1437,7 +1437,7 @@ Distributionen kan ta lite tid.
 
 3.  Välj en process och välj **skapa**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image70.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image70.png)
 
 ### <a name="import-some-code--create-repository"></a>Importera kod skapa lagringsplatsen
 
@@ -1447,15 +1447,15 @@ En Git-lagringsplats för YAML-kod krävs.
 
 1.  Standard-instrumentpanelen för projektet väljer du generera Git-autentiseringsuppgifter.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image71.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image71.png)
 
 1.  Ange lösenord där det krävs för att spara autentiseringsuppgifter för Git.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image72.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image72.png)
 
 1.  Initiera databasen genom att välja den **initiera** knappen och skapa en **README** fil.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image73.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image73.png)
 
 #### <a name="clone-the-git-repository-locally-and-upload-the-code"></a>Klona Git-lagringsplatsen lokalt och överföra koden. 
 
@@ -1465,7 +1465,7 @@ En Git-lagringsplats för YAML-kod krävs.
     sudo mkdir /mnt/c/users/<User>/source sudo mkdir /mnt/c/users/<User>/source/repos sudo mkdir /mnt/c/users/<User>/source/repos/hybridMLIris cd /mnt/c/users/<User>/source/repos/hybridMLIris sudo git clone  https://<yourvstssite>.visualstudio.com/HybridMLIris/_git/HybridMLIris
     ```
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image74.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image74.png)
 
 1.  Gå till nyligen klonad lagringsplats:
 
@@ -1474,7 +1474,7 @@ En Git-lagringsplats för YAML-kod krävs.
     cd ./HybridMLIris
     ```
     
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image75.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image75.png)
 
 1.  Kopiera den **iris_deployment.yaml** -filen i databasen.
 
@@ -1488,7 +1488,7 @@ En Git-lagringsplats för YAML-kod krävs.
     git add . git commit -m Added Deployment YAML git push
     ```
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image76.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image76.png)
 
 ### <a name="prepare-the-private-build-and-release-agent-for-vsts-integration"></a>Förbereda privata Infrastruktursgenereringsinställningar och versionen Agent för VSTS-integrering
 
@@ -1514,27 +1514,27 @@ Ett huvudnamn för tjänsten krävs en nyckel för autentisering, följer du ste
 
 1.  Från **appregistreringar** i Azure Active Directory, väljer du programmet.
 
-    ![välj program](media\azure-stack-solution-machine-learning\image77.png)
+    ![välj program](media/azure-stack-solution-machine-learning/image77.png)
 
 1.  Anteckna värdet för **program-ID. Värdet används när du konfigurerar tjänstslutpunkten i VSTS.**
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image78.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image78.png)
 
 1.  Välj **Inställningar** om du vill generera en autentiseringsnyckel.
 
-    ![välj inställningar](media\azure-stack-solution-machine-learning\image79.png)
+    ![välj inställningar](media/azure-stack-solution-machine-learning/image79.png)
 
 1.  Välj **Nycklar**.
 
-    ![välj nycklar](media\azure-stack-solution-machine-learning\image80.png)
+    ![välj nycklar](media/azure-stack-solution-machine-learning/image80.png)
 
 1.  Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
 
-    ![spara nyckel](media\azure-stack-solution-machine-learning\image81.png)
+    ![spara nyckel](media/azure-stack-solution-machine-learning/image81.png)
 
 När du har sparat nyckeln visas nyckelns värde. Kopiera det här värdet när det behövs senare. Den **nyckelvärdet** med programmet ID krävs för att logga in som programmet. Store nyckelvärdet där programmet kan hämta den.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image82.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image82.png)
 
 #### <a name="get-tenant-id"></a>Hämta klient-ID
 
@@ -1542,15 +1542,15 @@ Som en del av konfigurationen av slutpunkten, VSTS kräver den **klient-ID** som
 
 1.  Välj **Azure Active Directory**.
 
-    ![välj azure active directory](media\azure-stack-solution-machine-learning\image83.png)
+    ![välj azure active directory](media/azure-stack-solution-machine-learning/image83.png)
 
 1.  Om du vill hämta klient-ID, Välj **egenskaper** för Azure AD-klient.
 
-    ![välj Azure AD-egenskaper](media\azure-stack-solution-machine-learning\image84.png)
+    ![välj Azure AD-egenskaper](media/azure-stack-solution-machine-learning/image84.png)
 
 1.  Kopiera **katalog-ID:t**. Det här värdet är klient-ID.
 
-    ![klientorganisations-ID](media\azure-stack-solution-machine-learning\image85.png)
+    ![klientorganisations-ID](media/azure-stack-solution-machine-learning/image85.png)
 
 Ge tjänstens huvudnamn behörighet att distribuera resurser i Azure Stack-prenumeration
 
@@ -1560,27 +1560,27 @@ Ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigh
 
 1.  Navigera till önskad nivå av omfång för att tilldela programmet. Om du vill tilldela en roll prenumerationsområde, väljer du exempelvis **prenumerationer**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image86.jpeg)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image86.jpeg)
 
 1.  Välj den **prenumeration** (resursgrupp eller resurs) för att tilldela programmet.
 
-    ![Välj prenumeration för tilldelning](media\azure-stack-solution-machine-learning\image87.png)
+    ![Välj prenumeration för tilldelning](media/azure-stack-solution-machine-learning/image87.png)
 
 1.  Välj **åtkomstkontroll (IAM)**.
 
-    ![Välj åtkomst](media\azure-stack-solution-machine-learning\image88.png)
+    ![Välj åtkomst](media/azure-stack-solution-machine-learning/image88.png)
 
 1.  Välj **Lägg till**.
 
-    ![Välj Lägg till](media\azure-stack-solution-machine-learning\image89.png)
+    ![Välj Lägg till](media/azure-stack-solution-machine-learning/image89.png)
 
 1.  Välj roll att tilldela programmet. Följande bild visar den **ägare** roll.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image90.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image90.png)
 
 1.  Som standard visas inte Azure Active Directory-program i de tillgängliga alternativen. Du hittar programmet, **anger du namnet** i sökningen fältet och markerar den.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image91.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image91.png)
 
 1.  Välj **spara** Slutför tilldela rollen. Programmet visas i listan över användare som har tilldelats en roll för detta omfång.
 
@@ -1598,18 +1598,18 @@ Istället för att hantera varje agent individuellt agenter är ordnade i **agen
 
  -  Välj **Hantera säkerhet** till sidan för åtkomst-token skapas.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image92.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image92.png)
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image93.jpeg)
+![Alternativ text](media/azure-stack-solution-machine-learning/image93.jpeg)
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image94.jpeg)
+![Alternativ text](media/azure-stack-solution-machine-learning/image94.jpeg)
 
 > [!Note]  
 > Hämta token information. Det kommer inte att visas igen när du lämnar den här skärmen.
 
 1.  Kopiera den **token**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image95.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image95.png)
 
 #### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Installera VSTS skapa agenten i Azure Stack finns skapa Server
 
@@ -1660,7 +1660,7 @@ Istället för att hantera varje agent individuellt agenter är ordnade i **agen
 
 2.  Hämta och distribuera skapandeagent som en tjänst med hjälp av en **personlig åtkomsttoken (PAT)** och kör som-konto för VM-administratör.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image96.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image96.png)
 
     ```Bash  
         cd \home\<user>
@@ -1678,7 +1678,7 @@ Istället för att hantera varje agent individuellt agenter är ordnade i **agen
         ./config.sh
     ```
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image97.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image97.png)
 
 2.  Efter **./config.sh**färdiga, kör följande kod för att aktivera tjänsten på servern start och starta tjänsten:
 
@@ -1693,23 +1693,23 @@ Agenten visas nu i VSTS-mapp.
 
 Användare kan skapa slutpunkter så VSTO versioner kan distribuera Azure Service-appar till stacken. VSTS ansluter till skapandeagent, som sedan ansluter med Azure Stack.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image98.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image98.png)
 
 1.  På den **inställningar** menyn och välj **Security**.
 
 2.  I den **VSTS grupper** listan till vänster, Välj **Endpoint skapare**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image99.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image99.png)
 
 3.  På den **fliken medlemmar,** väljer den **+ Lägg till**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image100.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image100.png)
 
 1.  Typ **användarnamn** och välja användarnamnet i listan.
 
 2.  Välj **spara ändringar**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image101.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image101.png)
 
 3.  I den **VSTS grupper** listan till vänster, Välj **Endpoint administratörer**.
 
@@ -1719,13 +1719,13 @@ Användare kan skapa slutpunkter så VSTO versioner kan distribuera Azure Servic
 
 6.  Välj **spara ändringar.**
 
-    ![buchatech](media\azure-stack-solution-machine-learning\image102.jpeg)
+    ![buchatech](media/azure-stack-solution-machine-learning/image102.jpeg)
 
     Build-agenten i Azure Stack får anvisningar från VSTS som meddelar sedan-slutpunktsinformation för kommunikation med Azure Stack.
 
     VSTS till Azure Stack-anslutningen är nu klar.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image103.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image103.png)
 
 ### <a name="configure-build-and-release-definitions"></a>Konfigurera skapa och släpp-definitioner
 
@@ -1735,61 +1735,61 @@ Nu när anslutningar upprättas du manuellt mappa skapade Azure-slutpunkten, AKS
 
 1.  Välj avsnittet bygger under hubben skapa och släpp och skapa en ny definition.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image104.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image104.png)
 
 1.  Välj VSTS Git och den lagringsplats som skapades tidigare.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image105.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image105.png)
 
 1.  Välj tomma pipelinen som mall
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image106.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image106.png)
 
 1.  Namnge bygget **kopia artefakt** och välj den Azure Stack skapa Server för agenten kön.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image107.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image107.png)
 
 1.  Välj fas 1 i processerna och Byt namn på den till **kopia artefakt**, sedan **Lägg till en aktivitet** till fasen:
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image108.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image108.png)
 
 1.  Välj **publicera skapa artefakter** från den **Utility** listan och välj **Lägg till**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image109.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image109.png)
 
 1.  Välj den **sökvägen till publicera** och välj den **iris_deployment.yaml** fil.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image110.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image110.png)
 
 1.  Namnge artefakten **iris_deployment** och väljer att publiceringsplatsen är **Visual Studio Team Services/TFS**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image111.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image111.png)
 
 1.  Välj **spara och köa**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image112.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image112.png)
 
 1.  Kontrollera status för build genom att välja build-ID.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image113.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image113.png)
 
 Framgång ser ut ungefär så här:
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image114.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image114.png)
 
 #### <a name="create-the-release-definition-for-the-yaml-code"></a>Skapa Versionsdefinition YAML-kod
 
 1.  Välj avsnittet versioner under Skapa och släpp hubben, en ny definition
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image115.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image115.png)
 
 1.  Välj tomma pipelinen som en mall.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image106.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image106.png)
 
 1.  Namn på miljön Azure Stack.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image116.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image116.png)
 
 1.  Lägg till en ny artefakt genom att välja **artefakter** och **+ Lägg till**
 
@@ -1799,25 +1799,25 @@ Framgång ser ut ungefär så här:
 
 4.  Välj sedan **lägga till**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image117.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image117.png)
 
 1.  Välj Azure Stack från miljöer och lägger till en ny uppgift i Azure Stack
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image118.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image118.png)
 
 
 1.  Ange kön agenten till Azure Stack finns skapa Server på agenten-fasen.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image119.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image119.png)
 
 1.  Lägga till en ny uppgift i den här fasen, väljer att distribuera till Kubernetes uppgift under distribuera och väljer Lägg till.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image120.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image120.png)
 
 
 1.  Ge den namnet **Kubectl gäller** (standardnamnet) och välj kommandot Använd.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image121.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image121.png)
 
     Nu ska du skapa en ny anslutning för Kubernetes-tjänsten.
 
@@ -1846,7 +1846,7 @@ Framgång ser ut ungefär så här:
 
 11. Gå till <https://aka.ms/devicelogin> i webbläsaren. När du uppmanas, anger du den kod som tas emot i CLI i webbläsaren.
 
-    ![Kubernetes Service-slutpunkt](media\azure-stack-solution-machine-learning\image122.png)
+    ![Kubernetes Service-slutpunkt](media/azure-stack-solution-machine-learning/image122.png)
 
 1.  Skriv följande kommando i Kommandotolken för att hämta autentiseringsuppgifterna för Kubernetes-klustret.
 
@@ -1854,20 +1854,20 @@ Framgång ser ut ungefär så här:
 
 AZ aks get-credentials resursgrupp <yourResourceGroup> namn <yourazurecontainerservice>
 
-![Kubernetes Service-slutpunkt](media\azure-stack-solution-machine-learning\image123.png)
+![Kubernetes Service-slutpunkt](media/azure-stack-solution-machine-learning/image123.png)
 
 1.  Navigera till den **.kube**mapp under arbetskatalogen (t.ex.: C:\\användare\\<user>\\dokument\\Kube)
 
 2.  Kopiera innehållet i den**config**och klistrar in den i fönstret anslutning till Kubernetes. Välj den**OK**knappen.
 
-    ![Kubernetes Service-slutpunkt](media\azure-stack-solution-machine-learning\image124.png)
+    ![Kubernetes Service-slutpunkt](media/azure-stack-solution-machine-learning/image124.png)
     
 
 3.  När Kubernetes-slutpunkt skapas och markeras, väljer du Använd configuration filer kryssrutan för att lägga till en konfigurationsfil. Bläddra till filen iris_deployment.yaml i länkade artefakter.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image125.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image125.png)
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image126.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image126.png)
 
 4.  Spara versionsdefinitionen.
 
@@ -1883,7 +1883,7 @@ kubectl get deployments
 
 Utdata bör se ut ungefär så här, medan i processen för distribution.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image127.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image127.png)
 
 ```Bash  
 kubectl proxy
@@ -1891,7 +1891,7 @@ kubectl proxy
 
 När kubernetes Användargränssnittet körs, bläddra till distributionen vid [ **https://localhost:8001/** ](https://localhost:8001/) gå sedan till **arbetsbelastningar -> replikuppsättningar**.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image128.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image128.png)
 
 ### <a name="deploy-the-yaml-service"></a>Distribuera YAML-tjänsten
 
@@ -1903,7 +1903,7 @@ När kubernetes Användargränssnittet körs, bläddra till distributionen vid [
     cd /mnt/c/users/<User>/source/repos/HybridMLIris/HybridMLIris/
     ```
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image75.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image75.png)
 
 1.  Kopiera den **iris_service.yaml** -filen i databasen.
 
@@ -1919,21 +1919,21 @@ När kubernetes Användargränssnittet körs, bläddra till distributionen vid [
     git push
     ```
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image129.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image129.png)
 
 #### <a name="update-the-build-definition-for-the-yaml-code"></a>Uppdatera Build-Definition för det YAML-kod
 
 1.  Välj avsnittet bygger under Skapa och släpp-hubben och definitionen skapade tidigare.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image130.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image130.png)
 
 2.  Välj knappen Redigera om du vill redigera definitionen.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image131.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image131.png)
 
 3.  **Lägg till en aktivitet** till fasen. Välj **publicera skapa artefakter** från den **Utility** listan och välj **Lägg till**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image108.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image108.png)
 
 4.  Ge den namnet **Kubectl gäller** (standardnamnet) och välj kommandot Använd.
 
@@ -1943,26 +1943,26 @@ När kubernetes Användargränssnittet körs, bläddra till distributionen vid [
 
 1.  Välj theReleases avsnittet under Skapa och släpp-hubben och versionsdefinitionen skapade tidigare. Välj sedan länken Redigera.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image132.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image132.png)
 
 1.  Välj miljön **Azure Stack** sedan lägga till en ny uppgift i Azure Stack.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image133.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image133.png)
 
 1.  Lägg till en **ny uppgift** till det här steget, väljer den **distribuera till Kubernetes** uppgift **distribuera** och välj **Lägg till**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image134.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image134.png)
 
 1.  Ge den namnet **Kubectl gäller** (standardnamnet) och välj kommandot Använd.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image109.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image109.png)
 
 1.  Ange Kubernates Service-anslutning till Azure Stack-anslutning som skapades tidigare och välj sedan den **använda konfigurationsfiler** kryssrutan om du vill lägga till en konfigurationsfil. Bläddra till filen iris_service.yaml i länkade artefakter.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image135.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image135.png)
 
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image136.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  Spara versionsdefinitionen.
 
@@ -1978,7 +1978,7 @@ kubectl get deployments
 
 Utdata bör se ut ungefär så här, medan i processen för distribution.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image127.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image127.png)
 
 
 ```Bash  
@@ -1987,7 +1987,7 @@ kubectl proxy
 
 När kubernetes Användargränssnittet körs, bläddra till distributionen vid [ **https://localhost:8001/** ](https://localhost:8001/) gå sedan till **arbetsbelastningar -> replikuppsättningar**.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image137.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image137.png)
 
 
 ### <a name="kubernetes-scoring-and-validation"></a>Kubernetes bedömning och validering
@@ -2000,15 +2000,15 @@ kubectl proxy
 
 Bläddra till Kubernetes-UI, och gå sedan till **distributioner** -> **Iris-distribution** -> **nya replikuppsättning**  ->  **Iris-distribution-xxxxxxxxx** (där xs är distributions-ID).
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image138.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image138.png)
 
 Gå sedan till **Services** och välj den **extern slutpunkt** av tjänsten för att verifiera det fungerar.
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image139.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image139.png)
 
 Ett verifieringsmeddelande som liknar den nedan visas:
 
-![Alternativ text](media\azure-stack-solution-machine-learning\image140.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image140.png)
 
 #### <a name="create-azure-stack-scoring-function-app-in-the-azure-stack-portal"></a>Skapa Azure Stack bedömning Funktionsapp i Azure Stack-portalen
 
@@ -2016,37 +2016,37 @@ En funktionsapp måste värd för körning av varje funktion. En funktionsapp ka
 
 1.  Användarportalen för Azure Stack, väljer du den **+ ny** knapp hittades i det övre vänstra hörnet, väljer sedan**webb + mobilt** >**Funktionsapp**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image141.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image141.png)
 
 1.  Namnge funktionen **datafunktioner** och placera den i samma resursgrupp med återstående Maskininlärning innehåll. Låt verktyget automatiskt – skapa en ny app service-plan för användning och använder storage-konto som tidigare har skapat för applagring.
 
-    ![Definiera nya funktionsappinställningar](media\azure-stack-solution-machine-learning\image142.png)
+    ![Definiera nya funktionsappinställningar](media/azure-stack-solution-machine-learning/image142.png)
 
 1.  Välj**skapa**att etablera och distribuera funktionsappen.
 
 2.  Välj meddelandeikonen i det övre högra hörnet i portalen och titta efter den**distributionen lyckades** meddelande.
 
-    ![Definiera nya funktionsappinställningar](media\azure-stack-solution-machine-learning\image143.png)
+    ![Definiera nya funktionsappinställningar](media/azure-stack-solution-machine-learning/image143.png)
 
 1.  Välj**gå till resurs** att visa den nya funktionsappen.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image144.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image144.png)
 
 1.  Skapa en ny funktion genom att välja **Functions**, kommer **+ ny funktion** knappen.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image145.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image145.png)
 
 1.  Välj HTTP-utlösare
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image146.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image146.png)
 
 1.  Välj **C\#**  som språk och namnet funktionen: **clean-poäng-data**, och ange åtkomstnivån till **anonym**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image147.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image147.png)
 
 1.  Kopiera och klistra in innehållet i exemplet Platskod för clean-poäng-data i funktionen.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image148.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image148.png)
 
 #### <a name="use-postman-to-validate-functions"></a>Validera funktioner med hjälp av Postman
 
@@ -2054,39 +2054,39 @@ För att säkerställa att du har konfigurerat dina Kbernetes och funktioner kan
 
 1.  Bläddra till Kubernetes-UI, och gå sedan till **distributioner** -> **Iris-distribution** -> **nya replikuppsättning**  ->  **Iris-distribution-xxxxxxxxx** (där xs är distributions-ID)
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image138.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image138.png)
 
 1.  Gå sedan till **Services** och kopiera den **extern slutpunkt**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image149.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image149.png)
 
 1.  Ladda ned och installera appen Postman [här](https://www.getpostman.com/apps) om det behövs.
 
 2.  Logga in på den Postman-appen och Stäng dialogrutan Ny fil.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image150.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image150.png)
 
 1.  Från postman-appen Välj POST...
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image151.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image151.png)
 
 1.  Klistra in den **extern slutpunkt** URL: en i postman-appen under den **fråge-URL** att lägga till  **\\poäng** i slutet av URL: en som visas nedan.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image152.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image152.png)
 
 1.  Välj den **brödtext** fliken och data skriver som **raw**, sedan **JSON**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image153.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image153.png)
 
 1.  Från en webbläsare, navigerar du till **extern slutpunkt**. Att lägga till följande URL: en **/swagger.json** detta leder till tjänster Swagger-filen som används för att testa installationen.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image154.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image154.png)
 
 1.  Kopiera de exempel som visas i den **Swagger.JSON** fil.
 
 2.  Klistra in exemplet i brödtexten i inlägget i Postman-appen och välj **skicka**. Den bör returnera ett värde liknar den som visas nedan.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image155.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image155.png)
 
 ## <a name="step-7-create-an-azure-stack-storage-account-and-storage-queue"></a>Steg 7: Skapa ett Azure Stack-lagringskonto och Storage-kö
 
@@ -2106,29 +2106,29 @@ Skapa ett Azure Stack-lagringskonto och Storage-kö för data.
 
 7.  Välj**skapa**att skapa lagringskontot.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image156.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  Välj nyligen skapade lagringskontot.
 
 2.  Välj på**köer**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image157.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image157.png)
 
 1.  Välj på **+ kö** och ge namnet på kön och välj **OK.**
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image158.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image158.png)
 
 1.  Hämta den **Connection String** för Storage-kö och kopierar den.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image159.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image159.png)
 
 1.  Gå till Azure-Funktionsapp och välj **programinställningar**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image160.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image160.png)
 
 1.  Programinställningar i Funktionsappen, rulla programinställningar och välj **+ Lägg till ny inställning**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image161.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image161.png)
 
 1.  Ange namnet på lagringskontot i den **namn** fält, lägga till i slutet; _qos
 
@@ -2136,11 +2136,11 @@ På så sätt kan appen ska veta att det här är en slutpunkt för lagring-kont
 
 1.  Klistra sedan in anslutningssträngen i den **värdet** fält.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image162.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image162.png)
 
 1.  Bläddra till början av programinställningar och välj **spara**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image163.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image163.png)
 
 ### <a name="update-the-scoring-function-to-use-storage-queue"></a>Uppdatera funktionen bedömning för att använda Storage-kö
 
@@ -2150,15 +2150,15 @@ På så sätt kan appen ska veta att det här är en slutpunkt för lagring-kont
 
 3.  Välj sedan **+ nya utdata** från utdata.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image164.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image164.png)
 
 1.  Välj sedan **Azure Queue Storage** och välj **Välj**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image165.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image165.png)
 
 1.  Uppdatera den **könamn** till lagringskön skapade tidigare och ange sedan den **Lagringskontoanslutning** till den lagringskontoanslutning som skapats tidigare och välj **spara.**
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image166.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image166.png)
 
 ## <a name="step-8-create-a-function-to-handle-clean-data"></a>Steg 8: Skapa en funktion för att hantera rensa data
 
@@ -2166,15 +2166,15 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
 1.  Skapa en ny funktion genom att välja **Functions**, kommer **+ ny funktion** knappen.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image167.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image167.png)
 
 1.  Välj **Timerutlösare**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image168.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image168.png)
 
 1.  Välj **C\#**  som språk och namnet funktionen: **överföring till azure** och Ställ in schemat till **0 0 \*/1 \* \* \***  som i CRON notation är en gång i timmen.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image169.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image169.png)
 
 ### <a name="get-the-connection-string-to-the-azure-hosted-storage-account"></a>Hämta anslutningssträngen till det värdbaserade Azure-Lagringskontot
 
@@ -2182,17 +2182,17 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
 2.  Välj **åtkomstnycklar**, kopierar den **anslutningssträngen** för Lagringskontot.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image170.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image170.png)
 
 ### <a name="update-the-upload-to-azure-function-to-use-the-azure-hosted-storage"></a>Uppdatera den överföring till azure att använda Azure som värd-lagring
 
 1.  Gå till Azure-Funktionsapp och välj **programinställningar**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image171.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image171.png)
 
 1.  Programinställningar i Funktionsappen, rulla programinställningar och välj **+ Lägg till ny inställning**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image172.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image172.png)
 
 1.  Ange namnet på lagringskontot i den **namn** fält, lägga till i slutet; _qos
 
@@ -2200,11 +2200,11 @@ På så sätt kan appen ska veta att det här är en slutpunkt för lagring-kont
 
 1.  Klistra sedan in på Azure som värd anslutningssträng för Lagringskonto i den **värdet** fält.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image173.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image173.png)
 
 1.  Bläddra till början av programinställningar och välj **spara**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image174.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image174.png)
 
 1.  Gå tillbaka till den **överföring till azure** funktion.
 
@@ -2212,15 +2212,15 @@ På så sätt kan appen ska veta att det här är en slutpunkt för lagring-kont
 
 3.  Välj sedan **+ nya utdata** från utdata.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image175.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image175.png)
 
 1.  Välj sedan **Azure Blob Storage** och välj **Välj**.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image176.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image176.png)
 
 1.  Uppdatering i **sökväg** lagringsbehållare som skapades tidigare i följande format: **uploadeddata / {rand-guid} .txt**, och sedan ange den **Lagringskontoanslutning** till den Anslutning till lagringskonto till Azure skapade tidigare och välj **spara.**
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image177.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image177.png)
 
 1.  Kopiera och klistra in innehållet i exemplet Platskod för **överföring till azure** i funktionen.
 
@@ -2228,11 +2228,11 @@ På så sätt kan appen ska veta att det här är en slutpunkt för lagring-kont
 
 3.  Spara och kör koden.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image178.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image178.png)
 
 1.  Kontrollera Azure som värd lagringskontot för att se data har tolkats upp till molnet från Azure: framgång ser ut ungefär som den nedan.
 
-    ![Alternativ text](media\azure-stack-solution-machine-learning\image179.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image179.png)
 
 Data har språkoberoende av känsliga data med Azure Stack finns Kubernetes Machine Learning och överförs till Azures offentliga moln från en lokal Azure Stack via Azure Stack finns Funktionsappar, och kan mellanlagra data för överföringar i en edge/frånkopplad scenario.
 

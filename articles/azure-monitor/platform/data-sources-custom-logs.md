@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 099fe053f354f2773dfec1d3085c03d83671ed2a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03c561001999245b55e6e76b02f8916d0b2d619f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833864"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963240"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i Log Analytics
-Datakälla för anpassade loggar i Log Analytics kan du samla in händelser från textfiler på både Windows och Linux-datorer. Många program logga information till textfiler i stället för standardtjänster loggning, till exempel Windows händelselogg eller Syslog.  När samlats in, kan du parsa varje post i inloggningen till enskilda fält med hjälp av den [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) funktion i Log Analytics.
+Datakälla för anpassade loggar i Log Analytics kan du samla in händelser från textfiler på både Windows och Linux-datorer. Många program logga information till textfiler i stället för standardtjänster loggning, till exempel Windows händelselogg eller Syslog. När samlats in, kan du parsa data till enskilda fält i dina frågor eller extrahera data vid insamling av enskilda fält.
 
 ![Anpassade Logginsamling](media/data-sources-custom-logs/overview.png)
 
@@ -105,13 +105,10 @@ När Log Analytics börjar samla in från den anpassade loggen, är dess poster 
 
 > [!NOTE]
 > Om egenskapen \data saknas från sökningen kan du behöva stänga och öppna din webbläsare.
->
->
+
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Steg 6. Parsa anpassade loggposter
-Hela logg kommer att lagras i en enskild egenskap med namnet **\data**.  Du kommer troligen vill separera olika typer av informationen i varje post i enskilda egenskaperna som lagrats i posten.  Du gör detta med hjälp av den [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) funktion i Log Analytics.
-
-Detaljerade anvisningar för parsning av anpassad logg tillhandahålls inte här.  Finns det [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) dokumentationen för den här informationen.
+Hela logg kommer att lagras i en enskild egenskap med namnet **\data**.  Du kommer förmodligen vill separera olika typer av informationen i varje post i enskilda egenskaper för varje post. Referera till [parsa textdata i Log Analytics](../log-query/parse-text.md) alternativen för att parsa **\data** till flera egenskaper.
 
 ## <a name="removing-a-custom-log"></a>Ta bort en anpassad logg
 Ta bort en anpassad logg som du tidigare har definierat med hjälp av följande process i Azure-portalen.
@@ -123,7 +120,7 @@ Ta bort en anpassad logg som du tidigare har definierat med hjälp av följande 
 ## <a name="data-collection"></a>Datainsamling
 Log Analytics samlar in nya poster från varje anpassad logg ungefär var femte minut.  Agenten att registrera sin plats i varje loggfil som det samlar in från.  Om agenten kopplas från för en viss tidsperiod, sedan Log Analytics samlar in poster från där den senast slutade, även om de posterna som skapades när agenten var offline.
 
-Hela innehållet i loggposten skrivs till en enskild egenskap med namnet **\data**.  Du kan parsa detta till flera egenskaper som kan analyseras och söks igenom separat genom att definiera [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) när du har skapat den anpassade loggen.
+Hela innehållet i loggposten skrivs till en enskild egenskap med namnet **\data**.  Se [parsa textdata i Log Analytics](../log-query/parse-text.md) importeras metoder att parsa var och en loggpost till flera egenskaper.
 
 ## <a name="custom-log-record-properties"></a>Anpassade egenskaper för posten
 Poster för den anpassade loggen har en typ med namnet på loggen som du anger och egenskaperna i följande tabell.
@@ -132,18 +129,8 @@ Poster för den anpassade loggen har en typ med namnet på loggen som du anger o
 |:--- |:--- |
 | TimeGenerated |Datum och tid då posten har samlats in av Log Analytics.  Om loggen använder en tidsbaserad avgränsare är den tid som samlas in från posten. |
 | SourceSystem |Typ av posten har samlats in från agenten. <br> Ansluta OpsManager – Windows-agenten, antingen direkt eller System Center Operations Manager <br> Linux – alla Linux-agenter |
-| \Data |Fulltextsökning i posten som samlas in. |
+| \Data |Fulltextsökning i posten som samlas in. Du kommer förmodligen vill [parsa dessa data till enskilda egenskaper](../log-query/parse-text.md). |
 | ManagementGroupName |Namnet på hanteringsgruppen för System Center Operations Manager-agenter.  För andra agenter är detta AOI -\<arbetsyte-ID\> |
-
-## <a name="log-searches-with-custom-log-records"></a>Loggsökningar med anpassade loggposter
-Poster från anpassade loggar lagras i Log Analytics-arbetsytan precis som poster från andra datakällor.  De har en typ som matchar det namn som du anger när du definierar loggen, så du kan använda egenskapen Type i sökningen för att hämta poster som samlas in från en viss loggning.
-
-I följande tabell innehåller olika exempel på sökningar i loggen som hämtar poster från anpassade loggar.
-
-| Söka i data | Beskrivning |
-|:--- |:--- |
-| MyApp_CL |Alla händelser från en anpassad logga namngivna MyApp_CL. |
-| MyApp_CL &#124; där Severity_CF == ”error” |Alla händelser från en anpassad logga namngivna MyApp_CL med värdet *fel* i ett anpassat fält med namnet *Severity_CF*. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exempelgenomgång för att lägga till en anpassad logg
@@ -181,5 +168,5 @@ Vi använder anpassade fält för att definiera den *EventTime*, *kod*, *Status*
 ![Loggfråga med ytterligare anpassade fält](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) att parsa posterna i anpassade inloggningen till enskilda fält.
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
+* Se [parsa textdata i Log Analytics](../log-query/parse-text.md) importeras metoder att parsa var och en loggpost till flera egenskaper.
+* Lär dig mer om [loggsökningar](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.

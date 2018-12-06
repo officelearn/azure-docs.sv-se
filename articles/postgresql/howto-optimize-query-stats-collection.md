@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 8b8d1a5a16a948953838f51edca091121dc14df1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 076442d85d7f628504cca95c36f3e99f4d0c5117
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629295"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966695"
 ---
 # <a name="optimize-query-statistics-collection-in-azure-database-for-postgresql-server"></a>Optimera fråga statistiksamling i Azure Database for PostgreSQL-server 
 Den här artikeln beskrivs för att optimera insamling av frågekörningsstatistik frågan i en Azure Database for PostgreSQL-server.
@@ -28,7 +28,7 @@ Ange `pg_stat_statements.track = NONE`:
 
 - I Azure-portalen går du till den [PostgreSQL resurshantering och välj parametrar serverbladet](howto-configure-server-parameters-using-portal.md).
 
-![PostgreSQL server parametern-bladet](.\media\howto-optimize-query-stats-collection\pg_stats_statements_portal.png)
+![PostgreSQL server parametern-bladet](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
 
 - Med hjälp av [Azure CLI](howto-configure-server-parameters-using-cli.md), az postgres server configuration set `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 

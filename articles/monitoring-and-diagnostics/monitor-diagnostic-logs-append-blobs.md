@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: b83c67e5c2ca47e73c1743d8eeaea03a8d92ea1f
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 48295a48700ee8b7331ae9811b7dd43a0ec8fa69
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247860"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959894"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Förbereda för ändring av format till Azure Monitor arkiveras på ett lagringskonto för diagnostikloggar
 
@@ -47,11 +47,11 @@ Du påverkas endast av den här ändringen om du:
  
 Du kan se om du har resursdiagnostikinställningar som skickar data till ett Azure storage-konto som du kan navigera till den **övervakaren** avsnittet i portalen klickar du på **diagnostikinställningar**, och identifiera alla resurser som har **Diagnostikstatusen** inställd **aktiverad**:
 
-![Bladet Azure Monitor diagnostikinställningar](./media/monitor-diagnostic-logs-append-blobs\portal-diag-settings.png)
+![Bladet Azure Monitor diagnostikinställningar](./media/monitor-diagnostic-logs-append-blobs/portal-diag-settings.png)
 
 Om diagnostisk Status är aktiverad, har du en aktiv diagnostikinställning på den aktuella. Klicka på resursen för att se om några diagnostikinställningar skickar data till ett lagringskonto:
 
-![Storage-konto som är aktiverad](./media/monitor-diagnostic-logs-append-blobs\portal-storage-enabled.png)
+![Storage-konto som är aktiverad](./media/monitor-diagnostic-logs-append-blobs/portal-storage-enabled.png)
 
 Om du har resurser som skickar data till ett lagringskonto med hjälp av dessa resursdiagnostikinställningar, kommer formatet för data i det lagringskontot att påverkas av den här ändringen. Om du inte har anpassat verktyg som körs på dessa konton, påverkar inte ändringen format du.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: db02df7ed27e011e51b4af470e80ac00054bf0dc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 52fe5ac108e2788e481d89901dd24098cdb3c9b4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727944"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965214"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 Visa prestanda och användning för webbsidor eller appar. Om du lägger till [Application Insights](app-insights-overview.md) i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan ställa in varningar för antal fel eller långsam sidinläsning. Och genom att infoga spårning av anrop i JavaScript-kod kan du spåra hur olika funktioner i ditt webbsideprogram används.
@@ -75,8 +75,6 @@ Infoga skriptet precis före `</head>`-taggen för alla sidor som du vill spåra
 Skriptet innehåller instrumenteringsnyckeln som dirigerar data till din Application Insights-resurs. 
 
 ([Mer detaljerad förklaring av skriptet.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
-
-*(Om du använder ett välkänt ramverk för webbsidor letar du efter adaptrar till Application Insights. Det finns till exempel [en AngularJS-modul](http://ngmodules.org/modules/angular-appinsights).)*
 
 ## <a name="detailed-configuration"></a>Detaljerad konfiguration
 Det finns flera [Parametrar](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) som du kan ange, men i de flesta fall behöver du inte göra det. Du kan t.ex. inaktivera eller begränsa antalet Ajax-anrop som rapporteras per sidvy (om du vill minska trafiken). Eller så kan du ställa in felsökningsläge så att telemetrin rör sig snabbt genom pipelinen utan att batchhanteras.

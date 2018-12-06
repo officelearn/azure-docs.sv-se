@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 5989ec9f95e2f5129a128d19326833718f37b508
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730357"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959550"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux klusterhändelser i Syslog
 
@@ -94,7 +94,7 @@ Här är ändringarna att anropa
 ```
 
 ## <a name="log-analytics-integration"></a>Log Analytics-integrering
-Du kan läsa de här Syslog-händelser i ett övervakningsverktyg, exempelvis Log Analytics. Du kan skapa en Log Analytics-arbetsyta med hjälp av Azure Marketplace med hjälp av [anvisningarna]. (.. / log-analytics/log-analytics-quick-create-workspace.md) måste du också lägga till Log Analytics-agenten till klustret för att samla in och skicka dessa data till arbetsytan. Det här är samma agent används för att samla in prestandaräknare. 
+Du kan läsa de här Syslog-händelser i ett övervakningsverktyg, exempelvis Log Analytics. Du kan skapa en Log Analytics-arbetsyta med hjälp av Azure Marketplace med hjälp av [anvisningarna]. (.. / azure-monitor/learn/quick-create-workspace.md) måste du också lägga till Log Analytics-agenten till klustret för att samla in och skicka dessa data till arbetsytan. Det här är samma agent används för att samla in prestandaräknare. 
 
 1. Navigera till den `Advanced Settings` bladet
 

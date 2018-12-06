@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498580"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963750"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Lägg till klient för användning och fakturering i Azure Stack
 
@@ -36,7 +36,7 @@ I följande diagram visas de steg som en CSP måste du följa om du vill aktiver
 
 **Hur du lägger till en slutkunden**
 
-![Ställ in Molntjänstleverantören för spårning av användning och för att hantera slutet kund-ID](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
+![Ställ in Molntjänstleverantören för spårning av användning och för att hantera slutet kund-ID](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ## <a name="create-a-new-customer-in-partner-center"></a>Skapa en ny kund i Partner Center
 
@@ -50,7 +50,7 @@ När du har skapat en post för din kund i Partner Center kan sälja du dem på 
 ## <a name="create-a-guest-user-in-the-end-customer-directory"></a>Skapa en gästanvändare i katalogen end-kund
 
 Om slutkunden ska hantera sina egna konton, skapa en gästanvändare i sin katalog och skicka dem till informationen. Användaren sedan lägger till gästen och höjer behörigheten Gäst till **ägare** till CSP: N för Azure Stack-konto.
- 
+ 
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>Uppdatera registreringen med kundprenumerationen slutet
 
 Uppdatera din registrering med nya kundens prenumeration. Azure rapporterar kundens användning med hjälp av kunden identiteten från Central till Partner. Det här steget säkerställer att varje kunds användning rapporteras under kundens enskilda CSP-prenumeration. Detta gör att spåra användaren användning och fakturering är mycket enklare.
@@ -86,10 +86,10 @@ Konfigurera Azure Stack för att hantera användare från flera Azure AD-kliente
 
 ## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Skapa en lokal resurs i slutet kund-klienten i Azure Stack
 
-När du har lagt till den nya kunden till Azure Stack eller kundklient slutet har aktiverat din gästkontot med ägarprivilegier, kontrollera att du kan skapa en resurs i deras klienter. De kan till exempel [skapa en Windows-dator med Azure Stack portal](user\azure-stack-quick-windows-portal.md).
+När du har lagt till den nya kunden till Azure Stack eller kundklient slutet har aktiverat din gästkontot med ägarprivilegier, kontrollera att du kan skapa en resurs i deras klienter. De kan till exempel [skapa en Windows-dator med Azure Stack portal](user/azure-stack-quick-windows-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
  - Felmeddelanden om de aktiveras i din registreringen finns i [klient registrering felmeddelanden](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
  - Läs mer om hur du hämtar information om användning från Azure Stack i [användning och fakturering i Azure Stack](azure-stack-billing-and-chargeback.md).
- - Om du vill granska hur en slutkund kan lägga till dig, som CSP: N, chef för deras Azure Stack-klientorganisation, se [aktivera en Molntjänstleverantör att hantera din prenumeration för Azure Stack](user\azure-stack-csp-enable-billing-usage-tracking.md).
+ - Om du vill granska hur en slutkund kan lägga till dig, som CSP: N, chef för deras Azure Stack-klientorganisation, se [aktivera en Molntjänstleverantör att hantera din prenumeration för Azure Stack](user/azure-stack-csp-enable-billing-usage-tracking.md).

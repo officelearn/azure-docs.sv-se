@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: bca92e933b1f75c330999f0d55723eb9f26a7382
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6e7d025e9e83f5511fce25d0c24e4da3b04d7e54
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426112"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957546"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Felsöka ogiltig nätverkskonfiguration för din hanterade domän
 Den här artikeln hjälper dig att felsöka och lösa nätverksrelaterade konfigurationsfel som resulterar i följande varningsmeddelande:
@@ -41,7 +41,7 @@ Ogiltig NSG-konfigurationer är den vanligaste orsaken för nätverksfel för Az
 ## <a name="sample-nsg"></a>Exemplet NSG
 I följande tabell visar ett exempel NSG som skulle skydda din hanterade domän samtidigt som Microsoft för att övervaka, hantera och uppdatera informationen.
 
-![Exemplet NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![Exemplet NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 >[!NOTE]
 > Azure AD Domain Services kräver obegränsad utgående åtkomst från det virtuella nätverket. Vi rekommenderar inte för att skapa någon ytterligare NSG-regel som begränsar utgående åtkomst för det virtuella nätverket.

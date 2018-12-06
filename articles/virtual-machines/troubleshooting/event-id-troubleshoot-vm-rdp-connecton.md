@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: b84992f5deea1135692c368900f63773b51453bb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634334"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959690"
 ---
-# <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Felsöka Azure VM RDP-anslutningsproblem efter händelse-ID 
+# <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Felsöka Azure VM RDP-anslutningsfel efter händelse-ID 
 
 Den här artikeln förklarar hur du använder händelse-ID för att felsöka problem som hindrar en Remote Desktop protocol (RDP)-anslutning till en Azure virtuell dator (VM).
 
@@ -37,7 +37,7 @@ Granska händelseloggarna på den virtuella datorn för att felsöka problemet, 
 
 ### <a name="create-a-backup-snapshot"></a>Skapa en ögonblicksbild
 
-Om du vill skapa en ögonblicksbild, följer du stegen i [ögonblicksbild av en disk](..\windows\snapshot-copy-managed-disk.md).
+Om du vill skapa en ögonblicksbild, följer du stegen i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>Fjärransluta till den virtuella datorn
 
@@ -56,35 +56,35 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 
 **Loggnamn:** System <br />
 **Källa:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:***tid*  <br />
+**Datum:***tid* <br />
 **Händelse-ID:** 1058 <br />
 **Aktivitetskategori:** None <br />
 **Nivå:** fel <br />
 **Nyckelord:** klassiska <br />
 **Användare:** saknas <br />
-**Dator:***dator*  <br />
+**Dator:***dator* <br />
 **Beskrivning:** värdserver för fjärrskrivbordssession har det gick inte att ersätta det utgångna självsignerat certifikat som används för autentisering av värdserver för fjärrskrivbordssession i SSL-anslutningar. Statuskoden var åtkomst nekas.
 
 **Loggnamn:** System <br />
 **Källa:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:***tid*  <br />
+**Datum:***tid* <br />
 **Händelse-ID:** 1058 <br />
 **Aktivitetskategori:** None <br />
 **Nivå:** fel <br />
 **Nyckelord:** klassiska <br />
 **Användare:** saknas <br />
-**Dator:***dator*  <br />
+**Dator:***dator* <br />
 **Beskrivning:** värdserver för fjärrskrivbordssessioner kunde inte skapa ett nytt självsignerat certifikat som ska användas för serverautentisering för RD Session host i SSL-anslutningar, statuskod: var objektet finns redan.
 
 **Loggnamn:** System <br />
 **Källa:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:***tid*  <br />
+**Datum:***tid* <br />
 **Händelse-ID:** 1057 <br />
 **Aktivitetskategori:** None <br />
 **Nivå:** fel <br />
 **Nyckelord:** klassiska <br />
 **Användare:** saknas <br />
-**Dator:***dator*  <br />
+**Dator:***dator* <br />
 **Beskrivning:** värdserver för fjärrskrivbordssessioner kunde inte skapa ett nytt självsignerat certifikat som ska användas för autentisering av värdserver för fjärrskrivbordssession på SSL-anslutningar. Statuskoden var Keyset inte finns
 
 Du kan också leta efter SCHANNEL felhändelser 36872 och 36870 genom att köra följande kommandon:
@@ -102,7 +102,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Nivå:** fel <br />
 **Nyckelord:**       <br />
 **Användare:** SYSTEM <br />
-**Dator:***dator*  <br />
+**Dator:***dator* <br />
 **Beskrivning:** ett allvarligt fel uppstod vid försök att komma åt den privata nyckeln för SSL server autentiseringsuppgifter. Felkoden som returnerades från den kryptografiska modulen är 0x8009030D.  <br />
 Internt fel-tillståndet är 10001.
 
@@ -224,7 +224,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Nivå:** fel <br />
 **Nyckelord:**       <br />
 **Användare:** SYSTEM <br />
-**Dator:***dator*  <br />
+**Dator:***dator* <br />
 **Beskrivning:** ett allvarligt fel inträffade när en autentiseringsuppgift för TLS-server. Internt fel-tillståndet är 10013.
  
 ### <a name="cause"></a>Orsak
@@ -248,13 +248,13 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 
 **Loggnamn:** Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
 **Källa:** Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Datum:***tid*  <br />
+**Datum:***tid* <br />
 **Händelse-ID:** 2056 <br />
 **Aktivitetskategori:** (109) <br />
 **Nivå:** fel <br />
 **Nyckelord:**       <br />
 **Användare:** NÄTVERKSTJÄNST <br />
-**Dator:***datorn fqdn*  <br />
+**Dator:***datorn fqdn* <br />
 **Beskrivning:** går inte att hitta beskrivningen av händelse-ID 2056 från källan Microsoft-Windows-TerminalServices-SessionBroker. Antingen den komponent som genererar den här händelsen är inte installerad på den lokala datorn eller installationen är skadad. Du kan installera eller reparera komponenten på den lokala datorn. <br />
 Om händelsen skapades på en annan dator, hade visningsinformationen sparas till händelsen. <br />
 Följande information ingick i händelsen: <br />
@@ -264,13 +264,13 @@ Det gick inte att logga in på databasen.
 
 **Loggnamn:** Microsoft-Windows-TerminalServices-SessionBroker-klient/Operational <br />
 **Källa:** Microsoft-Windows-TerminalServices-SessionBroker-klient <br />
-**Datum:***tid*  <br />
+**Datum:***tid* <br />
 **Händelse-ID:** 1296 <br />
 **Aktivitetskategori:** (104) <br />
 **Nivå:** fel <br />
 **Nyckelord:**       <br />
 **Användare:** NÄTVERKSTJÄNST <br />
-**Dator:***datorn fqdn*  <br />
+**Dator:***datorn fqdn* <br />
 **Beskrivning:** går inte att hitta beskrivningen av händelse-ID 1296 från källan Microsoft-Windows-TerminalServices-SessionBroker-klient. Antingen den komponent som genererar den här händelsen är inte installerad på den lokala datorn eller installationen är skadad. Du kan installera eller reparera komponenten på den lokala datorn.
 Om händelsen skapades på en annan dator, hade visningsinformationen sparas till händelsen.
 Följande information ingick i händelsen:  <br />

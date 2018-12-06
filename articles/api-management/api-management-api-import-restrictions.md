@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: a9f4a4ed4a8771f32a4d66aed2457a43abb92a63
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 34e6fb195ae64823336684e9ad2e9382316822b0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285879"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961084"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API-importrestriktioner och kända problem
 ## <a name="about-this-list"></a>Om den här listan
 När du importerar ett API, kan du stöta på vissa begränsningar eller identifiera problem som måste åtgärdas innan du kan importera. Den här artikeln dokument dessa, ordnade efter importformatet för API: et.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
-Om du får fel importera OpenAPI-dokument, se till att du har godkänt den – antingen med hjälp av designern i Azure portal (Design - Front End - OpenAPI-Specifikationsredigerare), eller med en tredjeparts-verktyget som <a href="http://editor.swagger.io">Swagger Editor</a>.
+Om du får fel importera OpenAPI-dokument, se till att du har godkänt den – antingen med hjälp av designern i Azure portal (Design - Front End - OpenAPI-Specifikationsredigerare), eller med en tredjeparts-verktyget som <a href="https://editor.swagger.io">Swagger Editor</a>.
 
 * Endast JSON-format för OpenAPI stöds.
 * Obligatoriska parametrar i både sökvägen och frågan måste ha unika namn. (I OpenAPI ett parameternamn endast måste vara unika inom en plats, t.ex. sökväg, fråga, rubrik.  Vi kan dock tillåta åtgärder för att vara discriminated efter både sökvägen och frågan parametrar (som inte har stöd för OpenAPI) i API Management. Därför kräver vi parametern som ska vara unikt inom mallen hela URL: en.)

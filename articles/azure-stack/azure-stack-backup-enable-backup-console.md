@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038373"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962570"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivera säkerhetskopiering för Azure Stack från administrationsportalen
-Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure Stack kan generera säkerhetskopieringar. Du kan använda dessa säkerhetskopior för att återskapa din miljö med hjälp av molnåterställning i händelse av [ett oåterkalleligt fel](.\azure-stack-backup-recover-data.md). Syftet med molnet är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer som återställts, inklusive behörigheter för rollbaserad åtkomst och roller, ursprungliga planer, erbjudanden, och tidigare definierad beräkning, lagring och nätverkskvoter.
+Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure Stack kan generera säkerhetskopieringar. Du kan använda dessa säkerhetskopior för att återskapa din miljö med hjälp av molnåterställning i händelse av [ett oåterkalleligt fel](./azure-stack-backup-recover-data.md). Syftet med molnet är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer som återställts, inklusive behörigheter för rollbaserad åtkomst och roller, ursprungliga planer, erbjudanden, och tidigare definierad beräkning, lagring och nätverkskvoter.
 
 Men säkerhetskopieringstjänsten infrastruktur kan du inte säkerhetskopiera virtuella IaaS-datorer, konfigurationer för nätverk och lagringsresurser, t.ex storage-konton, blobbar, tabeller och så vidare, så att användare som loggar in efter molnet återställningen har slutförts kommer inte se några av sina tidigare befintliga resurser. Plattform som en tjänst (PaaS) resurser och data också säkerhetskopieras inte av tjänsten. 
 
@@ -58,31 +58,31 @@ Administratörer och användare ansvarar för att säkerhetskopiera och återst�
     ```
 10. Välj **OK** att spara dina inställningar för säkerhetskopiering controller.
 
-    ![Azure Stack - inställningarna för säkerhetskopiering-domänkontrollanter](media\azure-stack-backup\backup-controller-settings.png)
+    ![Azure Stack - inställningarna för säkerhetskopiering-domänkontrollanter](media/azure-stack-backup/backup-controller-settings.png)
 
 ## <a name="start-backup"></a>Starta Säkerhetskopiering
 Om du vill starta en säkerhetskopiering klickar du på **Säkerhetskopiera nu** att starta en säkerhetskopiering på begäran. En säkerhetskopiering på begäran kan inte ändra tiden för nästa schemalagda säkerhetskopiering. När uppgiften har slutförts kan du bekräfta inställningarna i **Essentials**:
 
-![Azure Stack - säkerhetskopiering på begäran](media\azure-stack-backup\scheduled-backup.png)
+![Azure Stack - säkerhetskopiering på begäran](media/azure-stack-backup/scheduled-backup.png)
 
 Du kan också köra PowerShell-cmdleten **Start AzsBackup** på din dator för administration av Azure Stack. Mer information finns i [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
 ## <a name="enable-or-disable-automatic-backups"></a>Aktivera eller inaktivera automatisk säkerhetskopiering
 Säkerhetskopieringarna schemaläggs automatiskt när du aktiverar säkerhetskopiering. Du kan kontrollera nästa schemalagda säkerhetskopiering tid i **Essentials**. 
 
-![Azure Stack - säkerhetskopiering på begäran](media\azure-stack-backup\on-demand-backup.png)
+![Azure Stack - säkerhetskopiering på begäran](media/azure-stack-backup/on-demand-backup.png)
 
 Om du vill inaktivera framtida schemalagda säkerhetskopieringar klickar du på **inaktivera automatiska säkerhetskopieringar**. Inaktivera automatisk säkerhetskopiering behålls konfigurerade inställningar för säkerhetskopiering och behåller schemat för säkerhetskopiering. Den här åtgärden anger bara scheduler för att hoppa över framtida säkerhetskopieringar. 
 
-![Azure Stack – inaktiverar schemalagda säkerhetskopieringar](media\azure-stack-backup\disable-auto-backup.png)
+![Azure Stack – inaktiverar schemalagda säkerhetskopieringar](media/azure-stack-backup/disable-auto-backup.png)
 
 Bekräfta att framtida schemalagda säkerhetskopieringar har inaktiverats i **Essentials**:
 
-![Azure Stack - bekräfta säkerhetskopior har inaktiverats](media\azure-stack-backup\confirm-disable.png)
+![Azure Stack - bekräfta säkerhetskopior har inaktiverats](media/azure-stack-backup/confirm-disable.png)
 
 Klicka på **aktivera automatiska säkerhetskopieringar** att informera scheduler för att starta framtida säkerhetskopieringar på den schemalagda tiden. 
 
-![Azure Stack – aktivera schemalagda säkerhetskopieringar](media\azure-stack-backup\enable-auto-backup.png)
+![Azure Stack – aktivera schemalagda säkerhetskopieringar](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  

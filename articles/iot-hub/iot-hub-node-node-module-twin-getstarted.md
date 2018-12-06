@@ -9,12 +9,12 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: fa77e117b8045be4ef0566e388c4e8df08c95fe2
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4016471be05c1062eb389ab4851330f3a80dbcb2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056750"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969034"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Kom igång med IoT Hub identitets- och modulen modultvilling med hjälp av Node.js-serverdel och Node.js-enhets-
 
@@ -35,18 +35,17 @@ För att kunna genomföra den här kursen behöver du följande:
 * En IoT-hubb.
 * Installera senast [Node.js SDK](https://github.com/Azure/azure-iot-sdk-node).
 
-
 Nu har du skapat din IoT Hub och du har värdnamnet och IoT Hub-anslutningssträngen som du behöver för att slutföra resten av den här kursen.
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Skapa en enhetsidentitet och en modul-identitet i IoT Hub
 
 I det här avsnittet skapar du en Node.js-app som skapar en enhetsidentitet och en modul-identitet i identitetsregistret i IoT hub. Enheter och moduler kan inte ansluta till IoT Hub utan en post i identitetsregistret. Mer information finns i avsnittet om identitetsregistret i [utvecklarhandboken för IoT Hub][lnk-devguide-identity]. När du kör den här konsolappen, genereras ett unikt ID och en unik nyckel för både enheten och modulen. Enheten och modulen använder dessa värden för att identifiera sig vid överföring av enhet-till-moln-meddelanden till IoT Hub. ID:n är skiftlägeskänsliga.
 
-1.  Skapa en katalog för att lagra din kod.
-2. Kör först i katalogen **npm init -y** att skapa en tom package.json med standardvärden. Det här är projektfilen för din kod.
-3. Kör **npm-installationsprogrammet -S azure-iothub@modules-preview**  att installera service SDK inuti den **node_modules** underkatalog. 
+1. Skapa en katalog för att lagra din kod.
+2. Kör först i katalogen **npm init -y** att skapa en tom package.json med standardvärden. Det här är projektfilen för din kod.
+3. Kör **npm-installationsprogrammet -S azure-iothub@modules-preview ** att installera service SDK inuti den **node_modules** underkatalog.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Underkatalog namnet node_modules använder word-modulen för att beskriva ”ett nod-bibliotek”. Den här termen har inget samband med IoT Hub-moduler.
 
 4. Skapa följande .js-fil i katalogen. Anropa den **add.js**. Kopiera och klistra in dina hub-anslutningssträngen och namnet på händelsehubben.
@@ -126,7 +125,7 @@ I det här avsnittet skapar du ett Node.js-appen på din simulerade enhet som up
     > [!NOTE]
     > Npm install-kommandot kan känna långsam. Ha tålamod, det dra nedåt massor av kod från paketdatabasen.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Om du ser ett meddelande om att npm fel! registret fel parsa json, det är säkert att ignorera. Om du ser ett meddelande om att npm fel! registret fel parsa json, det är säkert att ignorera.
 
 3. Skapa en fil med namnet twin.js. Kopiera och klistra in din modul-ID-sträng.
@@ -180,7 +179,7 @@ I det här avsnittet skapar du ett Node.js-appen på din simulerade enhet som up
     });
     ```
 
-2. Nu kan köra det här kommandot **noden twin.js**.
+2. Nu kan köra det här kommandot **noden twin.js**.
 
     ```
     F:\temp\module_twin>node twin.js
@@ -200,9 +199,8 @@ Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-sc
 * [Connecting your device][lnk-device-management] (Komma igång med enhetshantering)
 * [Komma igång med IoT Edge][lnk-iot-edge]
 
-
 <!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

@@ -1,20 +1,20 @@
 ---
 title: IoT DevKit till molnet – ansluta IoT DevKit AZ3166 till Azure IoT Hub | Microsoft Docs
 description: I de här självstudierna lär du dig hur du konfigurerar och ansluter IoT DevKit AZ3166 på Azure IoT Hub så att den kan skicka data till Azure-molnplattformen.
-author: rangv
-manager: jeffya
+author: wesmc7777
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
-ms.author: rangv
-ms.openlocfilehash: 2ece10c43f25ac637a29324f46a88e50d9655431
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.author: wesmc
+ms.openlocfilehash: e6412ce36110f2e9a800262c968039112f2e4b1c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620446"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955691"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit AZ3166 till Azure IoT Hub
 
@@ -133,27 +133,34 @@ Följ dessa steg för att förbereda utvecklingsmiljön för DevKit:
 3. Leta efter **Azure IoT Workbench** i tillägget marketplace och installera den.
     ![Installera Azure IoT Workbench](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) tillsammans med IoT-Workbench andra beroende tillägg kommer att installeras.
 
-4. Konfigurera Arduino
-    * **Windows**: på **Windows** öppna **fil > Inställningar > Inställningar** klickar du på den **...**  och öppna settings.json och sedan lägga till följande rad för att konfigurera Arduino. 
+4. Konfigurera Visual Studio Code med Arduino inställningar. 
+
+    I Visual Studio Code, klickar du på **fil > Inställningar > Inställningar**. Klicka sedan på den **...**  och **öppna settings.json**. 
+    
+    Lägg till följande rad för att konfigurera Arduino beroende på din plattform: 
+
+    * **Windows**:
       
-    ```json
-    "arduino.path": "C:\\Program Files (x86)\\Arduino",
-    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
-    ```
+        ```json
+        "arduino.path": "C:\\Program Files (x86)\\Arduino",
+        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        ```
 
-    * **macOS**: på **macOS** öppna **kod > Inställningar > Inställningar** klickar du på den **...**  och öppna settings.json och sedan lägger du till följande rader om du vill konfigurera Arduino
+    * **macOS**:
 
-    ```json
-    "arduino.path": "/Applications",
-    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
-    ```
+        ```json
+        "arduino.path": "/Applications",
+        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        ```
 
     * **Ubuntu**:
+    
+        Ersätt den **{username}** platshållaren nedan med ditt användarnamn.
 
-    ```json
-    "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
-    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
-    ```
+        ```json
+        "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
+        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        ```
 
 5. Klicka på `F1` att öppna kommandopaletten, typ och väljer **Arduino: tavla Manager**. Sök efter **AZ3166** och installera den senaste versionen.
     ![Installera DevKit SDK](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)

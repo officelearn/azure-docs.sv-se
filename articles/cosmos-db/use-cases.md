@@ -1,20 +1,18 @@
 ---
-title: Vanliga användningsområden och scenarier för Azure Cosmos DB | Microsoft Docs
+title: Vanliga användningsområden och scenarier för Azure Cosmos DB
 description: 'Lär dig mer om överst fem användningsfall för Azure Cosmos DB: genererade innehåll, loggning, katalogdata, inställningar för användardata och Internet of Things (IoT).'
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: sngun
-ms.openlocfilehash: 50bc70fa18bc8fb04e4f8117340c66665204282c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 400ce3ddb2a01db32faa7d3303c89a76c2c4649a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251081"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960047"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga användningsområden för Azure Cosmos DB
 Den här artikeln innehåller en översikt över flera vanliga användningsområden för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungerar som en startpunkt när du utvecklar ditt program med Cosmos DB.   

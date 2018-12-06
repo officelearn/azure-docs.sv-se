@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 64bd250f324bed53a9f33aa72f6b1daa48e0dc86
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8951680ca9488dabffd02ee084e3f6827122276e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424654"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957460"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Hantering av anslutningar och tillförlitlig meddelandehantering med hjälp av SDK: er för Azure IoT Hub-enheter
 
@@ -115,9 +115,8 @@ Granska följande implementering dokument för kodexempel på andra språk. Data
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 ## <a name="next-steps"></a>Nästa steg
-
-- [Använd SDK:er för enhet och tjänst](.\iot-hub-devguide-sdks.md)
-- [Använd SDK för IoT-enhet för C](.\iot-hub-device-sdk-c-intro.md)
-- [Utveckla för begränsade enheter](.\iot-hub-devguide-develop-for-constrained-devices.md)
-- [Utveckla för mobila enheter](.\iot-hub-how-to-develop-for-mobile-devices.md)
+- [Använd SDK:er för enhet och tjänst](./iot-hub-devguide-sdks.md)
+- [Använd SDK för IoT-enhet för C](./iot-hub-device-sdk-c-intro.md)
+- [Utveckla för begränsade enheter](./iot-hub-devguide-develop-for-constrained-devices.md)
+- [Utveckla för mobila enheter](./iot-hub-how-to-develop-for-mobile-devices.md)
 - [Felsöka enhet kopplar från](iot-hub-troubleshoot-connectivity.md)

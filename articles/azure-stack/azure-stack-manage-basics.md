@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254527"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972396"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack administration grunder
 Det finns flera saker du behöver veta om du inte har använt Azure Stack-administration. Den här vägledningen ger en översikt över din roll som Azure Stack-operatör och vad du behöver att be användarna för dem att snabbt blir mer produktiv.
@@ -32,9 +32,9 @@ Om du använder ett integrerat Azure Stack-system distribueras uppdaterade versi
  
 ### <a name="development-kit"></a>Development kit
 
-Om du använder Azure Stack Development Kit kan du läsa den [vad är Azure Stack?](.\asdk\asdk-what-is.md) artikeln om du vill kontrollera att du förstår syftet med development kit och dess begränsningar. Som en ”sandlåda”, där du kan utvärdera Azure Stack, och utveckla och testa dina appar i en produktionsmiljö bör du använda i development kit. (Mer information om distribution finns i den [distribution av Azure Stack Development Kit](.\asdk\asdk-install.md) artikel.)
+Om du använder Azure Stack Development Kit kan du läsa den [vad är Azure Stack?](./asdk/asdk-what-is.md) artikeln om du vill kontrollera att du förstår syftet med development kit och dess begränsningar. Som en ”sandlåda”, där du kan utvärdera Azure Stack, och utveckla och testa dina appar i en produktionsmiljö bör du använda i development kit. (Mer information om distribution finns i den [distribution av Azure Stack Development Kit](./asdk/asdk-install.md) artikel.)
 
-Som Azure utveckla vi snabbt. Vi släpper regelbundet nya versioner. Om du kör i development kit och du vill flytta till den senaste versionen, måste du [distribuera om Azure Stack](.\asdk\asdk-redeploy.md). Du kan inte använda uppdateringspaket. Den här processen tar tid, men fördelen är att du kan prova de senaste funktionerna. Development kit-dokumentationen på vår webbplats återspeglar den senaste version-versionen.
+Som Azure utveckla vi snabbt. Vi släpper regelbundet nya versioner. Om du kör i development kit och du vill flytta till den senaste versionen, måste du [distribuera om Azure Stack](./asdk/asdk-redeploy.md). Du kan inte använda uppdateringspaket. Den här processen tar tid, men fördelen är att du kan prova de senaste funktionerna. Development kit-dokumentationen på vår webbplats återspeglar den senaste version-versionen.
 
 ## <a name="learn-about-available-services"></a>Lär dig mer om tillgängliga tjänster
 

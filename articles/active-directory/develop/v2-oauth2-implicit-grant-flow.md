@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e9de2c9b7f79dd6cba3050d84ccfa0795bc2d09a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424108"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962587"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokoll – SPA med det implicita flödet
 
@@ -36,7 +36,7 @@ Du kan använda v2.0-slutpunkten för att registrera användare i dina enkelsidi
 
 För dessa program (AngularJS, Ember.js, React.js osv.) stöder Azure Active Directory (Azure AD) Implicit beviljande av OAuth 2.0-flödet. Det implicita flödet beskrivs i den [OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-4.2). Den största fördelen är att den tillåter appen att hämta token från Azure AD utan att utföra en backend-servern autentiseringsutbyte. På så sätt kan appen att logga in användaren, hålla sessionen aktiv och hämta token till andra webb-API: er inom klienten JavaScript-kod. Det finns några viktiga säkerhetsöverväganden ta hänsyn till när du använder det implicita flödet specifikt cirka [klienten](https://tools.ietf.org/html/rfc6749#section-10.3) och [användarpersonifiering](https://tools.ietf.org/html/rfc6749#section-10.3).
 
-Om du vill använda implicit flöde och Azure AD för att lägga till autentisering i din app med JavaScript, vi rekommenderar att du använder JavaScript-bibliotek med öppen källkod, [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
+Om du vill använda implicit flöde och Azure AD för att lägga till autentisering i din app med JavaScript, vi rekommenderar att du använder JavaScript-bibliotek med öppen källkod, [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 Om du inte föredrar att använda ett bibliotek i dina program och skicka protokollmeddelanden dig själv, följa de allmänna stegen nedan.
 
@@ -71,7 +71,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Testa inloggningen med hjälp av det implicita flödet genom att klicka på <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Efter inloggningen webbläsaren ska omdirigeras till `https://localhost/myapp/` med en `id_token` i adressfältet.
-> 
+>
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |

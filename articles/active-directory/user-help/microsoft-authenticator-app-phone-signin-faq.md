@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: b2483d93fdc83970ca1568326f4bc728de16f77c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3df4be80e1a979590a05ff10601485e950de54bd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038875"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962225"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Logga in med telefonen, inte med ditt lösenord
 Microsoft Authenticator-appen inte bara kan du skydda dina konton genom att utföra tvåstegsverifiering när du ange ditt lösenord, men nu den kan ändra lösenordet för ditt Microsoft-konto helt och hållet.
@@ -43,13 +43,13 @@ Om din organisation har aktiverat denna nya upplevelse, kommer du att kunna akti
 
     När du har skrivit ditt användarnamn, visas en sida med flera tvåsiffrig ber dig godkänna inloggningen via Microsoft Authenticator-appen. Om du inte vill använda den här inloggning i metoden kan du välja **Använd ditt lösenord istället**, och logga in med ditt lösenord.
 
-    ![Godkänn inloggning box](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+    ![Godkänn inloggning box](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
 
 2. I Microsoft Authentication-appen, du får ett meddelande som ber dig **Godkänn inloggning**. Välj **Godkänn** om du känner igen inloggningsförsök. Annars väljer du **neka**. 
 
 3. Tryck på samma nummer som visas på den **Godkänn inloggning** skärmen. Använd din telefon PIN-kod eller biometriska nyckeln för att slutföra autentiseringen.
 
-    ![Godkänn inloggning box med för att välja](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+    ![Godkänn inloggning box med för att välja](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
 ## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>Aktivera phone inloggning för ditt personliga konto 
 Du kan aktivera telefoninloggning för ditt personliga Microsoft-konto, till exempel kontot som används för att logga in på Outlook.com, Xbox eller Skype.

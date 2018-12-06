@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 889f3928ee72c035035abb635eb71ec0b06a3b45
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0712b92e8288174e27e5ed5a5ab396d94e438e92
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730168"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958635"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för händelsen och ställa in meddelanden i Azure IoT Central programmet
 
-*Den här artikeln gäller för operatörer, hjälpverktyg och administratörer.*
+*Den här artikeln gäller för operatörer, kompilerare och administratörer.*
 
 Du kan använda Azure IoT Central för att fjärrövervaka dina anslutna enheter. Azure IoT Central-regler kan du övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skicka ett e-postmeddelande eller utlösa Microsoft Flow. Du kan definiera villkor som du vill övervaka din enhetsdata och konfigurera den motsvarande åtgärden med bara några klick. Den här artikeln beskriver hur du skapar regler för att övervaka händelser som skickas av enheten.
 
@@ -36,7 +36,7 @@ Om du vill skapa en regel för händelsen måste enheten mallen ha minst en hän
 
 1. Om du inte skapat några regler ännu kan se du följande skärm:
 
-    ![Inga regler ännu](media\howto-create-event-rules\Rules_Landing_Page.png)
+    ![Inga regler ännu](media/howto-create-event-rules/Rules_Landing_Page.png)
 
 
 1. På den **regler** fliken **Redigera mall** och sedan **+ ny regel** att se vilka typer av regler som du kan skapa.
@@ -44,14 +44,14 @@ Om du vill skapa en regel för händelsen måste enheten mallen ha minst en hän
 
 1. Klicka på den **händelse** panelen för att skapa en händelse som övervakningsregel.
 
-    ![Regeltyper](media\howto-create-event-rules\Rule_Types.png)
+    ![Regeltyper](media/howto-create-event-rules/Rule_Types.png)
 
     
 1. Ange ett namn som hjälper dig att identifiera regeln i den här mallen för enheten.
 
 1. Om du vill aktivera regeln för alla enheter som skapas från den här mallen omedelbart, växla **aktivera regeln för alla enheter för den här mallen**.
 
-    ![Information om regeln](media\howto-create-event-rules\Rule_Detail.png)
+    ![Information om regeln](media/howto-create-event-rules/Rule_Detail.png)
 
     Regeln tillämpas automatiskt på alla enheter under mallen enheten.
 
@@ -63,7 +63,7 @@ Villkoret definierar de kriterier som övervakas av regeln.
 
 1. Välj den händelse som du vill övervaka i listrutan mätning. I det här exemplet **fläkt meddelar fel** händelse har valts.
 
-   ![Tillstånd](media\howto-create-event-rules\Condition_Filled_Out.png) 
+   ![Tillstånd](media/howto-create-event-rules/Condition_Filled_Out.png) 
 
 
 1. Du kan också ange **antal** som **aggregering** och ger motsvarande tröskelvärdet.
@@ -73,7 +73,7 @@ Villkoret definierar de kriterier som övervakas av regeln.
  
     Om du vill att varna när det finns fler än tre enhetshändelser inom 5 minuter, därefter händelsen och ange mängdfunktionen som ”antal”, operator som ”större än” och ”tröskelvärde” som 3. Ange ”aggregering tidsperiod” som ”5 minuter”. Regeln utlöses när fler än tre händelser skickas av enheten inom 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut. 
 
-    ![Lägg till Händelsevillkor](media\howto-create-event-rules\Aggregate_Condition_Filled_Out.png)
+    ![Lägg till Händelsevillkor](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE] 
     >Mer än en händelse mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.
@@ -84,18 +84,18 @@ Det här avsnittet visar hur du ställer in åtgärder att vidta när regeln utl
 
 1. Välj den **+** bredvid **åtgärder**. Här kan du se en lista över tillgängliga åtgärder. 
 
-    ![Lägg till åtgärd](media\howto-create-event-rules\Add_Action.png)
+    ![Lägg till åtgärd](media/howto-create-event-rules/Add_Action.png)
 
 1. Välj den **e-post** åtgärd, ange en giltig e-postadress i den **till** fältet och ange en kommentar ska visas i brödtexten i e-postmeddelandet när regeln utlöses.
 
     > [!NOTE]
     > E-postmeddelanden skickas endast till de användare som har lagts till programmet och har loggat in minst en gång. Läs mer om [Användarhantering](howto-administer.md) i Azure IoT Central.
 
-   ![Konfigurera åtgärd](media\howto-create-event-rules\Configure_Action.png)
+   ![Konfigurera åtgärd](media/howto-create-event-rules/Configure_Action.png)
 
 1. För att spara regeln, Välj **spara**. Regeln lanseras inom några minuter och börjar övervaka de händelser som skickas till ditt program. När villkoren som anges i regeln matchar utlöser regeln konfigurerade e-poståtgärden.
 
-1. Välj **klar** att avsluta den **Redigera mall** läge.
+1. Välj **Klar** för att avsluta läget **Redigera mall**.
 
 Du kan lägga till andra åtgärder för regeln, till exempel Microsoft Flow och webhooks. Du kan lägga till upp till 5 åtgärder per regel.
 

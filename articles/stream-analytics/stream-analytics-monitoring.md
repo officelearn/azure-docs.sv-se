@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 200df7602f94f70f3fb9c62ad81a0710923184c7
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 81c5eabcfcca6818293ff9dbbfb1515d5729dd79
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291427"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963292"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Förstå övervakning av Stream Analytics-jobb och övervaka frågor
 
@@ -29,7 +29,7 @@ I fönstret visas som visas:
 ## <a name="metrics-available-for-stream-analytics"></a>Mått som är tillgängliga för Stream Analytics
 | Mått                 | Definition                               |
 | ---------------------- | ---------------------------------------- |
-| Eftersläpande inmatningshändelser       | Antal inkommande händelser som är '' eftersläpande. |
+| Eftersläpande inmatningshändelser       | Antal inkommande händelser som är eftersläpande. |
 | Datakonverteringsfel | Antalet utdata-händelser som inte kan konverteras till schemat för utdata som förväntas. |
 | Tidiga indatahändelser       | Antal händelser som tagits emot tidigt. |
 | Misslyckade funktionsförfrågningar | Antal misslyckade Azure Machine Learning-funktionsanrop (om tillgängligt). |

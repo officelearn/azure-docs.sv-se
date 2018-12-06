@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 6b694794da5eabaddf4d6f29203b7d6553ef4940
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/05/2018
+ms.openlocfilehash: 16737ed525147968c97ca20a9f4e674a0dee34fc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844404"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955062"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
 
 **Lässkalning** kan du belastningsutjämna Azure SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för en skrivskyddad replik.
-
-## <a name="overview-of-read-scale-out"></a>Översikt över Lässkalning
 
 Varje databas i Premium-nivån ([DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md)) eller i nivån affärskritisk ([vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md)) etableras automatiskt med flera AlwaysON-repliker till stöd för serviceavtal för tillgänglighet.
 
@@ -47,7 +45,7 @@ En av fördelarna med repliker är att alla kopior alltid är i ett konsekvent t
 > [!NOTE]
 > Replikeringsfördröjningar för regionen är låga och den här situationen är ovanligt.
 
-## <a name="connecting-to-a-read-only-replica"></a>Ansluta till en skrivskyddad replik
+## <a name="connect-to-a-read-only-replica"></a>Ansluta till en skrivskyddad replik
 
 När du aktiverar Lässkalning för en databas, den `ApplicationIntent` alternativet i anslutningssträngen som tillhandahålls av klienten avgör om anslutningen dirigeras till skrivning repliken eller till en skrivskyddad replik. Mer specifikt om den `ApplicationIntent` värdet är `ReadWrite` (standardvärde) anslutningen dirigeras till Läs-och databasrepliken. Det här är identiska med befintliga beteende. Om den `ApplicationIntent` värdet är `ReadOnly`, anslutningen dirigeras till en skrivskyddad replik.
 
@@ -65,6 +63,8 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
+## <a name="verify-that-a-connection-is-to-a-read-only-replica"></a>Kontrollera att det är en anslutning till en skrivskyddad replik
+
 Du kan kontrollera om du är ansluten till en skrivskyddad replik genom att köra följande fråga. READ_ONLY när du är ansluten till en skrivskyddad replik returneras.
 
 ```SQL
@@ -78,7 +78,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 Lässkalning är aktiverat som standard i [Managed Instance](sql-database-managed-instance.md) nivån affärskritisk. Funktionen ska vara explicit aktiverad i [databasen placeras på logisk server](sql-database-logical-servers.md) Premium och affärskritisk nivåer. Här beskrivs metoder för att aktivera och inaktivera Lässkalning.
 
-### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Aktivera och inaktivera Lässkalning med hjälp av Azure PowerShell
+### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: Aktivera och inaktivera Lässkalning
 
 Hantera Lässkalning i Azure PowerShell kräver December 2016 Azure PowerShell-versionen eller senare. Den senaste versionen av PowerShell, se [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -102,7 +102,7 @@ Att skapa en ny databas med läsning skalbar aktiverad (Ersätt objekten i hakpa
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Aktivera och inaktivera Lässkalning med hjälp av Azure SQL Database REST API
+### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST API: Aktivera och inaktivera Lässkalning
 
 Om du vill skapa en databas med skrivskyddade skalbar aktiverad, eller aktivera eller inaktivera Läs skalbar för en befintlig databas, skapa eller uppdatera motsvarande databasen entiteten med det `readScale` egenskapen `Enabled` eller `Disabled` som i den nedan exemplet begäran.
 

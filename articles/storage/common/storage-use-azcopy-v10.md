@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: a1b183e5b0929a2149502aa340e2e69c725dba6d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2ab933506ea03ae72198113d70888460e5001a6d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168273"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958430"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Överföra data med AzCopy v10 (förhandsversion)
 
@@ -84,6 +84,16 @@ Se hjälpsidan och exempel för ett visst kommando kör du kommandot nedan:
 .\azcopy cp -h
 ```
 
+## <a name="create-a-file-system-azure-data-lake-storage-gen2-only"></a>Skapa ett filsystem (Azure Data Lake Storage Gen2 endast)
+
+Om du har aktiverat hierarkisk namnområden på blob storage-kontot kan använda du följande kommando för att skapa ett nytt filsystem så att du kan ladda upp en ladda ned filer till den.
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+```
+
+Den ``account`` delen av den här strängen är namnet på ditt lagringskonto. Den ``top-level-resource-name`` delen av den här strängen är namnet på det filsystem som du vill skapa.
+
 ## <a name="copy-data-to-azure-storage"></a>Kopiera data till Azure Storage
 
 Använd kopieringskommandot för att överföra data från källan till målet. Käll-och mål kan vara en:
@@ -107,10 +117,22 @@ Följande kommando laddar upp alla filer i mappen C:\local\path rekursivt till b
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
+Om du har aktiverat hierarkisk namnområden på blob storage-kontot kan använda du följande kommando för att ladda upp filer till ditt filsystem:
+
+```azcopy
+.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
+```
+
 Följande kommando laddar upp alla filer i mappen C:\local\path (utan recursing i underkatalogerna) till behållaren ”mycontainer1”:
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+```
+
+Om du har aktiverat hierarkisk namnområden på blob storage-kontot kan använda du följande kommando:
+
+```azcopy
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 Om du vill ha fler exempel, använder du följande kommando:
@@ -127,6 +149,8 @@ Om du vill kopiera data mellan två lagringskonton, använder du följande komma
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
+
+Om du vill arbeta med blob storage-konton som har hierarkisk aktiverade namnområden, Ersätt strängen ``blob.core.windows.net`` med ``dfs.core.windows.net`` i de här exemplen.
 
 > [!NOTE]
 > Kommandot kommer att räkna upp alla blob-behållare och kopiera dem till mål-kontot. Just nu stöder AzCopy v10 kopierar endast blockblob-objekt mellan två lagringskonton. Alla andra storage-konto-objekt (append BLOB-objekt, sidblobar, filer, tabeller och köer) kommer att hoppas över.
@@ -154,6 +178,8 @@ På samma sätt som kan du synkronisera en Blob-behållare till ett lokalt filsy
 ```
 
 Kommandot kan du synkronisera källan till målet baserat på tidsstämplar som senast ändrade inkrementellt. Om du lägger till eller ta bort en fil i källan, gör AzCopy v10 samma i målet.
+
+[!NOTE] Om du vill arbeta med blob storage-konton som har hierarkisk aktiverade namnområden, Ersätt strängen ``blob.core.windows.net`` med ``dfs.core.windows.net`` i de här exemplen.
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 

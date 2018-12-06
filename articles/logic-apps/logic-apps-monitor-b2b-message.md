@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: 15bfe871731f5a6a04cae623faf0bd27cdba27fc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5dccfe61eaf97f27b211aa6812145f21f2098738
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233199"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961271"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Övervaka B2B-meddelanden med Azure Log Analytics i Azure Logic Apps
 
@@ -27,7 +27,7 @@ När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrat
 
 * En logikapp som har konfigurerats med diagnostikloggning. Lär dig [så här skapar du en logikapp](quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för den logikappen](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* När du uppfyller föregående krav måste också en Log Analytics-arbetsyta som du använder för att övervaka och spåra B2B-kommunikation via Log Analytics. Om du inte har en Log Analytics-arbetsyta kan du läsa [hur du skapar en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md).
+* När du uppfyller föregående krav måste också en Log Analytics-arbetsyta som du använder för att övervaka och spåra B2B-kommunikation via Log Analytics. Om du inte har en Log Analytics-arbetsyta kan du läsa [hur du skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
 
 * Ett integrationskonto som är länkad till din logikapp. Lär dig [hur du skapar ett integrationskonto med en länk till din logikapp](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 

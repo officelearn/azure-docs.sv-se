@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a343b01b89bfbe9bc047c0b8b703b975b21b6290
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e099240d3f8670032ff2d6c0fad295c5f14f6e70
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901894"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969370"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Publicera konfigurationsuppgifter för ASDK installation
 
@@ -41,7 +41,7 @@ Du kan använda API-versionsprofiler för att ange Azure Stack-kompatibla AzureR
 Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Internet-anslutning till värddatorn ASDK:
 
 > [!IMPORTANT]
-> Innan du installerar versionen som krävs, se till att du [avinstallera alla befintliga Azure PowerShell-moduler](.\.\azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
+> Innan du installerar versionen som krävs, se till att du [avinstallera alla befintliga Azure PowerShell-moduler](../azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
 - **Med en Internetanslutning** från värddatorn ASDK. Kör följande PowerShell-skript för att installera dessa moduler på din development kit-installation:
 
@@ -173,7 +173,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ## <a name="enable-multi-tenancy"></a>Aktivera flera innehavare
 
-För distributioner med hjälp av Azure AD, måste du [aktivera flera innehavare](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) för ASDK installationen.
+För distributioner med hjälp av Azure AD, måste du [aktivera flera innehavare](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) för ASDK installationen.
 
 > [!NOTE]  
 > När administratören eller användaren konton från andra domäner än den som används för att registrera Azure Stack som används för att logga in på Azure Stack-portalen, domännamn som används för att registrera Azure Stack måste läggas till på portalen URL: en. Till exempel om Azure Stack har registrerats med fabrikam.onmicrosoft.com och det användarkonto som har loggat in är admin@contoso.com, URL: en du använder för att logga in på användarportalen: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.

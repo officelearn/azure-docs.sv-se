@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 614fdae1865f008bdbc2cb8d5e8b96c0addcc112
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 08238732c9e2d4e09e1f956c18768a15c95828c2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036937"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958192"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
 
@@ -186,7 +186,7 @@ Med Azure Virtual Network med HDInsight kan följande scenarier:
 - Ansluta HDInsight till data som lagras i ett virtuellt Azure-nätverk.
 - Direkt åtkomst till Hadoop-tjänster som inte är tillgänglig offentligt över internet. Till exempel Kafka-API: er eller HBase Java-API.
 
-HDInsight kan antingen läggas till en ny eller befintlig Azure-nätverk. Om HDInsight läggs till ett befintligt virtuellt nätverk, den befintliga nätverkssäkerhetsgrupper och användardefinierade vägar måste uppdateras för att tillåta obegränsad åtkomst till [flera IP-adresser](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip-1) i Azure-datacentret. Se dessutom till att du inte blockerar trafik till den [portar](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) som används av HDInsight-tjänster.
+HDInsight kan antingen läggas till en ny eller befintlig Azure-nätverk. Om HDInsight läggs till ett befintligt virtuellt nätverk, den befintliga nätverkssäkerhetsgrupper och användardefinierade vägar måste uppdateras för att tillåta obegränsad åtkomst till [flera IP-adresser](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) i Azure-datacentret. Se dessutom till att du inte blockerar trafik till den [portar](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) som används av HDInsight-tjänster.
 
 > [!Note]
 > HDInsight stöder för närvarande inte Tvingad tunneltrafik. Tvingad tunneltrafik är en undernätsinställning för som tvingar utgående Internet-trafik till en enhet för granskning och loggning. Ta bort Tvingad tunneltrafik innan du installerar HDInsight i ett undernät eller skapa ett nytt undernät för HDInsight. HDInsight stöder inte heller att begränsa utgående nätverksanslutning.

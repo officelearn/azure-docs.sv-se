@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6afb54caca572988c566ab7c6325d511e77fbd3e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5e00c52c17eac92edc3273e2d765d6c5fd76f59b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582096"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970695"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Felsöka Apache Spark-jobb som körs på Azure HDInsight
 
@@ -28,12 +28,12 @@ Du måste ha följande:
 * Du bör har börjat köra anteckningsboken  **[Machine learning: förutsägande analys mat inspektion data med hjälp av MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Följ länken för mer information om hur du kör den här anteckningsboken finns.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Spåra ett program i YARN-Användargränssnittet
-1. Starta Användargränssnittet för YARN. Klicka på **Klusterinstrumentpanel**, och klicka sedan på **YARN**.
+1. Starta Användargränssnittet för YARN. Klicka på **Yarn** under **Klusterinstrumentpaneler**.
    
     ![Starta Användargränssnittet för YARN](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > Alternativt kan du också starta YARN-Användargränssnittet från Ambari UI. Om du vill starta Ambari UI, klickar du på **Klusterinstrumentpanel**, och klicka sedan på **HDInsight-Klusterinstrumentpanel**. Ambari UI, klickar du på **YARN**, klickar du på **snabblänkar**, klicka på den aktiva Resource Manager och klicka sedan på **Resource Manager UI**.    
+   > Alternativt kan du också starta YARN-Användargränssnittet från Ambari UI. Om du vill starta Ambari UI, klickar du på **Ambari home** under **Klusterinstrumentpaneler**. Ambari UI, klickar du på **YARN**, klickar du på **snabblänkar**, klicka på den aktiva Resource Manager och klicka sedan på **Resource Manager UI**.    
    > 
    > 
 2. Eftersom du påbörjat Spark-jobb med Jupyter-anteckningsböcker programmet har namnet **remotesparkmagics** (detta är namnet för alla program som startas från de bärbara datorerna). Klicka på det program-ID mot namnet på programmet vill ha mer information om jobbet. Detta startar programmet vyn.
@@ -88,12 +88,12 @@ I Användargränssnittet för Spark kan du granska nedåt i Spark-jobb som skapa
 ## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Hitta information om slutförda jobb med hjälp av Spark-Historikserver
 När ett jobb har slutförts sparas information om jobbet i Spark-Historikserver.
 
-1. Om du vill starta Spark-Historikserver, från klusterbladet klickar du på **Klusterinstrumentpanel**, och klicka sedan på **Spark-Historikserver**.
+1. Om du vill starta Spark-Historikserver, från bladet översikt klickar du på **Spark-historikserver** under **Klusterinstrumentpaneler**.
    
     ![Starta Spark-Historikserver](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
    > [!TIP]
-   > Alternativt kan du också starta Användargränssnittet för Spark historik från Ambari UI. Om du vill starta Ambari UI, från klusterbladet klickar du på **Klusterinstrumentpanel**, och klicka sedan på **HDInsight-Klusterinstrumentpanel**. Ambari UI, klickar du på **Spark**, klickar du på **snabblänkar**, och klicka sedan på **Spark historik Server UI**.
+   > Alternativt kan du också starta Användargränssnittet för Spark historik från Ambari UI. Om du vill starta Ambari UI, från bladet översikt klickar du på **Ambari home** under **Klusterinstrumentpaneler**. Ambari UI, klickar du på **Spark**, klickar du på **snabblänkar**, och klicka sedan på **Spark historik Server UI**.
    > 
    > 
 2. Du ser alla slutförda program visas. Klicka på ett program-ID för att granska nedåt i ett program för mer information.
@@ -115,12 +115,10 @@ När ett jobb har slutförts sparas information om jobbet i Spark-Historikserver
 ### <a name="for-spark-developers"></a>För Spark-utvecklare
 
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Apache Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](apache-spark-livy-rest-interface.md)
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
 * [Använda HDInsight Tools-Plugin för IntelliJ IDEA till att felsöka Apache Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernlar som är tillgängliga för Jupyter notebook i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
-
-

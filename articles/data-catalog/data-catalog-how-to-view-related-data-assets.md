@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 156673bfac9bfa38772e4daca166e3431f81c09a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405020"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958340"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Så här att visa relaterade datatillgångar i Azure Data Catalog?
 Azure Data Catalog kan du visa datatillgångar som rör en valda data tillgången och visa relationer mellan dem. 
@@ -31,7 +31,7 @@ När du registrera datatillgångar från följande datakällor registrerar Azure
 ## <a name="view-related-data-assets"></a>Visa relaterade datatillgångar
 Du kan visa datatillgångar som är relaterade till en vald datamängd den **relationer** fliken enligt följande bild: 
 
-![Azure Data Catalog – Visa relaterade datatillgångar](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
+![Azure Data Catalog – Visa relaterade datatillgångar](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
 I det här exemplet finns två relationer för den valda **ProductSubcategory** datatillgång: 
 
@@ -43,7 +43,7 @@ I det här exemplet finns två relationer för den valda **ProductSubcategory** 
 
 Om du vill se mer information, till exempel det fullständigt kvalificerade namnet för kolumnen musen över och du ser ett fönster som liknar följande bild: 
 
-![Azure Data Catalog – popup-fönstret för relationen](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
+![Azure Data Catalog – popup-fönstret för relationen](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
 För att inkludera relationer mellan tillgångar som redan har registrerats, Omregistrera dessa tillgångar.
 

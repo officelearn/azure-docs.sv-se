@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0fc5ca73dec79942e05c7dfd410bc0a13e5ffb44
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.date: 12/04/2018
+ms.openlocfilehash: 3469b03cae88a5bdf7c9ccd51b54af92ea8d7b23
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648725"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958396"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure SQL Database och SQL Data Warehouse
 
@@ -145,7 +145,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 ## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Effekt vid borttagning av ”Tillåt Azure services för att komma åt servern”
 
 Många användare vill du ta bort **Tillåt Azure-tjänster åtkomst till servern** från sin Azure SQL-servrar och Ersätt den med en VNet-brandväggsregeln.
-Men ta bort detta påverkar följande funktioner i Azure SQL Database:
+Men ta bort detta påverkar följande funktioner:
 
 ### <a name="import-export-service"></a>Import Export-tjänsten
 
@@ -166,12 +166,64 @@ Azure SQL Database har Data Sync-funktion som ansluter till dina databaser med h
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekten av att använda tjänstslutpunkter för virtuellt nätverk med Azure storage
 
-Azure Storage har implementerats i samma funktion som låter dig begränsa anslutningsmöjligheten till ditt lagringskonto.
-Om du väljer att använda den här funktionen med ett Storage-konto som används av en Azure SQL Server, kan du stöter på problem. Nästa är en lista och en beskrivning av Azure SQL Database-funktioner som påverkas av detta.
+Azure Storage har implementerats i samma funktion som låter dig begränsa anslutningsmöjligheten till Azure Storage-kontot. Om du vill använda den här funktionen med ett Azure Storage-konto som används av Azure SQL Server kan du stöter på problem. Nästa är en lista och en beskrivning av Azure SQL Database och Azure SQL Data Warehouse-funktioner som påverkas av detta.
 
 ### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL Data Warehouse PolyBase
 
-PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Storage-konton. Om lagringskontot som du läser in data från begränsar endast åtkomst till en uppsättning VNet-undernät, bryter anslutningen från PolyBase till kontot. Det finns en lösning för det här och du kan kontakta Microsoft support för mer information.
+PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Azure Storage-konton. Om Azure Storage-kontot som du läser in data från begränsar endast åtkomst till en uppsättning VNet-undernät, bryter anslutningen från PolyBase till kontot. För att aktivera båda PolyBase importera och exportera scenarier med Azure SQL Data Warehouse anslutningen till Azure Storage som skyddas till virtuellt nätverk, följer du stegen som anges nedan:
+
+#### <a name="prerequisites"></a>Förutsättningar
+1.  Installera Azure PowerShell använder det här [guide](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+2.  Om du har ett allmänt v1- eller blob storage-konto, måste du först uppgradera till gpv2 med det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  Du måste ha **Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagringskontot** markerade under Azure Storage-konto **brandväggar och virtuella nätverk** inställningsmenyn. Referera till denna [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för mer information.
+ 
+#### <a name="steps"></a>Steg
+1.  I PowerShell **registrera din logiska SQL Server** med Azure Active Directory (AAD):
+
+    ```powershell
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
+    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    ```
+    
+ 1. Skapa en **Allmänt gpv2-Lagringskonto** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+    > [!NOTE]
+    > - Om du har ett allmänt v1- eller blob storage-konto, måste du **först uppgradera till v2** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    > - Kända problem med Azure Data Lake Storage Gen2 finns i det här [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+    
+1.  Under ditt storage-konto går du till **åtkomstkontroll (IAM)**, och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare (förhandsgranskning)** RBAC-roll till din logiska SQL-Server.
+
+    > [!NOTE] 
+    > Endast medlemmar med ägare behörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser, referera till denna [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1.  **Polybase-anslutningen till Azure Storage-kontot:**
+
+    1. Skapa en databas **[huvudnyckeln](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** om du inte har skapat en tidigare:
+        ```SQL
+        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+        ```
+    
+    1. Skapa databasomfattande autentisering med **IDENTITY = ”hanterad tjänstidentitet'**:
+
+        ```SQL
+        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+        ```
+        > [!NOTE] 
+        > - Behöver inte ange HEMLIGHETEN med Azure Storage-åtkomstnyckel eftersom den här mekanismen använder [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under försättsbladen.
+        > - Identitetsnamnet bör vara **”hanterad tjänstidentitet'** för PolyBase-anslutning att arbeta med Azure Storage-konto som skyddas till virtuellt nätverk.    
+    
+    1. Skapa extern datakälla med abfss: / / scheme för att ansluta till ditt lagringskonto för generell användning v2 med PolyBase:
+
+        ```SQL
+        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+        ```
+        > [!NOTE] 
+        > - Om du redan har externa tabeller som är associerade med allmänt v1- eller blob storage-konto bör du först ta bort de externa tabellerna och sedan släppa motsvarande extern datakälla. Skapa extern datakälla med abfss: / / system som ansluter till gpv2-konto som ovan och skapa de externa tabeller som använder den här nya externa datakällan. Du kan använda [generera och publicera skript guiden](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) att generera skapa skript för alla externa tabeller för att underlätta.
+        > - Mer information om abfss: / / system, referera till denna [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+        > - Mer information om CREATE EXTERNAL DATA SOURCE referera till denna [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+        
+    1. Frågan som vanligt med [externa tabeller](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Azure SQL Database Blobbgranskning
 
@@ -179,11 +231,11 @@ Blobbgranskning skickar granskningsloggar till ditt eget lagringskonto. Om det h
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Att lägga till en brandväggsregel för virtuellt nätverk till din server utan att slå på VNet-tjänstslutpunkter
 
-Innan den här funktionen har förbättrats tvungen du länge sedan att aktivera tjänstslutpunkter i virtuella nätverk innan du kan implementera en levande VNet-regel i brandväggen. Ett särskilt VNet-undernät till en Azure SQL Database-relaterade slutpunkterna. Men nu från och med januari 2018, du kan kringgå det här kravet genom att ange den **IgnoreMissingServiceEndpoint** flaggan.
+Innan den här funktionen har förbättrats tvungen du länge sedan att aktivera tjänstslutpunkter i virtuella nätverk innan du kan implementera en levande VNet-regel i brandväggen. Ett särskilt VNet-undernät till en Azure SQL Database-relaterade slutpunkterna. Men nu från och med januari 2018, du kan kringgå det här kravet genom att ange den **IgnoreMissingVNetServiceEndpoint** flaggan.
 
-Bara ställa en brandväggsregel inte att skydda servern. Du måste också aktivera tjänstslutpunkter för virtuellt nätverk för att skydda ska börja gälla. När du aktiverar Tjänsteslutpunkter upplevelser ditt VNet-undernät driftstopp tills den är klar övergången från av till på. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda den **IgnoreMissingServiceEndpoint** flagga för att minska eller eliminera nedtiden under övergång.
+Bara ställa en brandväggsregel inte att skydda servern. Du måste också aktivera tjänstslutpunkter för virtuellt nätverk för att skydda ska börja gälla. När du aktiverar Tjänsteslutpunkter upplevelser ditt VNet-undernät driftstopp tills den är klar övergången från av till på. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda den **IgnoreMissingVNetServiceEndpoint** flagga för att minska eller eliminera nedtiden under övergång.
 
-Du kan ange den **IgnoreMissingServiceEndpoint** flaggan med hjälp av PowerShell. Mer information finns i [PowerShell för att skapa en tjänstslutpunkt för virtuellt nätverk och en regel för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Du kan ange den **IgnoreMissingVNetServiceEndpoint** flaggan med hjälp av PowerShell. Mer information finns i [PowerShell för att skapa en tjänstslutpunkt för virtuellt nätverk och en regel för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="errors-40914-and-40615"></a>Fel 40914 och 40615
 

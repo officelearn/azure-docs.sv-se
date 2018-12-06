@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: accb7b84793b9fc98bc20f1637ec30f97a7f4a87
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649949"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962088"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible-modulen och version matris
 
@@ -133,4 +133,4 @@ Den [azure_preview_module spelbok rollen](https://galaxy.ansible.com/Azure/azure
 Rollen azure_preview_module spelbok släpps var tredje vecka.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information som rör spelboksroller, finns på [skapar återanvändbar Spelböcker](http://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+Mer information som rör spelboksroller, finns på [skapar återanvändbar Spelböcker](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 

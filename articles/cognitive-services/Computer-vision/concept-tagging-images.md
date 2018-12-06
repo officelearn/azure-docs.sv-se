@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 0025cdcfaa64a262a5ca54ab4db5a84f6a5768ba
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338921"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960915"
 ---
 # <a name="tagging-images"></a>Tagga bilder
 
-Visuellt innehåll returnerar taggar som baseras på över 2 000 identifierbara objekt, levande varelser, landskap och åtgärder. När taggar är tvetydigt eller inte är allmän kännedom ger API-svaren ”tips” för att tydliggöra taggarnas i samband med en känd inställning betydelse. Taggar är inte ordnade som en taxonomi och inga arvshierarkier finns. En samling innehåll taggar utgör grunden för en avbildning ”beskrivning” visas som mänskliga läsbara språk som är formaterade i fullständiga meningar. Observera att nu engelska är det enda språket som stöds för Bildbeskrivning.
+Visuellt innehåll returnerar taggar som baseras på tusentals identifierbara objekt, levande varelser, landskap och åtgärder. I de fall där taggarna är tvetydiga eller dess betydelse inte är allmän kännedom ger API-svaren ”ledtrådar” för att tydliggöra taggarnas betydelse i en viss kontext. Taggar är inte ordnade som en taxonomi och det finns inga arvshierarkier. En samling innehållstaggar utgör grunden för en ”bildbeskrivning” som visas som språk som kan läsas av människor som är formaterade i fullständiga meningar. Observera att engelska för tillfället är det enda språket som stöds för bildbeskrivning.
 
-När du laddar upp en bild eller ange en bild-URL, utdata visuellt algoritmer taggar baserat på de objekt, levande varelser och åtgärder som identifierats i avbildningen. Taggar är inte begränsat till huvudsakliga ämnet, till exempel en person i förgrunden, men innehåller även inställningen (inom eller utomhus), möbler, verktyg, anläggningar, djur, Tillbehör, Tillbehör osv.
+När du laddar upp en bild eller ange en bild-URL, utdata visuellt algoritmer taggar baserat på de objekt, levande varelser och åtgärder som identifierats i avbildningen. Taggar är inte begränsade till huvudföremålet på bilden, som till exempel en person i förgrunden, utan finns även för saker som bakgrund (inomhus eller utomhus), möbler, verktyg, växter, djur, accessoarer, saker och så vidare.
 
 ## <a name="image-tagging-example"></a>Bild taggning exempel
 

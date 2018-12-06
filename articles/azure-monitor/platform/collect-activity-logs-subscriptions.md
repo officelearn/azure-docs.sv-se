@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e4ec1ecbde04cbf843f99bdcdf36977a856c3b03
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: eccd81d50c93c2fdeb67e2536a0afa879c08a1b4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684658"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970288"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Samla in Azures aktivitetsloggar till Log Analytics i alla prenumerationer
 
@@ -344,4 +344,4 @@ Det sista steget är att kontrollera Log Analytics-arbetsytan för att säkerst�
 I denna artikel har du skapat en logikapp som läser Azure-aktivitetsloggar från en händelsehubb och skickar dem till Log Analytics för analys. Mer om att visualisera data i Log Analytics, inklusive att skapa instrumentpaneler, finns i självstudien Visualisera data.
 
 > [!div class="nextstepaction"]
-> [Självstudien Visualisera loggsökningsdata](./../../log-analytics/log-analytics-tutorial-dashboards.md)
+> [Självstudien Visualisera loggsökningsdata](./../../azure-monitor/learn/tutorial-logs-dashboards.md)

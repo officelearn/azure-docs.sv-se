@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: fdcc230171006c6388e75b947e10a73fb953001a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294687"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970186"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Använda externa tjänster från Azure API Management-tjänsten
 Principerna som är tillgängliga i Azure API Management-tjänsten kan göra en stor mängd arbete baserat helt och hållet på den inkommande begäranden, utgående svar och grundläggande konfigurationsinformation. Men att kunna interagera med externa tjänster från API Management principer öppnas många fler möjligheter.
@@ -68,13 +68,13 @@ Det finns vissa kompromisser när du använder en fire-and-forget-formatet för 
 Den `send-request` principen gör det möjligt med hjälp av en extern tjänst att utföra komplex bearbetningsfunktioner och returnera data till API management-tjänsten som kan användas för ytterligare behandling av princip.
 
 ### <a name="authorizing-reference-tokens"></a>Auktorisera referens token
-En större funktion i API Management skyddar serverdelsresurser. Om auktoriseringsservern som används av ditt API skapar [JWT-tokens](http://jwt.io/) som en del av dess OAuth2-flöde som [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) gör det, kan du använda den `validate-jwt` policyn för att verifiera tokens giltighet. Vissa auktorisering servrar skapa vad kallas [referera token](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) som inte går att verifiera utan att göra en motringning till auktoriseringsservern.
+En större funktion i API Management skyddar serverdelsresurser. Om auktoriseringsservern som används av ditt API skapar [JWT-tokens](https://jwt.io/) som en del av dess OAuth2-flöde som [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) gör det, kan du använda den `validate-jwt` policyn för att verifiera tokens giltighet. Vissa auktorisering servrar skapa vad kallas [referera token](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) som inte går att verifiera utan att göra en motringning till auktoriseringsservern.
 
 ### <a name="standardized-introspection"></a>Standardiserad introspektion
 Tidigare var har det ingen standardiserad möjlighet att kontrollera en referens-token med en auktoriseringsservern. Men en nyligen föreslagna standard [RFC 7662](https://tools.ietf.org/html/rfc7662) publicerades av IETF som definierar hur resursservern kan verifiera giltigheten hos en token.
 
 ### <a name="extracting-the-token"></a>Extrahera token
-Det första steget är att extrahera token från auktoriseringsrubriken. Huvudets värde ska vara formaterad med den `Bearer` auktoriseringsschema, ett blanksteg och sedan autentiseringstoken som per [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Det finns tyvärr fall där auktoriseringsschema utelämnas. För att kontot för den här vid parsning av, API Management delar upp huvudets värde på ett blanksteg och väljer den sista strängen returnerade matris med strängar. Detta ger en lösning för felaktigt formaterat auktorisering rubriker.
+Det första steget är att extrahera token från auktoriseringsrubriken. Huvudets värde ska vara formaterad med den `Bearer` auktoriseringsschema, ett blanksteg och sedan autentiseringstoken som per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Det finns tyvärr fall där auktoriseringsschema utelämnas. För att kontot för den här vid parsning av, API Management delar upp huvudets värde på ett blanksteg och väljer den sista strängen returnerade matris med strängar. Detta ger en lösning för felaktigt formaterat auktorisering rubriker.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
@@ -118,7 +118,7 @@ Du kan använda en `<choose>` princip för att identifiera om token är ogiltig 
 </choose>
 ```
 
-Enligt [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) som beskriver hur `bearer` token ska användas, API Management returnerar också en `WWW-Authenticate` huvud med 401-svar. WWW-autentisering är avsedd att instruera en klient på hur du skapar en korrekt auktoriserad begäran. På grund av det breda utbudet av metoder som är möjligt med OAuth2-ramverket är det svårt att kommunicera all information som behövs. Som tur är har pågår för att [klienter identifiera hur du godkänner begäranden till resursservern korrekt](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Enligt [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) som beskriver hur `bearer` token ska användas, API Management returnerar också en `WWW-Authenticate` huvud med 401-svar. WWW-autentisering är avsedd att instruera en klient på hur du skapar en korrekt auktoriserad begäran. På grund av det breda utbudet av metoder som är möjligt med OAuth2-ramverket är det svårt att kommunicera all information som behövs. Som tur är har pågår för att [klienter identifiera hur du godkänner begäranden till resursservern korrekt](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Sista lösning
 I slutet kommer få du följande princip:

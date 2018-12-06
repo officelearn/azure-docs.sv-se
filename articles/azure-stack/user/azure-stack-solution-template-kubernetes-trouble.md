@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f7f23a6d645a1d8e16e42e751050d8d91b49e2b3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007833"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956728"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Felsöka din distribution till Kubernetes i Azure Stack
 
@@ -178,6 +178,6 @@ Om du vill hämta loggar, gör du följande:
 
 [Distribuera Kubernetes till Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Lägga till ett Kubernetes-kluster i Marketplace (för Azure Stack-operatör)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Lägga till ett Kubernetes-kluster i Marketplace (för Azure Stack-operatör)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes på Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

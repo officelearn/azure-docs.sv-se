@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284735"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954620"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Det går inte att fjärransluta till en virtuell dator eftersom RDP-porten inte är aktiverat i NSG
 
@@ -51,7 +51,7 @@ Följ dessa steg om du vill aktivera RDP-porten i en NSG:
     **Mål**: alla </br>
     **Åtgärden**: Tillåt </br>
 
-I anger du IP-källadressen, den här inställningen kan endast trafik från en specifik IP-adress eller IP-adressintervall för att ansluta till den virtuella datorn. Kontrollera att datorn du använder för att starta RDP-session är inom intervallet.
+Om du anger källans IP-adress, kan den här inställningen endast trafik från en specifik IP-adress eller IP-adressintervall för att ansluta till den virtuella datorn. Kontrollera att datorn du använder för att starta RDP-session är inom intervallet.
 
 Mer information om Nätverkssäkerhetsgrupper finns i [nätverkssäkerhetsgrupp](../../virtual-network/security-overview.md).
 

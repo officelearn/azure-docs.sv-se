@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: d897fd43cf712f217b6cd55f14854164fb7abfa6
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 8fc8be105c6c610e6b246fa0ec619fecc81b1dd9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887788"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966253"
 ---
 # <a name="update-the-sql-resource-provider"></a>Uppdatera SQL-resursprovider
 
@@ -28,11 +28,11 @@ ms.locfileid: "52887788"
 En ny SQL-resursprovider kan släppas när Azure Stack uppdateras till en ny version. Även om den befintliga fortsätter att fungera, rekommenderar vi uppdaterar till den senaste versionen så snart som möjligt.
 
 > [!IMPORTANT]
-> Du måste installera uppdateringar i den ordning de ges ut. Du kan inte hoppa över versioner. Se listan över versioner i [distribuera resource provider krav](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+> Du måste installera uppdateringar i den ordning de ges ut. Du kan inte hoppa över versioner. Se listan över versioner i [distribuera resource provider krav](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="overview"></a>Översikt
 
-Uppdatera resursprovidern med den *UpdateSQLProvider.ps1* skript. Det här skriptet ingår i nedladdningen av den nya SQL-resursprovidern. Uppdateringen är ungefär på samma sätt som används för att [distribuerar resursprovidern](.\azure-stack-sql-resource-provider-deploy.md). Uppdateringsskriptet använder samma argument som skriptet som DeploySqlProvider.ps1 och du måste ange information om certifikat.
+Uppdatera resursprovidern med den *UpdateSQLProvider.ps1* skript. Det här skriptet ingår i nedladdningen av den nya SQL-resursprovidern. Uppdateringen är ungefär på samma sätt som används för att [distribuerar resursprovidern](./azure-stack-sql-resource-provider-deploy.md). Uppdateringsskriptet använder samma argument som skriptet som DeploySqlProvider.ps1 och du måste ange information om certifikat.
 
 ### <a name="update-script-processes"></a>Uppdatera skript processer
 

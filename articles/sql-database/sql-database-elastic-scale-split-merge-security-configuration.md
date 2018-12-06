@@ -3,21 +3,21 @@ title: Dela / sammanslå säkerhetskonfiguration | Microsoft Docs
 description: Konfigurera x409 certifikat för kryptering med dela/sammanslå-tjänsten för elastisk skala.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231405"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964840"
 ---
 # <a name="split-merge-security-configuration"></a>Dela / sammanslå säkerhetskonfiguration
 Om du vill använda tjänsten dela/Sammanslå, måste du konfigurera säkerhet på rätt sätt. Tjänsten är en del av funktionen elastisk skalning av Microsoft Azure SQL Database. Mer information finns i [elastisk skala dela och slå samman Service-självstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -142,7 +142,7 @@ Det finns två olika sätt som stöd för att identifiera och förhindra DOS-att
 Dessa är baserade på de funktioner som beskrivs ytterligare i den dynamiska IP-säkerhet i IIS. När du ändrar den här konfigurationen varning för följande faktorer:
 
 * Beteendet för proxyservrar och Network Address Translation enheter över fjärrvärden-information
-* Varje begäran till alla resurser i webbrollen anses (t.ex. läser in skript, bilder, osv)
+* Varje begäran till alla resurser i webbrollen anses (till exempel inläsning av skript, bilder, osv)
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>Att begränsa antalet samtidiga åtkomster
 De inställningar som konfigurerar det här beteendet är:
@@ -178,7 +178,7 @@ Kör:
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 Så här anpassar:
@@ -221,7 +221,7 @@ Följ dessa steg i alla konto/datorn som ska kommunicera med tjänsten:
 * Importera certifikatet till arkivet Betrodda rotcertifikatutfärdare
 
 ## <a name="turn-off-client-certificate-based-authentication"></a>Inaktivera klienten certifikatbaserad autentisering
-Endast klienten certifikatbaserad autentisering stöds och inaktiverar den tillåter för offentlig åtkomst till tjänstslutpunkter, såvida inte andra mekanismer som är på plats (t.ex. Microsoft Azure Virtual Network).
+Endast klienten certifikatbaserad autentisering stöds och inaktiverar den tillåter för offentlig åtkomst till tjänstslutpunkter, såvida inte andra mekanismer som är på plats (till exempel Microsoft Azure Virtual Network).
 
 Ändra dessa inställningar till false i konfigurationsfilen för tjänsten att stänga av funktionen:
 
@@ -239,7 +239,7 @@ Kör följande steg för att skapa ett självsignerat certifikat kan fungera som
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -280,7 +280,7 @@ Uppdatera värdet för följande inställning med samma tumavtryck:
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## <a name="issue-client-certificates"></a>Utfärda klientcertifikat
-Varje person som har behörighet att komma åt tjänsten ska ha ett klientcertifikat utfärdat för his/hers exklusiv använder och bör välja his/hers äger starkt lösenord för att skydda den privata nyckeln. 
+Varje person som har behörighet att komma åt tjänsten ska ha ett klientcertifikat utfärdat för eget bruk och bör välja sina egna starkt lösenord för att skydda den privata nyckeln. 
 
 Följande steg måste köras i samma dator där det självsignerade certifikatet för CA: N skapas och lagras:
 
@@ -288,7 +288,7 @@ Följande steg måste köras i samma dator där det självsignerade certifikatet
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
@@ -316,14 +316,14 @@ Ange lösenord och sedan exportera certifikat med dessa alternativ:
 * Den person som det här certifikatet utfärdas ska välja exportlösenord
 
 ## <a name="import-client-certificate"></a>Importera klientcertifikatet
-Varje enskild person som ett certifikat har utfärdats ska importera nyckelpar i datorer som han/hon använder för att kommunicera med tjänsten:
+Varje enskild person som ett certifikat har utfärdats ska importera nyckelpar i datorer som de ska använda för att kommunicera med tjänsten:
 
 * Dubbelklicka på den. PFX-filen i Windows Explorer
 * Importera certifikatet till personligt lagra med minst det här alternativet:
   * Inkludera alla utökade egenskaper markerat
 
 ## <a name="copy-client-certificate-thumbprints"></a>Kopiera certifikattumavtryck för klienten
-Varje enskild person som ett certifikat har utfärdats måste följa de här stegen för att kunna hämta certifikatets tumavtryck his/hers certifikat som ska läggas till tjänstkonfigurationsfilen:
+Varje enskild person som ett certifikat har utfärdats måste följa de här stegen för att kunna hämta tumavtrycket för deras certifikat som ska läggas till tjänstkonfigurationsfilen:
 
 * Kör certmgr.exe
 * Välj fliken personlig

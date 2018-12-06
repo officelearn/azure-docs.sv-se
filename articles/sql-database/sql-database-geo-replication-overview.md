@@ -3,7 +3,7 @@ title: Redundans grupper och aktiv geo-replikering – Azure SQL Database | Micr
 description: Använda grupper för automatisk redundans med aktiv geo-replikering och aktivera automatisk redundans vid ett eventuellt strömavbrott.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: de439683082909e65d285a7946a71eb781287937
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c951791031b6304a26aadd434fa7336a9c7c474f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843486"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963155"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Översikt: Active geo-replikering och automatisk redundans-grupper
 
@@ -25,7 +25,7 @@ Aktiv geo-replikering är Azure SQL Database-funktion som låter dig skapa läsb
 
 ![Geo-replikering](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
 
-Aktiv geo-replikering är utformad som en företagslösning för verksamhetskontinuitet som tillåter programmet att utföra snabb haveriberedskap för enskilda databaser vid en regional disastor eller avbrott i stor skala. Om geo-replikering är aktiverad, kan programmet initiera redundans till en sekundär databas i en annan Azure-region. Upp till fyra sekundära databaser stöds i samma eller olika regioner och de sekundära databaser kan också användas för skrivskyddad åtkomst frågor. Redundansväxlingen måste initieras manuellt av programmet eller användaren. Efter redundansväxlingen har den nya primärt slutpunkt för en annan anslutning.
+Aktiv geo-replikering är utformad som en företagslösning för verksamhetskontinuitet som tillåter programmet att utföra snabb haveriberedskap för enskilda databaser vid ett regionalt haveri eller avbrott i stor skala. Om geo-replikering är aktiverad, kan programmet initiera redundans till en sekundär databas i en annan Azure-region. Upp till fyra sekundära databaser stöds i samma eller olika regioner och de sekundära databaser kan också användas för skrivskyddad åtkomst frågor. Redundansväxlingen måste initieras manuellt av programmet eller användaren. Efter redundansväxlingen har den nya primärt slutpunkt för en annan anslutning.
 
 > [!NOTE]
 > Aktiv geo-replikering är tillgänglig för alla databaser på alla tjänstnivåer i alla regioner.
@@ -206,11 +206,11 @@ Om ditt program använder hanterade instansen som datanivån, följer du dessa a
 
 - **Skapa sekundär-instans i samma DNS-zon som den primära instansen**
 
-  När en ny instans skapas, är ett unikt id automatiskt genereras som DNS-zonen och ingår i DNS-namnet på instansen. En flera domäner (SAN)-certifikatet för den här instansen har etablerats med SAN-fältet i form av &lt;zone_id&gt;. database.windows.net. Det här certifikatet kan användas för att autentisera klientanslutningar till en instans i samma DNS-zonen. För att säkerställa att icke-avbryts anslutningen till den primära instansen efter en redundansväxling både de primära och sekundära måste instanser vara i samma DNS-zonen. När programmet är redo för Produktionsdistribution, skapa en sekundär instans i en annan region och kontrollera att den delar DNS-zon med den primära instansen. Detta görs genom att ange en `DNS Zone Partner` valfri parameter för den `create instance` PowerShell-kommando.
+  När en ny instans skapas, är ett unikt id automatiskt genereras som DNS-zonen och ingår i DNS-namnet på instansen. En flera domäner (SAN)-certifikatet för den här instansen har etablerats med SAN-fältet i form av &lt;zone_id&gt;. database.windows.net. Det här certifikatet kan användas för att autentisera klientanslutningar till en instans i samma DNS-zonen. För att säkerställa att icke-avbryts anslutningen till den primära instansen efter en redundansväxling både de primära och sekundära måste instanser vara i samma DNS-zonen. När programmet är redo för Produktionsdistribution, skapa en sekundär instans i en annan region och kontrollera att den delar DNS-zon med den primära instansen. Detta görs genom att ange en `DNS Zone Partner` valfri parameter med hjälp av Azure portal, PowerShell eller REST API.
 
 - **Aktivera replikeringstrafik mellan två instanser**
 
-  Eftersom varje instans isoleras i ett eget virtuellt nätverk, måste två enkelriktad trafik mellan de här virtuella nätverken tillåtas. Se [replikering med SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
+  Eftersom varje instans isoleras i ett eget virtuellt nätverk, måste två enkelriktad trafik mellan de här virtuella nätverken tillåtas. Se [Azure VPN-gatewayen](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 - **Konfigurera en redundansgrupp för att hantera redundans för hela instans**
 
@@ -229,8 +229,8 @@ Om ditt program använder hanterade instansen som datanivån, följer du dessa a
 
   > [!NOTE]
   > I vissa tjänstnivåer, Azure SQL Database stöder användning av [skrivskyddade repliker](sql-database-read-scale-out.md) att läsa in saldo skrivskyddat arbetsbelastningar med hjälp av kapaciteten för en skrivskyddad replik och använder den `ApplicationIntent=ReadOnly` parameter i anslutningen sträng. När du har konfigurerat en geo-replikerad sekundär, använder du den här funktionen för att ansluta till antingen en skrivskyddad replik på den primära platsen eller i geo-replikerade platsen.
-  > - Om du vill ansluta till en skrivskyddad replik på den primära platsen använder &lt;redundansgruppsnamnet-&gt;.&lt; zone_id&gt;. database.windows.net.
-  > - Om du vill ansluta till en skrivskyddad replik på den primära platsen använder &lt;redundansgruppsnamnet-&gt;.secondary.&lt; zone_id&gt;. database.windows.net.
+  > - Om du vill ansluta till en skrivskyddad replik på den primära platsen, &lt;redundansgruppsnamnet-&gt;.&lt; zone_id&gt;. database.windows.net.
+  > - Om du vill ansluta till en skrivskyddad replik på den primära platsen, &lt;redundansgruppsnamnet-&gt;.secondary.&lt; zone_id&gt;. database.windows.net.
 - **Förberedas för perf försämring**
 
   SQL redundans beslut är fristående från resten av programmet eller andra tjänster som används. Programmet får ”blandas” med vissa komponenter i en region och vissa i en annan. Om du vill undvika försämringen, se till att redundanta programdistributionen i regionen för Haveriberedskap och följa riktlinjerna för nätverk i den här artikeln <link>.
@@ -380,6 +380,7 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 | Set-AzureRmSqlDatabaseInstanceFailoverGroup |Ändrar konfigurationen för redundansgruppen|
 | Get-AzureRmSqlDatabaseInstanceFailoverGroup |Hämtar redundanskonfiguration för grupp|
 | Växeln AzureRmSqlDatabaseInstanceFailoverGroup |Utlösare redundans för redundansgruppen till den sekundära servern|
+| Ta bort AzureRmSqlDatabaseInstanceFailoverGroup | Tar bort en redundansgrupp|
 
 ### <a name="manage-sql-database-failover-using-the-rest-api"></a>Hantera SQL database-redundans med hjälp av REST-API
 

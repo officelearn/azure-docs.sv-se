@@ -11,42 +11,42 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 0d5b7e484024294eb5c95b632dbef85c377b717e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 12/04/2018
+ms.openlocfilehash: f484eaf127c1dda0e3389e237ace75f51401a806
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469035"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959885"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent datakryptering för SQL Database och Data Warehouse
 
-Transparent datakryptering (TDE) kan du skydda Azure SQL Database och Azure Data Warehouse mot skadlig aktivitet. Den utför i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade Azure SQL-databaser. TDE kan inte användas för att kryptera den logiska **master** databas i SQL Database.  Den **master** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användardatabaser.
+Transparent datakryptering (TDE) kan du skydda Azure SQL Database, Azure SQL Managed Instance och Azure Data Warehouse mot skadlig aktivitet. Den utför i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade Azure SQL-databaser. TDE kan inte användas för att kryptera den logiska **master** databas i SQL Database.  Den **master** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användardatabaser.
 
-TDE måste aktiveras manuellt för äldre databaser eller Azure SQL Data Warehouse.  
+TDE måste aktiveras manuellt för Azure SQL Managed Instance, äldre databaser på Azure SQL Database eller Azure SQL Data Warehouse.  
 
-Transparent datakryptering krypteras lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln. Den här databaskrypteringsnyckeln skyddas av krypteringsskyddet transparent data. Skyddets är antingen en tjänsthanterad certifikat (tjänsthanterad transparent datakryptering) eller en asymmetrisk nyckel som lagras i Azure Key Vault (Bring Your Own Key). Du kan ställa in transparent data krypteringsskyddet på servernivå.
+Transparent datakryptering krypteras lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln. Den här databaskrypteringsnyckeln skyddas av krypteringsskyddet transparent data. Skyddets är antingen en tjänsthanterad certifikat (tjänsthanterad transparent datakryptering) eller en asymmetrisk nyckel som lagras i Azure Key Vault (Bring Your Own Key). Du kan ställa in transparent data krypteringsskyddet på servernivå för Azure SQL Database och Data Warehouse och instansnivå för Azure SQL Managed Instance. Termen *server* refererar både till servern och instansen i hela dokumentet, om inte anges på olika sätt.
 
 När du startar för databasen är krypterad databaskrypteringsnyckeln dekrypteras och sedan användas för dekryptering och omkryptering av databasfilerna i SQL Server Database Engine-processen. Transparent datakryptering utför i realtid i/o-kryptering och dekryptering av data på sidnivå. Varje sida dekrypteras när den har läst in i minnet och sedan krypteras innan de skrivs till disk. En allmän beskrivning av transparent datakryptering, se [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 
-SQL Server som körs på virtuella Azure-datorer även kan använda en asymmetrisk nyckel från Key Vault. Konfigurationsstegen skiljer sig från att använda en asymmetrisk nyckel i SQL-databas. Mer information finns i [utökningsbar nyckelhantering med hjälp av Azure Key Vault (SQL Server)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
+SQL Server som körs på virtuella Azure-datorer även kan använda en asymmetrisk nyckel från Key Vault. Konfigurationsstegen skiljer sig från att använda en asymmetrisk nyckel i SQL Database och SQL-hanterad instans. Mer information finns i [utökningsbar nyckelhantering med hjälp av Azure Key Vault (SQL Server)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
 
 ## <a name="service-managed-transparent-data-encryption"></a>Tjänsthanterad transparent datakryptering
 
-I Azure är standardinställningen för transparent datakryptering att databaskrypteringsnyckeln skyddas av ett certifikat för inbyggda. Inbyggda servercertifikatet är unikt för varje server. Om en databas finns i en relation för geo-replikering, både primär och geo-sekundära databasen skyddas av den primära databasen överordnade servernyckeln. Om två databaser är ansluten till samma server kan dela de samma inbyggda certifikat. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag.
+I Azure är standardinställningen för transparent datakryptering att databaskrypteringsnyckeln skyddas av ett certifikat för inbyggda. Inbyggda servercertifikatet är unikt för varje server. Om en databas finns i en relation för geo-replikering, både primär och geo-sekundära databasen skyddas av den primära databasen överordnade servernyckeln. Om två databaser är ansluten till samma server kan dela de också samma inbyggda certifikat. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag.
 
 Microsoft även sömlöst flyttar hanterar nycklar som behövs för geo-replikering och återställer.
 
 > [!IMPORTANT]
-> Alla nyligen skapade SQL-databaser krypteras som standard med hjälp av tjänsthanterad transparent datakryptering. Befintliga databaser tidigare maj 2017 och databaser som har skapats via återställning, geo-replikering och databaskopian inte är krypterad som standard.
+> Alla nyligen skapade SQL-databaser krypteras som standard med hjälp av tjänsthanterad transparent datakryptering. Azure SQL-hanterad instans-databaser, befintliga SQL-databaser som skapats före maj 2017 och SQL-databaser som skapats via återställning, geo-replikering och databaskopiering krypteras inte som standard.
 
 ## <a name="bring-your-own-key"></a>Ta med din egen nyckel
 
-Med stöd för Bring Your Own Key kan du ta kontrollen över dina nycklar för kryptering av data transparent och kontrollera vem som kan komma åt dem och när. Key Vault, som är det Azure-molnbaserade externa nyckelhanteringssystemet, är den första nyckelhanteringstjänst att transparent datakryptering har integrerats med stöd för Bring Your Own Key. Med stöd för Bring Your Own Key skyddas databaskrypteringsnyckeln av en asymmetrisk nyckel som lagras i Key Vault. En asymmetrisk nyckel lämnar aldrig Key Vault. När servern har behörighet till key vault, skickar servern grundläggande nyckelåtgärd begäranden till den via Key Vault. Du anger en asymmetrisk nyckel på servernivå och alla databaser under den här servern ärver den.
+Med stöd för Bring Your Own Key kan du ta kontrollen över dina nycklar för kryptering av data transparent och kontrollera vem som kan komma åt dem och när. Key Vault, som är det Azure-molnbaserade externa nyckelhanteringssystemet, är den första nyckelhanteringstjänst att transparent datakryptering har integrerats med Bring Your Own Key support. Med stöd för Bring Your Own Key skyddas databaskrypteringsnyckeln av en asymmetrisk nyckel som lagras i Key Vault. En asymmetrisk nyckel lämnar aldrig Key Vault. När servern har behörighet till ett Nyckelvalv, skickar servern grundläggande nyckelåtgärd begäranden till den via Key Vault. Du kan ange en asymmetrisk nyckel på servernivå och alla *krypterade* databaser under den här servern ärver den.
 
-Med stöd för Bring Your Own Key kan kan du nu styra viktiga hanteringsuppgifter, till exempel nyckelrotationer och nyckelvalvet behörigheter. Du kan också ta bort nycklar och aktivera granskning/rapportering på alla krypteringsnycklar. Key Vault ger central nyckelhantering och använder nära övervakade HSM: er. Key Vault främjar uppdelning av hantering av nycklar och data för att uppfylla regelefterlevnad. Läs mer om Key Vault i den [dokumentationssidan för Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+Med stöd för Bring Your Own Key kan styra du viktiga hanteringsuppgifter, till exempel nyckelrotationer och nyckelvalvet behörigheter. Du kan också ta bort nycklar och aktivera granskning/rapportering på alla krypteringsnycklar. Key Vault ger central nyckelhantering och använder nära övervakade HSM: er. Key Vault främjar uppdelning av hantering av nycklar och data för att uppfylla regelefterlevnad. Läs mer om Key Vault i den [dokumentationssidan för Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
 
-Läs mer om transparent datakryptering med Bring Your Own Key-stöd för SQL-databasen och informationslagret i [Transparent datakryptering med stöd för Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
+Läs mer om transparent datakryptering med Bring Your Own Key-stöd för Azure SQL Database, SQL-hanterad instans och Data Warehouse i [Transparent datakryptering med stöd för Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
 
 Om du vill börja använda transparent datakryptering med stöd för Bring Your Own Key, finns i den här guiden [aktivera transparent datakryptering med hjälp av en egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 
@@ -59,6 +59,7 @@ Du behöver inte dekryptera databaser för åtgärder i Azure. Transparent data 
 - Återställa en borttagen databas
 - Aktiv geo-replikering
 - Skapa en databaskopia
+- Återställning av säkerhetskopierade filen till Azure SQL Managed Instance
 
 När du exporterar en transparent data encryption-skyddad databas, inte är det exporterade innehållet på databasen krypterad. Det här exporterade innehållet lagras i icke krypterade BACPAC-filer. Var noga med att skydda BACPAC-filer på rätt sätt och aktivera transparent datakryptering efter import av den nya databasen har slutförts.
 
@@ -70,11 +71,11 @@ Det enda undantaget är när du exporterar till och från en SQL-databas. Transp
 
 Om du vill konfigurera transparent datakryptering via Azure-portalen måste du vara ansluten som Azure ägare, deltagare eller SQL Security Manager.
 
-Du kan ställa in transparent datakryptering på databasnivå. Om du vill aktivera transparent datakryptering på en databas, gå till den [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-administratör eller bidragsgivare. Hitta transparent data encryption inställningarna för databasen. Som standard används tjänsthanterad transparent datakryptering. Ett krypteringscertifikat för transparent data genereras automatiskt för den server där databasen.
+Du aktiverar transparent datakryptering och sätts på databasnivå. Om du vill aktivera transparent datakryptering på en databas, gå till den [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-administratör eller bidragsgivare. Hitta transparent data encryption inställningarna för databasen. Som standard används tjänsthanterad transparent datakryptering. Ett krypteringscertifikat för transparent data genereras automatiskt för den server där databasen. Använd T-SQL aktivera transparent datakryptering och inaktivera en databas för Azure SQL Managed Instance.
 
-![Tjänsthanterad transparent datakryptering](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
+![Tjänsthanterad transparent datakryptering](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
 
-Du anger transparent data encryption huvudnyckeln, även kallat transparent data encryption skyddets, på servernivå. Om du vill använda transparent datakryptering med stöd för Bring Your Own Key och skydda dina databaser med en nyckel från Key Vault, se krypteringsinställningar transparent data under din server.
+Du anger transparent data encryption huvudnyckeln, även kallat transparent data encryption skyddets, på servernivå. Om du vill använda transparent datakryptering med stöd för Bring Your Own Key och skydda dina databaser med en nyckel från Key Vault, öppna krypteringsinställningar transparent data under din server.
 
 ![Transparent datakryptering med stöd för Bring Your Own Key](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
@@ -82,17 +83,24 @@ Du anger transparent data encryption huvudnyckeln, även kallat transparent data
 
 Om du vill konfigurera transparent datakryptering via PowerShell, måste du vara ansluten som Azure ägare, deltagare eller SQL Security Manager.
 
+### <a name="cmdlets-for-azure-sql-database-and-data-warehouse"></a>Cmdletar för Azure SQL Database och Data Warehouse
+
+Använd följande cmdlets för Azure SQL Database och Data Warehouse:
+
 | Cmdlet | Beskrivning |
 | --- | --- |
-| [Set-AzureRmSqlDatabaseTransparentDataEncryption](/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |Aktiverar eller inaktiverar transparent datakryptering för en databas|
-| [Get-Azure-Rm-Sql-Database-Transparent-Data-Encryption](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |Hämtar transparent data encryption tillståndet för en databas |
-| [Get-Azure-Rm-Sql-Database-Transparent-Data-Encryption-Activity](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |Kontrollerar kryptering förloppet för en databas |
-| [Lägg till AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Lägger till en Key Vault-nyckel till en SQL Server-instans |
-| [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |Hämtar Key Vault-nycklar för en SQL server-instans  |
-| [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |Anger krypteringsskyddet transparent data för en SQL Server-instans |
-| [Get-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |Hämtar krypteringsskyddet transparent data |
-| [Ta bort AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) |Tar bort en nyckel med Key Vault från en SQL Server-instans |
+| [Set-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |Aktiverar eller inaktiverar transparent datakryptering för en databas|
+| [Get-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |Hämtar transparent data encryption tillståndet för en databas |
+| [Get-AzureRmSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |Kontrollerar kryptering förloppet för en databas |
+| [Lägg till AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Lägger till en Key Vault-nyckel till en SQL Server-instans |
+| [Get-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |Hämtar Key Vault-nycklar för en Azure SQL database-server  |
+| [Set-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |Anger krypteringsskyddet transparent data för en SQL Server-instans |
+| [Get-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |Hämtar krypteringsskyddet transparent data |
+| [Ta bort AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) |Tar bort en nyckel med Key Vault från en SQL Server-instans |
 |  | |
+
+> [!IMPORTANT]
+> Använd T-SQL för Azure SQL Managed Instance [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) kommando för att aktivera transparent datakryptering och inaktivera en databasnivå och kontrollera [exempel på PowerShell-skript](transparent-data-encryption-byok-azure-sql-configure.md) att hantera transparent data kryptering på en instansnivå.
 
 ## <a name="manage-transparent-data-encryption-by-using-transact-sql"></a>Hantera transparent datakryptering med hjälp av Transact-SQL
 
@@ -100,9 +108,9 @@ Ansluta till databasen med hjälp av en inloggning som är en administratör ell
 
 | Kommando | Beskrivning |
 | --- | --- |
-| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) | Ställ in kryptering på/av krypterar eller dekrypterar en databas |
-| [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Returnerar information om krypteringsstatus för en databas och dess associerade databasen krypteringsnycklar |
-| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Returnerar information om krypteringsstatus för varje data warehouse-nod och dess associerade databasen krypteringsnycklar |
+| [ALTER DATABASE (Azure SQL-databas)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | Ställ in kryptering på/av krypterar eller dekrypterar en databas |
+| [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Returnerar information om krypteringsstatus för en databas och dess associerade databasen krypteringsnycklar |
+| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Returnerar information om krypteringsstatus för varje data warehouse-nod och dess associerade databasen krypteringsnycklar |
 |  | |
 
 Du kan inte växla krypteringsskyddet transparent data till en nyckel från Key Vault med hjälp av Transact-SQL. Använd PowerShell eller Azure-portalen.
@@ -110,6 +118,7 @@ Du kan inte växla krypteringsskyddet transparent data till en nyckel från Key 
 ## <a name="manage-transparent-data-encryption-by-using-the-rest-api"></a>Hantera transparent datakryptering med hjälp av REST-API
 
 Om du vill konfigurera transparent datakryptering via REST API, måste du vara ansluten som Azure ägare, deltagare eller SQL Security Manager.
+Använd följande kommandon för Azure SQL Database och Data Warehouse:
 
 | Kommando | Beskrivning |
 | --- | --- |
@@ -128,6 +137,6 @@ Om du vill konfigurera transparent datakryptering via REST API, måste du vara a
 ## <a name="next-steps"></a>Nästa steg
 
 - En allmän beskrivning av transparent datakryptering, se [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
-- Läs mer om transparent datakryptering med Bring Your Own Key-stöd för SQL-databasen och informationslagret i [Transparent datakryptering med stöd för Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
+- Läs mer om transparent datakryptering med Bring Your Own Key-stöd för Azure SQL Database, Azure SQL Managed Instance och Data Warehouse i [Transparent datakryptering med stöd för Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
 - Om du vill börja använda transparent datakryptering med stöd för Bring Your Own Key, finns i den här guiden [aktivera transparent datakryptering med hjälp av en egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 - Läs mer om Key Vault, den [dokumentationssidan för Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).

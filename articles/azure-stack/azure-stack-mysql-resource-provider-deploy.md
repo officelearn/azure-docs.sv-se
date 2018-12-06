@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 2017e08361c9ff060fde96b78549133d48372e34
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: da88be76d01b246e273739566d629348895b68b6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853905"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972005"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Distribuera MySQL-resursprovider i Azure Stack
 
@@ -32,8 +32,8 @@ Använda resursprovidern MySQL-Server för att visa MySQL-databaser som en tjän
 
 Det finns flera förutsättningar som måste vara uppfyllda innan du kan distribuera Azure Stack MySQL-resursprovider. Slutför stegen i den här artikeln på en dator som har åtkomst till privilegierad slutpunkt virtuell dator som uppfyller dina krav.
 
-* Om du inte redan gjort det, [registrera Azure Stack](.\azure-stack-registration.md) med Azure så att du kan ladda ned Azure marketplace-objekt.
-* Du måste installera Azure- och Azure Stack PowerShell-moduler på systemet där du kör installationen. Systemet måste vara en Windows 10 eller Windows Server 2016-avbildning med den senaste versionen av .NET-runtime. Se [installera PowerShell för Azure Stack](.\azure-stack-powershell-install.md).
+* Om du inte redan gjort det, [registrera Azure Stack](./azure-stack-registration.md) med Azure så att du kan ladda ned Azure marketplace-objekt.
+* Du måste installera Azure- och Azure Stack PowerShell-moduler på systemet där du kör installationen. Systemet måste vara en Windows 10 eller Windows Server 2016-avbildning med den senaste versionen av .NET-runtime. Se [installera PowerShell för Azure Stack](./azure-stack-powershell-install.md).
 * Lägg till nödvändiga Windows Server core VM på Azure Stack Marketplace genom att ladda ned den **Windows Server 2016 Datacenter - Server Core** bild.
 
 * Ladda ned MySQL-resursprovidern binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog.
@@ -51,7 +51,7 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
 
 * Kontrollera att datacenter integration krav är uppfyllda:
 
-    |Förutsättning|Referens|
+    |Krav|Referens|
     |-----|-----|
     |Villkorlig vidarebefordran av DNS är korrekt.|[Integrering med Azure Stack datacenter - DNS](azure-stack-integrate-dns.md)|
     |Ingående portar för resursprovider är öppna.|[Azure Stack datacenter-integrering – publicera slutpunkter](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -60,7 +60,7 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
 
 ### <a name="certificates"></a>Certifikat
 
-_För integrerade system installationer endast_. Du måste ange SQL PaaS PKI-certifikat som beskrivs i den valfria PaaS certifikat i [Azure Stack PKI distributionskrav](.\azure-stack-pki-certs.md#optional-paas-certificates). Placera den .pfx-fil på den plats som den **DependencyFilesLocalPath** parametern. Ange inte ett certifikat för ASDK system.
+_För integrerade system installationer endast_. Du måste ange SQL PaaS PKI-certifikat som beskrivs i den valfria PaaS certifikat i [Azure Stack PKI distributionskrav](./azure-stack-pki-certs.md#optional-paas-certificates). Placera den .pfx-fil på den plats som den **DependencyFilesLocalPath** parametern. Ange inte ett certifikat för ASDK system.
 
 ## <a name="deploy-the-resource-provider"></a>Distribuera resursprovidern
 

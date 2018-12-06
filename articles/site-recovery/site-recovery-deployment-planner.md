@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 45ce5bfc516d51feddad7ebdad5828705b14620d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 58dc344cc7ab40218a122e34a9032276107a944c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850851"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964466"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Om Azure Site Recovery Deployment Planner för VMware till Azure
 Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery vid produktionsdistribution av VMware till Azure.
@@ -99,9 +99,9 @@ Du kan köra verktyget från Windows Server 2012 R2 om servern har nätverksåtk
 Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
     Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den.
-    E:\ASR Deployment Planner_v2.2.zip
+    E:\ASR distribution Planner_v2.3.zip
 
-    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+    E:\ASR distribution Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Uppdatera till den senaste versionen av distributionshanteraren
 Om du har en tidigare version av distributionshanteraren gör du något av följande:
@@ -117,7 +117,7 @@ Om du har en tidigare version av distributionshanteraren gör du något av följ
 
 
 ## <a name="version-history"></a>Versionshistorik
-Den senaste versionen av Distributionshanteraren för Site Recovery-verktyget är 2.2.
+Den senaste versionen av Distributionshanteraren för Site Recovery är 2.3.
 Läs sidan med [versionshistorik för Distributionshanteraren för Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) för information om korrigeringarna som har lagts till i varje uppdatering.
 
 ## <a name="next-steps"></a>Nästa steg

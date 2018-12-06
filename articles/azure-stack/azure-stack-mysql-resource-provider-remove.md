@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: c3dbecfcaf40a85c57b9f795d7f2d9b76d27c195
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 2740da5a51e95a327a868734a7f009dddf40219a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274079"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964942"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Ta bort MySQL-resursprovider
 
 Innan du tar bort MySQL-resursprovider måste du ta bort alla beroenden för providern. Du måste också en kopia av de distributionspaket som användes för att installera resursprovidern.
 
 > [!NOTE]
-> Du kan hitta länkarna för resursen providern installationsprogram i [distribuera resource provider krav](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> Du kan hitta länkarna för resursen providern installationsprogram i [distribuera resource provider krav](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 Ta bort MySQL-resursprovider tar inte bort klientdatabaser från som är värd för servrar.
 

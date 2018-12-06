@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5bb820d816115dccf470b6c32d080862495e8310
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 770f8261b3036e847111d2181a4c843374da7d60
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434984"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969744"
 ---
 # <a name="move-operation-support-for-resources"></a>Flytta åtgärden stöd för resurser
 
@@ -35,7 +35,7 @@ Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | F
 Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
-az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
+az resource list -g demogroup --query '[].{name:name, resourceType:type}' --output table
 ```
 
 Resurstypen som returneras i formatet `<resource-provider>/<resource-type-name>`. Detta visas värdet `Microsoft.OperationalInsights/workspaces` har en resursprovider av **Microsoft.OperationalInsights** och resurstypnamn av **arbetsytor**.

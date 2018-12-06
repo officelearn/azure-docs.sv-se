@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 2028de68b3c50f24c46bfafd804b00e84301a9d7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eafb4e82a319a0fdbe954757158a09aba83e9be0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256603"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972294"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Felsöka en webbapp i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -90,7 +90,7 @@ Du normalt distribuerar ett webbprojekt med den `customErrors` flaggan i Web.con
 
 ![Exempelbild felsida](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Det enklaste sättet att hitta orsaken till felet är ofta att aktivera detaljerade felmeddelanden som först av de föregående skärmbilderna beskriver hur du gör. Som kräver en ändring i distribuerade Web.config-filen. Du kan redigera den *Web.config* filen i projektet och distribuera om projektet eller skapa en [Web.config-transformering](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) och distribuera en felsökningsversion, men det finns ett snabbare sätt: i **Solution Explorer** , kan du direkt visa och redigera filer i remote webbapp med hjälp av den *fjärrvy* funktionen.
+Det enklaste sättet att hitta orsaken till felet är ofta att aktivera detaljerade felmeddelanden som först av de föregående skärmbilderna beskriver hur du gör. Som kräver en ändring i distribuerade Web.config-filen. Du kan redigera den *Web.config* filen i projektet och distribuera om projektet eller skapa en [Web.config-transformering](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) och distribuera en felsökningsversion, men det finns ett snabbare sätt: i **Solution Explorer** , kan du direkt visa och redigera filer i remote webbapp med hjälp av den *fjärrvy* funktionen.
 
 1. I **Server Explorer**, expandera **Azure**, expandera **Apptjänst**, expandera resursgruppen som webbappen finns i och expandera sedan noden för din webbapp.
 
@@ -491,7 +491,7 @@ You can send logs to any or all of three destinations:
 
 You can specify a different severity level for each destination.
 
-Tables make it easy to view details of logs online, and they support streaming; you can query logs in tables and see new logs as they are being created. Blobs make it easy to download logs in files and to analyze them using HDInsight, because HDInsight knows how to work with blob storage. For more information, see **Hadoop and MapReduce** in [Data Storage Options (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
+Tables make it easy to view details of logs online, and they support streaming; you can query logs in tables and see new logs as they are being created. Blobs make it easy to download logs in files and to analyze them using HDInsight, because HDInsight knows how to work with blob storage. For more information, see **Hadoop and MapReduce** in [Data Storage Options (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
 
 You currently have file system logs set to verbose level; the following steps walk you through setting up information level logs to go to storage account tables. Information level means all logs created by calling `Trace.TraceInformation`, `Trace.TraceWarning`, and `Trace.TraceError` will be displayed, but not logs created by calling `Trace.WriteLine`.
 
@@ -629,12 +629,12 @@ Mer information om felsökning av web apps i Azure App Service finns i följande
 
 Starta en tråd för hjälp med en specifik fråga för felsökning, i något av följande forum:
 
-* [Azure-forumet på ASP.NET-webbplats](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
+* [Azure-forumet på ASP.NET-webbplats](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
 * [Azure-forum på MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/).
-* [StackOverflow.com](http://www.stackoverflow.com).
+* [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Felsökning i Visual Studio
-Mer information om hur du använder felsökningsläge i Visual Studio finns i [felsökning i Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) och [felsökning Tips med Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Mer information om hur du använder felsökningsläge i Visual Studio finns i [felsökning i Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) och [felsökning Tips med Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Fjärrfelsökning i Azure
 Mer information om fjärrfelsökning för Azure web apps och WebJobs finns i följande resurser:
@@ -649,7 +649,7 @@ Om webbappen använder en Azure webb-API eller Mobile Services backend-server oc
 ### <a name="tracing-in-aspnet-applications"></a>Spårning i ASP.NET-program
 Det finns inga omfattande och uppdaterad introduktioner för ASP.NET-spårning på Internet. Det bästa du kan göra är Kom igång med gamla inledande material som är skrivna för Web Forms eftersom MVC inte finns ännu, och komplettera som med nyare blogg gör ett inlägg som fokuserar på specifika problem. Vissa lämpliga platser att starta finns i följande resurser:
 
-* [Övervakning och telemetri (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
+* [Övervakning och telemetri (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   E-boken kapitel med rekommendationer för spårning i Azure molnprogram.
 * [ASP.NET-spårning](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
   Gamla men fortfarande en bra resurs för en grundläggande introduktion till ämnet.
@@ -672,12 +672,12 @@ catch (Exception ex)
 }
 ```
 
-* [Strömmande diagnostik spårningsloggning från Azure-kommandorad (plus glimt!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  Hur du använder kommandoraden för att göra vad den här självstudien visar hur du gör i Visual Studio. [Glimt](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) är ett verktyg för felsökning av ASP.NET-program.
+* [Strömmande diagnostik spårningsloggning från Azure-kommandorad (plus glimt!)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+  Hur du använder kommandoraden för att göra vad den här självstudien visar hur du gör i Visual Studio. [Glimt](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) är ett verktyg för felsökning av ASP.NET-program.
 * [Med Web Apps-loggning och diagnostik – med David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) och [Direktuppspelningsloggar från Web Apps - med David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Videor med Scott Hanselman och David Ebbo.
 
-För felloggning, är ett alternativ till att skriva egen kod för spårning av att använda ett loggningsramverk för av öppen källkod som [ELMAH](http://nuget.org/packages/elmah/). Mer information finns i [Scott Hanselman blogginlägg om ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
+För felloggning, är ett alternativ till att skriva egen kod för spårning av att använda ett loggningsramverk för av öppen källkod som [ELMAH](https://nuget.org/packages/elmah/). Mer information finns i [Scott Hanselman blogginlägg om ELMAH](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
 Dessutom behöver du inte använder ASP.NET eller `System.Diagnostics` spårning för att hämta streaming loggar från Azure. Azure-webbappen streaming Loggtjänsten strömmar någon *.txt*, *.html*, eller *.log* filen som hittas i den *LogFiles* mapp. Därför kan du kan skapa dina egna system för loggning som skriver till filsystemet med webbapp och din fil strömmas och ned automatiskt. Allt du behöver göra är att skriva koden som skapar filer i den *d:\home\logfiles* mapp.
 
@@ -686,13 +686,13 @@ Mer information om att analysera webbserverloggar finns i följande resurser:
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Ett verktyg för att visa data i webbserverloggar (*.log* filer).
-* [Felsöka IIS prestandaproblem eller fel i program med hjälp av LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Felsöka IIS prestandaproblem eller fel i program med hjälp av LogParser ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   En introduktion till verktyget Parser för loggar som du kan använda för att analysera webbserverloggar.
 * [Blogginlägg av Robert McMurray om hur du använder LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [HTTP-statuskod i IIS 7.0, IIS 7.5 och IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Det gick inte att analysera spårningsloggar för begäran
-Webbplatsen Microsoft TechNet innehåller en [med hjälp av spårning av misslyckade begäranden](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) avsnittet, vilket kan vara till hjälp för att förstå hur du använder dessa loggar. Men fokuserar den här dokumentationen främst information om hur du konfigurerar spårning av misslyckade begäranden i IIS, som du inte kan göra i Azure Web Apps.
+Webbplatsen Microsoft TechNet innehåller en [med hjälp av spårning av misslyckade begäranden](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) avsnittet, vilket kan vara till hjälp för att förstå hur du använder dessa loggar. Men fokuserar den här dokumentationen främst information om hur du konfigurerar spårning av misslyckade begäranden i IIS, som du inte kan göra i Azure Web Apps.
 
 [GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

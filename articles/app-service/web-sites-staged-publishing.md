@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 32f3dd0543e841c4aae87cf48654c95a4609e51a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: c6e28554f86a6a7de5d50027ceb552e15856bc96
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682851"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970866"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -58,7 +58,7 @@ Appen måste köras i den **Standard**, **Premium**, eller **isolerad* nivå fö
 4. Appens resource-bladet klickar du på **distributionsfack**, klickar på en distributionsplats för att öppna resursbladet för att platsen med en uppsättning mått och konfiguration precis som andra appar. Namnet på platsen visas högst upp på bladet för att påminna dig om att du visar distributionsplatsen.
    
     ![Distribution fack rubrik][StagingTitle]
-5. Klicka på app-URL i bladet för den platsen. Observera att distributionsplatsen har sin egen värdnamn och är också en live-app. För att begränsa offentlig åtkomst till distributionsplatsen, se [App Service Web App – blockera Webbåtkomst till icke-produktion distributionsfack](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Klicka på app-URL i bladet för den platsen. Observera att distributionsplatsen har sin egen värdnamn och är också en live-app. För att begränsa offentlig åtkomst till distributionsplatsen, se [App Service Web App – blockera Webbåtkomst till icke-produktion distributionsfack](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 Det finns inget innehåll efter distribution fack har skapats. Du kan distribuera till facket från en annan databas gren eller en helt annan databas. Du kan också ändra platsens konfiguration. Använd Publicera profil eller distribution av autentiseringsuppgifter som är associerade med distributionsfack för uppdateringar av innehållet.  Du kan till exempel [publicera till den här platsen med git](app-service-deploy-local-git.md).
 
@@ -258,7 +258,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 För [Azure CLI](https://github.com/Azure/azure-cli) kommandon för distributionsplatser, se [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Nästa steg
-[Azure App Service Web App – blockera Webbåtkomst till icke-produktion distributionsfack](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Azure App Service Web App – blockera Webbåtkomst till icke-produktion distributionsfack](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
 [Introduktion till App Service i Linux](../app-service/containers/app-service-linux-intro.md)  
 [Kostnadsfri utvärderingsversion av Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 

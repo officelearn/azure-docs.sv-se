@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614046"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971512"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Lägga till en App Service-resursprovider i en frånkopplad Azure Stack-miljö som skyddas av AD FS
 
@@ -200,7 +200,7 @@ Om du vill distribuera App Service i en frånkopplad miljö måste du först ska
 2. I översikten under status kontrollerar du att den **Status** visar **alla roller är redo**.
 
     ![App Service-hantering](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
 > Om du väljer att distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till din filserver, du måste lägga till en utgående säkerhetsregel att aktivera SMB-trafik mellan worker-undernät och filservern.  Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
 > * Källa: alla
@@ -221,9 +221,9 @@ När du distribuerar och registrera resursprovidern App Service kan du testa den
 > [!NOTE]
 > Du måste skapa ett erbjudande som har Microsoft.Web namnrymd i planen. Måste ha en klientprenumeration som prenumererar på erbjudandet. Mer information finns i [skapa erbjudandet](azure-stack-create-offer.md) och [Skapa plan](azure-stack-create-plan.md).
 >
-Du *måste* har ett klientprenumeration för att skapa program som använder App Service på Azure Stack. Endast funktioner som en tjänstadministratör kan utföra i administrationsportalen är relaterade till resource provider administrationen av App Service. Funktionerna omfattar att lägga till kapacitet, konfigurera distributionskällor och lägger till arbetarnivåer och SKU: er.
+> Du *måste* har ett klientprenumeration för att skapa program som använder App Service på Azure Stack. Endast funktioner som en tjänstadministratör kan utföra i administrationsportalen är relaterade till resource provider administrationen av App Service. Funktionerna omfattar att lägga till kapacitet, konfigurera distributionskällor och lägger till arbetarnivåer och SKU: er.
 >
-Från och med den tredje tekniska förhandsversionen för att skapa webb-, API- och Azure Functions-appar, måste du använda klientportalen och har en klientprenumeration.
+> Från och med den tredje tekniska förhandsversionen för att skapa webb-, API- och Azure Functions-appar, måste du använda klientportalen och har en klientprenumeration.
 
 1. I Azure Stack-klient-portalen klickar du på **+ skapa en resurs** > **webb + mobilt** > **Webbapp**.
 

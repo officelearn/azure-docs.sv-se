@@ -10,18 +10,19 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d999350f309dbd2bf74bbb3d10e74feddf6ee602
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 34583d8052dfd29a3f08187b88c15e3847a4dbb9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642384"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966287"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Haveriberedskap och geo-replikering
 
 ## <a name="overview"></a>Översikt
 I Azure varaktiga funktioner sparas alla tillstånd i Azure Storage. En [uppgift hub](durable-functions-task-hubs.md) är en logisk behållare för Azure Storage-resurser som används för orkestreringar. Orchestrator och aktivitet kan bara interagera med varandra när de tillhör samma uppgift hubb.
 De beskrivna scenarierna föreslå distributionsalternativ för att öka tillgängligheten och minimera driftstopp under disaster recovery-aktiviteter.
+
 Det är viktigt att Observera att dessa scenarier baseras på aktivt-passivt konfigurationer, eftersom de vägleds genom användningen av Azure Storage. Det här mönstret innebär att distribuera en funktionsapp för säkerhetskopiering (passivt) till en annan region. Traffic Manager ska övervaka primära (aktiva) funktionsappen för tillgänglighet. Den växlar över till säkerhetskopiering funktionsappen om den primära databasen misslyckas. Mer information finns i [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)'s [prioritet Trafikdirigeringsmetoden.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
 
 

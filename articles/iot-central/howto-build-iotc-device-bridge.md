@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 11/8/2018
+ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 83f053a8815f31803f536920497fdc42e72d2a2d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74ea923ccfc88847ae6d2513b3ef592cc8899b8d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629274"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966882"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Skapa IoT Central enhet brygga för att ansluta andra IoT-moln till IoT Central
 
@@ -25,7 +25,7 @@ Enhet-brygga IoT Central är en lösning för öppen källkod som ansluter din S
 Enhet-brygga IoT Central är en lösning för öppen källkod i Github. Det är redo att sätta igång med en ”distribuera till Azure”-knapp som distribuerar en anpassad Azure Resource Manager-mall med flera Azure-resurser i din Azure-prenumeration. Resurserna är:
 -   Azure Functions-app
 -   Azure Storage-konto
--   App Service-Plan (S1-nivå)
+-   Förbrukningsplan
 -   Azure Key Vault funktionsappen är viktiga delar av enheten bryggan. Den tar emot HTTP POST-förfrågningar från andra IoT-plattformar eller valfri anpassad plattformar via ett enkelt webhook-integrering. Vi har lagt till exempel som visar hur du ansluter till Sigfox och partikeln TTN moln. Du kan enkelt utöka den här lösningen för att ansluta till din anpassade IoT-molnet om din plattform kan skicka HTTP POST-förfrågningar till din funktionsapp.
 Funktionsappen omvandlar data till ett format som accepteras av IoT Central och vidarebefordrar det längs DPS-API: er.
 
@@ -37,10 +37,9 @@ Om din IoT Central-app kan identifiera enheten av enhets-ID i det vidarebefordra
 Anvisningarna finns i detalj i README-filen i Github-lagringsplatsen. 
 
 ## <a name="pricing"></a>Prissättning
-Det finns alla i din Azure-prenumeration. Merparten av den uppskattade kostnaden för de etablerade resurserna kommer från den [priset för en standard Apptjänstplan]( https://azure.microsoft.com/en-us/pricing/details/app-service/windows/). Du kan läsa mer om detta och potentiella sätt att minska det i filen Viktigt.
+Azure-resurser kommer att finnas i Azure-prenumerationen. Du kan lära dig mer om prissättning i den [README-filen](https://aka.ms/iotcentralgithubdevicebridge).
 
 ## <a name="next-steps"></a>Nästa steg
-
 Nu när du har lärt dig hur du skapar IoT Central enhet brygga, är här nästa föreslagna steg:
 
 > [!div class="nextstepaction"]

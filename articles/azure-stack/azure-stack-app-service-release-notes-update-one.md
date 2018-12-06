@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078723"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971903"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service i Azure Stack update 1 viktig information
 
@@ -145,7 +145,7 @@ Plats-växling är uppdelad i den här versionen. För att återställa funktion
 
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
+    ```
 
 2. Bläddra till den **CN0 VM** under virtuella datorer i Azure Stack-administratörsportalen och **Klicka på Anslut** att öppna en fjärrskrivbordssession med nätverksstyrenhetens instans. Använd autentiseringsuppgifterna som angetts under distributionen av App Service.
 3. Starta **PowerShell som administratör** och kör följande skript
@@ -197,18 +197,20 @@ Plats-växling är uppdelad i den här versionen. För att återställa funktion
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- Arbetare är inte nå filserver när App Service har distribuerats i ett befintligt virtuellt nätverk och servern är endast tillgänglig i det privata nätverket.
- 
+
+6. Arbetare är inte nå filserver när App Service har distribuerats i ett befintligt virtuellt nätverk och servern är endast tillgänglig i det privata nätverket.
+
 Om du väljer att distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till filservern, du måste lägga till en utgående säkerhetsregel att aktivera SMB-trafik mellan worker-undernät och filservern. Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
- * Källa: alla
- * Käll-portintervall: *
- * Mål: IP-adresser
- * Mål-IP-adressintervall: intervall av IP-adresser för din filserver
- * Målportintervall: 445
- * Protokoll: TCP
- * Åtgärd: Tillåt
- * Prioritet: 700
- * Namn: Outbound_Allow_SMB445
+
+- Källa: alla
+- Käll-portintervall: *
+- Mål: IP-adresser
+- Mål-IP-adressintervall: intervall av IP-adresser för din filserver
+- Målportintervall: 445
+- Protokoll: TCP
+- Åtgärd: Tillåt
+- Prioritet: 700
+- Namn: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Kända problem med Cloud administratörerna fungerar Azure App Service i Azure Stack
 

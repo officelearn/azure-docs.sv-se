@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 136279a94d64b846247c436eb7a5fb487e05b41a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d095be8c5d921001ab4a492d2385938020fa8ce0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946909"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967222"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Loggbaserade och preaggregeras mått i Application Insights
 
@@ -55,7 +55,7 @@ Det finns flera [sätt att skicka anpassade mått från Application Insights SDK
 
 Alla mått som du skickar med hjälp av [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) eller [GetMetric och TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) API-anrop kan automatiskt lagras i både loggar och mått. Medan du loggbaserade-versionen av din anpassade mått förblir alltid alla dimensioner, lagras den preaggregeras versionen av måttet som standard med inga dimensioner. Du kan aktivera insamling av dimensionerna för anpassade mått på den [användning och uppskattade kostnader](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) fliken genom att markera ”Aktivera avisering för anpassade mått dimensioner”: 
 
-![Användning och uppskattade kostnader](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
+![Användning och uppskattade kostnader](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>Varför är samling med anpassade mått dimensioner inaktiverad som standard?
 
@@ -65,7 +65,7 @@ Insamling av anpassade mått dimensioner är inaktiverat som standard eftersom i
 
 Använda Azure Monitor Metrics Explorer för att rita diagram från preaggregeras och loggbaserade mått och till författare instrumentpaneler med diagram. Använd väljaren för namnområdet för att växla mellan standard (förhandsversion) och loggbaserade mått när du har valt önskade Application Insights-resursen, eller välj ett anpassat mått namnområde:
 
-![Metrisk namnområde](.\media\pre-aggregated-metrics-log-metrics\002-metric-namespace.png)
+![Metrisk namnområde](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

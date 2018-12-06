@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 4aa74aebfd9e0ef6c71913c76181a07045aa3ad7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231227"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959469"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
 
@@ -179,6 +179,6 @@ Du kan också hitta den **Helm** pakethanterare som är användbara för att ins
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lägga till ett Kubernetes i Marketplace (för Azure Stack-operatör)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Lägga till ett Kubernetes i Marketplace (för Azure Stack-operatör)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes på Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

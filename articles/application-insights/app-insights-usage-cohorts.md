@@ -13,18 +13,18 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fb04a3410291e52f4ea0d02e625bdbf02f64f8c7
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a7b5cd925bd4b66e25754c30de5cbaf866dab0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721059"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970637"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohorter
 
 En kohort är en uppsättning användare, sessioner, händelser eller åtgärder som har något gemensamt. I Azure Application Insights definieras kohorter av en analytics-fråga. I fall där du behöver analysera en specifik uppsättning användare eller händelser upprepade gånger kohorter kan du större flexibilitet att uttrycka exakt den uppsättning som du är intresserad av.
 
-![Kohorter fönstret](.\media\app-insights-usage-cohorts\001.png)
+![Kohorter fönstret](./media/app-insights-usage-cohorts/001.png)
 
 ## <a name="cohorts-versus-basic-filters"></a>Kohorter jämfört med grundläggande filter
 
@@ -52,14 +52,14 @@ Ditt team definierar en engagerade användare som alla som använder din app fem
 
 4. Ändra **UsedAtLeastCustom** till **5 + dagar**, och lämna **Period** på standardvärdet 28 dagar.
 
-    ![Engagerade användare](.\media\app-insights-usage-cohorts\003.png)
+    ![Engagerade användare](./media/app-insights-usage-cohorts/003.png)
 
     Nu den här kohorten representerar alla användar-ID som skickas med valfri anpassad händelse eller Sidvisning på 5 avgränsa dagar tidigare 28.
 
 5. Välj **Spara**.
 
    > [!TIP]
-   >  Ge din kohort ett namn som ”Engaged användare (5 + dagar)”. Spara den till ”Mina rapporter” eller ”delade rapporter”, beroende på om du vill att andra personer som har åtkomst till den här Application Insights-resursen för att se den här kohorten.
+   > Ge din kohort ett namn som ”Engaged användare (5 + dagar)”. Spara den till ”Mina rapporter” eller ”delade rapporter”, beroende på om du vill att andra personer som har åtkomst till den här Application Insights-resursen för att se den här kohorten.
 
 6. Välj **tillbaka till galleriet**.
 
@@ -69,9 +69,10 @@ Ditt team definierar en engagerade användare som alla som använder din app fem
 
 Nu filtreras användarverktyget till den här användarkohort:
 
-![Användare-fönstret som filtrerats till en viss kohort](.\media\app-insights-usage-cohorts\004.png)
+![Användare-fönstret som filtrerats till en viss kohort](./media/app-insights-usage-cohorts/004.png)
 
 Några viktiga saker att Observera:
+
 * Du kan inte skapa den här uppsättningen via normal filter. Logiken som datum är mer avancerad.
 * Du kan filtrera den här kohorten ytterligare med hjälp av de normala filter i verktyget användare. Så även om kohorten har definierats i 28-dagars windows kan kan du fortfarande justera tidsintervallet i verktyget användare vara 30, 60 eller 90 dagar.
 
@@ -87,7 +88,7 @@ Du kan också göra kohorter av händelser. I det här avsnittet definierar du e
 
 3. Välj **händelser väljare**.
 
-    ![Skärmbild av händelser väljare](.\media\app-insights-usage-cohorts\006.png)
+    ![Skärmbild av händelser väljare](./media/app-insights-usage-cohorts/006.png)
 
 4. I den **aktiviteter** listrutan väljer du de händelser som du vill ska vara i kohorten.
 
@@ -97,11 +98,11 @@ Du kan också göra kohorter av händelser. I det här avsnittet definierar du e
 
 Föregående två kohorter definierades med hjälp av listrutorna. Men du kan också definiera kohorter med analytics-frågor för total flexibilitet. Se hur du skapar en användarkohort från Storbritannien.
 
-![Animerade avbildning walking med hjälp av verktyget kohorter](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![Animerade avbildning walking med hjälp av verktyget kohorter](./media/app-insights-usage-cohorts/cohorts0001.gif)
 
 1. Öppna verktyget kohorter, Välj den **mallgalleriet** och sedan **kohort för tomma användare**.
 
-    ![Kohort för tomma användare](.\media\app-insights-usage-cohorts\001.png)
+    ![Kohort för tomma användare](./media/app-insights-usage-cohorts/001.png)
 
     Det finns tre avsnitt:
     * Ett Markdown textavsnitt, där du beskriver kohort i detalj för andra i din grupp.
@@ -136,7 +137,8 @@ Kohorter och filter är olika. Anta att du har en kohort användare från Storbr
 * Filter-versionen visas endast händelser från Storbritannien. Men om du dela upp efter land eller region, visas endast Storbritannien.
 
 ## <a name="learn-more"></a>Läs mer
-- [Analytics-frågespråket](https://go.microsoft.com/fwlink/?linkid=856587)
-- [Användare, sessioner, händelser](app-insights-usage-segmentation.md)
-- [Användarflöden](app-insights-usage-flows.md)
-- [Användningsöversikten](app-insights-usage-overview.md)
+
+* [Analytics-frågespråket](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Användare, sessioner, händelser](app-insights-usage-segmentation.md)
+* [Användarflöden](app-insights-usage-flows.md)
+* [Användningsöversikten](app-insights-usage-overview.md)

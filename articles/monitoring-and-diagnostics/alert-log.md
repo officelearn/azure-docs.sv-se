@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: cca15447587fcec7253b449d93fc2f644fe6c249
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c2f018915d5e27d4cf16447e403fcb2e1b3f55a6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851051"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969523"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor  
 
@@ -23,10 +23,10 @@ Den här artikeln visar hur du ställer in aviseringar med hjälp av gränssnitt
 - Villkor: Specifika villkor eller logik som när synts signalen ska utlösa åtgärd
 - Åtgärd: Specifika anrop som skickats till en mottagare av ett meddelande - e-post, SMS, webhook osv.
 
-Termen **Loggaviseringar** att beskriva aviseringar där signalen är anpassad fråga baserat på [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-analytics.md). Mer information om funktioner, terminologi och typer från [Loggaviseringar - översikt](monitor-alerts-unified-log.md).
+Termen **Loggaviseringar** att beskriva aviseringar där signalen är anpassad fråga baserat på [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-analytics.md). Mer information om funktioner, terminologi och typer från [Loggaviseringar - översikt](monitor-alerts-unified-log.md).
 
 > [!NOTE]
-> Populära loggdata från [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](monitoring-metric-alerts-logs.md)
+> Populära loggdata från [Azure Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](monitoring-metric-alerts-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Hantera aviseringar från Azure portal
 
@@ -107,7 +107,7 @@ För **Loggaviseringar** aviseringar kan baseras på:
 
     Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
 
-Användarna kan också underkänts analytics-fråga i [loggar analyssidan i Azure-portalen](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
+Användarna kan också underkänts analytics-fråga i [loggar analyssidan i Azure-portalen](../azure-monitor/log-query/portals.md#log-analytics-page
 ) push-överföra den att skapa en avisering genom att ställa in avisering knappen - och följa anvisningarna steg 6 och senare i självstudien ovan.
 
  ![Log Analytics – Ställ in en avisering](media/alert-log/AlertsAnalyticsCreate.png)

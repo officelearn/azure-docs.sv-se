@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: eb97e709e18daba3722dc43a869ef034dbe573cf
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c13a4606219ebdb1d23a83a0bd3bdf14f1a3882e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157436"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970917"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Nätverksöverväganden för Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Så här väljer du ett Azure-nätverk
@@ -102,7 +102,7 @@ I följande tabell visar ett exempel NSG som du kan konfigurera för ett virtuel
 
 Dessutom visar NSG: N också hur man låser åtkomst med säkert LDAP via internet. Hoppa över den här regeln om du inte har aktiverat åtkomst med säkert LDAP till din hanterade domän via internet. NSG: N innehåller en uppsättning regler som tillåter inkommande LDAPS åtkomst via TCP-port 636 bara från en angiven mängd av IP-adresser. NSG-regel som tillåter LDAPS via internet från den angivna IP-adresser har högre prioritet än DenyAll NSG-regel.
 
-![Exemplet NSG till säker LDAPS åtkomst via internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![Exemplet NSG till säker LDAPS åtkomst via internet](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 **Mer information** - [skapa en Nätverkssäkerhetsgrupp](../virtual-network/manage-network-security-group.md).
 

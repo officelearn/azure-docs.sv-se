@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8020db5f099f0d2c3dc8203f2d4afeea6a38cb41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 52657ae18b6fd06408887df82bd822eb2ff8fffe
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844761"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964364"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd matrix för haveriberedskap för lokala Hyper-V-datorer till Azure
 
@@ -170,6 +170,9 @@ Typ av virtuell dator | Generation 1<br/><br/> Generation 2 – Windows | Virtue
 --- | --- | ---
 Flytta valv mellan resursgrupper<br/><br/> Inom och mellan prenumerationer | Nej | Nej
 Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper<br/><br/> Inom och mellan prenumerationer | Nej | Nej
+
+> [!NOTE]
+> När du replikerar virtuella Hyper-v-datorer (som hanteras med och utan SCVMM) från en lokal plats till Azure, kan du replikera till endast en AD-klient från en viss miljö - Hyper-V-platsen eller SCVMM så är tillämpligt.
 
 
 ## <a name="provider-and-agent"></a>Provider och agent

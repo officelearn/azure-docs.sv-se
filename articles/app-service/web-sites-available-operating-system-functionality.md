@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 5ab54dcd94ebf0a1bad71613a8d749cef0de64f4
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: ebb95093d96a3c1fd36565831215355b18ac5d1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678686"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968433"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funktioner för operativsystemet på Azure App Service
 Den här artikeln beskriver de funktioner för vanliga baslinje operativsystemet som är tillgänglig för alla Windows-appar som körs på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverk, och åtkomst till behållarregistret, och diagnostikloggar och händelser. 
@@ -85,7 +85,7 @@ På de lokala enheter som är kopplade till den virtuella datorn som kör en app
 
 Två exempel på hur App Service använder lokal tillfällig lagring är katalogen för temporära ASP.NET-filer och katalogen för IIS komprimerade filer. ASP.NET används-kompilering katalogen ”tillfälliga ASP.NET-filer som en tillfällig kompilering cacheplats. IIS använder katalogen ”IIS temporära komprimerade filer” för att lagra komprimerade svarsutdata. Båda typerna av filen användning (samt andra) mappas i App Service till per app temporär lokal lagring. Den här ommappning säkerställer att funktionerna kan fortsätta som förväntat.
 
-Varje app i App Service körs som ett slumpmässigt unika med låg behörighet arbetsprocess-ID kallas ”programpoolsidentiteten”, som beskrivs mer här: [ http://www.iis.net/learn/manage/configuring-security/application-pool-identities ](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Koden använder den här identiteten för grundläggande skrivskyddad åtkomst till enheten med operativsystemet (D:\ enheten). Det innebär att programkoden kan visa en lista över vanliga katalogstrukturer och läsa vanliga filer på enheten med operativsystemet. Även om det verka som att något generellt åtkomst, i samma kataloger och filer är tillgängliga när du etablerar en arbetsroll i en Azure värdtjänsten och läsa innehållet i enheten. 
+Varje app i App Service körs som ett slumpmässigt unika med låg behörighet arbetsprocess-ID kallas ”programpoolsidentiteten”, som beskrivs mer här: [ https://www.iis.net/learn/manage/configuring-security/application-pool-identities ](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). Koden använder den här identiteten för grundläggande skrivskyddad åtkomst till enheten med operativsystemet (D:\ enheten). Det innebär att programkoden kan visa en lista över vanliga katalogstrukturer och läsa vanliga filer på enheten med operativsystemet. Även om det verka som att något generellt åtkomst, i samma kataloger och filer är tillgängliga när du etablerar en arbetsroll i en Azure värdtjänsten och läsa innehållet i enheten. 
 
 <a name="multipleinstances"></a>
 

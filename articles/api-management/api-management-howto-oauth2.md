@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: c0e502c1627ebe9d63ca43cb46b982bb0639f3d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444741"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967937"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Hur du auktorisera konton med hjälp av OAuth 2.0 i Azure API Management
 
-Många API: er stöder [OAuth 2.0](http://oauth.net/2/) att skydda API: et och se till att endast giltiga användare har åtkomst och de kan bara komma åt resurser som de är rätt. För att kunna använda Azure API Management interaktiva Developer Console med dessa API: er, kan du konfigurera din tjänstinstans för att fungera med din OAuth 2.0 aktiverade API: et i tjänsten.
+Många API: er stöder [OAuth 2.0](https://oauth.net/2/) att skydda API: et och se till att endast giltiga användare har åtkomst och de kan bara komma åt resurser som de är rätt. För att kunna använda Azure API Management interaktiva Developer Console med dessa API: er, kan du konfigurera din tjänstinstans för att fungera med din OAuth 2.0 aktiverade API: et i tjänsten.
 
 ## <a name="prerequisites"> </a>Nödvändiga komponenter
 
@@ -143,7 +143,7 @@ Mer information om hur du använder OAuth 2.0 och API Management finns i följan
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[http://oauth.net/2/]: http://oauth.net/2/
+[https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 
 [Prerequisites]: #prerequisites

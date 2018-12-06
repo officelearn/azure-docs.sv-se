@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 99caf04698226de8daa9cfb8f60662e5cb0f8b49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449829"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956338"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Ta bort en labb eller virtuell dator i ett labb i Azure DevTest Labs
 Den här artikeln visar hur du tar bort en labb eller virtuell dator i ett labb.
@@ -34,16 +34,16 @@ Om du vill ta bort ett labb, gör du följande åtgärder:
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla** menyn till vänster och välj **DevTest Labs** för typ av tjänst och välj labbet.
 
-    ![Välj ditt labb](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![Välj ditt labb](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. På den **labb** klickar du på **ta bort** i verktygsfältet. 
 
-    ![Ta bort knapp](media\devtest-lab-delete-lab-vm\delete-button.png)
+    ![Ta bort knapp](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. På den **bekräftelse** anger du den **namn** om ditt labb och markera **ta bort**. 
 
-    ![Bekräfta](media\devtest-lab-delete-lab-vm\confirm-delete.png)
+    ![Bekräfta](media/devtest-lab-delete-lab-vm/confirm-delete.png)
 5. Om du vill se status för åtgärden **meddelanden** ikonen (klockan). 
 
-    ![Meddelanden](media\devtest-lab-delete-lab-vm\delete-status.png)
+    ![Meddelanden](media/devtest-lab-delete-lab-vm/delete-status.png)
 
  
 ## <a name="delete-a-vm-in-a-lab"></a>Ta bort en virtuell dator i ett labb
@@ -59,16 +59,16 @@ Om du vill ta bort en virtuell dator i ett labb, gör du följande åtgärder:
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla** menyn till vänster och välj **DevTest Labs** för typ av tjänst och välj labbet.
 
-    ![Välj ditt labb](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![Välj ditt labb](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. Välj **... (tre punkter)**  för den virtuella datorn i listan över virtuella datorer och välj **ta bort**. 
 
-    ![Ta bort virtuell dator i menyn](media\devtest-lab-delete-lab-vm\delete-vm-menu-in-list.png)
+    ![Ta bort virtuell dator i menyn](media/devtest-lab-delete-lab-vm/delete-vm-menu-in-list.png)
 4. På den **bekräftelse** dialogrutan **Ok**. 
 5. Om du vill se status för åtgärden **meddelanden** ikonen (klockan). 
 
 Att ta bort en virtuell dator från den **VM sidan**väljer **ta bort** från verktygsfältet, som visas i följande bild:
 
-![Ta bort virtuell dator från VM-sida](media\devtest-lab-delete-lab-vm\delete-from-vm-page.png) 
+![Ta bort virtuell dator från VM-sida](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 
 
 ## <a name="next-steps"></a>Nästa steg

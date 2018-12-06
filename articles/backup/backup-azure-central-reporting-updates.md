@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: adigan
-ms.openlocfilehash: 575b994fb34d673578b1a40ae4bdd9f6716b6687
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 65ab497b2467846a324d10f8487ab384a01441ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720039"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968893"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Uppdatera Azure Backup centrala reporting Innehållspaketet 
 
@@ -41,30 +41,30 @@ De förkonfigurerade rapporter som levereras med Azure Backup-Innehållspaketet 
 
 ### <a name="summary"></a>Sammanfattning
    
-![Sammanfattning](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Summary.png)
+![Sammanfattning](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
 ### <a name="billing"></a>Fakturering
 
-![Fakturering](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Billing.png)
+![Fakturering](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
 
 ### <a name="compliance"></a>Efterlevnad
 
-![Efterlevnad](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Compliance.png)
+![Efterlevnad](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
 ### <a name="storage"></a>Storage
 
-![Storage](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
+![Storage](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>Säkerhetskopieringsobjekt
-![Säkerhetskopieringsobjekt](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+![Säkerhetskopieringsobjekt](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
 
 ### <a name="alerts"></a>Aviseringar
 
-![Aviseringar](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Alerts.png)
+![Aviseringar](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
 ### <a name="jobs"></a>Jobb
 
-![Jobb](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
+![Jobb](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## <a name="next-steps"></a>Nästa steg

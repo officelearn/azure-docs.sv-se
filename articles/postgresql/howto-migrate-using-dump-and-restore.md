@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 7c67cac7a5579386921b2b949e9312cb4e5da172
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984680"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966916"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrera din PostgreSQL-databas med säkerhetskopiering och återställning
 Du kan använda [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) att extrahera en PostgreSQL-databas till en dumpfil och [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) att återställa PostgreSQL-databasen från en arkivfil som skapats av pg_dump.
@@ -71,7 +71,7 @@ Ett sätt att migrera din befintliga PostgreSQL-databas till Azure Database för
     ```
 
 ### <a name="for-the-restore"></a>Vid återställningen
-- Vi rekommenderar att du flyttar den säkerhetskopiera filen till en Azure-dator i samma region som Azure Database for PostgreSQL-server som du migrerar till och gör pg_restore från den virtuella datorn att minska Nätverksfördröjningen. Vi rekommenderar också att den virtuella datorn skapas med [nätverksaccelerering](..\virtual-network\create-vm-accelerated-networking-powershell.md) aktiverat.
+- Vi rekommenderar att du flyttar den säkerhetskopiera filen till en Azure-dator i samma region som Azure Database for PostgreSQL-server som du migrerar till och gör pg_restore från den virtuella datorn att minska Nätverksfördröjningen. Vi rekommenderar också att den virtuella datorn skapas med [nätverksaccelerering](../virtual-network/create-vm-accelerated-networking-powershell.md) aktiverat.
 - Det bör göras redan som standard, men öppna dumpfilen för att verifiera att skapa index-instruktioner är efter infogningen av data. Om det inte är fallet, flytta create index-instruktioner när data infogas.
 - Återställa med växlarna -Fc och -j *#* att parallellisera återställningen. *#* är antalet kärnor på målservern. Du kan också försöka med *#* inställd på två gånger antalet kärnor på målservern för att se hur. Exempel:
 

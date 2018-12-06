@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277281"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969965"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
@@ -36,7 +36,7 @@ Du bör se versionen av Azure CLI och andra beroende bibliotek som är installer
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
 
-1. Hämta Azure Stack Certifikatutfärdarens rotcertifikat från [Azure Stack-operatör](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) och lita på den. Om du vill lita på rotcertifikatet för Azure Stack-CA, lägger du till dem i det befintliga certifikatet för Python.
+1. Hämta Azure Stack Certifikatutfärdarens rotcertifikat från [Azure Stack-operatör](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) och lita på den. Om du vill lita på rotcertifikatet för Azure Stack-CA, lägger du till dem i det befintliga certifikatet för Python.
 
 1. Hitta certifikatsplats på din dator. Platsen kan variera beroende på var du har installerat Python. Du måste ha [pip](https://pip.pypa.io) och [certifi](https://pypi.org/project/certifi/) -modulen installerad. Du kan använda följande Python-kommandot från bash-Kommandotolken:
 
@@ -242,6 +242,6 @@ Det finns några kända problem som du måste tänka på när du använder CLI i
 
 [Distribuera mallar med Azure CLI](azure-stack-deploy-template-command-line.md)
 
-[Aktivera Azure CLI för Azure Stack-användare (operatorn)](..\azure-stack-cli-admin.md)
+[Aktivera Azure CLI för Azure Stack-användare (operatorn)](../azure-stack-cli-admin.md)
 
 [Hantera användarbehörigheter](azure-stack-manage-permissions.md)

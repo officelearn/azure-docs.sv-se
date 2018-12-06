@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7d76827a4e4ba4ccb7a146c5f8282000d143eb35
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4de4a5a659f38577c1261b169a43df560bf05495
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624445"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971274"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Konfigurera OpenVPN klienter för Azure VPN Gateway (förhandsversion)
 
@@ -67,11 +67,11 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
 2. Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken punkt-till-plats-konfiguration i Azure-portalen eller genom att använda ”New-AzureRmVpnClientConfiguration” i PowerShell.
 3. Packa upp profilen. Öppna konfigurationsfilen vpnconfig.ovpn från mappen OpenVPN i anteckningar.
 4. Fyll i avsnittet för P2S-klientcertifikatet med P2S-klientcertifikatets offentliga nyckel i base64. I ett PEM-formaterat certifikat öppnar du bara CER-filen och kopierar över base64-nyckeln mellan certifikathuvudena. Se [exportera den offentliga nyckeln](vpn-gateway-certificates-point-to-site.md#cer) information om hur du exporterar ett certifikat för att få den kodade offentliga nyckeln.
-5. Fyll i avsnittet för den privata nyckeln med P2S-klientcertifikatets privata nyckel i base64. Se [exportera den privata nyckeln](https://www.geotrust.eu/en/support/manuals/microsoft/all+windows+servers/export+private+key+or+certificate/) information om hur man extraherar privat nyckel.
+5. Fyll i avsnittet för den privata nyckeln med P2S-klientcertifikatets privata nyckel i base64. Se [exportera den privata nyckeln](https://openvpn.net/community-resources/how-to/#pki) information om hur man extraherar en privat nyckel.
 6. Ändra inte några andra fält. Använd den ifyllda konfigurationen i klientindata för att ansluta till VPN.
 7. Dubbelklicka på profilfilen för att skapa profilen i tunnelblik.
 8. Starta Tunnelblik från mappen program.
-9. Klicka på ikonen Tunneblik i systemfältet och Välj Anslut.
+9. Klicka på ikonen Tunnelblik i systemfältet och Välj Anslut.
 
 ## <a name="linux"></a>Linux-klienter
 

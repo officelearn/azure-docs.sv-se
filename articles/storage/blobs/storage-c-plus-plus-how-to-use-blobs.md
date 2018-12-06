@@ -8,23 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: d0b0f8ef2fcc4307482b4ccffcb46410eaba33d5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f928f27c8c1dbfe6c65cb25cb5c34680fc58bff3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306212"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955878"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Använda Blob storage från C++
 
-Den här guiden visar hur du utför vanliga scenarier med Azure Blob storage-tjänsten. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Scenarier som omfattas är ladda upp, lista, hämta och tar bort blobbar.  
+Den här guiden visar hur du utför vanliga scenarier med Azure Blob storage. Exemplen visar hur du laddar upp, lista, hämta och ta bort blobar. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
+
+Mer information om Blob storage finns [introduktion till Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
 > För den här guiden krävs Azure Storage-klientbiblioteket för C++ version 1.0.0 eller senare. Microsoft rekommenderar att du använder den senaste versionen av Storage-klientbiblioteket för C++, tillgängligt via [NuGet](http://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp).
-
-## <a name="what-is-blob-storage"></a>Vad är Blob-lagring?
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 

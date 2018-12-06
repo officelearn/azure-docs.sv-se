@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ad6fe023c4e93328331140dc3552ae1afd7c83ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783380"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970653"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -167,7 +167,7 @@ Följande tabell innehåller kraven för inkommande port för Windows-brandvägg
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Krävs för kryptering PowerShell-cmdleten enligt beskrivningen i [kryptera autentiseringsuppgifterna för den lokala datalager i Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), och av Autentiseringshanteraren att ange autentiseringsuppgifter för lokala datalager på ett säkert sätt på den lokala integreringskörningen. |
 
-![Krav för gateway-port](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![Krav för gateway-port](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>IP-konfigurationer och listan över tillåtna program i datalager
 Vissa datalager i molnet kräver också att du godkänner IP-adressen för den datorn åtkomst till arkivet. Kontrollera att IP-adressen för den lokala installation av integration runtime-datorn är godkänd eller korrekt konfigurerad i brandväggen.

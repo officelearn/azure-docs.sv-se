@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: 39d6b586158ce292f3697af0f7241a3858842374
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722232"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970594"
 ---
 # <a name="local-forwarder"></a>Lokal vidarebefordrare
 
@@ -39,7 +39,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. Ladda ned LF. WindowsServiceHost.zip filen från den [lokala vidarebefordrare versionen sidan](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) på GitHub.
 
-    ![Skärmbild av lokala vidarebefordrare hämtningssidan för versionen](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![Skärmbild av lokala vidarebefordrare hämtningssidan för versionen](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. I det här exemplet för att underlätta demonstration extraherar vi bara ZIP-filen till sökvägen `C:\LF-WindowsServiceHost`.
 
@@ -55,7 +55,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     Undersöka din nya tjänst via tjänster GUI-typ ``services.msc``
         
-     ![Skärmbild av lokala vidarebefordrartjänst](.\media\opencensus-local-forwarder\002-services.png)
+     ![Skärmbild av lokala vidarebefordrartjänst](./media/opencensus-local-forwarder/002-services.png)
 
 3. **Högerklicka på** nya lokala vidarebefordrare och välj **starta**. Tjänsten kommer nu att ange tillståndet.
 
@@ -73,7 +73,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. Bekräfta att inställningarna är uppfyllda och att den lokala vidarebefordraren lyssnar för spårningsdata som förväntade Kontrollera den ``LocalForwarder.log`` filen. Du bör se resultat som liknar bilden nedan längst ned i filen:
 
-    ![Skärmbild av LocalForwarder.log fil](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![Skärmbild av LocalForwarder.log fil](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### <a name="console-application"></a>Konsolprogram
 

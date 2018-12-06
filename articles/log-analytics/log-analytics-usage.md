@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 843271901b8d58c2c5a6c4cf495997498b8278b6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c72e1c92815f70838db20ab67c3f70fc5223ac03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848858"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964755"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 
@@ -47,6 +47,7 @@ Låt oss ta en titt på hur vi kan läsa mer om båda dessa orsaker.
 
 > [!NOTE]
 > Vissa fält av datatypen användning, medan fortfarande i schemat har ersatts och deras värden fylls inte längre. Det här är **datorn** samt relaterade fält till inmatning (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** och **AverageProcessingTimeMs**.
+> Nedan finns det nya sättet att fråga mängden insamlade data per dator. 
 
 ### <a name="data-volume"></a>Datavolym 
 På den **användning och uppskattade kostnader** kan den *datainmatning per lösning* diagrammet visar den totala mängden data som skickas och hur mycket som skickas av varje lösning. På så sätt kan du fastställa trender, till exempel om den övergripande dataanvändning (eller användning av en viss lösning) ökar, förblir oförändrad eller minskar. Frågan används för att generera detta är
@@ -64,24 +65,32 @@ Du kan öka detaljnivån ytterligare till Se datatrender för specifika datatype
 
 ### <a name="nodes-sending-data"></a>Noder som skickar data
 
-För att förstå antalet noder som rapporterar data för den senaste månaden, använda
+För att förstå hur många datorer (noder) som har rapporterat data under den senaste månaden, använda
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Om du vill se antalet händelser som matas in per dator
+Se den **storlek** faktureringsbara händelser matas in per dator, använda
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Använd de här frågorna sparsamt eftersom sökningar över datatyper är dyrt att köra. Den här frågan ersätter det gamla sättet att läsa detta med datatypen användning. 
+
+Se den **antal** händelser matas in per dator, använda
 
 `union withsource = tt *
 | summarize count() by Computer | sort by count_ nulls last`
 
-Använd den här frågan sparsamt eftersom det är dyrt att köra. Om du vill se antalet faktureringsbara händelser matas in per dator 
+Om du vill se antalet faktureringsbara händelser matas in per dator 
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize count() by Computer  | sort by count_ nulls last`
 
-Om du vill se vilka datatyper som fakturerbara skickar data till en specifik dator Använd:
+Om du vill se antalet för fakturerbar datatyper skickar data till en specifik dator Använd:
 
 `union withsource = tt *
 | where Computer == "*computer name*"
@@ -209,7 +218,7 @@ Ange en befintlig eller skapa en ny [Åtgärdsgrupp](../monitoring-and-diagnosti
 När du får en avisering kan du använda stegen i följande avsnitt för att felsöka varför användningen är högre än förväntat.
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [Loggsökningar i Log analytics](../azure-monitor/log-query/log-query-overview.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
+* Se [Loggsökningar i Log analytics](log-analytics-queries.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
 * Använd stegen som beskrivs i [Skapa en ny loggavisering](../monitoring-and-diagnostics/alert-metric.md) om du vill meddelas när ett sökvillkor har uppfyllts.
 * Använd [lösningsriktning](../azure-monitor/insights/solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 * Om du vill konfigurera en effektiv princip för insamling av säkerhetshändelse kan du läsa [filtreringsprincipen för Azure Security Center](../security-center/security-center-enable-data-collection.md).

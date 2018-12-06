@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 075358ad559806c375d44b6a125e8d2839b6632f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2814ecb0ff9fc49e4763dbe604fef353394f9aac
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726312"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965248"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -101,7 +101,6 @@ Microsoft använder informationen endast för att tillhandahålla tjänsten till
 
 ## <a name="where-is-the-data-held"></a>Där lagras data?
 * I USA, Europa eller Asien, sydöstra. Du kan välja platsen när du skapar en ny Application Insights-resurs. 
-
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Betyder det att min app har ska finnas i USA, Europa eller Asien, sydöstra?
 * Nej. Ditt program kan köras var som helst, i din egen lokala värdar eller i molnet.
@@ -280,6 +279,9 @@ För [SDK: er för andra plattformar][platforms], finns i sina dokument.
 | SDK-diagnostik |Spårningsmeddelande eller undantag |
 
 Du kan [inaktivera vissa data genom att redigera ApplicationInsights.config][config]
+
+> [!NOTE]
+> Klientens IP-adress som används för att härleda geografisk plats, men som standard IP-data lagras inte längre och nollor skrivs till det tillhörande fältet. Vill veta mer om hantering av personuppgifter vi rekommenderar detta [artikeln](../log-analytics/log-analytics-personal-data-mgmt.md#application-data). Om du behöver lagra IP-adress kan du göra det med en [telemetriinitieraren](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="credits"></a>Eftertexter
 Den här produkten innehåller GeoLite2 data som skapats av MaxMind, tillgängliga från [ http://www.maxmind.com ](http://www.maxmind.com).

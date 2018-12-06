@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: aabdae370c28f8fa633372be4505c00c25254408
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d5fd55ec93ce07e30e4c6f123f9be8492581053c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403258"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972260"
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Övervaka behållare med Log Analytics
  
@@ -53,7 +53,7 @@ Agenten aktiverar insamlingen av flera behållare loggar som kan efterfrågas i 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [behållarlösningen för Log Analytics](../log-analytics/log-analytics-containers.md).
+* Läs mer om [behållarlösningen för Log Analytics](../azure-monitor/insights/containers.md).
 * Läs mer om orkestrering av behållare i Service Fabric - [Service Fabric och behållare](service-fabric-containers-overview.md)
 * Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Log Analytics
 * Konfigurera Log Analytics för att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) regler för att underlätta identifiering och diagnostik

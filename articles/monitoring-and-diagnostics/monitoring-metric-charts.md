@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: f82b4dff20e2b26e62889c41b3ff3c27bc86066a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d1cfaadd06d20a0f57d75cd43d00040c9e44c429
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901423"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966032"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -100,6 +100,21 @@ Du kan dela ett mått med dimensionen att visualisera hur olika segment av mått
    > [!NOTE]
    > Använd både filtrering och gruppering på samma dimension för att dölja segment som är inte relevant för ditt scenario och göra det lättare att läsa diagram.
 
+## <a name="how-do-i-lock-lower-and-upper-boundaries-of-the-chart-y-axis"></a>Hur jag för att låsa lägre och övre gränser diagrammet y-axel?
+
+Låsning intervallet för y-axeln blir viktigt när diagrammet visar mindre variationer av större värden. 
+
+När mängden lyckade förfrågningar rullas ned från 99,99% till 99,5%, kan det till exempel representerar en betydande minskning i tjänstkvaliteten. Dock märker en liten numeriskt värde variationerna skulle vara svåra eller omöjliga även från standardinställningar för diagrammet. I det här fallet kan du låsa den lägsta gränsen för diagrammet för att 99 procent, vilket gör den här små släpp tydligare. 
+
+Ett annat exempel är en variationerna i det tillgängliga minnet och där värdet tekniskt aldrig når 0. Åtgärda intervallet till ett högre värde kan göra släpper i tillgängligt minne lättare att upptäcka. 
+
+Om du vill styra y-axelintervall använder det ”...” Skapa diagram över menyn och välj **redigera diagram** att få åtkomst till avancerade inställningar. Ändra värden i y-axelintervall avsnitt eller Använd **automatisk** knappen för att återgå till standardvärden.
+
+![mått-avbildning](./media/monitoring-metric-charts/0013.png)
+
+> [!WARNING]
+> Låsa gränserna för y-axeln för diagram som spårar olika antal eller summerar under en viss tid (och därmed antal som används, sum, minimum eller maximum aggregeringar) kräver vanligtvis att ange en fast tidskornighet i stället för att förlita sig på automatisk standardvärdena. Detta är nödvändigt eftersom värden i diagram ändras när tidskornighet automatiskt ändras av användaren ändrar storlek på webbläsarfönster eller kommer från en skärmupplösning till en annan. Den resulterande ändras i tidskornighet effekterna utseendet på diagrammet, ogiltigförklara aktuella valet av y-axelintervall.
+
 ## <a name="how-do-i-pin-charts-to-dashboards"></a>Hur jag för att fästa diagram till instrumentpaneler?
 
 När du har konfigurerat diagrammen kan du lägga till den i instrumentpaneler så att du kan visa den igen, eventuellt i kontexten av andra övervakning telemetri, eller dela med ditt team. 
@@ -108,7 +123,7 @@ Att fästa ett diagram som är konfigurerade på en instrumentpanel:
 
 När du har konfigurerat schemat klickar du på den **diagram åtgärder** menyn i högra viktigaste hörnet i diagrammet och klicka på **fäst på instrumentpanelen**.
 
-   ![mått-avbildning](./media/monitoring-metric-charts/0013.png)
+![mått-avbildning](./media/monitoring-metric-charts/0013.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

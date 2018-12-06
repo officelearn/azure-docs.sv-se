@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 01a02296354ebe3d60f0e1fda6a6da8554a265fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4c5a4dfcdde91d1bd0c2728ff9d071d4c2f73f0e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239074"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969778"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Azure SDK för .NET 2.7 och .NET 2.7.1 viktig information
 ## <a name="overview"></a>Översikt
@@ -40,7 +40,7 @@ Logga in förbättringar som ingår i Azure SDK 2.7 är bara tillgängliga i Vis
 Uppdatera **Mobile Apps** mallar för att återspegla senaste [NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) och installationsprocessen.
 
 ### <a name="service-bus"></a>Service Bus
-Allmän felkorrigeringar och förbättringar. Mer information om uppdateringarna och funktionerna finns i viktig information för senast [Service Bus-NuGet](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
+Allmän felkorrigeringar och förbättringar. Mer information om uppdateringarna och funktionerna finns i viktig information för senast [Service Bus-NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ### <a name="hdinsight-tools"></a>HDInsight-verktyg
 Följande uppdateringar har gjorts i den här versionen. De här uppdateringarna finns i förhandsversion. Mer information finns i [den här bloggen](https://go.microsoft.com/fwlink/?LinkId=619108).

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: f2cf472ef3c2c9950dd9f9382009e21fbf62771b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e07653db70c5baff038cacf8628351c682e20f7f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856793"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971988"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Högdensitetsvärd på Azure App Service med per app skalning
 Som standard skalas App Service-appar genom att skala den [App Service-plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) de körs på. När flera appar körs i samma App Service-planen, körs varje instans som skalats ut alla appar i planen.
@@ -78,7 +78,7 @@ App Service-planen kan du ställa den **PerSiteScaling** egenskap till true `"pe
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters":{
         "appServicePlanName": { "type": "string" },

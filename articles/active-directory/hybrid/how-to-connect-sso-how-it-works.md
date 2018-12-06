@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 236a9dac64fa98b9db68a610de097c1deba3e7ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687409"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970439"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: teknisk djupdykning
 
@@ -29,6 +29,7 @@ Den här artikeln ger teknisk information till hur Azure Active Directory söml�
 ## <a name="how-does-seamless-sso-work"></a>Hur fungerar sömlös enkel inloggning?
 
 Det här avsnittet har tre delar:
+
 1. Inställningarna för sömlös SSO-funktionen.
 2. Så här fungerar en enskild användare logga in transaktion i en webbläsare med sömlös enkel inloggning.
 3. Så här fungerar en enskild användare logga in transaktion på en intern klient med sömlös enkel inloggning.
@@ -36,6 +37,7 @@ Det här avsnittet har tre delar:
 ### <a name="how-does-set-up-work"></a>Hur ställer in arbeta?
 
 Sömlös enkel inloggning har aktiverats med Azure AD Connect enligt [här](how-to-connect-sso-quick-start.md). När du aktiverar funktionen genomförs följande steg:
+
 - Ett datorkonto med namnet `AZUREADSSOACC` (som representerar Azure AD) skapas i din lokala Active Directory (AD) i varje AD-skog.
 - Krypteringsnyckel för det datorkonto Kerberos delas på ett säkert sätt med Azure AD. Om det finns flera AD-skogar, har var och en sin egen nyckel för dekryptering av Kerberos.
 - Dessutom skapas två Kerberos tjänsternas huvudnamn (SPN) för att representera två URL: er som används under Azure AD-inloggningen.

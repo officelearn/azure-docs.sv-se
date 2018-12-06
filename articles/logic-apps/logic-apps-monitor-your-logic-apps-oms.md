@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: adc97da12d1a55dd3dcf435fc8051a8eb9b537a9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232384"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968194"
 ---
 # <a name="monitor-logic-apps-with-azure-log-analytics"></a>Övervaka logikappar med Azure Log Analytics
 
@@ -27,7 +27,7 @@ Följ dessa steg för att du aktiverar Azure Log Analytics för befintliga logik
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar behöver du en Log Analytics-arbetsyta. Lär dig [hur du skapar en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md). 
+Innan du börjar behöver du en Log Analytics-arbetsyta. Lär dig [hur du skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Aktivera diagnostikloggning när du skapar logikappar
 

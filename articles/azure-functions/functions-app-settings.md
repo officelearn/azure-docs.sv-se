@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e346aed2efaab6afcd24e622f577708221b47cb1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458130"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965862"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
@@ -82,7 +82,7 @@ Sökvägen till rotkatalogen där det *host.json* fil- och funktionen mappar fin
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Anger lagringsplatsen eller provider som ska användas för lagring av nycklar. För närvarande stöds databaser är blob-lagring (”Blob”) och det lokala filsystemet (”filer”). Standardvärdet är blob i version 1 och filsystemet i version 2. Observera att i version 1 filsystemet fungerar endast för funktioner som körs i en app service-plan.
+Anger lagringsplatsen eller provider som ska användas för lagring av nycklar. För närvarande stöds databaser är blob-lagring (”Blob”) och det lokala filsystemet (”filer”). Standardvärdet är blob i version 2 och filsystemet i version 1.
 
 |Nyckel|Exempelvärde|
 |---|------------|
@@ -122,7 +122,7 @@ Versionen av funktionskörningen ska användas i den här funktionsappen. Teckne
 
 ## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-Den worker CLR att läsa in i funktionsappen.  Detta motsvarar det språk som används i ditt program (till exempel ”dotnet”). För funktioner på flera språk behöver du publicera dem till flera appar, var och en med ett motsvarande värde för worker-runtime.  Giltiga värden är `dotnet` (C# /F #), `node` (JavaScript), och `java` (Java).
+Den worker CLR att läsa in i funktionsappen.  Detta motsvarar det språk som används i ditt program (till exempel ”dotnet”). För funktioner på flera språk behöver du publicera dem till flera appar, var och en med ett motsvarande värde för worker-runtime.  Giltiga värden är `dotnet` (C#/F#), `node` (JavaScript), och `java` (Java).
 
 |Nyckel|Exempelvärde|
 |---|------------|

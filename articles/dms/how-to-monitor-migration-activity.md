@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 8c30af5023cb83ee1f9ca0f41db5b7f977cc4bc7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1725be4209bfc9335654c574098c43102eca5a2d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883915"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961186"
 ---
 # <a name="monitor-migration-activity"></a>Övervaka migreringsaktiviteter
 I den här artikeln får lära du att övervaka förloppet för en migrering på både en databasnivå och en tabell.
@@ -24,7 +24,7 @@ I den här artikeln får lära du att övervaka förloppet för en migrering på
 ## <a name="monitor-at-the-database-level"></a>Övervaka på databasnivå
 Visa bladet på databasnivå för att övervaka aktiviteten på databasnivå:
 
-![Bladet på databasnivå](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
+![Bladet på databasnivå](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
 > Att välja databasen hyperlänken visar listan över tabeller och deras migreringens förlopp.
@@ -104,7 +104,7 @@ Visa bladet tabell på servernivå för att övervaka aktiviteten på tabellniv�
 
 Den nedre delen av bladet listar tabellerna och visar en snabb översikt över migreringens förlopp.
 
-![Tabellen på servernivå bladet – snabb sammanfattning](media\how-to-monitor-migration-activity\dms-table-level-blade-summary.png)
+![Tabellen på servernivå bladet – snabb sammanfattning](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
 I följande tabell beskrivs de fält som visas i tabellen på servernivå information.
 
@@ -123,9 +123,9 @@ I följande tabell beskrivs de fält som visas i tabellen på servernivå inform
 ## <a name="monitor-at-table-level--detailed-summary"></a>Övervaka på tabellen nivå – detaljerad sammanfattning
 Det finns två flikar som visar migreringens förlopp i Full belastning och inkrementell datasynkronisering.
     
-![Fullständig inläsning fliken](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
+![Fullständig inläsning fliken](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![Inkrementella data sync-fliken](media\how-to-monitor-migration-activity\dms-incremental-data-sync-tab.png)
+![Inkrementella data sync-fliken](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
 I följande tabell beskrivs de fält som visas i tabellen på migreringens förlopp.
 

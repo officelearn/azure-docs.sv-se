@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 08cbff7bc58f5925dee9b77ff195d362af4379d8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aa1d5a4fc29b6fa5fc751edfd40e61d8762f6bd7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245756"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965350"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Utveckla och distribuera WebJobs med hjälp av Visual Studio – Azure App Service
 
@@ -35,7 +35,7 @@ När Visual Studio distribuerar ett WebJobs-aktiverade konsolprogramsprojekt, ut
 
 Ett WebJobs-aktiverade projekt har följande funktioner har lagts till:
 
-* Den [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-paketet.
+* Den [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-paketet.
 * En [webjob publicera settings.json](#publishsettings) -fil som innehåller inställningar för distribution och scheduler. 
 
 ![Diagram som visar vad som har lagts till i en Konsolapp för att aktivera distribution som ett WebJob](./media/websites-dotnet-deploy-webjobs/convert.png)
@@ -97,7 +97,7 @@ Om du vill skapa ett nytt projekt för WebJobs-aktiverad, du kan använda projek
     Skapa ett projekt som är konfigurerad för att distribuera automatiskt som ett WebJob när ett webbprojekt i samma lösning distribueras. Använd det här alternativet när du vill köra ditt WebJob i samma webbapp som du kör relaterade webbprogrammet.
 
 > [!NOTE]
-> Mallen WebJobs nytt projekt som automatiskt installerar NuGet-paket och innehåller koden i *Program.cs* för den [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Om du inte vill använda WebJobs-SDK, ta bort eller ändra den `host.RunAndBlock` instruktionen i *Program.cs*.
+> Mallen WebJobs nytt projekt som automatiskt installerar NuGet-paket och innehåller koden i *Program.cs* för den [WebJobs SDK](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Om du inte vill använda WebJobs-SDK, ta bort eller ändra den `host.RunAndBlock` instruktionen i *Program.cs*.
 > 
 > 
 
@@ -130,7 +130,7 @@ Fälten i den här dialogrutan motsvarar fälten på den **lägger till Webbjobb
 > 
 
 ## <a id="publishsettings"></a>webjob-publish-settings.json
-När du konfigurerar ett konsolprogram för distribution av WebJobs, Visual Studio installeras den [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet paket- och lagrar schemaläggning av informationen i en *webjob publicera settings.json*  filen i projektet *egenskaper* mappen projektets WebJobs. Här är ett exempel på filen:
+När du konfigurerar ett konsolprogram för distribution av WebJobs, Visual Studio installeras den [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet paket- och lagrar schemaläggning av informationen i en *webjob publicera settings.json*  filen i projektet *egenskaper* mappen projektets WebJobs. Här är ett exempel på filen:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",

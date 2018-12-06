@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 590679daff20f9c469fb8fcfcc0fbbad77f91b5b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b54d5abed3e0d29103f5a15ea7fb6dc37dba240e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162870"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967818"
 ---
 # <a name="app-service-environment-management-addresses"></a>Hanteringsadresser för App Service Environment
 
@@ -46,7 +46,7 @@ Du kan visa hanteringsadresserna som matchar din ASE med följande API-anrop.
 
 API: et returnerar ett JSON-dokument som innehåller alla inkommande adresser för din ASE. Listan över adresser innehåller hanteringsadresserna, den VIP som används av din ASE och ASE undernätsadressintervall själva.  
 
-Att anropa API: et med den [armclient](http://github.com/projectkudu/ARMClient) använder du följande kommandon men du kan ersätta i din prenumerations-ID, resursgrupp och ASE-namn.  
+Att anropa API: et med den [armclient](https://github.com/projectkudu/ARMClient) använder du följande kommandon men du kan ersätta i din prenumerations-ID, resursgrupp och ASE-namn.  
 
     armclient login
     armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01

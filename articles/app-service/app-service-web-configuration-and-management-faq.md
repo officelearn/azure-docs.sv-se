@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 8cc47fc7ec60027851525b98cdf95e7d534ea556
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b98b0ea68e91bad2a62f40d3dc611308f1bed2de
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241862"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967750"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfiguration och hantering av vanliga frågor och svar för Web Apps i Azure
 
@@ -106,7 +106,7 @@ Mer information finns i [frågor och svar om App Service-certifikat och anpassad
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>Varför visas meddelandet ”lyckades delvis” när jag försöker att säkerhetskopiera min webbapp?
 
-En vanlig orsak till Säkerhetskopieringsfel är att vissa filer som används av programmet. Filer som används är låsta när du säkerhetskopierar. Detta förhindrar att de här filerna säkerhetskopieras och kan resultera i statusen ”lyckades delvis”. Du kan eventuellt förhindra detta genom att exkludera filer från säkerhetskopieringsprocessen. Du kan välja att säkerhetskopiera som krävs. Mer information finns i [säkerhetskopiera bara viktiga delar av din webbplats med Azure web apps](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
+En vanlig orsak till Säkerhetskopieringsfel är att vissa filer som används av programmet. Filer som används är låsta när du säkerhetskopierar. Detta förhindrar att de här filerna säkerhetskopieras och kan resultera i statusen ”lyckades delvis”. Du kan eventuellt förhindra detta genom att exkludera filer från säkerhetskopieringsprocessen. Du kan välja att säkerhetskopiera som krävs. Mer information finns i [säkerhetskopiera bara viktiga delar av din webbplats med Azure web apps](https://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Hur tar jag bort en rubrik från HTTP-svar?
 
@@ -288,7 +288,7 @@ Detaljerad dokumentation för autentisering och auktorisering i App Service finn
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Hur jag för att omdirigera standard *. azurewebsites.net-domänen till min Azure webbapps-anpassad domän?
 
-När du skapar en ny webbplats med hjälp av Web Apps i Azure, en standard *sitename*. azurewebsites.net-domänen är tilldelad till webbplatsen. Om du lägger till ett anpassat värdnamn till din plats och inte vill att användarna ska kunna komma åt din standard *. azurewebsites.net-domänen, du kan omdirigera standard-URL. Om du vill lära dig att dirigera all trafik från din webbplats standarddomän till din anpassade domän, se [omdirigera standarddomän till din anpassade domän i Azure web apps](http://zainrizvi.io/blog/block-default-azure-websites-domain/).
+När du skapar en ny webbplats med hjälp av Web Apps i Azure, en standard *sitename*. azurewebsites.net-domänen är tilldelad till webbplatsen. Om du lägger till ett anpassat värdnamn till din plats och inte vill att användarna ska kunna komma åt din standard *. azurewebsites.net-domänen, du kan omdirigera standard-URL. Om du vill lära dig att dirigera all trafik från din webbplats standarddomän till din anpassade domän, se [omdirigera standarddomän till din anpassade domän i Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Hur tar jag reda på vilken version av .NET-versionen i App Service?
 

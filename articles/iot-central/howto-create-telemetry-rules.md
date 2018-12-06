@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005741"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964823"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera meddelanden med Azure IoT Central programmet
 
@@ -36,19 +36,19 @@ Om du vill skapa en regel för telemetri måste mallen enheten ha minst en telem
 
 1. Om du inte skapat några regler ännu, visas följande skärm:
 
-    ![Inga regler ännu](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
+    ![Inga regler ännu](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
 1. På den **regler** fliken **Redigera mall** och sedan **+ ny regel** att se vilka typer av regler som du kan skapa.
 
 1. Klicka på **telemetri** att skapa en regel för att övervaka enheternas telemetri.
 
-    ![Regeltyper](media\howto-create-telemetry-rules\Rule_Types.png)
+    ![Regeltyper](media/howto-create-telemetry-rules/Rule_Types.png)
 
 1. Ange ett namn som hjälper dig att identifiera regeln i den här mallen för enheten.
 
 1. Om du vill aktivera regeln för alla enheter som skapats för den här mallen omedelbart, växla **aktivera regeln för alla enheter för den här mallen**.
 
-   ![Information om regeln](media\howto-create-telemetry-rules\Rule_Detail.png)
+   ![Information om regeln](media/howto-create-telemetry-rules/Rule_Detail.png)
     
     Regeln tillämpas automatiskt på alla enheter under mallen enheten.
     
@@ -61,7 +61,7 @@ Villkoret definierar de kriterier som övervakas av regeln.
 
 1. Välj den telemetri som du vill övervaka den **mätning** listrutan.
 
-   ![Tillstånd](media\howto-create-telemetry-rules\Aggregate_Condition_Filled_Out.png)
+   ![Tillstånd](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
 1. Välj sedan **aggregering**, **operatorn**, och ange en **tröskelvärdet** värde.
     - Aggregering är valfritt. Utan aggregering, regeln utlöses för varje datapunkt för telemetri som uppfyller villkoret. Exempel: om regeln är konfigurerad för att utlösa när temperaturen är över 80 och sedan regeln utlöser nästan direkt när enheten rapporterar temperatur > 80.
@@ -78,14 +78,14 @@ Det här avsnittet visar hur du ställer in åtgärder att vidta när regeln utl
 
 1. Välj den **+** bredvid **åtgärder**. Här kan du se en lista över tillgängliga åtgärder.  
 
-    ![Lägg till åtgärd](media\howto-create-telemetry-rules\Add_Action.png)
+    ![Lägg till åtgärd](media/howto-create-telemetry-rules/Add_Action.png)
 
 1. Välj den **e-post** åtgärd, ange en giltig e-postadress i den **till** fältet och ange en kommentar ska visas i brödtexten i e-postmeddelandet när regeln utlöses.
 
     > [!NOTE]
     > E-postmeddelanden skickas endast till de användare som har lagts till programmet och har loggat in minst en gång. Läs mer om [Användarhantering](howto-administer.md) i Azure IoT Central.
 
-   ![Konfigurera åtgärd](media\howto-create-telemetry-rules\Configure_Action.png)
+   ![Konfigurera åtgärd](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. För att spara regeln, Välj **spara**. Regeln lanseras inom några minuter och börjar övervaka telemetri som skickas till ditt program. När villkoren som anges i regeln uppfylls utlöser regeln konfigurerade e poståtgärd.
 

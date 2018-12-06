@@ -2,25 +2,17 @@
 title: Om Azure punkt-till-plats-VPN-anslutningar | Microsoft Docs
 description: Den här artikeln hjälper dig att förstå punkt-till-plats-anslutningar och hjälper dig att bestämma vilken P2S VPN-gatewaytyp av autentisering du använder.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 12/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fe25858f185cf4ddfd17f956b66846a22ddb0e6c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003367"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971379"
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats-VPN
 
@@ -30,14 +22,15 @@ Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker 
 
 Punkt-till-plats-VPN kan använda något av följande protokoll:
 
+* OpenVPN, en SSL/TLS baserat VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. OpenVPN kan användas för att ansluta från Android, iOS-, Linux och Mac-enheter (OSX-versionerna 10.11 och senare).
+
 * Secure Socket Tunneling Protocol (SSTP), en SSL-baserad VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare).
 
 * IKEv2 VPN, en standardbaserad IPsec VPN-lösning. IKEv2 VPN kan användas för att ansluta från Mac-enheter (OSX-versionerna 10.11 och senare).
 
-Om du har en blandad klientmiljö med Windows och Mac-enheter kan du konfigurera både SSTP och IKEv2.
 
 >[!NOTE]
->IKEv2 för P2S är tillgänglig för endast distributionsmodellen Resource Manager. Det är inte tillgänglig för den klassiska distributionsmodellen.
+>IKEv2 och OpenVPN för P2S är tillgängliga för endast distributionsmodellen Resource Manager. De är inte tillgängliga för den klassiska distributionsmodellen.
 >
 
 ## <a name="authentication"></a>Hur autentiseras P2S VPN-klienter?
@@ -52,11 +45,17 @@ Valideringen av klientcertifikatet kan utföras av VPN-gatewayen och sker vid up
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autentisera med hjälp av Active Directory (AD) domänserver
 
-AD-Domain-autentisering kan användarna ansluta till Azure med hjälp av domänautentiseringsuppgifterna organisation. Det krävs en RADIUS-server som är integrerad med AD-servern. Organisationer kan även använda sina befintliga RADIUS-distributionen.   
-  RADIUS-servern kan distribueras lokalt eller i ditt Azure VNET. Azure VPN Gateway fungerar som en och vidarebefordrar autentiseringsmeddelanden fram och tillbaka mellan RADIUS-servern och enheten som ansluter under autentiseringen. Gateway-nätverksåtkomst till RADIUS-servern är så viktigt. Om RADIUS-servern är tillgänglig lokalt, måste en S2S VPN-anslutning från Azure till den lokala platsen anges för nätverksåtkomst.  
-  RADIUS-servern kan också integreras med AD-Certifikattjänster. På så sätt kan du använda RADIUS-servern och distributionen av enterprise-certifikat för P2S-certifikatautentisering som ett alternativ till Azure-certifikatautentisering. Fördelen är att du inte behöver överföra rotcertifikat och återkallade certifikat till Azure.
+AD-Domain-autentisering kan användarna ansluta till Azure med hjälp av domänautentiseringsuppgifterna organisation. Det krävs en RADIUS-server som är integrerad med AD-servern. Organisationer kan även använda sina befintliga RADIUS-distributionen.   
+  
+RADIUS-servern kan distribueras lokalt eller i ditt Azure VNET. Azure VPN Gateway fungerar som en och vidarebefordrar autentiseringsmeddelanden fram och tillbaka mellan RADIUS-servern och enheten som ansluter under autentiseringen. Gateway-nätverksåtkomst till RADIUS-servern är så viktigt. Om RADIUS-servern är tillgänglig lokalt, måste en S2S VPN-anslutning från Azure till den lokala platsen anges för nätverksåtkomst.  
+  
+RADIUS-servern kan också integreras med AD-Certifikattjänster. På så sätt kan du använda RADIUS-servern och distributionen av enterprise-certifikat för P2S-certifikatautentisering som ett alternativ till Azure-certifikatautentisering. Fördelen är att du inte behöver överföra rotcertifikat och återkallade certifikat till Azure.
 
 En RADIUS-server kan också integreras med andra system för extern Identitetshantering. Detta öppnar massor av alternativ för autentisering för P2S VPN, inklusive alternativ för multifaktorautentisering.
+
+>[!NOTE]
+>OpenVPN protokoll stöds inte med RADIUS-autentisering.
+>
 
 ![punkt-till-plats](./media/point-to-site-about/p2s.png "punkt-till-plats")
 
@@ -77,13 +76,11 @@ Zip-filen innehåller också värdena för vissa viktiga inställningar på Azur
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>Vilken Gateway-SKU: er stöd för P2S VPN?
+## <a name="gwsku"></a>Vilken gateway-SKU: er stöd för P2S VPN?
 
-[!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
+[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* Prestandamått för aggregerat dataflöde baseras på mätningar av flera tunnlar som aggregerats via en enda gateway. Det är inte garanterad genomströmning på grund av villkor för internet-trafik och dina program.
-* Information om priser finns på sidan med priser 
-* Information om SLA (serviceavtal) finns på SLA-sida.
+* Gateway-SKU rekommendationer finns i [om VPN Gateway-inställningar](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 >[!NOTE]
 >Bas-SKU:n stöder inte IKEv2- eller RADIUS-autentisering.

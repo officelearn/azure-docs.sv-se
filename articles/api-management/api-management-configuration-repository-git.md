@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: e8d0522dc4cc218792569498c149b32b3de652cb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443584"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961017"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management-tjänstkonfigurationen med Git
 
@@ -81,7 +81,7 @@ Om du vill skapa ett lösenord du först kontrollera att den **Förfallohändels
 > Anteckna det här lösenordet. När du lämnar den här sidan visas inte lösenordet igen.
 > 
 
-I följande exempel används Git Bash-verktyget från [Git för Windows](http://www.git-scm.com/downloads) men du kan använda valfri Git-verktyg som du är bekant med.
+I följande exempel används Git Bash-verktyget från [Git för Windows](https://www.git-scm.com/downloads) men du kan använda valfri Git-verktyg som du är bekant med.
 
 Öppna Git-verktyget i mappen önskad och kör följande kommando för att klona git-lagringsplatsen till den lokala datorn med hjälp av kommandot som tillhandahålls av Azure-portalen.
 

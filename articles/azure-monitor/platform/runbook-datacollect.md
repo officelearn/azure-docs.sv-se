@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 9f4ee3bdba87747a04dd4a5af9391c9dba6e1b51
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ac0e004039465171c615bbd3c79f361ceb764166
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834231"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962258"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
-Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../../azure-monitor/platform/agent-data-sources.md) på agenter och även [data som samlas in från Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
+Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../../azure-monitor/platform/agent-data-sources.md) på agenter och även [data som samlas in från Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
 
 Den här självstudien beskriver steg för att skapa och schemalägga en runbook i Azure Automation för att skriva data till Log Analytics.
 
@@ -30,7 +30,7 @@ Den här självstudien beskriver steg för att skapa och schemalägga en runbook
 ## <a name="prerequisites"></a>Förutsättningar
 Det här scenariot kräver följande resurser som konfigurerats i din Azure-prenumeration.  Båda kan vara ett gratiskonto.
 
-- [Log Analytics-arbetsyta](../../log-analytics/log-analytics-quick-create-workspace.md).
+- [Log Analytics-arbetsyta](../../azure-monitor/learn/quick-create-workspace.md).
 - [Azure automation-konto](../..//automation/automation-quickstart-create-account.md).
 
 ## <a name="overview-of-scenario"></a>Översikt över scenariot
@@ -41,7 +41,7 @@ Den här självstudien skriver du en runbook som samlar in information om Automa
 
 
 ## <a name="1-install-data-collector-api-module"></a>1. Installera Data Collector API-modulen
-Varje [begäran från HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md#create-a-request) måste formateras på rätt sätt och innehåller ingen auktoriseringsrubrik.  Du kan göra detta i din runbook, men du kan minska mängden kod som krävs med hjälp av en modul som förenklar processen.  En modul som du kan använda är [OMSIngestionAPI modulen](https://www.powershellgallery.com/packages/OMSIngestionAPI) i PowerShell-galleriet.
+Varje [begäran från HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md#create-a-request) måste formateras på rätt sätt och innehåller ingen auktoriseringsrubrik.  Du kan göra detta i din runbook, men du kan minska mängden kod som krävs med hjälp av en modul som förenklar processen.  En modul som du kan använda är [OMSIngestionAPI modulen](https://www.powershellgallery.com/packages/OMSIngestionAPI) i PowerShell-galleriet.
 
 Du använder en [modulen](../../automation/automation-integration-modules.md) i en runbook måste den installeras i ditt Automation-konto.  Valfri runbook i samma konto kan sedan använda funktionerna i modulen.  Du kan installera en ny modul genom att välja **tillgångar** > **moduler** > **lägger till en modul** i ditt Automation-konto.  
 
@@ -216,4 +216,4 @@ Varje gång du startar en runbook [skapas ett jobb](../../automation/automation-
 - Paketera din runbook i en [hanteringslösning](../../azure-monitor/insights/solutions-creating.md) att distribuera till kunder.
 - Läs mer om [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Läs mer om [Azure Automation](https://docs.microsoft.com/azure/automation/).
-- Läs mer om den [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md).
+- Läs mer om den [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md).

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0a2b56164662a13d8254d8956712077e5f8a83a9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854262"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961528"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Skriv frågor för Azure Data Explorer
 
@@ -28,7 +28,7 @@ Du kan köra frågor i den här artikeln på något av två sätt:
 
 - På ett eget kluster innehåller som exempeldata StormEvents. Mer information finns i [Snabbstart: skapa ett Azure Data Explorer-kluster och databasen](create-cluster-database-portal.md) och [mata in exempeldata i Azure Data Explorer](ingest-sample-data.md).
 
-[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
+    [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>Översikt över frågespråket
 
@@ -70,7 +70,7 @@ Köra frågor på ett eget kluster:
 
 1. Högst upp på programmet, Välj **kör**.
 
-### <a name="count"></a>antal
+### <a name="count"></a>count
 
 [**antal**](https://docs.microsoft.com/azure/kusto/query/countoperator): returnerar antalet rader i tabellen.
 
@@ -916,7 +916,7 @@ StormEvents
 | evaluate funnel_sequence_completion(EpisodeId, StartTime, _start, _end, _windowSize, EventType, _sequence, _periods)
 ```
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 Det här avsnittet beskriver [ **functions**](https://docs.microsoft.com/azure/kusto/query/functions): återanvändbara frågor som lagras på servern. Functions kan anropas av frågor och andra funktioner (rekursiva funktioner inte stöds).
 

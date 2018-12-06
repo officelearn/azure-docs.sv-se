@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133962"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52973246"
 ---
 ### <a name="server-auth"></a>Gör så här för att: autentisera med en provider (Server Flow)
 För att använda Mobile Apps för att hantera autentiseringsprocessen i din app måste du registrera din app med din identitetsprovider. Sedan måste du konfigurera program-ID och -hemligheten som du fått av din provider i Azure App Service.
@@ -52,27 +52,6 @@ client.login(
 
 ```
 Det här exemplet förutsätter att den token som tillhandahålls av respektive provider-SDK lagras i token-variabeln.
-
-#### <a name="microsoft-account-example"></a>Exempel med Microsoft-konto
-
-Följande exempel använder Live SDK som har stöd för enkel inloggning för Windows Store-appar vid användning av Microsoft-konton:
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now signed in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-
-```
-
-I det här exemplet hämtas en token från Live Connect som sedan levereras till App Service genom att anropa inloggningsfunktionen.
 
 ### <a name="auth-getinfo"></a>Gör så här för att: Få mer information om den autentiserade användaren
 

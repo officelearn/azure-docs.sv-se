@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/06/2018
+ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bed053f812cc5c14e6cfe76b8a08b1ffe0cadcb3
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 05e0ae8f19e9609bd1ddd05082ead025058f92c1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289129"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966015"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -179,7 +179,7 @@ För att undvika det administrativa arbetet med att planera och distribuera virt
 
 Om du vill konvertera från ohanterade till hanterade diskar, läser du artiklarna:
 
-- [Konvertera en Windows-dator från ohanterade diskar till managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks)
+- [Konvertera en virtuell dator i Windows från ohanterade diskar till Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks)
 - [Konvertera en virtuell Linux-dator från ohanterade diskar till managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks)
 
 
@@ -279,7 +279,11 @@ Det finns flera bästa praxis, vilket resulterade från hundratals kunddistribut
 
 
 > [!IMPORTANT]
-> Utanför funktioner, men mer viktiga av prestandaskäl, det finns inte stöd för att konfigurera [Azure virtuella nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances/) i kommunikationsvägen mellan SAP-program och DBMS-lager med en SAP NetWeaver Hybris eller S/4HANA-baserade SAP-system. Ytterligare scenarier där nva: er inte stöds finns i kommunikationsvägar mellan virtuella Azure-datorer som representerar Linux Pacemaker klusternoder och uppstår enheter enligt beskrivningen i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Eller i kommunikationen ange sökvägar mellan virtuella Azure-datorer och Windows Server SOFS görs enligt beskrivningen i [kluster ett SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av en filresurs i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). Nva: er i kommunikationen sökvägar kan enkelt dubbelklicka Nätverksfördröjningen mellan två kommunikation partner, kan begränsa genomflöde i kritiska vägar mellan SAP-programnivån och DBMS-lagret. I vissa scenarier som observerats med kunder, kan nva: er orsaka Pacemaker Linux-kluster misslyckas i fall där kommunikationen mellan noderna i Linux Pacemaker behöver kommunicera med enheten uppstår via NVA.   
+> Utanför funktioner, men mer viktiga av prestandaskäl, det finns inte stöd för att konfigurera [Azure virtuella nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances/) i kommunikationsvägen mellan SAP-program och DBMS-lager med en SAP NetWeaver Hybris eller S/4HANA-baserade SAP-system. Kommunikationen mellan SAP-programnivån och DBMS-lagret måste vara en direkt. Begränsningen omfattar inte [Azure ASG och NSG-regler](https://docs.microsoft.com/azure/virtual-network/security-overview) så länge dessa ASG och NSG-reglerna tillåter en direkt kommunikation. Ytterligare scenarier där nva: er inte stöds finns i kommunikationsvägar mellan virtuella Azure-datorer som representerar Linux Pacemaker klusternoder och uppstår enheter enligt beskrivningen i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Eller i kommunikationen ange sökvägar mellan virtuella Azure-datorer och Windows Server SOFS görs enligt beskrivningen i [kluster ett SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av en filresurs i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). Nva: er i kommunikationen sökvägar kan enkelt dubbelklicka Nätverksfördröjningen mellan två kommunikation partner, kan begränsa genomflöde i kritiska vägar mellan SAP-programnivån och DBMS-lagret. I vissa scenarier som observerats med kunder, kan nva: er orsaka Pacemaker Linux-kluster misslyckas i fall där kommunikationen mellan noderna i Linux Pacemaker behöver kommunicera med enheten uppstår via NVA.  
+> 
+
+> [!IMPORTANT]
+> En annan design som är **inte** stöds är uppdelning av SAP-programnivån och DBMS-lager i olika Azure-nätverk som inte är [peer-kopplade](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) med varandra. Vi rekommenderar att särskilja SAP-programnivån och DBMS-lagret med hjälp av undernät i ett Azure-nätverk istället för att använda olika Azure-nätverk. Om du inte väljer att följa rekommendationen och särskilja i stället de två lager till olika virtuella nätverk, de två virtuella nätverken måste vara [peer-kopplade](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Tänk som nätverkstrafik mellan två [peer-kopplade](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) virtuella Azure-nätverk är föremål för kostnaderna för dataöverföring. Med enorm datavolym i många terabyte som utbyts mellan SAP-programnivån och DBMS layer betydande kostnader kan visas om SAP-programnivån och DBMS lager är indelad mellan två peer-kopplade Azure-nätverk.  
 
 Med hjälp av två virtuella datorer för din produktion DBMS distribution inom ett Azure-Tillgänglighetsuppsättning plus en separat routning för SAP-programnivån och hantering och åtgärder trafiken till de två DBMS på virtuella datorer, ser grov diagram ut som:
 

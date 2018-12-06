@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126334"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966270"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Hantera Azure Data Lake Storage Gen1 resurser med Storage Explorer
 
@@ -136,7 +136,7 @@ Följande anvisningar visar hur du hanterar resurser i ett Data Lake Storage Gen
 
    ![Dialogrutan med pågående uppladdning](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-> [!NOTE] 
+> [!NOTE]
 > Du kan starta uppladdningen genom att dra filer och mappar direkt på en lokal dator. 
        
 ### <a name="download-folders-or-files-to-your-local-computer"></a>Ladda ned mappar eller filer till en lokal dator
@@ -164,7 +164,7 @@ Filen laddas ned och öppnas med det program som är associerat med filens under
 
 ![Val för att kopiera en mapp](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-> [!NOTE] 
+> [!NOTE]
 > Kopiera och klistra in mellan lagringstyper stöds inte. Du kan kopiera Data Lake Storage Gen1 mappar eller filer och klistra in dem i ett annat Data Lake Storage Gen1-konto. Men du *kan* kopiera Data Lake Storage Gen1 mappar och filer och klistra in dem till Azure Blob storage eller tvärtom.
 > 
 > Kopieringen och inklistringen fungerar genom att mapparna eller filerna laddas ned lokalt och sedan laddas upp till destinationen. Verktyget *utför inte* åtgärden på serversidan. Det är långsamt att kopiera och klistra in stora filer. Optimering av högpresterande kopiering och flytt av filer pågår.

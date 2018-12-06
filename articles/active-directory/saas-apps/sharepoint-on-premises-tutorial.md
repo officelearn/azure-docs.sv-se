@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 954eec8566173dd4707926d5f713a5cd509bdd9b
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 9c63808af8d883badd379cf8bc3372a1d65d6624
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620072"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968669"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Självstudier: Azure Active Directory-integrering med lokal SharePoint
 
@@ -76,7 +76,7 @@ För att konfigurera integrering av lokal SharePoint i Azure AD, som du behöver
 
 4. I sökrutan skriver **lokal SharePoint-** väljer **lokal SharePoint-** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![SharePoint lokalt i listan med resultat](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
+    ![SharePoint lokalt i listan med resultat](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
@@ -104,11 +104,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
-    ![Enkel inloggning för dialogrutan](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
+    ![Enkel inloggning för dialogrutan](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
 
 3. På den **lokal SharePoint-domän och URL: er** avsnittet, utför följande steg:
 
-    ![Lokal SharePoint-domän och URL: er enkel inloggning för information](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
+    ![Lokal SharePoint-domän och URL: er enkel inloggning för information](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -118,21 +118,21 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
+    ![Länk för hämtning av certifikat](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
     > [!Note]
     > Skriv ned sökvägen till filen som du har hämtat certifikatfilen som du behöver använda den senare i PowerShell-skriptet för konfigurationen.
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara-knapp](./media/sharepoint-on-premises-tutorial/tutorial_general_400.png)
 
 6. På den **lokal SharePoint-konfigurationen** klickar du på **lokal Konfigurera SharePoint-** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet.** För **enkel inloggnings-URL för**, använda ett värde för följande mönster: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
     > [!Note]
     > _my_directory_id_ är klient-id för Azure Ad-prenumeration.
 
-    ![En lokal SharePoint-konfigurationen](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
+    ![En lokal SharePoint-konfigurationen](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
     > [!NOTE]
     > Lokal SharePoint-programmet använder SAML 1.1 token, så att Azure AD förväntar sig WS Fed begäran från SharePoint-servern och efter autentisering, den utfärdar SAML 1.1. token.
@@ -171,7 +171,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     e. Klicka på **OK**.
 
-    ![Konfigurera din autentiseringsprovider](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+    ![Konfigurera din autentiseringsprovider](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
     > [!NOTE]
     > Vissa av de externa användarna kommer inte kunna använda den här integreringen för enkel inloggning som deras UPN har fullkvalificeras värdet liknande `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Snart kan vi kunder appkonfiguration om hur du hanterar UPN beroende på vilken användartyp. Efter det alla gästanvändare ska kunna använda enkel inloggning sömlöst som organisationens anställda.
@@ -186,19 +186,19 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-    ![Azure Active Directory-knappen](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
+    ![Azure Active Directory-knappen](./media/sharepoint-on-premises-tutorial/create_aaduser_01.png)
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
+    ![”Användare och grupper” och ”alla användare”-länkar](./media/sharepoint-on-premises-tutorial/create_aaduser_02.png)
 
 3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
-    ![Knappen Lägg till](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
+    ![Knappen Lägg till](./media/sharepoint-on-premises-tutorial/create_aaduser_03.png)
 
 4. I den **användaren** dialogrutan utför följande steg:
 
-    ![Dialogrutan användare](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
+    ![Dialogrutan användare](./media/sharepoint-on-premises-tutorial/create_aaduser_04.png)
 
     a. I den **namn** skriver **BrittaSimon**.
 
@@ -220,7 +220,7 @@ De användare som ska logga in på Azure AD och få åtkomst till SharePoint må
 
 4. I princip för webbprogram, klickar du på **Lägg till användare**.
 
-    ![Söka efter en användare med deras namn anspråk](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
+    ![Söka efter en användare med deras namn anspråk](./media/sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
 5. I den **Lägg till användare** dialogrutan klickar du på den aktuella zonen i **zoner**, och klicka sedan på **nästa**.
 
@@ -232,7 +232,7 @@ De användare som ska logga in på Azure AD och få åtkomst till SharePoint må
 
 9. Vid behörigheter markerar **fullständig kontroll**.
 
-    ![Ge fullständig behörighet till en användare av anspråk](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
+    ![Ge fullständig behörighet till en användare av anspråk](./media/sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
 10. Klicka på **Slutför**, och klicka sedan på **OK**.
 
@@ -263,7 +263,7 @@ Konfigurationen fungerar för en enkel webbapp, men ytterligare konfiguration kr
 
 Användare kan nu logga in på SharePoint 2016 med hjälp av identiteter från Azure AD, men det finns fortfarande möjligheter till förbättring av användarupplevelsen. Exempelvis anger söka efter en användare flera sökresultat i Personväljaren. Det finns ett sökresultat för var och en av de 3 anspråkstyper som har skapats i Anspråksmappning. Om du vill välja en användare som använder Personväljaren måste du ange sina användarnamn exakt och väljer den **namn** anspråk resultatet.
 
-![Anspråk sökresultat](./media\sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
+![Anspråk sökresultat](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
 Det finns ingen validering på de värden som du söker efter, vilket kan leda till felstavningar eller användare råkar välja fel Anspråkstypen tilldela som den **efternamn** anspråk. Detta kan förhindra att användare har åtkomst till resurser.
 
@@ -283,7 +283,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 2. I listan med program väljer **lokal SharePoint-**.
 
-    ![SharePoint-länk i listan med program](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
+    ![SharePoint-länk i listan med program](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
 
 3. I menyn till vänster, klickar du på **användare och grupper**.
 

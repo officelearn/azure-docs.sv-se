@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: c8a100577ba4bc67d12c7376b5897f397d010d4d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1512098c29c8916a0486ed66b438654ba29f0601
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844931"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968245"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database Managed Instance resursbegränsningar
 
@@ -52,8 +52,12 @@ Hanterad instans har två tjänstnivåer - generell användning och affärskriti
 | Maxstorlek för lagring | 8 TB | Gen 4: 1 TB <br/> 5: e generationen: <br/>-1 TB för 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>-4 TB för 32, 40, 64, 80 virtuella kärnor |
 | Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans | Bestäms av den maximala lagringsstorleken per instans |
 | Maximalt antal databaser per instans | 100 | 100 |
-| Max databasfiler per instans | Upp till 280 | Obegränsat |
-| I/o-genomströmning (ungefärlig) | 5000 IOPS per kärna med 200 000 högsta IOPS |
+| Max databasfiler per instans | Upp till 280 | 32 767 filer per databas |
+| IOPS (ungefärlig) | 500-7500 per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
+| I/o-svarstid (ungefärlig) | 5 – 10 ms | 1 – 2 ms |
+| Maxstorlek för tempDB | 192 1920 GB (24 GB per vCore) | Bestäms av den maximala lagringsstorleken per instans |
+
+- Både användar- och systemdatabaser ingår i den instans lagringsstorleken som jämförs med den högsta gränsen. Använd <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> systemvy att fastställa det totala antalet använt utrymme i av databaser. Felloggar inte beständiga och inte ingår i storlek. Säkerhetskopior ingår inte i lagringsstorlek.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
@@ -79,7 +83,7 @@ Stöds prenumerationstyper kan innehålla ett begränsat antal resurser per regi
 
 I följande tabell visas regionala standardgränser för stöds prenumerationer:
 
-|Typ av prenumeration| Maxantal undernät för hanterad instans | Maximalt antal instanser |Maxantal GP hanterade instanser *|Maxantal BC hanterade instanser *|
+|Prenumerationstyp| Maxantal undernät för hanterad instans | Maximalt antal instanser |Maxantal GP hanterade instanser *|Maxantal BC hanterade instanser *|
 | :---| :--- | :--- |:--- |:--- |
 |Användningsbaserad betalning|1 *|4 *|4 *|1 *|
 |CSP |1 *|4 *|4 *|1 *|
@@ -103,7 +107,7 @@ Dessa begränsningar kan utökas genom att skapa särskilda [supportförfrågan 
 
 I följande exempel beskriver distributionen fall med icke-tomma undernät och blandat GP och BC tjänstnivåer.
 
-|Antalet undernät|subnät 1|Subnät 2|Undernät 3|
+|Antalet undernät|Undernät 1|Undernät 2|Undernät 3|
 |:---|:---|:---|:---|
 |1|1 BC och upp till 8 GP<br>2 BC och upp till 4 GP|Gäller inte| Gäller inte|
 |2|0 BC, upp till 4 GP|1 BC, upp till 4 GP<br>2 BC, 0 GP|Gäller inte|
@@ -134,7 +138,7 @@ Så här initierar processen för att hämta en större kvot:
    - För **information**, ger ytterligare information om problemet, inklusive felmeddelanden.
    - För **filuppladdning**, bifoga en fil med mer information (upp till 4 MB).
 
-     ![Probleminformation](media/sql-database-managed-instance-resource-limits/problem-details.png)
+     ![Uppgifter om problem](media/sql-database-managed-instance-resource-limits/problem-details.png)
 
      > [!IMPORTANT]
      > En giltig begäran bör innehålla:

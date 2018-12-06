@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: cf3e5bf6752311881e1266d2fb49aa5b7108e68a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497336"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965572"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -151,36 +151,47 @@ Följ instruktionerna i den [binda ett befintligt anpassat SSL-certifikat](/azur
 >[!NOTE]
 > Om programmet använder Spring Framework eller Spring Boot, kan du ange anslutningsinformation för databasen för Spring Data JPA som miljövariabler för [i filen programmet egenskaper]. Använd sedan [appinställningar](/azure/app-service/web-sites-configure#app-settings) att definiera dessa värden för ditt program i Azure-portalen eller CLI.
 
-Exempelavsnitt för konfiguration i det här avsnittet använda MySQL-databas. Mer information finns i dokumentationen för configuration [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), och [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+Dessa anvisningar gäller för alla anslutningar. Du behöver fylla platshållarna med din valda databasens klassnamnet för drivrutinen och JAR-fil. Tillhandahålls är en tabell med klassnamn och hämtning av drivrutiner för vanliga databaser.
 
-Om du vill konfigurera Tomcat för att använda hanterade anslutningar till databaser med hjälp av Java Database Connectivity (JDBC) eller Java Persistence API (JPA) först anpassa CATALINA_OPTS miljövariabeln läses i av Tomcat vid start. Ange dessa värden via en appinställning i App Service-Maven-pluginprogrammet:
+| Databas   | Klassnamnet för drivrutinen                             | JDBC Driver                                                                      |
+|------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
+| PostgreSQL | `org.postgresql.Drvier`                        | [Ladda ned](https://jdbc.postgresql.org/download.html)                                    |
+| MySQL      | `com.mysql.jdbc.Driver`                        | [Ladda ned](https://dev.mysql.com/downloads/connector/j/) (Välj ”plattform oberoende”) |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Ladda ned](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+
+Om du vill konfigurera Tomcat om du vill använda Java Database Connectivity (JDBC) eller Java Persistence API (JPA) först anpassa den `CATALINA_OPTS` miljövariabeln läsas in av Tomcat början upp. Ange dessa värden via en appinställning i den [App Service-Maven-pluginprogrammet](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
 <appSettings> 
     <property> 
         <name>CATALINA_OPTS</name> 
-        <value>"$CATALINA_OPTS -Dmysqluser=${mysqluser} -Dmysqlpass=${mysqlpass} -DmysqlURL=${mysqlURL}"</value> 
+        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value> 
     </property> 
 </appSettings> 
 ```
 
-Eller en motsvarande App Service-inställningen från Azure-portalen.
+Eller ange miljövariabler i bladet ”Application Settings” i Azure-portalen.
 
-Sedan avgöra om datakällan måste vara tillgängliga bara till ett program eller till alla program som körs på App Service-planen.
+>[!NOTE]
+> Om du använder Azure Database för Postgres ersätter `ssl=true` med `sslmode=require` i JDBC-anslutningssträngen.
 
-För programnivå datakällor: 
+Därefter fastställer om datakällan ska vara tillgänglig till ett program eller för alla program som körs på Tomcat servleten.
 
-1. Lägg till en `context.xml` filen, om det inte finns i ditt webbprogram och lägga till den i `META-INF` för WAR-filen när projektet har skapats.
+#### <a name="for-application-level-data-sources"></a>För programnivå datakällor: 
 
-2. I den här filen lägger du till en `Context` sökvägspost att länka datakällan till en JNDI-adress.
+1. Skapa en `context.xml` fil i den `META-INF/` katalogen i ditt projekt. Skapa den `META-INF/` katalogen om den inte finns.
+
+2. I `context.xml`, lägga till en `Context` element att länka datakällan till en JNDI-adress. Ersätt den `driverClassName` med drivrutinens klassnamn från tabellen ovan.
 
     ```xml
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
     ```
@@ -189,38 +200,50 @@ För programnivå datakällor:
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-För delade resurser på servernivå:
+#### <a name="for-shared-server-level-resources"></a>För delade resurser på servernivå:
 
 1. Kopiera innehållet i `/usr/local/tomcat/conf` till `/home/tomcat/conf` instans på din App Service på Linux med SSH om du inte har en konfiguration för det redan.
+    ```
+    mkdir -p /home/tomcat
+    cp -a /usr/local/tomcat/conf /home/tomcat/conf
+    ```
 
-2. Lägg till kontext till din `server.xml`
+2. Lägg till en kontext-element i din `server.xml` inom den `<Server>` element.
 
     ```xml
+    <Server>
+    ...
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
+    ...
+    </Server>
     ```
 
 3. Uppdatera ditt programs `web.xml` att använda datakällan i ditt program.
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-4. Se till att JDBC-drivrutinsfilerna är tillgängliga för Tomcat classloader genom att placera dem i den `/home/tomcat/lib` directory. Utför följande steg om du vill överföra filerna till din App Service-instans:  
+#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Slutligen placera drivrutinen JAR-filer i Tomcat-klassökvägen och starta om App Service: 
+
+1. Se till att JDBC-drivrutinsfilerna är tillgängliga för Tomcat classloader genom att placera dem i den `/home/tomcat/lib` directory. (Skapa den här katalogen om den inte redan finns.) Utför följande steg om du vill överföra filerna till din App Service-instans:  
     1. Installera tillägget Azure App Service webpp:
 
       ```azurecli-interactive
@@ -235,7 +258,9 @@ För delade resurser på servernivå:
 
     3. Ansluta till den lokala tunneltrafik porten med SFTP-klienten och ladda upp filer till den `/home/tomcat/lib` mapp.
 
-5. Starta om App Service på Linux-programmet. Tomcat återställs `CATALINA_HOME` till `/home/tomcat/conf` och använda den uppdaterade konfigurationen och klasser.
+    Du kan också använda en FTP-klient för att ladda upp JDBC-drivrutinen. Följ dessa [instruktioner för att hämta dina autentiseringsuppgifter för FTP-](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+
+2. Om du har skapat en datakälla på servernivå, startar du om App Service på Linux-programmet. Tomcat återställs `CATALINA_HOME` till `/home/tomcat/conf` och använda den uppdaterade konfigurationen.
 
 ## <a name="docker-containers"></a>Docker-containrar
 
@@ -245,7 +270,7 @@ Om du vill använda Azure stöder Zulu JDK-Paketet i din behållare, se till att
 
 App Service för Linux stöder två körningar för hanterade användning av Java-webbprogram:
 
-- Den [Tomcat-servletbehållare](http://tomcat.apache.org/) för att köra program som är packade som webbfiler Arkiv (WAR). Versioner som stöds är 8.5 och 9.0.
+- Den [Tomcat-servletbehållare](https://tomcat.apache.org/) för att köra program som är packade som webbfiler Arkiv (WAR). Versioner som stöds är 8.5 och 9.0.
 - Java SE körningsmiljö för att köra program paketeras som Java-Arkiv (JAR)-filer. Den enda största versionen som stöds är Java 8.
 
 ## <a name="java-runtime-statement-of-support"></a>Java runtime-instruktionen för support 

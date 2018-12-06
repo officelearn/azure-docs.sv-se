@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 999017e24f6c4c24735b7e0cc818bf20aaabab62
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3caa45064c41b641aa913e210aa698d818d5355e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338581"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970279"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Felsökning av Microsoft Azure Stack Development Kit (ASDK)
 Det här dokumentet innehåller vanliga felsökningsinformation för ASDK. Om du har uppstått ett problem som inte är dokumenterade, se till att kontrollera den [MSDN-Forum för Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) behöver ytterligare hjälp och information.  
@@ -64,7 +64,7 @@ Ja, det är förväntat beteende. Den utformades för det här sättet eftersom:
 
 Om du ser ”rad” VHD: er, är det viktigt att veta om de ingår i mappen för ett lagringskonto som har tagits bort. Om lagringskontot inte har tagits bort, är det normalt att de är kvar.
 
-Du kan läsa mer om hur du konfigurerar kvarhållning tröskelvärde och på begäran frigöring i [hantera lagringskonton](.\.\azure-stack-manage-storage-accounts.md).
+Du kan läsa mer om hur du konfigurerar kvarhållning tröskelvärde och på begäran frigöring i [hantera lagringskonton](../azure-stack-manage-storage-accounts.md).
 
 ## <a name="storage"></a>Storage
 ### <a name="storage-reclamation"></a>Storage frigöring
@@ -72,4 +72,3 @@ Det kan ta upp till 14 timmar för återvunnet kapacitet ska visas i portalen. F
 
 ## <a name="next-steps"></a>Nästa steg
 [Gå till Azure Stack-Supportforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
-

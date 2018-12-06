@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: bdae72f5ed4ebed87842ade05ec7a6bc21d349dc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 4711c766c2a074c25f019ce5b523e0ba8b599c17
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086649"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971325"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C#-utvecklarreferens
 
@@ -81,7 +81,7 @@ Attributet utlösaren anger typen av utlösare och Binder indata till en metodpa
 Metodsignaturen kan innehålla parametrar än den som används med attributet utlösaren. Här är några av de ytterligare parametrar som du kan inkludera:
 
 * [Indata och utdata bindningar](functions-triggers-bindings.md) markerad som sådan genom att dekorera dem med attribut.  
-* En `ILogger` eller `TraceWriter` parametern för [loggning](#logging).
+* En `ILogger` eller `TraceWriter` ([version 1.x endast](functions-versions.md#creating-1x-apps)) parametern för [loggning](#logging).
 * En `CancellationToken` parametern för [avslutning](#cancellation-tokens).
 * [Bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) parametrar för att visa utlösa metadata.
 
@@ -233,7 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Loggning
 
-Logga utdata på din direktuppspelningsloggarna i C#, innehålla ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger den `log`. Undvik att använda `Console.Write` i Azure Functions.
+Logga utdata på din direktuppspelningsloggarna i C#, innehålla ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger den `log`, som i följande exempel:  
 
 ```csharp
 public static class SimpleExample
@@ -248,8 +248,7 @@ public static class SimpleExample
 } 
 ```
 
-> [!NOTE]
-> Information om ett nyare loggningsramverk som du kan använda i stället för `TraceWriter`, se [skriva loggar i C#-funktioner](functions-monitoring.md#write-logs-in-c-functions) i den **övervaka Azure Functions** artikeln.
+Undvik att använda `Console.Write` i Azure Functions. Mer information finns i [skriva loggar in C# functions](functions-monitoring.md#write-logs-in-c-functions) i den **övervaka Azure Functions** artikeln.
 
 ## <a name="async"></a>Async
 

@@ -4,7 +4,6 @@ description: Hur du kommer igång anslutna med Azure Blob-lagring i en ASP.NET-p
 services: storage
 author: ghogen
 manager: douge
-ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
@@ -12,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: b8c0891d8528e0622682788e5b10d5a76ad92ec8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 93859b3b6fcdad67d46604f2ab34bec4138feb2b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059905"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969625"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure Blob storage och Visual Studio-anslutna tjänster (ASP.NET)
 
@@ -25,7 +24,7 @@ ms.locfileid: "42059905"
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Azure Blob storage är en tjänst som lagrar Ostrukturerade data i molnet som objekt eller BLOB-objekt. Blob Storage kan lagra alla slags textdata eller binära data, till exempel ett dokument, en mediefil eller ett installationsprogram. Blob Storage kallas även för objektlagring.
+Azure Blob storage är en tjänst som lagrar Ostrukturerade data i molnet som objekt eller BLOB-objekt. Blob Storage kan lagra alla slags textdata eller binära data, till exempel ett dokument, en mediefil eller ett installationsprogram. Blob Storage kallas även för objektlagring. Mer information om Blob storage finns [introduktion till Azure Blob storage](../storage/blobs/storage-blobs-introduction.md).
 
 Den här självstudien visar hur du skriver ASP.NET-kod för några vanliga scenarier som använder Blob storage. Scenarier är en blob-behållare och laddar upp, lista, ladda ned och tar bort blobbar.
 
@@ -34,9 +33,6 @@ Den här självstudien visar hur du skriver ASP.NET-kod för några vanliga scen
 ## <a name="prerequisites"></a>Förutsättningar
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-
-[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
-
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 

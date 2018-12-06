@@ -2,18 +2,18 @@
 title: Säkerhetskopiera VMware-servrar med Azure Backup Server
 description: Säkerhetskopiera en VMware vCenter/ESXi-servrar till Azure eller disk med hjälp av Azure Backup Server. Den här artikeln innehåller steg = för-steg-anvisningar för att säkerhetskopiera (eller skydda) VMware-arbetsbelastningar.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.openlocfilehash: ce7b255359c076ddae642ed44f056e444b655e25
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e39e5d12610164ca4a1372830cf25ea203fd382c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216418"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968842"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Säkerhetskopiera en VMware-server till Azure
 
@@ -55,7 +55,7 @@ Ladda ned de betrodda rot-CA-certifikat för att åtgärda problemet och skapa e
 4. Högerklicka på **download.zip**, och välj sedan **extrahera alla** att extrahera innehållet.
 
     ZIP-filen extraherar innehållet till en mapp med namnet **certifikat**. Två typer av filer visas i mappen certifikat. Filen med rotcertifikatet har ett tillägg som börjar med en numrerad sekvens som.0 och.1.
-    
+
     CRL-filen har ett tillägg som börjar med en sekvens som .r0 eller .r1. CRL-filen är associerad med ett certifikat.
 
     ![Ladda ned filen som extraheras lokalt ](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
@@ -249,7 +249,7 @@ Innan du lägger till VMware-servern på Azure Backup Server, installera [uppdat
     ![Dialogrutan för Azure Backup Server Lägg till autentiseringsuppgift](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     Klicka på **Lägg till** att lägga till de nya autentiseringsuppgifter i Azure Backup Server. De nya autentiseringsuppgifter visas i listan i den **hantera autentiseringsuppgifter** dialogrutan.
-    
+
     ![Dialogrutan för Azure Backup Server hantera autentiseringsuppgifter](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. Stäng den **hantera autentiseringsuppgifter** dialogrutan klickar du på den **X** i det övre högra hörnet.
@@ -271,7 +271,7 @@ Slutför följande procedur för att öppna guiden lägga till produktionsserver
 
 2. På den **väljer produktion servertyp** väljer **VMware-servrar**, och klicka sedan på **nästa**.
 
-3. I **serverns namn/IP-adress**, ange det fullständigt kvalificerade domännamnet (FQDN) eller IP-adressen för VMware-servern. Om alla ESXi-servrar hanteras av samma vCenter, kan du använda vCenter-namn.
+3. I **serverns namn/IP-adress**, ange den fullständigt kvalificerade domännamnet (FQDN) eller IP-adressen för VMware-servern (värd ESXi-servern). Om alla ESXi-servrar hanteras av samma vCenter, kan du använda vCenter-namn.
 
     ![Ange VMware-server FQDN eller IP-adress](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 

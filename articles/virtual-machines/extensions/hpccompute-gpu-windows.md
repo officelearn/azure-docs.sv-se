@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 12/5/2018
 ms.author: roiyz
-ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495967"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971971"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutinen-tillägg för Windows
 
@@ -78,17 +78,8 @@ Följande JSON visar schemat för tillägget.
 | typ | NvidiaGpuDriverWindows | sträng |
 | typeHandlerVersion | 1.2 | int |
 
-### <a name="settings"></a>Inställningar
-
-Alla inställningar är valfria. Standardbeteendet är installera den senaste stödda drivrutinen som är tillämpligt.
-
-| Namn | Beskrivning | Standardvärde | Giltiga värden | Datatyp |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: GRID drivrutinsversion<br> NC/ND: CUDA drivrutinsversion | senaste | GRID: ”411.81”, ”391.81”, ”391.58”, ”391.03”<br> CUDA: ”398.75”, ”397.44”, ”390.85” | sträng |
-| installGridND | Installera GRID drivrutinen på ND-serien virtuella datorer | false | SANT, FALSKT | boolesk |
 
 ## <a name="deployment"></a>Distribution
-
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall 
 
@@ -135,8 +126,6 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
-I följande exempel speglar ARM och PowerShell-exemplet ovan och lägger också till anpassade inställningar som ett exempel på icke-standard drivrutinsinstallation. Mer specifikt installerar en specifik drivrutin rutnät, även om en ND-serien virtuella datorn etableras.
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -145,8 +134,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 

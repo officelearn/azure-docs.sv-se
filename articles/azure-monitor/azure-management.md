@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: abb57fbfbe883686709335ed80f7fe90f11c0cef
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728369"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965113"
 ---
 # <a name="azure-management---monitoring"></a>Azure-hantering – övervakning
 
@@ -37,7 +37,7 @@ Följande avsnitt beskriver i korta ordalag de olika hanteringsområdena och til
 Övervakning syftar till insamling och analys av data för att avgöra prestanda, hälsotillstånd och tillgänglighet för affärsprogram och resurser som dessa program är beroende av. En effektiv övervakningsstrategi hjälper dig att få en detaljerad översikt över hur de olika komponenterna fungerar i ditt program och hjälper dig att förbättra din drifttid genom att proaktivt meddela dig om kritiska tillstånd så att du kan hantera dem innan de hunnit bli problem. Övervakning i Azure har tillhandahålls främst av [Azure Monitor](../azure-monitor/overview.md) som innehåller gemensamma lagringsplatser för övervakningsdata, flera datakällor för insamling av data från de olika lagren som stöder ditt program och funktioner för att analysera och svara på insamlade data.
 
 ## <a name="configure"></a>Konfigurera
-Konfiguration syftar på den första distributionen och konfigurationen av program och resurser samt det löpande underhållet av dessa program och resurser som utförs genom korrigeringar och programvaruuppdateringar.  Genom att automatisera de här uppgifterna via skript och principer kan du eliminera redundans och minimera tiden och arbetet som krävs samtidigt som du ökar din precision och effektivitet.  [Azure Automation](..\automation\automation-intro.md) innehåller många tjänster för att automatisera konfigurationsåtgärder.  Förutom runbook-flöden för att automatisera processer tillhandahåller Azure Automation även hantering av konfigurationer och uppdateringar, vilket hjälper dig att hantera konfigurationer via principer och att identifiera och distribuera uppdateringar.
+Konfiguration syftar på den första distributionen och konfigurationen av program och resurser samt det löpande underhållet av dessa program och resurser som utförs genom korrigeringar och programvaruuppdateringar.  Genom att automatisera de här uppgifterna via skript och principer kan du eliminera redundans och minimera tiden och arbetet som krävs samtidigt som du ökar din precision och effektivitet.  [Azure Automation](../automation/automation-intro.md) innehåller många tjänster för att automatisera konfigurationsåtgärder.  Förutom runbook-flöden för att automatisera processer tillhandahåller Azure Automation även hantering av konfigurationer och uppdateringar, vilket hjälper dig att hantera konfigurationer via principer och att identifiera och distribuera uppdateringar.
 
 ## <a name="govern"></a>Styrning
 Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure.  Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.  Styrning i Azure implementeras främst genom två tjänster.  [Azure Policy](../governance/policy/overview.md) gör det möjligt att skapa, tilldela och hantera principdefinitioner som tillämpar olika regler och åtgärder på resurserna, så att resurserna följer företagets standarder och serviceavtal. [Azure Cost Management från Cloudyn](../cost-management/overview.md) gör det möjligt att spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer, inklusive AWS och Google.

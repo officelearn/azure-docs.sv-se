@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 05/17/2018
-ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/05/2018
+ms.openlocfilehash: 6523828b522379dd1cd70f1c548caf7af15b5d90
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159578"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964773"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Avancerat skydd för Azure SQL Database
 
@@ -32,7 +32,7 @@ SQL avancerade Threat Protection (ATP) tillhandahåller en uppsättning avancera
 
 Aktivera SQL ATP när om du vill aktivera alla dessa funktioner som ingår. Med en enda klickning kan du aktivera ATP för hela databasservern och använda det för alla databaser på servern. 
 
-Priser för ATP överensstämmer med Azure Security Center standard-nivån $15/nod/månad, där varje skyddad SQL Database-server räknas som en nod. De första 60 dagarna efter aktivering betraktas som en kostnadsfri utvärderingsversion under och debiteras inte. Mer information finns i den [sidan med priser för Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Priser för ATP överensstämmer med Azure Security Center standard-nivån, där varje skyddad SQL Database-server räknas som en nod. Nyligen skyddade resurser kvalificera dig för en kostnadsfri utvärderingsversion av Security Center standard-nivån. Mer information finns i den [sidan med priser för Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## <a name="getting-started-with-atp"></a>Komma igång med ATP 
@@ -45,7 +45,7 @@ Aktivera ATP genom att gå till **Advanced Threat Protection** under den **Secur
 ![Aktivera ATP](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> Kostnaden för ATP är $15/nod/månad, där en nod är den hela logiska SQL-servern. Du därför betalar bara en gång för att skydda alla databaser på servern med ATP. De första 60 dagarna betraktas som en kostnadsfri utvärderingsversion.
+> Kostnaden för ATP justeras med Azure Security Center standard-nivån som priser per nod, där en nod är den hela logiska SQL-servern. Du därför betalar bara en gång för att skydda alla databaser på servern med ATP. Du kan testa ATP inledningsvis med en kostnadsfri utvärderingsversion.
 
 ## <a name="2-configure-vulnerability-assessment"></a>2. Konfigurera utvärdering av säkerhetsrisker
 

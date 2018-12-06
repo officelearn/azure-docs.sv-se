@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 6fb9ebe2b0afc645bbdfb6de6a8551440644fe59
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d88a82921e5baee06aacc09fafe274a8c56780c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836091"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972413"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB database-säkerhet
 
@@ -75,7 +75,7 @@ Låt oss gå till var och en i detalj.
 |Geografiska avgränsningar|Azure Cosmos DB garanterar datastyrning för landsbaserade regioner (exempelvis Tyskland, Kina, USA-förvaltad region).|
 |Skyddade lokaler|Data i Azure Cosmos DB lagras på SSD: er i Azures skyddade datacenter.<br><br>Läs mer i [Microsofts globala Datacenter](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |HTTPS/SSL/TLS-kryptering|Alla klient-till-tjänst Azure Cosmos DB-interaktioner är SSL/TLS 1.2-kompatibla. All intra datacenter och mellan datacenter replikering är också SSL/TLS 1.2 tillämpas.|
-|Vilande kryptering|Alla data som lagras i Azure Cosmos DB krypteras i vila. Läs mer i [Azure Cosmos DB-kryptering i vila](.\database-encryption-at-rest.md)|
+|Vilande kryptering|Alla data som lagras i Azure Cosmos DB krypteras i vila. Läs mer i [Azure Cosmos DB-kryptering i vila](./database-encryption-at-rest.md)|
 |Korrigerade servrar|Som en hanterad databas eliminerar Azure Cosmos DB behovet av att hantera och uppdatera servrar, som har utförts för dig, automatiskt.|
 |Administrativa konton med starka lösenord|Det är svårt att tro måste vi även nämner det här kravet, men till skillnad från vissa av våra konkurrenter, är det omöjligt att ha ett administrativt konto utan lösenord i Azure Cosmos DB.<br><br> Säkerhet via SSL och HMAC hemliga formulärbaserad autentisering är inbyggd i som standard.|
 |Säkerhet och data protection-certifieringar|För de flesta upp till datalista över certifieringar, se totala [webbplatsen Azure efterföljande](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) samt senaste [Azure efterlevnad dokumentet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) med alla certifieringar (Sök efter Cosmos). En mer fokuserad finns Kolla in den 25 April 2018 inlägget [Azure #CosmosDB: säkra, privata, kompatibla](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) som innehåller SOC 1/2 typ 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High och många andra.

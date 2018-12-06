@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287191"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963955"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Lösenord utan telefoninloggning med Microsoft Authenticator-appen (offentlig förhandsversion)
 
@@ -50,7 +50,7 @@ Du kan aktivera den lösenord utan inloggning förhandsvisning mobil med hjälp 
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Hur aktiverar slutanvändarna telefoninloggning?
 
-För en förhandsversion går det inte att tvinga användare att skapa eller använda den här nya autentiseringsuppgifter. En slutanvändare inträffar bara logga in utan lösenord när en administratör som aktiverade klientorganisationen och användaren har uppdaterat sina Microsoft Authenticator-appen om du vill aktivera telefoninloggning.
+För en förhandsversion går det inte att tvinga användare att skapa eller använda den här nya autentiseringsuppgifter. En slutanvändare inträffar bara logga in utan lösenord när en administratör har aktiverat sin klient och användaren har uppdaterat sina Microsoft Authenticator-appen om du vill aktivera telefoninloggning.
 
 > [!NOTE]
 > Den här funktionen har varit i appen sedan mars 2017, så det finns en möjlighet att när principen är aktiverad för en klient, kan användarna få det här flödet omedelbart. Tänk på och Förbered dina användare för den här ändringen.

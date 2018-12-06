@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 91cbebecc227d24337b2d1b421dd1611bf0fac46
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390804"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966083"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Åtkomst till diagnostikloggar för Azure Data Lake Storage Gen1
 Lär dig att aktivera loggning för ditt konto i Azure Data Lake Storage Gen1 och visa loggar som samlats in för ditt konto.
@@ -46,7 +46,7 @@ Organisationer kan aktivera Diagnostisk loggning för sitt konto för Azure Data
         
         * Välj alternativet för att **Stream till en händelsehubb** till stream loggdata till en Azure-Händelsehubb. Du kommer troligen använda det här alternativet om du har en underordnad process-pipelinen för att analysera inkommande loggar i realtid. Om du väljer det här alternativet måste du ange information för Azure-Händelsehubben som du vill använda.
 
-        * Välj alternativet för att **skicka till Log Analytics** du använder Azure Log Analytics-tjänsten för att analysera den genererade loggdata. Om du väljer det här alternativet måste du ange information för Log Analytics-arbetsytan som du skulle göra logganalyser utför. Se [visa eller analysera data som samlas in med Log Analytics-loggsökning](../log-analytics/log-analytics-tutorial-viewdata.md) mer information om hur du använder Log Analytics.
+        * Välj alternativet för att **skicka till Log Analytics** du använder Azure Log Analytics-tjänsten för att analysera den genererade loggdata. Om du väljer det här alternativet måste du ange information för Log Analytics-arbetsytan som du skulle göra logganalyser utför. Se [visa eller analysera data som samlas in med Log Analytics-loggsökning](../azure-monitor/learn/tutorial-viewdata.md) mer information om hur du använder Log Analytics.
      
    * Ange om du vill hämta granskningsloggar eller begära loggar, eller bådadera.
    * Ange antalet dagar som data måste bibehållas. Kvarhållning gäller endast om du använder Azure storage-konto för att arkivera loggdata.
@@ -115,7 +115,7 @@ Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har 
 #### <a name="request-log-schema"></a>Begäran log schema
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| tid |Sträng |Loggen tidsstämpel (i UTC) |
+| time |Sträng |Loggen tidsstämpel (i UTC) |
 | resourceId |Sträng |ID för den resurs som åtgärden tog placera på |
 | category |Sträng |Loggkategori. Till exempel **begäranden**. |
 | operationName |Sträng |Namnet på åtgärden som loggas. Till exempel getfilestatus. |
@@ -159,10 +159,10 @@ Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en
       ]
     }
 
-#### <a name="audit-log-schema"></a>Granska loggen schema
+#### <a name="audit-log-schema"></a>Schema för spårningslogg
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| tid |Sträng |Loggen tidsstämpel (i UTC) |
+| time |Sträng |Loggen tidsstämpel (i UTC) |
 | resourceId |Sträng |ID för den resurs som åtgärden tog placera på |
 | category |Sträng |Loggkategori. Till exempel **Audit**. |
 | operationName |Sträng |Namnet på åtgärden som loggas. Till exempel getfilestatus. |
@@ -178,7 +178,7 @@ Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en
 | StreamName |Sträng |Sökvägen åtgärden utfördes på |
 
 ## <a name="samples-to-process-the-log-data"></a>Exempel för att bearbeta loggdata
-När du skickar loggar från Azure Data Lake Storage Gen1 till Azure Log Analytics (se [visa eller analysera data som samlas in med Log Analytics-loggsökning](../log-analytics/log-analytics-tutorial-viewdata.md) mer information om hur du använder Log Analytics), följande fråga returnerar en tabell som innehåller en lista användarens visningsnamn, tidpunkten för händelserna och antalet händelser för tid för händelse tillsammans med ett visuellt diagram. Du kan enkelt ändra för att visa GUID för användare eller andra attribut:
+När du skickar loggar från Azure Data Lake Storage Gen1 till Azure Log Analytics (se [visa eller analysera data som samlas in med Log Analytics-loggsökning](../azure-monitor/learn/tutorial-viewdata.md) mer information om hur du använder Log Analytics), följande fråga returnerar en tabell som innehåller en lista användarens visningsnamn, tidpunkten för händelserna och antalet händelser för tid för händelse tillsammans med ett visuellt diagram. Du kan enkelt ändra för att visa GUID för användare eller andra attribut:
 
 ```
 search *

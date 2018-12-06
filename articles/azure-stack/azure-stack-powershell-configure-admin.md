@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 530b2a1909ec198ddff5abfe4fd5bb7c645f7582
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b961fac00ba43eb1b44acc46c6f60fa0f3a10877
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261590"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957086"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Ansluta till Azure Stack med PowerShell som operatör
 
@@ -29,7 +29,7 @@ Du kan konfigurera Azure Stack för att använda PowerShell för att hantera res
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Kör följande från den [Utvecklingskit](.\asdk\asdk-connect.md#connect-with-rdp) eller från en Windows-baserad externa klient om du är [är anslutna till ASDK via VPN](.\asdk\asdk-connect.md#connect-with-vpn). 
+Kör följande från den [Utvecklingskit](./asdk/asdk-connect.md#connect-with-rdp) eller från en Windows-baserad externa klient om du är [är anslutna till ASDK via VPN](./asdk/asdk-connect.md#connect-with-vpn). 
 
  - Installera [Azure Stack-kompatibla Azure PowerShell-moduler](azure-stack-powershell-install.md).  
  - Ladda ned den [verktyg som krävs för att arbeta med Azure Stack](azure-stack-powershell-download.md).  

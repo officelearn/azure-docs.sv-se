@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e502004db62713585d68cdda6f80b4e4024dde28
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251567"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971223"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Security ram: Autentisering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -322,7 +322,7 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Allmän och .NET Framework 3 |
 | **Attribut**              | Typ av autentiseringsuppgift för klient - ingen |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
+| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **Steg** | Avsaknad av autentisering innebär att alla har tillgång till den här tjänsten. En tjänst som inte autentiserar dess klienter kan alla användare åtkomst till dess funktioner. Konfigurera programmet att autentisera mot klientens autentiseringsuppgifter. Detta kan göras genom att ange transport clientCredentialType till Windows- eller certifikat. |
 
 ### <a name="example"></a>Exempel

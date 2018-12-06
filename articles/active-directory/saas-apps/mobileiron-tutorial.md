@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8bdf49f4cea7c6f0ff30e37bcf1cf2fed3abc2bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584119"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Självstudier: Azure Active Directory-integration med MobileIron
 
@@ -50,24 +50,27 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
+Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till MobileIron från galleriet
 1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-mobileiron-from-the-gallery"></a>Att lägga till MobileIron från galleriet
+
 För att konfigurera integrering av MobileIron i Azure AD, som du behöver lägga till MobileIron från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till MobileIron från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
-    
+
 1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
@@ -103,7 +106,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning för länken][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning för dialogrutan](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
 1. På den **MobileIron domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
@@ -119,12 +122,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![MobileIron domän och URL: er som enkel inloggning](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<host>.mobileiron.com/user/login.html`
-    
-    > [!NOTE]  Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Du får du värdet för nyckeln och värden från den administrativa MobileIron som beskrivs senare i självstudien-portalen.
+
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Du får du värdet för nyckeln och värden från den administrativa MobileIron som beskrivs senare i självstudien-portalen.
 
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png) 
+    ![Länk för hämtning av certifikat](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png)
 
 1. Klicka på **spara** knappen.
 
@@ -134,7 +138,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Gå till **Admin** > **identitet**.
 
-   * Välj **AAD** alternativet i den **information om molnet IDP installationsprogrammet** fält.
+   - Välj **AAD** alternativet i den **information om molnet IDP installationsprogrammet** fält.
 
     ![Konfigurera enkel inloggning för Admin-knapp](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -143,7 +147,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning för Admin-knapp](./media/mobileiron-tutorial/key.png)
 
 1. I den **Export metadatafilen från AAD och importera MobileIron molnet fältet** klickar du på **Välj fil** att ladda upp den hämtade metadatan från Azure-portalen. Klicka på **klar** överförda.
- 
+
     ![Konfigurera enkel inloggning för admin metadata knapp](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
 > [!TIP]
@@ -203,20 +207,20 @@ När det gäller MobileIron är etablering en manuell aktivitet.
     1. I **Förnamn** text, ange först namnet på användaren som Britta.
 
     1. I **efternamn** text anger efternamn för användaren som Simon.
-    
-    1. Klicka på **Klar**.  
+
+    1. Klicka på **Klar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till MobileIron.
 
-![Tilldela rollen][200] 
+![Tilldela rollen][200]
 
 **Om du vill tilldela Britta Simon MobileIron, utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
-    ![Tilldela användare][201] 
+    ![Tilldela användare][201]
 
 1. I listan med program väljer **MobileIron**.
 
@@ -235,19 +239,18 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
 1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på panelen MobileIron i åtkomstpanelen du bör få automatiskt loggat in på ditt MobileIron program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -262,4 +265,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 [201]: ./media/mobileiron-tutorial/tutorial_general_201.png
 [202]: ./media/mobileiron-tutorial/tutorial_general_202.png
 [203]: ./media/mobileiron-tutorial/tutorial_general_203.png
-

@@ -12,12 +12,12 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 04/06/2018
 manager: craigg
-ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055534"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958825"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Använda ActiveDirectoryInteractive läge för att ansluta till Azure SQL Database
 
@@ -66,23 +66,23 @@ Om du vill använda Azure AD-autentisering, ditt C#-klientprogram måste ange et
 
 1. Azure-portalen &gt; **Azure Active Directory** &gt; **appregistrering**
 
-    ![Appregistrering](media\active-directory-interactive-connect-azure-sql-db\sshot-create-app-registration-b20.png)
+    ![Appregistrering](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
 
 2. Den **program-ID** värde genereras och visas.
 
-    ![App-ID som visas](media\active-directory-interactive-connect-azure-sql-db\sshot-application-id-app-regis-mk49.png)
+    ![App-ID som visas](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
 
 3. **Registrerad app** &gt; **inställningar** &gt; **nödvändiga behörigheter** &gt; **Lägg till**
 
-    ![Behörighetsinställningar för registrerad app](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
+    ![Behörighetsinställningar för registrerad app](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
 4. **Nödvändiga behörigheter** &gt; **Lägg till API-åtkomst** &gt; **Välj en API** &gt; **Azure SQL Database**
 
-    ![Lägg till åtkomst till API: et för Azure SQL Database](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
+    ![Lägg till åtkomst till API: et för Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
 5. **API-åtkomst** &gt; **Välj behörigheter** &gt; **delegerade behörigheter**
 
-    ![Delegeringsbehörigheter till API: et för Azure SQL Database](media\active-directory-interactive-connect-azure-sql-db\sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
+    ![Delegeringsbehörigheter till API: et för Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. Ange Azure AD-administratören för din SQL Database-server
@@ -124,13 +124,13 @@ C#-program som förlitar sig på namnområdet **Microsoft.IdentityModel.Clients.
 
 En namnområden som C#-exempel som förlitar sig på är **System.Data.SqlClient**. Är särskilt intressanta i uppräkningen **SqlAuthenticationMethod**. Den här uppräkningen har följande värden:
 
-- **SqlAuthenticationMethod.ActiveDirectory \*interaktiv**\*:&nbsp; Använd det här med ett användarnamn för Azure AD för att uppnå multifaktorautentisering MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * interaktiv ***:&nbsp; Använd det här med ett användarnamn för Azure AD för att uppnå multifaktorautentisering MFA.
     - Det här värdet är fokus i den här artikeln. Den genererar en interaktiv upplevelse genom att visa dialogrutor för användarens lösenord och sedan för MFA-verifieringen om MFA har införts på den här användaren.
     - Det här värdet är tillgängliga från och med .NET Framework version 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory \*integrerad**\*:&nbsp; Använd detta för en *federerad* konto. Användarnamnet är ett federerat konto kända till Windows-domän. Den här metoden har inte stöd för MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * integrerad ***:&nbsp; Använd detta för en *federerad* konto. Användarnamnet är ett federerat konto kända till Windows-domän. Den här metoden har inte stöd för MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory \*lösenord**\*:&nbsp; använder detta för autentisering som kräver en Azure AD-användare och användarens lösenord. Azure SQL Database utför autentiseringen. Den här metoden har inte stöd för MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * lösenord ***:&nbsp; använder detta för autentisering som kräver en Azure AD-användare och användarens lösenord. Azure SQL Database utför autentiseringen. Den här metoden har inte stöd för MFA.
 
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 740a3ce36dde953cb92c52a10cbebf12544adae0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614818"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968160"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline uppdatering av Azure App Service i Azure Stack
 
@@ -101,7 +101,7 @@ Om du vill uppgradera App Service i en frånkopplad miljö måste du först skap
 
    1. Klicka på den **Connect** knappen bredvid den **Azure Stack-prenumerationer** box.
         * Om du använder Azure Active Directory (AD Azure), anger du det Azure AD-administratörskonto och lösenord som du angav när du har distribuerat Azure Stack. Klicka på **logga In**.
-        * Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel *cloudadmin@azurestack.local*. Ange ditt lösenord och klicka på **logga In**.
+        * Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel _cloudadmin@azurestack.local_. Ange ditt lösenord och klicka på **logga In**.
    2. I den **Azure Stack-prenumerationer** väljer den **standard Providerprenumeration**.
    3. I den **platser för Azure Stack** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure Stack Development Kit.
    4. Om en befintlig App Service-distribution har identifierats vara sedan resurskontot grupp och lagring fylls och nedtonat.

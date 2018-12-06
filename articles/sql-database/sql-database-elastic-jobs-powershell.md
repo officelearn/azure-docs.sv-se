@@ -3,7 +3,7 @@ title: Skapa och hantera elastiska jobb med hjälp av PowerShell | Microsoft Doc
 description: PowerShell används för att hantera Azure SQL Database-pooler
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: pwershell
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9ed5026211bec11b510d095decac25f8d4b8a52a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 36b03794f4b55af3de89f96ecee02f5542f40f01
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243205"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972107"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Skapa och hantera SQL Database elastiska jobb med PowerShell (förhandsversion)
 

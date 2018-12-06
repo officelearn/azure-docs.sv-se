@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d4c9e974f92f26b93900318c01dc8a659d8edbe
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b7ae066bd8dc2de3227f441fd05b6c7a412b6074
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276218"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965367"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB-bindningar för Azure Functions 1.x
 
@@ -24,7 +24,7 @@ ms.locfileid: "52276218"
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
-Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindningar i Azure Functions. Azure Functions stöder utlösa, indata och utdata-bindningar för Azure Cosmos DB.
+Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) bindningar i Azure Functions. Azure Functions stöder utlösa, indata och utdata-bindningar för Azure Cosmos DB.
 
 > [!NOTE]
 > Den här artikeln är för Azure Functions 1.x.  Information om hur du använder dessa bindningar i Functions 2.x kan se [Azure Cosmos DB-bindningar för Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
@@ -1606,7 +1606,7 @@ När du skriver till Utdataparametern i din funktion skapas ett dokument i datab
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om serverlös databehandling med Cosmos DB-databas](..\cosmos-db\serverless-computing-database.md)
+* [Lär dig mer om serverlös databehandling med Cosmos DB-databas](../cosmos-db/serverless-computing-database.md)
 * [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
 
 <!---

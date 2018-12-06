@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics på IoT Edge (förhandsversion)
+title: Azure Stream Analytics på IoT Edge
 description: Skapa edge-jobb i Azure Stream Analytics och distribuera dem till enheter som kör Azure IoT Edge.
 services: stream-analytics
 author: mamccrea
@@ -7,18 +7,15 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.openlocfilehash: 6d3060545946f1f003058932f1ffc50c2a64586f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/04/2018
+ms.openlocfilehash: 920395593509223a63a195ad53eeaf7e6aca108e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846240"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961449"
 ---
-# <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics på IoT Edge (förhandsversion)
-
-> [!IMPORTANT]
-> Den här funktionen är en förhandsversion och rekommenderas inte för användning i produktion.
+# <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics på IoT Edge
  
 Med hjälp av Azure Stream Analytics (ASA) på IoT Edge kan utvecklare distribuera nära realtid analytisk intelligens närmare IoT-enheter så att de kan låsa upp hela värdet av data som genereras av enheten. Azure Stream Analytics har utformats för låg latens, elasticitet och effektiv användning av bandbredd och efterlevnad. Företag kan nu distribuera logik nära industriell verksamhet och komplettera analyser av Stordata i molnet.  
 
@@ -220,6 +217,7 @@ För mer hjälp kan du prova den [Azure Stream Analytics-forum](https://social.m
 * [ASA på IoT Edge-självstudie](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Skicka feedback till teamet med den här undersökningen](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 * [Utveckla Stream Analytics Edge-jobb med hjälp av Visual Studio-verktyg](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+* [Implementera CI/CD för Stream Analytics med hjälp av API: er](stream-analytics-cicd-api.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

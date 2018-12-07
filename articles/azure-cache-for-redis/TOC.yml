@@ -1,0 +1,141 @@
+items:
+- name: Dokumentation om Azure Cache for Redis
+  href: index.md
+- name: Översikt
+  items:
+  - name: Om Azure Cache for Redis
+    href: cache-overview.md
+- name: Snabbstarter
+  items:
+  - name: Skapa en ASP.NET-app
+    href: cache-web-app-howto.md
+  - name: Skapa en NET-app
+    href: cache-dotnet-how-to-use-azure-redis-cache.md
+  - name: Skapa en .NET Core-app
+    href: cache-dotnet-core-quickstart.md
+  - name: Skapa en Node.js-app
+    href: cache-nodejs-get-started.md
+  - name: Skapa en Java-app
+    href: cache-java-get-started.md
+  - name: Skapa en Python-app
+    href: cache-python-get-started.md
+- name: Självstudier
+  items:
+  - name: Använda cachelagring med rankningslistor
+    href: cache-web-app-cache-aside-leaderboard.md
+- name: Exempel
+  items:
+  - name: Exempel för Azure Cache for Redis
+    href: cache-redis-samples.md
+  - name: Azure PowerShell
+    href: cache-howto-manage-redis-cache-powershell.md
+  - name: Azure CLI
+    href: cli-samples.md
+- name: Begrepp
+  items:
+  - name: Metodtips
+    items:
+    - name: Metodtips för Azure Cache for Redis
+      href: https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f
+    - name: Metodtips för cachelagring på Azure-arkitektur
+      href: https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json
+- name: Instruktionsguider
+  items:
+  - name: Planera
+    items:
+    - name: Välja en cache-nivå
+      href: cache-faq.md#what-redis-cache-offering-and-size-should-i-use
+    - name: Bevara din cache med Redis-datapersistence
+      href: cache-how-to-premium-persistence.md
+    - name: Skydda din cache med ett virtuellt nätverk
+      href: cache-how-to-premium-vnet.md
+    - name: Distribuera din cache med klustring
+      href: cache-how-to-premium-clustering.md
+    - name: Migrera från Managed Cache Service
+      href: cache-migrate-to-redis.md
+  - name: Automatisera
+    items:
+    - name: Distribuera och hantera med Azure Powershell
+      href: cache-howto-manage-redis-cache-powershell.md
+    - name: Distribuera och hantera med Azure CLI
+      href: cli-samples.md
+    - name: Om Azure Cache for Redis
+      href: cache-redis-cache-arm-provision.md
+    - name: Etablera en webbapp med Azure Cache for Redis
+      href: cache-web-app-arm-with-redis-cache-provision.md
+  - name: Integrera med ASP.NET
+    items:
+    - name: Sessionstillståndsprovider
+      href: cache-aspnet-session-state-provider.md
+    - name: Utdatacacheprovider
+      href: cache-aspnet-output-cache-provider.md
+  - name: Hantera
+    items:
+    - name: Konfigurera i Azure Portal
+      href: cache-configure.md
+    - name: Konfigurera geo-replikering
+      href: cache-how-to-geo-replication.md
+    - name: Importera/exportera data
+      href: cache-how-to-import-export-data.md
+    - name: Starta om
+      href: cache-administration.md#reboot
+    - name: Schemauppdateringar
+      href: cache-administration.md#schedule-updates
+    - name: Konfigurera åtkomst till redis-cli.exe
+      href: cache-how-to-redis-cli-tool.md
+  - name: Övervaka och felsök
+    items:
+    - name: Övervaka i Azure Portal
+      href: cache-how-to-monitor.md
+    - name: Felsök cacheproblem
+      href: cache-how-to-troubleshoot.md
+    - name: Ställ in aviseringar för undantag
+      href: cache-how-to-monitor.md#operations-and-alerts
+  - name: Skala
+    items:
+    - name: Uppdatera till en annan storlek och nivå
+      href: cache-how-to-scale.md
+    - name: Använd Redis-kluster för att skala in och ut
+      href: cache-how-to-premium-clustering.md
+  - name: Integrera med Spring Boot
+    items:
+    - name: Använda en Spring Boot-initieringsapp med Azure Cache for Redis
+      href: cache-java-spring-boot-initializer-with-redis-cache.md
+- name: Referens
+  items:
+  - name: Kodexempel
+    href: https://azure.microsoft.com/resources/samples/?service=redis-cache
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.rediscache
+  - name: Förhandsversion av Azure CLI
+    href: /cli/azure/redis
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.redis
+  - name: Java
+    href: /java/api/com.microsoft.azure.management.redis._redis_cache
+  - name: Redis-klienter
+    href: http://redis.io/clients
+  - name: Redis-kommandon
+    href: http://redis.io/commands#
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/redis/
+- name: Resurser
+  items:
+  - name: Utveckla dina färdigheter med Microsoft Learn
+    href: /learn/browse/?products=azure-redis-cache
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/cache/
+  - name: Vanliga frågor och svar om Azure Cache for Redis
+    href: cache-faq.md
+  - name: Videoklipp
+    href: https://www.youtube.com/results?search_query=azure+redis+cache
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache&filter=alltypes&sort=lastpostdesc
+ms.openlocfilehash: c684a8a7845076769a587de899a5c1e2fa19cfed
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53020398"

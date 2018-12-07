@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: a4f9fc31f411d36e63775a3665b6dfe27eec7710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e76464e294a3378bf3a275ec4fe7ccbd87c09475
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319381"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011648"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Azure säkerhetsprinciper som övervakas av Azure Security Center
 Den här artikeln innehåller en lista över Azure principdefinitioner som kan övervakas i Security Center.
@@ -43,7 +43,7 @@ För att förstå de inbyggda principer som övervakas av Security Center finns 
 |Granska att inställningen för egenskapen ClusterProtectionLevel är inställd på EncryptAndSign i Service Fabric|Service Fabric tillhandahåller tre skyddsnivåer (ingen, logga in och EncryptAndSign) för nod-till-nod-kommunikation med hjälp av en primär klustercertifikat. Ställa in skydd så att alla nod-till-nod-meddelanden är krypterad och har signerats digitalt.| 
 |Granska användning av Azure Active Directory för klientautentisering i Service Fabric|Granska användning av klientautentisering endast via Azure Active Directory i Service Fabric| 
 |Granska aktivering av diagnostikloggar i söktjänsten|Granska aktivering av loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.| 
-|Granska aktivering av enbart säkra anslutningar till Redis Cache|Granska aktiverar endast anslutningar via SSL till Redis Cache. Användning av säkra anslutningar säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning| 
+|Granska aktiverar endast säkra anslutningar till din Azure Cache för Redis|Granska aktiverar endast anslutningar via SSL till Azure Cache för Redis. Användning av säkra anslutningar säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning| 
 |Granska aktivering av diagnostikloggar i Logic Apps|Granska aktivering av loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.| 
 |Granska aktivering av diagnostikloggar i Key Vault|Granska aktivering av loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
 |Granska aktivering av diagnostikloggar i Event Hubs|Granska aktivering av loggar och behålla upp till ett år. På så sätt kan återskapning av aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.| 

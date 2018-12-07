@@ -1,5 +1,5 @@
 ---
-title: Övervaka ett Azure Kubernetes-kluster med CoScale
+title: (INAKTUELL) Övervaka ett Azure Kubernetes-kluster med CoScale
 description: Övervaka ett Kubernetes-kluster i Azure Container Service med CoScale
 services: container-service
 author: fryckbos
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: e9896a34e835646e17328482c07d8031c624e858
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544038"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000237"
 ---
-# <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>Övervaka ett Azure Container Service Kubernetes-kluster med CoScale
+# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(INAKTUELL) Övervaka ett Azure Container Service Kubernetes-kluster med CoScale
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-I den här artikeln visar vi dig hur du distribuerar den [CoScale](https://www.coscale.com/) agent för att övervaka alla noderna och behållarna i ett Kubernetes-kluster i Azure Container Service. Du behöver ett konto med CoScale för den här konfigurationen. 
+I den här artikeln visar vi dig hur du distribuerar den [CoScale](https://web.archive.org/web/20180317071550/ https://www.coscale.com/) agent för att övervaka alla noderna och behållarna i ett Kubernetes-kluster i Azure Container Service. Du behöver ett konto med CoScale för den här konfigurationen. 
 
 
 ## <a name="about-coscale"></a>Om CoScale 
@@ -34,7 +34,7 @@ I den här artikeln visas kan du installera agenter på ett Kubernetes-kluster f
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste först [skapa ett konto med CoScale](https://www.coscale.com/free-trial).
+Du måste först [skapa ett konto med CoScale](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial).
 
 Den här genomgången förutsätter att du har [skapade ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
@@ -81,5 +81,5 @@ CoScale-agenten distribueras automatiskt på nya datorer i klustret. Agentuppdat
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [CoScale dokumentation](http://docs.coscale.com/) och [blogg](https://www.coscale.com/blog) för mer information om CoScale övervakningslösningar. 
+Se den [CoScale dokumentation](https://web.archive.org/web/20180415164304/ http://docs.coscale.com:80/) och [blogg](https://web.archive.org/web/20170501021344/ http://www.coscale.com:80/blog) för mer information om CoScale övervakningslösningar. 
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5bec7be5f7ad744960d2602aaf24fec51d869267
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056257"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993218"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökvägsbaserad routning regler med hjälp av Azure portal
 
@@ -24,7 +24,7 @@ Du kan använda Azure-portalen för att konfigurera [URL-baserad routningsregler
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Skapa en Application Gateway
+> * Skapa en programgateway
 > * Skapa virtuella datorer för backend-servrar
 > * Skapa serverdelspooler med backend-servrar
 > * Skapa en backend-lyssnare
@@ -36,11 +36,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com)
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com)
 
-## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-Ett virtuellt nätverk krävs för kommunikation mellan de resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
+Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
 1. Klicka på **New** hittades på det övre vänstra hörnet i Azure-portalen.
 2. Välj **Nätverk** och sedan **Application Gateway** i listan Aktuella.
@@ -52,14 +52,14 @@ Ett virtuellt nätverk krävs för kommunikation mellan de resurser som du skapa
     ![Skapa en ny programgateway](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
 4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
-5. Klicka på **Välj ett virtuellt nätverk**, klickar du på **Skapa nytt**, och ange följande värden för det virtuella nätverket:
+5. Klicka på **Välj ett virtuellt nätverk**, klicka på **Skapa nytt** och ange sedan följande värden för det virtuella nätverket:
 
     - *myVnet* – Det virtuella nätverkets namn.
     - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
     - *myBackendSubnet* – Undernätsnamnet.
     - *10.0.0.0/24* – Undernätets adressutrymme.
 
-    ![Skapa virtuellt nätverk](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+    ![Skapa det virtuella nätverket](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Klicka på **OK** för att skapa det virtuella nätverket och undernätet.
 7. Klicka på **välja en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
@@ -80,7 +80,7 @@ Ett virtuellt nätverk krävs för kommunikation mellan de resurser som du skapa
 I det här exemplet skapar du tre virtuella datorer som ska användas som serverdelsservrar för application gateway. Du installerar även IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
 
 1. Klicka på **Ny**.
-2. Klicka på **Compute** och välj sedan **Windows Server 2016 Datacenter** i listan över aktuella.
+2. Klicka på **Compute** och sedan **Windows Server 2016 Datacenter** i listan Aktuella.
 3. Ange följande värden för den virtuella datorn:
 
     - *myVM1* – för den virtuella datorns namn.
@@ -154,7 +154,7 @@ I det här exemplet skapar du tre virtuella datorer som ska användas som server
 
     ![Registrera programgatewayens offentliga IP-adress](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel http://http://40.121.222.19.
+2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel http:// http://40.121.222.19.
 
     ![Testa basadressen i programgatewayen](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
@@ -171,7 +171,7 @@ I det här exemplet skapar du tre virtuella datorer som ska användas som server
 I den här artikeln har du lärt dig hur du
 
 > [!div class="checklist"]
-> * Skapa en Application Gateway
+> * Skapa en programgateway
 > * Skapa virtuella datorer för backend-servrar
 > * Skapa serverdelspooler med backend-servrar
 > * Skapa en backend-lyssnare

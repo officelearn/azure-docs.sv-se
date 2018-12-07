@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 10/29/2018
-ms.openlocfilehash: c6bf3c50958085f45c52ec2fa3cbdfba8adbe35f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e46b2c0de1b65d2355e7258e9940ee1fee6be071
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711726"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872143"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning
 
@@ -165,14 +165,6 @@ registered_model.delete()
 
 Azure Machine Learning-modeller som körs på FPGA ger stöd för SSL- och nyckel för autentisering. På så sätt kan du begränsa åtkomsten till din tjänst och säkra data som skickats av klienterna. [Lär dig hur du säkrar webbtjänsten](how-to-secure-web-service.md).
 
-
-## <a name="sample-notebook"></a>Exempel-anteckningsbok
-
-Begreppen i den här artikeln är visas i den [project brainwave/projekt-brainwave-quickstart.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/project-brainwave/project-brainwave-quickstart.ipynb) anteckningsboken.
-
-Hämta den här anteckningsboken:
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

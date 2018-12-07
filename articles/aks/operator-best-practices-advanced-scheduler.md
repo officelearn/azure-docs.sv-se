@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3fa2183a5bb3239059c349e8417aeb52553829cf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428986"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016886"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för avancerade scheduler funktioner i Azure Kubernetes Service (AKS)
 
@@ -151,14 +151,14 @@ Mer information finns i [tillhörighet och anti-tillhörighet][k8s-affinity].
 
 En slutlig metod för Kubernetes-Schemaläggaren för att isolera arbetsbelastningar logiskt använder mellan pod tillhörighet eller anti-tillhörighet. Inställningarna definierar de poddarna *bör inte* schemaläggas på en nod som har en befintlig matchande pod eller att de *bör* schemaläggas. Som standard försöker Kubernetes scheduler schemalägger flera poddar i en replikuppsättning mellan noder. Du kan definiera mer specifika regler lösa problemet.
 
-Ett bra exempel är ett webbprogram som använder också en Redis-cache. Du kan använda pod anti-tillhörighet för regler för att begära att Kubernetes scheduler distribuerar repliker mellan noder. Du kan sedan ise tillhörighet regler för att se till att varje web app-komponenten har schemalagts på samma värddator som en motsvarande cache. Distributionen av poddar över noder ser ut som i följande exempel:
+Ett bra exempel är ett webbprogram som använder också en Azure Cache för Redis. Du kan använda pod anti-tillhörighet för regler för att begära att Kubernetes scheduler distribuerar repliker mellan noder. Du kan sedan ise tillhörighet regler för att se till att varje web app-komponenten har schemalagts på samma värddator som en motsvarande cache. Distributionen av poddar över noder ser ut som i följande exempel:
 
 | **Nod 1** | **Nod 2** | **Noden 3** |
 |------------|------------|------------|
 | WebApp-1   | WebApp-2   | WebApp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Det här exemplet är en mer komplex distribution än användningen av noden väljare eller nodtillhörighet. Distribution ger dig kontroll över hur Kubernetes schemalägger poddar på noder och logiskt kan isolera resurser. En komplett exempel på det här webbprogrammet med Redis cache-exempel finns i [samordna poddar på samma nod][k8s-pod-affinity].
+Det här exemplet är en mer komplex distribution än användningen av noden väljare eller nodtillhörighet. Distribution ger dig kontroll över hur Kubernetes schemalägger poddar på noder och logiskt kan isolera resurser. En komplett exempel på det här webbprogrammet med Azure Cache för Redis-exempel finns i [samordna poddar på samma nod][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Nästa steg
 

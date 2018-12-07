@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 45a5e4c895a0c7a8f76bb34aa5aaf22fa31f4333
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 07ea61ffe3ffc17cd255b826e3506ffe2b1ce9cd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864867"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017730"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Använd ett beräkningsmål träna din modell
 
@@ -139,7 +139,8 @@ Du kan skapa beräkning av Azure Machine Learning på begäran när du schemalä
 
 Du kan skapa en beräkning av Azure Machine Learning som beräkningsmål vid körning. I det här fallet beräkningen som skapas automatiskt för din körning, skalar upp max_nodes som du anger i kör config, och sedan __tas bort automatiskt__ när körningen har slutförts.
 
-Den här funktionen är för närvarande i förhandsversion och kommer inte att fungera med finjustering av Hyperparametrar eller automatiserade Machine Learning-jobb.
+> [!IMPORTANT]
+> Kör-baserade skapandet av beräkning av Azure Machine Learning är för närvarande i förhandsversion. Använd inte kör-baserade skapas om du använder finjustering av Hyperparametrar eller automatiserade Machine Learning. Om du vill använda finjustering av Hyperparametrar eller automatiserade Machine Learning kan skapa Azure Machine Learning-beräkning innan du skickar en körning.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute

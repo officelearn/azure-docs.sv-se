@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 283171fa00837a8a7b4e0a13d7bca5645cf63a83
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bf1fa41abe1c1f9b0d07ee7d77fe1c819e88ddc1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633073"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017628"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Köra MapReduce-exemplen som ingår i HDInsight
 
@@ -167,7 +167,7 @@ Värdet som returneras av det här kommandot liknar **3.14159155000000000000**. 
 
 GraySort är en benchmark-sortering. Måttet är sortera hastigheten (TB per minut) som uppnås vid sortering av stora mängder data, vanligtvis en 100 TB minsta.
 
-Det här exemplet används en mycket små 10 GB data så att den kan köras relativt snabbt. MapReduce-program som har utvecklats av Owen O'Malley och Arun Murthy används. Dessa program kommer årliga allmänna (”daytona”) terabyte sortera benchmark 2009, med en hastighet av 0.578 TB per minut (100 TB på 173 minuter). Läs mer om den här och andra sortering prestandamått, den [Sortbenchmark](http://sortbenchmark.org/) plats.
+Det här exemplet används en mycket små 10 GB data så att den kan köras relativt snabbt. MapReduce-program som har utvecklats av Owen O'Malley och Arun Murthy används. Dessa program kommer årliga allmänna (”daytona”) terabyte sortera benchmark 2009, med en hastighet av 0.578 TB per minut (100 TB på 173 minuter). Läs mer om den här och andra sortering prestandamått, den [Sortbenchmark](https://sortbenchmark.org/) plats.
 
 Det här exemplet använder tre uppsättningar MapReduce-program:
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388331"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017107"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Vägledning för betrodda Internet-anslutningar
 
@@ -150,14 +150,14 @@ Tjänster som stöder distribution av dedikerade instanser till ett virtuellt n�
 
 |Tjänst                               |Tillgänglighet      |
 |--------------------------------------|------------------|
-|Azure SQL Database Managed Instance   | Offentlig granskning   |
+|Hanterad Azure SQL Database-instans   | Offentlig granskning   |
 |Azure Kubernetes Service (AKS)        | Offentlig granskning   |
 |Azure Service Fabric                  | Allmän tillgänglighet (GA)               |
 |Azure API Management                  | Allmän tillgänglighet (GA)               |
 |Azure Active Directory                | Allmän tillgänglighet (GA)               |
 |Azure Batch                           | Allmän tillgänglighet (GA)               |
 |App Service Environment               | Allmän tillgänglighet (GA)               |
-|Azure Redis Cache                     | Allmän tillgänglighet (GA)               |
+|Azure Cache for Redis                     | Allmän tillgänglighet (GA)               |
 |Azure HDInsight                       | Allmän tillgänglighet (GA)               |
 |Skaluppsättning för virtuella datorer             | Allmän tillgänglighet (GA)               |
 |Azure Cloud Services                  | Allmän tillgänglighet (GA)               |
@@ -263,7 +263,7 @@ Du kan enkelt konfigurera åtkomst för Microsoft Azure, Office 365 och Dynamics
 | Databas | Azure Database for PostgreSQL | | | Ja |
 | Databas | Azure SQL Data Warehouse | | | Ja |
 | Databas | Azure Cosmos DB | | | Ja |
-| Databas | Azure Redis Cache | | Ja | |
+| Databas | Azure Cache for Redis | | Ja | |
 | Storage | Azure Blob Storage | Ja | | |
 | Storage | Azure Files | Ja | | |
 | Storage | Azure-kölagring | Ja | | |

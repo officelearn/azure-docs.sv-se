@@ -7,14 +7,15 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4768fbb845eb09e8aa3469dc2c4c29c4a323d662
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240640"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017313"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Ta emot händelser från Azure Event Hubs med Java
 
@@ -44,11 +45,11 @@ Om du vill använda EventProcessorHost, måste du ha en [Azure Storage-konto][Az
 1. Logga in på den [Azure-portalen][Azure portal], och klicka på **+ skapa en resurs** på vänster sida av skärmen.
 2. Klicka på **Lagring** och sedan på **Lagringskonto**. I den **skapa lagringskonto** fönstret anger du ett namn för lagringskontot. Slutför resten av fälten, Välj önskad region och klicka sedan på **skapa**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Skapa lagringskonto](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. Klicka på det nyligen skapade lagringskontot och klicka sedan på **åtkomstnycklar**:
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Hämta åtkomstnycklar](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
     Kopiera key1-värdet till en tillfällig plats. Du använder det senare i den här självstudien.
 
@@ -277,7 +278,7 @@ Skapa en klass som implementerar gränssnittet com.microsoft.azure.eventprocesso
 
 Använd din anpassade implementering av kontrollpunktshanterare (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-Inom din implementering kan du åsidosätta kontrollpunkter standardmekanismen och implementera vår egen kontrollpunkter som bygger på ditt eget datalager (SQL Server, CosmosDB, Redis Cache osv). Vi rekommenderar att store används för att säkerhetskopiera implementeringen kontrollpunkt manager är tillgänglig för alla EPH-instanser som bearbetar händelser för konsumentgruppen.
+Inom din implementering kan du åsidosätta kontrollpunkter standardmekanismen och implementera vår egen kontrollpunkter som bygger på ditt eget datalager (SQL Server, CosmosDB, Azure Cache för Redis osv). Vi rekommenderar att store används för att säkerhetskopiera implementeringen kontrollpunkt manager är tillgänglig för alla EPH-instanser som bearbetar händelser för konsumentgruppen.
 
 Du kan använda alla datalager som är tillgänglig i din miljö.
 

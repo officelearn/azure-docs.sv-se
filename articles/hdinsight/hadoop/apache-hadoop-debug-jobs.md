@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c997b2644be3798629afce6d826c53b1d9492597
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634642"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017022"
 ---
 # <a name="analyze-hadoop-logs"></a>Analysera Hadoop-loggar
 
@@ -103,7 +103,7 @@ Du kan nu använda Excel för att filtrera och sortera efter behov. Du kanske vi
 
 Om du vill visa loggfilerna kan se [åtkomst till YARN-programloggar på Linux-baserade HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Läs mer om Programloggar, [förenkla användarloggar hantering och åtkomst i YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+Läs mer om Programloggar, [förenkla användarloggar hantering och åtkomst i YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
 
 ## <a name="view-cluster-health-and-job-logs"></a>Visa hälso- och loggar för kluster
 ### <a name="access-the-ambari-ui"></a>Komma åt Ambari UI

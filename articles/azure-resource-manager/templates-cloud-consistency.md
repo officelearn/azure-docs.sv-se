@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: mavane
-ms.openlocfilehash: f1ff151c0b8d89910949d961b732c10901f19293
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fc1ca468545dc3a715fb11dbec459e14e60ade5b
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590536"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017781"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Utveckla Azure Resource Manager-mallar för att få konsekvens i molnet
 
@@ -434,7 +434,7 @@ Resurser kan ha referenser till andra tjänster på plattformen. En offentlig IP
 Följande två exempel är vanliga slutpunkt-namnområden som måste anges explicit när du skapar en resurs:
 
 * Storage-konton (blob, kö, tabell och fil)
-* Anslutningssträngar för databaser och Redis Cache
+* Anslutningssträngar för databaser och Azure Cache för Redis
 
 Slutpunkt-namnområden kan också användas i utdata från en mall som information för användaren när distributionen är klar. Här följer några vanliga exempel:
 

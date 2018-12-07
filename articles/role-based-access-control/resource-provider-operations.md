@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 396dbfcfd13f508c33d8a1bb7370d9170b8f8a56
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: b09f64e2183453b3656efa340d53682a241dd00e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499684"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017961"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -695,31 +695,31 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.Cache/checknameavailability/action | Kontrollerar om ett namn kan användas med nytt Redis Cache |
+> | Åtgärd | Microsoft.Cache/checknameavailability/action | Kontrollerar om ett namn är tillgängligt för användning med en ny Azure-Cache för Redis |
 > | Åtgärd | Microsoft.Cache/locations/operationresults/read | Hämtar resultaten för en långvarig åtgärd för vilken sidhuvudet Location tidigare returnerats till klienten |
 > | Åtgärd | Microsoft.Cache/operations/read | Listar åtgärderna som stöds av providern Microsoft.Cache. |
-> | Åtgärd | Microsoft.Cache/redis/delete | Ta bort hela Redis-cache |
+> | Åtgärd | Microsoft.Cache/redis/delete | Ta bort hela Azure Cache för Redis |
 > | Åtgärd | Microsoft.Cache/redis/export/action | Exportera Redis-data till prefixade lagringsblobbar i angivet format |
-> | Åtgärd | Microsoft.Cache/redis/firewallRules/delete | Ta bort IP-brandväggsregler för Redis Cache |
-> | Åtgärd | Microsoft.Cache/redis/firewallRules/read | Hämta IP-brandväggsregler för Redis Cache |
-> | Åtgärd | Microsoft.Cache/redis/firewallRules/write | Redigera IP-brandväggsregler för Redis Cache |
+> | Åtgärd | Microsoft.Cache/redis/firewallRules/delete | Ta bort IP-brandväggsregler för Azure Cache för Redis |
+> | Åtgärd | Microsoft.Cache/redis/firewallRules/read | Hämta IP-brandväggsregler för Azure Cache för Redis |
+> | Åtgärd | Microsoft.Cache/redis/firewallRules/write | Redigera IP-brandväggsregler för Azure Cache för Redis |
 > | Åtgärd | Microsoft.Cache/redis/forceReboot/action | Tvinga omstart av en cache-instans, vilket kan medföra dataförlust. |
 > | Åtgärd | Microsoft.Cache/redis/import/action | Importera data av ett angivet format från flera blobbar till Redis |
-> | Åtgärd | Microsoft.Cache/redis/linkedservers/delete | Ta bort länkad server från Redis Cache |
-> | Åtgärd | Microsoft.Cache/redis/linkedservers/read | Hämta länkade servrar som är kopplade till Redis Cache. |
-> | Åtgärd | Microsoft.Cache/redis/linkedservers/write | Lägg till länkad server till Redis Cache |
-> | Åtgärd | Microsoft.Cache/redis/listKeys/action | Visa värdet för åtkomstnycklarna för Redis-cache i hanteringsportalen |
+> | Åtgärd | Microsoft.Cache/redis/linkedservers/delete | Ta bort länkad Server från en Azure Cache för Redis |
+> | Åtgärd | Microsoft.Cache/redis/linkedservers/read | Hämta länkade servrar som är associerade med en Azure-Cache för Redis. |
+> | Åtgärd | Microsoft.Cache/redis/linkedservers/write | Lägg till länkad Server till en Azure Cache för Redis |
+> | Åtgärd | Microsoft.Cache/redis/listKeys/action | Visa värdet för Azure Cache för åtkomstnycklar för Redis i hanteringsportalen |
 > | Åtgärd | Microsoft.Cache/redis/listUpgradeNotifications/read | Lista de senaste uppgraderingsmeddelandena för cacheklienten. |
-> | Åtgärd | Microsoft.Cache/redis/metricDefinitions/read | Hämtar tillgängliga mått för ett Redis-cache |
-> | Åtgärd | Microsoft.Cache/redis/patchSchedules/delete | Ta bort uppdateringsschemat för Redis Cache |
-> | Åtgärd | Microsoft.Cache/redis/patchSchedules/read | Hämtar uppdateringsschemat för Redis Cache |
-> | Åtgärd | Microsoft.Cache/redis/patchSchedules/write | Ändra uppdateringsschemat för Redis Cache |
-> | Åtgärd | Microsoft.Cache/redis/read | Visa inställningarna och konfigurationen för Redis-cache i hanteringsportalen |
-> | Åtgärd | Microsoft.Cache/redis/recommendations/read | Läs rekommendationer för Azure Redis Cache |
-> | Åtgärd | Microsoft.Cache/redis/regenerateKey/action | Ändra värdet för åtkomstnycklarna för Redis-cache i hanteringsportalen |
+> | Åtgärd | Microsoft.Cache/redis/metricDefinitions/read | Hämtar tillgängliga mått för en Azure-Cache för Redis |
+> | Åtgärd | Microsoft.Cache/redis/patchSchedules/delete | Ta bort uppdateringsschemat för Azure Cache för Redis |
+> | Åtgärd | Microsoft.Cache/redis/patchSchedules/read | Hämtar en Azure Cache uppdateringsschemat för Redis |
+> | Åtgärd | Microsoft.Cache/redis/patchSchedules/write | Ändra uppdateringsschemat för Azure Cache för Redis |
+> | Åtgärd | Microsoft.Cache/redis/read | Visa Azure Cache för Rediss inställningar och konfiguration i hanteringsportalen |
+> | Åtgärd | Microsoft.Cache/redis/recommendations/read | Läs Azure Cache för Redis-rekommendationer |
+> | Åtgärd | Microsoft.Cache/redis/regenerateKey/action | Ändra värdet för Azure Cache för åtkomstnycklar för Redis i hanteringsportalen |
 > | Åtgärd | Microsoft.Cache/redis/start/action | Starta en cacheinstans. |
 > | Åtgärd | Microsoft.Cache/redis/stop/action | Stoppa en cacheinstans. |
-> | Åtgärd | Microsoft.Cache/redis/write | Ändra inställningarna och konfigurationen för Redis-cache i hanteringsportalen |
+> | Åtgärd | Microsoft.Cache/redis/write | Ändra Azure Cache för Rediss inställningar och konfiguration i hanteringsportalen |
 > | Åtgärd | Microsoft.Cache/register/action | Registrerar Microsoft.Cache-resursprovidern med en prenumeration |
 > | Åtgärd | Microsoft.Cache/unregister/action | Avregistrerar Microsoft.Cache-resursprovidern med en prenumeration |
 

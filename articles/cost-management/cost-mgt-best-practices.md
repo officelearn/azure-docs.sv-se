@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 99e42f404fe103f406c4b3835f8c455bc2b91e07
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273807"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017696"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimera din molninvestering med Azure Cost Management
 
@@ -140,7 +140,7 @@ Mer information finns i [analys av kostnader](quick-acm-cost-analysis.md).
 
 ### <a name="export-billing-data-on-a-schedule"></a>Exportera faktureringsdata enligt ett schema
 
-Behöver du importera din faktureringsinformation till ett externt system, t.ex. en instrumentpanel eller finansiella system? Du kan schemalägga automatiserade rapporter varje dag för att undvika att manuellt överföra filer varje månad. Och du kan exportera faktureringsdata till ett Azure storage-konto och få ett meddelande med hjälp av [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md). Du kan sedan använda dina Azure-data för att kombinera dem med anpassade data som du kan använda i dina egna system.
+Behöver du importera din faktureringsinformation till ett externt system, t.ex. en instrumentpanel eller finansiella system? Ställ in automatiserad export till Azure Storage och undvika att manuellt överföra filer varje månad. Du kan enkelt ställa in automatisk integration med andra system att synkronisera din faktureringsinformation.
 
 Läs mer om hur du exporterar faktureringsdata [skapa och hantera exporterade data](tutorial-export-acm-data.md).
 

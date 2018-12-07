@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 13bb128836590fb43e0c6a2f7131f83a99a23eaf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506684"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Självstudier: Azure Active Directory-integration med ProMaster (genom Inlogik)
 
@@ -62,7 +62,7 @@ Om du vill konfigurera integreringen av ProMaster (genom Inlogik) till Azure AD,
 
 **Utför följande steg för att lägga till ProMaster (genom Inlogik) från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen][1]
 
@@ -111,6 +111,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![ProMaster (genom Inlogik)-domän och URL: er med enkel inloggning för information](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
     a. I den **identifierare** textrutan använder något av följande URL-mönster:
+
     | |
     | - |-|
     |  `https://secure.inlogik.com/<COMPANYNAME>`|
@@ -118,6 +119,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | |
 
     b. I den **svars-URL** textrutan använder något av följande URL-mönster:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
@@ -129,6 +131,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![ProMaster (genom Inlogik)-domän och URL: er med enkel inloggning för information](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
     I den **inloggnings-URL** textrutan använder något av följande URL-mönster:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
@@ -182,7 +185,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="create-a-promaster-by-inlogik-test-user"></a>Skapa en testanvändare ProMaster (genom Inlogik)
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i ProMaster (genom Inlogik). Arbeta med [ProMaster (genom Inlogik) supportteamet](mailto:michael.boldiston@inlogik.com) att lägga till användare i ProMaster (genom Inlogik)-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i ProMaster (genom Inlogik). Arbeta med [ProMaster (genom Inlogik) supportteamet](mailto:michael.boldiston@inlogik.com) att lägga till användare i ProMaster (genom Inlogik)-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

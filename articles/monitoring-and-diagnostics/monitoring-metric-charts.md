@@ -5,25 +5,25 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/17/2017
+ms.date: 12/05/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: d1cfaadd06d20a0f57d75cd43d00040c9e44c429
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ff487fef9400803de0dba78352a1d29c5a71e6d2
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966032"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017927"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
 Azure Monitor Metrics Explorer är en komponent i Microsoft Azure-portalen som tillåter ritning diagram, visuellt korrelera trender och undersöka toppar och dalar mått '. Metrics Explorer är ett viktigt startpunkt för att undersöka olika prestanda och tillgänglighetsproblem med dina program och infrastruktur i Azure eller övervakas av Azure Monitor-tjänster. 
 
-## <a name="what-are-metrics-in-azure"></a>Vad är mått i Azure?
+## <a name="metrics-in-azure"></a>Mått i Azure
 
 Mått i Microsoft Azure är serien med mätvärden och antal som samlas in och lagras över tid. Det finns mått för standard (eller ”plattformen”) och anpassade mått. Standardmått tillhandahålls till dig av själva Azure-plattformen. Standardmått visas statistik för hälsa och användning av dina Azure-resurser. Medan anpassade mått som ska skickas till Azure genom att dina program med den [Application Insights API för anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Anpassade mått lagras i Application Insights-resurser tillsammans med andra program specifika mått.
 
-## <a name="how-do-i-create-a-new-chart"></a>Hur gör jag för att skapa ett nytt diagram?
+## <a name="create-a-new-chart"></a>Skapa ett nytt diagram
 
 1. Öppna Azure portal
 2. Gå till den nya **övervakaren** fliken och välj sedan **mått**.
@@ -54,11 +54,11 @@ Mått i Microsoft Azure är serien med mätvärden och antal som samlas in och l
    > [!NOTE]
    > Du normalt vill inte ha mått med olika enheter (d.v.s. ”millisekunder” och ”kilobyte”) eller med betydligt olika skala på ett diagram. Överväg istället att använda flera diagram. Klicka på knappen Lägg till diagram för att skapa flera diagram i Metrics Explorer.
 
-## <a name="how-do-i-apply-filters-to-the-charts"></a>Hur jag för att använda filter i diagrammen?
+## <a name="apply-filters-to-charts"></a>Använda filter diagram
 
 Du kan använda filter på diagram som visar mått med dimensioner. Till exempel om måttet ”Transaktionsantal” har en dimension, ”svarstypen”, som anger om svaret från transaktioner har lyckats eller misslyckats sedan filtrering på den här dimensionen skulle rita en rad för diagram för endast lyckade (eller bara misslyckade) transaktioner. 
 
-### <a name="to-add-a-filter"></a>Lägg till ett filter:
+### <a name="to-add-a-filter"></a>Lägg till ett filter
 
 1. Klicka på ikonen Lägg till Filter ![filter-ikonen](./media/monitoring-metric-charts/icon002.png) ovanför diagrammet
 
@@ -76,11 +76,11 @@ Du kan använda filter på diagram som visar mått med dimensioner. Till exempel
 
 5. Du kan upprepa steg 1 – 4 använda flera filter i samma diagram.
 
-## <a name="how-do-i-segment-a-chart"></a>Hur jag för att segmentera ett diagram?
+## <a name="segment-a-chart"></a>Segmentera ett diagram
 
 Du kan dela ett mått med dimensionen att visualisera hur olika segment av mått jämför mot varandra och identifiera öar segmenten i en dimension. 
 
-### <a name="to-segment-a-chart"></a>Ett diagram-segmentet:
+### <a name="to-segment-a-chart"></a>Ett diagram-segmentet
 
 1. Klicka på ikonen Lägg till gruppering  ![mått-avbildning](./media/monitoring-metric-charts/icon003.png) ovanför diagrammet.
  
@@ -100,7 +100,7 @@ Du kan dela ett mått med dimensionen att visualisera hur olika segment av mått
    > [!NOTE]
    > Använd både filtrering och gruppering på samma dimension för att dölja segment som är inte relevant för ditt scenario och göra det lättare att läsa diagram.
 
-## <a name="how-do-i-lock-lower-and-upper-boundaries-of-the-chart-y-axis"></a>Hur jag för att låsa lägre och övre gränser diagrammet y-axel?
+## <a name="lock-boundaries-of-chart-y-axis"></a>Lås gränserna för y-axeln i diagrammet
 
 Låsning intervallet för y-axeln blir viktigt när diagrammet visar mindre variationer av större värden. 
 
@@ -110,12 +110,12 @@ Ett annat exempel är en variationerna i det tillgängliga minnet och där värd
 
 Om du vill styra y-axelintervall använder det ”...” Skapa diagram över menyn och välj **redigera diagram** att få åtkomst till avancerade inställningar. Ändra värden i y-axelintervall avsnitt eller Använd **automatisk** knappen för att återgå till standardvärden.
 
-![mått-avbildning](./media/monitoring-metric-charts/0013.png)
+![mått-avbildning](./media/monitoring-metric-charts/0014-manually-set-granularity.png)
 
 > [!WARNING]
 > Låsa gränserna för y-axeln för diagram som spårar olika antal eller summerar under en viss tid (och därmed antal som används, sum, minimum eller maximum aggregeringar) kräver vanligtvis att ange en fast tidskornighet i stället för att förlita sig på automatisk standardvärdena. Detta är nödvändigt eftersom värden i diagram ändras när tidskornighet automatiskt ändras av användaren ändrar storlek på webbläsarfönster eller kommer från en skärmupplösning till en annan. Den resulterande ändras i tidskornighet effekterna utseendet på diagrammet, ogiltigförklara aktuella valet av y-axelintervall.
 
-## <a name="how-do-i-pin-charts-to-dashboards"></a>Hur jag för att fästa diagram till instrumentpaneler?
+## <a name="pin-charts-to-dashboards"></a>Fäst diagram på instrumentpaneler
 
 När du har konfigurerat diagrammen kan du lägga till den i instrumentpaneler så att du kan visa den igen, eventuellt i kontexten av andra övervakning telemetri, eller dela med ditt team. 
 

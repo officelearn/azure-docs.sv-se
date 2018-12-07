@@ -8,22 +8,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 27d4ad03e4a7f911fe3c9981618337a2fff51317
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: dcd7b58e2c1f4d6e556515ad7db778f2989588b9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114625"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017431"
 ---
-# <a name="how-to-train-pytorch-models"></a>Hur du tränar PyTorch-modeller
+# <a name="pytorch-models-with-azure-machine-learning-service"></a>PyTorch-modeller med Azure Machine Learning-tjänsten
 
 För djupa neurala (DNN) nätverksutbildning med PyTorch, Azure Machine Learning ger en anpassad `PyTorch` klassen för den `Estimator`. Azure SDK `PyTorch` estimator kan du enkelt skicka PyTorch upplärningsjobb för både en nod och distribuerade körs på Azure compute.
 
 ## <a name="single-node-training"></a>Nod-utbildning
 Utbildning med den `PyTorch` kostnadsuppskattning är ungefär som att använda den [grundläggande `Estimator` ](how-to-train-ml-models.md), så först läsa igenom artikeln och kontrollera att du förstår begreppen som förklaras det.
   
-Om du vill köra ett jobb för PyTorch, skapa en instans av en `PyTorch` objekt. Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#batch) objekt `compute_target` och din [datalager](how-to-access-data.md) objektet `ds`.
+Om du vill köra ett jobb för PyTorch, skapa en instans av en `PyTorch` objekt. Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#amlcompute) objekt `compute_target` och din [datalager](how-to-access-data.md) objektet `ds`.
 
 ```Python
 from azureml.train.dnn import PyTorch
@@ -44,7 +45,7 @@ Parameter | Beskrivning
 --|--
 `source_directory` |  Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från din lokala dator till den fjärranslutna beräkningen
 `script_params` |  Ordlista att ange kommandoradsargument för att dina utbildningsskript `entry_script`, i form av < kommandoradsargumentet, värde > par
-`compute_target` |  Remote beräkning som utbildning skriptet ska köras på, i det här fallet en [Batch AI](how-to-set-up-training-targets.md#batch) kluster
+`compute_target` |  Remote beräkningsmål som utbildning skriptet ska köras på, i det här fallet en Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kluster
 `entry_script` |  FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av, bör finnas i den här mappen
 `conda_packages` |  Lista över Python-paket installeras via conda som krävs för dina utbildningsskript. Konstruktorn har en annan parameter med namnet `pip_packages` som du kan använda några pip-paket som behövs
 `use_gpu` |  Anger denna flagga `True` utnyttja GPU för utbildning. Som standard `False`
@@ -100,13 +101,9 @@ run = exp.submit(pt_est)
 ```
 
 ## <a name="examples"></a>Exempel
-En självstudiekurs om nod PyTorch utbildning, se:
-* [Training/01.Train-hyperparameter-Tune-Deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/01.train-hyperparameter-tune-deploy-with-pytorch)
 
-En självstudiekurs om distribuerade PyTorch med Horovod finns:
-* [utbildning/02.distributed-pytorch-med-horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/02.distributed-pytorch-with-horovod)
-
-Hämta dessa anteckningsböcker:
+Notebooks på distribuerade djupinlärning, finns här:
+* [How-to-use-azureml/Training-with-Deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: a44812ccb89606416b2161a133adf2c781e81bd0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6040300b4cb569d0e78503d7e5a36507e79de67c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842041"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017448"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Självstudier: Azure Active Directory-integrering med Predictix sortimentet planering
 
@@ -111,12 +111,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Predictix sortimentet Planera domän och URL: er med enkel inloggning för information](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_url.png)
 
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:
+
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com/sso/request`|
     | `https://<sub-domain>.dev.ap.predictix.com/`|
 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
+    
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com`|

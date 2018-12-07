@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: byvinyal
-ms.openlocfilehash: bd20ea58c7693b3be8f583810384aa26dde572d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 2ee5eca6f138d9aaa1a2b7cebb61b56fd26e17cc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219570"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017217"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker flera av plattformen.
@@ -54,7 +54,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Redis Cache](#azure-redis-cache-limits)
+* [Azure Redis-Cache](#azure-redis-cache-limits)
 * [Säkerhetskopiering](#backup-limits)
 * [Batch](#batch-limits)
 * [Batch AI](#batch-ai-limits)
@@ -329,7 +329,7 @@ Mer information om gränser för en mer detaljerad nivå, till exempel dokuments
 ### <a name="api-management-limits"></a>API Management begränsar
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-### <a name="azure-redis-cache-limits"></a>Azure Redis Cache-gränser
+### <a name="azure-cache-for-redis-limits"></a>Azure Cache för Redis-gränser
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
 ### <a name="key-vault-limits"></a>Key Vault-begränsningar

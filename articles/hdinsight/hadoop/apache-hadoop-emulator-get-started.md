@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631565"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016784"
 ---
 # <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Kom igång med en Apache Hadoop-sandbox, ett emuleringsprogram på en virtuell dator
 
@@ -27,7 +27,7 @@ Lär dig hur du installerar Apache Hadoop-sandbox från Hortonworks på en virtu
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>Ladda ned och installera den virtuella datorn
-1. Bläddra till den [Hortonworks hämtar](http://hortonworks.com/downloads/#sandbox).
+1. Bläddra till den [Hortonworks hämtar](https://hortonworks.com/downloads/#sandbox).
 
 2. Klicka på **hämta för VIRTUALBOX** att ladda ned Hortonworks sandbox-miljön på en virtuell dator. Du uppmanas att registrera med Hortonworks innan hämtningen påbörjas. Det tar en till två timmar att hämta beroende på nätverkets hastighet.
    
@@ -78,6 +78,6 @@ Om du vill hämta en äldre version sandbox-miljön för HDP Expandera arkivet:
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lär dig hur du använder Visual Studio med begränsat Hortonworks-läge](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Lära dig grunderna för Hortonworks sandbox-miljön](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop-självstudiekurs – komma igång med HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Lära dig grunderna för Hortonworks sandbox-miljön](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop-självstudiekurs – komma igång med HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

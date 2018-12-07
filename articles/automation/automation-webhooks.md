@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3da4ecb1193959fcc8782f8aa5fdf32c130ee238
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 381f8c5fb59379c0494dabcd22f4675be9535837
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840154"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016699"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Börja använda en Azure Automation-runbook med en webhook
 
@@ -31,7 +31,7 @@ I följande tabell beskrivs de egenskaper som du måste konfigurera för en webh
 |:--- |:--- |
 | Namn |Du kan ange ett namn som du vill använda för en webhook eftersom detta inte är exponerad klienten. Den används endast för dig för att identifiera runbook i Azure Automation. <br> Som bästa praxis bör du ge webhooken ett namn som är relaterade till den klient som använder den. |
 | URL |URL: en för webhooken är den unika adress som en klient anropar med en HTTP POST att starta runbooken länkad till webhooken. Det genereras automatiskt när du skapar webhooken. Du kan inte ange en anpassad URL. <br> <br> URL: en innehåller en säkerhetstoken som gör att runbook anropas av en tredjeparts-system utan ytterligare autentisering. Den ska därför behandlas som ett lösenord. Av säkerhetsskäl kan du bara se URL: en i Azure-portalen när webhooken skapas. Observera att URL: en på en säker plats för framtida användning. |
-| Upphörandedatum |Varje webhook om du har ett förfallodatum vid vilken tidpunkt den kan inte längre användas som ett certifikat. Den här förfallodatum kan ändras när webhooken skapas. |
+| Upphörandedatum |Varje webhook om du har ett förfallodatum vid vilken tidpunkt den kan inte längre användas som ett certifikat. Den här förfallodatum kan ändras när webhooken skapas så länge webhooken inte har upphört att gälla. |
 | Enabled |En webhook aktiveras som standard när den skapas. Om du ställer in det på inaktiverad är ingen klient kan använda den. Du kan ange den **aktiverad** egenskapen när du skapar webhooken eller när som helst när den har skapats. |
 
 ### <a name="parameters"></a>Parametrar
@@ -121,6 +121,12 @@ Förutsatt att begäran har lyckats, webhook svaret innehåller jobb-ID i JSON-f
 ```
 
 Klienten kan inte fastställa när runbook-jobbet har slutförts eller deras slutförandestatus från webhooken. Det kan ta reda på den här informationen med jobb-ID med en annan metod som [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) eller [Azure Automation API](/rest/api/automation/job).
+
+## <a name="renew-webhook"></a>Förnya en webhook
+
+När den har skapats av en webhook har en giltighetstid på ett år. När det aktuella året tid webhooken automatiskt upphör att gäller. När en webhook har upphört att gälla den kan inte aktiveras igen, måste tas bort och återskapas. Om en webhook inte har nått dess förfallotid kan utökas.
+
+Navigera till en runbook som innehåller webhooken om du vill utöka en webhook. Välj **Webhooks** under **resurser**. Klicka på webhooken som du vill utöka, öppnas den **Webhook** sidan.  Välj ett nytt utgångsdatum och tid och klicka på **spara**.
 
 ## <a name="sample-runbook"></a>Exempel-runbook
 

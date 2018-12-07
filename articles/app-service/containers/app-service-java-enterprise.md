@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 6613def8891109e3a0ddf818111898a893a8035d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b632ef49f49768c86b7a7ce2efc601f036532a29
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629307"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017594"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java företagens guide för App Service på Linux
 
@@ -27,17 +27,18 @@ Den här guiden innehåller viktiga begrepp och instruktioner för Java-företag
 
 ## <a name="scale-with-app-service"></a>Skala med App Service 
 
-Programservern WildFly som körs i App Service på Linux körs i fristående läge, inte i en domänkonfiguration. 
+Programservern WildFly som körs i App Service på Linux körs i fristående läge, inte i en domänkonfiguration. När du skalar ut App Service-planen konfigureras varje WildFly-instans som en fristående server.
 
- Skala ditt program vågrätt eller lodrätt med [regler](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) och av [ökar din instansantalet](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+ Skala ditt program vågrätt eller lodrätt med [regler](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) och av [ökar din instansantalet](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). 
 
 ## <a name="customize-application-server-configuration"></a>Anpassa programmet serverkonfiguration
 
-Utvecklare kan skriva en start Bash-skript för att köra ytterligare konfiguration krävs för sina program, till exempel:
+Web App-instanserna är tillståndslösa, så att varje ny instans som är igång måste konfigureras på Start som stöder Wildfly-konfiguration som krävs av programmet.
+Du kan skriva en start Bash-skript för att anropa WildFly CLI för att:
 
 - Skapa datakällor
-- Konfigurera meddelanden providers
-- Lägger till andra moduler och dependnecies Wildfly serverkonfigurationen.
+- Konfigurera meddelanden-providrar
+- Lägga till andra moduler och beroenden i Wildfly serverkonfigurationen.
 
  Skriptet körs när Wildfly är igång, men innan programmet startas. Skriptet bör använda den [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) anropas från `/opt/jboss/wildfly/bin/jboss-cli.sh` att konfigurera application server med en konfiguration eller ändringar som behövs när servern startas. 
 
@@ -51,7 +52,7 @@ Ladda upp startskriptet att `/home/site/deployments/tools` i din App Service-ins
 
 Ange den **startskript** fältet i Azure-portalen till platsen för din start shell-skript, till exempel `/home/site/deployments/tools/your-startup-script.sh`.
 
-Använd [programinställningar](/azure/app-service/web-sites-configure#application-settings) kan ställa in miljövariabler för användning i skriptet. Dessa inställningar är tillgängliga i startmiljön skript och hålla anslutningssträngar och andra hemligheter från versionskontroll.
+Ange [programinställningar](/azure/app-service/web-sites-configure#application-settings) i programkonfigurationen att skicka miljövariabler för användning i skriptet. Programinställningar Behåll anslutningssträngar och andra hemligheter som behövs för att konfigurera ditt program utanför versionskontroll.
 
 ## <a name="modules-and-dependencies"></a>Moduler och beroenden
 
@@ -102,7 +103,7 @@ Som standard App Service på Linux ska använda sessionscookies tillhörighet at
 - Om en programinstans startas om och skalas, går användaren sessionstillstånd i programservern förlorad.
 - Om program har lång timeout sessionsinställningar eller ett fast antal användare, kan det ta lite tid för autoscaled nya instanser kan ta emot belastning eftersom endast nya sessioner kommer att dirigeras till de nyligen startats instanserna.
 
-Du kan konfigurera Wildfly om du vill använda en extern session butik som [Redis Cache](/azure/redis-cache/). Behöver du [inaktivera den befintliga instansen ARR-tillhörighet](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) konfiguration för att stänga av sessionen cookie-baserad Routning och tillåta arkivet session konfigurerade Wildfly att fungera utan störningar.
+Du kan konfigurera Wildfly om du vill använda en extern session butik som [Azure Cache för Redis](/azure/azure-cache-for-redis/). Behöver du [inaktivera den befintliga instansen ARR-tillhörighet](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) konfiguration för att stänga av sessionen cookie-baserad Routning och tillåta arkivet session konfigurerade Wildfly att fungera utan störningar.
 
 ## <a name="enable-web-sockets"></a>Aktivera webbsockets
 

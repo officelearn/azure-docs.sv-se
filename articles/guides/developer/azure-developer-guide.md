@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 80a32335b8b9b89bdc5bf53cbed994d78a6ca81e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976816"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017611"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -245,7 +245,7 @@ Tjänster som [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-h
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
-Köra ditt program på Azure som är sannolikt innebär att arbeta med flera Azure-tjänster, som följer samma livscykel och kan betraktas som en logisk enhet. En webbapp kan till exempel använda Web Apps, SQL Database, Storage, Azure Redis Cache och Azure Content Delivery Network-tjänster. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) kan du arbeta med resurserna i ditt program som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i en enda, samordnad åtgärd.
+Köra ditt program på Azure som är sannolikt innebär att arbeta med flera Azure-tjänster, som följer samma livscykel och kan betraktas som en logisk enhet. Till exempel en webbapp kan använda Web Apps, SQL Database, Storage, Azure Cache för Redis och Azure Content Delivery Network-tjänster. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) kan du arbeta med resurserna i ditt program som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i en enda, samordnad åtgärd.
 
 Utöver att logiskt gruppera och hantera relaterade resurser, innehåller Azure Resource Manager distributionsfunktioner som du kan anpassa distributionen och konfigurationen av relaterade resurser. Till exempel genom att använda Resource Manager kan du distribuera och konfigurera ett program som består av flera virtuella datorer, en belastningsutjämnare och en Azure SQL database som en enda enhet.
 

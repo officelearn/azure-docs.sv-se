@@ -10,16 +10,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2f09bd7055b987a8647a24d4ebb6ea5a27888a53
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 56747179c69e6495e9a764f81e0827e29cb077e6
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015595"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017414"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Använda HDInsight Tools för IntelliJ med begränsat Hortonworks-läge
 
-Lär dig hur du använder HDInsight Tools för IntelliJ för att utveckla Apache Scala-appar och testa programmen på [Hortonworks Sandbox](http://hortonworks.com/products/sandbox/) körs på datorn. 
+Lär dig hur du använder HDInsight Tools för IntelliJ för att utveckla Apache Scala-appar och testa programmen på [Hortonworks Sandbox](https://hortonworks.com/products/sandbox/) körs på datorn. 
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) är en integrerad utvecklingsmiljö (IDE) för Java för att utveckla programvara. När du utvecklar och testar dina program på begränsat Hortonworks-läge, du kan flytta program till [Azure HDInsight](apache-hadoop-introduction.md).
 
@@ -29,7 +29,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
 
 - Hortonworks Data Platform (HDP) 2.4 på begränsat Hortonworks-läge som körs på den lokala datorn. Om du vill konfigurera HDP Se [Kom igång med Hadoop-ekosystemet med ett begränsat Hadoop-läge på en virtuell dator](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
-    > HDInsight Tools för IntelliJ har testats endast med HDP 2.4. För att få HDP 2.4 kan expandera **Hortonworks Sandbox Arkiv** på den [begränsat Hortonworks-läge hämtar plats](http://hortonworks.com/downloads/#sandbox).
+    > HDInsight Tools för IntelliJ har testats endast med HDP 2.4. För att få HDP 2.4 kan expandera **Hortonworks Sandbox Arkiv** på den [begränsat Hortonworks-läge hämtar plats](https://hortonworks.com/downloads/#sandbox).
 
 - [Java Developer Kit (JDK) version 1.8 eller senare](https://aka.ms/azure-jdks). Azure Toolkit för IntelliJ kräver JDK.
 

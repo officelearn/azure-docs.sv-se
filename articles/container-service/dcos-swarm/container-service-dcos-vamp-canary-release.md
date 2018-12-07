@@ -1,5 +1,5 @@
 ---
-title: Canary release med Vamp på Azure DC/OS-kluster
+title: (INAKTUELL) Canary release med Vamp på Azure DC/OS-kluster
 description: Hur du använder Vamp till canary release-tjänster och tillämpa smart trafikfiltrering i ett Azure Container Service DC/OS-kluster
 services: container-service
 author: gggina
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975864"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002062"
 ---
-# <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Mikrotjänster av canary release med Vamp på ett Azure Container Service DC/OS-kluster
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(INAKTUELL) Mikrotjänster av canary release med Vamp på ett Azure Container Service DC/OS-kluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 I den här genomgången ska konfigurera vi Vamp på Azure Container Service med DC/OS-kluster. Vi canary release-Vamp demo tjänsten ”sava” och Lös inkompatibilitet tjänsten med Firefox genom att använda smarta trafikfiltrering. 
 

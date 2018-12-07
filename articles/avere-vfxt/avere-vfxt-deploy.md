@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 8e265f2bed480f7b40476e09ab8f442aedcc9dd4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578645"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999455"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
@@ -181,7 +181,7 @@ Information som behövs för att ansluta till hanteringsstyrenheten:
 
 Information som behövs för klustret: 
 
-* Resursgruppsnamn
+* Namn på resursgrupp
 * Azure-plats 
 * Namn på virtuellt nätverk
 * Namn på undernät
@@ -267,7 +267,7 @@ Redigera ett exempelskript som ingår på styrenheten för att skapa Avere vFXT 
 
 Ange värden för dessa skriptvariabler.
 
-* Resursgruppsnamn
+* Namn på resursgrupp
 
   * Om du använder nätverks- eller komponenter som finns i olika resursgrupper, ta bort kommentarerna variablerna och ange namnen också. 
 
@@ -286,7 +286,7 @@ RESOURCE_GROUP=
 * Namn på undernät
 * Azure AD runtime rollnamn - om du har följt exemplet i [skapa klusterrollen noden åtkomst](#create-the-cluster-node-access-role), använda ``avere-cluster``. 
 * Lagringskontonamn (om du skapar en ny blobbehållare)
-* Klusternamnet – du kan inte ha två vFXT kluster med samma namn i samma resursgrupp. 
+* Klusternamnet – du kan inte ha två vFXT kluster med samma namn i samma resursgrupp. Ge ett unikt namn för den bästa metoden för varje kluster.
 * Lösenordet för administratörer – Välj ett säkert lösenord för att övervaka och administration av klustret. Det här lösenordet tilldelas till användaren ``admin``. 
 * Noden instanstyp - Se [vFXT nodstorlekar](avere-vfxt-deploy-plan.md#vfxt-node-sizes) information
 * Nodstorlek för cache - Se [vFXT nodstorlekar](avere-vfxt-deploy-plan.md#vfxt-node-sizes) information
@@ -306,6 +306,15 @@ När skriptet har körts kan du kopiera hantering av IP-adress, vilket krävs f�
 
 ![Kommandoraden utdata från skriptet visar IP-adress för hantering slutet](media/avere-vfxt-mgmt-ip.png)
 
+> [!IMPORTANT] 
+> Om du har skapat en ny blobbehållare kan vara den krypterad med en standardnyckel som inte har sparats utanför klustret. Innan du lagrar data i behållaren måste du antingen hämta filen återställning av nyckel eller skapa egna krypteringsnyckel och spara dess recovery-fil på en permanent plats. 
+> 
+> Om du använder standardnyckeln utan att hämta filen, är det möjligt att förlora åtkomst till krypterade data i Blob core filer om klustret vFXT förstörs eller tappas bort.
+>
+> Om skriptet visar `WARNING` meddelanden som de inringad i skärmbilden nedan, följer du anvisningarna i [konfigurerar du lagring](avere-vfxt-add-storage.md) att hämta nyckelfilen eller skapa en ny nyckel för Blob-behållare. Använd verktyget för konfiguration, Avere på Kontrollpanelen.
+
+![Kommandoraden utdata från skriptet visar varningsmeddelanden om hur du skapar en ny krypteringsnyckel](media/avere-vfxt-key-warning.png)
+
 ## <a name="next-step"></a>Nästa steg
 
-Nu när klustret körs och du vet att dess IP-adress för hantering, kan du [ansluta till klustret konfigurationsverktyget](avere-vfxt-cluster-gui.md) att aktivera stöd för och lägga till lagring om det behövs.
+Nu när klustret körs och du vet att dess IP-adress för hantering, kan du [ansluta till klustret konfigurationsverktyget](avere-vfxt-cluster-gui.md) lägga till lagring för att aktivera stöd för om behövs eller adressen standardkrypteringsnyckeln på din nya Blob storage.

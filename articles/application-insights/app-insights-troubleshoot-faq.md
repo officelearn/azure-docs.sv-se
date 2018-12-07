@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 894c3e42378ddcbe9cba7b6f33d8500988695754
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0e934a629edc41ce09cad810b0d3b9b88e36c6d6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721025"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996528"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -140,7 +140,7 @@ Vi ser IP-adress (IPv4 eller IPv6) för webbklienten med [GeoLite2](http://dev.m
 * Webbläsartelemetri: vi samlar in avsändarens IP-adress.
 * Telemetri: The Application Insights-modulen samlar in klientens IP-adress. Den har inte samlats in om `X-Forwarded-For` har angetts.
 
-Du kan konfigurera den `ClientIpHeaderTelemetryInitializer` att ta den IP-adressen från en annan rubrik. I vissa system, till exempel den flyttas av en proxy, läsa in belastningsutjämnare eller CDN för att `X-Originating-IP`. [Läs mer](http://apmtips.com/blog/2016/07/05/client-ip-address/).
+Du kan konfigurera den `ClientIpHeaderTelemetryInitializer` att ta den IP-adressen från en annan rubrik. I vissa system, till exempel den flyttas av en proxy, läsa in belastningsutjämnare eller CDN för att `X-Originating-IP`. [Läs mer](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 Du kan [använda Power BI](app-insights-export-power-bi.md) att visa din begärandetelemetri på en karta.
 
@@ -184,7 +184,7 @@ Använda en enskild resurs för alla komponenter eller roller i en enda affärss
 ## <a name="what-are-the-user-and-session-counts"></a>Vad är användaren och Session räknar?
 
 * JavaScript SDK anger en användare cookie på webbklienten att identifiera användare som återvänder, och en sessions-cookie till gruppaktiviteter.
-* Om det finns inga klientskript, kan du [angetts cookies på servern](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* Om det finns inga klientskript, kan du [angetts cookies på servern](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Om en verklig användare använder webbplatsen på olika webbläsare eller via i läget privat/inkognito surfning eller olika datorer och de kommer att räknas mer än en gång.
 * För att identifiera en inloggad användare på alla datorer och webbläsare, lägger du till ett anrop till [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 

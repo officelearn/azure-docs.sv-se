@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 6589a90f6eea2bfd7188e89b701233b37c162d54
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 10cfaab44343a494dd654d0e930e12fa268ea2e3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978774"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992889"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timerutlösare för Azure Functions 
 
@@ -28,13 +28,13 @@ Den här artikeln förklarar hur du arbetar med timerutlösare i Azure Functions
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Timerutlösare finns i den [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version 2.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub-lagringsplatsen.
+Timerutlösare finns i den [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version 2.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
-Timerutlösare finns i den [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version 3.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub-lagringsplatsen.
+Timerutlösare finns i den [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version 3.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -50,7 +50,7 @@ Se exempel språkspecifika:
 
 ### <a name="c-example"></a>C#-exempel
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som körs var femte minut:
+I följande exempel visas en [ C# funktionen](functions-dotnet-class-library.md) som körs varje gång minuterna har ett värde som är delbara av fem (t.ex om funktionen börjar kl. 18:57:00, blir nästa prestandan 19:00:00):
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -92,9 +92,9 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-### <a name="f-example"></a>F #-exempel
+### <a name="f-example"></a>F#exempel
 
-I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [F #-skriptfunktion](functions-reference-fsharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en förekomst av missade schema.
+I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [ F# skript funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en förekomst av missade schema.
 
 Här är bindningsdata i den *function.json* fil:
 
@@ -107,7 +107,7 @@ Här är bindningsdata i den *function.json* fil:
 }
 ```
 
-Här är F #-skriptkoden:
+Här är den F# skript kod:
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: ILogger ) =
@@ -150,7 +150,7 @@ module.exports = function (context, myTimer) {
 
 ### <a name="java-example"></a>Java-exemplet
 
-Följande exempel funktion utlöser och kör var femte minut. Den `@TimerTrigger` anteckningen i funktionen definierar schemat med samma strängformat som [CRON-uttryck](http://en.wikipedia.org/wiki/Cron#CRON_expression).
+Följande exempel funktion utlöser och kör var femte minut. Den `@TimerTrigger` anteckningen i funktionen definierar schemat med samma strängformat som [CRON-uttryck](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 ```java
 @FunctionName("keepAlive")

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: a498c9251c305b4845cc911fc9a21fbdafda72fe
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2bf82c19498087e21bc66bf3c813b8f23d50d621
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832266"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996506"
 ---
 # <a name="management-solutions-in-azure"></a>Lösningar för hantering i Azure
 Lösningar för hantering av utnyttja tjänster i Azure för att ge ytterligare insikter i driften av ett visst program eller tjänst. Den här artikeln innehåller en kort översikt över lösningar för hantering i Azure och information om hur du använder och installeras.
@@ -77,7 +77,7 @@ Medlemmar i communityn kan skicka datahanteringslösningar till Azure-Snabbstart
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-arbetsytan och Automation-konto
-Alla lösningar kräver en [Log Analytics-arbetsyta](../../log-analytics/log-analytics-manage-access.md) att lagra data som samlas in av lösningen och som värd för loggsökningar och vyer. Vissa lösningar kräver också en [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview) som innehåller runbooks och relaterade resurser. Arbetsytan och kontot måste uppfylla följande krav.
+Alla lösningar kräver en [Log Analytics-arbetsyta](../../azure-monitor/platform/manage-access.md) att lagra data som samlas in av lösningen och som värd för loggsökningar och vyer. Vissa lösningar kräver också en [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview) som innehåller runbooks och relaterade resurser. Arbetsytan och kontot måste uppfylla följande krav.
 
 * Varje installation av en lösning kan bara använda en Log Analytics-arbetsyta och ett Automation-konto. Du kan installera lösningen separat till flera arbetsytor.
 * Om en lösning kräver ett Automation-konto, måste sedan Log Analytics-arbetsytan och Automation-kontot kopplas till varandra. Log Analytics-arbetsytan kan endast kopplas till ett Automation-konto och ett Automation-konto kan endast kopplas till en Log Analytics-arbetsyta.

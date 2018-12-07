@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae2697c96435ec18ae7645520d438c41837f036f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231659"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016869"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa informationstexter för Azure Media Services sammanfatta ändringar från tidigare versioner och kända problem.
@@ -39,7 +39,7 @@ Dessa informationstexter för Azure Media Services sammanfatta ändringar från 
 | Medietjänster begränsning mekanism begränsar resursanvändningen för program som gör långa förfrågningar till tjänsten. Tjänsten kan returnera ”tjänst ej tillgänglig” 503 HTTP-statuskoden. |Mer information finns i beskrivningen av 503 HTTP-statuskod i [felkoder för Media Services](media-services-encoding-error-codes.md). |
 | När du frågar entiteter returneras en gräns på 1 000 entiteter i taget eftersom offentlig REST version 2 begränsar frågeresultaten till 1 000 resultat. |Använd hoppa över och ta (.NET) / viktigaste (REST) enligt beskrivningen i [exemplet .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) och [det här REST API-exemplet](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Vissa klienter kan stöta på ett problem för upprepningar tagg i manifestet Smooth Streaming. |Mer information finns i [i det här avsnittet](media-services-deliver-content-overview.md#known-issues). |
-| Media Services .NET SDK-objekt kan inte serialiseras och därför fungerar inte med Azure Redis Cache. |Om du försöker att serialisera SDK AssetCollection objektet om du vill lägga till den i Azure Redis Cache, genereras ett undantag. |
+| Media Services .NET SDK-objekt kan inte serialiseras och därför fungerar inte med Azure Cache för Redis. |Om du försöker att serialisera objektet SDK AssetCollection om du vill lägga till den i Azure Cache för Redis genereras ett undantag. |
 
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API-versionshistorik

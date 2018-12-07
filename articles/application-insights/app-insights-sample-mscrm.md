@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: b4bc632b4951781b85847699d38fd10df14c1a87
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3106e523e3f8edd17cc27991181267acfab4308b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720753"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002139"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Genomgång: Aktivera telemetri för Microsoft Dynamics CRM Online med hjälp av Application Insights
 Den här artikeln visar hur du hämtar telemetridata från [Microsoft Dynamics CRM Online](https://www.dynamics.com/) med [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vi går genom processen att lägga till Application Insights-skriptet till ditt program, samla in data och datavisualisering.
@@ -32,7 +32,7 @@ Den här artikeln visar hur du hämtar telemetridata från [Microsoft Dynamics C
 Om du vill övervaka programmet du lägga till en Application Insights SDK till ditt program. SDK: N skickar telemetri till den [Application Insights-portalen](https://portal.azure.com), där du kan använda våra kraftfulla analys- och diagnostikverktyg eller exportera data till lagring.
 
 ### <a name="create-an-application-insights-resource-in-azure"></a>Skapa en Application Insights-resurs i Azure
-1. Hämta [ett konto i Microsoft Azure](http://azure.com/pricing). 
+1. Hämta [ett konto i Microsoft Azure](https://azure.com/pricing). 
 2. Logga in på den [Azure-portalen](https://portal.azure.com) och Lägg till en ny Application Insights-resurs. Det här är där dina data bearbetas och visas.
 
     ![Klicka på +, Utvecklartjänster, Application Insights.](./media/app-insights-sample-mscrm/01.png)

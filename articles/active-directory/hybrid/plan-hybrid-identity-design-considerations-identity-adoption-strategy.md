@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5aeefe82255d40938eff09d7920e2fd5aca94c95
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9cfd3f32f6293d5760c4a4ddcf40428a2b9b70f8
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313644"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999086"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en hybrid identity införandestrategi
 I det här steget definierar du hybrid identity-införandestrategin för din hybrididentitetslösning att uppfylla kraven som beskrivs i:
@@ -92,7 +92,7 @@ Du måste också vara medveten om vilka funktioner är inte tillgängliga:
 * Övergång av Office till passiv autentisering låter dem stöder endast SAML 2.0 IDP: er, men stöd kan fortfarande på basis av klient av klient
 
 > [!NOTE]
-> Den mest uppdaterade listan finns i artikeln https://aka.ms/ssoproviders.
+> Den mest uppdaterade listan finns i artikeln [kompatibilitetslistan för Azure AD-federation](how-to-connect-fed-compatibility.md).
 > 
 > 
 
@@ -192,9 +192,9 @@ Trots att du kan ha regleras på en lösning för din strategi, behöver du fort
 | Användarplats | Prioriterade designalternativ |
 | --- | --- |
 | Azure Active Directory |Multi-FactorAuthentication i molnet |
-| Azure AD och lokalt AD med federation med AD FS |Både |
-| Azure AD och lokalt AD med hjälp av Azure AD Connect utan Lösenordssynkronisering |Både |
-| Azure AD och lokalt med Azure AD Connect med Lösenordssynkronisering |Både |
+| Azure AD och lokalt AD med federation med AD FS |Båda |
+| Azure AD och lokalt AD med hjälp av Azure AD Connect utan Lösenordssynkronisering |Båda |
+| Azure AD och lokalt med Azure AD Connect med Lösenordssynkronisering |Båda |
 | Lokala AD |Multi-Factor Authentication Server |
 
 > [!NOTE]

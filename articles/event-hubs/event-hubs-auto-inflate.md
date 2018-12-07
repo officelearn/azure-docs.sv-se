@@ -10,16 +10,17 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1bbbbbada07dc898a4c1424a315d472cf910926f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987009"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010832"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs-dataflödesenheter
 
@@ -49,13 +50,13 @@ Du kan aktivera eller inaktivera automatisk ökning på ett namnområde för Eve
 
 Du kan aktivera funktionen för automatisk ökning när du skapar ett namnområde för Event Hubs:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Aktivera automatisk ökning vid skapande av händelsehubb i tid](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 Det här alternativet, kan du börja i liten skala med dina dataflödesenheter och skala upp som kräver din användning. Den övre gränsen för inflationen påverkar direkt inte prissättning, beroende på antalet dataflödesenheter som används per timme.
 
 Du kan också aktivera automatisk ökning med hjälp av den **skala** alternativ i inställningsfönstret i portalen:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+![Aktivera automatisk ökning med skala](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
 
 > [!NOTE]

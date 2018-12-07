@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6c1307fcb472f6c66a95b76ad3c1b1686ce4f998
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308948"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011206"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Skapa Apache HBase-kluster i HDInsight i Azure-nätverk
 Lär dig hur du skapar Azure HDInsight Apache HBase-kluster i en [Azure Virtual Network][1].
@@ -247,7 +247,7 @@ I den här självstudien lärde du dig att skapa ett Apache HBase-kluster. Du ka
 * [Kom igång med Apache HBase med Apache Hadoop i HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Översikt över virtuella nätverk](../../virtual-network/virtual-networks-overview.md)
 
-[1]: http://azure.microsoft.com/services/virtual-network/
-[2]: http://technet.microsoft.com/library/ee176961.aspx
-[3]: http://technet.microsoft.com/library/hh847889.aspx
+[1]: https://azure.microsoft.com/services/virtual-network/
+[2]: https://technet.microsoft.com/library/ee176961.aspx
+[3]: https://technet.microsoft.com/library/hh847889.aspx
 

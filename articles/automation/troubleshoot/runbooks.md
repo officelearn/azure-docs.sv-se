@@ -8,12 +8,12 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9a60d8c17ba091da7c5eaf0e28160573d5faafa8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963138"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015474"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -123,7 +123,7 @@ Om du har multifaktorautentisering på din Azure-konto kan använda du inte en A
 
 #### <a name="resolution"></a>Lösning
 
-Om du vill använda ett certifikat med cmdlet: ar för klassiska Azure-modellen måste referera till [skapa och lägga till ett certifikat för att hantera Azure-tjänster.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Om du vill använda ett huvudnamn för tjänsten med Azure Resource Manager-cmdletar, som avser [skapar tjänstens huvudnamn med hjälp av Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) och [autentisera tjänstens huvudnamn med Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+Om du vill använda ett certifikat med cmdlet: ar för klassiska Azure-modellen måste referera till [skapa och lägga till ett certifikat för att hantera Azure-tjänster.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Om du vill använda ett huvudnamn för tjänsten med Azure Resource Manager-cmdletar, som avser [skapar tjänstens huvudnamn med hjälp av Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) och [autentisera tjänstens huvudnamn med Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Vanliga fel när du arbetar med runbooks
 
@@ -337,6 +337,24 @@ PowerShell-cmdlets som gör att underordnad runbook scenario är:
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) – denna cmdlet kan du starta en runbook och skicka parametrar till en runbook
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) – denna cmdlet kan du kontrollera jobbstatus för varje underordnad om det finns åtgärder som måste utföras när den underordnade runbooken har slutförts.
+
+### <a name="expired webhook"></a>Scenario: Status: 400 Felaktig förfrågan vid en webhook
+
+#### <a name="issue"></a>Problem
+
+När du försöker anropa en webhook för en Azure Automation-runbook kan du få följande fel.
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>Orsak
+
+Webhooken som du försöker anropa är antingen inaktiverat eller har upphört att gälla.
+
+#### <a name="resolution"></a>Lösning
+
+Om webhooken har inaktiverats kan återaktivera du webhooken via Azure portal. Om webhooken har upphört att gälla, måste webhooken tas bort och återskapas. Du kan bara [förnya en webhook](../automation-webhooks.md#renew-webhook) om den redan inte har gått ut.
 
 ### <a name="429"></a>Scenario: 429: begäran-pris för närvarande är för stor. Försök igen
 

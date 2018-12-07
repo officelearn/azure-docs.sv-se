@@ -8,18 +8,19 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a3f7245d8a648249a4e7179cc02982eae8561037
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e27ac67db6a12b4ebfe04e9e1f89203e5e539318
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280588"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012733"
 ---
-# <a name="event-hubs-features-overview"></a>Översikt över Event Hubs-funktioner
+# <a name="features-and-terminology-in-azure-event-hubs"></a>Funktionerna och terminologin i Azure Event Hubs
 
 Azure Event Hubs är en skalbar händelsebearbetningstjänst som matar in och bearbetar stora mängder händelser och data med låg fördröjning och hög tillförlitlighet. Se [vad är Event Hubs?](event-hubs-what-is-event-hubs.md) för en översikt.
 

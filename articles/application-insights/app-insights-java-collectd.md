@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6cc817b86170ddab3152a041924ae99ff52a23ec
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 528b344063dd9f84720ee55c4b3663c20127e5fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723932"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995041"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>insamlade: Linux prestandamått i Application Insights
 
 
-Utforska prestandamått för Linux-system i [Programinsikter](app-insights-overview.md), installera [insamlade](http://collectd.org/), tillsammans med dess Application Insights-plugin-programmet. Den här lösningen med öppen källkod samlar in olika system- och statistik.
+Utforska prestandamått för Linux-system i [Programinsikter](app-insights-overview.md), installera [insamlade](https://collectd.org/), tillsammans med dess Application Insights-plugin-programmet. Den här lösningen med öppen källkod samlar in olika system- och statistik.
 
 Normalt använder insamlade om du redan har [instrumenterats Java-webbtjänsten med Application Insights][java]. Det ger dig mer data som hjälper dig att förbättra appens prestanda- och diagnostikproblem. 
 
@@ -38,7 +38,7 @@ Ta en kopia av instrumenteringsnyckeln som identifierar resursen.
 ## <a name="install-collectd-and-the-plug-in"></a>Installera insamlade och plugin-programmet
 På din server-datorer för Linux:
 
-1. Installera [insamlade](http://collectd.org/) version 5.4.0 eller senare.
+1. Installera [insamlade](https://collectd.org/) version 5.4.0 eller senare.
 2. Ladda ned den [-plugin-programmet Application Insights insamlade-skrivaren](https://aka.ms/aijavasdk). Notera versionsnumret.
 3. Kopiera JAR-plugin-programmet i `/usr/share/collectd/java`.
 4. Redigera `/etc/collectd/collectd.conf`:

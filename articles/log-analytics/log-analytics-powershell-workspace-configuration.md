@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: f30114797c7ba62fde555487d3202de5edf48ecb
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 6122c1ef14d8ed1d93f682fdb3dbaaaaf30efabc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182356"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015032"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Hantera Log Analytics med PowerShell
 Du kan använda den [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) att utföra olika funktioner i Log Analytics från en kommandorad eller som en del av ett skript.  Exempel på de uppgifter du kan utföra med PowerShell:
@@ -205,7 +205,7 @@ För övervakning utan Agent för Azure-resurser, måste resurserna som har Azur
 | Lastbalanserare          | Ja | |
 | Logic Apps              | Ja | Ja |
 | Nätverkssäkerhetsgrupper | Ja | |
-| Redis Cache             |     | Ja |
+| Azure Cache for Redis             |     | Ja |
 | Söktjänster         | Ja | Ja |
 | Service Bus-namnområde   |     | Ja |
 | SQL (v12)               |     | Ja |
@@ -221,7 +221,7 @@ $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegrou
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
 
-Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
 Du kan också använda cmdleten föregående för att samla in loggar från resurser som finns i olika prenumerationer. Cmdlet: en kan fungera i alla prenumerationer, eftersom du tillhandahåller id för både den resurs som skapar loggar och arbetsytan loggarna skickas till.

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163179"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001960"
 ---
 # <a name="configure-storage"></a>Konfigurera lagring
 
@@ -19,6 +19,12 @@ Det här steget konfigurerar serverdelen lagringssystemet för vFXT klustret.
 
 > [!TIP]
 > Om du har använt den `create-cloudbacked-cluster` prototyp skript för att skapa en ny blobbehållare tillsammans med Avere vFXT klustret, att behållaren har redan ställts in för användning och du behöver inte lägga till lagring.
+>
+> Men om den nya Blob-behållaren har krypterats med en standard-krypteringsnyckel måste antingen Filnedladdning återställning av nyckel från klustret eller ersätta standardnyckeln med en ny nyckel innan du lagrar data. Standardnyckeln sparas endast i klustret och går inte att hämta om klustret tappas bort eller blir otillgänglig.
+>
+> När du ansluter till Avere på Kontrollpanelen, klicka på den **inställningar** och sedan välja **Core Filer** > **molnet krypteringsinställningar**. I den **lokal nyckel Store** väljer du något av följande alternativ: 
+> * Använd den **hämta Recovery filen** för att visa filen för den befintliga nyckeln. Filen krypteras med det administrativa lösenordet för klustret. Se till att spara filen på en tillförlitlig plats. 
+> * Följ instruktionerna i den **Generera en ny huvudnyckel** avsnitt på sidan för att skapa en ny krypteringsnyckel som du bestämmer. Det här alternativet kan du ange en unik lösenfras och du måste ladda upp och ladda ned filen för att verifiera lösenfrasfilen paret.
 
 Följ dessa anvisningar om du använde den `create-minimal-cluster` prototyp skript för klustret, eller om du vill lägga till ett ytterligare maskinvara eller molnbaserade lagringssystem.
 
@@ -91,7 +97,7 @@ Följ dessa steg för att lägga till Blob-lagring när du har skapat klustret.
    * **Resursgrupp** – det är samma som vFXT klustergrupp (valfritt)
    * **Plats** – det är samma som vFXT-kluster
    * **Prestanda** - Standard (Premium storage stöds inte)
-   * **Typ av konto** – allmänt syfte V2 (StorageV2)
+   * **Typ av konto** -General-purpose V2 (StorageV2)
    * **Replikering** – lokalt redundant lagring (LRS)
    * **Åtkomstnivå** – frekvent
    * **Säker överföring krävs** -inaktiverar det här alternativet (annat än standardvärdet)

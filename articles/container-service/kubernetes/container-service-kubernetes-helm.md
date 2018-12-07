@@ -1,5 +1,5 @@
 ---
-title: Distribuera behållare med Helm i Azure Kubernetes
+title: (INAKTUELL) Distribuera behållare med Helm i Azure Kubernetes
 description: Använda Helm paketering för att distribuera behållare i ett Kubernetes-kluster i Azure Container Service
 services: container-service
 author: sauryadas
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634161"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997890"
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Använd Helm för att distribuera behållare i ett Kubernetes-kluster
+# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(INAKTUELL) Använd Helm för att distribuera behållare i ett Kubernetes-kluster
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Den uppdaterade versionen som den här artikeln som använder Azure Kubernetes Service, finns i [installera program med Helm i Azure Kubernetes Service (AKS)](../../aks/kubernetes-helm.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Helm](https://github.com/kubernetes/helm/) är ett verktyg med öppen källkod paketering som hjälper dig att installera och hantera livscykeln för Kubernetes-program. Liknar Linux pakethanterare, till exempel Apt-get- och Yum, Helm används för att hantera Kubernetes-diagram, som är paket med förkonfigurerade Kubernetes-resurser. Den här artikeln visar hur du arbetar med Helm på ett Kubernetes-kluster som distribueras i Azure Container Service.
 

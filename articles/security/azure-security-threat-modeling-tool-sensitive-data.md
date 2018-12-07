@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262377"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002054"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Security ram: Känsliga Data | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -429,7 +429,7 @@ Ange clientCredentialType till certifikat eller Windows.
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Allmän och .NET Framework 3 |
 | **Attribut**              | Läget - Transport, säkerhetsläget - säkerhetsmeddelande |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning kungariket](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [grunderna i säkerhet för WCF CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [grunderna i säkerhet för WCF CoDe Magazine](http://www.codemag.com/article/0611051) |
 | **Steg** | Ingen transport eller meddelandet säkerhet har definierats. Program som överför meddelanden utan transport eller meddelandet säkerhet inte kan garantera integritet eller konfidentialiteten för meddelanden. När en bindning för WCF-säkerhet är inställd på Ingen, både transport- och meddelandet säkerhet är inaktiverade. |
 
 ### <a name="example"></a>Exempel

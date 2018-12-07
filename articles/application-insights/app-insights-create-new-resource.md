@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5b6afe4856e7e2c643a636f070937e81a2add2dd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3c3ff606958503efcf2df5fd99b6e52e4687de4a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724238"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996259"
 ---
 # <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 Azure Application Insights visar data om ditt program i en Microsoft Azure *resource*. Skapa en ny resurs är därför en del av [ställa in Application Insights för att övervaka ett nytt program][start]. I många fall kan skapar en resurs göras automatiskt av IDE. Men i vissa fall kan du skapa en resurs manuellt – till exempel om du vill ha separata resurser för utveckling och produktion build-versioner av ditt program.
@@ -25,11 +25,11 @@ Azure Application Insights visar data om ditt program i en Microsoft Azure *reso
 När du har skapat resursen kan du hämta dess instrumenteringsnyckeln och använda den för att konfigurera SDK i programmet. Resursnyckeln länkar telemetri till resursen.
 
 ## <a name="sign-up-to-microsoft-azure"></a>Logga på Microsoft Azure
-Om du inte har en [Microsoft-konto, skaffa ett nu](http://live.com). (Om du använder tjänster som Outlook.com, OneDrive, Windows Phone och XBox Live är du redan har ett Microsoft-konto.)
+Om du inte har en [Microsoft-konto, skaffa ett nu](https://live.com). (Om du använder tjänster som Outlook.com, OneDrive, Windows Phone och XBox Live är du redan har ett Microsoft-konto.)
 
-Du behöver också en prenumeration på [Microsoft Azure](http://azure.com). Om ditt team eller din organisation har en Azure-prenumeration kan ägaren lägga till dig, med ditt Windows Live ID. Du debiteras bara för det du använder. Standard basic-avtalet kan en viss mängd experimentella Använd kostnadsfritt.
+Du behöver också en prenumeration på [Microsoft Azure](https://azure.com). Om ditt team eller din organisation har en Azure-prenumeration kan ägaren lägga till dig, med ditt Windows Live ID. Du debiteras bara för det du använder. Standard basic-avtalet kan en viss mängd experimentella Använd kostnadsfritt.
 
-När du har åtkomst till en prenumeration kan du logga in till Application Insights på [ http://portal.azure.com ](https://portal.azure.com), och använda en Live-ID för inloggning.
+När du har åtkomst till en prenumeration kan du logga in till Application Insights på [ https://portal.azure.com ](https://portal.azure.com), och använda en Live-ID för inloggning.
 
 ## <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 I den [portal.azure.com](https://portal.azure.com), lägga till en Application Insights-resurs:

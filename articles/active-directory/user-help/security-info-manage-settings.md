@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4cd88490118343a9a00dbd919d7820f0334df92e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162724"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016154"
 ---
 # <a name="manage-your-security-info-preview"></a>Hantera din säkerhetsinformation (förhandsversion)
 
@@ -67,7 +67,7 @@ Om du tappar bort din enhet eller om enheten har komprometterats, kommer du beh�
 
 3. I den **Hantera konto** Välj **Glöm MFA på sparade enheter**.
     
-    Om du väljer det här alternativet innebär att du kommer att gå igenom processen för Multifaktorautentisering igen när du loggar in.
+    Om du väljer det här alternativet innebär att du kommer att gå igenom processen för multi-Factor Authentication (MFA) igen när du loggar in.
 
     ![Profil för skärmen med Glöm länken markerad](media/security-info/security-info-forget.png)
 
@@ -77,7 +77,7 @@ Den här artikeln hjälper dig att felsöka din säkerhetsinformation, inklusive
 
 |Problem|Lösning|
 |-------|--------|
-|Jag har min telefon med mig|Det är möjligt att du inte har telefonen med dig när som helst, men du kommer fortfarande du vill logga in på ditt arbets- eller skolkonto. Om du vill åtgärda problemet kan du logga in med olika autentiseringsmetoder som inte kräver din telefon, till exempel din e-postadress eller ditt telefonnummer. Om du vill lägga till fler metoder till din säkerhetsinformation, kan du följa stegen i den [ändra din information](#change-your-info) avsnittet.|
+|Jag har min telefon med mig|Det är möjligt att du inte har telefonen med dig när som helst, men du kommer fortfarande du vill logga in på ditt arbets- eller skolkonto. Om du vill åtgärda problemet kan du logga in med olika autentiseringsmetoder som inte kräver din telefon, till exempel ditt telefonnummer. Om du vill lägga till fler metoder till din säkerhetsinformation, kan du följa stegen i den [ändra din information](#change-your-info) avsnittet.|
 |Jag min telefon eller om det var stulen|Tyvärr kan att förlora din telefon eller om den blir stulen inträffa. I så fall kan rekommenderar vi starkt att du informera din organisation så att IT-personalen kan återställa ditt lösenord och rensa alla lagrade enheter från listan med betrodda enheter. Du kan också glömmer betrodda enheter genom att följa stegen i den [hantera din säkerhetsinformation för en enhet som förlorats eller potentiellt komprometterade](#manage-your-security-info-for-a-lost-or-potentially-compromised-device) avsnittet.|
 |Jag har fått ett nytt telefonnummer|Det finns två sätt att åtgärda problemet. Du kan logga in med en annan autentiseringsmetod som inte kräver ditt telefonnummer, t.ex e-post, eller om detta inte är ett alternativ kan du kontakta din organisation är IT-personal och be dem ta bort dina inställningar. Om du vill lägga till fler metoder till din säkerhetsinformation, kan du följa stegen i den [ändra din information](#change-your-info) avsnittet.|
 |Min standardmetoden är fel|Du kan uppdatera din standardmetod i din säkerhetsalternativ. Mer specifik information som du kan gå till den [ändra din information](#change-your-info) avsnittet.|

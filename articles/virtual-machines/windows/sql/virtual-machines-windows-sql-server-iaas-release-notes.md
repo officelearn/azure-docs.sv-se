@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: 44aee447c7f935cd67ca55902c53c5f6f9eb6fda
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 52036d8f5d25fc4a4f2d1b602428e9cba4762b7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500419"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993147"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server på Azure-dator viktig information
 
@@ -28,8 +28,8 @@ Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inb
 
 
 ## <a name="november-2018"></a>November 2018
-- **Ny SQL-resursprovider**: det finns en ny resource provider för SQL-datorer som kan ge en bättre hantering av den virtuella datorn. Mer information om hur du registrerar din virtuella dator finns i [registrera äldre SQL VM med ny resursprovider](virtual-machines-windows-sql-ahb.md#register-legacy-sql-vm-with-new-resource-provider).
-- **Växla licensieringsmodell**: du kan växla mellan modellen betala per användning och bring-your-own-licens för din SQL-VM med Azure CLI eller Powershell. Mer information finns i [ändra så att licensieringsmodellen för en SQL-VM](virtual-machines-windows-sql-ahb.md)
+- **Ny SQL-resursprovider**: det finns en ny resource provider för SQL-datorer som kan ge en bättre hantering av den virtuella datorn. Mer information om hur du registrerar din virtuella dator finns i [registrera befintliga SQL-VM med ny resursprovider](virtual-machines-windows-sql-ahb.md#register-existing-sql-vm-with-new-resource-provider).
+- **Växla licensieringsmodell**: du kan växla mellan modellen betala per användning och bring-your-own-licens för din SQL-VM med Azure CLI eller PowerShell. Mer information finns i [ändra så att licensieringsmodellen för en SQL-VM](virtual-machines-windows-sql-ahb.md)
 
 
 

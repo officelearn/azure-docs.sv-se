@@ -11,12 +11,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: 6523828b522379dd1cd70f1c548caf7af15b5d90
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964773"
+ms.locfileid: "52997597"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Avancerat skydd för Azure SQL Database
 
@@ -28,7 +28,7 @@ SQL avancerade Threat Protection (ATP) tillhandahåller en uppsättning avancera
 
 - [Data Discovery & Classification](sql-database-data-discovery-and-classification.md) (för närvarande i förhandsversion) ger funktioner som är inbyggda i Azure SQL Database för identifiering, klassificering, etikettering och skydd av känsliga data i databasen. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
 - [Vulnerability Assessment](sql-vulnerability-assessment.md) är en tjänst som är enkel att konfigurera och som kan identifiera, spåra och hjälpa dig att åtgärda eventuella säkerhetsrisker i databasen. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
-- [Threat Detection](sql-database-threat-detection.md) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Threat Detection-aviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minska risken.
+- [Threat Detection](sql-database-threat-detection-overview.md) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Threat Detection-aviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minska risken.
 
 Aktivera SQL ATP när om du vill aktivera alla dessa funktioner som ingår. Med en enda klickning kan du aktivera ATP för hela databasservern och använda det för alla databaser på servern. 
 

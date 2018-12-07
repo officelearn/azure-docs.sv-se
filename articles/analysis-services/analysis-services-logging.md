@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a8d6080b573cbad1004166f28a3e6596560241be
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ba2d42f0f0908273065be268646a0fb7eb8b96e5
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426523"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001097"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera Diagnostisk loggning
 
@@ -82,7 +82,7 @@ Mått-kategorin loggar samma [serverstatistik](analysis-services-monitor.md#serv
 
     * **Arkivera till ett lagringskonto**. Om du vill använda det här alternativet om behöver du ett befintligt lagringskonto för att ansluta till. Se [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md). Följ anvisningarna för att skapa en Resource Manager Allmänt konto och välj sedan ditt lagringskonto genom att gå tillbaka till den här sidan i portalen. Det kan ta några minuter innan nyligen skapade lagringskonton ska visas i den nedrullningsbara menyn.
     * **Stream till en händelsehubb**. Om du vill använda det här alternativet behöver du en befintlig Event Hub-namnområde och event hub att ansluta till. Mer information finns i [skapa ett Event Hubs-namnområde och en event hub med Azure-portalen](../event-hubs/event-hubs-create.md). Gå sedan tillbaka till den här sidan i portalen för att välja Event Hub-namnområde och principen.
-    * **Skicka till Log Analytics**. Om du vill använda det här alternativet måste använda en befintlig arbetsyta eller skapa en ny Log Analytics-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar dina loggar i Log Analytics finns i [visa loggar i Log Analytics](#view-in-loganalytics).
+    * **Skicka till Log Analytics**. Om du vill använda det här alternativet måste använda en befintlig arbetsyta eller skapa en ny Log Analytics-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar dina loggar i Log Analytics finns i [visa loggar i Log Analytics](#view-logs-in-log-analytics) i den här artikeln.
 
     * **Motorn**. Välj det här alternativet för att logga xEvents. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
     * **Tjänsten**. Välj det här alternativet att logga in på tjänsten-händelser. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
@@ -136,7 +136,7 @@ Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ fö
 
 ### <a name="rest-api"></a>REST-API
 
-Lär dig hur du [ändra inställningarna för startdiagnostik med hjälp av REST-API i Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
+Lär dig hur du [ändra inställningarna för startdiagnostik med hjälp av REST-API i Azure Monitor](https://docs.microsoft.com/rest/api/monitor/). 
 
 ### <a name="resource-manager-template"></a>Resource Manager-mall
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 3b0a2e4f39b3b523743768e96bfe9a63b1795f60
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a273d0bd4d064cb1c6ac4d3951af8a493e303f51
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975321"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015899"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introduktion till Azure Data Lake Storage Gen2 förhandsversion
 
@@ -41,7 +41,7 @@ Tidigare hade molnbaserad analys att angripa i delar av prestanda, hantering och
 
 -   **En överordnad uppsättning av behörigheter av POSIX**: säkerhetsmodellen för Data Lake Gen2 stöder ACL och POSIX behörigheter tillsammans med vissa extra kornighet som är specifika för Data Lake Storage Gen2. Inställningarna kan konfigureras via Storage Explorer eller ramverk som Hive och Spark.
 
--   **Kostnadseffektiv**: Data Lake Storage Gen2 erbjuder låg kostnad lagringskapacitet och transaktioner. Som data övergångar genom livscykeln klar, faktureringstaxor ändra kostnader för att se till att latensbidrag via de inbyggda funktionerna för till exempel [Azure Blob storage livscykel](../common/storage-lifecycle-management-concepts.md).
+-   **Kostnadseffektiv**: Data Lake Storage Gen2 erbjuder låg kostnad lagringskapacitet och transaktioner. Som data övergångar genom livscykeln klar, faktureringstaxor ändra kostnader för att se till att latensbidrag via de inbyggda funktionerna för till exempel [Azure Blob storage livscykel](storage-lifecycle-management-concepts.md).
 
 -   **Optimerad drivrutinen**: abfs-drivrutinen är [optimerats specifikt](data-lake-storage-abfs-driver.md) för analys av stordata. De motsvarande REST-API: erna exponeras via dfs-slutpunkt, dfs.core.windows.net.
 

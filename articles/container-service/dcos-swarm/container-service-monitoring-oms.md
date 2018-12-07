@@ -1,5 +1,5 @@
 ---
-title: Övervaka Azure DC/OS-kluster – åtgärdshantering
+title: (INAKTUELL) Övervaka Azure DC/OS-kluster – åtgärdshantering
 description: Övervaka ett Azure Container Service DC/OS-kluster med Log Analytics.
 services: container-service
 author: keikhara
@@ -9,20 +9,22 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 4576d9decc6ba1e01ef39abdb8a3ef89461196e8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b5c1596066b02d5ad4f59ed553408d263acc825c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407800"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993575"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Övervaka ett Azure Container Service DC/OS-kluster med Log Analytics
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(INAKTUELL) Övervaka ett Azure Container Service DC/OS-kluster med Log Analytics
 
-Log Analytics är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Behållarlösningen är en lösning i Log Analytics, som hjälper dig att visa behållaren inventering, prestanda och loggar på en enda plats. Du kan granska, Felsök behållare genom att visa loggarna på central plats och ta bort störande förbrukar överflödiga behållare på en värd.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+Log Analytics är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Behållarlösningen är en lösning i Log Analytics, som hjälper dig att visa behållaren inventering, prestanda och loggar på en enda plats. Du kan granska, Felsök behållare genom att visa loggarna på central plats och ta bort störande förbrukar överflödiga behållare på en värd.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Mer information om Behållarlösningen finns i den [behållare lösning Log Analytics](../../log-analytics/log-analytics-containers.md).
+Mer information om Behållarlösningen finns i den [behållare lösning Log Analytics](../../azure-monitor/insights/containers.md).
 
 ## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Ställa in Log Analytics från DC/OS universe
 
@@ -74,7 +76,7 @@ När du har valt din arbetsyta, klickar du på **skapa**.
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-Mer information om Behållarlösningen för Log Analytics finns i den [behållare lösning Log Analytics](../../log-analytics/log-analytics-containers.md).
+Mer information om Behållarlösningen för Log Analytics finns i den [behållare lösning Log Analytics](../../azure-monitor/insights/containers.md).
 
 ### <a name="how-to-scale-log-analytics-agent-with-acs-dcos"></a>Så här skalar du Log Analytics-agenten med ACS DC/OS 
 
@@ -99,4 +101,4 @@ Vad fungerar? Vad är saknas? Vad behöver du för detta ska vara användbar fö
 
 ## <a name="next-steps"></a>Nästa steg
 
- Nu när du har ställt in Log Analytics för att övervaka din behållare[finns i behållaren instrumentpanelen](../../log-analytics/log-analytics-containers.md).
+ Nu när du har ställt in Log Analytics för att övervaka din behållare[finns i behållaren instrumentpanelen](../../azure-monitor/insights/containers.md).

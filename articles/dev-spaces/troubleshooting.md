@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 36516030741678ec66b4211f49ede35cfdb98605
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 531b431a0753e34592e88211d8a58328fe8a4e45
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706457"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014556"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -236,7 +236,7 @@ Starta om agentnoder i klustret vanligtvis löser problemet.
 ### <a name="reason"></a>Orsak
 När du aktiverar Dev blanksteg för ett namnområde i AKS-kluster kan ytterligare en behållare kallas _mindaro proxy_ är installerat i var och en av poddarna som körs i det här namnområdet. Den här behållaren spärras anrop till tjänsterna i pod, som är väsentlig Dev blanksteg team utvecklingsmöjligheter.
 
-Tyvärr kan det påverka vissa tjänster som körs i de poddarna. Mer specifikt kan störa det poddar som kör Redis-cache, orsaka anslutningsfel och misslyckade begäranden i master/slave kommunikation.
+Tyvärr kan det påverka vissa tjänster som körs i de poddarna. Mer specifikt kan störa det poddar som kör Azure Cache för Redis, orsaka anslutningsfel och misslyckade begäranden i master/slave kommunikation.
 
 ### <a name="try"></a>Prova:
 Du kan flytta den berörda pod(s) till ett namnområde i det kluster som har _inte_ har Dev blanksteg aktiverat när du fortsätter att köra resten av ditt program i ett namnområde för Dev blanksteg-aktiverade. Dev blanksteg kan inte installeras på _mindaro proxy_ behållare i Dev blanksteg aktiverade namnområden.

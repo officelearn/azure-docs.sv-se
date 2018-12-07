@@ -1,6 +1,6 @@
 ---
 title: Kända problem och felsökning för Azure Machine Learning-tjänsten
-description: Hämta en lista över kända problem, lösningar, och felsökning
+description: Hämta en lista över kända problem, lösningar, och felsökning för Azure Machine Learning-tjänsten.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -8,13 +8,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 10/01/2018
-ms.openlocfilehash: 02cee5a3e088c919ec94aee6f46ef6f428b9bb48
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 471a7494cefd008e8b32855ff232468701505ce7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249425"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013397"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
  
@@ -24,17 +25,17 @@ Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstod
 
 **Felmeddelande: Det går inte att avinstallera 'PyYAML'** 
 
-PyYAML är ett distutils installerade projekt. Vi kan inte därför korrekt fastställa vilka filer som hör till den i händelse av en partiell avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
+Azure Machine Learning-SDK för Python: PyYAML är ett projekt för distutils installerad. Vi kan inte därför korrekt fastställa vilka filer som hör till den i händelse av en partiell avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
 ```Python 
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
+## <a name="azure-machine-learning-compute-usage-issue"></a>Beräkning av Machine Learning användning problem med Azure
+Det finns en ovanligt risk att vissa användare som skapade sin Azure Machine Learning-arbetsyta från Azure-portalen innan GA-versionen kan inte skapa beräkning av Azure Machine Learning på arbetsytan. Du kan generera en supportförfrågan mot tjänsten, eller så kan du skapa en ny arbetsyta via portalen eller SDK, för att avblockera själv omedelbart. 
+
 ## <a name="image-building-failure"></a>Bild byggnad fel
 
 Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att lägga till ”pynacl == 1.2.1” som ett pip beroende till Conda-fil för konfiguration av avbildningen.  
-
-## <a name="pipelines"></a>Pipelines
-Ett fel uppstår när du anropar PythonScriptStep flera gånger i rad utan att ändra skriptet eller parametrar. Lösningen är att återskapa PipelineData-objektet.
 
 ## <a name="fpgas"></a>FPGA
 Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
@@ -47,12 +48,20 @@ Databricks och Azure Machine Learning-problem.
    
    Skapa ditt Azure Databricks-kluster som v4.x med Python 3. Vi rekommenderar ett kluster med hög samtidighet.
  
-1. Misslyckad installation på Databricks av AML SDK när flera paket installeras.
+2. Misslyckad installation på Databricks av AML SDK när flera paket installeras.
 
-   Vissa paket, till exempel `psutil upgrade libs`, kan orsaka konflikter. Installera paket genom att du låser lib-version för att undvika installationsfel. Det här problemet är relaterat till Databricks och inte relaterade till AML-SDK. Exempel:
+   Vissa paket, till exempel `psutil`, kan orsaka konflikter. Installera paket genom att du låser lib-version för att undvika installationsfel. Det här problemet är relaterat till Databricks och inte rör Azure ML SDK – du kan stöta på det med andra libs för. Exempel:
    ```python
-   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
+   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
+   Du kan också använda init skript om du hålla får installera problem med med Python-bibliotek. Den här metoden är inte en metod som stöds. Du kan referera till [det här dokumentet](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+
+3. När du använder automatisk Machine Learning på Databricks, om du ser `Import error: numpy.core.multiarray failed to import`
+
+   Lösning: importera Python-bibliotek `numpy==1.14.5` till din Databricks-kluster med skapa ett bibliotek för [installera och bifoga](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
+
+## <a name="azure-portal"></a>Azure Portal
+Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du vill visa en annan arbetsyta lösningen är att gå direkt till den [Azure-portalen](https://portal.azure.com) och Sök efter namnet på arbetsytan.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Här är där loggfilerna live:

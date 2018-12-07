@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 2be5718dd95eff837c5a016b5254be0992eb8f9a
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: a85ec0bf126aa7a25edffdaaf7c7f8a16a370c40
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138386"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014352"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager-mått och aviseringar
 
@@ -66,4 +66,4 @@ Förutom bearbetning och visa mått från Traffic Manager, Azure Monitor ger kun
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Azure Monitor-tjänsten](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-- Lär dig hur du [skapa ett nytt diagram med Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-charts.md#how-do-i-create-a-new-chart)
+- Lär dig hur du [skapa ett nytt diagram med Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-charts.md#create-a-new-chart)

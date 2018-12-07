@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: b6df4ada1aa13e20c7ad52d2b58cdf9c783f9e24
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: bc311ca5c49584ae3715fa4507e1fd678bcc93bb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716281"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53007938"
 ---
 GPU-optimerad VM storlekar är specialiserade virtuella datorer som är tillgängliga med en eller flera NVIDIA GPU: er. De här storlekarna är utformade för arbetsbelastningar för beräkningsintensiva, grafik och visualisering. Den här artikeln innehåller information om antalet och typen av GPU: er, virtuella processorer, diskar och nätverkskort. Storage dataflöde och nätverket bandbredd ingår också för varje storlek i den här grupperingen. 
 
@@ -27,7 +27,7 @@ Premium-lagring: Stöds inte
 
 Premium Storage cachelagring: Stöds inte
 
-Virtuella datorer NC-serien drivs av den [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) kort. Användare kan bearbeta data snabbare genom att utnyttja CUDA för energiutforskningstillämpningar, krascha simuleringar, ray spårade rendering och djupinlärning. NC24r-konfiguration ger en låg fördröjning och stora dataflöden för tätt sammansatta parallella beräkningsarbetsbelastningar.
+Virtuella datorer NC-serien drivs av den [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) kort. Användare kan bearbeta data snabbare genom att utnyttja CUDA för energiutforskningstillämpningar, krascha simuleringar, ray spårade rendering och djupinlärning. NC24r-konfiguration ger en låg fördröjning och stora dataflöden för tätt sammansatta parallella beräkningsarbetsbelastningar.
 
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt antal nätverkskort |

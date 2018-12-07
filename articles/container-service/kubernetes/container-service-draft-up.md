@@ -1,5 +1,5 @@
 ---
-title: Använda Draft med Azure Container Service och Azure Container Registry
+title: (INAKTUELL) Använda Draft med Azure Container Service och Azure Container Registry
 description: Skapa ett ACS Kubernetes-kluster och ett Azure Container Registry för att skapa ditt första program i Azure med Draft.
 services: container-service
 author: squillace
@@ -9,19 +9,21 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: c635a869506918ab7ee032df349eb307987c1284
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 42bd12b9479cd1b4f57a7f3ae73f3c32061fed65
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432287"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996523"
 ---
-# <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Använda Draft med Azure Container Service och Azure Container Registry för att skapa ett program och distribuera det till Kubernetes
+# <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(INAKTUELL) Använda Draft med Azure Container Service och Azure Container Registry för att skapa och distribuera ett program till Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Den uppdaterade versionen som den här artikeln som använder Azure Kubernetes Service, finns i [Använd utkast med Azure Kubernetes Service (AKS)](../../aks/kubernetes-draft.md).
 
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-  [Draft](https://aka.ms/draft) är ett nytt verktyg med öppen källkod som gör det enkelt att utveckla containerbaserade program och distribuera dem till Kubernetes-kluster utan ingående kunskaper om Docker och Kubernetes (t.o.m. utan att installera dem). Med verktyg som Draft kan du och dina team fokusera på att utveckla program med Kubernetes i stället för att lägga så mycket tid och kraft på infrastrukturen.
+[Draft](https://aka.ms/draft) är ett nytt verktyg med öppen källkod som gör det enkelt att utveckla containerbaserade program och distribuera dem till Kubernetes-kluster utan ingående kunskaper om Docker och Kubernetes (t.o.m. utan att installera dem). Med verktyg som Draft kan du och dina team fokusera på att utveckla program med Kubernetes i stället för att lägga så mycket tid och kraft på infrastrukturen.
 
 Du kan använda Draft med alla Docker-avbildningsregister och Kubernetes-kluster, även lokalt. Den här självstudien visar hur du använder ACS med Kubernetes och ACR för att skapa en pipeline för live men säker utvecklare i Kubernetes med Draft och hur du använder Azure DNS för att exponera den developer pipelinen så att andra kan se på en annan domän.
 

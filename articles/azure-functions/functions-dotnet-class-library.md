@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 4711c766c2a074c25f019ce5b523e0ba8b599c17
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971325"
+ms.locfileid: "52994543"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C#-utvecklarreferens
 
@@ -154,7 +154,7 @@ Den genererade *function.json* -filen innehåller en `configurationSource` egens
 
 ## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
-Den *function.json* filen utförs av NuGet-paketet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+Den *function.json* filen utförs av NuGet-paketet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
 Samma paket som ska användas för både version 1.x och 2.x av Functions-körning. Målramverk är vad särskiljer ett 1.x-projekt från ett 2.x-projekt. Här följer de relevanta delarna av *.csproj* filer, som visar olika mål ramverk och samma `Sdk` paketet:
 
@@ -183,7 +183,7 @@ Samma paket som ska användas för både version 1.x och 2.x av Functions-körni
 
 Bland de `Sdk` paketberoenden är utlösare och bindningar. Ett 1.x-projekt som refererar till 1.x-utlösare och bindningar eftersom de mål .NET Framework, medan 2.x utlösare och bindningar rikta .NET Core.
 
-Den `Sdk` paketet beror också på [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json), indirekt på [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Dessa beroenden se till att projektet använder versioner av de paket som fungerar med Functions runtime-versionen som mål för projektet. Till exempel `Newtonsoft.Json` har version 11 för .NET Framework 4.6.1, men Functions-körning som riktas mot .NET Framework 4.6.1 är endast kompatibel med `Newtonsoft.Json` 9.0.1. Så att Funktionskoden i projektet har också att använda `Newtonsoft.Json` 9.0.1.
+Den `Sdk` paketet beror också på [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), indirekt på [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Dessa beroenden se till att projektet använder versioner av de paket som fungerar med Functions runtime-versionen som mål för projektet. Till exempel `Newtonsoft.Json` har version 11 för .NET Framework 4.6.1, men Functions-körning som riktas mot .NET Framework 4.6.1 är endast kompatibel med `Newtonsoft.Json` 9.0.1. Så att Funktionskoden i projektet har också att använda `Newtonsoft.Json` 9.0.1.
 
 Källkoden för `Microsoft.NET.Sdk.Functions` finns i GitHub-lagringsplatsen [azure\-functions\-vs\-skapa\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

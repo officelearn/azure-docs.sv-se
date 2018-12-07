@@ -1,6 +1,6 @@
 ---
-title: Hur du använder webbtjänstdistributioner - Azure Machine Learning
-description: 'Lär dig mer om att använda en webbtjänst som skapats genom att distribuera en Azure Machine Learning-modell. Distribuera en Azure Machine Learning-modell skapar en webbtjänst som exponerar ett REST-API. Du kan skapa klienter för den här API: T med vilket språk du önskar. I det här dokumentet lär du dig hur du kommer åt API med Python och C#.'
+title: Hur du använder webbtjänstdistributioner - Azure Machine Learning-tjänsten
+description: 'Lär dig mer om att använda en webbtjänst som genererades när en modell har distribuerats med Azure Machine Learning-modell. Den webbtjänst som visar ett REST-API. Skapa klienter för den här API: T med vilket språk du önskar.'
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +9,13 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 12/03/2018
-ms.openlocfilehash: 9b3daca572140229bf2d38cd56f65ce44683f0f7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: d964eef08557ddd95ff86bc9e7de806cd4a8ca18
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864408"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016648"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 

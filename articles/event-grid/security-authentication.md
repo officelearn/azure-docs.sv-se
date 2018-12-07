@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 427eb8abdede8c821d214d9f6a64fc6a122699de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914047"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002011"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -25,21 +25,23 @@ Azure Event Grid har tre typer av autentisering:
 
 ## <a name="webhook-event-delivery"></a>WebHook-händelseleverans
 
-Webhooks är en av de många sätt att ta emot händelser från Azure Event Grid. När en ny händelse är klar skickar EventGrid-tjänsten en HTTP-begäran till den konfigurera slutpunkten med händelsen i begärandetexten.
+Webhooks är en av de många sätt att ta emot händelser från Azure Event Grid. När en ny händelse är klar kan skickar Event Grid-tjänsten en HTTP-begäran till den konfigurera slutpunkten med händelsen i begärandetexten.
 
-Liksom många andra tjänster som stöder webhooks måste EventGrid du bevisa ”ägare” till Webhook-slutpunkt innan den startar leverera händelser till denna slutpunkt. Det här kravet är att förhindra att en godtrogna slutpunkt blir slutpunkten för händelseleverans från EventGrid mål. Men när du använder någon av de tre Azure-tjänster som anges nedan, hanterar Azure-infrastrukturen automatiskt den här verifieringen:
+Liksom många andra tjänster som stöder webhooks måste Event Grid du bevisa ägarskapet för Webhook-slutpunkt innan den startar leverera händelser till denna slutpunkt. Det här kravet förhindrar att en obehörig användare överbelasta slutpunkten med händelser. När du använder någon av de tre Azure-tjänster som anges nedan, hanterar den här verifieringen automatiskt i Azure-infrastrukturen:
 
 * Azure Logic Apps
 * Azure Automation
-* Azure Functions för EventGrid-utlösare.
+* Azure Functions för Event Grid-utlösare.
 
-Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade Azure-funktion, måste din slutpunkt kod att delta i en verifiering handskakning med EventGrid. EventGrid stöder två olika verifiering handskakning modeller:
+Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade Azure-funktion, måste din slutpunkt kod att delta i en verifiering handskakning med Event Grid. Event Grid stöder två olika sätt att verifiera prenumerationen.
 
-1. **ValidationCode handskakning**: vid tidpunkten för händelsen prenumeration har skapats, EventGrid publicerar en ”prenumeration verifiering händelse” till slutpunkten. Schemat för den här händelsen är ungefär som andra EventGridEvent och datamängden i den här händelsen innehåller en `validationCode` egenskapen. När ditt program har verifierat att begäran om verifiering är för en förväntad händelse-prenumeration, måste din programkod ska svara på eko tillbaka verifieringskoden till EventGrid. Den här mekanismen för handskakning stöds i alla EventGrid-versioner.
+1. **ValidationCode handskakning (programmässiga)**: Om du styra källkoden för din slutpunkt för den här metoden rekommenderas. Vid tidpunkten för händelsen prenumeration har skapats skickar Event Grid en händelse för verifiering av prenumeration till din slutpunkt. Schemat för den här händelsen är ungefär som andra Event Grid-händelse. Datamängden i den här händelsen innehåller en `validationCode` egenskapen. Programmet kontrollerar att begäran om verifiering är för en förväntad händelse-prenumeration och ekar verifieringskoden till Event Grid. Den här mekanismen för handskakning stöds i alla Event Grid-versioner.
 
-2. **ValidationURL handskakning (manuell handskakning)**: I vissa fall kan du kanske inte har kontroll över källkoden för slutpunkten att implementera ValidationCode baserat-handskakningen. Exempel: Om du använder en tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), du programmässigt kan inte svarar med verifieringskoden. Från och med versionen 2018-05-01-preview, stöd EventGrid nu för en manuell verifiering-handskakning. Om du skapar en händelseprenumeration med ett SDK eller verktyg som använder API-versionen 2018-05-01-preview eller senare, EventGrid skickar en `validationUrl` egenskapen som en del av datadelen händelsens prenumeration verifiering. För att slutföra handskakningen bara en hämtning begära på URL: en, antingen via en REST-klient eller med hjälp av webbläsaren. Validering av angivna URL: en är giltig endast i cirka 10 minuter. Under denna tid har tillståndet för etablering av händelseprenumerationen är `AwaitingManualAction`. Om du inte har slutfört manuell verifiering inom 10 minuter, Etableringsstatus är inställd på `Failed`. Du kommer behöva skapa händelseprenumeration igen innan du startar manuell verifiering.
+2. **ValidationURL handskakning (manuell)**: I vissa fall kan du inte åtkomst till källkoden för slutpunkten att implementera ValidationCode-handskakningen. Exempel: Om du använder en tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), du programmässigt kan inte svara med verifieringskoden.
 
-Den här mekanismen för manuell validering är i förhandsversion. Om du vill använda den måste du installera [Event Grid-tillägget](/cli/azure/azure-cli-extensions-list) för [Azure CLI](/cli/azure/install-azure-cli). Du kan installera det med `az extension add --name eventgrid`. Om du använder REST API, kontrollera att du använder `api-version=2018-05-01-preview`.
+   Från och med versionen 2018-05-01-preview, Event Grid har stöd för en manuell verifiering-handskakning. Om du skapar en händelseprenumeration med ett SDK eller verktyg som använder API-versionen 2018-05-01-preview eller senare, Event Grid skickar en `validationUrl` -egenskapen i datamängden i händelsen prenumeration verifiering. För att slutföra handskakningen hitta URL: en i händelsedata och manuellt skickar en GET-begäran till den. Du kan använda antingen en REST-klient eller webbläsaren.
+
+   Den tillhandahållna URL: en är giltig i 10 minuter. Under denna tid har tillståndet för etablering av händelseprenumerationen är `AwaitingManualAction`. Om du inte har slutfört manuell verifiering inom 10 minuter, Etableringsstatus är inställd på `Failed`. Du kommer behöva skapa händelseprenumeration igen innan du startar manuell verifiering.
 
 ### <a name="validation-details"></a>Verifieringsinformation
 
@@ -80,7 +82,7 @@ För att bevisa ägarskapet för slutpunkten echo tillbaka verifieringskoden i e
 
 Eller så kan du verifiera manuellt prenumerationen genom att skicka en GET-begäran till URL: en för verifiering. Händelseprenumerationen kvar i ett väntande tillstånd tills verifieras.
 
-Du kan hitta C#-exempel som visar hur du hanterar prenumerationen verifiering handskakning vid https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
+Hantera prenumeration verifiering handskakningen exempelvis se ett [ C# exempel](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### <a name="checklist"></a>Checklista
 

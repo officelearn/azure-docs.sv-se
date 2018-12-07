@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 1800ab19e2d99eb639ef4064e64d7bc475aa0c36
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996719"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014879"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter-integrering – publicera slutpunkter
 
@@ -86,7 +86,7 @@ Azure Stack stöder endast transparent proxy-servrar. I en distribution där en 
 > Utgående URL: er är belastningsutjämnad med Azure traffic manager för att tillhandahålla den bästa möjliga anslutningen baserat på geografisk plats. Med att läsa in belastningsutjämnade URL: er, Microsoft kan uppdatera och ändra serverdelsslutpunkter utan att påverka kunder. Microsoft delar inte listan över IP-adresser för belastningsutjämnade URL: er. Du bör använda en enhet som stöder filtrering efter URL i stället för IP.
 
 > [!Note]  
-> I 1809 kommunicerar infrastruktur säkerhetskopieringstjänsten extern filserver från det offentliga VIP-nätverket. Innan du 1809 kommunicerar tjänsten via infrastruktur för offentliga nätverk. Om dina miljöer inte tillåter åtkomst till resurser i infrastrukturen från det offentliga VIP-nätverket, Använd du den senaste 1809 för Azure Stack. Den här snabbkorrigeringen flyttas infrastruktur säkerhetskopieringstjänsten tillbaka till nätverkets infrastruktur för offentliga. I 1811, om du tillämpar snabbkorrigeringar 1809 kvar säkerhetskopieringstjänsten infrastrukturen på infrastruktur för offentliga nätverk. Om du inte har installerat snabbkorrigeringen flyttar uppdateringen tjänsten tillbaka till nätverkets infrastruktur för offentliga.
+> I 1809 kommunicerar infrastruktur säkerhetskopieringstjänsten extern filserver från det offentliga VIP-nätverket. Innan du 1809, tjänsten som kommunicerades via infrastruktur för offentliga nätverk. Om din miljö inte tillåter åtkomst till resurser i infrastrukturen från det offentliga VIP-nätverket, tillämpa senast [1809 snabbkorrigering](azure-stack-update-1809.md#post-update-steps) för Azure Stack. Den här snabbkorrigeringen flyttas infrastruktur säkerhetskopieringstjänsten tillbaka till nätverkets infrastruktur för offentliga. Om du har installerat snabbkorrigeringen 1809 i 1811 förblir säkerhetskopieringstjänsten infrastruktur i infrastruktur för offentliga nätverk. Om du inte installerar snabbkorrigeringen, flyttas uppdateringen tjänsten tillbaka till nätverkets infrastruktur för offentliga.
 
 ## <a name="next-steps"></a>Nästa steg
 

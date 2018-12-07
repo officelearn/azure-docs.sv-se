@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 15b7dce5af984e4eb719024368479df1b5c8320a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263901"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010968"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Etablera dataflöde för Azure Cosmos-behållare och databaser
 
@@ -19,7 +19,7 @@ En Azure Cosmos-databas är en enhet för hantering för en uppsättning behåll
 
 Azure Cosmos DB kan du konfigurera dataflöde på två Precision - **Azure Cosmos-behållare** och **Azure Cosmos-databaser**.
 
-# <a name="setting-throughput-on-a-azure-cosmos-container"></a>Ange dataflöde för en Azure Cosmos-behållare  
+## <a name="setting-throughput-on-a-container"></a>Inställningen dataflödet i en behållare  
 
 Dataflödet som tillhandahållits för en Azure Cosmos-behållare enbart för behållaren. Behållaren tar emot det etablerade dataflödet som hela tiden. Dataflöde i en behållare har inget serviceavtal med ekonomisk uppbackning av serviceavtal. För att konfigurera dataflödet för en behållare, se [hur du etablera dataflöde för en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
 
@@ -31,7 +31,7 @@ Etablerat en Azure Cosmos-behållaren dataflöde är jämnt fördelade för alla
 
 ![Resurspartition](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-azure-cosmos-database"></a>Ställa in dataflöde på en Azure Cosmos-databas
+## <a name="setting-throughput-on-a-database"></a>Inställningen dataflöde på en databas
 
 När du etablerar dataflöde på en Azure Cosmos-databas kan delas dataflödet mellan alla behållare i databasen, såvida inte du har angett ett dataflöde på specifika behållare. Dela databasen dataflödet mellan dess behållare är detsamma som värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, naturligt ger inte förutsägbar prestanda på en specifik behållare. För att konfigurera dataflöde på en databas, se [så här konfigurerar du etablerat dataflöde på en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 
@@ -53,7 +53,7 @@ Flera logiska partitioner som delar dataflödet som tillhandahållits till en da
 
 ![Resurspartition](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>Ange dataflöde för en Azure Cosmos-databas och en behållare
+## <a name="setting-throughput-on-a-database-and-a-container"></a>Ange dataflöde för en databas och en behållare
 
 Du kan kombinera de två modellerna, tillåts etablera dataflöde på både databasen och behållaren. I följande exempel visar hur du etablera dataflöde för en Azure Cosmos-databas och en behållare:
 

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08238732c9e2d4e09e1f956c18768a15c95828c2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6a1641a76d43cdbac6253e00ea35f70325870853
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958192"
+ms.locfileid: "52993384"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
 
 Den här artikeln ger rekommendationer för hantering av infrastrukturen i Azure HDInsight-kluster. Det är en del i en serie som ger bästa praxis för att hjälpa migrera lokala Apache Hadoop-system till Azure HDInsight.
 
-## <a name="plan-well-for-the-capacity-needed-for-hdinsight-clusters"></a>Planera för kapaciteten som behövs för HDInsight-kluster
+## <a name="plan-for-hdinsight-cluster-capacity"></a>Planera för kapacitet för HDInsight-kluster
 
 De viktiga saker för kapacitetsplanering för HDInsight-kluster är följande:
 
@@ -29,13 +29,13 @@ De viktiga saker för kapacitetsplanering för HDInsight-kluster är följande:
 - **Välj VM-storlek och typ (nu stöder G-serien)** – varje typ av kluster har en uppsättning nodtyper och varje nodtyp har specifika alternativ för VM-storlek och typ. VM-storlek och typ bestäms av CPU-belastningen ström, RAM-storleken och nätverksfördröjning. En simulerade arbetsbelastning kan användas för att fastställa optimal storlek och typ för varje nodtyper.
 - **Välj antalet arbetarnoder** -det inledande antalet arbetsnoder kan fastställas med hjälp av de simulerade arbetsbelastningarna. Klustret skalas senare genom att lägga till fler arbetsnoder för att möta toppefterfrågan belastningen. Klustret skalas senare när ytterligare arbetsnoder inte krävs.
 
-Mer information finns i artikeln [kapacitetsplanering för HDInsight-kluster](../hdinsight-capacity-planning.md)
+Mer information finns i artikeln [kapacitetsplanering för HDInsight-kluster](../hdinsight-capacity-planning.md).
 
-## <a name="use-the-recommended-virtual-machine-types-for-cluster-nodes"></a>Använd de rekommenderade virtuella datortyper för klusternoder
+## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Använd rekommenderade typ av virtuell dator för kluster
 
 Se [standard noden konfiguration och VM-storlekar för kluster](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) rekommenderas för typer av virtuella datorer för varje typ av HDInsight-kluster.
 
-## <a name="check-the-availability-of-hadoop-components-in-hdinsight"></a>Kontrollera tillgängligheten för Hadoop-komponenter i HDInsight
+## <a name="check-hadoop-components-availability-in-hdinsight"></a>Kontrollera tillgängligheten för Hadoop-komponenter i HDInsight
 
 Varje HDInsight-version är en molndistribution av en version av Hortonworks Data Platform (HDP) och består av en uppsättning komponenter för Hadoop-ekosystemet. Se [versionshantering för HDInsight](../hdinsight-component-versioning.md) mer information om alla komponenter i HDInsight och deras aktuella versioner.
 
@@ -97,7 +97,7 @@ Skriptåtgärder kan även publiceras på Azure Marketplace som ett HDInsight-pr
 
 Mer information finns i följande artiklar:
 
-- [Installera Hadoop-program från tredje part på HDInsight](../hdinsight-apps-install-applications.md)
+- [Installera från tredje part Apache Hadoop-program på HDInsight](../hdinsight-apps-install-applications.md)
 - [Anpassa HDInsight-kluster med skriptåtgärder](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Publicera ett HDInsight-program på Azure Marketplace](../hdinsight-apps-publish-applications.md)
 
@@ -128,9 +128,9 @@ New—AzureRmHDInsightCluster `
     —Config $config
 ```
 
-Mer information finns i artikeln [anpassa HDInsight-kluster med Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md)
+Mer information finns i artikeln [anpassa HDInsight-kluster med Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="use-edge-nodes-on-hadoop-clusters-in-hdinsight-to-access-the-client-tools"></a>Använda kantnoder i Hadoop-kluster i HDInsight för att få åtkomst till klientverktyg
+## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>Åtkomst-klientverktyg från HDInsight Hadoop-kluster kantnoder
 
 En tom edge-nod är en Linux-dator med samma klientverktyg installeras och konfigureras som på huvudnoderna, men med ingen Hadoop-tjänster som körs. Kantnoden kan användas för följande ändamål:
 
@@ -140,9 +140,9 @@ En tom edge-nod är en Linux-dator med samma klientverktyg installeras och konfi
 
 Edge-noder kan skapas och tas bort via Azure portal och kan användas under eller efter att skapa kluster. När du har skapat gränsnoden kan du ansluta till gränsnoden via SSH och kör klientverktyg för att komma åt Hadoop-kluster i HDInsight. Kantnoden ssh-slutpunkten är `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
-Mer information finns i artikeln [använda tomma kantnoder på Hadoop-kluster i HDInsight](../hdinsight-apps-use-edge-node.md)
+Mer information finns i artikeln [använda tomma kantnoder på Apache Hadoop-kluster i HDInsight](../hdinsight-apps-use-edge-node.md).
 
-## <a name="use-the-scale-up-and-scale-down-feature-of-clusters"></a>Använd funktionen skala upp och skala ned i kluster
+## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Använd upp- och Nedskalning funktion i kluster
 
 HDInsight ger flexibilitet när det gäller genom att ge dig möjlighet att skala upp och skala ned antalet arbetarnoder i dina kluster. Den här funktionen kan du minska ett kluster efter timmar eller helger och expanderas under toppefterfrågan för företag.
 
@@ -174,7 +174,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 Efter att ha lämnat felsäkert läge, kan du manuellt bort temporära filer eller vänta tills Hive att så småningom Rensa dem automatiskt.
 
-Mer information finns i artikeln [skala HDInsight-kluster](../hdinsight-scaling-best-practices.md)
+Mer information finns i artikeln [skala HDInsight-kluster](../hdinsight-scaling-best-practices.md).
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>Använda HDInsight med Azure-nätverk
 
@@ -196,7 +196,7 @@ Mer information finns i följande artiklar:
 - [Azure-nätverk – översikt över virtuell](../../virtual-network/virtual-networks-overview.md)
 - [Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk](../hdinsight-extend-hadoop-virtual-network.md)
 
-## <a name="use-azure-virtual-network-service-endpoints-to-securely-connect-to-other-azure-services"></a>Använd Azure Virtual Network-tjänstslutpunkter för säker anslutning till andra Azure-tjänster
+## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Anslut säkert till Azure-tjänster med Azure Virtual Network-tjänstslutpunkter
 
 HDInsight stöder [virtuella nätverksslutpunkter](../../virtual-network/virtual-network-service-endpoints-overview.md) som gör att du kan ansluta säkert till Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB och SQL-databaser. Trafiken flödar via en säker väg från inom Azure-datacentret genom att aktivera en tjänstslutpunkt för Azure HDInsight. Du kan låsa stordata storage-konton till de angivna virtuella nätverken (Vnet) och fortfarande använda HDInsight-kluster sömlöst för att komma åt och bearbeta data med den här högre säkerhet på nätverksnivån.
 

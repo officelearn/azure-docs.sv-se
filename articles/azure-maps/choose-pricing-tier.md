@@ -3,17 +3,17 @@ title: Välja rätt prisnivå för Azure Maps | Microsoft Docs
 description: Lär dig mer om prisnivåer som erbjuds av Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/03/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 20c59f95dcdb47ef3e457f177d7ad1a300981907
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856770"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998387"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Välja rätt prisnivå i Azure Maps
 
@@ -34,14 +34,16 @@ S0 och S1 prisnivåer kan hantera olika mängder data dataflöde. Överväg att 
 | Rendering                                  |        ✓           |     ✓    |
 | Trafik                                 |        ✓           |     ✓    |
 | Tidszoner                              |        ✓           |     ✓    |
-| Bilder + Hybridbilder (förhandsversion)      |                    |     ✓    |
-| Väg intervallet (förhandsversion)                   |                    |     ✓    |
-| IP-2-plats (förhandsversion)                 |                    |     ✓    |
-| Polygoner från sökning (förhandsversion)          |                    |     ✓    |
-| Batch-Geokodning (förhandsversion)               |                    |     ✓    |
-| Batch-routning (förhandsversion)                 |                    |     ✓    |
-| Matrisen routning (förhandsversion)                |                    |     ✓    |
+| * Bilder + Hybridbilder (förhandsversion)     |        ✓           |     ✓    |
+| * Vägen intervallet (förhandsversion)                  |        ✓           |     ✓    |
+| * IP 2 plats (förhandsversion)                |        ✓           |     ✓    |
+| * Polygoner från sökning (förhandsversion)         |        ✓           |     ✓    |
+| * Batch Geokodning (förhandsversion)              |        ✓           |     ✓    |
+| * Batch routning (förhandsversion)                |        ✓           |     ✓    |
+| * Matris routning (förhandsversion)               |        ✓           |     ✓    |
 
+> [!Note]
+> Åtkomst till dessa funktioner från S0 prisnivån upphör att gälla efter 4 februari 2019.
 
 Vissa ytterligare datapunkter värt överväger, vilken typ av enterprise har du eller hur viktiga är programmet skapas?
 

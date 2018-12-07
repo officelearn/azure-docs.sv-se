@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d38c93f1e6e390117ff5d9e8772119ed1c26fd10
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4e374528a0fa757458e7e4881714370937b56f9c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965538"
+ms.locfileid: "52998301"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hur att publicera Azure övervakar för virtuella datorer (förhandsversion)
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer för att övervaka hälsotillståndet för operativsystemet för dina Azure-datorer och skalningsuppsättningar för virtuella datorer och virtuella datorer i din miljö, inklusive identifiering och mappning av programberoenden som kan vara baserad på dem.  
@@ -169,7 +169,7 @@ Följande åtkomst måste beviljas åtkomst till dina användare för att aktive
 
 - Om du vill visa prestanda, hälsotillstånd och mappa data, måste du lägga till som en medlem i rollen Läsare övervakning för den virtuella Azure-datorn och Log Analytics-arbetsytan som konfigurerats med Azure Monitor för virtuella datorer.   
 
-Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../../log-analytics/log-analytics-manage-access.md).
+Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../../azure-monitor/platform/manage-access.md).
 
 ## <a name="enable-from-the-azure-portal"></a>Aktivera från Azure portal
 Om du vill aktivera övervakning av Azure-VM i Azure-portalen, gör du följande:
@@ -197,7 +197,7 @@ I det här avsnittet anvisningar om hur du utför den på skala distributionen a
 
 Sammanfattas anges de steg som du behöver utföra för att förkonfigurera Log Analytics-arbetsytan innan du kan fortsätta med onboarding dina virtuella datorer.
 
-1. Skapa en ny arbetsyta om det inte redan finns som kan användas för att stödja Azure Monitor för virtuella datorer. Granska [hantera arbetsytor](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) innan du skapar en ny arbetsyta för att förstå överväganden kostnader, hantering och kompatibilitet innan du fortsätter.       
+1. Skapa en ny arbetsyta om det inte redan finns som kan användas för att stödja Azure Monitor för virtuella datorer. Granska [hantera arbetsytor](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json) innan du skapar en ny arbetsyta för att förstå överväganden kostnader, hantering och kompatibilitet innan du fortsätter.       
 2. Aktivera prestandaräknare på arbetsytan för samlingen på Linux- och Windows-datorer.
 3. Installera och aktivera den **ServiceMap** och **InfrastructureInsights** lösningen i din arbetsyta.  
 

@@ -1,5 +1,5 @@
 ---
-title: Övervaka Azure Kubernetes-kluster – åtgärdshantering
+title: (INAKTUELL) Övervaka Azure Kubernetes-kluster – åtgärdshantering
 description: Övervaka Kubernetes-kluster i Azure Container Service med hjälp av Log Analytics
 services: container-service
 author: bburns
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 8010d7cbf960c3e2f6528687be97a47d31270696
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426421"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997208"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Övervaka ett Azure Container Service-kluster med Log Analytics
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(INAKTUELL) Övervaka ett Azure Container Service-kluster med Log Analytics
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Den uppdaterade versionen som den här artikeln som använder Azure Kubernetes Service, finns i [Azure Monitor för behållare](../../azure-monitor/insights/container-insights-overview.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här genomgången förutsätter att du har [skapade ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
@@ -59,11 +62,11 @@ az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUST
 
 ## <a name="monitoring-containers-with-log-analytics"></a>Behållarövervakning med Log Analytics
 
-Log Analytics är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Behållarlösningen är en lösning i Log Analytics, som hjälper dig att visa behållaren inventering, prestanda och loggar på en enda plats. Du kan granska, Felsök behållare genom att visa loggarna på central plats och ta bort störande förbrukar överflödiga behållare på en värd.
+Log Analytics är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Behållarlösningen är en lösning i Log Analytics, som hjälper dig att visa behållaren inventering, prestanda och loggar på en enda plats. Du kan granska, Felsök behållare genom att visa loggarna på central plats och ta bort störande förbrukar överflödiga behållare på en värd.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Mer information om Behållarlösningen finns i den [behållare lösning Log Analytics](../../log-analytics/log-analytics-containers.md).
+Mer information om Behållarlösningen finns i den [behållare lösning Log Analytics](../../azure-monitor/insights/containers.md).
 
 ## <a name="installing-log-analytics-on-kubernetes"></a>Installera Log Analytics på Kubernetes
 

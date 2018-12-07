@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 75f615f63b0741899995c2728f93231d8e46734a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632302"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016188"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av REST
 
@@ -27,14 +27,14 @@ Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på en 
 ## <a id="prereq"></a>Förhandskrav
 
 * Ett Hadoop på HDInsight-kluster
-* Windows PowerShell eller [Curl](http://curl.haxx.se/) och [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell eller [Curl](https://curl.haxx.se/) och [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Kör ett MapReduce-jobb
 
 > [!NOTE]
 > När du använder Curl eller annan REST-kommunikation med WebHCat, måste du autentisera begärandena genom att ange HDInsight-kluster administratörens användarnamn och lösenord. Du måste använda klustrets namn som en del av den URI som används för att skicka begäranden till servern.
 >
-> REST API skyddas med hjälp av [grundläggande autentisering](http://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda HTTPS för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
+> REST API skyddas med hjälp av [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda HTTPS för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 
 1. Ange klusterinloggning som används av skripten i det här dokumentet genom att använda något av kommandona followig:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: e0a47da168ae9371979290b3febc9d767e8755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 164ec0898e2f7ad461ab63ce0fcaf47a87998797
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428019"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997834"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Säkerhetskopiering och återställning för SQL Server i Azure Virtual Machines
 
@@ -40,7 +40,7 @@ I följande tabell innehåller information om olika alternativ för säkerhetsko
 
 I följande avsnitt beskrivs varje alternativ i detalj. Den sista delen av den här artikeln innehåller en sammanfattning i form av en funktion-matris.
 
-## <a id="autoamted"></a> Automatisk säkerhetskopiering
+## <a id="automated"></a> Automatisk säkerhetskopiering
 
 Automatisk säkerhetskopiering innehåller en automatisk säkerhetskopiering för SQL Server Standard och Enterprise-versioner som körs i en Windows-dator i Azure. Den här tjänsten tillhandahålls av den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md), som installeras automatiskt på SQL Server Windows-avbildningar i Azure-portalen.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: cae0edb8576722e7c3e51df14cb8d29d09ff571c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9f7f7731490467ff32a72507239bfeedc794f2f2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722351"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000541"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Utvecklaranalys: språk, plattformar och integreringar
 Dessa objekt är implementeringar av [Application Insights](app-insights-overview.md) som vi har hört talas om, inklusive vissa av tredje parter.
@@ -56,7 +56,7 @@ Dessa objekt är implementeringar av [Application Insights](app-insights-overvie
 * [Node.js](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
-* [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
+* [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [Universell Windows-app](app-insights-mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows-baserade skrivbordsprogram, tjänster och arbetarroller](app-insights-windows-desktop.md)

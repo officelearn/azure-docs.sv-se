@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: c8f2677e91eb1c3d2ac670a51793f319e82d61fe
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2f237d250a6b6e2a0f6ed2e62540968d9fcc7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719937"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997978"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsolprogram
 [Application Insights](app-insights-overview.md) kan du övervaka ditt webbprogram för tillgänglighet, prestanda och användning.
 
-Du behöver en prenumeration med [Microsoft Azure](http://azure.com). Logga in med ett Microsoft-konto som du kanske har för Windows, Xbox Live eller andra Microsoft-molntjänster. Ditt team kan ha en organisationens prenumeration på Azure: ber du ägaren att lägga till dig till den med ditt Microsoft-konto.
+Du behöver en prenumeration med [Microsoft Azure](https://azure.com). Logga in med ett Microsoft-konto som du kanske har för Windows, Xbox Live eller andra Microsoft-molntjänster. Ditt team kan ha en organisationens prenumeration på Azure: ber du ägaren att lägga till dig till den med ditt Microsoft-konto.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -124,7 +124,7 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelation
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* För .NET Framework Windows-app måste du även installera och initiera prestandaräknaren insamlaren modulen enligt beskrivningen [här](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* För .NET Framework Windows-app måste du även installera och initiera prestandaräknaren insamlaren modulen enligt beskrivningen [här](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
 #### <a name="full-example"></a>Fullständigt exempel
 

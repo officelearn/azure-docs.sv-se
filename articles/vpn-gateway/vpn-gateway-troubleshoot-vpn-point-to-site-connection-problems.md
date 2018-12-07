@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 12/05/2018
 ms.author: genli
-ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238336"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994181"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Problem med Azure punkt-till-plats-anslutning
 
@@ -300,7 +300,7 @@ Det här problemet kan uppstå om VPN-klienten inte får vägarna från Azure VP
 
 ### <a name="solution"></a>Lösning
 
-Du löser problemet, [återställa Azure VPN gateway](vpn-gateway-resetgw-classic.md).
+Du löser problemet, [återställa Azure VPN gateway](vpn-gateway-resetgw-classic.md). För att säkerställa att de nya vägarna används, måste punkt-till-plats-VPN-klienterna laddas ned igen efter det virtuella nätverkets peering har konfigurerats.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fel: ”funktionen återkallade certifikat kunde inte kontrollera återkallade certifikat eftersom servern för certfikatåterkallning var offline. (Fel 0x80092013) ”
 

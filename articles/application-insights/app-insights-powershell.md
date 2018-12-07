@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: b9110222d52a6b4e14faf28d55ae9d10fa067949
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 79921a3adc043dd84317b7613286ec5cdc460bde
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725785"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993761"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Skapa Application Insights-resurser med hjälp av PowerShell
 Den här artikeln visar hur du automatiskt skapa och uppdatera [Application Insights](app-insights-overview.md) resurser automatiskt med hjälp av Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md), Ställ in [aviseringar](app-insights-alerts.md), ange den [priser schema](app-insights-pricing.md), och skapa andra Azure-resurser .
@@ -37,7 +37,7 @@ Skapa en ny .json-fil – vi kan kalla den `template1.json` i det här exemplet.
 
 ```JSON
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "appName": {

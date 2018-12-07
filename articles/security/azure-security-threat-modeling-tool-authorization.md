@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eec628a5084dc663978e16e617192802d3ecfcfa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307664"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994765"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Security ram: Auktorisering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -349,7 +349,7 @@ Den `<behaviorExtensions/>` element i WCF-konfigurationsfilen nedan instruerar W
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk NET Framework 3 |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
+| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Steg** | <p>Den här tjänsten använder inte en kontroll för auktorisering. När en klient anropar en viss WCF-tjänst, ger WCF olika för auktorisering som verifierar att anroparen har behörighet att köra metoden tjänsten på servern. Om auktoriseringskontroller inte har aktiverats för WCF-tjänster, kan en autentiserad användare få eskalering.</p>|
 
 ### <a name="example"></a>Exempel

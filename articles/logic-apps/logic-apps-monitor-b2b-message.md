@@ -9,19 +9,19 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: 5dccfe61eaf97f27b211aa6812145f21f2098738
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2c1bac07d5086cffb99082520b05c7e42982c6f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961271"
+ms.locfileid: "52996614"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Övervaka B2B-meddelanden med Azure Log Analytics i Azure Logic Apps
 
 När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrationskonto kan partner utbyta meddelanden med varandra. Kontrollera att den här kommunikationen fungerar på samma sätt som du förväntar dig kan du övervaka AS2, X12, och EDIFACT-meddelanden och ställer in diagnostik loggning för ditt konto för integrering med [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Den här tjänsten övervakar dina molnet och lokala miljöer, hjälper dig att bibehålla tillgänglighet och prestanda, och samlar in runtime samt händelser för bättre felsökning. Du kan också [använda dessa data med andra tjänster](#extend-diagnostic-data) , till exempel Azure Storage och Azure Event Hubs.
 
 > [!NOTE]
-> Den här sidan kan fortfarande ha referenser till Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), men ersätter de här stegen med Azure Log Analytics där det är möjligt. 
+> Den här sidan kan fortfarande ha referenser till Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../azure-monitor/platform/oms-portal-transition.md), men ersätter de här stegen med Azure Log Analytics där det är möjligt. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -124,7 +124,7 @@ Tillsammans med Azure Log Analytics kan utöka du hur du använda diagnostikdata
 * [Arkivera Azure Diagnostics-loggar i Azure Storage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [Stream Azure-diagnostikloggar för Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-Du kan sedan hämta i realtid övervakningen med hjälp av telemetri och analyser från andra tjänster som [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../log-analytics/log-analytics-powerbi.md). Exempel:
+Du kan sedan hämta i realtid övervakningen med hjälp av telemetri och analyser från andra tjänster som [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Exempel:
 
 * [Stream-data från Event Hubs till Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analysera data med Stream Analytics och skapa en instrumentpanel för analys i realtid i Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

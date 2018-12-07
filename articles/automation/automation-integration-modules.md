@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e4bd6a3e39fbb5d1eea4d7770d8940f801aecd43
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 7b7bd66d90ad01479965c928eb69bfb1dfccce5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276501"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000217"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation-integreringsmoduler
 PowerShell är den grundläggande tekniken bakom Azure Automation. Eftersom Azure Automation bygger på PowerShell är PowerShell-moduler fundamentala för att kunna expandera Azure Automation. I den här artikeln vägleder vi dig steg för steg hur Azure Automation använder PowerShell-moduler, kallade ”integreringsmoduler” och bästa praxis för att skapa egna PowerShell-moduler för att kontrollera att de fungerar som integreringsmoduler i Azure Automation. 
@@ -74,7 +74,7 @@ Om du har distribuerat Service Management Automation och skapat integreringsmodu
     #>
     function Get-TwilioPhoneNumbers {
     [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-    HelpUri='http://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
+    HelpUri='https://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
     param(
        [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
        [ValidateNotNullOrEmpty()]
@@ -136,7 +136,7 @@ Om du har distribuerat Service Management Automation och skapat integreringsmodu
     ```powershell
     function Send-TwilioSMS {
       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-      HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
+      HelpUri='https://www.twilio.com/docs/api/rest/sending-sms')]
       param(
          [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
          [ValidateNotNullOrEmpty()]

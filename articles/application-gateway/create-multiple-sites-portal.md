@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/28/2017
 ms.author: victorh
-ms.openlocfilehash: 8f2e2500c39f42ebd7fefb3cec941088edf126f2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045027"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993317"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Skapa och konfigurera en Programgateway som värd för flera webbplatser med hjälp av Azure portal
 
@@ -24,7 +24,7 @@ Du kan använda Azure portal för att [konfigurera den som är värd för flera 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Skapa en Application Gateway
+> * Skapa en programgateway
 > * Skapa virtuella datorer för backend-servrar
 > * Skapa serverdelspooler med backend-servrar
 > * Skapa lyssnare för serverdelen
@@ -37,11 +37,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com)
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com)
 
-## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-Ett virtuellt nätverk krävs för kommunikation mellan de resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
+Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
 1. Klicka på **New** hittades på det övre vänstra hörnet i Azure-portalen.
 2. Välj **Nätverk** och sedan **Application Gateway** i listan Aktuella.
@@ -53,14 +53,14 @@ Ett virtuellt nätverk krävs för kommunikation mellan de resurser som du skapa
     ![Skapa en ny programgateway](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
-5. Klicka på **Välj ett virtuellt nätverk**, klickar du på **Skapa nytt**, och ange följande värden för det virtuella nätverket:
+5. Klicka på **Välj ett virtuellt nätverk**, klicka på **Skapa nytt** och ange sedan följande värden för det virtuella nätverket:
 
     - *myVnet* – Det virtuella nätverkets namn.
     - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
     - *myBackendSubnet* – Undernätsnamnet.
     - *10.0.0.0/24* – Undernätets adressutrymme.
 
-    ![Skapa virtuellt nätverk](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+    ![Skapa det virtuella nätverket](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. Klicka på **OK** för att skapa det virtuella nätverket och undernätet.
 7. Klicka på **välja en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
@@ -81,7 +81,7 @@ Ett virtuellt nätverk krävs för kommunikation mellan de resurser som du skapa
 I det här exemplet skapar du två virtuella datorer som ska användas som serverdelsservrar för programgatewayen. Du kan också installera IIS på de virtuella datorerna för att kontrollera att trafik routning korrekt.
 
 1. Klicka på **Ny**.
-2. Klicka på **Compute** och välj sedan **Windows Server 2016 Datacenter** i listan över aktuella.
+2. Klicka på **Compute** och sedan **Windows Server 2016 Datacenter** i listan Aktuella.
 3. Ange följande värden för den virtuella datorn:
 
     - *contosoVM* – för namnet på den virtuella datorn.
@@ -183,7 +183,7 @@ När du har skapat programgatewayen med dess offentliga IP-adress kan du hämta 
 I den här artikeln har du lärt dig hur du:
 
 > [!div class="checklist"]
-> * Skapa en Application Gateway
+> * Skapa en programgateway
 > * Skapa virtuella datorer för backend-servrar
 > * Skapa serverdelspooler med backend-servrar
 > * Skapa lyssnare för serverdelen

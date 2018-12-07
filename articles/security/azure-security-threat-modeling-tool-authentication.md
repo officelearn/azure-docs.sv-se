@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: e502004db62713585d68cdda6f80b4e4024dde28
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1170266ed0b59c53adce4e44fe3e7a0bc62f394e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971223"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014869"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Security ram: Autentisering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -245,7 +245,7 @@ ms.locfileid: "52971223"
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Identity Server-distribution - cachelagring](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
-| **Steg** | <p>IdentityServer har en enkel inbyggd i cacheminnet. Även om det är bra för inbyggda appar i liten skala, skalar den inte för mid nivå och serverdelen av följande skäl:</p><ul><li>Dessa program som används av många användare samtidigt. Spara alla åtkomsttoken i samma lager skapas isolering problem och visar utmaningar när skalenligt: många användare med så många token som appen kommer åt å deras vägnar resurserna kan innebära enorma och väldigt dyr sökåtgärder</li><li>Dessa program distribueras vanligen på distribuerade topologier, där flera noder måste ha åtkomst till samma cache</li><li>Cachelagrade token måste klara återvinns och avaktiveringar</li><li>För alla ovanstående, rekommenderar samtidigt som implementerar webbappar, vi att åsidosätta standard Identity Server-tokencache med ett skalbart alternativ, till exempel Azure Redis cache</li></ul>|
+| **Steg** | <p>IdentityServer har en enkel inbyggd i cacheminnet. Även om det är bra för inbyggda appar i liten skala, skalar den inte för mid nivå och serverdelen av följande skäl:</p><ul><li>Dessa program som används av många användare samtidigt. Spara alla åtkomsttoken i samma lager skapas isolering problem och visar utmaningar när skalenligt: många användare med så många token som appen kommer åt å deras vägnar resurserna kan innebära enorma och väldigt dyr sökåtgärder</li><li>Dessa program distribueras vanligen på distribuerade topologier, där flera noder måste ha åtkomst till samma cache</li><li>Cachelagrade token måste klara återvinns och avaktiveringar</li><li>För alla ovanstående, rekommenderar samtidigt som implementerar webbappar, vi att åsidosätta standard Identity Server-tokencache med ett skalbart alternativ, till exempel Azure Cache för Redis</li></ul>|
 
 ## <a id="binaries-signed"></a>Se till att binärfilerna för distribuerade program är digitalt signerade
 
@@ -361,7 +361,7 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Modern autentisering med Azure Active Directory för webbprogram](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [använda Redis som ADAL-tokencache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
-| **Steg** | <p>Standard-cache som använder ADAL (Active Directory Authentication Library) är en minnescache som förlitar sig på en statisk store, tillgängliga på hela processen. Även om det här fungerar för interna program, skalar den inte för mid nivå och backend-program av följande skäl:</p><ul><li>Dessa program som används av många användare samtidigt. Spara alla åtkomsttoken i samma lager skapas isolering problem och visar utmaningar när skalenligt: många användare med så många token som appen kommer åt å deras vägnar resurserna kan innebära enorma och väldigt dyr sökåtgärder</li><li>Dessa program distribueras vanligen på distribuerade topologier, där flera noder måste ha åtkomst till samma cache</li><li>Cachelagrade token måste klara återvinns och avaktiveringar</li></ul><p>För alla ovanstående, rekommenderar samtidigt som implementerar webbappar, vi att du åsidosätta standard ADAL-tokencache med ett skalbart alternativ, till exempel Azure Redis cache.</p>|
+| **Steg** | <p>Standard-cache som använder ADAL (Active Directory Authentication Library) är en minnescache som förlitar sig på en statisk store, tillgängliga på hela processen. Även om det här fungerar för interna program, skalar den inte för mid nivå och backend-program av följande skäl:</p><ul><li>Dessa program som används av många användare samtidigt. Spara alla åtkomsttoken i samma lager skapas isolering problem och visar utmaningar när skalenligt: många användare med så många token som appen kommer åt å deras vägnar resurserna kan innebära enorma och väldigt dyr sökåtgärder</li><li>Dessa program distribueras vanligen på distribuerade topologier, där flera noder måste ha åtkomst till samma cache</li><li>Cachelagrade token måste klara återvinns och avaktiveringar</li></ul><p>För alla ovanstående, rekommenderar samtidigt som implementerar webbappar, vi att du åsidosätta standard ADAL-tokencache med ett skalbart alternativ, till exempel Azure Cache för Redis.</p>|
 
 ## <a id="tokenreplaycache-adal"></a>Se till att TokenReplayCache används för att förhindra återuppspelning av ADAL-autentisering-token
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15ec028046b7c2b21f1892c460d53c73499680fe
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 27b41655d9a6c9000d9bc3cf98bf3246bb108104
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312546"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015559"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -215,7 +215,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Portalen instrumentpaneler
 * Powerbi – både Power BI Embedded och Power BI-Arbetsytesamling
 * Offentliga IP - Se [offentliga IP-begränsningar](#pip-limitations)
-* Redis-Cache - om Redis Cache-instansen har konfigurerats med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
+* Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
 * Scheduler
 * Search
 * Service Bus
@@ -330,7 +330,7 @@ När du flyttar ett virtuellt nätverk, måste du även flytta beroende resurser
 
 Om du vill flytta en peer-kopplade virtuella nätverket måste du först inaktivera virtuell nätverkspeering. Du kan flytta det virtuella nätverket när inaktiverat. Återaktivera virtuell nätverkspeering efter överflyttningen.
 
-Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det virtuella nätverket innehåller ett undernät med resursnavigeringslänkar. Om en resurs för Redis Cache har distribuerats i ett undernät har till exempel en resursnavigeringslänken i det undernätet.
+Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det virtuella nätverket innehåller ett undernät med resursnavigeringslänkar. Om Azure Cache för Redis-resursen har distribuerats i ett undernät har till exempel en resursnavigeringslänken i det undernätet.
 
 ## <a name="app-service-limitations"></a>Begränsningar för App Service
 

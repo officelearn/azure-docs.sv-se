@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: c129f33655f42c51aeb020b1bbd90a445b50492f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6ed8906066d66b6e16ec482a53137f9ca70ae9c7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882838"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000040"
 ---
 # <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Kom igång med Log Analytics i Azure portal
 
@@ -186,7 +186,7 @@ Query Explorer-ikonen visas i området längst upp till höger. Här visas alla 
 Sidan Log Analytics har stöd för flera exporterar metoder:
 
 - Excel: Spara resultatet som en CSV-fil.
-- Powerbi: Exportera resultaten till power BI. Se [importera Azure Log Analytics-data till Power BI](../../log-analytics/log-analytics-powerbi.md) mer information.
+- Powerbi: Exportera resultaten till power BI. Se [importera Azure Log Analytics-data till Power BI](../../azure-monitor/platform/powerbi.md) mer information.
 - Dela en länk: själva frågan kan delas som en länk som sedan kan skickas och körs av andra användare som har åtkomst till samma arbetsyta.
 
 ## <a name="next-steps"></a>Nästa steg

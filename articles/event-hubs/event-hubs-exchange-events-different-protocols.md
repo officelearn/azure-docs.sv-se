@@ -1,5 +1,5 @@
 ---
-title: Exchange-händelser mellan konsumenter och producenter som använder olika protokoll i Azure Event Hubs | Microsoft Docs
+title: Exchange-händelser mellan appar som använder olika protokoll – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln visar hur konsumenter och producenter som använder olika protokoll (AMQP-, Apache Kafka- och HTTPS) kan utbyta händelser när du använder Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
@@ -8,17 +8,17 @@ manager: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.custom: mvc
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/05/2018
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 54edeafbe950cde88c2c6051f95825cfaed52ac7
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1345a5814faefd4074e7d9548d374bd79d977514
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51284947"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015593"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Exchange-händelser mellan konsumenter och producenter som använder olika protokoll: AMQP, Kafka och HTTPS
 Händelsehubbar i Azure har stöd för tre protokoll för konsumenter och producenter: AMQP, Kafka och HTTPS. Var och en av dessa protokoll har egna sätt att representera ett meddelande naturligt följande frågan: om ett program skickar händelser till en Händelsehubb med ett protokoll och använder dem med ett annat protokoll, göra vad de olika delarna och värdena för den händelse se ut när de anländer till konsumenten? Den här artikeln beskriver Metodtips för både producent och konsument att se till att värden i en händelse tolkas korrekt av den konsumerande appen.

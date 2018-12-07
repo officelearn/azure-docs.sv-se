@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: c39cb01f1477e51623b02941bae03a51a389e197
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b52604fa19a5598e8aff5b8a1ea25e7361add553
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682897"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997019"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 Du kan övervaka [Microsoft Azure Cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) tillgänglighet, prestanda, fel och användning med [Application Insights][start] genom att kombinera data från Application Insights SDK:er med data från [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) från Cloud Services. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -28,7 +28,7 @@ Du kan övervaka [Microsoft Azure Cloud-tjänstapparnas](https://azure.microsoft
 ## <a name="before-you-start"></a>Innan du börjar
 Du behöver:
 
-* En prenumeration med [Microsoft Azure](http://azure.com). Logga in med ett Microsoft-konto som du kanske har för Windows, XBox Live eller andra Microsoft-molntjänster. 
+* En prenumeration med [Microsoft Azure](https://azure.com). Logga in med ett Microsoft-konto som du kanske har för Windows, XBox Live eller andra Microsoft-molntjänster. 
 * Microsoft Azure Tools 2.9 eller senare
 * Developer Analytics Tools 7.10 eller senare
 
@@ -150,7 +150,7 @@ Om du vill visa prestandaräknare och antalet händelser öppnar du [Metrics Exp
 
 ![Azure-diagnostikdata](./media/app-insights-cloudservices/23-wad.png)
 
-Använd [Sök](app-insights-diagnostic-search.md) eller en [Analytics-fråga](../log-analytics/query-language/get-started-analytics-portal.md) för att söka igenom de olika spårningsloggarna som skickas av Azure Diagnostics. Anta exempelvis att du har ett ohanterat undantag som gjorde att en roll kraschade och återanvändes. Den här informationen skulle visas i kanalen Program i Windows-händelseloggen. Du kan använda Sök för att granska felet i Windows-händelseloggen och visa den fullständiga stackspårningen för undantaget. Detta hjälper dig att hitta den bakomliggande orsaken till problemet.
+Använd [Sök](app-insights-diagnostic-search.md) eller en [Analytics-fråga](../azure-monitor/log-query/get-started-portal.md) för att söka igenom de olika spårningsloggarna som skickas av Azure Diagnostics. Anta exempelvis att du har ett ohanterat undantag som gjorde att en roll kraschade och återanvändes. Den här informationen skulle visas i kanalen Program i Windows-händelseloggen. Du kan använda Sök för att granska felet i Windows-händelseloggen och visa den fullständiga stackspårningen för undantaget. Detta hjälper dig att hitta den bakomliggande orsaken till problemet.
 
 ![Söka i Azure Diagnostics](./media/app-insights-cloudservices/25-wad.png)
 
@@ -241,7 +241,7 @@ Utvecklade du för .NET 4.6? 4.6 stöds inte automatiskt i Azure Cloud Services-
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 

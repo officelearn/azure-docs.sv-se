@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 212628c0ec97524e91ab8eaeb766c3e405023aaf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: aabbcb45edf087b4a7d6268dcca90b21afa16f7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846172"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998113"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Att tillhandahålla säker fjärråtkomst till lokala program
 
@@ -59,16 +59,16 @@ Du kan använda Azure AD-programproxy för att komma åt olika typer av interna 
 * Rich-klientprogram som är integrerade med Active Directory Authentication Library (ADAL)
 
 ## <a name="how-does-application-proxy-work"></a>Hur fungerar Application Proxy?
-Det finns två komponenter som du behöver konfigurera om du vill göra Application Proxy fungerar: en koppling och en extern slutpunkt. 
+Det finns två komponenter som du behöver konfigurera om du vill göra Application Proxy fungerar: en koppling och en slutpunkt. 
 
 Anslutningen är en förenklad agent som finns på en Windows-Server i ditt nätverk. Anslutningen underlättar trafikflödet från Application Proxy-tjänst i molnet till ditt program lokalt. Den använder endast utgående anslutningar så att du inte behöver öppna några ingående portar eller lägga något i Perimeternätverket. Anslutningarna är tillståndslösa och hämta information från molnet efter behov. Mer information om anslutningar kan, liksom hur de belastningsutjämna och autentisera, se [alternativ för Azure AD-programproxyn kopplingar](application-proxy-connectors.md). 
 
-Den externa slutpunkten är hur användarna kan nå dina program medan utanför ditt nätverk. De Gå antingen direkt till en extern URL som du anger, eller de kan komma åt programmet via MyApps-portalen. När användare går till en av de här slutpunkterna, de autentiseras i Azure AD och sedan dirigeras via anslutningen så att dina lokala program.
+Slutpunkten kan vara en Webbadress eller en [slutanvändarportal](end-user-experiences.md). Användarna kan nå program medan utanför ditt nätverk genom att gå till en extern URL. Användare i nätverket kan komma åt programmet via en URL eller ett slutanvändarportal. När användare går till en av de här slutpunkterna, de autentiseras i Azure AD och sedan dirigeras via anslutningen så att dina lokala program.
 
  ![AzureAD Application Proxy-diagram](./media/application-proxy/azureappproxxy.png)
 
-1. Användaren har åtkomst till programmet via tjänsten Application Proxy och omdirigeras till inloggningssidan för Azure AD för att autentisera.
-2. Efter en lyckad inloggning, genereras en token och skickas till klientenheten.
+1. När användaren har åtkomst till programmet via en slutpunkt, omdirigeras användaren till inloggningssidan för Azure AD. 
+2. Efter en lyckad inloggning, genereras en token och skickas till användarens klientenheten.
 3. Klienten skickar token till tjänsten Application Proxy, som hämtar användarens huvudnamn (UPN) och säkerhet huvudnamn (SPN) från token och sedan dirigerar begäran till anslutningsappen för programproxyn.
 4. Om du har konfigurerat enkel inloggning utför kopplingen ytterligare autentisering krävs för användarens räkning.
 5. Kopplingen skickar en begäran till dina lokala program.  

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: c9eaa997a4110be4cf2013413735b97929b7c4d0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 77c0baba1c30153730e87181e24137d9a20ea6b1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726006"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012478"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Att separera telemetri från utveckling, testning och produktion
 
@@ -32,7 +32,7 @@ När du har konfigurerat Application Insights-övervakning för din webbapp kan 
 Du väljer normalt att använda separata resurser eller en enda delad resurs i olika scenarier:
 
 * Olika oberoende program - använda en separat resurs och ikey för varje app.
-* Flera komponenter eller roller i ett affärsprogram – Använd en [enkel delad resurs](app-insights-monitor-multi-role-apps.md) för alla appar som komponenten. Telemetri kan filtreras eller uppdelat efter egenskapen cloud_RoleName.
+* Flera komponenter eller roller i ett affärsprogram – Använd en [enkel delad resurs](app-insights-app-map.md) för alla appar som komponenten. Telemetri kan filtreras eller uppdelat efter egenskapen cloud_RoleName.
 * Utveckling, testning och version – Använd en separat resurs och ikey för versioner av systemet i ”stämpel” eller steget i produktion.
 * A | B-testning - använda en enskild resurs. Skapa en TelemetryInitializer om du vill lägga till en egenskap i telemetrin som identifierar varianterna.
 
@@ -113,7 +113,7 @@ Det finns flera olika metoder för att ange egenskapen programversion.
     ```XML
 
     <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+    <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
       <Build type="MSBuild">
         <MSBuild>

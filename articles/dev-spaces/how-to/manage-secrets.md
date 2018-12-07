@@ -11,12 +11,12 @@ ms.topic: article
 ms.technology: azds-kubernetes
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: 49e9a974dc01548c250f0b0a8b9b5afac5f286ff
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e155b4151a3b974e9ccc56a88028a89c35896522
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705505"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014009"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Hantera hemligheter när du arbetar med ett adressutrymme för Azure-utveckling
 
@@ -112,5 +112,5 @@ Azure Dev blanksteg innehåller två rekommenderade alternativ för att lagra he
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med dessa metoder kan du nu på ett säkert sätt ansluta till en databas, en Redis-cache eller åtkomst säkra Azure-tjänster.
+Med dessa metoder kan du nu på ett säkert sätt ansluta till en databas, Azure Cache för Redis, eller komma åt säker Azure-tjänster.
  

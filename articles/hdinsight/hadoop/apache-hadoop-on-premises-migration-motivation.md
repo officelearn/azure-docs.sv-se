@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288126"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000435"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - motivation och fördelar
 
@@ -32,7 +32,7 @@ Azure HDInsight är en molndistribution av Hadoop-komponenterna från den [Hort
 - Apache HBase
 - R
 
-## <a name="advantages-that-azure-hdinsight-offers-over-on-premises-hadoop"></a>Fördelarna med Azure HDInsight erbjuder över lokala Hadoop-
+## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Azure HDInsight fördelar jämfört med lokala Hadoop-
 
 - **Låg kostnad** -kan minska kostnaderna genom att [Skapa kluster på begäran](../hdinsight-hadoop-create-linux-clusters-adf.md) och endast betala för det du använder. Fristående beräkning och lagring ger flexibilitet genom att hålla datavolymen oberoende av klusterstorleken.
 
@@ -67,7 +67,7 @@ Azure HDInsight är en molndistribution av Hadoop-komponenterna från den [Hort
 
 - **Självåterställning processer och komponenter** -HDInsight ständigt kontrollerar de infrastruktur och öppen källkod-komponenter med hjälp av en egen övervakade infrastrukturen. Den återställer automatiskt allvarliga fel, till exempel otillgänglig komponenter med öppen källkod och noder. Aviseringar har utlösts i Ambari om någon komponent OSS misslyckades.
 
-Mer information finns i artikeln [vad är Azure HDInsight och Hadoop-teknikstacken](../hadoop/apache-hadoop-introduction.md).
+Mer information finns i artikeln [vad är Azure HDInsight och Apache Hadoop-teknikstacken](../hadoop/apache-hadoop-introduction.md).
 
 ## <a name="migration-planning-process"></a>Planeringsprocess för migrering
 

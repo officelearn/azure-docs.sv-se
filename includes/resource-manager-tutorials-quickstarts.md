@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 936c9198eebfa229db6ac34426e435c9e6ed96e8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254486"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978743"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Snabbstarter och självstudier
 
@@ -43,8 +43,9 @@ Använd följande snabbstarter och självstudier för att lära dig hur du utvec
     |[Använda villkor](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|Distribuera resurser baserat på vissa parametervärden. I självstudien definierar du en mall för att skapa ett nytt lagringskonto eller använda ett befintligt lagringskonto baserat på värdet för en parameter.|
     |[Integrera nyckelvalv](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Hämta hemligheter/lösenord från Azure Key Vault. I självstudien skapar du en virtuell dator.  Administratörslösenordet för den virtuella datorn hämtas från ett nyckelvalv.|
     |[Skapa länkade mallar](../articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)|Modularisera mallar och anropa andra mallar från en mall. I självstudien skapar du ett virtuellt nätverk, en virtuell dator och de beroende resurserna.  Det beroende lagringskontot definieras i en länkad mall. |
-    |[Distribuera virtual machine-tillägg](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|Utföra uppgifter efter distribution med hjälp av tillägg. I självstudien distribuerar du en kundskriptstillägget om du vill installera webbserver på den virtuella datorn. |
+    |[Distribuera tillägg för virtuell dator](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|Utföra uppgifter efter distribution med hjälp av tillägg. I självstudien distribuerar du en kundskriptstillägget om du vill installera webbserver på den virtuella datorn. |
     |[Distribuera SQL-tillägg](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Utföra uppgifter efter distribution med hjälp av tillägg. I självstudien distribuerar du en kundskriptstillägget om du vill installera webbserver på den virtuella datorn. |
+    |[Säker artefakter](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Skydda artefakter som krävs för att slutföra distributionen. Lär dig hur du skyddar den artefakt som används i självstudien för distribuera SQL-tillägg i självstudien. |
     |[Använda säkra distributionsmetoder](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Använd Distributionshanteraren i Azure. |
 
 De här självstudierna kan användas separat eller som en serie få större Resource Manager-mall utveckling begrepp.

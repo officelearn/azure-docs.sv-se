@@ -1,5 +1,5 @@
 ---
-title: Träna machine learning-modeller med hjälp av en kostnadsuppskattning klass med Azure Machine Learning
+title: Utbilda ML-modeller med Azure Machine Learning-tjänsten en kostnadsuppskattning-klass
 description: Lär dig hur du utför en nod och distribuerade utbildning av traditionella machine learning och deep learning-modeller med hjälp av Azure Machine Learning services kostnadsuppskattning-klass
 ms.author: minxia
 author: mx-iao
@@ -8,15 +8,16 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c47761c184d0e6c091ff49b3eca2fdf89574b49d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec12
+ms.openlocfilehash: 53462fc0aecbb8f5aeef0bb9208264c714ce8394
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114867"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011428"
 ---
-# <a name="how-to-train-models-with-azure-machine-learning"></a>Så här att träna modeller med Azure Machine Learning
+# <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
 Utbildning machine learning-modeller, särskilt djupa neurala nätverk är ofta en tid - och beräkningsintensiva uppgift. När du är klar skriver utbildning-skriptet och körs på en liten delmängd av data på din lokala dator, vill du förmodligen att skala upp din arbetsbelastning.
 
@@ -35,7 +36,7 @@ Den här artikeln handlar om steg 4 – 5. Steg 1 – 3, finns i den [träna en 
 
 ### <a name="single-node-training"></a>Nod-utbildning
 
-Använd en `Estimator` för en nod utbildning som körs på fjärranslutna beräkning i Azure för en scikit-Läs modellen. Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#batch) objekt `compute_target` och din [datalager](how-to-access-data.md) objektet `ds`.
+Använd en `Estimator` för en nod utbildning som körs på fjärranslutna beräkning i Azure för en scikit-Läs modellen. Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#amlcompute) objekt `compute_target` och din [datalager](how-to-access-data.md) objektet `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -58,7 +59,7 @@ Parameter | Beskrivning
 --|--
 `source_directory`| Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från din lokala dator till den fjärranslutna beräkningen 
 `script_params`| Ordlista att ange kommandoradsargument för att dina utbildningsskript `entry_script`, i form av < kommandoradsargumentet, värde > par
-`compute_target`| Remote beräkning som utbildning skriptet ska köras på, i det här fallet en [Batch AI](how-to-set-up-training-targets.md#batch) kluster
+`compute_target`| Remote beräkningsmål som utbildning skriptet ska köras på, i det här fallet en Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kluster
 `entry_script`| FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av, bör finnas i den här mappen
 `conda_packages`| Lista över Python-paket installeras via conda som krävs för dina utbildningsskript.  
 Konstruktorn har en annan parameter med namnet `pip_packages` som du använder för eventuella pip-paket som behövs
@@ -87,7 +88,7 @@ Det finns två ytterligare scenarier som du kan utföra med den `Estimator`:
 
 Följande kod visar hur du utför distribuerad utbildning för ett CNTK-modellen. Dessutom istället för att använda standard Azure Machine Learning-avbildningar, det förutsätter att du använder en egen anpassad docker-avbildning för utbildning.
 
-Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#batch) objektet `compute_target`. Du skapar kostnadsuppskattning på följande sätt:
+Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#amlcompute) objektet `compute_target`. Du skapar kostnadsuppskattning på följande sätt:
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -117,13 +118,11 @@ run = experiment.submit(cntk_est)
 ```
 
 ## <a name="examples"></a>Exempel
-En självstudiekurs om hur du tränar en modell för sklearn finns:
-* [tutorials/01.Train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+För en bärbar dator som tränar en modell för sklearn, se:
+* [självstudier/img-klassificering – del 1 – training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-En självstudiekurs om distribuerade CNTK med anpassade docker finns:
-* [utbildning/06.distributed – cntk-med-anpassad-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/06.distributed-cntk-with-custom-docker)
-
-Hämta dessa anteckningsböcker:
+Notebooks på distribuerade djupinlärning, finns här:
+* [How-to-use-azureml/Training-with-Deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

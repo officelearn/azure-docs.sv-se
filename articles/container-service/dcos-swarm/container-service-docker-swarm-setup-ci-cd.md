@@ -1,5 +1,5 @@
 ---
-title: CI/CD med Azure Container Service och Swarm
+title: (INAKTUELL) CI/CD med Azure Container Service och Swarm
 description: Använda Azure Container Service med Docker Swarm, ett Azure Container Registry och Azure DevOps att kontinuerligt leverera en .NET Core-program med flera behållare
 services: container-service
 author: jcorioland
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 3b91c269104e740add1d3a5b8ecaee93ca269188
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db0a16fa44dd23cbc32159889fe8b8ec28c77a5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302834"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992550"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med Docker Swarm med Azure DevOps-tjänster
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(INAKTUELL) Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med Docker Swarm med Azure DevOps-tjänster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 En av de största utmaningarna när du utvecklar moderna program för molnet att kunna leverera dessa program kontinuerligt. I den här artikeln får du lära dig hur du implementerar en fullständig kontinuerlig integrering och distribution (CI/CD)-pipeline med hjälp av Azure Container Service med Docker Swarm, Azure Container Registry och Azure-Pipelines.
 

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 94c03c9aa6e361167b396af5218b308e6cacfafe
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e11833feba9466fed6ea6b4f698ba2184ad129e2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879816"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962206"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Felsökning av aviseringar i Azure Monitor  
 ## <a name="overview"></a>Översikt
 Den här artikeln visar hur du löser vanliga problem som kan uppstå när du konfigurerar aviseringar i Azure monitor. Det ger också lösningar på vanliga frågor om funktioner eller konfigurationen av aviseringar. 
 
-Termen **Loggaviseringar** beskriver aviseringar att fire baserat på en anpassad fråga i [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-analytics.md). Mer information om funktioner, terminologi och typer i [Loggaviseringar - översikt](monitor-alerts-unified-log.md).
+Termen **Loggaviseringar** beskriver aviseringar att fire baserat på en anpassad fråga i [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-analytics.md). Mer information om funktioner, terminologi och typer i [Loggaviseringar - översikt](monitor-alerts-unified-log.md).
 
 > [!NOTE]
 > Den här artikeln tar inte hänsyn fall när Azure-portalen visar och varningen aktiverades av regeln och ett meddelande som utförs av en tillhörande åtgärd-grupperna. Sådana fall finns information i artikeln på [åtgärdsgrupper](monitoring-action-groups.md).
@@ -30,7 +30,7 @@ Termen **Loggaviseringar** beskriver aviseringar att fire baserat på en anpassa
 Här följer några vanliga orsaker till varför en konfigurerade [loggvarningsregel i Azure Monitor](alert-log.md) tillstånd inte visar [som *utlösta* när förväntades](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Tid för inmatning av data för loggar
-Log avisering körs regelbundet frågan baserat på [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-analytics.md). Eftersom Log Analytics bearbetar många terabyte med data från tusentals kunder från olika källor i hela världen, är tjänsten sårbara för en varierande tidsfördröjning. Mer information finns i [tid för inmatning av Data i Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
+Log avisering körs regelbundet frågan baserat på [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-analytics.md). Eftersom Log Analytics bearbetar många terabyte med data från tusentals kunder från olika källor i hela världen, är tjänsten sårbara för en varierande tidsfördröjning. Mer information finns i [tid för inmatning av Data i Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
 
 För att minimera fördröjning för inmatning av data, systemet väntar och försöker aviseringsfrågan flera gånger om den hittar nödvändiga data inte matas ännu. Systemet har ett ökar exponentiellt väntetid som angetts. Vilka log aviseringar endast utlösare när data är tillgängliga så att de fördröjning kan bero på långsam logg för datainmatning. 
 

@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 51b9aa33fd186a46d51f7e2fb64b42648b854cd3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d7ed4f0276e6220e6df528075e83cb9fabc6cc84
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833915"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011478"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Hanterade identiteter för Azure-resurser med Event Hubs
 
@@ -47,7 +48,7 @@ Det första steget är att skapa en App Service ASP.NET-program. Om du inte är 
 
 När du har skapat programmet går du till den nya webbappen i Azure portal (visas också i anvisningar) och gå sedan till den **hanterad tjänstidentitet** sidan och aktivera funktionen: 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![Hanterad tjänstidentitet sidan](./media/event-hubs-managed-service-identity/msi1.png)
  
 När du har aktiverat funktionen, en ny tjänstidentitet skapas i Azure Active Directory och som konfigurerats i App Service-värden.
 
@@ -67,7 +68,7 @@ Observera hur [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.mess
 
 När du har gjort dessa ändringar, publicera och köra programmet. Du kan få rätt publicera data genom att hämta och importera en publiceringsprofil i Visual Studio:
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![Importera publiceringsprofilen](./media/event-hubs-managed-service-identity/msi3.png)
  
 Ange namnet på namnområdet och namnet på den entitet som du skapade för att skicka eller ta emot meddelanden, och klicka sedan på antingen **skicka** eller **får**. 
  

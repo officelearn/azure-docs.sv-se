@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: a46989ea197166065b4ca482200a0d30e1def7c9
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 943c0d4eb25fad1282b3329b945ded45581aeba3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723099"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994557"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Konfigurera avancerade nätverk i Azure Kubernetes Service (AKS)
 
@@ -162,18 +162,18 @@ Mer information om nätverk i AKS i följande artiklar:
 - [Skapa en ingress-kontrollant med en dynamisk offentlig IP-adress och konfigurera kryptera vi för att automatiskt generera TLS-certifikat][aks-ingress-tls]
 - [Skapa en ingress-kontrollant med en statisk offentlig IP-adress och konfigurera kryptera vi för att automatiskt generera TLS-certifikat][aks-ingress-static-tls]
 
-### <a name="acs-engine"></a>ACS-motor
+### <a name="aks-engine"></a>AKS-motorn
 
-[Azure Container Service Engine (ACS-motor)] [ acs-engine] är ett projekt med öppen källkod som genererar Azure Resource Manager-mallar som du kan använda för att distribuera Docker-aktiverade kluster i Azure. Kubernetes, DC/OS, Swarm-läge och Swarm-initierare kan distribueras med ACS-motor.
+[Azure Kubernetes Service Engine (AKS-motor)] [ aks-engine] är ett projekt med öppen källkod som genererar Azure Resource Manager-mallar som du kan använda för att distribuera Docker-aktiverade kluster i Azure. Kubernetes, DC/OS, Swarm-läge och Swarm-initierare kan distribueras med AKS-motorn.
 
-Kubernetes-kluster som skapas med ACS-motorn ha stöd för både den [kubenet] [ kubenet] och [Azure CNI] [ cni-networking] plugin-program. Därför stöds både grundläggande och avancerade nätverksscenarier av ACS-motor.
+Kubernetes-kluster som skapas med AKS-motorn ha stöd för både den [kubenet] [ kubenet] och [Azure CNI] [ cni-networking] plugin-program. Därför stöds både grundläggande och avancerade nätverksscenarier av AKS-motorn.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
 [portal-01-networking-advanced]: ./media/networking-overview/portal-01-networking-advanced.png
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md

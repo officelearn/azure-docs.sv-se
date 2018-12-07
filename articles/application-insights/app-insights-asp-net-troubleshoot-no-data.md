@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cc255d69a9a8b63ee65fb5dfcfe3879e68844a01
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 234cba3a3c58f1cff45925fcfcf23019dfa8d90e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679570"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998468"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -68,7 +68,7 @@ Högerklicka på projektet i Solution Explorer och välj **Application Insights 
 ## <a name="NuGetBuild"></a> ”NuGet-paket saknas” på min build-server
 *Allt bygger OK när jag felsökning på min utvecklingsdator, men jag får ett NuGet-fel på build-servern.*
 
-Se [NuGet-Paketåterställning](http://docs.nuget.org/Consume/Package-Restore) och [automatisk Paketåterställning](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
+Se [NuGet-Paketåterställning](https://docs.nuget.org/Consume/Package-Restore) och [automatisk Paketåterställning](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
 ## <a name="missing-menu-command-to-open-application-insights-from-visual-studio"></a>Saknas menyn kommando för att öppna Application Insights från Visual Studio
 *När jag högerklickar på mitt projekt Solution Explorer kan jag ser inte alla Application Insights-kommandon eller ett öppna Application Insights-kommandot finns inte.*
@@ -140,7 +140,7 @@ Instrumenteringsnyckeln i ApplicationInsights.config kontroller där telemetri s
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * I den [home Microsoft Azure-instrumentpanelen](https://portal.azure.com), titta på kartan Tjänstehälsa. Om det finns några aviseringar indikationer, vänta tills de har kommit tillbaka till OK och stänger och öppnar ditt programblad i Application Insights.
-* Kontrollera också [vår status blogg](https://blogs.msdn.com/b/applicationinsights-status/).
+* Kontrollera också [vår status blogg](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Har du skriva kod för den [SDK för serversidan](app-insights-api-custom-events-metrics.md) som kan komma att ändras instrumenteringsnyckeln i `TelemetryClient` instanser eller i `TelemetryContext`? Eller har du skriva en [filter eller sampling](app-insights-api-filtering-sampling.md) som kanske filtreras för mycket?
 * Om du har redigerat ApplicationInsights.config noggrant kontrollera konfigurationen för [TelemetryInitializers och TelemetryProcessors](app-insights-api-filtering-sampling.md). En typ av fel namn eller parameter kan orsaka SDK, för att skicka inga data.
 

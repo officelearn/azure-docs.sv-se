@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: e39fb82796c8e6b09f624b2030ff6266bd4189f1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 95eb5475f5584830eac5bd9c690be4a6a85de5c8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720430"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016737"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
@@ -56,7 +56,7 @@ Frågor eller problem med [Azure Application Insights i Java][java]? Här följe
 ### <a name="java-agent-cannot-capture-dependency-data"></a>Java-agenten kan inte hämta data för programberoende
 * Har du konfigurerat Java-agenten genom att följa [konfigurera Java-agenten](app-insights-java-agent.md) ?
 * Kontrollera att både java-agenten jar och AI-Agent.xml-filen är placerade i samma mapp.
-* Se till att beroendet som du försöker automatiskt collect stöds för automatisk insamling. Vi stöder för närvarande endast MySQL, MsSQL, Oracle DB och Redis Cache beroende samling.
+* Se till att beroendet som du försöker automatiskt collect stöds för automatisk insamling. För närvarande stöder vi bara MySQL, MsSQL, Oracle DB och Azure Cache för Redis beroende samling.
 * Använder du JDK 1.7 eller 1.8? För närvarande stöder inte vi beroende samling i JDK 9.
 
 ## <a name="no-usage-data"></a>Inga användningsdata
@@ -156,7 +156,7 @@ Application Insights använder `org.apache.http`. Detta har flyttats i Applicati
 * [Samla in diagnostikloggar][javalogs]
 
 ## <a name="get-help"></a>Få hjälp
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Öppna ett GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->

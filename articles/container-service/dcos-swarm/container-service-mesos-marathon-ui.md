@@ -1,5 +1,5 @@
 ---
-title: Hantera Azure DC/OS-kluster med Användargränssnittet för Marathon
+title: (INAKTUELL) Hantera Azure DC/OS-kluster med Användargränssnittet för Marathon
 description: Distribuera behållare till en klustertjänst i Azure Container Service med Marathons webbgränssnitt.
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a22bddf48f97d961d481e2aedb42f7d645f3e678
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 41b6ce24e7c2e8565d7c2f17c32b8b6e1f38ea4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903089"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992482"
 ---
-# <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Hantera ett Azure Container Service DC/OS-kluster via webbgränssnittet för Marathon
+# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(INAKTUELL) Hantera ett Azure Container Service DC/OS-kluster via webbgränssnittet för Marathon
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastningar samtidigt som den underliggande maskinvaran abstraheras. Utöver DC/OS finns det ett ramverk som hanterar schemaläggning och beräkning av arbetsbelastningar.
 
@@ -39,12 +41,12 @@ Med en Secure Shell (SSH)-tunnel [upprättats](../container-service-connect.md),
 ![DC/OS-gränssnitt:](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Utforska Marathon-gränssnittet
-Om du vill se Användargränssnittet för Marathon, bläddra till http://localhost/marathon. Från den här skärmbilden kan du starta en ny behållare eller ett annat program på DC/OS-klustret för Azure Container Service. Du kan även se information om att köra behållare och program.  
+Om du vill se Användargränssnittet för Marathon, bläddra till http://localhost/marathon. Från den här skärmbilden kan du starta en ny behållare eller ett annat program på DC/OS-klustret för Azure Container Service. Du kan även se information om att köra containrar och program.  
 
 ![Gränssnittet i Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
-## <a name="deploy-a-docker-formatted-container"></a>Distribuera en Docker-formaterad behållare
-Om du vill distribuera en ny behållare med hjälp av Marathon klickar du på **Skapa program** och anger följande information på flikarna i formuläret:
+## <a name="deploy-a-docker-formatted-container"></a>Distribuera en Docker-formaterad container
+Om du vill distribuera en ny container med hjälp av Marathon klickar du på **Skapa program** och anger följande information på flikarna i formuläret:
 
 | Fält | Värde |
 | --- | --- |
@@ -57,11 +59,11 @@ Om du vill distribuera en ny behållare med hjälp av Marathon klickar du på **
 
 ![Nytt programgränssnitt – allmänt](./media/container-service-mesos-marathon-ui/dcos4.png)
 
-![Nytt programgränssnitt – Dockerbehållare](./media/container-service-mesos-marathon-ui/dcos5.png)
+![Nytt programgränssnitt – Dockercontainer](./media/container-service-mesos-marathon-ui/dcos5.png)
 
 ![Nytt programgränssnitt – portar och identifiering av tjänst](./media/container-service-mesos-marathon-ui/dcos6.png)
 
-Om du vill mappa behållarporten statiskt till en port på agenten måste du använda JSON-läget. För att göra det växlar du guiden för nya program till **JSON-läge** med hjälp av växlingsknappen. Ange sedan följande inställning under avsnittet `portMappings` i programdefinitionen. Det här exemplet binder behållarens port 80 till port 80 på DC/OS-agenten. När du har gjort den här ändringen kan du växla ur guiden ur JSON-läget.
+Om du vill mappa containerporten statiskt till en port på agenten måste du använda JSON-läget. För att göra det växlar du guiden för nya program till **JSON-läge** med hjälp av växlingsknappen. Ange sedan följande inställning under avsnittet `portMappings` i programdefinitionen. Det här exemplet binder containerns port 80 till port 80 på DC/OS-agenten. När du har gjort den här ändringen kan du växla ur guiden ur JSON-läget.
 
 ```none
 "hostPort": 80,
@@ -79,7 +81,7 @@ Klicka på **Skapa program**.
 
 ![Nytt programgränssnitt – inställning av offentlig agent](./media/container-service-mesos-marathon-ui/dcos14.png)
 
-Tillbaka på huvudsidan för Marathon kan du se distributionsstatusen för behållaren. Inledningsvis visas statusen **Distribuerar**. När distributionen är klar ändras statusen till **Kör**.
+Tillbaka på huvudsidan för Marathon kan du se distributionsstatusen för containern. Inledningsvis visas statusen **Distribuerar**. När distributionen är klar ändras statusen till **Kör**.
 
 ![Marathon-huvudsidans gränssnitt 0 behållarens distributionsstatus](./media/container-service-mesos-marathon-ui/dcos7.png)
 

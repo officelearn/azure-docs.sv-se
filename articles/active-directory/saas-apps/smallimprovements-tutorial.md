@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 48b1e47befa647a9d221e5cdf5bf0485c3b66028
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 588e56c9ae22578c08dbca07c7c576fe8b577b58
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423835"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Självstudier: Azure Active Directory-integration med små förbättringar
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av små förbättringar i Azure AD, som du beh�
 
 **Utför följande steg för att lägga till små förbättringar från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -216,7 +216,7 @@ Om du vill aktivera Azure AD-användare att logga in på små förbättringar, m
 
     b. Ange den **efternamn** för användare som **Simon**.
 
-    c. Ange den **e-post** för användare som **brittasimon@contoso.com**. 
+    c. Ange den **e-post** för användare som <strong>brittasimon@contoso.com</strong>. 
 
     d. Du kan också välja att ange personligt meddelande i den **skicka e-postmeddelande** box. Om du inte vill skicka meddelandet, avmarkerar du den här kryssrutan.
 

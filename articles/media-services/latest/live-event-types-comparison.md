@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: juliako
-ms.openlocfilehash: 7ff48962d01a83e8c9fce380d92fbc196ff96533
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2dbc2b4e316155e880d3baa900196d5cdd31be72
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585576"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011784"
 ---
 # <a name="liveevent-types-comparison"></a>LiveEvent typer jämförelse
 
 I Azure Media Services, en [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) kan vara något av två typer: direktsänd kodning och direktlagringsdiskar. 
 
-## <a name="types-comparison"></a>Jämförelse av typer 
+## <a name="types-comparison"></a>Jämförelse mellan typer 
 
 I följande tabell jämförs funktionerna i de två typerna av LiveEvent.
 
@@ -42,6 +42,7 @@ I följande tabell jämförs funktionerna i de två typerna av LiveEvent.
 | Stöd för video bitar, indata och utdata|Upp till 10-bitars inklusive HDR 10/HLG|8-bitars|
 | Stöd för inkommande ljud-codec|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
 | Ljud stöds utdata-codecs|Samma som indata|AAC-LC|
+| Maximal video upplösning på utdata-video|Samma som indata|720p (på 30 bilder per sekund)|
 | Inkommande protokoll|RTMP, fragmenterad-MP4 (Smooth Streaming)|RTMP, fragmenterad-MP4 (Smooth Streaming)|
 | Pris|Se den [prissättningssidan](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken ”Live-Video”|Se den [prissättningssidan](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken ”Live-Video”|
 | Maximal körtid|24 x 365 live linjär|Dygnet runt|

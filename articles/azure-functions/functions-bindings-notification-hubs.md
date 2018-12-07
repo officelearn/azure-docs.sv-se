@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: e51a74783f7d7f080d1caa237bb7aabab0100e72
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 72c0db44e1f56cab190f343a87c6b453625a7f70
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248594"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996038"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hub-utdatabindning för Azure Functions
 
@@ -28,7 +28,7 @@ Azure Meddelandehubbar måste konfigureras för den plattformen meddelanden Serv
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Notification Hubs-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet-paketet, version 1.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub-lagringsplatsen.
+Notification Hubs-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet-paketet, version 1.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -136,7 +136,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 }
 ```
 
-### <a name="f-template-example"></a>F #-exempelmall
+### <a name="f-template-example"></a>F#exempelmall
 
 Det här exemplet skickar ett meddelande en [registrering av mallen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller `location` och `message`.
 

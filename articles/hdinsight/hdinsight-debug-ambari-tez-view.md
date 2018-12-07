@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 312b476f8809d1d6375cc20035901d8d11c32173
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494962"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012359"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Använd Apache Ambari-vyer för att felsöka Apache Tez-jobb på HDInsight
 
@@ -103,6 +103,6 @@ Använd följande steg för att köra en Hive-fråga som använder Tez:
 
 Nu när du har lärt dig hur du använder Apache Tez-vy, Läs mer om [med Apache Hive på HDInsight](hadoop/hdinsight-use-hive.md).
 
-Mer detaljerad teknisk information om Apache Tez finns i den [Apache Tez-sidan på Hortonworks](http://hortonworks.com/hadoop/tez/).
+Mer detaljerad teknisk information om Apache Tez finns i den [Apache Tez-sidan på Hortonworks](https://hortonworks.com/hadoop/tez/).
 
 Mer information om hur du använder Apache Ambari med HDInsight finns i [hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)

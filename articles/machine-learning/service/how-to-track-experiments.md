@@ -9,12 +9,13 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 44c5cce103996f1774fb87b46760c23dc9ab575c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ae61f6fe24486eb1d4d5deecf5fb005a4d71b5fc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957716"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016171"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Spåra experiment och utbildning mått i Azure Machine Learning
 
@@ -241,7 +242,7 @@ När du använder den **ScriptRunConfig** metod för att skicka körs, du kan se
    RunDetails(run).show()
    ```
 
-  ![Skärmbild av Jupyter notebook widget](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+  ![Jupyter notebook widget för automatiserad Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
 Om du vill visa information om en pipeline-Klicka på pipelinen du vill utforska i tabellen och diagrammen återges i ett popup-fönster i Azure Portal.
@@ -264,7 +265,7 @@ När ett experiment har körts kan du bläddra till inspelade experimentet körn
 
 Länk för körningen öppnar du direkt till sidan körningsinformation i Azure-portalen. Här kan du se alla egenskaper, spårade mått, bilder och diagram som loggas i experimentet. I det här fallet loggas vi MSE och alfanumeriska värden.
 
-  ![Skärmbild av körningsinformation i Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Information om körningen i Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 Du kan också visa alla utdata och loggar för körningen eller ladda ned ögonblicksbild av experimentet som du har skickat in så att du kan dela mappen experiment med andra.
 
@@ -300,15 +301,15 @@ Läs mer om:
 
 1. Välj experiment som du är intresserad av.
 
-  ![Skärmbild av menyn för experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+  ![Experiment lista](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
 
 1. I tabellen, väljer du hur många som kör.
 
-   ![Skärmbild av menyn för experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+   ![Körningen av experimentet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
 
 1.  Välj Iteration numret för den modell som du vill utforska vidare i tabellen.
 
-   ![Skärmbild av menyn för experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+   ![Experiment modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
 
 
 

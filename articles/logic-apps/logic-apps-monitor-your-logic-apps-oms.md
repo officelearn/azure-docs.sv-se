@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: adc97da12d1a55dd3dcf435fc8051a8eb9b537a9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968194"
+ms.locfileid: "52995649"
 ---
 # <a name="monitor-logic-apps-with-azure-log-analytics"></a>Övervaka logikappar med Azure Log Analytics
 
@@ -23,7 +23,7 @@ Om du vill övervaka och få bättre information om felsökning om logic apps, a
 Följ dessa steg för att du aktiverar Azure Log Analytics för befintliga logikappar, [aktivera Diagnostisk loggning och skicka logic app runtime-data till Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
-> Den här sidan som beskrevs tidigare anvisningar att utföra dessa uppgifter med den Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), ersätter de här stegen med Azure Log Analytics i stället. 
+> Den här sidan som beskrevs tidigare anvisningar att utföra dessa uppgifter med den Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../azure-monitor/platform/oms-portal-transition.md), ersätter de här stegen med Azure Log Analytics i stället. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

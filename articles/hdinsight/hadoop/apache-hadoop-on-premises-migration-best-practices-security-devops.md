@@ -9,37 +9,37 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: fa72765e02592b72efb09320958a0aa244ae8b08
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 548992ac221b1b6f9a29082eb986aa42c6a2807e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265295"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994000"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - säkerhet och bästa praxis för DevOps
 
 Den här artikeln ger rekommendationer för säkerhets- och DevOps i Azure HDInsight-system. Det är en del i en serie som ger bästa praxis för att hjälpa migrera lokala Apache Hadoop-system till Azure HDInsight.
 
-## <a name="use-the-enterprise-security-package-to-secure-and-govern-the-cluster"></a>Använda säkerhetspaketet för företag att skydda och styr klustret
+## <a name="secure-and-govern-cluster-with-enterprise-security-package"></a>Skydda och styr kluster med Enterprise Security Package
 
-Enterprise Security Package (ESP) har stöd för Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomstkontroll. HDInsight-kluster är ansluten till Active Directory-domänen med det valda ESP-alternativet och enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC för Hive-säkerhet) med hjälp av Apache Ranger. Administratören kan också granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll.
+Enterprise Security Package (ESP) har stöd för Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomstkontroll. HDInsight-kluster är ansluten till Active Directory-domänen med det valda ESP-alternativet och enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC för Apache Hive säkerhet) med hjälp av Apache Ranger. Administratören kan också granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll.
 
 ESP är tillgängligt på följande klustertyper: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka och Interactive Query (Hive-LLAP). 
 
 Använd följande steg för att distribuera domänanslutna HDInsight-kluster:
 
-- Distribuera Azure Active Directory (AAD) genom att skicka domännamnet
-- Distribuera Azure Active Directory Domain Services (DS AAD)
-- Skapa nödvändiga virtuella nätverk och undernät
-- Distribuera en virtuell dator i det virtuella nätverket för att hantera AAD DS
-- Anslut den virtuella datorn till domänen
-- Installera AD och DNS-verktyg
-- Låt AAD-DS-administratören skapa en organisationsenhet (OU)
-- Aktivera LDAPS för AAD DS
+- Distribuera Azure Active Directory (AAD) genom att ange domännamnet.
+- Distribuera Azure Active Directory Domain Services (DS AAD).
+- Skapa nödvändiga virtuellt nätverk och undernät.
+- Distribuera en virtuell dator i det virtuella nätverket för att hantera AAD DS.
+- Anslut den virtuella datorn till domänen.
+- Installera AD och DNS-verktyg.
+- Låt AAD-DS-administratören skapa en organisationsenhet (OU).
+- Aktivera LDAPS för AAD DS.
 - Skapa ett tjänstkonto i Azure Active Directory med delegerade Läs & admin skrivbehörighet till Organisationsenheten, så att den kan. Tjänstkontot kan ansluta datorer till domänen och placera datorn säkerhetsobjekt i Organisationsenheten. Det kan också skapa tjänstens huvudnamn i Organisationsenheten som du anger när klustret skapas.
 
     > [!Note]
-    > Kontot behöver inte vara administratör för AD domänkonto
+    > Kontot behöver inte vara administratör för AD domänkonto.
 
 - Distribuera HDInsight ESP-kluster genom att ange följande parametrar:
     - **Domännamn**: det domännamn som är associerat med Azure AD DS.
@@ -51,33 +51,33 @@ Använd följande steg för att distribuera domänanslutna HDInsight-kluster:
 
 Mer information finns i följande artiklar:
 
-- [En introduktion till Hadoop-säkerhet med domänanslutna HDInsight-kluster](../domain-joined/apache-domain-joined-introduction.md)
+- [En introduktion till Apache Hadoop-säkerhet med domänanslutna HDInsight-kluster](../domain-joined/apache-domain-joined-introduction.md)
 - [Planera Azure-domänanslutna Hadoop-kluster i HDInsight](../domain-joined/apache-domain-joined-architecture.md)
 - [Konfigurera ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 - [Synkronisera Azure Active Directory-användare till ett HDInsight-kluster](../hdinsight-sync-aad-users-to-cluster.md)
-- [Konfigurera Hive-policyer i domänanslutna HDInsight](../domain-joined/apache-domain-joined-run-hive.md)
+- [Konfigurera Apache Hive-policyer i domänanslutna HDInsight](../domain-joined/apache-domain-joined-run-hive.md)
 - [Kör Apache Oozie i domänanslutna HDInsight Hadoop-kluster](../domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)
 
-## <a name="implement-end-to-end-enterprise-security-management"></a>Implementera säkerhetshantering för slutpunkt till slutpunkt enterprise
+## <a name="implement-end-to-end-enterprise-security"></a>Implementera heltäckande företagssäkerhet
 
 Slutpunkt-till-slutpunktsäkerhet för enterprise kan uppnås med hjälp av följande kontroller:
 
 - **Privata och skyddade datapipeline (nivå perimetersäkerhet)**
-    - Säkerhet på i perimeternätverket kan ske via Azure-nätverk, Nätverkssäkerhetsgrupper och Gateway-tjänsten
+    - Säkerhet på i perimeternätverket kan ske via Azure-nätverk, Nätverkssäkerhetsgrupper och Gateway-tjänsten.
 
 - **Autentisering och auktorisering för dataåtkomst**
-    - Skapa domänanslutna HDInsight-kluster med Azure Active Directory Domain Services. (Enterprise Security Package)
-    - Använda Ambari och ge rollbaserad åtkomst till klusterresurserna för AD-användare
+    - Skapa domänanslutna HDInsight-kluster med Azure Active Directory Domain Services. (Enterprise Security Package).
+    - Använda Ambari och ge rollbaserad åtkomst till klusterresurserna för AD-användare.
     - Använda Apache Ranger för att ange åtkomstkontrollprinciper för Hive på tabellen / kolumn / radnivån.
     - SSH-åtkomst till klustret kan vara begränsad endast till administratören.
 
 - **Granskning**
     - Visa och rapportera all åtkomst till HDInsight-klusterresurser och data.
-    - Visa och rapportera alla ändringar i principer för åtkomstkontroll
+    - Visa och rapportera alla ändringar i principer för åtkomstkontroll.
 
 - **Kryptering**
     - Transparent Server Side encryption med hjälp av Microsoft-hanterade nycklar eller Kundhanterade nycklar.
-    - I överföringen kryptering med Client Side encryption, https och TLS
+    - Använda Client Side encryption, https och TLS i överföringen kryptering.
 
 Mer information finns i följande artiklar:
 
@@ -106,13 +106,13 @@ Uppgradera regelbundet till den senaste versionen för HDInsight kan utnyttja de
 1. Importera alla tillfälliga data som har säkerhetskopierats.
 1. Starta jobb/fortsätta att bearbeta med hjälp av det nya klustret.
 
-Mer information finns i artikeln: [uppgradera HDInsight-kluster till en ny version](../hdinsight-upgrade-cluster.md)
+Mer information finns i artikeln: [uppgradera HDInsight-kluster till en ny version](../hdinsight-upgrade-cluster.md).
 
 ## <a name="patch-cluster-operating-systems"></a>Korrigera klusteroperativsystemen
 
 Som en hanterad tjänst i Hadoop hand HDInsight tar om uppdatering av Operativsystemet för de virtuella datorerna som används av HDInsight-kluster.
 
-Mer information finns i artikeln: [OS-korrigering för HDInsight](../hdinsight-os-patching.md)
+Mer information finns i artikeln: [OS-korrigering för HDInsight](../hdinsight-os-patching.md).
 
 ## <a name="post-migration"></a>Uppgifter efter migrering
 
@@ -122,4 +122,4 @@ Mer information finns i artikeln: [OS-korrigering för HDInsight](../hdinsight-o
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)
+- Läs mer om [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: 0c59405cc6d46bcaffbab0e2a746467eec26de69
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e106094ce94b7f232fd5687988af2bd11b971e3f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024128"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001944"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökvägsbaserad routning regler med hjälp av Azure portal
 
@@ -39,11 +39,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com)
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-Ett virtuellt nätverk krävs för kommunikation mellan de resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
+Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
 1. Klicka på **New** hittades på det övre vänstra hörnet i Azure-portalen.
 2. Välj **Nätverk** och sedan **Application Gateway** i listan Aktuella.
@@ -55,7 +55,7 @@ Ett virtuellt nätverk krävs för kommunikation mellan de resurser som du skapa
     ![Skapa en ny programgateway](./media/create-url-route-portal/application-gateway-create.png)
 
 4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
-5. Klicka på **Välj ett virtuellt nätverk**, klickar du på **Skapa nytt**, och ange följande värden för det virtuella nätverket:
+5. Klicka på **Välj ett virtuellt nätverk**, klicka på **Skapa nytt** och ange sedan följande värden för det virtuella nätverket:
 
     - *myVnet* – Det virtuella nätverkets namn.
     - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
@@ -83,7 +83,7 @@ Ett virtuellt nätverk krävs för kommunikation mellan de resurser som du skapa
 I det här exemplet skapar du tre virtuella datorer som ska användas som serverdelsservrar för application gateway. Du installerar även IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
 
 1. Klicka på **Ny**.
-2. Klicka på **Compute** och välj sedan **Windows Server 2016 Datacenter** i listan över aktuella.
+2. Klicka på **Compute** och sedan **Windows Server 2016 Datacenter** i listan Aktuella.
 3. Ange följande värden för den virtuella datorn:
 
     - *myVM1* – för den virtuella datorns namn.

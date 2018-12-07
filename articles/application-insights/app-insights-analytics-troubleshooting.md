@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 9df44ec59e9384ac047b5c67abae334d51ff4dd3
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b883ccc475a221c8aee135c5d14da32f7598b90c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679281"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999050"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Felsökningsanalys i Application Insights
 Problem med [Application Insights Analytics](app-insights-analytics.md)? Börja här. Analytics är verktyget kraftfull sökning av Azure Application Insights.
@@ -104,7 +104,7 @@ URL: en är ogiltig.
 * Öppna appen resursen i [Application Insights-portalen](https://portal.azure.com). Använd sedan knappen Analytics.
 
 ## <a name="cookies"></a>Aktivera cookies från tredje part
-  Se [inaktivera cookies från tredje part](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), men Observera att vi behöver **aktivera** dem.
+  Se [inaktivera cookies från tredje part](https://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), men Observera att vi behöver **aktivera** dem.
 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

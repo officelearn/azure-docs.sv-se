@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 670de3f61047bcc8b168863f5981e41084225ec4
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e25a43f4589b7266edccd7f8c14a0937515d13a3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634676"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015185"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Använd Data Lake Tools för Visual Studio för att ansluta till Azure HDInsight och kör Apache Hive-frågor
 
@@ -107,7 +107,7 @@ När du har öppnat en behållare kan du använda följande knappar för att öv
 ![Skärmbild av Data Lake Tools för Visual Studio-blobåtgärder i Server Explorer](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png "Ladda upp, ta bort och ladda ned blobar i Server Explorer")
 
 ## <a name="run-interactive-hive-queries"></a>Köra interaktiva Hive-frågor
-[Apache Hive](http://hive.apache.org) är en infrastruktur för informationslager som bygger på Hadoop. Hive används för att sammanfatta data, frågor och analys. Du kan använda Data Lake Tools för Visual Studio för att köra Hive-frågor från Visual Studio. Mer information om Hive finns i [Använda Hive med HDInsight](hdinsight-use-hive.md).
+[Apache Hive](https://hive.apache.org) är en infrastruktur för informationslager som bygger på Hadoop. Hive används för att sammanfatta data, frågor och analys. Du kan använda Data Lake Tools för Visual Studio för att köra Hive-frågor från Visual Studio. Mer information om Hive finns i [Använda Hive med HDInsight](hdinsight-use-hive.md).
 
 Den [interaktiva frågan](../interactive-query/apache-interactive-query-get-started.md) använder [Hive på LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) i Apache Hive 2.1. Interaktiva frågor ger interaktivitet till komplexa informationslagerfrågor i stora, lagrade datauppsättningar. Det går mycket snabbare att köra Hive-frågor på interaktiva frågor jämfört med traditionella Hive-batchjobb. Mer information finns i [Köra Hive batchjobb](#run-hive-batch-jobs).
 

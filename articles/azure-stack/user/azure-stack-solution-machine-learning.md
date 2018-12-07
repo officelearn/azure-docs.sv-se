@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 7c92b2a060e73484b73a60f9215425cba40ea3f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e503a394eed7d5c4bdd4c93037dc86442097f72e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966729"
+ms.locfileid: "53002177"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en edge-machine learning-lösning med Azure och Azure Stack
 
@@ -81,9 +81,8 @@ Tidigare erfarenhet av Azure och Azure Stack är obligatoriskt. Mer information 
 
  -  Distribution av [Azure Container Services (ACS) Kubernetes på Azure](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
- -  Distribution av Azure Machine Learning-tjänsten (förhandsversion) [4 delar självstudien](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1)
+ -  Distribution av Azure Machine Learning-tjänsten [2 – en självstudie](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
 
- -  Azure Machine Learning-experimentering [konto](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/experimentation-service-template)
 
 **Azure Stack**
 
@@ -358,7 +357,7 @@ Azure Machine Learning Workbench är tillgänglig för Windows eller macOS. Visa
     | Projektnamn | myIris | Ange ett unikt namn som identifierar kontot. Använd de avdelningar eller projekt som bäst identifierar experimentet. Namnet ska bestå av 2 till 32 tecken. Det får endast innehålla alfanumeriska tecken och streck (-). |
     | Projektkatalog | c:\Temp\ | Ange i vilken katalogen projektet ska skapas. |
     | Projektbeskrivning | Lämna tomt | Valfritt fält som kan användas för att beskriva projekten. |
-    | URL till GIT-lagringsplats för Visualstudio.com | Lämna tomt | Valfritt fält. Associera ett projekt med en Git-lagringsplats i Visual Studio Team Services för källkontroll och samarbete. [Lär dig hur du ställer in en lagringsplats](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project). |
+    | URL till GIT-lagringsplats för Visualstudio.com | Lämna tomt | Valfritt fält. Associera ett projekt med en Git-lagringsplats i Visual Studio Team Services för källkontroll och samarbete. |
     | Vald arbetsyta | IrisGarden (om det finns) | Välj en arbetsyta som skapats för experimenteringskonto i Azure-portalen. <br>Med snabbstarten visas arbetsytan med namnet IrisGarden. Annars kan använda arbetsytan med namnet på experimenteringskontot eller en önskad kontonamn. |
     | Projektmall | Klassificera Iris | Mallar innehåller skript och data som används för att utforska produkten. Den här mallen innehåller skript och data som behövs för den här snabbstarten och andra självstudier i den här på dokumentationsplatsen. |
 

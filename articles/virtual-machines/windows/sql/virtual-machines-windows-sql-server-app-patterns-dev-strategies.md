@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 9ccf7d85b52759a3f2cd64facc6ee8d7255f0fac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b47172df2ab3bd286db0faa21eb5197fd061bfd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253184"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012903"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Programmönster och utvecklingsstrategier för SQL Server i Azure Virtual Machines
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -192,7 +192,7 @@ Som visas i diagrammet, Azure Load Balancer distribuerar trafiken mellan flera v
 
 ![Programmönster med Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-En annan metod för att implementera den här programmönster är att använda en konsoliderad webbroll som innehåller både presentationsnivån och business-nivå komponenter som du ser i följande diagram. Det här programmet mönstret är användbart för program som kräver tillståndskänsliga design. Eftersom Azure tillhandahåller tillståndslösa compute-noder på webb-och arbetsroller, rekommenderar vi att du implementera en logik för att lagra sessionstillstånd med någon av följande tekniker: [Azure Caching](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure Table Storage](../../../cosmos-db/table-storage-how-to-use-dotnet.md) eller [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md).
+En annan metod för att implementera den här programmönster är att använda en konsoliderad webbroll som innehåller både presentationsnivån och business-nivå komponenter som du ser i följande diagram. Det här programmet mönstret är användbart för program som kräver tillståndskänsliga design. Eftersom Azure tillhandahåller tillståndslösa compute-noder på webb-och arbetsroller, rekommenderar vi att du implementera en logik för att lagra sessionstillstånd med någon av följande tekniker: [Azure Caching](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [Azure Table Storage](../../../cosmos-db/table-storage-how-to-use-dotnet.md) eller [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md).
 
 ![Programmönster med Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

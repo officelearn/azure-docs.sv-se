@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: f440e92f62c7c61966145a1e74d3d3be9f6b7825
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: bacb2cfffe567808f95e42e5ee6e2070815eace6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250581"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996729"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -27,13 +27,13 @@ Den här artikeln förklarar hur du arbetar med Azure Service Bus-bindningar i A
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Service Bus-bindningar finns i den [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-paketet, version 2.x. 
+Service Bus-bindningar finns i den [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-paketet, version 2.x. 
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
-Service Bus-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet-paketet, version 3.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub-lagringsplatsen.
+Service Bus-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet-paketet, version 3.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -118,9 +118,9 @@ public static void Run(string myQueueItem,
 }
 ```
 
-### <a name="trigger---f-example"></a>Utlösare – F #-exempel
+### <a name="trigger---f-example"></a>Utlösare – F# exempel
 
-I följande exempel visas en Service Bus-utlösare bindning i en *function.json* fil och en [F #-funktion](functions-reference-fsharp.md) som använder bindningen. Funktionen loggar ett meddelande med Service Bus-kö. 
+I följande exempel visas en Service Bus-utlösare bindning i en *function.json* fil och en [ F# funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen loggar ett meddelande med Service Bus-kö. 
 
 Här är bindningsdata i den *function.json* fil:
 
@@ -139,7 +139,7 @@ Här är bindningsdata i den *function.json* fil:
 }
 ```
 
-Här är F #-skriptkoden:
+Här är den F# skript kod:
 
 ```fsharp
 let Run(myQueueItem: string, log: ILogger) =
@@ -419,9 +419,9 @@ public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> output
 }
 ```
 
-### <a name="output---f-example"></a>Resultat – F #-exempel
+### <a name="output---f-example"></a>Utdata - F# exempel
 
-I följande exempel visas en Service Bus-utdatabindning i en *function.json* fil och en [F #-skriptfunktion](functions-reference-fsharp.md) som använder bindningen. Funktionen använder en timer som utlösare för att skicka ett kömeddelande var 15: e sekund.
+I följande exempel visas en Service Bus-utdatabindning i en *function.json* fil och en [ F# skript funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen använder en timer som utlösare för att skicka ett kömeddelande var 15: e sekund.
 
 Här är bindningsdata i den *function.json* fil:
 
@@ -447,7 +447,7 @@ Här är bindningsdata i den *function.json* fil:
 }
 ```
 
-Här är F #-skriptkoden som skapar ett enda meddelande:
+Här är F# skriva kod som skapar ett enda meddelande:
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
@@ -617,6 +617,7 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
                 "autoComplete": false,
                 "maxConcurrentCalls": 32,
                 "maxAutoRenewDuration": "00:55:00"
+            }
         }
     }
 }

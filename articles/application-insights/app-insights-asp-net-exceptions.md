@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2d378c537d4e20698863c789101e4ad3167b7f10
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: f36d0ec4446ee6591798c0d8926f41a4e177d81d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680828"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997060"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
 Undantag i ditt live-webbapp som rapporteras av [Application Insights](app-insights-overview.md). Du kan jämföra misslyckade begäranden med undantag och andra händelser på både klienten och servern, så att du kan snabbt diagnostisera orsakerna.
@@ -168,7 +168,7 @@ Egenskaper och mätningar av parametrar är valfria, men är användbara för [f
 ## <a name="browser-exceptions"></a>Webbläsarundantag
 De flesta webbläsarundantag rapporteras.
 
-Om din webbsida omfattar skriptfiler från nätverk för innehållsleverans eller andra domäner, kontrollera din skripttypen har attributet ```crossorigin="anonymous"```, och som skickar servern [CORS-huvuden](http://enable-cors.org/). Detta kan du få ett stackspårning och information för ohanterade JavaScript-undantag från dessa resurser.
+Om din webbsida omfattar skriptfiler från nätverk för innehållsleverans eller andra domäner, kontrollera din skripttypen har attributet ```crossorigin="anonymous"```, och som skickar servern [CORS-huvuden](https://enable-cors.org/). Detta kan du få ett stackspårning och information för ohanterade JavaScript-undantag från dessa resurser.
 
 ## <a name="web-forms"></a>Webbformulär
 HTTP-modul kommer att kunna samla in undantag när det finns inga omdirigeringar som konfigurerats med CustomErrors för web forms.

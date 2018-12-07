@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c16d85479399d7988be18f9b852563617bb824b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 42fc92b0cee20679ab72a389cc11522c0ca4e0fd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632664"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013762"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Utveckla Java MapReduce-program för Apache Hadoop på HDInsight
 
@@ -25,12 +25,12 @@ Lär dig hur du använder Apache Maven för att skapa ett Java-baserade MapReduc
 
 ## <a name="prerequisites"></a>Förhandskrav
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 eller senare (eller ett motsvarande, till exempel OpenJDK).
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 eller senare (eller ett motsvarande, till exempel OpenJDK).
     
     > [!NOTE]
     > HDInsight version 3.4 och tidigare använda Java 7. HDInsight 3.5 och senare använder Java 8.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 ## <a name="configure-development-environment"></a>Konfigurera utvecklingsmiljön
 
@@ -63,7 +63,7 @@ Följande miljövariabler kan anges när du installerar Java och JDK-Paketet. Du
 
     Det här kommandot skapar en katalog med det namnet som anges av den `artifactID` parametern (**wordcountjava** i det här exemplet.) Den här katalogen innehåller följande objekt:
 
-   * `pom.xml` – [Projekt Object Model (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) som innehåller information om och konfiguration information som används för att skapa projektet.
+   * `pom.xml` – [Projekt Object Model (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) som innehåller information om och konfiguration information som används för att skapa projektet.
 
    * `src` -Katalogen som innehåller programmet.
 
@@ -94,7 +94,7 @@ Följande miljövariabler kan anges när du installerar Java och JDK-Paketet. Du
     </dependency>
    ```
 
-    Detta definierar vilka bibliotek som behövs (visas i &lt;artifactId\>) med en specifik version (visas i &lt;version\>). Vid kompilering laddas dessa beroenden från Maven-centrallagret standard. Du kan använda den [Maven-sökning för databasen](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) vill se mer.
+    Detta definierar vilka bibliotek som behövs (visas i &lt;artifactId\>) med en specifik version (visas i &lt;version\>). Vid kompilering laddas dessa beroenden från Maven-centrallagret standard. Du kan använda den [Maven-sökning för databasen](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) vill se mer.
    
     Den `<scope>provided</scope>` meddelar Maven dessa beroenden inte paketeras med programmet som de tillhandahålls av HDInsight-klustret vid körning.
 
@@ -138,7 +138,7 @@ Följande miljövariabler kan anges när du installerar Java och JDK-Paketet. Du
     </build>
    ```
 
-    Plugin-programmet första konfigurerar den [Maven nyans-pluginprogrammet](http://maven.apache.org/plugins/maven-shade-plugin/), som används för att skapa en uberjar (kallas ibland en fatjar) som innehåller beroenden som krävs av programmet. Det förhindrar även att duplicering av licenser inom jar-paket, vilket kan orsaka problem i vissa system.
+    Plugin-programmet första konfigurerar den [Maven nyans-pluginprogrammet](https://maven.apache.org/plugins/maven-shade-plugin/), som används för att skapa en uberjar (kallas ibland en fatjar) som innehåller beroenden som krävs av programmet. Det förhindrar även att duplicering av licenser inom jar-paket, vilket kan orsaka problem i vissa system.
 
     Andra plugin-programmet konfigurerar för målets version av Java.
 
@@ -291,9 +291,9 @@ I det här dokumentet har du lärt dig hur du utvecklar ett Java MapReduce-jobb.
 
 Mer information finns också i [Java-Utvecklingscenter](https://azure.microsoft.com/develop/java/).
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]:hdinsight-use-sqoop.md
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -303,5 +303,5 @@ Mer information finns också i [Java-Utvecklingscenter](https://azure.microsoft.
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-power-query]:apache-hadoop-connect-excel-power-query.md
 
-[powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+[powershell-PSCredential]: https://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 536ae926ad8f401f952a41e17074536cc2b3c5f1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0bae06d46c2c96ba9dd058e9c2d380379523811c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832045"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993934"
 ---
 # <a name="manage-analysis-services"></a>Hantera Analysis Services
 När du har skapat en Analysis Services-server i Azure, kan det finnas vissa administration och hantering av uppgifter du behöver utföra direkt eller någon gång ned vägen. Till exempel bearbetning för att uppdatera data, styra vem som kan komma åt modeller på servern eller övervaka hälsa för din server. Vissa hanteringsuppgifter kan endast utföras i Azure-portalen, andra i SQL Server Management Studio (SSMS), och vissa aktiviteter kan göras antingen.
@@ -35,7 +35,7 @@ För att få de senaste funktionerna och jämnaste upplevelsen när du ansluter 
 
 
 ### <a name="to-connect-with-ssms"></a>Att ansluta med SSMS
- När du använder SSMS, innan du ansluter till servern för första gången måste du kontrollera ditt användarnamn som ingår i gruppen Analysis Services-administratörer. Mer information finns i [serveradministratörer](#server-administrators) senare i den här artikeln.
+ När du använder SSMS, innan du ansluter till servern för första gången måste du kontrollera ditt användarnamn som ingår i gruppen Analysis Services-administratörer. Mer information finns i [serveradministratörer och databasanvändare](#server-administrators-and-database-users) senare i den här artikeln.
 
 1. Innan du ansluter måste du hämta servernamnet. Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera servernamnet.
    

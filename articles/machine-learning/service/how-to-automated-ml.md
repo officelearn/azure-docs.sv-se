@@ -1,30 +1,34 @@
 ---
-title: Vad är automatisk Maskininlärning – Azure Machine Learning
-description: I den här artikeln får du lära dig om automatisk machine learning. Azure Machine Learning-tjänsten kan välja en algoritm för dig, och automatiskt generera en modell från den. Automatiserad machine learning kan du spara mycket tid med hjälp av parametrar och kriterier som du anger för att välja den bästa algoritmen för din modell.
+title: Vad är automatisk Maskininlärning – Azure Machine Learning-tjänsten
+description: Läs mer om hur Azure Machine Learning-tjänsten kan automatiskt välja en algoritm för dig och skapa en modell från att spara tid genom att använda parametrar och kriterier som du anger för att välja den bästa algoritmen för din modell.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: krishnan
-author: krishnaanumalasetty
-ms.date: 9/24/2018
-ms.openlocfilehash: 2a9c05b68d05102fab80b2aa8fb1c1dad8a367ea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+author: nacharya1
+ms.author: nilesha
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4b9356c7cba14cf5bd112c7d7ae1aab2842fb9d1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960047"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010900"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
-I den här artikeln får du lära dig om automatisk machine learning. Azure Machine Learning-tjänsten kan välja en algoritm för dig, och automatiskt generera en modell från den. Automatiserad machine learning kan du spara mycket tid med hjälp av parametrar och kriterier som du anger för att välja den bästa algoritmen för din modell.
+I den här artikeln får du lära dig om automatisk machine learning. Azure Machine Learning-tjänsten kan välja en algoritm för dig, och automatiskt generera en modell från den. Automatiserad maskininlärning sparar du tid genom att generera modeller justerade från mål och begränsningar som du har definierat för ditt experiment, till exempel tiden för experiment att köra eller som modeller för att svartlista.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-1. Du konfigurerar typ av machine learning problem du försöker lösa. Två typer av övervakad inlärning stöds:
+1. Du konfigurerar typ av machine learning problem du försöker lösa. Kategorier av övervakad inlärning stöds:
    + Klassificering
    + Regression
+   + Prognosticering 
+
+   När automatisk machine learning är allmänt tillgänglig **prognosmodellen funktionen är fortfarande i förhandsversion.**
 
    Se den [listan över modeller](how-to-configure-auto-train.md#select-your-experiment-type) Azure Machine Learning kan försöka vid utbildning.
 

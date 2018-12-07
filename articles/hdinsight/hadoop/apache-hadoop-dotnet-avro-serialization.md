@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: ae728cd1cfc27a17badcce319a8cd047b54ddb1e
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 9727a990548977e0b07710d879881669161c7a4c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634013"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015270"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Serialisera data i Apache Hadoop med Microsoft Avro Library
 
@@ -27,7 +27,7 @@ Det här avsnittet visar hur du använder den [Microsoft Avro Library](https://g
 [!INCLUDE [windows-only](../../../includes/hdinsight-windows-only.md)]
 
 ## <a name="apache-avro"></a>Apache Avro
-Den <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implementerar Apache Avros data serialisering system för Microsoft.NET-miljö. Apache Avro ger en kompakta binära dataöverföringsformat för serialisering. Den använder <a href="http://www.json.org" target="_blank">JSON</a> att definiera ett språkoberoende schema som meddelar försäkringar språksamverkan. Data serialiseras på ett språk kan läsas i en annan. För närvarande stöds C, C++, C#, Java, PHP, Python och Ruby. Detaljerad information om formatet finns i den <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">specifikation för Apache Avro</a>. 
+Den <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implementerar Apache Avros data serialisering system för Microsoft.NET-miljö. Apache Avro ger en kompakta binära dataöverföringsformat för serialisering. Den använder <a href="http://www.json.org" target="_blank">JSON</a> att definiera ett språkoberoende schema som meddelar försäkringar språksamverkan. Data serialiseras på ett språk kan läsas i en annan. För närvarande stöds C, C++, C#, Java, PHP, Python och Ruby. Detaljerad information om formatet finns i den <a href="https://avro.apache.org/docs/current/spec.html" target="_blank">specifikation för Apache Avro</a>. 
 
 >[!NOTE]
 >Microsoft Avro Library stöder inte den RPC-anrop (RPC-anrop) delen av den här specifikationen.
@@ -58,7 +58,7 @@ Följande krävs innan du installerar biblioteket:
 ## <a name="compile-schemas-using-avro-library"></a>Kompilera scheman med Avro-bibliotek
 Microsoft Avro Library innehåller en kod generation verktyg som gör att skapa C#-typer som automatiskt baserat på den tidigare definierade JSON-scheman. Verktyget code generation distribueras inte som en binär körbar fil, men de är lätta att bygga via följande procedur:
 
-1. Hämta ZIP-filen med den senaste versionen av HDInsight SDK källkoden från <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK för Hadoop</a>. (Klicka på den **ladda ned** ikon, inte den **hämtar** fliken.)
+1. Hämta ZIP-filen med den senaste versionen av HDInsight SDK källkoden från <a href="https://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK för Hadoop</a>. (Klicka på den **ladda ned** ikon, inte den **hämtar** fliken.)
 2. Extrahera HDInsight SDK till en katalog på datorn med .NET Framework 4 installerat och anslutet till Internet för att ladda ned nödvändiga beroendet NuGet-paket. Nedan förutsätter vi att källkoden ska extraheras till C:\SDK.
 3. Gå till mappen C:\SDK\src\Microsoft.Hadoop.Avro.Tools och kör build.bat. (Filen anropar MSBuild från 32-bitars fördelningen av .NET Framework. Om du vill använda 64-bitarsversionen redigera build.bat, efter kommentarerna i filen.) Kontrollera att versionen har utförts. (På vissa system, MSBuild kan ge varningar. Dessa varningar påverkar inte verktyget så länge det finns inga build-fel.)
 4. Den kompilerade som finns i C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
@@ -852,7 +852,7 @@ Data är sedan läsa från filen och avserialiseras till en samling objekt. Den 
 ## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Exempel 5: Serialisering med objektet behållarfiler med en anpassad komprimerings-codec
 Det femte exemplet visar hur du använder en anpassad komprimerings-codec för behållarfiler i Avro-objektet. Ett sampel som innehåller koden för det här exemplet kan laddas ned från den [kodexempel för Azure](https://code.msdn.microsoft.com/Serialize-data-with-the-67159111) plats.
 
-Den [Avro-specifikationen](http://avro.apache.org/docs/current/spec.html#Required+Codecs) tillåter användning av ett valfritt komprimerings-codec (förutom **Null** och **Deflate** standardinställningarna). Det här exemplet är inte implementerar en ny codec, till exempel Snappy (nämns som en valfri codec i den [Avro-specifikationen](http://avro.apache.org/docs/current/spec.html#snappy)). Den visar hur du använder .NET Framework 4.5-implementering av den [ **Deflate** ] [ deflate-110] codec, vilket ger en bättre komprimeringsalgoritm baserat på den [zlib ](http://zlib.net/) Komprimeringsbiblioteket än standardversionen för .NET Framework 4.
+Den [Avro-specifikationen](https://avro.apache.org/docs/current/spec.html#Required+Codecs) tillåter användning av ett valfritt komprimerings-codec (förutom **Null** och **Deflate** standardinställningarna). Det här exemplet är inte implementerar en ny codec, till exempel Snappy (nämns som en valfri codec i den [Avro-specifikationen](https://avro.apache.org/docs/current/spec.html#snappy)). Den visar hur du använder .NET Framework 4.5-implementering av den [ **Deflate** ] [ deflate-110] codec, vilket ger en bättre komprimeringsalgoritm baserat på den [zlib ](https://zlib.net/) Komprimeringsbiblioteket än standardversionen för .NET Framework 4.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1351,7 +1351,7 @@ I sjätte exempel illustrerar några programmeringstekniker som rör interagera 
 Exemplet gör följande:
 
 * Ansluter till ett befintligt kluster för HDInsight-tjänsten.
-* Serialiserar flera CSV-filer och överför resultatet till Azure Blob storage. (CSV-filer ska distribueras tillsammans med exemplet och som representerar ett utdrag ur AMEX lager historiska data distribueras av [Infochimps](http://www.infochimps.com/) under 1970 2010. Exemplet läser CSV-fildata, konverterar poster till instanser av den **lager** klassen och Serialiserar dem genom att använda reflektion. Definition av lagerartiklar har skapats från en JSON-schema via verktyget Microsoft Avro Library code generation.
+* Serialiserar flera CSV-filer och överför resultatet till Azure Blob storage. (CSV-filer ska distribueras tillsammans med exemplet och som representerar ett utdrag ur AMEX lager historiska data distribueras av [Infochimps](https://www.infochimps.com/) under 1970 2010. Exemplet läser CSV-fildata, konverterar poster till instanser av den **lager** klassen och Serialiserar dem genom att använda reflektion. Definition av lagerartiklar har skapats från en JSON-schema via verktyget Microsoft Avro Library code generation.
 * Skapar en ny extern tabell som kallas **aktier** i Hive och länkar den till data laddades upp i föregående steg.
 * Kör en fråga med hjälp av Hive via den **aktier** tabell.
 
@@ -1378,5 +1378,5 @@ Om du vill rensa klustret kör du följande kommando:
 
     AvroHDISample clean
 
-[deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
-[deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
+[deflate-100]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
+[deflate-110]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx

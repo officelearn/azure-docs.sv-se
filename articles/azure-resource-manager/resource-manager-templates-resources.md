@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 0b42a51f255080905cb0104d06ed18f1d18f8e5d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945203"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015423"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Resursavsnittet i Azure Resource Manager-mallar
 
@@ -93,7 +93,7 @@ Du definierar resurser med följande struktur:
 | kopiera |Nej |Om fler än en instans, hur många resurser för att skapa. Standardläget är parallell. Ange seriell läge när du inte vill att alla eller resurserna som ska distribueras på samma gång. Mer information finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nej |Resurser som måste distribueras innan den här resursen har distribuerats. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i rätt ordning. När resurserna inte är beroende av varandra, är de distribueras parallellt. Värdet kan vara en kommaavgränsad lista över en resurs namn eller resurs unika identifierare. Endast lista över resurser som distribueras i den här mallen. Resurser som inte har definierats i den här mallen måste redan finnas. Undvik att lägga till onödiga beroenden som de kan sakta distributionen och skapa cirkulärt tjänstberoende. Anvisningar för inställningen beroenden finns i [definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md). |
 | properties |Nej |Resurs-specifika konfigurationsinställningar. Värdena för egenskaperna är samma som de värden som du anger i begärandetexten för REST API-åtgärd (PUT-metoden) att skapa resursen. Du kan också ange en kopia matris för att skapa flera instanser av en egenskap. |
-| SKU: n | Nej | Vissa resurser kan värden som definierar SKU för att distribuera. Du kan till exempel ange typen av redundans för ett lagringskonto. |
+| sku | Nej | Vissa resurser kan värden som definierar SKU för att distribuera. Du kan till exempel ange typen av redundans för ett lagringskonto. |
 | typ | Nej | Vissa resurser kan ett värde som definierar typ av resurs som du distribuerar. Du kan till exempel ange vilken typ av Cosmos DB för att skapa. |
 | plan | Nej | Vissa resurser kan värden som definierar planerar att distribuera. Du kan till exempel ange marketplace-avbildning för en virtuell dator. | 
 | resurser |Nej |Underordnade resurser som är beroende av resursen som definieras. Ange endast resurstyper som tillåts av schemat för den överordnade resursen. Den fullständigt kvalificerade typ av den underordnade resursen omfattar resurstyp överordnade som **Microsoft.Web/sites/extensions**. Beroende på den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. |
@@ -141,7 +141,7 @@ Ange ett unikt resursnamn för någon resurstyp som har en slutpunkt för åtkom
 * Funktionen Web Apps i Azure App Service
 * SQL Server
 * Azure Key Vault
-* Azure Redis Cache
+* Azure Cache for Redis
 * Azure Batch
 * Azure Traffic Manager
 * Azure Search

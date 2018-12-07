@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: e537795c9dec5f909810a37d4f13d5664bec05a2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 56ad4fdf781d9ed94a082ab5eb352803c70e52ef
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839984"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996234"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera data som lagras i Azure Monitor. Detta inkluderar [mått i Azure-mått store](../azure-monitor/platform/data-collection.md#metrics) och [logga data i Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
@@ -89,7 +89,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) är särskilt användbart för att skapa företagsanpassat instrumentpaneler och rapporter samt rapporter analysera långsiktig KPI-trender. Du kan [importerar resultatet av en Log Analytics-fråga](../log-analytics/log-analytics-powerbi.md) till en Power BI-datauppsättning så att du kan dra nytta av dess funktioner som kombinerar data från olika källor och dela rapporter på webben och mobila enheter.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) är särskilt användbart för att skapa företagsanpassat instrumentpaneler och rapporter samt rapporter analysera långsiktig KPI-trender. Du kan [importerar resultatet av en Log Analytics-fråga](../azure-monitor/platform/powerbi.md) till en Power BI-datauppsättning så att du kan dra nytta av dess funktioner som kombinerar data från olika källor och dela rapporter på webben och mobila enheter.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -141,5 +141,5 @@ Du kan komma åt data i Azure-mått och Log Analytics via sina API med valfri RE
 - Lär dig mer om [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md).
 - Lär dig mer om [vyer i Azure Monitor](../azure-monitor/platform/view-designer.md).
 - Lär dig mer om [arbetsböcker i Application Insights](../application-insights/app-insights-usage-workbooks.md).
-- Lär dig mer om [importera loggdata till Power BI](../log-analytics/log-analytics-powerbi.md).
+- Lär dig mer om [importera loggdata till Power BI](../azure-monitor/platform/powerbi.md).
 - Lär dig mer om den [Grafana Azure Monitor-plugin-programmet för datakällans](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs IP filtrerar | Microsoft Docs
+title: Begränsa åtkomsten till Azure Event Hubs med IP-filter | Microsoft Docs
 description: Använd IP-filtrering för blockerar anslutningar från specifika IP-adresser till Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
@@ -7,18 +7,18 @@ author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
+ms.custom: seodec18
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5ed952421186210e55d6065cee51f4d54b4c0d46
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408157"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014403"
 ---
-# <a name="use-ip-filters"></a>IP-filter
-
+# <a name="restrict-access-to-azure-event-hubs-using-ip-filters"></a>Begränsa åtkomsten till Azure Event Hubs med IP-filter
 För scenarier där Azure Event Hubs måste vara endast tillgängliga från vissa välkända platser, den *IP-adressfilter* funktionen kan du konfigurera regler för avvisar eller tar emot trafik som kommer från specifika IPv4-adresser. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
 
 ## <a name="when-to-use"></a>När du ska använda detta

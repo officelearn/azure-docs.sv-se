@@ -1,5 +1,5 @@
 ---
-title: Hantera Azure DC/OS-kluster med Marathon REST API
+title: (INAKTUELL) Hantera Azure DC/OS-kluster med Marathon REST API
 description: Distribuera behållare till ett Azure Container Service DC/OS-kluster med Marathon REST API.
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 34fc6f946d172f1431367e84f9d4d8a6855003ed
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901775"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52991724"
 ---
-# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Hantering av DC/OS-behållare via Marathon REST API
+# <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(INAKTUELL) Hantering av DC/OS-behållare via Marathon REST API
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastningar samtidigt som den underliggande maskinvaran abstraheras. Utöver DC/OS finns det ett ramverk som hanterar schemaläggning och beräkning av arbetsbelastningar. Även om ramverk är tillgängliga för många populära arbetsbelastningar kan hjälper det här dokumentet dig att börja skapa och skala behållardistributioner med Marathon REST API. 
 
@@ -47,7 +49,7 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## <a name="deploy-a-docker-formatted-container"></a>Distribuera en Docker-formaterad behållare
+## <a name="deploy-a-docker-formatted-container"></a>Distribuera en Docker-formaterad container
 Du kan distribuera Docker-formaterade behållare via Marathon REST API med hjälp av en JSON-fil som beskriver den avsedda distributionen. I följande exempel distribueras Nginx-behållaren till en privat agent i klustret. 
 
 ```json
@@ -69,7 +71,7 @@ Du kan distribuera Docker-formaterade behållare via Marathon REST API med hjäl
 }
 ```
 
-För att distribuera en Docker-formaterad behållare kan lagra JSON-filen på en tillgänglig plats. Kör följande kommando för att distribuera behållaren. Ange namnet på JSON-fil (`marathon.json` i det här exemplet).
+För att distribuera en Docker-formaterad behållare kan lagra JSON-filen på en tillgänglig plats. Kör följande kommando för att distribuera containern. Ange namnet på JSON-fil (`marathon.json` i det här exemplet).
 
 ```bash
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
@@ -111,7 +113,7 @@ Nginx-serverutdata ser ut ungefär så här:
 
 
 
-## <a name="scale-your-containers"></a>Skala behållarna
+## <a name="scale-your-containers"></a>Skala containrarna
 Du kan använda Marathon API för att skala ut eller skala in programdistributioner. I föregående exempel distribuerade du en instans av ett program. Nu kan vi skala ut det här till tre instanser av ett program. Det gör du genom att skapa en JSON-fil med nedanstående JSON-text och lagra den på en tillgänglig plats.
 
 ```json
@@ -129,7 +131,7 @@ Kör följande kommando för att skala ut programmet från din tunneltrafik ansl
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Fråga slutligen Marathon-slutpunkten efter program. Du ser nu att det finns tre Nginx-behållare.
+Fråga slutligen Marathon-slutpunkten efter program. Du ser nu att det finns tre Nginx-containrar.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -144,7 +146,7 @@ För att samla in information om DC/OS-klustret, t.ex agentnamn och agentstatus,
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Du kan distribuera Docker-formaterade behållare via Marathon genom att använda en JSON-fil som beskriver den avsedda distributionen. I följande exempel distribueras Nginx-behållaren, vilket binder port 80 på DC/OS-agenten till port 80 på behållaren.
+Du kan distribuera Docker-formaterade containrar via Marathon genom att använda en JSON-fil som beskriver den avsedda distributionen. I följande exempel distribueras Nginx-containern, vilket binder port 80 på DC/OS-agenten till port 80 på containern.
 
 ```json
 {
@@ -165,7 +167,7 @@ Du kan distribuera Docker-formaterade behållare via Marathon genom att använda
 }
 ```
 
-För att distribuera en Docker-formaterad behållare kan lagra JSON-filen på en tillgänglig plats. Kör följande kommando för att distribuera behållaren. Ange sökvägen till JSON-fil (`marathon.json` i det här exemplet).
+För att distribuera en Docker-formaterad behållare kan lagra JSON-filen på en tillgänglig plats. Kör följande kommando för att distribuera containern. Ange sökvägen till JSON-fil (`marathon.json` i det här exemplet).
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'

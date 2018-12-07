@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: e1e20e3fb43c9e1480ced956069ce8ac8643e686
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ccdee1963d3d37966f6784e7a7421c500d6a8a51
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879629"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994220"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -119,7 +119,7 @@ Automatisk skalning kan du har rätt mängd resurser som körs för att hantera 
 ![Log Analytics-vy](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) är en företagsanalystjänst som ger interaktiva visualiseringar i en mängd olika datakällor och är ett effektivt sätt att göra data tillgängliga för andra inom och utanför organisationen. Du kan konfigurera Power BI för att [importera automatiskt loggdata från Azure Monitor](../log-analytics/log-analytics-powerbi.md) kan utnyttja dessa ytterligare visualiseringar.
+[Power BI](https://powerbi.microsoft.com) är en företagsanalystjänst som ger interaktiva visualiseringar i en mängd olika datakällor och är ett effektivt sätt att göra data tillgängliga för andra inom och utanför organisationen. Du kan konfigurera Power BI för att [importera automatiskt loggdata från Azure Monitor](../azure-monitor/platform/powerbi.md) kan utnyttja dessa ytterligare visualiseringar.
 
 
 ![Power BI](media/overview/power-bi.png)

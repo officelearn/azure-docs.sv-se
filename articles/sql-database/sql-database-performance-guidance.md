@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2fe78efc8d85da2a8cd38a217c25f89ca7aefd22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645532"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013005"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Manuell justering av frågeprestanda i Azure SQL Database
 
@@ -258,7 +258,7 @@ Vissa program är skrivningsintensiva. Ibland kan du minska den totala i/o-belas
 
 ### <a name="application-tier-caching"></a>Programnivå cachelagring
 
-Vissa databasprogram har läs-tunga arbetsbelastningar. Cachelagring lager kan minska belastningen på databasen och kan minska beräkningsstorleken som krävs för att stödja en databas med hjälp av Azure SQL Database. Med [Azure Redis Cache](https://azure.microsoft.com/services/cache/), om du har en Läs-intensiv arbetsbelastning, kan du läsa data en gång (eller kanske en gång på programnivå dator, beroende på hur det är konfigurerat), och sedan lagras utanför din SQL-databas. Detta är ett sätt att minska databasbelastningen (processor och Läs i/o), men det finns en effekt på transaktionell konsekvens eftersom de data som läses från cachen kanske är inte synkroniserade med data i databasen. Även om vissa andelen inkonsekvens i många program är godkänd, som gäller inte för alla arbetsbelastningar. Läs noggrant igenom alla programkrav innan du implementerar en cahelagringsstrategi hittar programmet-nivå.
+Vissa databasprogram har läs-tunga arbetsbelastningar. Cachelagring lager kan minska belastningen på databasen och kan minska beräkningsstorleken som krävs för att stödja en databas med hjälp av Azure SQL Database. Med [Azure Cache för Redis](https://azure.microsoft.com/services/cache/), om du har en Läs-intensiv arbetsbelastning, kan du läsa data en gång (eller kanske en gång på programnivå dator, beroende på hur det är konfigurerat), och sedan lagras utanför din SQL-databas. Detta är ett sätt att minska databasbelastningen (processor och Läs i/o), men det finns en effekt på transaktionell konsekvens eftersom de data som läses från cachen kanske är inte synkroniserade med data i databasen. Även om vissa andelen inkonsekvens i många program är godkänd, som gäller inte för alla arbetsbelastningar. Läs noggrant igenom alla programkrav innan du implementerar en cahelagringsstrategi hittar programmet-nivå.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6138cc337c35924405fa3f6489e7e40bfc5779c9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 89d1859b521fff8ca8d3e8c7342bcb5a4b8d59fe
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007016"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012988"
 ---
-# <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Installera och använda Giraph på Windows-baserade HDInsight-kluster
+# <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installera och använda Apache Giraph på Windows-baserade HDInsight-kluster
 
-Lär dig hur du anpassar Windows-baserat HDInsight-kluster med Giraph med skriptåtgärd och använda Giraph för att bearbeta storskaliga diagram. Information om att använda Giraph med en Linux-baserat kluster finns i [installera Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md).
+Lär dig hur du anpassar Windows-baserat HDInsight-kluster med Apache Giraph med skriptåtgärd och använda Giraph för att bearbeta storskaliga diagram. Information om att använda Giraph med en Linux-baserat kluster finns i [installera Apache Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet fungerar bara med Windows-baserade HDInsight-kluster. HDInsight är endast tillgänglig på Windows för versioner lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om hur du installerar Giraph på ett Linux-baserade HDInsight-kluster finns i [installera Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md).
+> Stegen i det här dokumentet fungerar bara med Windows-baserade HDInsight-kluster. HDInsight är endast tillgänglig på Windows för versioner lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om hur du installerar Giraph på ett Linux-baserade HDInsight-kluster finns i [installera Apache Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 
 Du kan installera Giraph på någon typ av kluster (Hadoop-, Storm, HBase, Spark) i Azure HDInsight med hjälp av *skriptåtgärd*. Ett exempelskript för att installera Giraph på ett HDInsight-kluster finns i en skrivskyddad Azure storage blob [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Exempelskriptet fungerar bara med HDInsight-kluster av version 3.1. Läs mer på HDInsight-klusterversioner [HDInsight-klusterversioner](hdinsight-component-versioning.md).
 
 **Relaterade artiklar**
 
-* [Installera Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md)
-* [Skapa Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md): allmän information om hur du skapar HDInsight-kluster.
+* [Installera Apache Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md)
+* [Skapa Apache Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md): allmän information om hur du skapar HDInsight-kluster.
 * [Anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize]: allmän information om hur du anpassar HDInsight-kluster med skriptåtgärd.
 * [Utveckla skriptåtgärder skript för HDInsight](hdinsight-hadoop-script-actions.md).
 
@@ -71,7 +71,7 @@ Vi använder SimpleShortestPathsComputation-exempel för att demonstrera grundl�
         [3,0,[[0,3],[1,1],[4,4]]]
         [4,0,[[3,4],[2,4]]]
 
-    Ladda upp filen tiny_graph.txt till den primära lagringen för ditt HDInsight-kluster. Anvisningar för hur du överför data finns i [överföra data för Hadoop-jobb i HDInsight](hdinsight-upload-data.md).
+    Ladda upp filen tiny_graph.txt till den primära lagringen för ditt HDInsight-kluster. Anvisningar för hur du överför data finns i [överföra data för Apache Hadoop-jobb i HDInsight](hdinsight-upload-data.md).
 
     Den här informationen beskriver en relation mellan objekt i en riktad graf i formatet [källa\_-id, källa\_värde, [[dest\_id], [edge\_värde],...]]. Varje rad motsvarar en relation mellan en **källa\_id** objekt och en eller flera **dest\_id** objekt. Den **edge\_värdet** (eller vikt) kan betraktas som styrkan eller avståndet från anslutningen mellan **source_id** och **dest\_id**.
 
@@ -154,21 +154,21 @@ Vi använder SimpleShortestPathsComputation-exempel för att demonstrera grundl�
     ![Ritning av objekt som cirklar med kortaste sökvägar mellan](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-aure-powershell"></a>Installera Giraph med Aure PowerShell
-Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Exemplet visar hur du installerar Spark med Azure PowerShell. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Exemplet visar hur du installerar Apache Spark med Azure PowerShell. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="install-giraph-using-net-sdk"></a>Installera Giraph med .NET SDK
 Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Exemplet visar hur du installerar Spark med .NET SDK. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="see-also"></a>Se också
-* [Installera Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md)
-* [Skapa Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md): allmän information om hur du skapar HDInsight-kluster.
+* [Installera Apache Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md)
+* [Skapa Apache Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md): allmän information om hur du skapar HDInsight-kluster.
 * [Anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize]: allmän information om hur du anpassar HDInsight-kluster med skriptåtgärd.
 * [Utveckla skriptåtgärder skript för HDInsight](hdinsight-hadoop-script-actions.md).
-* [Installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]: skriptåtgärd exempel om hur du installerar Spark.
-* [Installera Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md): skriptåtgärd exempel om att installera Solr.
+* [Installera och använda Apache Spark på HDInsight-kluster][hdinsight-install-spark]: skriptåtgärd exempel om hur du installerar Spark.
+* [Installera Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md): skriptåtgärd exempel om att installera Solr.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
-[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[aps]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md

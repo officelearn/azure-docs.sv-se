@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: cd999a5bfd9f5691c1e624f7a8226eefee5709eb
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 08b8d980b46ccbbce47c4f165a621daa14a95fa2
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015817"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012920"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Ambari REST API
 
@@ -39,7 +39,7 @@ Exemplen i det här dokumentet finns för både Bourne shell (bash) och PowerShe
 
 Om du använder den __Bourne shell__ (Bash), måste du ha följande installerat:
 
-* [cURL](http://curl.haxx.se/): cURL är ett verktyg som kan användas för att arbeta med REST API: er från kommandoraden. I det här dokumentet används det för att kommunicera med Ambari REST API.
+* [cURL](https://curl.haxx.se/): cURL är ett verktyg som kan användas för att arbeta med REST API: er från kommandoraden. I det här dokumentet används det för att kommunicera med Ambari REST API.
 
 Oavsett om du använder Bash eller PowerShell måste du också [jq](https://stedolan.github.io/jq/) installerad. Jq är ett verktyg för att arbeta med JSON-dokument. Den används i **alla** Bash-exempel och **en** av PowerShell-exempel.
 

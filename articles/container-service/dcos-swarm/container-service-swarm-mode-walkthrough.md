@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Azure Docker CE-kluster för Linux
+title: (INAKTUELL) Snabbstart – Azure Docker CE-kluster för Linux
 description: Lär dig snabbt att skapa ett Docker CE-kluster på Linux-behållare i Azure Container Service med Azure CLI.
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: c8f9db2674976d2c1efa7686b8b224b48a19a534
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964453"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994298"
 ---
-# <a name="deploy-docker-ce-cluster"></a>Distribuera Docker CE-kluster
+# <a name="deprecated-deploy-docker-ce-cluster"></a>(INAKTUELL) Distribuera Docker CE-kluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 I den här snabbstartsguiden ska vi distribuera ett Docker CE-kluster med hjälp av Azure CLI. Därefter distribuerar vi och kör ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet.
 

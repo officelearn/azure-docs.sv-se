@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d0af6c098f68c23bf9ef6161bd307afec518ead7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443533"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011707"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks börjar med den här informationen: [Azure översikt över Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -120,7 +120,7 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 | * / 25                       | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externa och interna  |
 | * / 587                      | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externa och interna  |
 | * / 25028                    | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externa och interna  |
-| * / 6381 - 6383              | Inkommande och utgående | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Åtkomst till Redis Cache-instanser mellan RoleInstances          | Externa och interna  |
+| * / 6381 - 6383              | Inkommande och utgående | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Få åtkomst till Azure Cache för Redis-instanser mellan RoleInstances          | Externa och interna  |
 | * / \*                        | Inkommande            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Belastningsutjämnare för Azure-infrastrukturen                          | Externa och interna  |
 
 >[!IMPORTANT]

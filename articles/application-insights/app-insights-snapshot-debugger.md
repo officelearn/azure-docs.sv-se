@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 2c5e99c16ed6ae0df9af4783fb6431edcbb6f100
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 11e9099ba9008ead6583eaf30292cdec63475f02
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725411"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994260"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsök ögonblicksbilder på undantag i .NET-appar
 
-Om ett undantag inträffar, kan du automatiskt samla in en felsökning för ögonblicksbilder från ditt webbprogram. Ögonblicksbilden visar tillståndet för källkoden och variabler för tillfället som undantaget uppstod. Felsökning av ögonblicksbild (förhandsversion) i [Azure Application Insights](app-insights-overview.md) övervakar undantagstelemetri från din webbapp. Den samlar in ögonblicksbilder i din upp utlöser undantag så att du har den information du behöver att diagnostisera problem i produktionsmiljön. Inkludera den [Snapshot collector NuGet-paketet](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och om du vill konfigurera insamlingsparametrarna i [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ögonblicksbilder som visas på [undantag](app-insights-asp-net-exceptions.md) i Application Insights-portalen.
+Om ett undantag inträffar, kan du automatiskt samla in en felsökning för ögonblicksbilder från ditt webbprogram. Ögonblicksbilden visar tillståndet för källkoden och variabler för tillfället som undantaget uppstod. Felsökning av ögonblicksbild (förhandsversion) i [Azure Application Insights](app-insights-overview.md) övervakar undantagstelemetri från din webbapp. Den samlar in ögonblicksbilder i din upp utlöser undantag så att du har den information du behöver att diagnostisera problem i produktionsmiljön. Inkludera den [Snapshot collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och om du vill konfigurera insamlingsparametrarna i [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ögonblicksbilder som visas på [undantag](app-insights-asp-net-exceptions.md) i Application Insights-portalen.
 
 Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och inspektera variabler vid varje anropsstacken. För att få en mer kraftfullt felsökningsverktyg som fungerar med källkoden kan du öppna ögonblicksbilder med Visual Studio 2017 Enterprise. I Visual Studio kan du också [ange Snappoints att interaktivt ta ögonblicksbilder](https://aka.ms/snappoint) utan att behöva vänta ett undantag.
 
@@ -45,7 +45,7 @@ Följande miljöer stöds:
 
 1. [Aktivera Application Insights i din webbapp](app-insights-asp-net.md), om du inte gjort det ännu.
 
-2. Inkludera den [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
+2. Inkludera den [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
 
 3. Granska standardalternativen som paketet lagts till i [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -91,7 +91,7 @@ Följande miljöer stöds:
     > [!NOTE]
     > Att se till att ditt program refererar till version 2.1.1 eller senare av Microsoft.ApplicationInsights.AspNetCore-paketet.
 
-2. Inkludera den [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
+2. Inkludera den [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
 
 3. Ändra programmets `Startup` klassen för att lägga till och konfigurera den Ögonblicksbildsinsamlaren telemetri processor.
 
@@ -168,7 +168,7 @@ Följande miljöer stöds:
 
 1. Om programmet inte redan har instrumenterats med Application Insights, Kom igång genom att [att aktivera Application Insights och ange instrumenteringsnyckeln](app-insights-windows-desktop.md).
 
-2. Lägg till den [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
+2. Lägg till den [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
 
 3. Ögonblicksbilder samlas endast på undantag som har rapporterats till Application Insights. Du kan behöva ändra koden för att rapportera dem. Undantagshantering kod är beroende av strukturen för ditt program, men ett exempel är lägre än:
     ```csharp
@@ -225,7 +225,7 @@ I vyn Felsök ögonblicksbild visas en anropsstack och en variabler-fönstret. N
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Felsök ögonblicksbilder med Visual Studio 2017 Enterprise
 1. Klicka på den **ladda ned ögonblicksbild** för att ladda ned en `.diagsession` -fil som kan öppnas av Visual Studio 2017 Enterprise.
 
-2. Öppna den `.diagsession` filen, måste du ha installerat komponenten Snapshot Debugger VS. Snapshot Debugger-komponenten är en obligatorisk del av arbetsbelastningen ASP.net i VS och kan väljas från listan över enskilda komponenter i VS-installationsprogrammet. Om du använder en version av Visual Studio före 15.5 måste du installerar tillägget från den [VS marketplace](http://aka.ms/snapshotdebugger).
+2. Öppna den `.diagsession` filen, måste du ha installerat komponenten Snapshot Debugger VS. Snapshot Debugger-komponenten är en obligatorisk del av arbetsbelastningen ASP.net i VS och kan väljas från listan över enskilda komponenter i VS-installationsprogrammet. Om du använder en version av Visual Studio före 15.5 måste du installerar tillägget från den [VS marketplace](https://aka.ms/snapshotdebugger).
 
 3. När du har öppnat ögonblicksbildfilen visas sidan Minidump felsökning i Visual Studio. Klicka på **felsöka förvaltad kod** att starta felsökningen ögonblicksbilden. Ögonblicksbilden öppnar rad med kod som undantaget uppstod där så att du kan felsöka det aktuella tillståndet för processen.
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 634563a2010562e20691abae132dc7540ef8faf2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632712"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000245"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -34,7 +34,7 @@ Den här artikeln ger en detaljerad översikt vägledning, tillsammans med diagr
 
 Om du vill leverera på begäran eller live-dataströmmar med Media Services, måste du ha minst en [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). När ditt Media Services-konto skapas en **standard** StreamingEndpoint läggs till i ditt konto i den **stoppad** tillstånd. Du måste starta StreamingEndpoint där du vill kunna strömma ditt innehåll till användarna. Du kan använda standardgrupperna **StreamingEndpoint**, eller skapar en ny anpassad **StreamingEndpoint** med önskad konfiguration och CDN-inställningarna. Du kan välja att aktivera flera Strömningsslutpunkter, var och en riktar in sig på en annan CDN och ge ett unikt värdnamn för leverans av innehåll. 
 
-I Media Services [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsänd video feeds. När du skapar en LiveEvent, skapas en slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. Remote livekodare skickar bidraget till som indata slutpunkten med hjälp av antingen den [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) eller [Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming) (fragmenterad MP4)-protokollet.  
+I Media Services [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsänd video feeds. När du skapar en LiveEvent, skapas en slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. Remote livekodare skickar bidraget till som indata slutpunkten med hjälp av antingen den [RTMP](https://www.adobe.com/devnet/rtmp.html) eller [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmenterad MP4)-protokollet.  
 
 När den **LiveEvent** börjar ta emot bidrag feed, som du kan använda dess förhandsgranskningsslutpunkten (förhandsgransknings-URL att förhandsgranska och validera att du får den direktsända dataströmmen innan du ytterligare publicerar. När du har kontrollerat att förhandsgranska dataströmmen är bra, du kan använda LiveEvent så att den direktsända dataströmmen analysleverans via en eller flera (färdiga) **Strömningsslutpunkter**. För att åstadkomma detta måste du skapa ett nytt [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) på den **LiveEvent**. 
 

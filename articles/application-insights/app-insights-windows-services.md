@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: f0ec2ff0b10e9554485f482bca6b160da0c4e016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719903"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001728"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Konfigurera Application Insights för .NET manuellt
 
@@ -29,7 +29,7 @@ Du kan konfigurera [Application Insights](app-insights-overview.md) för att öv
 
 Du behöver:
 
-* En prenumeration på [Microsoft Azure](http://azure.com). Om ditt team eller din organisation har en Azure-prenumeration kan ägaren lägga till dig med hjälp av ditt [Microsoft-konto](http://live.com).
+* En prenumeration på [Microsoft Azure](https://azure.com). Om ditt team eller din organisation har en Azure-prenumeration kan ägaren lägga till dig med hjälp av ditt [Microsoft-konto](https://live.com).
 * Visual Studio 2013 eller senare.
 
 ## <a name="add"></a>1. Välj en Application Insights-resurs

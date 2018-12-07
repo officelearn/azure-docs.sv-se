@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 89236575a73325d650f1357ff03abb53bbc7b00c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2264e6ff686519f7ef0d436d67f3055a48a7421b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848960"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997086"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -210,7 +210,7 @@ När ingen giltig lagringsanslutningssträng har angetts för **AzureWebJobsStor
 
   ![Kopiera anslutningssträngen från Azure-portalen](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Använd [Azure Storage Explorer](http://storageexplorer.com/) att ansluta till ditt Azure-konto. I den **Explorer**, expandera din prenumeration, Välj ditt lagringskonto och kopiera primär eller sekundär anslutningssträng. 
++ Använd [Azure Storage Explorer](https://storageexplorer.com/) att ansluta till ditt Azure-konto. I den **Explorer**, expandera din prenumeration, Välj ditt lagringskonto och kopiera primär eller sekundär anslutningssträng. 
 
   ![Kopiera anslutningssträngen från Storage Explorer](./media/functions-run-local/storage-explorer.png)
 

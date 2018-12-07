@@ -9,14 +9,14 @@ keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/03/2018
+ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 4f8135dd26b58b5b285798af5c420aa09b03074b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b386cf72525c6ef6234d99255ca0eed5ade32066
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850132"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000488"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -29,11 +29,11 @@ Den här artikeln förklarar hur du arbetar med Azure Blob storage-bindningar i 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Använda Event Grid-utlösaren i stället för Blob storage-utlösare för endast blob storage-konton, för hög skala, eller att undvika förseningar kallstart. Mer information finns i den [utlösaren](#trigger) avsnittet.
+> Använda Event Grid-utlösaren i stället för Blob storage-utlösare för endast blob storage-konton, för hög skala, eller för att minska svarstiden. Mer information finns i den [utlösaren](#trigger) avsnittet.
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Blob storage-bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet, version 2.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub-lagringsplatsen.
+Blob storage-bindningar finns i den [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet, version 2.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -55,7 +55,7 @@ Använda Event Grid i stället för Blob storage-utlösare för följande scenar
 
 * Blob Storage-konton
 * Hög skala
-* Minimera kallstart fördröjning
+* Minimerar svarstiderna
 
 ### <a name="blob-storage-accounts"></a>Blob Storage-konton
 
@@ -65,9 +65,9 @@ Använda Event Grid i stället för Blob storage-utlösare för följande scenar
 
 Hög skala löst kan definieras som behållare som har fler än 100 000 blobar i dem eller konton som har fler än 100 blob uppdateringar per sekund.
 
-### <a name="cold-start-delay"></a>Kallstart fördröjning
+### <a name="latency-issues"></a>Problem med nätverkssvarstiden
 
-Om din funktionsapp finns på förbrukningsplanen, kan det vara upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar om en funktionsapp är inaktiv. Du kan växla till en App Service-plan med alltid aktiverad eller använda en annan Utlösartyp för att undvika den här fördröjningen kallstart.
+Om din funktionsapp finns på förbrukningsplanen, kan det vara upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar om en funktionsapp är inaktiv. För att undvika den här fördröjningen kan växla du till en App Service-plan med alltid aktiverad. Du kan också använda en [Event Grid-utlösare](functions-bindings-event-grid.md) med Blob storage-kontot. Ett exempel finns i den [Event Grid självstudien](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json). 
 
 ### <a name="queue-storage-trigger"></a>Queue storage-utlösare
 

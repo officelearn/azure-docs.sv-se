@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9832281b586bf4377096ff28362b4fc180480aea
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246152"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993053"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-bindning för Azure Functions
 
@@ -27,13 +27,13 @@ Den här artikeln beskrivs hur du skickar meddelanden med text med hjälp av [Tw
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 1.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
+Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 1.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
-Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 3.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
+Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 3.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -404,8 +404,8 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ**|**typ**| Måste anges till `twilioSms`.|
 |**riktning**|**riktning**| Måste anges till `out`.|
 |**Namn**|**Namn**| Variabelnamnet som används i Funktionskoden för Twilio-SMS-textmeddelanden. |
-|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio konto-Sid t.ex. TwilioAccountSid. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsTwilioAccountSid”. |
-|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio-autentiseringstoken t.ex. TwilioAccountAuthToken. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsTwilioAuthToken”. |
+|**accountSid**|**accountSidSetting**| **accountSidSetting**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio konto-Sid t.ex. TwilioAccountSid. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsTwilioAccountSid”. |
+|**authToken**|**authTokenSetting**|**authTokenSetting**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio-autentiseringstoken t.ex. TwilioAccountAuthToken. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsTwilioAuthToken”. |
 |**Att**| Ej tillämpligt – ange i koden | **Till**| Det här värdet anges till telefonnumret som SMS-meddelanden skickas till.|
 |**Från**|**Från** | **Från**| Det här värdet anges till telefonnumret som SMS-meddelanden skickas från.|
 |**Brödtext**|**Brödtext** | **Brödtext**| Det här värdet kan användas för att hårt code SMS-textmeddelande om du inte behöver ange den dynamiskt i koden för din funktion. |  

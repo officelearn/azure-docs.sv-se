@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 56616ff01ff70230a591285014ed291a2fdc7b34
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3fc31306af1c85a67a1afca8a34be82a711f2527
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250996"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999541"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindningar för Azure Functions
 
@@ -26,7 +26,7 @@ Den här artikeln förklarar hur du arbetar med Azure Table storage-bindningar i
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Table storage-bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet, version 2.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-lagringsplatsen.
+Table storage-bindningar finns i den [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet, version 2.x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -325,9 +325,9 @@ Läs mer om hur du använder CloudTable [komma igång med Azure Table storage](.
 
 Om du försöker binda till `CloudTable` och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
-### <a name="input---f-example"></a>Indata - F #-exempel
+### <a name="input---f-example"></a>Indata - F# exempel
 
-I följande exempel visas en tabell indatabindning i en *function.json* fil och [skriptu F #](functions-reference-fsharp.md) kod som använder bindningen. Funktionen använder en kö-utlösare för att läsa en tabellrad. 
+I följande exempel visas en tabell indatabindning i en *function.json* fil och [ F# skriptet](functions-reference-fsharp.md) kod som använder bindningen. Funktionen använder en kö-utlösare för att läsa en tabellrad. 
 
 Den *function.json* filen anger en `partitionKey` och en `rowKey`. Den `rowKey` värdet ”{queueTrigger}” anger att Radnyckeln kommer från kön Meddelandesträngen.
 
@@ -357,7 +357,7 @@ Den *function.json* filen anger en `partitionKey` och en `rowKey`. Den `rowKey` 
 
 Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
-Här är F #-kod:
+Här är den F# kod:
 
 ```fsharp
 [<CLIMutable>]
@@ -627,9 +627,9 @@ public class Person
 
 ```
 
-### <a name="output---f-example"></a>Resultat – F #-exempel
+### <a name="output---f-example"></a>Utdata - F# exempel
 
-I följande exempel visas en tabell-utdatabindning i en *function.json* fil och [skriptu F #](functions-reference-fsharp.md) kod som använder bindningen. Funktionen skriver flera tabellenheter.
+I följande exempel visas en tabell-utdatabindning i en *function.json* fil och [ F# skriptet](functions-reference-fsharp.md) kod som använder bindningen. Funktionen skriver flera tabellenheter.
 
 Här är den *function.json* fil:
 
@@ -655,7 +655,7 @@ Här är den *function.json* fil:
 
 Den [configuration](#output---configuration) förklaras de här egenskaperna.
 
-Här är F #-kod:
+Här är den F# kod:
 
 ```fsharp
 [<CLIMutable>]

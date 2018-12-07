@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 5da5cfebfb3f847f01165aa28309a44e62ef96a3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c0bf4d1684ca5a0921173dc90f51fec9fb052efc
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418780"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993268"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Distribuera om Windows virtuell dator till nya Azure-nod
-Om du har med svårigheter kan felsökning av RDP (Remote Desktop)-anslutning eller program åtkomst till Windows-baserade Azure-dator (VM), distribuerar om den virtuella datorn hjälpa. När du distribuerar om en virtuell dator Azure kommer att försöka smidigt avstängning av den virtuella datorn, flytta den virtuella datorn till en ny nod i Azure-infrastrukturen och starta den sedan tillbaka på, behålla alla konfigurationsalternativ och associerade resurser. Den här artikeln visar hur du distribuera om en virtuell dator med Azure PowerShell eller Azure-portalen.
+Om du har med svårigheter kan felsökning av RDP (Remote Desktop)-anslutning eller program åtkomst till Windows-baserade Azure-dator (VM), distribuerar om den virtuella datorn hjälpa. När du distribuerar om en virtuell dator Azure stängs den virtuella datorn, flytta den virtuella datorn till en ny nod i Azure-infrastrukturen och starta den sedan tillbaka på, behålla alla konfigurationsalternativ och associerade resurser. Den här artikeln visar hur du distribuera om en virtuell dator med Azure PowerShell eller Azure-portalen.
 
 > [!NOTE]
 > När du distribuerar om en virtuell dator, den temporära disken går förlorad och den dynamiska IP-adresser som är associerade med virtuella nätverksgränssnittet har uppdaterats. 
@@ -36,7 +36,6 @@ I följande exempel distribuerar den virtuella datorn med namnet `myVM` i resurs
 ```powershell
 Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
-
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 

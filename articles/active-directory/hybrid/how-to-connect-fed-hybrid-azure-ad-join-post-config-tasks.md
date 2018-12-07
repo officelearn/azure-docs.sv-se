@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2306c03480956a63859355428cbffe0706f43cbc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312482"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999238"
 ---
-# <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicera konfigurationsuppgifter för Hybrid Azure AD-anslutning
+# <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Uppgifter efter konfiguration för Hybrid Azure AD-anslutning
 
 När du har kört Azure AD Connect för att konfigurera din organisation för Hybrid Azure AD-anslutning, finns det några ytterligare steg som du måste utföra för att slutföra den installationen.  Utför bara de steg som gäller för dina enheter.
 
@@ -77,7 +77,7 @@ Om du vill registrera Windows äldre enheter, måste du kontrollera att Azure AD
 
 Lägg till Azure AD authentication enhetsslutpunkt lokala intranätszoner på dina Windows äldre enheter för att undvika certifikat vid autentisering enheterna: https://device.login.microsoftonline.com 
 
-Om du använder [sömlös SSO](https://aka.ms/hybrid/sso), samt aktivera ”Tillåt status uppdateras via skript” på zonen och lägga till följande slutpunkt: https://autologon.microsoftazuread-sso.com 
+Om du använder [sömlös SSO](how-to-connect-sso.md), samt aktivera ”Tillåt status uppdateras via skript” på zonen och lägga till följande slutpunkt: https://autologon.microsoftazuread-sso.com 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Installera Microsoft Workplace Join på Windows äldre enheter
 

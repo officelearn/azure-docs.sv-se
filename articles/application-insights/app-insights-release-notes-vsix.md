@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: 358d17f29960983af1834e87f502331141fcff46
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e9a8c6345ca45234ffcec1588a98bf1b8d634e06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726125"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000690"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Viktig information för Developer Analytics Tools
 
@@ -180,7 +180,7 @@ Du kan hantera ditt program i flera olika sätt i HockeyApp-portalen. Detta inkl
 
 ![HockeyApp-portalen](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-Se den [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb/app-management-2) för mer information om hantering av.
+Se den [HockeyApp Knowledge Base](https://support.hockeyapp.net/kb/app-management-2) för mer information om hantering av.
 
 ### <a name="windows-forms-apps"></a>Windows Forms-appar
 Snabbmenyn för en Windows-formulär projektnoden innehåller nu ett alternativ för att ladda upp din version till HockeyApp.
@@ -211,7 +211,7 @@ Om du har ett ASP.NET-program med Application Insights SDK gör du följande ste
 3. Om du inte har registrerat dig med Application Insights, öppnas fönstret Sök i felsökningsläge session telemetri.
 4. Klicka på den **Search** så visas din lokala telemetri.
 
-![Överföringen är klar](./media/app-insights-release-notes-vsix/LocalSearch.png)
+![Uppladdningen är klar](./media/app-insights-release-notes-vsix/LocalSearch.png)
 
 ## <a name="version-42"></a>Version 4.2
 I den här versionen har vi lagt till funktioner som gör att söka efter data enklare i samband med händelser, med möjlighet att hoppa till kod från Datahändelser för mer och en smidig upplevelse att skicka in data till Application Insights. Det här tillägget uppdateras varje månad. Om du har feedback eller funktionsönskemål kan skicka den till aidevtools@microsoft.com.
@@ -228,7 +228,7 @@ Om du redan har en av dessa loggningsramverk som konfigurerats beskrivs i följa
 
 När du har loggning nätverkskort som är installerade, kör ditt program och se till att visa data i fliken diagnostikverktyg så här:
 
-![spårningar](./media/app-insights-release-notes-vsix/Traces.png)
+![Spårningar](./media/app-insights-release-notes-vsix/Traces.png)
 
 ### <a name="jump-to-or-find-the-code-where-the-telemetry-event-property-is-emitted"></a>Gå till eller hitta koden där egenskapen telemetri händelsen har genererats
 Med den nya versionen användaren kan klicka på valfritt värde i detalj och det görs en sökning efter en matchande sträng i den aktuella öppna lösningen. Resultaten visas i Visual Studio ”hitta” resultatlistan enligt nedan:

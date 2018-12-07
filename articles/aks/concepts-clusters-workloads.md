@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155991"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998095"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes grundläggande begrepp för Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Du kan skapa och köra moderna och smidig mikrotjänstbaserade program som har n
 
 Som en öppen plattform kan Kubernetes du skapa program med din önskade programmeringsspråk, operativsystem, bibliotek eller meddelanden bus. Befintliga kontinuerlig integrering och leverans (CI/CD) kan integreras med Kubernetes att schemalägga och distribuera versioner.
 
-Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som minskar komplexiteten för distribution och core hanteringsuppgifter, inklusive samordna uppgraderingar. Huvudservrar för AKS-kluster som hanteras av Azure-plattformen och du betalar bara för AKS-noder som kör dina program. AKS bygger på öppen källkod Azure Container Service Engine (acs-motor).
+Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som minskar komplexiteten för distribution och core hanteringsuppgifter, inklusive samordna uppgraderingar. Huvudservrar för AKS-kluster som hanteras av Azure-plattformen och du betalar bara för AKS-noder som kör dina program. AKS bygger på öppen källkod Azure Kubernetes Service Engine (aks-motor).
 
 ## <a name="kubernetes-cluster-architecture"></a>Arkitektur för Kubernetes-kluster
 
@@ -54,7 +54,7 @@ Ger en enda klient kluster-master för AKS med en dedikerad API-server, Schedule
 
 Den här bakgrunden hanterat kluster innebär att du inte behöver konfigurera komponenter som en högtillgänglig *etcd* store, men det innebär också att du inte åtkomst till klustret master direkt. Uppgradering till Kubernetes orkestreras via Azure CLI eller Azure-portalen som uppgraderar klustret master och sedan på noderna. Du kan granska master loggarna kluster via Azure Log Analytics för att felsöka eventuella problem.
 
-Om du vill konfigurera kluster-master i ett visst sätt eller behöver direkt åtkomst till dem. Du kan distribuera din egen Kubernetes-kluster med [acs-engine][acs-engine].
+Om du vill konfigurera kluster-master i ett visst sätt eller behöver direkt åtkomst till dem. Du kan distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine].
 
 ## <a name="nodes-and-node-pools"></a>Noder och nodpooler
 
@@ -70,7 +70,7 @@ Azure VM-storlek för noderna definierar hur många processorer, hur mycket minn
 
 I AKS baserat VM-avbildning för noderna i klustret för närvarande på Ubuntu Linux. När du skapar ett AKS-kluster eller skala upp antalet noder, skapar det begärda antalet virtuella datorer i Azure-plattformen och konfigurerar dem. Det finns ingen manuell konfiguration som du kan utföra.
 
-Om du vill använda en annan värd OS, körning av behållare, eller anpassade paket kan du distribuera din egen Kubernetes-kluster med [acs-engine][acs-engine]. Den överordnade `acs-engine` släpper funktioner och ange konfigurationsalternativ innan de stöds officiellt i AKS-kluster. Till exempel om du vill använda Windows-behållare eller en behållare runtime än Docker, du kan använda `acs-engine` att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina befintliga behov.
+Om du vill använda en annan värd OS, körning av behållare, eller anpassade paket kan du distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine]. Den överordnade `aks-engine` släpper funktioner och ange konfigurationsalternativ innan de stöds officiellt i AKS-kluster. Till exempel om du vill använda Windows-behållare eller en behållare runtime än Docker, du kan använda `aks-engine` att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina befintliga behov.
 
 ### <a name="resource-reservations"></a>Resurs-reservationer
 
@@ -218,7 +218,7 @@ Den här artikeln beskriver några av Kubernetes kärnkomponenter samt hur de an
 - [Kubernetes / AKS skala][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
 [kubernetes-deployments]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/

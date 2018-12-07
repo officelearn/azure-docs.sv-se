@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 76b3d23a042fae452b25b0a707e3c7ff9bbda613
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838200"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992116"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure replikering
 
@@ -114,7 +114,10 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
       ![Storage-tagg](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Skapa regler för utgående HTTPS (443) för alla IP-adressintervall för Office 365 [slutpunkter för autentisering och identitet IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Skapa en utgående Säkerhetsregel för HTTPS (443) för ”AzureActiveDirectory” på NSG: N som visas i skärmbilden nedan.
+
+      ![aad-tagg](./media/azure-to-azure-about-networking/aad-tag.png)
+
 3. Skapa regler för utgående HTTPS (443) för Site Recovery IP-adresserna som motsvarar målplatsen:
 
    **Plats** | **Site Recovery-IP-adress** |  **Site Recovery övervakning IP-adress**
@@ -127,7 +130,7 @@ De här reglerna krävs så att replikeringen kan aktiveras från målregionen t
 
 1. Skapa en utgående Säkerhetsregel för HTTPS (443) för ”Storage.CentralUS” på NSG: N.
 
-2. Skapa regler för utgående HTTPS (443) för alla IP-adressintervall för Office 365 [slutpunkter för autentisering och identitet IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Skapa en utgående Säkerhetsregel för HTTPS (443) för ”AzureActiveDirectory” på NSG: N.
 
 3. Skapa regler för utgående HTTPS (443) för Site Recovery IP-adresserna som motsvarar källplats:
 

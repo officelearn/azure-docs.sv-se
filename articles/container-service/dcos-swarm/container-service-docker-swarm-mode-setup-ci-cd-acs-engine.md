@@ -1,5 +1,5 @@
 ---
-title: CI/CD med Azure Container Service Engine och Swarm-läge
+title: (INAKTUELL) CI/CD med Azure Container Service Engine och Swarm-läge
 description: Använda Azure Container Service Engine med Docker Swarm Mode, ett Azure Container Registry och Azure DevOps för att kontinuerligt leverera en .NET Core-program med flera behållare
 services: container-service
 author: diegomrtnzg
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 296c097ee3302eaa39210274b16c6352866eac8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299584"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995057"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med ACS-motor och Docker Swarm-läge med hjälp av Azure DevOps
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(INAKTUELL) Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med ACS-motor och Docker Swarm-läge med hjälp av Azure DevOps
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *Den här artikeln är baserad på [fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med Docker Swarm med Azure DevOps](container-service-docker-swarm-setup-ci-cd.md) dokumentation*
 

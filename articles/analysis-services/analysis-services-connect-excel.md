@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a9646ad2daed5ebc224d6d0b97f1f42c7da101e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 14453a1603eb414441008ef1381800009f4268e4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425860"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994441"
 ---
 # <a name="connect-with-excel"></a>Anslut till Excel
 
 När du har skapat en server och distribuerat en tabellmodell till den, kan klienterna ansluta och börja utforska data. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Det konto som du loggar in med måste tillhöra en databasroll i modellen med minst läsbehörighet. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md). 
+Du loggar in med kontot måste tillhöra en databasroll i modellen med minst läsbehörighet. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Ansluta i Excel
 

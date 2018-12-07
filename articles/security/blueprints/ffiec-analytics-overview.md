@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: e5835454b4a0c0f1f2748f44037a162416b87549
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 14acffbaf56cd77cc7ed22875e72fe9f26f28c0a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405811"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998689"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Azure-säkerhet och efterlevnad skiss: analys för FFIEC ekonomiska tjänster
 
@@ -72,7 +72,7 @@ Följande avsnitt beskriver elementen distribution och implementering.
 
 **Azure Functions**: [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) är en server utan beräkningstjänst som gör det möjligt för användarna att köra kod på begäran utan att behöva installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser.
 
-**Azure Machine Learning**: [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) är en datavetenskapsteknik som gör att datorer kan använda befintliga data till att prognostisera framtida beteenden, resultat och trender.
+**Azure Machine Learning-tjänsten**: [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) är en datavetenskapsteknik som gör att datorer kan använda befintliga data till att prognostisera framtida beteenden, resultat och trender.
 
 **Azure Data Catalog**: [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) gör datakällor enkelt identifiera och förstå hur av de användare som hanterar data. Gemensamma datakällor kan registrerats, taggade och söks igenom efter finansiella data. Dina data blir kvar i där, men en kopia av deras metadata läggs till i Data Catalog tillsammans med en referens till datakällans plats. Dessa metadata indexeras också för att det ska bli enkelt att identifiera alla datakällor och för att användare som identifierar dem ska förstå dem.
 

@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: d173cd8ddcd713e39fc925a101b42bdd918e5499
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721162"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995534"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Felsöka användaren beteende analysverktyg i Application Insights
 Om du har frågor om den [användaren beteende analysverktyg i Application Insights](app-insights-usage-overview.md): [användare, sessioner, händelser](app-insights-usage-segmentation.md), [Trattar](usage-funnels.md), [Användarflöden](app-insights-usage-flows.md), [Kvarhållning](app-insights-usage-retention.md), eller kohorter? Här är några svar.
@@ -56,5 +56,5 @@ Om din app skickar för många anpassade händelsenamn, ändrar du namnet i kode
 * [Översikt över användarens beteende analytics-verktyg](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>Få hjälp
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

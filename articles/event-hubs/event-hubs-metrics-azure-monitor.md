@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c59cb8277bee13a83d0bf17c26deef1b8fc8d3e6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: e01262d67b6d08cd1cb05a6375344a5087fffce3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822851"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012529"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Event Hubs-mått i Azure Monitor (förhandsversion)
 
@@ -37,13 +38,13 @@ Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna dat
 
 Du kan övervaka mått med tiden i den [Azure-portalen](https://portal.azure.com). I följande exempel visas hur du visar lyckade begäranden och inkommande begäranden på kontonivå:
 
-![][1]
+![Visa lyckad mått][1]
 
 Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (Peview)**. Välj event hub för att visa mått som filtrerats till i omfånget för event hub, och klicka sedan på **mått (förhandsgranskning)**.
 
 För mätvärden som stöd för dimensioner, måste du filtrera med önskad dimension-värde som visas i följande exempel:
 
-![][2]
+![Filtrera med dimensionsvärde][2]
 
 ## <a name="billing"></a>Fakturering
 

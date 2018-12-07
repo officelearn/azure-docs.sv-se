@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/06/2018
 ms.author: jeedes
-ms.openlocfilehash: a8816451b45171e0ba8cbd7acc937201c587c481
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 24353f89f7c833a16675841f741a4a81ac34597c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627958"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015236"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Självstudier: Azure Active Directory-integrering med Qlik Sense Enterprise
 
@@ -86,11 +86,11 @@ I Qlik Sense Enterprise, tilldela värdet för den **användarnamn** i Azure AD 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Qlik Sense Enterprise, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) ** – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) ** – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Qlik Sense Enterprise](#create-a-qlik-sense-enterprise-test-user) ** – du har en motsvarighet för Britta Simon i Qlik Sense företag som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) ** – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on) ** – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Qlik Sense Enterprise](#create-a-qlik-sense-enterprise-test-user)**  – du har en motsvarighet för Britta Simon i Qlik Sense företag som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -113,6 +113,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
+    
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
@@ -283,7 +284,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="create-a-qlik-sense-enterprise-test-user"></a>Skapa en testanvändare Qlik Sense Enterprise
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Qlik Sense företag. Arbeta med [Qlik Sense Enterprise Client supportteamet](https://www.qlik.com/us/services/support) att lägga till användare i Qlik Sense Enterprise-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Qlik Sense företag. Arbeta med [Qlik Sense Enterprise Client supportteamet](https://www.qlik.com/us/services/support) att lägga till användare i Qlik Sense Enterprise-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

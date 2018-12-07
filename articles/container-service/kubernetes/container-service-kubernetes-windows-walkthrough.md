@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Azure Kubernetes-kluster för Windows
+title: (INAKTUELL) Snabbstart – Azure Kubernetes-kluster för Windows
 description: Lär dig snabbt att skapa ett Kubernetes-kluster på Windows-behållare i Azure Container Service med Azure CLI.
 services: container-service
 author: dlepow
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 24659f60e44dc306451528cc7bfb823ad14268a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dfc1d2128e1cf3b4d6b4d9e5141116a2b2ff9c0d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946161"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000605"
 ---
-# <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Distribuera Kubernets-kluster för Windows-containrar
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(INAKTUELL) Distribuera Kubernetes-kluster för Windows-behållare
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur Azure CLI används för att distribuera ett [Kubernetes](https://kubernetes.io/docs/home/)-kluster i [Azure Container Service](../container-service-intro.md). När klustret distribueras kan du ansluta till det med kommandoradsverktyget för Kubernetes `kubectl` och distribuera din första Windows-container.
 

@@ -6,14 +6,14 @@ author: normesta
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: 83e9dfbe18dd79e8547e6b48daef39a5aed2cced
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 29fe100821e5ad2d9d5d340a1178c19c60c6d821
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975286"
+ms.locfileid: "52995435"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -35,7 +35,9 @@ Ohanterade diskar för virtuella datorer (VM) är beroende av dessa API: er, så
 
 ## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
 
-Vissa funktioner i Storage Explorer fungerar inte ännu med Azure Data Lake Storage Gen2 filsystem. Dessa begränsningar gäller för både den [fristående version](https://azure.microsoft.com/features/storage-explorer/) av Azure Storage Explorer samt den version som visas i Azure-portalen.
+Om du vill visa eller hantera Data Lake Storage Gen2 konton med hjälp av Azure Storage Explorer, du måste ha minst version `1.6.0` i verktyget som är tillgängligt som en [kostnadsfri nedladdning](https://azure.microsoft.com/features/storage-explorer/).
+
+Observera att versionen av Storage Explorer som är inbäddad i Azure Portal har för närvarande inte stöd för Visa eller hantera Data Lake Storage Gen2 konton med hierarkisk aktiverade namnområden.
 
 ## <a name="blob-viewing-tool"></a>Verktyget för visning av BLOB
 
@@ -57,21 +59,9 @@ Använd i stället den senaste förhandsversionen av AzCopy ( [AzCopy v10](https
 
 Tjänster som Azure Databricks, HDInsight och Azure Data Factory integrera inte ännu med Azure Active Directory (Azure AD) OAuth-token ägarautentisering.
 
-## <a name="access-control-lists-acl"></a>Åtkomstkontrollistor (ACL)
-
-Katalog- och filnivå åtkomstkontrollistor (ACL) är svåra att hantera. Det finns inga gränssnittsbaserade verktyg som du kan använda för att hämta och ange de åtkomstkontrollistor.
-
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) inte ta emot händelser från Azure Data Lake Gen2 konton eftersom dessa konton inte ännu generera dem.  
-
-## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
-
-Du kan inte använda rollbaserad åtkomstkontroll filsystemsobjekt i ett Azure Data Lake Storage Gen2-konto.
-
-## <a name="sql-data-warehouse-polybase"></a>SQL Data Warehouse PolyBase
-
-När Storage-brandväggar är aktiverade på ett Azure Storage-konto, SQL Data Warehouse [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017) kan inte komma åt dessa konton.
 
 ## <a name="soft-delete-and-snapshots"></a>Mjuk borttagning och ögonblicksbilder
 

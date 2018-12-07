@@ -1,5 +1,5 @@
 ---
-title: DC/OS-agentpooler för Azure Container Service
+title: (INAKTUELL) DC/OS-agentpooler för Azure Container Service
 description: Hur offentliga och privata agentpooler fungerar med Azure Container Service DC/OS-kluster
 services: container-service
 author: iainfoulds
@@ -9,14 +9,17 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9c614d18b96c182fa166a4bc43fb1bb2f8d5d6f5
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ee1a2a75d6a003a6bc53c5216dd01d379193ea77
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976747"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994945"
 ---
-# <a name="dcos-agent-pools-for-azure-container-service"></a>DC/OS-agentpooler för Azure Container Service
+# <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(INAKTUELL) DC/OS-agentpooler för Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
 DC/OS-kluster i Azure Container Service innehåller agentnoder i två pooler, poolen offentliga och privata poolen. Ett program kan bara distribueras till antingen poolen, påverkar tillgängligheten mellan datorer i container service. Datorerna kan exponerade mot internet (offentlig) eller behöll intern (privat). Den här artikeln ger en kort översikt över varför det är offentliga och privata pooler.
 
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: ce539da92b9d58282ab44a3729f4bf4fb8eaedf5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840341"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997684"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Lösa Transact-SQL skillnader vid migrering till SQL-databas
 
@@ -45,25 +45,37 @@ Core DDL (data definition language)-instruktionerna är tillgängliga, men vissa
 
 Förutom Transact-SQL-uttryck som rör stöds inte funktioner som beskrivs i [Azure SQL Database funktionsjämförelse](sql-database-features.md), följande uttryck och grupper av uttryck stöds inte. Därför om databasen som ska migreras använder någon av följande funktioner, nytt supporttekniker T-SQL för att ta bort dessa T-SQL-funktioner och -uttryck.
 
--Sortering för system objekt - anslutning relaterade: slutpunktsrapporter. SQL Database har inte stöd för Windows-autentisering, men stöder den liknande Azure Active Directory-autentiseringen. Vissa typer av autentiseringar kräver den senaste versionen av SSMS. Mer information finns i [ansluta till SQL Database eller SQL Data Warehouse med hjälp av Azure Active Directory-autentisering](sql-database-aad-authentication.md).
--Frågor mellan databaser med tre eller fyra delnamn. (Skrivskyddade databasöverskridande frågor stöds med hjälp av [elastisk databasfråga](sql-database-elastic-query-overview.md).) – mellan databasen länkning av ägarskap, `TRUSTWORTHY` inställningen - `EXECUTE AS LOGIN` använda ”Kör som användare” i stället.
--Kryptering stöds utom för extensible key management – Eventing: händelser, händelsemeddelanden, frågemeddelanden - filplacering: Syntax som avser databasens filplacering, storlek och databasfiler som hanteras automatiskt av Microsoft Azure.
+- Sortering av systemobjekt
+- Anslutningsrelaterade: slutpunktsrapporter. SQL Database har inte stöd för Windows-autentisering, men stöder den liknande Azure Active Directory-autentiseringen. Vissa typer av autentiseringar kräver den senaste versionen av SSMS. Du hittar mer information i [Ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory-autentisering](sql-database-aad-authentication.md).
+- Frågor mellan databaser med tre eller fyra delnamn. (Skrivskyddade frågor över flera databaser stöds med hjälp av [Elastic Database-fråga](sql-database-elastic-query-overview.md).)
+- Länkning av ägarskap mellan databaser, `TRUSTWORTHY`-inställning
+- `EXECUTE AS LOGIN` Använd EXECUTE AS USER i stället.
+- Kryptering stöds utom för Extensible Key Management
+- Eventing: Händelser, händelsemeddelanden, frågemeddelanden
+- Filplacering: Syntax som avser databasens filplacering, storlek och databasfiler som hanteras automatiskt av Microsoft Azure.
 - Hög tillgänglighet: Syntax som avser hög tillgänglighet, som hanteras av Microsoft Azure-kontot. Detta inkluderar syntax för säkerhetskopiering, återställa, Alltid på, databasspegling, loggöverföring återställningslägen.
--Logga läsare: Syntax som använder log Reader, som inte är tillgänglig på SQL Database: Push-replikering, sammanställning av ändringsdata. SQL Database kan vara en prenumerant för en artikel för push-replikering.
--Funktioner: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes` -maskinvara: Syntax för maskinvarurelaterade maskinvarurelaterade serverinställningar: till exempel minne, arbetstrådar, processortillhörighet, spåra flaggor. Använd tjänstnivåer och compute storlekar i stället.
-- `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, och fyrdelade namn - .NET Framework: CLR-integrering med autentiseringsuppgifter för SQL Server - semantisk sökning -: Använd [databasbegränsade autentiseringsuppgifter](https://msdn.microsoft.com/library/mt270260.aspx) i stället.
--Servernivåobjekt: serverroller, `sys.login_token`. `GRANT`, `REVOKE` och `DENY` av serverbehörigheter inte är tillgängliga även om vissa ersätts med databasbehörigheter. Vissa användbara DMV:er på servernivå har motsvarande DMV:er på databasnivå.
-- `SET REMOTE_PROC_TRANSACTIONS`
-- `SHUTDOWN`
-- `sp_addmessage`
-- `sp_configure` alternativ och `RECONFIGURE`. Vissa alternativ är tillgängliga med [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
-- `sp_helpuser`
-- `sp_migrate_user_to_contained`
+- Logga läsare: Syntax som använder log Reader, som inte är tillgänglig på SQL Database: Push-replikering, sammanställning av ändringsdata. SQL Database kan vara en prenumerant för en artikel för push-replikering.
+- Funktioner: `fn_get_sql`, `fn_virtualfilestats`,`fn_virtualservernodes`
+- Maskinvara: Syntax för maskinvarurelaterade maskinvarurelaterade serverinställningar: till exempel minne, arbetstrådar, processortillhörighet, spåra flaggor. Använd tjänstnivåer och compute storlekar i stället.
+- `KILL STATS JOB`
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, och fyrdelade namn
+- .NET framework: CLR-integrering med SQL Server
+- Semantisk sökning
+- Serverautentiseringsuppgifter: Använd [databasbegränsade autentiseringsuppgifter](https://msdn.microsoft.com/library/mt270260.aspx) i stället.
+- Servernivåobjekt: serverroller, `sys.login_token`. `GRANT`, `REVOKE` och `DENY` av serverbehörigheter inte är tillgängliga även om vissa ersätts med databasbehörigheter. Vissa användbara DMV:er på servernivå har motsvarande DMV:er på databasnivå.
+- `SET REMOTE_PROC_TRANSACTIONS`
+- `SHUTDOWN`
+- `sp_addmessage`
+- `sp_configure`-alternativ och `RECONFIGURE`. Vissa alternativ är tillgängliga med [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
+- `sp_helpuser`
+- `sp_migrate_user_to_contained`
 - SQL ServerAgent: Syntax som bygger på SQL Server Agent eller MSDB-databasen: aviseringar, operatörer, centrala hanteringsservrar. Använd skript, till exempel Azure PowerShell i stället.
--Granskning av SQL Server: Använd SQL Database-granskning i stället.
--Spårning av SQL Server - spårningen flaggar: vissa spårade flaggobjekt har flyttats till kompatibilitetsläge.
-– Felsökning transact-SQL - utlösare: serveromfattande eller inloggningsutlösare - `USE` instruktion: Om du vill ändra databasens kontext till en annan databas, måste du se en ny anslutning till den nya databasen.
+- Granskning av SQL Server: Använd SQL Database-granskning i stället.
+- Spårning av SQL Server
+- Spåra flaggor: vissa spårade flaggobjekt har flyttats till kompatibilitetsläge.
+- Felsökning av Transact-SQL
+- Utlösare: Serveromfattande eller inloggningsutlösare
+- `USE`-uttryck: Om du vill ändra databasens kontext till en annan databas måste du göra en ny anslutning till den nya databasen.
 
 ## <a name="full-transact-sql-reference"></a>Fullständig referens för Transact-SQL
 

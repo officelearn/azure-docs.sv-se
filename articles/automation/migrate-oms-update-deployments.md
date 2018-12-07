@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2e99abfbc89d96f1dc5ca3c59789e13dd157a10
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5380372cc1f2928b79b0d20f4dd46e429a93dc5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678958"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992263"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrera dina distributioner av OMS till Azure
 
-Operations Management Suite (OMS)-portalen som [inaktuell](../log-analytics/log-analytics-oms-portal-transition.md). Alla funktioner som fanns i OMS-portalen för hantering av uppdateringar är tillgängliga i Azure-portalen. Den här artikeln innehåller information som du behöver för att migrera till Azure-portalen.
+Operations Management Suite (OMS)-portalen som [inaktuell](../azure-monitor/platform/oms-portal-transition.md). Alla funktioner som fanns i OMS-portalen för hantering av uppdateringar är tillgängliga i Azure-portalen. Den här artikeln innehåller information som du behöver för att migrera till Azure-portalen.
 
 ## <a name="key-information"></a>Viktig information
 

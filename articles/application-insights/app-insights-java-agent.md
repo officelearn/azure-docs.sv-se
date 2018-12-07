@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c5a98b9182e3a644a808b363df2fd44b115828f0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a62c6cbb6594aaf7c2c57d7efee1832d7b1430b7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727706"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000730"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, undantag som fångats och metoden körningstider i Java-webbappar
 
@@ -27,7 +27,7 @@ Om du har [instrumenterats Java-webbapp med Application Insights][java], du kan 
 * **Beroenden:** Data om anrop som programmet gör för andra komponenter, inklusive:
   * **REST-anrop** görs via HttpClient, OkHttp och RestTemplate (Spring) avbildas.
   * **Redis** anrop som görs via Jedis klienten fångas.
-  * **[JDBC-anrop](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL-, SQL Server- och Oracle DB-kommandon automatiskt avbildas. För MySQL om anropet tar längre tid än 10s, rapporterar agenten frågeplanen.
+  * **[JDBC-anrop](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL-, SQL Server- och Oracle DB-kommandon automatiskt avbildas. För MySQL om anropet tar längre tid än 10s, rapporterar agenten frågeplanen.
 * **Påträffades undantag:** Information om undantag som hanteras av din kod.
 * **Metoden körningstid:** Information om tid det tar för att köra specifika metoder.
 

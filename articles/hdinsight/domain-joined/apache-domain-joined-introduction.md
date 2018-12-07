@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ed735b8344c301be413dfe998ccf7f44bd686115
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632007"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011241"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>En introduktion till Apache Hadoop-säkerhet med Enterprise Security Package
 
@@ -22,7 +22,7 @@ Tidigare Azure HDInsight stöds endast en enskild användare: lokal administrat�
 
 Du kan skapa ett HDInsight-kluster med Enterprise Security Package (ESP) och som är ansluten till en Active Directory-domän. Du kan sedan konfigurera en lista över anställda från företaget som kan autentisera via Azure Active Directory för att logga in på HDInsight-klustret. Ingen från utanför företaget kan logga in eller få åtkomst till HDInsight-klustret. 
 
-Enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC) för Apache Hive säkerhet med hjälp av [Apache Ranger](http://hortonworks.com/apache/ranger/). Konfigurera RBAC begränsar dataåtkomsten till bara vad som behövs. Slutligen kan administratören granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll. Administratören kan sedan få en hög styrningsgrad över företagets resurser.
+Enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC) för Apache Hive säkerhet med hjälp av [Apache Ranger](https://hortonworks.com/apache/ranger/). Konfigurera RBAC begränsar dataåtkomsten till bara vad som behövs. Slutligen kan administratören granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll. Administratören kan sedan få en hög styrningsgrad över företagets resurser.
 
 > [!NOTE]
 > Oozie har nu aktiverats på ESP-kluster. För att komma åt webbgränssnittet för Oozie användare bör aktivera [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
@@ -44,14 +44,14 @@ Med den här konfigurationen kan kan företagets anställda logga in på noderna
 ## <a name="authorization"></a>Auktorisering
 Bästa praxis som de flesta företag följer att se till att alla medarbetare inte har åtkomst till alla företagsresurser. På samma sätt kan kan administratören definiera rollbaserad principer för åtkomstkontroll för klusterresurserna. 
 
-Administratören kan till exempel konfigurera [Apache Ranger](http://hortonworks.com/apache/ranger/) för att ange åtkomstkontrollprinciper för Hive. Den här funktionen gör att anställda kan komma åt bara så mycket information som de behöver för att utföra sitt arbete. SSH-åtkomst till klustret är också begränsad till endast administratören.
+Administratören kan till exempel konfigurera [Apache Ranger](https://hortonworks.com/apache/ranger/) för att ange åtkomstkontrollprinciper för Hive. Den här funktionen gör att anställda kan komma åt bara så mycket information som de behöver för att utföra sitt arbete. SSH-åtkomst till klustret är också begränsad till endast administratören.
 
 ## <a name="auditing"></a>Granskning
 Granska all åtkomst till klusterresurserna och data, krävs för att spåra obehörig eller oavsiktlig åtkomst av resurser. Det är lika viktigt som att skydda HDInsight-klusterresurserna från obehöriga användare och skydda data. 
 
 Administratören kan visa och rapportera all åtkomst till HDInsight-klusterresurser och data. Administratören kan också visa och rapportera alla ändringar åtkomstkontrollprinciper som skapats i stöds av Apache Ranger-slutpunkter. 
 
-Ett HDInsight-kluster med ESP använder det välbekanta Apache Ranger-Användargränssnittet för att söka igenom granskningsloggar. På backend-servern använder Ranger [Apache Solr](http://hortonworks.com/apache/solr/) för att lagra och söka igenom loggar.
+Ett HDInsight-kluster med ESP använder det välbekanta Apache Ranger-Användargränssnittet för att söka igenom granskningsloggar. På backend-servern använder Ranger [Apache Solr](https://hortonworks.com/apache/solr/) för att lagra och söka igenom loggar.
 
 ## <a name="encryption"></a>Kryptering
 Skydda data är viktigt för att uppfylla organisationens säkerhets- och krav. Tillsammans med att begränsa åtkomsten till data från obehöriga anställda, bör du krypterar den. 

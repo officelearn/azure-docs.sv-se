@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 54741bd2d76a7ba414613a40e07c47be703aa033
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584714"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994394"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för migrering av data
 
 Den här artikeln ger rekommendationer för migrering av data till Azure HDInsight. Det är en del i en serie som ger bästa praxis för att hjälpa migrera lokala Apache Hadoop-system till Azure HDInsight.
 
-## <a name="migrate-data-from-on-premises-to-azure"></a>Migrera data från en lokal plats till Azure
+## <a name="migrate-on-premises-data-to-azure"></a>Migrera lokala data till Azure
 
 Det finns två huvudsakliga alternativ för att migrera data från en lokal plats till Azure-miljön:
 
@@ -49,7 +49,7 @@ I följande tabell har ungefärliga data transfer varaktighet baserat på bandbr
 
 Verktyg som är inbyggt i Azure, till exempel DistCp, Azure Data Factory och AzureCp, kan användas för att överföra data över nätverket. Verktyg från tredje part WANDisco kan också användas för samma ändamål. Kafka Mirrormaker och Sqoop kan användas för pågående dataöverföring från en lokal plats till Azure storage-system.
 
-## <a name="performance-considerations-when-using-apache-distcp"></a>Prestandaöverväganden när du använder Apache DistCp
+## <a name="performance-considerations-with-apache-distcp"></a>Prestandaöverväganden med Apache DistCp
 
 DistCp är ett Apache-projekt som använder en karta för MapReduce-jobb för att överföra data, hantera fel och återställa dessa fel. Det tilldelar en lista över källfiler varje aktivitet i kartan. Kartan aktiviteten kopierar sedan alla dess tilldelade filer till målplatsen. Det finns flera tekniker kan förbättra prestandan för DistCp.
 
@@ -92,14 +92,14 @@ Hive-metaarkiv kan migreras med hjälp av skript eller med hjälp av DB-repliker
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Hive-metaarkiv migrering med hjälp av skript
 
-1. Skapa Hive-DDLs från en lokal Hive-metaarkiv. Det här steget kan göras med hjälp av en [omslutning bash-skript]. (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-1. Redigera den genererade DDL för att ersätta HDFS url med WASB/ADLS/ABFS URL: er
-1. Kör den uppdaterade DDL på metaarkiv från HDInsight-kluster
-1. Se till att Hive-metaarkiv version är kompatibla mellan lokala platser och molnet
+1. Skapa Hive-DDLs från en lokal Hive-metaarkiv. Det här steget kan göras med hjälp av en [omslutning bash-skript](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Redigera den genererade DDL för att ersätta HDFS url med WASB/ADLS/ABFS URL: er.
+1. Kör den uppdaterade DDL på metaarkiv från HDInsight-kluster.
+1. Se till att Hive-metaarkiv version är kompatibla mellan lokala platser och molnet.
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>Hive-metaarkiv migrering med hjälp av DB replikering
 
-- Konfigurera databasreplikeringen mellan lokala Hive-metaarkiv DB och HDInsight metaarkiv DB
+- Konfigurera databasreplikering mellan lokala Hive-metaarkiv DB och HDInsight metaarkiv DB.
 - Använd den ”Hive MetaTool” för att ersätta HDFS url med WASB/ADLS/ABFS URL: er, till exempel:
 
 ```bash

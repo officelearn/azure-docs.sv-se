@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 5c590b8df2eeb8859a6b78f4d719661c8b542ebe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037591"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000266"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux virtuell dator för datavetenskap på Azure
 Den här genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux. Linux Data Science Virtual Machine (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en uppsättning verktyg som ofta används för dataanalys och maskininlärning. Viktiga programkomponenterna är uppdelat i den [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång datavetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktyg individuellt. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den när den inte används. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -357,7 +357,7 @@ Installera och starta spännen med följande kommandon:
 >
 >
 
-Spännen använder ett fliken-baserat gränssnitt. De flesta av flikarna motsvarar stegen i den [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), t.ex. läser in data eller genom att utforska den. Data science process flödar från vänster till höger i flikarna. Men den senaste fliken innehåller en logg över R-kommandon som körs av spännen.
+Spännen använder ett fliken-baserat gränssnitt. De flesta av flikarna motsvarar stegen i den [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), t.ex. läser in data eller genom att utforska den. Data science process flödar från vänster till höger i flikarna. Men den senaste fliken innehåller en logg över R-kommandon som körs av spännen.
 
 Läsa in och konfigurera datauppsättningen:
 

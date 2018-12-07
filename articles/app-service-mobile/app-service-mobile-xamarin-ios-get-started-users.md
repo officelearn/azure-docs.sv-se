@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: be6ee88f43254ec3075a64299005d3597af968e7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 31e02cd931b3c9ab2cc55a540841969488c0c5f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224773"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997500"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Lägga till autentisering i en Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -122,6 +122,6 @@ I det här avsnittet ska du ändra appen om du vill visa en inloggningsskärm in
     Utför gesten uppdatering genom att dra nedåt i listan med objekt, vilket leder till inloggningsskärmen visas. När du har angett giltiga autentiseringsuppgifter, visas listan över att göra-objekt och du kan göra uppdateringar till data.
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Skapa en Xamarin.iOS-app]: app-service-mobile-xamarin-ios-get-started.md

@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2d05a31c56cfe8ea92a933696ca3c9b0fadbd4d3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468043"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000317"
 ---
 # <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Så här: lägga till eller ta bort en grupp från någon annan grupp med Azure Active Directory
 Den här artikeln hjälper dig att lägga till och ta bort en grupp från någon annan grupp med Azure Active Directory.
@@ -29,7 +29,7 @@ Den här artikeln hjälper dig att lägga till och ta bort en grupp från någon
 Du kan lägga till en befintlig säkerhetsgrupp till en annan befintlig säkerhetsgrupp (även kallat kapslade grupper), skapar en medlem i gruppen (Undergrupp) och en överordnad grupp. Medlem-grupp ärver de attribut och egenskaperna för den överordnade gruppen, sparar du konfigurationen.
 
 >[!Important]
->Vi stöder för närvarande inte:<ul><li>Att lägga till säkerhetsgrupper till Office 365-grupper</li><li>Lägga till Office 365-grupper till säkerhetsgrupper eller andra Office 365-grupper</li><li>Tilldelning av appar till kapslade grupper</li><li>Tillämpa licenser på kapslade grupper</li></ul>
+>Vi stöder för närvarande inte:<ul><li>Lägga till grupper i en grupp som har synkroniserats med den lokala Active Directory</li><li>Att lägga till säkerhetsgrupper till Office 365-grupper</li><li>Lägga till Office 365-grupper till säkerhetsgrupper eller andra Office 365-grupper</li><li>Tilldelning av appar till kapslade grupper</li><li>Tillämpa licenser på kapslade grupper</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Lägg till en grupp som en medlem i en annan grupp
 

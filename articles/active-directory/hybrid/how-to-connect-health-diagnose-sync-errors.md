@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: c077e8592157b5c09dd1bc99934afd9f687b1da1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8841a4d216160af4ed731570b40754307ffbb5a4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282534"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996049"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostisera och åtgärda synkroniseringsfel Duplicerat attribut
 
@@ -28,7 +28,7 @@ Funktionen diagnos har följande fördelar:
 - Det ger en diagnostisk procedur som begränsar Duplicerat attribut synkroniseringsfel. Och det ger specifik korrigeringar.
 - Det gäller en korrigering för dedikerade scenarier från Azure AD för att åtgärda felet i ett enda steg.
 - Ingen uppgradering eller konfiguration krävs för att aktivera den här funktionen.
-Läs mer om Azure AD, [identitet identitetssynkronisering och duplicerad attributåterhämtning](https://aka.ms/dupattributeresdocs).
+Läs mer om Azure AD, [identitet identitetssynkronisering och duplicerad attributåterhämtning](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="problems"></a>Problem
 ### <a name="a-common-scenario"></a>Ett vanligt scenario

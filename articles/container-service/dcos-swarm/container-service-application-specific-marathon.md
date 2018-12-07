@@ -1,5 +1,5 @@
 ---
-title: Program- eller användarspecifik Marathon-tjänst
+title: (INAKTUELL) Program- eller användarspecifik Marathon-tjänst
 description: Skapa en program- eller användarspecifik Marathon-tjänst
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 4ff263fe0ca4f435199127ed64faadee1c2527f9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164548"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996120"
 ---
-# <a name="create-an-application-or-user-specific-marathon-service"></a>Skapa en program- eller användarspecifik Marathon-tjänst
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(INAKTUELL) Skapa en program- eller användarspecifik Marathon-tjänst
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Genom Azure Container Service tillhandahålls en uppsättning huvudservrar där Apache Mesos och Marathon förkonfigureras. Servrarna kan användas för att dirigera dina program i klustret, men det är bäst att inte använda huvudservrarna för det här ändamålet. Om du till exempel vill justera konfigurationen av Marathon måste du logga in på själva huvudservrarna och göra ändringar. Det leder lätt till att du får unika huvudservrar som skiljer sig lite från standarden, vilket betyder att de måste skötas och hanteras var för sig. Dessutom kanske konfigurationen som krävs av ett team inte är den bästa konfigurationen för ett annat team.
 

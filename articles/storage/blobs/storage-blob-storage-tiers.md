@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253728"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014505"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), frekvent, lågfrekvent och Arkivlagringsnivå
 
@@ -113,7 +113,7 @@ Blobar i alla tre lagringsnivåer kan finnas tillsammans i samma konto. En blob 
 Data som lagras i Premium-åtkomstnivå kan inte nivåindelas för frekvent, lågfrekvent eller Arkiv med [ange Blobnivå](/rest/api/storageservices/set-blob-tier) eller med hjälp av Livscykelhantering för Azure Blob Storage. För att flytta data, måste du synkront kopiera blobar från Premium-åtkomst till frekvent med hjälp av den [placera Block från URL: en API](/rest/api/storageservices/put-block-from-url) eller en version av AzCopy som har stöd för detta API. Den *placera Block från URL: en* API synkront kopierar data på servern, vilket innebär att anropet har slutförts bara en gång alla data flyttas från den ursprungliga serverplatsen till målplatsen.
 
 ### <a name="blob-lifecycle-management"></a>Livscykelhantering för BLOB
-Livscykelhantering för Blob Storage (förhandsversion) erbjuder en omfattande, regel-baserad princip som du kan använda för att överföra data till bästa åtkomstnivå och för att ta bort data i slutet av livscykeln. Se [hantering av Azure Blob storage-livscykeln](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) vill veta mer.  
+Livscykelhantering för Blob Storage (förhandsversion) erbjuder en omfattande, regel-baserad princip som du kan använda för att överföra data till bästa åtkomstnivå och för att ta bort data i slutet av livscykeln. Se [hantering av Azure Blob storage-livscykeln](storage-lifecycle-management-concepts.md) vill veta mer.  
 
 ### <a name="blob-level-tiering-billing"></a>Fakturering för blobnivåindelning
 
@@ -245,7 +245,7 @@ Datalagringsbegränsningar och andra begränsningar anges på kontonivå, inte p
 
 [Kontrollera tillgängligheten för frekvent, lågfrekvent lagring och Arkivlagring efter region](https://azure.microsoft.com/regions/#services)
 
-[Hantera livscykeln för Azure Blob-lagring](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+[Hantera livscykeln för Azure Blob-lagring](storage-lifecycle-management-concepts.md)
 
 [Utvärdera användningen av dina aktuella lagringskonton genom att aktivera mätvärden i Azure Storage.](../common/storage-enable-and-view-metrics.md)
 

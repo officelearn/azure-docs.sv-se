@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d3a2fe9b51e0e6e9de653abb1bfa56a2529218cb
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2092816946dae20f5b3ae5b0a09179197dda00eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722474"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992817"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetri för begäran: Application Insights-datamodell
 
@@ -29,7 +29,7 @@ Begäran om telemetri stöder standard utökningsmodellen med hjälp av anpassad
 
 Namnet på begäran representerar kodsökvägar vid bearbetning av begäran. Kardinalitet för lågt värde så att bättre gruppering av begäranden. För HTTP-förfrågningar som den representerar den HTTP-metoden och URL-sökväg-mallen som `GET /values/{id}` utan den faktiska `id` värde.
 
-Application Insights web SDK skickar namnet på begäran ”i befintligt skick” för små bokstäver. Gruppering på Användargränssnittet är skiftlägeskänsligt så `GET /Home/Index` räknas separat från `GET /home/INDEX` även om de leder ofta samma kontrollanten och åtgärden körningen. Orsaken till som är att URL: er i allmänhet är [skiftlägeskänsliga](http://www.w3.org/TR/WD-html40-970708/htmlweb.html). Du kanske vill se om alla `404` inträffade för URL: er som skrivits i versaler. Du kan läsa mer på begäran namnsamling av ASP.Net Web SDK i den [blogginlägget](http://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights web SDK skickar namnet på begäran ”i befintligt skick” för små bokstäver. Gruppering på Användargränssnittet är skiftlägeskänsligt så `GET /Home/Index` räknas separat från `GET /home/INDEX` även om de leder ofta samma kontrollanten och åtgärden körningen. Orsaken till som är att URL: er i allmänhet är [skiftlägeskänsliga](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Du kanske vill se om alla `404` inträffade för URL: er som skrivits i versaler. Du kan läsa mer på begäran namnsamling av ASP.Net Web SDK i den [blogginlägget](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Maxlängd: 1024 tecken
 
@@ -69,7 +69,7 @@ För webbprogram, Application Insights kan du definiera begäran som misslyckad 
 
 Delvis accepterat innehåll `206` kan tyda på ett fel i en övergripande begäran. Application Insights slutpunkt får exempelvis en batch med telemetri objekt som en enskild begäran. Den returnerar `206` när vissa objekt i batchen inte bearbetades. Öka mängden `206` tyder på problem som behöver undersökas. Liknande logik som gäller för `207` flera Status där framgång kan vara sämsta av separata svarskoder.
 
-Du kan läsa mer på begäran-resultatet kod och statuskod i den [blogginlägget](http://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+Du kan läsa mer på begäran-resultatet kod och statuskod i den [blogginlägget](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
 
 ## <a name="custom-properties"></a>Anpassade egenskaper
 

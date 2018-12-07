@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34161251ac52323bc3eff66cfe30f3de34bdf60c
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 998c3f1fcfbf53f6f0dfb5ddf34d420f2b31a0b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715743"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001885"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en fil för lösningen i Azure (förhandsversion)
 > [!NOTE]
@@ -169,7 +169,7 @@ I det här fallet du hänvisa till variabeln genom lösningen med syntaxen **var
 Den **dependsOn** elementet anger en [beroende](../../azure-resource-manager/resource-group-define-dependencies.md) på en annan resurs.  När lösningen har installerats kan en resurs skapas inte förrän alla dess beroenden har skapats.  Till exempel din lösning kan [startar en runbook](solutions-resources-automation.md#runbooks) när den är installerad med hjälp av en [jobbet resource](solutions-resources-automation.md#automation-jobs).  Jobb-resursen skulle vara beroende av runbook-resursen för att se till att runbooken har skapats innan jobbet har skapats.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-arbetsytan och Automation-konto
-Lösningar för hantering av kräver en [Log Analytics-arbetsyta](../../log-analytics/log-analytics-manage-access.md) innehålla vyer och en [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview) som innehåller runbooks och relaterade resurser.  Dessa måste vara tillgängliga innan resurserna i lösningen skapas och ska inte definieras i själva lösningen.  Användaren kommer att [ange en arbetsyta och konto](solutions.md#log-analytics-workspace-and-automation-account) när de distribuerar din lösning, men som författare bör du överväga följande punkter.
+Lösningar för hantering av kräver en [Log Analytics-arbetsyta](../../azure-monitor/platform/manage-access.md) innehålla vyer och en [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview) som innehåller runbooks och relaterade resurser.  Dessa måste vara tillgängliga innan resurserna i lösningen skapas och ska inte definieras i själva lösningen.  Användaren kommer att [ange en arbetsyta och konto](solutions.md#log-analytics-workspace-and-automation-account) när de distribuerar din lösning, men som författare bör du överväga följande punkter.
 
 
 ## <a name="solution-resource"></a>Lösningen resurs

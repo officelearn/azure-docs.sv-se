@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 8ad4c356c5826532b94721bc4d9071179e8bd93a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846704"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997515"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps via en integration service-miljö (ISE)
 
@@ -65,7 +65,7 @@ När du skapar en integration service-miljö (ISE) kan du välja ett Azure-nätv
 
    1. Under **rollen**väljer **Nätverksdeltagare**. 
    
-   1. Under **tilldela åtkomst till**väljer **Azure AD-användare, grupp eller program**.
+   1. Under **tilldela åtkomst till**väljer **Azure AD-användare, grupp eller tjänstens huvudnamn**.
 
    1. Under **Välj**, ange **Azure Logic Apps**. 
 
@@ -141,14 +141,17 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
    ![Välj ”Skapa” efter lyckad validering](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure börjar distribuera din miljö, men den här processen kan ta *upp till två timmar* innan du avslutar. 
+   Azure börjar distribuera din miljö, men den här processen *kan* ta upp till två timmar innan du avslutar. 
    Välj meddelandeikonen, vilket öppnar meddelandefönstret för att kontrollera Distributionsstatus i din Azure verktygsfältet.
 
    ![Kontrollera Distributionsstatus för](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
-   När distributionen har slutförts visas det här meddelandet i Azure:
+   Om distributionen har slutförts visas det här meddelandet i Azure:
 
-   ![Distribueringen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Distributionen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+
+   > [!NOTE]
+   > Om distributionen misslyckas eller om du ta bort din ISE Azure *kan* ta upp till en timme innan du publicerar dina undernät. Därför kanske du måste vänta innan du återanvänder dessa undernät i ett annat ISE.
 
 1. Om du vill visa din miljö, Välj **gå till resurs** om Azure inte automatiskt går till din miljö när distributionen är klar.  
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9f237d9eed5b8500f0f80b8b73d638f374bf5ca9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165296"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999516"
 ---
 # <a name="working-with-azure-cosmos-account"></a>Arbeta med ett Azure Cosmos-konto
 
@@ -38,7 +38,7 @@ Du kan nu fortsätta att lära dig hur du hanterar din Azure Cosmos-konto och se
 * [Global distribution](distribute-data-globally.md)
 * [Konsekvensnivåer](consistency-levels.md)
 * [Arbeta med Azure Cosmos-behållare och objekt](databases-containers-items.md)
-* [VNET-tjänstslutpunkt för ditt Azure Cosmos-konto](firewall-support.md)
-* [IP-brandväggen för ditt Azure Cosmos-konto](vnet-service-endpoint.md)
+* [VNET-tjänstslutpunkt för ditt Azure Cosmos-konto](vnet-service-endpoint.md)
+* [IP-brandväggen för ditt Azure Cosmos-konto](firewall-support.md)
 * [Anvisningar: lägga till och ta bort Azure-regioner till ditt Azure Cosmos-konto](how-to-manage-database-account.md)
 * [Azure Cosmos DB-serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

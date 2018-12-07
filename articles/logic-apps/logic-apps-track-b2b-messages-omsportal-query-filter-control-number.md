@@ -9,19 +9,19 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: af1d00e49819f1d69e08c0fa99891690e07b489f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5cfab07e19e543b7a46fcce8f449a46395c144d6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233760"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995325"
 ---
 # <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>Skapa frågor om att spåra B2B-meddelanden i Azure Log Analytics för Azure Logic Apps
 
 Om du vill hitta AS2 X12 eller EDIFACT meddelanden du spårar med [Azure Log Analytics](../log-analytics/log-analytics-overview.md), du kan skapa frågor som filtrerar åtgärder baserat på specifika villkor. Du kan till exempel hitta meddelanden baserat på en specifik interchange-kontrollnummer.
 
 > [!NOTE]
-> Den här sidan som beskrevs tidigare anvisningar att utföra dessa uppgifter med den Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), ersätter de här stegen med Azure Log Analytics i stället. 
+> Den här sidan som beskrevs tidigare anvisningar att utföra dessa uppgifter med den Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../azure-monitor/platform/oms-portal-transition.md), ersätter de här stegen med Azure Log Analytics i stället. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9fa5d70a633f423c82457759d7ed18047167e3e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228988"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999896"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure portal 
 
 I Azure Functions tillhandahåller en funktionsapp körningssammanhang för dina enskilda funktioner. Funktionen app beteenden som gäller för alla funktioner som är värd för en viss funktionsapp. Det här avsnittet beskriver hur du konfigurerar och hanterar dina funktionsappar i Azure-portalen.
 
-Börja, gå till den [Azure-portalen](http://portal.azure.com) och logga in på ditt Azure-konto. I sökfältet längst upp i portalen skriver du namnet på din funktionsapp. Välj den sedan i listan. När du har valt din funktionsapp, ser du följande sida:
+Börja, gå till den [Azure-portalen](https://portal.azure.com) och logga in på ditt Azure-konto. I sökfältet längst upp i portalen skriver du namnet på din funktionsapp. Välj den sedan i listan. När du har valt din funktionsapp, ser du följande sida:
 
 ![Översikt över funktionen i Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 

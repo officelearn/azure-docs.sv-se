@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: cb96933569c18b8c70d8991c9ba19f9f3e1243e6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 65d94c4df3111e1ffe5a5340bba1db454681bb5e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633707"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016018"
 ---
 # <a name="run-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Köra Pig-jobb med Apache Hadoop på HDInsight med hjälp av REST
 
@@ -32,14 +32,14 @@ Lär dig hur du kör Apache Pig Latin-jobb genom att göra REST-begäranden till
   > [!IMPORTANT]
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [CURL](http://curl.haxx.se/)
+* [CURL](https://curl.haxx.se/)
 
-* [jq](http://stedolan.github.io/jq/)
+* [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Köra Pig-jobb med hjälp av Curl
 
 > [!NOTE]
-> REST API skyddas via [grundläggande autentisering](http://en.wikipedia.org/wiki/Basic_access_authentication). Alltid göra begäranden genom att använda säker HTTP (HTTPS) för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
+> REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Alltid göra begäranden genom att använda säker HTTP (HTTPS) för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 >
 > När du använder kommandona i det här avsnittet, ersätter `USERNAME` med användaren för att autentisera för klustret och Ersätt `PASSWORD` med lösenordet för användarkontot. Ersätt `CLUSTERNAME` med namnet på klustret.
 >

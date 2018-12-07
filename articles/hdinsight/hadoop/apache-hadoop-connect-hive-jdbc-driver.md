@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 225cb3d2f78f41bdb17763d13644c1d95bc62710
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633452"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014709"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
 
@@ -31,7 +31,7 @@ Läs mer på gränssnittet Hive JDBC [HiveJDBCInterface](https://cwiki.apache.or
   > [!IMPORTANT]
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight 3.3 tillbakadragande](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL är en JDBC-klientprogram.
+* [SQuirreL SQL](https://squirrel-sql.sourceforge.net/). SQuirreL är en JDBC-klientprogram.
 
 * Den [Java Developer Kit (JDK) version 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) eller högre.
 

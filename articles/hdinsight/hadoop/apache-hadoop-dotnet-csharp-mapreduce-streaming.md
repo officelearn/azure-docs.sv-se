@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a5f6f09ee6c8504b64cad7ef5313501a65907a90
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 9c1b0d52a83d707df3a01212f2ab23c625987da0
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632602"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013227"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# med MapReduce, streaming på Apache Hadoop i HDInsight
 
@@ -29,7 +29,7 @@ Direktuppspelning av Apache Hadoop är ett verktyg som låter dig köra MapReduc
 
 __Linux-baserade HDInsight__ kluster Använd [Mono (https://mono-project.com) ](https://mono-project.com) att köra .NET-program. Mono version 4.2.1 medföljer HDInsight version 3.6. Läs mer på vilken version av Mono som medföljer HDInsight [HDInsight komponenten versioner](../hdinsight-component-versioning.md). Om du vill använda en specifik version av Mono se den [installera eller uppdatera Mono](../hdinsight-hadoop-install-mono.md) dokumentet.
 
-Läs mer om Mono kompatibilitet med .NET Framework-versioner, [Mono-kompatibilitet](http://www.mono-project.com/docs/about-mono/compatibility/).
+Läs mer om Mono kompatibilitet med .NET Framework-versioner, [Mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 ## <a name="how-hadoop-streaming-works"></a>Så här fungerar Hadoop streaming
 

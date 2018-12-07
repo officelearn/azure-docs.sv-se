@@ -1,5 +1,5 @@
 ---
-title: Övervaka Azure Kubernetes-kluster med Datadog
+title: (INAKTUELL) Övervaka Azure Kubernetes-kluster med Datadog
 description: Övervaka Kubernetes-kluster i Azure Container Service med Datadog
 services: container-service
 author: bburns
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0a3f0baa4998dbc594023935575d659f7d45bbb9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38629077"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995359"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Övervaka ett Azure Container Service-kluster med DataDog
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(INAKTUELL) Övervaka ett Azure Container Service-kluster med DataDog
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här genomgången förutsätter att du har [skapade ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).

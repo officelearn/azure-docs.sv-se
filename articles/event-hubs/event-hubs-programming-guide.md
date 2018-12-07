@@ -5,18 +5,18 @@ services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 ms.service: event-hubs
+ms.custom: seodec18
 ms.topic: article
-ms.date: 08/12/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bfb2db8a4a0091e26cc2b893e615ba831da30ac7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: cd97aed36e9fd82df0d37913d5ea9e57c875a673
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746332"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011461"
 ---
-# <a name="event-hubs-programming-guide"></a>Programmeringsguide för händelsehubbar
-
+# <a name="programming-guide-for-azure-event-hubs"></a>Programmeringsguide för Händelsehubbar i Azure
 Den här artikeln beskriver några vanliga scenarier i skriva kod med Azure Event Hubs. Den förutsätter att du har en grundläggande förståelse av händelsehubbar. En konceptuell översikt av händelsehubbar finns på [Översikt av händelsehubbar](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Händelseutfärdare
@@ -55,7 +55,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="send-events-to-an-event-hub"></a>Skicka händelser till en händelsehubb
 
-Du skicka händelser till en händelsehubb genom att skapa en [EventHubClient][] instans och skicka den asynkront via den [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) metod. Den här metoden tar en enda [EventData][] instansparametern och skickar den synkront till en händelsehubb.
+Du skicka händelser till en händelsehubb genom att skapa en [EventHubClient][] instans och skicka den asynkront via den [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) metod. Den här metoden tar en enda [EventData][] instansparametern och asynkront skickar den till en händelsehubb.
 
 ## <a name="event-serialization"></a>Händelseserialisering
 
@@ -70,7 +70,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 }
 ```
 
-## <a name="partition-key"></a>Partitionsnyckel
+## <a name="partition-key"></a>Partitionsnyckeln
 
 När du skickar händelsedata, kan du ange ett värde som hashas för att skapa en tilldelning av partitionen. Du anger en partition med hjälp av den [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) egenskapen. Beslutet att använda partitioner innebär dock ett val mellan tillgänglighet och konsekvens. 
 

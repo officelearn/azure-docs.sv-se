@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 46ba2aa42f6669443354ceb7661684612e26f45f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9f58c8c99fa48c0ffb4c76dd9752993b5e7d092e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728046"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994378"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
@@ -74,7 +74,7 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
     </dependencies>
 ```
 
-* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `<version>2.0.n</version>`. Den senaste versionen finns i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `<version>2.0.n</version>`. Den senaste versionen finns i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Behöver du uppdatera till en ny SDK?* Uppdatera ditt projekts beroenden.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Om du använder Gradle … <a name="gradle-setup" />
@@ -97,7 +97,7 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Om du använder Eclipse för att skapa ett dynamiskt webbprojekt …
 Använd [plugin-programmet Application Insights SDK för Java][eclipse]. Obs: Även om du genom att använda det här plugin-programmet kommer igång med Application Insights snabbare (förutsatt att du inte använder Maven/Gradle), är det inte ett beroendehanteringssystem. Därför uppdaterar plugin-programmet inte Application Insights-biblioteken i projektet automatiskt.
 
-* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `version:'2.0.n'`. Den senaste versionen finns i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `version:'2.0.n'`. Den senaste versionen finns i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Uppdatera till en ny SDK* Uppdatera projektets beroenden.
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Om du hanterar beroenden manuellt gäller följande:

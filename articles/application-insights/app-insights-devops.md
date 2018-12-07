@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57e201403374ac72ef79bb4335294e1e937c8757
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720312"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994428"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
@@ -79,7 +79,7 @@ Huvudkategorier av data är:
 * Loggspårningar som används för felsökning.
 
 ## <a name="case-study-real-madrid-fc"></a>Fallstudie: Real Madrid F.C.
-Webbtjänst [Real Madrid Football Club](http://www.realmadrid.com/) fungerar ungefär 450 miljoner fans över hela världen. Fans komma åt det både via webbläsare och den Club mobila appar. Fans kan inte bara boka biljetter, men också komma åt information och video klipp på resultat, spelare och kommande spel. De kan söka med filter som antal mål poängsätts. Det finns också länkar till sociala medier. Användarupplevelsen är mycket personlig och är utformad som en dubbelriktad kommunikation för att engagera fans.
+Webbtjänst [Real Madrid Football Club](https://www.realmadrid.com/) fungerar ungefär 450 miljoner fans över hela världen. Fans komma åt det både via webbläsare och den Club mobila appar. Fans kan inte bara boka biljetter, men också komma åt information och video klipp på resultat, spelare och kommande spel. De kan söka med filter som antal mål poängsätts. Det finns också länkar till sociala medier. Användarupplevelsen är mycket personlig och är utformad som en dubbelriktad kommunikation för att engagera fans.
 
 Lösningen [är ett system med tjänster och program på Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Skalbarhet är ett krav: trafik variabel och kan nå mycket stora volymer under och runt matchningar.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 83a7f50120b5f34c4e4d74d8233fc51be9c0e579
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f805fde861413fe84f1ad15ade1ce2923a9531ce
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448388"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Självstudier: Azure Active Directory-integration med Predictix ordning
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av Predictix ordning i Azure AD, som du behöve
 
 **Om du vill lägga till Predictix ordning från galleriet, utför du följande steg:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -113,6 +113,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: 
+    
     | |
     |--|
     | `https://<companyname-pricing>.dev.ordering.predictix.com` |

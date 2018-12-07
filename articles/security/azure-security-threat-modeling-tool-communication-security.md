@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247389"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013193"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Security ram: KOMMUNIKATIONSSÄKERHET | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -34,7 +34,7 @@ ms.locfileid: "51247389"
 | **Mobila klienten** | <ul><li>[Implementera fästa certifikat](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Aktivera HTTPS – säker transportkanal](#https-transport)</li><li>[WCF: Meddelandesäkerhet Set skyddsnivå till EncryptAndSign](#message-protection)</li><li>[WCF: Använd ett konto med lägsta behörighet för att köra WCF-tjänst](#least-account-wcf)</li></ul> |
 | **Webb-API** | <ul><li>[Tvinga all trafik till webb-API: er via HTTPS-anslutning](#webapi-https)</li></ul> |
-| **Azure Redis Cache** | <ul><li>[Se till att kommunikation till Azure Redis Cache är via SSL](#redis-ssl)</li></ul> |
+| **Azure Redis-Cache** | <ul><li>[Se till att kommunikation till Azure Cache för Redis är via SSL](#redis-ssl)</li></ul> |
 | **IoT-fält-Gateway** | <ul><li>[Skydda enhet för fält-Gateway-kommunikation](#device-field)</li></ul> |
 | **IoT-molnet Gateway** | <ul><li>[Skydda enhet till Molngatewayen kommunikation via SSL/TLS](#device-cloud)</li></ul> |
 
@@ -372,16 +372,16 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Se till att kommunikation till Azure Redis Cache är via SSL
+## <a id="redis-ssl"></a>Se till att kommunikation till Azure Cache för Redis är via SSL
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | Azure Redis Cache | 
+| **Komponent**               | Azure Cache for Redis | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Azure Redis SSL-support](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Steg** | Redis-servern stöder inte SSL direkt, men Azure Redis Cache har. Om du ansluter till Azure Redis Cache och klienten stöder SSL, som StackExchange.Redis, bör du använda SSL. Som standard är icke-SSL-porten inaktiverad för nya Azure Redis Cache-instanser. Se till att säkra standardinställningarna inte ändras om det inte finns ett beroende på SSL-stöd för redis-klienter. |
+| **Steg** | Redis-servern stöder inte SSL direkt, men Azure Cache för Redis har. Om du ansluter till Azure Cache för Redis och klienten stöder SSL, som StackExchange.Redis, bör du använda SSL. Som standard är icke-SSL-porten inaktiverad för nya Azure-Cache för Redis-instanser. Se till att säkra standardinställningarna inte ändras om det inte finns ett beroende på SSL-stöd för redis-klienter. |
 
 Observera att Redis har utformats för att användas av betrodda klienter i betrodda miljöer. Det innebär att vanligtvis det inte är en bra idé att exponera Redis-instansen direkt till internet eller i allmänhet till en miljö där ej betrodda klienter har direkt åtkomst till Redis-TCP-port eller UNIX-socket. 
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: b8b562e1f783a9da7621b29fbf6d5bd1ff6ca5ef
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499122"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013517"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -97,7 +97,7 @@ Du debiteras för ett kluster livslängd. Om det finns endast specifika tidpunkt
 
 Ibland fel kan inträffa på grund av parallell körning av flera kartan och minska komponenter i ett kluster med flera noder. För att isolera problemet, försök distribuerade testning genom att köra samtidiga expandera sedan den här metoden för att köra flera jobb samtidigt på kluster som innehåller fler än en nod i flera jobb på en nod i klustret. Du kan skapa ett HDInsight-kluster med en nod i Azure med den *avancerade* alternativet.
 
-Du kan också installera en nod-utvecklingsmiljö på den lokala datorn och testa lösningen där. Hortonworks innehåller en enda nod lokal utvecklingsmiljö för Hadoop-baserade lösningar som är användbara för inledande funktionstest av, utveckling och testning. Mer information finns i [Hortonworks Sandbox](http://hortonworks.com/products/hortonworks-sandbox/).
+Du kan också installera en nod-utvecklingsmiljö på den lokala datorn och testa lösningen där. Hortonworks innehåller en enda nod lokal utvecklingsmiljö för Hadoop-baserade lösningar som är användbara för inledande funktionstest av, utveckling och testning. Mer information finns i [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
 
 För att identifiera problemet på ett lokalt kluster för en nod kan du kör misslyckade jobb och justera indata eller använda mindre datauppsättningar. Hur du kör dessa jobb beror på vilken plattform och typ av program.
 

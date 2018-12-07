@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: f4d8f4a927415426248860b07a40e7294c84de59
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a4f84d6e61d3a100f952908883e6eb70d81f66b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406969"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998804"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure-säkerhet och efterlevnad skissen - dataanalys för SP NIST 800-171
 
@@ -69,7 +69,7 @@ Följande avsnitt beskriver elementen distribution och implementering.
 
 **Azure Functions**: [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) är en serverlös beräkningstjänst som kör kod på begäran. Du behöver installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser.
 
-**Azure Machine Learning**: [Maskininlärning](https://docs.microsoft.com/azure/machine-learning/preview/) är en datavetenskapsteknik som gör att datorer kan använda befintliga data till att prognostisera framtida beteenden, resultat och trender.
+**Azure Machine Learning-tjänsten**: [Maskininlärning](https://docs.microsoft.com/azure/machine-learning/service/) är en datavetenskapsteknik som gör att datorer kan använda befintliga data till att prognostisera framtida beteenden, resultat och trender.
 
 **Azure Data Catalog**: [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) gör det enkelt att identifiera och förstå av de användare som hanterar data datakällor. Gemensamma datakällor kan registrerats, taggade och söka efter data. Dina data blir kvar i där, men en kopia av deras metadata läggs till i Data Catalog. En referens till datakällans plats ingår. Metadata indexeras för att göra det lätt att identifiera via sökningsfunktionen varje datakälla. Indexering gör det också att förstå att användare som identifierar den.
 

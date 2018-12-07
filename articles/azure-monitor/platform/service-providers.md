@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: c1af9cc9bc558fc610cdeeb81cda92082769b8cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c43b2e265903b119812d16ef4ef329393c725e71
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975391"
+ms.locfileid: "52992998"
 ---
 # <a name="log-analytics-for-service-providers"></a>Logganalys för tjänsteleverantörer
 Log Analytics kan leverantörer av hanterade tjänster (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur. 
@@ -75,12 +75,12 @@ Det finns två alternativ för att implementera den centrala platsen i Log Analy
 
 1. Central arbetsyta: tjänstleverantören kan skapa en arbetsyta i dess klient och använda ett skript som använder den [fråge-API](https://dev.loganalytics.io/) med den [Data samling API: et](../../azure-monitor/platform/data-collector-api.md) att flytta data från olika arbetsytor till den här central plats. Ett annat alternativ än ett skript, är att använda [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI som en central plats: Power BI kan fungera som den centrala platsen när olika arbetsytor exporterar data till den med hjälp av integrering mellan Log Analytics och [Power BI](../../log-analytics/log-analytics-powerbi.md). 
+2. Power BI som en central plats: Power BI kan fungera som den centrala platsen när olika arbetsytor exporterar data till den med hjälp av integrering mellan Log Analytics och [Power BI](../../azure-monitor/platform/powerbi.md). 
 
 
 ## <a name="next-steps"></a>Nästa steg
 * Automatisera skapande och konfiguration av arbetsytor med hjälp av [Resource Manager-mallar](template-workspace-configuration.md)
 * Automatisera genereringen av arbetsytor med hjälp av [PowerShell](../../log-analytics/log-analytics-powershell-workspace-configuration.md) 
 * Använd [aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) att integrera med befintliga system
-* Generera sammanfattningsrapporter med [Power BI](../../log-analytics/log-analytics-powerbi.md)
+* Generera sammanfattningsrapporter med [Power BI](../../azure-monitor/platform/powerbi.md)
 * Gå igenom processen för [konfigurerar Log Analytics och Power BI för att övervaka flera CSP-kunder](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

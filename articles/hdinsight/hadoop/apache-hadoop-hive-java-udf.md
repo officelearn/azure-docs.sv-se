@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f027b4c827fd7afe1a9cd2f8f31839b092345728
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634081"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012495"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Använda en Java UDF med Apache Hive i HDInsight
 
@@ -29,9 +29,9 @@ Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som 
 
     De flesta stegen i det här dokumentet fungerar på både Windows - och Linux-baserade kluster. Men är de steg som används för att ladda upp en kompilerad användardefinierad funktion till klustret och köra den specifika för Linux-baserade kluster. Länkar till information som kan användas med Windows-baserade kluster.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 eller senare (eller ett motsvarande, till exempel OpenJDK)
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 eller senare (eller ett motsvarande, till exempel OpenJDK)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * En textredigerare eller IDE för Java
 

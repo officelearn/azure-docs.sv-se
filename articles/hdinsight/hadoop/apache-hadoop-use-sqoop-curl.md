@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b565252c78bfe2194530d840651a57df2686728
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: cf7c47e14ef41f58ca1d674521da669e56e7e892
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633181"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012189"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Kör jobb för Apache Sqoop med Hadoop i HDInsight med Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,8 +27,8 @@ CURL används för att demonstrera hur du kan interagera med HDInsight med hjäl
 För att slutföra stegen i den här artikeln behöver du följande:
 
 * Fullständig [Använd Sqoop med Hadoop i HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) att konfigurera en miljö med ett HDInsight-kluster och en Azure SQL-databas.
-* [cURL](http://curl.haxx.se/). CURL är ett verktyg för att överföra data från eller till ett HDInsight-kluster.
-* [jq](http://stedolan.github.io/jq/). Verktyget jq används för att bearbeta JSON-data som returneras från REST-begäranden.
+* [cURL](https://curl.haxx.se/). CURL är ett verktyg för att överföra data från eller till ett HDInsight-kluster.
+* [jq](https://stedolan.github.io/jq/). Verktyget jq används för att bearbeta JSON-data som returneras från REST-begäranden.
 
 ## <a name="submit-sqoop-jobs-by-using-curl"></a>Skicka Sqoop jobb med hjälp av Curl
 > [!NOTE]
@@ -36,7 +36,7 @@ För att slutföra stegen i den här artikeln behöver du följande:
 > 
 > För kommandona i det här avsnittet, ersätter du **USERNAME** med användaren för att autentisera till klustret och ersätter **PASSWORD** med lösenordet för användarkontot. Ersätt **CLUSTERNAME** med namnet på klustret.
 > 
-> REST API skyddas via [grundläggande autentisering](http://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda säker HTTP (HTTPS) för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
+> REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda säker HTTP (HTTPS) för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 > 
 > 
 

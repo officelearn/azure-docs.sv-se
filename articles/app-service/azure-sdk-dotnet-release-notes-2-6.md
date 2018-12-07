@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 040eea1efd3abdbbfa65c24b2950ebece9d4acbc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dfc1fe223dbff178c35a969e0273ed80fb4c8be9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258399"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016435"
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Azure SDK för .NET 2.6 viktig information
 Det här dokumentet innehåller viktig information för Azure SDK för .NET 2.6 versionen. 
@@ -59,7 +59,7 @@ Du kan utveckla molnet tjänstprogram (PaaS) inriktning på .NET 4.5.2 eller .NE
     Just nu kommer Azure Storage version 2011-08-18 att tas bort från den 1 augusti 2016. Alla migreringar med Cache i roller från Azure SDK 2.5 eller nedan måste 2.6 vara klar vid den tidpunkten. Läs mer på Azure Storage version 2011-08-18 tas ur bruk [Microsoft Azure Storage-tjänsten tas bort versionsuppdatering: 2016-tillägget](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 > [!IMPORTANT]
-> Vi presenterar den 30 November 2016 indragningen för Azure Managed Cache Service och Azure cachelagring i Rollinstanser. Vi rekommenderar att du migrerar till Azure Redis Cache som förberedelse inför den här dras tillbaka. Mer information om datum och riktlinjer finns i [vilket Azure Cache-erbjudande är bäst för mig?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+> Vi presenterar den 30 November 2016 indragningen för Azure Managed Cache Service och Azure cachelagring i Rollinstanser. Vi rekommenderar att du migrerar till Azure Cache för Redis inför den här dras tillbaka. Mer information om datum och riktlinjer finns i [vilket Azure Cache-erbjudande är bäst för mig?](../azure-cache-for-redis/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 > 
 > 
 

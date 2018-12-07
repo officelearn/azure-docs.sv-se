@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: ba79d2d5ed4350960af1b92ee863595e3540a1d2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 349632c751c3116244bc8ef7708708f3aa45754c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843935"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013244"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-rekommendationer
 
@@ -39,9 +39,9 @@ Advisor ger dig en konsekvent konsoliderad vy över rekommendationer för alla d
 
 Läs mer om SQL Database Advisor [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
-## <a name="improve-redis-cache-performance-and-reliability"></a>Förbättra Redis Cache-prestanda och tillförlitlighet
+## <a name="improve-azure-cache-for-redis-performance-and-reliability"></a>Förbättra Azure Cache för Redis-prestanda och tillförlitlighet
 
-Advisor identifierar Redis Cache-instanser där prestanda kan påverkas negativt av hög minnesanvändning, serverbelastningen, bandbredd i nätverket eller ett stort antal klientanslutningar. Advisor tillhandahåller också metodtips rekommendationer för att hjälpa dig att undvika potentiella problem. Läs mer om rekommendationer för Redis Cache, [Redis Cache Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
+Advisor identifierar Azure Cache för Redis-instanser där prestanda kan påverkas negativt av hög minnesanvändning, serverbelastningen, bandbredd i nätverket eller ett stort antal klientanslutningar. Advisor tillhandahåller också metodtips rekommendationer för att hjälpa dig att undvika potentiella problem. Läs mer om Azure Cache för Redis-rekommendationer, [Azure Cache för Redis Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
 
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Förbättra App Service-prestanda och tillförlitlighet

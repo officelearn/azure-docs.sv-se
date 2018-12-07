@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c704639ce696672a87485a36d43a282d04a47a7e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5183e626ac990e265e9f4794220f24d43d865ed7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845186"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999998"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
 
 ![Application Insights symbol](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Med hjälp av [mellan resurser frågor](../../log-analytics/log-analytics-cross-workspace-search.md), hanteringslösningen för Application Insights-anslutning krävs inte längre och upphör att gälla. Från och juli, kommer du inte att kunna länka ny Application Insights-resurser till Log Analytics-arbetsytor. Befintliga länkar och instrumentpaneler kommer fortsätta att fungera tills November 2018. Mer information finns i [OMS-portalen som flyttar till Azure](../../log-analytics/log-analytics-oms-portal-transition.md).
+> Med hjälp av [mellan resurser frågor](../../azure-monitor/log-query/cross-workspace-query.md), hanteringslösningen för Application Insights-anslutning krävs inte längre och upphör att gälla. Från och juli, kommer du inte att kunna länka ny Application Insights-resurser till Log Analytics-arbetsytor. Befintliga länkar och instrumentpaneler kommer fortsätta att fungera tills November 2018. Mer information finns i [OMS-portalen som flyttar till Azure](../../azure-monitor/platform/oms-portal-transition.md).
 
 Program Insights Connector-lösningen hjälper dig att diagnostisera prestandaproblem och förstå vad användarna gör med din app när den är övervakad med [Application Insights](../../application-insights/app-insights-overview.md). Vyer för samma programtelemetri som utvecklare kan se i Application Insights är tillgängliga i Log Analytics. När du integrerar dina Application Insights-appar med Log Analytics, ökas visningen av dina program genom att använda åtgärden och programdata på samma ställe. Att ha samma vyer hjälper dig att samarbeta med dina apputvecklare. Vanliga vyer kan du minska tiden för att identifiera och lösa både programmet och plattformsproblem.
 
@@ -46,7 +46,7 @@ Till skillnad från de flesta andra Log Analytics-lösningar, inte som samlas in
 | --- | --- | --- |
 | [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
 | [Linux-agenter](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
-| [SCOM-hanteringsgrupp](../../log-analytics/log-analytics-om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
+| [SCOM-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
 | [Azure Storage-konto](collect-azure-metrics-logs.md) | Nej | Lösningen gör inte samlingsinformation från Azure storage. |
 
 ## <a name="prerequisites"></a>Förutsättningar

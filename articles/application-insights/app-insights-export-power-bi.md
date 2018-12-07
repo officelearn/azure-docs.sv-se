@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a30e562b04a3414a1305604a521e0d659753142
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720413"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993367"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
-[Power BI](http://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](app-insights-overview.md).
 
 Det finns tre metoder för att exportera Application Insights-data till Power BI:
 
@@ -40,7 +40,7 @@ För att importera din Application Insights-fråga måste använda du skrivbords
 Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportera en Analytics-fråga
-1. [Öppna Analytics och Skriv din fråga](../log-analytics/query-language/get-started-analytics-portal.md).
+1. [Öppna Analytics och Skriv din fråga](../azure-monitor/log-query/get-started-portal.md).
 2. Testa och förfina frågan tills du är nöjd med resultaten. Kontrollera att frågan fungerar korrekt i Analytics innan du exporterar den.
 3. På den **exportera** menyn, Välj **Power BI (M)**. Spara filen.
    
@@ -152,6 +152,6 @@ Du kan redigera instrumentpanelen, kombinera Application Insights-diagram med de
 Efter den första importen fortsätter instrumentpanelen och rapporterna att uppdateras dagligen. Du kan styra uppdateringsschemat för datauppsättningen.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Power BI – Lär dig](http://www.powerbi.com/learning/)
-* [Analytics-självstudier](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Power BI – Lär dig](https://www.powerbi.com/learning/)
+* [Analytics-självstudier](../azure-monitor/log-query/get-started-portal.md)
 

@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 93e6b8c606c0a6d7abebeb515b938a45001757c1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950377"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999926"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Stöd för OpenAPI 2.0-metadata i Azure Functions (förhandsversion)
 OpenAPI 2.0 (tidigare Swagger) metadata stöds i Azure Functions är en förhandsgranskningsfunktion som du kan använda för att skriva en definition för OpenAPI 2.0 i en funktionsapp. Du kan sedan ha filen med hjälp av funktionsappen.
 
 > [!IMPORTANT]
-> Förhandsgranskningsfunktion OpenAPI är endast tillgängliga idag i 1.x-körningen. Information om hur du skapar en funktionsapp för 1.x [hittar du här](./functions-versions.md#creating-1x-apps).
+> Förhandsgranskningsfunktionen OpenAPI är i dag endast tillgänglig i 1.x-körningen. Information om hur du skapar en 1.x-funktionsapp [hittar du här](./functions-versions.md#creating-1x-apps).
 
-[OpenAPI-metadata](http://swagger.io/) gör en funktion som är värd för en REST-API för att användas av en stor mängd annan programvara. Den här programvaran innehåller Microsoft-erbjudanden som PowerApps och [API Apps-funktionen i Azure App Service](../app-service/app-service-web-overview.md), utvecklingsverktyg från tredje part som [Postman](https://www.getpostman.com/docs/importing_swagger), och [många andra paket](http://swagger.io/tools/).
+[OpenAPI-metadata](https://swagger.io/) gör en funktion som är värd för en REST-API för att användas av en stor mängd annan programvara. Den här programvaran innehåller Microsoft-erbjudanden som PowerApps och [API Apps-funktionen i Azure App Service](../app-service/app-service-web-overview.md), utvecklingsverktyg från tredje part som [Postman](https://www.getpostman.com/docs/importing_swagger), och [många andra paket](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -39,7 +39,7 @@ Du kan konfigurera alla OpenAPI-inställningar på den **API-Definition** sidan 
 Om du vill aktivera generering av en värdbaserad OpenAPI-definition och en definition av Snabbstart, ange **API-definitionskälla** till **funktion (förhandsversion)**. **Externa URL: en** tillåter funktionen att använda en OpenAPI-definition som har är värdbaserad någon annanstans.
 
 ## <a name="generate-definition"></a>Generera en Swagger-stommen från din funktion metadata
-Med hjälp av en mall kan du börja skriva din första OpenAPI-definition. Funktionen definition mallen skapar en null-optimerade OpenAPI-definitionen genom att använda alla metadata i filen function.json för var och en av dina funktioner för HTTP-utlösare. Du måste fylla i mer information om ditt API från den [OpenAPI-specifikation](http://swagger.io/specification/), till exempel mallar för begäranden och svar.
+Med hjälp av en mall kan du börja skriva din första OpenAPI-definition. Funktionen definition mallen skapar en null-optimerade OpenAPI-definitionen genom att använda alla metadata i filen function.json för var och en av dina funktioner för HTTP-utlösare. Du måste fylla i mer information om ditt API från den [OpenAPI-specifikation](https://swagger.io/specification/), till exempel mallar för begäranden och svar.
 
 Stegvisa instruktioner finns i den [komma igång-självstudiekurs](./functions-api-definition-getting-started.md).
 
@@ -55,10 +55,10 @@ I följande tabell representerar inställningar för Azure portal och motsvarand
 
 |Swagger.JSON|Portalens användargränssnitt|Function.JSON|
 |:----|:-----|:-----|
-|[Värd](http://swagger.io/specification/#fixed-fields-15)|**Funktionen appinställningar** > **App Service-inställningarna** > **översikt** > **URL**|*Finns inte*
-|[Sökvägar](http://swagger.io/specification/#paths-object-29)|**Integrera** > **valda HTTP-metoder**|Bindningar: väg
-|[Sökväg till objekt](http://swagger.io/specification/#path-item-object-32)|**Integrera** > **flödesmallen**|Bindningar: metoder
-|[Säkerhet](http://swagger.io/specification/#security-scheme-object-112)|**nycklar**|*Finns inte*|
+|[Värd](https://swagger.io/specification/#fixed-fields-15)|**Funktionen appinställningar** > **App Service-inställningarna** > **översikt** > **URL**|*Finns inte*
+|[Sökvägar](https://swagger.io/specification/#paths-object-29)|**Integrera** > **valda HTTP-metoder**|Bindningar: väg
+|[Sökväg till objekt](https://swagger.io/specification/#path-item-object-32)|**Integrera** > **flödesmallen**|Bindningar: metoder
+|[Säkerhet](https://swagger.io/specification/#security-scheme-object-112)|**nycklar**|*Finns inte*|
 |operationID*|**Väg + tillåtna verb**|Väg + tillåtna verb|
 
 \*Åtgärds-ID krävs endast för att integrera med PowerApps och Flow.

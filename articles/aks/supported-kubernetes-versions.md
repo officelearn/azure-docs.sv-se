@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: f37bfc59e402e87afcffa469d4d2014ed6877db6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e535d1c2c581e20667a1ccf10fc97fcf988bc91a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955708"
+ms.locfileid: "53001810"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
 Kubernetes-communityn släpper nya lägre versioner ungefär var tredje månad. Dessa versioner inkluderar nya funktioner och förbättringar. Korrigeringsversioner släpps oftare (ibland varje vecka) och avser endast korrigeringar av allvarliga buggar i en lägre version. Dessa patch-versioner innehåller korrigeringar av säkerhetsrisker eller större buggar som påverkar ett stort antal kunder och produkter som körs i produktionsmiljön baserat på Kubernetes.
 
-En ny Kubernetes minor-version är tillgänglig i [acs-engine] [ acs-engine] från dag ett. AKS-servicenivåmål släpper den lägre versionen för AKS-kluster inom 30 dagar beroende på versionens stabilitet.
+En ny Kubernetes minor-version är tillgänglig i [aks-engine] [ aks-engine] från dag ett. AKS-servicenivåmål släpper den lägre versionen för AKS-kluster inom 30 dagar beroende på versionens stabilitet.
 
 ## <a name="kubernetes-version-support-policy"></a>Stödprincip för Kubernetes-version
 
@@ -84,7 +84,7 @@ Huvudservern uppdateras automatiskt till den senaste versionen.
 Information om hur du uppgraderar klustret finns i [uppgradera ett kluster i Azure Kubernetes Service (AKS)][aks-upgrade].
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->

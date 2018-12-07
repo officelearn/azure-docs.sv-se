@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f4acec3db7d74b969c55e725d9ec1c5f063b552c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cc72fb39bf62915be10493a780538121f26ca835
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628218"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002279"
 ---
-# <a name="securing-docker-containers-in-azure-container-service"></a>Skydda Docker-behållare i Azure Container Service
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(INAKTUELL) Skydda Docker-behållare i Azure Container Service
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 Den här artikeln innehåller överväganden och rekommendationer som hjälper dig att skydda Docker-behållare som distribueras i Azure Container Service. Många av dessa överväganden och rekommendationer gäller generellt för Docker-containrar som distribueras i Azure och i andra miljöer. 
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3be368f128e4436cd58812937aaaf82a909b2645
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0618a580c6bdcef8f28a439cd79e67d863e58b9e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720774"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995237"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentera webbappar vid körning med Application Insights
 
-Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Om en lokal IIS-server är värd för dina appar, installerar du Statusövervakare. Om de är Azure-webbappar eller körs i en virtuell Azure-dator kan du aktivera Application Insights-övervakning från Azures kontrollpanel. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).) Du behöver en [Microsoft Azure](http://azure.com)-prenumeration.
+Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Om en lokal IIS-server är värd för dina appar, installerar du Statusövervakare. Om de är Azure-webbappar eller körs i en virtuell Azure-dator kan du aktivera Application Insights-övervakning från Azures kontrollpanel. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).) Du behöver en [Microsoft Azure](https://azure.com)-prenumeration.
 
 ![Skärmbild av App Insights översikt diagram som innehåller information om misslyckade förfrågningar, svarstid för servern och servern för serverbegäranden](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
@@ -242,7 +242,7 @@ För program som redan har instrumenterats vid kompilering:
  * Beroendeanrop (.NET 4.5;), returvärden i beroendeanrop (.NET 4.6).
  * Undantag i stackspårningsvärden.
 
-[Läs mer](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Läs mer](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 

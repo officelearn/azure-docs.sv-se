@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: 8522fea10a4ec8f85d20e5a9ec04712c77bb6b94
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3c5c4d24d68fffc86a654e0dee5e2d3f36f15aea
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064279"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000468"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Designa globalt tillgängliga tjänster som använder Azure SQL Database
 
@@ -34,7 +34,7 @@ I det här scenariot har program som följande egenskaper:
 *   Webbnivå och datanivå måste vara samordnad för att minska kostnaden för svarstid och trafik 
 *   Grunden, avbrottstid är en högre affärsrisk för dessa program än dataförlust
 
-I det här fallet är topologi för distribution av program optimerad för hantering av regionala katastrofer när alla programkomponenter behöver växling vid fel tillsammans. Diagrammet nedan visar den här topologin. För geografisk redundans distribueras programmets resurser till Region A och B. Resurserna i regionen B används dock inte förrän Region A inte. En redundansgrupp konfigureras mellan två regioner för att hantera databasanslutning, replikering och redundans. Webbtjänsten i båda regionerna är konfigurerad för att få åtkomst till databasen via skrivskyddad lyssnaren  **&lt;redundansgruppsnamnet-&gt;. database.windows.net** (1). Traffic manager har konfigurerats att använda [prioriterad routningsmetod](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+I det här fallet är topologi för distribution av program optimerad för hantering av regionala katastrofer när alla programkomponenter behöver växling vid fel tillsammans. Diagrammet nedan visar den här topologin. För geografisk redundans distribueras programmets resurser till Region A och B. Resurserna i regionen B används dock inte förrän Region A inte. En redundansgrupp konfigureras mellan två regioner för att hantera databasanslutning, replikering och redundans. Webbtjänsten i båda regionerna är konfigurerad för att få åtkomst till databasen via skrivskyddad lyssnaren  **&lt;redundansgruppsnamnet-&gt;. database.windows.net** (1). Traffic manager har konfigurerats att använda [prioriterad routningsmetod](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) används i den här artikeln för tydlighetens skull endast. Du kan använda valfri belastningsutjämningslösning som har stöd för prioriterad routningsmetod.    
@@ -47,7 +47,7 @@ Följande diagram visar denna konfiguration innan ett avbrott:
 SQL Database-tjänsten upptäcker att den primära databasen inte är tillgänglig och utlöser redundans till den sekundära regionen baserat på parametrarna för automatisk redundans principen (1) efter ett avbrott i den primära regionen. Du kan konfigurera en Respitperiod som styr tiden mellan identifiering av driftstörningarna och växling vid fel själva beroende på serviceavtalet för programmet. Det är möjligt att traffic manager startar slutpunkten för växling vid fel innan redundansgruppen utlöser redundans för databasen. I så fall ansluta inte webbprogrammet direkt till databasen. Men återanslutningar lyckas automatiskt så fort databasen redundansväxlingen är klar. När misslyckade regionen har återställts och är online igen, återansluter den gamla primärt automatiskt som en ny sekundär. Diagrammet nedan illustrerar konfigurationen efter en redundansväxling.
  
 > [!NOTE]
-> Alla transaktioner som utförs efter redundansväxlingen går förlorade vid återanslutning. När redundansväxlingen är klar kan kan programmet i regionen B återansluta och starta om bearbetning av begäranden för användare. Både det webbaserade programmet och den primära databasen är nu i regionen B och samordnas. n>
+> Alla transaktioner som utförs efter redundansväxlingen går förlorade vid återanslutning. När redundansväxlingen är klar kan kan programmet i regionen B återansluta och starta om bearbetning av begäranden för användare. Både det webbaserade programmet och den primära databasen är nu i regionen B och samordnas. 
 
 ![Scenario 1. Konfigurationen efter redundans](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 
@@ -135,7 +135,7 @@ Om ett avbrott inträffar till exempel i Norra Europa, skickar den automatiska d
 ![Scenario 3. Avbrott i Norra Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
 > [!NOTE]
-> Du kan minska den tid när slutanvändarens upplevelse i Europa försämras lång svarstid. Om du vill göra som du bör proaktivt distribuera en kopia av programmet och skapa de sekundära databaserna i en annan lokala region (Europa, västra) som ersättning för programmet för offline-instans i Norra Europa. När denna är online igen kan du bestämma om du vill fortsätta att använda Västeuropa eller att ta bort kopian av program där och växla tillbaka till Norra Europa,
+> Du kan minska den tid när slutanvändarens upplevelse i Europa försämras lång svarstid. Om du vill göra som du bör proaktivt distribuera en kopia av programmet och skapa de sekundära databaserna i en annan lokala region (Europa, västra) som ersättning för programmet för offline-instans i Norra Europa. När denna är online igen kan du bestämma om du vill fortsätta att använda Västeuropa eller ta bort kopian av program där och växla tillbaka till Norra Europa.
 >
 
 Nyckeln **fördelar** av den här designen är:

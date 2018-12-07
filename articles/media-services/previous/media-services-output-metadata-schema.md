@@ -12,27 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 35b728793b81c41f0a81c5c7621b9e17edf1f22a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250894"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994666"
 ---
 # <a name="output-metadata"></a>Utgående Metadata
 ## <a name="overview"></a>Översikt
 Ett kodningsjobb som är associerad med en indatatillgången (eller tillgångar) på som du vill utföra vissa kodningsuppgifter. Koda till exempel en MP4-fil för H.264 MP4 med anpassningsbar bithastighet uppsättningar; Skapa en miniatyrbild; Skapa överlägg. En utdatatillgången skapas vid slutförandet av uppgiften.  Utdatatillgången innehåller video, ljud, miniatyrer, osv. Utdatatillgången innehåller också en fil med metadata om utdatatillgången. Namnet på den XML-fil har följande format: &lt;source_file_name&gt;_manifest.xml (till exempel BigBuckBunny_manifest.xml).  
 
+Media Services igenom inte förebyggande syfte inkommande tillgångar för att generera metadata. Inkommande metadata skapas endast som en artefakt när indata tillgången har bearbetats i ett jobb. Därför den här artefakten skrivs utdata för tillgången. Olika verktyg används för att generera metadata för tillgångar som indata och utdata tillgångar. Inkommande metadata har därför ett något annorlunda schema än utgående metadata.
+
 Om du vill undersöka metadatafilen kan du skapa en **SAS** positionerare och ladda ned filen till din lokala dator.  
 
 Den här artikeln beskriver de element och typer av XML-schema som utdata-metada (&lt;source_file_name&gt;_manifest.xml) är baserad. Läs om hur den fil som innehåller metadata om indatatillgången [Indatametadata](media-services-input-metadata-schema.md).  
 
-> [!NOTE]
-> Du hittar koden för fullständigt schema och XML-exempel i slutet av den här artikeln.  
->
->
+Du hittar koden för fullständigt schema och XML-exempel i slutet av den här artikeln.  
 
 ## <a name="AssetFiles "></a> AssetFiles rotelement
 Samling av AssetFile poster för kodningsjobbet.  

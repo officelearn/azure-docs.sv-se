@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4d9e47d6da45eaba19cbe089de3fdf053c36046a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb18a7338eb688ab427725933b9fc3f73b44b502
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030686"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992057"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudie: Optimera kostnaderna från rekommendationer
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Bekräfta åtgärden för att säkerställa att den virtuella datorn har har ändrats
 
 ## <a name="prerequisites"></a>Förutsättningar
-Rekommendationer är tillgänglig för alla [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) kunder. Du måste minst ha skrivskyddad åtkomst till en eller flera av följande omfattningar för att visa kostnadsdata.
+Rekommendationer är tillgängligt för alla [Enterprise-avtalskunder (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Du måste minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata.
 
 - Prenumeration
 - Resursgrupp

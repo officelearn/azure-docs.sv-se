@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cb1d26082fe4fbbd14b2b77f54d1bc7697b3538d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c7b211202013050c826ef8a530a831b8f02673f6
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227968"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015100"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Ta emot händelser från Azure Event Hubs med .NET Framework
 
@@ -44,14 +45,14 @@ Det första steget är att använda [Azure Portal](https://portal.azure.com) til
 
 I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av projektmallen **Konsolprogram**. Namnge projektet **Mottagare**.
    
-![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
+![Skapa konsolprogram](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Lägga till Event Hubs NuGet-paketet
 
 1. Högerklicka på projektet **Mottagare** i Solution Explorer och klicka sedan på **Hantera NuGet-paket för lösningen**.
 2. Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Klicka på **Installera** och godkänn användningsvillkoren.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
+    ![Sök efter Event Processor Host NuGet-paketet](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
     Visual Studio laddar ned, installerar och lägger till en referens till [Azure Service Bus Event Hub –EventProcessorHost NuGet-paket ](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), med alla sina beroenden.
 
@@ -59,7 +60,7 @@ I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av p
 
 1. Högerklicka på **Mottagare**-projektet, klicka på **Lägg till** och klicka sedan på **Klass**. Kalla den nya klassen för **SimpleEventProcessor** och klicka sedan på **Lägg till** för att skapa klassen.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
+    ![Lägg till SimpleEventProcessor-klassen](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
 2. Lägg till följande uttryck överst i filen SimpleEventProcessor.cs:
     
       ```csharp

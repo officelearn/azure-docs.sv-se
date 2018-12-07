@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 3d15e747c129d2591f4cc70030d1cf858bcee49e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8e4245de5d6a025fa87c8644678896596b07c49e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237662"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001128"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Azure-säkerhet och efterlevnad skiss: analys för GDPR
 
@@ -75,8 +75,8 @@ Följande avsnitt beskriver elementen distribution och implementering.
 **Azure Functions**
 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) är en server utan beräkningstjänst som gör det möjligt för användarna att köra kod på begäran utan att behöva installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser.
 
-**Azure Machine Learning**
-[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) är en datavetenskapsteknik som gör att datorer kan använda befintliga data till att prognostisera framtida beteenden, resultat och trender.
+**Azure Machine Learning-tjänsten**
+[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) är en datavetenskapsteknik som gör att datorer kan använda befintliga data till att prognostisera framtida beteenden, resultat och trender.
 
 **Azure Data Catalog**: [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) gör datakällor enkelt identifiera och förstå hur av de användare som hanterar data. Gemensamma datakällor kan registrerats, taggade och söks igenom efter personliga data. Dina data blir kvar i där, men en kopia av deras metadata läggs till i Data Catalog tillsammans med en referens till datakällans plats. Dessa metadata indexeras också för att det ska bli enkelt att identifiera alla datakällor och för att användare som identifierar dem ska förstå dem.
 

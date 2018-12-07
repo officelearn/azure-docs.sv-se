@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 9baf6ea70a8e9fa0dcd8ceefc9f58d7fa972767a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9cbb1f080b9a5a98984ad48854bccc4fb2044c16
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841973"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998339"
 ---
 # <a name="dependency-visualization"></a>Visualisering av beroenden
 
@@ -68,7 +68,7 @@ Mer information om priser för Azure Migrate finns [här](https://azure.microsof
 
 ## <a name="how-do-i-manage-the-workspace"></a>Hur hanterar jag arbetsytan?
 
-Du kan använda Log Analytics-arbetsytan utanför Azure Migrate. Den tas inte bort om du tar bort migration-projekt där den skapades. Om du inte längre behöver arbetsytan [ta bort den](../log-analytics/log-analytics-manage-access.md) manuellt.
+Du kan använda Log Analytics-arbetsytan utanför Azure Migrate. Den tas inte bort om du tar bort migration-projekt där den skapades. Om du inte längre behöver arbetsytan [ta bort den](../azure-monitor/platform/manage-access.md) manuellt.
 
 Ta inte bort den arbetsyta som skapats av Azure Migrate, såvida inte du ta bort migreringsprojektet. Om du gör det, kommer beroendevisualiseringsfunktionen inte fungerar som förväntat.
 

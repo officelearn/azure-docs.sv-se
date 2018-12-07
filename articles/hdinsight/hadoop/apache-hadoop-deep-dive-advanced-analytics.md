@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 40536aae15f2ae9fa5e186cdbea1f75f7d264437
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7253a31057d8e7af5c0273ef112b1155cf15a014
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047148"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011665"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Djupdykning – avancerad analys
 
@@ -63,7 +63,7 @@ HDInsight har flera alternativ för ett arbetsflöde för avancerad analys för 
 
 ### <a name="machine-learning-and-spark"></a>Maskininlärning och Spark
 
-[HDInsight Spark](../spark/apache-spark-overview.md) är ett erbjudande för Azure som värd för [Spark](http://spark.apache.org/), en enhetlig öppen källkod, ramverk för parallellbearbetning av data som använder minnesintern bearbetning för att öka analyser av Stordata. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer som används i machine learning och grafberäkningar. 
+[HDInsight Spark](../spark/apache-spark-overview.md) är ett erbjudande för Azure som värd för [Spark](https://spark.apache.org/), en enhetlig öppen källkod, ramverk för parallellbearbetning av data som använder minnesintern bearbetning för att öka analyser av Stordata. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer som används i machine learning och grafberäkningar. 
 
 Det finns tre skalbar machine learning-bibliotek som få algoritmiska modelleringsfunktioner till den här distribuerad miljö:
 

@@ -6,32 +6,32 @@ manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: d72848e2-4b65-4c84-94bc-e2a90a6e7f47
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 1f37dcd14c1b3e85c3fae3bbf7aa67c16b8a898d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249024"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994288"
 ---
 # <a name="input-metadata"></a>Inkommande Metadata
+
 Ett kodningsjobb som är associerad med en indatatillgången (eller tillgångar) på som du vill utföra vissa kodningsuppgifter.  En utdatatillgången skapas vid slutförandet av uppgiften.  Utdatatillgången innehåller video, ljud, miniatyrer, manifest osv. Utdatatillgången innehåller också en fil med metadata om indatatillgången. Namnet på den XML-fil har följande format: &lt;asset_id&gt;_metadata.xml (till exempel 41114ad3-eb5e - 4c 57 8d 92-5354e2b7d4a4_metadata.xml), där &lt;asset_id&gt; är AssetId värdet för den indatatillgången.  
+
+Media Services igenom inte förebyggande syfte inkommande tillgångar för att generera metadata. Inkommande metadata skapas endast som en artefakt när indata tillgången har bearbetats i ett jobb. Därför den här artefakten skrivs utdata för tillgången. Olika verktyg används för att generera metadata för tillgångar som indata och utdata tillgångar. Inkommande metadata har därför ett något annorlunda schema än utgående metadata.
 
 Om du vill undersöka metadatafilen kan du skapa en **SAS** positionerare och ladda ned filen till din lokala dator. Du hittar ett exempel på hur du skapar en SAS-positionerare och hämta en fil [med hjälp av Media Services .NET SDK-tilläggen](media-services-dotnet-get-started.md).  
 
 Den här artikeln beskriver de element och typer av XML-schemat som den inkommande metada (&lt;asset_id&gt;_metadata.xml) är baserad.  Läs om hur den fil som innehåller metadata om utdatatillgången [utmatade Metadata](media-services-output-metadata-schema.md).  
 
-> [!NOTE]
-> Du hittar den [schemat kod](media-services-input-metadata-schema.md#code) en [XML-exempel](media-services-input-metadata-schema.md#xml) i slutet av den här artikeln.  
-> 
-> 
+Du hittar den [schemat kod](media-services-input-metadata-schema.md#code) en [XML-exempel](media-services-input-metadata-schema.md#xml) i slutet av den här artikeln.  
+ 
 
 ## <a name="AssetFiles"></a> AssetFiles element (rotelementet)
 Innehåller en samling [AssetFile elementet](media-services-input-metadata-schema.md#AssetFile)s för kodningsjobbet.  

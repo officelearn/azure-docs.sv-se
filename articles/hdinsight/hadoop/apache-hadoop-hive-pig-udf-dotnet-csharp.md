@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2ef88fff1313a0e7b1aa0abb502629512daaf636
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 21186c522e46dac11c1dc88bbad5c4b330bc1e3f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633843"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012036"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# användardefinierade funktioner med Apache Hive och Apache Pig strömning på Apache Hadoop i HDInsight
 
@@ -45,7 +45,7 @@ Både Hive och Pig kan överföra data till externa program för bearbetning. De
 
 * __Linux-baserade HDInsight__ kluster med hjälp av [Mono (https://mono-project.com) ](https://mono-project.com) att köra .NET-program. Mono version 4.2.1 medföljer HDInsight version 3.6.
 
-    Läs mer om Mono kompatibilitet med .NET Framework-versioner, [Mono-kompatibilitet](http://www.mono-project.com/docs/about-mono/compatibility/).
+    Läs mer om Mono kompatibilitet med .NET Framework-versioner, [Mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
 
     Om du vill använda en specifik version av Mono se den [installera eller uppdatera Mono](../hdinsight-hadoop-install-mono.md) dokumentet.
 
@@ -60,7 +60,7 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 1. Öppna Visual Studio och skapa en lösning. Projekttyp, Välj **Konsolapp (.NET Framework)**, och namnge det nya projektet **HiveCSharp**.
 
     > [!IMPORTANT]
-    > Välj __.NET Framework 4.5__ om du använder en Linux-baserade HDInsight-kluster. Läs mer om Mono kompatibilitet med .NET Framework-versioner, [Mono-kompatibilitet](http://www.mono-project.com/docs/about-mono/compatibility/).
+    > Välj __.NET Framework 4.5__ om du använder en Linux-baserade HDInsight-kluster. Läs mer om Mono kompatibilitet med .NET Framework-versioner, [Mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 2. Ersätt innehållet i **Program.cs** med följande kod:
 

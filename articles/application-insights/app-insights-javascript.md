@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 52fe5ac108e2788e481d89901dd24098cdb3c9b4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 937cbc1346ce41670270b911e474e900f406a93b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965214"
+ms.locfileid: "52993622"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 Visa prestanda och användning för webbsidor eller appar. Om du lägger till [Application Insights](app-insights-overview.md) i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan ställa in varningar för antal fel eller långsam sidinläsning. Och genom att infoga spårning av anrop i JavaScript-kod kan du spåra hur olika funktioner i ditt webbsideprogram används.
@@ -74,7 +74,7 @@ Infoga skriptet precis före `</head>`-taggen för alla sidor som du vill spåra
 
 Skriptet innehåller instrumenteringsnyckeln som dirigerar data till din Application Insights-resurs. 
 
-([Mer detaljerad förklaring av skriptet.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+([Mer detaljerad förklaring av skriptet.](https://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 ## <a name="detailed-configuration"></a>Detaljerad konfiguration
 Det finns flera [Parametrar](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) som du kan ange, men i de flesta fall behöver du inte göra det. Du kan t.ex. inaktivera eller begränsa antalet Ajax-anrop som rapporteras per sidvy (om du vill minska trafiken). Eller så kan du ställa in felsökningsläge så att telemetrin rör sig snabbt genom pipelinen utan att batchhanteras.
@@ -125,7 +125,7 @@ Bladet Webbläsare är ett [Metrics Explorer-blad](app-insights-metrics-explorer
 ## <a name="page-load-performance"></a>Sidinläsningsprestanda
 Längst upp på sidan finns ett segmenterat diagram över sidinläsningstider. Diagrammets totala höjd representerar den genomsnittliga tid det tar att läsa in och visa sidor från appen i användarnas webbläsare. Tiden mäts från tidpunkten då webbläsaren skickar den första HTTP-begäran tills alla synkrona belastningshändelser har bearbetats, inklusive layout och skriptkörning. De omfattar inte asynkrona åtgärder, till exempel inläsning av webbdelar från AJAX-anrop.
 
-I diagrammet delas den totala sidinläsningstiden upp baserat på [standardtiderna som definierats av W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
+I diagrammet delas den totala sidinläsningstiden upp baserat på [standardtiderna som definierats av W3C](https://www.w3.org/TR/navigation-timing/#processing-model). 
 
 ![](./media/app-insights-javascript/08-client-split.png)
 

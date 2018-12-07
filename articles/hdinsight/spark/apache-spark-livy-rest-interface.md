@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495302"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012580"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använda Apache Spark REST API för att skicka fjärrstyrda jobb till ett HDInsight Spark-kluster
 
@@ -26,10 +26,10 @@ Du kan använda Livy för att köra interaktiv Spark-gränssnitt eller skicka ba
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* [cURL](http://curl.haxx.se/). Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett HDInsight Spark-kluster.
+* [cURL](https://curl.haxx.se/). Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett HDInsight Spark-kluster.
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Skicka ett Apache Spark för Livy batch-jobb
-Innan du skickar in ett batch-jobb, måste du överföra JAR-filen för programmet i klusterlagringen kopplat till klustret. Du kan använda kommandoradsverktyget [**AzCopy**](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns olika andra klienter som du kan använda för att överföra data. Du kan hitta mer information om dem på [överföra data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
+Innan du skickar in ett batch-jobb, måste du överföra JAR-filen för programmet i klusterlagringen kopplat till klustret. Du kan använda kommandoradsverktyget [**AzCopy**](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns olika andra klienter som du kan använda för att överföra data. Det finns mer information om dem i [Ladda upp data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 

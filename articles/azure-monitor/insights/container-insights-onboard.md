@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 4747c06ddb56a86c2efc7340043efdd019b86049
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 03fea6cf1276172893f18f1b09c8e3fdeec4ac4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962917"
+ms.locfileid: "53001142"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Hur du integrera Azure Monitor för behållare (förhandsgranskning) 
 Den här artikeln beskriver hur du ställer in Azure Monitor för behållare för att övervaka prestanda för arbetsbelastningar som distribueras till Kubernetes-miljöer och finns på [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -35,7 +35,7 @@ Du kan också aktivera övervakning för en eller flera befintliga AKS-kluster f
 Innan du börjar bör du kontrollera att du har följande:
 
 - En Log Analytics-arbetsyta. Du kan skapa den när du aktiverar övervakning av din nya AKS-klustret eller låta publiceringsupplevelsen skapa en standardarbetsyta i standardresursgruppen för prenumerationen för AKS-kluster. Om du väljer att skapa den själv, kan du skapa den via [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), via [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), eller i den [Azure-portalen](../../azure-monitor/learn/quick-create-workspace.md).
-- Du är medlem i rollen som deltagare Log Analytics för att aktivera behållarövervakning. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../../log-analytics/log-analytics-manage-access.md).
+- Du är medlem i rollen som deltagare Log Analytics för att aktivera behållarövervakning. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../../azure-monitor/platform/manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

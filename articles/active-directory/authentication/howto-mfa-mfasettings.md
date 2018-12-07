@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e0c612407047a51c4e3d4101a0ee192f55458afe
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 772807fc0a1378eea662a7c4a7e3c720d7092bef
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496996"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013022"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -384,3 +384,7 @@ Funktionen minskar antalet autentiseringar i web apps, som normalt att efterfrå
 ### <a name="mark-a-device-as-trusted"></a>Markera en enhet är betrodda
 
 När du har aktiverat funktionen Kom ihåg Multi-Factor Authentication användarna kan markera en enhet som betrodda när de loggar in genom att välja **fråga inte igen**.
+
+# <a name="next-steps"></a>Nästa steg
+
+[Ändra Azure AD-inloggningssida anpassning](..\fundamentals\customize-branding.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: bwren
-ms.openlocfilehash: b260c4eecd0a1aff31c86766e2f03208ba6b1460
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 68986b3d60566ee190a92c6ccf8cda767824350f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727269"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000139"
 ---
 # <a name="azure-monitor-branding-changes"></a>Azure Monitor anpassningsändringar
 Den här artikeln beskriver de senaste anpassning och namnändringar som nyligen gjorts i Azure-hanteringstjänster. 
@@ -46,4 +46,4 @@ Operations Management Suite (OMS) har en sammanslagning av följande Azure manag
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs en [översikt över Azure Monitor](overview.md) som beskriver dess olika komponenter och funktioner.
-- Lär dig mer om den [övergång av OMS-portalen](../log-analytics/log-analytics-oms-portal-transition.md).
+- Lär dig mer om den [övergång av OMS-portalen](../azure-monitor/platform/oms-portal-transition.md).

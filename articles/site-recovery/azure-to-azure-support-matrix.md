@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: a7d498349342e34cb56f031bfe1440e01e79173b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2906f6dff84cdd6a09c05734988ee005a3d65aac
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841854"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994641"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -40,7 +40,7 @@ Den här artikeln sammanfattas konfigurationer som stöds och komponenter när d
 **Migrera virtuella datorer mellan regioner i stöds geografiska kluster (inom och mellan prenumerationer)** | Stöd för inom samma Azure Active Directory-klientorganisation.
 **Migrera virtuella datorer i samma region** | Stöds ej.
 
-# <a name="region-support"></a>Regionsstöd
+## <a name="region-support"></a>Regionsstöd
 
 Du kan replikera och återställa virtuella datorer mellan alla två regioner inom samma geografiska kluster.
 
@@ -62,11 +62,10 @@ Kina | Östra Kina, norra Kina
 
 Den här tabellen sammanfattar stödet för cachelagringskonto som används av Site Recovery under replikeringen.
 
-**Inställning** | **Detaljer**
---- | ---
+**Inställning** | **Support** | **Detaljer**
+--- | --- | ---
 Generell användning V2-lagringskonton (frekvent och lågfrekvent nivå) | Stöds ej. | Begränsningen finns för cachelagring eftersom transaktionskostnader för V2 är betydligt högre än V1-lagringskonton.
-Azure Storage-brandväggar för virtuella nätverk  | Nej | Att tillåta åtkomst till specifika Azure-nätverk på cachelagringskonton som används för att lagra replikerade data stöds inte.
-
+Azure Storage-brandväggar för virtuella nätverk  | Stöds | Om du använder brandvägg är aktiverad cachelagringskontot eller mållagringskontot, se till att du [”Tillåt att betrodda Microsoft-tjänster”](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
 ## <a name="replicated-machine-operating-systems"></a>Replikerade datorn operativsystem
@@ -145,7 +144,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default 
 --- | --- | ---
 Storlek | Alla Azure VM-storlekar med minst 2 CPU-kärnor och 1 GB RAM-minne | Kontrollera [Azure VM-storlekar](../virtual-machines/windows/sizes.md).
 Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standardalternativen skapas en tillgänglighetsuppsättning automatiskt baserat på de nationella inställningarna för källan. Du kan ändra dessa inställningar.
-Tillgänglighetszoner | Stöds inte | Du kan inte för närvarande replikera virtuella datorer som distribueras i tillgänglighetszoner.
+Tillgänglighetszoner | Stöds |  
 Hybrid Use-förmånen (HUB) | Stöds | Om den Virtuella källdatorn har en HUB licens aktiverad, ett redundanstest eller redundans använder virtuell dator också HUB-licens.
 Skalningsuppsättning för virtuella datorer | Stöds inte |
 Azure galleriavbildningar - Microsoft publicerat | Stöds | Om den virtuella datorn kör ett operativsystem som stöds.
@@ -194,7 +193,7 @@ GRS | Stöds |
 RA-GRS | Stöds |
 ZRS | Stöds inte |  
 Frekventa och lågfrekventa lagring | Stöds inte | Virtuella diskar stöds inte på frekventa och lågfrekventa lagring
-Azure Storage-brandväggar för virtuella nätverk  | Ja | Om du är att begränsa åtkomst till virtuellt nätverk till storage-konton, kontrollerar du att betrodda Microsoft-tjänster har åtkomst till lagringskontot.
+Azure Storage-brandväggar för virtuella nätverk  | Stöds | Om du är att begränsa åtkomst till virtuellt nätverk till storage-konton, se till att du [”Tillåt att betrodda Microsoft-tjänster”](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Storage-konton för generell användning V2 (både frekvent och lågfrekvent nivå) | Nej | Transaktionen kostnaderna ökar avsevärt jämfört med generell användning V1-lagringskonton
 
 >[!IMPORTANT]

@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure Event Hubs Capture | Microsoft Docs
+title: Samla in händelser som strömmas via Azure Event Hubs | Microsoft Docs
 description: Samla in telemetridata med Event Hubs Capture
 services: event-hubs
 documentationcenter: ''
@@ -9,21 +9,21 @@ editor: ''
 ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
 ms.service: event-hubs
 ms.workload: na
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 91263d7f6e8c0c2774df560a45eeff9efc672343
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fe096c0ee1747b3162f80ba4230ebf470ad50343
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408432"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011495"
 ---
-# <a name="azure-event-hubs-capture"></a>Azure Event Hubs Capture
-
-Azure Event Hubs Capture kan du automatiskt leverera strömmande data i Event Hubs till en [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) konto föredrar, med den ökade flexibiliteten Ange ett tids- eller storleksintervall. Det går snabbt att ställa in Capture, det finns inga administrativa kostnader för att köra den och den skalar automatiskt med Event Hubs [genomflödesenheter](event-hubs-features.md#capacity). Event Hubs Capture är det enklaste sättet att läsa in strömmande data i Azure och kan du fokusera på databearbetning i stället för datainsamling.
+# <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Samla in händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage
+Händelsehubbar i Azure kan du automatiskt samla in strömmande data i Event Hubs i en [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) konto föredrar, med den ökade flexibiliteten Ange ett tids- eller storleksintervall. Det går snabbt att ställa in Capture, det finns inga administrativa kostnader för att köra den och den skalar automatiskt med Event Hubs [genomflödesenheter](event-hubs-features.md#capacity). Event Hubs Capture är det enklaste sättet att läsa in strömmande data i Azure och kan du fokusera på databearbetning i stället för datainsamling.
 
 Event Hubs Capture kan du bearbeta realtidsdata och batch-baserade pipelines för samma dataström. Det innebär att du kan skapa lösningar för dina behov över tid. Om du skapar batch-baserade system idag med ett öga mot framtida realtidsbearbetning, eller om du vill lägga till en effektiv kalla sökvägen till en befintlig lösning i realtid, kan Event Hubs Capture arbeta med strömmande data enklare.
 
@@ -68,7 +68,7 @@ Event Hubs Capture skapar filer i Avro-format som anges på den konfigurerade ti
 
 De filer som skapas av Event Hubs Capture har följande Avro-schemat:
 
-![][3]
+![Kro schema][3]
 
 Ett enkelt sätt att utforska Avro-filernas är med hjälp av den [Avro verktyg] [ Avro Tools] jar från Apache. När du hämtat den här jar, ser du schemat för en viss Avro-fil genom att köra följande kommando:
 

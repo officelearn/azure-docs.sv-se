@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4c58984e512556b73281cca1154b4879c9db79d5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d9f632485d1ebf263efb78bfbf6de40496ebb75c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956796"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016262"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Skydda Azure SQL-tjänst och data i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs.  Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM), nätverk, SQL och data och program.
@@ -54,7 +54,7 @@ Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning
 |Resurstyp|Säkerhetspoäng|Rekommendation|Beskrivning|
 |----|----|----|----|
 |Lagringskonto|20|Kräv säker överföring till storage-konto|Säker överföring är ett alternativ som tvingar ditt storage-konto för att acceptera begäranden endast från säkra anslutningar (HTTPS). Använda HTTPS säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning.|
-|Redis|20|Aktivera endast säkra anslutningar till din Redis Cache|Aktivera endast anslutningar via SSL till Redis Cache. Användning av säkra anslutningar säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning.|
+|Redis|20|Aktivera endast säkra anslutningar till din Azure Cache för Redis|Aktivera endast anslutningar via SSL till Azure Cache för Redis. Användning av säkra anslutningar säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning.|
 |SQL|15|Aktivera Transparent datakryptering på SQL-databaser|Aktivera transparent datakryptering för att skydda vilande data och uppfylla efterlevnadskraven.|
 |SQL|15|Aktivera granskning på SQL-servrar|Aktivera granskning för Azure SQL-servrar. (Endast azure SQL-tjänsten. Omfattar inte SQL som körs på dina virtuella datorer.)|
 |SQL|15|Aktivera granskning på SQL-databaser|Aktivera granskning för Azure SQL-databaser. (Endast azure SQL-tjänsten. Omfattar inte SQL som körs på dina virtuella datorer.)|

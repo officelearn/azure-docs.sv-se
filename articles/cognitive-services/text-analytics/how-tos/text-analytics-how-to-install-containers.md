@@ -1,23 +1,24 @@
 ---
-title: Installera och köra behållare
+title: Installera och köra containrar
 titleSuffix: Text Analytics - Cognitive Services - Azure
 description: Så här hämtar, installerar och kör behållare för textanalys i den här genomgången självstudien.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 99bdb42d9a0d86d0d2acc4a6272e0c802042e6b5
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: dc5e34f1a9a63b5b3ce30cdd547b900a32eba42c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635047"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017227"
 ---
-# <a name="install-and-run-containers"></a>Installera och köra behållare
+# <a name="install-and-run-containers"></a>Installera och köra containrar
 
 Skapa behållare är en metod för distribution av programvara där ett program eller tjänst kommer som en behållaravbildning. Konfiguration och beroenden för programmet eller tjänsten ingår i behållaravbildningen. Behållaravbildningen kan sedan distribueras på en behållarvärd med lite eller ingen ändring. Behållare är isolerade från varandra och det underliggande operativsystemet, med mindre avtryck än en virtuell dator. Behållare kan instansieras behållaravbildningar för kortsiktig uppgifter och tas bort när den inte längre behövs.
 
@@ -27,7 +28,7 @@ Textanalys tillhandahåller följande uppsättning Docker-behållare som innehå
 |----------|-------------|
 |Extrahering av nyckelfraser | Extraherar viktiga fraser för att identifiera de viktigaste aspekterna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. |
 |Språkidentifiering | Upp till 120 språk, identifierar och rapporterar vilket språk som indatatexten skrivs. Behållaren rapporterar en enda språkkod för varje dokument som ingår i begäran. Språkkoden paras med poäng som anger styrkan hos poängen. |
-|Attitydanalys | Analyserar rå text efter ledtrådar om positiv eller negativ attityd. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva. Analysis-modeller tränas före med hjälp av en omfattande mängd text och naturligt språk tekniker från Microsoft. För [utvalda språk](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet. |
+|Attitydanalys | Analyserar rå text efter ledtrådar om positiv eller negativ attityd. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva. Analysis-modeller tränas före med hjälp av en omfattande mängd text och naturligt språk tekniker från Microsoft. För [utvalda språk](../language-support.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet. |
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -43,7 +44,7 @@ Docker måste konfigureras för att tillåta behållarna för att ansluta till o
 
 Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Krav och rekommendationer
+### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 
 I följande tabell beskrivs de minsta och rekommenderade CPU-kärnorna minst 2,6 GHz (gigahertz) eller snabbare, och minne i gigabyte (GB), att tilldela för varje behållare för textanalys.
 
@@ -51,7 +52,7 @@ I följande tabell beskrivs de minsta och rekommenderade CPU-kärnorna minst 2,6
 |-----------|---------|-------------|
 |Extrahering av nyckelfraser | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |
 |Språkidentifiering | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |
-|Attitydanalys | 1 kärna, 8 GB minne | 1 kärna, 8 GB minne |
+|Attitydanalys | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |
 
 ## <a name="download-container-images-from-microsoft-container-registry"></a>Hämta behållaravbildningar från Microsoft Container Registry
 
@@ -149,11 +150,13 @@ Mer information om alternativen finns i [konfigurera behållare](../text-analyti
 I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, installera och textanalys-behållare som körs. Sammanfattningsvis:
 
 * Textanalys innehåller tre Linux-behållare för Docker, som kapslar in extrahering av diskussionsämne, språkidentifiering och attitydanalys.
-* Avbildningar hämtas från ett privat behållarregister i Azure.
+* Behållaravbildningar laddas ned från Microsoft Container Registry (MCR) i Azure.
 * Behållaravbildningar som körs i Docker.
 * Du kan använda antingen SDK eller REST API för att anropa åtgärder i textanalys behållare genom att ange värden URI: N för behållaren.
 * Du måste ange faktureringsinformation när instanser skapades av en behållare.
-* ** Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (t.ex. bild eller text som analyseras) till Microsoft.  
+
+> [!IMPORTANT]
+> Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (t.ex. bild eller text som analyseras) till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 

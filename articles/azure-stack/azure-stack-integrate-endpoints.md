@@ -10,12 +10,12 @@ ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: MT
+ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298763"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996719"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter-integrering – publicera slutpunkter
 
@@ -79,10 +79,14 @@ Azure Stack stöder endast transparent proxy-servrar. I en distribution där en 
 |NTP|(IP för NTP-server för distribution)|UDP|123|
 |DNS|(IP-DNS-server för distribution)|TCP<br>UDP|53|
 |LISTAN ÖVER ÅTERKALLADE CERTIFIKAT|(URL under CRL-distributionspunkter på ditt certifikat)|HTTP|80|
+|Infrastruktur för säkerhetskopiering|(IP eller FQDN för externa målets filserver)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > Utgående URL: er är belastningsutjämnad med Azure traffic manager för att tillhandahålla den bästa möjliga anslutningen baserat på geografisk plats. Med att läsa in belastningsutjämnade URL: er, Microsoft kan uppdatera och ändra serverdelsslutpunkter utan att påverka kunder. Microsoft delar inte listan över IP-adresser för belastningsutjämnade URL: er. Du bör använda en enhet som stöder filtrering efter URL i stället för IP.
+
+> [!Note]  
+> I 1809 kommunicerar infrastruktur säkerhetskopieringstjänsten extern filserver från det offentliga VIP-nätverket. Innan du 1809 kommunicerar tjänsten via infrastruktur för offentliga nätverk. Om dina miljöer inte tillåter åtkomst till resurser i infrastrukturen från det offentliga VIP-nätverket, Använd du den senaste 1809 för Azure Stack. Den här snabbkorrigeringen flyttas infrastruktur säkerhetskopieringstjänsten tillbaka till nätverkets infrastruktur för offentliga. I 1811, om du tillämpar snabbkorrigeringar 1809 kvar säkerhetskopieringstjänsten infrastrukturen på infrastruktur för offentliga nätverk. Om du inte har installerat snabbkorrigeringen flyttar uppdateringen tjänsten tillbaka till nätverkets infrastruktur för offentliga.
 
 ## <a name="next-steps"></a>Nästa steg
 

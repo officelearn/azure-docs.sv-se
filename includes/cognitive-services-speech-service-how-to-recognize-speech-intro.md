@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 3394fc2f6395799a252b645635d982b4573296c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 31482cc7850c574b952c454021af729da324ba15
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47000727"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978864"
 ---
 <!-- N.B. no header, no intents here, language-agnostic -->
 
@@ -21,7 +21,7 @@ Cognitive Services [tal SDK](~/articles/cognitive-services/speech-service/speech
 
 1. Koppla in händelser för asynkron åtgärd om du vill. Identifieraren anropar sedan din händelsehanterare när den har tillfälliga och slutliga resultaten. Annars kan får ditt program endast en slutlig avskrift resultatet.
 
-1. Starta taligenkänning. Inleveransen erkännande, t ex kommando eller en fråga, Använd den `RecognizeOnceAsync()` metoden. Den här metoden returnerar den första identifierade uttryck. Långvariga erkännande som taltranskription, använda den `StartContinuousRecognitionAsync()` metoden. Koppla in händelser för asynkron igenkänningsresultat.
+1. Starta taligenkänning. Inleveransen erkännande, t ex kommando eller en fråga, Använd den `RecognizeOnceAsync()` (eller motsvarande språk) metoden. Den här metoden returnerar den första identifierade uttryck. Långvariga erkännande som taltranskription, använda den `StartContinuousRecognitionAsync()` (eller motsvarande språk) metoden. Koppla in händelser för asynkron igenkänningsresultat.
 
 Se följande kodstycken för tal för scenarier som använder SDK: N för tal.
 

@@ -1,21 +1,22 @@
 ---
-title: Hitta endpoint region med C# i LUIS
-titleSuffix: Azure Cognitive Services
+title: Slutpunkten regionC#
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Programmässigt hitta publicera region med slutpunktsnyckeln och program-ID för LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 53c3d1abb24ae0d5b33a2a100dda07fd20ae92d1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39e0451594d0c394589b3e833ffc61f195791ba6
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039640"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016035"
 ---
 # <a name="find-endpoint-region-with-c"></a>Hitta endpoint region med C# 
 Om du har LUIS app-ID och prenumerations-ID LUIS kan du vilken region du ska använda för slutpunkten frågor.

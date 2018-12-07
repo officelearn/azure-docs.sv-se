@@ -5,16 +5,17 @@ description: Lär dig hur Docker-behållare kan få närmare kognitiva tjänster
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: c71d7de2ac036fe47253be08bb0b1e01e9e76701
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 681120db66b1e8e79d3c16fe654939450b509a01
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957222"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011614"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
@@ -47,7 +48,7 @@ Azure Cognitive Services-behållare ger följande uppsättning Docker-behållare
 |[LUIS](LUIS/luis-container-howto.md) |**LUIS** ([bild](https://go.microsoft.com/fwlink/?linkid=2043204))|Läser in en tränad eller publicerade Language Understanding modell, även kallat en LUIS-app, i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API-slutpunkter. Du kan samla in fråga loggar från behållaren och ladda upp dessa tillbaka till den [LUIS portal](https://www.luis.ai) förbättra appens prognosens noggrannhet.|
 |[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |**Nyckeln diskussionsämne** ([bild](https://go.microsoft.com/fwlink/?linkid=2018757)) |Extraherar viktiga fraser för att identifiera de viktigaste aspekterna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. |
 |[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Språkidentifiering** ([bild](https://go.microsoft.com/fwlink/?linkid=2018759)) |Identifierar vilka språk som indatatexten är skriven i och rapportera en enda språkkod för varje dokument som skickats på begäran för upp till 120 språk. Språkkoden paras med poäng som anger styrkan hos poängen. |
-|[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Attitydanalys** ([bild](https://go.microsoft.com/fwlink/?linkid=2018654)) |Analyserar rå text efter ledtrådar om positiv eller negativ attityd. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva. Analysis-modeller tränas före med hjälp av en omfattande mängd text och naturligt språk tekniker från Microsoft. För [utvalda språk](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet. |
+|[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Attitydanalys** ([bild](https://go.microsoft.com/fwlink/?linkid=2018654)) |Analyserar rå text efter ledtrådar om positiv eller negativ attityd. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva. Analysis-modeller tränas före med hjälp av en omfattande mängd text och naturligt språk tekniker från Microsoft. För [utvalda språk](./text-analytics/language-support.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet. |
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Tillgänglighet för behållare i Azure Cognitive Services
 

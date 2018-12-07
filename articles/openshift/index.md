@@ -11,22 +11,22 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 0856b86ce3d5510dfaa395d17705a2c7d5675cde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f0d3eae8c005b7e26f425a4411042fdc050fdef
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23071168"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995480"
 ---
 <div class="content">
     <h1>OpenShift på Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
-OpenShift Origin är en behållarplattform med öppen källkod på Kubernetes som gör det enklare att distribuera, skala och arbeta med program med flera klienter.  Lär dig att distribuera och konfigurera en OpenShift-lösning med snabbstarter och självstudier från Microsoft och OpenShift. 
+OpenShift Origin är en containerplattform med öppen källkod på Kubernetes som gör det enklare att distribuera, skala och arbeta med program med flera klienter.  Lär dig att distribuera och konfigurera en OpenShift-lösning med snabbstarter och självstudier från Microsoft och OpenShift. 
         </div>
     </div>
 <h2>Snabbstarter på 5 minuter</h2>
-<a href="https://azure.microsoft.com/resources/templates/openshift-origin-rhel/">Distribuera community-mall för OpenShift Origin (Deploy OpenShift Origin community template)</a> 
+<a href="https://docs.microsoft.com/azure/virtual-machines/linux/openshift-okd">Distribuera community-mall för OpenShift Origin (Deploy OpenShift Origin community template)</a> 
 <h2>Steg för steg-självstudier</h2>
 <p>Lär dig hur du distribuerar OpenShift på Azure.</p>
 <ol>

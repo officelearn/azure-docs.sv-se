@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8371e99224b511a87b2061708f00822a70c024b0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139982"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999070"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Färdiga entiteter för att identifiera vanliga datatyper
 
@@ -54,6 +54,12 @@ Testa nya avsikten vid slutpunkten av lagt till ett värde för den **q** parame
 |avbryta bokningen 3 mars|LUIS returnerade de senaste 3 mars tidigare (2018-03-03) och mars 3 i framtiden (2019-03-03) eftersom uttryck inte har angett ett år.|
 |Schemalägga ett möte kl. 10|10:00:00|
 
+## <a name="marking-entities-containing-a-prebuilt-entity-token"></a>Markera entiteter som innehåller fördefinierade entitet-token
+ Om du har text, till exempel `HH-1234`, som du vill markera som en anpassad entitet _och_ du har [fördefinierade nummer](luis-reference-prebuilt-number.md) lagts till modellen kan du inte längre att markera den anpassade entiteten i LUIS-portalen. Du kan markera med API: et. 
+
+ För att markera den här typen av token, där en del av den redan har markerats med en fördefinierade entitet, tar du bort fördefinierade entiteten från LUIS-app. Du behöver inte skapa appen. Markera sedan token med en egen anpassad entitet. Lägg sedan till den fördefinierade entitet tillbaka till LUIS-app.
+
+ Överväg att uttryck som en lista över inställningar för klassen för ett annat exempel: `I want first year spanish, second year calculus, and fourth year english lit.` om LUIS-app har Prebuild ordningstalet lagts till, `first`, `second`, och `fourth` markeras redan med ordningstal. Om du vill avbilda ordningstalet och klassen kan du omsluta runt fördefinierade ordningstal och den anpassade entiteten för klassnamn skapar en sammansatt entitet.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

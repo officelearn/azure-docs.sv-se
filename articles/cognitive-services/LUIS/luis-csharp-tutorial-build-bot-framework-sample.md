@@ -1,25 +1,26 @@
 ---
-title: LUIS-bot med C# - webbapp Bot - Bot Framework SDK 3.0
-titleSuffix: Azure Cognitive Services
-description: Genom att använda C#, skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning.
+title: Bot medC#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0ad95d5683ea10803c2f3986be97617051f191cf
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 59d98b46827a5e60dcdcbd109dc484891cef9ba8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032282"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011801"
 ---
 # <a name="luis-bot-in-c"></a>LUIS-bot i C#
 
-Genom att använda C#, skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning. Roboten har byggts med Bot Framework 3.x och Azure Web app-robot.
+Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning. Roboten har byggts med Bot Framework 3.x och Azure Web app-robot.
 
 ## <a name="prerequisite"></a>Krav
 
@@ -27,7 +28,7 @@ Genom att använda C#, skapa en chattrobot som är integrerad med språkförstå
 
 ## <a name="luis-homeautomation-intents"></a>LUIS HomeAutomation avsikter
 
-| Avsikt | Exempel-uttryck | Bot-funktioner |
+| Avsikt | Exempel på yttrande | Bot-funktioner |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Tända lampan. | När LUIS avsikten `HomeAutomation.TurnOn` identifieras får roboten anropar den `OnIntent` dialogrutan hanterare. Den här dialogrutan är där du vill anropa en IoT-tjänst för att aktivera en enhet och meddela användaren som enheten har slagits på. |
 | HomeAutomation.TurnOff | Inaktivera sovrum lamporna. | När LUIS avsikten `HomeAutomation.TurnOff` identifieras får roboten anropar den `OffIntent` dialogrutan hanterare. Den här dialogrutan är där du vill anropa en IoT-tjänst för att stänga av en enhet och be användaren att enheten har inaktiverats. |

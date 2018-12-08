@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: c91254b3a4a7037e24b22ba226c66141707d0c10
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 44d2960d9cf5828af588f9392667553c18dedb0f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016580"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103463"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -29,7 +29,7 @@ Det innehåll som följer är uppdelad i två olika delar som är avsedd att fok
 - [C#i Visual Studio med xUnit](#c-in-visual-studio)
 - [JavaScript i VS Code med Jest](#javascript-in-vs-code)
 
-På lagringsplatsen för exemplet finns på [GitHub](https://github.com/craigshoemaker/azure-functions-tests).
+På lagringsplatsen för exemplet finns på [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## <a name="c-in-visual-studio"></a>C#i Visual Studio
 I följande exempel beskriver hur du skapar en C# Funktionsapp i Visual Studio och kör och testar med [xUnit](https://xunit.github.io).

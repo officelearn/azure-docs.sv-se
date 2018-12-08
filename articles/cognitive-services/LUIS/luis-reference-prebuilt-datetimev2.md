@@ -1,21 +1,22 @@
 ---
-title: LUIS fördefinierade datetimeV2 entitetsreferenser – Azure | Microsoft Docs
+title: DatetimeV2 fördefinierade entiteter
 titleSuffix: Azure
 description: Den här artikeln har datetimeV2 fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f59c429906d6cee2b9f4aff6e16ba23e8d28c97b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335784"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105860"
 ---
 # <a name="datetimev2-entity"></a>DatetimeV2-entitet
 
@@ -27,7 +28,7 @@ DatetimeV2 hanteras från den [identifierare fulltext](https://github.com/Micros
 ## <a name="example-json"></a>Exempel på JSON 
 I följande exempel JSON-svar finns en `datetimeV2` entitet med en undertyp till `datetime`. Exempel på andra typer av datetimeV2 entiteter finns [undertyper till datetimeV2](#subtypes-of-datetimev2)</a>.
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -103,7 +104,7 @@ Till exempel få uttryck ”maj 2nd”:
 I följande exempel visas av lösningen på entitet som är ”maj 2”. Denna lösning förutsätter att dagens datum är ett datum mellan den 2 2017 och den 1 2018.
 Fält med `X` i den `timex` fält är delar av datumet som inte uttryckligen anges i uttryck.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -132,7 +133,7 @@ Fält med `X` i den `timex` fält är delar av datumet som inte uttryckligen ang
 
 Den `datetimeV2` entiteten extraherar datum- och tidsintervall. Den `start` och `end` anger början och slutet av intervallet. För uttryck ”2 maj till 5 maj”, THOMAS ger **daterange** värden för både det aktuella året och nästa år. I den `timex` fält, de `XXXX` värden anger tvetydighet på året. `P3D` Anger hur lång tid är tre dagar långa.
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -163,7 +164,7 @@ Den `datetimeV2` entiteten extraherar datum- och tidsintervall. Den `start` och 
 
 I följande exempel visas hur LUIS använder **datetimeV2** att lösa uttryck ”tisdag till torsdag”. I det här exemplet är det aktuella datumet 19 juni. LUIS innehåller **daterange** värden för båda datumintervall som före och efter det aktuella datumet.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -196,7 +197,7 @@ Värden matrisen har två tidselement om den tid, eller tidsintervallet är tvet
 
 I följande exempel visas hur LUIS använder **datetimeV2** att lösa det uttryck som har ett tidsintervall.
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

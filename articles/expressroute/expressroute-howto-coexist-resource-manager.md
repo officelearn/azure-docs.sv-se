@@ -1,19 +1,19 @@
 ---
-title: 'Konfigurera ExpressRoute och VPN för plats-till-plats-anslutningar som kan samexistera: PowerShell: Azure | Microsoft Docs'
-description: Den här artikeln beskriver hur du konfigurerar ExpressRoute och en plats-till-plats-VPN-anslutning som kan samexistera för Resource Manager-modellen med hjälp av PowerShell
+title: 'Konfigurera ExpressRoute och plats-till-plats VPN-anslutningar – samexistera: PowerShell: Azure | Microsoft Docs'
+description: Konfigurera ExpressRoute och en plats-till-plats-VPN-anslutning som kan samexistera för Resource Manager-modellen med hjälp av PowerShell.
 services: expressroute
 author: charwen
-manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243819"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104041"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Konfigurera ExpressRoute och plats-till-plats-anslutningar för samexistens mellan med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -21,6 +21,9 @@ ms.locfileid: "51243819"
 > * [PowerShell – Klassisk](expressroute-howto-coexist-classic.md)
 > 
 > 
+
+
+Den här artikeln hjälper dig att konfigurera ExpressRoute och VPN för plats-till-plats-anslutningar som samexistera. Att kunna konfigurera VPN för plats till plats och ExpressRoute har flera fördelar. Du kan konfigurera en VPN för plats till plats som en säker redundanssökväg för ExpressRoute, eller använda plats-till-plats-VPN för att ansluta till platser som inte är anslutna via ExpressRoute. Vi beskriver stegen för att konfigurera båda scenarierna i den här artikeln. Den här artikeln gäller distributionsmodellen i Resource Manager.
 
 Att konfigurera VPN för plats till plats och samexisterande ExpressRoute-anslutningar har flera fördelar:
 

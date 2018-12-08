@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a576b94881e114a97e58bf93515e372221da3346
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b97b8e145e2a770a00c77eefc9ce6d323fd6222e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096366"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101858"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Kopiera data från Oracle-Tjänstmoln med Azure Data Factory (förhandsversion)
 
@@ -80,7 +80,12 @@ Följande egenskaper har stöd för Oracle-Tjänstmoln länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-Tjänstmoln datauppsättning.
 
-För att kopiera data från molnet för Oracle-tjänsten, ange typegenskapen på datauppsättningen till **OracleServiceCloudObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+För att kopiera data från molnet för Oracle-tjänsten, ange typegenskapen på datauppsättningen till **OracleServiceCloudObject**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **OracleServiceCloudObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -92,7 +97,8 @@ För att kopiera data från molnet för Oracle-tjänsten, ange typegenskapen på
         "linkedServiceName": {
             "referenceName": "<OracleServiceCloud linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -109,7 +115,7 @@ För att kopiera data från molnet för Oracle-tjänsten, ange typ av datakälla
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **OracleServiceCloudSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

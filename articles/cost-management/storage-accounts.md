@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: f7092a08e501ae61ef93be383290db575b5ad1f1
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: secdec18
+ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995558"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100862"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Konfigurera lagringskonton för Cloudyn
 
@@ -35,18 +35,18 @@ Om du inte har en AWS bucket för enkel service (S3), måste du skapa en. Läs m
 
 Konfigurerar du är Azure storage för användning av Cloudyn enkelt. Samla in information om storage-konto och kopiera dem i Cloudyn-portalen.
 
-1. Logga in på Azure Portal på http://portal.azure.com.
+1. Logga in på Azure Portal på https://portal.azure.com.
 2. Klicka på **alla tjänster**väljer **lagringskonton**, bläddra till det lagringskonto som du vill använda och välj sedan kontot.
 3. På sidan med storage-konto under **inställningar**, klickar du på **åtkomstnycklar**.
 4. Kopiera din **lagringskontonamn** och **anslutningssträngen** under key1.  
-![Azure lagringsåtkomstnycklar](./media/storage-accounts/azure-storage-access-keys.png)  
+![Kopiera storage-konto namn och anslutningssträng](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Öppna Cloudyn-portalen från Azure Portal eller gå till https://azure.cloudyn.com och logga in.
 6. Klicka på kugghjulet för symbolen och välj sedan **rapporter lagringshantering**.
 7. Klicka på **Lägg till ny +** och se till att Microsoft Azure har valts. Klistra in namnet på ditt Azure storage-konto i den **namn** området. Klistra in din **anslutningssträngen** i området för motsvarande. Ange ett namn på behållare och klicka sedan på **spara**.  
-![Cloudyn-lagring som konfigurerats för Azure](./media/storage-accounts/azure-cloudyn-storage.png)
+![Klistra in Azure storage-konto som namn och anslutningssträng i Lägg till en ny rapport storage ruta](./media/storage-accounts/azure-cloudyn-storage.png)
 
   Inmatningen för lagring av nya Azure-rapport visas i listan över storage-konto.  
-    ![Ny rapport Azure-lagring i listan](./media/storage-accounts/azure-storage-entry.png)
+    ![Ny rapport Azure storage-post i listan](./media/storage-accounts/azure-storage-entry.png)
 
 
 Du kan nu spara rapporter till Azure storage. I en rapport klickar du på **åtgärder** och välj sedan **Schemalägg rapport**. Namnge rapporten och lägga till din egen URL eller använder automatiskt skapade URL: en. Välj **spara i storage** och välj sedan lagringskontot. Ange ett prefix som kommer att läggas till filnamnet för rapporten. Välj CSV eller JSON-filformat och sedan spara rapporten.
@@ -67,7 +67,7 @@ När du skapar en ny princip kan ange du de exakta behörigheter som behövs fö
 4. Klicka på den **JSON** fliken.
 5. Följande princip kan du spara en rapport till en S3-bucket. Kopiera och klistra in följande princip exemplet till den **JSON** fliken. Ersätt &lt;bucketname&gt; med bucketnamnet på din.
 
-  ```
+  ```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -86,7 +86,7 @@ När du skapar en ny princip kan ange du de exakta behörigheter som behövs fö
 ```
 
 6. Klicka på **granska princip**.  
-    ![Granska princip](./media/storage-accounts/aws-policy.png)  
+    ![AWS JSON-princip som visar exempelinformation](./media/storage-accounts/aws-policy.png)  
 7. Ange ett namn för principen på sidan Granska princip. Till exempel _CloudynSaveReport2S3_.
 8. Klicka på **skapa princip**.
 
@@ -102,7 +102,7 @@ Lägg till den nya principen genom att öppna AWS-konsolen och redigera på Clou
   1. Klicka på ditt Cloudyn-rollnamn.
   2. På den **behörigheter** fliken **bifoga princip**.
   3. Sök efter den princip som du skapade och markera den och sedan klicka på **bifoga princip**.
-    ![AWS - bifoga princip för en roll](./media/storage-accounts/aws-attach-policy-role.png)
+    ![Exempel på princip kopplad till din Cloudyn-roll](./media/storage-accounts/aws-attach-policy-role.png)
 
 **För användare:**
 
@@ -111,7 +111,7 @@ Lägg till den nya principen genom att öppna AWS-konsolen och redigera på Clou
 3. I den **ge behörighet** väljer **koppla befintliga principer direkt**.
 4. Sök efter den princip som du skapade och markera den och sedan klicka på **nästa: granska**.
 5. Klicka på Lägg till behörigheter till rollsidan namn, **Lägg till behörigheter**.  
-    ![AWS - bifoga princip för en användare](./media/storage-accounts/aws-attach-policy-user.png)
+    ![Exempel på princip kopplad till Cloudyn-användare](./media/storage-accounts/aws-attach-policy-user.png)
 
 
 ### <a name="optional-set-permission-with-bucket-policy"></a>Valfritt: Ange behörighet med bucket-princip
@@ -152,11 +152,11 @@ Du kan också ange behörighet att skapa rapporter på din S3-bucket med hjälp 
 2. Klicka på kugghjulet för symbolen och välj sedan **rapporter lagringshantering**.
 3. Klicka på **Lägg till ny +** och se till att AWS har valts.
 4. Välj ett konto och storage-bucket. Namnet på AWS storage bucket har fyllts i automatiskt.  
-    ![Lägg till rapportlagring för AWS-bucket](./media/storage-accounts/aws-cloudyn-storage.png)  
+    ![Exempelinformation i Lägg till en ny rapport storage ruta](./media/storage-accounts/aws-cloudyn-storage.png)  
 5. Klicka på **spara** och klicka sedan på **Ok**.
 
     Din nya AWS rapporten storage posten visas i lagringskontolistan.  
-    ![Ny rapport AWS-lagring i listan](./media/storage-accounts/aws-storage-entry.png)
+    ![Ny AWS rapporten storage posten visas i lagringskontolistan](./media/storage-accounts/aws-storage-entry.png)
 
 
 Du kan nu spara rapporter till Azure storage. I en rapport klickar du på **åtgärder** och välj sedan **Schemalägg rapport**. Namnge rapporten och lägga till din egen URL eller använder automatiskt skapade URL: en. Välj **spara i storage** och välj sedan lagringskontot. Ange ett prefix som kommer att läggas till filnamnet för rapporten. Välj CSV eller JSON-filformat och sedan spara rapporten.

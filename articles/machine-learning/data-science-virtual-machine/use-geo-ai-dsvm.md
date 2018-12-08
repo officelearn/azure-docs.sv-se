@@ -1,11 +1,12 @@
 ---
-title: Med Geo artificiell Intelligence datavetenskap Virtual Machine - Azure | Microsoft Docs
-description: Hur du använder en Geo AI virtuell dator på Azure.
-keywords: Djup learning AI datavetenskap verktyg, datavetenskap virtuell dator, geospatiala analytics
+title: Med hjälp av Geo AI Data Science Virtual Machine – Azure | Microsoft Docs
+description: Lär dig hur du använder Geo AI Data Science Virtual Machine för att analysera data och skapa modeller som baseras på geospatiala data.
+keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, Geospatial analys
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,43 +16,43 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: f346b086a0269f247d64edf9346b01849ba3d0ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fd0b58d85631c437a71ad86b23e4d3a99965b331
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408045"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101027"
 ---
-# <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Använda Geo artificiell Intelligence datavetenskap virtuell dator
+# <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Med hjälp av Geo AI Data Science Virtual Machine
 
-Använd Geo AI datavetenskap VM för att hämta data för analys, utföra wrangling data och skapa modeller för AI-program som använder geospatial information. När du har etablerat din Geo AI datavetenskap VM och inloggad ArcGIS Pro med ArcGIS-konto, kan du starta interagerar med ArcGIS desktop och ArcGis online. Du kan också komma åt ArcGIS från Python gränssnitt och ett R språk bridge förkonfigurerade på den virtuella datorn vetenskap Geo-Data. För att bygga rika AI-program kan du kombinera det med datorn inlärning och djupt learning ramverk och andra data vetenskaplig programvara som finns på den virtuella datorn vetenskapliga Data.  
+Använd Geo AI Data Science VM för att hämta data för analys, utföra Datatransformering och skapa modeller för AI-program som förbrukar geospatial information. När du har etablerat din Geo AI Data Science VM och loggat in på ArcGIS Pro med ArcGIS-konto kan börja du interagera med ArcGIS desktop och ArcGis online. Du kan även använda ArcGIS från Python-gränssnitt och ett bridge för R-språket som redan har konfigurerats på Geo-Data Science VM. Om du vill skapa funktionsrika AI-program måste du kombinera det med machine learning och deep learning-ramverk och andra data science programvara som finns på den virtuella datorn för datavetenskap.  
 
 
 ## <a name="configuration-details"></a>Konfigurationsinformation
 
-Python-bibliotek [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), som används för att gränssnittet med ArcGIS är installerat i globala rot conda miljö av den virtuella datorn vetenskapliga Data som finns på ```c:\anaconda```. 
+Python-bibliotek [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), som används för att gränssnittet med ArcGIS är installerad i global rot conda-miljö av den virtuella datorn för datavetenskap som finns på ```c:\anaconda```. 
 
-- Om du använder Python i en kommandotolk, köra ```activate``` att aktivera i conda rot Python-miljön. 
-- Om du använder en IDE- eller Jupyter-anteckningsbok, kan du välja miljö eller kernel så du är i rätt conda-miljö. 
+- Om du använder Python i en kommandotolk, kör ```activate``` att aktivera till conda rot Python-miljö. 
+- Om du använder en IDE- eller Jupyter notebook kan välja du miljön eller kerneln för att kontrollera att du har rätt conda-miljö. 
 
-R-bryggan till ArcGIS installeras som en R-biblioteket med namnet [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) i huvudsakliga Microsoft R fristående serverinstansen finns på ```C:\Program Files\Microsoft\ML Server\R_SERVER```. Visual Studio, RStudio och Jupyter redan är förkonfigurerad att använda den här R-miljön och har åtkomst till den ```arcgisbinding``` R-biblioteket. 
-
-
-## <a name="geo-ai-data-science-vm-samples"></a>GEO AI datavetenskap VM-exempel
-
-Förutom ML och djup learning framework-baserade grundläggande datavetenskap VM-exempel finns också en uppsättning geospatiala exempel som en del av Geo AI datavetenskap VM. De här exemplen kan hjälpa dig aldrig utvecklingen av AI-program som använder geospatiala data och ArcGIS programvara. 
+R-brygga och ArcGIS installeras som ett R-bibliotek med namnet [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) i den huvudsakliga Microsoft R server fristående instans finns på ```C:\Program Files\Microsoft\ML Server\R_SERVER```. Visual Studio, RStudio och Jupyter har förkonfigurerats att använda den här R-miljön och har åtkomst till den ```arcgisbinding``` R-biblioteket. 
 
 
-1. [Hämta anges med Geospatial analytics med Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): ett grundläggande exempel som visar hur du arbetar med geospatiala data med hjälp av gränssnittet Python till ArcGIS som tillhandahålls av den [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) bibliotek. Den visar även hur du kan kombinera traditionella maskininlärning med geospatiala data och visualisera resultat på en karta i ArcGIS. 
+## <a name="geo-ai-data-science-vm-samples"></a>GEO-AI Data Science VM-exempel
 
-2. [Hämta anges med Geospatial analytics med R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): ett grundläggande exempel som visar hur du arbetar med geospatiala data med hjälp av R-gränssnitt för ArcGIS som tillhandahålls av den [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) bibliotek. 
+Förutom ML och djupinlärning framework-baserade exempel från grundläggande Data Science VM finns också en uppsättning geospatiala exempel som en del av Geo AI Data Science VM. Med hjälp av dessa exempel kan du ge din utvecklingen av AI-program med hjälp av geospatiala data och ArcGIS-programvara. 
 
-3. [Bildpunkter mark använda klassificering](https://github.com/Azure/pixel_level_land_classification): en självstudiekurs som illustrerar hur du skapar en modell för djupa neurala nätverket som accepterar en Flygfoto avbildning som indata och returnerar en mark omfattar etikett. Exempel på mark omfattar etiketter är ”forested” eller ”vattenstämplar”. Modellen returnerar sådana en etikett för varje pixel i bilden. Modellen skapas med Microsofts öppen källkod [kognitiva Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) djup learning framework. Exemplet visar även hur du skalar upp utbildning om [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) och använda modellen förutsägelser ArcGIS Pro-programvaran. 
+
+1. [Hämta anges med Geospatial analys med Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): ett grundläggande exempel som visar hur du arbetar med geospatiala data med hjälp av Python-gränssnitt för ArcGIS som tillhandahålls av den [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) biblioteket. Den visar även hur du kan kombinera traditionella machine learning med geospatiala data och visualisera resultat på en karta i ArcGIS. 
+
+2. [Hämta anges med Geospatial analys med R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): ett grundläggande exempel som visar hur du arbetar med geospatiala data med hjälp av R-gränssnitt för ArcGIS som tillhandahålls av den [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) biblioteket. 
+
+3. [Bildpunkter mark använda klassificering](https://github.com/Azure/pixel_level_land_classification): en självstudiekurs som illustrerar hur du skapar en modell för djupa neurala nätverk som tar emot en Flygfoto som indata och returnerar en mark-cover-etikett. Exempel på mark-cover etiketter är ”forested” eller ”water”. Modellen returnerar sådana en etikett för varje bildpunkt i avbildningen. Modellen har skapats med öppen källkod för Microsofts [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) ramverk för djupinlärning. Exemplet visar även hur du skalar ut utbildning om [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) och använda modellens förutsägelser i ArcGIS Pro-programvara. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare exempel som använder datavetenskap VM finns här:
+Ytterligare exempel som använder den virtuella datorn för datavetenskap finns här:
 
 * [Exempel](dsvm-samples-and-walkthroughs.md)
 

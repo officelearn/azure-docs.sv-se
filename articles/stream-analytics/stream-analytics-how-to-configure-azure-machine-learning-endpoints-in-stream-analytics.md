@@ -4,17 +4,16 @@ description: Den här artikeln beskriver hur du använder maskinkod användardef
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 024d7094a9baa90eebd57b4c76db367f81bd0400
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/07/2018
+ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700875"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104952"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Machine Learning-integrering i Stream Analytics
 Stream Analytics har stöd för användardefinierade funktioner som Azure Machine Learning-slutpunkter. REST API-stöd för den här funktionen beskrivs i den [Stream Analytics REST API-bibliotek](https://msdn.microsoft.com/library/azure/dn835031.aspx). Den här artikeln ger ytterligare information som behövs för lyckade implementeringen av den här funktionen i Stream Analytics. En självstudiekurs som också har publicerats och är tillgänglig [här](stream-analytics-machine-learning-integration-tutorial.md).
@@ -51,7 +50,7 @@ Till exempel följande exempelkoden skapar en skalär UDF med namnet *newudf* so
 
 Exempel-begärandetexten:  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -67,7 +66,7 @@ Exempel-begärandetexten:
             }
         }
     }
-````
+```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Anropa RetrieveDefaultDefinition slutpunkt för standard UDF
 När stommen UDF har skapats krävs fullständiga definitionen av en användardefinierad funktion. RetreiveDefaultDefinition slutpunkten kan du hämta standarddefinitionen för en skalärfunktion som är bunden till en Azure Machine Learning-slutpunkt. Nyttolasten nedan måste du hämta standard UDF-definitionen för en skalärfunktion som är bunden till en Azure Machine Learning-slutpunkt. Det Ange inte den faktiska slutpunkten som har redan angetts under PUT-begäran. Stream Analytics anropar slutpunkten som tillhandahölls i begäran om det anges uttryckligen. Annars används den som ursprungligen refereras. Här sträng UDF-tar en enda sträng parametern (en mening) och returnerar en enda utdata av typen som anger etiketten ”attitydanalys” för den meningen.
@@ -78,7 +77,7 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 
 Exempel-begärandetexten:  
 
-````
+```json
     {
         "bindingType": "Microsoft.MachineLearning/WebService",
         "bindingRetrievalProperties": {
@@ -86,11 +85,11 @@ Exempel-begärandetexten:
             "udfType": "Scalar"
         }
     }
-````
+```
 
 Ett exempel på utdata detta skulle titta något i stil nedan.  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -126,7 +125,7 @@ Ett exempel på utdata detta skulle titta något i stil nedan.
             }
         }
     }
-````
+```
 
 ## <a name="patch-udf-with-the-response"></a>Patch-UDF med svaret
 Nu en användardefinierad funktion måste korrigeras med föregående svar, enligt nedan.
@@ -137,7 +136,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 Begärandetexten (utdata från RetrieveDefaultDefinition):
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -173,12 +172,12 @@ Begärandetexten (utdata från RetrieveDefaultDefinition):
             }
         }
     }
-````
+```
 
 ## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Implementera Stream Analytics-transformering för att anropa en användardefinierad funktion
 Nu frågar en användardefinierad funktion (här med namnet scoreTweet) för varje händelse och skriva ett svar för händelsen till utdata.  
 
-````
+```json
     {
         "name": "transformation",
         "properties": {
@@ -186,7 +185,7 @@ Nu frågar en användardefinierad funktion (här med namnet scoreTweet) för var
             "query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
         }
     }
-````
+```
 
 
 ## <a name="get-help"></a>Få hjälp

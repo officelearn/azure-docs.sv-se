@@ -1,5 +1,6 @@
 ---
-title: Spåra experiment och mått för utbildning – Azure Machine Learning | Microsoft Docs
+title: Spåra experiment och utbildning mått
+titleSuffix: Azure Machine Learning service
 description: Du kan använda Azure Machine Learning-tjänsten för att spåra dina experiment och övervaka mått för att förbättra modellen skapandeprocessen. Lär dig hur du lägger till loggning i utbildningsskript, skicka experimentet, kontrollera status för ett jobb som körs och hur du visar resultatet av en körning.
 services: machine-learning
 author: heatherbshapiro
@@ -10,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ae61f6fe24486eb1d4d5deecf5fb005a4d71b5fc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7137d43805065a8f29aa8fcf5307dd5b8947b345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016171"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101355"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Spåra experiment och utbildning mått i Azure Machine Learning
 
@@ -29,7 +30,7 @@ Följande mått kan läggas till en körning vid utbildning ett experiment. Om d
 |Typ| Python-funktion | Anteckningar|
 |----|:----|:----|
 |Skalära värden |Funktionen:<br>`run.log(name, value, description='')`<br><br>Exempel:<br>Run.log (”Precision”, 0,95) |Logga en numeriska eller Anslutningssträngens värde ska köras med det angivna namnet. Logga ett mått på en körning gör det måttet som ska lagras i den kör posten i experimentet.  Du kan logga samma mått flera gånger inom en körning resultatet ses som en vektor för att mått.|
-|Listor|Funktionen:<br>`run.log_list(name, value, description='')`<br><br>Exempel:<br>Run.log_list (”noggrannhet” [0,6, 0,7, 0.87]) | Logga in en lista med värden ska köras med det angivna namnet.|
+|Visar en lista över|Funktionen:<br>`run.log_list(name, value, description='')`<br><br>Exempel:<br>Run.log_list (”noggrannhet” [0,6, 0,7, 0.87]) | Logga in en lista med värden ska köras med det angivna namnet.|
 |Rad|Funktionen:<br>' run.log_row (namn, beskrivning = None, ** kwargs)<br>Exempel:<br>Run.log_row (”Y över X” x = 1, y = 0.4) | Med hjälp av *log_row* skapar ett mått med flera kolumner enligt beskrivningen i kwargs. Varje namngivna parametern genererar en kolumn med det angivna värdet.  *log_row* kan anropas en gång för att logga en godtycklig tuppel eller flera gånger i en loop för att generera en hel tabell.|
 |Tabell|Funktionen:<br>`run.log_table(name, value, description='')`<br><br>Exempel:<br>Run.log_table (”Y över X”, {”x”: [1, 2, 3], ”y”: [0,6, 0,7, 0,89 tum]}) | Logga ett katalogobjekt ska köras med det angivna namnet. |
 |Avbildningar|Funktionen:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exempel:<br>Run.log_image (”ROC”, plt) | Logga in en avbildning kör posten. Använd log_image för att logga en fil eller en matplotlib ritning körningen.  Dessa avbildningar är synlig och jämförbar i posten kör.|
@@ -291,7 +292,7 @@ Läs mer om:
 + [Modellen förklara möjlighet](#model-explain-ability-and-feature-importance)
 
 
-### <a name="how-to-see-run-charts"></a>Så här att visa kör diagram:
+### <a name="view-the-run-charts"></a>Visa kör diagram
 
 1. Gå till din arbetsyta. 
 

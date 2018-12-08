@@ -1,21 +1,22 @@
 ---
-title: Fördefinierade entiteter för Språkförståelse (LUIS)
+title: Fördefinierade entiteter
 titleSuffix: Azure Cognitive Services
 description: LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera vanliga typer av information som datum, tider, nummer, mätningar och valuta. Fördefinierade entitet support varierar beroende på kultur LUIS-appen.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 8371e99224b511a87b2061708f00822a70c024b0
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 9e0d1ae39431ca75b43680981802b82f16703d4d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999070"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103939"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Färdiga entiteter för att identifiera vanliga datatyper
 

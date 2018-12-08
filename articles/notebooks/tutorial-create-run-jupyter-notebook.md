@@ -1,5 +1,5 @@
 ---
-title: Självstudie – skapa och kör en Jupyter-anteckningsbok i Azure | Microsoft Docs
+title: Självstudie – skapa och kör en Jupyter-anteckningsbok i Azure
 description: Så här skapar du en Jupyter-anteckningsbok en körning i Azure-anteckningsböcker som visar processen för linjär regression i datavetenskap.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a73a3e89c2f1c2b852193ae916d73675b5b0fbcd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856845"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106689"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudie: skapa och köra en Jupyter-anteckningsbok med Python
 
@@ -54,7 +54,12 @@ Den linjära regressionsmodellen som du skapar i anteckningsboken hämtar data f
 ### <a name="upload-the-data-file"></a>Ladda upp filen
 
 1. På instrumentpanelen projekt i Azure anteckningsböcker väljer **överför** > **från URL**
-1. I popup-fönstret anger du URL: en `https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv` i **URL: en för filen** och *cricket_chirps.csv* i **filnamn**och välj sedan **klar**.
+1. I popup-fönstret anger du följande URL i **URL: en för filen** och *cricket_chirps.csv* i **filnamn**och välj sedan **klar**.
+
+    ```url
+    https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
+    ```
+
 1. Den *cricket_chirps.csv* fil bör nu visas i listan över filer i ditt projekt:
 
     ![Nyligen skapade CSV-fil som visar i listan över filer i projektet](media/tutorial/csv-file-in-project.png)
@@ -87,7 +92,7 @@ Den linjära regressionsmodellen som du skapar i anteckningsboken hämtar data f
 
 1. Välj **spara fil** att spara filen och återgå till instrumentpanelen för projektet.
 
-## <a name="install-python-packages-at-the-project-level"></a>Installera Python-paket på projektnivån
+## <a name="install-project-level-packages"></a>Installera på paket i projektet
 
 Inom en bärbar dator, kan du alltid använda kommandon som `!pip install` i en kodcell för att installera nödvändiga paket. Dessa kommandon körs varje gång du kör denna notebook kod celler och kan ta lång tid. Därför kan du i stället installera paket i projektet nivå med en `requirements.txt` fil.
 
@@ -113,7 +118,7 @@ Inom en bärbar dator, kan du alltid använda kommandon som `!pip install` i en 
 
 Med det här steget av installationen på plats körs alla anteckningsboken som du kör i projektet i en miljö där de paket som är installerade.
 
-## <a name="create-the-notebook-file-and-start-jupyter"></a>Skapa anteckningsboksfilen och starta Jupyter
+## <a name="create-and-run-a-notebook"></a>Skapa och kör en notebook-fil
 
 Du kan nu skapa och öppna anteckningsboken med redo datafilen och projekt miljö uppsättningen.
 
@@ -125,7 +130,7 @@ Du kan nu skapa och öppna anteckningsboken med redo datafilen och projekt milj�
 
     [![](media/tutorial/tutorial-new-notebook.png "Inledande vy av en ny anteckningsbok i Azure-anteckningsböcker")](media/tutorial/tutorial-new-notebook.png#lightbox)
 
-## <a name="a-brief-tour-of-the-notebook-interface"></a>En snabbgenomgång av gränssnittet notebook
+## <a name="tour-the-notebook-interface"></a>Tour bärbar dator-gränssnitt
 
 Med den bärbara datorn körs, kan du lägga till kod och Markdown-celler kör cellerna och hantera anteckningsboken. Först, men det är värt att ta en stund åt att bekanta dig med gränssnittet. Fullständig dokumentation, Välj den **hjälpa** > **Notebook hjälpa** menykommandot.
 
@@ -404,7 +409,7 @@ Du kan också använda den **filen** > **kopierar** kommandot när du vill göra
 
 När du är klar med en bärbar dator, använder den **filen** > **Stäng och stanna** kommando som stänger anteckningsboken och stängs av kernel som har körts den. Azure anteckningsböcker stänger sedan webbläsarfliken automatiskt.
 
-## <a name="debugging-code-in-a-notebook-using-visual-studio-code"></a>Felsökning av kod på en bärbar dator med hjälp av Visual Studio Code
+## <a name="debug-notebooks-using-visual-studio-code"></a>Felsöka anteckningsböcker som använder Visual Studio Code
 
 Om koden cellerna i anteckningsboken inte fungerar på det sätt som du förväntar dig, kan du ha koden buggar eller andra fel. Men än att använda `print` -uttryck för att visa värdet för variabler, alla felsökning anläggningar inte omfattas av en Jupyter-anteckningsbok.
 

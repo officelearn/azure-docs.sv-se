@@ -1,5 +1,6 @@
 ---
-title: Migrera till Azure Machine Learning-tjänsten
+title: Migrera från Workbench
+titleSuffix: Azure Machine Learning service
 description: Lär dig mer om att uppgradera eller migrera till den sent versionen av Azure Machine Learning-tjänsten från en tidigare version.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc60fd6a9d5f154d26fc9c495f190296453a0db0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253456"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106659"
 ---
-# <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrera till den senaste versionen av Azure Machine Learning-tjänsten 
+# <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Migrera från Workbench till den senaste versionen av Azure Machine Learning-tjänsten 
 
-**Om du har installerat Workbench (förhandsgranskning) och/eller har experimentering och modellhantering Förhandsgranska konton, använda den här artikeln för att migrera till den senaste versionen.**  Om du inte har förhandsversion Workbench installerad, eller en experimentering och/eller modellhanteringskonto, behöver du inte migrera något.
+**Om du har installerat programmet Workbench och/eller har experimentering och modellhantering Förhandsgranska konton, använda den här artikeln för att migrera till den senaste versionen.**  Om du inte har förhandsversion Workbench installerad, eller en experimentering och/eller modellhanteringskonto, behöver du inte migrera något.
 
 ## <a name="what-can-i-migrate"></a>Vad kan jag migrera?
 De flesta artefakter som skapats i den första förhandsversionen av Azure Machine Learning-tjänsten lagras i din egen lokala eller molnlagring. Dessa artefakter försvinner inte. Om du vill migrera, registrera artefakterna igen med den uppdaterade Azure Machine Learning-tjänsten. 
@@ -75,11 +76,10 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 Distribuera om dina modeller med nya SDK eller CLI att nya av distributionsmålen för att migrera webbtjänster. Det finns ingen anledning att ändra din ursprungliga bedömningsfilen, modellfiler filen beroenden, miljöfil och schemafiler. 
 
-I den senaste versionen distribueras modeller som webbtjänster kan [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) eller [Azure Kubernetes Service](how-to-deploy-to-aks.md) kluster (AKS). 
+I den senaste versionen distribueras modeller som webbtjänster till Azure Container Instances (ACI) eller Azure Kubernetes Service (AKS)-kluster. 
 
 Mer information finns i följande artiklar:
-+ [Distribuera till ACI](how-to-deploy-to-aci.md)
-+ [Distribuera till AKS](how-to-deploy-to-aks.md)
++ [Hur du distribuerar och var](how-to-deploy-and-where.md)
 + [Självstudie: Distribuera modeller med Azure Machine Learning-tjänsten](tutorial-deploy-models-with-aml.md)
 
 När [stöd för det tidigare CLI upphört att gälla](overview-what-happened-to-workbench.md#timeline), du kan inte hantera webbtjänster som du ursprungligen har distribuerat med ditt modellhanteringskonto. Dessa webbtjänster kommer dock fortsätta att fungera för så länge det finns fortfarande stöd för Azure Container Service (ACS).

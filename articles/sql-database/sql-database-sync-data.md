@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 78984cf9f73fd0cdd6e28e20e1d54d5b1198b7be
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6963bb44e6377bcfbb2cb647f1508f075b4268be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687494"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101862"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -69,7 +69,7 @@ Datasynkronisering är inte det en bättre lösningen för följande scenarier:
 
 ## <a name="how-does-data-sync-work"></a>Hur fungerar Data Sync? 
 
--   **Spåra dataändringar:** datasynkronisering spårar ändringar med infoga, uppdatera och ta bort utlösare. Ändringarna sparas i en separat tabell i databasen.
+-   **Spåra dataändringar:** datasynkronisering spårar ändringar med infoga, uppdatera och ta bort utlösare. Ändringarna sparas i en separat tabell i databasen. Observera att BULK INSERT inte aktiveras utlösare som standard. Om FIRE_TRIGGERS inte anges kör inga insert-utlösare. Lägga till alternativet FIRE_TRIGGERS så att Data Sync kan spåra dessa infogningar. 
 
 -   **Synkronisera data:** datasynkronisering har utformats i en modell med nav och ekrar. Hubben synkroniserar individuellt med varje medlem. Ändringar från hubben laddas ned till medlemmen och sedan överförs ändringar från medlemmen till hubben.
 
@@ -82,7 +82,7 @@ Datasynkronisering är inte det en bättre lösningen för följande scenarier:
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Konfigurera datasynkronisering i Azure portal
 
 -   [Konfigurera Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
--   Data synkroniseras Agent - [Data synkroniseras Agent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>Konfigurera datasynkronisering med PowerShell
 

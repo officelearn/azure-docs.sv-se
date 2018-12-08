@@ -1,19 +1,19 @@
 ---
-title: Om ExpressRoute Global räckvidd | Microsoft Docs
-description: Den här artikeln beskrivs nyheter ExpressRoute Global räckvidd.
-documentationcenter: na
+title: Ansluta lokala nätverk till Microsoft Cloud med Global räckvidd – Azure ExpressRoute | Microsoft Docs
+description: Den här artikeln förklarar ExpressRoute Global räckvidd.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 23f3d2c4a53e05d962fdc7da72b336cc66f21306
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 8ee57bf101b432049d895b65a1dc7641653c7f21
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683074"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105468"
 ---
 # <a name="expressroute-global-reach-preview"></a>ExpressRoute (förhandsversion) med Global räckvidd
 ExpressRoute är en privat och flexibel sätt att ansluta ditt lokala nätverk till Microsoft Cloud. Du kan komma åt många Microsoft-molntjänster som Azure, Office 365 och Dynamics 365 från ditt privata Datacenter eller företagets nätverk. Du kan till exempel ha ett avdelningskontor i San Francisco med en ExpressRoute-krets i Silicon Valley och ett annat filialkontor i London med en ExpressRoute-krets i samma stad. Båda avdelningskontor kan ha höghastighetsanslutning till Azure-resurser i västra USA och Storbritannien, södra. Men det går inte att filialkontor utbyta data direkt med varandra. Med andra ord skicka 10.0.1.0/24 data till 10.0.3.0/24 och 10.0.4.0/24 men inte till 10.0.2.0/24.

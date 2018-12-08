@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: e5db47cabddb2898667ff9d6cdac41cf3b953099
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843588"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105163"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -79,7 +79,7 @@ Om en av källvärdena är ett attribut med flera värden och sedan varje värde
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **avgränsare** |Krävs |Sträng |Strängen används för att avgränsa källvärdena när de sammanfogas till en sträng. Kan vara ”” om det krävs ingen avgränsare. |
-| ** källa1... Källan ** |Krävs, variabeln antal gånger |Sträng |Sträng värden kopplas. |
+| **källa1... källan** |Krävs, variabeln antal gånger |Sträng |Sträng värden kopplas. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -141,6 +141,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
   * Om **källa** har ett värde, använder **regexPattern** och **regexGroupName** att extrahera ersättningsvärdet från egenskapen med **replacementPropertyName** . Ersättningsvärdet returneras som ett resultat
 
 **Parametrar:**<br> 
+
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
@@ -166,7 +167,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| ** uniqueValueRule1... uniqueValueRuleN ** |Minst är 2 krävs, inte övre gräns |Sträng | Lista över regler för rapportmodellgenerering unikt värde ska utvärderas |
+| **uniqueValueRule1... uniqueValueRuleN** |Minst är 2 krävs, inte övre gräns |Sträng | Lista över regler för rapportmodellgenerering unikt värde ska utvärderas |
 
 
 - - -

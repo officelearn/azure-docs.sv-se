@@ -1,20 +1,22 @@
 ---
-title: Azure Disk Encryption för Windows och Linux IaaS-datorer | Microsoft Docs
+title: Tillägg – Azure Disk Encryption för virtuella IaaS-datorer | Microsoft Docs
 description: Den här artikeln är tillägget för Microsoft Azure Disk Encryption för Windows och Linux IaaS-datorer.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 11/12/2018
-ms.openlocfilehash: e5c7d51428c66bf9e6c245f28fb13b8d4a316d18
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d6e186f25cc69791d939d93d24a37cadb1113353
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614685"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105050"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Tillägg för Azure Disk Encryption 
+
 Den här artikeln är ett tillägg till [Azure Disk Encryption för virtuella IaaS-datorer](azure-security-disk-encryption-overview.md). Se till att läsa Azure Disk Encryption för virtuella IaaS-datorer artiklar först för att förstå kontexten. Den här artikeln beskriver hur du förbereder förkrypterade virtuella hårddiskar och andra uppgifter.
 
 ## <a name="connect-to-your-subscription"></a>Ansluta till din prenumeration
@@ -57,7 +59,7 @@ Innan du börjar bör du granska den [krav](azure-security-disk-encryption-prere
 
 ### <a name="bkmk_ConnectCLI"></a> Ansluta till din prenumeration med Azure CLI
 
-1. Logga in på Azure med [az-inloggning](/cli/azure/authenticate-azure-cli#interactive-log-in). 
+1. Logga in på Azure med [az-inloggning](/cli/azure/authenticate-azure-cli#sign-in-interactively). 
      
      ```azurecli
      az login
@@ -189,7 +191,7 @@ För Windows Server 2008 R2, använder du följande kommando:
 
     ServerManagerCmd -install BitLockers
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Förbereda operativsystemvolymen för BitLocker med hjälp av `bdehdcfg`
-Om du vill komprimera OS-partition och förbereda datorn för BitLocker, köra den [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment#using-bitlocker-to-encrypt-volumescommand) om det behövs:
+Om du vill komprimera OS-partition och förbereda datorn för BitLocker, köra den [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) om det behövs:
 
     bdehdcfg -target c: shrink -quiet 
 
@@ -295,23 +297,23 @@ Konfigurera kryptering under installationen av distributionsplatsen genom att g�
 
 1. Välj **konfigurera krypterade volymer** när du partitionera diskarna.
 
- ![Ubuntu 16.04 installationen](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+ ![Ubuntu 16.04 konfigurera – konfigurera krypterade volymer](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Skapa en separat startenheten som inte får vara krypterade. Kryptera din rotenhet.
 
- ![Ubuntu 16.04 installationen](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+ ![Ubuntu 16.04-installation - Välj enheter att kryptera](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Ange en lösenfras. Det här är det lösenord som du laddade upp till nyckelvalvet.
 
- ![Ubuntu 16.04 installationen](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+ ![Ubuntu 16.04 konfigurera – ange lösenfras](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Slut partitionering.
 
- ![Ubuntu 16.04 installationen](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+ ![Ubuntu 16.04 konfigurera – Slutför partitionering](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. När du startar den virtuella datorn och ange en lösenfras, använder du den lösenfras som du angav i steg 3.
 
- ![Ubuntu 16.04 installationen](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+ ![Ubuntu 16.04 konfigurera – ange lösenfras vid start](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. Förbereda den virtuella datorn för att ladda upp till Azure med hjälp av [instruktionerna](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
 
@@ -377,7 +379,7 @@ Konfigurera krypteringen ska fungera med Azure genom att göra följande:
 
 7. Nu kan du avetablera den virtuella datorn.
 
- ![Ubuntu 16.04 installationen](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+ ![Ubuntu 16.04-installation - update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Fortsätt till nästa steg och överföra en virtuell Hårddisk till Azure.
 
@@ -385,11 +387,11 @@ Konfigurera krypteringen ska fungera med Azure genom att göra följande:
 För att konfigurera kryptering under installationen av distributionsplatsen, gör du följande:
 1. När du partitionera diskarna väljer **kryptera volymen grupp**, och sedan ange ett lösenord. Det här är det lösenord som du överföra till ditt nyckelvalv.
 
- ![Konfigurera openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+ ![openSUSE 13.2-installation - krypterar volym-grupp](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. Starta den virtuella datorn med ditt lösenord.
 
- ![Konfigurera openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+ ![openSUSE 13.2 konfigurera – ange lösenfras vid start](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. Förbereda den virtuella datorn för att ladda upp till Azure genom att följa instruktionerna i [Förbered en SLES- eller openSUSE-dator för Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
 
@@ -453,19 +455,19 @@ till:
 För att konfigurera kryptering under installationen av distributionsplatsen, gör du följande:
 1. Välj **kryptera Mina data** när du partitionera diskar.
 
- ![CentOS 7 installationen](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+ ![CentOS 7 konfigurera - Installation-mål](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. Se till att **Encrypt** har valts för rotpartitionen.
 
- ![CentOS 7 installationen](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+ ![CentOS 7 konfigurera - Välj kryptera för rotpartitionen](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. Ange en lösenfras. Det här är det lösenord som du överföra till ditt nyckelvalv.
 
- ![CentOS 7 installationen](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+ ![CentOS 7-installation - ange lösenfras](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4. När du startar den virtuella datorn och ange en lösenfras, använder du den lösenfras som du angav i steg 3.
 
- ![CentOS 7 installationen](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+ ![CentOS 7 konfigurera – ange lösenfras på Start](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. Förbereda den virtuella datorn för att ladda upp till Azure med hjälp av anvisningarna i ”CentOS 7.0 +” [Förbered en CentOS-baserad virtuell dator för Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
 
@@ -526,7 +528,7 @@ till
     ```    
 5. Kör den ”/ usr/sbin/dracut - f - v” att uppdatera initrd.
 
-![CentOS 7 installationen](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
+![CentOS 7-installation - kör /usr/sbin/dracut -f - v](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="bkmk_UploadVHD"></a> Ladda upp krypterade VHD till ett Azure storage-konto
 När BitLocker-kryptering eller DM-Crypt kryptering har aktiverats, måste den lokala krypterade virtuella Hårddisken som ska överföras till ditt lagringskonto.

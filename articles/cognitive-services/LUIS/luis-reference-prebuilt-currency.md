@@ -1,21 +1,22 @@
 ---
-title: LUIS fördefinierade valuta entitetsreferenser – Azure | Microsoft Docs
+title: AktuellY fördefinierade entitet
 titleSuffix: Azure
 description: Den här artikeln innehåller valuta fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6346ce4e3c9e51852a9a98904b797b6eb64970e4
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 432ee8a7dda75b01015795034ee7f55fe0840775
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334014"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102730"
 ---
 # <a name="currency-entity"></a>Entitet för valuta
 Valutaentiteten fördefinierade identifierar valuta i många benämningar och länder/regioner, oavsett LUIS app kultur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller den valuta som programmet avsikter. Valuta entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
@@ -26,7 +27,7 @@ Valuta hanteras från den [identifierare fulltext](https://github.com/Microsoft/
 ## <a name="resolution-for-currency-entity"></a>Lösning för valuta entitet
 I följande exempel visas av lösningen på den **builtin.currency** entitet.
 
-```JSON
+```json
 {
   "query": "search for items under $10.99",
   "topScoringIntent": {

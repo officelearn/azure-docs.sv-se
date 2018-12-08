@@ -1,5 +1,6 @@
 ---
-title: Använd Visual Studio Code för att träna och distribuera modeller med Azure Machine Learning-tjänsten
+title: Använd Visual Studio Code för att träna och distribuera modeller
+titleSuffix: Azure Machine Learning service
 description: Läs mer om Azure Machine Learning för Visual Studio Code och hur du startar utbildning och distribuera machine learning och deep learning-modeller i Azure Machine Learning-tjänsten med hjälp av Visual Studio Code.
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +9,13 @@ ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: e1ea0b867738f72d9ff4baff25b630887b9232c9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: 62c3dd051f9f4c06d8d5b5cd08422b34cf565f2f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016444"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100676"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Använd Visual Studio Code för att träna och distribuera machine learning-modeller
 

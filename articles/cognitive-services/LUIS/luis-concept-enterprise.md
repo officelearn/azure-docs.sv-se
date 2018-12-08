@@ -1,21 +1,22 @@
 ---
-title: Enterprise-begrepp för en LUIS-app - Språkförståelse
-titleSuffix: Azure Cognitive Services
-description: Information om design-principerna för stora LUIS-appar.
+title: Enterprise-begrepp
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Information om design-principerna för stora LUIS-appar eller flera appar, inklusive LUIS och QnA Maker tillsammans.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bb4078c9131488e5077795df792de259d7c789dc
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 60e1e8d49fcbae7d7049c97e9ee756dc938ca5ff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638282"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105945"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise-strategier för en LUIS-app
 Granska dessa design-strategier för din enterprise-app.

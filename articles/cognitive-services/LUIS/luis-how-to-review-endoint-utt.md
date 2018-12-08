@@ -1,23 +1,24 @@
 ---
-title: Granska endpoint yttranden för Språkförståelse (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Granska användare yttranden
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Funktionen banbrytande Luis är konceptet med aktiv inlärning. När din LUIS har slutpunkt frågor, förbättrar aktiv inlärning resultatets kvalitet genom väljer yttranden som det är osäker på. Om du anger dessa yttranden träna och publicera sedan LUIS identifierar yttranden mer exakt.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7175463001eac118d2939d3479e61a01b80ba86b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030803"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106557"
 ---
-# <a name="review-endpoint-utterances"></a>Granska slutpunktsyttranden
+# <a name="how-to-review-endpoint-utterances-in-luis-portal"></a>Granska endpoint yttranden LUIS-portalen
 
 Funktionen banbrytande Luis är den [konceptet](luis-concept-review-endpoint-utterances.md) med aktiv inlärning. När din LUIS har slutpunkt frågor, använder LUIS active lära dig för att förbättra kvaliteten på resultaten. Pågående aktiv inlärning LUIS undersöker alla talade för slutpunkten och väljer yttranden som det är osäker på. Om du anger dessa yttranden träna och publicera sedan LUIS identifierar yttranden mer exakt. 
 

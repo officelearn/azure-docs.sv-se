@@ -1,5 +1,6 @@
 ---
-title: Justera hyperparametrar för din modell som använder Azure Machine Learning
+title: Justera hyperparametrar för din modell
+titleSuffix: Azure Machine Learning service
 description: Effektivt justera hyperparametrar för din deep learning / machine learning-modellen med hjälp av Azure Machine Learning-tjänsten. Du kommer lära dig att definiera parametern search utrymme, ange ett primära mått för att optimera och tidigt avsluta dåligt utför körs.
 ms.author: swatig
 author: swatig007
@@ -9,14 +10,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: b722af6fd5dd29a5b7cef8581d27d421825fb323
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868165"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100743"
 ---
-# <a name="tune-hyperparameters-for-your-model"></a>Justera hyperparametrar för din modell
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Justera hyperparametrar för din modell med Azure Machine Learning-tjänsten
 
 Effektivt justera hyperparametrar för din modell med hjälp av Azure Machine Learning-tjänsten.  Finjustering av hyperparametrar omfattar följande steg:
 

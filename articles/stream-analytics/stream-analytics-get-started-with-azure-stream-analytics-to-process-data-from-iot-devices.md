@@ -2,19 +2,19 @@
 title: IoT-dataströmmar i realtid med Azure Stream Analytics
 description: IoT-sensortaggar och dataströmmar med dataströmsanalys och realtidsbearbetning av data
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 56243be40a4d47f315ff6599ff2d50c83e44afbc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849555"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103174"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Komma igång med Azure Stream Analytics för bearbetning av data från IoT-enheter
 I den här självstudiekursen lär du dig hur du skapar logiken för bearbetning av dataströmmar för datainsamling från IoT-enheter (Internet of Things). Vi använder verkliga IoT-användningsfall (Internet of Things) för att demonstrera hur du snabbt och billigt kan skapa din lösning.
@@ -56,35 +56,35 @@ För att förenkla användningen av den här komma igång-guiden ingår en exemp
    > 
 4. Markera kryssrutan om du vill placera jobbet på instrumentpanelen och klicka sedan på **SKAPA**.
    
-    ![jobbskapande pågår](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
+    ![Skapa pågår för Stream analytics-jobb](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
 5. Du bör se ”Distribution startas...” längst upp till höger i webbläsarfönstret. Snart ändras det till ett slutfört fönster såsom visas nedan.
    
-    ![jobbskapande pågår](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
+    ![Stream analytics-distributionen är klar](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
 ## <a name="create-an-azure-stream-analytics-query"></a>Skapa en Azure Stream Analytics-fråga
 När jobbet har skapats är det dags att öppna det och skapa en fråga. Du kan enkelt komma åt ditt jobb genom att klicka på panelen för det.
 
-![Jobbpanel](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+![Stream Analytics-jobb-ikonen i Azure-portalen](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
 I fönstret **Jobbtopologi** klickar du i rutan **FRÅGA** om du vill gå till frågeredigeraren. Via redigeraren **FRÅGA** kan du ange en T-SQL-fråga som utför transformationen av inkommande data.
 
-![Frågeruta](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+![Stream Analytics-fråga instrumentpanel](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
 ### <a name="query-archive-your-raw-data"></a>Fråga: Arkivera dina rådata
 Den enklaste typen av fråga är en anslutningsfråga som arkiverar alla indata till dess angivna utdataenheter. Hämta exempeldatafilen från [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) till en plats på datorn. 
 
 1. Klistra in frågan från filen PassThrough.txt. 
    
-    ![Testa indataströmmen](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+    ![Klistra in frågan i frågeredigeraren för Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
 2. Klicka på de tre punkterna bredvid indata och välj rutan **Överför exempeldata från filen**.
    
-    ![Testa indataströmmen](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
+    ![Välj överför exempeldata från fil](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
 3. Detta leder till att en ruta öppnas till höger, välj datafilen HelloWorldASA InputStream.json från din hämtade plats och klicka på **OK** längst ned i fönstret.
    
-    ![Testa indataströmmen](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
+    ![Ladda upp json exempeldatafil](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
 4. Klicka på kugghjulet **Testa** till vänster i den övre delen av fönstret och bearbeta testfrågan mot exempeldatauppsättningen. Ett resultatfönster öppnas under frågan när bearbetningen är klar.
    
-    ![Testresultat](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+    ![Testresultat för Stream Analytics-fråga](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### <a name="query-filter-the-data-based-on-a-condition"></a>Fråga: Filtrera dina data baserat på ett villkor
 Nu ska vi prova att filtrera resultatet baserat på ett villkor. Vi vill visa resultat för de händelser som kommer från ”sensorA”. Frågan finns i filen Filtering.txt.

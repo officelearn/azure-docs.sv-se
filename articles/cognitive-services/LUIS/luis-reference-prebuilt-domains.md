@@ -1,21 +1,22 @@
 ---
-title: Fördefinierade referens – Azure | Microsoft Docs
+title: Fördefinierad domänreferens
 titleSuffix: Azure
 description: Referens för de fördefinierade domäner som är färdiga samlingar av avsikter och entiteter från Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: a47fb82b1e6d42bdebff8cc4f3cb4c3c87025831
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335631"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106251"
 ---
 # <a name="prebuilt-domain-reference"></a>Fördefinierad domänreferens
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
@@ -266,11 +267,12 @@ When is Captain Omar showing?
 Musik domänen innehåller avsikter och entiteter relaterade till spela musik på en musikspelare.
 
 ### <a name="examples"></a>Exempel
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|Exempel|
+|--|
+|spela upp Beethoven|
+|öka spåra volym|
+|Gå vidare till nästa låt|
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -297,11 +299,12 @@ Skip to the next song
 Obs domänen innehåller avsikter och entiteter relaterade till att skapa, redigera och söka efter information.
 
 ### <a name="examples"></a>Exempel
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|Exempel|
+|--|
+|Lägg till i Mina mat Obs sallat tomat bröd kaffe|
+|Kontrollera av bananer från min Inköpslista|
+|Ta bort alla objekt från listan semester|
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -330,11 +333,13 @@ Remove all items from my vacation list
 OnDevice domänen innehåller avsikter och entiteter relaterade till att styra enheten.
 
 ### <a name="examples"></a>Exempel
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|Exempel|
+|--|
+|Stäng videospelare|
+|Avbryt uppspelning|
+|Kan du göra skärmen ljusare?|
+
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -381,11 +386,13 @@ Can you make the screen brighter?
 Platser domänen innehåller avsikter för hantering av frågor som rör platser som företag, institution, restauranger, offentliga blanksteg och adresser.
 
 ### <a name="examples"></a>Exempel
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|Exempel|
+|--|
+|Spara den här platsen i Mina favoriter|
+|Hur långt bort är helgdag Inn?|
+|Vid vilken tidpunkt Safeway Stäng?|
+
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -450,11 +457,13 @@ restart|
 Påminnelse domänen innehåller avsikter och entiteter för att skapa, redigera och söka efter påminnelser.
 
 ### <a name="examples"></a>Exempel
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|Exempel|
+|--|
+|Ändra min intervjun till 9: 00 imorgon|
+|Påminn mig att köpa mjölk på vägen tillbaka Start|
+|Kan du kontrollera om jag har en påminnelse om Christinas födelsedag?|
+
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -473,11 +482,12 @@ Can you check if I have a reminder about Christine's birthday?
 RestaurantReservation domänen innehåller avsikter och entiteter som rör hantering av restaurang reservationer.
 
 ### <a name="examples"></a>Exempel
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|Exempel|
+|--|
+|Reservera på Zucca för två för tonight|
+|Boka en tabell i BJS för imorgon|
+|Tabell för 3 i Palo Alto på 7|
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -502,11 +512,12 @@ Table for 3 in Palo Alto at 7
 Taxi-domänen innehåller avsikter och entiteter för att skapa och hantera taxi bokningar.
 
 ### <a name="examples"></a>Exempel
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|Exempel|
+|--|
+|Hämta en CAB-fil klockan 15|
+|Hur mycket längre har att vänta på min taxi?|
+|Avbryt min Uber|
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -531,11 +542,13 @@ Cancel my Uber
 Översätt domänen innehåller avsikter och entiteter relaterade till att översätta text till ett mål-språk.
 
 ### <a name="examples"></a>Exempel
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|Exempel|
+|--|
+|Omvandla till franska|
+|Översätt Hej till tyska|
+|Översätt den här meningen till engelska|
+
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -554,11 +567,12 @@ Translate this sentence to English
 TV-domänen innehåller avsikter och entiteter för att styra TV-apparater.
 
 ### <a name="examples"></a>Exempel
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|Exempel|
+|--|
+|Växeln kanal till BBC|
+|Visa TV-guide|
+|Titta på nationella geografiska|
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -576,11 +590,13 @@ Watch National Geographic
 Domänen verktyg ger avsikter för uppgifter som är gemensamma för många aktiviteter, till exempel hälsningar, avbryta, bekräftelse, hjälp, upprepning, navigering, startas och stoppas.
 
 ### <a name="examples"></a>Exempel
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|Exempel|
+|--|
+|Gå tillbaka till Twitter|
+|Hjälp|
+|Upprepa sista frågan.|
+
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -600,11 +616,13 @@ Repeat last question please
 Väder-domänen innehåller avsikter och entiteter för att få väderprognoser och prognoser.
 
 ### <a name="examples"></a>Exempel
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|Exempel|
+|--|
+|väder i London i september|
+|Vad? s 10 dagar Prognostisera?|
+|Vad är medeltemperaturen i Indien i september?|
+
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
@@ -621,11 +639,12 @@ What's the average temperature in India in september?
 Web-domänen innehåller en avsikt för att navigera till en webbplats.
 
 ### <a name="examples"></a>Exempel
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|Exempel|
+|--|
+|Gå till facebook.com|
+|Gå till www.twitter.com|
+|Gå till www.bing.com|
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |

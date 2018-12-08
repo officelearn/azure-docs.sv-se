@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 383b73d335c8993aa99109c7430d2292a3bfea4a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c451482f0aa9c2e6c0a15ab048885920889a2708
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836448"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106404"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (förhandsversion) lösningen i Log Analytics
 
@@ -42,7 +42,7 @@ Använd följande information för att installera och konfigurera lösningen.
 vSphere ESXi-värd 5.5, 6.0 och 6.5
 
 #### <a name="prepare-a-linux-server"></a>Förbereda en Linux-server
-Skapa en Linux-operativsystem virtuell dator tar emot alla syslog-data från ESXi-värdar. Den [Log Analytics Linux-agenten](../../log-analytics/log-analytics-quick-collect-linux-computer.md) är den samling för alla ESXi-värd syslog-data. Du kan använda flera ESXi-värdar för att vidarebefordra loggar till en enda Linux-server, som i följande exempel.
+Skapa en Linux-operativsystem virtuell dator tar emot alla syslog-data från ESXi-värdar. Den [Log Analytics Linux-agenten](../../azure-monitor/learn/quick-collect-linux-computer.md) är den samling för alla ESXi-värd syslog-data. Du kan använda flera ESXi-värdar för att vidarebefordra loggar till en enda Linux-server, som i följande exempel.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 

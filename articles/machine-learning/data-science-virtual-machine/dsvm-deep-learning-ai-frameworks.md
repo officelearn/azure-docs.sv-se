@@ -1,11 +1,12 @@
 ---
 title: Ramverk för Djupinlärning och AI - Azure | Microsoft Docs
-description: Ramverk för djupinlärning och AI
+description: Läs mer om djupinlärning ramverk och verktyg som stöds på den virtuella datorn för datavetenskap.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: fbe3aeac3918142388edfa8cd053badd362d7fd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b5bf9a0e9cbbcf2a4144255ac0bfbd4bd48e956c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241930"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104477"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Ramverk för djupinlärning och AI
 Den [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) och [Deep Learning VM](https://aka.ms/dsvm/deeplearning) stöder ett antal olika ramverk för djupinlärning för att skapa artificiell intelligens (AI) program med förutsägelseanalys och kognitiva funktioner som bild- och språkförståelse. 

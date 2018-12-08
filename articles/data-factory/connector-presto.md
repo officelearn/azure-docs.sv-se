@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2017
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 29ac668ddb9d5df88d5f743630eaf2d9288b8727
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 905431c73488ddc6ebf2d13823e4bb705d16304c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123444"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102018"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Kopiera data från Presto med Azure Data Factory (förhandsversion)
 
@@ -88,7 +88,12 @@ Följande egenskaper har stöd för Presto länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Presto datauppsättning.
 
-Om du vill kopiera data från Presto, ange typegenskapen på datauppsättningen till **PrestoObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Om du vill kopiera data från Presto, ange typegenskapen på datauppsättningen till **PrestoObject**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **PrestoObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -100,7 +105,8 @@ Om du vill kopiera data från Presto, ange typegenskapen på datauppsättningen 
         "linkedServiceName": {
             "referenceName": "<Presto linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -109,14 +115,14 @@ Om du vill kopiera data från Presto, ange typegenskapen på datauppsättningen 
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Presto källa.
 
-### <a name="prestosource-as-source"></a>PrestoSource som källa
+### <a name="presto-as-source"></a>Presto som källa
 
 Om du vill kopiera data från Presto, ange typ av datakälla i kopieringsaktiviteten till **PrestoSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **PrestoSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

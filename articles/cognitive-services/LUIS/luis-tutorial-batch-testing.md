@@ -1,21 +1,22 @@
 ---
-title: 'Självstudie 2: Batch-test med 1000 yttranden '
+title: Batch-test
 titleSuffix: Azure Cognitive Services
 description: Den här kursen visar hur du använder batch testning för att hitta uttryck förutsägelse problem i din app och korrigera detta.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162549"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106047"
 ---
 # <a name="tutorial-2-batch-test-data-sets"></a>Självstudie 2: Batch test datauppsättningar
 
@@ -31,11 +32,11 @@ Krav för att testa batch:
 
 När du använder en app än den här självstudien gör *inte* använder exemplet talade redan lagts till i en avsikt. 
 
-**I den här självstudien får du lära dig hur du:**
+**I den här självstudiekursen får du lära du dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Använd befintliga självstudieappen
+> * Använda en befintlig självstudieapp
 > * Skapa en batchfil för testning 
 > * Köra ett batch-test
 > * Granskningsresultat
@@ -44,17 +45,17 @@ När du använder en app än den här självstudien gör *inte* använder exempl
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använd befintlig app
+## <a name="use-existing-app"></a>Använda en befintlig app
 
-Fortsätt med den app som skapats i den sista självstudien med namnet **ska**. 
+Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-Om du inte har appen ska från den tidigare självstudiekursen, använder du följande steg:
+Om du inte har appen HumanResources från föregående självstudie gör du så här:
 
-1.  Hämta och spara [app JSON-fil](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 
-2. Importera JSON till en ny app.
+2. Importera JSON-koden till en ny app.
 
-3. Från den **hantera** avsnittet på den **versioner** fliken klona versionen och ge den namnet `batchtest`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL: en väg, får inte namnet innehålla några tecken som inte är giltiga i en URL. 
+3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `batchtest`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser. 
 
 4. Träna appen.
 

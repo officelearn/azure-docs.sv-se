@@ -1,6 +1,7 @@
 ---
-title: Vad är nytt i Azure Machine Learning
-description: Det här dokumentet beskriver uppdateringarna till Azure Machine Learning.
+title: Nyheter
+titleSuffix: Azure Machine Learning service
+description: Läs mer om de senaste uppdateringarna för Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,84 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
-ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: ea9f8e07b627b7f3554e390063d61ef984f30dad
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291348"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105146"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner. 
+
+## <a name="2018-12-04-general-availability"></a>2018-12-04: allmänt tillgängliga
+
+Azure Machine Learning-tjänsten är nu allmänt tillgänglig.
+
+### <a name="azure-machine-learning-compute"></a>Azure Machine Learning-beräkning
+Med den här versionen har Vi presenterar en ny hanterad beräkningsmiljö via [beräkning av Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute). Den här beräkningen kan användas för utbildning och Batch inferensjobb är enkel - till Multi-Factor - node beräkning och utför klusterhanteringen och jobbschemaläggning för användaren. Den skalar som standard har stöd för både CPU- och GPU-resurser och kan också använda lågprioriterade virtuella datorer för lägre kostnad. Batch AI-databearbetning för Azure Machine Learning ersätts.
+  
+Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-portalen eller CLI. Den måste skapas i regionen för din arbetsyta och går inte att ansluta till en annan arbetsyta. Den här beräkningen använder en Docker-behållare för din körning och paketerar dina beroenden för att replikera samma miljö på alla noder.
+
+> [!Warning]
+> Vi rekommenderar att du skapar en ny arbetsyta om du vill använda beräkning av Azure Machine Learning. Det finns en fjärransluten risk att användare som försöker skapa beräkning av Azure Machine Learning från en befintlig arbetsyta kan se ett fel. Befintliga beräkning i din arbetsyta bör fortsätta att fungera påverkas inte.
+
+### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning-SDK för Python v1.0.2
+
++ **Större ändringar**
+  + Den här versionen har bort vi stöd för att skapa en virtuell dator från Azure Machine Learning. Du kan fortfarande koppla ett befintligt moln virtuell dator eller en fjärransluten lokal server. 
+  + Vi också tar bort sitt stöd för BatchAI, som ska ha stöd via Azure Machine Learning Compute nu.
+
++ **Ny**
+  + För machine learning pipelines:
+    + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
+    + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
+    + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
+
+
++ **uppdaterad**
+  + För machine learning pipelines:
+    + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) accepterar nu runconfig
+    + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) nu kopieras till och från en SQL-datakälla
+    + Schemalägga funktioner i SDK för att skapa och uppdatera scheman för att köra publicerade pipelines
+
+<!--+ **Bugs fixed**-->
+
+### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning Data Förbered SDK v0.5.2
+
++ **Större ändringar** 
+  * `SummaryFunction.N` har bytt namn till `SummaryFunction.Count`.
+  
++ **Felkorrigeringar**
+  * Använd senaste AML kör Token vid läsning från och skriva till datalager på fjärranslutna körs. Tidigare, om den AML kör Token uppdateras i Python, Data Prep-runtime kommer inte att uppdateras med den uppdaterade AML kör Token.
+  * Ytterligare tydligare felmeddelanden
+  * to_spark_dataframe() kommer inte längre krascha när de Spark använder Kryo serialisering
+  * Antal värden Inspector kan nu visa fler än 1000 unika värden
+  * Slumpmässig dela misslyckas inte längre om det ursprungliga dataflödet saknar ett namn  
+
+### <a name="docs-and-notebooks"></a>Docs och bärbara datorer
++ ML-Pipelines
+  + Nya och uppdaterade anteckningsböcker för att komma igång med pipelines, batch omfång och format överföra exempel: https://aka.ms/aml-pipeline-notebooks
+  + Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.md)
+  + Lär dig hur du [kör batch förutsägelser med pipelines](how-to-run-batch-predictions.md)
++ Azure Machine Learning-beräkning
+  + [Exempelanteckningsböcker] (https://aka.ms/aml-notebooks) uppdateras nu om du vill använda den här nya hanterade beräkning.
+  + [Lär dig mer om den här beräkning](how-to-set-up-training-targets.md#amlcompute)
+
+### <a name="azure-portal-new-features"></a>Azure-portalen: nya funktioner
++ Skapa och hantera [beräkning av Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) typer i portalen.
++ Övervaka kvotanvändning och [begär kvot](how-to-manage-quotas.md) för beräkning av Azure Machine Learning.
++ Visa status för beräkning av Azure Machine Learning-kluster i realtid.
++ Virtual network-stöd har lagts till för att skapa en beräkning av Azure Machine Learning och Azure Kubernetes Service.
++ Kör dina publicerade pipelines med befintliga parametrar.
++ Ny [automatiserad machine learning diagram](how-to-track-experiments.md#auto) för klassificering modeller (lift, vinster, kalibrering, funktionen vikten diagram med modellen explainability) och regressionsmodeller (restbelopp och vikten funktionsdiagram med modellen explainability). 
++ Pipelines kan ses i Azure-portalen
+
+
+
 
 ## <a name="2018-11-20"></a>2018-11-20
 
@@ -253,7 +321,7 @@ Följande är en lista med detaljerade uppdateringar under varje komponent i Azu
 #### <a name="ui"></a>ANVÄNDARGRÄNSSNITTET
 - Allmänna förbättringar och felkorrigeringar
 
-#### <a name="notebooks"></a>Bärbara datorer
+#### <a name="notebooks"></a>Notebook-filer
 - Allmänna förbättringar och felkorrigeringar
 
 #### <a name="data-preparation"></a>Förberedelse av data 

@@ -1,20 +1,22 @@
 ---
-title: Krävs för Azure Disk Encryption | Microsoft Docs
+title: Förutsättningar – Azure Disk Encryption för virtuella IaaS-datorer | Microsoft Docs
 description: Den här artikeln innehåller förutsättningar för att använda Microsoft Azure Disk Encryption för virtuella IaaS-datorer.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/14/2018
-ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 55226204d148239b7c32d1abc6f61fddcfc5b913
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498597"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104993"
 ---
-# <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption 
+# <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption
+
  Den här artikeln krävs för Azure Disk Encryption, förklarar objekt som måste vara uppfyllda innan du kan använda Azure Disk Encryption. Azure Disk Encryption är integrerad med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) för att hantera krypteringsnycklar. Du kan använda [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), eller [Azure-portalen](https://portal.azure.com) att konfigurera Azure Disk Encryption.
 
 Innan du aktiverar Azure Disk Encryption på virtuella Azure IaaS-datorer för de scenarier som stöds som beskrivs i den [översikt över Azure Disk Encryption](azure-security-disk-encryption-overview.md) artikel, se till att ha kraven på plats. 

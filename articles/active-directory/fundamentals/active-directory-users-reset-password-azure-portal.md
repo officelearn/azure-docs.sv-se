@@ -1,6 +1,6 @@
 ---
-title: Återställa en användares lösenord i Azure Active Directory | Microsoft Docs
-description: Lär dig hur du återställer en användares lösenord med Azure Active Directory.
+title: Återställa en användares lösenord – Azure Active Directory | Microsoft Docs
+description: Anvisningar om hur du återställer en användares lösenord med Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,19 +12,22 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 3803808ab589c3d880111421f650141f0d829f0b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c8dd387104d52075425d881363dbcbaac700461a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736109"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103378"
 ---
-# <a name="how-to-reset-a-users-password-using-azure-active-directory"></a>Så här: återställa en användares lösenord med Azure Active Directory
-Du kan återställa en användares lösenord om du har glömt lösenordet, om användaren hämtar utelåst från en enhet, eller om du inte fått ett lösenord.
+# <a name="reset-a-users-password-using-azure-active-directory"></a>Återställa en användares lösenord med Azure Active Directory
+Som administratör kan återställa du en användares lösenord om du har glömt lösenordet, om användaren hämtar utelåst från en enhet, eller om du inte fått ett lösenord.
 
 >[!Note]
 >Om inte din Azure AD-klient är arbetskatalogen för en användare kan du inte återställa sina lösenord. Det innebär att om användaren logga in på din organisation med ett konto från en annan organisation, ett Microsoft-konto eller ett Google-konto kan du inte att återställa sina lösenord.<br><br>Om dina användare har en auktoritetskälla som Windows Server Active Directory, kommer du bara att kunna återställa lösenordet om du har aktiverat tillbakaskrivning av lösenord.<br><br>Om dina användare har en auktoritetskälla som externa Azure AD kan du inte återställa lösenordet. Endast användare eller en administratör i externa Azure AD kan återställa lösenordet.
+
+>[!Note]
+>Om du inte är administratör och letar i stället för instruktioner om hur du återställer ditt eget lösenord för arbetet eller skolan, se [återställa lösenordet för arbets- eller skolkonto](../user-help/active-directory-passwords-update-your-own-password.md).
 
 ## <a name="to-reset-a-password"></a>Lösenordsåterställning
 

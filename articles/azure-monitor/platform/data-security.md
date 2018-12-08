@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: cdd01953e4053eec6e8b0cb57c7a68bb2ae01673
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d2e76bde90c0bf2d411697998fe140eb1b706b9b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957494"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106472"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
 Det här dokumentet är avsedd att ge specifik information till Log Analytics, som är en funktion i Azure Monitor för att komplettera informationen på [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
@@ -181,7 +181,7 @@ Kvarhållningsperioden för insamlade data som lagras i databasen är beroende a
 För att få åtkomst till Log Analytics-arbetsytan måste du logga in på Azure-portalen med organisationens konto eller Microsoft-konto som du tidigare har konfigurerat. All trafik mellan portalen och Log Analytics-tjänsten skickas via en säker HTTPS-kanal. När du använder portalen, genereras ett sessions-ID på klienten för användare (webbläsare) och data lagras i ett lokalt cacheminne tills sessionen avslutas. När avslutas, tas cachen bort. Klientsidan cookies, som inte innehåller personligt identifierbar information tas inte bort automatiskt. Sessionscookies är markerad HTTPOnly och skyddas. Efter en förutbestämd inaktiv tid, har Azure portal sessionen avslutats.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig att samla in data med Log Analytics för dina virtuella Azure-datorer efter den [snabbstarten för Azure virtuella datorer](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
+* Lär dig att samla in data med Log Analytics för dina virtuella Azure-datorer efter den [snabbstarten för Azure virtuella datorer](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-*  Om du vill samla in data från fysiska eller virtuella Windows- eller Linux-datorer i din miljö finns i den [Snabbstart för Linux-datorer](../../log-analytics/log-analytics-quick-collect-linux-computer.md) eller [Snabbstart för Windows-datorer](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  Om du vill samla in data från fysiska eller virtuella Windows- eller Linux-datorer i din miljö finns i den [Snabbstart för Linux-datorer](../../azure-monitor/learn/quick-collect-linux-computer.md) eller [Snabbstart för Windows-datorer](../../azure-monitor/learn/quick-collect-windows-computer.md)
 

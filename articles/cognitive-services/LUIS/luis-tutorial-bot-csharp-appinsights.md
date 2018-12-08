@@ -1,23 +1,24 @@
 ---
-title: Application Insights-data från LUIS med C#
+title: Application Insights med hjälp avC#
 titleSuffix: Azure Cognitive Services
 description: Skapa en robot som är integrerad med en LUIS-programmet och Application Insights med C#.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: c7f12352355b12cf1a7363a2a82fa786248cdc6f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fb7ce154985db97dba2a36b4b0d834cada1605d9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965299"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101066"
 ---
-# <a name="add-luis-results-to-application-insights"></a>Lägg till LUIS resultaten till Application Insights
+# <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Lägg till LUIS resultaten till Application Insights med en Bot iC#
 
 Den här självstudien lägger till LUIS Svarsinformation till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
 
@@ -174,7 +175,7 @@ Hitta web app-robot i Azure-portalen och öppna den. Följande steg använder tr
 
 3. Ange följande kommando i konsolfönstret:
 
-    ```
+    ```console
     cd site\wwwroot && build.cmd
     ```
 
@@ -190,11 +191,12 @@ Hitta web app-robot i Azure-portalen och öppna den. Följande steg använder tr
 
 3. Du bör se någon skillnad i chattrobot svaret. Ändringen är inte i roboten svar skickar data till Application Insights. Ange några fler yttranden så att det finns lite mer data i Application Insights:
 
-```
-Please deliver a pizza
-Turn off all the lights
-Turn on the hall light
-```
+|Yttranden|
+|--|
+|Leverera en platt|
+|Inaktivera alla lamporna|
+|Aktivera hall ljus|
+
 
 ## <a name="view-luis-entries-in-application-insights"></a>Visa LUIS poster i Application Insights
 
@@ -231,7 +233,7 @@ Application Insights ger dig möjlighet att fråga efter data med den [Kusto](ht
 
 3. Om du vill hämta de översta avsikt, poäng och uttryck, lägger du till följande ovanför den sista raden i frågefönstret:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent)
     | extend score = todouble(customDimensions.LUIS_topScoringIntentScore)
     | extend utterance = tostring(customDimensions.LUIS_query)

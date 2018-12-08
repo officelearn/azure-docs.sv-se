@@ -1,10 +1,10 @@
 ---
-title: Cortana Intelligence-, tävlingar, vanliga frågor och svar | Microsoft Docs
+title: Cortana Intelligence-, tävlingar, vanliga frågor och svar – Azure Machine Learning Studio | Microsoft Docs
 description: Vanliga frågor om Microsoft Cortana Intelligence, tävlingar.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c423438e5c8088dba5b9d71e8e50a2e9de1371c6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265118"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104973"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence, tävlingar, vanliga frågor och svar
 **Vad är Cortana Intelligence, tävlingar?**

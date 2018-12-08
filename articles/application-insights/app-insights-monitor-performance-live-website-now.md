@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0618a580c6bdcef8f28a439cd79e67d863e58b9e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: abc3d5832cd85cb3297077f2d661ec8fe32fde9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995237"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105299"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentera webbappar vid körning med Application Insights
 
@@ -119,6 +119,7 @@ Om du vill publicera på nytt utan att lägga till Application Insights i koden,
   * I IIS-hanteraren väljer du programpoolen, öppnar **Avancerade inställningar** och noterar identiteten under **Processmodell**.
   * På kontrollpanelen för Datorhantering lägger du till den här identiteten i gruppen Användare av prestandaövervakning.
 * Om du har MMA/SCOM (Systems Center Operations Manager) installerat på servern kan vissa versioner vara i konflikt med varandra. Avinstallera både SCOM och Status Monitor och installera om de senaste versionerna.
+* Status Monitor-loggar finns på den här platsen som standard: ”C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log”
 * Mer information finns i [Felsökning][qna].
 
 ## <a name="system-requirements"></a>Systemkrav
@@ -217,9 +218,12 @@ Den samlar inte in telemetri på egen hand. Den bara konfigurerar webbappar och 
 
 När du har valt en webbapp som Statusövervakaren ska instrumentera gör den följande:
 
-* Laddar ned och placerar Application Insights-sammansättningar och .config-filen i webbappens binärfilsmapp.
-* Ändrar `web.config` för att lägga till Application Insights HTTP-spårningsmodulen.
+* Laddar ned och placerar Application Insights-sammansättningar och ApplicationInsights.config-filen i webbappens binärfilsmapp.
 * Aktiverar CLR-profilering för att samla in beroendeanrop.
+
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Vilken version av Application Insights SDK installeras statusövervakaren?
+
+Från och med nu installera statusövervakaren bara Application Insights SDK version 2.3 eller 2.4.
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Måste jag köra Statusövervakaren när jag uppdaterar appen?
 

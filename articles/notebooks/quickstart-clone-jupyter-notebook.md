@@ -1,5 +1,5 @@
 ---
-title: Klona en Jupyter-anteckningsbok från GitHub med Azure-datorer | Microsoft Docs
+title: Klona en Jupyter-anteckningsbok från GitHub med Azure-anteckningsböcker
 description: Snabbt klona en Jupyter-anteckningsbok från en GitHub-lagringsplats och kör det i dina anteckningsböcker i Azure-konto.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ace53fcb2c24e26aa6f33dbc0300915a45dc6a91
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e30057f773afe6ec625b811c6ca1447c519ceda7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856986"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106336"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Snabbstart: Klona en anteckningsbok
 
@@ -26,7 +26,7 @@ Många dataanalytiker och utvecklare lagra sina bärbara datorer i [GitHub-lagri
 
 Kloning av skapar en kopia av en GitHub-anteckningsbok i anteckningsböcker i Azure-konto i stället. Den här klonen frikopplat från den ursprungliga databasen; ändringarna lagras i ditt Azure-anteckningsböcker konto och påverkar inte ursprungligt. Eftersom din klon är i molnet, kan du dela projektet med andra medarbetare som inte behöver göra några lokala kopior eller även har Jupyter som är installerade på sina egna datorer. Du kan också klona en bärbar dator som en startpunkt för ett projekt på egen hand eller hämta datafiler.
 
-## <a name="clone-the-azure-cognitive-services-notebooks"></a>Klona Azure Cognitive Services-anteckningsböcker
+## <a name="clone-azure-cognitive-services-notebooks"></a>Klona Azure Cognitive Services-anteckningsböcker
 
 1. Gå till [Azure anteckningsböcker](https://notebooks.azure.com) och logga in. (Mer information finns i [Snabbstart – logga in på Azure-anteckningsböcker](quickstart-sign-in-azure-notebooks.md)).
 

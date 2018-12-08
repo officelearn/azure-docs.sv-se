@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4885693abd8c6b66f8e68d83a8d6a2db3b0ed438
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 9098e8e6af76ed14ad42d5fe5917fcd36097c222
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344135"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103293"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon Simple Storage Service med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,11 +34,8 @@ Mer specifikt den här Amazon S3-anslutningsappen stöder kopiera filer som-är 
 
 För att kopiera data från Amazon S3, kontrollera att du har beviljats följande behörigheter:
 
-- `s3:GetObject` och `s3:GetObjectVersion` för Amazon S3-objektet.
-- `s3:ListBucket` eller `s3:GetBucketLocation` för Amazon S3-Bucket åtgärder. 
-
->[!NOTE]
->När du använder Data Factory-Gränssnittet för redigering, `s3:ListAllMyBuckets` behörighet krävs också för, till exempel Testa anslutning och bläddra/navigera filsökvägar. Om du inte vill bevilja den här behörigheten kan du hoppa över Testa anslutning i sidan för att skapa den länkade tjänsten och speicify sökvägen direkt i inställningarna för datauppsättningen.
+- **För körning av kopiera aktivitet:**: `s3:GetObject` och `s3:GetObjectVersion` för Amazon S3-objektet.
+- **För redigering av Data Factory GUI**: `s3:ListAllMyBuckets` och `s3:ListBucket` / `s3:GetBucketLocation` för Amazon S3-Bucket åtgärder behörigheter krävs dessutom för, till exempel Testa anslutning och bläddra/navigera filsökvägar. Om du inte vill att bevilja dessa behörigheter kan du hoppa över Testa anslutning i sidan för att skapa den länkade tjänsten och speicify sökvägen direkt i inställningarna för datauppsättningen.
 
 Mer information om en fullständig lista över Amazon S3-behörigheter finns i [att ange behörigheter i en princip](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -98,6 +95,8 @@ För att kopiera data från Amazon S3, ange typegenskapen på datauppsättningen
 | key | Den **namn eller jokertecken-filtret** för S3 Objektnyckel under en angiven bucket. Gäller endast när egenskapen ”prefixet” inte har angetts. <br/><br/>Jokerteckenfiltret har endast stöd för Namndelen för filen men inte mappdelen. Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>– Exempel 1: `"key": "rootfolder/subfolder/*.csv"`<br/>– Exempel 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Använd `^` att undvika om din faktiska filnamnet har jokertecken eller den här escape-tecken i. |Nej |
 | prefix | Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när egenskapen ”nyckeln” inte har angetts. |Nej |
 | version | Versionen av S3-objektet, om S3 versionshantering är aktiverad. |Nej |
+| modifiedDatetimeStart | Filter för filer baserat på attributet: senast ändrad. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde.| Nej |
+| modifiedDatetimeEnd | Filter för filer baserat på attributet: senast ändrad. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde.| Nej |
 | Format | Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia).<br/><br/>Om du vill parsa eller generera filer med ett visst format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-Format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binär kopia scenario) |
 | Komprimering | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 
@@ -118,6 +117,8 @@ För att kopiera data från Amazon S3, ange typegenskapen på datauppsättningen
         "typeProperties": {
             "bucketName": "testbucket",
             "prefix": "testFolder/test",
+            "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
+            "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {
                 "type": "TextFormat",
                 "columnDelimiter": ",",

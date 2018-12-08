@@ -1,5 +1,5 @@
 ---
-title: Logga in på Azure-datorer | Microsoft Docs
+title: Logga in på Azure-anteckningsböcker
 description: Snabbt logga in på Azure-anteckningsböcker och ange ett användar-ID, vilket ger dig möjlighet att komma åt sparade projekt och dela anteckningsböcker med andra.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 44513a63f3bc13592a5c7de2595149956597251c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856797"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106319"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Snabbstart: Logga in och ange ett användar-ID
 
@@ -54,9 +54,9 @@ Men du kan alltid visa Azure-datorer utan att logga in, måste du logga in på K
 
 ## <a name="sign-out"></a>Logga ut
 
-1. Att logga ut, väljer användarnamnet längst upp till höger på sidan och sedan välja **logga ut**:
+Att logga ut, väljer användarnamnet längst upp till höger på sidan och sedan välja **logga ut**:
 
-    ![Platsen för utloggning kommando i Azure-anteckningsböcker](media/accounts/sign-out-command.png)
+![Platsen för utloggning kommando i Azure-anteckningsböcker](media/accounts/sign-out-command.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

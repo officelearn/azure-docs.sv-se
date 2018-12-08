@@ -1,5 +1,5 @@
 ---
-title: Konfigurera och hantera Azure-anteckningsbok projekt | Microsoft Docs
+title: Konfigurera och hantera Azure-anteckningsbok projekt
 description: Så här hanterar du projektet metadata, projektfiler, projektets miljö och installationsprogrammet visar både Användargränssnittet för Azure-anteckningsböcker och terminal direktåtkomst.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 0e24d06cfeefd8315e21a45b833e6bf0e5f9dfd9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856833"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104092"
 ---
 # <a name="manage-and-configure-projects"></a>Hantera och konfigurera projekt
 
@@ -57,7 +57,7 @@ Innehållet i projektets mappsystem visas i instrumentpanelen för projektet. Du
 
 Den **+ ny** kommando (kortkommandot: n) skapar nya filer eller mappar. När du använder kommandot måste du först välja vilken typ av objekt som ska skapas:
 
-| Typ av objekt | Beskrivning | Kommandobeteendet |
+| Objekttyp | Beskrivning | Kommandobeteendet |
 | --- | --- | --- |
 | **Notebook** | En Jupyter-anteckningsbok | Visar ett fönster där du anger denna notebook filnamnet och språk. |
 | **Mapp** | En undermapp | Skapar ett redigerbart fält i projektets fillistan som du anger namnet på mappen. |

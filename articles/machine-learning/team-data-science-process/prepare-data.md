@@ -1,6 +1,6 @@
 ---
 title: Rensa och förbereda data för Azure Machine Learning | Microsoft Docs
-description: Förbearbeta och rensa data för att förbereda den för machine learning.
+description: Förbearbeta och rensa data för att förbereda den för att användas effektivt för machine learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 52457e19cede5d8d2b74d9c3d81ebf35e3ad06c4
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: b8903e021028ce51e042bd0aea87a91d564de25d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446568"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101270"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Uppgifter för att förbereda data för förbättrad Machine Learning
 Bearbeta data i förväg och rensa data är viktiga uppgifter som normalt måste utföras innan datauppsättning kan användas effektivt för machine learning. Rådata är ofta bort störande och otillförlitliga och kan sakna värden. Med hjälp av sådana data för modellering kan ge vilseledande resultat. Dessa uppgifter är en del av Team Data Science Process (TDSP) och följ vanligtvis en inledande undersökning av en datauppsättning som används för att identifiera och planera förbearbetning som krävs. Mer detaljerad information om TDSP-processen, se de steg som beskrivs i den [Team Data Science Process](overview.md).

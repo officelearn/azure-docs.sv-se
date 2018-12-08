@@ -4,25 +4,25 @@ description: Den här anvisningen vägleder dig genom reparation av resurser som
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5b503c1a96d0c0a5ce3d14e98622040116873045
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 62b59fa5a7955d9cab41591606c595adae41ba9f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724663"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103854"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
-Resurser som är icke-kompatibla till en **deployIfNotExists** princip kan placeras i ett kompatibelt tillstånd via **reparation**. Reparation åstadkoms genom att uppmana körs den **deployIfNotExists** tilldelade policyns effekt på dina befintliga resurser. Den här anvisningen beskriver de steg som krävs för att göra detta.
+Resurser som är icke-kompatibla till en **deployIfNotExists** princip kan placeras i ett kompatibelt tillstånd via **reparation**. Reparation åstadkoms genom att uppmana körs den **deployIfNotExists** tilldelade policyns effekt på dina befintliga resurser. Den här artikeln visar de steg som krävs för att förstå och utföra åtgärder med principen.
 
 ## <a name="how-remediation-security-works"></a>Hur fungerar säkerheten för reparation
 
 När principen körs mallen i den **deployIfNotExists** principdefinition som den gör det med hjälp av en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md).
-Principen skapar en hanterad identitet för varje uppgift för dig, men du måste tillhandahålla information om vilka roller att bevilja den hanterade identitet. Om den hanterade identitet saknas roller, visas detta under tilldelningen av principen eller ett initiativ som innehåller principen. När du använder portalen beviljas principen automatiskt hanterad identitet listade rollerna när tilldelningen har initierats.
+Principen skapas en hanterad identitet för varje uppgift, men måste ha information om vilka roller att bevilja den hanterade identitet. Om den hanterade identitet saknas roller, visas det här felet under tilldelningen av principen eller ett initiativ. När du använder portalen beviljas principen automatiskt hanterad identitet listade rollerna när tilldelningen har startats.
 
 ![Hanterad identitet - saknas roll](../media/remediate-resources/missing-role.png)
 
@@ -31,8 +31,7 @@ Principen skapar en hanterad identitet för varje uppgift för dig, men du måst
 
 ## <a name="configure-policy-definition"></a>Konfigurera principdefinition
 
-Det första steget är att definiera rollerna som **deployIfNotExists** behöver distribuera innehållet i den inkluderade mallen i principdefinitionen. Under den **information** egenskapen, lägga till en **roleDefinitionIds** egenskapen. Det här är en matris med strängar som matchar roller i din miljö.
-En fullständig exempel finns i den [deployIfNotExists exempel](../concepts/effects.md#deployifnotexists-example).
+Det första steget är att definiera rollerna som **deployIfNotExists** behöver distribuera innehållet i den inkluderade mallen i principdefinitionen. Under den **information** egenskapen, lägga till en **roleDefinitionIds** egenskapen. Den här egenskapen är en matris med strängar som matchar roller i din miljö. En fullständig exempel finns i den [deployIfNotExists exempel](../concepts/effects.md#deployifnotexists-example).
 
 ```json
 "details": {
@@ -56,7 +55,7 @@ Get-AzureRmRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Konfigurera manuellt hanterad identitet
 
-När du skapar en uppgift med hjälp av portalen princip både genererar den hanterade identitet och beviljar de roller som definierats i **roleDefinitionIds**. Steg för att skapa den hanterade identitet och tilldela den behörigheter måste utföras manuellt under följande förhållanden:
+När du skapar en uppgift med hjälp av portalen princip både genererar den hanterade identitet och beviljar de roller som definierats i **roleDefinitionIds**. Steg för att skapa den hanterade identitet och tilldela den behörigheter måste göras manuellt under följande förhållanden:
 
 - När du använder SDK: N (till exempel Azure PowerShell)
 - När en resurs utanför tilldelningsomfånget ändras av mallen
@@ -125,11 +124,11 @@ Följ dessa steg om du vill lägga till en roll i tilldelningens hanterad identi
 
 1. Klicka på den **åtkomstkontroll (IAM)** länka på resurssidan och klicka på **+ Lägg till rolltilldelning** överst på sidan för kontroll av åtkomst.
 
-1. Välj rätt roll som matchar en **roleDefinitionIds** från principdefinitionen. Lämna **tilldela åtkomst till** inställt på standardvärdet ”Azure AD användaren, gruppen eller programmet”. I den **Välj** rutan, klistra in eller Skriv delen av tilldelning av resurs-ID finns tidigare. När sökningen är klar klickar du på objektet med samma namn och välj id och klicka på **spara**.
+1. Välj rätt roll som matchar en **roleDefinitionIds** från principdefinitionen. Lämna **tilldela åtkomst till** inställt på standardvärdet ”Azure AD användaren, gruppen eller programmet”. I den **Välj** rutan, klistra in eller Skriv delen av tilldelning av resurs-ID finns tidigare. När sökningen är klar klickar du på objektet med samma namn och välj ID och klicka på **spara**.
 
 ## <a name="create-a-remediation-task"></a>Skapa en uppgift för reparation
 
-Under utvärderingen, principtilldelning med **deployIfNotExists** effekt avgör om det finns inkompatibla resurser. När icke-kompatibla resurser finns informationen tillhandahålls på den **reparation** sidan. Tillsammans med i listan över principer som har icke-kompatibla resurser är alternativet för att utlösa en **reparation uppgift**. Det här är vad skapar en distribution från den **deployIfNotExists** mall.
+Under utvärderingen, principtilldelning med **deployIfNotExists** effekt avgör om det finns inkompatibla resurser. När icke-kompatibla resurser finns informationen tillhandahålls på den **reparation** sidan. Tillsammans med i listan över principer som har icke-kompatibla resurser är alternativet för att utlösa en **reparation uppgift**. Det här alternativet är det skapar en distribution från den **deployIfNotExists** mall.
 
 Skapa en **reparation uppgiften**, Följ dessa steg:
 
@@ -146,7 +145,7 @@ Skapa en **reparation uppgiften**, Följ dessa steg:
    > [!NOTE]
    > Ett annat sätt att öppna den **reparation uppgift** är att hitta och klicka på principen från den **efterlevnad** sidan och klicka sedan på den **skapa reparation uppgift** knappen.
 
-1. På den **ny reparation uppgift** sidan, filtrera resurser för att åtgärda problemet med hjälp av den **omfång** ellipserna att välja underordnade resurser från där principen har tilldelats (inklusive till enskild resurs objekt). Dessutom kan använda den **platser** listrutan filtreras ytterligare resurser. Endast de resurser som anges i tabellen ska åtgärdas.
+1. På den **ny reparation uppgift** sidan, filtrera resurser för att åtgärda problemet med hjälp av den **omfång** ellipserna att välja underordnade resurser från där principen tilldelas (inklusive till enskild resurs objekt). Dessutom kan använda den **platser** listrutan filtreras ytterligare resurser. Endast de resurser som anges i tabellen ska åtgärdas.
 
    ![Åtgärda – Välj resurser](../media/remediate-resources/select-resources.png)
 
@@ -156,11 +155,11 @@ Skapa en **reparation uppgiften**, Följ dessa steg:
 
 1. Klicka på den **reparation uppgift** från sidan princip för efterlevnad för att få information om förloppet. Filtrering som används för aktiviteten visas tillsammans med en lista över de resurser som åtgärdas.
 
-1. Från den **remedation uppgift** högerklickar du på en resurs för att visa antingen reparation aktivitetens distribution eller resursen. I slutet av raden klickar du på **relaterade händelser** du vill ha information, till exempel ett felmeddelande.
+1. Från den **reparation uppgift** högerklickar du på en resurs för att visa antingen reparation aktivitetens distribution eller resursen. I slutet av raden klickar du på **relaterade händelser** du vill ha information, till exempel ett felmeddelande.
 
    ![Åtgärda - resurs snabbmenyn för uppgift](../media/remediate-resources/resource-task-context-menu.png)
 
-Resurser som distribueras via en **reparation uppgift** kommer att läggas till i **distribuerade resurser** fliken på policysidan för efterlevnad efter en kort fördröjning.
+Resurser som distribueras via en **reparation uppgift** läggs till i **distribuerade resurser** fliken på policysidan för efterlevnad.
 
 ## <a name="next-steps"></a>Nästa steg
 

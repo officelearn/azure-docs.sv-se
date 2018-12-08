@@ -1,23 +1,24 @@
 ---
-title: Application Insights-data från LUIS med Node.js
+title: Application Insights Node.js
 titleSuffix: Azure Cognitive Services
 description: Skapa en robot som är integrerad med en LUIS-programmet och Application Insights med hjälp av Node.js.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4461ac71ba5f9ab5901c5d7b72c15c0c165621e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321962"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103973"
 ---
-# <a name="add-luis-results-to-application-insights"></a>Lägg till LUIS resultaten till Application Insights
+# <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Lägga till LUIS resultaten till Application Insights och Azure functions
 Den här självstudien lägger till LUIS begäranden och svar information till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
 
 Roboten har byggts med Bot Framework 3.x och Azure Web app-robot.
@@ -58,7 +59,7 @@ För att samla in LUIS-begäran och svaret, web app-robot måste den **[Programi
 
 3. Ange följande kommando för att installera Application Insights och understreck-paket i konsolen:
 
-    ```
+    ```console
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
@@ -66,7 +67,7 @@ För att samla in LUIS-begäran och svaret, web app-robot måste den **[Programi
 
     Vänta tills paketen installeras:
 
-    ```
+    ```console
     luisbot@1.0.0 D:\home\site\wwwroot
     `-- applicationinsights@1.0.1 
       +-- diagnostic-channel@0.2.0 
@@ -142,7 +143,7 @@ Application Insights ger dig möjlighet att fråga efter data med den [Kusto](ht
 
 3. Om du vill hämta de översta avsikt, poäng och uttryck, lägger du till följande ovanför den sista raden i frågefönstret:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_intent_intent)
     | extend score = todouble(customDimensions.LUIS_intent_score)
     | extend utterance = tostring(customDimensions.LUIS_text)

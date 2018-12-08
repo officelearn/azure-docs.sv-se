@@ -1,5 +1,5 @@
 ---
-title: Hur du skapar och klona Jupyter-anteckningsböcker i Azure | Microsoft Docs
+title: Skapa och klona Jupyter-anteckningsböcker i Azure
 description: Projekt för Azure anteckningsböcker hantera en samling bärbara datorer och relaterade filer som du kan skapa en ny eller klona från en annan källa.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 36de7ce0cbbc1c3a2c12682b6882dc4d5491eb10
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c4325f0c9de0d945d1612a3ab4171a2bfe1be25b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856733"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106523"
 ---
 # <a name="create-and-clone-projects"></a>Skapa och klona projekt
 
@@ -49,7 +49,7 @@ Vad du kan göra på instrumentpanelen beror på om du har loggat in med kontot 
 
 När du använder den **resursen** kommandot och välj den **bädda in** fliken kan du kopiera HTML-kod eller Markdown som skapar en ”dagbok Start” symbol:
 
-    ![Launch notebook badge ](https://notebooks.azure.com/launch.png)
+![Starta notebook märket ](https://notebooks.azure.com/launch.png)
 
 Om du inte har ett projekt med Azure-datorer kan skapa du en länk som klonar från GitHub direkt med hjälp av följande mallar, och Ersätt rätt användarnamn och databasnamn:
 

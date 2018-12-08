@@ -1,21 +1,22 @@
 ---
 title: Stöd för språk - tjänsten för Taligenkänning
 titleSuffix: Azure Cognitive Services
-description: En lista med naturligt språk som stöds av Speech Service.
+description: Azure Speech Services stöder flera språk för tal till text och text till tal konvertering, tillsammans med talöversättning. Den här artikeln innehåller en omfattande lista över språk som stöds av tjänsten.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 8cdcdd6c5e0201f8f6af39faab0a67a68920e568
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284769"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094584"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Stöd för språk och din region för tjänsten för Taligenkänning
 
@@ -36,8 +37,8 @@ Microsoft taligenkänningens API stöder följande språk. Olika typer av anpass
  en-GB | Engelska (Storbritannien) | Nej | Ja | Ja
  en Indien | English (India) | Ja | Ja | Ja
  en NZ | Engelska (Nya Zeeland) | Nej | Ja | Ja  
- sv-SE | Engelska (USA) | Ja | Ja | Ja
- es-ES | Spanska (Spanien) | Nej | Ja | Nej
+ en-US | Engelska (USA) | Ja | Ja | Ja
+ es-ES | Spanska (Spanien) | Ja | Ja | Nej
  es-MX | Spanska (Mexiko) | Nej | Ja | Nej
  fi-FI | Finska (Finland) | Nej | Nej | Nej
  fr-CA | Franska (Kanada) | Nej | Ja | Nej
@@ -49,7 +50,7 @@ Microsoft taligenkänningens API stöder följande språk. Olika typer av anpass
  NB-NO | Norska (Bokmål) (Norge) | Nej | Nej | Nej
  NL-NL | Nederländska (Nederländerna) | Nej | Ja | Nej
  pl-PL | Polska (Polen) | Nej | Nej | Nej
- pt-BR | Portugisiska (Brasilien) | Nej | Ja | Nej
+ pt-BR | Portugisiska (Brasilien) | Ja | Ja | Nej
  PT-PT | Portugisiska (Portugal) | Nej | Ja | Nej
  ru-RU | Ryska (Ryssland) | Ja | Ja | Nej
  SV-SE | Svenska (Sverige) | Nej | Nej | Nej
@@ -158,7 +159,7 @@ Röst anpassning är tillgängliga för oss engelska (en-US), fastlandet kinesis
 
 ## <a name="speech-translation"></a>Talöversättning
 
-Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Källspråk måste alltid vara i följande tabell för tal-språk. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal i mer än [60 språk](https://www.microsoft.com/translator/business/languages/). En delmängd av dessa språk är tillgängliga för [talsyntes](language-support.md#text-languages). 
+Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Källspråk måste alltid vara i följande tabell för tal-språk. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal i mer än [60 språk](https://www.microsoft.com/translator/business/languages/). En delmängd av dessa språk är tillgängliga för [talsyntes](language-support.md#text-languages).
 
 ### <a name="speech-languages"></a>Talspråk
 

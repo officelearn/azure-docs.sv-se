@@ -1,37 +1,32 @@
 ---
-title: ExpressRoute kunden router configuration prover | Microsoft Docs
-description: Den här sidan innehåller router configuration-exempel för Cisco och Juniper routrar.
-documentationcenter: na
+title: Routerkonfiguration exempel - NAT - Azure ExpressRoute | Microsoft Docs
+description: Den här sidan innehåller routerkonfigurationer för Cisco och Juniper-routrar.
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 9764a03b0f3a3f70e59097359d5a714da821d3b1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23850688"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105996"
 ---
-# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Router configuration exempel för att konfigurera och hantera NAT
-Den här sidan innehåller NAT configuration-exempel för Cisco ASA och Juniper SRX serie routrar. Dessa är avsedda att prover för endast vägledning och får inte användas eftersom. Du kan arbeta med leverantören för att få fram lämpliga konfigurationerna för nätverket. 
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Routerkonfigurationer att konfigurera och hantera NAT
+
+Den här sidan innehåller NAT Konfigurationsexempel för Cisco ASA och Juniper SRX serie routrar när du arbetar med ExpressRoute. Dessa är avsedda att vara exempel endast vägledning och får inte användas eftersom. Du kan arbeta med leverantören om att få fram rätt konfigurationer för ditt nätverk.
 
 > [!IMPORTANT]
-> Exempel på den här sidan är avsedda att vara rent anvisningar. Du måste arbeta med leverantörens försäljning / tekniska teamet och teamet nätverk för att få fram lämpliga konfigurationer för att uppfylla dina behov. Microsoft stöder inte problem relaterade till konfigurationer som anges i den här sidan. För att lösa problem måste du kontakta enhetsleverantören av.
+> Exempel på den här sidan är avsedda att vara helt och hållet anvisningar. Du måste arbeta med leverantörens försäljning / tekniska team och ditt nätverksteam och få fram rätt konfigurationer för att uppfylla dina behov. Microsoft stöder inte problem som rör konfigurationer som anges i den här sidan. För supportärenden måste du kontakta leverantören av enheten.
 > 
 > 
 
-* Router configuration exemplen nedan gäller för offentlig Azure och Microsoft peerkopplingar. Du måste inte konfigurera NAT för privat Azure-peering. Granska [ExpressRoute peerkopplingar](expressroute-circuit-peerings.md) och [ExpressRoute NAT krav](expressroute-nat.md) för mer information.
+* Routerkonfigurationer nedan gäller för Azure offentlig och Microsoft-peerings. Inte måste du konfigurera NAT för Azures privata peering. Granska [ExpressRoute-peerkopplingar](expressroute-circuit-peerings.md) och [Expressroutes NAT-krav](expressroute-nat.md) för mer information.
 
-* Du måste använda separata NAT IP-adresspooler för anslutning till internet och ExpressRoute. Med hjälp av samma NAT IP-adresspool mellan internet och ExpressRoute leder asymmetriska Routning och anslutningsproblem.
+* Du måste använda separata NAT IP-adresspooler för anslutning till internet och ExpressRoute. Använda samma NAT IP-pool i alla internet och ExpressRoute leder till asymmetrisk Routning och förlust av anslutning.
 
 
 ## <a name="cisco-asa-firewalls"></a>Cisco ASA-brandväggar
@@ -69,7 +64,7 @@ NAT-Pool:
     object network outbound-PAT
         host <NAT-IP>
 
-Målservern:
+Målserver:
 
     object network Customer-Network
         network-object <IP> <Subnet-Mask>
@@ -121,11 +116,11 @@ NAT-kommandon:
 
 
 ### <a name="2-create-two-security-zones"></a>2. Skapa två säkerhetszoner
-* Förtroende-zonen för interna nätverket och Untrust zon för externa nätverk med routrar i utkanten
+* Förlitar sig på zon för interna nätverket och Untrust zon för externt nätverk mot Edge-routrar
 * Tilldela lämpliga gränssnitt till zoner
 * Tillåt tjänster på gränssnitt
 
-    säkerhet {zoner {säkerhetszon förtroende {-inkommande-värdtrafik {-systemtjänster {ping;                   } protokoll {bgp;                   {reth0.100;}}-gränssnitt               }}-säkerhetszon Untrust {-inkommande-värdtrafik {-systemtjänster {ping;                   } protokoll {bgp;                   {reth1.100;}}-gränssnitt               }           }       }   }
+    Security {zoner {säkerhetszon förtroende {-inkommande-värdtrafik {-systemtjänster {ping;                   } protokoll {bgp;                   gränssnitt för}} {reth0.100;               }} säkerhetszon Untrust {-inkommande-värdtrafik {-systemtjänster {ping;                   } protokoll {bgp;                   gränssnitt för}} {reth1.100;               }           }       }   }
 
 
 ### <a name="3-create-security-policies-between-zones"></a>3. Skapa säkerhetsprinciper mellan zoner
@@ -160,8 +155,8 @@ NAT-kommandon:
 
 
 ### <a name="4-configure-nat-policies"></a>4. Konfigurera NAT-principer
-* Skapa två NAT-pooler. En används för NAT-trafik utgående till Microsoft och andra från Microsoft till kunden.
-* Skapa regler för NAT respektive trafik
+* Skapa två NAT-pooler. En används för att utgående trafik till Microsoft och andra NAT-trafik från Microsoft till kunden.
+* Skapa regler för att NAT respektive trafiken
   
        security {
            nat {
@@ -218,8 +213,8 @@ NAT-kommandon:
            }
        }
 
-### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Konfigurera BGP att annonsera selektiv prefix i varje riktning
-Referera till exempel i [routning configuration prover ](expressroute-config-samples-routing.md) sidan.
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Konfigurera BGP för att annonsera selektiv prefix i varje riktning
+Referera till exempel i [routning Konfigurationsexempel ](expressroute-config-samples-routing.md) sidan.
 
 ### <a name="6-create-policies"></a>6. Skapa principer
     routing-options {

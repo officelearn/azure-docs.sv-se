@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e052b656f12a9059a5ee9d3ea21d0fa20fc00c6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 75594bf77f9bde7549b14e3a154f18ba67ebac3d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123070"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103395"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Kopiera data från Zoho med Azure Data Factory (förhandsversion)
 
@@ -74,7 +74,12 @@ Följande egenskaper har stöd för Zoho länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Zoho datauppsättning.
 
-Om du vill kopiera data från Zoho, ange typegenskapen på datauppsättningen till **ZohoObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Om du vill kopiera data från Zoho, ange typegenskapen på datauppsättningen till **ZohoObject**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **ZohoObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -86,7 +91,8 @@ Om du vill kopiera data från Zoho, ange typegenskapen på datauppsättningen ti
         "linkedServiceName": {
             "referenceName": "<Zoho linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -95,14 +101,14 @@ Om du vill kopiera data från Zoho, ange typegenskapen på datauppsättningen ti
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Zoho källa.
 
-### <a name="zohosource-as-source"></a>ZohoSource som källa
+### <a name="zoho-as-source"></a>Zoho som källa
 
 Om du vill kopiera data från Zoho, ange typ av datakälla i kopieringsaktiviteten till **ZohoSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ZohoSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Accounts"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Accounts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

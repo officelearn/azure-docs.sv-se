@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 1df4e345645fb216f1656b2bbe87396cf0719d1c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 57b13f5ae37fa4d8d5dbbdc00b9fedbb0f1c9163
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994986"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101865"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Hur du stoppar övervakningen Azure Kubernetes Service (AKS) med Azure Monitor för behållare (förhandsgranskning)
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Hur du stoppar övervakningen Azure Kubernetes Service (AKS) med Azure Monitor för behållare
 
-Om du aktiverar när övervakningen av AKS-klustret kan du beslutar att du inte längre vill du övervaka den, kan du *avanmäla dig*.  Den här artikeln visar hur du gör detta med hjälp av Azure CLI eller med de angivna Azure Resource Manager-mallarna.  
+När du aktiverar övervakning av AKS-klustret måste stoppa du övervakningen klustret om du inte längre vill att övervaka den. Den här artikeln visar hur du gör detta med hjälp av Azure CLI eller med de angivna Azure Resource Manager-mallarna.  
 
 
 ## <a name="azure-cli"></a>Azure CLI

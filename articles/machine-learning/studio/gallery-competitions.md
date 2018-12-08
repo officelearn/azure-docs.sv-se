@@ -1,10 +1,10 @@
 ---
-title: Azure AI-galleriet tävlingar | Microsoft Docs
-description: Upptäck tävlingar i Azure AI-galleriet.
+title: Galleriet tävlingar – Azure Machine Learning Studio | Microsoft Docs
+description: Upptäck tävlingar i Azure AI-galleriet. Ger en spännande möjlighet att konkurrera med community för datatekniker att lösa komplexa problem.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: a209b53893da8f0c7e86102a703334091f982c78
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: eddb66af507e3c803920751160e97b9520bb8067
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260674"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101991"
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Identifiera tävlingar i Azure AI-galleriet
 

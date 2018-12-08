@@ -1,6 +1,6 @@
 ---
-title: Hur du installerar Azure IoT Edge på Windows med Windows-behållare | Microsoft Docs
-description: Azure IoT Edge instruktioner för installation på Windows med Windows-behållare
+title: Installera Azure IoT Edge på Windows med Windows-behållare | Microsoft Docs
+description: Installationsinstruktioner för Azure IoT Edge på Windows-enheter som konfigurerats för Windows-behållare
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
@@ -9,12 +9,13 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: e6edc9d6e98c03b1a5847dc08bbaa3ad029aa673
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 9d7f9c68220f02a19f4e3f8f553cc06e9ace5424
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565045"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103820"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Installera Azure IoT Edge-körningen på Windows för användning med Windows-behållare
 

@@ -1,23 +1,24 @@
 ---
-title: Arbetsflöden för att konfigurera en Azure ExpressRoute-krets | Microsoft Docs
-description: Den här sidan beskriver hur du arbetsflöden för att konfigurera ExpressRoute-kretsen och peer-kopplingar
+title: 'Konfiguration av arbetsflöden – ExpressRoute-krets: Azure | Microsoft Docs'
+description: Den här sidan visas arbetsflödena för att konfigurera ExpressRoute-kretsen och peer-kopplingar
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.custom: seodec18
+ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301046"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101695"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Arbetsflöden i ExpressRoute för kretsetablering och kretstillstånd
 Den här sidan vägleder dig genom tjänsten etablering och routning configuration arbetsflöden på hög nivå.
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![kretsen arbetsflöde](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 Följande bild och motsvarande steg visar de uppgifter som du måste följa för att få en ExpressRoute-krets som etablerats slutpunkt till slutpunkt. 
 
@@ -35,7 +36,7 @@ Följande bild och motsvarande steg visar de uppgifter som du måste följa för
      > 
      > 
      
-     ![](./media/expressroute-workflows/routing-workflow.png)
+     ![Routning arbetsflöden](./media/expressroute-workflows/routing-workflow.png)
 5. Länka virtuella nätverk till ExpressRoute-kretsar – du kan länka virtuella nätverk till ExpressRoute-kretsen. Följ instruktionerna [att länka virtuella nätverk](expressroute-howto-linkvnet-arm.md) för din krets. Dessa virtuella nätverk kan antingen vara i samma Azure-prenumeration som ExpressRoute-krets eller kan vara i en annan prenumeration.
 
 ## <a name="expressroute-circuit-provisioning-states"></a>ExpressRoute-krets Etableringsstatus

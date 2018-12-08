@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 50a46b37be3115b92a3f8bc7cf426c8c7df78ce9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994137"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103429"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Förstå Cloudyn kostnad rapporter
 
@@ -25,7 +25,7 @@ Den här artikeln hjälper dig att förstå grundläggande struktur för Cloudyn
 
 Här är en titt på ett exempel på rapport för kostnad över tid. De flesta Cloudyn-rapporter har en liknande layout.
 
-![exempelrapport](./media/understanding-cost-reports/sample-report.png)
+![Exempel på Cost Over Time-rapport med numrerade områden som motsvarar beskrivningar](./media/understanding-cost-reports/sample-report.png)
 
 Varje numrerad område i den föregående bilden beskrivs i detalj i följande information:
 
@@ -47,11 +47,11 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
 
     Använd området taggar till gruppen efter taggkategorier. Taggar som visas på menyn är Azure-avdelning eller kostnaden center taggar eller om de är Cloudyns kostnaden entitets- och prenumeration taggar. Välj taggar för att filtrera resultat. Du kan också skriva ett taggnamn (nyckelord) för att filtrera resultaten.
 
-    ![Välj alternativ](./media/understanding-cost-reports/select-options.png)
+    ![Exempel på en lista över taggar om du vill filtrera resultaten efter](./media/understanding-cost-reports/select-options.png)
 
     Klicka på **Lägg till** att lägga till ett nytt filter.
 
-    ![Lägg till filter](./media/understanding-cost-reports/add-filter.png)
+    ![Lägg till filter-ruta som visar alternativ och villkor för att filtrera efter](./media/understanding-cost-reports/add-filter.png)
 
     Taggen gruppering och filtrering rör inte Azure-resurser eller grupp resurstaggar.
 
@@ -61,9 +61,9 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
 
     Använda grupper i kostnadsanalys rapporter för att visa standard, uppdelat kategorier från faktureringsdata i rapporten.  Grupper i kostnadsallokering visas Visa dock kodspråk kategorier. Tagg-baserade kategorier har definierats i modellen för kostnadsallokering och standard specificerade kategorier från faktureringsinformation.
 
-    ![grupper taggar](./media/understanding-cost-reports/groups-tags01.png)
+    ![Den första exemplet lista över taggar som du kan gruppera efter](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![grupper taggar](./media/understanding-cost-reports/groups-tags02.png)
+    ![Andra exempel lista över taggar som du kan gruppera efter](./media/understanding-cost-reports/groups-tags02.png)
 
     Grupper i tagg-baserade kategorierna i Cost Allocation rapporter kan innehålla:
       - Taggar
@@ -166,7 +166,7 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
 
     Använd format för att välja olika vyer för diagrammet eller tabellen.
 
-    ![Visningsformat](./media/understanding-cost-reports/display-formats.png)
+    ![Symbolerna i format som du kan välja](./media/understanding-cost-reports/display-formats.png)
 
 13. **Flera färg**
 

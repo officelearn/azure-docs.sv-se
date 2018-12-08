@@ -1,5 +1,6 @@
 ---
-title: Skapa machine learning pipelines – Azure Machine Learning-tjänst
+title: Skapa machine learning pipelines
+titleSuffix: Azure Machine Learning service
 description: Läs mer om de machine learning pipelines som du kan skapa med Azure Machine Learning-SDK för Python och fördelarna med att använda pipelines i den här artikeln. Machine learning (ML) pipelines som används av datatekniker att bygga, optimera och hantera sina arbetsflöden för maskininlärning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
-ms.openlocfilehash: 3b5afd2a39c14d71e123f93d503692356a655a87
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: b427df25e722dda95bd27cc1fb2657247bc6a41a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965845"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100641"
 ---
-# <a name="pipelines-and-azure-machine-learning"></a>Pipelines och Azure Machine Learning
+# <a name="building-machine-learning-pipelines-using-azure-machine-learning-service"></a>Skapa machine learning-pipelines med Azure Machine Learning-tjänsten
 
 Läs mer om de machine learning pipelines som du kan skapa med Azure Machine Learning-SDK för Python och fördelarna med att använda pipelines i den här artikeln.
 

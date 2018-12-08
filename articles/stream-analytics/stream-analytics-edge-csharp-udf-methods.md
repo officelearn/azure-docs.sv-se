@@ -1,5 +1,5 @@
 ---
-title: Utveckla .NET Standard användardefinierade funktioner för Azure Stream Analytics Edge-jobb (förhandsversion)
+title: Utveckla .NET Standard funktioner för Azure Stream Analytics Edge-jobb (förhandsversion)
 description: Lär dig hur du skriver c#-användardefinierade funktioner för Stream Analytics Edge-jobb.
 services: stream-analytics
 author: mamccrea
@@ -8,17 +8,18 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: f0da25410fe81a93501df940ffbb0e115456a9e8
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247815"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106608"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Utveckla .NET Standard användardefinierade funktioner för Azure Stream Analytics Edge-jobb (förhandsversion)
 
-Azure Stream Analytics har ett SQL-liknande frågespråk för att utföra omvandlingar och beräkningar över strömmar av händelsedata. Det finns många inbyggda funktioner, men vissa avancerade scenarier kräver extra flexibilitet. Med .NET Standard användardefinierade funktioner (UDF), kan du anropa dina egna funktioner som är skrivna på valfritt .NET standard språk (C#, F #, osv.) att utöka Stream Analytics-frågespråket. Användardefinierade funktioner kan du utföra komplexa matematiska beräkningar, importera anpassade ML-modeller med hjälp av ML.NET och använda anpassade uppräkning logik för data som saknas. UDF-funktionen för Stream Analytics Edge-jobb är en förhandsversion och bör inte användas i produktionsarbetsbelastningar.
+Azure Stream Analytics har ett SQL-liknande frågespråk för att utföra omvandlingar och beräkningar över strömmar av händelsedata. Det finns många inbyggda funktioner, men vissa avancerade scenarier kräver extra flexibilitet. Med .NET Standard användardefinierade funktioner (UDF), kan du anropa dina egna funktioner som är skrivna på valfritt standard .NET-språk (C#, F#och så vidare) att utöka Stream Analytics-frågespråket. Användardefinierade funktioner kan du utföra komplexa matematiska beräkningar, importera anpassade ML-modeller med hjälp av ML.NET och använda anpassade uppräkning logik för data som saknas. UDF-funktionen för Stream Analytics Edge-jobb är en förhandsversion och bör inte användas i produktionsarbetsbelastningar.
 
 ## <a name="overview"></a>Översikt
 Visual Studio-verktyg för Azure Stream Analytics gör det enkelt för dig att skriva UDF: er, testa dina jobb lokalt (även offline), och publicera ditt Stream Analytics-jobb i Azure. När publicerats till Azure kan distribuera du ditt jobb till IoT-enheter med hjälp av IoT Hub.
@@ -82,15 +83,15 @@ I det här exemplet **UDFTest** är en C# klassbiblioteksprojektet och **ASAEdge
 
 4. Du bör se den **UDFTest** visas under **referenser** i **Solution Explorer**.
 
-   ![Visa användaren definierade funktionsreferens i din Azure Stream Analytics Edge solution explorer](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
+   ![Visa användaren definierade funktionsreferens i solution explorer](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
 
 5. Högerklicka på den **Functions** mapp och välj **nytt objekt**.
 
-   ![Lägga till ett nytt objekt till funktioner i din Azure Stream Analytics Edge-lösning i Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
+   ![Lägg till nytt objekt till funktioner i Azure Stream Analytics Edge-lösning](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
 
 6. Lägga till en C#-funktion **SquareFunction.json** i projektet Azure Stream Analytics.
 
-   ![Välj C Sharp-funktion från listan med Stream Analytics Edge-objekt i Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
+   ![Välj c#-funktion från Stream Analytics Edge-objekt i Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
 
 7. Dubbelklicka på funktionen i **Solution Explorer** att öppna konfigurationsdialogrutan.
 
@@ -108,17 +109,17 @@ När sammansättningen zip-paket har överförts till ditt Azure storage-konto, 
 
 Konfigurera sökväg för sammansättning i konfigurationsfilen jobbet `JobConfig.json`:
 
-Expandera den **användardefinierade kod Configuration** avsnittet och fylla i konfigurationen med följande föreslagna värden:
+Expandera avsnittet **användardefinierade kod Configuration** avsnittet och fyll i konfigurationen med följande föreslagna värden:
 
  |**Inställning**  |**Föreslaget värde**  |
  |---------|---------|
- |Sammansättningen källa  | Den befintliga sammansättningen paket från molnet    |
- |Resurs  |  Välj data från aktuellt konto   |
+ |Sammansättningskälla  | Den befintliga sammansättningen paket från molnet    |
+ |Resurs  |  Välj data från det aktuella kontot   |
  |Prenumeration  |  Välj din prenumeration.   |
  |Lagringskonto  |  Välj ditt lagringskonto.   |
- |Container  |  Välj den behållare du skapade i ditt storage-konto.   |
+ |Container  |  Välj den container som du skapade i ditt storage-konto.   |
 
-![Azure Stream Analytics Edge jobbkonfigurationen i Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+![Azure Stream Analytics Edge-jobbkonfiguration i Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
 ## <a name="limitations"></a>Begränsningar
 UDF-förhandsgranskning har för närvarande följande begränsningar:

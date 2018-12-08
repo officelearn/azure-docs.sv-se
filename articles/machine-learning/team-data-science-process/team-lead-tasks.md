@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process-gruppledare uppgifter – Azure | Microsoft Docs
-description: En översikt över aktiviteter för en gruppledare på ett teamprojekt för data science.
+title: Uppgifter för teamet leda i Team Data Science Process Team – Azure
+description: En översikt över de uppgifter som ett team på ett team för datavetenskapsprojekt förväntas att slutföra för sina datavetenskapliga team.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: 68fd0abf314eb4fde5ff335acc161d82ad78cd0c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443857"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106642"
 ---
-# <a name="team-lead-tasks"></a>Gruppaktiviteter för Lead
+# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Uppgifter för teamet leda i Team Data Science Process-teamet
 
 Det här avsnittet beskrivs de uppgifter som är en gruppledare väntat att slutföra sina data science-teamet. Målet är att upprätta samarbetsteam miljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). TDSP är en flexibel, iterativ datavetenskapsmetod att leverera prediktiva Analyslösningar och intelligenta program effektivt. Det är utformat för att förbättra samarbete och team learning. Processen är en destillation av metodtipsen och strukturerna från både Microsoft och från branschen, behövs för lyckade implementeringen av data science-åtgärder för att hjälpa företag att fullständigt nytta av fördelarna med sina analytics-program. En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
 

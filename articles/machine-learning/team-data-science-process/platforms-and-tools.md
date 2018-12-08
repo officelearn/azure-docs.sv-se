@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: 96548b5db1051c751f6468cb330cb5049182ce95
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446457"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104263"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för dataforskningsprojekt
 
@@ -129,17 +129,17 @@ Om du använder Linux (CentOS) datorer för att köra git-kommandon måste du l�
         ssh-keygen
         cat .ssh/id_rsa.pub
 
-![](./media/platforms-and-tools/resources-1-generate_ssh.png)
+![Kommandon för att skapa SSH-nyckeln](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Kopiera hela ssh key inklusive *ssh-rsa*. 
 - Logga in på Azure DevOps-tjänster. 
 - Klicka på **< ditt namn\>**  i det övre högra hörnet på sidan och klicka på **security**. 
     
-    ![](./media/platforms-and-tools/resources-2-user-setting.png)
+    ![Klicka på ditt namn och klicka sedan på säkerhet](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - Klicka på **offentliga SSH-nycklar**, och klicka på **+ Lägg till**. 
 
-    ![](./media/platforms-and-tools/resources-3-add-ssh.png)
+    ![Klicka på offentliga SSH-nycklar och sedan klicka på + Lägg till](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - Klistra in den ssh key nyss kopierade till textrutan för att spara.
 

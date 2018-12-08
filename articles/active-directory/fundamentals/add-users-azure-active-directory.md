@@ -1,6 +1,6 @@
 ---
-title: Lägga till eller ta bort användare i Azure Active Directory | Microsoft Docs
-description: Lär dig mer om att lägga till nya användare eller ta bort befintliga användare med Azure Active Directory.
+title: Lägga till eller ta bort användare – Azure Active Directory | Microsoft Docs
+description: Anvisningar om hur du lägger till nya användare eller ta bort befintliga användare med Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: dd4a9132d5f04870239be3127f723afb60b3ecef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295112"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104687"
 ---
-# <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Så här: lägga till eller ta bort användare som använder Azure Active Directory
-Lägga till nya användare eller ta bort befintliga användare från din Azure Active Directory (Azure AD)-klient med hjälp av Azure AD.
+# <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare som använder Azure Active Directory
+Lägga till nya användare eller ta bort befintliga användare från din Azure Active Directory (Azure AD)-klient.
 
 ## <a name="add-a-new-user"></a>Lägg till en ny användare
-Du kan skapa en ny användare med Azure Active Directory.
+Du kan skapa en ny användare med hjälp av Azure Active Directory-portalen.
 
 ### <a name="to-add-a-new-user"></a>Lägga till en ny användare
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som en Global administratör eller Användaradministratör för katalogen.
@@ -58,10 +58,10 @@ Du kan skapa en ny användare med Azure Active Directory.
 Om du har en miljö med både Azure Active Directory (moln) och Windows Server Active Directory (lokalt), kan du lägga till nya användare genom att synkronisera befintliga konto användardata. Mer information om hybridmiljöer och användare finns i [integrerar dina lokala kataloger med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Ta bort en användare
-Du kan ta bort en befintlig användare med Azure Active Directory.
+Du kan ta bort en befintlig användare med hjälp av Azure Active Directory-portalen.
 
 ### <a name="to-delete-a-user"></a>Ta bort en användare
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Globalt administratörskonto för katalogen.
 
 2. Välj **Azure Active Directory**väljer **användare**, och sök sedan efter och välj den användare som du vill ta bort från Azure AD-klienten. Till exempel _Mary Parker_.
 

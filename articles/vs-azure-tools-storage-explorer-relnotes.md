@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 608dd6067e5c9d31f720b97453615a3e8ead0a85
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 956482a30d383df558eee775b9d89c211bc53e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038628"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101423"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
@@ -165,9 +165,9 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
@@ -221,9 +221,9 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
@@ -276,9 +276,9 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
@@ -336,9 +336,9 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
@@ -393,9 +393,9 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
    * Mjuk borttagning
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
@@ -450,9 +450,9 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
@@ -504,9 +504,9 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
@@ -570,9 +570,9 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
@@ -607,9 +607,9 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
@@ -656,9 +656,9 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
@@ -702,9 +702,11 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```
@@ -764,9 +766,11 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```
@@ -818,9 +822,11 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```

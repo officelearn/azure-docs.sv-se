@@ -1,21 +1,22 @@
 ---
-title: Förstå dina LUIS-nycklar
-titleSuffix: Azure Cognitive Services
-description: LUIS använder två nycklar, redigering och slutpunkt. Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen, behöver du skapa slutpunktsnyckeln, tilldela den till din LUIS-app och använder den med slutpunkt-frågan.
+title: Prenumerationsnycklar
+titleSuffix: Language Understadning - Azure Cognitive Services
+description: LUIS använder två nycklar, på kostnadsfria redigering för att skapa din modell och förbrukade slutpunktsnyckeln för att fråga förutsägelse slutpunkten med användaren yttranden.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f7c1753e71025d3ce39b1b6e3fb7362f2df212f5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 9b660743f335e1aa9ef7e7b569738d9ee3ca139d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637839"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104534"
 ---
 # <a name="keys-in-luis"></a>Nycklar i LUIS
 LUIS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen kan du behöva [skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [tilldela den](luis-how-to-manage-keys.md#assign-endpoint-key) till din LUIS-app och [använder den med slutpunkt-frågan](#use-endpoint-key-in-query). 

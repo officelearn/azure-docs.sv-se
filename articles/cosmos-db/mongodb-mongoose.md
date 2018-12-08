@@ -1,25 +1,24 @@
 ---
-title: Använda Mongoose-ramverket med Azure Cosmos DB | Microsoft Docs
+title: Använda Mongoose-ramverket med Azure Cosmos DB
 description: Läs hur du ansluter en Node.js Mongoose-app till Azure Cosmos DB
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: sclyon
-ms.openlocfilehash: 8cfa53a1792d8e01c05aad8e4a1a0b5239a092c1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6f84dfac7b556e59ec3ad76ff7d2c6e5f5105293
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857418"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101440"
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Använda Mongoose-ramverket med Azure Cosmos DB
 
-I den här självstudien visas hur du använder [Mongoose-ramverket](http://mongoosejs.com/) när du lagrar data i Azure Cosmos DB. I den här genomgången använder vi MongoDB-API:et för Azure Cosmos DB. För dem som inte vet är Mongoose ett ramverk för modellering av objekt för MongoDB i Node.js och tillhandahåller en enkel och schemabaserad lösning för att modellera dina programdata.
+I den här självstudien visas hur du använder [Mongoose-ramverket](https://mongoosejs.com/) när du lagrar data i Azure Cosmos DB. I den här genomgången använder vi MongoDB-API:et för Azure Cosmos DB. För dem som inte vet är Mongoose ett ramverk för modellering av objekt för MongoDB i Node.js och tillhandahåller en enkel och schemabaserad lösning för att modellera dina programdata.
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.
 
@@ -96,7 +95,7 @@ För varje modell du skapar, skapar Mongoose en ny MongoDB-samling på ett och s
 
 Den här genomgången täcker båda modellerna. Först går vi igenom lagring av en typ av data per samling. Det är Mongooses faktiska beteende.
 
-Mongoose har också ett begrepp som kallas [Diskriminatorer](http://mongoosejs.com/docs/discriminators.html). Diskriminatorer är en mekanism för schemaarv. De gör att du kan ha flera modeller med överlappande scheman ovanpå samma underliggande MongoDB-samling.
+Mongoose har också ett begrepp som kallas [Diskriminatorer](https://mongoosejs.com/docs/discriminators.html). Diskriminatorer är en mekanism för schemaarv. De gör att du kan ha flera modeller med överlappande scheman ovanpå samma underliggande MongoDB-samling.
 
 Du kan lagra olika datamodeller i samma samling och sedan använda en filtersats vid frågetiden för att endast hämta de data som krävs.
 
@@ -196,7 +195,7 @@ Standardbeteendet i Mongoose är att skapa en MongoDB-samling varje gång du ska
 
 ### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Använda Mongoose-diskriminatorer för att lagra data i en enda samling
 
-I den här metoden använder vi [Mongoose-diskriminatorer](http://mongoosejs.com/docs/discriminators.html) för att optimera för kostnaden för varje Azure Cosmos DB-samling. Diskriminatorer gör att du kan definiera en särskiljande ”nyckel”, som gör att du kan lagra, särskilja och filtrera på olika objektmodeller.
+I den här metoden använder vi [Mongoose-diskriminatorer](https://mongoosejs.com/docs/discriminators.html) för att optimera för kostnaden för varje Azure Cosmos DB-samling. Diskriminatorer gör att du kan definiera en särskiljande ”nyckel”, som gör att du kan lagra, särskilja och filtrera på olika objektmodeller.
 
 Här skapar vi en basobjektmodell med en särskiljande nyckel och lägger till ”Familj” och ”VacationDestinations” som tillägg till basmodellen.
 

@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 531b431a0753e34592e88211d8a58328fe8a4e45
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d3fbc8e5b6595b52fe5ab9e766a108d271f2f448
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014556"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104602"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -75,6 +75,7 @@ I Visual Studio:
 
     ![Skärmbild av alternativ för dialogrutan](media/common/VerbositySetting.PNG)
     
+### <a name="multi-stage-dockerfiles"></a>Flera steg Dockerfiles:
 Du kan se det här felet när du försöker använda en flerstegs Dockerfile. Utdata ser ut så här:
 
 ```cmd
@@ -91,6 +92,21 @@ Service cannot be started.
 ```
 
 Det beror på att skapar AKS-noder som kör en äldre version av Docker som inte stöder flera steg. Du behöver skriva om din Dockerfile för att undvika flera steg versioner.
+
+### <a name="re-running-a-service-after-controller-re-creation"></a>Köra en tjänst efter skapandet av domänkontrollanten igen
+Du kan se det här felet när du försöker köra en tjänst när du har tagit bort och återskapas kontrollanten Azure Dev blanksteg som är associerade med det här klustret. Utdata ser ut så här:
+
+```cmd
+Installing Helm chart...
+Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+```
+
+Det beror på att ta bort kontrollanten Dev blanksteg tas inte bort tidigare installerade av den controller. Återskapande av kontrollanten och sedan försöka att köra tjänster som använder den nya domänkontrollanten misslyckas eftersom de gamla tjänsterna fortfarande är kvar.
+
+För att lösa det, Använd den `kubectl delete` kommando för att manuellt ta bort de gamla tjänsterna från ditt kluster och kör Dev blanksteg för att installera de nya tjänsterna.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>DNS-namnmatchningen misslyckas för en offentlig URL som är associerade med en tjänst för utveckling blanksteg
 
@@ -195,6 +211,15 @@ Du har inte det VS Code-tillägget för Azure Dev blanksteg är installerat på 
 
 ### <a name="try"></a>Prova:
 Installera den [VS Code-tillägg för Azure Dev blanksteg](get-started-netcore.md).
+
+## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Felsöka fel ”ogiltig cwd värdet ' / src'. Det går inte att hitta den angivna filen ”. eller ”starta: programmet '/ src / [sökväg till projektet binär]' finns inte”
+Köra felsökaren för VS Code rapporterar felet `Invalid 'cwd' value '/src'. The system cannot find the file specified.` och/eller `launch: program '/src/[path to project executable]' does not exist`
+
+### <a name="reason"></a>Orsak
+Som standard använder VS Code-tillägg `src` som arbetskatalog för projektet för behållaren. Om du har uppdaterat din `Dockerfile` för att ange en annan arbetskatalog, kanske du ser det här felet.
+
+### <a name="try"></a>Prova:
+Uppdatera den `launch.json` filen under den `.vscode` underkatalog i projektmappen. Ändra den `configurations->cwd` direktiv så att den pekar till samma katalog som den `WORKDIR` definieras i projektets `Dockerfile`. Du kan också behöva uppdatera den `configurations->program` direktiv samt.
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>Det gick inte att hitta typen eller namnrymd namnet ”MyLibrary”
 

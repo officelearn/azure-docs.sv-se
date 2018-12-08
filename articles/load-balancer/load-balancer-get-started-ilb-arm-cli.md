@@ -1,5 +1,6 @@
 ---
-title: Skapa en intern lastbalanserare – Azurer CLI | Microsoft Docs
+title: Skapa en intern belastningsutjämnare – Azure CLI
+titlesuffix: Azure Load Balancer
 description: Läs hur du skapar en intern lastbalanserare med hjälp av Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 369c47a48d49a91985f7a9534230e04cff1e7ce6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 114b01f3c1636f57813adcd199b90a4c72d0013e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413697"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106013"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Skapa en intern lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 

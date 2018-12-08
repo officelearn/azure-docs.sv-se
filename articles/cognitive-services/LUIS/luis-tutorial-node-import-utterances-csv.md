@@ -1,21 +1,22 @@
 ---
-title: Skapa en LUIS-app via programmering med hjälp av Node.js | Microsoft Docs
+title: Importera yttranden med hjälp av Node.js
 titleSuffix: Azure
 description: Lär dig hur du skapar en LUIS-app via programmering från befintliga data i CSV-format med hjälp av redigering LUIS-API.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 729e19deb5efc91fb874214299f34fbb46d9bbdc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: da638064b2ead1cd860f3b4f96ffa88026aab4ff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034050"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101204"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Skapa en LUIS-app via programmering med hjälp av Node.js
 
@@ -34,7 +35,7 @@ LUIS ger en programmatisk API som gör allt som den [LUIS](luis-reference-region
 
 Öppna filen `IoT.csv`. Den innehåller en logg över användarfrågor ett hypotetiskt home automation-tjänsten, inklusive hur de har kategoriserat vad användaren sägs och vissa kolumner med användbar information som hämtas från dem. 
 
-![CSV-fil](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
+![CSV-filen med befintliga data](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 Ser du att den **RequestType** kolumn kan vara avsikter, och **begära** kolumnen visar en exempel-uttryck. I andra fält kan vara entiteter om de sker i uttryck. Eftersom det finns avsikter och entiteter exempel yttranden kan ha kraven för en enkel, exempelapp.
 
@@ -106,9 +107,9 @@ När de entiteter och avsikter har definierats i LUIS-app, kan du lägga till ta
 ### <a name="install-nodejs-dependencies"></a>Installera Node.js-beroenden
 Installera Node.js-beroenden från NPM i terminal/kommandoraden.
 
-````
+```console
 > npm install
-````
+```
 
 ### <a name="change-configuration-settings"></a>Ändra konfigurationsinställningarna
 För att kunna använda det här programmet, måste du ändra värdena i filen index.js till dina egna slutpunktsnyckeln och ange det namn som du vill att appen ska ha. Du kan också ange appens kultur eller ändra versionsnumret.
@@ -116,28 +117,31 @@ För att kunna använda det här programmet, måste du ändra värdena i filen i
 Öppna filen index.js och ändra dessa värden överst i filen.
 
 
-````JavaScript
+```nodejs
 // Change these values
 const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
-````
-### <a name="run-the-script"></a>Kör skript
+```
+
+### <a name="run-the-script"></a>Kör skriptet
 Kör skriptet från en terminal/kommandoraden med Node.js.
 
-````
+```console
 > node index.js
-````
+```
+
 eller
-````
+
+```console
 > npm start
-````
+```
 
 ### <a name="application-progress"></a>Program pågår
 När programmet körs kommandoraden visar förloppet. Utdata från kommandoraden innehåller formatet på svar från LUIS.
 
-````
+```console
 > node index.js
 intents: ["TurnOn","TurnOff","Dim","Other"]
 entities: ["Operation","Device","Room"]
@@ -157,7 +161,7 @@ retrying add examples...
 
 Results of add utterances = [{"response":[{"value":{"UtteranceText":"turn on the lights","ExampleId":-67649},"hasError":false},{"value":{"UtteranceText":"turn the heat on","ExampleId":-69067},"hasError":false},{"value":{"UtteranceText":"switch on the kitchen fan","ExampleId":-3395901},"hasError":false},{"value":{"UtteranceText":"turn off bedroom lights","ExampleId":-85402},"hasError":false},{"value":{"UtteranceText":"turn off air conditioning","ExampleId":-8991572},"hasError":false},{"value":{"UtteranceText":"kill the lights","ExampleId":-70124},"hasError":false},{"value":{"UtteranceText":"dim the lights","ExampleId":-174358},"hasError":false},{"value":{"UtteranceText":"hi how are you","ExampleId":-143722},"hasError":false},{"value":{"UtteranceText":"answer the phone","ExampleId":-69939},"hasError":false},{"value":{"UtteranceText":"are you there","ExampleId":-149588},"hasError":false},{"value":{"UtteranceText":"help","ExampleId":-81949},"hasError":false},{"value":{"UtteranceText":"testing the circuit","ExampleId":-11548708},"hasError":false}]}]
 upload done
-````
+```
 
 
 

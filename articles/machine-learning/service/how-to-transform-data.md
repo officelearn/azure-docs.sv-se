@@ -1,5 +1,6 @@
 ---
-title: Transformera data med Azure Machine Learning Data Prep SDK – Python
+title: Omvandla och Förbered data med Data Prep Python SDK
+titleSuffix: Azure Machine Learning service
 description: Läs mer om omvandla och rensa data med Azure Machine Learning Data Prep SDK. Använda transformeringen metoder för att lägga till kolumner, filtrera bort oönskade rader eller kolumner och sedan imputera värden som saknas.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: 988301f24f710a3e29fad1254d405501166e8a4e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: c734605cd67fcd2490aef0ddc6732dad112424b7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309801"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101797"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformera data med Azure Machine Learning Data Prep SDK
 
@@ -216,16 +218,16 @@ builder.preview(skip=30)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|30|11/1/2015 22:54|Den 1 januari 2015 10 PM - 12: 00|
-|31|11/1/2015 23:54|Den 1 januari 2015 10 PM - 12: 00|
-|32|11/1/2015 23:59|Den 1 januari 2015 10 PM - 12: 00|
-|33|11/2/2015 0:54|Den 1 februari 2015 12 AM - 2 AM|
-|34|11/2/2015 1:00|Den 1 februari 2015 12 AM - 2 AM|
-|35|11/2/2015 1:54|Den 1 februari 2015 12 AM - 2 AM|
-|36|11/2/2015 2:54|Den 1 februari 2015 2 AM - 4 AM|
-|37|11/2/2015 3:54|Den 1 februari 2015 2 AM - 4 AM|
-|38|11/2/2015 4:00|Den 1 februari 2015 4 AM - 06: 00|
-|39|11/2/2015 4:54|Den 1 februari 2015 4 AM - 06: 00|
+|30|1/1/2015 22:54|Den 1 januari 2015 10 PM - 12: 00|
+|31|1/1/2015 23:54|Den 1 januari 2015 10 PM - 12: 00|
+|32|1/1/2015 23:59|Den 1 januari 2015 10 PM - 12: 00|
+|33|1/2/2015 0:54|Den 1 februari 2015 12 AM - 2 AM|
+|34|1/2/2015 1:00|Den 1 februari 2015 12 AM - 2 AM|
+|35|1/2/2015 1:54|Den 1 februari 2015 12 AM - 2 AM|
+|36|1/2/2015 2:54|Den 1 februari 2015 2 AM - 4 AM|
+|37|1/2/2015 3:54|Den 1 februari 2015 2 AM - 4 AM|
+|38|1/2/2015 4:00|Den 1 februari 2015 4 AM - 06: 00|
+|39|1/2/2015 4:54|Den 1 februari 2015 4 AM - 06: 00|
 
 Här kan du se ett problem med det genererade programmet. Endast baseras på ett exempel som du angav ovan, valde Härled programmet att tolka data som ”dag/månad/år”, vilket inte är vad du vill i det här fallet. För att åtgärda problemet, ange ett annat exempel med hjälp av den `add_example()` fungera på den `builder` variabeln.
 

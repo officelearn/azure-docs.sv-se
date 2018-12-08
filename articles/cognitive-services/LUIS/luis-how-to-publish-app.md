@@ -1,21 +1,22 @@
 ---
-title: Publicera din LUIS-app till slutpunkten för förutsägelse
+title: Publicera app
 titleSuffix: Azure Cognitive Services
 description: När du är klar att skapa och testa active LUIS-appen blir tillgänglig för klientprogrammet genom att publicera den till slutpunkten.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6eb48fd0f3290fbc3a249bc3880c809ace9f9ddb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: fe8806b4cc84bb9a15ce5620366fee23bba328c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886521"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106438"
 ---
 # <a name="publish-your-trained-app"></a>Publicera din tränade app
 
@@ -45,7 +46,7 @@ Välj länken om du behöver slutpunkts-URL. Du kan också få URL: er för slut
 
 Konfigurera Publiceringsinställningar genom att välja **hantera** direkt i övre navigeringsfältet och välja **Publiceringsinställningar**. 
 
-![Publiceringsinställningar](./media/luis-how-to-publish-app/publish-settings.png)
+![Publiceringinställningar](./media/luis-how-to-publish-app/publish-settings.png)
 
 ### <a name="publish-after-enabling-sentiment-analysis"></a>Publicera när du har aktiverat attitydanalys
 

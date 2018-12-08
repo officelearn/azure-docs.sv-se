@@ -1,5 +1,5 @@
 ---
-title: Kopiera data till och från Azure Cosmos DB med hjälp av Data Factory | Microsoft Docs
+title: Kopiera data till och från Azure Cosmos DB (SQL-API) med hjälp av Data Factory | Microsoft Docs
 description: Lär dig hur du kopierar data från datalager som stöds till eller från Azure Cosmos DB till mottagarens datalager med Data Factory.
 services: data-factory, cosmosdb
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c10a933f371bfc84b863413134f2fdf5ff9c0e34
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 16c02f1f47f556f550519feec78e7dd26b302e18
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161845"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103803"
 ---
-# <a name="copy-data-to-or-from-azure-cosmos-db-by-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos DB med hjälp av Azure Data Factory
+# <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos DB (SQL-API) med hjälp av Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
@@ -39,6 +39,9 @@ Du kan använda Azure Cosmos DB-anslutningen till:
 - Importera och exportera JSON-dokument som – är, eller kopiera data från eller till en datauppsättning i tabellformat. Exempel: en SQL-databas och en CSV-fil. Dokument som att kopiera-är till eller från JSON-filer eller till eller från en annan Azure Cosmos DB-samling finns i [Import eller export JSON-dokument](#importexport-json-documents).
 
 Data Factory kan integreras med den [Azure Cosmos DB bulk executor biblioteket](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) att ge bästa möjliga prestanda när du skriver till Azure Cosmos DB.
+
+>[!NOTE]
+>Den här anslutningen endast stöder kopiera data till/från Cosmos DB SQL API.
 
 > [!TIP]
 > Den [datamigrering video](https://youtu.be/5-SRNiC_qOU) vägleder dig genom stegen för att kopiera data från Azure Blob storage till Azure Cosmos DB. Videon beskriver också prestandajustering överväganden för att föra in data till Azure Cosmos DB i allmänhet.

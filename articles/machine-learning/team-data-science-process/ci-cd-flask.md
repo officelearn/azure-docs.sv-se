@@ -1,5 +1,5 @@
 ---
-title: 'DevOps för artificiell intelligens (AI)-program: skapa pipeline för kontinuerlig integrering på Azure med Docker, Kubernetes och Python Flask-program'
+title: Skapa kontinuerlig integrering Azure pipeline för machine learning
 description: 'DevOps för artificiell intelligens (AI)-program: skapa pipeline för kontinuerlig integrering på Azure med Docker och Kubernetes'
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: (previous author=jainr, ms.author=jainr)
-ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, "(previous author=jainr, ms.author=jainr)"
+ms.openlocfilehash: 84d0c42b132016bbb350636cc00651a13bf93616
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496750"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102308"
 ---
-# <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps för artificiell intelligens (AI)-program: skapa pipeline för kontinuerlig integrering på Azure med Docker och Kubernetes
+# <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Skapa pipeline för kontinuerlig integrering på Azure med Docker, Kubernetes och Python Flask-program
 Det finns ofta två strömmar av arbete, Dataexperter att skapa machine learning-modeller och App-utvecklare att bygga programmet och göra den tillgänglig att slutanvändare kan använda för ett AI-program. I den här artikeln visar vi hur du implementerar en kontinuerlig integrering (CI) / kontinuerlig leverans (CD) pipeline för ett AI-program. AI-program är en kombination av programkoden inbäddad med en tränats machine learning (ML)-modell. Vi hämtar en pretrained modell från en privat Azure blob storage-konto, det kan vara ett AWS S3-konto i den här artikeln. Vi använder en enkel python flask-webbapp för artikeln.
 
 > [!NOTE]

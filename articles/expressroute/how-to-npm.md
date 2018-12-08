@@ -1,29 +1,23 @@
 ---
-title: Konfigurera Övervakare av nätverksprestanda för Azure ExpressRoute-kretsar | Microsoft Docs
+title: Konfigurera Övervakare av nätverksprestanda för ExpressRoute-kretsar – Azure | Microsoft Docs
 description: Konfigurera molnbaserade nätverksövervakning (NPM) för Azure ExpressRoute-kretsar. Detta omfattar övervakning över ExpressRoute privat peering och Microsofts peering.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 93bafb739c35b81796186dc845f7933a82e1675b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968126"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104738"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera övervakare av nätverksprestanda för ExpressRoute
 
-Övervakare för nätverk-prestanda (NPM) är en molnbaserad lösning för nätverksövervakning som övervakar anslutning mellan distributioner av Azure-molnet och lokala platser (avdelningskontor, osv.). NPM är en del av Log Analytics. NPM erbjuder ett tillägg för ExpressRoute som låter dig övervaka nätverkets prestanda över ExpressRoute-kretsar som är konfigurerade för att använda privat peering eller Microsoft-peering. När du konfigurerar NPM för ExpressRoute, kan du identifiera nätverksproblem för att identifiera och eliminera. Den här tjänsten är också tillgängligt för Azure Government-molnet.
+Den här artikeln hjälper dig att konfigurera ett tillägg för övervakning av nätverksprestanda för att övervaka ExpressRoute. Övervakare för nätverk-prestanda (NPM) är en molnbaserad lösning för nätverksövervakning som övervakar anslutning mellan distributioner av Azure-molnet och lokala platser (avdelningskontor, osv.). NPM är en del av Log Analytics. NPM erbjuder ett tillägg för ExpressRoute som låter dig övervaka nätverkets prestanda över ExpressRoute-kretsar som är konfigurerade för att använda privat peering eller Microsoft-peering. När du konfigurerar NPM för ExpressRoute, kan du identifiera nätverksproblem för att identifiera och eliminera. Den här tjänsten är också tillgängligt för Azure Government-molnet.
 
 Du kan:
 

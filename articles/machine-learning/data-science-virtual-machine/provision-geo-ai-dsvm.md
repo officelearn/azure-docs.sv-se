@@ -1,11 +1,12 @@
 ---
 title: Etablera en Geo artificiell intelligens virtuell dator på Azure – Azure | Microsoft Docs
-description: Hur du etablerar en Geo AI-dator på Azure.
+description: Lär dig hur du skapar och konfigurerar Geo AI Data Science Virtual Machine. Geo AI Data Science Virtual Machine ger dig verktyg för att skapa AI och ML-lösningar med geografiska data.
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, Geospatial analys
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239805"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103956"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Etablera en Geo artificiell intelligens virtuell dator på Azure 
 

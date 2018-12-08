@@ -1,11 +1,12 @@
 ---
 title: Store tillgång till autentiseringsuppgifterna på den virtuella datorn för datavetenskap på ett säkert sätt – Azure | Microsoft Docs
-description: Store åtkomst autentiseringsuppgifter på den virtuella datorn för datavetenskap på ett säkert sätt.
+description: Lär dig mer om att på ett säkert sätt lagra autentiseringsuppgifter på den virtuella datorn för datavetenskap. Du kommer lära dig hur du använder hanterade tjänstidentiteter och Azure Key Vault för att lagra autentiseringsuppgifter.
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys, tdsp
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 1bf3150fc79f86e196be120fef78b76be8e47f63
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: d7d68e784aab371503e4828ce51387b86502de62
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344514"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103446"
 ---
 # <a name="store-access-credentials-on-the-data-science-virtual-machine-securely"></a>Store åtkomst autentiseringsuppgifter på den virtuella datorn för datavetenskap på ett säkert sätt
 

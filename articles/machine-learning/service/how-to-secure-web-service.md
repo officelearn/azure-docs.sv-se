@@ -1,5 +1,6 @@
 ---
-title: Skydda Azure Machine Learning-webbtjänster med SSL
+title: Skydda webbtjänster med SSL
+titleSuffix: Azure Machine Learning service
 description: Lär dig hur du skyddar en webbtjänst som distribueras med Azure Machine Learning-tjänsten. Du kan begränsa åtkomsten till webbtjänster och skydda data som skickats av klienter som använder secure socket lager (SSL) och nyckel för autentisering.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: a9dee2d88c986ed292567a18c29cd325833b5e6f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 14350a04326ba22dcc5c8608b6ac6b9180666832
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832878"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101217"
 ---
-# <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Skydda Azure Machine Learning-webbtjänster med SSL
+# <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Använda SSL för att skydda webbtjänster med Azure Machine Learning-tjänsten
 
 I den här artikeln får du lära dig hur du skyddar en webbtjänst som distribueras med Azure Machine Learning-tjänsten. Du kan begränsa åtkomsten till webbtjänster och skydda data som skickats av klienter som använder secure socket lager (SSL) och nyckel för autentisering.
 

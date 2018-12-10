@@ -1,21 +1,20 @@
 ---
-title: Så använder du Azure Table Storage eller Azure Cosmos DB Table API från Java | Microsoft Docs
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
+title: Så använder du Azure Table Storage eller tabell-API för Azure Cosmos DB från Java
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Table-API:et för Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: f4ebcf51ab6682009190e467ca9dbf67caf1c182
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7be0ed8d59063f75b3d4fadbf69237bdb2d0d13
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797904"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863694"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Så använder du Azure Table Storage eller Azure Cosmos DB Table API från Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -456,7 +455,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
-En fråga till en tabell kan bara hämta några få egenskaper från en entitet. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod använder metoden **select** för att bara returnera e-postadresserna för entiteter i tabellen. Resultatet projiceras till en samling av **String** med hjälp av en **EntityResolver**, som utför typkonvertering på de entiteter som returneras från servern. Du kan lära dig mer om projektion i [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Azure Tables: introduktion av Upsert och Query Projection). Observera att projektion inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service.
+En fråga till en tabell kan hämta några få egenskaper från en entitet. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod använder metoden **select** för att bara returnera e-postadresserna för entiteter i tabellen. Resultatet projiceras till en samling av **String** med hjälp av en **EntityResolver**, som utför typkonvertering på de entiteter som returneras från servern. Du kan lära dig mer om projektion i [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Azure Tables: introduktion av Upsert och Query Projection). Observera att projektion inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service.
 
 ```java
 try

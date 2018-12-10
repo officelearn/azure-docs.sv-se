@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure IoT Edge-moduler (VS Code) | Microsoft Docs
+title: Distribuera moduler från Visual Studio Code - Azure IoT Edge | Microsoft Docs
 description: Använd Visual Studio Code för att distribuera moduler till en IoT Edge-enhet
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a7f0fc0c3169aadac78609830dda55ae1ec7ea46
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 212f103a356dc3663795a5e5453869c99da3fff9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567851"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100828"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuera Azure IoT Edge-moduler från Visual Studio Code
 
@@ -109,7 +110,7 @@ Du kan använda Azure IoT-tillägg för Visual Studio Code för att utföra åtg
 
 2. Längst ned i Utforskaren, expandera den **Azure IoT Hub-enheter** avsnittet. 
 
-   ![Expandera Azure IoT Hub-enheter](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Expandera avsnittet Azure IoT Hub-enheter](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. Klicka på den **...**  i den **Azure IoT Hub-enheter** avsnittsrubrik. Om du inte ser de tre punkterna, hovrar du över rubriken. 
 

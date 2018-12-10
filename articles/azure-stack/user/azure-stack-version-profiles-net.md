@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 35329468ee01d5b70d654c1eb4a908db9d3fcb5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: cfebbdb9b88a1de6a05f06e6ed72ebc9cddddcf6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184906"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074459"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Använda API-versionsprofiler med .NET i Azure Stack
 
@@ -73,7 +73,7 @@ Om du vill använda Azure-SDK för .NET med Azure Stack, måste du ange följand
 | Värde                     | Miljövariabler   | Beskrivning                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Klient-ID:t                 | AZURE_TENANT_ID       | Värdet för Azure Stack [ *klient-ID*][].                                                                          |
-| Klient-ID                 | AZURE_CLIENT_ID       | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn skapades i föregående avsnitt i den här artikeln. |
+| Klientorganisations-ID                 | AZURE_CLIENT_ID       | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn skapades i föregående avsnitt i den här artikeln. |
 | Prenumerations-ID:t           | AZURE_SUBSCRIPTION_ID | Den [ *prenumerations-ID* ][] är hur du kommer åt erbjudanden i Azure Stack.                                                      |
 | Klienthemlighet             | AZURE_CLIENT_SECRET   | Tjänstens huvudnamn programhemlighet sparas när tjänstens huvudnamn har skapats.                                      |
 | Resource Manager-slutpunkten | ARM_ENDPOINT           | Se [ *Azure Stack resource manager-slutpunkten*][].                                                                    |
@@ -193,14 +193,16 @@ Du kan använda följande exempel finns i GitHub-lagringsplatser som referens f�
 
 1.  Klona databasen med hjälp av följande kommando:
 
-    `git clone <https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject>`
+    ```shell
+    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
+    ```
 
 2.  Skapa en Azure-tjänstens huvudnamn och tilldela en roll får åtkomst till prenumerationen. Anvisningar om hur du skapar ett huvudnamn för tjänsten finns i [Använda Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat][].
 
 3.  Hämta följande nödvändiga värden:
 
     1.  Klient-ID:t
-    2.  Klient-ID
+    2.  Klientorganisations-ID
     3.  Klienthemlighet
     4.  Prenumerations-ID:t
     5.  Resource Manager-slutpunkten

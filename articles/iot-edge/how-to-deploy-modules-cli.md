@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure IoT Edge-moduler (CLI) | Microsoft Docs
+title: Distribuera moduler från kommandoraden – Azure IoT Edge | Microsoft Docs
 description: Använd IoT-tillägget för Azure CLI för att distribuera moduler till en IoT Edge-enhet
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8f39befbe1a329091da19eeba14a8dcc749fa93
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: f9aa3fff8750dc20053072c939a6db9362a2b0d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564994"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093581"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Distribuera Azure IoT Edge-moduler med Azure CLI
 
@@ -117,7 +118,7 @@ Använd följande kommando för att tillämpa konfigurationen till en IoT Edge-e
 
 Enhetens ID-parametern är skiftlägeskänsligt. Innehåll parametern pekar på distributionen manifestfil som du sparade. 
 
-   ![Ange moduler](./media/how-to-deploy-cli/set-modules.png)
+   ![AZ iot edge set-moduler utdata](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>Visa moduler på enheten
 
@@ -131,7 +132,7 @@ Visa modulerna på din IoT Edge-enhet:
 
 Enhetens ID-parametern är skiftlägeskänsligt.
 
-   ![Lista med moduler](./media/how-to-deploy-cli/list-modules.png)
+   ![AZ iot hub-modul-identity utdata från lista](./media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

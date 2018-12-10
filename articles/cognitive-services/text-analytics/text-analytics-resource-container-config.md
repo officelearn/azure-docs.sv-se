@@ -1,21 +1,22 @@
 ---
 title: Konfigurera containrar
-titlesuffix: Text Analytics - Cognitive Services - Azure
-description: Konfigurationsinställningar för textanalys behållare.
+titlesuffix: Text Analytics - Azure Cognitive Services
+description: Textanalys ger varje behållare med ett gemensamt ramverk för konfiguration, så att du enkelt kan konfigurera och hantera inställningar för lagring, loggning och telemetri och säkerhet för dina behållare.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 61f435c55d7925554facd9bbaa63767023a779d4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7e993b9ccc57359ac64186765b7b704535eb5a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965027"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086682"
 ---
 # <a name="configure-containers"></a>Konfigurera containrar
 
@@ -104,7 +105,7 @@ Den `Eula` konfigurationsinställning indikerar att du har godkänt licensen fö
 > [!IMPORTANT]
 > Den [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), och [ `Eula` ](#eula-configuration-setting) konfigurationsinställningar som används tillsammans och du måste ange giltiga värden för alla tre dem. Annars startar behållaren inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
 
-Cognitive Services-behållare är licensierad under ditt avtal som reglerar användningen av Azure. Om du inte har en befintlig avtal som reglerar användningen av Azure, accepterar du att ditt avtal som reglerar användningen av Azure är Microsoft Online-prenumerationsavtalet (som införlivar villkoren för Online Services). För förhandsversioner också samtycker du till den kompletterande användningsvillkor för förhandsversioner av Microsoft Azure. Med hjälp av behållaren godkänner du dessa villkor.
+Cognitive Services-behållare är licensierad under [ditt avtal](https://go.microsoft.com/fwlink/?linkid=2018657) reglerar din användning av Azure. Om du inte har en befintlig avtal som reglerar användningen av Azure kan du godkänner att ditt avtal som reglerar användningen av Azure är den [prenumerationsavtalet för Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755) (som införlivar den [villkoren för Online Services ](https://go.microsoft.com/fwlink/?linkid=2018760)). För förhandsversioner godkänner du även den [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Med hjälp av behållaren godkänner du dessa villkor.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd konfigurationsinställningar
 

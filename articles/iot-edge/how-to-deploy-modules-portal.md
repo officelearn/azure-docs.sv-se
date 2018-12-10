@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure IoT Edge-moduler (portal) | Microsoft Docs
+title: Distribuera moduler från Azure portal – Azure IoT Edge | Microsoft Docs
 description: Använd Azure-portalen för att distribuera moduler till en IoT Edge-enhet
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b135832c1f0cb8af23a513d4914d7e32b398be7e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: fab85b74fb53bec07843abf31aac1a8495d0fcfb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564943"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093990"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuera Azure IoT Edge-moduler från Azure portal
 

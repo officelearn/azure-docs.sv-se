@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e503a394eed7d5c4bdd4c93037dc86442097f72e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 057df4260da267254cb764e58fdac749bee3b842
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002177"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106761"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en edge-machine learning-lösning med Azure och Azure Stack
 
@@ -357,7 +357,7 @@ Azure Machine Learning Workbench är tillgänglig för Windows eller macOS. Visa
     | Projektnamn | myIris | Ange ett unikt namn som identifierar kontot. Använd de avdelningar eller projekt som bäst identifierar experimentet. Namnet ska bestå av 2 till 32 tecken. Det får endast innehålla alfanumeriska tecken och streck (-). |
     | Projektkatalog | c:\Temp\ | Ange i vilken katalogen projektet ska skapas. |
     | Projektbeskrivning | Lämna tomt | Valfritt fält som kan användas för att beskriva projekten. |
-    | URL till GIT-lagringsplats för Visualstudio.com | Lämna tomt | Valfritt fält. Associera ett projekt med en Git-lagringsplats i Visual Studio Team Services för källkontroll och samarbete. |
+    | URL till GIT-lagringsplats för Visualstudio.com | Lämna tomt | Valfritt fält. Associera ett projekt med en Git-lagringsplats i Azure-lagringsplatser för källkontroll och samarbete. |
     | Vald arbetsyta | IrisGarden (om det finns) | Välj en arbetsyta som skapats för experimenteringskonto i Azure-portalen. <br>Med snabbstarten visas arbetsytan med namnet IrisGarden. Annars kan använda arbetsytan med namnet på experimenteringskontot eller en önskad kontonamn. |
     | Projektmall | Klassificera Iris | Mallar innehåller skript och data som används för att utforska produkten. Den här mallen innehåller skript och data som behövs för den här snabbstarten och andra självstudier i den här på dokumentationsplatsen. |
 
@@ -1420,7 +1420,7 @@ Kubectl get deployments
 
 Distributionen kan ta lite tid.
 
-### <a name="configure-visual-studio-team-services-to-deploy-automatically"></a>Konfigurera Visual Studio Team Services distribueras automatiskt
+### <a name="configure-azure-devops-to-deploy-automatically"></a>Konfigurera Azure DevOps att distribuera automatiskt
 
 #### <a name="create-a-team-project"></a>Skapa ett teamprojekt
 
@@ -1760,7 +1760,7 @@ Nu när anslutningar upprättas du manuellt mappa skapade Azure-slutpunkten, AKS
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image110.png)
 
-1.  Namnge artefakten **iris_deployment** och väljer att publiceringsplatsen är **Visual Studio Team Services/TFS**.
+1.  Namnge artefakten **iris_deployment** och väljer att publiceringsplatsen är **Azure Pipelines**.
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image111.png)
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 947a39a3660e0755efbf99b74b66d2c16e331e07
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 29bb495bbbd56ab39964b34db35fb4d222a60179
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837060"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074703"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Använda geospatiala och GeoJSON platsdata med Azure Cosmos DB SQL API-konto
 
@@ -305,7 +305,7 @@ Här är på samma sätt kan en fråga för att hitta alla dokument vars ”plat
 Nu när vi har tagit en titt på hur du frågar dokument med hjälp av LINQ och SQL, låt oss ta en titt på hur du konfigurerar Azure Cosmos DB för rumslig indexering.
 
 ## <a name="indexing"></a>Indexering
-Som vi beskrivs i den [Schema oberoende indexering med Azure Cosmos DB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) dokumentet, vi utformade Azure Cosmos DB: s databasmotor är verkligen schemaoberoende och ange förstklassigt stöd för JSON. Skrivoptimerad databasmotor hos Azure Cosmos DB tolka rumsliga data (punkter, polygoner och rader) som representeras i GeoJSON-standard.
+Som vi beskrivs i den [Schema oberoende indexering med Azure Cosmos DB](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) dokumentet, vi utformade Azure Cosmos DB: s databasmotor är verkligen schemaoberoende och ange förstklassigt stöd för JSON. Skrivoptimerad databasmotor hos Azure Cosmos DB tolka rumsliga data (punkter, polygoner och rader) som representeras i GeoJSON-standard.
 
 Kortfattat, geometrin projected från geodetisk koordinater till en 2D-plan och uppdelad progressivt i celler med hjälp av en **quadtree**. De här cellerna är mappade till 1D baserat på platsen för cellen i en **Hilbert utrymme fylls kurvan**, som bevarar ort punkter. Dessutom när platsdata är indexerad, genomgår en process som kallas **tessellation**, det vill säga alla celler som korsar en plats identifieras och lagras som nycklar i Azure Cosmos DB-index. När en fråga körs argument som punkter och polygoner är också fasetterade för att extrahera de relevanta cellintervall ID och sedan används för att hämta data från indexet.
 
@@ -389,7 +389,7 @@ Och här är hur du kan ändra en befintlig samling för att kunna utnyttja rums
 Bredvid nu när du har lärt dig hur du kommer igång med geospatialt stöd i Azure Cosmos DB, kan du:
 
 * Börja koda med den [geospatiala .NET-kodexempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
-* Praktiska övningar och få med geospatiala frågor på den [Frågespelplan för Azure Cosmos DB](http://www.documentdb.com/sql/demo#geospatial)
+* Praktiska övningar och få med geospatiala frågor på den [Frågespelplan för Azure Cosmos DB](https://www.documentdb.com/sql/demo#geospatial)
 * Läs mer om [Azure Cosmos DB-fråga](how-to-sql-query.md)
 * Läs mer om [indexera Azure Cosmos DB-principer](index-policy.md)
 

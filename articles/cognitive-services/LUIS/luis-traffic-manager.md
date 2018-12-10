@@ -1,21 +1,22 @@
 ---
-title: Använd Microsoft Azure Traffic Manager för att öka kvoten för slutpunkten i Språkförståelse (LUIS)
+title: Öka kvoten för slutpunkt
 titleSuffix: Azure Cognitive Services
 description: Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet.
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3f3dddca7944403ace6a9779be07b0d458fb3cd1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042184"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076771"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använd Microsoft Azure Traffic Manager för att hantera endpoint kvot över nycklar
 Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet. 
@@ -36,7 +37,7 @@ Skapa en resursgrupp som innehåller alla resurser innan du skapar Azure-resurse
 
 Skapa resursgrupp med **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)** cmdlet:
 
-```PowerShell
+```powerShell
 New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
@@ -69,7 +70,7 @@ Om du vill skapa ÖSTRA Traffic Manager-profilen, det finns flera steg: skapa pr
 
     Använd följande cmdlet för att skapa profilen. Se till att ändra den `appIdLuis` och `subscriptionKeyLuis`. SubscriptionKey är för nyckeln LUIS för östra USA. Om sökvägen är inte korrekt, inklusive LUIS-app-ID och slutpunkten nyckeln, Traffic Manager-avsökningen är statusen `degraded` eftersom Traffic Managers inte kan begära LUIS-slutpunkten har. Kontrollera att värdet för `q` är `traffic-manager-east` så att du kan se det här värdet i loggarna för LUIS-slutpunkten.
 
-    ```PowerShell
+    ```powerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
@@ -89,7 +90,7 @@ Om du vill skapa ÖSTRA Traffic Manager-profilen, det finns flera steg: skapa pr
 
 2. Lägg till slutpunkt för östra USA med **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)** cmdlet
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
     Den här tabellen beskriver varje variabel i cmdlet:
@@ -105,7 +106,7 @@ Om du vill skapa ÖSTRA Traffic Manager-profilen, det finns flera steg: skapa pr
 
     Lyckat svar som liknar:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-eastus
     Name                             : luis-profile-eastus
     ResourceGroupName                : luis-traffic-manager
@@ -124,7 +125,7 @@ Om du vill skapa ÖSTRA Traffic Manager-profilen, det finns flera steg: skapa pr
 
 3. Ange slutpunkt för östra USA med **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
     ```
 
@@ -137,7 +138,7 @@ Följ samma steg för att skapa västra USA Traffic Manager-profilen: skapa prof
 
     Använd följande cmdlet för att skapa profilen. Se till att ändra den `appIdLuis` och `subscriptionKeyLuis`. SubscriptionKey är för nyckeln LUIS för östra USA. Om sökvägen inte är korrekt, inklusive LUIS-app-ID och slutpunkten nyckeln Traffic Manager-avsökningen är statusen `degraded` eftersom Traffic Managers inte kan begära LUIS-slutpunkten har. Kontrollera att värdet för `q` är `traffic-manager-west` så att du kan se det här värdet i loggarna för LUIS-slutpunkten.
 
-    ```PowerShell
+    ```powerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
@@ -157,7 +158,7 @@ Följ samma steg för att skapa västra USA Traffic Manager-profilen: skapa prof
 
 2. Lägg till slutpunkt för USA, västra med **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
@@ -174,7 +175,7 @@ Följ samma steg för att skapa västra USA Traffic Manager-profilen: skapa prof
 
     Lyckat svar som liknar:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-westus
     Name                             : luis-profile-westus
     ResourceGroupName                : luis-traffic-manager
@@ -193,7 +194,7 @@ Följ samma steg för att skapa västra USA Traffic Manager-profilen: skapa prof
 
 3. Ange västra USA slutpunkt med **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
     ```
 
@@ -204,7 +205,7 @@ Skapa överordnade Traffic Manager-profil och länka två underordnade Traffic M
 
 1. Skapa överordnade profil med **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet
 
-    ```PowerShell
+    ```powerShell
     $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
     ```
 
@@ -224,7 +225,7 @@ Skapa överordnade Traffic Manager-profil och länka två underordnade Traffic M
 
 2. Lägg till USA, östra underordnade profil till överordnad med **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** och **NestedEndpoints** typ
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
     ```
 
@@ -242,7 +243,7 @@ Skapa överordnade Traffic Manager-profil och länka två underordnade Traffic M
 
     Lyckat svar se ut så här och innehåller den nya `child-endpoint-useast` slutpunkt:    
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -261,7 +262,7 @@ Skapa överordnade Traffic Manager-profil och länka två underordnade Traffic M
 
 3. Lägg till USA, västra underordnade profil till överordnad med **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet och **NestedEndpoints** typ
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
     ```
 
@@ -279,7 +280,7 @@ Skapa överordnade Traffic Manager-profil och länka två underordnade Traffic M
 
     Lyckat svar utseende som och innehåller den tidigare `child-endpoint-useast` slutpunkten och den nya `child-endpoint-uswest` slutpunkt:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -298,7 +299,7 @@ Skapa överordnade Traffic Manager-profil och länka två underordnade Traffic M
 
 4. Ange slutpunkter med **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet 
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
     ```
 
@@ -309,7 +310,7 @@ I föregående avsnitt, tre PowerShell variabler har skapats: `$eastprofile`, `$
 
 Ersätta dem i vinkelparenteser, `<>`, med rätt värden för var och en av de tre profiler som du behöver. 
 
-```PowerShell
+```powerShell
 $<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
@@ -329,7 +330,7 @@ Traffic Manager ska avsöka sökvägen för varje slutpunkt för att kontrollera
 ### <a name="validate-traffic-manager-polling-works"></a>Verifiera Traffic Manager avsökning fungerar
 Ett annat sätt att verifiera traffic manager avsökning fungerar är med LUIS endpoint loggarna. På den [LUIS] [ LUIS] webbplats applistan sidan, exportera endpoint loggen för programmet. Eftersom Traffic Manager ska avsöka ofta för två slutpunkter, finns det poster i loggarna även om de har endast på några minuter. Kom ihåg att söka efter poster där frågan börjar med `traffic-manager-`.
 
-```text
+```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 traffic-manager-east    6/7/2018 19:20  {"query":"traffic-manager-east","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 ```
@@ -339,7 +340,7 @@ Begära Traffic Managers överordnade profilen DNS med hjälp av ett DNS-klientb
 
 Följande Node.js-kod gör en begäran för den överordnade profilen och returnerar en LUIS-slutpunkt:
 
-```javascript
+```nodejs
 const dns = require('dns');
 
 dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {

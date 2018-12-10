@@ -1,6 +1,6 @@
 ---
-title: Ingående information om hur du kan förutsäga fordonshälsa och körvanor – Azure | Microsoft Docs
-description: Använda funktionerna i Cortana Intelligence insikter i realtid och förutsägande på fordonshälsa och vanor.
+title: Ingående information om hur du kan förutsäga fordonshälsa och körvanor - Team Data Science Process
+description: Granska nedåt i varje steg med en lösning för informationshämtning i realtid och förutsägande om fordonshälsa och driver på vanor.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b1c01bcd15c5cfc63eae7c2b1983fc9075d4220c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: b8bd0286a2fa800dd2d5b8ac9c4df1a29809f7f9
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444393"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53142044"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Vehicle Telemetry Analytics-lösning, playbook: fördjupa dig i lösningen
 

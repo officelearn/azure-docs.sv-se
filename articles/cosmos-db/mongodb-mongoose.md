@@ -1,22 +1,22 @@
 ---
-title: Använda Mongoose-ramverket med Azure Cosmos DB
-description: Läs hur du ansluter en Node.js Mongoose-app till Azure Cosmos DB
-services: cosmos-db
-author: slyons
+title: Ansluta en Node.js Mongoose-program till Azure Cosmos DB
+description: Lär dig hur du använder Mongoose-ramverket för att lagra och hantera data i Azure Cosmos DB.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: sclyon
-ms.openlocfilehash: 6f84dfac7b556e59ec3ad76ff7d2c6e5f5105293
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: ec47c265c3d6f826bc1b7e7d8038e284c6981b7a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101440"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134938"
 ---
-# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Använda Mongoose-ramverket med Azure Cosmos DB
+# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ansluta en Node.js Mongoose-program till Azure Cosmos DB
 
 I den här självstudien visas hur du använder [Mongoose-ramverket](https://mongoosejs.com/) när du lagrar data i Azure Cosmos DB. I den här genomgången använder vi MongoDB-API:et för Azure Cosmos DB. För dem som inte vet är Mongoose ett ramverk för modellering av objekt för MongoDB i Node.js och tillhandahåller en enkel och schemabaserad lösning för att modellera dina programdata.
 

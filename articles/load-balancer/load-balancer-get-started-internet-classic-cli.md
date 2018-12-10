@@ -1,24 +1,26 @@
 ---
-title: Skapa en Internetriktad lastbalanserare – klassisk Azure CLI | Microsoft Docs
+title: Skapa en internetuppkopplad belastningsutjämnare – Azure klassiska CLI
+titlesuffix: Azure Load Balancer
 description: Läs hur du skapar en Internetriktad lastbalanserare i den klassiska distributionsmodellen med hjälp av den klassiska Azure CLI
 services: load-balancer
 documentationcenter: na
 author: genlin
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a0640e3d0b7ccc11ee5603a9b1f21daf53318266
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: fa89117e85bc3d3c9664e6aa037fac923b7432ce
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740509"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135754"
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>Kom igång med att skapa en Internetriktad lastbalanserare (klassisk) på den klassiska Azure CLI
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>Kom igång med att skapa en Internetuppkopplad belastningsutjämnare (klassisk) i den klassiska Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)

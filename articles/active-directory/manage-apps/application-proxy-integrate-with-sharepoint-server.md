@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0f1b46176ba440a11d1584846019859c63d2f263
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425216"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135788"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Aktivera fjärråtkomst till SharePoint med Azure AD Application Proxy
 
@@ -163,7 +163,7 @@ Upprepa följande steg för att konfigurera KCD, för varje connector-datorn:
 
 Nu när du har aktiverat SharePoint för Kerberos- och konfigurerade KCD, är du redo att publicera SharePoint-servergruppen för fjärråtkomst via Azure AD-programproxy.
 
-1. Publicera din SharePoint-webbplats med följande inställningar. Stegvisa instruktioner finns i [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+1. Publicera din SharePoint-webbplats med följande inställningar. Stegvisa instruktioner finns i [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md). 
    - **Intern URL**: URL: en för SharePoint-webbplatsen internt, såsom **https://SharePoint/**. I det här exemplet, se till att använda **https**
    - **Förautentiseringsmetoden**: Azure Active Directory
    - **Översätt URL i rubriker**: Nej

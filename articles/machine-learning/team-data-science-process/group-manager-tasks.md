@@ -1,5 +1,5 @@
 ---
-title: Gruppansvarig för team Data Science Process uppgifter – Azure | Microsoft Docs
+title: Team Data Science Process manager gruppaktiviteter
 description: En översikt över aktiviteter för gruppchef i ett team för datavetenskapsprojekt.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ee10f17f76f7c3745cb32223c58b0d2d12f7d6b6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d44b13bb087f171c3f0474cde73167481221274f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446355"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136590"
 ---
-# <a name="group-manager-tasks"></a>Gruppansvarig uppgifter
+# <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Uppgifter för gruppchef i ett team för datavetenskapsprojekt
 
 Det här avsnittet beskrivs de uppgifter som gruppchef förväntas slutföra för hist / hennes data science-organisation. Målet är att upprätta samarbetsfunktioner gruppmiljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
 

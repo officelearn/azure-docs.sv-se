@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process för dataexperter | Microsoft Docs
-description: Ger vägledning för att förstå en analytics-arbetsbelastning med Team Data Science Process och Azure Machine Learning.
+title: Tdsp för dataexperter
+description: Riktlinjer för en uppsättning med mål som används vanligtvis för att implementera omfattande datavetenskapliga lösningar med Azure-tekniker med hjälp av Team Data Science Process och Azure Machine Learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ddf73f15dc7c269ba3bf9a2912c3713fd4e847f2
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 3fba0af6eb9e5ffe78a1709c656197981e6335e8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497576"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134649"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Tdsp för dataexperter
 

@@ -1,5 +1,5 @@
 ---
-title: Få åtkomst till datauppsättningar med Machine Learning Python-klientbiblioteket | Microsoft Docs
+title: Öppna datauppsättningar med Python-klientbiblioteket - Team Data Science Process
 description: Installera och använda Python-klientbiblioteket för att komma åt och hantera Azure Machine Learning-data på ett säkert sätt från en lokal Python-miljö.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e81efb0a7977bbd50c63834f676b7cc75201dc68
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680693"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140038"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhandsversionen av Microsoft Azure Machine Learning Python-klientbiblioteket aktivera säker åtkomst till dina Azure Machine Learning-datauppsättningar från en lokal Python-miljö och möjliggör skapandet och hanteringen av datauppsättningar i en arbetsyta.
@@ -38,7 +38,7 @@ Python-klientbiblioteket har testats under följande miljöer:
 
 Den har ett beroende på följande paket:
 
-* begäranden 
+* Begäranden
 * Python-dateutil
 * pandas
 
@@ -92,10 +92,10 @@ Auktoriseringstoken som hanteras på den **AUKTORISERINGSTOKEN** sidan **instäl
     ![Datauppsättningar][datasets]
 4. Välj kodfragmentet i fönstret som visas och kopiera den till Urklipp.
    
-    ![Kod för dataåtkomst][dataset-access-code]
+    ![Generera kod för dataåtkomst knappen][dataset-access-code]
 5. Klistra in koden i anteckningsboken för ditt lokala Python-program.
    
-    ![Notebook][ipython-dataset]
+    ![Klistra in koden i anteckningsboken][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Åtkomst till mellanliggande datauppsättningar från Machine Learning-experiment
 När det körs ett experiment i Machine Learning Studio, är det möjligt att komma åt de mellanliggande datauppsättningarna från utdata-noder i moduler. Mellanliggande datauppsättningar är data som har skapats och används för mellanliggande steg om ett modell-verktyg har körts.
@@ -133,10 +133,10 @@ Följande steg visar ett exempel som skapar ett experiment, kör den och har åt
     ![Snabbmeny][experiment]
 8. Välj kodfragmentet och kopiera den till Urklipp från fönstret som visas.
    
-    ![Kod för dataåtkomst][intermediate-dataset-access-code]
+    ![Generera kod för dataåtkomst från snabbmenyn][intermediate-dataset-access-code]
 9. Klistra in koden i anteckningsboken.
    
-    ![Notebook][ipython-intermediate-dataset]
+    ![Klistra in koden i anteckningsboken][ipython-intermediate-dataset]
 10. Du kan visualisera data med matplotlib. Då visas i ett histogram för kolumnen ålder:
     
     ![Histogram][ipython-histogram]

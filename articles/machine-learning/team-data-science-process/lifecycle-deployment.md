@@ -1,5 +1,5 @@
 ---
-title: Distributionsstadium för Team Data Science Process-livscykel – Azure | Microsoft Docs
+title: Distribution steg i livscykeln för Team Data Science Process
 description: Mål, uppgifter och slutprodukter för distribution steg i dina data science-projekt
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 30d54b1475188fa886a811b22460d88e53aa564e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d05f831aa1ae1f9b0912dce66bf7f5e15c109d49
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446593"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138576"
 ---
-# <a name="deployment"></a>Distribution
+# <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Distribution steg i livscykeln för Team Data Science Process
 
 Den här artikeln beskrivs de mål, uppgifter och slutprodukter som är kopplad till distributionen av Team Data Science Process (TDSP). Den här processen ger en rekommenderad livscykel som du kan använda för att strukturera dina data science-projekt. Livscykeln beskrivs de viktigaste stegen som projekt vanligtvis köra, ofta upprepade gånger:
 

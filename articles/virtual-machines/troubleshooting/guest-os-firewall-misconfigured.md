@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ad659cfcf1bfdad440968da5568b993724a5f351
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319549"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137845"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM OS gästbrandvägg är felkonfigurerad
 
@@ -33,7 +33,7 @@ Den här artikeln introducerar hur du åtgärdar felkonfigurerad system-brandvä
 
 ## <a name="cause"></a>Orsak
 
-En felaktig konfiguration av system gästbrandvägg kan blockera vissa eller alla typer av nätverkstrafik till den virtuella datorn. 
+En felaktig konfiguration av system gästbrandvägg kan blockera vissa eller alla typer av nätverkstrafik till den virtuella datorn.
 
 ## <a name="solution"></a>Lösning
 
@@ -43,11 +43,11 @@ Felsök problemet genom att använda Seriekonsolen eller [reparera den virtuella
 
 ## <a name="online-mitigations"></a>Online-åtgärder
 
-Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Om Seriekonsolen inte är aktiverad på den virtuella datorn, gå till avsnittet ”reparera den virtuella datorn Offline” i följande Azure-artikel:
+Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Om Seriekonsolen inte är aktiverad på den virtuella datorn, gå till avsnittet ”reparera den virtuella datorn Offline” i följande Azure-artikel:
 
  [Ett internt fel inträffar vid försök att ansluta till en Azure-dator via fjärrskrivbord](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-Följande regler kan redigeras för att antingen ge åtkomst till den virtuella datorn (via RDP) eller för att få en enklare felsökning upplevelse: 
+Följande regler kan redigeras för att antingen ge åtkomst till den virtuella datorn (via RDP) eller för att få en enklare felsökning upplevelse:
 
 *   Fjärrskrivbord (TCP-In): Det här är standard regeln som tillhandahåller primär åtkomst till den virtuella datorn genom att tillåta RDP i Azure.
 
@@ -55,7 +55,7 @@ Följande regler kan redigeras för att antingen ge åtkomst till den virtuella 
 
 *   Fil- och skrivardelning (SMB-In): den här regeln gör det möjligt för åtkomst till nätverksresurser som ett alternativ för felsökning.
 
-*   Fil- och skrivardelning (ekobegäran - ICMPv4-In): den här regeln kan du pinga den virtuella datorn. 
+*   Fil- och skrivardelning (ekobegäran - ICMPv4-In): den här regeln kan du pinga den virtuella datorn.
 
 Du kan fråga den aktuella statusen för brandväggsregeln i seriell konsolåtkomst-instans.
 
@@ -83,7 +83,7 @@ Du kan fråga den aktuella statusen för brandväggsregeln i seriell konsolåtko
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   För felsökning, kan du inaktivera brandväggsprofiler: 
+*   För felsökning, kan du inaktivera brandväggsprofiler:
 
     ```cmd
     netsh advfirewall set allprofiles state off

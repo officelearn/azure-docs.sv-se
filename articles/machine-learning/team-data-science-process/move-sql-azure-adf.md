@@ -1,5 +1,5 @@
 ---
-title: Flytta data från en lokal SQL Server till SQL Azure med Azure Data Factory | Microsoft Docs
+title: SQL Server-data till SQL Azure med Azure Data Factory - Team Data Science Process
 description: Ställ in en ADF-pipeline som composes två data migreringsaktiviteter som tillsammans flyttar data dagligen mellan lokala-databaser och i molnet.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: bddb54d9a00c5ec88fcebe498d7f959c0f8e3dbf
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 87aa1c30bb567c6820e2d9ecacfc3f8cd2338339
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447044"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137777"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory
 
@@ -43,7 +43,7 @@ Vi konfigurerar en ADF-pipeline som composes två aktiviteter för migrering av 
 * Kopiera data från Azure Blob Storage-kontot till en Azure SQL Database.
 
 > [!NOTE]
-> Anvisningarna som visas här har anpassats från mer detaljerade självstudierna från teamet för ADF: [flytta data mellan lokala källor och molnet med Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md) hänvisningar till de relevanta avsnitten i avsnittet tillhandahålla när det är lämpligt.
+> Anvisningarna som visas här har anpassats från mer detaljerade självstudierna från teamet för ADF: [kopiera data från en lokal SQL Server-databas till Azure Blob storage](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal/) referenser till de relevanta avsnitten ämnes tillhandahålls när lämpliga.
 >
 >
 
@@ -68,15 +68,10 @@ Du kan anpassa det förfarande som anges här till en uppsättning med dina egna
 ## <a name="create-adf"></a> Skapa en Azure Data Factory
 Instruktionerna för att skapa en ny Azure-Datafabrik och en resursgrupp i den [Azure-portalen](https://portal.azure.com/) tillhandahålls [skapa en Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Namnge den nya instansen av ADF *adfdsp* och namnet på den resursgrupp som skapade *adfdsprg*.
 
-## <a name="install-and-configure-up-the-data-management-gateway"></a>Installera och konfigurera upp Data Management Gateway
-Om du vill aktivera dina pipelines i Azure data factory att arbeta med en lokal SQL Server som du behöver lägga till den som en länkad tjänst till datafabriken. Om du vill skapa en länkad tjänst för en lokal SQL Server, måste du:
+## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installera och konfigurera Azure Data Factory Integration Runtime 
+Integration Runtime är en kund infrastruktur för dataintegrering används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Den här körningen kallades ”Data Management Gateway”. 
 
-* Hämta och installera Microsoft Data Management Gateway på den lokala datorn.
-* Konfigurera den länkade tjänsten för den lokala datakällan som ska använda gatewayen.
-
-Data Management Gateway Serialiserar och deserializes källa och mottagare data på den dator där det finns.
-
-Instruktioner för konfiguration och information om Data Management Gateway finns i [flytta data mellan lokala källor och molnet med Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md)
+Du ställer in, [följer instrutions för att skapa en pipeline](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Skapa länkade tjänster för att ansluta till dataresurser
 En länkad tjänst definierar den information som behövs för Azure Data Factory för att ansluta till en data. Vi har tre resurser i det här scenariot som krävs för länkade tjänster:

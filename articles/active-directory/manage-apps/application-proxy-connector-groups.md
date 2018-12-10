@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622641"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139033"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicera program på separata nätverk och platser med hjälp av anslutningsapp-grupper
 
@@ -32,7 +32,7 @@ Alla program som har tilldelats en anslutningsgrupp. Om du inte skapa grupper, t
 >Om du har en stor Application Proxy-distribution kan inte tilldela alla program i standardgruppen för anslutningen. På så sätt kan nya anslutningar inte tar emot live trafik tills du tilldelar dem till en aktiv anslutningsapp-grupp. Den här konfigurationen kan du placera kopplingar i ett inaktivt tillstånd genom att flytta dem till standardgruppen, så att du kan utföra underhåll utan att påverka dina användare.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du vill gruppera dina anslutningar, du måste se till att du [installerade flera kopplingar](application-proxy-enable.md). När du installerar en ny anslutning kan den automatiskt ansluter till den **standard** anslutningsgrupp.
+Om du vill gruppera dina anslutningar, du måste se till att du [installerade flera kopplingar](application-proxy-add-on-premises-application.md). När du installerar en ny anslutning kan den automatiskt ansluter till den **standard** anslutningsgrupp.
 
 ## <a name="create-connector-groups"></a>Skapa anslutningsapp-grupper
 Följ dessa steg för att skapa så många anslutningsapp-grupper som du vill ha. 

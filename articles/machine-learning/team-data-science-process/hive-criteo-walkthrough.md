@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process fungerar – med hjälp av ett Azure HDInsight Hadoop-kluster på en datauppsättning som 1 TB | Microsoft Docs
+title: Använd Azure HDInsight Hadoop-kluster på 1 TB datauppsättning - Team Data Science Process
 description: Med Team Data Science Process för ett scenario för slutpunkt till slutpunkt med ett HDInsight Hadoop-kluster för att skapa och distribuera en modell med hjälp av en stor (1 TB) offentligt tillgängliga datauppsättning
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3aef1b85a462eea74fbe977e9a48054f11acf47a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447052"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135822"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process fungerar – med hjälp av ett Azure HDInsight Hadoop-kluster på en datauppsättning som 1 TB
 
@@ -478,7 +478,7 @@ Det kan finnas flera miljoner unika värden för vissa kategoriska funktioner f�
 ##### <a name="building-counting-transforms"></a>Att skapa räkna omvandlar
 Om du vill skapa antal funktioner, använda den **skapa räkna transformera** modul som är tillgängliga i Azure Machine Learning. Modulen ser ut så här:
 
-![Skapa räkna transformera modul](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![Skapa räkna transformera modulen egenskaper](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![skapa räkna transformera modul](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 

@@ -1,5 +1,5 @@
 ---
-title: Azure AI-guide för lösningar för förebyggande underhåll | Microsoft Docs
+title: Azure AI-guide för lösningar för förebyggande underhåll - Team Data Science Process
 description: En heltäckande beskrivning av datavetenskap som används av lösningar för förebyggande underhåll i flera branscher.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 1538357a744e4a2c885b6552ca94efc6642d2880
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: 8d2a16047a741daf484d6ccdc48453d49355d443
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444927"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135700"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -289,11 +289,11 @@ Flera klassificeringstekniker kan användas i kontaktar lösningar för två sce
 #### <a name="label-construction-for-multi-class-classification"></a>Etikett-konstruktion för flera klassificering
 Den här frågan är ”: Vad är sannolikheten att en tillgång misslyckas i nästa _nZ_ tidsenheter där _n_ är antalet perioder”? Besvara den här frågan, etikett nZ poster innan felet för en tillgång med buckets tid (3Z 2Z Z). Etikett för alla andra registrerar ”normal” (etikett = 0). I den här metoden en målvariabel innehåller _kategoriska_ värden. (Se bild 5).
 
-![Bild 5. Etiketter för multiklass-baserad klassificering för fel tid förutsägelse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) bild 5. Etiketter för flera klassificering för fel tid förutsägelse
+![Bild 5. Fel tid förutsägelse etiketter för multiklass-baserad klassificering](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) bild 5. Etiketter för flera klassificering för fel tid förutsägelse
 
 Den här frågan är ”: Vad är sannolikheten att tillgången inte fungerar i nästa X tidsenheter på grund av orsaken/rotproblemet _P<sub>jag</sub>_”? där _jag_ är antalet möjliga underliggande orsaker. Besvara den här frågan, etikett X poster innan felet av en tillgång som ”upphör snart att misslyckas på grund av orsaken _P<sub>jag</sub>_” (etikett = _P<sub>jag</sub>_). Etikettera alla poster som är ”normal” (etikett = 0). I den här metoden är etiketter dessutom kategoriska (se bild 6).
 
-![Bild 6. Etiketter för multiklass-baserad klassificering för rot orsak förutsägelse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) bild 6. Etiketter för flera klassificering för rot orsak förutsägelse
+![Bild 6. Rotorsak förutsägelse etiketter för multiklass-baserad klassificering](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) bild 6. Etiketter för flera klassificering för rot orsak förutsägelse
 
 Modellen tilldelar en sannolikheten för fel på grund av var och en _P<sub>jag</sub>_  samt sannolikheten för fel. Dessa sannolikheter kan beställas storlek så att förutsägelse av de problem som är mest sannolikt kan förekomma i framtiden.
 

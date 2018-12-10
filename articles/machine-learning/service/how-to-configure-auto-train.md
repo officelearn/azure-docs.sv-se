@@ -1,5 +1,6 @@
 ---
-title: Konfigurera dina automatiserade machine learning-experiment - Azure Machine Learning
+title: Konfigurera automatisk machine learning-experiment
+titleSuffix: Azure Machine Learning service
 description: Automatiserad machine learning hämtar en algoritm för dig och genererar en modell som är klar för distribution. Läs om de alternativ som du kan använda för att konfigurera automatiserade maskininlärningsexperiment.
 author: nacharya1
 ms.author: nilesha
@@ -9,14 +10,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: b2be09d69013cc8361f92cb0b6e3aa5fef3bcc02
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: e1dd0cf995d7d9c263e49735decc5573107b1add
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000308"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140174"
 ---
-# <a name="configure-your-automated-machine-learning-experiment"></a>Konfigurera dina automatiserade machine learning-experiment
+# <a name="configure-automated-machine-learning-experiments"></a>Konfigurera automatisk machine learning-experiment
 
 Automatiserad machine learning hämtar en algoritm och hyperparametrar för dig och genererar en modell som är klar för distribution. Det finns flera alternativ som du kan använda för att konfigurera automatiserade maskininlärningsexperiment. I den här guiden lär du dig hur du definierar olika konfigurationsinställningar.
 
@@ -214,7 +216,7 @@ Egenskap  |  Beskrivning | Standardvärde
 `iterations` |Maximalt antal upprepningar. Varje iteration är lika med ett utbildningsjobb som resulterar i en pipeline. Pipeline är Förbearbeta data och modell. Hämta en högkvalitativ modell med 250 eller fler    | 100
 `max_concurrent_iterations`|    Maxantal upprepningar som körs parallellt. Den här inställningen fungerar endast för fjärranslutna beräkning.|   1
 `max_cores_per_iteration`   | Anger hur många kärnor på beräkningsmål skulle användas för att träna en enkel rörledning. Om algoritmen kan utnyttja flera kärnor, ökar prestanda på en dator med flera kärnor. Du kan ange den till -1 för att använda alla tillgängliga kärnor på datorn.|  1
-`Iteration_timeout_minutes` |   Begränsar mängden tid (minuter) som en viss iteration tar. Om en iteration överskrider angiven mängd, den iterationen hämtar har avbrutits. Om den inte anges kommer iterationen fortsätter att köras tills den är klar. |   Ingen
+`iteration_timeout_minutes` |   Begränsar mängden tid (minuter) som en viss iteration tar. Om en iteration överskrider angiven mängd, den iterationen hämtar har avbrutits. Om den inte anges kommer iterationen fortsätter att köras tills den är klar. |   Ingen
 `n_cross_validations`   |Antalet delningar i korsverifieringar| Ingen
 `validation_size`   |Storleken på verifiering som procent av alla utbildning exemplet.|  Ingen
 `preprocess` | SANT/FALSKT <br/>True aktiverar experimentera om du vill utföra Förbearbeta på indata. Följande är en delmängd av Förbearbeta<li>Data saknas: Imputes saknas data-numeriska med Average, Text med de flesta förekomsten </li><li>Kategoriska värden: Om-datatypen är numeriska datatyper och antalet unika värden är mindre än 5 procent, konverterar till en hot-kodning </li><li>Etc. fullständig lista finns [GitHub-lagringsplatsen](https://aka.ms/aml-notebooks)</li><br/>Obs: om data som är gles du inte använda Förbearbeta = true |  False | 

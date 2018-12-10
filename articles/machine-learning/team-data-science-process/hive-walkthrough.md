@@ -1,5 +1,5 @@
 ---
-title: Utforska data i ett Hadoop-kluster och skapa modeller i Azure Machine Learning | Microsoft Docs
+title: Utforska data i ett Hadoop-kluster - Team Data Science Process
 description: Med Team Data Science Process för ett scenario för slutpunkt till slutpunkt, använda ett HDInsight Hadoop-kluster för att skapa och distribuera en modell.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444213"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139630"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process i praktiken: Använd Azure HDInsight Hadoop-kluster
 I den här genomgången använder vi den [Team Data Science Process (TDSP)](overview.md) i ett scenario för slutpunkt till slutpunkt. Vi använder en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) att lagra, utforska, och funktion-tekniker data från de allmänt tillgängliga [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättningen, och att nedåtsampla data. Vi bygger modeller av data med Azure Machine Learning för att hantera binära och multiklass-baserad klassificering och regression förutsägande uppgifter. 
@@ -416,7 +416,7 @@ Från Hive directory prompten, kör du följande kommando:
 > 
 > 
 
-När du utforskar en datauppsättning, vill vi ofta undersöka numret på co-förekomsterna av grupper med värden. Det här avsnittet innehåller ett exempel på hur du gör detta för CAB-filer och drivrutiner.
+När du utforskar en datauppsättning, vill vi ofta undersöka antalet delade förekomster av grupper med värden. Det här avsnittet innehåller ett exempel på hur du gör detta för CAB-filer och drivrutiner.
 
 Den **exempel\_hive\_resans\_antal\_av\_medallion\_license.hql** filgrupper avgiften datauppsättningen på **medallion** och **hack_license**, och returnerar antalet för varje kombination. Här följer innehållet:
 
@@ -765,7 +765,7 @@ Du kan nu fortsätta till modellskapandet och distribution av modeller i [Maskin
 
   Följande diagram visar våra experiment att förutsäga om ett tips har betalat för en viss resa:
 
-  ![Diagram över experiment](./media/hive-walkthrough/QGxRz5A.png)
+  ![Diagram över experiment att förutsäga om tips som har betalats](./media/hive-walkthrough/QGxRz5A.png)
 
   b. Det här experimentet har våra mål etikett distributioner ungefär 1:1.
 
@@ -785,7 +785,7 @@ Du kan nu fortsätta till modellskapandet och distribution av modeller i [Maskin
 
   Följande diagram visar experiment att förutsäga ett tips är sannolikt att hamna i vilka bin. Lagerplatserna är: klass 0: tips = $0, klass 1: tips > $0 och tips < = 5 dollar, klass 2: tips > 5 och tips < = 10 USD, klass 3: tips > $10 och tips < = $20 och klass 4: tips > 20.
 
-  ![Diagram över experiment](./media/hive-walkthrough/5ztv0n0.png)
+  ![Diagram över experiment att förutsäga bin för tips](./media/hive-walkthrough/5ztv0n0.png)
 
   Nu visar vi hur faktiska test klass distribution ser ut. Klass 0 och klass 1 är vanliga och andra klasser är ovanliga.
 
@@ -805,7 +805,7 @@ Du kan nu fortsätta till modellskapandet och distribution av modeller i [Maskin
 
   Följande diagram visar experiment till att förutse hur mycket av det angivna tipset:
 
-  ![Diagram över experiment](./media/hive-walkthrough/11TZWgV.png)
+  ![Diagram över experiment att förutsäga mängden tips](./media/hive-walkthrough/11TZWgV.png)
 
   b. Regression problem mäter vi noggrannhet för förutsägelsen genom att titta på kvadratfel i förutsägelserna och bestämningskoefficient:
 

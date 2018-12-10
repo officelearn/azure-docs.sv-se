@@ -1,5 +1,5 @@
 ---
-title: Kundens godkännande steget i Team Data Science Process-livscykel – Azure | Microsoft Docs
+title: Kundens godkännande steg i livscykeln för Team Data Science Process
 description: Mål, uppgifter och mål för kundens godkännande steg i dina data science-projekt
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a60594123346b599270f2a7763e98fc863f85067
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7a00f18a8ae51d5118275e904e2ca76fc167d987
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441493"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132626"
 ---
-# <a name="customer-acceptance"></a>Kundgodkännande
+# <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Kundens godkännande steg i livscykeln för Team Data Science Process
 
 Den här artikeln beskrivs de mål, uppgifter och slutprodukter som är associerade med kundens godkännande scenen för Team Data Science Process (TDSP). Den här processen ger en rekommenderad livscykel som du kan använda för att strukturera dina data science-projekt. Livscykeln beskrivs de viktigaste stegen som projekt vanligtvis köra, ofta upprepade gånger:
 

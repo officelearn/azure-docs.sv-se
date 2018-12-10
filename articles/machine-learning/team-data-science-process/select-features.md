@@ -1,5 +1,5 @@
 ---
-title: Funktionsval i Team Data Science Process | Microsoft Docs
+title: Val av funktioner i Team Data Science Process
 description: Förklarar ändamålet med val av funktioner och ger exempel på deras roll i hur data förbättring av machine learning.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b439f7245dd09a2f8a7ffe5f3b3c5396786220af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: de8070906f7b2470378fb631f2e94a96b4a2960d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442388"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138661"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Funktionsval i TDSP (Team Data Science Process)
 Den här artikeln förklarar för val av funktioner och innehåller exempel på dess roll i processen för data förbättring av machine learning. Följande exempel hämtas från Azure Machine Learning Studio. 
@@ -42,21 +42,21 @@ Bland annat kallas en mycket tillämpade kategori av funktionen val av metoder i
 
 Det finns moduler som angetts för val av funktioner i Azure Machine Learning Studio. I följande bild visas dessa moduler omfattar [Filter-baserade Funktionsurval] [ filter-based-feature-selection] och [Fisher linjär Discriminant analys] [ fisher-linear-discriminant-analysis].
 
-![Exempel för funktionen val](./media/select-features/feature-Selection.png)
+![Funktionen val av moduler](./media/select-features/feature-Selection.png)
 
 Till exempel överväga att använda den [Filter-baserade Funktionsurval] [ filter-based-feature-selection] modulen. För enkelhetens skull fortsätta att använda textexempel för datautvinning. Anta att du vill skapa en regressionsmodell när en uppsättning 256 funktioner har skapats via den [funktions-hashning] [ feature-hashing] modulen och att variabeln response är den ”Kol1” som innehåller boken granska betyg mellan 1 och 5. Genom att ange ”funktionen bedömnings metoden” ska vara ”Pearson korrelation”, ”målkolumnen” att vara ”Kol1” och ”antal önskade funktioner” till mellan 50. Sedan modulen [Filter-baserade Funktionsurval] [ filter-based-feature-selection] producerar en datauppsättning som innehåller 50 funktioner tillsammans med Målattributet ”Kol1”. Följande bild visar flödet av det här experimentet och indataparametrarna som:
 
-![Exempel för funktionen val](./media/select-features/feature-Selection1.png)
+![Funktionen markering modulen filteregenskaper](./media/select-features/feature-Selection1.png)
 
 Följande bild visar de resulterande datauppsättningarna:
 
-![Exempel för funktionen val](./media/select-features/feature-Selection2.png)
+![Resultatet för Filter baserat Funktionsurval modul](./media/select-features/feature-Selection2.png)
 
 Varje funktion beräknas baserat på Pearson sambandet mellan sig och Målattributet ”Kol1”. Funktioner med översta poäng hålls.
 
 Motsvarande poäng för de valda funktionerna visas i följande bild:
 
-![Exempel för funktionen val](./media/select-features/feature-Selection3.png)
+![Poäng för Filter baserat Funktionsurval modul](./media/select-features/feature-Selection3.png)
 
 Genom att använda detta [Filter-baserade Funktionsurval] [ filter-based-feature-selection] modulen, 50 av 256 funktioner är markerade eftersom de har mest korrelerade funktioner med en målvariabel ”Kol1” baserat på bedömnings-metoden ”Pearson korrelation”.
 

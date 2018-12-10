@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: cc60fd6a9d5f154d26fc9c495f190296453a0db0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 22e7e513c7ec015b070ae37c1dbdd168404ee768
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106659"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140759"
 ---
 # <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Migrera från Workbench till den senaste versionen av Azure Machine Learning-tjänsten 
 
@@ -108,7 +108,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## <a name="data-preparation-files"></a>Förberedelse av datafiler
-Filer för förberedelse av data är inte portabla utan Workbench. Men du kan fortfarande förbereda datauppsättning valfri storlek för modellering med nya Azure Machine Learning Data Prep SDK eller använder Azure Databricks för stora datauppsättningar.  [Lär dig hur du hämtar data prep SDK](how-to-data-prep.md). 
+Filer för förberedelse av data är inte portabla utan Workbench. Men du kan fortfarande förbereda datauppsättning valfri storlek för modellering med nya Azure Machine Learning Data Prep SDK eller använder Azure Databricks för stora datauppsättningar. [Lär dig hur du hämtar data prep SDK](https://aka.ms/data-prep-sdk).
 
 ## <a name="next-steps"></a>Nästa steg
 

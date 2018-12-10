@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: a469fe0d6057d865ec006d9eb14ad95f2d4b7005
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308454"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138168"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Kan inte använda RDP till Azure Virtual Machines eftersom DHCP-klienttjänsten har inaktiverats
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver ett problem där det går inte att fjärrskrivbord t
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="symptoms"></a>Symtom 
+## <a name="symptoms"></a>Symtom
 
 Du kan inte göra en RDP-anslutning en virtuell dator i Azure eftersom DHCP-klienttjänsten har inaktiverats på den virtuella datorn. När du checkar skärmbilden den [Startdiagnostik](../troubleshooting/boot-diagnostics.md) i Azure-portalen, visas den virtuella datorn startas normalt och väntar på autentiseringsuppgifter i inloggningsskärmen. Du fjärrvisa händelseloggarna på den virtuella datorn med hjälp av Loggboken. Du ser att DHCP-klienttjänsten inte är igång eller inte går att starta. Följande ett exempel logga:
 
@@ -36,7 +36,7 @@ Du kan inte göra en RDP-anslutning en virtuell dator i Azure eftersom DHCP-klie
 **Händelse-ID**: 7022 </br>
 **Uppgift kategori**: ingen </br>
 **Nivå**: fel </br>
-**Nyckelord**: klassisk</br> 
+**Nyckelord**: klassisk</br>
 **Användaren**: ej tillämpligt </br>
 **Datorn**: myvm.cosotos.com</br>
 **Beskrivning av**: DHCP-klienten Avstannade vid start.</br>
@@ -49,12 +49,12 @@ För klassiska virtuella datorer behöver du arbetar i offlineläge och samlar i
 
 ## <a name="cause"></a>Orsak
 
-DHCP-klienttjänsten körs inte på den virtuella datorn. 
+DHCP-klienttjänsten körs inte på den virtuella datorn.
 
 > [!NOTE]
-> Den här artikeln gäller bara för DHCP-klienttjänsten och inte DHCP-servern. 
+> Den här artikeln gäller bara för DHCP-klienttjänsten och inte DHCP-servern.
 
-## <a name="solution"></a>Lösning 
+## <a name="solution"></a>Lösning
 
 Innan du följer dessa steg kan du ta en ögonblicksbild av OS-disken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
 
@@ -62,7 +62,7 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 
 ### <a name="use-serial-control"></a>Använda seriell kontroll
 
-1. Ansluta till [seriella konsolen och öppna CMD instans](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Ansluta till [seriella konsolen och öppna CMD instans](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Om Seriekonsolen inte är aktiverad på den virtuella datorn finns i [Återställ nätverksgränssnittet](reset-network-interface.md).
 2. Kontrollera om DHCP är inaktiverat i nätverksgränssnittet:
 
@@ -70,7 +70,7 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 3. Om DHCP är stoppad, försök att starta tjänsten
 
         sc start DHCP
-        
+
 4. Skicka frågor till tjänsten igen för att se till att tjänsten har startats.
 
         sc query DHCP
@@ -89,9 +89,9 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
     |1069 - ERROR_SERVICE_LOGON_FAILED   |  Se [DHCP-klienttjänsten misslyckas på grund av inloggningsfel](#dhcp-client-service-fails-because-of-logon-failure) |
     | 1070 - ERROR_SERVICE_START_HANG  | Se [DHCP-klienttjänsten kraschar eller låser sig](#dhcp-client-service-crashes-or-hangs).  |
     | 1077 - ERROR_SERVICE_NEVER_STARTED  | Se [DHCP-klienttjänsten inaktiveras](#dhcp-client-service-is-disabled).  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att snabbt lösa ditt problem.  | 
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att snabbt lösa ditt problem.  |
     |1053 | [Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att snabbt lösa ditt problem.  |
-    
+
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>DHCP-klienttjänsten har stoppats på grund av ett felmeddelande om nekad
 
@@ -99,18 +99,18 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 2. Hämta det Övervakare för processen genom att köra följande skript:
 
    ```
-   remove-module psreadline  
-   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
-   $destination = "c:\temp\ProcessMonitor.zip" 
-   $wc = New-Object System.Net.WebClient 
-   $wc.DownloadFile($source,$destination) 
+   remove-module psreadline
+   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
+   $destination = "c:\temp\ProcessMonitor.zip"
+   $wc = New-Object System.Net.WebClient
+   $wc.DownloadFile($source,$destination)
    ```
 3. Nu startar en **procmon** spårning:
 
    ```
-   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML
    ```
-4. Återskapa problemet genom att starta tjänsten som genererar den **åtkomst nekad** meddelande: 
+4. Återskapa problemet genom att starta tjänsten som genererar den **åtkomst nekad** meddelande:
 
    ```
    sc start DHCP
@@ -118,8 +118,8 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 
    När det inte avsluta spårningen Övervakare för processen:
 
-   ```   
-   procmon /Terminate 
+   ```
+   procmon /Terminate
    ```
 5. Samla in den **c:\temp\ProcMonTrace.PML** fil:
 
@@ -132,7 +132,7 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 
     ![Filtrera efter resultat i Övervakare för processen](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
-7. Åtgärda den registernycklar, mappar eller filer som finns på utdata. Det här problemet orsakas vanligtvis när den inloggning som används på tjänsten inte har ACL-behörighet att komma åt dessa objekt. För att fastställa rätt ACL-behörighet för kontot loggar in, kan du kontrollera en felfri virtuell dator. 
+7. Åtgärda den registernycklar, mappar eller filer som finns på utdata. Det här problemet orsakas vanligtvis när den inloggning som används på tjänsten inte har ACL-behörighet att komma åt dessa objekt. För att fastställa rätt ACL-behörighet för kontot loggar in, kan du kontrollera en felfri virtuell dator.
 
 #### <a name="dhcp-client-service-is-disabled"></a>DHCP-klienttjänsten är inaktiverad
 
@@ -158,7 +158,7 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 
 #### <a name="dhcp-client-service-fails-because-of-logon-failure"></a>DHCP-klienttjänsten misslyckas på grund av inloggningsfel
 
-1. Eftersom det här problemet uppstår om konto för tjänststart för den här tjänsten har ändrats, kan du återställa kontot som ska standardstatusen: 
+1. Eftersom det här problemet uppstår om konto för tjänststart för den här tjänsten har ändrats, kan du återställa kontot som ska standardstatusen:
 
         sc config DHCP obj= 'NT Authority\Localservice'
 2. Starta tjänsten:
@@ -167,7 +167,7 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 3. Försök att ansluta till den virtuella datorn med hjälp av fjärrskrivbord.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP-klienttjänsten kraschar eller låser sig
-1. Om status för tjänsten har fastnat i den **startar** eller **stoppar** tillstånd, försök att stoppa tjänsten: 
+1. Om status för tjänsten har fastnat i den **startar** eller **stoppar** tillstånd, försök att stoppa tjänsten:
 
         sc stop DHCP
 2. Isolera tjänsten på sin egen 'svchost ”-behållaren:
@@ -184,12 +184,12 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 
 1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
 2. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn. Se till att den anslutna disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
-3.  Öppna en upphöjd kommandotolk-instans (**kör som administratör**). Kör sedan följande skript. Det här skriptet förutsätter att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är **F**. Ersätt bokstaven efter behov med värdet i den virtuella datorn. 
+3.  Öppna en upphöjd kommandotolk-instans (**kör som administratör**). Kör sedan följande skript. Det här skriptet förutsätter att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är **F**. Ersätt bokstaven efter behov med värdet i den virtuella datorn.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM
 
-    REM Set default values back on the broken service 
+    REM Set default values back on the broken service
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v start /t REG_DWORD /d 2 /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v ObjectName /t REG_SZ /d "NT Authority\LocalService" /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v type /t REG_DWORD /d 16 /f

@@ -1,6 +1,6 @@
 ---
-title: Exempeldata i SQLServer på Azure | Microsoft Docs
-description: Exempeldata i SQLServer på Azure
+title: Exempeldata i SQLServer på Azure - Team Data Science Process
+description: Exempeldata lagras i SQL Server på Azure med SQL- eller Python-programmeringsspråket och flytta den till Azure Machine Learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1520e683fdd4ab2f2731f5eb0d3a1a30fed81723
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: fec649706be1b3db01a5c6cbc8f395e8c7e1a4d2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833490"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134343"
 ---
 # <a name="heading"></a>Exempeldata i SQL Server på Azure
 

@@ -1,24 +1,26 @@
 ---
-title: Skapa en offentlig Load Balancer Standard med zonredundant offentlig IP-adress klientdel med hjälp av Azure portal | Microsoft Docs
-description: Lär dig hur du skapar en offentlig Load Balancer Standard med zonredundant offentlig IP-adress klientdel med Azure portal
+title: Skapa en Standardbelastningsutjämnare med zonredundant klientdel med hjälp av Azure portal
+titlesuffix: Azure Load Balancer
+description: Lär dig hur du skapar en offentlig Standard Load Balancer med zonredundant offentlig IP-adress klientdel med Azure portal
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 70514433d11bbe7606d75a3e2c1f6dffc251621f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740951"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135703"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Skapa en offentlig Load Balancer Standard med zonredundant offentlig IP-adress klientdel med hjälp av Azure portal
+#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Skapa en offentlig Standard Load Balancer med zonredundant klientdel med hjälp av Azure portal
 
 Den här artikeln visar hur du skapar en offentlig [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) med en zonredundant klientdel som använder en offentlig IP-Standard-adress. En enda frontend-IP-adress på en Standard Load Balancer är zonredundant som standard.
 

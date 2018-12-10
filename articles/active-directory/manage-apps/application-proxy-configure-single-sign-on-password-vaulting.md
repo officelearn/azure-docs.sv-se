@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 8cdb5b89bf43d3265f3f9c73d29708f11e17b21c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ae7cff42a9b744409fa454199155796c8c06713
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624037"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138974"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Lösenord vaulting för enkel inloggning med programproxy
 
@@ -26,7 +26,7 @@ Azure Active Directory Application Proxy kan du förbättra produktiviteten geno
 
 Programproxyn har stöd för flera [enkel inloggning lägen](what-is-single-sign-on.md#choosing-a-single-sign-on-method). Lösenordsbaserad inloggning är avsedd för program som använder en kombination av användarnamn/lösenord för autentisering. När du konfigurerar lösenordsbaserad inloggning för ditt program kan måste användarna logga in på dina lokala program en gång. Efter det Azure Active Directory lagrar inloggningsinformation och tillhandahåller det automatiskt till programmet när dina användare få fjärråtkomst till den. 
 
-Du bör redan har publicerats och testas din app med Application Proxy. Om inte, följer du stegen i [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md) Kom sedan tillbaka hit. 
+Du bör redan har publicerats och testas din app med Application Proxy. Om inte, följer du stegen i [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md) Kom sedan tillbaka hit. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Konfigurera lösenord vaulting för ditt program
 

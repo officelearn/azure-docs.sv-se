@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445966"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134982"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-anslutningar
 
@@ -47,7 +47,7 @@ Windows server måste ha aktiverats innan du installerar Application Proxy conne
 2. Starta om servern
 
 
-Mer information om nätverkskrav connector-server finns i [Kom igång med Application Proxy och installera ett anslutningsprogram](application-proxy-enable.md).
+Mer information om nätverkskrav connector-server finns i [Kom igång med Application Proxy och installera ett anslutningsprogram](application-proxy-add-on-premises-application.md).
 
 ## <a name="maintenance"></a>Underhåll
 Kopplingar och tjänsten tar hand om alla aktiviteter för hög tillgänglighet. De kan läggas till eller tas bort dynamiskt. Varje gång en ny begäran kommer dirigeras till en av de kopplingar som finns för närvarande. Om en anslutning inte är tillgänglig, kan de inte svara på den här trafiken.
@@ -64,7 +64,7 @@ Du har inte manuellt ta bort kopplingar som inte används. När en koppling är 
 
 ## <a name="automatic-updates"></a>Automatiska uppdateringar
 
-Azure AD tillhandahåller automatiska uppdateringar för alla kopplingar som du distribuerar. Så länge Application Proxy Connector Updater-tjänsten körs, uppdatera dina anslutningsappar automatiskt. Om du inte ser Connector Updater-tjänsten på servern, måste du [installera om din anslutningsapp](application-proxy-enable.md) att hämta uppdateringar. 
+Azure AD tillhandahåller automatiska uppdateringar för alla kopplingar som du distribuerar. Så länge Application Proxy Connector Updater-tjänsten körs, uppdatera dina anslutningsappar automatiskt. Om du inte ser Connector Updater-tjänsten på servern, måste du [installera om din anslutningsapp](application-proxy-add-on-premises-application.md) att hämta uppdateringar. 
 
 Om du inte vill vänta tills en automatisk uppdatering att komma till din anslutning, kan du utföra en manuell uppgradering. Gå till den [connector hämtningssidan](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) på servern där din anslutningsapp är placerad och välj **hämta**. Den här processen startar en uppgradering för den lokala anslutningen. 
 
@@ -136,7 +136,7 @@ Kopplingar kan också anslutas till domäner eller skogar som har ett partiellt 
 
 Vanligtvis connector distribution är enkelt och kräver ingen särskild konfiguration. Det finns dock vissa unika villkor som du bör överväga:
 
-* Organisationer som begränsar den utgående trafiken måste [öppna portar som krävs](application-proxy-enable.md#open-your-ports).
+* Organisationer som begränsar den utgående trafiken måste [öppna portar som krävs](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 * FIPS-kompatibla datorer kan krävas för att ändra konfigurationen för att tillåta connector-processer för att generera och lagra ett certifikat.
 * Organisationer som låsa sin miljö, baserat på de processer som utfärdar de nätverk som har att se till att båda kopplingstjänsterna är aktiverade för åtkomst till alla nödvändiga portar och IP-adresser.
 * I vissa fall kan utgående vidarebefordra proxyservrar bryta dubbelriktat certifikatautentisering och orsaka kommunikationen misslyckas.

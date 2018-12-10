@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584106"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141517"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub information om priser
 
@@ -35,6 +35,7 @@ ms.locfileid: "47584106"
 | Enheten och modulen twin frågor | Frågor debiteras som meddelanden beroende på resultatstorlek i 512 byte-segment. |
 | Jobbåtgärder <br/> (skapa, uppdatera, visa, ta bort) | Inte debiteras. |
 | Jobbåtgärder per enhet | Jobbåtgärder (t.ex uppdateringar för enhetstvilling och metoder) debiteras som vanligt. Ett jobb som lett till 1000 metodanrop med 1 KB begäranden och svar med tom brödtext debiteras till exempel 1000 meddelanden. |
+| Keep-alive-meddelanden | När du använder AMQP- eller MQTT-protokoll, debiteras inte meddelanden som utbyts för att upprätta anslutningen och meddelanden som utbyts i förhandlingen. |
 
 > [!NOTE]
 > Alla storlekar beräknas överväger Nyttolaststorlek i byte (protokollet synkroniseringstecken ignoreras). För meddelanden som har egenskaper och brödtext, beräknas storleken på ett protokoll-oberoende sätt. Mer information finns i [IoT Hub-meddelandeformat](iot-hub-devguide-messages-construct.md).

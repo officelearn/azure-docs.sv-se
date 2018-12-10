@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: fe564e9809a3621ca04e4dad75488fb255f7dc0e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5e18a4690eacaaeaa4422379fc8a4e3d2a02e717
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682953"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134173"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -40,7 +40,7 @@ Här följer några av de saker som du kan göra med diagnostikloggar:
 
 * Sparar dem till en [ **Lagringskonto** ](monitoring-archive-diagnostic-logs.md) för granskning eller manuell granskning. Du kan ange kvarhållning tid (i dagar) med **resursdiagnostikinställningar**.
 * [Stream att **Händelsehubbar** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) för inmatning av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
-* Analysera dem med [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
+* Analysera dem med [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md), där data skrivs direkt till Log Analytics och behöver inte först skriva data till lagring.  
 
 Du kan använda ett lagringskonto eller Event Hubs-namnområde som inte är i samma prenumeration som det genererar loggar. Den användare som konfigurerar inställningen måste ha lämplig RBAC-åtkomst till båda prenumerationerna.
 
@@ -63,7 +63,7 @@ Resursdiagnostikloggar är konfigurerade med resursdiagnostikinställningar. Kli
     - Om principerna för kvarhållning har angetts men lagra loggar i ett Lagringskonto är inaktiverad (till exempel om det bara Event Hubs eller Log Analytics-alternativen är markerade), påverkar principerna för kvarhållning inte.
     - Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto.
 
-Dessa inställningar konfigureras enkelt via diagnostikinställningar i portalen, Azure PowerShell och CLI-kommandon, eller via den [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
+Dessa inställningar konfigureras enkelt från diagnostikinställningar i portalen, med Azure PowerShell och CLI-kommandon eller med hjälp av den [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.

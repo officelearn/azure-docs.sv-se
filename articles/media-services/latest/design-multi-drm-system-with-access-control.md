@@ -1,6 +1,6 @@
 ---
-title: Designen av ett system med multi-DRM innehållsskydd med cccess kontroll med Azure Media Services | Microsoft Docs
-description: Läs mer om hur du licensierar Microsoft Smooth Streaming-klienten porta Kit.
+title: Designen av ett system med multi-DRM innehållsskydd med fjärråtkomst - kontroll i Azure Media Services | Microsoft Docs
+description: Läs mer om licensiering av Microsoft Smooth Streaming-klienten porta Kit.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: willzhan
-ms.openlocfilehash: d65007ed2a0ce5a827eadca31dd9df8704e2c905
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.custom: seodec18
+ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958201"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136281"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Designen av ett system med multi-DRM innehållsskydd med åtkomstkontroll 
 
@@ -401,15 +402,15 @@ De följande skärmbilderna visar olika inloggningssidorna används av olika dom
 
 **Anpassad Azure AD-klient domänkonto**: den anpassade inloggningssidan av anpassade Azure AD-klient domän.
 
-![Domänkonto för anpassat Azure AD-klient](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![Domänkonto för anpassat Azure AD-klient en](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
 **Microsoft domänkonto med smartkort**: inloggningssidan genom Microsoft företagets IT med tvåfaktorsautentisering.
 
-![Domänkonto för anpassat Azure AD-klient](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![Anpassat Azure AD-klient domänkonto två](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft-konto**: inloggningssidan för Microsoft-konto för konsumenter.
 
-![Domänkonto för anpassat Azure AD-klient](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![Anpassat Azure AD-klient domänkonto tre](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="use-encrypted-media-extensions-for-playready"></a>Använda krypterade Media-tilläggen för PlayReady
 PlayReady finns på en modern webbläsare med tillägg EME (Encrypted Media) för PlayReady-support, till exempel Internet Explorer 11 på Windows 8.1 eller senare och Microsoft Edge-webbläsaren på Windows 10, den underliggande DRM för EME.

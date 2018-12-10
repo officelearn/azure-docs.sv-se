@@ -1,6 +1,6 @@
 ---
-title: Bearbeta Azure-blobbdata med avancerade analyser | Microsoft Docs
-description: Bearbeta Data i Azure Blob storage.
+title: Bearbeta Azure-blobbdata med avancerade analyser – Team Data Science Process
+description: Utforska data och skapa funktioner från data som lagras i Azure Blob storage med hjälp av avancerad analys.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442394"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140556"
 ---
 # <a name="heading"></a>Bearbeta Azure-blobbdata med avancerade analyser
 Det här dokumentet beskriver utforska data och skapar funktioner från data lagrade i Azure Blob storage. 

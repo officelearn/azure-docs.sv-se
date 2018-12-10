@@ -1,21 +1,21 @@
 ---
-title: Konfigurera globala räckvidd som Azure ExpressRoute | Microsoft Docs
+title: 'Konfigurera Global räckvidd - ExpressRoute: Azure | Microsoft Docs'
 description: Den här artikeln hjälper dig att länka ExpressRoute-kretsar tillsammans för att göra ett privat nätverk mellan ditt lokala nätverk och aktivera Global räckvidd.
-documentationcenter: na
 services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mialdrid
-ms.openlocfilehash: 67fbf9dc430d615efe3ef894add1a26bbce792bc
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: dca2001fda7658b422bbceb14612dec1f7be6cd2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237986"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140905"
 ---
-# <a name="configure-expressroute-global-reach-preview"></a>Konfigurera ExpressRoute med Global räckvidd (förhandsversion)
+# <a name="configure-expressroute-global-reach-preview"></a>Konfigurera ExpressRoute Global räckvidd (förhandsversion)
 Den här artikeln hjälper dig att konfigurera ExpressRoute Global räckvidd med hjälp av PowerShell. Mer information finns i [ExpressRouteRoute Global räckvidd](expressroute-global-reach.md).
  
 ## <a name="before-you-begin"></a>Innan du börjar

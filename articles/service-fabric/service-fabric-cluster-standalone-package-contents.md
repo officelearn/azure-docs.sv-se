@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a34ad340463faf0cdccdb7fa8b87283de60b4cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253349"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141619"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Innehåll i Service Fabric fristående paketet för Windows Server
 I den [ned](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric fristående paketet, hittar du följande filer:
@@ -40,6 +40,7 @@ I den [ned](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric frist
 | Tools\ServiceFabricUpdateService.zip |Ett verktyg som används för att aktivera automatisk koduppgradering för kluster som inte har Internetåtkomst. Mer information finns [här](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Mallar** 
+
 | **Filnamn** | **Kort beskrivning** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |En kluster-exemplet konfigurationsfil som innehåller inställningar för ett oskyddat, tre noder, enkel dator (eller virtuell dator) utvecklingskluster, inklusive information för varje nod i klustret. |

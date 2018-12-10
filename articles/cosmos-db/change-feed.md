@@ -2,16 +2,17 @@
 title: Arbeta med stöd för ändringsflödet i Azure Cosmos DB
 description: Använd feed support för Azure Cosmos DB-ändring för att spåra ändringar i dokument och utföra händelsebaserade bearbetning som utlösare och uppdatera cacheminnen- och analyssystem kontinuerligt.
 author: rafats
+ms.author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-ms.openlocfilehash: dfb0048b29c5d63a2eee4c239e17ef222aad331e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837468"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133765"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Ändringsflödet i Azure Cosmos DB
 
@@ -82,7 +83,7 @@ Till exempel med ändringsflödet utföra du följande uppgifter effektivt:
 
 Här följer några scenarier som du enkelt kan implementera med ändringsfeed:
 
-* I din [serverlös](http://azure.com/serverless) webb- eller mobilappar, kan du spåra händelser, t.ex alla ändringar till din kunds profil, inställningar eller deras plats och aktivera vissa åtgärder, till exempel skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](#azure-functions). 
+* I din [serverlös](https://azure.microsoft.com/en-us/solutions/serverless/) webb- eller mobilappar, kan du spåra händelser, t.ex alla ändringar till din kunds profil, inställningar eller deras plats och aktivera vissa åtgärder, till exempel skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](change-feed-functions.md).
 
 * Om du använder Azure Cosmos DB för att skapa ett spel, kan du, till exempel använda ändringsflödet att implementera i realtid rankningslistor baserat på poäng från färdiga spel.
 

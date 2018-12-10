@@ -1,5 +1,5 @@
 ---
-title: Distribuera modeller i produktion – Azure Machine Learning | Microsoft Docs
+title: Distribuera modeller i produktion - Team Data Science Process
 description: Så här distribuerar modeller till produktion så att de kan spela upp en aktiv roll i att göra affärsbeslut.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5b1614f92f7633e008f4f7176723002dc7730b15
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 35f9f369e752fa7c86a6bd295a79b79b23104d23
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495985"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137879"
 ---
-# <a name="deploy-models-in-production"></a>Distribuera modeller i produktion
+# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Distribuera modeller till produktion för att spela upp en aktiv roll i att göra affärsbeslut
 
 Produktionsdistribution gör det möjligt för en modell att spela upp en aktiv roll i ett företag. Förutsägelser från en distribuerad modell kan användas för bättre affärsbeslut.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2ebcf225fb0959b5c72c3cea50f2f1386beb1457
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6354b4b0224effb1eef063779dba736cb6263286
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357455"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141636"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Programsidan visas inte korrekt för ett Application Proxy-program
 
@@ -39,4 +39,4 @@ Om det inte går att publicera alla resurser i samma program, måste du publicer
 Om du vill göra det, bör du använda den [anpassade domäner](application-proxy-configure-custom-domain.md) lösning. Den här lösningen kräver dock att du äger certifikatet för din domän och dina program använder fullständigt kvalificerade domännamn (FQDN). Andra alternativ finns i den [felsöka brutna länkar dokumentation](application-proxy-page-links-broken-problem.md).
 
 ## <a name="next-steps"></a>Nästa steg
-[Publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md)
+[Publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md)

@@ -2,21 +2,20 @@
 title: Azure Cosmos DB-bindningar för Functions 1.x
 description: Förstå hur du använder Azure Cosmos DB-utlösare och bindningar i Azure Functions.
 services: functions
-documentationcenter: na
 author: craigshoemaker
+ms.author: cshoe
 manager: jeconnoc
 keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
 ms.service: azure-functions; cosmos-db
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: cshoe
-ms.openlocfilehash: 43020784e57f1555de1ddedab8fe7a657ecf09f3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 2a501129720447462d1e6e961597b51fa683dc1e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001692"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136213"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB-bindningar för Azure Functions 1.x
 
@@ -895,7 +894,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 Det här avsnittet innehåller följande exempel:
 
-* [Köutlösare, leta upp ID från JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Köutlösare, leta upp ID från JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP-utlösare, leta upp ID från frågesträng](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP-utlösare, leta upp ID från dirigera data](#http-trigger-look-up-id-from-route-data-javascript)
 * [Kö utlösaren, hämta flera, med hjälp av SQL-fråga](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1177,7 +1176,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 I C# och F# funktion, när funktionen avslutas, ändringar som görs till dokumentet via namngivna indata parametrar sparas automatiskt. 
 
-I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Se den [JavaScript exempel](#input---javascript-example).
+I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Se den [JavaScript exempel](#input---javascript-examples).
 
 ## <a name="output"></a>Resultat
 
@@ -1571,7 +1570,7 @@ Attributets konstruktorn tar databasens namn och samlingens namn. Information om
     }
 ```
 
-Ett komplett exempel finns i [resultat – C#-exempel](#output---c-example).
+Ett komplett exempel finns i [resultat – C#-exempel](#output---c-examples).
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 

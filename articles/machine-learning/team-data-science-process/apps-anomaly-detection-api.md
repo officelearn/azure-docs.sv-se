@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning-Avvikelseidentifiering API | Microsoft Docs
+title: Azure Machine Learning-Avvikelseidentifiering API - Team Data Science Process
 description: 'API: T för avvikelseidentifiering är ett exempel som skapats med Microsoft Azure Machine Learning som identifierar avvikelser i tidsseriedata med numeriska värden som är jämnt fördelade i tid.'
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
-ms.custom: (previous author=alokkirpal, ms.author=alok)
-ms.openlocfilehash: 485cf6af9f019bc43ee862627db8549240690247
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
+ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443941"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134802"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning-Avvikelseidentifiering API
 ## <a name="overview"></a>Översikt
@@ -37,9 +37,9 @@ Avvikelseidentifiering erbjudandet kommer med bra verktyg för att komma igång.
 > [!NOTE]
 > Försök **insikter för IT-avvikelser lösning** drivs av [detta API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
 > 
-> Att hämta den här lösningen för slutpunkt till slutpunkt som distribueras till din Azure-prenumeration <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **börja här >**</a>
-> 
->
+<!-- This Solution is no longer available
+> To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
+--> 
 
 ## <a name="api-deployment"></a>API-distribution
 Om du vill använda API: et, måste du distribuera den till din Azure-prenumeration där det ska finnas som en Azure Machine Learning-webbtjänst.  Du kan göra detta från den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Det innebär distribueras två AzureML-webbtjänster (och deras relaterade resurser) till din Azure-prenumeration – en för avvikelseidentifiering med säsongsberoende identifiering och en utan säsongsberoende identifiering.  När distributionen är klar kommer du att kunna hantera dina API: er från den [AzureML-webbtjänster](https://services.azureml.net/webservices/) sidan.  Från den här sidan kommer du att kunna hitta dina slutpunkter, API-nycklar, samt exempelkod för att anropa API: et.  Mer detaljerade instruktioner finns [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).

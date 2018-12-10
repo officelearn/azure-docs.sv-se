@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 388fd812185bc8bd2ef68a1dbcea6303d30dcdf3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2afe75045444fbc0ca36ee1cfca3d96f5b218ab0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230802"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135499"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD Application Proxy
 
@@ -49,7 +49,7 @@ I en RDS-distribution köra RD Web-roll och rollen för fjärrskrivbordsgateway 
 
 - Både webbåtkomst och fjärrskrivbordsgateway slutpunkter måste finnas på samma dator, och med rot. Webbåtkomst och fjärrskrivbordsgateway publiceras som ett enda program med programproxy så att du kan ha en enkel inloggning mellan de två programmen.
 
-- Du bör redan ha [distribueras Fjärrskrivbordstjänster](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), och [aktiverat programproxyn](application-proxy-enable.md).
+- Du bör redan ha [distribueras Fjärrskrivbordstjänster](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), och [aktiverat programproxyn](application-proxy-add-on-premises-application.md).
 
 - Det här scenariot förutsätter att slutanvändarna går via Internet Explorer på Windows 7 eller Windows 10-datorer som ansluter via sidan webbåtkomst. Om du behöver stöd för andra operativsystem, se [stöd för andra klientkonfigurationer](#support-for-other-client-configurations).
 
@@ -63,7 +63,7 @@ När du har installerat RDS och Azure AD-programproxy för din miljö, följer d
 
 ### <a name="publish-the-rd-host-endpoint"></a>Publicera slutpunkten för RD-värd
 
-1. [Publicera ett nytt Application Proxy-program](application-proxy-publish-azure-portal.md) med följande värden:
+1. [Publicera ett nytt Application Proxy-program](application-proxy-add-on-premises-application.md) med följande värden:
    - Intern URL: `https://\<rdhost\>.com/`, där `\<rdhost\>` är vanliga roten som webbåtkomst och fjärrskrivbordsgateway delar.
    - Externa URL: en: Det här fältet fylls i automatiskt baserat på namnet på programmet, men du kan ändra den. Användarna kommer att gå till denna URL när de ansluter till Fjärrskrivbordstjänster.
    - Förautentiseringsmetoden: Azure Active Directory

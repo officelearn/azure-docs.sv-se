@@ -1,5 +1,5 @@
 ---
-title: Identifiera scenarier och planera din analytics-process - Azure | Microsoft Docs
+title: Identifiera scenarier och planera analytics-process - Team Data Science Process
 description: Identifiera scenarier och planerar för avancerade analyser vid databearbetning genom att fundera över ett antal viktiga frågor.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
-ms.openlocfilehash: feea90b20bac1bce9924731119fab6e3fab04450
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105912"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138049"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Så här identifierar du scenarier och planerar för avancerade analyser vid databearbetning
 Vilka resurser bör du planera att inkludera när du konfigurerar en miljö för att göra avancerade analyser på en datauppsättning? Den här artikeln tyder på ett antal frågor som hjälper dig att identifiera aktiviteter och resurser som är relevanta ditt scenario. Anvisningar för förutsägande analyser beskrivs i [vad är Team Data Science Process (TDSP)?](overview.md). Var och en av de här stegen kräver specifika resurser för uppgifterna som är relevanta för din specifika scenario. Viktiga frågor för att identifiera ditt scenario avse datalogistik, egenskaper, kvaliteten på datauppsättningar, och de verktyg och språk du föredrar att göra analysen.

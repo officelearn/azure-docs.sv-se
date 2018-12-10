@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: dc89eadfc0038d74ced431693c321944a7ee3a12
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a524c773b0f4f6d3dc14830d4c3200512f8b287c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834374"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140922"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -184,15 +184,15 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
 
 
  - **Lösning**
-  1.    Mobilitetstjänstagenten identifierar proxyinställningar från Internet Explorer på Windows och /etc/environment i Linux.
-  2.  Om du föredrar att ställa in proxy endast för ASR-Mobilitetstjänsten kan ange du proxyinformationen i ProxyInfo.conf som finns på:</br>
-      - ``/usr/local/InMage/config/`` på ***Linux***
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` på ***Windows***
-  3.    ProxyInfo.conf ska ha rätt proxyinställningar har följande INI-format. </br>
+   1.   Mobilitetstjänstagenten identifierar proxyinställningar från Internet Explorer på Windows och /etc/environment i Linux.
+   2.  Om du föredrar att ställa in proxy endast för ASR-Mobilitetstjänsten kan ange du proxyinformationen i ProxyInfo.conf som finns på:</br>
+       - ``/usr/local/InMage/config/`` på ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` på ***Windows***
+   3.   ProxyInfo.conf ska ha rätt proxyinställningar har följande INI-format. </br>
                    *[proxy]*</br>
                    *Adress =http://1.2.3.4*</br>
                    *Port = 567*</br>
-  4. ASR mobilitetstjänstagenten stöder endast ***oautentiserade proxyservrar***.
+   4. ASR mobilitetstjänstagenten stöder endast ***oautentiserade proxyservrar***.
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](site-recovery-azure-to-azure-networking-guidance.md).

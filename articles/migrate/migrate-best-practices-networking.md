@@ -7,19 +7,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 3142cabf28dd60fa49bed4cc153eaba096a2782e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109941"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139756"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Bästa praxis för att konfigurera nätverk för arbetsbelastningar migreras till Azure
 
-Som du planerar och utformar för migrering, förutom att tänka på migreringen, är en av de viktigaste stegen design och implementering av Azure-nätverk. Den här artikeln beskriver planeringsinformation och bästa praxis för nätverk när du migrerar till IaaS och PaaS-implementeringar i Azure.
+Som du planerar och utformar för migrering, förutom migrering, är en av de viktigaste stegen design och implementering av Azure-nätverk. Den här artikeln beskriver Metodtips för nätverk när du migrerar till IaaS och PaaS-implementeringar i Azure.
 
 > [!IMPORTANT]
-> Bästa praxis och yttranden som beskrivs i den här artikeln baseras på Azure-plattformen och bearbeta funktioner som är tillgängliga vid tidpunkten för skrivning. Funktioner och möjligheter ändras med tiden. Inte alla rekommendationer som kan tillämpas för din distribution, så Välj dem som passar din miljö.
+> Bästa praxis och yttranden som beskrivs i den här artikeln baseras på Azure-plattformen och bearbeta funktioner som är tillgängliga vid tidpunkten för skrivning. Funktioner och möjligheter ändras med tiden. Inte alla rekommendationer som kan tillämpas för din distribution, så Välj dem som fungerar för dig.
 
 
 ## <a name="design-virtual-networks"></a>Utforma virtuella nätverk

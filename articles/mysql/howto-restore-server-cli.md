@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: f48bab5cec1e8c3836ab5044fbff1a843ede249b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f4e7a911e98ea09376b4b6ac56e9441fe98e426
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978393"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135200"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Hur du säkerhetskopierar och återställer en server i Azure Database for MySQL med Azure CLI
 
@@ -71,9 +71,10 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 Den `az mysql server restore` kommandot kräver följande parametrar:
-| Inställning | Föreslaget värde | Beskrivning  |
+
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
+| resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
 | namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Markera en punkt i tiden att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601-format för datum och tid. Exempelvis kan du använda din egen lokala tidszon som `2018-03-13T05:59:00-08:00`. Du kan också använda UTC Zulu-formatet, till exempel `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
@@ -108,13 +109,14 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 ```
 
 Den `az mysql server georestore` kommandot requies följande parametrar:
-| Inställning | Föreslaget värde | Beskrivning  |
+
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på resursgruppen som den nya servern ska tillhöra.|
 |namn | mydemoserver georestored | Namnet på den nya servern. |
 |source-server | mydemoserver | Namnet på den befintliga servern vars geo-redundanta säkerhetskopieringar används. |
 |location | usaöstra | Platsen för den nya servern. |
-|SKU-namn| GP_Gen4_8 | Den här parametern anger prisnivå nivå, compute-generering och antal virtuella kärnor för den nya servern. GP_Gen4_8 mappas till en generell användning, generation 4-server med 8 vCores.|
+|sku-name| GP_Gen4_8 | Den här parametern anger prisnivå nivå, compute-generering och antal virtuella kärnor för den nya servern. GP_Gen4_8 mappas till en generell användning, generation 4-server med 8 vCores.|
 
 
 >[!Important]

@@ -1,5 +1,5 @@
 ---
-title: Funktionstekniker i datavetenskap | Microsoft Docs
+title: Funktionstekniker i datavetenskap - Team Data Science Process
 description: Förklarar syftet funktionsframställning och innehåller exempel på dess roll i processen för data förbättring av machine learning.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 80e925fddf1aebd9f699ee8e22b96cc496faeba6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5767399189e4ed5168fbcc083ef9b4830cac1421
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446683"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138984"
 ---
 # <a name="feature-engineering-in-data-science"></a>Funktionstekniker i datavetenskap
 Den här artikeln förklarar syftet funktionsframställning och innehåller exempel på dess roll i processen för data förbättring av machine learning. I exemplen som används för att illustrera denna process hämtas från Azure Machine Learning Studio. 

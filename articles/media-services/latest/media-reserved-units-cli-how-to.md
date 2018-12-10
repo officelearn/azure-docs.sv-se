@@ -1,6 +1,6 @@
 ---
-title: Skala Media reserverade enheter – Azure | Microsoft Docs
-description: Det här avsnittet är en översikt över skalning bearbetning av Media med Azure Media Services.
+title: Använd CLI för att skala Mediereserverade enheter – Azure | Microsoft Docs
+description: Det här avsnittet visar hur du använder CLI för att skala mediebearbetning med Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: dd587e5fc2082d1e496fbc05d5b25cf6692413bc
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: 2b10de83e00b3668f70461f76634c560bcbea1a4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713069"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133799"
 ---
 # <a name="scaling-media-processing"></a>Skala mediebearbetning
 
@@ -31,9 +32,9 @@ Den här artikeln visar hur du använder [Media Services v3 CLI](https://aka.ms/
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-- Installera och använda CLI lokalt kan du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+- Installera och använd CLI lokalt – du måste ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
-    För närvarande inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) kommandona fungerar i Azure Cloud Shell. Det rekommenderas att använda CLI lokalt.
+    För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 

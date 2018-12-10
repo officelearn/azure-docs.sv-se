@@ -15,12 +15,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 638ae4c779af3bebb68622ccee6932618d42e4f0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8c876f220cde99bbeb3b5d9f8f8878acb5584802
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057218"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140055"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Jokertecken-program i Azure Active Directory-programproxyn 
 
@@ -49,7 +49,7 @@ Till exempel: `http(s)://*.adventure-works.com`. De interna och externa URL: er 
 
 Om du har ytterligare program med olika konfigurationsinställningar, måste du publicera de här undantagen som separata program att skriva över standardinställningar för jokertecknet. Program utan jokertecken alltid företräde framför jokertecken-program. Det här är ”” vanliga program ur konfiguration.
 
-Skapar ett jokertecken-program är baserad på samma [publishing programflödet](application-proxy-publish-azure-portal.md) som är tillgänglig för alla andra program. Den enda skillnaden är att du inkluderar ett jokertecken i URL: er och potentiellt SSO-konfiguration.
+Skapar ett jokertecken-program är baserad på samma [publishing programflödet](application-proxy-add-on-premises-application.md) som är tillgänglig för alla andra program. Den enda skillnaden är att du inkluderar ett jokertecken i URL: er och potentiellt SSO-konfiguration.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -137,7 +137,7 @@ Alla tre program:
 - Har samma egenskaper
 
 
-Du kan publicera med jokertecken-program genom att följa stegen i [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md). Det här scenariot förutsätter:
+Du kan publicera med jokertecken-program genom att följa stegen i [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md). Det här scenariot förutsätter:
 
 - En klient med följande ID: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -145,7 +145,7 @@ Du kan publicera med jokertecken-program genom att följa stegen i [publicera pr
 
 - En **CNAME** post som pekar `*.adventure-works.com` till `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` har skapats.
 
-Efter den [beskrivs stegen](application-proxy-publish-azure-portal.md), du skapar ett nytt application proxy-program i din klient. I det här exemplet är jokertecknet i följande fält:
+Efter den [beskrivs stegen](application-proxy-add-on-premises-application.md), du skapar ett nytt application proxy-program i din klient. I det här exemplet är jokertecknet i följande fält:
 
 - Intern URL:
 
@@ -184,7 +184,7 @@ I det här scenariot behöver du dessutom tre Allmänt program ett annat program
 
 Du måste se till att det finns en CNAME-poster som pekar `finance.adventure-works.com` till den specifika programslutpunkten, anges på sidan Application Proxy för programmet. Det här scenariot `finance.adventure-works.com` pekar på `https://finance-awcycles.msappproxy.net/`. 
 
-Efter den [beskrivs stegen](application-proxy-publish-azure-portal.md), det här scenariot kräver följande inställningar:
+Efter den [beskrivs stegen](application-proxy-add-on-premises-application.md), det här scenariot kräver följande inställningar:
 
 
 - I den **interna URL: en**, du ställer in **ekonomi** i stället för ett jokertecken. 
@@ -215,6 +215,6 @@ Mer information om:
 
 - **Anpassade domäner**, se [arbeta med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
-- **Publicera program**, se [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md)
+- **Publicera program**, se [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md)
 
 

@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 45df284d29ea2d5eb799697b22deeab03cb66622
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ece07d2be605f51e08274649f3ea15e3bbba472
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956685"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134904"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure Database for MySQL-Server från en specifik IP-adress eller ett intervall med IP-adresser. Med praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure Database för MySQL-brandväggar, se [Azure Database for MySQL-serverbrandväggsregler](./concepts-firewall-rules.md)
@@ -38,9 +38,9 @@ Kommandon:
 På ett säkert sätt ansluta Azure CLI med Azure-kontot med hjälp av den **az-inloggning** kommando.
 
 1. Kör följande kommando på kommandoraden:
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 Detta kommando visar en kod som ska användas i nästa steg.
 
 2. Använd en webbläsare för att öppna sidan [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin), och ange koden.
@@ -48,21 +48,21 @@ Detta kommando visar en kod som ska användas i nästa steg.
 3. Logga in med dina autentiseringsuppgifter för Azure när du ombeds göra det.
 
 4. När din inloggning har behörighet, skrivs en lista över prenumerationer i konsolen. Kopiera ID för den önskade prenumerationen för att ställa in den aktuella prenumerationen du använder. Använd den [az-kontogrupper](/cli/azure/account#az-account-set) kommando.
-   ```azurecli-interactive
-   az account set --subscription <your subscription id>
-   ```
+    ```azurecli-interactive
+    az account set --subscription <your subscription id>
+    ```
 
 5. Lista över Azure-databaser för MySQL-servrar för din prenumeration och resursgrupp grupp om du är osäker på namnen. Använd den [az mysql server list](/cli/azure/mysql/server#az-mysql-server-list) kommando.
 
-   ```azurecli-interactive
-   az mysql server list --resource-group myresourcegroup
-   ```
+    ```azurecli-interactive
+    az mysql server list --resource-group myresourcegroup
+    ```
 
    Observera det attributet i en lista som du måste ange MySQL-server för att arbeta med. Om det behövs, bekräfta informationen för den här servern och med attributet för att kontrollera att den är korrekt. Använd den [az mysql server show](/cli/azure/mysql/server#az-mysql-server-show) kommando.
 
-   ```azurecli-interactive
-   az mysql server show --resource-group myresourcegroup --name mydemoserver
-   ```
+    ```azurecli-interactive
+    az mysql server show --resource-group myresourcegroup --name mydemoserver
+    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Lista brandväggsregler på Azure Database for MySQL-Server 
 Med hjälp av namnet på servern och resursgruppens namn, en lista över de befintliga brandväggsreglerna för server på servern. Använd den [az mysql server firewall lista](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list) kommando.  Lägg märke till att attributet server name har angetts i den **--server** växla och inte i den **--name** växla. 

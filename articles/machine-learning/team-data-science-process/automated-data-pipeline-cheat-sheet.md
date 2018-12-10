@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning automatiserad facit för data-pipeline | Microsoft Docs
+title: Azure Machine Learning data pipeline facit - Team Data Science Process
 description: En utskrivbar fusklapp som visar hur du ställer in en automatiserad datapipeline till din Azure Machine Learning-webbtjänst om dina data är på plats, strömning i Azure eller i en fristående molntjänst.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tdsp
-ms.custom: (previous author=garyericson, ms.author=garye)
-ms.openlocfilehash: 07f7334a98c1220d051ed1be9d04e4e4e86d4dcc
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
+ms.openlocfilehash: 627729ef4f2b6a8df96d9e3b794a1ba24143b4d7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444443"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132677"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Facit för en automatiserad datapipeline för Azure Machine Learning-förutsägelser
 Den **Microsoft Azure Machine Learning automated data pipeline-facit** kan du navigera genom den teknik som du kan använda för att få dina data till din Machine Learning-webbtjänsten där det kan mätas genom dina förutsägande analys modell.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 52157797bb01fc73c551ca9654b2360d161b653d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2a55e39414cd691c48b015b3aae73f93cbb95aab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357587"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134666"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsöka Kerberos-begränsad delegering konfigurationer för Application Proxy
 
@@ -32,7 +32,7 @@ Den här artikeln innehåller en enda åtkomstpunkt för referens som hjälper d
 
 Den här artikeln gör följande antaganden:
 
--   Distribution av Azure AD-programproxyn per [Kom igång med Application Proxy](application-proxy-enable.md) och allmän åtkomst till icke-KCD program fungerar som förväntat.
+-   Distribution av Azure AD-programproxyn per [Kom igång med Application Proxy](application-proxy-add-on-premises-application.md) och allmän åtkomst till icke-KCD program fungerar som förväntat.
 
 -   Publicerade målprogrammet baseras på Internet Information Services (IIS) och Microsofts implementering av Kerberos.
 

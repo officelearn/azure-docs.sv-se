@@ -15,12 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2321ccf115e3b517bdc593c0c428c61d5dd90968
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 976118514dbcb4cee9675ae357d857e7b90e8c0c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367097"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140487"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Topologiöverväganden för nätverk när du använder Azure Active Directory Application Proxy
 
@@ -40,7 +40,7 @@ När ett program publiceras via Azure AD Application Proxy, flödar trafiken fr�
 
 När du registrerar dig för en Azure AD-klient bestäms regionen för din klient av det land som du anger. När du aktiverar programproxy valt tjänstinstanser Application Proxy för din klient eller skapats i samma region som din Azure AD-klient eller den närmaste regionen till den.
 
-Till exempel, om din Azure AD-klient region är Europeiska unionen (EU), använda alla Application Proxy-kopplingar instanser av tjänsten i Azure-datacenter inom EU. När dina användare åtkomst publicerat program, passerar trafiken tjänstinstanser Application Proxy på den här platsen.
+Till exempel, om din Azure AD-klient land eller region är Storbritannien, använda alla Application Proxy-kopplingar tjänstinstanser i datacenter för Europa. När dina användare åtkomst publicerat program, passerar trafiken tjänstinstanser Application Proxy på den här platsen.
 
 ## <a name="considerations-for-reducing-latency"></a>Överväganden för att minska svarstiden
 
@@ -85,9 +85,9 @@ Placera nära målprogrammet kopplingen i kundens nätverk. Den här konfigurati
 
 Om din anslutningsapp behöver åtkomst till domänkontrollanten, är det fördelaktigt med det här mönstret. De flesta av våra kunder att använda det här mönstret eftersom den fungerar bra för de flesta scenarier. Det här mönstret kan också kombineras med mönstret 2 för att optimera trafik mellan tjänsten och anslutningen.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>Mönstret 2: Dra nytta av ExpressRoute med offentlig peering
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>Mönstret 2: Dra nytta av ExpressRoute med Microsoft-peering
 
-Om du har konfigurerats med offentlig peering ExpressRoute kan använda du snabbare ExpressRoute-anslutningen för trafik mellan Application Proxy och anslutningen. Anslutningen är fortfarande i nätverket, nära appen.
+Om du har ExpressRoute som konfigurerats med Microsoft-peering kan använda du snabbare ExpressRoute-anslutningen för trafik mellan Application Proxy och anslutningen. Anslutningen är fortfarande i nätverket, nära appen.
 
 ### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Mönster 3: Dra nytta av ExpressRoute med privat peering
 
@@ -137,13 +137,13 @@ Igen, det vanliga mönstret är att optimera hopp 3, där du placerar anslutning
 
 ### <a name="use-case-3"></a>Användningsfall 3
 
-**Scenario:** appen är i en organisations nätverk i USA. ExpressRoute med offentlig peering finns mellan Azure och företagets nätverk.
+**Scenario:** appen är i en organisations nätverk i USA. ExpressRoute med Microsoft-peering finns mellan Azure och företagets nätverk.
 
 **Rekommendation:** följer mönster 1 och 2, som beskrivs i föregående avsnitt.
 
 Placera först anslutningen så nära som möjligt till appen. Systemet använder sedan automatiskt ExpressRoute för hopp 2. 
 
-Om ExpressRoute-länken använder offentlig peering, flödar trafiken mellan proxyservern och anslutningen via länken. Hopp 2 har optimerats svarstid.
+Om ExpressRoute-länken använder Microsoft-peering, flödar trafiken mellan proxyservern och anslutningen via länken. Hopp 2 har optimerats svarstid.
 
 ![Diagram över ExpressRoute mellan proxy och anslutning](./media/application-proxy-network-topology/application-proxy-pattern3.png)
 
@@ -173,7 +173,7 @@ Du kan också använda en annan variant i det här fallet. Om de flesta använda
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera Application Proxy](application-proxy-enable.md)
+- [Aktivera Application Proxy](application-proxy-add-on-premises-application.md)
 - [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Aktivera villkorlig åtkomst](application-proxy-integrate-with-sharepoint-server.md)
 - [Felsöka problem med Application Proxy](application-proxy-troubleshoot.md)

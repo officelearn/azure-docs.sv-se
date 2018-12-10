@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: bb04f1965764413c474c2e0d057d77d5d30edd07
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b8c69ebec2258581954e26dc6181d5f4b57f461c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623119"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137709"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Arbeta med anspråksmedvetna appar i programproxyn
 [Anspråksmedvetna appar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) utför en omdirigering till Security Token Service (STS). STS begär autentiseringsuppgifter från användaren i utbyte mot en token och sedan omdirigeras användaren till programmet. Det finns ett antal sätt att aktivera Application Proxy att arbeta med dessa omdirigeringar. Använd den här artikeln för att konfigurera distributionen för anspråksmedvetna appar. 
@@ -29,7 +29,7 @@ Se till att STS som appen anspråksmedvetna omdirigerar till är tillgängliga u
 
 ## <a name="publish-your-application"></a>Publicera programmet
 
-1. Publicera programmet enligt instruktionerna i [publicera program med Application Proxy](application-proxy-publish-azure-portal.md).
+1. Publicera programmet enligt instruktionerna i [publicera program med Application Proxy](application-proxy-add-on-premises-application.md).
 2. Gå till programsidan i portalen och välj **enkel inloggning**.
 3. Om du har valt **Azure Active Directory** som din **förautentisering metoden**väljer **Azure AD enkel inloggning inaktiverad** som din **internt Autentiseringsmetod**. Om du har valt **genomströmning** som din **förautentisering metoden**, du behöver inte ändra något.
 

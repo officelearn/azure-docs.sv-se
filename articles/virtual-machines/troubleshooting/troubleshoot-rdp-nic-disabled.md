@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: f9e4731146409f51d16a8c92c01d07a8ff11a7ea
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 742026a8ff35f318f58674ebc2fb5c03e45161a8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314532"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133340"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Det går inte att fjärrskrivbord till en virtuell dator eftersom nätverksgränssnittet har inaktiverats
 
 Den här artikeln förklarar hur du löser ett problem där du inte kan göra en fjärrskrivbordsanslutning till Azure Windows Virtual Machines (VMs) om nätverksgränssnittet har inaktiverats.
 
-> [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen. 
+> [!NOTE]
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
 
-## <a name="symptoms"></a>Symtom 
+## <a name="symptoms"></a>Symtom
 
 Du kan inte göra en RDP-anslutning eller någon annan typ av anslutning till andra portar till en virtuell dator i Azure eftersom nätverksgränssnittet i den virtuella datorn är inaktiverad.
 
-## <a name="solution"></a>Lösning 
+## <a name="solution"></a>Lösning
 
 Innan du följer dessa steg kan du ta en ögonblicksbild av OS-disken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
 
@@ -39,13 +39,13 @@ Om du vill aktivera gränssnittet för den virtuella datorn använder Serial kon
 
 ### <a name="use-serial-control"></a>Använda seriell kontroll
 
-1. Ansluta till [seriella konsolen och öppna CMD instans](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Ansluta till [seriella konsolen och öppna CMD instans](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Om Seriekonsolen inte är aktiverad på den virtuella datorn finns i [Återställ nätverksgränssnittet](#reset-network-interface).
 2. Kontrollera tillståndet för nätverksgränssnittet:
 
         netsh interface show interface
 
-    Anteckna namnet på det inaktiverade nätverksgränssnittet. 
+    Anteckna namnet på det inaktiverade nätverksgränssnittet.
 
 3. Aktivera nätverksgränssnittet:
 
@@ -54,16 +54,16 @@ Om du vill aktivera gränssnittet för den virtuella datorn använder Serial kon
     Till exempel gränssnittet interwork heter ”Ethernet 2”, kör du följande kommando:
 
         netsh interface set interface name=""Ethernet 2" admin=enabled
-    
+
 
 4.  Kontrollera tillståndet för nätverksgränssnittet igen för att se till att nätverksgränssnittet är aktiverad.
 
         netsh interface show interface
 
     Du behöver inte starta om den virtuella datorn nu. Den virtuella datorn kommer att tillbaka kan nås.
-        
+
 5.  Ansluter till den virtuella datorn och se om problemet är löst.
 
 ## <a name="reset-network-interface"></a>Återställ nätverksgränssnittet
 
-Om du vill återställa nätverksgränssnitt, ändra IP-adressen till en annan IP-adress som är tillgänglig i undernätet. Gör detta genom att använda Azure portal eller Azure PowerShell. Mer information finns i [Återställ nätverksgränssnittet](reset-network-interface.md). 
+Om du vill återställa nätverksgränssnitt, ändra IP-adressen till en annan IP-adress som är tillgänglig i undernätet. Gör detta genom att använda Azure portal eller Azure PowerShell. Mer information finns i [Återställ nätverksgränssnittet](reset-network-interface.md).

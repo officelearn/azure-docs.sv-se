@@ -1,23 +1,22 @@
 ---
-title: Modelleringsdokumentdata för en NoSQL-databas | Microsoft Docs
-description: Lär dig om att utforma data för NoSQL-databaser
-keywords: datamodellering
-services: cosmos-db
+title: Modelleringsdokumentdata i en NoSQL-databas
+titleSuffix: Azure Cosmos DB
+description: Läs mer om datamodellering i NoSQL-databaser, skillnader mellan datamodellering i en relationsdatabas och en dokumentdatabas.
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2016
+ms.date: 12/06/2018
 ms.author: andrl
-ms.openlocfilehash: c577c9734490e3aacc148153f550162371ae482e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.custom: seodec18
+ms.openlocfilehash: 22a22789f7eed6402d7bf3abd3b356dbcb4caa37
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057604"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134894"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelleringsdokumentdata för NoSQL-databaser
+
 Medan schemafria databaser, som Azure Cosmos DB, gör det mycket enkelt att omfatta ändringar i datamodellen det bör fortfarande ta lite tid tänka om dina data. 
 
 Hur data ska lagras? Hur kommer programmet att hämta och fråga efter data? Är programmet att läsa tjockt, eller Skriv tunga? 
@@ -33,13 +32,13 @@ När du har läst den här artikeln kommer du att kunna besvara följande frågo
 ## <a name="embedding-data"></a>Bädda in data
 När du startar datamodellering i ett dokumentarkiv, till exempel Azure Cosmos DB, försöker hantera dina entiteter som **självständigt dokument** representeras i JSON.
 
-Innan vi fördjupar oss för mycket dessutom Låt oss ta ett par steg tillbaka och ta en titt på hur vi kan modellera något i en relationsdatabas, ett ämne som många redan är bekant med. I följande exempel visas hur en person kan lagras i en relationsdatabas. 
+Innan vi fördjupar oss för mycket ytterligare, låt oss ta tillbaka några få steg och ta en titt på hur vi kan modellera något i en relationsdatabas, ett ämne som många redan är bekant med. I följande exempel visas hur en person kan lagras i en relationsdatabas. 
 
 ![Relationsdatabas modell](./media/sql-api-modeling-data/relational-data-model.png)
 
 När du arbetar med relationsdatabaser, har vi varit undervisats i flera år för att normalisera, normalisera, normalisera.
 
-Normaliserar dina data vanligtvis innebär att en enhet, till exempel en person och dela upp frågan diskreta delar av data. I exemplet ovan är kan en person ha flera kontakta poster samt flera poster. Vi även gå ett steg längre och bryter ned kontaktinformation genom att extrahera ytterligare vanliga fält som en typ. På samma sätt som för adress, här varje post har en typ som *Start* eller *företag* 
+Normaliserar dina data vanligtvis innebär att en enhet, till exempel en person och dela upp frågan diskreta delar av data. I exemplet ovan är kan en person ha flera kontaktinformation poster samt flera poster. Vi även gå ett steg längre och bryter ned kontaktinformation genom att extrahera ytterligare vanliga fält som en typ. På samma sätt som för adress, här varje post har en typ som *Start* eller *företag* 
 
 Den guidar premise när normaliserar data ska **Undvik att lagra redundanta data** på varje post och i stället hänvisa till data. I det här exemplet för att läsa en person med deras kontaktuppgifter och adresser, behöver du använda kopplingar för att effektivt aggregera dina data vid körning.
 
@@ -82,7 +81,7 @@ Genom att avnormalisera data, kan programmet behöva skicka färre frågor och u
 ### <a name="when-to-embed"></a>När du ska bädda in
 I allmänhet använder inbäddade data modeller när:
 
-* Det finns **innehåller** relationer mellan entiteter.
+* Det finns ** relationer mellan entiteter.
 * Det finns **en till några** relationer mellan entiteter.
 * Det finns inbäddade data som **ändras sällan**.
 * Det är inbäddade data inte växa **utan gräns**.
@@ -118,7 +117,7 @@ Det kan vara vad en post-entitet med inbäddade kommentarer skulle se ut som om 
 
 När storleken på dokumentet ökar möjligheten att överföra data via under överföring samt läsa och uppdatera dokumentet, i skala, kommer att påverkas.
 
-I det här fallet skulle det vara bättre att tänka på följande modell.
+I så fall skulle det vara bättre att tänka på följande modell.
 
     Post document:
     {
@@ -175,12 +174,12 @@ Ta det här JSON-kodfragmentet.
 
 Detta kan vara en persons portfölj. Vi har valt att bädda in lagerartiklar informationen i varje portfölj dokumentet. I en miljö där relaterade data ändras ofta, kommer som aktier handel med program, bädda in data som ändras ofta att innebära att du hela tiden uppdaterar dokumenten portfölj varje gång aktier säljs.
 
-Lager *zaza* får säljas flera hundra gånger under en enda dag och tusentals användare kan ha *zaza* deras portfölj. Med en datamodell som ovanstående vi skulle behöva uppdatera flera tusen portfölj dokument många gånger varje dag som leder till ett system som inte skala mycket bra. 
+Lager *zaza* får säljas flera hundra gånger under en enda dag och tusentals användare kan ha *zaza* deras portfölj. Med en datamodell som ovanstående vi skulle behöva uppdatera flera tusen portfölj dokument många gånger varje dag som leder till ett system som inte bra med skalning. 
 
 ## <a id="Refer"></a>Refererar till data
 Därför bädda in data fungerar bra för många fall, men det är tydligt att det finns scenarier när avnormalisera data medför flera problem än vad det är värt att. Så vad vi gör nu? 
 
-Relationsdatabaser är inte den enda plats där du kan skapa relationer mellan entiteter. Du kan ha information i ett dokument som faktiskt är kopplat till data i andra dokument i en dokumentdatabas. Nu kan jag inte utvecklarrådgivning även en minut att vi bygger system som skulle vara bättre lämpade för en relationsdatabas i Azure Cosmos DB eller någon annan dokumentdatabas, men enkla relationer fungerar bra och kan vara användbar. 
+Relationsdatabaser är inte den enda plats där du kan skapa relationer mellan entiteter. Du kan ha information i ett dokument som faktiskt är kopplat till data i andra dokument i en dokumentdatabas. Nu kan jag inte utvecklarrådgivning även en minut att vi bygger system som skulle vara bättre lämpade för en relationsdatabas i Azure Cosmos DB eller någon annan dokumentdatabas, men enkla relationer fungerar bra och kan vara användbart. 
 
 I JSON nedan som vi har valt att använda exemplet med en portfölj från tidigare men nu kan vi refererar till objektet lagerartiklar portfölj i stället för att bädda in den. Det här sättet när lagerartiklar objektet ändras ofta under dagen den enda dokument som måste uppdateras är det enda lagerartiklar dokumentet. 
 
@@ -341,9 +340,9 @@ Baserat på ditt programs specifika användningsmönster och arbetsbelastningar 
         "countOfBooks": 3,
          "books": ["b1", "b2", "b3"],
         "images": [
-            {"thumbnail": "http://....png"}
-            {"profile": "http://....png"}
-            {"large": "http://....png"}
+            {"thumbnail": "https://....png"}
+            {"profile": "https://....png"}
+            {"large": "https://....png"}
         ]
     },
     {
@@ -353,7 +352,7 @@ Baserat på ditt programs specifika användningsmönster och arbetsbelastningar 
         "countOfBooks": 1,
         "books": ["b1"],
         "images": [
-            {"thumbnail": "http://....png"}
+            {"thumbnail": "https://....png"}
         ]
     }
 
@@ -362,30 +361,30 @@ Baserat på ditt programs specifika användningsmönster och arbetsbelastningar 
         "id": "b1",
         "name": "Azure Cosmos DB 101",
         "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
-            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
+            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
+            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "https://....png"}
         ]
     },
     {
         "id": "b2",
         "name": "Azure Cosmos DB for RDBMS Users",
         "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
         ]
     }
 
 Här har vi (huvudsakligen) följt inbäddad modell, där data från andra entiteter är inbäddade i översta dokumentet, men andra data refereras. 
 
-Om du tittar på bok dokumentet, ser vi några intressanta fält när vi tittar på ett antal författare. Det finns en *id* fältet som är de fält som vi använder för att referera tillbaka till ett dokument för författare, praxis i en normaliserad modell, men sedan vi har också *namn* och *thumbnailUrl*. Vi kunde har bara fastnar med *id* och programmet för att hämta eventuell ytterligare information som den behövs från respektive redigera dokumentet med hjälp av ”länken”, men eftersom appen visar författarens namn och en miniatyrbild med varje bok visas kan vi spara en tur och RETUR till servern per boken i en lista genom att avnormalisera **vissa** data från författare.
+Om du tittar på bok dokumentet, ser vi några intressanta fält när vi tittar på ett antal författare. Det finns en *id* fältet det vill säga de fält som vi använder för att referera tillbaka till ett dokument för författare, praxis i en normaliserad modell, men sedan vi har också *namn* och *thumbnailUrl*. Vi kan ha fastnat med *id* och programmet för att hämta eventuell ytterligare information som den behövs från respektive redigera dokumentet med hjälp av ”länken”, men eftersom appen visar författarens namn och en miniatyrbild med varje bok visas kan vi spara en tur och RETUR till servern per boken i en lista med avnormalisera **vissa** data från författare.
 
-Visst, om författarens namn ändras eller de ville uppdatera sina foto vi skulle behöva gå en uppdatering varje bok de publicerats någonsin men detta är en godtagbar designbeslut för vårt program, baserat på antagandet att författare inte ändrar namnen mycket ofta.  
+Visst, om författarens namn ändras eller de ville uppdatera sina foto vi skulle behöva gå en uppdatering varje bok de någonsin publicerats men för vårt program baserat på antagandet att författare inte ändrar namnen ofta, det här är en godtagbar designbeslut.  
 
 I det här exemplet finns **beräknas aggregeringar i förväg** värden för att spara dyra bearbetning på en Läsåtgärd. I det här exemplet är några av de data som är inbäddad i dokumentet författare data som beräknas vid körning. Varje gång en ny bok publiceras, skapas en bokdokument **och** countOfBooks-fältet är inställt på ett beräknat värde baserat på antalet boken dokument som finns för en viss författare. Denna optimering är bra i Läs tung system där vi har råd att utföra beräkningar på skrivningar för att optimera läsningar.
 
 Möjlighet att aktivera en modell med förberäknade fält är möjligt eftersom Azure Cosmos DB stöder **flera dokument transaktioner**. Många NoSQL-Arkiv det går inte att göra transaktioner mellan dokument och därför förespråkar designbeslut, till exempel ”alltid bädda in allt” på grund av den här begränsningen. Med Azure Cosmos DB kan du använda serversidan utlösare eller lagrade procedurer som Infoga böcker och uppdatera författare allt inom en ACID-transaktion. Nu du inte **har** att bädda in allt i ett dokument bara för att se till att dina data förblir konsekvent.
 
 ## <a name="NextSteps"></a>Nästa steg
-De största takeaways från den här artikeln är att förstå att datamodellering i en schemafri värld är precis lika viktig som någonsin. 
+De största takeaways från den här artikeln är att förstå att datamodellering i en schemafri värld är lika viktigt som någonsin. 
 
 Precis som det är inte ett enskilt sätt att representera en typ av data på en skärm, är det inte ett enskilt sätt att modellera dina data. Du behöver att förstå ditt program och hur den skapas, använda och bearbeta data. Sedan kan du ange om hur du skapar en modell som åtgärdar omedelbara behov av ditt program genom att använda några av de riktlinjer som beskrivs här. När dina program behöver ändra kan du utnyttja flexibiliteten i en schemafri databas till att använda som ändras och enkelt kan utveckla din datamodell. 
 

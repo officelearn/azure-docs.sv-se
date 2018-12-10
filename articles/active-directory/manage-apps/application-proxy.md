@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aabbcb45edf087b4a7d6268dcca90b21afa16f7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: ec5c75b5de912988efeb5167107f6d0dfe07da2e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998113"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139970"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Att tillhandahålla säker fjärråtkomst till lokala program
 
@@ -88,8 +88,8 @@ Innan du konfigurerar Application Proxy, kontrollera att du har en stödd [Azure
 
 Kom igång med Application Proxy i två steg:
 
-1. [Aktivera Application Proxy och konfigurera anslutningen](application-proxy-enable.md).    
-2. [Publicera program](application-proxy-publish-azure-portal.md) – Använd guiden snabbt och enkelt för att få dina lokala appar publicerade och kan nås via en fjärranslutning.
+1. [Aktivera Application Proxy och konfigurera anslutningen](application-proxy-add-on-premises-application.md).    
+2. [Publicera program](application-proxy-add-on-premises-application.md) – Använd guiden snabbt och enkelt för att få dina lokala appar publicerade och kan nås via en fjärranslutning.
 
 ## <a name="whats-next"></a>Nästa steg
 När du publicerar din första app, är det mycket mer du kan göra med Application Proxy:

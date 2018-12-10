@@ -1,23 +1,22 @@
 ---
-title: Vanliga och frågor svar om Azure Cosmos DB
+title: 'Vanliga frågor och svar om olika API: er i Azure Cosmos DB'
 description: Få svar på vanliga frågor och svar om Azure Cosmos DB, en globalt distribuerad databastjänst. Läs mer om kapacitet, prestandanivåer och skalning.
 keywords: Databasfrågor, vanliga frågor, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: e4ed9ee34260dfffc0034fb7524a037e957fab3f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: fc5b397f64bead38e630cb994d1d325a85b11cda
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851187"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139664"
 ---
-# <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB vanliga frågor och svar
-
-## <a name="azure-cosmos-db-fundamentals"></a>Grunderna i Azure Cosmos DB
+# <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
 ### <a name="what-happened-to-the-documentdb-api"></a>Vad hände med DocumentDB-API?
 
@@ -78,7 +77,7 @@ Du kan också använda den [Azure Cosmos DB-emulatorn](local-emulator.md) att ut
 Om du vill ställa en teknisk fråga kan du i en av dessa två fråga och besvara forum:
 
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stackspill](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow är bäst för frågor om programmering. Kontrollera att din fråga är [på avsnittet](https://stackoverflow.com/help/on-topic) och [innehåller samma information som möjligt, vilket gör frågan tydlig och besvaras](https://stackoverflow.com/help/how-to-ask).
+* [Stackspill](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow är bäst för frågor om programmering. Kontrollera att din fråga är [på avsnittet](https://stackoverflow.com/help/on-topic) och [innehåller samma information som möjligt, vilket gör frågan tydlig och besvaras](https://stackoverflow.com/help/how-to-ask).
 
 Skapa en ny begäran för att efterfråga nya funktioner på [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
@@ -125,10 +124,6 @@ När du ställer in en region, Tänk på att Azure Cosmos DB respekterar suverä
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>Är det möjligt att växla från nivå av dataflöden i behållare på dataflöde Databasetableringen etablering? Eller tvärtom
 
 Behållare och nivån dataflöde Databasetableringen är två separata erbjudanden och växla mellan något av dessa kräver att migrera data från källa till mål. Vilket innebär att du behöver skapa en ny databas eller en ny samling och sedan migrera data med hjälp av [bulk executor biblioteket](bulk-executor-overview.md) eller [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
-
-### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>Hur gör jag för att skapa fasta samlingen med partitionsnyckel
-
-Du kan för närvarande skapa samling med en partition viktiga dataflöde med hjälp av den [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) metod av .net SDK eller med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Skapa en fast samling med hjälp av Azure-portalen stöds inte för närvarande.
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure cosmos DB har stöd för analys av tidsserier?
 
@@ -304,7 +299,7 @@ Du kan dela din feedback i något av följande sätt:
 
 * [Feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stackspill](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow är bäst för frågor om programmering. Kontrollera att din fråga är [på avsnittet](https://stackoverflow.com/help/on-topic) och [innehåller samma information som möjligt, vilket gör frågan tydlig och besvaras](https://stackoverflow.com/help/how-to-ask).
+* [Stackspill](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow är bäst för frågor om programmering. Kontrollera att din fråga är [på avsnittet](https://stackoverflow.com/help/on-topic) och [innehåller samma information som möjligt, vilket gör frågan tydlig och besvaras](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Vad är den anslutningssträng som jag vill använda för att ansluta till tabell-API?
 
@@ -525,7 +520,7 @@ Azure Cosmos DB är en SLA-baserade system som ger svarstid, dataflöde, tillgä
 
 ### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>För C# / .NET-utveckling ska jag använda Microsoft.Azure.Graphs paketet eller Gremlin.NET?
 
-Azure Cosmos DB Gremlin-API använder open source-drivrutiner som de huvudsakliga kopplingarna för tjänsten. Så det rekommenderade alternativet är att använda [drivrutiner som stöds av Apache Tinkerpop](http://tinkerpop.apache.org/).
+Azure Cosmos DB Gremlin-API använder open source-drivrutiner som de huvudsakliga kopplingarna för tjänsten. Så det rekommenderade alternativet är att använda [drivrutiner som stöds av Apache Tinkerpop](https://tinkerpop.apache.org/).
 
 ### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Hur debiteras RU/s när du kör frågor på en grafdatabas?
 
@@ -539,7 +534,7 @@ Azure Cosmos DB använder [horisontell partitionering](partition-data.md) automa
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hur kan jag skydda mot inmatningsattacker med hjälp av Gremlin drivrutiner?
 
-De flesta interna Tinkerpop Gremlin-drivrutiner kan alternativet för att skapa en ordlista med parametrar för frågekörning. Det här är ett exempel på hur du gör i [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) och i [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+De flesta interna Tinkerpop Gremlin-drivrutiner kan alternativet för att skapa en ordlista med parametrar för frågekörning. Det här är ett exempel på hur du gör i [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) och i [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Varför får jag det ”Gremlin Frågekompileringsfel: Det gick inte att hitta någon av metoderna” fel?
 

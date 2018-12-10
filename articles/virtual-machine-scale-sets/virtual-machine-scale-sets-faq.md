@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 40af55e48e0097f1ad6cb52a76b78fab40c2074c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1bba25d0b7fd6bbe4efeb9c2164fc663b22bed11
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447188"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139375"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -31,7 +31,7 @@ Få svar på vanliga frågor och svar om skalningsuppsättningar för virtuella 
 
 **F.** Hur många virtuella datorer kan man ha i en skalningsuppsättning?
 
-**S.** En skalningsuppsättning kan innehålla mellan 0 och 1 000 virtuella datorer baserade på plattformsavbildningar, eller mellan 0 och 300 virtuella datorer baserade på anpassade avbildningar.
+**S.** En skalningsuppsättning kan innehålla 0 och 1 000 virtuella datorer baserade på plattformsavbildningar eller 0 och 600 virtuella datorer baserade på anpassade avbildningar.
 
 **F.** Kan datadiskar användas i skalningsuppsättningar?
 

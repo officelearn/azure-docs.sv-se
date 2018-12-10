@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process uppgifter för en enskild deltagare – Azure | Microsoft Docs
+title: Uppgifter för en enskild deltagare i Team Data Science Process
 description: En översikt över aktiviteter för en enskild deltagare på ett teamprojekt för data science.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: d8e51dcf8434508664801f53391592aab34d7e4a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447069"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136769"
 ---
-# <a name="individual-contributor-tasks"></a>Enskilda deltagare uppgifter
+# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Uppgifter för en enskild deltagare i Team Data Science Process
 
 Det här avsnittet beskrivs de uppgifter som en enskild deltagare är väntat att slutföra sina data science-teamet. Målet är att upprätta samarbetsteam miljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
 

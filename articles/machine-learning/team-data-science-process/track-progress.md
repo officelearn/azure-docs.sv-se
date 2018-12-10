@@ -1,6 +1,6 @@
 ---
-title: Körningen av dataforskningsprojekt – Azure Machine Learning | Microsoft Docs
-description: Hur datavetare kan spåra förloppet för ett datavetenskapsprojekt.
+title: Spårning av dataforskningsprojekt - Team Data Science Process
+description: Hur data science gruppchefer team lånet och projektet leads kan följa förloppet för ett datavetenskapsprojekt.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 202ac89b8a281012dbcf5f4c4df11e97ba2c8c65
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441476"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134312"
 ---
-# <a name="track-progress-of-data-science-projects"></a>Spåra förloppet för dataforskningsprojekt
+# <a name="tracking-the-progress-of-data-science-projects"></a>Spårning av dataforskningsprojekt
 
 Data science gruppchefer gruppledare och projekt leads behovet av att följa förloppet för sina projekt, arbetet som har gjorts på dem och av vem och kvar på att göra-listor. 
 

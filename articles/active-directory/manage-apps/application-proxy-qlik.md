@@ -13,12 +13,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d382a71de34e6c1527d810b0576e518b9101cf7d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962562"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132762"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Programproxy och Qlik Sense 
 Azure Active Directory-programproxy och Qlik Sense samarbetar tillsammans för att kontrollera att du enkelt kan använda Application Proxy för att tillhandahålla fjärråtkomst för din Qlik Sense-distribution.  
@@ -27,13 +27,13 @@ Azure Active Directory-programproxy och Qlik Sense samarbetar tillsammans för a
 Resten av det här scenariot förutsätter att du gjort följande:
  
 - Konfigurerad [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
-- [Installerat en Application Proxy connector](application-proxy-enable.md#install-and-register-a-connector) 
+- [Installerat en Application Proxy connector](application-proxy-add-on-premises-application.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Publicera dina program i Azure 
 Om du vill publicera QlikSense, måste du publicera två program i Azure.  
 
 ### <a name="application-1"></a>#1-program: 
-Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av steg 1-8, se [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av steg 1-8, se [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md). 
 
 
 1. Logga in på Azure-portalen som global administratör. 
@@ -63,6 +63,6 @@ Mer information om publicering Qlik Sense med Application Proxy i Community-arti
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Publicera program med Application Proxy](application-proxy-publish-azure-portal.md)
+- [Publicera program med Application Proxy](application-proxy-add-on-premises-application.md)
 - [Arbeta med programproxyanslutningar](application-proxy-connector-groups.md)
 

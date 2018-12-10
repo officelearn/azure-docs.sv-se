@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 3ddd2f122de832654be295c5978a88bec702558c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319437"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134445"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM gäst-OS-brandväggen blockerar inkommande trafik
 
@@ -31,17 +31,17 @@ Du kan inte använda en RDP-anslutning för att ansluta till en Azure-dator (VM)
 
 ## <a name="cause"></a>Orsak
 
-### <a name="cause-1"></a>Orsak 1 
+### <a name="cause-1"></a>Orsak 1
 
 RDP-regeln är inte ställts in för att tillåta RDP-trafik.
 
-### <a name="cause-2"></a>Orsak 2 
+### <a name="cause-2"></a>Orsak 2
 
 Brandväggsprofiler för gäst-system är inställda att blockera alla inkommande anslutningar, inklusive RDP-trafik.
 
 ![Brandväggsinställning](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## <a name="solution"></a>Lösning 
+## <a name="solution"></a>Lösning
 
 Innan du följer dessa steg kan du ta en ögonblicksbild av systemdisken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
 
@@ -49,7 +49,7 @@ Innan du följer dessa steg kan du ta en ögonblicksbild av systemdisken på den
 
 ### <a name="online-troubleshooting"></a>Felsökning av online
 
-Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Om Seriekonsolen inte är aktiverad på den virtuella datorn går du till ”[reparera den virtuella datorn Offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
+Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Om Seriekonsolen inte är aktiverad på den virtuella datorn går du till ”[reparera den virtuella datorn Offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
 
 #### <a name="mitigation-1"></a>Lösning 1
 
@@ -80,7 +80,7 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
     ```cmd
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
     ```
-    
+
     I annat fall öppna specifika fjärrskrivbord (TCP-In) regeln genom att köra följande kommando:
 
     ```cmd
@@ -94,7 +94,7 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
     ```
 
     När du har slutfört felsökning och ställa in brandväggen korrekt återaktivera brandväggen.
-    
+
     > [!Note]
     > Du behöver inte starta om den virtuella datorn för att tillämpa ändringarna.
 
@@ -128,11 +128,11 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
     ```
 
     > [!Note]
-    > Du behöver inte starta om den virtuella datorn för att tillämpa ändringarna. 
+    > Du behöver inte starta om den virtuella datorn för att tillämpa ändringarna.
 
 4.  Försök igen att få åtkomst till den virtuella datorn via RDP.
 
-### <a name="offline-mitigations"></a>Offline-åtgärder 
+### <a name="offline-mitigations"></a>Offline-åtgärder
 
 1.  [Koppla systemdisken till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md).
 
@@ -159,7 +159,7 @@ Se [hur att aktivera / inaktivera en brandvägg-regel för ett dokument för g�
     robocopy f:\windows\system32\config f:\windows\system32\config.BACK /MT
 
     REM Mount the hive
-    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM 
+    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
 
     REM Delete the keys to block all inbound connection scenario
     REG DELETE "HKLM\BROKENSYSTEM\ControlSet001\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile" /v DoNotAllowExceptions

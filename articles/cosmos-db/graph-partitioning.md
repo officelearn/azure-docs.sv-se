@@ -1,27 +1,23 @@
 ---
-title: Partitionering i Azure Cosmos DB Gremlin-API
-description: Lär dig hur du kan använda en partitionerad Graph i Azure Cosmos DB.
-services: cosmos-db
+title: Datapartitionering i Azure Cosmos DB Gremlin-API
+description: Lär dig hur du kan använda en partitionerad graph i Azure Cosmos DB. Den här artikeln beskriver också krav och bästa praxis för en partitionerad graf.
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 27b0d9d7ca22ba346dbc288020f704dc7d27aa6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7fc6068ccdc0c089b222fc8282063d526e862a38
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837213"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139443"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Med hjälp av ett partitionerade diagram i Azure Cosmos DB
 
-En av de viktigaste funktionerna i Gremlin-API i Azure Cosmos DB är möjligheten att hantera storskaliga diagram via horisontell skalbarhet. Den här processen uppnås via den [partitionering funktioner i Azure Cosmos DB](partition-data.md), vilket gör användning av behållare som kan skalas oberoende vad gäller lagring och dataflöde. Azure Cosmos DB stöder följande typer av behållare i alla API: er:
-
-- **Fast behållare**: de här behållarna kan lagra ett diagram databasen upp till 10 GB i storlek med högst 10 000 enheter för programbegäran per sekund som tilldelas till den. Om du vill skapa en fast behållare är det inte nödvändigt att ange en nyckelegenskap för partitionen i data.
-
-- **Obegränsad behållare**: de här behållarna kan automatiskt skala för att lagra en graf utöver gränsen på 10 GB via horisontell partitionering. Varje partition lagras 10 GB och data automatiskt balanseras baserat på den **angivna partitionsnyckel**, som kommer att vara en obligatorisk parameter när du använder en obegränsad behållare. Den här typen av behållare kan lagra ett praktiskt taget obegränsade datastorlek och tillåta upp till 100 000 enheter för programbegäran per sekund eller mer [genom att kontakta supporten](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+En av de viktigaste funktionerna i Gremlin-API i Azure Cosmos DB är möjligheten att hantera storskaliga diagram via horisontell skalning. Horisontell skalning uppnås via den [partitionering funktioner i Azure Cosmos DB](partition-data.md). Behållarna som kan skalas oberoende vad gäller lagring och dataflöde. Du kan skapa behållare i Azure Cosmos DB som kan skalas automatiskt för att lagra en diagramdata. Data fördelas automatiskt baserat på den angivna **partitionsnyckel**.
 
 I det här dokumentet beskrivs ärendets på hur grafdatabaser partitioneras tillsammans med dess konsekvenser för både hörn (eller noder) och kanter.
 
@@ -29,17 +25,17 @@ I det här dokumentet beskrivs ärendets på hur grafdatabaser partitioneras til
 
 Nedan visas information som behöver förstå när du skapar en partitionerad grafbehållare:
 
-- **Ställa in partitionering är nödvändigt för** om behållaren förväntas vara större än 10 GB i storlek och/eller om tilldelning av över 10 000 enheter för programbegäran per sekund (RU/s) kommer att krävas.
+- **Partitionering krävs** om behållaren är förväntat att lagra mer än 10 GB i storlek eller om du vill allokera mer än 10 000 enheter för programbegäran per sekund (ru: er).
 
-- **Både hörn och kanter lagras som JSON-dokument** i serverdelen av en Gremlin-API för Azure Cosmos DB-behållare.
+- **Både hörn och kanter lagras som JSON-dokument**.
 
-- **Hörn kräver en partitionsnyckel**. Den här nyckeln avgör i vilken partition hörnet lagras via en hash-algoritm. Namnet på den här partitionsnyckel är ett enstaka ord sträng utan blanksteg eller specialtecken och definieras när du skapar en ny behållare i formatet `/partitioning-key-name` på portalen.
+- **Hörn kräver en partitionsnyckel**. Den här nyckeln avgör i vilken partition hörnet lagras via en hash-algoritm. Namnet på den här partitionsnyckel är ett enstaka ord sträng utan blanksteg eller specialtecken. Partitionsnyckeln definieras när du skapar en ny behållare och den har formatet: `/partitioning-key-name`.
 
-- **Kanter lagras tillsammans med deras källvertex**. Med andra ord för varje brytpunkt definierar sin partitionsnyckel var de lagras tillsammans med dess utgående kanter. Detta görs för att undvika flera partitioner frågor när du använder den `out()` kardinalitet i graph-frågor.
+- **Kanter lagras tillsammans med deras källvertex**. Med andra ord för varje brytpunkt definierar sin partitionsnyckel där de lagras tillsammans med dess utgående kanter. Detta görs för att undvika flera partitioner frågor när du använder den `out()` kardinalitet i graph-frågor.
 
 - **Graph-frågor måste du ange en partitionsnyckel**. Om du vill dra full nytta av horisontell partitionering i Azure Cosmos DB, anges Partitionsnyckeln när en enskild brytpunkt väljs, när det är möjligt. Här följer några frågor för att välja en eller flera hörn i en partitionerad graph:
 
-    - `/id` och `/label` stöds inte som partitionsnycklar för en behållare i Gremlin-API: et...
+    - `/id` och `/label` stöds inte som partitionsnycklar för en behållare i Gremlin-API.
 
 
     - Att välja ett hörn med ID: T, sedan **med hjälp av den `.has()` steg för att ange egenskapen partitions**: 
@@ -68,18 +64,19 @@ Nedan visas information som behöver förstå när du skapar en partitionerad gr
 
 ## <a name="best-practices-when-using-a-partitioned-graph"></a>Bästa praxis när du använder ett partitionerat diagram
 
-Här följer några riktlinjer som ska följas för att säkerställa effektiv prestanda och skalbarhet när du använder partitionerade grafer, obegränsade behållare:
+Använd följande riktlinjer för att säkerställa prestanda och skalbarhet när du använder partitionerade diagram med obegränsade behållare:
 
-- **Ange alltid partitionsnyckelvärdet vid frågor till en brytpunkt**. Skaffa ett hörn från en känd partition är det effektivaste sättet i termer av prestanda.
+- **Ange alltid partitionsnyckelvärdet vid frågor till en brytpunkt**. Hämta hörn från en känd partition är ett sätt att uppnå prestanda.
 
-- **Använda utgående riktning vid fråga kanter när det är möjligt**. Som nämnts ovan är lagras kanter med deras källkod hörn i den utgående riktningen. Det innebär att minimeras risken för tillgripa till flera partitioner frågor när data och frågor som är utformade med det här mönstret i åtanke.
+- **Använda utgående riktning vid fråga kanter när det är möjligt**. Som nämnts ovan är lagras kanter med deras källkod hörn i den utgående riktningen. Så minimeras risken för tillgripa till flera partitioner frågor när data och frågor som är utformade med det här mönstret i åtanke.
 
 - **Välj en partitionsnyckel som ska distribuera data jämnt över partitionerna**. Det här beslutet beroende kraftigt av datamodellen av lösningen. Läs mer om hur du skapar en lämplig partitionsnyckel i [partitionering och skalning i Azure Cosmos DB](partition-data.md).
 
-- **Optimera frågor för att få data inom gränserna för en partition när det är möjligt**. En optimal partitioneringsstrategin skulle justeras till frågor mönster. Frågor som hämtar data från en enda partition ger bästa möjliga prestanda.
+- **Optimera frågor för att få data inom gränserna för en partition**. En optimal partitioneringsstrategin skulle justeras till frågor mönster. Frågor som hämtar data från en enda partition ger bästa möjliga prestanda.
 
 ## <a name="next-steps"></a>Nästa steg
-En översikt över koncepten och bästa praxis för partitionering med en Azure Cosmos DB Gremlin-API har angetts i den här artikeln. 
+
+Du kan sedan fortsätta att läsa följande artiklar:
 
 * Lär dig mer om [partitionera och skala i Azure Cosmos DB](partition-data.md).
 * Lär dig mer om den [Gremlin-support i Gremlin-API: et](gremlin-support.md).

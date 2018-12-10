@@ -1,6 +1,6 @@
 ---
-title: Utforska data i Azure blob storage med pandas | Microsoft Docs
-description: Så här att utforska data som lagras i Azure blob-behållare med pandas.
+title: Utforska data i Azure blob storage med pandas - Team Data Science Process
+description: Så här att utforska data som lagras i Azure blob-behållare med hjälp av pandas Python-paketet.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 12e277168d27786581d14adc4c32b94d0979df6d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 43dcb5d207b754938469abca9353b83687797335
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441596"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141398"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Utforska data i Azure blob storage med pandas
 

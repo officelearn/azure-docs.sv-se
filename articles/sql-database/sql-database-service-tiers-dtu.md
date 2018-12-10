@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5e24ec6124b6a5f7dea66e33018dffc753966075
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955271"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141976"
 ---
 # <a name="dtu-based-service-tiers"></a>DTU-baserade tjänstnivåer
 
@@ -31,6 +31,7 @@ DTU-baserade tjänstnivåer särskiljs med hjälp av olika storlekar med en fast
 ## <a name="compare-the-dtu-based-service-tiers"></a>Jämför de DTU-baserade tjänstnivåerna
 
 Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings- och prestandakrav.
+
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
 |Målarbetsbelastning|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion||

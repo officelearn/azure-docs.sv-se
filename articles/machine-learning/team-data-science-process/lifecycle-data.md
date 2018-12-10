@@ -1,5 +1,5 @@
 ---
-title: Datainsamling och förstå steget i Team Data Science Process-livscykel – Azure | Microsoft Docs
+title: Datainsamling och förståelse för Team Data Science Process
 description: Mål, uppgifter och slutprodukter för datainsamling och förstå steget i dina data science-projekt
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 13cbcead381257c87f17dc8ed6666a1b8964d81a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 77c67c491b3157103b267864417678c83326814c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441590"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141160"
 ---
-# <a name="data-acquisition-and-understanding"></a>Förvärv och förståelse av data
+# <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Datainsamling och förstå steget i Team Data Science Process
 
 Den här artikeln beskrivs de mål, uppgifter och slutprodukter som är kopplade till datainsamling och förstå steg för Team Data Science Process (TDSP). Den här processen ger en rekommenderad livscykel som du kan använda för att strukturera dina data science-projekt. Livscykeln beskrivs de viktigaste stegen som projekt vanligtvis köra, ofta upprepade gånger:
 

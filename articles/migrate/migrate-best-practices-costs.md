@@ -5,18 +5,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: f4e067bc1d9a6d738a1289216acc0571661959ea
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 03a60940b4889671149c49becb0f823da89781ff
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110218"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135567"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Metodtips för tar och storlek arbetsbelastningar migreras till Azure
 
-Som du planerar och utformar för migrering säkerställer att fokusera på kostnaderna långsiktig framgång för din Azure-migrering. Under ett migreringsprojekt är det viktigt att alla team (ekonomi, hantering, appteamen osv) förstå associerade kostnader. Uppskatta migreringen molnkostnader, med en baslinje för månadsvis, kvartalsvis, före migreringen, och årliga budget mål är nyckeln till framgång. Efter migreringen bör du optimera kostnaderna, kontinuerligt övervaka arbetsbelastningar och planera för framtida användningsmönster. Migrerade resurser kan starta som en typ av arbetsbelastning, men utvecklas till en annan typ, baserat på användning, kostnader och flyttade affärskrav.
+Som du planerar och utformar för migrering säkerställer att fokusera på kostnaderna långsiktig framgång för din Azure-migrering. Under ett migreringsprojekt är det viktigt att alla team (ekonomi, hantering, appteamen osv) förstå associerade kostnader.
+- Uppskatta migreringen molnkostnader, med en baslinje för månadsvis, kvartalsvis, före migreringen, och årliga budget mål är nyckeln till framgång.
+- Efter migreringen bör du optimera kostnaderna, kontinuerligt övervaka arbetsbelastningar och planera för framtida användningsmönster. Migrerade resurser kan starta som en typ av arbetsbelastning, men utvecklas till en annan typ, baserat på användning, kostnader och flyttade affärskrav.
 
 Den här artikeln beskriver Metodtips för kostnadshantering och ändra storlek på före och efter migreringen.  
 

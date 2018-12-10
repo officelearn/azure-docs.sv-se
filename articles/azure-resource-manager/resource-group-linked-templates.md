@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: fbfe7255f2b848187c74fd832f349186eef5eaef
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 724b1a2562e4723bd02c97cdecb0ef7dbd8ed177
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287582"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139069"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -169,7 +169,9 @@ Du kan också använda [deployment()](resource-group-template-functions-deployme
 
 ## <a name="get-values-from-linked-template"></a>Hämta värden från den länkade mallen
 
-För att få utdatavärde från en länkad mall kan hämta egenskapens värde med syntax som: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+För att få utdatavärde från en länkad mall kan hämta egenskapens värde med syntax som: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+När du hämtar en egenskap för utdata från en länkad mall, får inte egenskapsnamnet innehålla ett bindestreck.
 
 I följande exempel visar hur du refererar till en länkad mall och hämta utdatavärde. Länkad mall returnerar ett enkelt meddelande.
 

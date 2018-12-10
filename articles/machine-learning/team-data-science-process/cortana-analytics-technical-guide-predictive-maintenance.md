@@ -1,5 +1,5 @@
 ---
-title: Förebyggande underhåll av flygplansmotorer med Azure – Cortana Intelligence Solution teknisk guide | Microsoft Docs
+title: Guide till förutsägelseunderhåll för flygindustrin - Team Data Science Process
 description: En teknisk guide till mallen med Microsoft Cortana Intelligence-lösning för förutsägande underhåll av flygplansmotorer, verktyg och transport.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: d5f6934385d616390baf336404ddd79d4bc2a490
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965444"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140191"
 ---
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Teknisk guide till lösningsmallen Cortana Intelligence för förebyggande underhåll i flygindustrin och andra företag
+# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösningsmallen Cortana Intelligence för förebyggande underhåll i flygindustrin
 
 >[!Important]
 Den här artikeln är inaktuell. Diskussion om förebyggande underhåll av flygplansmotorer är fortfarande relevanta, men för aktuell information, se [översikt över lösning för Business målgrupper](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).

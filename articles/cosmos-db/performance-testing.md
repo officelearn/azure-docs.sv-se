@@ -1,22 +1,18 @@
 ---
-title: Azure Cosmos DB skala och prestandatestning | Microsoft Docs
-description: Lär dig hur du utföra skalnings- och prestandatester med Azure Cosmos DB
-keywords: Prestandatestning
-services: cosmos-db
+title: Prestanda och skalningstester med Azure Cosmos DB
+description: Lär dig hur du skala och prestandatester med Azure Cosmos DB. Du kan sedan utvärdera funktionerna i Azure Cosmos DB för högpresterande Programscenarier.
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2017
+ms.date: 12/07/2017
 ms.author: sngun
-ms.openlocfilehash: 09ed72c73acf16f944c3b1101aff5ea04acb624d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: 776956624dc1da12427d6e4f79ea5e59788f2459
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308179"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135363"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestanda och skalningstester med Azure Cosmos DB
 

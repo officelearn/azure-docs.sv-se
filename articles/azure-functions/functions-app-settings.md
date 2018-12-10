@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: e346aed2efaab6afcd24e622f577708221b47cb1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965862"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138253"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
@@ -172,6 +172,48 @@ Gör att funktionsappen ska köras från en monterad paketfil.
 |WEBBPLATSEN\_KÖR\_FROM\_PAKET|1|
 
 Giltiga värden är antingen en URL som motsvarar platsen för en paketfil för distribution eller `1`. När värdet `1`, paketet måste finnas i den `d:\home\data\SitePackages` mapp. När du använder zip-distribution med den här inställningen överförs automatiskt paketet till den här platsen. I förhandsversion, kallades den här inställningen `WEBSITE_RUN_FROM_ZIP`. Mer information finns i [kör dina funktioner från en paketfil](run-functions-from-deployment-package.md).
+
+## <a name="azurefunctionproxydisablelocalcall"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+
+Functions proxies kommer som standard använder en genväg för att skicka API-anrop från proxyservrar direkt till funktioner i samma Funktionsapp i stället för att skapa en ny HTTP-begäran. Den här inställningen kan du inaktivera som standard.
+
+|Nyckel|Värde|Beskrivning|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Anrop med en backend-url som pekar på en funktion i lokala funktionen inte längre kommer att skickas direkt till funktionen och i stället att skickas tillbaka till HTTP-klientdel för Funktionsappen|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Detta är standardvärdet. Anrop med en backend-url som pekar på en funktion i lokalt Funktionsapp vidarebefordras direkt till funktionen|
+
+
+## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+Den här inställningen styr om % 2F avkodas som snedstreck i vägen parametrar när de infogas i backend-URL. 
+
+|Nyckel|Värde|Beskrivning|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Parametrar för vägen med kodade snedstreck har dem avkodas. `example.com/api%2ftest` blir `example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Detta är standardbeteendet. Alla vägar som kommer att överföras parametrar har inte ändrats|
+
+### <a name="example"></a>Exempel
+
+Här är ett exempel proxies.json i en funktionsapp i URL-myfunction.com
+
+```JSON
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "route": "/{*all}"
+            },
+            "backendUri": "example.com/{all}"
+        }
+    }
+}
+```
+|URL-avkodning|Indata|Resultat|
+|-|-|-|
+|true|myFunction.com/test%2fapi|example.com/test/API
+|false|myFunction.com/test%2fapi|example.com/test%2fapi|
+
 
 ## <a name="next-steps"></a>Nästa steg
 

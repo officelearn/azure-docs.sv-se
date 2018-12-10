@@ -1,6 +1,6 @@
 ---
-title: Programmeringsguide för händelsehubbar i Azure | Microsoft Docs
-description: Skriv kod för Azure Event Hubs med Azure .NET SDK.
+title: Programmeringsguide för – Azure Event Hubs | Microsoft Docs
+description: Den här artikeln innehåller information om hur du skriva kod för Azure Event Hubs med med Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cd97aed36e9fd82df0d37913d5ea9e57c875a673
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011461"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138083"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Programmeringsguide för Händelsehubbar i Azure
 Den här artikeln beskriver några vanliga scenarier i skriva kod med Azure Event Hubs. Den förutsätter att du har en grundläggande förståelse av händelsehubbar. En konceptuell översikt av händelsehubbar finns på [Översikt av händelsehubbar](event-hubs-what-is-event-hubs.md).
@@ -76,7 +76,7 @@ När du skickar händelsedata, kan du ange ett värde som hashas för att skapa 
 
 ### <a name="availability-considerations"></a>Överväganden för tillgänglighet
 
-Det är valfritt att använda en partitionsnyckel och bör du noggrant om du använder en eller inte. I många fall är med en partitionsnyckel ett bra alternativ om Händelseordning är viktigt. När du använder en partitionsnyckel partitionerna kräver tillgänglighet på en enda nod och avbrott kan uppstå med tiden. till exempel när compute-noder omstart och korrigeringsnivå. Om du ställer in ett partitions-ID och den partitionen som är tillgänglig av någon anledning, misslyckas därför försöker komma åt data i partitionen. Om hög tillgänglighet är den viktigaste inte ange en partitionsnyckel; i så fall skickas händelser till partitioner som använder resursallokeringsmodell som beskrivs ovan. I det här scenariot gör du ett explicit val mellan tillgänglighet (inga partitions-ID) och konsekvens (fästa händelser till en partitions-ID).
+Det är valfritt att använda en partitionsnyckel och bör du noggrant om du använder en eller inte. Om du inte anger en partitionsnyckel när du publicerar en händelse, används en tilldelning enligt resursallokeringsmodellen. I många fall är med en partitionsnyckel ett bra alternativ om Händelseordning är viktigt. När du använder en partitionsnyckel partitionerna kräver tillgänglighet på en enda nod och avbrott kan uppstå med tiden. till exempel när compute-noder omstart och korrigeringsnivå. Om du ställer in ett partitions-ID och den partitionen som är tillgänglig av någon anledning, misslyckas därför försöker komma åt data i partitionen. Om hög tillgänglighet är den viktigaste inte ange en partitionsnyckel; i så fall skickas händelser till partitioner som använder resursallokeringsmodell som beskrivs ovan. I det här scenariot gör du ett explicit val mellan tillgänglighet (inga partitions-ID) och konsekvens (fästa händelser till en partitions-ID).
 
 Ett annat övervägande hantering av fördröjningar i bearbetning av händelser. I vissa fall kan det vara bättre att släppa data och försök igen än försöker att hålla jämna steg med bearbetning, vilket kan medföra ytterligare fördröjningar i bearbetningen nedströms. Till exempel med en aktiekurser är det bättre att vänta för kompletta uppdaterade data, men i en live-chatt eller VOIP-scenario som du vill hellre ha data snabbt, även om det inte är klar.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 91bbbf6cced8dc3ade4906961d68a99f810d9fd9
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c27649bc92b9874c6a669911d2b86273cf7adf0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956994"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136341"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Så här konfigurerar du enkel inloggning till ett Application Proxy-program
 
@@ -29,7 +29,7 @@ Enkel inloggning (SSO) kan användarna komma åt ett program utan autentiseras f
 ## <a name="how-to-configure-single-sign-on"></a>Hur du konfigurerar enkel inloggning på
 Om du vill konfigurera enkel inloggning, se till att ditt program är konfigurerad för förautentisering via Azure Active Directory. Om du vill göra den här konfigurationen, gå till **Azure Active Directory**  - &gt; **företagsprogram**  - &gt; **alla program**   - &gt; Programmets  **- &gt; Application Proxy**. På den här sidan finns i fältet ”förautentisering” och kontrollerar som är inställt på ”Azure Active Directory. 
 
-Mer information om de före autentiseringsmetoderna finns i steg 4 i den [publishing appdokument](application-proxy-publish-azure-portal.md).
+Mer information om de före autentiseringsmetoderna finns i steg 4 i den [publishing appdokument](application-proxy-add-on-premises-application.md).
 
    ![Förautentiseringsmetod i Azure-portalen](./media/application-proxy-config-sso-how-to/app-proxy.png)
 

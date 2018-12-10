@@ -1,24 +1,24 @@
 ---
-title: Använda Studio 3T (MongoChef) med Azure Cosmos DB | Microsoft Docs
-description: Lär dig att använda Studio 3T med ett Azure Cosmos DB MongoDB API-konto
+title: Ansluta till MongoDB-kontot använda Studio 3T (MongoChef)
+titleSuffix: Azure Cosmos DB
+description: Lär dig hur du ansluter till MongoDB-API i Azure Cosmos DB genom att använda Studio 3T och hur du skapar en databas, samling och dokument när du har anslutit.
 keywords: mongochef studio 3T
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 12/06/2018
 ms.author: sclyon
-ms.openlocfilehash: af66f413055c01d9a4c3e94c7d3b9c5f1d5917b0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.custom: seodec18
+ms.openlocfilehash: 5bdcf035f892f1cbdb8bb43579dba547f0ec8bfd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054134"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135668"
 ---
-# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB: Använda Studio 3T med ett MongoDB API-konto
+# <a name="connect-to-mongodb-account-using-studio-3t-mongochef"></a>Ansluta till MongoDB-kontot använda Studio 3T (MongoChef)
 
 Om du vill ansluta till ett Azure Cosmos DB MongoDB API-konto, måste du:
 

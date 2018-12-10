@@ -1,21 +1,19 @@
 ---
-title: Facit för Azure Cosmos DB PDF-fråga | Microsoft Docs
+title: Facit för Azure Cosmos DB PDF-fråga
 description: 'PDF utskrivbara fusklappar som hjälper dig att använda Azure Cosmos DB SQL, MongoDB, diagram och tabell-API: er för att fråga efter data'
 keywords: facit för SQL, sql fuska blad pdf, facit för sql-fråga
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 21b2ee99fa8f9b22b4dfccadfaadf1d4a10980cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160978"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138151"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Facit för Azure Cosmos DB-fråga
 
@@ -36,7 +34,7 @@ Ladda ned den [facit för Azure Cosmos DB A3-storlek fråga](https://go.microsof
 
 ## <a name="next-steps"></a>Nästa steg
 Mer hjälp skriver frågor finns i följande artiklar:
-* SQL API-frågor finns i [frågar med SQL API](tutorial-query-sql-api.md), [SQL-frågor för Azure Cosmos DB](how-to-sql-query.md), och [referens för SQL-syntax](sql-api-sql-query-reference.md)
+* SQL API-frågor finns i [frågar med SQL API](tutorial-query-sql-api.md), [SQL-frågor för Azure Cosmos DB](how-to-sql-query.md), och [referens för SQL-syntax](sql-api-query-reference.md)
 * MongoDB-frågor finns i [frågar med hjälp av MongoDB API](tutorial-query-mongodb.md) och [MongoDB API-stöd för MongoDB-funktioner och syntax](mongodb-feature-support.md)
 * Gremlin-API-frågor finns i [fråga med hjälp av Gremlin-API](tutorial-query-graph.md) och [grafstöd för Azure Cosmos DB Gremlin](gremlin-support.md)
 * Tabell-API-frågor finns [ställa frågor med tabell-API](tutorial-query-table.md)

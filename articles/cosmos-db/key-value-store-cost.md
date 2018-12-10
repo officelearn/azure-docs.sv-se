@@ -1,19 +1,18 @@
 ---
-title: Azure Cosmos DB som ett nyckelvärde – kostnaden översikt
-description: Läs mer om de låga kostnaderna för att använda Azure Cosmos DB som ett nyckelvärde.
-keywords: nyckelvärde
-services: cosmos-db
+title: Begär units för Azure Cosmos DB som ett nyckelvärde
+description: Lär dig mer om begäran units i Azure Cosmos DB för skrivning enkla och läsåtgärder när den används som en nyckel/värde-lager.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 7331db23757ab4eaae054c7fe640952fe22a7917
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840885"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134190"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB som ett nyckelvärde – kostnaden översikt
 
@@ -38,7 +37,7 @@ I följande tabell visas antalet mediereserverade enheter som krävs för att ut
 
 Om du etablerar 1 000 kosta RU/sek, den här belopp som ska 3.6 miljoner RU/timme och kommer att $0.08 under timmen (i USA och Europa). Efter 1 KB storlek dokument, detta innebär att du kan använda 3.6-m läsningar eller skriver 0,72-m (3.6 miljoner RU / 5) med hjälp av det etablerade dataflödet. Normaliseras till miljoner läsningar och skrivningar, kostnaden skulle bli $0,022 /m läsningar (0,08 USD / 3.6) och $0.111/ m skriver (0,08 USD / 0,72). Kostnaden per miljon blir minimal som visas i tabellen nedan.
 
-|Objektets storlek|1-m Läs|1-m-Write|
+|Objektets storlek|1-m Läs|1 miljon skrivning|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
 |100 KB|$0.222|$1.111|

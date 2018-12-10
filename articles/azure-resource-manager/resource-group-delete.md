@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager ta bort resursgrupp
-description: Beskriver hur Azure Resource Manager beställningar borttagningen av resurser när en tar bort en resursgrupp.
+title: Ta bort resursgruppen och resurser – Azure Resource Manager
+description: Beskriver hur Azure Resource Manager beställningar borttagningen av resurser när en tar bort en resursgrupp. Beskriver svarskoder samt hur Resource Manager hanterar dem för att fastställa om borttagningen lyckades.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b0711cab07584aa84ab437a2a4efb5aab92f3d1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: b8c4fdc942af291e912a4c1e74d1292279cf9f8c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319360"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132337"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager resource borttagning av
 
@@ -32,7 +33,7 @@ När du tar bort en resursgrupp, anger Resource Manager den för att ta bort res
 
 3. De återstående resurserna tas bort efter de föregående två kategorierna.
 
-## <a name="resource-deletion"></a>Ta bort resursen
+## <a name="resource-deletion"></a>Resursborttagning
 
 När ordningen bestäms utfärdar en borttagningsåtgärd för varje resurs i Resource Manager. Det väntar några beroenden som ska slutföras innan du fortsätter.
 
@@ -68,4 +69,4 @@ För andra felkoder inte Resource Manager borttagningen av resursen.
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om Resource Manager-begrepp finns i [översikt över Azure Resource Manager](resource-group-overview.md).
-* Åtgärder för en resursprovider finns [Azure REST API](/rest/api/).
+* Ta bort kommandon finns i [PowerShell](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete), och [REST API](/rest/api/resources/resourcegroups/delete).

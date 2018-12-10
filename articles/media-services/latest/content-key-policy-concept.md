@@ -1,5 +1,5 @@
 ---
-title: Innehålls-principer för nycklar i Azure Media Services | Microsoft Docs
+title: Innehålls-principer för nycklar i Media Services – Azure | Microsoft Docs
 description: Den här artikeln innehåller en förklaring av vad Innehållsprinciper nyckel är och hur de används av Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 541713677184d93eb78856e3c3373ab432d5f0cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085970"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141540"
 ---
 # <a name="content-key-policies"></a>Viktiga innehållsprinciper
 

@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: c1c550e6b99b9933b66c85e1de7e0a5cc2eb711d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 637c1b77a4ced9c8f7542548a56d8e3b0315d075
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564851"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136315"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Hur du skapar och hanterar Läs repliker i Azure Database för MySQL med Azure CLI
 
@@ -36,6 +36,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 ```
 
 Den `az mysql server replica create` kommandot kräver följande parametrar:
+
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Den resursgrupp där replikservern skapas.  |
@@ -57,6 +58,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 ```
 
 Den `az mysql server replica stop` kommandot kräver följande parametrar:
+
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Den resursgrupp där replikservern finns.  |
@@ -90,6 +92,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 ```
 
 Den `az mysql server replica list` kommandot kräver följande parametrar:
+
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Den resursgrupp där replikservern skapas.  |

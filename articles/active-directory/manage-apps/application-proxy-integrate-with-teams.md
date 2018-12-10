@@ -15,12 +15,12 @@ ms.date: 09/05/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1269dfb3aec33e781601a1d885004ddf80127160
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 83f32cc18f1237d5d28e8340177fd6e2fae4e173
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367206"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133646"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Åtkomst till dina lokala program via Microsoft Teams
 
@@ -31,7 +31,7 @@ Användarna kan lägga till appar i molnet till sina Teams kanaler [med hjälp a
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>Installera Application Proxy connector och publicera dina appar
 
-Om du inte redan gjort [konfigurera programproxyn för din klient och installera connector](application-proxy-enable.md). Sedan [publicera dina lokala program](application-proxy-publish-azure-portal.md) för fjärråtkomst. När du publicerar appen, anteckna den externa URL: en eftersom den används för att lägga till appen i Teams.
+Om du inte redan gjort [konfigurera programproxyn för din klient och installera connector](application-proxy-add-on-premises-application.md). Sedan [publicera dina lokala program](application-proxy-add-on-premises-application.md) för fjärråtkomst. När du publicerar appen, anteckna den externa URL: en eftersom den används för att lägga till appen i Teams.
 
 Om du redan ha dina appar som publicerats men inte kommer ihåg sina externa URL: er, söker du efter dem den [Azure-portalen](https://portal.azure.com). Logga in och gå till **Azure Active Directory** > **företagsprogram** > **alla program** > Välj din app >  **Programproxy**.
 

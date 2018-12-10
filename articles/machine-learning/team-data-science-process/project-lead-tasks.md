@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process-projektbeskrivning uppgifter – Azure | Microsoft Docs
-description: En översikt över aktiviteter för en projektledare på ett teamprojekt för data science.
+title: Uppgifter för projektet leda i Team Data Science Process
+description: En översikt över de åtgärder som en projektbeskrivning förväntas skulle bli klart på ett teamprojekt för data science.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442905"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135172"
 ---
-# <a name="project-lead-tasks"></a>Project Lead-aktiviteter
+# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Uppgifter för projektet leda i Team Data Science Process
 
 Den här självstudien beskrivs de uppgifter som är en projektledare väntat att slutföra för hans/hennes projektteamet. Målet är att upprätta samarbetsteam miljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). TDSP är ett ramverk som utvecklats av Microsoft och som tillhandahåller en strukturerade sekvensen av aktiviteter att köra molnbaserad förutsägande Analyslösningar effektivt. En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
 
@@ -27,7 +27,8 @@ En **projektbeskrivning** hanterar dagliga aktiviteter för enskilda datapersona
 
 Det här avsnittet innehåller för närvarande uppgifter 1,2 och 6 av det här arbetsflödet för projektet leads.
 
->[AZURE.NOTE] Vi beskriver de steg som krävs för att ställa in en TDSP teammiljö för ett projekt med Azure DevOps i följande anvisningar. Vi anger du hur du utför dessa uppgifter med Azure DevOps eftersom det är hur vi implementerar TDSP på Microsoft. Om du använder en annan värd för koden plattform för din grupp, ändra inte de uppgifter som måste slutföras av gruppledare Allmänt. Men sättet att utföra dessa uppgifter kommer att vara olika.
+> [!NOTE]
+> Vi beskriver de steg som krävs för att ställa in en TDSP teammiljö för ett projekt med Azure DevOps i följande anvisningar. Vi anger du hur du utför dessa uppgifter med Azure DevOps eftersom det är hur vi implementerar TDSP på Microsoft. Om du använder en annan värd för koden plattform för din grupp, ändra inte de uppgifter som måste slutföras av gruppledare Allmänt. Men sättet att utföra dessa uppgifter kommer att vara olika.
 
 
 ## <a name="repositories-and-directories"></a>Databaser och kataloger
@@ -195,7 +196,8 @@ Nu måste du skicka innehållet **_DSProject1_** till _R5_ lagringsplatsen i dit
     
 - Bekräfta ändringen och push. 
 
->[AZURE.NOTE] Om det här är första gången du skickar till en Git-lagringsplats, måste du konfigurera globala parametrar *user.name* och *user.email* innan du kör den `git commit` kommando. Kör följande två kommandon:
+> [!NOTE]
+> Om det här är första gången du skickar till en Git-lagringsplats, måste du konfigurera globala parametrar *user.name* och *user.email* innan du kör den `git commit` kommando. Kör följande två kommandon:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

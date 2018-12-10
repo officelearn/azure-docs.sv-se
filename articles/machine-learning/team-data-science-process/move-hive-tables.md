@@ -1,6 +1,6 @@
 ---
-title: Skapa Hive-tabeller och läsa in data från Azure Blob Storage | Microsoft Docs
-description: Skapa Hive-tabeller och läsa in data i blob till hive-tabeller
+title: Skapa Hive-tabeller och läsa in data från Blob storage - Team Data Science Process
+description: Använda Hive-frågor för att skapa Hive-tabeller och läsa in data från Azure blob storage. Partitionera Hive-tabeller och använda den optimerade rad kolumner (ORC) formatering för att förbättra frågeprestanda.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 42911c347cd055f37f7fe8f31b6d22cc18a78662
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442888"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134955"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och läsa in data från Azure Blob Storage
 
@@ -65,14 +65,14 @@ Du har tre sätt att skicka Hive-frågor i Hadoop-kommandoraden:
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Skicka Hive-frågor direkt i Hadoop-kommandoraden.
 Du kan köra kommandot som `hive -e "<your hive query>;` att skicka enkla Hive-frågor direkt i Hadoop-kommandoraden. Här är ett exempel där den röda rutan beskriver det kommando som skickar Hive-fråga, och den gröna rutan visar utdata från Hive-frågan.
 
-![Skapa arbetsyta](./media/move-hive-tables/run-hive-queries-1.png)
+![Kommando för att skicka Hive-fråga med utdata från Hive-fråga](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>Skicka Hive-frågor i .hql filer
 När Hive-frågan är mer komplicerad och har flera rader kan är redigera frågor i kommandoraden eller Hive kommandokonsolen inte praktiskt. Ett alternativ är att använda en textredigerare i klustrets huvudnod Hadoop-kluster för att spara Hive-frågor i en .hql-fil i en lokal katalog för huvudnoden. Sedan kan skicka Hive-fråga i filen .hql med hjälp av den `-f` argumentet på följande sätt:
 
     hive -f "<path to the .hql file>"
 
-![Skapa arbetsyta](./media/move-hive-tables/run-hive-queries-3.png)
+![Hive-frågan i en .hql](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Ignorera förloppet status skärmen utskrift av Hive-frågor**
 
@@ -84,7 +84,7 @@ Som standard när Hive-frågan har skickats i Hadoop kommandoraden skrivs förlo
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Skicka Hive-frågor i kommandokonsolen för Hive.
 Du kan också ange kommandokonsolen Hive genom att köra kommandot `hive` i Hadoop kommandoraden och skicka Hive-frågor i kommandokonsolen för Hive. Här är ett exempel. I det här exemplet markerar du två röda rutor de kommandon som används för att ange Hive kommandokonsolen och Hive-fråga som skickats i kommandokonsolen Hive respektive. Den gröna rutan visar utdata från Hive-frågan.
 
-![Skapa arbetsyta](./media/move-hive-tables/run-hive-queries-2.png)
+![Öppna Hive kommandokonsolen och anger kommandot kan visa utdata för Hive-fråga](./media/move-hive-tables/run-hive-queries-2.png)
 
 I föregående exempel utdata direkt Hive-frågeresultatet på skärmen. Du kan också skriva utdata till en lokal fil på huvudnoden eller till en Azure-blob. Du kan sedan använda andra verktyg för ytterligare analys utdata för Hive-frågor.
 
@@ -95,7 +95,7 @@ Om du vill spara resultatet av Hive-frågan till en lokal katalog på huvudnoden
 
 I följande exempel skrivs utdata för Hive-fråga till en fil `hivequeryoutput.txt` i katalogen `C:\apps\temp`.
 
-![Skapa arbetsyta](./media/move-hive-tables/output-hive-results-1.png)
+![Utdata för Hive-fråga](./media/move-hive-tables/output-hive-results-1.png)
 
 **Hive-frågeresultat för utdata till en Azure-blob**
 
@@ -105,11 +105,11 @@ Du kan också spara resultatet av Hive-frågan till en Azure blob i standardbeh�
 
 I följande exempel skrivs utdata för Hive-fråga till en blob-katalog `queryoutputdir` i standardbehållaren för Hadoop-kluster. Här kan behöver du bara ange katalognamnet utan blobnamnet. Ett fel inträffar om du anger både directory och blob-namn, till exempel `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Skapa arbetsyta](./media/move-hive-tables/output-hive-results-2.png)
+![Utdata för Hive-fråga](./media/move-hive-tables/output-hive-results-2.png)
 
 Om du öppnar standardbehållaren för Hadoop-kluster med Azure Storage Explorer kan du se utdata för Hive-fråga som visas i följande bild. Du kan använda filter (visas med röd ram) för att endast hämta blob med angivna bokstäverna i namn.
 
-![Skapa arbetsyta](./media/move-hive-tables/output-hive-results-3.png)
+![Azure Storage Explorer visar utdata för Hive-fråga](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Skicka Hive-frågor med Hive-redigeraren
 Du kan också använda Frågekonsolen (Hive-redigeraren) genom att ange en URL i formatet *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* i en webbläsare. Du måste vara inloggad i ser den här konsolen och du måste ha autentiseringsuppgifter här dina Hadoop-kluster.

@@ -1,6 +1,6 @@
 ---
-title: Power BI-instrumentpanel för fordonshälsa och körvanor – Azure | Microsoft Docs
-description: Använda funktionerna i Cortana Intelligence insikter i realtid och förutsägande på fordonshälsa och vanor.
+title: Power BI-instrumentpanel för fordonshälsa och körvanor - Team Data Science Process
+description: Utveckla en Power BI-instrumentpanel för att få i realtid, förutsägande och batch-insikter om fordonshälsa och driver på vanor.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b4d36b7d68bad658200024a2fe31a876d411536c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a964820979f24af1fee2be65461302be73b9e77b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444657"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135125"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Vehicle Telemetry Analytics-lösningen mall Power BI instrumentpanel, konfigurationsanvisningar
 
@@ -26,8 +26,8 @@ Sammanfattande beskrivning av den här lösningen finns i [Vehicle Telemetry Ana
 Om du vill utforska ytterligare i den här lösningen, se [Vehicle Telemetry Analytics-lösning, playbook: fördjupa dig i lösningen](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Distribuera den [analys av Fordonstelemetri](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) lösning. 
-* [Installera Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
+* Distribuera den [analys av Fordonstelemetri](https://gallery.cortanaintelligence.com/Solutions/5bdb23f3abb448268b7402ab8907cc90) lösning. 
+* [Installera Power BI Desktop](https://aka.ms/pbidesktopstore).
 * Hämta en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/). Om du inte har en Azure-prenumeration kan komma igång med Azure-kostnadsfria prenumerationen.
 * Öppna en Power BI-konto.
 
@@ -345,7 +345,7 @@ Du har skapat i realtid instrumentpanelen. När du fortsätter att köra CarEven
 
 ### <a name="configure-power-bi-reports"></a>Konfigurera Power BI-rapporter
 
-1. Öppna filen designer **ConnectedCarsPbiReport.pbix** med hjälp av Power BI Desktop. Om du inte redan har det kan du installera Power BI Desktop från den [Power BI Desktop-installationen](https://www.microsoft.com/download/details.aspx?id=45331) webbplats.
+1. Öppna filen designer **ConnectedCarsPbiReport.pbix** med hjälp av Power BI Desktop. Om du inte redan har det kan du installera Power BI Desktop från den [Power BI Desktop-installationen](https://aka.ms/pbidesktopstore) webbplats.
 
 1. Välj **redigera frågor**.
 

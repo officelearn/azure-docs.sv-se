@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282523"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140854"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -51,7 +51,7 @@ Den här artikeln är avsedd för personer som publicerar en app med det här sc
 
 Om du redan har programproxyn har aktiverats och har en anslutningstjänsten installerad, kan du hoppa över det här avsnittet och gå vidare till [lägga till din app i Azure AD med Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
 
-Programproxy-kopplingen är en Windows Server-tjänst som dirigerar trafiken från fjärranslutna anställda till dina publicerade appar. Mer detaljerade instruktioner för installation finns i [aktivera Application Proxy på Azure-portalen](application-proxy-enable.md).
+Programproxy-kopplingen är en Windows Server-tjänst som dirigerar trafiken från fjärranslutna anställda till dina publicerade appar. Mer detaljerade instruktioner för installation finns i [aktivera Application Proxy på Azure-portalen](application-proxy-add-on-premises-application.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
 2. Välj **Azure Active Directory** > **programproxy**.
@@ -66,7 +66,7 @@ Programproxy-kopplingen är en Windows Server-tjänst som dirigerar trafiken fr�
 
 Det finns två åtgärder som du behöver göra i Azure-portalen. Först måste du publicera ditt program med programproxy. Måste du samla in viss information om den app som du kan använda under PingAccess-steg.
 
-Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av steg 1-8, se [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av steg 1-8, se [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
 1. Om du inte gjort i det sista avsnittet loggar du in den [Azure-portalen](https://portal.azure.com) som global administratör.
 2. Välj **Azure Active Directory** > **företagsprogram**.

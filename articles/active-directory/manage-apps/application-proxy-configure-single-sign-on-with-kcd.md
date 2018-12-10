@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: dbb7fca08e8d5c59842f7ddfb02b463a42efadb7
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 565e7379ad12222e459bd61ed50fa38f9f9b12fc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422295"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136255"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -75,7 +75,7 @@ Active Directory-konfigurationen varierar beroende på om programproxy-kopplinge
 Sharepointserviceaccount kan vara datorkontot Service Pack eller ett tjänstkonto som Service Pack-programpoolen körs under.
 
 ## <a name="configure-single-sign-on"></a>Konfigurera enkel inloggning 
-1. Publicera programmet enligt instruktionerna i [publicera program med Application Proxy](application-proxy-publish-azure-portal.md). Se till att välja **Azure Active Directory** som den **förautentisering metoden**.
+1. Publicera programmet enligt instruktionerna i [publicera program med Application Proxy](application-proxy-add-on-premises-application.md). Se till att välja **Azure Active Directory** som den **förautentisering metoden**.
 2. När ditt program visas i listan över företagsprogram, markerar du det och klickar på **enkel inloggning**.
 3. Ange läge för enkel inloggning **integrerad Windows-autentisering**.  
 4. Ange den **intern program-SPN** på programservern. I det här exemplet är SPN för vårt publicerade program http/www.contoso.com. Den här SPN måste finnas i listan över tjänster som anslutningen kan ge delegerade autentiseringsuppgifter. 

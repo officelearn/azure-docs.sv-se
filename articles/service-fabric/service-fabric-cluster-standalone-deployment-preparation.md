@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9918c4b022fc2aca4bfc1ddba5649d7f0efe1256
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259096"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138797"
 ---
 <a id="preparemachines"></a>
 
@@ -83,6 +83,7 @@ Om du vill skapa ett fristående kluster som du behöver skapa en fristående kl
 Mer information om avsnitten i den här filen finns [konfigurationsinställningar för fristående Windows-kluster](service-fabric-cluster-manifest.md).
 
 Öppna en av filerna ClusterConfig.json från paketet som du hämtade och ändra följande inställningar:
+
 | **Konfigurationsinställningen** | **Beskrivning** |
 | --- | --- |
 | **NodeTypes** |Nodtyper kan du dela dina klusternoder i olika grupper. Ett kluster måste ha minst en NodeType. Alla noder i en grupp har de vanliga förekommande egenskaperna: <br> **Namn på** – det här är namnet på nodtypen. <br>**Slutpunktsportar** – dessa är olika namngivna slutpunkter (portar) som är associerade med den här nodtypen. Du kan använda valfri portnummer som du vill, förutsatt att de inte står i konflikt med något annat i manifestet och som inte redan används av andra program som körs på datorn och VM. <br> **Placeringsegenskaper** -dessa beskriver egenskaperna för den här nodtypen som du använder som placeringsbegränsningar för systemtjänster eller dina tjänster. Dessa egenskaper är en användardefinierad nyckel/värde-par som ger extra metadata för en viss nod. Exempel på nodegenskaper skulle vara om noden har en hårddisk eller grafikkort, antalet spindlar i dess hårddisken, kärnor och andra fysiska egenskaper. <br> **Kapaciteter** -nodkapaciteterna definiera namn och beloppet för en viss resurs att en särskild nod har tillgängligt för förbrukning. En nod kan till exempel ange att den har kapacitet för ett mått som kallas ”MemoryInMb” och att det finns 2 048 MB tillgängligt som standard. Dessa kapaciteter för att säkerställa att tjänster som kräver viss mängder resurser placeras på noder som har resurser som är tillgängliga i de obligatoriska mängder som anges vid körning.<br>**IsPrimary** – om du har mer än en NodeType definierats se till att endast en har angetts till primära med värdet *SANT*, vilket är där systemet services körs. Alla andra typer av noden ska vara inställd på värdet *FALSKT* |
@@ -97,20 +98,20 @@ Efter att klusterkonfigurationen har haft alla inställningar som konfigurerats 
 När en Klusteradministratör konfigurerar fristående Service Fabric-kluster, måste miljön konfigureras med följande kriterier: <br>
 1. Den användare som skapar klustret bör ha administratörsrättigheter säkerhetsrättigheter för att alla datorer som listas som noder i klustret konfigurationsfilen.
 2. Datorn där klustret har skapats, samt varje noddatorn i klustret måste du göra följande:
-* Har avinstallerat Service Fabric SDK
-* Har avinstallerat Service Fabric-körningen 
-* Har aktiverat tjänsten Windows-brandväggen (mpssvc)
-* Har aktiverat tjänsten Remote Registry (remote registry)
-* Har aktiverat delning (SMB)-fil
-* Ha nödvändiga portar öppnas, baserat på klustret configuration portar
-* Har nödvändiga portarna för Windows-SMB- och Remote Registry-tjänsten: 135, 137, 138, 139 och 445
-* Ha en nätverksanslutning till varandra
+   * Har avinstallerat Service Fabric SDK
+   * Har avinstallerat Service Fabric-körningen 
+   * Har aktiverat tjänsten Windows-brandväggen (mpssvc)
+   * Har aktiverat tjänsten Remote Registry (remote registry)
+   * Har aktiverat delning (SMB)-fil
+   * Ha nödvändiga portar öppnas, baserat på klustret configuration portar
+   * Har nödvändiga portarna för Windows-SMB- och Remote Registry-tjänsten: 135, 137, 138, 139 och 445
+   * Ha en nätverksanslutning till varandra
 3. Ingen av de kluster nod-datorerna ska vara en domänkontrollant.
 4. Om klustret distribueras är ett säkert kluster kan verifiera den säkerhet som behövs krav är placera och är korrekt konfigurerade mot konfigurationen.
 5. Om klustret datorer inte är tillgängligt via internet, kan du ange följande i klusterkonfigurationen:
-* Inaktivera telemetri: Under *egenskaper* ange *”Konfigurationsparametern”: false*
-* Inaktivera automatisk nedladdning av Fabric-version & meddelanden att support upphör snart för den aktuella versionen av klustret: Under *egenskaper* ange *”fabricClusterAutoupgradeEnabled”: false*
-* Alternativt, om Internetåtkomst för nätverk är begränsad till vitt visas domäner, domäner nedan krävs för automatisk uppgradering: go.microsoft.com download.microsoft.com
+   * Inaktivera telemetri: Under *egenskaper* ange *”Konfigurationsparametern”: false*
+   * Inaktivera automatisk nedladdning av Fabric-version & meddelanden att support upphör snart för den aktuella versionen av klustret: Under *egenskaper* ange *”fabricClusterAutoupgradeEnabled”: false*
+   * Alternativt, om Internetåtkomst för nätverk är begränsad till vitt visas domäner, domäner nedan krävs för automatisk uppgradering: go.microsoft.com download.microsoft.com
 
 6. Ange rätt Service Fabric-antivirusundantag:
 

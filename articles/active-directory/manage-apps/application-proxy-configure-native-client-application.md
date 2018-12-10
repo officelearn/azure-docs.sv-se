@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621096"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135534"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Så här aktiverar du ursprungliga klientappar kan interagera med proxy-program
 
@@ -35,7 +35,7 @@ Använd Azure AD Authentication Library, som tar hand om autentisering och har s
 Den här artikeln vägleder dig igenom fyra stegen för att publicera ett internt program med Application Proxy och Azure AD-Autentiseringsbiblioteket. 
 
 ## <a name="step-1-publish-your-application"></a>Steg 1: Publicera ditt program
-Publicera dina proxy-program, precis som alla andra program och tilldela användare åtkomst till ditt program. Mer information finns i [publicera program med Application Proxy](application-proxy-publish-azure-portal.md).
+Publicera dina proxy-program, precis som alla andra program och tilldela användare åtkomst till ditt program. Mer information finns i [publicera program med Application Proxy](application-proxy-add-on-premises-application.md).
 
 ## <a name="step-2-configure-your-application"></a>Steg 2: Konfigurera ditt program
 Konfigurera ditt interna program enligt följande:
@@ -55,8 +55,8 @@ Mer information om hur du skapar en ny appregistrering finns [integrera program 
 Aktivera programspecifik kan exponeras för andra program i din katalog:
 
 1. Fortfarande är i **appregistreringar**, Välj den nya inbyggda program som du nyss skapade.
-2. Välj **behörigheter som krävs för**.
-3. Välj **Lägg till**.
+2. Välj **API-behörigheter**.
+3. Välj **lägga till en behörighet**.
 4. Öppna det första steget, **Välj en API**.
 5. Använd sökfältet för att hitta den Application Proxy-app som du publicerade i det första avsnittet. Välj appen och klicka sedan på **Välj**. 
 

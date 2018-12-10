@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 85e6dc8d72588ff64c0119a6c1944755ce5686f4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720940"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139273"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-provkörning
 =================================
@@ -177,7 +177,7 @@ Du kan använda den här parametern för att unikt identifiera Test Drive-sessio
 
 Vissa Azure-resurser, t.ex. storage-konton eller DNS-namn, kräver globalt unika namn.
 
-Det innebär att varje gång Test Drive distribuerar Resource Manager-mallen, skapas en **ny resursgrupp med ett unikt namn** för alla dess\' resurser **.** Därför det krävs för att använda den [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) funktionen sammanfogat med din variabelnamn på resursgruppen ID att skapa slumpmässigt unika värden:
+Det innebär att varje gång Test Drive distribuerar Resource Manager-mallen, skapas en **ny resursgrupp med ett unikt namn** för alla dess\' resurser. Därför det krävs för att använda den [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) funktionen sammanfogat med din variabelnamn på resursgruppen ID att skapa slumpmässigt unika värden:
 
       "variables": {
       ...

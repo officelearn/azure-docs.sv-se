@@ -1,5 +1,5 @@
 ---
-title: Flytta Data till och från Azure Blob storage | Microsoft Docs
+title: Flytta Data till och från Azure Blob storage - Team Data Science Process
 description: Flytta Data till och från Azure Blob storage
 services: machine-learning
 author: marktab
@@ -10,17 +10,20 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: fa3fd5dfdd0fbdb8200b0c5c8df512caedbe735c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a37c19ac0d3c053644b2f1f970ef9f84eac2f1df
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441850"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139865"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Flytta data till och från Azure Blob storage
 
 Team Data Science Process kräver att data ska matas in eller läses in i en mängd olika lagringsmiljöer bearbetas eller analyseras i det lämpligaste sättet i varje steg i processen.
+
+## <a name="different-technologies-for-moving-data"></a>Olika tekniker för att flytta data
+
 I följande artiklar beskrivs hur du flyttar data till och från Azure Blob storage med hjälp av olika tekniker.
 
 * [Azure Lagringsutforskaren](move-data-to-azure-blob-using-azure-storage-explorer.md)
@@ -35,6 +38,8 @@ Vilken metod som passar bäst för dig beror på ditt scenario. Den [scenarier f
 > 
 > 
 
+## <a name="using-azure-data-factory"></a>Använda Azure Data Factory
+
 Alternativt kan du använda [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) till: 
 
 * Skapa och schemalägga en pipeline som hämtar data från Azure blob storage 
@@ -45,7 +50,7 @@ Alternativt kan du använda [Azure Data Factory](https://azure.microsoft.com/ser
 Mer information finns i [skapa förutsägande pipelines med Azure Data Factory och Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
-Det här dokumentet förutsätter att du har en Azure-prenumeration, ett lagringskonto och motsvarande lagringskontots åtkomstnyckel för kontot. Innan du laddar upp/ned data, vet du ditt Azure storage-konto och kontonyckeln.
+Den här artikeln förutsätter att du har en Azure-prenumeration, ett lagringskonto och motsvarande lagringskontots åtkomstnyckel för kontot. Innan du laddar upp/ned data, vet du ditt Azure storage-konto och kontonyckeln.
 
 * Om du vill konfigurera en Azure-prenumeration, se [kostnadsfri utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/).
 * Mer information om hur du skapar ett lagringskonto och för att hämta konto och viktig information, se [om Azure storage-konton](../../storage/common/storage-create-storage-account.md).

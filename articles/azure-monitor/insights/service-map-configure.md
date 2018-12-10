@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: cead67bf18dcd0ea7b5c1479588083884dab475f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 68ca8593dea93faf076ffb5d99ec7bcad210a810
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632967"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141840"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration som krävs, än installation av en agent.
@@ -125,8 +125,8 @@ I följande avsnitt en lista över operativsystem som stöds för beroendeagente
 
 | Fil | Operativsystem | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>Anslutna källor
 Tjänstkarta hämtar data från Microsoft Dependency agenten. Beroendeagenten är beroende av Log Analytics-agenten för dess anslutningar till Log Analytics. Det innebär att en server måste ha Log Analytics-agenten installeras och konfigureras med beroendeagenten.  I följande tabell beskrivs de anslutna källor som har stöd för lösningen Tjänstkarta.
@@ -135,7 +135,7 @@ Tjänstkarta hämtar data från Microsoft Dependency agenten. Beroendeagenten ä
 |:--|:--|:--|
 | Windows-agenter | Ja | Service Map analyserar och samlar in data från Windows-datorer. <br><br>Förutom den [Log Analytics-agenten för Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows-agenter kräver Microsoft Dependency agenten. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | Linux-agenter | Ja | Service Map analyserar och samlar in data från Linux-datorer. <br><br>Förutom den [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md), kräver Microsoft Dependency agenten för Linux-agenter. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
-| System Center Operations Manager-hanteringsgrupp | Ja | Service Map analyserar och samlar in data från Windows och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](../../log-analytics/log-analytics-om-agents.md). <br><br>En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. |
+| System Center Operations Manager-hanteringsgrupp | Ja | Service Map analyserar och samlar in data från Windows och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md). <br><br>En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. |
 | Azure Storage-konto | Nej | Tjänstkarta samlar in data från agentdatorer, så det finns inga data från den för att samla in från Azure Storage. |
 
 På Windows, Microsoft Monitoring Agent (MMA) används av både System Center Operations Manager och Log Analytics att samla in och skicka övervakningsdata. (Den här agenten kallas System Center Operations Manager-agenten, Log Analytics-agenten, MMA eller Direktagent, beroende på kontext.) System Center Operations Manager och Log Analytics tillhandahåller olika out-nyckelfärdig versioner av MMA. Båda dessa versioner kan rapportera till System Center Operations Manager, till Log Analytics eller till båda.  
@@ -156,7 +156,7 @@ Om du är en System Center Operations Manager-kund med en hanteringsgrupp som ä
 Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics-arbetsytan med hjälp av gatewayen. Mer information om hur du distribuerar och konfigurerar Log Analytics-gateway finns [ansluter datorer utan Internetåtkomst med Log Analytics-gateway](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Hanteringspaket
-När Tjänstkarta har aktiverats i Log Analytics-arbetsytan kan vidarebefordras ett hanteringspaket på 300 KB till alla Windows-servrar i den arbetsytan. Om du använder System Center Operations Manager-agenter i en [ansluten hanteringsgrupp](../../log-analytics/log-analytics-om-agents.md), Tjänstkarta-hanteringspaket distribueras från System Center Operations Manager. 
+När Tjänstkarta har aktiverats i Log Analytics-arbetsytan kan vidarebefordras ett hanteringspaket på 300 KB till alla Windows-servrar i den arbetsytan. Om du använder System Center Operations Manager-agenter i en [ansluten hanteringsgrupp](../../azure-monitor/platform/om-agents.md), Tjänstkarta-hanteringspaket distribueras från System Center Operations Manager. 
 
 Hanteringspaketet heter Microsoft.IntelligencePacks.ApplicationDependencyMonitor. De skrivs till %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. Datakällan som hanteringspaketet använder är % Program files%\Microsoft övervakning Agent\Agent\Health Service State\Resources\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 

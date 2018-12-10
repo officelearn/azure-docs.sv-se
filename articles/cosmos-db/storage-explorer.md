@@ -1,26 +1,21 @@
 ---
-title: Hantera Azure Cosmos DB i Azure Storage Explorer
-description: Lär dig hantera Azure Cosmos DB i Azure Storage Explorer.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: Hantera Azure Cosmos DB-resurser med Azure Storage Explorer
+description: Lär dig hur du ansluter till Azure Cosmos DB och hantera dess resurser med hjälp av Azure Storage Explorer.
 author: Jejiang
-manager: kfile
-editor: ''
 tags: Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 12/07/2018
 ms.author: jejiang
-ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261168"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138134"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Hantera Azure Cosmos DB i Azure Storage Explorer
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Hantera Azure Cosmos DB-resurser med Azure Storage Explorer
 
 Med hjälp av Azure Cosmos DB i Azure Storage Explorer kan du hantera Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. För tillfället stöder Azure Storage Explorer SQL-, MongoDB-, Graph- och Table-konton.
 
@@ -152,7 +147,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 - Klicka på knappen **Delete** (Ta bort) om du vill ta bort det valda dokumentet.
 
 #### <a name="query-for-documents"></a>Fråga för dokument
-- Redigera dokumentfilter genom att ange en [SQL-fråga](sql-api-sql-query.md) och sedan klicka på **Apply** (Tillämpa).
+- Redigera dokumentfilter genom att ange en [SQL-fråga](how-to-sql-query.md) och sedan klicka på **Apply** (Tillämpa).
 
     ![Dokumentfilter](./media/storage-explorer/document-filter.png)
 
@@ -242,8 +237,8 @@ Om det inte går att hitta något självsignerat certifikat med hjälp av stegen
 
 Om det inte går att hämta dina prenumerationer när du har loggat in:
 
-- Verifiera att ditt konto har åtkomst till prenumerationerna genom att logga in på [Azure Portal](http://portal.azure.com/)
-- Kontrollera att du har loggat in med rätt miljö ([Azure](http://portal.azure.com/), [Azure Kina](https://portal.azure.cn/), [Azure Tyskland](https://portal.microsoftazure.de/), [Azure som tillhör amerikanska myndigheter](http://portal.azure.us/), eller Anpassad miljö/Azure Stack)
+- Verifiera att ditt konto har åtkomst till prenumerationerna genom att logga in på [Azure Portal](https://portal.azure.com/)
+- Kontrollera att du har loggat in med rätt miljö ([Azure](https://portal.azure.com/), [Azure Kina](https://portal.azure.cn/), [Azure Tyskland](https://portal.microsoftazure.de/), [Azure som tillhör amerikanska myndigheter](https://portal.azure.us/), eller Anpassad miljö/Azure Stack)
 - Om du är bakom en proxyserver, se till att du har konfigurerat Storage Explorer-proxyservern korrekt
 - Försök att ta bort och lägga till kontot igen
 - Försök att ta bort följande filer från arbetskatalogen (exempel: C:\Users\ContosoUser), och lägg sedan till kontot igen:

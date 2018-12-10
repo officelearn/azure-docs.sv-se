@@ -1,23 +1,22 @@
 ---
-title: Guide för utformning av Azure Storage-Table | Microsoft Docs
-description: Utforma skalbara och högpresterande tabeller i Azure Table Storage
-services: cosmos-db
+title: Skapa Azure Cosmos DB-tabeller som stöd för skalning och prestanda
+description: 'Azure Storage-Tabelldesignguide: Utforma skalbara och högpresterande tabeller i Azure Cosmos DB och Azure Storage-tabell'
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/03/2017
-ms.author: sngun
-ms.openlocfilehash: 6ac0895ac31a815f00ca6c5fa1dfd325be2e3963
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 656a8acc06a0d02959dda42c980db65c011f0bb3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245825"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140956"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide för utformning av Azure Storage-tabell: Utforma skalbara och högpresterande tabeller
+
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 Att utforma skalbara och högpresterande tabeller som du måste tänka på ett antal faktorer, till exempel prestanda, skalbarhet och kostnad. Om du har tidigare designat scheman för relationsdatabaser, dessa överväganden blir du känna igen, men det finns vissa likheter mellan Azure Table storage modell och relationella modeller, men det finns också många viktiga skillnader. Dessa skillnader vanligtvis leda till olika konstruktionerna som kan se krånglig eller fel till någon som är bekant med relationsdatabaser, men som gör bra uppfattning om du designar för ett NoSQL nyckel/värde-lager, till exempel Azure Table service. Många av din design skillnader avspeglar det faktum att Table service är utformad för att stödja molskalningsprogram som kan innehålla entiteter (rader i en relationsdatabas terminologi) av data eller för datauppsättningar som måste ha stöd för hög transaktion i volymer: därför måste du tänka på olika sätt hur du lagrar dina data och förstå hur Table service fungerar. En väl utformad NoSQL-databas kan aktivera din lösning för att skala mycket ytterligare (och till en lägre kostnad) än en lösning som använder en relationsdatabas. Den här guiden hjälper dig med de här avsnitten.  
@@ -320,7 +319,7 @@ Det här exemplet visar också en avdelning entitet och entiteter relaterade ans
 
 En annan metod är att avnormalisera data och lagra bara medarbetare entiteter med Avnormaliserade avdelningsdata som visas i följande exempel. I det här scenariot kanske med den här Avnormaliserade metoden inte bäst om du har ett krav för att kunna ändra information om en avdelningschef, eftersom om du vill göra detta måste du uppdatera alla medarbetare i avdelningen.  
 
-![][2]
+![Medarbetaren entitet][2]
 
 Mer information finns i den [Denormalisering mönstret](#denormalization-pattern) senare i den här guiden.  
 
@@ -397,18 +396,18 @@ Till exempel om du har liten tabeller som innehåller data som inte ändras ofta
 ### <a name="inheritance-relationships"></a>Arvsrelationer
 Om klientprogrammet använder en uppsättning klasser som utgör en del av en arvsrelation att representera affärsentiteter, kan du enkelt kan behålla dessa entiteter i Table service. Du kan till exempel ha följande uppsättning klasser som definieras i ditt klientprogram där **Person** är en abstrakt klass.
 
-![][3]
+![ER diagram över arvsrelationer][3]
 
 Du kan även spara instanser av de två konkreta klasserna i Table service med hjälp av en enskild Person-tabell med entiteter i den ser ut så här:  
 
-![][4]
+![Diagram över den kunden och medarbetare][4]
 
 Mer information om hur du arbetar med flera typer av enheter i samma tabell i klientkod finns i avsnittet [erfarenhet av heterogena entitetstyper](#working-with-heterogeneous-entity-types) senare i den här guiden. Detta ger exempel på hur du känner igen entitetstypen i klientkod.  
 
 ## <a name="table-design-patterns"></a>Designmönster för tabell
 Du har sett detaljerad diskussioner om hur du optimerar dina tabelldesign för både hämta entitetsdata med hjälp av frågor och för att infoga, uppdatera och ta bort entitetsdata i föregående avsnitt. Det här avsnittet beskrivs vissa mönster som är lämplig för användning med lösningar för Table service. Dessutom visas hur du praktiskt taget kan lösa vissa problem och kompromisser har aktiverats tidigare i den här guiden. Följande diagram sammanfattar relationerna mellan de olika mönster:  
 
-![][5]
+![Bild av tabellen designmönster][5]
 
 Mönstret kartan ovan visar relationer mellan (blå) mönster och antimönster (orange) som finns dokumenterade i den här guiden. Det är naturligtvis många andra mönster som är värda att hänsyn tagits till. Till exempel ett av scenarierna för Tabelltjänsten är att använda den [mönster för materialiserad vy](https://msdn.microsoft.com/library/azure/dn589782.aspx) från den [kommandot fråga ansvar uppdelning (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) mönster.  
 
@@ -425,7 +424,7 @@ Om du vill ska kunna hitta en anställd entitet som baseras på värdet för en 
 #### <a name="solution"></a>Lösning
 Undvik bristen på sekundära index, kan du lagra flera kopior av varje entitet med varje kopia med ett annat **RowKey** värde. Om du sparar en entitet med strukturer som visas nedan, kan du enkelt hämta anställdas enheter baserat på e-postadress eller medarbetare id. Prefixet värden för den **RowKey**, ”empid_” och ”email_” kan du fråga för en enskild anställd eller en mängd anställda med hjälp av en mängd e-postadresser eller medarbetare-ID: n.  
 
-![][7]
+![Medarbetaren entitet med olika värden för RowKey][7]
 
 Följande två filtervillkoren (en Leta upp av anställnings-id och en Leta upp av e-postadress) ange både punktfrågor:  
 
@@ -449,7 +448,7 @@ Tänk på följande när du bestämmer hur du ska implementera mönstret:
 * Utfyllnad numeriska värden i den **RowKey** (till exempel, anställnings-id 000223) kan korrigera sortering och filtrering baserat på övre och nedre gränser.  
 * Du behöver inte nödvändigtvis att duplicera alla egenskaperna för entiteten. Exempel: om förfrågningar som söker efter de entiteter som e-postadress-adressen i den **RowKey** behöver aldrig medarbetarens ålder, dessa entiteter kan ha följande struktur:
 
-![][8]
+![Medarbetaren entitet][8]
 
 * Det är vanligtvis bättre att lagra duplicerade data och se till att du kan hämta alla data som du behöver med en enda fråga, än att använda en fråga för att hitta en entitet och en annan för att söka efter data som krävs.  
 
@@ -470,7 +469,7 @@ Store flera kopior av varje entitet med hjälp av olika **RowKey** värden i sep
 #### <a name="context-and-problem"></a>Kontext och problem
 Table service indexerar automatiskt entiteter med hjälp av den **PartitionKey** och **RowKey** värden. På så sätt kan ett klientprogram att hämta en entitet som effektivt med hjälp av dessa värden. Till exempel använder tabellstrukturen visas nedan, ett klientprogram kan använda en punkt-fråga för att hämta en enskild medarbetare entitet med hjälp av id och ett avdelningsnamn (den **PartitionKey** och **RowKey**  värden). En klient kan också hämta entiteter sorterade efter anställnings-id i varje avdelning.  
 
-![][9]
+![Medarbetaren entitet][9]
 
 Om du vill ska kunna hitta en anställd entitet som baseras på värdet för en annan egenskap, till exempel e-postadress, måste du använda en mindre effektivt partition genomsökning för att hitta en matchning. Det beror på att table service inte tillhandahåller sekundära index. Dessutom är det inget alternativ för att begära en lista över anställda sorterad i en annan ordning än **RowKey** ordning.  
 
@@ -479,7 +478,7 @@ Du att en stor mängd transaktioner mot dessa entiteter och vill du minimera ris
 #### <a name="solution"></a>Lösning
 Undvik bristen på sekundära index, kan du lagra flera kopior av varje entitet med varje kopia med hjälp av olika **PartitionKey** och **RowKey** värden. Om du sparar en entitet med strukturer som visas nedan, kan du enkelt hämta anställdas enheter baserat på e-postadress eller medarbetare id. Prefixet värden för den **PartitionKey**, ”empid_” och ”email_” kan du identifiera det index som du vill använda för en fråga.  
 
-![][10]
+![Medarbetaren entiteten med primärt index och medarbetare entitet med sekundärt index][10]
 
 Följande två filtervillkoren (en Leta upp av anställnings-id och en Leta upp av e-postadress) ange både punktfrågor:  
 
@@ -502,7 +501,7 @@ Tänk på följande när du bestämmer hur du ska implementera mönstret:
 * Utfyllnad numeriska värden i den **RowKey** (till exempel, anställnings-id 000223) kan korrigera sortering och filtrering baserat på övre och nedre gränser.  
 * Du behöver inte nödvändigtvis att duplicera alla egenskaperna för entiteten. Till exempel om frågorna som lookup entiteter med hjälp av e-postmeddelandet adressen i den **RowKey** behöver aldrig medarbetarens ålder, dessa entiteter kan ha följande struktur:
   
-  ![][11]
+  ![Medarbetaren entitet med sekundärt index][11]
 * Det är vanligtvis bättre att lagra duplicerade data och se till att du kan hämta alla data som du behöver med en enda fråga att använda en fråga för att hitta en entitet med hjälp av det sekundära indexet och en annan för sökning nödvändiga data i det primära indexet än.  
 
 #### <a name="when-to-use-this-pattern"></a>När du ska använda det här mönstret
@@ -532,7 +531,7 @@ EGTs aktivera atomiska transaktioner över flera enheter som delar samma partiti
 Du kan implementera en lösning som ger konsekvens mellan två eller flera partitioner eller lagringssystem med hjälp av Azure-köer.
 Anta att du har ett krav för att kunna arkivera gamla anställdas enheter för att visa den här metoden kan. Den gamla anställdas enheter efterfrågas sällan och bör undantas från alla aktiviteter som handlar om aktuella anställda. För att implementera det här kravet du lagrar aktiva medarbetare i den **aktuella** tabell och tidigare anställda i den **Arkiv** tabell. Arkivera en anställd måste du ta bort enheten från den **aktuella** tabellen och Lägg till entitet till den **Arkiv** tabell, men du kan inte använda en EGT för att utföra de här två åtgärderna. För att undvika risken för att ett fel gör en entitet som ska visas i båda eller ingen tabeller, måste arkivåtgärden vara konsekvent. Följande sekvensdiagram illustrerar stegen i den här åtgärden. Mer information ges för undantag sökvägar i följande text.  
 
-![][12]
+![Diagrammet för slutlig konsekvens][12]
 
 En klient initierar Arkiv igen genom att placera ett meddelande på en Azure-kö, i det här exemplet att arkivera medarbetare #456. En arbetsroll söker i kön för nya meddelanden. När den hittar en läser meddelandet och lämnar en dold kopia för kön. Arbetsrollen bredvid hämtar en kopia av entiteten från den **aktuella** tabellen, infogar en kopia i den **Arkiv** tabellen och tar sedan bort ursprungligt från den **aktuella** tabell. Slutligen, om det finns några fel från föregående steg, arbetsrollen tar bort dolda meddelandet från kön.  
 
@@ -572,7 +571,7 @@ Underhålla index entiteter för att aktivera effektiv sökning som returnerar e
 #### <a name="context-and-problem"></a>Kontext och problem
 Table service indexerar automatiskt entiteter med hjälp av den **PartitionKey** och **RowKey** värden. På så sätt kan ett klientprogram att hämta en entitet som effektivt med en punkt-fråga. Till exempel använder tabellstrukturen visas nedan, ett klientprogram enkelt kan hämta en enskild medarbetare entitet med hjälp av id och ett avdelningsnamn (den **PartitionKey** och **RowKey**).  
 
-![][13]
+![Medarbetaren entitet][13]
 
 Om du vill kunna hämta en lista över anställda entiteter baserat på värdet för en annan icke-unikt egenskap, till exempel efternamn, måste du använda en mindre effektivt partition-sökning för att hitta matchningar i stället för att använda ett index för att leta upp dem direkt. Det beror på att table service inte tillhandahåller sekundära index.  
 
@@ -591,7 +590,7 @@ För det första alternativet, du skapa en blob för varje unikt efternamn och v
 
 För det andra alternativet, använder du index entiteter som lagrar följande data:  
 
-![][14]
+![Medarbetaren entitet med sträng som innehåller en lista över anställnings-ID med samma efternamn][14]
 
 Den **EmployeeIDs** egenskapen innehåller en lista över anställda ID: n för anställda med efternamn som lagras i den **RowKey**.  
 
@@ -613,7 +612,7 @@ Följande steg beskriver hur du bör följa när du behöver leta upp alla anst�
 
 Det tredje alternativet Använd index entiteter som lagrar följande data:  
 
-![][15]
+![Medarbetaren entitet med sträng som innehåller en lista över anställnings-ID med samma efternamn][15]
 
 Den **EmployeeIDs** egenskapen innehåller en lista över anställda ID: n för anställda med efternamn som lagras i den **RowKey**.  
 
@@ -645,12 +644,12 @@ Kombinera relaterade data tillsammans i en enda enhet så att du kan hämta alla
 #### <a name="context-and-problem"></a>Kontext och problem
 I en relationsdatabas normalisera du normalt data för att ta bort duplicering, vilket resulterar i frågor som hämtar data från flera tabeller. Om du normalisera data i Azure-tabeller, måste du se flera kommunikationsturer från klienten till servern för att hämta relaterade data. Till exempel med tabellstrukturen nedan om du behöver två tur och RETUR att hämta information för en avdelning: en för att hämta entiteten avdelning som innehåller den hanterar-id och sedan en annan begäran att hämta chefens information i en anställd entitet.  
 
-![][16]
+![Avdelning och medarbetare][16]
 
 #### <a name="solution"></a>Lösning
 I stället för att lagra data i två separata entiteter, avnormalisera data och behålla en kopia av chefens information i entiteten avdelning. Exempel:  
 
-![][17]
+![Avnormaliserade och kombinerade avdelning entitet][17]
 
 Avdelning entiteter som lagras med de här egenskaperna, kan du nu hämta all information du behöver om en avdelning med hjälp av en punkt-fråga.  
 
@@ -678,18 +677,18 @@ I en relationsdatabas är det naturligt att använda kopplingar i frågor för a
 
 Anta att du lagrar medarbetare entiteter i tabelltjänsten med följande struktur:  
 
-![][18]
+![Medarbetaren entitet][18]
 
 Du måste också att lagra historiska data som rör granskningar och prestanda för varje år medarbetaren har arbetat för din organisation och du behöver för att kunna komma åt informationen per år. Ett alternativ är att skapa en annan tabell som lagrar entiteter med följande struktur:  
 
-![][19]
+![Medarbetare granska entitet][19]
 
 Observera att med den här metoden kan du välja att duplicera viss information (till exempel förnamn och efternamn) i den nya entiteten så att du kan hämta dina data med en enskild begäran. Du kan dock ha stark konsekvens eftersom du inte kan använda en EGT för att uppdatera de två entiteterna atomiskt.  
 
 #### <a name="solution"></a>Lösning
 Store en ny entitet skapas i den ursprungliga tabellen med entiteter med följande struktur:  
 
-![][20]
+![Medarbetaren entitet med sammansatt nyckel][20]
 
 Observera hur **RowKey** är nu en sammansatt nyckel som består av anställnings-id och året för de data som gör att du kan hämta medarbetarens prestanda och granska data med en enskild begäran för en enda entitet.  
 
@@ -758,7 +757,7 @@ Många program ta bort gamla data som behöver inte längre ska vara tillgängli
 
 Ett möjligt design är att använda datum och tid för begäran logga in i den **RowKey**:  
 
-![][21]
+![Logga in försök entitet][21]
 
 Den här metoden undviker partition hotspots eftersom programmet kan infoga och ta bort inloggningen entiteter för varje användare i en separat partition. Den här metoden kan dock vara kostsamt och tidskrävande om du har ett stort antal entiteter eftersom först måste du utföra en tabellgenomsökning för att identifiera alla enheter ska ta bort och sedan måste du ta bort varje gamla entitet. Du kan minska antalet sändningar till servern som krävs för att ta bort de gamla enheterna med batchbearbetning flera delete-begäranden till EGTs.  
 
@@ -788,14 +787,14 @@ Store fullständig dataserier i en enda entitet att minimera antalet begäranden
 #### <a name="context-and-problem"></a>Kontext och problem
 Ett vanligt scenario är för ett program för att lagra en serie med data som vanligtvis krävs för att hämta allt samtidigt. Ditt program kan till exempel registrera hur många IM meddelanden varje medarbetare skickar varje timme och sedan använda informationen för att rita ut hur många meddelanden varje användare som skickas över föregående 24 timmar. En design kan vara att lagra 24 entiteter för varje medarbetare:  
 
-![][22]
+![Meddelandet stats entitet][22]
 
 Med den här designen kan du enkelt hitta och uppdatera enheten att uppdatera för varje medarbetare när programmet måste uppdatera värdet för antal meddelande. Men om du vill hämta information för att rita ett diagram för aktiviteten i föregående 24 timmar, måste du hämta 24 entiteter.  
 
 #### <a name="solution"></a>Lösning
 Använd följande design med en separat egenskap för att lagra meddelandeantalet för varje timme:  
 
-![][23]
+![Meddelandet stats entitet med avgränsas egenskaper][23]
 
 Du kan använda en sammanfogning med den här designen för att uppdatera meddelandeantalet för en anställd för en viss timme. Du kan nu hämta all information du behöver att rita diagram med hjälp av en begäran för en enda entitet.  
 
@@ -824,7 +823,7 @@ En enskild entitet kan ha högst 252 egenskaper (förutom de obligatoriska syste
 #### <a name="solution"></a>Lösning
 Du kan lagra flera entiteter för att representera ett objekt för stora företag med mer än 252 egenskaper med Table service. Du kan till exempel använda följande designen som använder två entiteter med olika scheman om du vill spara en uppräkning av antalet IM-meddelanden som skickas av varje medarbetare för de senaste 365 dagarna:  
 
-![][24]
+![Meddelandet stats entitet med Rowkey 01 och meddelandet tillstånd entitet med Rowkey 02][24]
 
 Om du behöver göra en ändring som behöver uppdateras både entiteter för att de alltid är synkroniserade med varandra kan använda du en EGT. Annars kan använda du en enda merge-operation för att uppdatera meddelandeantalet för en viss dag. För att hämta alla data för en enskild anställd måste du hämta båda enheter som du kan göra med två effektiv förfrågningar som använder både en **PartitionKey** och en **RowKey** värde.  
 
@@ -851,7 +850,7 @@ En enskild entitet kan inte lagra mer än 1 MB data totalt. Om en eller flera av
 #### <a name="solution"></a>Lösning
 Om din entitet överskrider 1 MB i storlek eftersom en eller flera egenskaper innehåller en stor mängd data kan du lagra data i Blob-tjänsten och sedan lagra den blob-adressen i en egenskap i entiteten. Du kan till exempel lagra foto av en medarbetare i blob storage och lagra en länk till bilden i den **foto** egenskap för dina medarbetare entitet:  
 
-![][25]
+![Medarbetaren entitet med sträng för foto som pekar till blob storage][25]
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -876,12 +875,12 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 #### <a name="context-and-problem"></a>Kontext och problem
 Prepending eller lägger till entiteter i dina entiteter för lagrade vanligtvis resulterar i programmet att lägga till nya entiteter i den första eller sista partitionen i en sekvens av partitioner. I det här fallet alla infogningar vid en given tidpunkt som äger rum i samma partition, skapar en hotspot som förhindrar att table service-belastningsutjämning infogar över flera noder och vilket kan orsaka att ditt program att träffa skalbarhetsmål för partition. Till exempel om du har ett program som loggar nätverks- och komma åt genom att anställda kan sedan en entitetsstruktur enligt nedan kan resultera i den aktuella timman partition blir en överbelastad punkt om mängden transaktioner når skalbarhetsmålen för en enskild partition:  
 
-![][26]
+![Medarbetaren entitet][26]
 
 #### <a name="solution"></a>Lösning
 Följande alternativ entitetsstruktur undviker en hotspot på en viss partition som program loggar händelser:  
 
-![][27]
+![Medarbetaren entitet med RowKey sammanslagning år, månad, dag, timme och händelse-ID][27]
 
 Meddelande med det här exemplet hur både den **PartitionKey** och **RowKey** är sammansatta nycklar. Den **PartitionKey** använder både avdelning och employee id för att distribuera loggning över flera partitioner.  
 
@@ -907,13 +906,13 @@ Du bör normalt använda Blob-tjänsten i stället för Table service för att l
 #### <a name="context-and-problem"></a>Kontext och problem
 Ett vanligt användningsfall för loggdata är att hämta en uppsättning loggposter för ett specifikt datum-/ tidsintervall: till exempel du vill hitta alla fel och kritiska meddelanden som ditt program loggas mellan 15:04 och 15:06 på ett visst datum. Du inte vill använda datum och tid loggmeddelandet för att fastställa den partition som du sparar log entiteter för att: som resulterar i en frekvent partition eftersom vid en given tidpunkt, så kommer alla log-entiteter dela samma **PartitionKey** värde (se den avsnittet [Prepend/lägga till ett mönster](#prepend-append-anti-pattern)). Följande entitetsschemat för ett loggmeddelande resulterar i en frekvent partition eftersom programmet skriver alla loggmeddelanden till partition för den aktuella datum och tid:  
 
-![][28]
+![Log-meddelandeentiteten][28]
 
 I det här exemplet på **RowKey** innehåller datum och tid för loggmeddelande så att loggmeddelanden lagras i datum/tid-ordning och innehåller ett meddelande-id om flera loggmeddelanden delar samma datum och tid.  
 
 En annan metod är att använda en **PartitionKey** som säkerställer att programmet skriver meddelanden över flera olika partitioner. Om källan för loggmeddelandet är ett sätt att distribuera meddelanden över många partitioner, kan du till exempel använda följande entitetsschemat:  
 
-![][29]
+![Log-meddelandeentiteten][29]
 
 Problem med det här schemat är dock att om du vill hämta alla loggmeddelanden för en viss tidsrymd måste du söka varje partition i tabellen.
 
@@ -973,7 +972,7 @@ var employees = query.Execute();
 
 Observera hur frågan anger både en **RowKey** och en **PartitionKey** säkerställa bättre prestanda.  
 
-Följande kodexempel visar motsvarande funktioner med fluent-API (Mer information om fluent-API: er i allmänhet finns [bästa praxis för att utforma en Fluent-API](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+Följande kodexempel visar motsvarande funktioner med fluent-API (Mer information om fluent-API: er i allmänhet finns [bästa praxis för att utforma en Fluent-API](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(

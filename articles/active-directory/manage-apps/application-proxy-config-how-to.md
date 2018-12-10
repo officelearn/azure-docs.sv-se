@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cf3e367dad528017a98e103962c57cb758da55cb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: a7a5c097f0400d89398cef66eeb7bd0ce8d5e97b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357416"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132439"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Så här konfigurerar du ett programproxy-program
 
@@ -28,15 +28,15 @@ Den här artikeln hjälper dig att förstå hur du konfigurerar en Application P
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument 
 
-Mer information om att första konfigurationer och skapa ett programproxy-program via administrationsportalen, följer du de [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+Mer information om att första konfigurationer och skapa ett programproxy-program via administrationsportalen, följer du de [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
-Mer information om hur du konfigurerar anslutningar finns i [aktivera Application Proxy på Azure-portalen](application-proxy-enable.md).
+Mer information om hur du konfigurerar anslutningar finns i [aktivera Application Proxy på Azure-portalen](application-proxy-add-on-premises-application.md).
 
 Information om att ladda upp certifikat och använda anpassade domäner finns i [arbeta med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
 ## <a name="create-the-applicationsetting-the-urls"></a>Skapa programinställning/URL: er
 
-Om du följer stegen i den [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md) dokumentation och att du får ett fel som skapar program, se felinformationen för information och förslag på hur du åtgärdar den programmet. De vanligaste felmeddelanden som innehåller en föreslagen åtgärd. Kontrollera om du vill undvika vanliga fel:
+Om du följer stegen i den [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md) dokumentation och att du får ett fel som skapar program, se felinformationen för information och förslag på hur du åtgärdar den programmet. De vanligaste felmeddelanden som innehåller en föreslagen åtgärd. Kontrollera om du vill undvika vanliga fel:
 
 -   Du är administratör med behörighet att skapa en Application Proxy-program
 
@@ -75,4 +75,4 @@ Ett felmeddelande visas i det övre högra hörnet när du försöker ladda upp 
    ![Fråga om meddelande](./media/application-proxy-config-how-to/error-message2.png)
 
 ## <a name="next-steps"></a>Nästa steg
-[Publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md)
+[Publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md)

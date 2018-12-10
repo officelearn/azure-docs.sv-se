@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 647ff43d0b1e0dc52ccecd2dad709af969c61c15
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840681"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141942"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Flytta program från AD FS till Azure AD 
 
@@ -82,7 +82,7 @@ Federerade appar är appar som finns i följande kategorier:
 
 ### <a name="non-federated-apps"></a>Icke-federerade appar
 Du kan integrera icke-federerade appar med Azure AD med hjälp av Azure AD-programproxy och relaterade funktioner. Icke-federerade appar är:
-- Appar som använder WIA (Windows Integrated Authentication) direkt med Active Directory. Dessa appar kan integreras med Azure AD via [Azure AD-programproxy](application-proxy-publish-azure-portal.md).
+- Appar som använder WIA (Windows Integrated Authentication) direkt med Active Directory. Dessa appar kan integreras med Azure AD via [Azure AD-programproxy](application-proxy-add-on-premises-application.md).
 - Appar som integreras med din provider för enkel inloggning via en agent och som använder rubriker för auktorisering. Lokala appar som använder en installerad agent för inloggning och rubrikbaserad auktorisering kan konfigureras för Azure AD-baserad inloggning via Azure AD-programproxy med [Ping Access för Azure AD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/).
 
 ## <a name="translating-on-premises-federated-apps-to-azure-ad"></a>Översättning av lokala federerade appar till Azure AD 

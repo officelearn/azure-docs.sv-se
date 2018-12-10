@@ -1,5 +1,5 @@
 ---
-title: Förutsäga fordonshälsa och driver på vanor – Azure | Microsoft Docs
+title: Förutsäga fordonshälsa och driver på vanor - Team Data Science Process
 description: Använda funktionerna i Cortana Intelligence insikter i realtid och förutsägande på fordonshälsa och vanor.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2018
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 688a821667b38423b43af87b7a26525e52d9a7aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: db223aa831b646339670cdbd332b61906bf05c28
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444167"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138780"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Vehicle Telemetry Analytics-lösning, playbook
 

@@ -1,6 +1,6 @@
 ---
-title: Azure asynkrona åtgärder | Microsoft Docs
-description: Beskriver hur du spårar asynkrona åtgärder i Azure.
+title: Status för asynkrona åtgärder – Azure Resource Manager
+description: Beskriver hur du spårar asynkrona åtgärder i Azure. Den visar de värden som du använder för att hämta status för en långvarig åtgärd.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 601f4a899393d8ddd5ea698d4d01ade7141ee91f
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.custom: seodec18
+ms.openlocfilehash: 1b05ed50f08ddbf2eb5da8e08f5bf623596e1f9b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056156"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135465"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Spåra asynkrona åtgärder i Azure
 Vissa Azure REST-åtgärder körs asynkront eftersom åtgärden inte kan slutföras snabbt. Den här artikeln beskriver hur du spårar statusen för asynkrona åtgärder via värden som returneras i svaret.  

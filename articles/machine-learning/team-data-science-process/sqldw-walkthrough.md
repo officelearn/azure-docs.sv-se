@@ -1,6 +1,6 @@
 ---
-title: 'Team Data Science Process i praktiken: använda SQL Data Warehouse | Microsoft Docs'
-description: Processen för avancerad analys och tekniken fungerar i praktiken
+title: Skapa och distribuera en modell med SQL Data Warehouse - Team Data Science Process
+description: Skapa och distribuera en maskininlärningsmodell med SQL Data Warehouse med en datauppsättning som är allmänt tillgängliga.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445723"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139138"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process i praktiken: använda SQL Data Warehouse
 I de här självstudierna vi vägleder genom att skapa och distribuera en maskininlärningsmodell med SQL Data Warehouse (SQL DW) för en datauppsättning som allmänt tillgängliga – den [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättning. Binära klassificeringsmodellen konstrueras förutsäger huruvida ett tips är betalas för en resa och modeller för multiklass-baserad klassificering och regression beskrivs som förutsäga fördelningen för tips belopp som har betalats.
@@ -117,7 +117,7 @@ Dokumentationen på [skapa ett SQL Data Warehouse](../../sql-data-warehouse/sql-
 
 När åtgärden har körts, din aktuella arbetskatalog ändras till *- DestDir*. Du bör kunna skärm som den här:
 
-![][19]
+![Aktuella fungerande katalogändringar][19]
 
 I din *- DestDir*, kör följande PowerShell-skript i administratörsläge:
 
@@ -321,7 +321,7 @@ Du måste bestämma vilka gör om du har dubblettfiler för källa och mål.
 > 
 > 
 
-![Rita #21][21]
+![Utdata från AzCopy][21]
 
 Du kan använda dina egna data. Om dina data är i den lokala datorn i ditt program i verkligheten kan använda du fortfarande AzCopy för att ladda upp data på plats till ditt privata Azure blob storage. Du behöver bara ändra den **källa** plats, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, i AzCopy-kommandot i PowerShell-skriptfil till den lokala katalogen som innehåller dina data.
 
@@ -334,7 +334,7 @@ Den här PowerShell.skript också ansluts i Azure SQL DW-information till datafi
 
 Efter en lyckad körning visas skärmen som den här:
 
-![][20]
+![Utdata för en lyckad skriptkörningen][20]
 
 ## <a name="dbexplore"></a>Datagranskning och de funktioner i Azure SQL Data Warehouse
 I det här avsnittet ska vi utföra genereringen av data utforskning och funktionen genom att köra SQL-frågor mot Azure SQL DW direkt med hjälp av **Dataverktyg för Visual Studio**. Alla SQL-frågor som används i det här avsnittet finns i exempelskriptet med namnet *SQLDW_Explorations.sql*. Den här filen har redan hämtats till din lokala katalog med PowerShell-skriptet. Du kan också hämta den från [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Men filen i GitHub har inte Azure SQL DW informationen inkopplad.
@@ -571,16 +571,16 @@ Om du redan har konfigurerat en AzureML-arbetsyta kan du direkt ladda upp exempe
 
 1. Logga in på din AzureML-arbetsyta, klickar du på ”Studio” högst upp och klicka på ”bärbara datorer” till vänster på sidan.
    
-    ![Rita #22][22]
+    ![Klicka på Studio och sedan ANTECKNINGSBÖCKER][22]
 2. Klicka på ”nytt” i det nedre vänstra hörnet i webbsidan och välja ”Python 2”. Sedan anger du ett namn för anteckningsboken och klicka på kryssmarkeringen för att skapa en ny tom IPython Notebook.
    
-    ![Rita #23][23]
+    ![Klicka på nytt och välj sedan Python 2][23]
 3. Klicka på symbolen ”Jupyter” i det övre vänstra hörnet av nya IPython Notebook.
    
-    ![Rita #24][24]
+    ![Klicka på symbolen för Jupyter][24]
 4. Dra och släpp exemplet IPython Notebook till den **trädet** i din AzureML IPython Notebook-tjänst och klickar på **överför**. Sedan exemplet IPython Notebook ska överföras till tjänsten AzureML IPython Notebook.
    
-    ![Rita #25][25]
+    ![Klicka på ladda upp][25]
 
 För att köra exemplet IPython Notebook- eller Python-skriptfil, följande paket krävs för Python. Om du använder tjänsten AzureML IPython Notebook har paketen förinstallerats.
 
@@ -684,7 +684,7 @@ Därefter tittar vi på Låddiagram för resans avståndet till visualisera quan
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![Rita #1][1]
+![Box ritytans utdata][1]
 
 ### <a name="visualization-distribution-plot-example"></a>Visualisering: Exempel Distribution diagram
 Områden som visualisera distributionen och ett histogram för provade resans avstånd.
@@ -695,7 +695,7 @@ Områden som visualisera distributionen och ett histogram för provade resans av
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![Rita #2][2]
+![Distribution ritytans utdata][2]
 
 ### <a name="visualization-bar-and-line-plots"></a>Visualisering: Stapel- och linjediagram områden
 I det här exemplet vi bin resans avståndet till fem lagerplatser och visualisera datagrupperingen resultat.
@@ -709,26 +709,26 @@ Vi kan rita ovan bin-distribution i ett fält eller rad diagram med:
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![Rita #3][3]
+![Stapel ritytans utdata][3]
 
 och
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![Rita #4][4]
+![Rad diagram utdata][4]
 
 ### <a name="visualization-scatterplot-examples"></a>Visualisering: Spridningsdiagrammet exempel
 Vi visar spridningsdiagrammet mellan **resans\_tid\_i\_sekunder** och **resans\_avståndet** att se om det finns några korrelation
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![Rita #6][6]
+![Spridningsdiagrammet utdata av relation mellan tid och avståndet][6]
 
 På samma sätt kan vi Kontrollera relationen mellan **rate\_kod** och **resans\_avståndet**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![Rita #8][8]
+![Spridningsdiagrammet utdata från relationen mellan kod och avståndet][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Datagranskning på samplade data med SQL-frågor i IPython notebook
 I det här avsnittet ska utforska vi data-distributioner som använder exempeldata som bevaras i den nya tabellen som vi skapade ovan. Observera att liknande explorations kan utföras med hjälp av de ursprungliga tabellerna.

@@ -1,5 +1,6 @@
 ---
-title: Konfigurera DHCPv6 för virtuella Linux-datorer | Microsoft Docs
+title: Konfigurera DHCPv6 för virtuella Linux-datorer
+titlesuffix: Azure Load Balancer
 description: Så här konfigurerar du DHCPv6 för virtuella Linux-datorer.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, in
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 7ef376c044bceb14614388a72c11942869dbde07
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: ea1ef845f55fbdadeea1992e167ef6568572abc9
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741631"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141721"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurera DHCPv6 för virtuella Linux-datorer
 

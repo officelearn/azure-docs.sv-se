@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b0ad4aa63dbeefce6b55e099fd51d3608ae3abb8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369039"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133357"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeta med anpassade domäner i Azure AD Application Proxy
 
@@ -40,7 +40,7 @@ Vi rekommenderar att du konfigurerar anpassade domäner för dina program när d
 Innan du konfigurerar en anpassad domän kan du kontrollera att du har förberett följande krav: 
 - En [verifierad domän som har lagts till i Azure Active Directory](../fundamentals/add-custom-domain.md).
 - Ett anpassat certifikat för domänen, i form av en PFX-fil. 
-- En lokal app [publicerats via programproxy](application-proxy-publish-azure-portal.md).
+- En lokal app [publicerats via programproxy](application-proxy-add-on-premises-application.md).
 
 ### <a name="configure-your-custom-domain"></a>Konfigurera din anpassade domän
 

@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process-livscykel – Azure | Microsoft Docs
+title: Livscykel för Team Data Science Process
 description: De steg som krävs för att köra dina data science-projekt
 services: machine-learning
 author: marktab
@@ -10,19 +10,21 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 24807d00170ed46a95d2726e1172b15775e0376d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a2a4a8c895bddb03271014c50f57b666faa0c2cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443401"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135958"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Livscykel för Team Data Science Process
 
 Team Data Science Process (TDSP) innehåller en rekommenderad livscykel som du kan använda för att strukturera dina data science-projekt. Livscykeln beskrivs stegen, från början till slut att projekt vanligtvis följer när de utförs. Om du använder en annan data science-livscykeln, till exempel mellan bransch standardprocessen för datautvinning [(SKARPA-DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), Knowledge Discovery i databaser [(KDD)](https://wikipedia.org/wiki/Data_mining#Process), eller din egen process som organisationens egen , du kan fortfarande använda TDSP uppgiftsbaserade. 
 
 Den här livscykeln har utformats för data science-projekt som är avsedda att levereras som en del av intelligenta program. Dessa program distribuera machine learning eller artificiell intelligens modeller för förutsägelseanalys. Undersökande datavetenskap projekt och ad hoc-analysprojekt kan också dra nytta av användningen av den här processen. Men för projekt, vissa av stegen som beskrivs här kanske inte behövs. 
+
+## <a name="five-lifecycle-stages"></a>Fem faser i livscykeln
 
 TDSP-livscykeln består av fem viktiga steg som utförs upprepade gånger. Dessa steg omfattar:
 

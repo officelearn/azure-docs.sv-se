@@ -1,5 +1,5 @@
 ---
-title: Modellering steget i Team Data Science Process-livscykel – Azure | Microsoft Docs
+title: Modellering steg i livscykeln för Team Data Science Process
 description: Mål, uppgifter och slutprodukter för modellering steg i dina data science-projekt
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b486083e4dc76f6d9ebc5e24e7d52b5ef3b99f3a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442421"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139967"
 ---
-# <a name="modeling"></a>Modellering
+# <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modellering steg i livscykeln för Team Data Science Process
 
 Den här artikeln beskrivs de mål, uppgifter och slutprodukter som är associerade med modellering scenen för Team Data Science Process (TDSP). Den här processen ger en rekommenderad livscykel som du kan använda för att strukturera dina data science-projekt. Livscykeln beskrivs de viktigaste stegen som projekt vanligtvis köra, ofta upprepade gånger:
 

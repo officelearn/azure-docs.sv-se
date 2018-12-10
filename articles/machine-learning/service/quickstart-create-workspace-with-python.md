@@ -8,18 +8,17 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 11/09/2018
-ms.openlocfilehash: 6258717e5c068c910ad9faac3b03f13df8030487
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/04/2018
+ms.openlocfilehash: f16d39238b46a811f34fdfe291d6c09bee662b9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710655"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870086"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använda Python för att komma igång med Azure Machine Learning
 
 I den här snabbstarten använder du Azure Machine Learning SDK för Python för att skapa och sedan använda en [arbetsyta](concept-azure-machine-learning-architecture.md) för Machine Learning-tjänsten. Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning. I den här snabbstarten börjar du med att konfigurera din egen Python-miljö och Jupyter notebook-server. Information om hur du kör utan installation finns i [Snabbstart: Använda Azure-portalen för att komma igång med Azure Machine Learning](quickstart-get-started.md).
-
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -40,7 +39,8 @@ Följande Azure-resurser läggs automatiskt till din arbetsyta när de är regio
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 0.1.74 
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.2 
+
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
 
@@ -72,13 +72,37 @@ Aktivera miljön.
 
 ### <a name="install-the-sdk"></a>Installera SDK:n
 
-I den aktiverade conda-miljön installerar du SDK:n. Koden nedan installerar kärnkomponenter för Machine Learning-SDK. Den installerar även en Jupyter Notebook-server i conda-miljön `myenv`. Installationen tar några minuter att slutföra beroende på hur din dators konfiguration.
+I den aktiverade conda-miljön installerar du SDK:n. Den här koden installerar kärnkomponenter för Machine Learning-SDK. Den installerar även en Jupyter Notebook-server i conda-miljön. Installationen tar några minuter att slutföra beroende på hur din dators konfiguration.
 
-```shell
+```sh
+# install Jupyter
+conda install nb_conda
+
 # install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
+
 ```
 
+Du kan också använda olika ”extra” nyckelord för att installera ytterligare SDK-komponenter.
+
+```sh
+# install the base SDK and auto ml components
+pip install azureml-sdk[automl]
+
+# install the base SDK and model explainability component
+pip install azureml-sdk[explain]
+
+# install the base SDK and experimental components
+pip install azureml-sdk[contrib]
+```
+
+Använd den här installationen i stället i en Databricks-miljö.
+
+```
+# install the base SDK and automl components in Azure Databricks environment
+# read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+pip install azureml-sdk[databricks]
+```
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
@@ -174,29 +198,6 @@ Du behöver några fler paket i din miljö för att använda den med självstudi
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy
     pip install azureml-sdk[automl]
-
-    # install run history widget
-    jupyter nbextension install --py --user azureml.train.widgets
-
-    # enable run history widget
-    jupyter nbextension enable --py --user azureml.train.widgets
-    ```
-
-    Du kan också använda olika ”extra” nyckelord för att installera ytterligare SDK-komponenter.
-
-    ```shell
-    # install the base SDK and auto ml components
-    pip install azureml-sdk[automl]
-
-    # install the base SDK and model explainability component
-    pip install azureml-sdk[explain]
-
-    # install the base SDK and experimental components
-    pip install azureml-sdk[contrib]
-
-    # install the base SDK and automl components in Azure Databricks environment
-    # read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
-    pip install azureml-sdk[databricks]
     ```
 
 

@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 11/07/2018
-ms.openlocfilehash: 382ac23ea4c8e0ec54314bb754c00a8e6e43e9f6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 11/30/2018
+ms.openlocfilehash: fc5398b4ffb0b9310b6ab13561830d8d3db7a611
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300973"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725751"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Snabbstart: Använda Machine Learning Services (med R) i Azure SQL Database (förhandsversion)
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Den offentliga förhandsversionen av Machine Learning Services (med R) i SQL Database är inte aktiverad som standard. Skicka ett e-postmeddelande till Microsoft på [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) om du vill registrera dig för den offentliga förhandsversionen.
 
-När du är registrerad i programmet introducerar Microsoft dig till den offentliga förhandsversionen och migrerar antingen din befintliga databas eller skapar en ny databas i en aktiverad R-tjänst.
+När du är registrerad i programmet introducerar Microsoft dig till den offentliga förhandsversionen och migrerar antingen din befintliga databas eller skapar en ny databas i en R-aktiverad tjänst.
 
 Machine Learning Services (med R) i SQL Database är för närvarande endast tillgängligt i den vCore-baserade inköpsmodellen på tjänstnivåerna **Generell användning** och **Affärskritisk** för enskilda och poolade databaser. I den här första offentliga förhandsversionen stöds varken tjänstnivån **Hyperskala** eller **Hanterad instans**. Du bör inte använda Machine Learning Services med R för produktionsarbetsbelastningar under den offentliga förhandsversionen.
 
@@ -51,11 +51,10 @@ Den här snabbstarten kräver även att du konfigurerar en brandväggsregel på 
 
 ## <a name="different-from-sql-server"></a>Skillnader mot SQL Server
 
-Funktionerna i Machine Learning Services (med R) i Azure SQL Database liknar [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Det finns dock några skillnader:
+Funktionerna i Machine Learning Services (med R) i Azure SQL Database liknar [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Det finns dock några skillnader:
 
 - Endast för R. För närvarande finns det inget stöd för Python.
 - Du behöver inte konfigurera `external scripts enabled` via `sp_configure`.
-- Du behöver inte ge användare behörighet för körning av skript.
 - Paket måste installeras via **sqlmlutils**.
 - Det finns ingen separat extern resursstyrning. R-resurser utgör en viss procentandel av SQL-resurser beroende på nivån.
 
@@ -82,16 +81,26 @@ Du kan bekräfta att Machine Learning Services (med R) är aktiverat för SQL-da
 
 1. Om det uppstår några fel kan det bero på att den offentliga förhandsversionen av Machine Learning Services (med R) inte har aktiverats för din SQL-databas. Information om hur du registrerar dig för den allmänna förhandsversionen finns ovan.
 
+## <a name="grant-permissions"></a>Bevilja behörigheter
+
+Om du är administratör kan du köra extern kod automatiskt. Alla andra måste beviljas behörighet.
+
+Ersätt `<username>` med en giltig databasanvändarinloggning innan du kör kommandot.
+
+```sql
+GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
+```
+
 ## <a name="basic-r-interaction"></a>Grundläggande R-interaktion
 
 Det finns två sätt att köra R-kod i SQL-databasen:
 
-+ Lägg till ett R-skript som ett argument för den systemlagrade proceduren [sp_execute_external_script](https://docs.microsoft.com/sql//relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md).
-+ Från en [R-fjärrklient](https://review.docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client) ansluter du till din SQL-databas och kör kod med hjälp av SQL-databasen som beräkningskontext.
++ Lägg till ett R-skript som ett argument för den systemlagrade proceduren [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
++ Från en [R-fjärrklient](https://docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client) ansluter du till din SQL-databas och kör kod med hjälp av SQL-databasen som beräkningskontext.
 
 Följande övning fokuserar på den första interaktionsmodellen: hur du skickar R-kod till en lagrad procedur.
 
-1. Kör ett enkelt skript om du vill se hur ett R-skript kan köras i din SQL-databas.
+1. Kör ett enkelt skript om du vill se hur ett R-skript körs i din SQL-databas.
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -119,7 +128,7 @@ Kom ihåg att allt i argumentet `@script` måste vara giltig R-kod.
 
 ## <a name="inputs-and-outputs"></a>Indata och utdata
 
-Som standard accepterar [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) en enda indatamängd som du vanligtvis tillhandahåller i form av en giltig SQL-fråga. Andra typer av indata kan skickas som SQL-variabler.
+Som standard accepterar [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) en enda indatamängd som du vanligtvis tillhandahåller i form av en giltig SQL-fråga. Andra typer av indata kan skickas som SQL-variabler.
 
 Den lagrade proceduren returnerar en enda R-dataram som utdata, men du kan även mata ut skalärer och modeller som variabler. Du kan till exempel mata ut en tränad modell som binär variabel och skicka den till en T-SQL INSERT-instruktion för att skriva den modellen till en tabell. Du kan även generera kurvor (i binärt format) eller skalärer (enskilda värden, till exempel datum och tid, tidsåtgången för att träna modellen och så vidare).
 
@@ -284,7 +293,7 @@ Du kan träna en modell med hjälp av R och spara modellen till en tabell i SQL-
     - Ange indata som ska användas för att träna modellen.
 
     > [!TIP]
-    > Om du behöver uppdatera dig om linjära modeller rekommenderar vi den här självstudien, som beskriver processen för att passa en modell med rxLinMod: [Anpassa linjära modeller](https://docs.microsoft.com/r-server/r/how-to-revoscaler-linear-model)
+    > Om du behöver uppdatera dig om linjära modeller rekommenderar vi den här självstudien, som beskriver processen för att passa en modell med rxLinMod: [Anpassa linjära modeller](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
     För att skapa modellen definierar du formeln i R-koden och skickar data som en indataparameter.
 
@@ -337,7 +346,7 @@ Du kan träna en modell med hjälp av R och spara modellen till en tabell i SQL-
     WHERE model_name = 'default model'
     ```
 
-4. Generellt är utdata för R från den lagrade proceduren [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) begränsade till en enda dataram.
+4. Generellt är utdata för R från den lagrade proceduren [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) begränsade till en enda dataram.
 
     Du kan dock returnera utdata för andra typer, till exempel skalärer, utöver dataramen.
 
@@ -381,7 +390,7 @@ Använd den modell som du skapade i föregående avsnitt för att bedöma förut
     VALUES (40), (50), (60), (70), (80), (90), (100)
     ```
 
-    Eftersom modellen baseras den **rxLinMod**-algoritm som tillhandahålls som en del av **RevoScaleR**-paketet anropar du i det här exemplet [rxPredict](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxpredict)-funktionen i stället för den generiska R-funktionen `predict`.
+    Eftersom modellen baseras den **rxLinMod**-algoritm som tillhandahålls som en del av **RevoScaleR**-paketet anropar du i det här exemplet [rxPredict](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict)-funktionen i stället för den generiska R-funktionen `predict`.
 
     ```sql
     DECLARE @speedmodel varbinary(max) = 
@@ -410,7 +419,7 @@ Använd den modell som du skapade i föregående avsnitt för att bedöma förut
     + När du har hämtat modellen från tabellen anropar du funktionen `unserialize` på modellen.
 
         > [!TIP] 
-        > Se även de nya [serialiseringsfunktionerna](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxserializemodel) som tillhandahålls av RevoScaleR, som stöder bedömning i realtid.
+        > Se även de nya [serialiseringsfunktionerna](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) som tillhandahålls av RevoScaleR, som stöder bedömning i realtid.
     + Tillämpa funktionen `rxPredict` med lämpliga argument på modellen och ange nya indata.
 
     + I det här exemplet läggs funktionen `str` till under testfasen för att kontrollera schemat för data som returneras från R. Du kan ta bort instruktionen senare.
@@ -439,7 +448,7 @@ Om du behöver använda ett paket som inte redan är installerat i din SQL-datab
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    Om du får felet **'R' is not recognized as an internal or external command, operable program or batch file.** (R känns inte igen som internt eller externt kommando, körbart program eller batchfil) innebär det antagligen att sökvägen till R.exe inte ingår i din **PATH**-miljövariabel i Windows. Du kan antingen lägga till katalogen i miljövariabeln eller gå till katalogen i kommandotolken (till exempel `cd C:\Program Files\R\R-3.5.1\bin`).
+    Om du får följande fel, ”'R' is not recognized as an internal or external command, operable program or batch file” (R känns inte igen som internt eller externt kommando, körbart program eller batchfil) innebär det antagligen att sökvägen till R.exe inte ingår i din **PATH**-miljövariabel i Windows. Du kan antingen lägga till katalogen i miljövariabeln eller gå till katalogen i kommandotolken (till exempel `cd C:\Program Files\R\R-3.5.1\bin`) innan du kör kommandot.
 
 1. Använd kommando **R CMD INSTALL** för att installera **sqlmlutils**. Ange sökvägen till den katalog dit du laddade ned zip-filen till och namnet på zip-filen. Exempel:
 
@@ -523,7 +532,7 @@ Om du behöver använda ett paket som inte redan är installerat i din SQL-datab
 
 Mer information om Machine Learning Services finns i artiklarna nedan om SQL Server Machine Learning Services. De här artiklarna handlar om SQL Server, men det mesta av informationen gäller även för Machine Learning Services (med R) i Azure SQL Database.
 
-- [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Självstudie: Lär dig analysera i databaser med hjälp av R i SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [Datavetenskapsgenomgång med slutpunkt till slutpunkt för R och SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Självstudie: Använda RevoScaleR R-funktioner med SQL Server-data](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
+- [Självstudie: Lär dig analysera i databaser med hjälp av R i SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [Datavetenskapsgenomgång med slutpunkt till slutpunkt för R och SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
+- [Självstudie: Använda RevoScaleR R-funktioner med SQL Server-data](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

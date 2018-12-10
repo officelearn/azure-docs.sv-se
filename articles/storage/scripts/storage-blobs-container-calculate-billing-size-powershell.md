@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-skript sample - beräkna den totala fakturering storleken på en blob-behållare | Microsoft Docs
-description: Beräkna den totala storleken på en behållare i Azure Blob storage för fakturering.
+title: Azure PowerShell-skriptexempel – Beräkna den totala faktureringsstorleken på en blob-container | Microsoft Docs
+description: Beräkna den totala storleken på en container i Azure Blob Storage för faktureringsändamål.
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -15,33 +15,33 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: c37b416578a76e9b12e29d68e413d851796ccc6f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7e28b8938c8c0eb258fbb599dd5765258a4d52e4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26368552"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867383"
 ---
-# <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Beräkna den totala fakturering storleken för en blobbbehållare
+# <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Beräkna den totala faktureringsstorleken på en blob-container
 
-Det här skriptet beräknar storleken på en behållare i Azure Blob storage för att uppskatta fakturering kostnader. Skriptet summeras storleken på blobbar i behållaren.
+Det här skriptet beräknar storleken på en container i Azure Blob Storage för att ge en uppskattning av faktureringskostnaderna. Skriptet summerar storleken på blobarna i containern.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> Detta PowerShell-skript beräknar storleken på en behållare för fakturering. Om du beräknar behållaren storleken för andra ändamål, se [beräkna den totala storleken på en behållare för Blob storage](../scripts/storage-blobs-container-calculate-size-powershell.md) för ett enklare skript som innehåller en uppskattning.
+> Den här PowerShell-skriptet beräknar storleken på en container för faktureringsändamål. Om du beräknar containerns storlek för andra ändamål hittar du ett enklare skript som ger en beräkning i [Beräkna den totala storleken på en Blob Storage-container](../scripts/storage-blobs-container-calculate-size-powershell.md).
 
-## <a name="determine-the-size-of-the-blob-container"></a>Bestämma storleken på blob-behållaren
+## <a name="determine-the-size-of-the-blob-container"></a>Beräkna storleken på blob-containern
 
-Den totala storleken på blob-behållaren innehåller storleken på själva behållaren och storleken på alla blobbar i behållaren.
+Den totala storleken på blob-containern inkluderar storleken på själva containern och storleken på alla blobar i containern.
 
-I följande avsnitt beskrivs hur lagringskapaciteten beräknas för blobbbehållare och blobbar. I följande avsnitt: Len(X) antal tecken i strängen.
+Följande avsnitt beskriver hur lagringskapaciteten beräknas för blob-containrar och blobar. I följande avsnitt betyder Len(X) antalet tecken i strängen.
 
-### <a name="blob-containers"></a>BLOB-behållare
+### <a name="blob-containers"></a>Blob-containrar
 
-Beräkningen nedan beskrivs hur du beräkna hur mycket lagringsutrymme som används per blob-behållare:
+Följande beräkning beskriver hur du beräknar den mängd lagringsutrymme som förbrukas per blob-container:
 
 `
 48 bytes + Len(ContainerName) * 2 bytes +
@@ -49,20 +49,20 @@ For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
 For-Each Signed Identifier[512 bytes]
 `
 
-Här är:
-* 48 byte av omkostnader för varje behållare innehåller ändrades senast, behörigheter, inställningar för offentliga och vissa systemmetadata.
+Här följer analysen:
+* 48 byte med tillhörande information för varje container innehåller tid för senaste ändring, behörigheter, offentliga inställningar och vissa systemmetadata.
 
-* Behållarens namn lagras som Unicode, så ta antalet tecken och multiplicera med två.
+* Containerns namn lagras som Unicode, så ta antalet tecken och multiplicera med två.
 
-* För varje datablock blobbehållarens metadata som lagras, lagrar vi namnet (ASCII) plus längden på strängvärdet.
+* För varje block med blob-containermetadata som lagras så lagrar vi namnets längd (ASCII) samt längden på strängvärdet.
 
-* 512 byte per signerade ID innehåller signerade identifierarnamn, starttid, förfallotiden och behörigheter.
+* 512 byte per signerat ID innehåller namnet på det signerade ID:t, starttiden, förfallotiden och behörigheter.
 
 ### <a name="blobs"></a>Blobar
 
-Följande beräkningar visar hur du beräkna hur mycket lagringsutrymme som förbrukas per blob.
+Följande beräkningar visar hur du beräknar den mängd lagringsutrymme som förbrukas per blob.
 
-* Blockblob (grundläggande blob eller snapshot):
+* Blockblob (grundläggande blob eller ögonblicksbild):
 
    `
    124 bytes + Len(BlobName) * 2 bytes +
@@ -72,7 +72,7 @@ Följande beräkningar visar hur du beräkna hur mycket lagringsutrymme som för
    SizeInBytes(data in uncommitted data blocks)
    `
 
-* Sidblob (grundläggande blob eller snapshot):
+* Sidblob (grundläggande blob eller ögonblicksbild):
 
    `
    124 bytes + Len(BlobName) * 2 bytes +
@@ -81,40 +81,40 @@ Följande beräkningar visar hur du beräkna hur mycket lagringsutrymme som för
    SizeInBytes(data in unique pages stored)
    `
 
-Här är:
+Här följer analysen:
 
-* 124 byte av CPU-användningen för blob, vilket innefattar:
-    - Senast ändrad
+* 124 byte med tillhörande information för blob, vilket innefattar:
+    - Ändrades senast
     - Storlek
     - Cache-Control
-    - Innehållstyp
+    - Content-Type
     - Content-Language
-    - Innehållskodning
+    - Content-Encoding
     - Content-MD5
     - Behörigheter
-    - Snapshot-information
-    - Lån
+    - Ögonblicksbildsinformation
+    - Livslängd
     - Vissa systemmetadata
 
-* Blobbnamnet lagras som Unicode, så ta antalet tecken och multiplicera med två.
+* Blobnamnet lagras som Unicode, så ta antalet tecken och multiplicera med två.
 
-* Lägg till namnet (som lagras i ASCII-format) plus längden på strängvärdet för varje block på metadata som lagras.
+* För varje block med metadata som lagras lägger du till namnets längd (lagras som ASCII) samt längden på strängvärdet.
 
-* För blockblobbar:
-    * 8 byte för i blockeringslistan.
-    * Antal block gånger ID blockstorlek i byte.
-    * Storleken på data i alla allokerade och ogenomförda block. 
-    
+* För blockblobarna:
+    * 8 byte för blocklistan.
+    * Antalet block gånger block-ID-storleken i byte.
+    * Storleken på data i alla incheckade och ej incheckade block.
+
     >[!NOTE]
-    >När ögonblicksbilder används, innehåller den här storleken endast unika data för den här grundläggande eller ögonblicksbild blob. Om du inte använder en block efter en vecka, är de skräpinsamlats. Sedan kan räknas de inte in fakturering.
+    >När ögonblicksbilder används innehåller den här storleken bara unika data för den här grundläggande bloben eller ögonblicksbloben. Om de ej incheckade blocken inte används efter en vecka samlas de upp som skräp. Efter det räknas de inte mot fakturering.
 
-* För sidblobbar:
-    * Flera sidramar med data antal 12 byte. Detta är antalet unika sidintervall som du kan se när du anropar den **GetPageRanges** API.
+* För sidblobar:
+    * Antalet flera ej efterföljande sidintervall med data gånger 12 byte. Detta är antalet unika sidintervall som du ser när du anropar **GetPageRanges**-API:et.
 
-    * Storleken på data i byte för alla lagrade sidor. 
-    
+    * Storleken på data i byte för alla lagrade sidor.
+
     >[!NOTE]
-    >När ögonblicksbilder används, innehåller den här storleken endast unika sidor för grundläggande blob eller snapshot-blob som inventeras.
+    >När ögonblicksbilder används omfattar den här storleken bara unika sidor för den grundläggande blob eller ögonblicksblob som räknas.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -122,10 +122,10 @@ Här är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [beräkna den totala storleken på en behållare för Blob storage](../scripts/storage-blobs-container-calculate-size-powershell.md) för ett enkelt skript som innehåller en uppskattning av behållarens storlek.
+- Ett enkelt skript som ger en beräkning av containerstorleken finns i [Beräkna den totala storleken på en Blob Storage-container](../scripts/storage-blobs-container-calculate-size-powershell.md).
 
-- Läs mer om Azure Storage fakturering [Förstå Windows Azure Storage fakturering](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+- Mer information om Azure Storage-fakturering finns i [Förstå Windows Azure Storage-fakturering](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Läs mer om Azure PowerShell-modulen [Azure PowerShell dokumentationen](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1).
+- Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1).
 
-- Du kan hitta ytterligare lagring PowerShell skriptexempel i [PowerShell-exempel för Azure Storage](../blobs/storage-samples-blobs-powershell.md).
+- Ytterligare Storage PowerShell-skriptexempel finns i [PowerShell-exempel för Azure Storage](../blobs/storage-samples-blobs-powershell.md).

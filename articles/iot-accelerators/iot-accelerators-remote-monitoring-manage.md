@@ -1,35 +1,32 @@
 ---
-title: Självstudie om att hantera enheter i en Azure-baserad fjärrövervakningslösning | Microsoft Docs
-description: Den här självstudien visar dig hur du hanterar enheter anslutna till lösningsacceleratorn Fjärrövervakning.
+title: Självstudie om att konfigurera enheter i en Azure-baserad fjärrövervakningslösning | Microsoft Docs
+description: Den här självstudien visar dig hur du konfigurerar enheter som är anslutna till Fjärrövervakning-lösningsacceleratorn.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821087"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679162"
 ---
-# <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Självstudie: Konfigurera och hantera enheter som är anslutna till din övervakningslösning
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Självstudie: Konfigurera enheter som är anslutna till din övervakningslösning
 
-I den här självstudiekursen använder du lösningsacceleratorn Fjärrövervakning för att konfigurera och hantera dina anslutna IoT-enheter. Du lägger till en ny enhet till lösningsacceleratorn, konfigurerar enheten och uppdaterar enhetens inbyggda programvara.
+I den här självstudiekursen använder du lösningsacceleratorn Fjärrövervakning för att konfigurera och hantera dina anslutna IoT-enheter. Du lägger till en ny enhet till lösningsacceleratorn och konfigurerar enheten.
 
-Contoso har beställt nya maskiner och utökat en av sina anläggningar. Medan du väntar på att de nya maskinerna ska levereras vill du köra en simulering för att testa lösningens beteende. För att köra simuleringen lägger du till en ny simulerad motor i lösningsacceleratorn Fjärrövervakning och testar att den simulerade enheten svarar korrekt på åtgärder och konfigurationsuppdateringar.
-
-För att ge ett utökningsbart sätt att konfigurera och hantera enheter använder lösningsacceleratorn Fjärrövervakning IoT Hub-funktioner som [jobb](../iot-hub/iot-hub-devguide-jobs.md) och [direktmetoder](../iot-hub/iot-hub-devguide-direct-methods.md). I den här självstudiekursen används simulerade enheter men en enhetsutvecklare kan implementera direktmetoder på en [fysisk enhet ansluten till lösningsacceleratorn Fjärrövervakning](iot-accelerators-connecting-devices.md).
+Contoso har beställt nya maskiner och utökat en av sina anläggningar. Medan du väntar på att de nya maskinerna ska levereras vill du köra en simulering för att testa lösningens beteende. För att köra simuleringen lägger du till en ny simulerad motor i Fjärrövervakning-lösningsacceleratorn och testar att den simulerade enheten svarar korrekt på konfigurationsuppdateringar. I den här självstudiekursen används simulerade enheter men en enhetsutvecklare kan implementera direktmetoder på en [fysisk enhet ansluten till lösningsacceleratorn Fjärrövervakning](iot-accelerators-connecting-devices.md).
 
 I den här kursen för du göra följande:
 
 >[!div class="checklist"]
 > * Etablera en simulerad enhet.
 > * Testa en simulerad enhet.
-> * Uppdatera en enhets inbyggda programvara.
 > * Konfigurera om en enhet.
 > * Organisera dina enheter.
 
@@ -60,24 +57,6 @@ I **Enhetsinformation** kontrollerar du att den nya enheten skickar telemetridat
 Panelen **Enhetsinformation** visar annan information om enheten som taggvärden, metoder som stöds och egenskaperna som rapporteras av enheten.
 
 Om du vill visa detaljerad diagnostik rullar du nedåt i panelen **Enhetsinformation** för att visa avsnittet **Diagnostik**.
-
-## <a name="act-on-a-device"></a>Utföra åtgärder på en enhet
-
-Du kan testa om den simulerade motorn svarar korrekt på åtgärder som initieras via instrumentpanelen genom att köra metoden **FirmwareUpdate** (Uppdatering av inbyggd programvara). Om du vill utföra åtgärder på en enhet genom att köra en metod väljer du enheten i listan över enheter och klickar sedan på **Jobb**. Du kan välja mellan fler än en enhet om du vill utföra åtgärder på flera enheter. I panelen **Jobb** väljer du **Metoder**. Enhetsmodellen **Engine** (Motor) anger tre metoder: **FirmwareUpdate** (Uppdatering av inbyggd programvara), **FillTank** (Fyll tanken) och **EmptyTank** (Töm tanken):
-
-[![Engine-metoder (Motor)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
-
-Välj **FirmwareUpdate** (Uppdatering av inbyggd programvara), ange jobbnamnet **UpdateEngineFirmware** (Uppdatera motorns inbyggda programvara),ange version **2.0.0** för den inbyggda programvaran och ange **http://contoso.com/engine.bin** som URI för den inbyggda programvaran. Klicka sedan på **Använd**:
-
-[![Schemalägga metoden för uppdatering av inbyggd programvara](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-expanded.png#lightbox)
-
-Du kan spåra jobbets status genom att klicka på **Visa jobbstatus**:
-
-[![Övervaka det schemalagda jobbet för uppdatering av inbyggd programvara](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-expanded.png#lightbox)
-
-När jobbet har slutförts går du tillbaka till sidan **Enheter**. Den nya versionen av inbyggd programvara visas för motorn.
-
-Om du väljer flera enheter av olika typ på sidan **Enheter** kan du fortfarande skapa ett jobb för att köra en metod på dessa enheter. Panelen **Jobb** visar bara gemensamma metoder för alla valda enheter.
 
 ## <a name="reconfigure-a-device"></a>Konfigurera om en enhet
 

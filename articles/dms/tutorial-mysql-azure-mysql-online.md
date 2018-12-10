@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/06/2018
-ms.openlocfilehash: 8b0e15ac6cd59a77e283d9256ab5fa4542dfc9a9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 12/04/2018
+ms.openlocfilehash: 3c3127c7fd94ae0f66cd083e8a83dd9119f71dcb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960522"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867944"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudie: Migrera MySQL till Azure Database for MySQL online med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal MySQL-instans till [Azure SQL Database for SQL](https://docs.microsoft.com/azure/mysql/) med minimal avbrottstid. Du kan med andra ord migrera med minimal stilleståndstid i programmet. I den här självstudien migrerar du exempeldatabasen **Employees** från en lokal instans av MySQL 5.7 till Azure Database for MySQL genom att använda en onlinemigreringsaktivitet i Azure Database Migration Service.
@@ -28,6 +28,9 @@ I den här guiden får du lära dig att:
 > * Skapa ett migreringsprojekt med hjälp av Azure Database Migration Service.
 > * Köra migreringen.
 > * Övervaka migreringen.
+
+> [!NOTE]
+> Användning av Azure Database Migration Service för att utföra en onlinemigrering kräver att en instans skapas baserat på prisnivån Premium (förhandsversion).
 
 > [!IMPORTANT]
 > För optimala migreringsfunktioner rekommenderar Microsoft att skapa en instans av Azure Database Migration Service i samma Azure-region som måldatabasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.

@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: Skapa en att göra-app med Xamarin | Microsoft Docs'
+title: 'Azure Cosmos DB: Skapa en att göra-app med Xamarin'
 description: Presenterar ett Xamarin-kodexempel som du kan använda för att ansluta och ställa frågor till Azure Cosmos DB
 services: cosmos-db
 author: codemillmatt
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
@@ -11,17 +10,18 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: c48c5f116ef9c5716533ca28ccfd58b613facd26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0099bacb98d921a852ece8787bcb7152c5eae3f2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993345"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838581"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Skapa en att göra-app med Xamarin
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [NET](create-sql-api-dotnet.md)
+> * [.NET (förhandsversion)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)

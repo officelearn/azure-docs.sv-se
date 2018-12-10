@@ -1,128 +1,175 @@
 ---
-title: 'Snabbstart: Hämta språk som stöds, Java – Translator Text'
+title: 'Snabbstart: Hämta lista över språk som stöds- Java – Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:et med Java.
+description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, translitterering och ordlistesökningar med hjälp av Translator Text API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 88a5452259978c265b8f48184f9604d9f1b4c238
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9a5985adb92799726951ad37c1dbd0b72c6c9709
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412491"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889012"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-java"></a>Snabbstart: Hämta språk som stöds med Translator Text REST API (Java)
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Snabbstart: Använd Translator Text API för att hämta en lista över språk som stöds med Java
 
-I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t.
+I den här snabbstarten hämtar du en lista över språk som stöds för översättning, translitterering och ordlistesökningar med hjälp av Translator Text API.
+
+För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [JDK 7 eller 8](https://aka.ms/azure-jdks) för att kompilera och köra den här koden. Du kan använda en Java IDE om du har en favoritutvecklingsmiljö, men en vanlig textredigerare fungerar också.
+* [JDK 7 eller senare](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Gradle](https://gradle.org/install/)
+* En Azure-prenumerationsnyckel för Translator Text
 
-För att använda Translator Text-API:et behöver du även en prenumerationsnyckel. Mer information finns i [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Så här registrerar du dig för Translator Text-API:et).
+## <a name="initialize-a-project-with-gradle"></a>Initiera ett projekt med Gradle
 
-## <a name="languages-request"></a>Språkbegäran
+Vi börjar med att skapa en arbetskatalog för projektet. Kör följande kommando på kommandoraden (eller i terminalen):
 
-Följande kod hämtar en lista över språk som stöds för översättning, transkribering och ordlistesökning och exempel, med hjälp av metoden [Languages](./reference/v3-0-languages.md) (Språk).
+```console
+mkdir get-languages-sample
+cd get-languages-sample
+```
 
-1. Skapa ett nytt Java-projekt i valfri kodredigerare.
-2. Lägg till koden nedan.
-3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+Sedan initierar du ett Gradle-projekt. Det här kommandot skapar viktiga build-filer för Gradle, framför allt `build.gradle.kts`, som används vid körning för att skapa och konfigurera programmet. Kör kommandot från arbetskatalogen:
+
+```console
+gradle init --type basic
+```
+
+Välj en **DSL** när du uppmanas till det och välj **Kotlin**.
+
+## <a name="configure-the-build-file"></a>Konfigurera build-filen
+
+Leta reda på `build.gradle.kts` och öppna den med valfri IDE och textredigerare. Kopiera sedan i den här build-konfigurationen:
+
+```
+plugins {
+    java
+    application
+}
+application {
+    mainClassName = "GetLanguages"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile("com.squareup.okhttp:okhttp:2.5.0")
+    compile("com.google.code.gson:gson:2.8.5")
+}
+```
+
+Observera att det här exemplet har beroenden på OkHttp för HTTP-begäranden och begäranden och Gson för att hantera och parsa JSON. Mer information om build-konfigurationer finns i [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/) (Skapa nya Gradle-byggen).
+
+## <a name="create-a-java-file"></a>Skapa en Java-fil
+
+Nu ska vi skapa en mapp för din exempelapp. Kör följande från arbetskatalogen:
+
+```console
+mkdir -p src/main/java
+```
+
+Skapa sedan en fil med namnet `GetLanguages.java` i den här mappen.
+
+## <a name="import-required-libraries"></a>Importera obligatoriska bibliotek
+
+Öppna `GetLanguages.java` och lägg till följande importsatser:
 
 ```java
 import java.io.*;
 import java.net.*;
 import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+import com.google.gson.*;
+import com.squareup.okhttp.*;
+```
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+## <a name="define-variables"></a>Definiera variabler
 
-/* NOTE: To compile and run this code:
-1. Save this file as Languages.java.
-2. Run:
-    javac Languages.java -cp .;gson-2.8.1.jar -encoding UTF-8
-3. Run:
-    java -cp .;gson-2.8.1.jar Languages
-*/
+Först måste du skapa en offentlig klass för ditt projekt:
 
-public class Languages {
+```java
+public class GetLanguages {
+  // All project code goes here...
+}
+```
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+Lägg till följande rader i klassen `GetLanguages`:
 
-// Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
+```java
+String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
+```
 
-    static String host = "https://api.cognitive.microsofttranslator.com";
-    static String path = "/languages?api-version=3.0";
+## <a name="create-a-client-and-build-a-request"></a>Skapa en klient och en begäran
 
-    static String output_path = "output.txt";
+Lägg till följande rad i klassen `GetLanguages` för att skapa en instans av `OkHttpClient`:
 
-    public static String GetLanguages () throws Exception {
-        URL url = new URL (host + path);
+```java
+// Instantiates the OkHttpClient.
+OkHttpClient client = new OkHttpClient();
+```
 
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setDoOutput(true);
+Nu ska vi skapa GET-begäran.
 
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
+```java
+// This function performs a GET request.
+public String Get() throws IOException {
+    Request request = new Request.Builder()
+            .url(url).get()
+            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Content-type", "application/json").build();
+    Response response = client.newCall(request).execute();
+    return response.body().string();
+}
+```
 
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
+## <a name="create-a-function-to-parse-the-response"></a>Skapa en funktion för att parsa svaret
 
-        return response.toString();
-    }
+Den här enkla funktionen parsar och gör JSON-svaret prydligare från Translator Text-tjänsten.
 
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
+```java
+// This function prettifies the json response.
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonElement json = parser.parse(json_text);
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
-    public static void WriteToFile (String data) throws Exception {
-        String json = prettify (data);
-        Writer outputStream = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(output_path), "UTF-8"));
-        outputStream.write(json);
-        outputStream.close();
-    }
+## <a name="put-it-all-together"></a>Färdigställa allt
 
-    public static void main(String[] args) {
-        try {
-            String response = GetLanguages ();
-            WriteToFile (response);
-        }
-        catch (Exception e) {
-            System.out.println (e);
-        }
+Det sista steget är att göra en begäran och få ett svar. Lägg till följande rader i projektet:
+
+```java
+public static void main(String[] args) {
+    try {
+        GetLanguages getLanguagesRequest = new GetLanguages();
+        String response = getLanguagesRequest.Get();
+        System.out.println(prettify(response));
+    } catch (Exception e) {
+        System.out.println(e);
     }
 }
 ```
 
-## <a name="languages-response"></a>Språksvar
+## <a name="run-the-sample-app"></a>Kör exempelappen
+
+Det var allt. Nu är du redo att köra exempelappen. Navigera till roten för arbetskatalogen på kommandoraden (eller i terminalsessionen) och kör:
+
+```console
+gradle build
+```
+
+## <a name="sample-response"></a>Exempelsvar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
@@ -216,3 +263,11 @@ Utforska exempelkoden för den här snabbstarten och andra, inklusive översätt
 
 > [!div class="nextstepaction"]
 > [Utforska Java-exempel på GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+
+## <a name="see-also"></a>Se även
+
+* [Översätta text](quickstart-java-translate.md)
+* [Translitterera text](quickstart-java-transliterate.md)
+* [Identifiera språket efter indata](quickstart-java-detect.md)
+* [Hämta alternativa översättningar](quickstart-java-dictionary.md)
+* [Fastställa meningslängd utifrån indata](quickstart-java-sentences.md)

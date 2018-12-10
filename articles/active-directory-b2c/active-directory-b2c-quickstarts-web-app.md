@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c4fa3f9cbba558cd743f85119dd9e91bd73ce062
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: edfd17763a7d555e773e7d271ed5cc22a0307996
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250608"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726601"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för ett ASP.NET-program med Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
     De här två projekten finns i exempellösningen:
 
-    - **TaskWebApp** – Ett webbprogram som skapar och redigerar en uppgiftslista. Webbprogrammet använder **registrerings- eller inloggningsprincipen** för att registrera eller logga in användare.
+    - **TaskWebApp** – Ett webbprogram som skapar och redigerar en uppgiftslista. Webbprogrammet använder användarflödet för **registrering eller inloggning** för att registrera eller logga in användare.
     - **TaskService** – Ett webb-API med stöd för att skapa, läsa, uppdatera och ta bort en uppgiftslista. Webb-API:n skyddas av Azure AD B2C och anropas av webbprogrammet.
 
 ## <a name="run-the-application-in-visual-studio"></a>Kör programmet i Visual Studio
@@ -67,7 +67,7 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
 ## <a name="edit-your-profile"></a>Redigera din profil
 
-Azure Active Directory B2C tillhandahåller funktioner som gör det möjligt för användare att uppdatera sina profiler. Exempelwebbappen använder en Azure AD B2C-princip för att redigera profiler för arbetsflödet. 
+Azure Active Directory B2C tillhandahåller funktioner som gör det möjligt för användare att uppdatera sina profiler. Exempelwebbappen använder ett Azure AD B2C-användarflöde för att redigera profiler för arbetsflödet. 
 
 1. Klicka på ditt profilnamn på programmets menyrad och välj **Redigera profil** för att redigera profilen som du har skapat.
 
@@ -97,7 +97,7 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra snabbst
 
 I den här snabbstarten använde du ett ASP.NET-exempelprogram för att logga in med en anpassad inloggningssida, logga in med en social identitetsprovider, skapa ett Azure AD B2C-konto och anropa ett Azure AD B2C-skyddat webb-API. 
 
-Kom igång med att skapa en egen Azure AD B2C-klient.
+Kom igång med att skapa en egen Azure AD B2C-klientorganisation.
 
 > [!div class="nextstepaction"]
 > [Skapa en Azure Active Directory B2C-klientorganisation i Azure-portalen](tutorial-create-tenant.md)

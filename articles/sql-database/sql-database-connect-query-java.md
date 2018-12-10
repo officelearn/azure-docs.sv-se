@@ -11,12 +11,12 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/20/2018
-ms.openlocfilehash: afa975a593fd962050c9f894ec091d7f64579138
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 5c12bd54c0ea96ac915fedab94f03cf044330dcf
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52332621"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723303"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Snabbstart: Använda Java för att fråga en Azure SQL-databas
 
@@ -44,13 +44,13 @@ För att kunna slutföra det här exemplet behöver du följande:
 
 ## <a name="create-the-project"></a>Skapa projektet
 
-1. Skapa ett nytt Maven-projekt som du namnger *sqltest* från terminalen.
+1. Från kommandotolken skapar du ett nytt Maven-projekt som du namnger *sqltest*.
 
     ```bash
     mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
     ```
 
-1. Gå till katalogen för *sqltest* och öppna *pom.xml* med valfri textredigerare. Lägg till **Microsoft JDBC-drivrutinen för SQL Server** i projektets beroenden med hjälp av följande kod.
+1. Bytt mapp till *sqltest* och öppna *pom.xml* med valfri textredigerare. Lägg till **Microsoft JDBC-drivrutinen för SQL Server** i projektets beroenden med hjälp av följande kod.
 
     ```xml
     <dependency>
@@ -93,10 +93,10 @@ För att kunna slutföra det här exemplet behöver du följande:
         public static void main(String[] args) {
 
             // Connect to database
-            String hostName = "your_server.database.windows.net";
-            String dbName = "your_database";
-            String user = "your_username";
-            String password = "your_password";
+            String hostName = "your_server.database.windows.net"; // update me
+            String dbName = "your_database"; // update me
+            String user = "your_username"; // update me
+            String password = "your_password"; // update me
             String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
                 + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
             Connection connection = null;
@@ -139,14 +139,14 @@ För att kunna slutföra det här exemplet behöver du följande:
 
 ## <a name="run-the-code"></a>Kör koden
 
-1. Kör programmet i kommandotolken.
+1. Kör appen i kommandotolken.
 
     ```bash
     mvn package -DskipTests
     mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
     ```
 
-1. Kontrollera att de 20 översta raderna returneras och stäng programfönstret.
+1. Kontrollera att de 20 översta raderna returneras och stäng appfönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 

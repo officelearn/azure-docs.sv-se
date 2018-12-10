@@ -1,10 +1,9 @@
 ---
-title: Utveckling av webbprogram i Python Flask med Azure Cosmos DB | Microsoft Docs
+title: Utveckling av webbprogram i Python Flask med Azure Cosmos DB
 description: Den här självstudiekursen om databaser beskriver hur du använder Azure Cosmos DB för att lagra och komma åt data från ett Python Flask-webbprogram i Azure. Hitta apputvecklingslösningar.
 keywords: Application development, python flask, python web application, python web development
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
@@ -12,17 +11,17 @@ ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9470df09c2724bf89a371ec62e7fb8a7e2132c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: af8b2c3f0b319ce9769e9789f6639e1d5eb266f6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953930"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865224"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Utveckla ett webbprogram i Python Flask med Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-dotnet-application.md)
+> * [NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
@@ -45,7 +44,7 @@ Genom att följa den här självstudien skapar du en enkel röstningsapp där du
 ## <a name="database-tutorial-prerequisites"></a>Förutsättningar för självstudien om databaser
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande installerat:
 
-* [en Azure-prenumeration](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+* [En Azure-prenumeration](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

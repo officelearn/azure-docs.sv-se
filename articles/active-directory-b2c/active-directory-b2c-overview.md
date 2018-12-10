@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954117"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724034"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Vad är Azure Active Directory B2C?
 
@@ -60,9 +60,9 @@ Azure AD B2C interagerar med identitetsprovidrar, kunder, andra system och den l
 
 Azure AD B2C skyddar mot överbelastningsattacker (DoS) och lösenordsattacker mot dina program. Azure AD B2C använder identifierings- och skyddstekniker som SYN-cookies och begränsningar för hastighet och anslutning för att skydda resurser mot DoS-attacker. Skydd ingår också för råstyrkebaserade lösenordsattacker och ordlisteattacker för lösenord.
 
-#### <a name="built-in-policies"></a>Inbyggda principer
+#### <a name="user-flows"></a>Användarflöden
 
-Varje begäran som skickas till Azure AD B2C anger en princip. En princip styr beteendet för hur programmet interagerar med Azure AD B2C. Inbyggda principer är fördefinierade för de vanligaste identitetsuppgifterna, till exempel registrering, inloggning och profilredigering.  Till exempel kan du med en registreringsprincip styra beteenden genom att konfigurera följande inställningar:
+Varje begäran som skickas till Azure AD B2C anger ett användarflöde, som är en princip som styr beteendet för hur programmet interagerar med Azure AD B2C. Fördefinierade användarflöden för de flesta identitetsuppgifter, till exempel registrering, är tillgängliga i Azure AD B2C-portalen.  Till exempel kan du med ett registreringsarbetsflöde styra beteenden genom att konfigurera följande inställningar:
 
 - Konton i sociala medier som kunden använder för att registrera sig för programmet
 - Data som samlas in från kunden, till exempel förnamn eller postnummer

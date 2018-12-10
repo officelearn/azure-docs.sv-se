@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ba23e9b8ac79a0a2a3899332bfc373665cf561af
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092619"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841174"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Självstudier: Övervaka virtuella Linux-datorer i Azure Security Center
 
@@ -106,7 +106,7 @@ I takt med att rekommendationerna åtgärdats markeras de som lösta.
 
 Utöver konfigurationsrekommendationer för resurserna visas även aviseringar om identifierade säkerhetshot. Funktionen för säkerhetsvarningar sammanställer de data som samlas in från varje virtuell dator, Azures nätverksloggar och anslutna partnerlösningar i syfte att upptäcka säkerhetshot mot Azure-resurserna. Mer information om hur hotidentifieringsfunktionerna i Security Center fungerar finns i [Identifieringsfunktioner i Azure Security Center](../../security-center/security-center-detection-capabilities.md).
 
-Om du vill kunna använda funktionen för säkerhetsvarningar måste du uppgradera prisnivån för Security Center från *Kostnadsfri* till *Standard*. Om du uppgraderar till en högre prisnivå kan du använda dig av en **kostnadsfri utvärderingsversion** i 60 dagar. 
+Om du vill kunna använda funktionen för säkerhetsvarningar måste du uppgradera prisnivån för Security Center från *Kostnadsfri* till *Standard*. Om du uppgraderar till en högre prisnivå kan du använda dig av en **kostnadsfri utvärderingsversion**. 
 
 Så här ändrar du prisnivån:  
 

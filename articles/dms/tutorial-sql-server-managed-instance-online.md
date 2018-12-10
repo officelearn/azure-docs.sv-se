@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: ab869e53810f049593803d58b3df75d0c083bbd2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 12/04/2018
+ms.openlocfilehash: ccbfc6e204981a4e14812759715d0482e5b6cb67
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962902"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874774"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Självstudie: Migrera SQL Server till Azure SQL Database Managed Instance online med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal SQL Server-instans till [hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance.md) med minimal avbrottstid. Information om ytterligare metoder som kan kräva manuella insatser finns i artikeln om [migrering av SQL Server-instans till hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance-migrate.md).
@@ -32,6 +32,12 @@ I den här guiden får du lära dig att:
 > * Skapa ett migreringsprojekt och starta onlinemigreringen med hjälp av Azure Database Migration Service.
 > * Övervaka migreringen.
 > * Flytta över migreringen när du är klar.
+
+> [!NOTE]
+> Användning av Azure Database Migration Service för att utföra en onlinemigrering kräver att skapa en instans baserad på prisnivån Premium (förhandsversion).
+
+> [!IMPORTANT]
+> För optimala migreringsfunktioner rekommenderar Microsoft att skapa en instans av Azure Database Migration Service i samma Azure-region som måldatabasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 

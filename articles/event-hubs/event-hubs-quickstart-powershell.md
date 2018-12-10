@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 9f0a6a910ab9b9589e09b6c8e1e7b16f7e63c5c8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4605ef3876d7a21f99e775b49d7da30ff947fa8e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258977"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877937"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Snabbstart: Skapa en händelsehubb med Azure PowerShell
 
@@ -56,10 +56,11 @@ New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName n
 
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-Nu när du har skapat ett Event Hubs-namnområde skapar du en händelsehubb i namnområdet:
+Nu när du har skapat ett Event Hubs-namnområde skapar du en händelsehubb i namnområdet:  
+Tillåten period för `MessageRetentionInDays` är mellan 1 och 7 dagar.
 
 ```azurepowershell-interactive
-New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
+New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
 ```
 
 Grattis! Du har använt Azure PowerShell för att skapa en Event Hubs-namnrymd och en händelsehubb i den namnrymden. 

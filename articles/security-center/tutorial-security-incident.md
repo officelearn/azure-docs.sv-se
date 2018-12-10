@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: c2ecba5af4d0a8c95be59ad10cfc7ca8788439c9
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: facea1f0c9c92a07d888163cc44f67d927698002
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026299"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849623"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudie: Reagera på säkerhetsincidenter
 Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Dessutom kan du integrera varningar från andra säkerhetsprodukter och -tjänster i Security Center och skapa anpassade varningar utifrån dina egna indikatorer eller intelligenskällor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. I den här självstudien får du lära dig hur man:
@@ -33,7 +33,7 @@ Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med a
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad under de första 60 dagarna. Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
+För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
 
 ## <a name="triage-security-alerts"></a>Prioritera säkerhetsvarningar
 Security Center tillhandahåller en enhetlig vy över alla säkerhetsvarningar. Säkerhetsvarningar rankas beroende på allvarlighetsgrad och när det är möjligt kombineras relaterade varningar till en säkerhetsincident. När du sorterar varningar och hot ska du:

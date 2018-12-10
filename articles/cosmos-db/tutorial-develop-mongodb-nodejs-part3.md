@@ -1,10 +1,8 @@
 ---
-title: Självstudiekurs om MongoDB, Angular och Node för Azure – del 3 | Microsoft Docs
+title: Självstudie om MongoDB, Angular och Node för Azure – del 3
 description: Del 3 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
@@ -12,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: c71e0d221e4605d95dc754127ec44c62a64472f1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: fc60e66a2e4433ca1dc44470789fe2fc091c46d7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702290"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870222"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Skapa en MongoDB-app med Angular och Azure Cosmos DB – del 3: Utveckla användargränssnittet med Angular
 

@@ -13,17 +13,17 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/2/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: dc4c07b54085dfea6d97f2ca43a8cdddfcb9e57c
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8a0467a383e2c8e3efab685187c5a37d1549f664
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025472"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838173"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snabbstart: Publicera din Azure-prenumeration till Security Center Standard
-Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i olika hybridmolnarbetsbelastningar. På den kostnadsfria nivån erbjuds endast begränsad säkerhet för dina Azure-resurser, medan Standard-nivån utökar funktionerna till lokala resurser och andra moln. Med Security Center Standard kan du hitta och åtgärda säkerhetsproblem, tillämpa åtkomst- och programkontroller för att blockera skadlig aktivitet, upptäcka hot med analys och intelligens och svara snabbt under attacker. Du kan prova Security Center Standard utan kostnad under de första 60 dagarna.
+Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i olika hybridmolnarbetsbelastningar. På den kostnadsfria nivån erbjuds endast begränsad säkerhet för dina Azure-resurser, medan Standard-nivån utökar funktionerna till lokala resurser och andra moln. Med Security Center Standard kan du hitta och åtgärda säkerhetsproblem, tillämpa åtkomst- och programkontroller för att blockera skadlig aktivitet, upptäcka hot med analys och intelligens och svara snabbt under attacker. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 I den här artikeln uppgraderar du till Standard-nivån för utökad säkerhet och installerar Microsoft Monitoring Agent på dina virtuella datorer för att övervaka säkerhetsproblem och hot.
 
@@ -51,7 +51,7 @@ Inom några minuter efter att du har startat Security Center för första gånge
 Om du vill dra full nytta av Security Center måste du slutföra stegen nedan för att uppgradera till standardnivån och installera Microsoft Monitoring Agent.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Uppgradera till standardnivån
-Du måste uppgradera till standardnivån för att kunna använda snabbstart och självstudier i Security Center. De första 60 dagarna är kostnadsfria, och du kan återgå till den kostnadsfria nivån när som helst.
+Du måste uppgradera till standardnivån för att kunna använda snabbstart och självstudier i Security Center. Det finns en kostnadsfri utvärderingsversion av Security Center Standard. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. På huvudmenyn i Security Center väljer du **Komma igång**.
  

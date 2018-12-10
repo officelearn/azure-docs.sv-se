@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f870902e5bd5ef92d12d1e5e846696c4b26362a3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e0161073c0c3e7d6ef491a4f2b86510e826b85dc
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425110"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678669"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Självstudie: Skapa en .NET Core- och SQL Database-webbapp i Azure App Service
 
@@ -215,6 +215,10 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 Om den här koden identifierar att den körs i produktion (vilket indikeras av Azure-miljön) så används den anslutningssträng du konfigurerade för att ansluta till SQL Database.
 
 Anropet `Database.Migrate()` är till hjälp när det körs i Azure, eftersom de databaser som .NET Core-appen behöver skapas automatiskt baserat på migreringskonfigurationen. 
+
+> [!IMPORTANT]
+> För produktionsappar som behöver skala ut följer du bästa praxis i avsnittet om att [tillämpa migreringar i produktion](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
 
 Spara dina ändringar och genomför den på Git-lagringsplatsen. 
 

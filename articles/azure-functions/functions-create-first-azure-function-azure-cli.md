@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 05b35ac182d70d6d7a7630a14c8a8aa3b7a6a9fd
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 7ff57519cfbb99fa705aff6c970951730c501f3e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634319"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846461"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Skapa din första funktion från kommandoraden
 
@@ -79,11 +79,11 @@ cd MyFunctionProj
 
 Du måste ha en funktionsapp som värd för körning av dina funktioner. Funktionsappen är en miljö för serverfri körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp med kommandot [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
 
-I följande kommando infogar du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Parametern _deployment-source-url_ är en exempellagringsplats i GitHub som innehåller en HTTP-utlöst ”Hello World”-funktion.
+I följande kommando infogar du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Du bör även ange `<language>`-körningen för din funktionsapp från `dotnet` (C#) eller `node` (JavaScript).
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westeurope \
---name <app_name> --storage-account  <storage_name>  
+--name <app_name> --storage-account  <storage_name> --runtime <language> 
 ```
 
 Genom att konfigurera parametern _consumption-plan-location_ anger du att funktionsappen ska använda en förbrukningsplan som värd. I det här serverlösa prenumerationsavtalet läggs resurser till dynamiskt när funktionerna har behov av det och du betalar endast när funktionerna används. Mer information finns i [Välja rätt värdplan](functions-scale.md).
@@ -107,19 +107,6 @@ När funktionsappen har skapats visas information som liknar följande exempel i
     // Remaining output has been truncated for readability.
 }
 ```
-
-### <a name="configure-the-function-app-nodejs"></a>Konfigurera funktionsappen (Node.js)
-
-När du skapar en JavaScript-funktionsapp är det viktigt att fokusera på rätt Node.js-version. Version 2.x av Functions-körmiljön kräver Node.js version 8.x. Programinställningen `WEBSITE_NODE_DEFAULT_VERSION` styr vilken version av Node.js som används av funktionsappen i Azure. Använd kommandot [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) för att ange Node.js-version `8.11.1`.
-
-I följande Azure CLI-kommando är <app_name> namnet på funktionsappen.
-
-```azurecli-interactive
-az functionapp config appsettings set --resource-group myResourceGroup \
- --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
-```
-
-Kontrollera den nya inställningen i utdata.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 

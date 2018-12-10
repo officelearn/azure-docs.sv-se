@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: e0261f96b1b097cba753ec905bc590a35e9a2c24
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f00de9095e45901f92fcf3004a5f51cfdd709da2
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623612"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724782"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Självstudie: Använda en systemtilldelade hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage via åtkomstnyckel
 
@@ -65,7 +65,7 @@ Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Men du kan an
 
 1. Gå tillbaka till det lagringskonto som du nyss skapade.
 2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  
-3. Klicka på **+ Lägg till** längst upp på sidan för att lägga till en ny rolltilldelning för den virtuella datorn
+3. Klicka på **+ Lägg till rolltilldelning** längst upp på sidan för att lägga till en ny rolltilldelning för den virtuella datorn
 4. Ställ in **Roll** på ”Tjänstroll som operatör av lagringskontonyckel”, till höger på sidan. 
 5. I nästa listruta väljer du resursen Virtuell dator under **Tilldela behörighet till**.  
 6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Välj Alla resursgrupper under **Resursgrupper**.  

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406508"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868556"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Självstudier – Övervaka och uppdatera en virtuell Linux-dator i Azure
 
@@ -208,7 +208,7 @@ Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att v
 * **Uppdatera klassificering** – Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. Klassificeringstyper:
   * Kritiska uppdateringar och säkerhetsuppdateringar
   * Övriga uppdateringar
-* **Uppdateringar som ska hoppas över** – Du kan ange en lista över paketnamn som ska hoppas över när uppdateringen distribueras. Det går att använda jokertecken i paketnamn (t.ex. \*kernal\*).
+* **Uppdateringar som ska hoppas över** – Du kan ange en lista över paketnamn som ska hoppas över när uppdateringen distribueras. Det går att använda jokertecken i paketnamn (t.ex. \*kernel\*).
 
   ![Inställningsskärmen för uppdateringsschema](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 

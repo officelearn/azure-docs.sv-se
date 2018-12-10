@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ee2def6287a845cd0fd0260254efb20f9638ab2c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467437"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839049"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Självstudie: Konfigurera ett labb med hjälp av Azure DevTest Labs
 I självstudien skapar du ett labb med hjälp av Azure Portal. En labbadministratör konfigurerar ett labb i en organisation, skapar virtuella datorer i labbet och konfigurerar principer. Labbanvändarna (till exempel utvecklare och testare) gör anspråk på de virtuella datorerna i labbet, ansluter till dem och använder dem. 
@@ -80,15 +80,11 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
 1. Välj **Konfiguration och principer** i den vänstra menyn. 
 
     ![Konfiguration och principer](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Välj **Åtkomstkontroll (IAM)** i menyn och välj **+ Lägg till** i verktygsfältet. 
-
-    ![Åtkomstkontroll – knappen Lägg till användare](./media/tutorial-create-custom-lab/access-control-add.png)
+1. Välj **Åtkomstkontroll (IAM)** i menyn och välj **+ Lägg till rolltilldelning** i verktygsfältet. 
 1. På sidan **Lägg till behörigheter** gör du följande:
     1. Som **Roll** väljer du **DevTest Labs-användare**. 
     2. Välj den **användare** som du vill lägga till. 
     3. Välj **Spara**.
-
-        ![Lägga till behörigheter](./media/tutorial-create-custom-lab/add-lab-user.png)
 4. Stäng **Konfiguration och principer – Åtkomstkontroll (IAM)** genom att välja **X** i det högra hörnet. 
 
 ## <a name="cleanup-resources"></a>Rensa resurser

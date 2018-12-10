@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 9d8a820b9b4c0c11d6e73728f8e62cc47eb4ab34
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 868c19f8c9e42bcd4a03aa2c766dff185f6319a7
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680063"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888349"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-c"></a>Snabbstart: Hämta meningslängder med Translator Text REST API (C#)
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Snabbstart: Använda Translator Text API för att fastställa meningslängd med hjälp av C#
 
 I den här snabbstarten lär du dig att fastställa meningslängder med hjälp av .NET Core och Translator Text API.
 

@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2018
+ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1eab54d16dcc0facace9a51a4cf5b5d1243baf4f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 48a04bbe77a6fe836c282556709e13bb9cd9a337
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025401"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848201"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Linux-agenten.
@@ -30,7 +30,7 @@ I den här snabbstarten får du lära dig att installera Linux-agenten på en Li
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
-Innan du startar den här snabbstarten måste du ha standardnivån i Security Center. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center Standard utan kostnad under de första 60 dagarna.
+Innan du startar den här snabbstarten måste du ha standardnivån i Security Center. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-linux-computer"></a>Lägga till ny Linux-dator
 

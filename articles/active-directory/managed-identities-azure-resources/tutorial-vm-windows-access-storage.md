@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: d032d8cc33d33954406ad45e64fc199d569abf41
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9c2280d2b571bf9f08adb69b67992376a71c1463
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620943"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723643"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Storage
 
@@ -73,8 +73,8 @@ Eftersom filer kräver bloblagring måste du skapa en blobcontainer som du lagra
 Du kan använda den virtuella datorns systemtilldelade hanterade identitet för att hämta data i Azure Storage Blob.   
 
 1. Gå tillbaka till det lagringskonto som du nyss skapade.  
-2. Klicka på länken **Åtkomstkontroll (IAM)** i vänstra fönstret.  
-3. Klicka på **+ Lägg till** högst upp på sidan om du vill lägga till en ny rolltilldelning för din virtuella dator.
+2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  
+3. Klicka på **+ Lägg till rolltilldelning** längst upp på sidan för att lägga till en ny rolltilldelning för den virtuella datorn.
 4. Välj **Storage Blob Data-läsare (förhandsgranskning)** i listrutan under **Roll**. 
 5. I listrutan under **Tilldela behörighet till** väljer du **Virtuell dator**.  
 6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Under **Resursgrupper** väljer du **Alla resursgrupper**.  

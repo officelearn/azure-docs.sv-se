@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Distribuera din ASP.NET Core-app till Azure Kubernetes Service (AKS) med Azure DevOps-projekt'
-description: Azure DevOps-projekt gör det enkelt att komma igång med Azure. Med DevOps Projects kan du distribuera din ASP.NET Core-app med Azure Kubernetes Service (AKS) i några få enkla steg.
+title: 'Självstudie: Distribuera ASP.NET Core-appar till Azure Kubernetes Service med Azure DevOps-projekt'
+description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps Projects kan du distribuera din ASP.NET Core-app med Azure Kubernetes Service (AKS) i några få enkla steg.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6e2b53e51d7da117a7f690cb676d0ec096bcb1cd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7980ea439cfd3eaefcaa308795836a909f980043
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165565"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620650"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-kubernetes-service-aks-by-using-azure-devops-projects"></a>Självstudie: Distribuera din ASP.NET Core-app till Azure Kubernetes Service (AKS) med Azure DevOps-projekt
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Självstudie: Distribuera ASP.NET Core-appar till Azure Kubernetes Service med Azure DevOps-projekt
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure. 
 
@@ -24,6 +24,7 @@ DevOps-projekt gör även följande:
 * Skapar automatiskt Azure-resurser, till exempel Azure Kubernetes Service (AKS).
 * Skapar och konfigurerar en versionspipeline i Azure DevOps som konfigurerar en versionspipeline för CI/CD.
 * Skapar en Azure Application Insights-resurs för övervakning.
+* Gör så att [Azure Monitor för containrar](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) kan övervaka prestanda för containerarbetsbelastningar på AKS-klustret
 
 I den här kursen ska du:
 
@@ -48,7 +49,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 
-1. I sökrutan skriver du **DevOps Projects**, och välj sedan **Skapa**.
+1. I sökrutan skriver du **DevOps Projects** och väljer sedan **Skapa**.
 
     ![DevOps Projects-instrumentpanelen](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -102,7 +103,7 @@ DevOps Projects konfigurerar automatiskt en Azure CI/CD-pipeline i Azure DevOps-
 
 1. Välj **Redigera**.
 
-1. I det här fönstret kan du granska de olika uppgifterna för bygg-pipelinen.  
+1. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen.  
     Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata för distributioner.
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
@@ -110,7 +111,7 @@ DevOps Projects konfigurerar automatiskt en Azure CI/CD-pipeline i Azure DevOps-
 1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
-    I det här fönstret kan du se en spårningslogg över de senaste ändringarna för versionen. Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
+    I den här fönsterrutan visas en spårningslogg över de senaste ändringarna för versionen. Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
 
 1. Välj **Utlösare**.  
     DevOps Projects skapar automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version. Du kan välja att inkludera eller exkludera grenar från CI-processen.
@@ -120,23 +121,23 @@ DevOps Projects konfigurerar automatiskt en Azure CI/CD-pipeline i Azure DevOps-
 
 ## <a name="examine-the-cd-release-pipeline"></a>Granska CD-versionspipelinen
 
-DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatiskt distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar också en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
+DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatiskt distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar även en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
 
-1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  
+1. Välj **Build and Release** (Byggen och versioner) och sedan **Versioner**.  
     DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
 
-1. Välj ellipsen (...) bredvid din releasepipeline och välj sedan **Redigera**.  
+1. Välj ellipsen (...) intill din versionspipeline och välj sedan **Redigera**.  
     Versionspipelinen innehåller en *pipeline* som definierar släpprocessen.
 
 1. Under **Artefakter** väljer du **Släpp**.  
-    Den bygg-pipeline du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
+    Den bygg-pipeline som du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
 
 1. På höger sida av ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
     Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
 
 1. Till höger väljer du alternativet för att **visa versioner** för att visa en historik över versioner.
 
-1. Välj ellipsen (...) bredvid en version och välj sedan **Öppna**.  
+1. Välj ellipsen (...) intill en version och välj sedan **Öppna**.  
     Du kan utforska flera menyer, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
 
 1. Välj **Incheckningar**.  
@@ -154,21 +155,21 @@ Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som a
 
 1. I Azure DevOps-menyn väljer du **Kod** > **Filer** och går sedan till din lagringsplats.
 
-1. Gå till katalogen *Views\Home* och välj ellipsen (...) bredvid filen *Index.cshtml*. Välj sedan **Redigera**.
+1. Gå till katalogen *Views\Home* och välj ellipsen (...) intill filen *Index.cshtml*. Välj sedan **Redigera**.
 
 1. Gör en ändring i filen, till exempel att lägga till lite text i en av div-taggarna. 
 
 1. Längst upp till höger väljer du **Checka in** och sedan **Checka in** igen för att push-överföra ändringarna.  
     Efter en stund startar en version i Azure DevOps och därefter körs en version för att distribuera ändringarna. Övervaka versionstillståndet med instrumentpanelen för DevOps Projects eller i webbläsaren med din Azure DevOps-organisation.
 
-1. När versionen har slutförts kan du uppdatera din app för att verifiera dina ändringar.
+1. När versionen har slutförts uppdaterar du appen för att verifiera dina ändringar.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du testar kan du rensa bland resurserna för att undvika att behöva betala fler avgifter. När de inte längre behövs kan du ta bort AKS-klustret och relaterade resurser som du skapade i den här självstudien. Det gör du med funktionen **Ta bort** på DevOps Projects-instrumentpanelen.
 
 > [!IMPORTANT]
-> Följande procedur tar permanent bort resurser. Funktionen *Ta bort* förstör alla data som skapats av Azure DevOps-projektet i både Azure och Azure DevOps, och du kan inte återskapa dem. Använd inte den här proceduren förrän du har läst anvisningarna noga.
+> Följande procedur tar permanent bort resurser. Funktionen *Ta bort* förstör alla data som skapats av Azure DevOps-projektet i både Azure och Azure DevOps, och du kan inte återskapa dem. Använd den här proceduren först när du har läst anvisningarna noga.
 
 1. Gå till DevOps Projects-instrumentpanelen i Azure-portalen.
 2. Välj **Ta bort** i det övre högra hörnet. 

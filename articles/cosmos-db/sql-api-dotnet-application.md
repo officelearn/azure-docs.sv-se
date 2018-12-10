@@ -1,24 +1,22 @@
 ---
-title: 'Självstudiekurs om ASP.NET MVC för Azure Cosmos DB: Utveckling av webbprogram | Microsoft Docs'
+title: 'Självstudie om ASP.NET MVC för Azure Cosmos DB: Utveckling av webbprogram'
 description: Självstudiekurs om ASP.NET MVC som beskriver hur du skapar ett MVC-webbprogram med hjälp av Azure Cosmos DB. Du kommer att lagra JSON- och åtkomstdata från en ”att göra”-app på Azure Websites – stegvis självstudiekurs om ASP NET MVC.
 keywords: asp.net mvc självstudier, webbprogramsutveckling, mvc-webbprogram, asp net mvc självstudier steg för steg
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 22856b6e9b543504db66bce074d32d9ad70f5238
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8230c2ba8c7fdb10d7e37a317d4eeb5abb120d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247678"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868726"
 ---
 # <a name="_Toc395809351"></a>Självstudiekurs om ASP.NET MVC: Utveckling av webbprogram med Azure Cosmos DB
 

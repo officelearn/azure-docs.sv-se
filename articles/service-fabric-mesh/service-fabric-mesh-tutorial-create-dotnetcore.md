@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb68c7aacb4c62237fc4cd75ec430997b0145454
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979202"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888757"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Självstudie: skapa, felsök, distribuera och uppgradera en webbapp för flera tjänster till Service Fabric Mesh
 
@@ -80,7 +80,7 @@ Ställ in **tjänstnamnet** som **WebFrontEnd**. Tryck på **OK** för att skapa
 
 ![Visual Studio, dialogruta för nytt Service Fabric Mesh-projekt](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
-Nu ser du dialogrutan **New ASP.NET Core Web Application** (Nytt ASP.NET-webbprogram). I dialogrutan **New ASP.NET Core Web Application** (Nytt ASP.NET-webbprogram) väljer du **Web Application** (Webbprogram) och klickar på **OK**.
+Därefter visas dialogrutan ASP.NET Core Web Application (ASP.NET Core-webbprogram). Välj **Webbprogram** och klicka sedan på **OK**.
 
 ![Visual Studio, nytt ASP.NET-webbprogram](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
@@ -88,13 +88,13 @@ Nu har du ett Service Fabric Mesh-program. Skapa sedan modellen för att göra-i
 
 ## <a name="create-the-to-do-items-model"></a>Skapa modellen för att göra-objekt
 
-För enkelhetens skull lagras att göra-objekten i en lista i minnet. Skapa ett klassbibliotek för att göra-objekt och en lista för att lagra dem. I Visual Studio, som för närvarande har **todolistapp** inläst väljer du **File** > **Add** > **New Project** (Arkiv > Lägg till > Nytt projekt).
+För enkelhetens skull lagras att göra-objekten i en lista i minnet. Skapa ett klassbibliotek för att göra-objekt och en lista för att lagra dem. I Visual Studio, som för närvarande har lösningen **todolistapp** inläst, väljer du **File** > **Add** > **New Project** (Arkiv > Lägg till > Nytt projekt).
 
-I dialogrutan **New Project** (Nytt projekt) i rutan **Search** (Sök) längst upp skriver du `C# .net core class`. Välj mallen **Class Library (.NET Core)**.
+I dialogrutan **Add New Project** (Lägg till nytt projekt) går du till rutan **Search** (Sök) längst upp och skriver `C# .net core class`. Välj mallen **Class Library (.NET Core)**.
 
 I rutan **Name** (Namn) skriver du `Model`. Klicka på **OK** för att skapa klassbiblioteket.
 
-I Solution Explorer, under **Model** (Modell) högerklickar du på **Class1.cs** och väljer **Rename** (Byt namn). Byt namn på klassen **ToDoItem.cs**. Om du tillfrågas om du vill byta namn på alla referenser klickar du på **Yes** (Ja).
+I Solution Explorer, under **Model** (Modell) högerklickar du på **Class1.cs** och väljer **Rename** (Byt namn). Byt namn på klassen **ToDoItem.cs**. När du tillfrågas om du vill byta namn på alla referenser klickar du på **Yes** (Ja).
 
 Ersätt innehållet i den nu tomma `class ToDoItem` med:
 
@@ -124,7 +124,7 @@ public class ToDoItem
 }
 ```
 
-Den här klassen representerar enskilda att göra-objekt.
+Den här klassen representerar att göra-objekt.
 
 I Visual Studio högerklickar du på klassbiblioteket **Model** (Modell) och väljer **Add** > **Class...** (Lägg till > Klass) för att skapa en lista för att göra-objekten. Dialogrutan **Add New Item** (Lägg till nytt objekt) visas. Ange **Name** (Namn) som `ToDoList.cs` och klicka på **Add** (Lägg till).
 
@@ -186,9 +186,9 @@ Skapa därefter Service Fabric-tjänsten som spårar att göra-objekten.
 
 I fönstret **Solution Explorer** i Visual Studio högerklickar du på **todolistapp** och klickar på **Lägg till** > **Ny Fabric Service-tjänst...**.
 
-Dialogrutan **Ny Fabric Service-tjänst** visas. Välj projekttypen **ASP.NET Core** och se till att **operativsystem för container** är **Windows**.
+Dialogrutan **Ny Fabric Service-tjänst** visas. Välj projekttypen **ASP.NET Core** och se till att **operativsystem för container** är **Windows**. Ange **Service Name** (Tjänstnamn) som **ToDoService**. Klicka på **OK** för att skapa ASP.NET Core-tjänsten.
 
-Ange **Service Name** (Tjänstnamn) som **ToDoService**. Klicka på **OK** för att skapa ASP.NET Core-tjänsten. Dialogrutan **Nytt ASP.NET-webbprogram** visas därefter. I den dialogrutan väljer du **API** och sedan **OK**, och ett projekt för tjänsten läggs till i lösningen.
+Dialogrutan **Nytt ASP.NET-webbprogram** visas därefter. I den dialogrutan väljer du **API** och sedan **OK**, och ett projekt för tjänsten läggs till i lösningen.
 
 ![Visual Studio, nytt ASP.NET-webbprogram](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
 
@@ -203,7 +203,7 @@ I **Reference Manager** väljer du kryssrutan för **Model** (Modell) och klicka
 Skapa sedan en datakontext som samordnar skickandet av data från datamodellen.
 
 När du vill lägga till datakontextklassen i Solution Explorer högerklickar du på **ToDoService** och sedan **Add** > **Class** (Lägg till > Klass).
-I dialogrutan **Add New Item** (Lägg till nytt objekt) som visas ser du till att **Class** (Klass) är valt, ställer in **Name** (Namn) till `DataContext` och klickar på **Add** (Lägg till).
+I dialogrutan **Add New Item** (Lägg till nytt objekt) som visas ser du till att **Class** (Klass) är valt, ställer in **Name** (Namn) till `DataContext.cs` och klickar på **Add** (Lägg till).
 
 I **DataContext.cs** ersätter du innehållet i nu tomma `class DataContext` med:
 
@@ -313,7 +313,8 @@ Ersätt innehållet i hela filen med följande HTML-kod som definierar en enkel 
 </div>
 ```
 
-Öppna koden för sidan Index i **Solution Explorer** genom att öppna **Index.cshtml** och sedan öppna **Index.cshtml.cs**.
+Klicka på listruteikonen för filen **Index.cshtml** i **Solution Explorer** och öppna sedan **Index.cshtml.cs**.
+
 Överst i **Index.cshtml.cs** lägger du till `using System.Net.Http;`
 
 Ersätt innehållet i nu tomma `public class IndexModel` med:
@@ -352,26 +353,41 @@ private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.G
 
 Webbadressen består av tjänstens namn och porten. All information finns i filen service.yaml som finns i projektet **ToDoService**.
 
+> [!IMPORTANT]
+> I följande steg kommer YAML-filer att ändras.
+> Blanksteg måste användas, inte tabbar, för att dra in variabler i filen service.yaml. Annars kompileras den inte. Visual Studio kan infoga tabbar när du skapar miljövariablerna. Ersätt alla tabbar med blanksteg. Programmet startar även om du ser fel i felsökningsutdata för **build** (version), men inte förrän du konverterar tabbarna till blanksteg och återskapar. För att säkerställa att inga tabbar finns i filen service.yaml kan du synliggöra blanksteg i Visual Studio-redigeraren med **Edit**  > **Advanced**  > **View White Space** (Redigera > Avancerat > Visa blanksteg).
+> Observera att service.yaml-filer bearbetas på engelska. Om du behöver använda en decimalavgränsare använder du till exempel en punkt i stället för ett kommatecken.
+
 Navigera i **Solution Explorer** till projektet **ToDoService** och öppna **Service Resources** (Serviceresurser)  > **service.yaml**.
 
 ![Bild 1: filen ToDoService service.yaml](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* Namnet på tjänsten `ToDoService` finns under `services:` after `name:` (efter) Se (1) i bilden ovan.
-* Porten `20008` finns under `endpoints:` after `port:` (efter) Se (2) i bilden ovan. Portnumret för ditt projekt kan vara ett annat.
+* Namnet på tjänsten, `ToDoService`, finns under `services:`. Se (1) i bilden ovan.
+* Porten, `80`, finns under `endpoints:`. Se (2) i bilden ovan. Portnumret för ditt projekt är antagligen ett annat.
 
-Miljövariabler som representerar namnet på tjänsten och portnumret definieras därefter i projektet WebFrontEnd så att det kan anropa serversidetjänsten.
+Därefter behöver vi definiera miljövariabler som representerar namnet på tjänsten och portnumret i WebFrontEnd-projektet så att det kan anropa serverdelstjänsten.
 
 I **Solution Explorer** navigerar du till **WebFrontEnd** > **Service Resources** > **service.yaml** för att definiera de variabler som specificerar adressen till serversidetjänsten.
 
-Lägg till följande variabler under `environmentVariables` i service.yaml-filen. Avståndet är viktigt, så justera de variabler du lägger till efter de andra variablerna under `environmentVariables:`
+Lägg till följande variabler under `environmentVariables:` i filen service.yaml. (Du måste först ta bort `#` för att avkommentera `environmentVariables:`). Avståndet är viktigt så justera de variabler du lägger till efter de andra variablerna under `environmentVariables:`. Det är mycket viktigt att värdet för ApiHostPort matchar portvärdet för ToDoServiceListener som tidigare sågs i filen service.yaml för ToDoService.
 
-> [!IMPORTANT]
-> Blanksteg måste användas, inte tabbar, för att dra in variabler i filen service.yaml. Annars kompileras den inte. Visual Studio kan infoga tabbar när du skapar miljövariablerna. Ersätt alla tabbar med blanksteg. Programmet startar även om du ser fel i felsökningsutdata för **build** (version). Det fungerar dock inte förrän du gör om tabbarna till blanksteg. För att säkerställa att inga tabbar finns i filen service.yaml kan du synliggöra blanksteg i Visual Studio-redigeraren med **Edit**  > **Advanced**  > **View White Space** (Redigera > Avancerat > Visa blanksteg).
-> Observera att service.yaml-filer bearbetas på engelska.  Om du till exempel behöver använda en decimalavgränsare så används en punkt i stället för ett kommatecken.
+```yaml
+- name: ApiHostPort
+  value: 
+- name: ToDoServiceName
+  value: ToDoService
+```
+
+> [!Tip]
+> Det finns två sätt att ange värdet för `ToDoServiceName`: 
+> - Bara tjänstnamnet, som löses både i ett felsökningsscenario i Windows 10 och vid distribution av tjänsten till Azure Service Fabric Mesh.
+> - Fullständigt som tjänstnamn.appnamn. Det fungerar bara vid felsökning i Windows 10.
+> Det är bra att bara använda tjänstnamnet för tjänstlösning.
 
 **WebFrontEnd**-projektets **service.yaml**-fil ska se ut ungefär så här, även om värdet `ApiHostPort` förmodligen är ett annat:
 
 ![Service.yaml i WebFrontEnd-projekt](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
+
 
 Nu är du redo att skapa och distribuera avbildningen för Service Fabric Mesh-programmet, tillsammans med serverwebbtjänsten, till det lokala klustret.
 

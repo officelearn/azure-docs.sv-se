@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera språk i text, C# – Translator Text API'
+title: 'Snabbstart: Identifiera textspråk, C# – Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att identifiera språket för angiven text med hjälp av .NET Core och Translator Text REST API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 89aedb33a88a7fb5f0a4e0abed172ba4e1cd091e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: de5088a012a7f5fd210a5aa66805fe865cc09bbe
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682084"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889267"
 ---
-# <a name="quickstart-detect-text-language-with-the-translator-text-rest-api-c"></a>Snabbstart: Identifiera textspråk med Translator Text REST API (C#)
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Snabbstart: Använda Translator Text API för att identifiera textspråk med hjälp av C#
 
 I den här snabbstarten lär du dig att identifiera språket för angiven text med hjälp av .NET Core och Translator Text REST API.
 

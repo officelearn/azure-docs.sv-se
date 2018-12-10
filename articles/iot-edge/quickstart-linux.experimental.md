@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 639eea43f9302ab5a4f298da3777b1b4d5259987
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2d988d70285e64414277bc2337a564aa87e45201
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500249"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888145"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -55,13 +55,17 @@ Molnresurser:
 
 IoT Edge-enhet:
 
-* En Linux-enhet eller en virtuell dator som ska fungera som din IoT Edge-enhet. Om du vill skapa en virtuell dator i Azure använder du följande kommando för att snabbt komma igång:
+* En Linux-enhet eller en virtuell dator som ska fungera som din IoT Edge-enhet. Vi rekommenderar att du använder den av Microsoft tillhandahållna virtuella datorn [Azure IoT Edge på Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu), som förinstallerar IoT Edge-körningen. Skapa den här virtuella datorn med följande kommando:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
    När du skapar en ny virtuell dator noterar du **publicIpAddress**, som anges som en del av utdata från kommandot för att skapa. Du använder den här offentliga IP-adressen för att ansluta till den virtuella datorn senare i snabbstarten.
+
+* Om du vill köra Azure IoT Edge-körningen på det lokala systemet följer du anvisningarna i [Installera Azure IoT Edge-körningen på Linux (x64)](how-to-install-iot-edge-linux.md).
+
+* Om du vill använda en ARM32-baserad enhet, till exempel Raspberry Pi, följer du anvisningarna i [Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -104,7 +108,7 @@ Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska 
 
 3. Kopiera anslutningssträngen och spara den. Du behöver det här värdet för att konfigurera IoT Edge-körningen i nästa avsnitt. 
 
-## <a name="install-and-start-the-iot-edge-runtime"></a>Installera och starta IoT Edge-körningen
+## <a name="connect-the-iot-edge-device-to-iot-hub"></a>Ansluta IoT Edge-enheten till IoT Hub
 
 Installera och starta Azure IoT Edge-körningen på din IoT Edge-enhet. 
 ![Registrera en enhet](./media/quickstart-linux/start-runtime.png)
@@ -113,82 +117,21 @@ IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponen
 
 Under körningskonfigurationen anger du en enhetsanslutningssträng. Använd den sträng som du hämtade från Azure CLI. Den här strängen associerar den fysiska enheten med IoT Edge-enhetsidentiteten i Azure. 
 
-### <a name="connect-to-your-iot-edge-device"></a>Ansluta till din IoT Edge-enhet
+### <a name="set-the-connection-string-on-the-iot-edge-device"></a>Ange anslutningssträngen på IoT Edge-enheten
 
-Alla steg i det här avsnittet sker på din IoT Edge-enhet. Om du använder din egen dator som IoT Edge-enhet kan du hoppa över den här delen. Om du använder en virtuell dator eller sekundär maskinvara bör du ansluta till den datorn nu. 
+* Om du använder den virtuella datorn Azure IoT Edge på Ubuntu kan du använda enhetsanslutningssträngen som du kopierade tidigare för att fjärrkonfigurera IoT Edge-enheten:
 
-Om du har skapat en virtuell Azure-dator för den här snabbstarten hämtar du den offentliga IP-adress som var utdata för kommandot för att skapa. Du hittar även den offentliga IP-adressen på den virtuella datorns översiktssida i Azure-portalen. Använd följande kommando för att ansluta till din virtuella dator. Ersätt **{publicIpAddress}** med adressen för din dator. 
-
-```azurecli-interactive
-ssh azureuser@{publicIpAddress}
-```
-
-### <a name="register-your-device-to-use-the-software-repository"></a>Registrera din enhet för att använda programvarudatabasen
-
-De paket som du behöver för IoT Edge-körningen hanteras i en programvarudatabas. Konfigurera din IoT Edge-enhet för att få åtkomst till den här databasen. 
-
-Stegen i det här avsnittet gäller x64-enheter som kör **Ubuntu 16.04**. För att komma åt programvarudatabasen i andra versioner av Linux eller i enhetsarkitekturer kan du läsa [Installera Azure IoT Edge-körning på Linux (x64)](how-to-install-iot-edge-linux.md) eller [Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
-
-1. Installera databaskonfigurationen på den dator du använder som IoT Edge-enhet.
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```azurecli-interactive
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
    ```
 
-2. Installera en offentlig nyckel för att komma åt databasen.
+   För återstående steg hämtar du den offentliga IP-adress som var utdata för kommandot för att skapa. Du hittar även den offentliga IP-adressen på den virtuella datorns översiktssida i Azure-portalen. Använd följande kommando för att ansluta till din virtuella dator. Ersätt **{publicIpAddress}** med adressen för din dator. 
 
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```azurecli-interactive
+   ssh azureuser@{publicIpAddress}
    ```
 
-### <a name="install-a-container-runtime"></a>Installera en körmiljö för containrar
-
-IoT Edge-körning är en uppsättning containrar, och den logik som du distribuerar till IoT Edge-enheten är paketerad som containrar. Förbered din enhet för dessa komponenter genom att installera en körmiljö för containrar.
-
-1. Uppdatera **apt-get**.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-2. Installera **Moby**, en körmiljö för containrar.
-
-   ```bash
-   sudo apt-get install moby-engine
-   ```
-
-3. Installera CLI-kommandona för Moby. 
-
-   ```bash
-   sudo apt-get install moby-cli
-   ```
-
-### <a name="install-and-configure-the-iot-edge-security-daemon"></a>Installera och konfigurera IoT Edge säkerhetsdaemon
-
-Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körningen startar varje gång enheten startas. Installationen innehåller även en version av **hsmlib** som gör att säkerhetsdaemon kan interagera med enhetens maskinvarusäkerhet. 
-
-1. Ladda ned och installera IoT Edge säkerhetsdaemon. 
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install iotedge
-   ```
-
-2. Öppna konfigurationsfilen för IoT Edge. Filen är skyddad, så du kan behöva använda utökade privilegier för att komma åt den.
-   
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-3. Lägg till IoT Edge-enhetens anslutningssträng. Hitta variabeln **device_connection_string** och uppdatera dess värde med den sträng som du kopierade efter att du registrerade enheten. Den här anslutningssträngen associerar den fysiska enheten med enhetsidentiteten som du skapade i Azure.
-
-4. Spara och stäng filen. 
-
-   `CTRL + X`, `Y`, `Enter`
-
-5. Starta om daemon för IoT Edge-säkerhet för att tillämpa ändringarna.
+* Om du kör IoT Edge på den lokala datorn eller en ARM32-enhet öppnar du konfigurationsfilen som finns i /etc/iotedge/config.yaml och uppdaterar variabeln **device_connection_string** med värdet som du kopierade tidigare. Starta sedan om IoT Edge-säkerhetsdaemonen för att tillämpa ändringarna:
 
    ```bash
    sudo systemctl restart iotedge
@@ -236,7 +179,7 @@ Hantera din Azure IoT Edge-enhet från molnet för att distribuera en modul som 
 
 I den här snabbstarten skapade du en ny IoT Edge-enhet och installerade IoT Edge-körningsmiljön på den. Sedan använde du Azure Portal för att skicka en IoT Edge-modul som ska köras på enheten utan att några ändringar behövs göras i själva enheten. I det här fallet skapar modulen som du överförde de miljödata som du använder i självstudierna.
 
-Öppna kommandotolken på IoT Edge-enheten igen. Kontrollera att modulen distribuerades från molnet som körs på IoT Edge-enheten:
+Öppna kommandotolken på IoT Edge-enheten igen eller använd SSH-anslutningen från Azure CLI. Kontrollera att modulen distribuerades från molnet som körs på IoT Edge-enheten:
 
    ```bash
    sudo iotedge list

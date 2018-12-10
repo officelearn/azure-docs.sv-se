@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 0ce9d6854f464efdf0ff6eea8644fedc5ad90d1f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 13ed37dddefc5e71e972248545c3e9242bd233ad
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427338"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678208"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Snabbstart: Kör ditt första Batch-jobb med Python-API
 
@@ -110,7 +110,7 @@ Körningen tar normalt runt 3 minuter om du kör programmet med standardkonfigur
 Python-appen i den här snabbstarten gör följande:
 
 * Överför tre små textfiler till en blobcontainer i ditt Azure-lagringskonto. Dessa filer är indata som ska bearbetas av Batch-aktiviteter.
-* Skapar en pool med två beräkningsnoder som kör Ubuntu 16.04 LTS.
+* Skapar en pool med två beräkningsnoder som kör Ubuntu 18.04 LTS.
 * Skapar ett jobb och tre aktiviteter som ska köras på noderna. Varje aktivitet bearbetar en av indatafilerna på en kommandorad för Bash-gränssnitt.
 * Visar filer som returneras av aktiviteterna.
 
@@ -151,7 +151,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Skapa en pool med beräkningsnoder
 
-För att skapa en Batch-pool använder appen klassen [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) för att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration)-objekt en [ImageReference](/python/api/azure.batch.models.imagereference) till en Ubuntu Server 16.04 LTS-avbildning som har publicerats på Azure Marketplace. Batch stöder ett brett utbud av Linux- och Windows Server-avbildningar på Azure Marketplace samt anpassade VM-avbildningar.
+För att skapa en Batch-pool använder appen klassen [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) för att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration)-objekt en [ImageReference](/python/api/azure.batch.models.imagereference) till en Ubuntu Server 18.04 LTS-avbildning som har publicerats på Azure Marketplace. Batch stöder ett brett utbud av Linux- och Windows Server-avbildningar på Azure Marketplace samt anpassade VM-avbildningar.
 
 Antalet noder (`_POOL_NODE_COUNT`) och VM-storlek (`_POOL_VM_SIZE`) är definierade konstanter. Exemplet skapar som standard en pool med 2 noder i storleken *Standard_A1_v2*. Storleken som föreslås erbjuder en bra balans mellan prestanda och kostnad för det här snabba exemplet.
 
@@ -164,10 +164,10 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="16.04-LTS",
+            sku="18.04-LTS",
             version="latest"
             ),
-        node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=config._POOL_VM_SIZE,
     target_dedicated_nodes=config._POOL_NODE_COUNT
 )

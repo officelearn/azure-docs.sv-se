@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Skapa en Node.js-app med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data | Microsoft Docs'
+title: 'Azure Cosmos DB: Skapa en Node.js-app med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data'
 description: Presenterar ett Node.js-kodexempel som du kan använda för att ansluta till och ställa frågor via Azure Cosmos DB SQL API:t
 services: cosmos-db
 author: deborahc
@@ -10,17 +10,18 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: a8a81556002bec82325bf4cf53b68ff49b8b6917
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 615e03e1905fc282a8561138904a965db6226837
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982332"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833020"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: Skapa en Node.js-app med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [NET](create-sql-api-dotnet.md)
+> * [.NET (förhandsversion)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)

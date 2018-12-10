@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 3fe1ee3d23594d5c1697ed08b17cb0b4d5b7a2fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9e8a72564151bea9194ef5180589fa8eae001df5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857643"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863728"
 ---
 # <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Självstudier: Distribuera en behållare till Azure Container Instances
 
@@ -52,10 +52,10 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 
 ### <a name="deploy-container"></a>Distribuera containern
 
-Nu kan använda kommandot [az container create][az-container-create] för att distribuera behållaren. Ersätt `<acrLoginServer>` och `<acrPassword>` med de värden som du fick från de tidigare två kommandona. Ersätt `<acrName>` med namnet på ditt containerregister.
+Nu kan använda kommandot [az container create][az-container-create] för att distribuera behållaren. Ersätt `<acrLoginServer>` och `<acrPassword>` med de värden som du fick från de tidigare två kommandona. Ersätt `<acrName>` med namnet på ditt containerregister och `<aciDnsLabel>` med önskat DNS-namn.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Inom några sekunder bör du få ett första svar från Azure. Värdet `--dns-name-label` måste vara unikt i den Azure-region där du skapar containerinstansen. Ändra värdet i föregående kommandot om du får ett felmeddelande för **DNS-namnsetikett** när du kör kommandot.

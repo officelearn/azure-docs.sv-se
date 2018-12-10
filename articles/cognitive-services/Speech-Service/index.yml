@@ -1,18 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 452032e21a649fe4d34616225bd168d441ac0267
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 6fa6a0f5a46d8e9a47a0750a66e9ca007864d40a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218651"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092639"
 documentType: LandingData
-title: Dokumentation om Speech Service
+title: Dokumentation om Speech Services
 metadata:
-  title: Dokumentation om Speech Service – självstudier, snabbstarter, API-referens – Cognitive Services | Microsoft Docs
-  meta.description: >
-    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
-
-    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
+  title: Dokumentation om Speech Services – självstudier, snabbstarter, API-referens
+  titleSuffix: Azure Cognitive Services
+  description: Speech Services ger utvecklarna ett enkelt sätt att lägga till kraftfulla talaktiverade funktioner i sina program. Exemplen omfattar styrning av röstkommandon och dialog, konversation med naturligt tal, transkription och diktering av tal samt talöversättning.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,10 +20,11 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
+  ms.date: 12/06/2018
+  ms.author: erhopf
+  ms.custom: seodec18
 abstract:
-  description: Lär dig hur du använder Speech Service och Speech SDK för att lägga till stöd för talfunktioner till dina appar. Du kan använda Speech SDK för att lägga till funktionerna <i>tal till text</i> (taligenkänning/SR) <i>avsikt</i>, <i>översättning</i> och <i>text till tal</i> (text till tal) i dina appar. Taltjänsten har även ett REST API som fungerar med alla programmeringsspråk som kan göra HTTP-förfrågningar.
+  description: Lär dig hur du använder Speech Services och Speech för att lägga till stöd för talfunktioner till dina appar. Du kan använda Speech SDK för att lägga till funktionerna <i>tal till text</i> (taligenkänning/SR) <i>avsikt</i>, <i>översättning</i> och <i>text till tal</i> (text till tal) i dina appar. Taltjänsten har även ett REST API som fungerar med alla programmeringsspråk som kan göra HTTP-förfrågningar.
 sections:
 - items:
   - type: list
@@ -34,15 +33,15 @@ sections:
     columns: 3
     items:
     - href: /azure/cognitive-services/speech-service/overview
-      html: <p>Läs mer om Azure Speech Service.</p>
+      html: <p>Läs mer om Azure Speech Services.</p>
       image:
         src: ../media/index/i_overview.svg
       title: Vad är Speech Service?
     - href: /azure/cognitive-services/speech-service/get-started
-      html: <p>Lär dig hur du registrerar dig för Speech Service utan kostnad.</p>
+      html: <p>Registrera dig kostnadsfritt.</p>
       image:
         src: ../media/index/i_get-started.svg
-      title: Registrera dig för Speech Service
+      title: Registrera dig för Speech Services
     - href: /azure/cognitive-services/speech-service/speech-devices-sdk
       html: <p>Läs mer om talbaserad maskinvarureferens.</p>
       image:

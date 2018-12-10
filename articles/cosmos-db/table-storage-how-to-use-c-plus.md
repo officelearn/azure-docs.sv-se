@@ -1,21 +1,20 @@
 ---
-title: Använda Azure Table Storage och Azure Cosmos DB Table-API:et med C++ | Microsoft Docs
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
+title: Så använder du Azure Table Storage och Azure Cosmos DB Table API med C++
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Table-API:et för Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 520c0868e51f1212ee1beca8967d3c08f1d6e869
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: dff665a26efb00ed74ddfab4259c5c35ca1abb38
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797921"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880139"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Använda Azure Table Storage och Azure Cosmos DB Table-API:et med C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -34,7 +33,7 @@ Den här guiden beskriver hur du hanterar vanliga scenarier med hjälp av tjäns
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett konto för Azure Cosmos DB Table-API:et
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett konto för Table-API:et för Azure Cosmos DB
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-c-application"></a>Skapa ett C++-program
@@ -203,7 +202,7 @@ std::vector<azure::storage::table_result> results = table.execute_batch(batch_op
 Några saker att tänka på när du använder batchåtgärder:  
 
 * Du kan utföra upp till 100 insert-, delete-, merge-, replace-, insert-or-merge- och insert-or-replace-åtgärder i valfri kombination i samma batch.  
-* En batchåtgärd kan innehålla en retrieve-åtgärd, om det är den enda åtgärden i batchen.  
+* En batchåtgärd kan innehålla en retrieve-åtgärd om det är den enda åtgärden i batchen.  
 * Alla entiteter i samma batchåtgärd måste ha samma partitionsnyckel.  
 * Batchåtgärder är begränsade till en nyttolast på 4 MB.  
 

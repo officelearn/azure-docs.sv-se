@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 42a25d6c13fe1052f4aa14696a66c9c7f1fb4d65
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8c31e410713e4ba8ce6443170ba5ad5c2e740419
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685692"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52677941"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
@@ -174,6 +174,10 @@ Om du vill se fullständiga JSON-utdata för varje kommando använder du paramet
 ### <a name="reconfigure-azure-ad-administrator"></a>Konfigurera om Azure AD-administratören
 
 Tidigare tilldelade du den hanterade identiteten som Azure AD-administratör för SQL Database. Du kan inte använda den här identiteten för interaktiv inloggning (när du ska lägga till databasanvändare), så du måste använda en riktig Azure AD-användare. Om du vill lägga till din Azure AD-användare följer du stegen i [Etablera en Azure Active Directory-administratör för din Azure SQL Database-server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
+
+> [!IMPORTANT]
+> När användaren har lagts till ska du inte ta bort den här Azure AD-administratören för SQL-databasen såvida du inte vill inaktivera Azure AD-åtkomst till SQL-databasen helt (från alla Azure AD-konton).
+> 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Ge behörigheter till Azure Active Directory-gruppen
 

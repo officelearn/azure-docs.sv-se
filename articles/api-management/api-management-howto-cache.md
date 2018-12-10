@@ -12,16 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 7458ad6e0a864d742f74ce743ce3179594113c00
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2c417a0e9a3f50032aa3c97ced57d3249bc7c93a
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26127785"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620683"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Förbättra prestanda i Azure API Management med cachelagring
+
 Du kan konfigurera åtgärder i API Management för cachelagring av svar. Cachelagring av svar kan avsevärt minska API:ets svarstider, bandbreddsanvändning och webbtjänstbelastning när data inte ändras så ofta.
  
 Mer detaljerad information om cachelagring finns i [Principer för cachelagring för API Management](api-management-caching-policies.md) och [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md) 
@@ -34,9 +35,14 @@ Detta får du får lära dig:
 > * Lägg till cachelagring med svar för ditt API
 > * Verifiera cachelagring i praktiken
 
-## <a name="prerequisites"></a>Krav
+## <a name="availability"></a>Tillgänglighet
 
-För att slutföra den här kursen behöver du:
+> [!NOTE]
+> Internt cacheminne är inte tillgängligt på nivån **Förbrukning** för Azure API Management. Du kan [använda en extern Redis-cache](api-management-howto-cache-external.md) i stället.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+För att slutföra den här självstudien behöver du:
 
 + [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 + [Importera och publicera ett API](import-and-publish.md)
@@ -51,11 +57,11 @@ Med cachelagringsprinciperna i det här exemplet returnerar den första begäran
 4. Klicka på **Demo Conference API** i API-listan.
 5. Välj **GetSpeakers**.
 6. Överst på skärmen väljer du fliken **Design**.
-7. I fönstret **Inkommande bearbetning** klickar du på triangeln (bredvid blyertspennan).
+7. I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>**.
 
-    ![kodredigeraren](media/api-management-howto-cache/code-editor.png)
-8. Välj **Kodredigeraren**.
-9. I **inkommande** element lägger du till följande princip:
+    ![kodredigeraren](media/api-management-howto-cache/code-editor.png) 
+
+8. I **inkommande** element lägger du till följande princip:
 
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
@@ -63,11 +69,14 @@ Med cachelagringsprinciperna i det här exemplet returnerar den första begäran
             <vary-by-header>Authorization</vary-by-header>
         </cache-lookup>
 
-10. I **utgående** element lägger du till följande princip:
+9. I **utgående** element lägger du till följande princip:
 
         <cache-store caching-mode="cache-on" duration="20" />
 
     **Varaktighet** anger giltighetsintervallet för de cachelagrade svaren. I det här exemplet är intervallet **20** sekunder.
+
+> [!TIP]
+> Om du använder en extern cache enligt beskrivningen i [Använda en extern Redis-cache i Azure API Management](api-management-howto-cache-external.md) kan det vara bra att ange attributet `cache-preference` för cachelagringsprinciperna. Mer information finns i [Principer för API Management-cachelagring](api-management-caching-policies.md).
 
 ## <a name="test-operation"> </a>Anropa en åtgärd och testa cachelagringen
 Om du vill se hur cachelagringen fungerar i praktiken kan du anropa åtgärden från utvecklarportalen.
@@ -82,6 +91,7 @@ Om du vill se hur cachelagringen fungerar i praktiken kan du anropa åtgärden f
 ## <a name="next-steps"> </a>Nästa steg
 * Mer information om cachelagringsprinciper finns i [Cachelagringsprinciper][Caching policies] i [Principreferens för API Management][API Management policy reference].
 * Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).
+* Mer information om hur du använder extern Redis-cache finns i [Använda en extern Redis-cache i Azure API Management](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

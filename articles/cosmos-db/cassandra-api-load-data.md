@@ -1,30 +1,32 @@
 ---
-title: Läsa in exempeldata i en tabell för Cassandra API:et för Azure Cosmos DB med hjälp av ett Java-program | Microsoft Docs
-description: Den här artikeln beskriver hur du läser in exempelanvändardata i en tabell i ett konto för Cassandra-API:et för Azure Cosmos DB med hjälp av ett Java-program.
-services: cosmos-db
+title: 'Självstudie: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB med hjälp av ett Java-program'
+description: Den här självstudien beskriver hur du läser in exempelanvändardata till en Cassandra API-tabell i Azure Cosmos DB med hjälp av ett Java-program.
 author: kanshiG
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/03/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e116dbf1d49fed1a47b830f9a57cd77a33b7ea9c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+ms.openlocfilehash: fad6d34a3d3712a036e0275717754f75d5314aae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740728"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863661"
 ---
-# <a name="tutorial-load-sample-data-into-an-azure-cosmos-db-cassandra-api-table"></a>Självstudie: Läsa in exempeldata i en tabell för Cassandra-API:et för Azure Cosmos DB
+# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Självstudie: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB
 
-Den här självstudien beskriver hur du läser in exempelanvändardata i en tabell i ett konto för Cassandra-API:et för Azure Cosmos DB med hjälp av ett Java-program. Java-programmet använder [Java-drivrutinen](https://github.com/datastax/java-driver) och läser in användardata, till exempel användar-ID, användarnamn och användarens stad. 
+Som utvecklare kan du ha program som använder nyckel/värde-par. Du kan använda ett konto för Cassandra-API:et i Azure Cosmos DB för att lagra och hantera nyckel/värde-data. Den här självstudien beskriver hur du läser in exempelanvändardata i ett konto för Cassandra-API:et i Azure Cosmos DB med hjälp av ett Java-program. Java-programmet använder [Java-drivrutinen](https://github.com/datastax/java-driver) och läser in användardata såsom användar-ID, användarnamn och användarens stad. 
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Läsa in data i en Cassandra-tabell
+> * Läsa in data till en Cassandra-tabell
 > * Kör appen
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -74,7 +76,7 @@ Använd följande steg för att läsa in data till ditt Cassandra-API för tabel
 
 ## <a name="run-the-app"></a>Kör appen
 
-Öppna kommandotolken eller ett terminalfönster och ändra sökvägen till mappen till den plats där du skapade projektet. Kör kommandot ”mvn clean install” för att generera filen cosmosdb-cassandra-examples.jar i målmappen och kör programmet. 
+Öppna en kommandotolk eller ett terminalfönster och ändra mappsökvägen till den plats där du skapade projektet. Kör kommandot ”mvn clean install” för att generera filen cosmosdb-cassandra-examples.jar i målmappen och köra programmet. 
 
 ```bash
 cd "cassandra-demo"
@@ -88,7 +90,7 @@ Nu kan du öppna Datautforskaren på Azure-portalen och bekräfta att användari
     
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du läser in exempeldata till ett konto för Cassandra-API:et för Azure Cosmos DB. Nu kan du fortsätta till nästa artikel:
+I den här självstudien lärde du dig att läsas in exempeldata till ett konto för Cassandra-API:et i Azure Cosmos DB. Nu kan du fortsätta till nästa artikel:
 
 > [!div class="nextstepaction"]
 > [Fråga efter data från kontot för Cassandra-API:et](cassandra-api-query-data.md)

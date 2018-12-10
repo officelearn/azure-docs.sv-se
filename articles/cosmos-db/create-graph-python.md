@@ -1,9 +1,8 @@
 ---
-title: 'Snabbstart: Gremlin-API med Python – Azure Cosmos DB | Microsoft Docs'
+title: 'Snabbstart: Gremlin-API med Python – Azure Cosmos DB'
 description: Den här snabbstarten visar hur du använder Gremlin-API i Azure Cosmos DB för att skapa ett konsolprogram med Azure Portal och Python
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,18 +10,18 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: d01ee78c4e3fdf0eab694deaeed03e0f61989851
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: eb7959b1a41c602ce4f34750802d962fe4ff84cf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699455"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839321"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en grafdatabas med Python och Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
-> * [.NET](create-graph-dotnet.md)
+> * [NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
@@ -58,7 +57,7 @@ Innan du kan börja skapa en grafdatabas måste du skapa ett Gremlin-databaskont
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Gremlin-API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt.  
+Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Gremlin API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt.  
 
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 

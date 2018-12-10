@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 95041ca77930d87bff6ea31e2eab89a6634cfcf5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442972"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834001"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 
 En Azure IoT Edge-enhet:
 
-* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md). 
 
 Molnresurser:
 
@@ -97,9 +97,13 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
    | Ange ett modulnamn | Ge modulen namnet **sqlFunction**. |
    | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. Den slutliga strängen ser ut så här: \<registernamn\>.azurecr.io/sqlFunction. |
 
-   VS Code-fönstret läser in IoT Edge-lösningens arbetsyta: en \.vscode-mapp, modulmapp, en mallfil för distributionsmanifestet och en \.env-fil. 
+   VS Code läser in arbetsytan för IoT Edge-lösningen. 
    
-4. När du skapar en ny IoT Edge-lösning uppmanas du av VS Code att ange dina registerautentiseringsuppgifter i \.env-filen. Den här filen är git-ignorerad, och IoT Edge-tillägget använder den senare för att tillhandahålla registeråtkomst till din IoT Edge-enhet. Öppna \..env-filen. 
+4. I IoT Edge-lösningen öppnar du \.env-filen. 
+
+   När du skapar en ny IoT Edge-lösning uppmanas du av VS Code att ange dina registerautentiseringsuppgifter i \.env-filen. Den här filen är git-ignorerad, och IoT Edge-tillägget använder den senare för att tillhandahålla registeråtkomst till din IoT Edge-enhet. 
+
+   Om du inte angav containerregistret i det föregående steget men accepterade standardmässiga localhost:5000 har du ingen \.env-fil.
 
 5. I .env-filen ger du IoT Edge-körningen autentiseringsuppgifterna för registret så att den kan komma åt modulavbildningarna. Leta upp avsnitten **CONTAINER_REGISTRY_USERNAME** och **CONTAINER_REGISTRY_PASSWORD** och infoga dina autentiseringsuppgifter efter lika med-symbolen: 
 
@@ -207,6 +211,16 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
 
 7. Spara filen **sqlFunction.cs**. 
 
+8. Öppna filen **sqlFunction.csproj**.
+
+9. Leta upp gruppen i paketreferenser och lägg till en ny för SqlClient include. 
+
+   ```csproj
+   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
+   ```
+
+10. Spara filen **sqlFunction.csproj**.
+
 ## <a name="add-a-sql-server-container"></a>Lägga till en SQL Server-container
 
 Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT Edge-körningen kommer installera på din IoT Edge-enhet. Du lade till koden för att skapa en anpassad Functions-modul i föregående avsnitt, men modulen SQL Server har redan skapats. Du behöver bara tala om för IoT Edge-körningen att inkludera den och sedan konfigurera den på din enhet. 
@@ -225,15 +239,15 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
 
    ```json
    "sql": {
-       "version": "1.0",
-       "type": "docker",
-       "status": "running",
-       "restartPolicy": "always",
-       "env":{},
-       "settings": {
-           "image": "",
-           "createOptions": ""
-       }
+     "version": "1.0",
+     "type": "docker",
+     "status": "running",
+     "restartPolicy": "always",
+     "env":{},
+     "settings": {
+       "image": "",
+       "createOptions": ""
+     }
    }
    ```
 
@@ -244,19 +258,19 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "microsoft/mssql-server-windows-developer",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "microsoft/mssql-server-windows-developer",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -264,19 +278,19 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "mcr.microsoft.com/mssql/server:latest",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "mcr.microsoft.com/mssql/server:latest",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -295,7 +309,7 @@ I föregående avsnitt skapade du en lösning med en modul och lade sedan till e
     docker login -u <ACR username> <ACR login server>
     ```
     
-    Du uppmanas att ange lösenordet. Klistra in lösenordet i fönstret (lösenordet är dolt av säkerhetsskäl) och tryck på **Retur**. 
+    Du uppmanas att ange lösenordet. Klistra in lösenordet i uppmaningsfönstret (lösenordet är dolt av säkerhetsskäl) och tryck på **Retur**. 
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
@@ -322,11 +336,11 @@ Du kan ange moduler på en enhet via IoT Hub, men du kan också komma åt din Io
 
    ![Skapa distribution för en enskild enhet](./media/tutorial-store-data-sql-server/create-deployment.png)
 
-6. I filutforskaren går du till **config**-mappen i din lösning och väljer **deployment.json**. Klicka på **Välj distributionsmanifest för Edge**. 
+6. I filutforskaren går du till **config**-mappen i din lösning och väljer **deployment.amd64**. Klicka på **Välj distributionsmanifest för Edge**. 
 
 Om distributionen lyckas skrivs ett bekräftelsemeddelande ut i utdata för VS Code. 
 
-Du kan också kontrollera att alla moduler är igång på enheten. Kör följande kommando på IoT Edge-enheten för att se status för modulerna. Det kan ta några minuter.
+Uppdatera statusen för din enhet i avsnittet Azure IoT Hub-enheter i VS Code. De nya modulerna visas och börjar rapportera som körande under de närmaste minuterna när containrarna installeras och startas. Du kan också kontrollera att alla moduler är igång på enheten. Kör följande kommando på IoT Edge-enheten för att se status för modulerna. 
 
    ```cmd/sh
    iotedge list
@@ -334,11 +348,11 @@ Du kan också kontrollera att alla moduler är igång på enheten. Kör följand
 
 ## <a name="create-the-sql-database"></a>Skapa SQL-databasen
 
-När du applicerar distributionsmanifestet på din enhet körs tre moduler. Modulen tempSensor genererar simulerade miljödata. Modulen sqlFunction hämtar data och formaterar dem för en databas. 
+När du applicerar distributionsmanifestet på din enhet körs tre moduler. Modulen tempSensor genererar simulerade miljödata. Modulen sqlFunction hämtar data och formaterar dem för en databas. Det här avsnittet hjälper dig att konfigurera SQL-databasen för lagring av temperaturdata. 
 
-Det här avsnittet hjälper dig att konfigurera SQL-databasen för lagring av temperaturdata. 
+Kör följande kommandon på din IoT Edge-enhet. De kommandona ansluter till den **sql**-modul som körs på enheten och skapar en databas och en tabell som ska innehålla temperaturdata som skickas till den. 
 
-1. I kommandoradsverktyget ansluter du till databasen. 
+1. I ett kommandoradsverktyg på IoT Edge-enheten ansluter du till din databas. 
    * Windows-container:
    
       ```cmd

@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
-ms.date: 09/24/2018
-ms.openlocfilehash: 7ed45b5e8a8c3cab26c0998260055ffd7a0f0c5d
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/04/2018
+ms.openlocfilehash: 59887c46e3ce06eae250e106a01239a1ba969e7f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710264"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875322"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använda Azure-portalen för att komma igång med Azure Machine Learning
 
@@ -35,7 +35,7 @@ Följande Azure-resurser läggs automatiskt till din arbetsyta när de är regio
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-De resurser som du skapar kan användas som förutsättningar för andra självstudier och instruktionsartiklar om Machine Learning-tjänsten. Som med andra Azure-tjänster finns det begränsningar för vissa resurser som är associerade med Machine Learning. Ett exempel i Azure Batch AI-klusterstorlek. Information om standardgränser och hur du ökar kvoten finns i [den här artikeln](how-to-manage-quotas.md).
+De resurser som du skapar kan användas som förutsättningar för andra självstudier och instruktionsartiklar om Machine Learning-tjänsten. Som med andra Azure-tjänster finns det begränsningar för vissa resurser som är associerade med Machine Learning, till exempel vad gäller storlek på beräkningskluster. Läs mer om [standardgränserna och hur du ökar kvoten](how-to-manage-quotas.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
 
@@ -69,7 +69,7 @@ Välj `Open Azure Notebooks` för att testa ditt första experiment.
 
 Din organisation kan kräva [administratörens godkännande](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) innan du kan logga in.
 
-När du har loggat in öppnas en ny flik och en `Clone Library`-fråga visas. Välj `Clone`
+När du har loggat in öppnas en ny flik och en `Clone Library`-fråga visas. Välj `Clone`.
 
 
 ### <a name="run-the-notebook"></a>Köra anteckningsboken

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 32fa417d5fcb5c8547dfc7c10b34b3c97ed70559
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16bcc56dd05c86b7c2adb324de480e7482f80fef
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626073"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724306"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Komma åt Azure Storage via en SAS-autentiseringsuppgift med en systemtilldelad hanterad identitet för virtuell Linux-dator
 
@@ -68,9 +68,9 @@ Senare ska vi ladda upp och ned en fil till det nya lagringskontot. Eftersom fil
 
 Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Men du kan använda den virtuella datorns systemtilldelade hanterade identitet för att hämta en lagrings-SAS från Resource Manager, och sedan få åtkomst till lagring med hjälp av SAS:en.  I det här steget ger du den virtuella datorns systemtilldelade hanterade identitet åtkomst till SAS för lagringskontot.   
 
-1. Gå tillbaka till det lagringskonto du nyss skapade.   
-2. Klicka på länken **åtkomstkontroll (IAM)** i vänstra panelen.  
-3. Klicka på **+Lägg till** högst upp på sidan om du vill lägga till en ny rolltilldelning för din virtuella dator
+1. Gå tillbaka till det lagringskonto som du nyss skapade.
+2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  
+3. Klicka på **+ Lägg till rolltilldelning** längst upp på sidan för att lägga till en ny rolltilldelning för den virtuella datorn
 4. Ställ in Lagringskontodeltagare som **Roll**, till höger på sidan. 
 5. I nästa listruta väljer du resursen Virtuell dator under **Tilldela behörighet till**.  
 6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Välj Alla resursgrupper under **Resursgrupper**.  

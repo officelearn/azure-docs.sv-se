@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246743"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839742"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -36,8 +36,8 @@ Med Azure Migrate får du hjälp med att:
 - Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
 -  Du kan endast skapa ett Azure Migrate-projekt i regionen västra centrala USA. Du kan dock fortfarande planera en migrering till valfri Azure-plats.
     - Endast metadata som identifieras från den lokala miljön lagras i migreringsprojektregionen.
-    - Metadata lagras i en av regionerna i geografin: USA, västra centrala/USA, östra.
-    - Om du använder beroendevisualisering med en Log Analytics-arbetsyta skapas den i samma region som projektet.
+    - Metadata lagras i en av regionerna i den valda geografin: USA, västra centrala/USA, östra.
+    - Om du använder beroendevisualisering genom att skapa en ny Log Analytics-arbetsyta skapas arbetsytan i samma region som projektet.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Vad måste jag betala för?
@@ -51,18 +51,18 @@ Utvärderingsinställningarna kan anpassas efter dina behov. Utvärderingsegensk
 
 **Egenskap** | **Detaljer**
 --- | ---
-**Målplats** | Azure-platsen du vill migrera till.<br/><br/>Azure Migrate stöder för närvarande 30 regioner. [Se regioner](https://azure.microsoft.com/global-infrastructure/services/). Målregionen är som standard angiven som USA, västra 2.
-**Lagringstyp** | den typ av diskar som du vill tilldela i Azure. Detta gäller när storlekskriteriet är **som lokalt**. Du anger premium (standardinställd) eller standard för hanterad disk som måldisktyp. För prestandabaserat storleksval sker diskstorleksrekommendationen automatiskt baserat på de virtuella datorernas prestanda.
-**Ändra storlek på kriterium** | Storleken kan baseras på **prestandahistorik** för lokala virtuella datorer eller **som lokalt** (standard), utan att ta hänsyn till prestandahistorik.
+**Målplats** | Azure-platsen du vill migrera till.<br/><br/>Azure Migrate stöder för närvarande 33 regioner som målplatser för migrering. [Se regioner](https://azure.microsoft.com/global-infrastructure/services/). Målregionen är som standard angiven som USA, västra 2.
+**Lagringstyp** | Typen av de hanterade diskar som du vill allokera för alla virtuella datorer som ingår i utvärderingen. Om storlekskriteriet är *som lokal storleksbestämning* kan du ange måldisktypen som antingen premium-diskar (standard), standard-SSD-diskar eller standardhårddiskar. För *prestandabaserad storleksbestämning* har du utöver alternativen ovan även möjligheten att välja Automatiskt, vilket ser till att rekommendationen för storleksbestämning sker automatiskt baserat på prestandadata för de virtuella datorerna. Om du till exempel vill uppnå ett [serviceavtal för enskild virtuell datorinstans på 99,9 %](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) kan du ange lagringstypen som hanterade Premium-diskar, vilket säkerställer att alla diskar i utvärderingen rekommenderas som hanterade Premium-diskar. Observera att Azure Migrate endast stöder hanterade diskar för migreringsutvärdering.
+**Reserverade instanser** |  Om du har [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure. Azure Migrate beräknar kostnaden enligt detta.
+**Ändra storlek på kriterium** | Storleken kan baseras på **prestandahistorik** för lokala virtuella datorer (standard) eller **som lokalt**, utan att ta hänsyn till prestandahistorik.
+**Prestandahistorik** | Som standard utvärderar Azure Migrate prestanda för lokala datorer med prestandahistoriken för den sista dagen, med ett percentilvärde på 95 %.
+**Komfortfaktor** | Azure Migrate överväger en buffert (komfortfaktor) under utvärderingen. Bufferten tillämpas utöver datorns användningsdata för virtuella datorer (CPU, minne, disk och nätverk). Komfortfaktorn väger in problem som säsongsbaserad användning, kort prestandahistorik och troliga ökningar i kommande användning.<br/><br/> Till exempel resulterar en virtuell dator med 10 kärnor med 20 % användning vanligen i en virtuell dator med 2 kärnor. Med en komfortfaktor på 2.0x blir resultatet istället en virtuell dator med 4 kärnor. Standardkomfortinställningen är 1,3x.
+**VM-serie** | Den virtuell dator-serie som används för storleksuppskattningar. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-seriens virtuella datorer i Azure kan du utesluta A-serien från listan eller serien. Storleken baseras bara på den valda serien.   
+**Valuta** | Faktureringsvalutan. Standardvärdet är USD.
+**Rabatt (%)** | Prenumerationsspecifika rabatter som du får utöver Azure-erbjudandet. Standardinställningen är 0%.
+**VM-drifttid** | Om dina virtuella datorer inte längre kommer att köra dygnet runt i Azure kan du ange hur länge (antalet dagar per månad och antalet timmar per dag) de kommer att köras så sker kostnadsuppskattningen i enlighet med detta. Standardvärdet är 31 dagar per månad och 24 timmar per dag.
 **Azure-erbjudande** | Det [Azure-erbjudande](https://azure.microsoft.com/support/legal/offer-details/) du har registrerat dig för. Azure Migrate beräknar kostnaden enligt detta.
 **Azure Hybrid-förmån** | Om du har Software Assurance och är berättigad till [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-use-benefit/) med rabatterade kostnader.
-**Reserverade instanser** |  Om du har [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure. Azure Migrate beräknar kostnaden enligt detta.
-**VM-drifttid** | Den tid som virtuella datorer körs i Azure. Kostnadsberäkningar görs enligt detta.
-**prisnivå** | [Prisnivå (Basic/Standard)](../virtual-machines/windows/sizes-general.md) för Azure-måldatorerna. Om du exempelvis planerar att migrera en produktionsmiljö kan du överväga standardnivån, som tillhandahåller virtuella datorer med låg svarstid men kan kosta mer. Å andra sidan kan du i en testmiljö använda Basic-nivån med längre svarstider och lägre kostnader. Som standard används [standardnivån](../virtual-machines/windows/sizes-general.md).
-**Prestandahistorik** | Som standard utvärderar Azure Migrate prestanda för lokala datorer med prestandahistoriken för den sista dagen, med ett percentilvärde på 95 %.
-**VM-serie** | Den virtuell dator-serie som används för storleksuppskattningar. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-seriens virtuella datorer i Azure kan du utesluta A-serien från listan eller serien. Storleken baseras bara på den valda serien.   
-**Komfortfaktor** | Azure Migrate överväger en buffert (komfortfaktor) under utvärderingen. Bufferten tillämpas utöver datorns användningsdata för virtuella datorer (CPU, minne, disk och nätverk). Komfortfaktorn väger in problem som säsongsbaserad användning, kort prestandahistorik och troliga ökningar i kommande användning.<br/><br/> Till exempel resulterar en virtuell dator med 10 kärnor med 20 % användning vanligen i en virtuell dator med 2 kärnor. Med en komfortfaktor på 2.0x blir resultatet istället en virtuell dator med 4 kärnor. Standardkomfortinställningen är 1,3x.
-
 
 ## <a name="how-does-azure-migrate-work"></a>Hur fungerar Azure Migrate?
 

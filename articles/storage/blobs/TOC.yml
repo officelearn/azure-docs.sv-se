@@ -56,16 +56,8 @@ items:
         href: storage-secure-access-application.md
       - name: 4 – Övervaka och felsök lagring
         href: storage-monitor-troubleshoot-storage-application.md
-    - name: Utforma för hög tillgänglighet i molnlagring
-      items:
-      - name: 1 – Skapa hög tillgänglighet för ditt program
-        href: storage-create-geo-redundant-storage.md
-      - name: 2 – Simulera ett fel med RA-GRS-lagring
-        href: storage-simulate-failure-ragrs-account-app.md
     - name: Migrera data till molnet med AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Sök efter ostrukturerade data i molnlagringen
-      href: storage-unstructured-search.md
     - name: Optimera prestanda och skalbarhet för lagringsprogram
       items:
       - name: 1 – Skapa en virtuell dator och ett lagringskonto
@@ -76,6 +68,20 @@ items:
         href: storage-blob-scalable-app-download-files.md
       - name: 4 – Verifiera dataflöde och mått för svarstid
         href: storage-blob-scalable-app-verify-metrics.md
+    - name: Var värd för en statisk webbplats
+      items:
+      - name: 1 – Skapa en statisk webbplats
+        href: storage-blob-static-website-host.md
+      - name: 2 – Aktivera en anpassad domän med SSL
+        href: storage-blob-static-website-custom-domain.md
+    - name: Utforma för hög tillgänglighet i molnlagring
+      items:
+      - name: 1 – Skapa hög tillgänglighet för ditt program
+        href: storage-create-geo-redundant-storage.md
+      - name: 2 – Simulera ett fel med RA-GRS-lagring
+        href: storage-simulate-failure-ragrs-account-app.md
+    - name: Sök efter ostrukturerade data i molnlagringen
+      href: storage-unstructured-search.md
   - name: Exempel
     items:
     - name: .NET
@@ -558,8 +564,6 @@ items:
         items:
         - name: Hantera åtkomstbehörighet med RBAC
           href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Utvärdering av Data Lake Storage Gen2
-      href: ../blobs/data-lake-storage-evaluation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Gör så här för att
     items:
     - name: Ange behörigheter med Azure Storage Explorer
@@ -616,9 +620,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Videoklipp
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: dc45425a3e20d18bbe43e4a41ca40bd6c2fe6b9a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fb4a261b19f08e5dcf4bedda60eacca42e97c7e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013653"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099621"

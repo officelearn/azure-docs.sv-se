@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497602"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864068"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Självstudie nr 2: Distribuera en bildklassificeringsmodell i Azure Container Instances (ACI)
 
@@ -22,7 +22,7 @@ Självstudien är **del två i en självstudieserie i två delar**. I den [före
 
 Nu är du redo att distribuera modellen som en webbtjänst i [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). En webbtjänst är en avbildning, i det här fallet en Docker-avbildning, som innehåller både bedömningslogiken och själva modellen. 
 
-I den här delen av självstudien använder du Azure Machine Learning-tjänsten (förhandsversion) till att:
+I den här delen av självstudien använder du Azure Machine Learning-tjänsten för att:
 
 > [!div class="checklist"]
 > * Konfigurera din testmiljö
@@ -35,10 +35,12 @@ ACI är inte idealiskt för produktionsdistributioner, men den fungerar bra vid 
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://aka.ms/aml-notebook-tut-02). Kör anteckningsboken `02.deploy-models.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
+Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Kör anteckningsboken `tutorials/img-classification-part2-deploy.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
+>[!NOTE]
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.2
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

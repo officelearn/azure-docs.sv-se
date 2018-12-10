@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 329bc41555f2def0e2b7001a7b445cd3de16d439
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826397"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843316"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudie: Identifiera avvikelser vid gränsen med lösningsacceleratorn för fjärrövervakning
 
@@ -24,16 +24,26 @@ I den här självstudien används en simulerad oljepumpjackenhet för att introd
 
 Contoso vill distribuera en intelligent gränsenhetsmodul till oljepumpjacket som identifierar temperaturavvikelser. En annan Edge-modul skickar aviseringar till lösningen för fjärrövervakning. När en avisering tas emot kan en Contoso-operator skicka en underhållstekniker. Contoso kan också konfigurera en automatisk åtgärd, som att skicka ett e-postmeddelande, som ska köras när lösningen tar emot en avisering.
 
-I den här självstudien används en lokal Windows-utvecklingsdator som en IoT Edge-enhet. Du installerar Edge-moduler för att simulera oljepumpjackenheten och för att identifiera temperaturavvikelser.
+Följande diagram visar huvudkomponenterna i självstudiescenariot:
+
+![Översikt](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 I den här kursen för du göra följande:
 
 >[!div class="checklist"]
 > * Lägga till en IoT Edge-enhet till lösningen
 > * Skapa ett Edge-manifest
-> * Importera ett paket som definierar modulerna som ska köras på enheten
+> * Importera manifestet som ett paket som definierar modulerna som ska köras på enheten
 > * Distribuera paketet till din IoT Edge-enhet
 > * Visa aviseringar från enheten
+
+På IoT Edge-enheten:
+
+* Körningen tar emot paketet och installerar modulerna.
+* Stream Analytics-modulen identifierar temperaturavvikelser i pumpen och skickar kommandon för att lösa problemet.
+* Stream Analytics-modulen vidarebefordrar filtrerade data till lösningsacceleratorn.
+
+I den här självstudien används en virtuell Linux-dator som en IoT Edge-enhet. Du installerar också en Edge-modul för att simulera oljepumpjackenheten.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -111,54 +121,23 @@ En Edge-enhet kräver att Edge-körningen är installerad. I den här självstud
     az vm create \
       --resource-group IoTEdgeDevices \
       --name EdgeVM \
-      --image Canonical:UbuntuServer:16.04-LTS:latest \
+      --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest \
       --admin-username azureuser \
       --generate-ssh-keys \
       --size Standard_B1ms
     ```
 
-    Anteckna den offentliga IP-adressen. Du behöver den i nästa steg när du ansluter med hjälp av SSH.
-
-1. För att ansluta till den virtuella datorn med SSH kör du följande kommando i Cloud Shell:
+1. Kör följande kommando med den enhetsanslutningssträng du antecknade tidigare för att konfigurera Edge-körningen med enhetsanslutningssträngen:
 
     ```azurecli-interactive
-    ssh azureuser@{vm IP address}
+    az vm run-command invoke \
+      --resource-group IoTEdgeDevices \
+      --name EdgeVM \
+      --command-id RunShellScript \
+      --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-1. När du är ansluten till den virtuella datorn kör du följande kommandon för att konfigurera databasen på den virtuella datorn:
-
-    ```azurecli-interactive
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-    ```
-
-1. Om du vill installera containern och Edge-körningar i den virtuella datorn kör du följande kommandon:
-
-    ```azurecli-interactive
-    sudo apt-get update
-    sudo apt-get install moby-engine
-    sudo apt-get install moby-cli
-    sudo apt-get update
-    sudo apt-get install iotedge
-    ```
-
-1. Redigera konfigurationsfilen om du vill konfigurera Edge-körningen med enhetens anslutningssträng:
-
-    ```azurecli-interactive
-    sudo nano /etc/iotedge/config.yaml
-    ```
-
-    Tilldela enhetens anslutningssträng till variabeln **device_connection_string**, spara dina ändringar och avsluta redigeringsprogrammet.
-
-1. Starta om Edge-körningen för att använda den nya konfigurationen:
-
-    ```azurecli-interactive
-    sudo systemctl restart iotedge
-    ```
-
-1. Du kan nu avsluta SSH-sessionen och stänga Cloud Shell.
+    Kom ihåg att ange anslutningssträngen inom dubbla citattecken.
 
 Du har nu installerat och konfigurerat IoT Edge-körningen på en Linux-enhet. Senare i den här självstudien använder du lösningen för fjärrövervakning för att distribuera IoT Edge-moduler till den här enheten.
 

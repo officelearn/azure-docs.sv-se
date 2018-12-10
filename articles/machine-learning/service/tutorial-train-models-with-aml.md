@@ -8,19 +8,19 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 11/21/2018
-ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496212"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879493"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Självstudie #1: Träna en modell för avbildningsklassificering med Azure Machine Learning-tjänsten
 
-I den här självstudien ska du träna en maskininlärningsmodell, både lokalt och på fjärranslutna beräkningsresurser. Du ska använda tränings- och distributionsarbetsflödet för Azure Machine Learning-tjänsten (förhandsversion) i en Python Jupyter-anteckningsbok.  Du kan sedan använda anteckningsboken som en mall för att träna din egen maskininlärningsmodell med egna data. Den här självstudien är **del ett i en självstudieserie i två delar**.  
+I den här självstudien ska du träna en maskininlärningsmodell, både lokalt och på fjärranslutna beräkningsresurser. Du ska använda tränings- och distributionsarbetsflödet för Azure Machine Learning-tjänsten i en Python Jupyter-anteckningsbok.  Du kan sedan använda anteckningsboken som en mall för att träna din egen maskininlärningsmodell med egna data. Den här självstudien är **del ett i en självstudieserie i två delar**.  
 
-Den här självstudien tränar en enkel logistikregression med hjälp av [MNIST](http://yann.lecun.com/exdb/mnist/)-datauppsättningen och [scikit-learn](http://scikit-learn.org) med Azure Machine Learning-tjänsten.  MNIST är en populär datauppsättning som består av 70 000 gråskalebilder. Varje bild är en handskriven siffra på 28 × 28 pixlar, som representerar ett tal från 0 till 9. Målet är att skapa en klassificerare för flera klasser som identifierar siffran som en viss bild representerar. 
+Den här självstudien tränar en enkel logistikregression med hjälp av [MNIST](https://yann.lecun.com/exdb/mnist/)-datauppsättningen och [scikit-learn](https://scikit-learn.org) med Azure Machine Learning-tjänsten.  MNIST är en populär datauppsättning som består av 70 000 gråskalebilder. Varje bild är en handskriven siffra på 28 × 28 pixlar, som representerar ett tal från 0 till 9. Målet är att skapa en klassificerare för flera klasser som identifierar siffran som en viss bild representerar. 
 
 Lär dig att:
 
@@ -36,16 +36,14 @@ Du lär dig hur du väljer en modell och distribuerar den i [del två av de här
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 0.1.79
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.2
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://aka.ms/aml-notebook-tut-01). Kör anteckningsboken `01.train-models.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
+Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Kör anteckningsboken `tutorials/img-classification-part1-training.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
->[!NOTE]
-> Den här självstudien har testats med Azure Machine Learning SDK version 0.1.74 
 
 ## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
 
@@ -94,11 +92,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-remote-compute-target"></a>Skapa ett fjärrberäkningsmål
+### <a name="create-or-attach-existing-amlcompute"></a>Skapa eller koppla befintlig AMlCompute
 
-Azure ML Managed Compute är en hanterad tjänst som gör det möjligt för dataexperter att träna maskininlärningsmodeller i kluster med virtuella Azure-datorer, inklusive virtuella datorer med GPU-stöd.  I den här självstudien ska du skapa ett Azure-hanterat beräkningskluster som din träningsmiljö. Den här koden skapar ett kluster om det inte redan finns på din arbetsyta. 
+Azure Machine Learning Managed Compute (AmlCompute) är en hanterad tjänst som gör det möjligt för dataexperter att träna maskininlärningsmodeller i kluster med virtuella Azure-datorer, inklusive virtuella datorer med GPU-stöd.  I den här självstudien ska du skapa AmlCompute som din träningsmiljö. Den här koden skapar beräkningsklustren om de inte redan finns på din arbetsyta.
 
- **Det tar cirka fem minuter att skapar klustret.** Om klustret redan finns på arbetsytan använder den här koden det klustret och hoppar över genereringsprocessen.
+ **Det tar cirka fem minuter att skapa beräkningen.** Om beräkningen redan finns på arbetsytan använder den här koden den och hoppar över genereringsprocessen.
 
 
 ```python
@@ -107,12 +105,17 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
-compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
 # This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
 
 
 if compute_name in ws.compute_targets:
@@ -132,7 +135,7 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+     # For a more detailed view of current AmlCompute status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -320,11 +323,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 Observera hur skriptet hämtar data och sparar modeller:
 
 + Träningsskriptet läser ett argument för att hitta katalogen som innehåller data.  När du skickar jobbet senare pekar du på datalagret för det här argumentet: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
-    
+
 + Träningsskriptet sparar din modell i en katalog med namnet outputs. <br/>
 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 Allt som skrivs i den här katalogen överförs automatiskt till din arbetsyta. Du ska komma åt din modell från den här katalogen senare i självstudien.
-
 Träningsskriptet måste referera till filen `utils.py` för att datauppsättningen ska läsas in korrekt.  Kopiera det här skriptet till skriptmappen så att det kan nås tillsammans med träningsskriptet på den fjärranslutna resursen.
 
 
@@ -340,12 +342,12 @@ Ett beräkningsobjekt används för att skicka körningen.  Skapa beräkningsobj
 
 * Namnet på beräkningsobjektet, `est`
 * Katalogen som innehåller dina skript. Alla filer i den här katalogen laddas upp till klusternoderna för körning. 
-* Beräkningsmålet.  I det här fallet ska du använda Batch AI-klustret som du skapade
+* Beräkningsmålet.  I det här fallet ska du använda Azure Machine Learning-beräkningsklustret som du skapade
 * Träningsskriptets namn, train.py
 * Parametrar som krävs från träningsskriptet 
 * Python-paket som behövs för träning
 
-I den här självstudien är det här målet Batch AI-klustret. Alla filer i skriptmappen laddas upp till klusternoderna för körning. Data-folder konfigureras att använda datalagret (`ds.as_mount()`).
+I den här självstudien är det här målet AmlCompute. Alla filer i skriptmappen laddas upp till klusternoderna för körning. Data-folder konfigureras att använda datalagret (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator

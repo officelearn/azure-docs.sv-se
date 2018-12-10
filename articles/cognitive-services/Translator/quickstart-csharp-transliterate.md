@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: d032471ef588e3ae415915e5b4d817ca5738888a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d67fbdad32612f23b1de31f7d2a1d7b4dee3b68e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678377"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889148"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>Snabbstart: Transkribera text med Translator Text REST API (C#)
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Snabbstart: Använda Translator Text API för att transkribera en sträng med hjälp av C#
 
 I den här snabbstarten lär du dig hur du translittererar (konverterar) text från ett skript till ett annat med hjälp av .NET Core (C#) och Translator Text REST API. I det angivna exemplet translittereras japanska till det latinska alfabetet.
 

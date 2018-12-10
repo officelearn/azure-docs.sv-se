@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 2173a24eb3bbaafe9dcf25461eb5357ba3a6e7ad
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: c5dcfcb61903c3dbb92e942a5d3dca264ad454e3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166907"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834391"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Översikt över integration av Azure Service Bus till Event Grid
 
@@ -36,10 +36,7 @@ Om du vill aktivera funktionen behöver du följande:
 ![19][]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Kontrollera att du har deltagarbehörighet
-
-Gå till ditt Service Bus-namnområde och välj **Åtkomstkontroll (IAM)** enligt nedan:
-
-![1][]
+Gå till din Service Bus-namnrymd och välj **Åtkomstkontroll (IAM)** samt fliken **Rolltilldelningar**. Kontrollera att du har deltagaråtkomst till namnrymden. 
 
 ### <a name="events-and-event-schemas"></a>Händelser och händelsescheman
 

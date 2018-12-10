@@ -1,9 +1,8 @@
 ---
-title: 'Snabbstart: Tabell-API med Python – Azure Cosmos DB | Microsoft Docs'
+title: 'Snabbstart: Tabell-API med Python – Azure Cosmos DB'
 description: Den här snabbstarten visar hur du använder tabell-API i Azure Cosmos DB för att skapa ett program med Azure-portalen och Python
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: python
@@ -11,17 +10,17 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 614e22cbbb6a94d9b148b29474a5fc82c3f0fef4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 70a7f17ed0ecb78337d13f68a260fc9f860e3a4a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696793"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837026"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Python och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](create-table-dotnet.md)
+> * [NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
 > * [Python](create-table-python.md)

@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB Gremlin-stöd | Microsoft Docs
+title: Stöd för Gremlin i Azure Cosmos DB
 description: Läs mer om Gremlin-språket från Apache TinkerPop. Läs vilka funktioner och steg som finns tillgängliga i Azure Cosmos DB
 services: cosmos-db
 author: LuisBosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 593b7ac636b92db5c72cfad8f73fc2c418639358
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1c54eff207de61a02a1ef752da66bb3b4f6d1580
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700220"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850354"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin-diagram
 Azure Cosmos DB stöder [Apache Tinkerpops](http://tinkerpop.apache.org) diagrambläddringsspråk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Gremlin-API för att skapa diagramentiteter och utföra diagramfrågeåtgärder. Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 

@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1d3d775a13f83ada6ca702eb984262668507f7e9
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 19b5f6d6cb8e0e17dba9944e8b72c6938f168c70
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025454"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839355"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudie: Skydda dina resurser ed Azure Security Center
 Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. Just-in-time-åtkomst till virtuell dator (VM) minskar din exponering för attacker genom att göra det möjligt för dig att neka beständig åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
@@ -34,7 +34,7 @@ I den här självstudiekursen får du lära du dig att:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad under de första 60 dagarna. Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
+För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
 
 ## <a name="manage-vm-access"></a>Hantera åtkomst till virtuella datorer
 Just in time-åtkomst till virtuella datorer kan användas till att låsa inkommande trafik till dina virtuella Azure-datorer. Det här minskar exponeringen för attacker samtidigt som du enkelt kan ansluta till virtuella datorer när du behöver.

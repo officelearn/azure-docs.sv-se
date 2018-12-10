@@ -1,7 +1,6 @@
 ---
-title: Fråga efter data från ett konto för Cassandra-API:et för Azure Cosmos DB
-description: Den här artikeln beskriver hur du frågar efter användardata från ett konto för Cassandra-API:et för Azure Cosmos DB med hjälp av ett Java-program.
-services: cosmos-db
+title: 'Självstudie: Fråga efter data från ett konto för Cassandra-API:t i Azure Cosmos DB'
+description: Den här självstudien beskriver hur du frågar efter användardata från ett konto för Cassandra-API:t för Azure Cosmos DB med hjälp av ett Java-program.
 ms.service: cosmos-db
 author: kanshiG
 ms.author: govindk
@@ -9,16 +8,17 @@ ms.reviewer: sngun
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: a06e7e6159953bfeffa966759d29b91bbcbafd37
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+Customer intent: As a developer, I want to build a Java application to query data stored in a Cassandra API account of Azure Cosmos DB so that customers can manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+ms.openlocfilehash: 57d83516708e3105ba32f8b83420f06aadf0ace1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739217"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867520"
 ---
-# <a name="tutorial-query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>Självstudie: Fråga efter data från ett konto för Cassandra-API:et för Azure Cosmos DB
+# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Självstudie: Fråga efter data från ett konto för Cassandra-API:t i Azure Cosmos DB
 
-Den här självstudien beskriver hur du frågar efter användardata från ett konto för Cassandra-API:et för Azure Cosmos DB med hjälp av ett Java-program. Java-programmet använder [Java-drivrutinen](https://github.com/datastax/java-driver) och frågar efter användardata, till exempel användar-ID, användarnamn och användarens stad. 
+Som utvecklare kan du ha program som använder nyckel/värde-par. Du kan använda ett konto för Cassandra-API:t i Azure Cosmos DB för att lagra och fråga efter nyckel/värde-data. Den här självstudien beskriver hur du frågar efter användardata från ett konto för Cassandra-API:t i Azure Cosmos DB med hjälp av ett Java-program. Java-programmet använder [Java-drivrutinen](https://github.com/datastax/java-driver) och frågar efter användardata, till exempel användar-ID, användarnamn och användarens stad. 
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -26,9 +26,11 @@ Den här självstudien omfattar följande uppgifter:
 > * Fråga efter data från en Cassandra-tabell
 > * Kör appen
 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Den här artikeln tillhör en självstudiekursen i flera delar. Slutför de föregående stegen som beskriver hur du [skapar kontot, nyckelutrymmet och tabellen för Cassandra-API:et och hur du [läser in exempeldata i tabellen](cassandra-api-load-data.md) innan du börjar. 
+* Den här artikeln tillhör en självstudiekursen i flera delar. Slutför de föregående stegen som beskriver hur du skapar kontot, nyckelutrymmet och tabellen för Cassandra-API:t och hur du [läser in exempeldata i tabellen](cassandra-api-load-data.md) innan du börjar. 
 
 ## <a name="query-data"></a>Söka i data
 
@@ -38,7 +40,7 @@ Använd följande steg för att fråga data från ditt Cassandra API-konto:
 
    * För att fråga efter alla användare i databasen
    * För att fråga en specifik användare som filtreras efter användar-ID
-   * För att ta bort en tabell.
+   * För att ta bort en tabell
 
    ```java
    /**
@@ -103,9 +105,13 @@ Använd följande steg för att fråga data från ditt Cassandra API-konto:
 
 2. Öppna nu **Datautforskaren** på Azure-portalen och bekräfta att användartabellen har tagits bort.
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Du kan ta bort resursgruppen, Azure Cosmos-kontot och alla relaterade resurser när de inte längre behövs. Om du vill göra detta väljer du resursgruppen för den virtuella datorn. Välj sedan **Ta bort** och kontrollera namnet på resursgruppen som du vill ta bort.
+
 ## <a name="next-steps"></a>Nästa steg
 
-* I den här självstudien har du lärt dig hur du frågar efter data från ett konto för Cassandra-API:et för Azure Cosmos DB. Nu kan du fortsätta till nästa artikel:
+I den här självstudien har du lärt dig hur du frågar efter data från ett konto för Cassandra-API:t i Azure Cosmos DB. Nu kan du fortsätta till nästa artikel:
 
 > [!div class="nextstepaction"]
 > [Migrera data till ett konto för Cassandra-API:et](cassandra-import-data.md)

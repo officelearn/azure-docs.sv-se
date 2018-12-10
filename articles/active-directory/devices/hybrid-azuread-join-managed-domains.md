@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963939"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887805"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera Azure Active Directory Join-hybrid för hanterade domäner
 
@@ -140,6 +140,8 @@ Om några av dina domänanslutna enheter är äldre Windows-enheter måste du:
  
 - Konfigurera inställningarna för det lokala intranätet för enhetsregistrering
 
+- Konfigurera sömlös enkel inloggning (SSO)
+
 - Kontrollera äldre Windows-enheter 
 
 
@@ -166,6 +168,11 @@ För att slutföra Azure AD-hybridanslutningen för dina äldre Windows-enheter 
 - `https://autologon.microsoftazuread-sso.com`.
 
 Dessutom kan du behöva aktivera **Tillåt uppdateringar i statusfältet via skript** i användarens lokala intranätzon.
+
+
+### <a name="configure-seamless-sso"></a>Konfigurera sömlös enkel inloggning
+
+För att slutföra fullständig Azure AD-anslutning för dina äldre Windows-enheter i en hanterad domän som använder direktautentisering (PTA) eller synkronisering av lösenordshash (PHS) som Azure AD-molnautentiseringsmetod måste du även [konfigurera sömlös enkel inloggning](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Kontrollera äldre Windows-enheter 

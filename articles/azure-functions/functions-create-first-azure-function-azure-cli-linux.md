@@ -5,26 +5,26 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 09/12/2018
+ms.date: 11/28/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: multiple
+ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 1045e0cc0d114bb8b35e6136a2054b3642eac7e8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6597e0058176eaa819170a494e4908ab44456360
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249886"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850541"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Skapa din första Linux-funktion med hjälp av Core Tools och Azure CLI (förhandsversion)
 
-Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/overview/serverless-computing/) Linux-miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. Linux-värdfunktioner är för närvarande i förhandsversion och kräver [Functions 2.0-runtime](functions-versions.md).
+Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/overview/serverless-computing/) Linux-miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. Linux-värdfunktioner är för närvarande i förhandsversion och kräver [Functions 2.0-runtime](functions-versions.md). Mer information om förhandsversionsöverväganden för att köra funktionsappar i Linux finns i [den här artikeln om Functions i Linux](https://aka.ms/funclinux).
 
 Den här snabbstartsartikeln går igenom hur du använder Azure CLI till att skapa din första funktionsapp som körs på Linux. Funktionskoden skapas lokalt och distribueras sedan till Azure med hjälp av [Azure Functions Core Tools](functions-run-local.md).
 
-Följande steg kan användas på en Mac-, Windows- eller Linux-dator. Den här artikeln visar hur du skapar funktioner i JavaScript eller C#.
+Följande steg kan användas på en Mac-, Windows- eller Linux-dator. Den här artikeln visar hur du skapar funktioner i JavaScript eller C#. Information om hur du lär dig att skapa Python-funktioner finns i [Skapa din första Python-funktion med hjälp av Core Tools och Azure CLI (förhandsversion)](functions-create-first-function-python.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -50,6 +50,9 @@ Använd piltangenterna för att välja en Worker-körtid från följande språkv
 
 + `dotnet`: skapar ett .NET-klassbiblioteksprojekt (.csproj).
 + `node`: skapar ett JavaScript-projekt.
++ `python`: skapar ett Python-projekt. Information om Python-funktioner finns i [Python-snabbstarten](functions-create-first-function-python.md).
+
+När kommandot körs visas något i stil med följande utdata:
 
 ```output
 Writing .gitignore
@@ -68,15 +71,19 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
+## <a name="create-a-linux-app-service-plan"></a>Skapa en Linux App Service-plan
+
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+
 ## <a name="create-a-linux-function-app-in-azure"></a>Skapa en Linux-funktionsapp i Azure
 
-Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux. Funktionsappen ger en serverlös miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp som körs på Linux med hjälp av kommandot [az functionapp create](/cli/azure/functionapp#az_functionapp_create).
+Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux. Funktionsappen ger en serverlös miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp som körs på Linux med hjälp av kommandot [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
-I följande kommando använder du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` är även DNS-standarddomänen för funktionsappen. Det här namnet måste vara unikt inom alla appar i Azure.
+I följande kommando använder du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` är även DNS-standarddomänen för funktionsappen. Det här namnet måste vara unikt inom alla appar i Azure. Du bör även ange `<language>`-körningen för din funktionsapp från `dotnet` (C#), `node` (JavaScript) eller `python`.
 
-```azurecli
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---location "westus" --is-linux
+```azurecli-interactive
+az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \
+--name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
 
 > [!NOTE]
@@ -101,5 +108,5 @@ Nu kan du publicera ditt projekt i den nya funktionsappen i Azure.
 
 Den här artikeln har visat hur du värdbaserar din funktionsapp på en Azure App Service-standardcontainer. Du kan även värdbasera dina funktioner i Linux i en egen anpassad container.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Skapa en funktion i Linux med en anpassad avbildning](functions-create-function-linux-custom-image.md)

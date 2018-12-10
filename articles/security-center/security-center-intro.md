@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1b0a6c6d6daa686404021afb2e10b25bb9f54191
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 682291cfe0e7a06aca1d4b1bef48ba36c72f48d9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319395"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839882"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Med Security Center kan du tillämpa säkerhetsprinciper i arbetsbelastningarna, begränsa hotexponeringen samt identifiera och åtgärda attacker.
@@ -162,7 +162,7 @@ Mer information finns i [Integrera säkerhetslösningar](security-center-partner
 ## <a name="next-steps"></a>Nästa steg
 
 - För att komma igång med Security Center måste du ha en prenumeration på Microsoft Azure. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
-- Security Centers kostnadsfria prisnivå aktiveras med Azure-prenumerationen. Om du vill använda avancerad säkerhetshantering och hotidentifiering måste du uppgradera till prisnivån Standard. Standardnivån är kostnadsfri de första 60 dagarna. På [prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/) finns det mer information.
+- Security Centers kostnadsfria prisnivå aktiveras med Azure-prenumerationen. Om du vill använda avancerad säkerhetshantering och hotidentifiering måste du uppgradera till prisnivån Standard. Du kan prova Standard-nivån kostnadsfritt. På [prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/) finns det mer information.
 - Om du är redo att aktivera Security Center Standard kan du använda [Snabbstart: Registrera Azure-prenumerationen för Security Center Standard](security-center-get-started.md) som en vägledning.
 
 

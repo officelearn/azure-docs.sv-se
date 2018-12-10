@@ -8,13 +8,13 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
-ms.openlocfilehash: 182504373795b3cb0f2794acbed5e253ac6bc95c
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.date: 12/04/2018
+ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419567"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872560"
 ---
 # <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Vilka maskininlärningsprodukter har Microsoft?
 
@@ -22,22 +22,22 @@ Microsoft har olika produktalternativ för att bygga, distribuera och hantera di
 
 | Maskininlärningsprodukt | Vad det är | Det här kan du göra |
 |-|-|-|
-| I molnet | | |
+| ***I molnet*** | | |
 | [Azure Machine Learning-tjänst](#azure-machine-learning-services) | Hanterad molntjänst för ML  | Träna, distribuera och hantera modeller i Azure med Python och CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Visuellt dra och släpp-gränssnitt för ML | Skapa, experimentera och distribuera modeller med förkonfigurerade algoritmer |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Visuellt dra&ndash;och&ndash;släpp-gränssnitt för ML | Skapa, experimentera och distribuera modeller med förkonfigurerade algoritmer |
 | [Azure Databricks](#azure-databricks) | Apache Spark-baserad analysplattform | Skapa och distribuera modeller och dataarbetsflöden |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure-tjänster med inbyggda AI- och ML-modeller | Ett enkelt sätt att lägga till smarta funktioner i dina appar |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtuell dator med förinstallerade verktyg för datavetenskap | Utveckla ML-lösningar i en förkonfigurerad miljö |
-| Lokal | | |
+| ***Lokalt***<br>*(lokala servrar kan också köras på en virtuell dator i molnet)* | | |
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analysmotor som är inbäddad i SQL | Skapa och distribuera modeller i SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Fristående företagsserver för förutsägbar analys | Skapa och distribuera modeller med R och Python |
-| Utvecklarverktyg | | |
+| ***Utvecklarverktyg*** | | |
 | [ML.NET](#mlnet) | Plattformsoberoende ML-SDK med öppen källkod | Utveckla ML-lösningar för .NET-program |
 | [Windows ML](#windows-ml) | ML-plattform för Windows 10 | Utvärdera tränade modeller på en Windows 10-enhet |
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning-tjänst
 
-[Azure Machine Learning-tjänsten](overview-what-is-azure-ml.md) (förhandsversion) är en fullständigt hanterad molntjänst som används till att träna, distribuera och hantera ML-modeller i skala. Den stöder tekniker för öppen källkod, vilket innebär att du kan använda tiotusentals Python-paket med öppen källkod som exempelvis TensorFlow, PyTorch och scikit-learn. Omfattande verktyg finns också, till exempel [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) eller [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/), som gör det enkelt att utforska och omvandla data, och sedan träna och distribuera modeller. Azure Machine Learning-tjänsten innehåller funktioner som automatiserar modellgenerering och finjustering med enkelhet, effektivitet och precision.
+[Azure Machine Learning-tjänsten](overview-what-is-azure-ml.md) är en fullständigt hanterad molntjänst som används till att träna, distribuera och hantera ML-modeller i skala. Den stöder tekniker för öppen källkod, vilket innebär att du kan använda tiotusentals Python-paket med öppen källkod som exempelvis TensorFlow, PyTorch och scikit-learn. Det finns även omfattande verktyg såsom [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) och tillägget [Azure Machine Learning for Visual Studio Code](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/), som gör det enkelt att utforska och omvandla data, och sedan träna och distribuera modeller. Azure Machine Learning-tjänsten innehåller funktioner som automatiserar modellgenerering och finjustering med enkelhet, effektivitet och precision.
 
 Använd Azure Machine Learning-tjänsten till att träna, distribuera och hantera ML-modeller med hjälp av Python och CLI i molnskala.
 
@@ -74,9 +74,10 @@ Med Cognitive Services kan du utveckla appar för flera enheter och plattformar.
 ## <a name="azure-data-science-virtual-machine"></a>Virtuell Azure-dator för datavetenskap
 
 [Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md) är en anpassad virtuell datormiljö i Microsoft Azure-molnet som skapats specifikt för datavetenskap. Många populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser.
-Data Science Virtual Machine är tillgänglig i versioner för både Windows och Linux Ubuntu (Azure Machine Learning-tjänsten stöds inte på Linux CentOS).
-Specifik versionsinformation och en lista över vad som ingår finns i [Introduktion till Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
+
 Data Science Virtual Machine kan användas som ett mål för Azure Machine Learning-tjänsten.
+Den är tillgänglig i versioner för både Windows och Linux Ubuntu (Azure Machine Learning-tjänsten stöds inte på Linux CentOS).
+Specifik versionsinformation och en lista över vad som ingår finns i [Introduktion till Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
 
 Använd den virtuella datorn för datavetenskap när du behöver köra eller vara värd för jobb på en enda nod. Eller om du behöver skala upp din bearbetning via fjärranslutning på en enskild dator.
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cca18b2aa5cb6f27df45e4b63e55251bea058625
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a9ae18c7fbf3b0f663396099f065c76969206f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968857"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890389"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudie: Distribuera ett program till Service Fabric Mesh med hjälp av en mall
 
@@ -51,7 +51,7 @@ Innan du börjar den här självstudien:
 
 * [Installera Docker](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [Installera Azure CLI och Service Fabric Mesh CLI lokalt](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Installera Azure CLI och Service Fabric Mesh CLI lokalt](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
@@ -359,9 +359,27 @@ Om du vill distribuera programmet kör du följande:
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-Du bör se följande efter ett par minuter:
+Det här kommandot skapar ett JSON-kodavsnitt som visas nedan. Under avsnittet ```outputs``` i JSON-utdata kopierar du egenskapen ```publicIPAddress```.
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+Den här informationen kommer från avsnittet ```outputs``` i ARM-mallen. Enligt det som visas nedan refererar det här avsnittet till Gateway-resursen för att hämta den offentliga IP-adressen. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>Öppna programmet
 

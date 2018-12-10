@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2320aaf2d502280a29562a49dfff1e4e9244d079
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443499"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872976"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
 
@@ -65,7 +65,7 @@ Verifiera din e-postadress och välj din organisation i listrutan **Konto**. Du 
 
 När du publicerar lagringsplatsen skapas ett nytt teamprojekt i kontot med samma namn som den lokala lagringsplatsen. Om du vill skapa lagringsplatsen i ett befintlig teamprojekt klickar du på **Avancerat** bredvid **lagringsplatsens namn** och väljer ett teamprojekt. Du kan visa koden på webben genom att välja alternativet för att **visa på webben**.
 
-## <a name="configure-continuous-delivery-with-vsts"></a>Konfigurera kontinuerlig leverans med VSTS
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Konfigurera kontinuerlig leverans med Azure Pipelines
 
 En byggesdefinition för Azure DevOps beskriver ett arbetsflöde som består av en uppsättning byggesåtgärder som körs sekventiellt. Skapa en byggesdefinition som producerar ett Service Fabric-programpaket och andra artefakter att distribuera till ett Service Fabric-kluster. Läs mer om [byggesdefinitioner](https://www.visualstudio.com/docs/build/define/create) för Azure DevOps. 
 

@@ -2,20 +2,20 @@
 title: Köra en parallell arbetsbelastning – Azure Batch Python
 description: Självstudie – Bearbeta mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch Python
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/29/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 3636faa9478555b64bb94f7dcfb1f3f587ecdca9
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6ece4d7d0a39f5ea9dd4d9503d3bdd11a4bffd89
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814176"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678584"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudie: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
 
@@ -89,7 +89,7 @@ python batch_python_tutorial_ffmpeg.py
 När du kör exempelappen ser konsolens utdata ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. 
    
 ```
-Sample start: 12/12/2017 3:20:21 PM
+Sample start: 11/28/2018 3:20:21 PM
 
 Container [input] created.
 Container [output] created.
@@ -105,7 +105,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Success! All tasks completed successfully within the specified timeout period.
 Deleting container [input]....
 
-Sample end: 12/12/2017 3:29:36 PM
+Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
@@ -166,7 +166,7 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Skapa en pool med beräkningsnoder
 
-Därefter skapar exempelkoden en pool med beräkningsnoder i Batch-kontot med ett anrop till `create_pool`. Den här definierade funktionen använder Batch-klassen [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) för att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration)-objekt en [ImageReference](/python/api/azure.batch.models.imagereference) till en Ubuntu Server 16.04 LTS-avbildning som har publicerats på Azure Marketplace. Batch har stöd för ett stort antal Linux- och Windows Server-avbildningar på Azure Marketplace samt för anpassade VM-avbildningar.
+Därefter skapar exempelkoden en pool med beräkningsnoder i Batch-kontot med ett anrop till `create_pool`. Den här definierade funktionen använder Batch-klassen [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) för att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration)-objekt en [ImageReference](/python/api/azure.batch.models.imagereference) till en Ubuntu Server 18.04 LTS-avbildning som har publicerats på Azure Marketplace. Batch har stöd för ett stort antal Linux- och Windows Server-avbildningar på Azure Marketplace samt för anpassade VM-avbildningar.
 
 Antalet noder och VM-storleken anges med definierade konstanter. Batch har stöd för dedikerade noder och [noder med låg prioritet](batch-low-pri-vms.md), och du kan använda en av eller båda typerna i dina pooler. Dedikerade noder är reserverade för din pool. Noder med låg prioritet erbjuds till ett reducerat pris från VM-överskottskapacitet i Azure. Noder med låg prioritet är inte tillgängliga om Azure inte har tillräckligt med kapacitet. Exemplet skapar som standard en pool som endast innehåller 5 noder med låg prioritet i storleken *Standard_A1_v2*. 
 
@@ -181,10 +181,10 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="16.04-LTS",
+            sku="18.04-LTS",
             version="latest"
             ),
-        node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
     target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,

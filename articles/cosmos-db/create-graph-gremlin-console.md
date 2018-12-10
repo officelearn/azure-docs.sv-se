@@ -1,21 +1,19 @@
 ---
-title: 'Självstudier Azure Cosmos DB: CrSkapa, fråga och passera i Apache TinkerPops Gremlin-konsol | Microsoft Docs'
+title: 'Självstudie om Azure Cosmos DB: Skapa, köra frågor mot och bläddra i Apache TinkerPops Gremlin-konsol'
 description: En Azure Cosmos DB-snabbstart för att skapa hörn, gränser och frågor med Azure Cosmos DB Gremlin API.
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 8e98c778c89a74b6c3c1cfa7dc7feb311c62b076
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7f23ddc5b8f58403e5d2e69f11bd39b859f8d548
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499511"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844470"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Skapa, ställ frågor och bläddra i grafen i Gremlin-konsolen
 

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 7/16/2018
+ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: f80488f555cfa3b7be6f35b9f23ea0a501a27fd9
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 914f6ff67fb3f178a1cc8ad6aa698527cdbf40b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831605"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889777"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Snabbstart: Skapa en Azure DNS-zon och post med Azure CLI
 
@@ -90,7 +90,7 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 }
 ```
 
-Dessa namnservrar ska konfigureras med domännamnsregistratorn (där du köpte domännamnet). Registratorn erbjuder möjligheten att konfigurera namnservrar för domänen. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
+Dessa namnservrar ska konfigureras med domännamnsregistratorn (där du köpte domännamnet). Registratorn erbjuder möjligheten att konfigurera namnservrar för domänen. Mer information finns i [Självstudie: Använda Azure DNS som värd för din domän](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## <a name="delete-all-resources"></a>Ta bort alla resurser
  

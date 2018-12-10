@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c82e0cd5bd6a15ff33f51b4e88f68c13080f595d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f617be79cb61932f79728feef76f056ce72ae0ab
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967973"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891137"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Självstudie: uppgradera ett program som körs i Service Fabric Mesh
 
@@ -47,7 +47,7 @@ Innan du börjar den här självstudien:
 
 * Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Öppna [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md), eller [installera Azure CLI och Service Fabric Mesh CLI lokalt](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* Öppna [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md), eller [installera Azure CLI och Service Fabric Mesh CLI lokalt](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="upgrade-application-configurations"></a>Uppgradera programkonfigurationerna
 
@@ -59,7 +59,7 @@ I den här självstudien används exemplet med att göra-listan, som [distribuer
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-I distributionsmallen för programresursen har varje tjänst en *cpu*-egenskap som kan användas för att ange önskade CPU-resurser. Ett program kan bestå av flera tjänster där varje tjänst har en unik *CPU*-inställning som distribueras och hanteras tillsammans. För att öka processorresurserna för webbtjänsten för klientdelen, ändrar du *cpue*-värdet i distributionsmallen eller parametrarfilen.  Sedan uppgraderar du programmet.
+I distributionsmallen för programresursen har varje tjänst en *cpu*-egenskap som kan användas för att ange önskade CPU-resurser. Ett program kan bestå av flera tjänster där varje tjänst har en unik *CPU*-inställning som distribueras och hanteras tillsammans. För att öka CPU-resurserna för webbtjänsten för klientdelen ändrar du värdet *cpue* i distributionsmallen eller parameterfilen.  Sedan uppgraderar du programmet.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Ändra parametrarna för distributionsmallen
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 179a13d6fbb162ae7727c6a176b60879901dc4d1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426194"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633732"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 > * konfigurera en testnätverksmiljö
 > * distribuera en brandvägg
 > * Skapa en standardväg
-> * Konfigurera ett program för att tillåta åtkomst till github.com
+> * Konfigurera ett program för att tillåta åtkomst till msn.com
 > * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
 > * Testa brandväggen
 
@@ -136,7 +136,7 @@ Distribuera brandväggen till det virtuella nätverket.
 2. Klicka på **Nätverk**, och sedan efter **Aktuella** klickar du på **Visa alla**.
 3. Klicka på **Brandvägg** > **Skapa**. 
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
-   
+
    |Inställning  |Värde  |
    |---------|---------|
    |Namn     |Test-FW01|
@@ -146,12 +146,12 @@ Distribuera brandväggen till det virtuella nätverket.
    |Välj ett virtuellt nätverk     |**Använd befintligt**: Test-FW-VN|
    |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
-2. Klicka på **Granska + skapa**.
-3. Granska sammanfattningen och klicka sedan på **Skapa** för att skapa brandväggen.
+5. Klicka på **Granska + skapa**.
+6. Granska sammanfattningen och klicka sedan på **Skapa** för att skapa brandväggen.
 
    Distributionen kan ta några minuter.
-4. När distributionen är färdig öppnar du resursgruppen **Test-FW-RG** och klickar på brandväggen **Test FW01**.
-6. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
+7. När distributionen är färdig öppnar du resursgruppen **Test-FW-RG** och klickar på brandväggen **Test FW01**.
+8. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
 ## <a name="create-a-default-route"></a>Skapa en standardväg
 
@@ -182,7 +182,7 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 
 ## <a name="configure-an-application-rule"></a>Konfigurera en programregel
 
-Det här är den programregel som tillåter utgående åtkomst till github.com.
+Det här är den programregel som tillåter utgående åtkomst till msn.com.
 
 1. Öppna **Test-FW-RG** och klicka på brandväggen **Test-FW01**.
 2. På sidan **Test-FW01**, under **Inställningar**, klickar du på **Regler**.
@@ -194,7 +194,7 @@ Det här är den programregel som tillåter utgående åtkomst till github.com.
 8. Under **Regler**, **Fullständiga domännamn för mål**, i fältet **Namn** skriver du **AllowGH**.
 9. I fältet **Källadresser** skriver du **10.0.2.0/24**.
 10. I fältet **Protokoll: port** skriver du **http, https**.
-11. I fältet **Fullständiga domännamn för mål** skriver du **github.com**.
+11. I fältet **Fullständiga domännamn för mål** skriver du **msn.com**
 12. Klicka på **Lägg till**.
 
 Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn för mål (FQDN) i infrastrukturen som tillåts som standard. Dessa FQDN är specifika för plattformen och kan inte användas för andra ändamål. Mer information finns i [Infrastruktur-FQDN](infrastructure-fqdns.md).
@@ -204,17 +204,17 @@ Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn
 Det här är nätverksregel som tillåter utgående åtkomst till två IP-adresser på port 53 (DNS).
 
 1. Klicka på fliken **Nätverksregelsamling**.
-1. Klicka på **Lägg till nätverksregelsamling**.
-2. I fältet **Namn** skriver du **Net-Coll01**.
-3. I fältet **Prioritet** skriver du **200**.
-4. I fältet **Åtgärd** väljer du **Tillåt**.
+2. Klicka på **Lägg till nätverksregelsamling**.
+3. I fältet **Namn** skriver du **Net-Coll01**.
+4. I fältet **Prioritet** skriver du **200**.
+5. I fältet **Åtgärd** väljer du **Tillåt**.
 
 6. Under **Regler**, i fältet **Namn**, skriver du **AllowDNS**.
-8. I fältet **Protokoll** väljer du **UDP**.
-9. I fältet **Källadresser** skriver du **10.0.2.0/24**.
-10. I fältet Måladress skriver du **209.244.0.3,209.244.0.4**
-11. I fältet **Målportar** skriver du **53**.
-12. Klicka på **Lägg till**.
+7. I fältet **Protokoll** väljer du **UDP**.
+8. I fältet **Källadresser** skriver du **10.0.2.0/24**.
+9. I fältet Måladress skriver du **209.244.0.3,209.244.0.4**
+10. I fältet **Målportar** skriver du **53**.
+11. Klicka på **Lägg till**.
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Ändra den primära och sekundära DNS-adressen för nätverksgränssnittet **Srv-Work**
 
@@ -235,12 +235,12 @@ Nu ska du testa brandväggen för att bekräfta att den fungerar som förväntat
 1. Öppna Azure Portal, granska nätverksinställningarna för den virtuella datorn **Srv-Work** och anteckna den privata IP-adressen.
 2. Anslut ett fjärrskrivbord till den virtuella datorn **Srv-Jump** och öppna därifrån en anslutning via Fjärrskrivbord till den privata IP-adressen för **Srv-Work**.
 
-5. Öppna Internet Explorer och navigera till http://github.com.
-6. Klicka på **OK** > **Stäng** i säkerhetsvarningarna.
+3. Öppna Internet Explorer och navigera till http://msn.com.
+4. Klicka på **OK** > **Stäng** i säkerhetsvarningarna.
 
-   Du bör se startsidan för GitHub.
+   Du bör se startsidan för MSN.
 
-7. Bläddra till http://www.msn.com.
+5. Bläddra till http://www.msn.com.
 
    Du bör blockeras av brandväggen.
 

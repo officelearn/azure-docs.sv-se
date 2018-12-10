@@ -1,22 +1,19 @@
 ---
-title: 'Azure Cosmos DB: .NET-exempel för SQL API | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET-exempel för SQL API'
 description: Hitta C# .NET-exempel på GitHub för vanliga uppgifter med Azure Cosmos DB SQL API, inklusive CRUD-åtgärder.
 keywords: NoSQL-exempel
-services: cosmos-db
 author: rnagpal
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 5cee4a736232e7734be85b2940ce457bfbfd1613
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 39eacca1e5ddb4c7024c5195dc1823f2c3c651e7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262303"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875271"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-exempel för SQL API
 > [!div class="op_single_selector"]
@@ -29,10 +26,12 @@ ms.locfileid: "52262303"
 > 
 > 
 
-De senaste exempellösningarna som utför CRUD-åtgärder och andra vanliga åtgärder på Azure Cosmos DB-resurser på GitHub-lagringsplatsen [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples). Den här artikeln innehåller:
+De senaste exempellösningarna som utför CRUD-åtgärder och andra vanliga åtgärder på Azure Cosmos DB-resurser på GitHub-lagringsplatsen [azure-cosmos-dotnet-v2](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples). Den här artikeln innehåller:
 
 * Länkar till uppgifterna i var och en av C#-projektfilerna. 
 * Länkar till det relaterade API-referensinnehållet.
+
+Kodexempel för .NET SDK Version 3.0 (förhandsversion) finns i de senaste exemplen på GitHub-lagringsplatsen [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3). 
 
 **Förutsättningar**
 

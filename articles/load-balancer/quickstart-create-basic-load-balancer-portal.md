@@ -14,189 +14,265 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 11/27/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 523f5eba632b15eaaf45f24be820f7b255aae7c0
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2e4e4e7cb1ae49a856bbfed0716936b7b5b13d19
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616035"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635109"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en offentlig grundläggande lastbalanserare med Azure Portal
 
-Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure Portal för att skapa en lastbalanserare som lastbalanserar virtuella datorer. Den här snabbstarten visar hur du skapar nätverksresurser, serverdelsservrar och en lastbalanserare på grundläggande prisnivå.
+Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande begäranden sprids över virtuella datorer. Du kan använda Azure-portalen för att skapa en lastbalanserare och balansera trafik över virtuella datorer. Den här snabbstarten visar hur du skapar och konfigurerar en lastbalanserare, serverdelsservrar och nätverksresurser på prisnivån Grundläggande.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-
-Logga in på [Azure Portal](http://portal.azure.com) för alla uppgifter i den här snabbstarten.
+Logga in på [Azure-portalen](http://portal.azure.com) för att genomföra alla uppgifter i den här snabbstarten.
 
 ## <a name="create-a-basic-load-balancer"></a>Skapa en grundläggande lastbalanserare
 
-I det här avsnittet skapar du en offentlig grundläggande lastbalansering med hjälp av portalen. Den offentliga IP-adressen konfigureras automatiskt som lastbalanserarens serverdel när du skapar den offentliga IP-adressen och lastbalanserarens resurs genom att använda portalen. Namnet på klientdelen är **myLoadBalancer**.
+Först skapar du en offentlig grundläggande lastbalanserare med hjälp av portalen. Det namn och den offentliga IP-adress som du skapar konfigureras automatiskt som lastbalanserarens klientdel.
 
 1. Längst upp till vänster i portalen väljer du **Skapa en resurs** > **Netverk** > **Lastbalanserare**.
-2. I fönstret **Skapa lastbalanserare** anger du dessa värden:
-   - **myLoadBalancer** för namnet på lastbalanseraren
-   - **Public** för typ av lastbalanserare 
-   - **myPublicIP** för den offentliga IP-adress som du måste skapa med **SKU**-uppsättningen som **Grundläggande** och **Tilldelning** som **Dynamisk**
-   - **myResourceGroupLB** för namnet på den nya resursgruppen
-3. Välj **Skapa**.
+   
+1. I fönsterrutan **Skapa lastbalanserare** skriver eller väljer du dessa värden:
+   
+   - **Namn**: Skriv *MyLoadBalancer*.
+   - **Typ**: Välj **Offentlig**. 
+   - **SKU**: Välj **Grundläggande**.
+   - **Offentlig IP-adress:** välj **Skapa ny**. 
+     - Fältet **Offentlig IP-adress**: Skriv *MyPublicIP*.
+     - **Konfigurera offentlig IP-adress** > **Tilldelning**: Välj **Dynamisk**.
+   - **ResourceGroup**: Välj **Skapa ny**, ange *MyResourceGroupLB* och välj **OK**. 
+   
+1. Välj **Skapa**.
    
 ![Skapa en lastbalanserare](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
-
 ## <a name="create-back-end-servers"></a>Skapa serverdelsservrar
 
-I det här avsnittet skapar du ett virtuellt nätverk och du skapar två virtuella datorer för serverdelspoolen för din grundläggande lastbalanserare. Du kan sedan installera IIS (Internet Information Services) på de virtuella datorerna för att testa lastbalanseraren.
+Sedan skapar du ett virtuellt nätverk och två virtuella datorer för serverdelspoolen för din grundläggande lastbalanserare. 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-1. Uppe till vänster i portalen väljer du **Nytt** > **Nätverk** > **Virtuellt nätverk**.
-2. I **Skapa virtuellt nätverk** anger du dessa värden och väljer sedan **Skapa**:
-   - **myVnet** för det virtuella nätverkets namn
-   - **myResourceGroupLB** för namnet på den befintliga resursgruppen
-   - **myBackendSubnet** för undernätsnamnet
+
+1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
+   
+1. I fönsterrutan **Skapa virtuellt nätverk** skriver eller väljer du dessa värden:
+   
+   - **Namn**: Skriv *MyVnet*.
+   - **ResourceGroup**: i listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
+   - **Undernät** > **Namn**: Skriv *MyBackendSubnet*.
+   
+1. Välj **Skapa**.
 
    ![Skapa ett virtuellt nätverk](./media/load-balancer-get-started-internet-portal/2-load-balancer-virtual-network.png)
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-1. Längst upp till vänster i portalen väljer du **Nytt** > **Compute** > **Windows Server 2016 Datacenter**. 
-2. Ange dessa värden för den virtuella datorn och välj sedan **OK**:
-   - **myVM1** för den virtuella datorns namn.        
-   - **azureuser** för administratörens användarnamn.    
-   - **myResourceGroupLB** för resursgruppen. (Under **Resursgrupp** väljer du **Använd befintlig** och välj sedan **myResourceGroupLB**.)   
-3. Välj **DS1_V2** som storlek på den virtuella datorn och klicka på **Välj**.
-4. Ange dessa värden för VM-inställningarna:
-   - **myAvailabilitySet** för namnet på den nya tillgänglighetsuppsättning som du skapar.
-   - **myVnet** för det virtuella nätverkets namn. (Kontrollera att det är markerat.)
-   - **myBackendSubnet** för namnet på undernätet. (Kontrollera att det är markerat.)
-   - **myVM1-ip** för den offentliga IP-adress.
-   - **myNetworkSecurityGroup** för namnet på den nya nätverkssäkerhetsgrupp (NSG, en typ av brandvägg) som du måste skapa.
-5. Inaktivera startdiagnostikinställningar genom att välja **Inaktiverad**.
-6. Välj **OK**, granska inställningarna på sammanfattningssidan och välj sedan **Skapa**.
-7. Med steg 1 till 6 skapar du en andra virtuell dator med namnet **VM2**, med:
-   - **myAvailabilityset** som tillgänglighetsuppsättning.
-   - **myVnet** som det virtuella nätverket.
-   - **myBackendSubnet** som undernätet.
-   - **myNetworkSecurityGroup** som nätverkssäkerhetsgruppen. 
-
-### <a name="create-nsg-rules"></a>Skapa nätverkssäkerhetsgruppsregler
-
-I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att inkommande anslutningar använder HTTP och RDP.
-
-1. Välj **Alla resurser** på menyn till vänster. I resurslistan väljer du **myNetworkSecurityGroup** i resursgruppen **myResourceGroupLB**.
-2. Under **Inställningar** väljer du **Inkommande säkerhetsregler** och sedan **Lägg till**.
-3. Ange följande värden för den inkommande säkerhetsregeln med namnet **myHTTPRule** så att den tillåter inkommande HTTP-anslutningar som använder port 80. Välj sedan **OK**.
-   - **Tjänstetagg** för **Källa**
-   - **Internet** för **Källtjänsttagg**
-   - **80** för **målportsintervall**
-   - **TCP** för **Protokoll**
-   - **Tillåt** för **Åtgärd**
-   - **100** för **Prioritet**
-   - **myHTTPRule** för **Namn**
-   - **Tillåt HTTP** – för **Beskrivning**
- 
-   ![Skapa en NSG-regel](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
-4. Upprepa steg 2 och 3 för att skapa en annan regel med namnet **myRDPRule** för att tillåta en inkommande RDP-anslutning via port 3389. Ange följande värden:
-   - **Tjänstetagg** för **Källa**
-   - **Internet** för **Källtjänsttagg**
-   - **3389** – **målportsintervall**
-   - **TCP** för **Protokoll**
-   - **Tillåt** för **Åtgärd**
-   - **200** för **Prioritet**
-   - **myRDPRule** för **Namn**
-   - **Tillåt HTTP** – för **Beskrivning**
-
+1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 Datacenter**. 
    
+1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
+   - **Prenumeration** > **Resursgrupp**: i listrutan väljer du **MyResourceGroupLB**.
+   - **Instansinformation** > **Namn på virtuell dator**: Skriv *MyVM1*.
+   - **Instansinformation** > **Tillgänglighetsalternativ**: 
+     1. I listrutan väljer du **Tillgänglighetsuppsättning**. 
+     2. Välj **Skapa ny**, skriv *MyAvailabilitySet* och välj **OK**.
+   - **Administratörskonto** > **Användarnamn**: Skriv *azureuser*.
+   - **Administratörskonto** > **Lösenord**: Skriv *Azure1234567*. 
+     Skriv lösenordet på nytt i fältet **Bekräfta lösenord**.
+   
+1. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**. 
+   
+   Kontrollera att följande har valts:
+   - **Virtuellt nätverk**: **MyVnet**
+   - **Undernät**: **MyBackendSubnet**
+   - **Offentlig IP-adress**: **MyVM1-ip**
+   
+   För att skapa en ny nätverkssäkerhetsgrupp (NSG), en typ av brandvägg, går du till **Nätverkssäkerhetsgrupp** och väljer **Avancerat**. 
+   1. I fältet **Konfigurera nätverkssäkerhetsgrupp** väljer du **Skapa ny**. 
+   1. Skriv *MyNetworkSecurityGroup* och välj **OK**. 
+   
+1. Välj fliken **Hantering** eller **Nästa** > **Hantering**. Under **Övervakning** anger du **Startdiagnostik** till **Av**.
+   
+1. Välj **Granska + skapa**.
+   
+1. Granska inställningarna och välj sedan **Skapa**. 
 
-### <a name="install-iis"></a>Installera IIS
+1. Följ stegen för att skapa en andra virtuell dator med namnet *MyVM2*, med en **Offentlig IP-adress** angiven till *MyVM2-ip* och alla andra inställningar på samma sätt som MyVM1. 
 
-1. Välj **Alla resurser** på menyn till vänster. I resurslistan väljer du **myVM1** i resursgruppen **myResourceGroupLB**.
-2. Välj **Anslut** på sidan **Översikt** och anslut RDP till den virtuella datorn.
-3. Logga in på den virtuella datorn med användarnamnet **azureuser** och lösenordet **Azure123456!**.
-4. Gå till **Windows Administrationsverktyg** > **Serverhanteraren** på serverdatorn.
-5. I Serverhanteraren väljer du **Hantera** och sedan **Lägg till roller och funktioner**.
-   ![Lägger till rollen som serverhanterare](./media/load-balancer-get-started-internet-portal/servermanager.png)
-6. Använd följande värden i guiden Lägg till roller och funktioner:
-   - Klicka på **Rollbaserad eller funktionsbaserad installation** på sidan **Välj installationstyp**.
-   - Välj **myVM1** på sidan **Välj målserver**.
-   - Klicka på **Webbserver (IIS)** på sidan **Välj serverroll**.
-   - Slutför arbetet genom att följa anvisningarna i guiden. 
-7. Upprepa steg 1 till 6 för den virtuella datorn **myVM2**.
+### <a name="create-nsg-rules-for-the-vms"></a>Skapa NSG-regler för de virtuella datorerna
 
-## <a name="create-resources-for-the-basic-load-balancer"></a>Skapa resurser för den grundläggande lastbalanseraren
+I det här avsnittet skapar du regler för nätverkssäkerhetsgrupper (NSG) för de virtuella datorerna för att tillåta inkommande Internet- (HTTP) och fjärrskrivbordsanslutningar (RDP).
 
-I det här avsnittet konfigurerar du inställningar för lastbalanseraren för en serverdelsadresspool och en hälsoavsökning. Du anger regler för lastbalanserare och NAT.
+1. Välj **Alla resurser** på menyn till vänster. I resurslistan väljer du **MyNetworkSecurityGroup** i resursgruppen **MyResourceGroupLB**.
+   
+1. Under **Inställningar** väljer du **Inkommande säkerhetsregler** och sedan **Lägg till**.
+   
+1. I dialogrutan **Lägg till ingående säkerhetsregel** för HTTP-regeln skriver eller väljer du följande:
+   
+   - **Källa**: Välj **Tjänsttagg**.  
+   - **Källtjänsttagg**: Välj **Internet**. 
+   - **Målportintervall**: Skriv *80*.
+   - **Protokoll**: Välj **TCP**. 
+   - **Åtgärd**: Välj **Tillåt**.  
+   - **Prioritet**: Skriv *100*. 
+   - **Namn**: Skriv *MyHTTPRule*. 
+   - **Beskrivning**: Skriv *Tillåt HTTP*. 
+   
+1. Välj **Lägg till**. 
+   
+   ![Skapa en NSG-regel](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
+   
+1. Upprepa stegen för den inkommande RDP-regeln med följande värden som skiljer sig:
+   - **Målportintervall**: Skriv *3389*.
+   - **Prioritet**: Skriv *200*. 
+   - **Namn**: Skriv *MyRDPRule*. 
+   - **Beskrivning**: Skriv *Tillåt RDP*. 
 
+## <a name="create-resources-for-the-load-balancer"></a>Skapa resurser för lastbalanseraren
+
+I det här avsnittet konfigurerar du inställningarna för lastbalanseraren för en serverdelsadresspool, en hälsoavsökning och en belastningsutjämningsregel.
 
 ### <a name="create-a-back-end-address-pool"></a>Skapa en backend-adresspool
 
-För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till lastbalanseraren. Skapa serverdelsadresspoolen **myBackendPool** så att den omfattar **VM1** och **VM2**.
+Lastbalanseraren använder en serverdelsadresspool för att distribuera trafik till de virtuella datorerna. Serverdelsadresspoolen innehåller IP-adresserna för de gränssnitt för virtuella nätverk (NIC) som är anslutna till lastbalanseraren. 
 
-1. Välj **Alla resurser** i den vänstra menyn och välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar** väljer du **Serverdelspooler** och sedan **Lägg till**.
-3. På sidan **Lägg till en serverdelspool** gör du följande och väljer sedan **OK**:
-   - För **Namn** anger du **myBackEndPool**.
-   - Välj **Tillgänglighetsuppsättning** för **Associerad till** i den nedrullningsbara menyn.
-   - För **Tillgänglighetsuppsättning** väljer du **myAvailabilitySet**.
-   - Välj **Lägg till en målnätverks-IP-konfiguration** och lägg till varje virtuell dator (**myVM1** och **myVM2**) som du skapade till serverdelspoolen.
+**Så här skapar du en serverdelsadresspool som innehåller VM1 och VM2:**
 
-   ![Lägga till i serverdelsadresspoolen](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
-
-3. Kontrollera att inställningen för serverdelspoolens lastbalanserare visar båda de virtuella datorerna **VM1** och **VM2**.
+1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
+   
+1. Under **Inställningar** väljer du **Serverdelspooler** och sedan **Lägg till**.
+   
+1. På sidan **Lägg till serverdelspool** skriver eller väljer du följande värden:
+   
+   - **Namn**: Skriv *MyBackEndPool*.
+   - **Associerad med**: I listrutan väljer du **Tillgänglighetsuppsättning**.
+   - **Tillgänglighetsuppsättning**: Välj **MyAvailabilitySet**.
+   
+1. Välj **Lägg till en IP-konfiguration för målnätverk**. 
+   1. Lägg till varje virtuell dator (**MyVM1** och **MyVM2**) som du skapade till serverdelspoolen.
+   2. När du har lagt till varje dator öppnar du listrutan och väljer dess **Nätverks-IP-konfiguration**. 
+   
+1. Välj **OK**.
+   
+   ![Lägga till serverdelsadresspoolen](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
+   
+1. På sidan **Serverdelspooler** expanderar du **MyBackendPool** och kontrollerar att både **VM1** och **VM2** visas.
 
 ### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
 
-Om du vill att den grundläggande lastbalanseraren ska övervaka status för din app kan du använda en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller. Skapa en hälsoavsökning med namnet **myHealthProbe** så att du kan övervaka de virtuella datorernas hälsotillstånd.
+Om du vill att lastbalanseraren ska övervaka VM-status använder du en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller. 
 
-1. Välj **Alla resurser** i den vänstra menyn och välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar** väljer du **Hälsoavsökningar** och sedan **Lägg till**.
-3. Använd dessa värden och välj sedan **OK**:
-   - **myHealthProbe** för hälsoavsökningens namn
-   - **HTTP** för protokolltypen
-   - **80** för portnumret
-   - **Healthprobe.aspx** för URI-sökvägen. Du kan antingen ersätta värdet med något annat URI eller behålla standardvärdet **”\\”** för sökvägen för att hämta standard-URI:n.
-   - **15** för **Intervall**, antalet sekunder mellan avsökningsförsök
-   - **2** för **tröskelvärden för ohälsosamt värde** eller antalet avsökningsfel i följd som måste inträffa innan en virtuell dator anses vara felaktig
+**Så här skapar du en hälsoavsökning för att övervaka de virtuella datorernas hälsa:**
 
+1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
+   
+1. Under **Inställningar** väljer du **Hälsoavsökningar** och sedan **Lägg till**.
+   
+1. På sidan **Lägg till en hälsoavsökning**  skriver eller väljer du följande värden:
+   
+   - **Namn**: Skriv *MyHealthProbe*.
+   - **Protokoll**: I listrutan väljer du **HTTP**. 
+   - **Port**: Skriv *80*. 
+   - **Sökväg**: Acceptera */* för standard-URI. Du kan ersätta det här värdet med valfri URI. 
+   - **Intervall**: Skriv *15*. Intervallet är antalet sekunder mellan avsökningsförsök.
+   - **Tröskelvärde för Ej felfri**: Skriv *2*. Det här värdet är det antal avsökningsfel i följd som ska inträffa innan en virtuell dator anses vara felaktig.
+   
+1. Välj **OK**.
+   
    ![Lägga till en avsökning](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
 
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 
-Du använder en lastbalanseringsregel för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar klientdelens IP-konfiguration för inkommande trafik och serverdelens IP-pool för att ta emot trafik, samt även nödvändig käll- och målport. 
+En lastbalanseringsregel definierar hur trafiken ska distribueras till de virtuella datorerna. Regeln definierar IP-konfigurationen på klientdelen för inkommande trafik, serverdels-IP-poolen för att ta emot trafik samt nödvändiga käll- och målportar. 
 
-Skapa en lastbalanseringsregel med namnet **myLoadBalancerRuleWeb** för att avlyssna port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln används även för att skicka belastningsutjämnad nätverkstrafik till serverdelsadresspoolen **myBackEndPool**, också det med port 80. 
+Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackEndPool**, även det med port 80. 
 
-1. Välj **Alla resurser** i den vänstra menyn och välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar** väljer du **Belastningsutjämningsregler** och väljer sedan **Lägg till**.
-3. Använd dessa värden och välj sedan **OK**:
-   - **myHTTPRule** för lastbalanseringsregelns namn
-   - **TCP** för protokolltypen
-   - **80** för portnumret
-   - **80** för serverdelsport
-   - **myBackendPool** för serverdelspoolens namn
-   - **myHealthProbe** för hälsoavsökningens namn
-    
-   ![Lägga till en lastbalanseringsregel](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+**Så här skapar du belastningsutjämningsregeln:**
+
+
+1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
+   
+1. Under **Inställningar** väljer du **Belastningsutjämningsregler** och väljer sedan **Lägg till**.
+   
+1. På sidan **Lägg till belastningsutjämningsregel** skriver eller väljer du följande värden:
+   
+   - **Namn**: Skriv *MyLoadBalancerRule*.
+   - **Klientdels-IP-adress:** Skriv *LoadBalancerFrontend*.
+   - **Protokoll**: Välj **TCP**.
+   - **Port**: Skriv *80*.
+   - **Serverdelsport**: Skriv *80*.
+   - **Serverdelspool**: Välj **MyBackendPool**.
+   - **Hälsoavsökning**: Välj **MyHealthProbe**. 
+   
+1. Välj **OK**.
+   
+  ![Lägga till en belastningsutjämningsregel](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
-1. Hitta den offentliga IP-adressen för lastbalanseraren på skärmen **Översikt**. Välj **Alla resurser** och sedan **myPublicIP**.
 
-2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. IIS-webbserverns standardsida visas i webbläsaren.
+Du använder den offentliga IP-adressen för att testa lastbalanseraren på de virtuella datorerna. 
 
-   ![IIS-webbserver](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+På portalen går du till sidan **Översikt** för **MyLoadBalancer** och letar upp dess offentliga IP-adress under **Offentlig IP-adress**. Hovra över adressen och kopiera den genom att välja ikonen **Kopiera**. 
+
+### <a name="install-iis-on-the-vms"></a>Installera IIS på de virtuella datorerna
+
+Installera IIS (Internet Information Services) på de virtuella datorerna för att testa lastbalanseraren.
+
+**Så här ansluter du via fjärrskrivbord (RDP) till den virtuella datorn:**
+
+1. På portalen väljer du **Alla resurser** på menyn till vänster. I resurslistan väljer du **MyVM1** i resursgruppen **MyResourceGroupLB**.
+   
+1. På sidan **Översikt** väljer du **Anslut** och sedan **Ladda ned RDP-fil**. 
+   
+1. Öppna den RDP-fil som du laddade ned och välj **Anslut**.
+   
+1. På skärmen Windows-säkerhet väljer du **Fler alternativ** och sedan **Använd ett annat konto**. 
+   
+   Ange användarnamnet *azureuser* och lösenordet *Azure1234567* och välj **OK**.
+   
+1. Svara **Ja** på eventuella certifikatfrågor. 
+   
+   Den virtuella datorns skrivbord öppnas i ett nytt fönster. 
+   
+**Så här installerar du IIS på den virtuella datorn:**
+
+1. Om **Serverhanteraren** inte redan är öppen på serverns skrivbord bläddrar du till **Administrationsverktyg för Windows** > **Serverhanteraren**.
+   
+1. I **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
+   
+   ![Lägga till rollen som serverhanterare](./media/load-balancer-get-started-internet-portal/servermanager.png)
+   
+1. I **guiden Lägg till roller och funktioner**:
+   1. Klicka på **Rollbaserad eller funktionsbaserad installation** på sidan **Välj installationstyp**.
+   1. På sidan **Välj målserver** väljer du **MyVM1**.
+   1. Klicka på **Webbserver (IIS)** på sidan **Välj serverroll**. 
+   1. När du ombeds att installera verktyg som krävs väljer du **Lägg till funktioner**. 
+   1. Acceptera standardvärdena och välj **Installera**. 
+   1. När funktionerna har installerats väljer du **Stäng**. 
+   
+1. Upprepa stegen för den virtuella datorn **MyVM2** men ställ in målservern på **MyVM2**.
+
+### <a name="test-the-load-balancer"></a>Testa lastbalanseraren
+
+På varje virtuell dator öppnar en webbläsare och svarar **OK** på eventuella konfigurationsfrågor. 
+
+Klistra in lastbalanserarens offentliga IP-adress i webbläsarens adressfält. IIS-webbserverns standardsida bör visas i webbläsaren.
+
+![IIS-webbserver](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan ta bort resursgruppen, lastbalanseraren och alla relaterade resurser när du inte längre behöver dem. Markera den resursgrupp som innehåller lastbalanseraren och sedan klicka på **Ta bort**.
+Om du vill ta bort lastbalanseraren och alla relaterade resurser när du inte längre behöver dem öppnar du resursgruppen **MyResourceGroupLB** och väljer **Ta bort resursgrupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en resursgrupp, nätverksresurser och serverdelsservrar. Du använde sedan de här resurserna för att skapa en grundläggande lastbalanserare. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+I den här snabbstarten skapade du en belastningsutjämnare på nivån Grundläggande. Du skapade och konfigurerade en resursgrupp, nätverksresurser, serverdelsservrar, en hälsoavsökning och regler för att använda med lastbalanseraren. Du installerade IIS på de virtuella datorerna och använde det för att testa lastbalanseraren. 
+
+Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna.
 
 > [!div class="nextstepaction"]
 > [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

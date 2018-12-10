@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277775"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844846"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -101,23 +101,29 @@ När användarna försöker logga in ser de nu en länk för återställning av 
 
 Dina användare får hjälp med att använda funktionen i [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) (Återställa ditt arbets- eller skollösenord)
 
-## <a name="common-issues"></a>Vanliga problem
+Azure AD-granskningsloggen innehåller information om IP-adressen och klienttypen där lösenordsåterställningen har gjorts.
+
+![Exempel på lösenordsåterställning för inloggningssida i Azure AD-granskningsloggen](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="limitations"></a>Begränsningar
 
 När du testar funktionen med Hyper-V visas inte länken ”Återställ lösenord”.
 
 * Gå till den virtuella dator du använder för att testklicka på **Visa** och avmarkera **Avancerad session**.
 
-När du testar funktionen med Fjärrskrivbord visas inte länken ”Återställ lösenord”.
+När du testar funktionen med hjälp av Fjärrskrivbord eller en förbättrad VM-session visas inte länken ”Återställ lösenord”.
 
 * Återställning av lösenord stöds inte från ett Fjärrskrivbord.
 
-Om Windows-låsskärmen har inaktiverats med hjälp av en registernyckel eller grupprincip är **Återställ lösenord** inte tillgänglig.
-
 Om Ctrl+Alt+Del krävs av principen eller meddelanden för låsskärmen är avstängda fungerar inte **Återställ lösenord**.
 
-Azure AD-granskningsloggen innehåller information om IP-adressen och klienttypen där lösenordsåterställningen har gjorts.
+Det har bekräftats att följande principinställningar stör möjligheten att återställa lösenord
 
-![Exempel på lösenordsåterställning för inloggningssida i Azure AD-granskningsloggen](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+   * HideFastUserSwitching har angetts på aktiverat eller 1
+   * DontDisplayLastUserName har angetts på aktiverat eller 1
+   * NoLockScreen har angetts på aktiverat eller 1
+   * EnableLostMode har angetts på enheten
+   * Explorer.exe har ersatts med ett anpassat gränssnitt
 
 Om dina Windows 10-datorer finns bakom en proxyserver eller brandvägg ska HTTPS-trafik (443) till passwordreset.microsoftonline.com och ajax.aspnetcdn.com tillåtas.
 

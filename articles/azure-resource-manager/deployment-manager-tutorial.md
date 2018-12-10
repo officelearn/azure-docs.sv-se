@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8ec180b40e52c5702495a0124bf8ae33d2dc24a1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425011"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727791"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Självstudie: Använda Azure Deployment Manager med Resource Manager-mallar (privat förhandsgranskning)
 
@@ -152,7 +152,7 @@ Du måste skapa en användartilldelad hanterad identitet och konfigurera åtkoms
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Skapa en [användartilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. Från portalen väljer du **Prenumerationer** på den vänstra menyn och väljer sedan din prenumeration.
-4. Välj **Åtkomstkontroll (IAM)** och sedan **Lägg till**
+4. Välj **Åtkomstkontroll (IAM)** och sedan **Lägg till rolltilldelning**.
 5. Ange eller välj följande värden:
 
     ![Azure Deployment Manager-självstudie om åtkomstkontroll med användartilldelade hanterade identiteter](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)

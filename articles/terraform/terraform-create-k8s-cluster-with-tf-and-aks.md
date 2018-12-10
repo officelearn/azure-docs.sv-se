@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/08/2018
-ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: d723eea6fff54b3a2f90478fcb209df76a6a776e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232332"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872925"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Skapa ett Kubernetes-kluster med Azure Kubernetes Service och Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) hanterar din värdmiljö för Kubernetes, vilket gör det enkelt att snabbt distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Det eliminerar också problem med pågående åtgärder och underhåll genom etablering, uppgradering och skalning av resurser på begäran, utan att koppla från dina program.
@@ -82,7 +82,6 @@ Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
     terraform {
         backend "azurerm" {}
     }
-
     ```
 
 1. Avsluta infogningsläget genom att trycka på tangenten **Esc**.
@@ -112,6 +111,26 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
         location = "${var.location}"
     }
 
+    resource "azurerm_log_analytics_workspace" "test" {
+        name                = "${var.log_analytics_workspace_name}"
+        location            = "${var.log_analytics_workspace_location}"
+        resource_group_name = "${azurerm_resource_group.k8s.name}"
+        sku                 = "${var.log_analytics_workspace_sku}"
+    }
+
+    resource "azurerm_log_analytics_solution" "test" {
+        solution_name         = "ContainerInsights"
+        location              = "${azurerm_log_analytics_workspace.test.location}"
+        resource_group_name   = "${azurerm_resource_group.k8s.name}"
+        workspace_resource_id = "${azurerm_log_analytics_workspace.test.id}"
+        workspace_name        = "${azurerm_log_analytics_workspace.test.name}"
+
+        plan {
+            publisher = "Microsoft"
+            product   = "OMSGallery/ContainerInsights"
+        }
+    }
+
     resource "azurerm_kubernetes_cluster" "k8s" {
         name                = "${var.cluster_name}"
         location            = "${azurerm_resource_group.k8s.location}"
@@ -122,14 +141,14 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
             admin_username = "ubuntu"
 
             ssh_key {
-            key_data = "${file("${var.ssh_public_key}")}"
+                key_data = "${file("${var.ssh_public_key}")}"
             }
         }
 
         agent_pool_profile {
-            name            = "default"
+            name            = "agentpool"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_DS2_v2"
+            vm_size         = "Standard_DS1_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
@@ -137,6 +156,13 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
         service_principal {
             client_id     = "${var.client_id}"
             client_secret = "${var.client_secret}"
+        }
+
+        addon_profile {
+            oms_agent {
+            enabled                    = true
+            log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+            }
         }
 
         tags {
@@ -198,6 +224,20 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
     variable location {
         default = "Central US"
     }
+
+    variable log_analytics_workspace_name {
+        default = "testLogAnalyticsWorkspaceName"
+    }
+
+    # refer https://azure.microsoft.com/global-infrastructure/services/?products=monitor for log analytics available regions
+    variable log_analytics_workspace_location {
+        default = "eastus"
+    }
+
+   # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing 
+   variable log_analytics_workspace_sku {
+        default = "PerGB2018"
+   }
     ```
 
 1. Avsluta infogningsläget genom att trycka på tangenten **Esc**.
@@ -367,6 +407,9 @@ Kubernetes-verktygen kan användas för att verifiera det nyligen skapade klustr
     Du bör se information för dina arbetarnoder och de bör ha statusen **Ready** enligt följande bild:
 
     ![Med verktyget kubectl kan du kontrollera ditt Kubernetes-klusters hälsotillstånd](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
+
+## <a name="monitor-health-and-logs"></a>Övervaka hälsotillstånd och loggar
+När AKS-klustret skapades aktiverades övervakning för att registrera hälsomått för både klusternoderna och poddarna. De här hälsomåtten är tillgängliga i Azure-portalen. Mer information om övervakning av hälsotillstånd för containrar finns i [Övervaka hälsotillstånd för Azure Kubernets Service](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln lärde du dig hur du använder Terraform och AKS för att skapa ett Kubernetes-kluster. Här är några ytterligare resurser som du kan använda om du vill lära dig mer om Terraform på Azure: 

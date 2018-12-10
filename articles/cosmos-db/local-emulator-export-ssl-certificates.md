@@ -1,22 +1,19 @@
 ---
-title: Exportera Azure Cosmos DB emulatorcertifikat | Microsoft Docs
+title: Exportera Azure Cosmos DB emulatorcertifikat
 description: När du utvecklar i språk och körningar som inte använder Windows-certifikatarkiv måste du exportera och hantera SSL-certifikat. Det här inlägget innehåller stegvisa instruktioner.
 services: cosmos-db
 keywords: Azure Cosmos DB-emulatorn
 author: David-Noble-at-work
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: danoble
-ms.openlocfilehash: 45a909b910fe45d87833b0f3c6ba652503a1d212
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f73c6f279f4281abb3751f101255ca3707a59641
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41918838"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850388"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportera Azure Cosmos DB emulatorcertifikat för användning med Java, Python och Node.js
 

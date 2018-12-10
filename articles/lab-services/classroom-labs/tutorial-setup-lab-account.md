@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 72acc4fe0febaa09d6deb82043795b6003af683f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 4b8b5502090e1b115829b65834532dd6ce15a934
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706787"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835921"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Självstudie: Konfigurera ett labbkonto med Azure Lab Services
 I Azure Lab Services, fungerar ett labbkonto som det centrala kontot där alla din organisations labbar hanteras. I ditt labbkonto, ger du behörighet till andra att skapa labbar och konfigurera principer som gäller för alla labbar under labbkontot. I den här självstudien, får du lära dig hur du skapar ett labbkonto som en labbadministratör. 
@@ -61,12 +61,8 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste användaren vara
 
 Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till dem i rollen **Labbskapare**:
 
-1. På sidan **Labbkonto** väljer du **Åtkomstkontroll (IAM)** och klickar på **+ Lägg till** i verktygsfältet. 
-
-    ![Sidan Labbkonto](../media/tutorial-setup-lab-account/access-control.png)
+1. På sidan **Labbkonto** väljer du **Åtkomstkontroll (IAM)** och klickar på **+ Lägg till rolltilldelning** i verktygsfältet. 
 2. På sidan **Lägg till behörigheter** väljer du **Labbskapare** som **Roll**. Välj den användare som du vill lägga till rollen Labbskapare och välj **Spara**. 
-
-    ![Lägga till en användare i rollen Labbskapare](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Ange Marketplace-avbildningar som är tillgängliga för labbägare
 Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan använda för att skapa labb i labbkontot. 

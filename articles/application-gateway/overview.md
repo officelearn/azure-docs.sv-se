@@ -3,25 +3,25 @@ title: Vad är Azure Application Gateway?
 description: Lär dig hur du kan använda Azure Application Gateway för att hantera webbtrafik till din app.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068103"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679179"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
-Azure Application Gateway är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar. 
+Azure Application Gateway är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar. Traditionella lastbalanserare fungerar med transportlagret (OSI lager 4 – TCP och UDP) och dirigera trafik baserat på källans IP-adress och port till en mål-IP-adress och -port.
 
-Traditionella lastbalanserare fungerar med transportlagret (OSI lager 4 – TCP och UDP) och dirigera trafik baserat på källans IP-adress och port till en mål-IP-adress och -port. Men med Application Gateway kan du vara ännu mer specifik. Du kan till exempel dirigera trafik baserat på inkommande URL. Så om `/images` finns i inkommande URL kan du dirigera trafik till en specifik uppsättning servrar (kallas även pool) som har konfigurerats för avbildningar. Om `/video` finns i URL:en dirigeras trafiken dirigeras till en annan adresspool som har optimerats för videor.
+![Begreppsmässigt om Application Gateway](media/overview/figure1-720.png)
+
+Men med Application Gateway kan du vara ännu mer specifik. Du kan till exempel dirigera trafik baserat på inkommande URL. Så om `/images` finns i inkommande URL kan du dirigera trafik till en specifik uppsättning servrar (kallas även pool) som har konfigurerats för avbildningar. Om `/video` finns i URL:en dirigeras trafiken dirigeras till en annan adresspool som har optimerats för videor.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
@@ -31,7 +31,7 @@ Följande funktioner ingår med Azure Application Gateway:
 
 ## <a name="autoscaling-public-preview"></a>Offentlig förhandsversion av autoskalning
 
-Utöver de funktioner som beskrivs i den här artikeln erbjuder Application Gateway även en offentlig förhandsversion av en ny SKU [Standard_V2] som erbjuder autoskalning och andra viktiga prestandaförbättringar.
+Utöver de funktioner som beskrivs i den här artikeln erbjuder Application Gateway även en offentlig förhandsversion av en ny SKU [Standard_V2], som erbjuder autoskalning och andra viktiga prestandaförbättringar.
 
 - **Autoskalning** – Application Gateway- eller WAF-distributioner under autoskalnings-SKU kan skala upp eller ned baserat på föränderliga mönster i trafikbelastning. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. 
 
@@ -44,6 +44,10 @@ Utöver de funktioner som beskrivs i den här artikeln erbjuder Application Gate
 - **5x bättre prestanda för SSL-avlastning** jämfört med den allmänt tillgängliga SKU:n.
 
 Mer information om funktionerna i den offentliga förhandsversionen av Application Gateway finns i avsnittet om [autoskalning och zonredundant Application Gateway (offentlig förhandsversion)](application-gateway-autoscaling-zone-redundant.md).
+
+## <a name="secure-sockets-layer-ssl-termination"></a>Secure Sockets Layer-avslutning (SSL)
+
+Application Gateway stöder SSL-terminering vid gatewayen. Därefter flödar trafiken vanligtvis okrypterat fram till serverdels-servrarna. Den här funktionen bidrar till att befria webbservrarna från kostsam kryptering och dekryptering. Men ibland är inte okrypterad kommunikation till servrarna en acceptabel lösning. Det kan bero på säkerhetskrav eller efterföljandekrav eller att programmet bara accepterar säkra anslutningar. För de här programmen stöder Application Gateway slutpunkt till slutpunkt-SSL-kryptering.
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Förhandsversion av Azure Kubernetes Service (AKS) Ingress-kontrollant 
 
@@ -59,10 +63,6 @@ Anslutningstömning hjälper dig att få korrekt borttagning av medlemmar i serv
 Med Application Gateway kan du skapa anpassade felsidor i stället för att visa standardmässiga felsidor. Du kan använda din egen varumärkesanpassning och layout med hjälp av en anpassad felsida.
 
 Mer information finns i [Skapa anpassade felsidor i Application Gateway](custom-error.md).
-
-## <a name="secure-sockets-layer-ssl-termination"></a>Secure Sockets Layer-avslutning (SSL)
-
-Application Gateway stöder SSL-terminering vid gatewayen. Därefter flödar trafiken vanligtvis okrypterat fram till serverdels-servrarna. Den här funktionen bidrar till att befria webbservrarna från kostsam kryptering och dekryptering. Men ibland är inte okrypterad kommunikation till servrarna en acceptabel lösning. Det kan bero på säkerhetskrav eller efterföljandekrav eller att programmet bara accepterar säkra anslutningar. För den typen av program, stöder Application Gateway nu slutpunkt-till-slutpunkt SSL-kryptering.
 
 ## <a name="web-application-firewall"></a>Brandvägg för webbaserade program
 
@@ -96,22 +96,15 @@ Stöd för Application Gateway-stöd har följande funktioner:
 - Sökvägsbaserad omdirigering. Den här typen av omdirigering möjliggör bara HTTP till HTTPS-omdirigering på ett specifikt webbplatsområde, till exempel en kundvagn som betecknas av `/cart/*`.
 - Omdirigera till en extern webbplats.
 
-
-
 ## <a name="session-affinity"></a>Sessionstillhörighet
 
 Den cookie-baserade sessionstillhörighetsfunktionen är användbar när du vill behålla en användarsession på samma server. Genom att använda gatewayhanterade cookies kan Application Gateway dirigera efterföljande trafik från en användarsession till samma serverdel för bearbetning. Det här är viktigt i de fall där sessionstillstånd har sparats lokalt på servern för en användarsession.
 
-
-
-
 ## <a name="websocket-and-http2-traffic"></a>Websocket- och HTTP/2-trafik
 
 Application Gateway har inbyggt stöd för WebSocket- och HTTP/2-protokoll. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. Stöd för HTTP-2 kan aktiveras med hjälp av Azure PowerShell.
- 
+
 WebSocket- och HTTP/2-protokollen aktiverar full duplex-kommunikation mellan en server och en klient över en tidskrävande TCP-anslutning. Det här tillåter en mer interaktiv kommunikation mellan webbservern och klienten, som kan vara dubbelriktad utan att behöva avsökning som krävs i HTTP-baserade implementeringar. Dessa protokoll har låg omkostnader, till skillnad från HTTP, och kan återanvända samma TCP-anslutning för flera begäranden/svar, vilket resulterar i ett mer effektivt utnyttjande av resurser. Dessa protokoll är utformade att fungera via de traditionella HTTP-portarna 80 och 443.
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

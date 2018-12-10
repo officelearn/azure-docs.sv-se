@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 01/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604349"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726414"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API från en webbapp med Azure Active Directory B2C
 
@@ -120,7 +120,7 @@ Webb-API-exemplet ingår i projektet du laddade ned i den obligatoriska föregå
 
 Exempellösningen innehåller två projekt:
 
-**Exempelwebbapp (TaskWebApp):** webbapp som skapar och redigerar en uppgiftslista. Webbappen använder **registrerings- eller inloggningsprincipen** för att registrera eller logga in användare med en e-postadress.
+**Exempelwebbapp (TaskWebApp):** webbapp som skapar och redigerar en uppgiftslista. Webbappen använder användarflödet **registrering eller inloggning** för att registrera eller logga in användare med en e-postadress.
 
 **Webb-API-exempelapp (TaskService):** Webb-API med stöd för att skapa, läsa, uppdatera och ta bort en uppgiftslista. Webb-API:et skyddas av Azure AD B2C och anropas av webbappen.
 
@@ -162,10 +162,10 @@ Exempelwebbappen och webb-API:et definierar konfigurationsvärdena som appinstä
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. Uppdatera principinställningarna med det namn som skapades när du skapade principerna för registrering och inloggning.
+4. Uppdatera inställningarna för användarflöde med det namn som skapades när du skapade användarflödet för registrering och inloggning.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
     ```
 
 5. Konfigurera inställningen för omfång så den överensstämmer med det du skapade i portalen.

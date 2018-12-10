@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 10/02/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: b5f97dac202edd5405c51b75581275166042ac38
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802108"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841463"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -38,6 +38,8 @@ Tidigare har containrar erbjudit isolering av programberoenden och resursstyrnin
 
 Containrar är vanligtvis optimerade för att endast köra ett program, men de specifika behoven för dessa program kan skilja sig åt avsevärt. Azure Container Instances erbjuder optimal användning eftersom det tillåter exakta specifikationer av CPU-kärnor och minne. Du betalar för vad du behöver och faktureras per sekund, så att du kan finjustera dina utgifter utifrån dina faktiska behov.
 
+För beräkningsintensiva jobb, till exempel maskininlärning, kan Azure Container Instances schemalägga Linux-containrar att använda NVIDIA Tesla [GPU-resurser](container-instances-gpu.md) (förhandsversion).
+
 ## <a name="persistent-storage"></a>Beständig lagring
 
 Vi erbjuder direkt [montering av Azure Files-resurser](container-instances-mounting-azure-files-volume.md) för att hämta och bevara tillstånd med Azure Container Instances.
@@ -59,7 +61,7 @@ Azure Container Instances stöder schemaläggning av [grupper med flera behålla
 Den här funktionen i Azure Container Instances, som för närvarande är en förhandsversion, möjliggör [distribution av containerinstanser i ett virtuellt Azure-nätverk](container-instances-vnet.md). Genom att distribuera containerinstanser till ett undernät i ditt virtuella nätverk kan de kommunicera säkert med andra resurser i det virtuella nätverket, inklusive sådana som finns lokalt (via [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> Distribution av containergrupper till ett virtuellt nätverk är för närvarande en förhandsversion och vissa [begränsningar gäller](container-instances-vnet.md#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Vissa funktioner i Azure Container Instances är i förhandsversion och vissa [begränsningar gäller](container-instances-vnet.md#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionerna kan ändras innan de är allmänt tillgängliga (GA).
 
 ## <a name="next-steps"></a>Nästa steg
 

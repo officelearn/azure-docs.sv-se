@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige.
 author: rwike77
 ms.author: ryanwi
-ms.date: 08/24/2018
+ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d50ebeef686de7e467e2a71b6bb33f207414bcc8
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: ce3001a2984726332b036eea69d4e18e3d7d300b
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541474"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890440"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Snabbstart: Distribuera Hello World till Service Fabric Mesh
 
@@ -48,14 +48,32 @@ az group create --name myResourceGroup --location eastus
 Skapa ditt program i en resursgrupp med kommandot `az mesh deployment create`.  Kör följande:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
 Föregående kommando distribuerar ett Linux-program med hjälp av [mesh_rp.linux.json-mallen](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Om du vill distribuera ett Windows-program använder du [mesh_rp.windows.json-mallen](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Windows-containeravbildningar är större än Linux-containeravbildningar och kan ta längre tid att distribuera.
 
-Efter några minuter returnerar kommandot:
+Det här kommandot skapar ett JSON-kodavsnitt som visas nedan. Under avsnittet ```outputs``` i JSON-utdata kopierar du egenskapen ```publicIPAddress```.
 
-`helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+Den här informationen kommer från avsnittet ```outputs``` i ARM-mallen. Enligt det som visas nedan refererar det här avsnittet till Gateway-resursen för att hämta den offentliga IP-adressen. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>Öppna programmet
 När programmet har distribuerats kopierar du den offentliga IP-adressen för tjänstslutpunkten från CLI-utdata. Öppna IP-adressen i en webbläsare. En webbplats med logotypen för Azure Service Fabric Mesh visas.

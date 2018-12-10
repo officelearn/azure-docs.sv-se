@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426117"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724102"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
 
@@ -91,11 +91,11 @@ När du skapar ditt första Batch-konto i användarprenumerationsläge behöver 
 
     ![Registrera providern Microsoft.Batch][register_provider]
 
-1. På sidan **Prenumeration** väljer du **Åtkomstkontroll (IAM)** > **Lägg till**.
+1. På sidan **Prenumeration** väljer du **Åtkomstkontroll (IAM)** > **Rolltilldelningar** > **Lägg till rolltilldelning**.
 
     ![Åtkomstkontroll för prenumeration][subscription_access]
 
-1. På sidan **Lägg till behörigheter** väljer du rollen **Deltagare** och söker efter Batch-API:t. Sök efter var och en av de här strängarna tills du hittar API:t:
+1. På sidan **Lägg till rolltilldelning** väljer du rollen **Deltagare** och söker efter Batch-API:t. Sök efter var och en av de här strängarna tills du hittar API:t:
     1. **MicrosoftAzureBatch**.
     1. **Microsoft Azure Batch**. Nyare Azure AD-klientorganisationer kan använda det här namnet.
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** är id:t för API:t. 

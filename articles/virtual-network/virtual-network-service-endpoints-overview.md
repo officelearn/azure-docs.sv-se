@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 77fad7b0035a9ba21d71e6c493a4f1a5bd9a2111
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0a582dc3acf17a10bd143988da7dd12627650dff
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395215"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834875"
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -74,7 +74,7 @@ Tjänstslutpunkter har följande fördelar:
 
   Som standard kan Azure-tjänstresurser som skyddas på virtuella nätverk inte nås från lokala nätverk. Om du vill tillåta trafik från lokala nätverk måste du även tillåta offentliga IP-adresser (normalt NAT) från dina lokala kretsar eller ExpressRoute. Dessa IP-adresser kan läggas till via IP-brandväggskonfiguration för Azure-tjänstresurser.
 
-  ExpressRoute: Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lokalt för offentlig peering eller Microsoft-peering, måste du identifiera de NAT IP-adresser som används. För offentlig peering, använder varje ExpressRoute-krets som standard två NAT IP-adresser, som används för Azure-tjänsttrafik när trafiken kommer till Microsoft Azure-stamnätverket. För Microsoft-peering är de NAT IP-adresser som används antingen tillhandahållna av kunden eller av tjänsteleverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  ExpressRoute: Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lokalt för offentlig peering eller Microsoft-peering, måste du identifiera de NAT IP-adresser som används. För offentlig peering, använder varje ExpressRoute-krets som standard två NAT IP-adresser, som används för Azure-tjänsttrafik när trafiken kommer till Microsoft Azure-stamnätverket. För Microsoft-peering är de NAT IP-adresser som används antingen tillhandahållna av kunden eller av tjänsteleverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du en supportbegäran hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![Skydda Azure-tjänster i virtuella nätverk](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -133,11 +133,17 @@ Det finns ingen begränsning av det totala antalet tjänstslutpunkter i ett virt
 
 För en Azure-tjänstresurs (till exempel ett Azure Storage-konto) kan det finnas begränsningar av antalet undernät för att skydda resursen. Mer information finns i dokumentationen för de olika tjänsterna i [Nästa steg](#next-steps).
 
+## <a name="virtual-network-service-endpoint-policies"></a>Principer för tjänstslutpunkter för virtuella nätverk 
+
+Med principer för tjänstslutpunkter för virtuella nätverk kan du filtrera trafik i virtuella nätverk till Azure-tjänster för att endast tillåta specifika Azure-tjänstresurser över tjänstslutpunkter. Principer för tjänstslutpunkt ger detaljerad åtkomstkontroll för trafik i virtuella nätverk till Azure-tjänster. Mer information: [Principer för tjänstslutpunkter för virtuella nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig att [konfigurera tjänstslutpunkter i virtuellt nätverk](tutorial-restrict-network-access-to-resources.md)
 - Lär dig att [skydda ett Azure Storage-konto i ett virtuellt nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig att [skydda en Azure SQL-databas i ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig om [Azure-tjänstintegrering i virtuella nätverk](virtual-network-for-azure-services.md)
+- Lär dig om: [Principer för tjänstslutpunkter för virtuella nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 -  Snabbstart: [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) för att konfigurera tjänstslutpunkt på ett VNet:s undernät och säkra ett Azure Storage-konto till det undernätet.
 

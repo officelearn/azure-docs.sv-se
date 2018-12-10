@@ -5,38 +5,87 @@ services: service-fabric-mesh
 keywords: ''
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/26/2018
+ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: c30f4b9de279f8c02b7f6bc7fa7d9765972899b1
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: dc37ff85deccdd5a1f8703033d300d878f9a7e4c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977439"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887992"
 ---
-# <a name="set-up-the-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI
-Service Fabric Mesh-kommandoradsgränssnittet (CLI) krävs för att distribuera och hantera resurser i Service Fabric Mesh. 
+# <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI
+Service Fabric Mesh-kommandoradsgränssnittet (CLI) krävs för att distribuera och hantera resurser lokalt och i Azure Service Fabric Mesh. 
+
+Det finns tre typer av CLI som kan användas och de sammanfattas i tabellen nedan. 
+
+| CLI-modul | Målmiljö |  Beskrivning | 
+|---|---|---|
+| az mesh | Azure Service Fabric Mesh | Primärt CLI som gör att du kan distribuera dina program och hantera resurser mot Azure Service Fabric Mesh-miljön. 
+| sfctl | Lokala kluster | Service Fabric-CLI som möjliggör distribution och testning av Service Fabric-resurser mot lokala kluster.  
+| Maven CLI | Lokala kluster och Azure Service Fabric Mesh | En adapter för ”az mesh” och ”sfctl” som gör att Java-utvecklare kan använda ett bekant kommandoradsgränssnitt för lokal utveckling och Azure-utveckling.  
 
 För förhandsversionen är Azure Service Fabric Mesh CLI skrivet som ett tillägg till Azure CLI. Du kan installera det i Azure Cloud Shell eller en lokal installation av Azure CLI. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-## <a name="install-the-service-fabric-mesh-cli-locally"></a>Installera Service Fabric Mesh CLI lokalt
-Om du väljer att installera och använda CLI lokalt måste du installera Azure CLI version 2.0.43 eller senare. Kör `az --version` för att hitta versionen. Om du vill installera eller uppgradera till den senaste versionen av CLI kan du läsa [Installera Azure CLI][azure-cli-install].
+## <a name="install-the-azure-service-fabric-mesh-cli"></a>Installera Azure Service Fabric Mesh CLI
+1. Du måste installera Azure CLI version 2.0.43 eller senare. Kör `az --version` för att hitta versionen. Om du vill installera eller uppgradera till den senaste versionen av CLI kan du läsa [Installera Azure CLI][azure-cli-install].
 
-Installera Azure Service Fabric Mesh CLI-tilläggsmodulen med hjälp av följande kommando. 
+2. Installera Azure Service Fabric Mesh CLI-tilläggsmodulen med hjälp av följande kommando. 
 
-```azurecli-interactive
-az extension add --name mesh
+    ```azurecli-interactive
+    az extension add --name mesh
+    ```
+
+3. Uppdatera en befintlig Azure Service Fabric Mesh CLI-modul med hjälp av följande kommando.
+
+    ```azurecli-interactive
+    az extension update --name mesh
+    ```
+
+## <a name="install-the-service-fabric-cli-sfctl"></a>Installera Service Fabric CLI (sfctl) 
+
+Följ instruktionerna i [Konfigurera Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli). Modulen **sfctl** kan användas för distribution av program baserat på resursmodellen mot Service Fabric-kluster på den lokala datorn. 
+
+## <a name="install-the-maven-cli"></a>Installera Maven CLI 
+
+För att kunna använda Maven CLI måste följande vara installerat på datorn: 
+
+* [Java](https://www.azul.com/downloads/zulu/)
+* [Maven 3.](http://maven.apache.org/download.cgi)
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* Azure Mesh CLI (az mesh) – För Azure Service Fabric Mesh som mål 
+* SFCTL (sfctl) – För lokala kluster som mål 
+
+Maven CLI för Service Fabric är fortfarande i förhandsversion. 
+
+Om du vill använda Maven-pluginprogrammet i Maven Java-appen lägger du till följande kodavsnitt i filen pom.xml:
+
+```XML
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+          <artifactId>azure-sf-maven-plugin</artifactId>
+          <version>0.1.0</version>
+          <configuration>
+            ...
+          </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
 ```
 
-Kör följande kommando om du behöver uppdatera en befintlig Azure Service Fabric Mesh CLI-modul.
+Läs avsnittet med [Maven CLI-referensen](service-fabric-mesh-reference-maven.md) om du vill veta mer om detaljerad användning.
 
-```azurecli-interactive
-az extension update --name mesh
-```
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan även konfigurera [Windows-utvecklingsmiljön](service-fabric-mesh-howto-setup-developer-environment-sdk.md).

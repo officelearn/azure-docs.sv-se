@@ -1,22 +1,21 @@
 ---
-title: Använd mongoimport och mongorestore med Azure Cosmos DB-API:et för MongoDB | Microsoft Docs
+title: Använda mongoimport och mongorestore med Azure Cosmos DB API för MongoDB
 description: Lär dig hur du använder mongoimport och mongorestore för att importera data till ett API för MongoDB-konto
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50bb34d86780dec003c63b5ff0a3884049dd47c1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706984"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871021"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Självstudie: Migrera data till Azure Cosmos DB MongoDB-API-konto
 

@@ -12,16 +12,16 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: b7a3fc6e5dafb59d6981ff4302d4b060b0c73d6b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d5be25abc634200e0c0afed6946b38fd163fb78e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499238"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890508"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
 
-I den här snabbstarten går vi igenom hur du skapar en [hanterad instans](sql-database-managed-instance.md) av Azure SQL Database i Azure-portalen. 
+I den här snabbstarten går vi igenom hur du skapar en [hanterad instans](sql-database-managed-instance.md) av Azure SQL Database i Azure-portalen.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -45,7 +45,7 @@ I följande steg visas hur du skapar en hanterad instans.
    | ------ | --------------- | ----------- |
    | **Prenumeration** | Din prenumeration | En prenumeration där du har behörighet att skapa nya resurser |
    |**Namn på hanterad instans**|Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Administratörsinloggning för hanterad instans**|Giltigt användarnamn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.| 
+   |**Administratörsinloggning för hanterad instans**|Giltigt användarnamn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.|
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 16 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Plats**|Platsen där du vill skapa den hanterade instansen|För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/).|
    |**Virtuellt nätverk**|Välj antingen **Skapa nytt virtuellt nätverk** eller ett virtuellt nätverk som du skapat tidigare i den resursgrupp som du angav tidigare i det här formuläret.| Information om att konfigurera ett virtuellt nätverk för en hanterad instans med anpassade inställningar finns i [Konfigurera en mall för den virtuella nätverksmiljön i SQL Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) i Github. Information om kraven för att konfigurera nätverksmiljön för en hanterad instans finns i [Konfigurera ett virtuellt nätverk för hanterad Azure SQL Database-instans](sql-database-managed-instance-vnet-configuration.md). |
@@ -53,15 +53,16 @@ I följande steg visas hur du skapar en hanterad instans.
 
    ![formulär för hanterad instans](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Välj **Prisnivå** för att beräkna storlek på instanser och lagringsresurser samt granska alternativen för prisnivå. Standardvärdet är prisnivån Generell användning med 32 GB minne och 16 virtuella kärnor.
-6. Använd skjutreglagen eller textrutorna för att ange mängden lagringsutrymme och antalet virtuella kärnor. 
-7. När det är klart väljer du **Verkställ** för att spara ditt val.  
-8. Välj **Skapa** för att distribuera den hanterade instansen.
-9. Välj ikonen **Meddelanden** för att visa status för distributionen.
+5. Om du vill använda den hanterade instansen som en sekundär redundansgrupp för instansen väljer du utcheckningen och anger den hanterade DnsAzurePartner-instansen. Den här funktionen är en förhandsversion och visas inte i den tillhörande skärmbilden.
+6. Välj **Prisnivå** för att beräkna storlek på instanser och lagringsresurser samt granska alternativen för prisnivå. Standardvärdet är prisnivån Generell användning med 32 GB minne och 16 virtuella kärnor.
+7. Använd skjutreglagen eller textrutorna för att ange mängden lagringsutrymme och antalet virtuella kärnor.
+8. När det är klart väljer du **Verkställ** för att spara ditt val.  
+9. Välj **Skapa** för att distribuera den hanterade instansen.
+10. Välj ikonen **Meddelanden** för att visa status för distributionen.
 
     ![distributionsförlopp för hanterad instans](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-10. Välj **Distribution pågår** för att öppna fönstret för den hanterade instansen om du vill fortsätta övervaka förloppet för distributionen. 
+11. Välj **Distribution pågår** för att öppna fönstret för den hanterade instansen om du vill fortsätta övervaka förloppet för distributionen.
 
 > [!IMPORTANT]
 > För den första instansen i ett undernät tar distributionen vanligtvis mycket längre tid än för efterföljande instanser. Avbryt inte distributionsåtgärden om den tar längre tid än förväntat. Det tar bara några minuter att skapa den andra hanterade instansen i undernätet.
@@ -78,7 +79,6 @@ När distributionen är färdig kan du granska resurserna som har skapats och h�
 
 3. På fliken **Översikt** letar du upp egenskapen **Värd** och kopierar den hanterade instansens fullständigt hanterade värdadress.
 
-
    ![Hanterade instansresurser](./media/sql-database-managed-instance-get-started/host-name.png)
 
    Namnet ser ut ungefär så här: **ditt_datornamn.a1b2c3d4e5f6.database.windows.net**.
@@ -90,4 +90,4 @@ När distributionen är färdig kan du granska resurserna som har skapats och h�
   - [Konfigurera en anslutning till en virtuell Azure-dator](sql-database-managed-instance-configure-vm.md) är en snabbstart där du får se hur du ansluter till en hanterad instans från en virtuell Azure-dator.
   - [Konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md) är en snabbstart där du får se hur du ansluter till en hanterad instans från en lokal klientdator via punkt-till-plats-anslutning.
 - Om du vill återställa en lokal befintlig SQL Server-databas till en hanterad instans kan du använda [Azure Database Migration Service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) till att återställa från en databassäkerhetskopia eller kommandot [T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) till att återställa från en databassäkerhetskopia.
-- Information om avancerad övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i artikeln om att [övervaka Azure SQL Database med Azure SQL-analys](../log-analytics/log-analytics-azure-sql.md)
+- Information om avancerad övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i artikeln om att [övervaka Azure SQL Database med Azure SQL-analys](../azure-monitor/insights/azure-sql.md)

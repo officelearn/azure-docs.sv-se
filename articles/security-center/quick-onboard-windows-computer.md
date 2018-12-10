@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/2/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 57560a035f4d0468625e4c8f3ad6b7a7e516590f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023008"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850689"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snabbstart: Publicera Windows-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center for resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Microsoft Monitoring Agent.
@@ -30,7 +30,7 @@ Den här snabbstarten visar hur du installerar Microsoft Monitoring Agent på en
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
-Innan du startar den här snabbstarten måste du ha standardnivån i Security Center. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center Standard utan kostnad under de första 60 dagarna.
+Innan du startar den här snabbstarten måste du ha standardnivån i Security Center. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-windows-computer"></a>Lägg till ny Windows-dator
 
@@ -75,7 +75,7 @@ Nu måste du installera den hämtade filen på måldatorn.
 
 När du är klar visas **Microsoft Monitoring Agent** i **Kontrollpanelen**. Du kan granska konfigurationen där och bekräfta att agenten är ansluten.
 
-Mer information om att installera och konfigurera agenten finns i dokumentationen om att [ansluta Windows-datorer](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard).
+Mer information om att installera och konfigurera agenten finns i dokumentationen om att [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
 Nu kan du övervaka dina virtuella Azure-datorer och datorer som inte är Azure-datorer på ett ställe. Under **Compute** (Beräkna) har du en översikt över alla virtuella datorer och datorer tillsammans med rekommendationer. I varje kolumn finns en typ av rekommendationer. Färgen representerar den virtuella datorns eller datorns aktuella säkerhetsstatus för den rekommendationen. Security Center hämtar också alla identifieringar för datorerna i Säkerhetsaviseringar.
 

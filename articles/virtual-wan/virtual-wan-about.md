@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: fedb41f6538e0c65114c4a28c8aa43ffc7ef6d7f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c2edb821eb8bd9a5da7a6cce81269e7d3f611722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957608"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869899"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Vad är Azure Virtual WAN?
 
@@ -29,7 +29,7 @@ Den här artikeln ger en snabb överblick över nätverksanslutningarna för arb
 
 ## <a name="s2s"></a>Plats-till-plats-anslutningar
 
-Om du vill skapa en plats-till-plats-anslutning med Virtual WAN kan du antingen arbeta med en [Virtual WAN-partner](https://go.microsoft.com/fwlink/p/?linkid=2019615) eller skapa anslutningen manuellt.
+Om du vill skapa en plats-till-plats-anslutning med Virtual WAN kan du antingen arbeta med en [Virtual WAN-partner](virtual-wan-locations-partners.md) eller skapa anslutningen manuellt.
 
 ### <a name="s2spartner"></a>Arbeta med en Virtual WAN-partner
 
@@ -46,11 +46,11 @@ Om du inte vill använda en prioriterad partner kan du konfigurera anslutningen 
 
 En P2S-anslutning (punkt-till-plats) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. En P2S-anslutning upprättas genom att du startar den från klientdatorn. Den här lösningen är praktisk för distansarbetare som vill ansluta från en fjärransluten plats, t.ex. hemifrån eller från en konferens. VPN för punkt-till-plats är också ett bra alternativ till VPN för plats-till-plats om du bara har ett fåtal klienter som behöver ansluta.
 
-Om du vill skapa anslutningen manuellt läser du [Skapa en punkt-till-plats-anslutning med hjälp av Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid).
+Om du vill skapa anslutningen manuellt läser du [Skapa en punkt-till-plats-anslutning med hjälp av Virtual WAN](virtual-wan-point-to-site-portal.md).
 
 ## <a name="er"></a>ExpressRoute-anslutningar (förhandsversion)
 
-Information om hur du skapar anslutningen manuellt finns i [Skapa en ExpressRoute-anslutning med Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2020148&clcid).
+Information om hur du skapar anslutningen manuellt finns i [Skapa en ExpressRoute-anslutning med Virtual WAN](virtual-wan-expressroute-portal.md).
 
 
 ## <a name="resources"></a>Virtual WAN-resurser
@@ -76,4 +76,4 @@ Om du vill konfigurera ett virtuellt WAN från slutpunkt till slutpunkt skapar d
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa [Virtual WAN-partners och -platser](https://aka.ms/virtualwan)
+Visa sidan [Virtual WAN-partner och -platser](virtual-wan-locations-partners.md).

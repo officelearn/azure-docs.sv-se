@@ -1,21 +1,19 @@
 ---
-title: Azure Table Storage-stöd i Azure Cosmos DB | Microsoft Docs
+title: Azure Table Storage-stöd i Azure Cosmos DB
 description: Läs hur Azure Cosmos DB Table API:t och Azure Storage-tabeller fungerar tillsammans.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 114286b45df5f47e81bd2b990c8b50c8b7b7a482
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 6c6b0650ae8f4ed780b72e8fcd414e3f26e4f5f3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185374"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878745"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Utveckla med Azure Cosmos DB Table API:t och Azure Table Storage
 

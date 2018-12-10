@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 6b44e08fc1dce489e703bea1cbef2a7e94ae0f2a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 83785e532523c3e921b0772ddaa50502b2dc867d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961049"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633800"
 ---
 # <a name="manage-conflicts-between-regions"></a>Hantera konflikter mellan regioner
 
@@ -83,9 +83,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-stored-procedure"></a>Skapa en anpassad konfliktlösningsprincip med lagrad procedur
+## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Skapa en anpassad konfliktlösningsprincip med en lagrad procedur
 
-De här exemplen visar hur du konfigurerar en container med en anpassad konfliktlösningsprincip med en lagrad procedur för att lösa konflikten. De här konflikterna visas **inte** i konfliktflödet om det inte finns ett fel i din lagrade procedur.
+De här exemplen visar hur du konfigurerar en container med en anpassad konfliktlösningsprincip med en lagrad procedur för att lösa konflikten. De här konflikterna visas inte i konfliktflödet såvida det inte finns ett fel i din lagrade procedur.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -102,7 +102,7 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-Du måste skapa en lagrad `resolver`-procedur när containern har skapats.
+När containern har skapats måste du skapa den lagrade proceduren `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
 
@@ -114,7 +114,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-Du måste skapa en lagrad `resolver`-procedur när containern har skapats.
+När containern har skapats måste du skapa den lagrade proceduren `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
 
@@ -127,7 +127,7 @@ udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
 
-Du måste skapa en lagrad `resolver`-procedur när containern har skapats.
+När containern har skapats måste du skapa den lagrade proceduren `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -146,7 +146,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-Du måste skapa en lagrad `resolver`-procedur när containern har skapats.
+När containern har skapats måste du skapa den lagrade proceduren `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
 
@@ -154,11 +154,11 @@ Du måste skapa en lagrad `resolver`-procedur när containern har skapats.
 
 ```
 
-Du måste skapa en lagrad `resolver`-procedur när containern har skapats.
+När containern har skapats måste du skapa den lagrade proceduren `resolver`.
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Skapa en senaste skrivning vinner-konfliktlösningsprincip
 
-De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Om sökvägen inte har angetts eller är ogiltig används som standard egenskapen `_ts` (tidsstämpelfältet). De här konflikterna visas **inte** i konfliktflödet.
+De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Om sökvägen inte har angetts eller är ogiltig används som standard egenskapen `_ts`. Den här egenskapen är tidsstämpelfältet. De här konflikterna visas inte i konfliktflödet.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -227,7 +227,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="read-from-conflict-feed"></a>Läsa från konfliktflödet
 
-De här exemplen visar hur du läser från en containers konfliktflöde. Konflikter visas in konfliktflödet om de inte har lösts automatiskt.
+De här exemplen visar hur du läser från en containers konfliktflöde. Konflikter visas endast in konfliktflödet om de inte har lösts automatiskt.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
@@ -277,8 +277,8 @@ while conflict:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu kan du gå vidare till att lära dig följande Cosmos DB-koncept:
+Läs mer om följande Azure Cosmos DB-begrepp:
 
 * [Partitionering och datadistribution](partition-data.md)
-* [Indexering i Cosmos DB](indexing-policies.md)
+* [Indexering i Azure Cosmos DB](indexing-policies.md)
 

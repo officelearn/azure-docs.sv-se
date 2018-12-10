@@ -1,9 +1,8 @@
 ---
-title: Skapa ett Azure Cosmos DB .NET Framework- eller Core-program med Gremlin-API:t | Microsoft Docs
+title: Skapa ett Azure Cosmos DB .NET Framework- eller Core-program med Gremlin-API:t
 description: Anger ett .NET Framework/Core-kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,18 +10,18 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e6166bc815c3065f4c204122b982ffb3c752d489
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 132e13f213a681b2e6e8581200070fb316e7b582
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574366"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847107"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>Azure Cosmos DB: Skapa ett .NET Framwork- eller Core-program med Gremlin-API:t
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
-> * [.NET](create-graph-dotnet.md)
+> * [NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)

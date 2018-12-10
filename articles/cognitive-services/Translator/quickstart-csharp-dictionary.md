@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Hitta alternativa översättningar, C# – Translator Text-API'
+title: 'Snabbstart: Hämta alternativa översättningar, C# – Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att få alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av .NET Core och Translator Text API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: b77113378803b3d40e3612c668a5048a936edbe2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 034b6e102d008039ddd138798900dbee17faf51d
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679332"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887958"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-c"></a>Snabbstart: Hitta alternativa översättningar med Translator Text REST API (C#)
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-c"></a>Snabbstart: Använd Translator Text API för att hämta alternativa översättningar med C#
 
 I den här snabbstarten lär du dig att få alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av .NET Core och Translator Text API.
 

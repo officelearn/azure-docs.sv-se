@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: d02c71865f900c2b75da60bd2e989e04a6823d11
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 7783a10badd98a29488732d68267241ff619b645
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005248"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838675"
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Snabbstart: Ansluta säkerhetslösningar till Security Center
 
@@ -33,7 +33,7 @@ I den här snabbstarten får du veta hur du:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-För att gå igenom den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad under de första 60 dagarna. Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
+För att gå igenom den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 Du behöver också en [Linux-dator](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux) med en Syslog-tjänst som redan är ansluten till Security Center.
 

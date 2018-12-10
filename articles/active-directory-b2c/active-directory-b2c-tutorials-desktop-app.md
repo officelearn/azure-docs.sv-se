@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 2/28/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: a7a861ccff168655d866d8c9205160bface79c9e
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a135dd0b350a6129d94f1c6b0b185c3fb272668f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913418"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834510"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Självstudiekurs: Aktivera autentisering av skrivbordsapp med konton med hjälp av Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Registrera exempelskrivbordsappen i din Azure AD B2C-klientorganisation.
-> * Skapa principer för registrering av användare, inloggning, redigering av profil och återställning av lösenord.
+> * Skapa användarflöden för registrering av användare, inloggning, redigering av profil och återställning av lösenord.
 > * Konfigurera exempelprogrammet så att det använder din Azure AD B2C-klientorganisation.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -57,7 +57,7 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
     | **Ta med webbapp/webb-API** | Nej | Välj **Nej** för en skrivbordsapp. |
     | **Inkludera intern klient** | Ja | Eftersom detta är en skrivbordsapp och betraktas som en intern klient. |
     | **Omdirigerings-URI** | Standardvärden | Unik identifierare till vilken Azure AD B2C dirigerar om användaragenten i ett OAuth 2.0-svar. |
-    | **Anpassad omdirigerings-URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Ange sändningstoken för `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path`-principer till denna URI. |
+    | **Anpassad omdirigerings-URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Ange sändningstoken för `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path`-användarflöden till denna URI. |
     
 3. Klicka på **Skapa** för att registrera din app.
 
@@ -67,65 +67,89 @@ Registrerade appar visas i programlistan för Azure AD B2C-klientorganisationen.
 
 Anteckna det **Programklients-id** som visas. Detta ID identifierar appen och behövs när appen konfigureras senare under självstudierna.
 
-## <a name="create-policies"></a>Skapa principer
+## <a name="create-user-flows"></a>Skapa användarflöden
 
-En Azure AD B2C-princip definierar arbetsflöden för användare. Vanliga arbetsflöden är att logga in, registrera sig, byta lösenord och redigera profiler.
+Azure AD B2C-användarflöden definierar användargränssnittet för en identitetsuppgift. Till exempel är vanliga användarflöden att logga in, registrera sig, byta lösenord och redigera profiler.
 
-### <a name="create-a-sign-up-or-sign-in-policy"></a>Skapa en registrerings- eller inloggningsprincip
+### <a name="create-a-sign-up-or-sign-in-user-flow"></a>Skapa ett användarflöde för registrering eller inloggning
 
-Skapa en **registrerings- eller inloggningsprincip** om du vill registrera användare och sedan låta dem logga in i skrivbordsappen.
+Skapa ett **användarflöde för registrering eller inloggning** om du vill registrera användare och sedan låta dem logga in i skrivbordsappen.
 
-1. I Azure AD B2C-portalsidan väljer du **registrerings- eller inloggningsprinciper** och klickar på **Lägg till**.
+1. På Azure AD B2C-portalsidan väljer du **Användarflöden** och klickar på **Nytt användarflöde**.
+2. På fliken **Rekommenderat** klickar du på **Sign up and sign in** (Registrera och logga in).
 
-    Konfigurerar principen med följande inställningar:
+    Konfigurera användarflödet med följande inställningar:
 
-    ![Lägg till en registrerings- eller inloggningsprincip](media/active-directory-b2c-tutorials-desktop-app/add-susi-policy.png)
-
-    | Inställning      | Föreslaget värde  | Beskrivning                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Namn** | SiUpIn | Ange ett **Namn** för principen. Principens namn har prefixet **B2C_1_**. Använd det fullständiga principnamnet **B2C_1_SiUpIn** i exempelkoden. | 
-    | **Identitetsprovider** | E-postregistrering | Den identitetsprovider som används för att unikt identifiera användaren. |
-    | **Registreringsattribut** | Visningsnamn och Postnummer | Välj vilka attribut som samlas in från användaren under registreringen. |
-    | **Programanspråk** | Visningsnamn, postnummer, användare är ny, användarens objekt-ID | Välj [anspråk](../active-directory/develop/developer-glossary.md#claim) som ska tas med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token). |
-
-2. Klicka på **Skapa** för att skapa principen. 
-
-### <a name="create-a-profile-editing-policy"></a>Skapa en profilredigeringsprincip
-
-Om du vill att användarna själva ska kunna återställa informationen i sin användarprofil skapar du en **profilredigeringsprincip**.
-
-1. I Azure AD B2C-portalsidan väljer du **profilredigeringsprinciper** och klickar på **Lägg till**.
-
-    Konfigurerar principen med följande inställningar:
+    ![Lägga till ett användarflöde för registrering eller inloggning](media/active-directory-b2c-tutorials-desktop-app/add-susi-user-flow.png)
 
     | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Namn** | SiPe | Ange ett **Namn** för principen. Principens namn har prefixet **B2C_1_**. Använd det fullständiga principnamnet **B2C_1_SiPe** i exempelkoden. | 
-    | **Identitetsprovider** | Inloggning på lokalt konto | Den identitetsprovider som används för att unikt identifiera användaren. |
-    | **Profilattribut** | Visningsnamn och Postnummer | Välj de attribut en användare kan ändra under profilredigering. |
-    | **Programanspråk** | Visningsnamn, postnummer, användarens objekt-ID | Välj de [anspråk](../active-directory/develop/developer-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) efter en lyckad profilredigering. |
+    | **Namn** | SiUpIn | Ange ett **Namn** för användarflödet. Användarflödets namn har prefixet **B2C_1_**. Använd det fullständiga användarflödesnamnet **B2C_1_SiUpIn** i exempelkoden. | 
+    | **Identitetsprovidrar** | E-postregistrering | Den identitetsprovider som används för att unikt identifiera användaren. |
 
-2. Klicka på **Skapa** för att skapa principen. 
+3.  Under **Användarattribut och anspråk** klickar du på **Visa mer** och väljer följande inställningar:
 
-### <a name="create-a-password-reset-policy"></a>Skapa en princip för återställning av lösenord
+    ![Lägg till ett användarattribut och anspråk](media/active-directory-b2c-tutorials-desktop-app/add-attributes-and-claims.png)
 
-Om du vill kunna aktivera lösenordsåterställning i programmet måste du skapa en **princip för lösenordsåterställning**. Principen beskriver hur lösenordsåterställningen går till för konsumenterna och innehållet i de token som programmet tar emot när återställningen genomförts.
+    | Kolumn      | Föreslagna värden  | Beskrivning                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Samla in attribut** | Visningsnamn och Postnummer | Välj vilka attribut som samlas in från användaren under registreringen. |
+    | **Returanspråk** | Visningsnamn, postnummer, användare är ny, användarens objekt-ID | Välj [anspråk](../active-directory/develop/developer-glossary.md#claim) som ska tas med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token). |
 
-1. I Azure AD B2C-portalsidan väljer du **Princip för lösenordsåterställning** och klickar på **Lägg till**.
+4. Klicka på **OK**.
 
-    Konfigurera principen med följande inställningar.
+5. Klicka på **Skapa** för att skapa användarflödet. 
+
+### <a name="create-a-profile-editing-user-flow"></a>Skapa ett användarflöde för profilredigering
+
+Om du vill att användarna själva ska kunna återställa informationen i sin användarprofil skapar du ett **användarflöde för profilredigering**.
+
+1. På Azure AD B2C-portalsidan väljer du **Användarflöde** och klickar på **Nytt användarflöde**.
+2. På fliken **Rekommenderat** klickar du på **Profilredigering**.
+
+    Konfigurera användarflödet med följande inställningar:
 
     | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Namn** | SSPR | Ange ett **Namn** för principen. Principens namn har prefixet **B2C_1_**. Använd det fullständiga principnamnet **B2C_1_SSPR** i exempelkoden. | 
-    | **Identitetsprovider** | Återställ lösenord med e-postadress | Den identitetsprovider som används för att unikt identifiera användaren. |
-    | **Programanspråk** | Användarens objekt-ID | Välj de [anspråk](../active-directory/develop/developer-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) efter en lyckad lösenordsåterställning. |
+    | **Namn** | SiPe | Ange ett **Namn** för användarflödet. Användarflödets namn har prefixet **B2C_1_**. Använd det fullständiga användarflödesnamnet **B2C_1_SiPe** i exempelkoden. | 
+    | **Identitetsprovidrar** | Inloggning på lokalt konto | Den identitetsprovider som används för att unikt identifiera användaren. |
 
-2. Klicka på **Skapa** för att skapa principen. 
+3. Under **Användarattribut** klickar du på **Visa mer** och väljer följande inställningar:
+
+    | Kolumn      | Föreslagna värden  | Beskrivning                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Samla in attribut** | Visningsnamn och Postnummer | Välj de attribut en användare kan ändra under profilredigering. |
+    | **Returanspråk** | Visningsnamn, postnummer, användarens objekt-ID | Välj de [anspråk](../active-directory/develop/developer-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) efter en lyckad profilredigering. |
+
+4. Klicka på **OK**.
+5. Klicka på **Skapa** för att skapa användarflödet. 
+
+### <a name="create-a-password-reset-user-flow"></a>Skapa ett användarflöde för återställning av lösenord
+
+Om du vill kunna aktivera lösenordsåterställning i programmet behöver du skapa ett **användarflöde för lösenordsåterställning**. Det här användarflödet beskriver hur lösenordsåterställningen går till för konsumenterna och innehållet i de token som programmet tar emot när återställningen genomförts.
+
+1. På Azure AD B2C-portalsidan väljer du **användarflöden** och klickar på **Nytt användarflöde**.
+2. På fliken **Rekommenderat** klickar du på **Återställning av lösenord**.
+
+    Konfigurera användarflödet med följande inställningar.
+
+    | Inställning      | Föreslaget värde  | Beskrivning                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Namn** | SSPR | Ange ett **Namn** för användarflödet. Användarflödets namn har prefixet **B2C_1_**. Använd det fullständiga användarflödesnamnet **B2C_1_SSPR** i exempelkoden. | 
+    | **Identitetsprovidrar** | Återställ lösenord med e-postadress | Den identitetsprovider som används för att unikt identifiera användaren. |
+
+3. Under **Programanspråk** klickar du på **Visa mer** och väljer följande inställning:
+
+    | Kolumn      | Föreslaget värde  | Beskrivning                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Returanspråk** | Användarens objekt-ID | Välj de [anspråk](../active-directory/develop/developer-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) efter en lyckad lösenordsåterställning. |
+
+4. Klicka på **OK**.
+5. Klicka på **Skapa** för att skapa användarflödet. 
 
 ## <a name="update-desktop-app-code"></a>Uppdatera skrivbordsappens kod
 
-Nu när du har registrerat en skrivbordsapp och skapat principer måste du konfigurera appen så att den använder din Azure AD B2C-klientorganisation. I den här självstudien konfigurerar du en exempelskrivbordsapp. 
+Nu när du har registrerat en skrivbordsapp och skapat användarflöden behöver du konfigurera appen så att den använder din Azure AD B2C-klientorganisation. I den här självstudien konfigurerar du en exempelskrivbordsapp. 
 
 [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [bläddra på lagringsplatsen](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) eller klona exemplet från GitHub.
 
@@ -135,7 +159,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 Exemplet på WPF-skrivbordsapp visar hur en skrivbordsapp kan använda Azure AD B2C för användarens registrering och inloggning, och anropa ett skyddat webb-API.
 
-Appen måste ändras så den använder appregistreringen i din klientorganisation. 
+Du behöver ändra appen så att den använder appregistreringen i din klientorganisation och konfigurera de användarflöden som du skapade. 
 
 Så här ändrar du appinställningarna:
 
@@ -148,7 +172,7 @@ Så här ändrar du appinställningarna:
     private static string ClientId = "The Application ID for your desktop app registered in your tenant";
     ```
 
-3. Uppdatera variabeln **PolicySignUpSignIn** med namnet på den *princip för registrering eller inloggning* som du skapade i föregående steg. Kom ihåg att inkludera prefixet *B2C_1_*.
+3. Uppdatera variabeln **PolicySignUpSignIn** med namnet på det *användarflöde för registrering eller inloggning* som du skapade i ett tidigare steg. Kom ihåg att inkludera prefixet *B2C_1_*.
 
     ```C#
     public static string PolicySignUpSignIn = "B2C_1_SiUpIn";
@@ -162,11 +186,11 @@ Exempelappen har stöd för registrering av användare, inloggning, redigering a
 
 ### <a name="sign-up-using-an-email-address"></a>Registrera sig med en e-postadress
 
-1. Klicka på knappen **Logga in** om du vill logga in som användare av skrivbordsappen. Då används principen **B2C_1_SiUpIn** som du definierade i ett tidigare steg.
+1. Klicka på knappen **Logga in** om du vill logga in som användare av skrivbordsappen. Då används användarflödet **B2C_1_SiUpIn**, som du definierade i ett tidigare steg.
 
 2. Azure AD B2C visar en inloggningssida med en registreringslänk. Eftersom du inte har något konto klickar du på länken **Registrera dig**. 
 
-3. Arbetsflödet för registrering visar en sida för att samla in och verifiera användarens identitet med en e-postadress. Arbetsflödet för registrering samlar även in användarens lösenord och de attribut som begärs i principen.
+3. Arbetsflödet för registrering visar en sida för att samla in och verifiera användarens identitet med en e-postadress. Arbetsflödet för registrering samlar även in användarens lösenord och de attribut som definierats i användarflödet.
 
     Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen. 
 
@@ -185,7 +209,7 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra självs
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att skapa en Azure AD B2C-klientorganisation, skapa principer och uppdatera exempelskrivbordsappen så att den använder din Azure AD B2C-klientorganisation. Fortsätt till nästa självstudie och lär dig registrera, konfigurera och anropa ett skyddat webb-API från en skrivbordsapp.
+I den här självstudien lärde du dig att skapa en Azure AD B2C-klientorganisation, skapa användarflöden och uppdatera exempelskrivbordsappen så att den använder din Azure AD B2C-klientorganisation. Fortsätt till nästa självstudie och lär dig registrera, konfigurera och anropa ett skyddat webb-API från en skrivbordsapp.
 
 > [!div class="nextstepaction"]
 > 

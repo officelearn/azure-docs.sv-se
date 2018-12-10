@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 19b4a1382b2a9b6034fd6ac9feed776dcca6a124
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 53f9850d794061f5aaebc556743291ae8f3305fb
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704366"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721297"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Resource Manager
 
@@ -41,7 +41,7 @@ Med hjälp av hanterade identiteter för Azure-resurser kan din kod hämta åtko
 1.  Gå till fliken för **resursgrupper**. 
 2.  Välj den specifika **resursgrupp** som du skapade för den **virtuella Windows-datorn**. 
 3.  Gå till **Åtkomstkontroll (IAM)** på den vänstra panelen. 
-4.  **Lägg till** en ny rolltilldelning för den **virtuella Windows-datorn**.  Välj **rollen** som **läsare**. 
+4.  **Lägg sedan till en ny rolltilldelning** för den **virtuella Windows-datorn**.  Välj **rollen** som **läsare**. 
 5.  I nästa listruta **tilldelar du behörighet till** resursen **Virtuell dator**. 
 6.  Kontrollera sedan att rätt prenumeration visas i listrutan **Prenumeration**. Och för **Resursgrupp** väljer du **Alla resursgrupper**. 
 7.  I **Välj** väljer du slutligen din virtuella Windows-dator i listrutan och klickar på **Spara**.

@@ -1,6 +1,6 @@
 ---
-title: Data science kod testning på Azure med UCI vuxet inkomst förutsägelse datauppsättningen - Team Data Science Process och Azure DevOps-tjänsterna
-description: Data science kod testning med UCI vuxet intäkter
+title: Testa data science kod med Azure-tjänster för DevOps - Team Data Science Process
+description: Data science kod testning på Azure med UCI vuxet inkomst förutsägelse datauppsättningen med Team Data Science Process och Azure DevOps-tjänsterna
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: tdsp
-ms.custom: (previous author=weig, ms.author=weig)
-ms.openlocfilehash: d04f50bc3de34c28c10be7ba429f85a99096de47
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
+ms.openlocfilehash: d8c3bafaa42e68eb7f6b5212c055793a1f2b1137
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443958"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134547"
 ---
-# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Data science kod testning med UCI vuxet inkomst förutsägelse datauppsättningen
+# <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Data science kod testning på Azure med Team Data Science Process och Azure DevOps-tjänsterna
 Den här artikeln ger preliminär riktlinjer för att testa koden i ett arbetsflöde för datavetenskap. Sådant test ger datatekniker ett systematiskt och effektivt sätt att kontrollera kvaliteten och förväntade resultatet av sin kod. Vi använder ett Team Data Science Process (TDSP) [projekt som använder UCI vuxet inkomst datauppsättningen](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) som vi har publicerat tidigare för att visa hur kod testning kan göras. 
 
 ## <a name="introduction-on-code-testing"></a>Introduktion till code testning

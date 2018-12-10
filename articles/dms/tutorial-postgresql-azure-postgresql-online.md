@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: 004db061e721f0169491e98bd8e7cdd86e08bb01
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 12/04/2018
+ms.openlocfilehash: ba27ceb784cf139c288a89f3191282fb9b364ddc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963613"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864384"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudie: Migrera PostgreSQL till Azure Database for PostgreSQL online med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal PostgreSQL-instans till [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal avbrottstid. Du kan med andra ord migrera med minimal stilleståndstid i programmet. I den här självstudien migrerar du exempeldatabasen **DVD Rental** från en lokal instans av PostgreSQL 9.6 till Azure Database for PostgreSQL genom att använda en onlinemigreringsaktivitet i Azure Database Migration Service.
@@ -28,6 +28,9 @@ I den här guiden får du lära dig att:
 > * Skapa ett migreringsprojekt med hjälp av Azure Database Migration Service.
 > * Köra migreringen.
 > * Övervaka migreringen.
+
+> [!NOTE]
+> Användning av Azure Database Migration Service för att utföra en onlinemigrering kräver att en instans skapas baserat på prisnivån Premium (förhandsversion).
 
 > [!IMPORTANT]
 > För optimala migreringsfunktioner rekommenderar Microsoft att skapa en instans av Azure Database Migration Service i samma Azure-region som måldatabasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.

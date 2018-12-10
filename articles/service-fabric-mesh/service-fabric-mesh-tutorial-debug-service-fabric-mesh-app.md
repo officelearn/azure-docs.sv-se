@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997020"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887516"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Självstudie: felsök ett Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster
 
@@ -74,7 +74,9 @@ Tryck på **F5** för att kompilera och köra tjänsten lokalt. När projektet k
 
 När den lokala distributionen är klar och Visual Studio kör din app öppnas ett webbläsarfönster med en standardexempelwebbsida.
 
-**Felsökningstips**
+## <a name="debugging-tips"></a>Felsökningstips
+
+Gör din första felsökningskörning (F5) mycket snabbare genom att följa instruktionerna i [Optimera Visual Studio-prestanda](service-fabric-mesh-howto-optimize-vs.md).
 
 Det har uppstått ett problem som gör att anropet till `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` inte ansluter till tjänsten. Detta kan inträffa när värdens IP-adress ändras. Lösning:
 
@@ -95,8 +97,8 @@ När du felsöker ett Service Fabric Mesh-program i Visual Studio använder du e
 2. I projektet **ToDoService** öppnar du **TodoController.cs** och ställer in en brytpunkt i metoden **OnGet** (linje 15).
 3. Gå tillbaka till webbläsaren och uppdatera sidan. Du kommer till brytpunkten i webbklientdelens `OnGet()`-metod. Du kan granska variabeln `backendUrl` för att se hur miljövariablerna som du definierade i **service.yaml**-filen kombineras i den webbadress som användes för att kontakta serversidetjänsten.
 4. Stega över (F10) `client.GetAsync(backendUrl).GetAwaiter().GetResult())`-anropet. Du kommer till kontrollantens `Get()`-brytpunkt. I den här metoden kan du se hur listan över att göra-objekt hämtas från listan i minnet.
-5. När du är klar kan du stoppa felsökningen av projektet i Visual Studio genom att trycka på **Shift + F5**.
- 
+5. När du är klar kan du stoppa felsökningen av projektet i Visual Studio genom att trycka på **Skift + F5**.
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiedelen lärde du dig:

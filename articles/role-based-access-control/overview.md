@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 19285bf7a1323e9698fe408566304d0596d1c983
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311275"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867906"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Vad är rollbaserad åtkomstkontroll (Role-based access control, RBAC)?
 
@@ -50,13 +50,14 @@ Du styr åtkomst till resurser med hjälp av RBAC genom att skapa rolltilldelnin
 
 ### <a name="security-principal"></a>Säkerhetsobjekt
 
-En *säkerhetsobjekt* är ett objekt som representerar en användare, en grupp eller tjänstens huvudnamn som begär åtkomst till Azure-resurser.
+En *säkerhetsobjekt* är ett objekt som representerar en användare, en grupp, tjänstens huvudnamn eller hanterad identitet som begär åtkomst till Azure-resurser.
 
 ![Säkerhetsobjekt för en rolltilldelning](./media/overview/rbac-security-principal.png)
 
 - Användare – en person som har en profil i Azure Active Directory. Du kan även tilldela roller till användare i andra klientorganisationer. Information om användare i andra organisationer finns i [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Grupp – en uppsättning användare som skapas i Azure Active Directory. När du tilldelar en roll till en grupp får alla användare i gruppen den rollen. 
 - Tjänstens huvudnamn – en säkerhetsidentitet som används av program eller tjänster för att få åtkomst till specifika Azure-resurser. Du kan se det som en *användaridentitet* (användarnamn och lösenord eller certifikat) för ett program.
+- Hanterad identitet – en identitet i Azure Active Directory som hanteras automatiskt av Azure. Normalt använder du [hanterade identiteter](../active-directory/managed-identities-azure-resources/overview.md) när du utvecklar molnbaserade program för att hantera uppgifterna för autentisering i Azure-tjänster.
 
 ### <a name="role-definition"></a>Rolldefinition
 
@@ -91,7 +92,7 @@ När du beviljar åtkomst i ett överordnat omfång ärvs dessa behörigheter av
 
 ### <a name="role-assignments"></a>Rolltilldelningar
 
-En *rolltilldelning* är processen att binda en rolldefinition till en användare, grupp eller tjänstens huvudnamn i ett visst omfång för att bevilja åtkomst. Åtkomst beviljas genom att en rolltilldelning skapas, och åtkomst återkallas genom att en rolltilldelning tas bort.
+En *rolltilldelning* är processen att koppla en rolldefinition till en användare, grupp, tjänstens huvudnamn eller hanterad identitet i ett visst omfång för att bevilja åtkomst. Åtkomst beviljas genom att en rolltilldelning skapas, och åtkomst återkallas genom att en rolltilldelning tas bort.
 
 Följande diagram visar ett exempel på en rolltilldelning. I det här exemplet har marknadsföringsgruppen tilldelats rollen [Deltagare](built-in-roles.md#contributor) för resursgruppen pharma-sales (läkemedelsförsäljning). Det innebär att användare i marknadsföringsgruppen kan skapa och hantera vilka Azure-resurser som helst i resursgruppen pharma-sales. Marknadsföringsanvändare har inte åtkomst till resurser utanför resursgruppen pharma-sales såvida de inte är en del av en annan rolltilldelning.
 
@@ -101,9 +102,7 @@ Du kan skapa rolltilldelningar med hjälp av Azure-portalen, Azure CLI, Azure Po
 
 ## <a name="deny-assignments"></a>Avvisa tilldelning
 
-Tidigare var RBAC en tillåt endast-modell med inga nekanden, men nu har RBAC stöd för tilldelningsnekanden begränsad utsträckning. På samma sätt som en rolltilldelning binder ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp eller tjänstens huvudnamn i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan en nekandetilldelning definierar en uppsättning åtgärder som *inte är tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar.
-
-För närvarande är tilldelningsnekanden **skrivskyddade** och kan bara ställas in av Azure. Även om det går inte att skapa egna tilldelningsnekanden kan du lista tilldelningsnekanden eftersom de kan påverka din gällande behörigheter. Om du vill hämta information om tilldelningsnekande måste du ha `Microsoft.Authorization/denyAssignments/read`-behörighet, vilket ingår i de flesta [inbyggda roller](built-in-roles.md#owner). Mer information finns i [Förstå tilldelningsnekanden](deny-assignments.md).
+Tidigare var RBAC en tillåt endast-modell med inga nekanden, men nu har RBAC stöd för tilldelningsnekanden begränsad utsträckning. På samma sätt som en rolltilldelning kopplar ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp, tjänstens huvudnamn eller hanterad identitet i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan en nekandetilldelning definierar en uppsättning åtgärder som *inte är tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar. För närvarande är tilldelningsnekanden **skrivskyddade** och kan bara ställas in av Azure. Mer information finns i [Förstå tilldelningsnekanden](deny-assignments.md) och [Visa tilldelningsnekanden med hjälp av Azure-portalen](deny-assignments-portal.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Hur RBAC avgör om en användare har åtkomst till en resurs
 

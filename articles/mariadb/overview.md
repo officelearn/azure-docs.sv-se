@@ -8,17 +8,17 @@ services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/14/2018
-ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/03/2018
+ms.openlocfilehash: b1e458339c2befdb51439cd23ef5f22ba4379c78
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686032"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850269"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Vad är Azure Database for MariaDB?
 
-Azure Database for MariaDB är en relationsdatabastjänst i Microsofts moln. Azure Database for MariaDB baseras på databasmotorn för [MariaDB Community Edition](https://mariadb.org/download/), version 10.2. Den här tjänsten finns i allmän förhandsversion. 
+Azure Database for MariaDB är en relationsdatabastjänst i Microsofts moln. Azure Database for MariaDB baseras på databasmotorn för [MariaDB Community Edition](https://mariadb.org/download/), version 10.2.
 
 Azure Database for MariaDB ger:
 
@@ -43,7 +43,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Justera prestanda och skalning på några sekunder
 
-I förhandsversionen erbjuder tjänsten Azure Database for MariaDB flera tjänstnivåer: Basic, Generell användning och Minnesoptimerad. Varje nivå erbjuder olika prestanda och funktioner för att stödja lätta till tunga arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet hjälper databasen att reagera transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i  [Prisnivåer](concepts-pricing-tiers.md).
+Tjänsten Azure Database for MariaDB erbjuder flera tjänstnivåer: Grundläggande, Generell användning och Minnesoptimerad. Varje nivå erbjuder olika prestanda och funktioner för att stödja lätta till tunga arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet hjälper databasen att reagera transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i  [Prisnivåer](concepts-pricing-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Övervakning och avisering
 
@@ -51,7 +51,7 @@ Hur avgör du när du ska skapa upp eller ned? Du kan använda de inbyggda funkt
 
 ## <a name="keep-your-app-and-business-running"></a>Håll igång din app och din verksamhet
 
-Azures branschledande SLA med 99,99 % tillgänglighet (erbjuds inte under offentlig förhandsversion) drivs av ett globalt nätverk med Microsoft-hanterade datacenter. Nätverket hjälper din app att köras dygnet runt. Du kan dra nytta av inbyggda funktioner för säkerhet, feltolerans och dataskydd i Azure Database for MariaDB. Med Azure Database for MariaDB kan du använda point-in-time-återställning för att återställa en server till ett tidigare skede, så långt tillbaka som 35 dagar.
+Azures branschledande serviceavtal med 99,99 % tillgänglighet drivs av ett globalt nätverk med Microsoft-hanterade datacenter. Nätverket hjälper din app att köras dygnet runt. Du kan dra nytta av inbyggda funktioner för säkerhet, feltolerans och dataskydd i Azure Database for MariaDB. Med Azure Database for MariaDB kan du använda point-in-time-återställning för att återställa en server till ett tidigare skede, så långt tillbaka som 35 dagar.
 
 ## <a name="secure-your-data"></a>Skydda dina data
 

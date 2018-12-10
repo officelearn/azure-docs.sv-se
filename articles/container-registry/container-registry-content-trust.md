@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: 1f1e7ce41c00078c0181fc5f32c43b7e5885eef8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857677"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727355"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Innehållsförtroende i Azure Container Registry
 
@@ -77,7 +77,7 @@ Information om att bevilja rollen `AcrImageSigner` i Azure-portalen och Azure CL
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Gå till ditt register i Azure-portalen och välj sedan **Åtkomstkontroll (IAM)** > **Lägg till**. Under **Lägg till behörigheter** väljer du `AcrImageSigner` under **Roll**. **Välj** sedan en eller flera användare eller tjänsthuvudnamn och **Spara** därefter.
+Gå till ditt register i Azure-portalen och välj sedan **Åtkomstkontroll (IAM)** > **Lägg till rolltilldelning**. Under **Lägg till rolltilldelning** väljer du `AcrImageSigner` under **Roll**. **Välj** sedan en eller flera användare eller tjänsthuvudnamn och **Spara** därefter.
 
 I det här exemplet har två entiteter tilldelats rollen `AcrImageSigner`: ett tjänsthuvudnamn med namnet ”service-principal” och en användare med namnet ”Azure User”.
 

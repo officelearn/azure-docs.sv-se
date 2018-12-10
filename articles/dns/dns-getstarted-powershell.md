@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 07/16/2018
+ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: e5801e9ed512a32d793f7b4b71be86174f656ab0
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: db6ac089f11477ecdb1568195855fae00d3eac61
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089986"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888366"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Snabbstart: Skapa en Azure DNS-zon och post med Azure PowerShell
 
@@ -58,7 +58,6 @@ Om du vill visa en lista med DNS-poster i din zon använder du:
 Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
 ```
 
-
 ## <a name="update-name-servers"></a>Uppdatera namnservrar
 
 När du är nöjd med konfigurationen av DNS-zonen och DNS-posterna måste du konfigurera ditt domännamn för användning med Azure DNS-namnservrarna. Det gör att andra användare på Internet kan hitta dina DNS-poster.
@@ -77,7 +76,7 @@ NumberOfRecordSets    : 3
 MaxNumberOfRecordSets : 5000
 ```
 
-Dessa namnservrar ska konfigureras med domännamnsregistratorn (där du köpte domännamnet). Registratorn erbjuder möjligheten att konfigurera namnservrar för domänen. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
+Dessa namnservrar ska konfigureras med domännamnsregistratorn (där du köpte domännamnet). Registratorn erbjuder möjligheten att konfigurera namnservrar för domänen. Mer information finns i [Självstudie: Använda Azure DNS som värd för din domän](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## <a name="delete-all-resources"></a>Ta bort alla resurser
 

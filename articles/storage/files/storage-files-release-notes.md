@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/4/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 45f77c3065feeb011a10bc345c22082b6a89529c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4f4d30b483d0740261d85921d5dc66e053b5bcf0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582827"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890967"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information för Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -25,7 +25,8 @@ Följande versioner av Azure File Sync-agenten stöds:
 
 | Milstolpe | Agentversionsnummer | Utgivningsdatum | Status |
 |----|----------------------|--------------|------------------|
-| V4-version | 4.0.1.0 | Den 13 november 2018 | Stöds (rekommenderad version) |
+| Samlad - uppdatering för december [KB4459988](https://support.microsoft.com/help/4459988)| 4.1.0.0 | 4 december 2018 | Stöds (rekommenderad version) |
+| V4-version | 4.0.1.0 | Den 13 november 2018 | Stöds |
 | Samlad uppdatering september | 3.3.0.0 | 24 september 2018 | Stöds |
 | Samlad uppdatering augusti | 3.2.0.0 | 15 augusti 2018 | Stöds |
 | Allmän tillgänglighet | 3.1.0.0 | 19 juli 2018 | Stöds |
@@ -42,6 +43,16 @@ Följande versioner av Azure File Sync-agenten stöds:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-4100"></a>Agentversion 4.1.0.0
+Följande viktiga information gäller 4.1.0.0 av Azure File Sync-agenten gavs ut den 4 December 2018. Detta är viktig för version 4.0.1.0.
+
+Lista över problem som åtgärdas i den här versionen:  
+- Stoppfel 0x3B eller stoppfelet 0x1E kan uppstå när en VSS-ögonblicksbilden har skapats.  
+- Servern kan bli svarar inte på grund av en molnlagringsnivå minnesläcka.  
+- Agentinstallationen misslyckas med följande fel: fel 1921. Det gick inte att stoppa tjänsten 'Storage Sync-agenten ”(FileSyncSvc).  Kontrollera att du har behörighet att stoppa systemtjänster.  
+- Tjänsten Storage Sync-agenten (FileSyncSvc) kan krascha när minnesanvändningen är hög.  
+- Diverse tillförlitlighet förbättringar för molnbaserad lagringsnivåer och synkronisering.
 
 ## <a name="agent-version-4010"></a>Agentversion 4.0.1.0
 Följande viktiga information gäller 4.0.1.0 av Azure File Sync-agenten (gavs ut den 13 November 2018).
@@ -107,7 +118,7 @@ Följande objekt synkroniseras inte, men resten av systemet fortsätter att fung
 ## <a name="agent-version-3300"></a>Agentversion 3.3.0.0
 Följande viktiga information gäller 3.3.0.0 av Azure File Sync-agenten gavs ut den 24 September 2018. Detta är viktig för version 3.1.0.0.
 
-Den här versionen innehåller följande korrigeringen:
+Lista över problem som åtgärdas i den här versionen:
 - Registrerad server status är ”visas som offline” när du har i Azure File Sync-agenten har uppgraderats till version 3.1 eller 3.2.
 - Storage Sync-agenten (FileSyncSvc)-tjänsten kraschar på grund av filer som har långa sökvägar.
 - Registrera servern misslyckas med fel: Det gick inte att läsa in filen eller sammansättningen Kailani.Afs.StorageSyncProtocol.V3.

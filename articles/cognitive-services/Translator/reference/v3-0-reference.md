@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 8302a444f28e4fb330a1eedbac9a5da762979d6c
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681967"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870411"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -51,11 +51,21 @@ Om du vill tvinga begäran som ska hanteras av en specifik datacenter, ändrar d
 
 ## <a name="authentication"></a>Autentisering
 
-Prenumererar på Translator Text API i Microsoft Cognitive Services och använder din prenumerationsnyckel (tillgängligt i Azure-portalen) för att autentisera. 
+Prenumererar på Translator Text API eller [Cognitive Services allt-i-ett](https://azure.microsoft.com/pricing/details/cognitive-services/) i Microsoft Cognitive Services och använda din prenumeration tangent (tillgängligt i Azure-portalen) för att autentisera. 
 
-Det enklaste sättet är att skicka din Azure hemlig nyckel till Translator-tjänsten med begärandehuvudet `Ocp-Apim-Subscription-Key`.
+Det finns tre rubriker som du kan använda för att autentisera din prenumeration. Den här tabellen innehåller beskriver hur var och en används:
 
-Ett alternativ är att använda din hemliga nyckeln för att hämta en autentiseringstoken från token-tjänsten. Sedan kan du skicka autentiseringstoken till Translator-tjänsten med den `Authorization` huvudet i begäran. Om du vill ha en autentiseringstoken, göra en `POST` begäran till följande URL:
+|Rubriker|Beskrivning|
+|:----|:----|
+|OCP-Apim-Subscription-Key|*Använd med Cognitive Services-prenumeration om du skickar din hemliga nyckel*.<br/>Värdet är Azure hemlig nyckel för din prenumeration till Translator Text API.|
+|Auktorisering|*Använd med Cognitive Services-prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är ägartoken: `Bearer <token>`.|
+|OCP-Apim-prenumeration-Region|*Använd med Cognitive Services i-ett-prenumeration om du skickar en allt-i-ett hemlig nyckel.*<br/>Värdet är regionen som allt-i-ett-prenumeration. Det här värdet är valfritt när du inte använder en allt-i-ett-prenumeration.|
+
+###  <a name="secret-key"></a>Hemlig nyckel
+Det första alternativet är att autentisera med hjälp av den `Ocp-Apim-Subscription-Key` rubrik. Lägg bara till den `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` rubrik på din begäran.
+
+### <a name="authorization-token"></a>Autentiseringstoken
+Du kan också byta en hemlig nyckel för en åtkomsttoken. Denna token som ingår i varje begäran som den `Authorization` rubrik. Om du vill ha en autentiseringstoken, göra en `POST` begäran till följande URL:
 
 | Miljö     | Tjänst-URL för autentisering                                |
 |-----------------|-----------------------------------------------------------|
@@ -66,6 +76,7 @@ Här följer exempel begäranden att hämta en token som en hemlig nyckel:
 ```
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
@@ -78,20 +89,21 @@ Authorization: Bearer <Base64-access_token>
 
 En autentiseringstoken är giltig i 10 minuter. Token ska återanvändas när flera anrop till Translator-API: er. Men om ditt program gör begäranden till Translator API under en längre tid, måste sedan programmet begära en ny åtkomsttoken med jämna mellanrum (t.ex. var 8: e minut).
 
-Sammanfattningsvis innehåller en klientbegäran Translator-API: et en auktoriseringsrubrik som kommer från följande tabell:
+### <a name="all-in-one-subscription"></a>Allt-i-ett-prenumeration
 
-<table width="100%">
-  <th width="30%">Rubriker</th>
-  <th>Beskrivning</th>
-  <tr>
-    <td>OCP-Apim-Subscription-Key</td>
-    <td>*Använd med Cognitive Services-prenumeration om du skickar din hemliga nyckel*.<br/>Värdet är Azure hemlig nyckel för din prenumeration till Translator Text API.</td>
-  </tr>
-  <tr>
-    <td>Auktorisering</td>
-    <td>*Använd med Cognitive Services-prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är ägartoken: ' ägar <token>'.</td>
-  </tr>
-</table> 
+Alternativet senaste autentisering är att använda en Cognitive Service allt-i-ett-prenumeration. På så sätt kan du använda en enda hemlig nyckel för att autentisera begäranden för flera tjänster. 
+
+När du använder en allt-i-ett hemlig nyckel, måste du inkludera två autentiseringshuvuden din förfrågan. Först skickar den hemliga nyckeln, andra anger regionen som är associerade med prenumerationen. 
+* `Ocp-Api-Subscription-Key`
+* `Ocp-Apim-Subscription-Region`
+
+Om du skickar den hemliga nyckeln i frågesträngen med parametern `Subscription-Key`, måste du ange regionen med Frågeparametern `Subscription-Region`.
+
+Om du använder en ägartoken, måste du skaffa en token från den region-slutpunkten: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+Regioner är tillgängliga `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, och `westus2`.
+
+Region måste anges för allt-i-ett Text-API-prenumeration.
 
 ## <a name="errors"></a>Fel
 

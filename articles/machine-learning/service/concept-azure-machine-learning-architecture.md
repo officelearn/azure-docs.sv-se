@@ -1,5 +1,6 @@
 ---
-title: Hur fungerar Azure Machine Learning-tjänsten?
+title: Hur fungerar det?
+titleSuffix: Azure Machine Learning service
 description: Läs mer om arkitekturen, termer och begrepp som utgör Azure Machine Learning-tjänsten. Här beskrivs också hur det allmänna arbetsflödet för att använda tjänsten och Azure-tjänster som används av Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +9,14 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 10/24/2018
-ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: MT
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4e006c3ac9684cc9e51e8b3505659864123758d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706814"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098006"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Hur fungerar Azure Machine Learning-tjänsten: arkitektur och begrepp
 
@@ -33,8 +35,6 @@ Arbetsflödet följer vanligtvis dessa steg:
 1. __Skapa en avbildning__ och registrera den i den __avbildningsregister__. 
 1. __Distribuera avbildningen__ som en __webbtjänsten__ i Azure.
 
-
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 > [!NOTE]
 > Även om det här dokumentet definierar termer och begrepp som används av Azure Machine Learning, anger inte termer och begrepp för Azure-plattformen. Mer information om terminologi för Azure-plattformen finns i den [Microsoft Azures ordlista](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
@@ -65,7 +65,7 @@ När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som anvä
 
 Följande diagram är en taxonomi för arbetsytan:
 
-[![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
+[![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="model"></a>Modell
 
@@ -169,19 +169,23 @@ Beräkningsmål är beräkningsresursen som används för att köra skriptet utb
 | Beräkningsmål | Utbildning | Distribution |
 | ---- |:----:|:----:|
 | Den lokala datorn | ✓ | &nbsp; |
+| Azure Machine Learning-beräkning | ✓ | &nbsp; |
 | En virtuell Linux-dator i Azure</br>(till exempel Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Batch AI-kluster | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark för HDInsight | ✓ | &nbsp; |
-| Azure Container-instans | ✓ | ✓ |
+| Azure Container-instans | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
 
 Beräkningsmål är kopplade till en arbetsyta. Compute mål än den lokala datorn som delas av användare i arbetsytan.
 
-De flesta compute mål kan skapas direkt via arbetsytan med hjälp av Azure-portalen, Azure Machine Learning SDK eller Azure CLI. Om du har beräkningsmål som har skapats av en annan process (till exempel Azure portal eller Azure CLI) kan du lägga till (Anslut) dem till din arbetsyta. Vissa compute mål måste skapas utanför arbetsytan och sedan ansluts.
+### <a name="managed-and-unmanaged-compute-targets"></a>Hanterade och ohanterade beräkningsmål
+
+**Hanterade** compute mål skapas och hanteras av Azure Machine Learning-tjänsten. Dessa beräkningsalternativ mål är optimerade för ML-arbetsbelastningar. __Beräkning av Azure Machine Learning__ är den enda hanterade beräkningsmål just nu (4 December 2018). Ytterligare hanterade beräkningsmål kan läggas till i framtiden. ML-instanserna kan skapas direkt via arbetsytan med hjälp av Azure-portalen, Azure Machine Learning SDK eller Azure CLI. Alla andra beräkningsmål måste skapas utanför arbetsytan och sedan ansluts till den.
+
+**Ohanterade** beräkning som riktar inte sig hanteras av Azure Machine Learning-tjänsten. Du kan behöva skapa dem utanför Azure Machine Learning och sedan koppla dem till din arbetsyta före användning. Dessa beräkningsalternativ mål kan kräva ytterligare steg för att underhålla eller förbättra prestanda för ML-arbetsbelastningar.
 
 Information om att välja beräkningsmål för träning, finns det [Använd beräkningsmål träna din modell](how-to-set-up-training-targets.md) dokumentet.
 

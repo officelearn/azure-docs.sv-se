@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 12/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 33fce88e7108ee45236e20b1f20dde56bb7446b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616392"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876157"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain Workbench
 
@@ -44,6 +44,9 @@ Följande är ett exempel på distribution skapats i **myblockchain** resursgrup
 
 Kostnaden för Blockchain Workbench är en aggregering av kostnaden för de underliggande Azure-tjänsterna. Information om priser för Azure-tjänster kan beräknas med hjälp av den [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/).
 
+> [!IMPORTANT]
+> Om du använder en prenumeration med låg tjänstbegränsningar, till exempel en kostnadsfria nivån av Azure-prenumeration kan distributionen misslyckas på grund av otillräcklig kvot för VM-kärnor. Innan du distribuerar, kontrollera din kvot med hjälp av vägledning från den [VM vCPU-kvoter](../../virtual-machines/windows/quotas.md) artikeln. Standardvalet för virtuell dator kräver 6 VM-kärnor. Ändra till en mindre storlek på virtuell dator som *Standard DS1 v2* minskar antalet kärnor till 4.
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 Azure Blockchain Workbench kräver Azure AD-konfiguration och programmet registreringar. Du kan välja att göra Azure AD [konfigurationer manuellt](#azure-ad-configuration) innan distribution eller kör ett skript efter distributionen. Om du omdistribuerar Blockchain Workbench kan se [Azure AD-konfiguration](#azure-ad-configuration) för att verifiera din Azure AD-konfigurationen.
@@ -59,7 +62,7 @@ När nödvändiga steg har slutförts, är du redo att distribuera Blockchain Wo
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj ditt konto i övre högra hörnet och växla till den önskade Azure AD-klient där du vill distribuera Azure Blockchain Workbench.
-3. I den vänstra rutan väljer **skapa en resurs**. Sök efter `Azure Blockchain Workbench` i den **Sök på Marketplace** sökfältet. 
+3. Välj **Skapa en resurs** i fönstret till vänster. Sök efter `Azure Blockchain Workbench` i den **Sök på Marketplace** sökfältet. 
 
     ![Marketplace-sökfältet](media/deploy/marketplace-search-bar.png)
 
@@ -99,7 +102,7 @@ När nödvändiga steg har slutförts, är du redo att distribuera Blockchain Wo
     |---------|--------------|
     | Övervakning | Välj om du vill aktivera Azure Monitor för att övervaka nätverket blockchain |
     | Azure Active Directory-inställningar | Välj **lägga till senare**.</br>Obs: Om du har valt att [förkonfigurera Azure AD](#azure-ad-configuration) eller omdistribuera, välja att *Lägg till nu*. |
-    | Val av virtuell dator | Välj önskad storlek för nätverket blockchain. |
+    | Val av virtuell dator | Välj önskad storlek för nätverket blockchain. Välj en mindre VM-storlek som *Standard DS1 v2* om du har en prenumeration med låg tjänstbegränsningar som kostnadsfria nivån av Azure. |
 
     För **Använd befintlig**:
 

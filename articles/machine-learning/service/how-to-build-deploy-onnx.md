@@ -1,5 +1,6 @@
 ---
-title: ONNX och Azure Machine Learning | Skapa och distribuera modeller
+title: Skapa och distribuera samverkande ONNX-modeller
+titleSuffix: Azure Machine Learning service
 description: Läs mer om ONNX och hur du använder Azure Machine Learning för att skapa och distribuera ONNX-modeller
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 5fc0e00d9c4404a1c6a757c354a9c7116dfeffa7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706066"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094023"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX och Azure Machine Learning: skapa och distribuera samverkande AI-modeller
 
@@ -65,11 +67,11 @@ Du hittar den senaste listan över ramverk som stöds och konverterare på den [
 
 Du kan använda Azure Machine Learning-tjänsten för att distribuera, hantera och övervaka ONNX-modeller. Standarden [arbetsflöde för distribution](concept-model-management-and-deployment.md) och ONNX-Runtime som du kan skapa en REST-slutpunkt som ligger i molnet. Se ett fullständigt exempel Jupyter-anteckningsbok i slutet av den här artikeln att prova själv. 
 
-### <a name="install-and-configure-the-onnx-runtime"></a>Installera och konfigurera ONNX-körning
+### <a name="install-and-configure-onnx-runtime"></a>Installera och konfigurera ONNX-körning
 
-ONNX-Runtime är en högpresterande inferens motor för ONNX-modeller. Den levereras med en Python-API och ger maskinvaruacceleration på processor- och GPU. För närvarande stöder 1.2 ONNX-modeller och körs på Ubuntu 16.04 Linux. Båda [CPU](https://pypi.org/project/onnxruntime) och [GPU](https://pypi.org/project/onnxruntime-gpu) paket är tillgängliga på [PyPi.org](https://pypi.org).
+ONNX Runtime är en högpresterande inferens motor med öppen källkod för ONNX-modeller. Den ger maskinvaruacceleration på processor- och GPU med API: er som är tillgängliga för Python, C#, och C. ONNX Runtime stöder ONNX 1.2 + modeller och körs på Linux, Windows och Mac. Python-paket är tillgängliga på [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), och [ C# paketet](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) på [Nuget.org](https://www.nuget.org). Mer information om projektet på [Github](https://github.com/Microsoft/onnxruntime). 
 
-Om du vill installera ONNX-Runtime, använder du:
+Om du vill installera ONNX Runtime för Python, använder du:
 ```python
 pip install onnxruntime
 ```
@@ -94,7 +96,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-Fullständig API-referens, finns det [ONNX Runtime referensdokument](https://aka.ms/onnxruntime-python).
+Läs den fullständiga Python API-referensen i [ONNX Runtime referensdokument](https://aka.ms/onnxruntime-python).
 
 ### <a name="example-deployment-steps"></a>Exempel distributionssteg
 
@@ -183,24 +185,12 @@ Här är ett exempel för att distribuera en ONNX-modell:
     f.write(myenv.serialize_to_string())
    ```
 
-4. Distribuera din ONNX-modell med Azure Machine Learning för att:
-   + Azure Container Instances (ACI): [Lär dig hur...](how-to-deploy-to-aci.md)
-
-   + Azure Kubernetes Service (AKS): [Lär dig hur...](how-to-deploy-to-aks.md)
+4. Om du vill distribuera din modell, den [hur du distribuerar och var](how-to-deploy-and-where.md) dokumentet.
 
 
 ## <a name="examples"></a>Exempel
  
-Följande anteckningsböcker visar hur du kan skapa ONNX-modeller och distribuera dem med Azure Machine Learning: 
-+ [onnx/onnx-modelzoo-aml-distribuera-resnet50.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
-+ [onnx/onnx-convert-aml-distribuera-tinyyolo.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb)
-+ [onnx/onnx-Train-pytorch-AML-Deploy-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)
-
-Följande anteckningsböcker visar hur du distribuerar befintliga ONNX-modeller med Azure Machine Learning: 
-+ [onnx/onnx-inferens-mnist-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist-deploy.ipynb) 
-+ [onnx/onnx-inference-facial-Expression-Recognition-Deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
- 
-Hämta dessa anteckningsböcker:
+Se [How-to-till-användning – azureml/distribution/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) till exempel anteckningsböcker som skapar och distribuerar ONNX-modeller.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
@@ -210,3 +200,8 @@ Mer information om ONNX eller bidra till projektet:
 + [ONNX projektwebbplatsen](https://onnx.ai)
 
 + [ONNX-kod på GitHub](https://github.com/onnx/onnx)
+
+Mer information om ONNX Runtime eller bidra till projektet:
++ [ONNX Runtime Github-lagringsplatsen](https://github.com/Microsoft/onnxruntime)
+
+

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a6c8a8aa954379036ce566a205b8cb4e97952727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282540"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887856"
 ---
 # <a name="add-a-popup-to-the-map"></a>Lägga till ett popup-fönster på kartan
 
@@ -37,20 +37,32 @@ Det fjärde kodblocket skapar en [popup-fönstret objektet](https://docs.microso
 
 Det sista blocket kod skapar en funktion som utlöses av den `mouseover` händelselyssnaren. Den anger innehåll och egenskaper för popup-fönstret och lägger till objektet popup-fönster på kartan.
 
+## <a name="reusing-a-popup-with-multiple-points"></a>Återanvända ett popup-fönster med flera platser
+
+När du har ett stort antal punkter och bara vill visa en popup-fönstret i taget, är det bästa sättet att skapa en popup-fönstret och återanvända den i stället skapa ett popup-fönster för varje punkt-funktion. På så vis, minskar antalet DOM-element som skapas av programmet avsevärt som kan ge bättre prestanda. Det här exemplet skapar 3 punkt funktioner. Om du klickar på någon av dem, visas ett popup-fönster med innehåll för den punkt-funktionen.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Återanvända popup-fönstret med flera PIN-koder' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>återanvända popup-fönstret med flera PIN-koder</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Popup-fönstret](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Popup-fönstret](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
 
 Finns i följande artiklar som är bra för fullständig kodexempel:
 
 > [!div class="nextstepaction"]
-> [Lägga till en form](./map-add-shape.md)
+> [Lägg till en symbol-lager](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Lägg till anpassade HTML](./map-add-custom-html.md)
+> [Lägg till en HTML-markör](./map-add-custom-html.md)
+
+> [!div class="nextstepaction"]
+> [Lägga till en form](./map-add-shape.md)

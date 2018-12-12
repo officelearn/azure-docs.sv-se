@@ -4,17 +4,17 @@ description: Lär dig hur Azure Policy använder gäst-konfiguration för att gr
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ca96aea8f359f1df7da48f84a3317a2d8c7b52e4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 19bc8a58c1ad2115afdfd1d7e59b714ba19cadec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168014"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078896"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -29,7 +29,7 @@ Granska inställningarna inuti en virtuell dator, en [tillägg för virtuell dat
 
 ### <a name="register-guest-configuration-resource-provider"></a>Registrera resursprovidern för gäst-konfiguration
 
-Innan du kan använda gäst-konfigurationen, måste du registrera resursprovidern. Du kan göra detta via portalen eller via PowerShell.
+Innan du kan använda gäst-konfigurationen, måste du registrera resursprovidern. Du kan registrera via portalen eller via PowerShell.
 
 #### <a name="registration---portal"></a>Registrering – Portal
 
@@ -54,7 +54,7 @@ Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguratio
 
 ### <a name="validation-tools"></a>Verifieringsverktyg för
 
-Inuti den virtuella datorn använder klienten gäst Configuration lokala verktyg för att utföra granskningen.
+Inuti den virtuella datorn använder klienten gäst Configuration lokala verktyg för att köra granskningen.
 
 I följande tabell visas en lista över de lokala verktyg som används på varje operativsystem som stöds:
 
@@ -90,23 +90,23 @@ I följande tabell visas operativsystem som inte stöds:
 
 ## <a name="guest-configuration-definition-requirements"></a>Definition av gäst konfigurationskrav
 
-Varje audit som utförs av gäst-konfigurationen kräver två principdefinitioner, en **DeployIfNotExists** och **AuditIfNotExists**. **DeployIfNotExists** används för att förbereda den virtuella datorn med gästen Configuration-agenten och andra komponenter för att stödja den [verifieringsverktyg](#validation-tools).
+Varje audit köras av gäst-konfigurationen kräver två principdefinitioner, en **DeployIfNotExists** och **AuditIfNotExists**. **DeployIfNotExists** används för att förbereda den virtuella datorn med gästen Configuration-agenten och andra komponenter för att stödja den [verifieringsverktyg](#validation-tools).
 
-Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följande:
+Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följande objekt:
 
-- Se till att den virtuella datorn har tilldelats en konfiguration som ska utvärderas. Om ingen tilldelning finns för närvarande kan hämta tilldelningen och förbereda den virtuella datorn med:
+- Verifiera den virtuella datorn har tilldelats en konfiguration som ska utvärderas. Om ingen tilldelning finns för närvarande kan hämta tilldelningen och förbereda den virtuella datorn med:
   - Autentisering till den virtuella datorn med en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md)
   - Installera den senaste versionen av den **Microsoft.GuestConfiguration** tillägg
   - Installera [verifieringsverktyg](#validation-tools) och beroenden, om det behövs
 
-När den **DeployIfNotExists** är kompatibel, den **AuditIfNotExists** principdefinition använder lokal validering-verktyg för att avgöra om tilldelningen tilldelade konfiguration är kompatibel eller Icke-kompatibel. Verktyget verifiering ger resultatet till gäst-konfiguration-klienten, som vidarebefordrar den till gäst-tillägget så att de blir tillgängliga via resursprovidern gäst-konfiguration.
+När den **DeployIfNotExists** är kompatibel, den **AuditIfNotExists** principdefinition använder lokal validering-verktyg för att avgöra om tilldelningen tilldelade konfiguration är kompatibel eller Icke-kompatibel. Verktyget verifiering ger resultatet till gäst-konfiguration-klienten. Klienten vidarebefordrar resultaten till gäst-tillägg, vilket gör dem tillgängliga via resursprovidern gäst-konfiguration.
 
 Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus** egenskapen att rapportera kompatibilitet i den **efterlevnad** noden. Mer information finns i [komma kompatibilitetsdata](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
 > För varje gäst-konfigurationsdefinition både den **DeployIfNotExists** och **AuditIfNotExists** principdefinitioner måste finnas.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Inbyggda initiativ med namnet *[förhandsversion]: granska lösenord säkerhetsinställningar i Linux och Windows-datorer* innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. I båda fallen logiken i definitionen säkerställer endast måloperativsystemet utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Inbyggda initiativ med namnet *[förhandsversion]: granska lösenord säkerhetsinställningar i Linux och Windows-datorer* innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -115,5 +115,5 @@ Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till g
 - Granska [förstå effekterna av princip](effects.md)
 - Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md)
 - Lär dig hur du [hämta data för kompatibilitetsinställningar](../how-to/getting-compliance-data.md)
-- Upptäck hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md)
+- Lär dig hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md)
 - Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/index.md)

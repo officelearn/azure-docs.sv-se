@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Konvertera text till tal, Python - Speech Service'
+title: 'Snabbstart: Konvertera text till tal, Python – Speech Services'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten du lär dig hur du konverterar text till tal med Python och REST-API för text till tal. Exempeltext som ingår i den här guiden är strukturerad som tal syntes Markup Language (SSML). På så sätt kan du välja rösten och språket för tal-svaret. REST API stöder också oformaterad text (ASCII- eller UTF-8), men om oformaterad text anges svaret returneras i Speech-tjänsten standard röst- och språk.
+description: I den här snabbstarten du lär dig hur du konverterar text till tal med Python och REST-API för text till tal. Exempeltext som ingår i den här guiden är strukturerad som tal syntes Markup Language (SSML). På så sätt kan du välja rösten och språket för tal-svaret.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 38bcd67dfb6d9b1a1955658872fee7b8b7a14a0c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 7512c443c49f1518d6a6f7ace7e981d3508b1d7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447486"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090065"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Snabbstart: Konvertera text till tal med hjälp av Python
 
@@ -28,8 +29,8 @@ Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.
 För den här snabbstarten krävs:
 
 * Python 2.7.x eller 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), eller valfri textredigerare
-* En Azure-prenumeration-nyckel för Speech-tjänsten
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
+* En Azure-prenumerationsnyckel för Speech Service
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
@@ -141,7 +142,7 @@ if __name__ == "__main__":
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
-Det var allt, är du redo att köra din text till tal-exempelapp. Från kommandoraden (eller terminalsession), gå till projektkatalogen och kör:
+Det var allt, är du redo att köra din text till tal-exempelapp. Från kommandoraden (eller en terminalsession) går du till projektkatalogen och kör:
 
 ```console
 python tts.py
@@ -151,7 +152,7 @@ När du uppmanas, anger du i vad du vill konvertera från text till tal. Om dett
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Se till att ta bort all konfidentiell information från din exempelapp källkoden som prenumerationsnycklar.
+Se till att ta bort all konfidentiell information från exempelappens källkod, till exempel prenumerationsnycklar.
 
 ## <a name="next-steps"></a>Nästa steg
 

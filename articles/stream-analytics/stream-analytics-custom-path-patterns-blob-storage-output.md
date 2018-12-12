@@ -1,19 +1,20 @@
 ---
-title: Anpassat datum/tid-sökvägsmönster för Azure Stream Analytics blob storage-utdata (förhandsversion)
-description: ''
+title: DateTime sökvägsmönster för Azure Stream Analytics blob-utdata (förhandsversion)
+description: Den här artikeln beskriver anpassade DateTime sökväg mönster funktionen för blob storage-utdata från Azure Stream Analytics-jobb.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452572"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090799"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Anpassat datum/tid-sökvägsmönster för Azure Stream Analytics blob storage-utdata (förhandsversion)
 
@@ -61,7 +62,7 @@ Till exempel `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={d
 
 Anpassade utdata eliminerar behovet av att ändra tabeller och manuellt lägga till partitioner i portdata mellan Azure Stream Analytics och Hive. I stället kan många mappar läggas till automatiskt med:
 
-```
+```SQL
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
@@ -75,9 +76,9 @@ Skapa en blob-utdatamottagare med följande konfiguration:
 
 Fullständig sökväg mönstret är följande:
 
-```
-year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-```
+
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`
+
 
 När du startar jobbet, skapas en mappstruktur baserat på sökvägsmönster i blob-behållare. Du kan öka detaljnivån till nivån dag.
 

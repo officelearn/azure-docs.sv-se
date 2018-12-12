@@ -1,5 +1,5 @@
 ---
-title: Post voice-exempel för att skapa en anpassad röst
+title: Registrera anpassade voice-exempel – Speech Services
 titleSuffix: Azure Cognitive Services
 description: Gör en anpassad röst hög kvalitet genom att förbereda ett robust skript, anställa bra röst personal och spela in professionellt.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/5/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 6aaa638504dd441240879050531952b269d02d15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471194"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081089"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Post voice-exempel för att skapa en anpassad röst
 
@@ -50,7 +51,7 @@ Välj röst personal vars naturligt röst du gillar. Det är möjligt att skapa 
 > [!TIP]
 > I allmänhet Undvik att använda identifierbara röster för att skapa en anpassad röst, såvida inte naturligtvis målet är att skapa en kändisar röst. Mindre kända röster är vanligtvis mindre störande för användarna.
 
-Den enda viktigaste faktorn för att välja röst personal är konsekvens. Inspelningar bör alla ljud som de har gjorts på samma dag i samma rum. Du kan itu med den här perfekt via bra inspelning metoder och tekniker. 
+Den enda viktigaste faktorn för att välja röst personal är konsekvens. Inspelningar bör alla ljud som de har gjorts på samma dag i samma rum. Du kan itu med den här perfekt via bra inspelning metoder och tekniker.
 
 Din röst personal är den andra halvan av formeln. Han eller hon att prata med konstanta, volymnivå, försäljningsargument och ton. Rensa diction är ett måste. Personal måste också kunna ha en strikt kontroll hans eller hennes försäljningsargument variation känslomässig påverkar och maner tal, ovanor.
 
@@ -71,7 +72,7 @@ Yttranden i skriptet kan komma från var som helst: fiction, icke-fiction, avskr
 
 Din yttranden behöver inte kommer från samma källa eller samma typ av datakälla. De behöver inte ens ha något att göra med varandra. Men om du ska använda Ange fraser (till exempel ”du har loggat in”) i ditt tal-program, se till att inkludera dem i ditt skript. Detta ger din anpassade röst större möjlighet att uttala dessa fraser bra. Och om du vill ska använda en inspelning i stället för syntetiskt tal kan du har redan det i samma röst.
 
-Konsekvens är nyckeln när de väljer röst personal, är olika hallmark på ett bra skript. Skriptet bör innehålla många olika ord och meningar med en rad olika mening längder, strukturer och sinnesstämningar. Varje ljud på språket som ska vara representeras flera gånger och i flera sammanhang (kallas *fonetiska täckning*). 
+Konsekvens är nyckeln när de väljer röst personal, är olika hallmark på ett bra skript. Skriptet bör innehålla många olika ord och meningar med en rad olika mening längder, strukturer och sinnesstämningar. Varje ljud på språket som ska vara representeras flera gånger och i flera sammanhang (kallas *fonetiska täckning*).
 
 Texten bör dessutom införliva alla metoder för att ett visst ljud kan representeras skriftligen och placera varje ljud på olika platser i meningarna. Både deklarativa meningar och frågor bör ingår och läsa med lämpliga intonation.
 
@@ -188,9 +189,9 @@ Registrera en bra fem sekunder tystnad innan den första inspelningen för att s
 > [!TIP]
 > Allt du behöver för att avbilda är voice-personal så att du kan göra en monophonic (enskild kanal) inspelning bara sina rader. Men om du spelar in i stereo, du kan använda den andra kanalen för att registrera chatter i kontrollrummet för att samla in beskrivning av särskilda raderna eller tar. Ta bort den här spår från den version som har överförts till den anpassade Voice-portalen.
 
-Lyssna noggrant, använda hörlurar voice-personal-prestanda. Du letar efter bra men naturlig diction och uttalas brist på oönskade ljud. Tveka inte att ställa din personal nytt spela in ett uttryck som inte uppfyller dessa standarder. 
+Lyssna noggrant, använda hörlurar voice-personal-prestanda. Du letar efter bra men naturlig diction och uttalas brist på oönskade ljud. Tveka inte att ställa din personal nytt spela in ett uttryck som inte uppfyller dessa standarder.
 
-> [!TIP] 
+> [!TIP]
 > Om du använder ett stort antal yttranden, kanske ett enda uttryck inte har en märkbar effekt på den resulterande anpassade rösten. Det kan vara mer lämpligt att helt enkelt tänka yttranden med problem, exkluderar dem från din datauppsättning och se hur din anpassade röst har visat sig. Du kan alltid gå tillbaka till studio och registrera missade exemplen senare.
 
 Observera take-nummer eller tid-kod på ditt skript för varje uttryck. Be tekniker för att markera varje uttryck i den inspelningen metadata eller låt dig ledas-blad.

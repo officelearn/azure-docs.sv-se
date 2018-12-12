@@ -1,6 +1,6 @@
 ---
-title: Gränser och begränsningar för Språkförståelse (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Begränsningar
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Den här artikeln innehåller kända begränsningar för Azure Cognitive Services Språkförståelse (LUIS). LUIS har flera gräns områden. Modellen gräns styr avsikter, entiteter och funktioner i LUIS. Kvotgränser baserat på nyckeltyp. Tangentkombination styr LUIS-webbplatsen.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,13 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b7a2d1554d668b4000b87b210a69b290def9b19e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 6f2f69fc746da049e8e48f870fc0e03ffd8ee1a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035444"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078947"
 ---
 # <a name="luis-boundaries"></a>LUIS gränser
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
@@ -65,10 +66,10 @@ Redigering nyckel har olika begränsningar för redigering och slutpunkten. Slut
 |Nyckel|Redigering|Slutpunkt|Syfte|
 |--|--|--|--|
 |Redigera/Starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Redigera LUIS-appen|
-|[Prenumeration] [ pricing] - F0 - kostnadsfri nivå |ogiltig|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
-|[Prenumeration] [ pricing] - S0 - Basic-nivån|ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
-|[Sentiment analysis-integrering](luis-how-to-publish-app.md#enable-sentiment-analysis)|ogiltig|utan kostnad|Att lägga till sentiment information, inklusive extrahering av diskussionsämne data |
-|Tal-integrering|ogiltig|5.50 USD/1 tusen endpoint begäranden|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
+|[Prenumeration] [ pricing] - F0 - kostnadsfri nivå |Ogiltig|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
+|[Prenumeration] [ pricing] - S0 - Basic-nivån|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
+|[Sentiment analysis-integrering](luis-how-to-publish-app.md#enable-sentiment-analysis)|Ogiltig|utan kostnad|Att lägga till sentiment information, inklusive extrahering av diskussionsämne data |
+|Tal-integrering|Ogiltig|5.50 USD/1 tusen endpoint begäranden|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
 
 ## <a name="keyboard-controls"></a>Keyboard kontroller
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 623e4392ff8ff75d09da92c54b9e4dc620146432
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 47f3e8ab14ecd50e958c57ba4c8f9f098fd5bb7b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251141"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868369"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Styrning i Azure DevTest Labs infrastruktur – hantera kostnader och ägarskap
 Kostnad och ägarskap är primär frågor när du överväga att skapa din utveckling och testmiljöer. I det här avsnittet finns information som hjälper dig att optimera kostnad och justera ägarskap över din miljö.
@@ -40,7 +40,7 @@ Den här metoden ger dig flera fördelar:
  
 Endast kan aktiva Visual Studio-prenumeranter (standardprenumerationer, årliga molnprenumerationer och månatliga molnprenumerationer) använda Azure-resurser som körs i en enterprise Dev/Test-prenumeration. Slutanvändare kan dock åtkomst till programmet att lämna kommentarer eller utföra acceptanstester. Användning av resurser inom denna prenumeration är begränsad till utvecklings- och testningsprogram, och ingen garanti vad gäller drifttid erbjuds.
 
-Om du vill använda DevTest-erbjudande, Observera att den här förmånen är exklusivt för utveckling och testning av dina program. Användning inom prenumerationen ingår inget serviceavtal med ekonomisk UPPBACKNING, förutom användning av Visual Studio Team Services och HockeyApp.
+Om du vill använda DevTest-erbjudande, Observera att den här förmånen är exklusivt för utveckling och testning av dina program. Användning inom prenumerationen ingår inget serviceavtal med ekonomisk UPPBACKNING, förutom användning av Azure DevOps och HockeyApp.
 
 ## <a name="define-a-role-based-access-across-your-organization"></a>Definiera en rollbaserad åtkomst i hela organisationen
 ### <a name="question"></a>Fråga
@@ -57,7 +57,7 @@ DevTest Labs-resursen ska ägas av ägare som ligger nära projekt/program-teame
 
 Gruppmedlemmarna projekt/program ska läggas till rollen DevTest Labs-användare. Dessa användare kan skapa virtuella datorer (infogade med lab och prenumerationsnivå principer). De kan också hantera sina egna virtuella datorer. De kan inte hantera virtuella datorer som tillhör andra användare.
 
-Mer information finns i [Azure enterprise kodskelett – förebyggande Prenumerationsåtgärder](/architecture/cloud-adoption/appendix/azure-scaffold) dokumentation.
+Mer information finns i [Azure enterprise kodskelett – förebyggande Prenumerationsåtgärder](/azure/architecture/cloud-adoption/appendix/azure-scaffold) dokumentation.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 86fcec0321e8f1b92fdc554532cb8f949b1b1569
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496205"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081399"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Om VPN gateway för Azure Stack
 
@@ -108,9 +108,9 @@ Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde efter
 
 |   | VPN-Gateway, genomflöde *(1)* | VPN-Gateway, Max. IPsec-tunnlar *(2)* |
 |-------|-------|-------|
-|**Grundläggande SKU** ***(3)***    | 100 Mbit/s  | 10    |
-|**Standard-SKU**       | 100 Mbit/s  | 10    |
-|**Högpresterande SKU** | 200 Mbit/s    | 5 |
+|**Grundläggande SKU** ***(3)***    | 100 Mbit/s  | 20    |
+|**Standard-SKU**       | 100 Mbit/s  | 20    |
+|**Högpresterande SKU** | 200 Mbit/s    | 10    |
 
 **Tabellen kommentarer:**
 

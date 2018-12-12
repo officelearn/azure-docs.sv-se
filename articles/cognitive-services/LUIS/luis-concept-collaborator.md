@@ -1,23 +1,24 @@
 ---
-title: LUIS-app samarbete – Language Understanding
-titleSuffix: Azure Cognitive Services
-description: LUIS appar kräver en enda ägaren och valfritt medarbetare.
+title: Samarbete
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS appar kräver en enda ägaren och valfritt medarbetare så att flera personer kan skriva en enda app.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9acc0b04cbfa074f888d785930f357eaf94f310b
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 8a3f0cb99dc714a6a0430d0a2ffb7c18583183e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637331"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084557"
 ---
-# <a name="collaborating"></a>Samarbeta
+# <a name="collaborating-with-other-authors"></a>Samarbeta med andra
 
 LUIS innehåller samarbete för att tillåta en grupp människor att skapa en app.
 

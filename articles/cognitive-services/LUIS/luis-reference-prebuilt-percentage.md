@@ -1,21 +1,22 @@
 ---
-title: LUIS fördefinierade procent entitetsreferenser – Azure | Microsoft Docs
+title: Procentandel fördefinierade entitet
 titleSuffix: Azure
 description: Den här artikeln innehåller procent fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 876ee710491213f17c12d3b6ddd0339bb2043657
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: 457de95fb4a16a3a43a0cad902b7fb1469d9db8b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334915"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087005"
 ---
 # <a name="percentage-entity"></a>Entitet för procentandel
 Procentandel siffrorna visas som bråkdelar, `3 1/2`, eller som procentandel, `2%`. Eftersom den här entiteten har redan tränats, behöver du inte att lägga till exempel yttranden som innehåller andel till programmet avsikter. Procentandel entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
@@ -26,7 +27,7 @@ Procentandel hanteras från den [identifierare fulltext](https://github.com/Micr
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>Lösning för fördefinierade procent entitet
 I följande exempel visas av lösningen på den **builtin.percentage** entitet.
 
-```JSON
+```json
 {
   "query": "set a trigger when my stock goes up 2%",
   "topScoringIntent": {

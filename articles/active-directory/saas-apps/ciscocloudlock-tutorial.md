@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fe0db2f0c7fea4b24cc23aaa52deb16376012b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422968"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Självstudier: Azure Active Directory-integrering med The Cloud Security Fabric
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av The Cloud Security Fabric i Azure AD, som du
 
 **Utför följande steg för att lägga till The Cloud Security Fabric från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -108,12 +108,14 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     ![Cloud Security Fabric domän och URL: er med enkel inloggning för information](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. I den **inloggnings-URL** textrutan anger du ett URL:
+
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
+    
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
@@ -166,7 +168,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>Skapa en testanvändare The Cloud Security Fabric
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i The Cloud Security-infrastrukturen. Arbeta med [The Cloud Security Fabric supportteamet](mailto:support@cloudlock.com) att lägga till användare i The Cloud Security Fabric-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i The Cloud Security-infrastrukturen. Arbeta med [The Cloud Security Fabric supportteamet](mailto:support@cloudlock.com) att lägga till användare i The Cloud Security Fabric-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

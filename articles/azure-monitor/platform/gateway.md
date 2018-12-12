@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5e19c7c1ed15183fdb796a6fa4e537da946b40b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: MT
+ms.openlocfilehash: 5294d5919b6d4d80c61e183866409123a9edbb60
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642538"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082671"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Ansluta datorer utan Internetåtkomst med Log Analytics-gateway
 Det här dokumentet beskriver hur du konfigurerar kommunikationen med Azure Automation och Log Analytics med Log Analytics-gateway när det är direkt ansluten eller Operations Manager övervakade datorer har inte Internetåtkomst.  Log Analytics-gateway, som är en vanlig HTTP-proxy som har stöd för HTTP-tunnel med hjälp av kommandot HTTP ansluta, kan samla in data och skicka den till Azure Automation och Log Analytics för deras räkning.  
@@ -82,7 +82,7 @@ Log Analytics-gatewayen är tillgänglig på följande språk:
 - Spanska (internationell)
 
 ### <a name="supported-encryption-protocols"></a>Krypteringsprotokoll som stöds
-Log Analytics-gateway har endast stöd för Transport Layer Security (TLS) 1.0, 1.1 och 1.2.  Det har inte stöd för Secure Sockets Layer (SSL).  Om du vill se till att skydda data under överföringen till Log Analytics, rekommenderar vi starkt att du kan konfigurera gatewayen att använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**.  Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+Log Analytics-gateway har endast stöd för Transport Layer Security (TLS) 1.0, 1.1 och 1.2.  Det har inte stöd för Secure Sockets Layer (SSL).  Om du vill se till att skydda data under överföringen till Log Analytics, rekommenderar vi starkt att du kan konfigurera gatewayen att använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**.  Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Tillåtna antalet agenten anslutningar
 Följande tabell visar det tillåtna antalet agenter som kommunicerar med en gateway-server.  Det här stödet är baserad på agenter som överför ~ 200KB data var 6: e sekund. Datavolym per agent testas är ungefär 2,7 GB per dag.
@@ -142,7 +142,7 @@ Om du vill lära dig att utforma och distribuera en Windows Server 2016 nätverk
 Följande avsnitt innehåller anvisningar om hur du konfigurerar direktanslutna Log Analytics-agenter, en Operations Manager-hanteringsgrupp eller Azure Automation Hybrid Runbook Worker med Log Analytics-gatewayen att kommunicera med Azure Automation eller loggfil Analytics.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Konfigurera fristående Log Analytics-agenten
-Information om krav och anvisningar om hur du installerar Log Analytics-agenten på Windows-datorer ansluta direkt till Log Analytics finns i [ansluta Windows-datorer till Log Analytics](agent-windows.md) eller Linux-datorer finns i [ Anslut Linux-datorer till Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md). På att ange en proxyserver när du konfigurerar agenten kan ersätta du värdet med IP-adressen för Log Analytics gateway-servern och dess portnummer.  Om du har distribuerat flera gateway-servrar bakom Utjämning av nätverksbelastning, är proxykonfiguration för Log Analytics-agenten den virtuella IP-adressen för Utjämning av nätverksbelastning.  
+Information om krav och anvisningar om hur du installerar Log Analytics-agenten på Windows-datorer ansluta direkt till Log Analytics finns i [ansluta Windows-datorer till Log Analytics](agent-windows.md) eller Linux-datorer finns i [ Anslut Linux-datorer till Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). På att ange en proxyserver när du konfigurerar agenten kan ersätta du värdet med IP-adressen för Log Analytics gateway-servern och dess portnummer.  Om du har distribuerat flera gateway-servrar bakom Utjämning av nätverksbelastning, är proxykonfiguration för Log Analytics-agenten den virtuella IP-adressen för Utjämning av nätverksbelastning.  
 
 Information som rör Automation Hybrid Runbook Worker finns i [distribuera Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Hur du integrera Azure Monitor för behållare (förhandsversion) | Microsoft Docs
+title: Hur du integrera Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskrivs hur du publicerar och konfigurera Azure Monitor för behållare så att du kan förstå hur din behållare fungerar och vilka prestanda-relaterade problem har identifierats.
 services: azure-monitor
 documentationcenter: ''
@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/05/2018
+ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 03fea6cf1276172893f18f1b09c8e3fdeec4ac4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 6f425fceb4bb4755b922cac427802a19436507d2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001142"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080883"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Hur du integrera Azure Monitor för behållare (förhandsgranskning) 
+# <a name="how-to-onboard-azure-monitor-for-containers"></a>Hur du integrera Azure Monitor för behållare  
 Den här artikeln beskriver hur du ställer in Azure Monitor för behållare för att övervaka prestanda för arbetsbelastningar som distribueras till Kubernetes-miljöer och finns på [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
-Azure Monitor för behållare kan aktiveras för nya distributioner av AKS med hjälp av följande metoder:
+Azure Monitor för behållare kan aktiveras för nya eller stöd för en eller flera befintliga distributioner av AKS med hjälp av följande metoder:
 
-* Distribuera ett hanterat Kubernetes-kluster från Azure portal eller med Azure CLI
-* Skapar en Kubernetes-kluster med [Terraform och AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
-
-Du kan också aktivera övervakning för en eller flera befintliga AKS-kluster från Azure portal eller med Azure CLI. 
+* Från Azure portal eller med Azure CLI
+* Med hjälp av [Terraform och AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 ## <a name="prerequisites"></a>Förutsättningar 
 Innan du börjar bör du kontrollera att du har följande:
@@ -41,7 +39,9 @@ Innan du börjar bör du kontrollera att du har följande:
 
 ## <a name="components"></a>Komponenter 
 
-Du kan övervaka prestanda är beroende av en behållare Log Analytics-agenten för Linux som samlar in prestanda- och händelsedata från alla noder i klustret. Agenten har automatiskt distribuerat och registrerat med den angivna Log Analytics-arbetsytan när du har aktiverat Azure Monitor för behållare. Programvaruversion som distribueras är microsoft / oms:ciprod04202018 eller senare och representeras av ett datum i följande format: *mmddyyyy*. 
+Du kan övervaka prestanda är beroende av en behållare Log Analytics-agenten för Linux som har utvecklats specifikt för Azure Monitor för behållare. Den här specialiserade agenten samlar in prestanda- och händelsedata från alla noder i klustret och agenten automatiskt har distribuerat och registrerat med den angivna Log Analytics-arbetsytan under distributionen. Agentversionen är microsoft / oms:ciprod04202018 eller senare, och representeras av ett datum i följande format: *mmddyyyy*. 
+
+När en ny version av agenten släpps, uppgraderas den automatiskt på dina hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS). Om du vill följa de versioner släpps, se [agenten lanseringsmeddelanden](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). 
 
 >[!NOTE] 
 >Om du redan har distribuerat ett AKS-kluster kan aktivera du övervakning genom att använda Azure CLI eller en angiven Azure Resource Manager-mall, som visas längre fram i den här artikeln. Du kan inte använda `kubectl` om du vill uppgradera, ta bort, omdistribuera eller distribuera agenten. Mallen måste distribueras i samma resursgrupp som klustret ”.
@@ -52,13 +52,20 @@ Logga in på [Azure Portal](https://portal.azure.com).
 ## <a name="enable-monitoring-for-a-new-cluster"></a>Aktivera övervakning av ett nytt kluster
 Du kan aktivera övervakning av ett nytt AKS-kluster i Azure-portalen, Azure CLI eller med Terraform under distributionen.  Följ stegen i snabbstartsartikeln [distribuera ett kluster i Azure Kubernetes Service (AKS)](../../aks/kubernetes-walkthrough-portal.md) om du vill aktivera från portalen. På den **övervakning** sidan för den **aktivera övervakning** väljer **Ja**, och välj en befintlig Log Analytics-arbetsyta eller skapa en ny. 
 
+### <a name="enable-using-azure-cli"></a>Aktivera med hjälp av Azure CLI
 Om du vill aktivera övervakning av ett nytt AKS-kluster som skapats med Azure CLI följer du steg i snabbstartsartikeln under avsnittet [skapa AKS-kluster](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
 >Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.43 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
-Om du är [distribuerar ett AKS-kluster med Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), du kan också aktivera Azure Monitor för behållare genom att inkludera argumentet [ **addon_profile** ](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) och ange **oms_agent**.  
+### <a name="enable-using-terraform"></a>Aktivera med hjälp av Terraform
+Om du är [distribuerar en ny AKS-kluster med Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), du anger argument som krävs i profilen [att skapa en Log Analytics-arbetsyta](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) om du inte vill ange en befintlig. 
+
+>[!NOTE]
+>Om du väljer att använda Terraform, måste du köra Terraform Azure RM-providern version 1.17.0 eller senare.
+
+Om du vill lägga till Azure Monitor för behållare i arbetsytan, se [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) och slutför profilen genom att inkludera den [ **addon_profile** ](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) och ange **oms_agent**. 
 
 När du har aktiverat övervakning och alla åtgärder för konfiguration har slutförts kan övervaka du prestanda för ditt kluster på något av två sätt:
 
@@ -97,14 +104,28 @@ Utdata ska likna följande:
 provisioningState       : Succeeded
 ```
 
+### <a name="enable-monitoring-using-terraform"></a>Aktivera övervakning med Terraform
+1. Lägg till den **oms_agent** tillägg profil i den befintliga [azurerm_kubernetes_cluster resurs](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
+
+   ```
+   addon_profile {
+    oms_agent {
+      enabled                    = true
+      log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+     }
+   }
+   ```
+
+2. Lägg till den [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) följa stegen i Terraform-dokumentationen.
+
 ### <a name="enable-monitoring-from-azure-monitor"></a>Aktivera övervakning från Azure Monitor
 Om du vill aktivera övervakning av AKS-kluster i Azure-portalen från Azure Monitor, gör du följande:
 
 1. I Azure-portalen väljer du **övervakaren**. 
-2. Välj **behållare (förhandsgranskning)** i listan.
-3. På den **skärm – behållare (förhandsgranskning)** väljer **icke-övervakas kluster**.
+2. Välj **behållare** i listan.
+3. På den **skärm – behållare** väljer **icke-övervakas kluster**.
 4. Från listan över ej övervakade kluster, hitta behållaren i listan och klicka på **aktivera**.   
-5. På den **registrering för hälsotillstånd för behållare och loggar** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration som klustret, markerar du den i den nedrullningsbara listan.  
+5. På den **Kom igång med Azure Monitor för behållare** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration som klustret, markerar du den i den nedrullningsbara listan.  
     Listan förväljer standardarbetsytan och plats som AKS-behållare distribueras till i prenumerationen. 
 
     ![Aktivera AKS behållareinsikter övervakning](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -125,8 +146,8 @@ Om du vill aktivera övervakning av din AKS-behållare i Azure-portalen, gör du
     ![Länken Kubernetes-tjänster](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. I listan över behållare, väljer du en behållare.
-5. På översiktssidan behållaren väljer **övervaka behållarens hälsa**.  
-6. På den **registrering för hälsotillstånd för behållare och loggar** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration som klustret, markerar du den i den nedrullningsbara listan.  
+5. På översiktssidan behållaren väljer **övervaka behållare**.  
+6. På den **Kom igång med Azure Monitor för behållare** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration som klustret, markerar du den i den nedrullningsbara listan.  
     Listan förväljer standardarbetsytan och plats som AKS-behållare distribueras till i prenumerationen. 
 
     ![Aktivera hälsoövervakning för AKS-behållare](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)

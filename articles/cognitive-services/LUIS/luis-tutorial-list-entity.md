@@ -1,5 +1,5 @@
 ---
-title: Etiketten entiteter automatiskt med en lista över entitet med Nodejs | Microsoft Docs
+title: Extrakt text matchar entiteter
 description: Lär dig hur du lägger till en lista över entitet för att hjälpa LUIS etikett variationer av ett ord eller fraser.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: cb8f2ef4afa83b8e4d258a4227795593242e84bd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036787"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082262"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Använd en entitet i listan för att öka entitet identifiering 
 Den här självstudien visar hur du använder en [lista entitet](luis-concept-entity-types.md) att öka entitet identifiering. Lista enheter behöver inte märkta som de är en exakt matchning av villkor.  
@@ -81,15 +81,16 @@ Skapa en Node.js-fil och kopiera följande kod till den. Ändra värdena authori
 
 Använder du följande kommando för att installera de NPM-beroendena och köra kod för att skapa entiteten lista:
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 Utdata från körningen är ID för entiteten lista:
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## <a name="train-the-model"></a>Träna modellen
 Träna LUIS för att den nya listan att påverka resultatet av frågan. Utbildning är en process i två delar av utbildning, sedan kontrollerar status för om du gör det utbildningen. En app med många modeller kan ta en stund åt att träna. Följande kod träna appen och väntar tills utbildningen har genomförts. Vänta och återförsöksstrategi används för att undvika 429 ”för många begäranden” fel. 
 
@@ -99,13 +100,13 @@ Skapa en Node.js-fil och kopiera följande kod till den. Ändra värdena authori
 
 Använd följande kommando för att köra koden för att träna appen:
 
-```Javascript
+```console
 node train.js
 ```
 
 Utdata från körningen är statusen för varje iteration av utbildning av LUIS-modeller. Följande körning krävs bara en kontroll av utbildning:
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -130,13 +131,13 @@ Skapa en Node.js-fil och kopiera följande kod till den. Ändra värdena endpoin
 
 Använd följande kommando för att köra koden för att fråga efter appen:
 
-```Javascript
+```console
 node publish.js
 ```
 
 Följande utdata innehåller slutpunkts-url för frågor. Verkliga JSON-resultat omfattar verkliga appID. 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -157,13 +158,13 @@ Skapa en Node.js-fil och kopiera följande kod till den. Ändra värdena endpoin
 
 Använd följande kommando för att köra koden och fråga efter appen:
 
-```Javascript
+```console
 node train.js
 ```
 
 Utdata är resultatet av frågan. Eftersom koden har lagts till i **utförlig** namn/värde-par i frågesträngen, utdata innehåller alla avsikter och deras resultat:
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {

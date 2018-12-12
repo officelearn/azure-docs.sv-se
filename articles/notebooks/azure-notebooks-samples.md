@@ -1,5 +1,5 @@
 ---
-title: Exempel på Jupyter-anteckningsböcker för Azure-anteckningsböcker | Microsoft Docs
+title: Exempel Jupyter-anteckningsböcker för Azure-anteckningsböcker
 description: Exempel är ett bra sätt att uppleva Jupyter-anteckningsböcker som körs i den kostnadsfria Azure-anteckningsböcker molntjänster.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: c355996d7d02a4027e4b2be49dc5c661cce64abe
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8ba94cd94003ee51a621923d3b1dbf2a402c5cfb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856790"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082344"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Identifiera och använda exempelanteckningsböcker
 
@@ -32,10 +32,10 @@ När du har identifierat en bärbar dator som du vill utforska, är här några 
 ## <a name="great-sample-notebooks"></a>Bra exempelanteckningsböcker
 
 - [Azure anteckningsböcker starter set](https://notebooks.azure.com/#sample-redirect) innehåller introduktioner till Python, R, och F#, tillsammans med anteckningsböcker som visar data access, Azure Machine Learning Services och några data science övningarna.
-- [Introduktion till Jupyter notebooks](http://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
+- [Introduktion till Jupyter notebooks](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
 - [Introduktion till Data Science](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/code_listings) av Jake Vanderplas.
 - [Galleri med intressanta anteckningsböcker](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter-projekt på GitHub)
-- [nbviewer.jupyter.org](http://nbviewer.jupyter.org)
+- [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Fysik instruktion från den [fysik-avdelningen på brittiska College London](https://notebooks.azure.com/cvanbreu/libraries)
 - [Exempel för Azure Machine Learning-komma igång](https://notebooks.azure.com/azureml/projects/0f41b597b1ea)
 

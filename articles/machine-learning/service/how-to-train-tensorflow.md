@@ -1,5 +1,6 @@
 ---
-title: Skapa TensorFlow-modeller med Azure Machine Learning
+title: Träna modeller med TensorFlow
+titleSuffix: Azure Machine Learning service
 description: Lär dig hur du kör en nod och distribuerad modeller TensorFlow-utbildning med TensorFlow-kostnadsuppskattning
 services: machine-learning
 ms.service: machine-learning
@@ -8,22 +9,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c761d0ac5d2c52241eadd18b2d8b65e00ccb34ba
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: d15d3ed115009ad1395a85d36e833d85197d4d19
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114999"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094123"
 ---
-# <a name="how-to-train-tensorflow-models"></a>Hur du tränar TensorFlow-modeller
+# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Skapa TensorFlow-modeller med Azure Machine Learning-tjänsten
 
 För djupa neurala (DNN) nätverksutbildning med TensorFlow, Azure Machine Learning ger en anpassad `TensorFlow` klassen för den `Estimator`. Azure SDK `TensorFlow` kostnadsuppskattning (inte för att vara conflated med den [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klassen) kan du enkelt skicka TensorFlow-utbildningsjobb för både en nod och distribuerade körs på Azure compute.
 
 ## <a name="single-node-training"></a>Nod-utbildning
 Utbildning med den `TensorFlow` kostnadsuppskattning är ungefär som att använda den [grundläggande `Estimator` ](how-to-train-ml-models.md), så först läsa igenom artikeln och kontrollera att du förstår begreppen som förklaras det.
   
-Om du vill köra ett TensorFlow-jobb, skapa en instans av en `TensorFlow` objekt. Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#batch) objektet `compute_target`.
+Om du vill köra ett TensorFlow-jobb, skapa en instans av en `TensorFlow` objekt. Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#amlcompute) objektet `compute_target`.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -47,7 +49,7 @@ Parameter | Beskrivning
 --|--
 `source_directory` | Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från din lokala dator till den fjärranslutna beräkningen
 `script_params` | Ordlista att ange kommandoradsargument för att dina utbildningsskript `entry_script`, i form av < kommandoradsargumentet, värde > par
-`compute_target` | Remote beräkning som utbildning skriptet ska köras på, i det här fallet en [Batch AI](how-to-set-up-training-targets.md#batch) kluster
+`compute_target` | Remote beräkningsmål som utbildning skriptet ska köras på, i det här fallet en Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kluster
 `entry_script` | FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av, bör finnas i den här mappen
 `conda_packages` | Lista över Python-paket installeras via conda som krävs för dina utbildningsskript. I det här fallet inlärningsskript använder `sklearn` för att läsa in data, så ange det här paketet installeras.  Konstruktorn har en annan parameter med namnet `pip_packages` som du kan använda några pip-paket som behövs
 `use_gpu` | Anger denna flagga `True` utnyttja GPU för utbildning. Som standard `False`.
@@ -170,16 +172,9 @@ run = exp.submit(tf_est)
 ```
 
 ## <a name="examples"></a>Exempel
-En självstudiekurs om nod TensorFlow-utbildning, se:
-* [Training/03.Train-hyperparameter-Tune-Deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
-En självstudiekurs om distribuerade TensorFlow med Horovod finns:
-* [utbildning/04.distributed-tensorflow-med-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
-
-En självstudiekurs om interna distribuerade TensorFlow finns:
-* [utbildning/05.distributed-tensorflow-med-parametern-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
-
-Hämta dessa anteckningsböcker:
+Notebooks på distribuerade djupinlärning, finns här:
+* [How-to-use-azureml/Training-with-Deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

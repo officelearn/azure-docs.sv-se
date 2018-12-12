@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: db0945d9151303e29ac4d585222818fa1d71dbab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 72c87684e0b3fd40477c468c5cd0988651925fb0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975034"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094686"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en Log Analytics-arbetsyta i Azure portal
 I Azure portal som du kan ställa in en Log Analytics-arbetsyta, vilket är en unik Log Analytics-miljö med en egen databas, datakällor och lösningar.  Stegen som beskrivs i den här artikeln krävs om du avser att samla in data från följande källor:
@@ -31,8 +31,8 @@ I Azure portal som du kan ställa in en Log Analytics-arbetsyta, vilket är en u
 
 Andra källor, till exempel virtuella Azure-datorer och Windows eller Linux-datorer i din miljö finns i följande avsnitt:
 
-*  [Samla in data från Azure-datorer](../../log-analytics/log-analytics-quick-collect-azurevm.md) 
-*  [Samla in data från hybrid Linux-dator](../../log-analytics/log-analytics-quick-collect-linux-computer.md)
+*  [Samla in data från Azure-datorer](../../azure-monitor/learn/quick-collect-azurevm.md) 
+*  [Samla in data från hybrid Linux-dator](../../azure-monitor/learn/quick-collect-linux-computer.md)
 *  [Samla in data från hybrid Windows-dator](quick-collect-windows-computer.md)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -64,5 +64,5 @@ Nu när du har en arbetsyta som är tillgängliga kan du konfigurera insamling a
 
 * Om du vill aktivera insamling av data från Azure-resurser med Azure Diagnostics eller Azure storage, se [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
 * [Lägg till System Center Operations Manager som en datakälla](../../azure-monitor/platform/om-agents.md) att samla in data från agenter som rapporterar Operations Manager-hanteringsgrupp och lagra den i Log Analytics-arbetsytan. 
-* Ansluta [Configuration Manager](../../log-analytics/log-analytics-sccm.md) att importera datorer som är medlemmar i samlingar i hierarkin.  
+* Ansluta [Configuration Manager](../../azure-monitor/platform/collect-sccm.md) att importera datorer som är medlemmar i samlingar i hierarkin.  
 * Granska den [hanteringslösningar](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) tillgängliga och hur du lägger till eller ta bort en lösning från din arbetsyta.

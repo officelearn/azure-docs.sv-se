@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7575d55f65598d39a8ffe0c3802cf11fa7470180
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 56275a2d37c9b1dc92aad973507204295fbfe06f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837791"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087668"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i Log Analytics loggsökningar
 
@@ -82,7 +82,7 @@ När grupper har importerats visas på menyn antalet datorer med gruppmedlemskap
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 När du konfigurerar Log Analytics för att importera Configuration Manager-samlingsmedlemskap, skapas en datorgrupp för varje samling.  Samling medlemskapsinformation hämtas var tredje timme om du vill behålla det aktuella datorgrupper. 
 
-Innan du kan importera samlingar i Configuration Manager, måste du [Anslut Konfigurationshanteraren till Log Analytics](../../log-analytics/log-analytics-sccm.md).  Importera från Log Analytics kan du konfigurera **avancerade inställningar** i Azure-portalen.  Välj **datorgrupper**, **SCCM**, och sedan **Import Configuration Manager-samlingsmedlemskap**.  Det krävs ingen ytterligare konfiguration.
+Innan du kan importera samlingar i Configuration Manager, måste du [Anslut Konfigurationshanteraren till Log Analytics](../../azure-monitor/platform/collect-sccm.md).  Importera från Log Analytics kan du konfigurera **avancerade inställningar** i Azure-portalen.  Välj **datorgrupper**, **SCCM**, och sedan **Import Configuration Manager-samlingsmedlemskap**.  Det krävs ingen ytterligare konfiguration.
 
 ![Datorgrupper från SCCM](media/computer-groups/configure-sccm.png)
 

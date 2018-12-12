@@ -1,6 +1,6 @@
 ---
-title: Integrera Azure DevTest Labs i din VSTS kontinuerlig integrering och leverans-pipeline | Microsoft Docs
-description: Lär dig hur du integrerar Azure DevTest Labs i din VSTS kontinuerlig integrering och leverans pipeline
+title: Integrera Azure DevTest Labs i din kontinuerlig integrering och leverans pipeline i Azure Pipelines | Microsoft Docs
+description: Lär dig hur du integrerar Azure DevTest Labs i din Azure-Pipelines för kontinuerlig integrering och leverans pipeline
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301216"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082959"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrera Azure DevTest Labs i din Azure DevOps kontinuerlig integrering och leverans pipeline
 Du kan använda den *Azure DevTest Labs-uppgifter* som är installerad i Azure DevOps att enkelt integrera din version och versionen CI/CD-pipeline med Azure DevTest Labs. Tillägget installeras tre uppgifter: 
@@ -138,7 +138,7 @@ Nästa steg i distributionen är att skapa den virtuella datorn ska användas so
 1. I versionspipelinen, väljer **lägga till aktiviteter** och klicka sedan på den **distribuera** fliken, lägga till en *Azure PowerShell* uppgift. Konfigurera aktiviteten enligt följande:
 
    > [!NOTE]
-   > Om du vill samla in information om DevTest Labs VM, se [distribuera: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) och kör skriptet.
+   > Om du vill samla in information om DevTest Labs VM, se [distribuera: Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3) och kör skriptet.
 
    a. För **Azure anslutningstypen**väljer **Azure Resource Manager**.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: MT
+ms.openlocfilehash: ef9f1e0c043370bdfacf654cffb524b716a34446
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237885"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872346"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Utvecklingsverktyg på den virtuella datorn för datavetenskap
 
@@ -32,7 +32,7 @@ Den virtuella datorn på datavetenskap (DSVM) tillhandahåller en produktiv milj
 | Vad är det?   | Generell användning IDE      |
 | Stöds DSVM-versioner      | Windows      |
 | Vanliga användningsområden      | Programutveckling    |
-| Hur är det konfigurerade / installerad på DSVM?      | Data Science arbetsbelastning (Python- och R-verktyg), Azure-arbetsbelastningen (Hadoop, Data Lake), Node.js, SQL Server-verktyg, [Visual Studio Tools för AI](https://github.com/Microsoft/vs-tools-for-ai)    |
+| Hur är det konfigurerade / installerad på DSVM?      | Data Science arbetsbelastning (Python- och R-verktyg), Azure-arbetsbelastningen (Hadoop, Data Lake), Node.js, SQL Server-verktyg, [Azure Machine Learning för Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
 | Hur du använder / köra den?      | Genväg på skrivbordet (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Relaterade verktyg på DSVM      |     Visual Studio Code, RStudio, Juno  |
 

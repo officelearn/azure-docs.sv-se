@@ -3,7 +3,7 @@ title: Använd Azure Resource Health för att övervaka hälsan för SQL-databas
 description: Använd Azure Resource Health för att övervaka hälsan för SQL-databas, hjälper dig att diagnostisera och få support när ett problem med Azure påverkar dina SQL-resurser.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 12/06/2018
+ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632636"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083894"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Använda Resource Health felsökning av anslutningar för Azure SQL Database
 
@@ -41,7 +41,7 @@ Statusen **tillgänglig** innebär att Resource Health inte har identifierat inl
 
 ### <a name="degraded"></a>Degraderad
 
-Statusen **degraderad** innebär att Resource Health har identifierat en majoritet av lyckade inloggningar, men också vissa fel. Det här är mest sannolika tillfälliga inloggningsfel. För att minska effekten av anslutningsproblem orsakade av tillfälliga inloggningsfel kan implementera [logik för omprövning](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) i din kod.
+Statusen **Degraderad** innebär att Resource Health har identifierat mestadels lyckade inloggningar, men också några misslyckade. Det här är mest sannolika tillfälliga inloggningsfel. För att minska effekten av anslutningsproblem orsakade av tillfälliga inloggningsfel kan implementera [logik för omprövning](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) i din kod.
 
 ![Degraderad](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
@@ -63,15 +63,15 @@ Du kan komma åt upp till 14 dagar efter hälsohistorik i avsnittet hälsotillst
 
 ### <a name="downtime-reasons"></a>Nedtid orsaker
 
-Analysen utförs för att fastställa en anledning när avbrott inträffar i din SQL-databas. När det är tillgängligt, rapporteras driftstopp orsaken i avsnittet Hälsohistorik i Resource Health. Nedtid orsakerna är vanligtvis publicerade 30 minuter efter en händelse.
+Analysen utförs för att fastställa en anledning när avbrott inträffar i din SQL-databas. När det är tillgängligt, rapporteras driftstopp orsaken i avsnittet Hälsohistorik i Resource Health. Orsaker till stillestånd publiceras vanligen 30 minuter efter en händelse.
 
 #### <a name="planned-maintenance"></a>Planerat underhåll
 
-Azure-infrastrukturen utför regelbundet planerat underhåll – uppgradering av maskin- eller komponenter i datacentret. När databasen genomgår underhåll, kan SQL avsluta vissa befintliga anslutningar och vägra nya. Inloggningen fel inträffade under planerat underhåll är vanligen övergående och logik för omprövning bidrar till att minska effekten. Kontakta supporten om du fortsätter att uppleva fel vid inloggningen undviks.
+Azure-infrastrukturen utför regelbundet planerat underhåll – uppgradering av maskin- eller komponenter i datacentret. När databasen genomgår underhåll, kan SQL avsluta vissa befintliga anslutningar och vägra nya. Misslyckade inträffade under planerat underhåll är vanligen övergående och [logik för omprövning](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) hjälper till att minska påverkan. Kontakta supporten om du fortsätter att uppleva fel vid inloggningen undviks.
 
 #### <a name="reconfiguration"></a>Omkonfiguration
 
-Reconfigurations betraktas som tillfälliga villkor och förväntas från tid till annan. De här händelserna kan utlösas av load balancing eller eller maskinvara fel. Produktion klientprogram som ansluter till en molndatabastjänst bör implementera en robust logik med begränsningslogik eftersom den skulle hjälpa dig att undvika sådana situationer och bör Allmänt se felen transparent för slutanvändaren.
+Reconfigurations betraktas som tillfälliga villkor och förväntas från tid till annan. De här händelserna kan utlösas av load balancing eller eller maskinvara fel. Produktion klientprogram som ansluter till en molndatabas bör implementera en robust anslutning [logik för omprövning](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), eftersom den skulle hjälpa dig att undvika sådana situationer och bör Allmänt se felen transparent för slutanvändaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

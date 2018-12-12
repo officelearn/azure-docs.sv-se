@@ -1,33 +1,23 @@
 ---
-title: Flytta en offentlig peering på Azure ExpressRoute till Microsoft-peering | Microsoft Docs
+title: Flytta en offentlig peering till Microsoft-peering - Azure ExpressRoute | Microsoft Docs
 description: Den här artikeln beskrivs stegen för att flytta din offentlig peering till Microsoft-peering i ExpressRoute.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 579f8874459004ef6bfa0d0794ab09333e053acb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966133"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100029"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Flytta en offentlig peering till Microsoft-peering
 
-ExpressRoute stöder användning av Microsoft-peering med flödesfilter för Azure PaaS-tjänster, till exempel Azure Storage och Azure SQL Database. Nu behöver du endast en routningsdomän för åtkomst till Microsoft PaaS- och SaaS-tjänster. Du kan använda flödesfilter för att selektivt presentera PaaS-tjänstprefixen för Azure-regioner du vill använda.
-
-Den här artikeln hjälper dig att flytta en offentlig peering-konfigurationen till Microsofts peering utan avbrott. Läs mer om routning domäner och peerings [ExpressRoute-kretsar och routningsdomäner](expressroute-circuit-peerings.md).
-
+Den här artikeln hjälper dig att flytta en offentlig peering-konfigurationen till Microsofts peering utan avbrott. ExpressRoute stöder användning av Microsoft-peering med flödesfilter för Azure PaaS-tjänster, till exempel Azure Storage och Azure SQL Database. Nu behöver du endast en routningsdomän för åtkomst till Microsoft PaaS- och SaaS-tjänster. Du kan använda flödesfilter för att selektivt presentera PaaS-tjänstprefixen för Azure-regioner du vill använda. Läs mer om routning domäner och peerings [ExpressRoute-kretsar och routningsdomäner](expressroute-circuit-peerings.md).
 
 ## <a name="before"></a>Innan du börjar
 

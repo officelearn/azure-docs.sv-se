@@ -3,7 +3,7 @@ title: Återställ en Azure SQL database från en säkerhetskopia | Microsoft Do
 description: Läs mer om Point-in-Time-återställning, som gör det möjligt för dig att återställa en Azure SQL-databas till en tidigare tidpunkt (upp till 35 dagar).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: ba6493f77b622a814c970b07fc2a23e7ce1d3624
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: MT
+ms.openlocfilehash: 2d7b50eadc130900cbd69d579f5ebb2997ad46a0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987570"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872959"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL database med hjälp av automatiska databassäkerhetskopieringar
 

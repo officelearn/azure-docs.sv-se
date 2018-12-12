@@ -1,6 +1,6 @@
 ---
-title: Lägg till din organisations sekretess information i Azure Active Directory | Microsoft Docs
-description: Hur du lägger till din organisations sekretess information till området Azure Active Directory (Azure AD)-egenskaper.
+title: Lägg till din organisations sekretess information – Azure Active Directory | Microsoft Docs
+description: Anvisningar om hur du lägger till din organisations sekretess information till området Azure Active Directory-egenskaper.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
-ms.custom: it-pro
-ms.openlocfilehash: f32eeee8f02cee32eb05e14aa98387a20cb2e626
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 50fcafbdef4fc09532d03ae145183dd45c381c73
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904386"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083843"
 ---
-# <a name="how-to-add-your-privacy-info-using-azure-active-directory"></a>Anvisningar: Lägga till din sekretess information med hjälp av Azure Active Directory
+# <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Lägg till din organisations sekretess information med hjälp av Azure Active Directory
 Den här artikeln beskrivs hur en administratör kan lägga till sekretessrelaterade information till en organisations Azure Active Directory (Azure AD)-klient, via Azure portal.
 
 Vi rekommenderar starkt att du lägger till både dina global sekretesskontakt och sekretesspolicyn för din organisation så att interna anställda och externa gäster kan granska dina principer. Eftersom sekretesspolicy unikt skapas och skräddarsydd för varje företag, rekommenderar vi du kontakta en jurist om du behöver hjälp.

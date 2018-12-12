@@ -1,7 +1,7 @@
 ---
 title: Förtroendepoäng – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Förklarar förtroendepoäng
+description: Förtroendepoäng anger var säker på att svaret är rätt matchning för den angivna användarfrågan.
 services: cognitive-services
 author: tulasim88
 manager: pchoudh
@@ -10,14 +10,15 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: b1126b2cdb7a5cd7451a916558bc928653bc0027
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577931"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081327"
 ---
-# <a name="confidence-score"></a>Förtroendepoäng
+# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Förtroendepoäng för en kunskapsbas med QnA Maker
 När en användarfråga matchas mot en kunskapsbas, returnerar QnA Maker relevanta svar, tillsammans med ett förtroenderesultat. Det här resultatet indikerar var säker på att svaret är rätt matchning för den angivna användarfrågan. 
 
 Förtroendepoäng är ett tal mellan 0 och 100. Ett resultat på 100 är troligen en exakt matchning, samtidigt som ett resultat på 0 innebär att inget matchande svar hittades. Ju högre alternativet score - ju större tillförlitlighet i svaret. För en viss fråga kan det finnas flera svar returneras. I så fall returneras svar i fallande förtroendepoäng.
@@ -78,15 +79,15 @@ När ingen bra matchning hittas av rankningen, förtroendepoäng 0,0 eller ”No
 
 2. Klicka för att öppna den **Apptjänst**.
 
-    ![Få åtkomst till App service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+    ![Få åtkomst till App service för QnA Maker i Azure-portalen](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
 3. Klicka på **programinställningar** och redigera den **DefaultAnswer** till önskad Standardsvaret. Klicka på **Spara**.
 
-    ![Ändra Standardsvar](../media/qnamaker-concepts-confidencescore/change-response.png)
+    ![Välj programinställningar och sedan redigera DefaultAnswer för QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
 
 4. Starta om App service
 
-    ![QnA Maker appservice omstart](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+    ![När du ändrar DefaultAnswer, startar du om appservice QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

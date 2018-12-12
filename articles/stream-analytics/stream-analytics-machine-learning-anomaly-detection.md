@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du använder Azure Stream Analytics
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567051"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091228"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
 
@@ -95,7 +95,7 @@ När tid fortlöper modeller tränas med olika data. Om du vill göra uppfattnin
 
 Diagrammatically, stegen se ut så här: 
 
-![Modeller för utbildning](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![Machine learning-modeller för utbildning](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**Modellen** | **Starttid för utbildning** | **Dags att börja använda dess poäng** |
 |---------|---------|---------|
@@ -145,15 +145,15 @@ Följande bör övervägas när du använder den här detektor:
 
    Detta illustreras i bild 1 och 2 nedan på en övre gräns för ändring (samma logik gäller en lägre gränsen ändring). I båda siffror är vågformer en avvikande nivåändring. Orange lodrätt anger hopp gränser och hoppstorlek är samma som fönstret identifiering som angetts i operatorn AnomalyDetection. Grön raderna motsvarar storleken på fönstret utbildning. I bild 1 är hopp storleken samma som tiden för vilka avvikelseidentifiering varar. I bild 2 är hopp halva tiden som avvikelsen varar. I samtliga fall måste identifieras en uppåtgående ändring eftersom modellen som används för bedömning har tränats på normala data. Men baserat på hur dubbelriktad nivåändring detektor fungerar, måste den utesluta de normala värdena från fönstret utbildning som används för den modell som poängsätter återgå till normal. I bild 1 innehåller den bedömningsmodell utbildning vissa vanliga händelser så att återgå till normal inte kan identifieras. Men i bild 2 utbildningen bara innehåller den avvikande delen, vilket garanterar att återgå till normal har identifierats. Mindre än hälften fungerar även för samma anledning medan allt större resulterar i inklusive lite normala händelserna. 
 
-   ![AD med storleken lika avvikelseidentifiering längd](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![AD med storleken lika avvikelseidentifiering längd](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![AD med fönsterstorleken är lika med hälften av avvikelseidentifiering längd](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![AD med fönsterstorleken är lika med hälften av avvikelseidentifiering längd](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. I fall där det inte går att förutse hur lång avvikelsen fungerar den här detektor i bästa prestanda. Men väljer ett snävare tidsintervall som begränsar träningsdata, vilket skulle öka sannolikheten för att identifiera återgå till normal. 
 
 3. I följande scenario är inte längre avvikelsen identifierade som fönstret utbildning innehåller redan en avvikelse i samma högt värde. 
 
-   ![Avvikelser med samma storlek](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![Identifierade avvikelser med samma storlek](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## <a name="example-query-to-detect-anomalies"></a>Exempelfråga att identifiera avvikelser 
 

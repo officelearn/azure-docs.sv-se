@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 918ffaf42e7216313a385c866f73bd57a529784a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838896"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090762"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
@@ -94,13 +94,12 @@ Skapa Azure-resurser – Azure Cosmos DB, Storage-kontot Event Hub, Stream Analy
 
 Nu ska du skapa en samling för att lagra e-handel site-händelser. När en användare visar ett objekt, lägger till ett objekt i deras kundvagn eller Köp ett objekt, samlingen får en post som innehåller åtgärden (”Visa”, ”har lagts till” eller ”köpt”), namnet på objektet som ingår, priset för objektet som är inblandade och användaren kundvagn i ID-numret nvolved.
 
-1. Gå till [Azure-portalen](http://portal.azure.com/) och hitta den **Azure Cosmos DB-konto** som skapas av malldistributionen.  
+1. Gå till [Azure-portalen](https://portal.azure.com/) och hitta den **Azure Cosmos DB-konto** som skapas av malldistributionen.  
 
 2. Från den **Datautforskaren** väljer **ny samling** och Fyll i formuläret med följande uppgifter:  
 
    * För den **databas-id** väljer **Skapa nytt**, ange sedan **changefeedlabdatabase**. Lämna den **etablera databasen dataflöde** rutan avmarkerad.  
    * För den **samling** id Anger **changefeedlabcollection**.  
-   * För **lagringskapacitet**väljer **obegränsad**.  
    * För den **partitionsnyckel** anger **/punkt**. Detta är skiftlägeskänsligt, så se till att du anger den korrekt.  
    * För den **dataflöde** anger **10000**.  
    * Välj knappen **OK**.  
@@ -119,7 +118,7 @@ Nu ska du skapa en samling för att lagra e-handel site-händelser. När en anv�
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Hämta Azure Cosmos DB-anslutningssträng
 
-1. Gå till [Azure-portalen](http://portal.azure.com/) och hitta den **Azure Cosmos DB-konto** som skapas av malldistributionen.  
+1. Gå till [Azure-portalen](https://portal.azure.com/) och hitta den **Azure Cosmos DB-konto** som skapas av malldistributionen.  
 
 2. Navigera till den **nycklar** fönstret Kopiera primär ANSLUTNINGSSTRÄNG och kopiera den till anteckningar eller ett annat dokument att du har åtkomst till i labbet. Du bör märker den **Cosmos DB-anslutningssträng**. Du måste kopiera strängen i din kod senare, så Observera och Kom ihåg var du lagrar den.
 
@@ -179,7 +178,7 @@ Se hur ändringsfeed bearbetar nya åtgärder på en e-handelswebbplats, har du 
  
 6. Vänta tills programmet som ska köras. Stjärnorna betyder att data kommer! Kör du programmet – det är viktigt att stora mängder data som samlas in.  
 
-7. Om du navigerar till [Azure-portalen](http://portal.azure.com/) , sedan till Cosmos DB-konto i resursgruppen, sedan till **Datautforskaren**, visas slumpmässig importerade data i din  **changefeedlabcollection** .
+7. Om du navigerar till [Azure-portalen](https://portal.azure.com/) , sedan till Cosmos DB-konto i resursgruppen, sedan till **Datautforskaren**, visas slumpmässig importerade data i din  **changefeedlabcollection** .
  
    ![Data som genereras i portalen](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -187,7 +186,7 @@ Se hur ändringsfeed bearbetar nya åtgärder på en e-handelswebbplats, har du 
 
 Azure Stream Analytics är en fullständigt hanterad molntjänst för bearbetning i realtid för strömmande data. I den här övningen kommer du använder stream analytics för att bearbeta nya händelser från Event Hub (d.v.s. när ett objekt visas, lagts till i en kundvagn eller köpt), införliva dessa händelser i dataanalys i realtid och skicka dem till Power BI för visualisering.
 
-1. Från den [Azure-portalen](http://portal.azure.com/), navigera till resursgruppen, sedan till **streamjob1** (stream analytics-jobbet som du skapade i prelab).  
+1. Från den [Azure-portalen](https://portal.azure.com/), navigera till resursgruppen, sedan till **streamjob1** (stream analytics-jobbet som du skapade i prelab).  
 
 2. Välj **indata** som visas nedan.  
 
@@ -322,11 +321,11 @@ Powerbi är en uppsättning verktyg för Företagsanalys att analysera data och 
 
 Du kommer nu att se hur du kan använda din nya Analysverktyget för att ansluta till en plats för verkliga e-handel. För att skapa e-handelswebbplats, använder du en Azure Cosmos DB-databas för att lagra listan över produktkategorier (kvinnor, män, Unisex), produktkatalogen och en lista över de mest populära.
 
-1. Gå tillbaka till den [Azure-portalen](http://portal.azure.com/), sedan till din **Cosmos DB-konto**, sedan till **Datautforskaren**.  
+1. Gå tillbaka till den [Azure-portalen](https://portal.azure.com/), sedan till din **Cosmos DB-konto**, sedan till **Datautforskaren**.  
 
    Lägg till två samlingar under **changefeedlabdatabase** - **produkter** och **kategorier** med fast lagringskapacitet.
 
-   Lägg till en annan samling under **changefeedlabdatabase** med namnet **topItems** med **obegränsad** lagringskapacitet. Skriva **/punkt** som partitionsnyckel.
+   Lägg till en annan samling under **changefeedlabdatabase** med namnet **topItems** och **/punkt** som partitionsnyckel.
 
 2. Välj den **topItems** samling, och under **skala och inställningar** ange den **Time to Live** vara **30 sekunder** så att topItems uppdateras med 30 sekunders mellanrum.
 
@@ -392,7 +391,7 @@ Du kommer nu att se hur du kan använda din nya Analysverktyget för att ansluta
 
 ## <a name="delete-the-resources"></a>Ta bort resurser
 
-Om du vill ta bort alla resurser som du skapade under den här övningen, navigera till resursgruppen på [Azure-portalen](http://portal.azure.com/)och välj sedan **ta bort resursgrupp** på menyn längst upp på sidan och följa anvisningarna tillhandahålla.
+Om du vill ta bort alla resurser som du skapade under den här övningen, navigera till resursgruppen på [Azure-portalen](https://portal.azure.com/)och välj sedan **ta bort resursgrupp** på menyn längst upp på sidan och följa anvisningarna tillhandahålla.
 
 ## <a name="next-steps"></a>Nästa steg 
   

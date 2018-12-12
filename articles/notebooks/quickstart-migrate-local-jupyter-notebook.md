@@ -1,5 +1,5 @@
 ---
-title: Migrera en lokal Jupyter notebook till Azure-datorer | Microsoft Docs
+title: Migrera en lokal Jupyter notebook till Azure-anteckningsböcker
 description: Snabbt överföra en Jupyter-anteckningsbok till Azure-datorer från din lokala dator eller en URL och sedan dela den för samarbete.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: bac6834a8ffb107c344086d1d3c28990f32a4760
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3bd7f895e3cc30c4c5a0496977d65d68c220931f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856893"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084510"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Snabbstart: Migrera en lokal Jupyter-anteckningsbok
 

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422362"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082245"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
@@ -44,7 +44,7 @@ Det här är den vanligaste typen av FAQ-sida, som svar direkt efter frågor på
 
 Nedan visas ett exempel på en vanlig FAQ-sida:
 
-![Vanlig FAQ-sida](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![Vanlig vanliga frågor och svar-sida-exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### <a name="faq-pages-with-links"></a>Vanliga frågor och svar sidor med länkar 
@@ -53,7 +53,7 @@ I den här typen av FAQ-sida kan frågor räknas samman tillsammans och har kopp
 
 Nedan visas ett exempel på en FAQ-sida med länkar i avsnitten som finns på samma sida:
 
- ![Avsnittet länk FAQ-sida](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![Avsnittet vanliga frågor och svar länk sidan exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>Vanliga frågor och svar sidor med en ämnen startsida
@@ -62,7 +62,7 @@ Den här typen av vanliga frågor och svar har en startsida med hjälp av där v
 
 Nedan visas ett exempel på en FAQ-sida där en ämnen startsida har länkar till avsnitt i vanliga frågor och svar på olika sidor. 
 
- ![Sidan för djuplänk vanliga frågor och svar](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![Vanliga frågor och svar för djuplänk sidan exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
 ## <a name="pdf-doc-files"></a>PDF / dokumentfiler
@@ -77,7 +77,7 @@ En manuell är vanligtvis anvisningar som medföljer en produkt. Det hjälper an
 
 Nedan visas ett exempel på en manuell med en indexsida och hierarkisk innehåll
 
- ![Manuell produkt-exempel](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![Produkten manuell exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > Extrahering fungerar bäst på handböcker som har en tabell med innehåll och/eller en indexsida och en tydlig struktur med hierarkisk rubriker.
@@ -106,7 +106,7 @@ Answer2
 
 Nedan visas ett exempel på ett strukturerade QnA word-dokument:
 
- ![Strukturerat QnA-dokument](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![Strukturerade frågor och svar om dokumentet exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>Strukturerade *TXT*, *TSV* och *XLS* filer
 
@@ -121,7 +121,7 @@ Alla övriga kolumner i källfilen ignoreras.
 
 Nedan visas ett exempel på en strukturerade QnA *.xls* filen med HTML-innehåll:
 
- ![Excel-strukturerade frågor och svar](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![Strukturerade frågor och svar om excel-exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## <a name="structured-data-format-through-import"></a>Format för strukturerade data via import
 

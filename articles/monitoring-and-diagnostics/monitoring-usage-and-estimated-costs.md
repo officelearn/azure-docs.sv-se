@@ -9,19 +9,19 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 3a21b2521cc16b97519f2f84b40a3f51536757e2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: af7515c7888bf7710c9bd087af61b29ed0be0768
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999679"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085243"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Övervaka användning och uppskattade kostnader
 
 > [!NOTE]
 > Den här artikeln beskriver hur du visar användning och uppskattade kostnader över flera Azure övervakningsfunktioner för olika prissättningsmodeller.  Finns i följande artiklar för relaterad information.
 > - [Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics](../azure-monitor/platform/manage-cost-storage.md) beskrivs hur du kontrollerar dina kostnader genom att ändra kvarhållningsperioden för data.
-> - [Analysera dataanvändning i Log Analytics](../log-analytics/log-analytics-usage.md) beskriver hur du analyserar och Avisera om din dataanvändning.
+> - [Analysera dataanvändning i Log Analytics](../azure-monitor/platform/data-usage.md) beskriver hur du analyserar och Avisera om din dataanvändning.
 > - [Hantera priser och datavolymer i Application Insights](../application-insights/app-insights-pricing.md) beskriver hur du analysera dataanvändning i Application Insights.
 
 I övervakaren hub i Azure Portal i **användning och uppskattade kostnader** sidan förklaras användningen av grundläggande övervakningsfunktioner som [aviseringar, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), och [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). För kunder på priser avtal innan April 2018, omfattar detta även logganalys-användning som köpts via insikterna och Analytics erbjuder.

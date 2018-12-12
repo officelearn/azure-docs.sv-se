@@ -1,23 +1,24 @@
 ---
-title: Granska endpoint yttranden att använda aktiv inlärning i Språkförståelse (LUIS)
-titleSuffix: Azure Cognitive Services
-description: Aktiv inlärning är en av tre strategier för att förbättra förutsägelsefunktionen och enklast. Med aktiv inlärning, din granska endpoint yttranden för rätt avsikt och entiteten. LUIS väljer endpoint yttranden som det är osäker på.
+title: Granska användare yttranden
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Med aktiv inlärning, din granska endpoint yttranden för rätt avsikt och entiteten. LUIS väljer endpoint yttranden som det är osäker på.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/07/2018
 ms.author: diberry
-ms.openlocfilehash: 4ef6f5022b3c38eab2cda20123f179811f46390f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: MT
+ms.openlocfilehash: ca8a6b05722ac2edc91d7459c64c2bdb312a7016
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637246"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080970"
 ---
-# <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Aktivera aktiv inlärning genom att granska endpoint yttranden
+# <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Begrepp för att aktivera aktiv inlärning genom att granska endpoint yttranden
 Aktiv inlärning är en av tre strategier för att förbättra förutsägelsefunktionen och enklast. Med aktiv inlärning, din granska endpoint yttranden för rätt avsikt och entiteten. LUIS väljer endpoint yttranden som det är osäker på.
 
 ## <a name="what-is-active-learning"></a>Vad är aktiv inlärning

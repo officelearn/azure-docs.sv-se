@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure IoT Edge-enheter för nätverket proxyservrar | Microsoft Docs
+title: Konfigurera enheter för nätverk - proxyservrar i Azure IoT Edge | Microsoft Docs
 description: Så här konfigurerar du Azure IoT Edge-körningen och några internet-ansluten IoT Edge-moduler för att kommunicera via en proxyserver.
 author: kgremban
 manager: ''
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.custom: seodec18
+ms.openlocfilehash: a7d32c98b77568e02fa14b70e969eeb254989062
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913231"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100489"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver
 
@@ -173,7 +174,7 @@ Om du vill konfigurera Edge-agent och Edge hub-moduler, Välj **konfigurera avan
 
 Lägg till den **https_proxy** miljövariabeln både Edge-agenten och moduldefinitioner för Edge hub. Om du har lagt till den **UpstreamProtocol** miljövariabeln i filen config.yaml på IoT Edge-enhet, lägga till som i Edge-agenten modulen definitionen för. 
 
-![Ange miljövariabler](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+![Ange miljövariabeln för https_proxy](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
 Alla andra moduler som du lägger till ett distribution-manifest följer samma mönster. På sidan där du anger modulnamn och bild finns ett variabelavsnitt i miljön.
 

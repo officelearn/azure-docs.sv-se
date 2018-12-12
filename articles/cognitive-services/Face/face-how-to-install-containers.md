@@ -1,21 +1,22 @@
 ---
-title: Hur du installerar och kör behållare
-titlesuffix: Face - Cognitive Services - Azure
+title: Installera genom att köra behållare
+titlesuffix: Face - Azure Cognitive Services
 description: Så här hämtar, installerar och kör behållare för ansikte i den här genomgången självstudien.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634548"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086444"
 ---
 # <a name="install-and-run-containers"></a>Installera och köra containrar
 
@@ -37,7 +38,7 @@ Docker måste konfigureras för att tillåta behållarna för att ansluta till o
 
 Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Krav och rekommendationer
+### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 
 Ansikts-behållare kräver minst 1 processorkärna, minst 2,6 GHz (gigahertz) eller snabbare och 4 gigabyte (GB) för allokerat minne, men vi rekommenderar minst 2 CPU-kärnor och 6 GB allokerat minne.
 
@@ -167,7 +168,9 @@ I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, instal
 * Behållaravbildningar som körs i Docker.
 * Du kan använda antingen SDK eller REST API för att anropa åtgärder i ansikte behållare genom att ange värden URI: N för behållaren.
 * Du måste ange faktureringsinformation när instanser skapades av en behållare.
-* ** Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (t.ex. bild eller text som analyseras) till Microsoft.  
+
+> [!IMPORTANT]
+> Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (t.ex. bild eller text som analyseras) till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 

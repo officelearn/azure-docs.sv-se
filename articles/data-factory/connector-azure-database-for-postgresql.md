@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Azure-databas för PostgreSQL med hjälp av Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från Azure-databas för PostgreSQL till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
+title: Kopiera data från Azure Database for PostgreSQL med Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från Azure Database för PostgreSQL till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,47 +11,47 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1c1d9f7a4b64ea1e952b3edd9011f5dc197543d6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0f9d0bb8b1a10182702e3d7dceb2812838326c2b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052689"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081055"
 ---
-# <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Kopiera data från Azure-databas för PostgreSQL med hjälp av Azure Data Factory 
+# <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Kopiera data från Azure Database for PostgreSQL med Azure Data Factory 
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Azure-databas för PostgreSQL. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Azure Database för PostgreSQL. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från Azure-databas för PostgreSQL till alla stöds sink-datalagret. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Azure Database för PostgreSQL till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, måste du därför inte att manuellt installera en drivrutin med den här anslutningen.
+Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Azure-databas för PostgreSQL-anslutningen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Azure Database för PostgreSQL-anslutningen.
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för Azure-databas för PostgreSQL länkade tjänsten:
+Följande egenskaper har stöd för Azure Database för PostgreSQL länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till: **AzurePostgreSql** | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till Azure-databas för PostgreSQL. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
+| typ | Type-egenskapen måste anges till: **AzurePostgreSql** | Ja |
+| connectionString | En ODBC-anslutningssträng att ansluta till Azure Database för PostgreSQL. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
-En typisk anslutningssträng är `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Fler egenskaper som du kan ange per ditt fall:
+En typisk anslutningssträng är `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Fler egenskaper som du kan ställa in per ditt ärende:
 
 | Egenskap  | Beskrivning | Alternativ | Krävs |
 |:--- |:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| Metoden drivrutinen använder för att kryptera data som skickas mellan drivrutinen och databasservern. T.ex. `ValidateServerCertificate=<0/1/6>;`| 0 (Ingen kryptering) **(standard)** / 1 (SSL) / 6 (RequestSSL) | Nej |
-| ValidateServerCertificate (VSC) | Avgör om drivrutinen bekräfta det certifikat som skickas av databasservern när SSL-kryptering är aktiverat (krypteringsmetod = 1). T.ex. `ValidateServerCertificate=<0/1>;`| 0 (inaktiverat) **(standard)** / 1 (aktiverad) | Nej |
+| ValidateServerCertificate (VSC) | Avgör om drivrutinen att bekräfta det certifikat som skickas av databasservern när SSL-kryptering är aktiverat (krypteringsmetod = 1). T.ex. `ValidateServerCertificate=<0/1>;`| 0 (inaktiverad) **(standard)** / 1 (aktiverad) | Nej |
 
 **Exempel:**
 
@@ -72,9 +72,14 @@ En typisk anslutningssträng är `Server=<server>.postgres.database.azure.com;Da
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns på [datauppsättningar](concepts-datasets-linked-services.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Azure-databas för PostgreSQL dataset.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Database för PostgreSQL-datauppsättningen.
 
-Ange typegenskapen för dataset för att kopiera data från Azure-databas för PostgreSQL, **AzurePostgreSqlTable**. Det finns ingen ytterligare typspecifika egenskap i den här typen av datauppsättningen.
+För att kopiera data från Azure Database för PostgreSQL, ange typegenskapen på datauppsättningen till **AzurePostgreSqlTable**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **AzurePostgreSqlTable** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -86,23 +91,24 @@ Ange typegenskapen för dataset för att kopiera data från Azure-databas för P
         "linkedServiceName": {
             "referenceName": "<AzurePostgreSql linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Azure-databas för PostgreSQL källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Database för PostgreSQL-källa.
 
-### <a name="azurepostgresqlsource-as-source"></a>AzurePostgreSqlSource som källa
+### <a name="azure-database-for-postgresql-as-source"></a>Azure Database för PostgreSql som källa
 
-Om du vill kopiera data från Azure-databas för PostgreSQL, anger du datakällan i kopieringsaktiviteten till **AzurePostgreSqlSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+För att kopiera data från Azure Database för PostgreSQL, ange typ av datakälla i kopieringsaktiviteten till **AzurePostgreSqlSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **AzurePostgreSqlSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Ja |
+| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AzurePostgreSqlSource** | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -136,11 +142,11 @@ Om du vill kopiera data från Azure-databas för PostgreSQL, anger du datakälla
 ]
 ```
 
-## <a name="data-type-mapping-for-azure-database-for-postgresql"></a>Datatypsmappningen för Azure-databas för PostgreSQL
+## <a name="data-type-mapping-for-azure-database-for-postgresql"></a>Datatypsmappningen för Azure Database för PostgreSQL
 
-När du kopierar data från Azure-databas för PostgreSQL, används följande mappningar från PostgreSQL-datatyper till Azure Data Factory tillfälliga datatyper. Se [Schema- och Skriv mappningar](copy-activity-schema-and-type-mapping.md) att lära dig hur kopieringsaktiviteten mappar källtypen schema och data till sink.
+När du kopierar data från Azure Database för PostgreSQL, används följande mappningar från PostgreSQL-datatyper till Azure Data Factory tillfälliga-datatyper. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
 
-| PostgreSQL-datatyp | PostgresSQL alias | Data factory tillfälliga datatyp |
+| PostgreSQL-datatypen | PostgresSQL alias | Data factory tillfälliga datatyp |
 |:--- |:--- |:--- |
 | `abstime` |&nbsp; |`String` |
 | `bigint` | `int8` | `Int64` |
@@ -189,4 +195,4 @@ När du kopierar data från Azure-databas för PostgreSQL, används följande ma
 | `xid` |&nbsp; |`Int32` |
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

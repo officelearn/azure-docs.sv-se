@@ -1,6 +1,6 @@
 ---
-title: Registrera en ny Azure IoT Edge-enhet (portal) | Microsoft Docs
-description: Använd Azure-portalen för att registrera en ny IoT Edge-enhet
+title: Registrera en ny enhet från Azure portal – Azure IoT Edge | Microsoft Docs
+description: Använda Azure portal för att registrera en ny IoT Edge-enhet och hämta anslutningssträngen
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6657203c76bc03a262fbcbd30b5bf74b5be140eb
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: da93541339ac1c199d3ba0a220fbfff6bbb8bf9c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577506"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082133"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Registrera en ny Azure IoT Edge-enhet från Azure portal
 

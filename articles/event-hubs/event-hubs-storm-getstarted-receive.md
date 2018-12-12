@@ -1,6 +1,6 @@
 ---
-title: Ta emot händelser från Azure Event Hubs med Apache Storm | Microsoft Docs
-description: Börja ta emot från Event Hubs med Apache Storm
+title: Ta emot händelser med Apache Storm – Azure Event Hubs | Microsoft Docs
+description: Den här artikeln innehåller information om hur du tar emot händelser från Azure Event Hubs med Apache Storm.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c70096796bb038c27d18bb3467d7c425dafd5c5b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3c50916f648a2bce634f7aeb109147a873de1de6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056036"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094618"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Ta emot händelser från Event Hubs med Apache Storm
 
@@ -40,7 +41,7 @@ Den här självstudien används en [HDInsight Storm] [ HDInsight Storm] installa
     ```
 4. Skapa ett nytt Maven-projekt i Eclipse (klicka på **filen**, sedan **New**, sedan **projekt**).
    
-    ![][12]
+    ![Arkiv -> Nytt projekt ->][12]
 5. Välj **använda standardplatsen för arbetsytan**, klicka sedan på **nästa**
 6. Välj den **maven-archetype-quickstart** archetype, klicka sedan på **nästa**
 7. Infoga en **GroupId** och **ArtifactId**, klicka sedan på **Slutför**

@@ -1,21 +1,22 @@
 ---
-title: Förutsägelse poäng - avsikter, entiteter - LUIS
-titleSuffix: Azure Cognitive Services
+title: Poäng för förutsägelse
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: En förutsägelse poäng indikerar grad av säkerhet som LUIS har för förutsägelser.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: MT
+ms.openlocfilehash: ca920a3c46a336b66a7238eeca83e3389221033a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264394"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087651"
 ---
 # <a name="prediction-score"></a>Förutsägelseresultat
 En förutsägelse poäng indikerar grad av säkerhet som LUIS har för förutsägelser. 

@@ -1,6 +1,6 @@
 ---
-title: Hur du lägger till anpassning till din Azure Active Directory-inloggningssida | Microsoft Docs
-description: Lär dig hur du lägger till din organisation anpassning till inloggningssidan för Azure Active Directory.
+title: Lägg till företagsanpassning till din organisations inloggningssida – Azure Active Directory | Microsoft Docs
+description: Anvisningar om hur du lägger till din organisations anpassning till inloggningssidan för Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-custom: it-pro
-ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 0ce0d42e37bcc5c936798947bacf0232891c24ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367568"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090320"
 ---
-# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>Så här: Lägg till företagsanpassning för din Azure Active Directory-inloggningssida
+# <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till företagsanpassning till din organisations Azure Active Directory-inloggningssida
 Använda organisationens logotyp och egna färgscheman för att tillhandahålla ett konsekvent utseende och känsla på webbsidorna för Azure Active Directory (AD Azure). Logga in sidorna visas när användare loggar in på din organisations webbaserade appar, till exempel Office 365, som använder Azure AD som identitetsprovider.
 
 >[!Note]
->Lägga till anpassade anpassning kräver att du använder Azure Active Directory Premium 1, 2 för Premium eller Basic-utgåvor och ha en licens för Office 365. Läs mer om licensiering och utgåvor [registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure AD Premium och Basic stöds inte för närvarande i tjänsten Azure som drivs av 21Vianet i Kina. Mer information tala med oss med hjälp av den [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>Lägga till anpassade anpassning kräver att du använder Azure Active Directory Premium 1, 2 för Premium eller Basic-utgåvor och ha en licens för Office 365. Läs mer om licensiering och utgåvor [registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure AD Premium och Basic stöds inte för närvarande i den Azure-tjänst som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Anpassa din Azure AD-inloggningssida
 Du kan anpassa dina Azure AD-inloggningssidor, som visas när användare loggar in till din organisations klientspecifik appar, till exempel [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), eller vid sändning av en domänvariabel i, till exempel [ *https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
@@ -34,7 +34,7 @@ Ditt varumärke visas inte direkt när dina användare gå till platser, till ex
 > Alla företagsanpassning element är valfria. Exempel: Om du anger en banderollslogotyp med ingen bakgrundsbild visas på inloggningssidan din logotyp med en standard bakgrundsbild från målplatsen (till exempel Office 365).<br><br>Dessutom sprids inloggningssidan anpassning inte till personliga Microsoft-konton. Om dina användare eller företagsgäster loggar du in med ett personligt microsoftkonto, visas inte på inloggningssidan anpassning av din organisation.
 
 ### <a name="to-customize-your-branding"></a>Anpassa din företagsanpassning
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Globalt administratörskonto för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **Varumärkesexponering**, och välj sedan **konfigurera**.
 
@@ -92,7 +92,7 @@ Ditt varumärke visas inte direkt när dina användare gå till platser, till ex
 När du har skapat ditt varumärke, kan du gå tillbaka och ändra vad du vill.
 
 ### <a name="to-edit-your-custom-branding"></a>Så här redigerar du ditt varumärke
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Globalt administratörskonto för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **Varumärkesexponering**, och välj sedan **konfigurera**.
 
@@ -109,7 +109,7 @@ Du kan inte ändra den ursprungliga konfigurationen språk från din standardspr
 
 ### <a name="to-add-a-language-specific-branding-configuration"></a>Att lägga till en språkspecifik företagsanpassning konfiguration
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Globalt administratörskonto för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **Varumärkesexponering**, och välj sedan **nytt språk**.
 

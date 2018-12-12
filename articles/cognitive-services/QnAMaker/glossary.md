@@ -1,7 +1,7 @@
 ---
 title: Ordlista – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Ordlista
+description: QnA Maker-tjänsten har många nya termer från machine learning och bearbetningsfunktioner, samt tjänstspecifika villkoren för naturligt språk. Den här listan hjälper dig att förstå dessa villkor.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: b22ec27b2999d322945e37c5a38d2b1d1532e7e3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 832bf85087b706451a6ee58c538d7a163ef18203
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166052"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079950"
 ---
-# <a name="glossary"></a>Ordlista
+# <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Ordlista för QnA Maker knowledge base och service
 
 ## <a name="qna-maker-service"></a>QnA Maker-tjänsten
 QnA Maker-tjänsten är ett krav att börja använda QnA Maker. Köpa en QnA Maker-nivå ställer in resurser i din Azure-prenumeration för att skapa och hantera din kunskapsbas. Varje användarkonto för QnA Maker kan skapa flera QnA Maker-tjänster i sin Azure-prenumeration.
@@ -34,7 +35,7 @@ En kunskapsbas har två tillstånd - Test och publicerats. Kunskapsbasen test ä
 ## <a name="published-knowledge-base"></a>Publicerade kunskapsbas
 En kunskapsbas har två tillstånd - testning och publicerad.  Publicerade kunskapsbasen är den version som används i din chatt robot eller ditt program. Åtgärd för att publicera en kunskapsbas placerar innehållet i kunskapsbasen Test i den publicerade versionen av kunskapsbasen. Eftersom publicerade kunskapsbasen är den version som används i programmet via slutpunkten kan man att säkerställa att innehållet är korrekt och väl testade.
 
-## <a name="query"></a>Fråga
+## <a name="query"></a>Söka i data
 En användarfråga är frågan som slutanvändaren eller tester frågar i knowledge base. Frågan är ofta på ett naturligt språk-format eller några nyckelord som representerar frågan.
 
 ## <a name="response"></a>Svar

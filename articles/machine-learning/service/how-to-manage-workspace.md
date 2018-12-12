@@ -9,12 +9,13 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: 1565c54779278b440cfe631951e964921cc85720
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 647af189319a1fa7b80b10410ad96f3297c18192
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51709890"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083775"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Skapa och hantera Azure Machine Learning-tjänstens arbetsytor
 
@@ -36,11 +37,11 @@ Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har e
 
 1. Filtrera resultaten och välj **Machine Learning-tjänstens arbetsyta** att visa en lista över dina arbetsytor. 
 
-   ![Sök efter Azure Machine Learning-tjänstens arbetsyta](media/how-to-manage-workspace/allservices-search.PNG)
+   ![Lista över Azure Machine Learning-tjänstens arbetsytor](media/how-to-manage-workspace/allservices-search.PNG)
 
 1. Titta igenom listan över arbetsytor hittades. Du kan filtrera baserat på prenumerationen, resursgrupper och platser.  
 
-   ![Azure Machine Learning-arbetsyta Tjänstlista](media/how-to-manage-workspace/allservices_view_workspace.PNG)
+   ![Visa arbetsytor](media/how-to-manage-workspace/allservices_view_workspace.PNG)
 
 1. Välj den arbetsyta som du nyss skapade om du vill visa dess egenskaper.
 
@@ -50,7 +51,7 @@ Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har e
 
 Använd knappen Ta bort överst på arbetsytan som du vill ta bort.
 
-  ![PNG](media/how-to-manage-workspace/delete-workspace.png)
+  ![Ta bort knapp](media/how-to-manage-workspace/delete-workspace.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser 

@@ -1,21 +1,22 @@
 ---
-title: Lägga till mallar för mönstret i stället för flera uttryck i LUIS-appar
-titleSuffix: Azure Cognitive Services
+title: Mönster öka noggrannheten
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Lär dig hur du lägger till mönstret mallar i program för Språkförståelse (LUIS) att förbättra förutsägelsefunktionen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: MT
+ms.openlocfilehash: 20a486a048fe6287544a9fec35a95c88f6194a66
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885894"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093190"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Hur du lägger till mönster för att förbättra förutsägelsefunktionen
 När en LUIS-app tar emot endpoint yttranden, använda den [konceptet](luis-concept-patterns.md) av mönster förbättra prognosens noggrannhet för yttranden som avslöjar ett mönster i ordföljden och word valet. Mönster Använd [entiteter](luis-concept-entity-types.md) och deras roller för att extrahera data med hjälp av specifika mönstret syntax. 
@@ -125,7 +126,7 @@ Du kan skapa ett mönster från en befintlig uttryck på antingen den **avsikt**
 
 1. På den valda raden i uttryck, Välj ellipsen (***...*** ) till höger om uttryck och välj **Lägg till som mönster**.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Skärmbild av yttranden tabell med Lägg till mönster som markerats i alternativmenyn")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![Skärmbild av yttranden tabell med Lägg till mönster som markerats i alternativmenyn](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Skärmbild av yttranden tabell med Lägg till mönster som markerats i alternativmenyn")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. Ändra mönstret enligt den [syntaxregler](luis-concept-patterns.md#pattern-syntax). Om det uttryck som du har valt är märkt med entiteter, finns dessa entiteter redan i mönstret med rätt syntax.
 

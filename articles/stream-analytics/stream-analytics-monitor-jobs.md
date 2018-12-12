@@ -1,6 +1,6 @@
 ---
-title: Övervaka och hantera Azure Stream Analytics-jobb via programmering
-description: 'Den här artikeln beskriver hur du övervakar programmässigt Stream Analytics-jobb som skapats via REST API: er, Azure SDK eller PowerShell.'
+title: Övervaka och hantera Azure Stream Analytics-jobb programmässigt
+description: 'Den här artikeln beskriver hur du programmässigt övervaka Stream Analytics-jobb som skapats via REST API: er, Azure SDK eller PowerShell.'
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,38 +9,38 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 2688f148185b1c1523178d190a7a2a76e6ceabef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fac56117c4c70e2735580abb52d05e008d660003
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30908793"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089428"
 ---
-# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Programmässigt skapa en Övervakare för Stream Analytics-jobb
+# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Skapa en Övervakare för Stream Analytics-jobb programmässigt
 
-Den här artikeln visar hur du aktiverar övervakning av ett Stream Analytics-jobb. Stream Analytics-jobb som skapats via REST API: er, Azure SDK eller PowerShell har inte övervaka aktiverad som standard. Du kan manuellt aktivera den i Azure portal genom att gå till sidan för jobbets övervakaren och klicka på knappen Aktivera eller du kan automatisera processen genom att följa stegen i den här artikeln. Övervakningsdata kommer att visas i området mätvärden i Azure portal för Stream Analytics-jobbet.
+Den här artikeln visar hur du aktiverar övervakning av ett Stream Analytics-jobb. Stream Analytics-jobb som skapas via REST API: er, Azure SDK eller PowerShell har inte övervakning aktiverad som standard. Du kan manuellt aktivera det i Azure portal genom att gå till övervakaren jobbsidan och klicka på Aktivera-knappen eller du kan automatisera processen genom att följa stegen i den här artikeln. Övervakningsdata visas i området mått i Azure-portalen för ditt Stream Analytics-jobb.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar den här processen måste du ha följande:
+Innan du börjar den här processen, måste du ha följande:
 
-* Visual Studio-2017 eller 2015
+* Visual Studio 2017 eller 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/) hämtas och installeras
-* Ett befintligt Stream Analytics-jobb som måste ha övervakning aktiverad
+* Ett befintligt Stream Analytics-jobb som måste ha övervakning har aktiverats
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
-1. Skapa ett konsolprogram i Visual Studio C# .NET.
-2. Kör följande kommandon för att installera NuGet-paket i Package Manager-konsolen. Den första är Azure Stream Analytics Management .NET SDK. Den andra är Azure övervakaren SDK som används för att aktivera övervakning. Den sista som är Azure Active Directory-klient som ska användas för autentisering.
+1. Skapa ett Visual Studio C# .NET-konsolprogram.
+2. Kör följande kommandon för att installera NuGet-paket i Package Manager-konsolen. Den första är Azure Stream Analytics Management .NET SDK. Den andra är Azure Monitor SDK som ska användas för att aktivera övervakning. Den sista som är Azure Active Directory-klient som ska användas för autentisering.
    
-   ```
+   ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics
    Install-Package Microsoft.Azure.Insights -Pre
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
 3. Lägg till avsnittet appSettings i filen App.config.
    
-   ```
+   ```csharp
    <appSettings>
      <!--CSM Prod related values-->
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
@@ -57,12 +57,12 @@ Innan du börjar den här processen måste du ha följande:
    ```
    Ersätt värdena för *SubscriptionId* och *ActiveDirectoryTenantId* med din Azure-prenumeration och klient-ID: N. Du kan hämta dessa värden genom att köra följande PowerShell-cmdlet:
    
-   ```
+   ```powershell
    Get-AzureAccount
    ```
-4. Lägg till följande med hjälp av rapporter till källfilen (Program.cs) i projektet.
+4. Lägg till följande using-satser till källfilen (Program.cs) i projektet.
    
-   ```
+   ```csharp
      using System;
      using System.Configuration;
      using System.Threading;
@@ -73,9 +73,10 @@ Innan du börjar den här processen måste du ha följande:
      using Microsoft.Azure.Management.StreamAnalytics.Models;
      using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
-5. Lägg till en autentiseringsmetod för hjälp.
-   
-     sträng med offentlig statisk GetAuthorizationHeader()
+5. Lägg till en helper autentiseringsmetod.
+
+```csharp   
+     public static string GetAuthorizationHeader()
    
          {
              AuthenticationResult result = null;
@@ -111,11 +112,13 @@ Innan du börjar den här processen måste du ha följande:
    
              throw new InvalidOperationException("Failed to acquire token");
      }
+```
 
-## <a name="create-management-clients"></a>Skapa av hanteringsklienter
+## <a name="create-management-clients"></a>Skapa hanteringsklienter
 
-Följande kod ställer in den nödvändiga variabler och av hanteringsklienter.
+Följande kod ställer in nödvändiga variabler och av hanteringsklienter.
 
+```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
 
@@ -133,22 +136,23 @@ Följande kod ställer in den nödvändiga variabler och av hanteringsklienter.
     StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
+```
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Aktivera övervakning av ett befintligt Stream Analytics-jobb
 
-Följande kod aktiverar övervakning för en **befintliga** Stream Analytics-jobbet. Den första delen av koden utför en GET-begäran mot Stream Analytics-tjänsten att hämta information om Stream Analytics-jobbet. Den använder den *Id* egenskapen (hämtades från GET-begäran) som en parameter för Put-metoden i den andra hälften av den kod som skickar ett PUT begäran till Insights-tjänsten för att aktivera övervakning av Stream Analytics-jobbet.
+Följande kod möjliggör övervakning för en **befintliga** Stream Analytics-jobb. Den första delen av kod som utför en GET-begäran mot Stream Analytics-tjänsten att hämta information om Stream Analytics-jobbet. Den använder den *Id* egenskapen (hämtades från GET-begäran) som en parameter för Put-metoden i den andra hälften av den kod som skickar en PUT begäran till Insights-tjänsten för att aktivera övervakning för Stream Analytics-jobbet.
 
 >[!WARNING]
->Om du tidigare har aktiverat övervakning för ett annat Stream Analytics-jobb, antingen via Azure-portalen eller programmässigt via den nedan kod, **rekommenderar vi att du anger samma lagringskontots namn som du använde när du tidigare aktivera övervakning.**
+>Om du redan har aktiverat övervakning för ett annat Stream Analytics-jobb, antingen via Azure portal eller programmässigt via den nedan kod, **rekommenderar vi att du anger samma lagringskontonamn som du använde när du tidigare aktivera övervakning.**
 > 
-> Lagringskontot är länkad till regionen som du skapade Stream Analytics-jobbet i, inte till jobbet sig själv.
+> Lagringskontot är länkad till regionen som du skapade ditt Stream Analytics-jobb i, inte specifikt för själva jobbet.
 > 
-> Alla Stream Analytics-jobb (och alla andra Azure-resurser) i samma regionen dela det här lagringskontot för att lagra övervakningsdata. Om du anger ett annat lagringskonto kan orsaka oönskade sidoeffekter övervakningen av andra Stream Analytics-jobb eller andra Azure-resurser.
+> Alla Stream Analytics-jobb (och alla andra Azure-resurser) i samma regionen dela det här lagringskontot för att lagra övervakningsdata. Om du anger ett annat lagringskonto kan orsaka oväntade sidoeffekter för övervakningen av andra Stream Analytics-jobb eller andra Azure-resurser.
 > 
-> Lagringskontonamnet som används för att ersätta `<YOUR STORAGE ACCOUNT NAME>` i följande kod ska vara ett lagringskonto som är i samma prenumeration som du aktiverar övervakning för Stream Analytics-jobbet.
+> Lagringskontonamn som används för att ersätta `<YOUR STORAGE ACCOUNT NAME>` i följande kod ska vara ett storage-konto som tillhör samma prenumeration som Stream Analytics-jobb som du aktiverar övervakning för.
 > 
 > 
-
+```csharp
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
     {
@@ -165,12 +169,12 @@ Följande kod aktiverar övervakning för en **befintliga** Stream Analytics-job
             }
     };
     insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
-
+```
 
 
 ## <a name="get-support"></a>Få support
 
-För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 

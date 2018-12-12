@@ -1,5 +1,5 @@
 ---
-title: Uppdatera enheter till den senaste versionen av Azure IoT Edge | Microsoft Docs
+title: IoT Edge Uppdateringsversion på enheter – Azure IoT Edge | Microsoft Docs
 description: Så här uppdaterar du IoT Edge-enheter för att köra de senaste versionerna av security-daemon och IoT Edge-körningen
 keywords: ''
 author: kgremban
@@ -9,14 +9,15 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1522d9c9bc4fda178d8571fb57cb9c94ed1044ae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 8b8638d8fa428b1b867e3f126ac8b5cc992cc273
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567799"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095162"
 ---
-# <a name="update-the-iot-edge-runtime"></a>Uppdatera IoT Edge-körningen
+# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Uppdatera IoT Edge security daemon och runtime
 
 När IoT Edge-tjänsten släpper nya versioner, bör du uppdatera dina IoT Edge-enheter om du vill ha de senaste funktionerna och säkerhetsförbättringar. Den här artikeln innehåller information om hur du uppdaterar din IoT Edge-enheter när en ny version är tillgänglig. 
 
@@ -63,7 +64,7 @@ Hur du uppdaterar Edge-agent och Edge hub behållare beror på om du använder l
 
 Kontrollera versionen av IoT Edge-agenten och Edge hub-moduler för närvarande på din enhet med hjälp av kommandona `iotedge logs edgeAgent` eller `iotedge logs edgeHub`. 
 
-  ![Visa behållarversion](./media/how-to-update-iot-edge/container-version.png)
+  ![Hitta versionen för behållare i loggarna](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>Förstå IoT Edge-taggar
 

@@ -1,21 +1,22 @@
 ---
-title: LUIS förskapade entiteter number referens – Azure | Microsoft Docs
+title: Antal fördefinierade entitet
 titleSuffix: Azure
 description: Den här artikeln innehåller ett antal fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: b3ac42f5ecd1dc14055b0767e057a1da093042f9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: ead544400f97f9a49296cc43552bea3a6f3def98
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334575"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095330"
 ---
 # <a name="number-entity"></a>Enheter för nummer
 Det finns många sätt som numeriska värden som används för att kvantifiera, express och beskriver typer av information. Den här artikeln beskriver bara några av exempel som möjligt. LUIS tolkar variationerna i användaren uttryck och returnerar konsekvent numeriska värden. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller tal som ska programmet avsikter. 
@@ -42,7 +43,7 @@ LUIS innehåller värdet som känns igen av en **`builtin.number`** entitet i de
 ## <a name="resolution-for-prebuilt-number"></a>Lösning för fördefinierade nummer
 I följande exempel visar ett JSON-svar från LUIS, som innehåller av lösningen på värdet 24, för uttryck ”24”.
 
-```JSON
+```json
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {

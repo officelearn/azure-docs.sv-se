@@ -1,21 +1,22 @@
 ---
-title: Lär dig hur mönster ökar prognosens noggrannhet
-titleSuffix: Azure Cognitive Services
-description: Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika. Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden.
+title: Mönster hjälpa förutsägelse
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: MT
+ms.openlocfilehash: 3c33612ef76a572bd4bf63a5e7d6f05e36c7847b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300378"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082007"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika.  Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden. 
@@ -50,7 +51,7 @@ Om två eller flera entiteter i ett mönster är sammanhangsmässigt relaterade,
 Med tillräckligt med exempel yttranden kan skulle LUIS kunna öka förutsägelsen utan mönster. Mönster öka förtroendepoäng utan att behöva tillhandahålla så många yttranden.  
 
 ## <a name="pattern-matching"></a>Mönstermatchning
-Ett mönster matchas baserat på identifiera entiteterna i mönstret först och sedan validerar resten av orden och ordföljden i mönstret. Entiteter krävs i mönstret för ett mönster som ska matchas. 
+Ett mönster matchas baserat på identifiera entiteterna i mönstret först och sedan validerar resten av orden och ordföljden i mönstret. Entiteter krävs i mönstret för ett mönster som ska matchas. Mönstret tillämpas på nivån token inte tecknet-nivå. 
 
 ## <a name="pattern-syntax"></a>Mönstret syntax
 Mönstret syntaxen är en mall för ett uttryck. Mallen bör innehålla ord och entiteter som du vill matcha samt ord och skiljetecken som du vill ignorera. Det är **inte** ett reguljärt uttryck. 

@@ -10,20 +10,20 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229687"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877980"
 ---
 # <a name="customize-your-text-translations"></a>Anpassa dina textöversättningar
 
-Förhandsversionen av Microsoft anpassad Translator är en funktion i tjänsten Microsoft Translator, vilket gör att användare kan anpassa Microsoft Translator avancerade neural maskinöversättning översätta text med Translator Text API (endast version 3).
+Anpassad Microsoft Translator är en funktion i tjänsten Microsoft Translator, vilket gör att användare kan anpassa Microsoft Translator avancerade neural maskinöversättning översätta text med Translator Text API (endast version 3).
 
-Funktionen kan också användas för att anpassa talöversättning när det används med [Cognitive Services tal förhandsversion](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Funktionen kan också användas för att anpassa talöversättning när det används med [Cognitive Services tal](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
-## <a name="custom-translator"></a>Anpassade Translator
+## <a name="custom-translator"></a>Custom Translator
 
 Med anpassade Translator, kan du skapa neural översättningssystem som förstår de termer som används i din egen verksamhet och branschen. Den anpassade översättningssystemet sedan integreras i befintliga program, arbetsflöden och webbplatser.
 
@@ -48,7 +48,7 @@ Mer information om de olika nivåerna på anpassning som är baserad på tillgä
 
 |   | **Hubb** | **Anpassade Translator**|
 |:-----|:----:|:----:|
-|Anpassning av funktionsstatus   | Allmän tillgänglighet  | Förhandsversion |
+|Anpassning av funktionsstatus   | Allmän tillgänglighet  | Allmän tillgänglighet |
 | API för textöversättning version  | Endast v2   | Endast v3 |
 | SMT anpassning | Ja   | Nej |
 | NMT anpassning | Nej    | Ja |

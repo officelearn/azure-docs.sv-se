@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure IoT Edge | Microsoft Docs
-description: Lös vanliga problem och lär dig felsökning av Azure IoT Edge
+title: Felsökning – Azure IoT Edge | Microsoft Docs
+description: Använd den här artikeln lär du dig standard diagnostiska färdigheter för Azure IoT Edge, som hämtar Komponentstatus och loggar och lösa vanliga problem
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a553798a3ac15340805984a0e87312875f82c46c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 448fe3e7d6f3129ce6a40494abcf993f6dc4e4f7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567663"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081412"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -243,7 +244,7 @@ När du ser det här felet kan lösa du det genom att konfigurera DNS-namnet på
 1. Gå till översiktssidan för den virtuella datorn i Azure-portalen. 
 2. Välj **konfigurera** med DNS-namnet. Om den virtuella datorn redan har ett DNS-namn som har konfigurerats, behöver du inte konfigurera en ny. 
 
-   ![Konfigurera DNS-namn](./media/troubleshoot/configure-dns.png)
+   ![Konfigurera DNS-namnet på virtuell dator](./media/troubleshoot/configure-dns.png)
 
 3. Ange ett värde för **DNS-Namnetiketten** och välj **spara**.
 4. Kopiera nya DNS-namn som ska vara i formatet  **\<DNSnamelabel\>.\< vmlocation\>. cloudapp.azure.com**.
@@ -274,7 +275,7 @@ I Användargränssnittet:
 
 På portalen från *enhetsinformation*->*ange moduler*->*konfigurera avancerade Edge-körningsinställningar*, skapa en miljövariabel kallas *OptimizeForPerformance* som har angetts till *FALSKT* för den *Edge Hub*.
 
-![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
+![OptimizeForPerformance inställd på false](./media/troubleshoot/optimizeforperformance-false.png)
 
 **OR**
 

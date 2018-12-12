@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23c8098927a051da48c7da2bac0c96173da1d2f2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: b84a2c19fa7eda94e55d9bc473d9864e6d9c0193
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713307"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079791"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Använda Azure Log Analytics för att övervaka HDInsight-kluster
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Log Analytics-arbetsytan**. Du kan betrakta arbetsytan som en unik Log Analytics-miljö med en egen databas, datakällor och lösningar. Anvisningar finns i [skapa en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
+* **Log Analytics-arbetsytan**. Du kan betrakta arbetsytan som en unik Log Analytics-miljö med en egen databas, datakällor och lösningar. Anvisningar finns i [skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
 * **Ett Azure HDInsight-kluster**. För närvarande kan du använda Log Analytics med följande typer av HDInsight-kluster:
 

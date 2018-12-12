@@ -1,10 +1,10 @@
 ---
 title: Azure AI-galleriet Jupyter-anteckningsböcker – Azure Machine Learning Studio | Microsoft Docs
-description: Upptäck Jupyter notebooks i Azure AI-galleriet.
+description: Upptäck Jupyter notebooks i Azure AI-galleriet. Anteckningsböcker i galleriet ger självstudier och detaljerade förklaringar av avancerade machine learning-tekniker och lösningar.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: efc24f957a4c1288212fed2792d3dd14a49e1a2b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: bf2cd5380760ef4cab8378aa7b66da461ac0cd69
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307721"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092051"
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Identifiera Jupyter Notebooks i Azure AI-galleriet
 

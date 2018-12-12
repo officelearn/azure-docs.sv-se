@@ -1,19 +1,19 @@
 ---
-title: 'Konfigurera en VNet-gateway för ExpressRoute med PowerShell: klassiska: Azure | Microsoft Docs'
+title: 'Konfigurera en VNet-gateway för ExpressRoute - klassiska: Azure PowerShell | Microsoft Docs'
 description: Konfigurera en VNet-gateway för en klassisk distribution modellera VNet med PowerShell för en ExpressRoute-konfigurationen.
-documentationcenter: na
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: d0425b68f1b241bde4b2100d13d60165e5a1f1fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 101e03d07a15e9058ef236a575251b052017db32
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255185"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083293"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Konfigurera en virtuell nätverksgateway för ExpressRoute med PowerShell (klassisk)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Den här artikeln vägleder dig igenom stegen för att lägga till, ändra storl
 
 **Om distributionsmodeller för Azure**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>Innan du börjar
 Kontrollera att du har installerat Azure PowerShell-cmdlets som krävs för den här konfigurationen (1.0.2 eller senare). Om du inte har installerat cmdletarna som behöver du göra det innan du påbörjar konfigurationen. Mer information om hur du installerar Azure PowerShell finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).

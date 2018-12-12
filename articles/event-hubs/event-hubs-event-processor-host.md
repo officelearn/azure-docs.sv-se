@@ -1,6 +1,6 @@
 ---
-title: Vad är Azure Event Hubs Event Processor Host och varför ska jag använda det | Microsoft Docs
-description: Översikt och introduktion till Azure Event Hubs Event Processor Host
+title: Ta emot händelser med hjälp av Event Processor Host - Azure Event Hubs | Microsoft Docs
+description: Den här artikeln beskriver värden för händelsebearbetning i Azure Event Hubs, vilket förenklar hanteringen av kontrollpunkter, leasing och läsa händelser med parallellt.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258960"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089641"
 ---
-# <a name="azure-event-hubs-event-processor-host-overview"></a>Översikt över Azure Event Hubs Event Processor Host
+# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Ta emot händelser från Azure Event Hubs med värden för händelsebearbetning
 
 Azure Event Hubs är en kraftfull telemetriintegreringstjänst som kan användas för att strömma miljontals händelser till en låg kostnad. Den här artikeln beskriver hur du använder insamlade händelser med hjälp av den *Eventprocessorhost* (EPH); en intelligent konsumentagent som förenklar hanteringen av kontrollpunkter, leasing och händelseläsare för parallell.  
 

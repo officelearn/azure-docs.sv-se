@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e8b8dac6d877ab8ab4a0abcdd64ceae1aa48d3ad
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 33ceece70c920bcb8bfd49fcfc8ff544af592b6b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848552"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088212"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
@@ -52,7 +52,7 @@ Det finns fyra olika sätt att samla in loggar och mått för Azure-tjänster:
 | Söktjänster         | Microsoft.Search/searchServices         | Diagnostik | Diagnostik | |
 | Service Bus-namnområde   | Microsoft.ServiceBus/namespaces         | Diagnostik | Diagnostik | [Service Bus-analys (förhandsversion)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Storage     |             | [Service Fabric-analys (förhandsversion)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostik | [Azure SQL-analys (förhandsversion)](../../log-analytics/log-analytics-azure-sql.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostik | [Azure SQL-analys (förhandsversion)](../../azure-monitor/insights/azure-sql.md) |
 | Storage                 |                                         |             | Skript      | [Azure Storage-analys (förhandsversion)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtuella datorer        | Microsoft.Compute/virtualMachines       | Anknytning   | Anknytning <br> Diagnostik  | |
 | Skalningsuppsättningar för virtuella datorer | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostik | |
@@ -61,7 +61,7 @@ Det finns fyra olika sätt att samla in loggar och mått för Azure-tjänster:
 
 
 > [!NOTE]
-> För att övervaka Azure-datorer (både Linux och Windows), vi rekommenderar att du installerar den [Log Analytics VM-tillägget](../../log-analytics/log-analytics-quick-collect-azurevm.md). Agenten ger dig information som samlas in från dina virtuella datorer. Du kan också använda tillägget för VM-skalningsuppsättningar.
+> För att övervaka Azure-datorer (både Linux och Windows), vi rekommenderar att du installerar den [Log Analytics VM-tillägget](../../azure-monitor/learn/quick-collect-azurevm.md). Agenten ger dig information som samlas in från dina virtuella datorer. Du kan också använda tillägget för VM-skalningsuppsättningar.
 >
 >
 
@@ -151,7 +151,7 @@ Läs mer om den [Application Insights connector](https://blogs.technet.microsoft
 
 ## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Skript för att samla in och skicka data till Log Analytics
 
-Du kan använda ett Azure Automation-skript för Azure-tjänster som inte uppger ett enkelt sätt att skicka loggar och mått till Log Analytics för att samla in logg och mått. Skriptet kan sedan skicka data till Log Analytics med hjälp av den [API för datainsamling](../../log-analytics/log-analytics-data-collector-api.md)
+Du kan använda ett Azure Automation-skript för Azure-tjänster som inte uppger ett enkelt sätt att skicka loggar och mått till Log Analytics för att samla in logg och mått. Skriptet kan sedan skicka data till Log Analytics med hjälp av den [API för datainsamling](../../azure-monitor/platform/data-collector-api.md)
 
 Azure-mall-galleriet har [exempel på användning av Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) att samla in data från tjänster och skickas till Log Analytics.
 

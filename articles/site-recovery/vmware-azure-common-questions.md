@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 99e108da5fc9c13d0a9ec65a485055d1b990f8b7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 83216091c950593b16f158ea3d8df5a194ecee02
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838235"
+ms.locfileid: "52869831"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -74,7 +74,7 @@ Du kan replikera en app eller arbetsbelastning som körs på en VMware-VM som up
 Site Recovery replikerar data från en lokal plats till Azure storage via en offentlig slutpunkt eller med offentlig peering i ExpressRoute. Replikering via ett plats-till-plats VPN-nätverk stöds inte.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Kan jag replikera till Azure med ExpressRoute?
-Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recovery replikerar data till ett Azure Storage-konto via en offentlig slutpunkt och du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) för Site Recovery-replikering. När virtuella datorer som redundansväxlar till Azure-nätverk, du kan komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recovery replikerar data till ett Azure Storage-konto via en offentlig slutpunkt och du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) för Site Recovery-replikering. När virtuella datorer som redundansväxlar till Azure-nätverk, du kan komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Varför kan inte replikera via VPN?

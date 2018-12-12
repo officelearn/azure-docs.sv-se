@@ -1,10 +1,10 @@
 ---
-title: Använda en Machine Learning Studio-webbtjänst från Excel - Azure Machine Learning Studio | Microsoft Docs
+title: Använda webbtjänst i Excel - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning Studio gör det enkelt att anropa webbtjänster direkt från Excel utan att behöva skriva någon kod.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: 7084e62df3cd4872d90661ad6b94e1ebf7b54d8d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 1425cb0f0b327e0f39733b99a4c10c03a0ec3089
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312761"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092357"
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Använda en Azure Machine Learning-webbtjänst från Excel
  Azure Machine Learning Studio gör det enkelt att anropa webbtjänster direkt från Excel utan att behöva skriva någon kod.

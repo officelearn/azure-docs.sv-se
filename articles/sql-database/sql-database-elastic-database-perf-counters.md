@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/31/2018
-ms.openlocfilehash: d4ecfe700c90beb94455e3607cee4ea30227bd0e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f98c09a7e51fa729ef4a940e5f3c03de55d8dfd2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166256"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875288"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Prestandaräknare för karthanteraren för shard
 Du kan avbilda prestanda för en [karthanteraren](sql-database-elastic-scale-shard-map-management.md), särskilt när de använder [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md). Räknare skapas med metoderna i klassen Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
@@ -31,7 +31,7 @@ Räknare som används för att spåra prestanda för [databeroende routning](sql
 * Om du vill skapa en prestandaräknarinstans och uppdatera räknare, användaren måste vara medlem i den **administratörer** eller **användare av prestandaövervakning** grupp. 
 
 ## <a name="create-performance-category-and-counters"></a>Skapa kategori för prestanda och räknare
-För att skapa räknarna, anropar du metoden CreatePeformanceCategoryAndCounters i den [ShardMapManagmentFactory klass](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Endast en administratör kan utföra den här metoden: 
+För att skapa räknarna, anropar du metoden CreatePeformanceCategoryAndCounters i den [ShardMapManagementFactory klass](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Endast en administratör kan utföra den här metoden: 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 

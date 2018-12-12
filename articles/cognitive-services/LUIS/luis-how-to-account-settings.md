@@ -1,21 +1,22 @@
 ---
-title: Hantera inställningarna för ditt konto i LUIS | Microsoft Docs
+title: Hantera inställningar
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Använda LUIS webbplats för att hantera inställningarna för ditt konto.
-titleSuffix: Azure
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bb41331228e700c55da21c627d617d16faa2dcb9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: a6a92fa32d7877baa5132134bdce66ce04017a77
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335408"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092081"
 ---
 # <a name="manage-account-and-authoring-key"></a>Hantera konton och redigering av nyckel
 De två viktig information för ett konto med LUIS är användarkontot och nyckeln för redigering. Din inloggningsinformation hanteras på [account.microsoft.com](https://account.microsoft.com). Redigering nyckeln hanteras från den [LUIS](luis-reference-regions.md) webbplats **inställningar** sidan. 

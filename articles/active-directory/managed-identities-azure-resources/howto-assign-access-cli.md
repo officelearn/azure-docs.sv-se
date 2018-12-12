@@ -1,6 +1,6 @@
 ---
-title: Tilldela MSI-åtkomst till en Azure-resurs, med hjälp av Azure CLI
-description: Steg för steg åtkomst instruktioner för att tilldela en MSI på en enda resurs, till en annan resurs, med hjälp av Azure CLI.
+title: Så här tilldelar du en hanterad identitet åtkomst till en Azure-resurs med hjälp av Azure CLI
+description: Steg för steg åtkomst instruktioner för att tilldela en hanterad identitet på en enda resurs, till en annan resurs, med hjälp av Azure CLI.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -12,36 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 12/06/2017
 ms.author: daveba
-ms.openlocfilehash: 2e3b85251b9dabd6efd23e5b41372703a237d227
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 25d92c6c8c03f277b4219cd7d2a83afbb81e2b10
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949085"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081378"
 ---
-# <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Tilldela en hanterad tjänstidentitet (MSI)-åtkomst till en resurs med hjälp av Azure CLI
+# <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Tilldela en hanterad identitet åtkomst till en resurs med hjälp av Azure CLI
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-När du har konfigurerat en Azure-resurs med en MSI, kan du ge MSI-åtkomst till en annan resurs, precis som alla säkerhetsobjekt. Det här exemplet visar hur du ge en Azure virtuell dator eller virtual machine scale Sets MSI åtkomst till ett Azure storage-konto med Azure CLI.
+När du har konfigurerat en Azure-resurs med en hanterad identitet, kan du ge hanterad identitet-åtkomst till en annan resurs, precis som alla säkerhetsobjekt. Det här exemplet visar hur du ge en Azure virtuell dator eller virtual machine scale Sets hanterad identitet åtkomst till ett Azure storage-konto med Azure CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
-Om du vill köra CLI-exempelskript, finns det tre alternativ:
-
-- Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure-portalen (se nästa avsnitt).
-- Använd inbäddad Azure Cloud Shell via ”Prova” knappen, finns i det övre högra hörnet av varje kodblock.
-- [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) om du föredrar att använda den lokala CLI-konsolen. 
+- Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)**.
+- Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Om du vill köra CLI-exempelskript, finns det tre alternativ:
+    - Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure-portalen (se nästa avsnitt).
+    - Använd inbäddad Azure Cloud Shell via ”Prova” knappen, finns i det övre högra hörnet av varje kodblock.
+    - [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) om du föredrar att använda den lokala CLI-konsolen. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Använd RBAC för att tilldela MSI-åtkomst till en annan resurs
+## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Använd RBAC för att tilldela en hanterad identitet åtkomst till en annan resurs
 
-När du har aktiverat MSI på en Azure-resurs, till exempel en [Azure-dator](qs-configure-cli-windows-vm.md) eller [Azure virtual machine scale Sets](qs-configure-cli-windows-vmss.md): 
+När du har aktiverat hanterad identitet på en Azure-resurs, till exempel en [Azure-dator](qs-configure-cli-windows-vm.md) eller [Azure virtual machine scale Sets](qs-configure-cli-windows-vmss.md): 
 
 1. Om du använder Azure CLI i en lokal konsol börjar du med att logga in i Azure med [az login](/cli/azure/reference-index#az-login). Använd ett konto som är associerade med Azure-prenumerationen som du vill distribuera skalningsuppsättningen för virtuell dator eller virtuell dator:
 
@@ -49,7 +48,7 @@ När du har aktiverat MSI på en Azure-resurs, till exempel en [Azure-dator](qs-
    az login
    ```
 
-2. I det här exemplet ger vi en virtuell Azure-datoråtkomst till ett lagringskonto. Först använder vi [az resurslistan](/cli/azure/resource/#az-resource-list) att hämta tjänstens huvudnamn för den virtuella datorn med namnet ”myVM”:
+2. I det här exemplet ger vi en virtuell Azure-datoråtkomst till ett lagringskonto. Först använder vi [az resurslistan](/cli/azure/resource/#az-resource-list) att hämta tjänstens huvudnamn för den virtuella datorn med namnet myVM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
@@ -66,20 +65,8 @@ När du har aktiverat MSI på en Azure-resurs, till exempel en [Azure-dator](qs-
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
    ```
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="next-steps"></a>Nästa steg
 
-Om MSI för resursen inte visas i listan över tillgängliga identiteter, kontrollerar du att MSI har aktiverats. I det här fallet vi gå tillbaka till Azure-dator eller skalningsuppsättning virtuell dator i [Azure-portalen](https://portal.azure.com) och:
-
-- Titta på sidan ”Configuration” och se till att MSI aktiverat = ”Yes”.
-- Titta på sidan ”tillägg” och se till att MSI-tillägget har distribuerats (**tillägg** sidan är inte tillgänglig för en Azure VM-skalningsuppsättning).
-
-Om något är fel, kan du behöva distribuera om MSI på resursen igen eller felsöka distributionsfel.
-
-## <a name="related-content"></a>Relaterat innehåll
-
-- En översikt över MSI, se [hanterad tjänstidentitet översikt](overview.md).
-- För att aktivera MSI på virtuella Azure-datorer, se [konfigurera en Azure VM hanterad tjänstidentitet (MSI) med Azure CLI](qs-configure-cli-windows-vm.md).
-- För att aktivera MSI på en Azure VM-skalningsuppsättning, se [konfigurera en Azure virtuell dator skala ange hanterad tjänstidentitet (MSI) med Azure portal](qs-configure-portal-windows-vmss.md)
-
-Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och forma vårt innehåll.
-
+- [Hanterade identiteter för översikt över Azure-resurser](overview.md)
+- För att aktivera hanterad identitet på virtuella Azure-datorer, se [konfigurera hanterade identiteter för Azure-resurser på en Azure virtuell dator med Azure CLI](qs-configure-cli-windows-vm.md).
+- För att aktivera hanterad identitet på en Azure VM-skalningsuppsättning, se [konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med Azure CLI](qs-configure-cli-windows-vmss.md).

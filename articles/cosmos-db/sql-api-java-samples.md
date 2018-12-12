@@ -1,22 +1,21 @@
 ---
-title: 'Azure Cosmos DB: Java-exempel för SQL API | Microsoft Docs'
+title: 'Azure Cosmos DB: Java-exempel för SQL API'
 description: Hitta Java-exempel på GitHub för vanliga uppgifter med Azure Cosmos DB SQL API, inklusive CRUD-åtgärder.
 keywords: NoSQL-exempel
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
-ms.openlocfilehash: 00098b02e5f007cfad1076eb3759c424dd9a5d3e
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 135613be26ed0ebc5dfd180112fabb0401f60027
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333878"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874183"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Java-exempel för SQL API
 

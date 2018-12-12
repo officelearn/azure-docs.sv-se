@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: b6e59834d9a20a26be7c41d964556a45b0d2aab6
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: MT
+ms.openlocfilehash: a7b24ff3f51cdd66391f8dd7c73598530f767420
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642832"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865598"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Träffa IT Service Management Connector ITSM-produkter/tjänster
-Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/tjänst och IT Service Management Connector (ITSMC) i Log Analytics för att centralt hantera dina arbetsuppgifter. Läs mer om ITSMC [översikt](../../log-analytics/log-analytics-itsmc-overview.md).
+Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/tjänst och IT Service Management Connector (ITSMC) i Log Analytics för att centralt hantera dina arbetsuppgifter. Läs mer om ITSMC [översikt](../../azure-monitor/platform/itsmc-overview.md).
 
 Följande ITSM-produkter/tjänster stöds. Välj produkten som ska visa detaljerad information om hur du ansluter produkten till ITSMC.
 
@@ -43,7 +43,7 @@ Följande avsnitt innehåller information om hur du ansluter din produkt i Syste
 
 Kontrollera att följande krav är uppfyllda:
 
-- ITSMC installerad. Mer information: [att lägga till IT Service Management Connector-lösningen](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installerad. Mer information: [att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Service Manager-webbprogram (webbapp) distribuerat och konfigurerat. Information om webbapp är [här](#create-and-deploy-service-manager-web-app-service).
 - Hybridanslutning skapas och konfigureras. Mer information: [konfigurera hybrid anslutning](#configure-the-hybrid-connection).
 - Versioner av Service Manager som stöds: 2012 R2 eller 2016.
@@ -72,7 +72,7 @@ Använd följande procedur för att ansluta din System Center Service Manager-in
 | **Anslutningsnamn**   | Skriv ett namn för den System Center Service Manager-instans som du vill ansluta med ITSMC.  Du använder det här namnet senare när du konfigurerar arbetsobjekt i den här instansen / visa detaljerad logganalys. |
 | **Partnertyp**   | Välj **System Center Service Manager**. |
 | **Serveradress**   | Ange Webbadressen till Service Manager-webbapp. Mer information om Service Manager Web app är [här](#create-and-deploy-service-manager-web-app-service).
-| **Klient-ID**   | Ange klient-ID som du skapade (med hjälp av automatisk skriptet) för att autentisera webbappen. Mer information om automatiserat skript är [här.](../../log-analytics/log-analytics-itsmc-service-manager-script.md)|
+| **Klient-ID**   | Ange klient-ID som du skapade (med hjälp av automatisk skriptet) för att autentisera webbappen. Mer information om automatiserat skript är [här.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
 | **Klienthemlighet**   | Ange klienthemlighet genereras för detta ID.   |
 | **Datasynkroniseringsomfång**   | Välj Service Manager-arbetsuppgifter som du vill synkronisera via ITSMC.  Dessa fungerar objekt har importerats till Log Analytics. **Alternativ:** incidenter, ändringsbegäranden.|
 | **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
@@ -87,7 +87,7 @@ Använd följande procedur för att ansluta din System Center Service Manager-in
 - Du kan skapa incidenter från Log Analytics-aviseringar eller från loggposter eller från Azure-aviseringar i den här instansen för Service Manager.
 
 
-Läs mer: [skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Skapa och distribuera Service Manager web app service
 
@@ -95,11 +95,11 @@ Om du vill ansluta den lokala Service Manager ITSMC i Azure, har Microsoft skapa
 
 Om du vill konfigurera ITSM-webbapp för Service Manager, gör du följande:
 
-- **Distribuera webbappen** – distribuera webbappen, ställer du in egenskaperna och autentisera med Azure AD. Du kan distribuera webbappen med hjälp av den [automatiserade skript](../../log-analytics/log-analytics-itsmc-service-manager-script.md) att Microsoft tillhandahåller.
+- **Distribuera webbappen** – distribuera webbappen, ställer du in egenskaperna och autentisera med Azure AD. Du kan distribuera webbappen med hjälp av den [automatiserade skript](../../azure-monitor/platform/itsmc-service-manager-script.md) att Microsoft tillhandahåller.
 - **Konfigurera hybridanslutningen** - [konfigurera den här anslutningen](#configure-the-hybrid-connection), manuellt.
 
 #### <a name="deploy-the-web-app"></a>Distribuera webbappen
-Använd den automatiserade [skriptet](../../log-analytics/log-analytics-itsmc-service-manager-script.md) ställer du in egenskaperna för att distribuera webbappen, och autentisera med Azure AD.
+Använd den automatiserade [skriptet](../../azure-monitor/platform/itsmc-service-manager-script.md) ställer du in egenskaperna för att distribuera webbappen, och autentisera med Azure AD.
 
 Kör skriptet genom att tillhandahålla följande nödvändiga data:
 
@@ -186,7 +186,7 @@ Följande avsnitt innehåller information om hur du ansluter din ServiceNow-prod
 
 ### <a name="prerequisites"></a>Förutsättningar
 Kontrollera att följande krav är uppfyllda:
-- ITSMC installerad. Mer information: [att lägga till IT Service Management Connector-lösningen](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installerad. Mer information: [att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ServiceNow-versioner som stöds: Kingston, Jakarta, Istanbul, Helsingfors, Geneva.
 
 **ServiceNow Admins måste göra följande i sina ServiceNow-instans**:
@@ -240,7 +240,7 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 
 - Du kan skapa incidenter från Log Analytics-aviseringar eller från loggposter eller från Azure-aviseringar i den här instansen av ServiceNow.
 
-Läs mer: [skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Skapa integration i ServiceNow-app
 
@@ -292,7 +292,7 @@ Följande avsnitt innehåller information om hur du ansluter din Provance produk
 Kontrollera att följande krav är uppfyllda:
 
 
-- ITSMC installerad. Mer information: [att lägga till IT Service Management Connector-lösningen](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installerad. Mer information: [att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Provance App ska registreras med Azure AD - och klient-ID är tillgänglig. Detaljerad information finns i [hur du konfigurerar active directory-autentisering](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Användarroll: administratör.
@@ -334,7 +334,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 
 - Du kan skapa incidenter från Log Analytics-aviseringar eller från loggposter eller från Azure-aviseringar i den här Provance-instansen.
 
-Läs mer: [skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Ansluta Cherwell till IT Service Management Connector i Azure
 
@@ -344,7 +344,7 @@ Följande avsnitt innehåller information om hur du ansluter din Cherwell produk
 
 Kontrollera att följande krav är uppfyllda:
 
-- ITSMC installerad. Mer information: [att lägga till IT Service Management Connector-lösningen](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installerad. Mer information: [att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Klient-ID som genereras. Mer information: [generera klient-ID för Cherwell](#generate-client-id-for-cherwell).
 - Användarroll: administratör.
 
@@ -386,7 +386,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 
 - Du kan skapa incidenter från Log Analytics-aviseringar eller från loggposter eller från Azure-aviseringar i den här Cherwell-instansen.
 
-Läs mer: [skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Generera klient-ID för Cherwell
 
@@ -400,4 +400,4 @@ Använd följande procedur för att generera klientens ID-nyckel för Cherwell:
 
 
 ## <a name="next-steps"></a>Nästa steg
- - [Skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

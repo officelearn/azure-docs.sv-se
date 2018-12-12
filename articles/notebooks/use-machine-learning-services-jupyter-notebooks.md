@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Machine Learning-tjänster i Azure-datorer | Microsoft Docs
+title: Använda Azure Machine Learning-tjänster i Azure-anteckningsböcker
 description: En översikt över exempelanteckningsböcker för Azure Machine Learning-tjänster som du kan använda med Azure-datorer.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: fabd89f7591abafd68b318921fb7723f3eb7373d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 1508ccc151aaafd7e0c0b46345c4dcb1a5b7b03c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856930"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083673"
 ---
 # <a name="use-azure-machine-learning-services-in-a-notebook"></a>Använda Azure Machine Learning Services på en bärbar dator
 
@@ -47,9 +47,9 @@ Azure-datorer är förkonfigurerad med nödvändiga miljö att arbeta med [Azure
 
 Dokumentation för Azure Machine Learning Services innehåller en mängd andra resurser som hjälper dig att arbeta med Machine Learning-tjänsten i anteckningsböcker:
 
-- [Snabbstart: Använda Python för att komma igång med Azure Machine Learning](/azure/machine-learning/service/quickstart-create-workspace-with-python.md)
-- [Självstudie #1: Träna en modell för klassificering av avbildning med Azure Machine Learning-tjänsten](/azure/machine-learning/service/tutorial-train-models-with-aml.md)
-- [Självstudie #2: Distribuera en avbildning klassificeringsmodellen i Azure Container Instance (ACI)](/azure/machine-learning/service/tutorial-deploy-models-with-aml.md)
-- [Självstudie: Träna en modell för klassificering med automatiserade machine learning i Azure Machine Learning-tjänsten](/azure/machine-learning/service/tutorial-auto-train-models.md)
+- [Snabbstart: Använda Python för att komma igång med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Självstudie #1: Träna en modell för klassificering av avbildning med Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Självstudie #2: Distribuera en avbildning klassificeringsmodellen i Azure Container Instance (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Självstudie: Träna en modell för klassificering med automatiserade machine learning i Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
-Även finns i dokumentationen för den [Azure Machine Learning-SDK för Python](/python/api/overview/azure/ml/intro.md?view=azure-ml-py).
+Även finns i dokumentationen för den [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

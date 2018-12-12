@@ -4,21 +4,21 @@ description: Azure principdefinitionen har olika effekter som bestämmer hur kom
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 4668b1fe6e59898d81fc71558e21acd1a89be767
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: 2bed2f52f29d5c97ab576fae73498b60fb7ecc30
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279508"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079808"
 ---
 # <a name="understand-policy-effects"></a>Förstå Policy-effekter
 
-Varje principdefinitionen i Azure Policy har en enda effekt som anger vad som händer under genomsökning när den **om** segment för principregeln utvärderas för att matcha resursen som genomsöks. Effekterna kan också fungera annorlunda om de är för en ny resurs, en uppdaterad resurs eller en befintlig resurs.
+Varje princip i Azure Policy har en enda effekt. Denna påverkan anger vad som händer när principregeln utvärderas så att de matchar. Effekterna beter sig annorlunda om de är för en ny resurs, en uppdaterad resurs eller en befintlig resurs.
 
 Det finns för närvarande sex effekter som stöds i en definition av principen:
 
@@ -31,29 +31,28 @@ Det finns för närvarande sex effekter som stöds i en definition av principen:
 
 ## <a name="order-of-evaluation"></a>Ordningen för utvärdering
 
-När en begäran om att skapa eller uppdatera en resurs via Azure Resource Manager görs, bearbetar Grupprincip flera effekterna innan du lämnar över begäran till lämplig Resursprovidern.
-Detta förhindrar onödiga bearbetning av en Resursprovider när en resurs inte uppfyller utformade styrning kontroller av principen. Principen skapas en lista över alla principdefinitioner som tilldelats av en princip eller initiativtilldelning, som tillämpas av omfång (minus undantag) till resursen och förbereder för att utvärdera resurs mot varje definition.
+Begäranden om att skapa eller uppdatera en resurs via Azure Resource Manager utvärderas av principen först. Principen skapas en lista över alla tilldelningar som tillämpas på resursen och sedan utvärderar resursen mot varje definition. Grupprincip bearbetar flera effekterna innan du skickar begäran till lämplig Resursprovidern. Detta förhindrar onödiga bearbetning av en Resursprovider när en resurs inte uppfyller utformade styrning kontroller av principen.
 
 - **Inaktiverad** kontrolleras först för att fastställa om principregeln bör utvärderas.
 - **Lägg till** utvärderas sedan. Lägg sedan till kunde ändra begäran, ändringar av Lägg till kan förhindra en granskningslogg eller neka effekt utlöser.
 - **Neka** utvärderas sedan. Neka innan granskningen, dubbla loggning för en oönskad resurs förhindras genom att utvärdera.
 - **Granska** utvärderas sedan innan begäran kommer att Resursprovidern.
 
-När begäran har angetts för Resursprovidern och Resursprovidern returnerar statuskoden lyckades **AuditIfNotExists** och **DeployIfNotExists** utvärderas för att avgöra om uppföljning efterlevnad loggning eller åtgärd krävs.
+När Resursprovidern returnerar en framgångskod **AuditIfNotExists** och **DeployIfNotExists** utvärdera för att fastställa om ytterligare kompatibilitet loggning eller åtgärd krävs.
 
 ## <a name="disabled"></a>Disabled
 
-Detta är användbart för att testa situationer och när principdefinitionen har parameteriserat effekten. Det blir möjligt att inaktivera en enda tilldelningen av principen genom att ändra parametern tilldelning av påverkan i stället för att inaktivera alla tilldelningar för principen.
+Detta är användbart för att testa situationer eller för när principdefinitionen har parameteriserat effekten. Den här flexibiliteten gör det möjligt att inaktivera en enskild tilldelning i stället för att inaktivera alla tilldelningar för den principen.
 
 ## <a name="append"></a>Lägg till
 
-Lägg till används för att lägga till fler fält till den begärda resursen under generering och uppdatering. Det kan vara användbart för att lägga till taggar på resurser, till exempel kostnadsställe eller tillåtet att ange IP-adresser för en lagringsresurs.
+Lägg till används för att lägga till fler fält till den begärda resursen under generering och uppdatering. Ett vanligt exempel att lägga till taggar på resurser, till exempel kostnadsställe eller tillåtet att ange IP-adresser för en lagringsresurs.
 
 ### <a name="append-evaluation"></a>Lägga till utvärderingen
 
-Som tidigare nämnts kan du lägga till utvärderar innan begäran komma bearbetas av en Resursprovider under skapandet eller uppdatering av en resurs. Lägg till lägger till fält i resursen när den **om** villkoret för principregeln är uppfyllt. Om Lägg till effekten skulle åsidosätter ett värde i den ursprungliga begäran med ett annat värde kan sedan den fungerar som en nekandeeffekt och avvisa begäran.
+Lägg till utvärderar innan begäran bearbetas av en Resursprovider under skapandet eller uppdatering av en resurs. Lägg till lägger till fält i resursen när den **om** villkoret för principregeln är uppfyllt. Om Lägg till effekten skulle åsidosätter ett värde i den ursprungliga begäran med ett annat värde kan sedan den fungerar som en nekandeeffekt och avvisar begäran.
 
-När en principdefinition med effekten append körs som en del av en utvärderingscykel, den inte göra ändringar i resurser som redan finns. Istället markeras alla resurser som uppfyller den **om** villkoret som icke-kompatibel.
+När en principdefinition med effekten append körs som en del av en utvärderingscykel, göra den inte ändringar i resurser som redan finns. Istället markeras alla resurser som uppfyller den **om** villkoret som icke-kompatibel.
 
 ### <a name="append-properties"></a>Lägg till egenskaper
 
@@ -73,7 +72,7 @@ Exempel 1: Enkel **fält/värde** par att lägga till en tagg.
 }
 ```
 
-Exempel 2: Flera **fält/värde** par att lägga till en uppsättning taggar.
+Exempel 2: Två **fält/värde** par att lägga till en uppsättning taggar.
 
 ```json
 "then": {
@@ -107,13 +106,13 @@ Exempel 3: Enkel **fält/värde** parkopplas med en [alias](definition-structure
 
 ## <a name="deny"></a>Neka
 
-Neka används för att förhindra att en resursbegäran som matchar inte önskad standarder genom en principdefinition och misslyckas begäran.
+Neka används för att förhindra att en resursbegäran som matchar inte definierad standarder genom en principdefinition och misslyckas begäran.
 
 ### <a name="deny-evaluation"></a>Neka utvärdering
 
-När skapar eller uppdaterar en resurs, neka hindrar begäran innan de skickas till Resursprovidern. Begäran returneras som ett 403 (förbjudet). I portalen kan förbjudet visas som en status för distributionen som kunde inte på grund av principtilldelningen.
+När skapar eller uppdaterar en matchande resurs neka förhindrar att begäran innan den skickas till Resursprovidern. Begäran returneras som en `403 (Forbidden)`. I portalen kan förbjudet visas som en status för distributionen förhindrades av principtilldelningen.
 
-Under en utvärderingscykel principdefinitioner med en nekandeeffekt som matchar resurser markeras som icke-kompatibel, men ingen åtgärd utförs på den här resursen.
+Under utvärdering av befintliga resurser markeras resurser som matchar en neka-principdefinition som icke-kompatibla.
 
 ### <a name="deny-properties"></a>Neka egenskaper
 
@@ -131,15 +130,15 @@ Exempel: Med nekandeeffekt.
 
 ## <a name="audit"></a>Granska
 
-Spårningsseffekt används för att skapa en varning-händelse i aktivitetsloggen när en icke-kompatibel resurs utvärderas, men det hindrar inte begäran.
+Granska används för att skapa en varning-händelse i aktivitetsloggen vid utvärdering av en icke-kompatibel resurs, men slutar inte den begäran.
 
 ### <a name="audit-evaluation"></a>Granska utvärdering
 
-Granska effekten är sist att köras under skapandet eller uppdatering av en resurs innan resursen som skickas till Resursprovidern. Granskning fungerar på samma sätt för en resursbegäran och en utvärderingscykel för datorprincip och kör en `Microsoft.Authorization/policies/audit/action` åtgärden till aktivitetsloggen. I båda fallen markeras resursen som icke-kompatibla.
+Granskning är den sista effekten som kontrolleras av en princip under skapandet eller uppdatering av en resurs. Princip skickar sedan resursen till Resursprovidern. Granskning fungerar på samma sätt för en resursbegäran och en utvärderingscykel för datorprincip. Grupprincip lägger till en `Microsoft.Authorization/policies/audit/action` åtgärden aktivitetsloggen och markerar resursen som icke-kompatibel.
 
 ### <a name="audit-properties"></a>Egenskaper för granskning
 
-Granska effekten inte har några ytterligare egenskaper för användning i den **sedan** villkor för principdefinitionen.
+Granska effekten har inte några ytterligare egenskaper för användning i den **sedan** villkor för principdefinitionen.
 
 ### <a name="audit-example"></a>Granska exempel
 
@@ -153,11 +152,11 @@ Exempel: Med effekten granskning.
 
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists aktiverar granskning på en resurs som matchar den **om** villkor, men har inte de komponenter som anges i den **information** av den **sedan** villkor.
+AuditIfNotExists aktiverar granskning på resurser som matchar den **om** villkor, men har inte de komponenter som anges i den **information** av den **sedan** villkor.
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists utvärdering
 
-AuditIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera begäran till en resurs och returnerade statuskoden lyckades. Effekten utlöses om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT. När effekten utlöses en `Microsoft.Authorization/policies/audit/action` körs på samma sätt som spårningsseffekt åtgärden till aktivitetsloggen. När det utlöses, den resurs som uppfyller den **om** villkoret är den resurs som markeras som icke-kompatibla.
+AuditIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera resursbegäran och returnerade statuskoden lyckades. Granskningen uppstår om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT. Grupprincip lägger till en `Microsoft.Authorization/policies/audit/action` åtgärden till aktiviteten logga på samma sätt som spårningsseffekt. När det utlöses, den resurs som uppfyller den **om** villkoret är den resurs som markeras som icke-kompatibla.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists egenskaper
 
@@ -180,9 +179,9 @@ Den **information** egenskapen om AuditIfNotExists effekterna har alla subegensk
   - För _prenumeration_, frågar hela prenumerationen för den tillhörande resursen.
   - Standardvärdet är _ResourceGroup_.
 - **ExistenceCondition** (valfritt)
-  - Om inte anges relaterade resurs av **typ** uppfyller effekten och inte utlöser granskningen.
+  - Om inte anges relaterade resurs av **typ** uppfyller effekten och utlöses inte granskningen.
   - Använder samma språk som principregeln för den **om** villkoret, men ska utvärderas mot alla relaterade resurser individuellt.
-  - Om alla matchande relaterade resurser utvärderas till SANT, effekten har uppfyllts och utlöser inte granskningen.
+  - Om alla matchande relaterade resurser utvärderas till SANT, effekten har uppfyllts och utlöses inte granskningen.
   - Kan använda [field()] för att kontrollera överensstämmelse med värden i den **om** villkor.
   - Exempelvis kan användas för att kontrollera att den överordnade resursen (i den **om** villkor) är i samma resursplats som den matchande relaterad resursen.
 
@@ -225,7 +224,7 @@ Liknar AuditIfNotExists, DeployIfNotExists körs en för malldistribution när v
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists-utvärdering
 
-DeployIfNotExists körs även när en Resursprovider hanterat skapa eller uppdatera begäran till en resurs och returnerade statuskoden lyckades. Effekten utlöses om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT. När effekten utlöses, utförs en för malldistribution.
+DeployIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera resursbegäran och returnerade statuskoden lyckades. En för malldistributionen ska ske om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT.
 
 Under en utvärderingscykel principdefinitioner med effekten DeployIfNotExists som matchar resurser markeras som icke-kompatibel, men ingen åtgärd utförs på den här resursen.
 
@@ -251,15 +250,15 @@ Den **information** egenskapen för DeployIfNotExists effekterna har alla subege
   - För _prenumeration_, frågar hela prenumerationen för den tillhörande resursen.
   - Standardvärdet är _ResourceGroup_.
 - **ExistenceCondition** (valfritt)
-  - Om inte anges relaterade resurs av **typ** uppfyller effekten och inte utlöser distributionen.
+  - Om inte anges relaterade resurs av **typ** uppfyller effekten och utlöses inte distributionen.
   - Använder samma språk som principregeln för den **om** villkoret, men ska utvärderas mot alla relaterade resurser individuellt.
-  - Om alla matchande relaterade resurser utvärderas till SANT, effekten har uppfyllts och utlöser inte distributionen.
+  - Om alla matchande relaterade resurser utvärderas till SANT, effekten har uppfyllts och utlöses inte distributionen.
   - Kan använda [field()] för att kontrollera överensstämmelse med värden i den **om** villkor.
   - Exempelvis kan användas för att kontrollera att den överordnade resursen (i den **om** villkor) är i samma resursplats som den matchande relaterad resursen.
 - **roleDefinitionIds** [krävs]
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomstkontroll roll-ID nås av prenumerationen. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
 - **Distribution** [krävs]
-  - Den här egenskapen ska innehålla den fullständiga malldistributionen som den skulle skickas till den `Microsoft.Resources/deployments` PLACERA API. Mer information finns i den [distributioner REST API](/rest/api/resources/deployments).
+  - Den här egenskapen ska inkludera fullständig malldistributionen som den skulle skickas till den `Microsoft.Resources/deployments` PLACERA API. Mer information finns i den [distributioner REST API](/rest/api/resources/deployments).
 
   > [!NOTE]
   > Alla funktioner i den **distribution** egenskapen utvärderas som komponenter i mallen, inte på principen. Undantaget är den **parametrar** egenskap som skickar värden från principen för mallen. Den **värdet** i det här avsnittet under en mall för parameternamnet för att utföra det här värdet Skicka (se _fullDbName_ i DeployIfNotExists exempel).
@@ -319,21 +318,32 @@ Exempel: Utvärderar SQL Server-databaser för att avgöra om transparentDataEnc
 
 ## <a name="layering-policies"></a>Skikta principer
 
-En resurs kan påverkas av flera tilldelningar. Dessa tilldelningar kan vara i samma definitionsområde (specifik resurs, resursgrupp, prenumeration eller hanteringsgrupp) eller i olika omfång. Var och en av de här tilldelningarna troligtvis även har en annan effekt som definierats. Oavsett utvärderas oberoende villkor och effekt för varje policy för (direkt eller som en del av ett initiativ). Till exempel om principen 1 innehåller ett villkor som begränsar resursplats för prenumeration A bara skapas i westus om du med nekandeeffekt och princip 2 har vara ett villkor som begränsar resursplats för resursgruppen B (som finns i prenumeration A) till bara båda skapas i ”eastus” med spårningsseffekt är tilldelat, resulterande resultatet skulle vara::
+En resurs kan påverkas av flera tilldelningar. Dessa tilldelningar kan vara i samma definitionsområde eller i olika omfång. Var och en av de här tilldelningarna troligtvis även har en annan effekt som definierats. Villkor och effekt för varje princip utvärderas oberoende av varandra. Exempel:
 
-- Alla resurser redan i resursgruppen B i ”eastus” är kompatibla med principen 2, men markeras som icke-kompatibla principen 1.
-- Alla resurser redan i resursgruppen B inte i ”eastus” kommer att markeras som icke-kompatibla principen 2 och skulle också markeras inte kompatibla med principen 1 om det inte ”westus”.
-- En ny resurs i prenumeration A skulle inte i 'westus' avvisas av Grupprincip 1.
-- En ny resurs i prenumeration A / resursgrupp B i 'westus' skulle markeras som icke-kompatibla på princip 2, men skulle skapas (kompatibelt med 1 och 2 är gransknings- och inte neka).
+- Principen 1
+  - Begränsar resursplats till 'westus'
+  - Tilldelas prenumeration A
+  - Neka effekt
+- Princip för 2
+  - Begränsar resursplats till ”eastus”
+  - Tilldelad till resursgruppen B i prenumeration A
+  - Spårningsseffekt
+  
+Den här konfigurationen skulle resultera i följande resultat:
 
-Om både 1 och 2 i hade kraft av neka, situationen skulle ändras till:
+- Resurser redan i resursgruppen B i ”eastus” är kompatibla med principen 2 och icke-kompatibla principen 1
+- Alla resurser redan i resursgruppen B inte i ”eastus” är icke-kompatibla principen 2 och icke-kompatibla principen 1 om den inte i ”westus”
+- Någon ny resurs i prenumeration A inte är i ”westus' nekas av principen 1
+- Någon ny resurs i prenumeration A och B-resursgrupp i 'westus' har skapats och icke-kompatibla på princip 2
 
-- Alla resurser redan i resursgruppen B inte i ”eastus” kommer att markeras som icke-kompatibla principen 2.
-- Alla resurser redan i resursgruppen B inte i ”westus' kommer att markeras som icke-kompatibla principen 1.
-- En ny resurs i prenumeration A skulle inte i 'westus' avvisas av Grupprincip 1.
-- En ny resurs i prenumeration A / B-resursgrupp skulle avvisas (eftersom dess plats kan aldrig uppfyller både 1 och 2).
+Om både 1 och 2 i hade kraft av neka, situationen ändras till:
 
-Eftersom varje tilldelning utvärderas individuellt och det finns inte en möjlighet för en resurs för försening via en lucka på grund av skillnader i omfånget. Resultatet av lagren principer eller princip överlappning anses därför vara **kumulativa mest restriktiva**. En resurs som du vill skapa kan med andra ord att blockeras på grund av överlappande och motstridiga principer, till exempel i exemplet ovan om både 1 och 2 hade en nekandeeffekt. Om du fortfarande behöver resursen som ska skapas i målområdet granska undantag vid varje uppgift att säkerställa att rätt principer påverkar rätt scope.
+- Alla resurser redan i resursgruppen B inte i ”eastus” är icke-kompatibla principen 2
+- Alla resurser redan i resursgruppen B inte i ”westus” är icke-kompatibla principen 1
+- Någon ny resurs i prenumeration A inte är i ”westus' nekas av principen 1
+- Alla nya resurser i resursgruppen B i prenumerationen som en nekad
+
+Varje tilldelning utvärderas individuellt. Därför det är inte en möjlighet för en resurs för försening via ett uppehåll av skillnader i omfånget. Resultatet av lagren principer eller princip överlappning anses vara **kumulativa mest restriktiva**. Till exempel om båda princip 1 och 2 hade en nekandeeffekt, blockeras en resurs av överlappande och motstridiga principer. Om du fortfarande behöver resursen ska påverkar skapas i målområdet, granska undantag vid varje uppgift att verifiera rätt principer rätt scope.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -341,5 +351,5 @@ Eftersom varje tilldelning utvärderas individuellt och det finns inte en möjli
 - Granska den [Policy-definitionsstruktur](definition-structure.md)
 - Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md)
 - Lär dig hur du [hämta data för kompatibilitetsinställningar](../how-to/getting-compliance-data.md)
-- Upptäck hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md)
+- Lär dig hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md)
 - Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md)

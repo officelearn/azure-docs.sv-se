@@ -1,21 +1,22 @@
 ---
-title: Slutpunkten prenumerationshantering i LUIS
-titleSuffix: Azure Cognitive Services
+title: Azure-resurs mgmt
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: I den här artikeln skapar du en avgiftsbelagd slutpunktsnyckeln för din LUIS-konto för att tillhandahålla obegränsad trafik till din slutpunkt efter en betalningsplan.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5d3e837cf644e0cb9b35a0cfc715a9dcace592e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040388"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082993"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Hantera Azure-slutpunkt prenumerationsnycklar
 

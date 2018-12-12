@@ -3,7 +3,7 @@ title: Hantera autentiseringsuppgifter i klientbiblioteket för elastiska databa
 description: Hur du ställer in rätt nivå av autentiseringsuppgifter för administratören att skrivskyddade för appar för elastisk databas
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 116afab3a4481511ed6e1e8420b4bfa783add3d7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8f5de47e9d9c8cc50f77ddadfe9d781ef4c3bc96
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161241"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863830"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Autentiseringsuppgifter som används för att få åtkomst till klientbiblioteket för elastiska databaser
 Den [Elastic Database-klientbiblioteket](sql-database-elastic-database-client-library.md) använder tre olika typer av autentiseringsuppgifter för åtkomst till den [karthanteraren](sql-database-elastic-scale-shard-map-management.md). Beroende på behov, använda autentiseringsuppgifter med den lägsta nivån av åtkomst som möjligt.

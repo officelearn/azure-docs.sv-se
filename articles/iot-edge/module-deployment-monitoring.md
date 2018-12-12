@@ -1,6 +1,6 @@
 ---
-title: Distribuera moduler för Azure IoT Edge | Microsoft Docs
-description: Lär dig mer om hur moduler distribueras till gränsenheter
+title: Automatisk distribution för enhetsgrupper – Azure IoT Edge | Microsoft Docs
+description: Använda automatisk distributioner i Azure IoT Edge för att hantera grupper av enheter baserat på delade taggar
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584850"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100114"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Förstå IoT Edge automatiska distributioner för enskilda enheter eller i stor skala
 
@@ -44,7 +45,7 @@ IoT Edge-enheter kan konfigureras med en distribution. Följande krav måste var
 * Ett system för behållaren, t.ex. Moby eller Docker
 * Etablering av IoT Edge-körningen 
 
-### <a name="deployment-manifest"></a>Distribution av manifest
+### <a name="deployment-manifest"></a>Distributionsmanifest
 
 Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler som ska konfigureras på de aktuella IoT Edge-enheterna. Den innehåller konfigurationsmetadata för alla moduler, inklusive de nödvändiga systemmoduler (särskilt IoT Edge-agenten och IoT Edge hub).  
 

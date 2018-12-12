@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: MT
+ms.openlocfilehash: 34a80a180d4c08027e4c975d4f7955966eec7307
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219383"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086376"
 ---
 # <a name="load-balancer-outbound-rules"></a>Utgående regler för belastningsutjämnare
 
@@ -67,9 +67,9 @@ API-versionen ”2018-07-01” tillåter en utgående regeldefinition strukturer
 
 En utgående regel kan användas med bara en enda offentlig IP-adress, förenklar utgående regler arbetet konfiguration för att skala utgående NAT. Du kan använda flera IP-adresser för att planera för storskaliga scenarier och du kan använda utgående regler för att minimera [SNAT resursuttömning](load-balancer-outbound-connections.md#snatexhaust) felbenägna mönster.  
 
-Varje ytterligare IP-adress som tillhandahålls av en klientdel tillhandahåller 64 000 tillfälliga portar för belastningsutjämnaren ska användas som SNAT portar. Även om Utjämning av nätverksbelastning eller inkommande NAT-regler har en enda klientdel, utgående regel utökas frontend-notation och gör att flera klienter per regel.  Antalet tillgängliga portar för SNAT multipliceras med varje offentlig IP-adress med flera klienter per regel och stora scenarier stöds.
+Varje ytterligare IP-adress som tillhandahålls av en klientdel ger 51,200 tillfälliga portar för belastningsutjämnaren ska användas som SNAT portar. Även om Utjämning av nätverksbelastning eller inkommande NAT-regler har en enda klientdel, utgående regel utökas frontend-notation och gör att flera klienter per regel.  Antalet tillgängliga portar för SNAT multipliceras med varje offentlig IP-adress med flera klienter per regel och stora scenarier stöds.
 
-Du kan också använda en [offentliga IP-adressprefix](https://aka.ms/lbpublicipprefix) direkt med en utgående regel.  Med hjälp av offentliga IP-Adressen ger prefix enklare skalning och förenklad vit-lista över flöden från din Azure-distribution. Du kan konfigurera en frontend IP-konfiguration i belastningsutjämnaren resursen att direkt referera till en offentlig IP-adressprefix.  På så sätt kan belastningsutjämnaren exklusiv kontroll över det offentliga IP-adressprefix och utgående regel används automatiskt alla offentliga IP-adresser som ingår i det offentliga IP-adressprefix för utgående anslutningar.  Var och en av IP-adresser inom intervallet för det offentliga IP-adressprefix tillhandahåller 64 000 tillfälliga portar per IP-adress för belastningsutjämnaren ska användas som SNAT portar.   
+Du kan också använda en [offentliga IP-adressprefix](https://aka.ms/lbpublicipprefix) direkt med en utgående regel.  Med hjälp av offentliga IP-Adressen ger prefix enklare skalning och förenklad vit-lista över flöden från din Azure-distribution. Du kan konfigurera en frontend IP-konfiguration i belastningsutjämnaren resursen att direkt referera till en offentlig IP-adressprefix.  På så sätt kan belastningsutjämnaren exklusiv kontroll över det offentliga IP-adressprefix och utgående regel används automatiskt alla offentliga IP-adresser som ingår i det offentliga IP-adressprefix för utgående anslutningar.  Var och en av IP-adresser inom intervallet för det offentliga IP-adressprefix ger 51,200 tillfälliga portar per IP-adress för belastningsutjämnaren ska användas som SNAT portar.   
 
 Du kan inte ha enskilda offentliga IP-adressresurser som skapats från det offentliga IP-adressprefix när du använder det här alternativet som utgående regel måste ha fullständig kontroll över det offentliga IP-adressprefix.  Om du behöver mer bra störrre kontroll kan du skapa enskilda offentliga IP-adressresurs från det offentliga IP-adressprefix och tilldela flera offentliga IP-adresser individuellt till klientdelen av en utgående regel.
 
@@ -82,7 +82,7 @@ Du kan använda följande parameter för att allokera 10 000 SNAT portar per vir
 
           "allocatedOutboundPorts": 10000
 
-Varje offentlig IP-adress från alla klienter för en utgående regel bidrar upp till 64 000 tillfälliga portar för användning som SNAT portar.  Belastningsutjämnaren tilldelas SNAT portar i multipler av 8. Om du anger ett värde som inte är delbara med 8 avvisade konfigurationen igen.  Om du försöker att allokera mer SNAT portar än vad som är tillgängliga beror på hur många offentliga IP-adresser, avvisade konfigurationen igen.  Till exempel om du allokerar 10 000 portar per virtuell dator och 7 virtuella datorer i en serverdel skulle pool delar en enda offentlig IP-adress, konfigurationen är nekade (7 x 10,0000 SNAT portar > 64,000 SNAT portar).  Du kan lägga till fler offentliga IP-adresser för klientdelen av utgående regeln för att aktivera scenariot.
+Varje offentlig IP-adress från alla klienter för en utgående regel bidrar upp till 51,200 tillfälliga portar för användning som SNAT portar.  Belastningsutjämnaren tilldelas SNAT portar i multipler av 8. Om du anger ett värde som inte är delbara med 8 avvisade konfigurationen igen.  Om du försöker att allokera mer SNAT portar än vad som är tillgängliga beror på hur många offentliga IP-adresser, avvisade konfigurationen igen.  Till exempel om du allokerar 10 000 portar per virtuell dator och 7 virtuella datorer i en serverdel skulle pool delar en enda offentlig IP-adress, konfigurationen är nekade (7 x 10,0000 SNAT portar > 51,200 SNAT portar).  Du kan lägga till fler offentliga IP-adresser för klientdelen av utgående regeln för att aktivera scenariot.
 
 Du kan återgå till [automatisk SNAT-porttilldelning baserat på backend-poolstorlek](load-balancer-outbound-connections.md#preallocatedports) genom att ange 0 för antalet portar.
 
@@ -160,7 +160,7 @@ Om du inte vill för regel för belastningsutjämning som ska användas för utg
 
 Du kan använda utgående regler för att finjustera den [automatisk SNAT-porttilldelning baserat på backend-poolstorlek](load-balancer-outbound-connections.md#preallocatedports).
 
-Om du har två virtuella datorer som delar en enda offentlig IP-adress för utgående NAT kanske du exempelvis vill öka antalet SNAT-portar som allokerats 1024 standardportarna om du upplever SNAT överbelastning. Varje offentlig IP-adress kan bidra med upp till 64 000 tillfälliga portar.  Om du konfigurerar en utgående regel med en enda offentlig IP-adress klientdel kan distribuera du högst 64 000 SNAT portar på virtuella datorer i serverdelspoolen.  För två virtuella datorer, kan högst 32 000 SNAT portar tilldelas med en utgående regel (2 x 32 000 = 64,000).
+Om du har två virtuella datorer som delar en enda offentlig IP-adress för utgående NAT kanske du exempelvis vill öka antalet SNAT-portar som allokerats 1024 standardportarna om du upplever SNAT överbelastning. Varje offentlig IP-adress kan bidra med upp till 51,200 tillfälliga portar.  Om du konfigurerar en utgående regel med en enda offentlig IP-adress klientdel, kan du distribuera totalt 51,200 SNAT portar på virtuella datorer i serverdelspoolen.  För två virtuella datorer, kan högst 25,600 SNAT portar tilldelas med en utgående regel (2 x 25,600 = 51,200).
 
 Granska [utgående anslutningar](load-balancer-outbound-connections.md) och information om hur [SNAT](load-balancer-outbound-connections.md#snat) portar fördelas och används.
 
@@ -202,7 +202,7 @@ När du använder en intern Standard Load Balancer, är utgående NAT inte tillg
 
 ## <a name="limitations"></a>Begränsningar
 
-- Det maximala antalet användbara tillfälliga portar per frontend IP-adress är 64,000.
+- Det maximala antalet användbara tillfälliga portar per frontend IP-adress är 51,200.
 - En uppsättning konfigurerbara utgående tidsgränsen för inaktivitet är 4 till 66 minuter (240 4000 sekunder).
 - Belastningsutjämnaren har inte stöd för ICMP för utgående NAT.
 - Portalen kan inte användas för att konfigurera eller visa utgående regler.  Använd mallar, REST API, Az CLI 2.0 eller PowerShell i stället.

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: f64a82cc3096c3c4d2a47568f4d6d516c685ee04
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: fc38c6278590e213674a2522169f988eaeea9cc4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991752"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081361"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudie: Skapa och hantera budgetar för Azure
 
@@ -45,7 +45,7 @@ Läs mer om att tilldela behörighet till Cost Management-data, [tilldela åtkom
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-- Logga in på Azure Portal på http://portal.azure.com.
+- Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Skapa en budget i Azure portal
 
@@ -57,23 +57,23 @@ När du har skapat din budget visar de en enkel vy över dina aktuella utgifter 
 
 Klicka på **Lägg till**.
 
-![Cost Management budgetar](./media/tutorial-acm-create-budgets/budgets01.png)
+![Cost Management budgetar visas i Azure portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
 I den **skapa budget** fönstret, ange ett budgetnamn och budgetbelopp. Välj antingen en månadsvis, kvartalsvis, eller en årlig varaktigheten. Välj sedan ett slutdatum. Budgetar kräver minst en kostnad tröskelvärdet (% av budgeten) och en motsvarande e-postadress. Du kan också ta upp till fem tröskelvärden och fem e-postadresser i en enda budget. När ett tröskelvärde för budget är uppfyllt, tas e-postmeddelanden emot på normalt inom mindre än åtta timmar.
 
 Här är ett exempel på hur du skapar en månatlig budget för $ 4 500. En e-postavisering hämtar genereras när 90% av budgeten har uppnåtts.
 
-![Månatliga budget-exempel](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Exempel-informationen som visas i rutan skapa budget](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
 När du skapar en kvartalsvis budget, fungerar den på samma sätt som en månatlig budget. Skillnaden är budgetbeloppet för kvartalet som fördelas jämnt mellan de tre månaderna av kvartalet. Som förväntat, delat budgetbelopp årliga jämnt mellan alla 12 månaders kalenderåret.
 
 Aktuella kostnader mot budget uppdateras när Cost Management får uppdaterade faktureringsinformation. Vanligtvis, varje dag.
 
-![Aktuella kostnader mot budget](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
+![Exempelinformation som visar aktuella kostnader mot budget](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
 
 När du har skapat en budget, visas den i kostnadsanalys. Visa din budget i förhållande till din kostnadstrend är en av de första stegen när du börjar [analysera dina kostnader och utgifter](quick-acm-cost-analysis.md).
 
-![Budget visas i kostnadsanalys](./media/tutorial-acm-create-budgets/cost-analysis.png)
+![Exempel budget och utgifter visas i kostnadsanalys](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 I exemplet ovan skapade du en budget för en prenumeration. Du kan också skapa en budget för en resursgrupp. Om du vill skapa en budget för en resursgrupp, navigerar du till **kostnadshantering + fakturering** &gt; **prenumerationer** &gt; Välj en prenumeration > **resurs grupper** > Välj en resursgrupp > **budgetar** > och sedan **Lägg till** en budget.
 
@@ -81,7 +81,7 @@ I exemplet ovan skapade du en budget för en prenumeration. Du kan också skapa 
 
 Beroende på vilken åtkomstnivå som du har, kan du redigera en budget för att ändra dess egenskaper. I följande exempel visas är några av egenskaperna skrivskyddade eftersom användaren har deltagarbehörighet för prenumerationen. För närvarande den **förfallodatum** är inaktiverad och kan inte ändras när.
 
-![Redigera budget – behörigheten deltagare](./media/tutorial-acm-create-budgets/edit-budget.png)
+![Exempel på att redigera en budget om du vill ändra olika egenskaper](./media/tutorial-acm-create-budgets/edit-budget.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

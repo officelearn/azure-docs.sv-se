@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261079"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081548"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa din publiceringsalternativ
 Publiceringsalternativ som du väljer för ditt erbjudande kopplat direkt till både marketplace GTM-fördelar och krav för berättigande. Ännu viktigare är definierar valet av publicera alternativet och erbjudandetypen i Cloud Partner Portal hur användare kommer att interagera med ditt erbjudande i marketplace.
 
 Du kan aktivera publiceringsalternativ genom att välja en typ av erbjudande och sedan skapa ett marketplace-erbjudande i partnerportalen i molnet. Om du vill göra detta måste du förstå följande viktiga marketplace: publiceringsalternativ, erbjuder typer och konfigurations- och anrop till-åtgärd som styr hur och var ditt erbjudande presenteras i molnmarknadsplatsen.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >Tabellen ovan beskriver hur din lösning eller en tjänst mappar till butiken, publiceringsalternativ och erbjudandetypen som används för att presentera ditt erbjudande i marketplace.

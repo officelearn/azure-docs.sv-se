@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457107"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082654"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
@@ -131,7 +131,7 @@ Följande mall med en Kopieringsaktivitet innehåller en fullständig förteckni
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för en Kopieringsaktivitet måste anges till: **kopia** | Ja |
-| inmatningar | Ange den datauppsättning som du skapade som pekar till källdata. Kopieringsaktivitet stöder bara en enda indata. | Ja |
+| indata | Ange den datauppsättning som du skapade som pekar till källdata. Kopieringsaktivitet stöder bara en enda indata. | Ja |
 | utdata | Ange den datauppsättning som du skapade som pekar till mottagardata. Kopieringsaktivitet stöder bara ett enda utflöde. | Ja |
 | typeProperties | En grupp egenskaper för att konfigurera kopieringsaktiviteten. | Ja |
 | källa | Ange den kopiering av källtypen och motsvarande egenskaper på hur du hämtar data.<br/><br/>Få mer detaljerad information från avsnittet ”Kopiera Aktivitetsegenskaper” i connector artikeln listas i [datalager och format som stöds](#supported-data-stores-and-formats). | Ja |
@@ -173,6 +173,7 @@ Körningen kopiering och prestandaegenskaper returneras också i resultatet för
 | DataRead | Storleken på data som läses från källa | Int64 värdet i **byte** |
 | DataWritten | Storleken på data som skrivs till mottagare | Int64 värdet i **byte** |
 | filerskrivskyddad | Antal filer som kopieras när du kopierar data från fillagring. | Int64-värde (ingen enhet) |
+| fileScanned | Antal filer som genomsöks från källan för file storage. | Int64-värde (ingen enhet) |
 | filesWritten | Antal filer som kopieras när du kopierar data till file storage. | Int64-värde (ingen enhet) |
 | rowsCopied | Antal rader som kopieras (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
 | rowsSkipped | Antal inkompatibla rader hoppas över. Du kan aktivera funktionen genom att ange ”enableSkipIncompatibleRow” till true. | Int64-värde (ingen enhet) |

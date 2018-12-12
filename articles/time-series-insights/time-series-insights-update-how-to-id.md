@@ -1,6 +1,6 @@
 ---
-title: Bästa praxis när du väljer en tid-ID i Azure Time Series Insights | Microsoft Docs
-description: Förstå metodtips när du väljer en tid-ID i Azure Time Series Insights
+title: Bästa praxis för att välja en Time-ID i förhandsversionen av Azure Time Series Insights | Microsoft Docs
+description: Förstå metodtips när du väljer en tid-ID i förhandsversionen av Azure Time Series Insights
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -8,54 +8,52 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.openlocfilehash: a7fd1ff4a0fe96724af0c43019afe53666ab81d7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: 5103788afb9bd19978fcdea51f87953e4d7110ac
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856857"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095252"
 ---
-# <a name="best-practices-when-choosing-a-time-series-id"></a>Bästa praxis när du väljer en tid-ID
+# <a name="best-practices-for-choosing-a-time-series-id"></a>Metodtips för att välja en Time-ID
 
-Det här dokumentet beskriver partitionsnyckel Azure Time Series Insights (förhandsversion) den **Time Series-ID**, och bästa praxis att välja en.
+Den här artikeln beskriver Azure Time Series Insights Preview partitionsnyckel, Time Series-ID och bästa praxis för att välja en.
 
-## <a name="choose-a-time-series-id"></a>Välj en tid-ID
+## <a name="choose-a-time-series-id"></a>Välj ett Time Series-ID
 
-Valet av den **Time Series-ID** är som att välja en partitionsnyckel för en databas. Därför är ett viktigt beslut som ska göras vid designtillfället. Du kan inte uppdatera en befintlig miljö TSI (förhandsversion) för att använda en annan **Time Series-ID**. Med andra ord, när en miljö som har skapats med en **Time Series-ID**, principen kan inte ändras eftersom det är en egenskap som inte kan ändras.
+Välja en Time-ID är som en partitionsnyckel för en databas. Det är ett viktigt beslut som ska göras vid designtillfället. Du kan inte uppdatera en befintlig förhandsversionen av Time Series Insights-miljö för att använda en annan Time Series-ID. När en miljö skapas med en Time-ID, är med andra ord en oåterkallelig egenskap som inte kan ändras i principen.
 
 > [!IMPORTANT]
-> Den **Time Series-ID** är skiftlägeskänsliga och kan ändras (kan inte ändras när).
+> Time Series-ID är skiftlägeskänsliga och kan ändras (det kan inte ändras efter att det angetts).
 
-Att välja rätt med det i åtanke **Time Series-ID** är viktigt. Överväg följande egenskaper när du väljer en **Time Series-ID**:
+Med det i åtanke är det viktigt att välja tillämpligt Time Series-ID. Tänk efter dessa bästa metoder när du väljer en tid-ID:
+* Välj ett egenskapsnamn som har ett stort antal värden och har även mönster i databasåtkomst. Det är en bra idé att ha en partitionsnyckel med många distinkta värden (till exempel hundratals eller tusentals). För många kunder, det här är något som DeviceID eller SensorID i din JSON.
+* Time Series-ID: T måste vara unika den lägsta nivån för din [Tidsseriemodell](./time-series-insights-update-tsm.md).
+* En teckensträng för Time Series-ID-egenskapen namn kan ha upp till 128 tecken och egenskapsvärden för Time Series-ID kan ha högst 1024 tecken.
+* Om vissa unika värden för Time Series-ID-egenskapen saknas hanteras de som null-värden som ingå i unikhetsbegränsningen.
 
-> [!div class="checklist"]
-> * Välj ett egenskapsnamn som har ett stort antal värden och har även mönster i databasåtkomst. Det är en bra idé att ha en partitionsnyckel med många distinkta värden (t.ex. hundratals eller tusentals). För många kunder, det här är något som liknar **enhets-ID**, **Sensor ID**osv.  
-> * Det bör vara unikt för den lägsta nivån för din [Tidsseriemodell](./time-series-insights-update-tsm.md).
-> * En **Time Series-ID** teckensträng för egenskapen namn kan vara upp till 128 tecken och **Time Series-ID** egenskapsvärden kan vara upp till 1 024 tecken.
-> * Vissa unika **Time Series-ID** egenskapsvärden saknas, hanteras de som null-värden som ingå i unikhetsbegränsningen.
-
-Du kan också välja upp till **tre** (3) nyckelegenskaper som din **Time Series-ID**.
+Du kan också välja upp till *tre* (3) nyckelegenskaper som din Time Series-identifieraren.
 
   > [!NOTE]
-  > Din **tre** (3) nyckelegenskaperna måste vara strängar.
+  > Din *tre* (3) nyckelegenskaperna måste vara strängar.
 
-Följande scenarier beskriver att välja fler än en nyckelegenskap som din **Time Series-ID**:  
+Följande scenarier beskriver välja fler än en nyckelegenskap som din Time Series-ID:  
 
-* Scenario 1:
+### <a name="scenario-1"></a>Scenario 1
 
-  * Du har äldre fjärranläggning tillgångar som samtliga har unika nycklar. 
-  * Till exempel en flotta identifieras unikt med egenskapen **deviceId** och en annan där egenskapen unika är **objectId**.  I båda fjärranläggning finns inte i andra beståndet unik egenskap. I det här exemplet väljer du två nycklar **deviceId**, och **objectId** som unika nycklar. 
-  * Vi accepterar null-värden och bristen på en egenskap närvaro i händelsenyttolasten som räknas som en `null` värde.  Detta är också det korrekta sättet att hantera Skicka data till två olika händelsekällor där data i varje händelsekälla hade ett annat unikt **Time Series-ID**.
+* Du har äldre fjärranläggning tillgångar, var och en med en unik nyckel. 
+* Till exempel en flotta identifieras unikt med egenskapen *deviceId* och en annan där egenskapen unika är *objectId*. Varken flotta innehåller andra vagnparkens unik egenskap. I det här exemplet markerar du två nycklar, deviceId och objekt-ID som unika nycklar. 
+* Vi accepterar null-värden och bristen på en egenskap närvaro i händelsenyttolasten som räknas som en `null` värde. Det är också det korrekta sättet att hantera Skicka data till två olika händelsekällor där data i varje händelsekälla har ett unikt Time Series-ID.
 
-* Scenario 2:
+### <a name="scenario-2"></a>Scenario 2
 
-  * Du behöver flera egenskaper för att visa unikhet i samma flottan av tillgångar. Exempel: Anta att du är en smart byggnad tillverkare och distribuera sensorer i varje rum. I varje rum du vanligtvis har samma värden för **sensorId**, inklusive **sensor1**, **sensor2**, **sensor3**och så vidare.
-  * Dessutom kan du har överlappande våning och utrymme mellan platser i egenskapen **flrRm** som innehåller värden som `1a`, `2b`, `3a`och så vidare.
-  * Slutligen kan du ha en egenskap **plats** som innehåller värden som `Redmond`, `Barcelona`, `Tokyo`och så vidare. För att skapa unika, skulle du har angett alla tre av de här egenskaperna som din **Time Series-ID** nycklar – **sensorId**, **flrRm**, och **plats**.
+* Du behöver flera egenskaper som ska vara unikt inom samma flottan av tillgångar. 
+* Exempel: Anta att du är en smart byggnad tillverkare och distribuera sensorer i varje rum. I varje rum du vanligtvis har samma värden för *sensorId*, till exempel *sensor1*, *sensor2*, och *sensor3*.
+* Dessutom byggnaden har överlappande våning och utrymme mellan platser i egenskapen *flrRm*, som har värden som *1a*, *2b*, *3a* och så vidare.
+* Slutligen kan du ha en egenskap *plats*, som innehåller värden som *Redmond*, *Barcelona*, och *Tokyo*. För att skapa unika, skulle du ange följande egenskaper som dina Time Series-ID-nycklar: *sensorId*, *flrRm*, och *plats*.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [Azure Time Series Insights (förhandsversion) Time Series modeller](./time-series-insights-update-tsm.md).
-
-Planera din [Azure Time Series Insights (förhandsversion) miljö](./time-series-insights-update-plan.md).
+* Läs mer om [datamodellering](./time-series-insights-update-tsm.md).
+* Planera din [Azure Time Series Insights (förhandsversion) miljö](./time-series-insights-update-plan.md).

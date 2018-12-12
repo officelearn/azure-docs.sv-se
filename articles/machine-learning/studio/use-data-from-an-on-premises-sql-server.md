@@ -1,10 +1,10 @@
 ---
-title: En lokal SQLServer med Azure Machine Learning Studio | Microsoft Docs
+title: En lokal SQLServer – Azure Machine Learning Studio | Microsoft Docs
 description: Använda data från en lokal SQL Server-databas för att utföra avancerade analyser med Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 059dd3d902409abfa80be2b7aac579a54de1868f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310964"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090678"
 ---
-# <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Utföra avancerade analyser med Azure Machine Learning med hjälp av data från en lokal SQL Server-databas
+# <a name="perform-analytics-with-azure-machine-learning-using-an-on-premises-sql-server-database"></a>Utföra analyser med Azure Machine Learning med hjälp av en lokal SQL Server-databas
 
 Ofta företag som fungerar med lokala data vill dra nytta av skalan och flexibilitet med molnet för sina maskininlärningsarbetsbelastningar. Men de vill inte störa deras aktuella affärsprocesser och arbetsflöden genom att flytta sina lokala data till molnet. Azure Machine Learning har nu stöd för att läsa data från en lokal SQL Server-databas och sedan utbildning och bedömning av en modell med dessa data. Du har inte längre att manuellt kopiera och synkronisera data mellan molnet och den lokala servern. I stället den **importdata** modul i Azure Machine Learning Studio kan nu läsa direkt från din lokala SQL Server-databas för utbildning och bedömning jobb.
 

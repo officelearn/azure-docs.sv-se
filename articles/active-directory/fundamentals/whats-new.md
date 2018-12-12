@@ -1,6 +1,6 @@
 ---
-title: Nyheter Viktig information för Azure AD | Microsoft Docs
-description: Läs mer om nyheterna med Azure Active Directory (Azure AD), till exempel de senaste versionsanteckningarna, kända problem, felkorrigeringar, föråldrade funktioner och kommande ändringar.
+title: Nyheter Viktig information – Azure Active Directory | Microsoft Docs
+description: Lär dig vad är nytt med Azure Active Directory, som föråldrade funktioner för de senaste versionsanteckningarna, kända problem, felkorrigeringar och kommande ändringar.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -14,12 +14,13 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dc4e421808ab0f79070224edea4b75f527affaf0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.custom: it-pro
+ms.openlocfilehash: 8ed51a5f61ca48434fd837449ecc2b6b8c3d74dc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426245"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083525"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 

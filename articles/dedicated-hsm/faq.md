@@ -1,24 +1,24 @@
 ---
-title: Azure dedikerad HSM vanliga frågor och svar | Microsoft Docs
-description: Azure dedikerade HSM tillhandahåller funktioner för lagring av nycklar i Azure som uppfyller FIPS 140-2 Level 3-certifiering
+title: Vanliga frågor och svar – Azure dedikerad HSM | Microsoft Docs
+description: Vanliga frågor om olika ämnen på Azure dedikerad HSM
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
+ms.custom: mvc
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: concepts
-ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 3179fd3cf7a595b4491aec77e221aca3960c8ecb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 949281b1415e2098fb7bf0d3e9e9fbe0a5f5c835
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319451"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081004"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
@@ -28,7 +28,7 @@ Hitta svar på vanliga frågor om Microsoft Azure dedikerad HSM.
 
 ### <a name="q-what-is-a-hardware-security-module-hsm"></a>F: Vad är en maskinvarusäkerhetsmodul (HSM)?
 
-En maskinvarusäkerhetsmodul (HSM) är en fysisk datorenhet som används för att skydda och hantera kryptografiska nycklar. Nycklar som är lagrade i HSM: er kan användas för kryptografiska åtgärder. Nyckelmaterial kvar på ett säkert sätt i manipulationsfri, säkerhetsförslutna maskinvara moduler. HSM kan bara autentiseras och auktoriseras programmen kan använda nycklarna. Nyckelmaterial lämnar aldrig HSM-skydd: ens gränser.
+En maskinvarusäkerhetsmodul (HSM) är en fysisk datorenhet som används för att skydda och hantera kryptografiska nycklar. Nycklar som är lagrade i HSM: er kan användas för kryptografiska åtgärder. Nyckelmaterial kvar på ett säkert sätt i manipulationsfri, säkerhetsförslutna maskinvara moduler. HSM kan bara autentiseras och auktoriseras programmen kan använda nycklarna. Nyckelmaterialet lämnar aldrig HSM:s skyddsgräns.
 
 ### <a name="q-what-is-azure-dedicated-hsm-offering"></a>F: Vad är Azure dedikerad HSM erbjudande?
 
@@ -40,7 +40,7 @@ Microsoft samarbetar med Gemalto att tillhandahålla Azure dedikerad HSM-tjänst
 
 ### <a name="q-what-is-an-hsm-used-for"></a>F: Vad används en HSM för?
 
-HSM: er används för att lagra kryptografiska nycklar som används för kryptografiska funktioner, till exempel SSL (secure socket layer), kryptering av data, PKI (infrastruktur för offentliga nycklar), DRM (digital rights management) och logga dokument.
+HSM:er används för lagring av kryptografinycklar som används för kryptografifunktioner som SSL (Secure Socket Layer), kryptering av data, PKI (Public Key Infrastructure), DRM (Digital Rights Management) och signering av dokument.
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>F: hur fungerar dedikerad HSM?
 

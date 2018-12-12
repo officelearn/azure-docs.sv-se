@@ -1,21 +1,22 @@
 ---
-title: Hantera versioner i LUIS-appar
-titleSuffix: Azure Cognitive Services
+title: Hantera versioner
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Versioner kan du skapa och publicera olika modeller. Ett bra tips är att klona den aktuella aktiva modellen till en annan version av appen innan du gör ändringar i modellen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: db461191b70aabc322e570ecc814a076c21206f2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: 454f45b692a87dbd47ca1ca70880323912693839
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033795"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082704"
 ---
 # <a name="manage-versions"></a>Hantera versioner
 
@@ -25,7 +26,7 @@ Om du vill arbeta med versioner, kan du öppna din app genom att välja dess nam
 
 Listan över versioner som visar vilka versioner publiceras, där de publiceras och vilken version som är aktiva för tillfället. 
 
-[![](./media/luis-how-to-manage-versions/versions-import.png "Hantera avsnittet versioner sida")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+[![Hanteringsavsnittet, versioner sidan](./media/luis-how-to-manage-versions/versions-import.png "hanteringsavsnittet, versioner sidan")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Klona en version
 
@@ -44,7 +45,7 @@ Listan över versioner som visar vilka versioner publiceras, där de publiceras 
 
 Välj en version i listan och välj sedan **göra Active** från verktygsfältet. 
 
-[![](./media/luis-how-to-manage-versions/versions-other.png "Hantera avsnittet versioner sida")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Hanteringsavsnittet, versioner sidan](./media/luis-how-to-manage-versions/versions-other.png "hanteringsavsnittet, versioner sidan")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Import-version
 

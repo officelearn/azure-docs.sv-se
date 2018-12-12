@@ -1,21 +1,19 @@
 ---
-title: 'Designmönster för Azure Cosmos DB: appar för sociala medier | Microsoft Docs'
+title: 'Designmönster för Azure Cosmos DB: appar för sociala medier'
 description: Läs mer om ett designmönster för sociala nätverk genom att utnyttja flexibiliteten för lagring i Azure Cosmos DB och andra Azure-tjänster.
 keywords: appar för sociala medier
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: a65ec0a92b8fc245c77ce67c80c1202f73a3ec66
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711879"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083979"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialt med Azure Cosmos DB
 
@@ -49,14 +47,14 @@ Den här artikeln vägleder dig i din sociala plattform datamodellering med Azur
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 
@@ -100,7 +98,7 @@ Det är bara för att skapa dokument som kan innehålla en lista över post ID: 
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Du kan ha en ”senaste” ström med inlägg sorterade efter skapandedatum. Eller du kan ha en ”hetaste” ström med dessa inlägg med mer likes under de senaste 24 timmarna. Du kan även implementera en anpassad dataström för varje användare baserat på logik som följare och intressen. Det vore fortfarande en lista över inlägg. Det är en fråga om hur du skapar dessa listor, men prestandan läsning förblir obehindrad. När du skaffar en av de här listorna du utfärda en enskild fråga till Cosmos DB med hjälp av den [i operatorn](sql-api-sql-query.md#WhereClause) att hämta sidor för inlägg i taget.
+Du kan ha en ”senaste” ström med inlägg sorterade efter skapandedatum. Eller du kan ha en ”hetaste” ström med dessa inlägg med mer likes under de senaste 24 timmarna. Du kan även implementera en anpassad dataström för varje användare baserat på logik som följare och intressen. Det vore fortfarande en lista över inlägg. Det är en fråga om hur du skapar dessa listor, men prestandan läsning förblir obehindrad. När du skaffar en av de här listorna du utfärda en enskild fråga till Cosmos DB med hjälp av den [i operatorn](how-to-sql-query.md#WhereClause) att hämta sidor för inlägg i taget.
 
 Feed strömmar kan byggas med [Azure App Services](https://azure.microsoft.com/services/app-service/) background processer: [Webjobs](../app-service/web-sites-create-web-jobs.md). När en post skapas behandling i bakgrunden kan aktiveras med hjälp av [Azure Storage](https://azure.microsoft.com/services/storage/) [köer](../storage/queues/storage-dotnet-how-to-use-queues.md) och Webjobs som utlösts med hjälp av den [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementerar den Publicera spridning i strömmar som baseras på en egen anpassad logik.
 

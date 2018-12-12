@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: d34671d4197735ea2c30aafc8fd01a5893427ff3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9e27df857d560abdf5b6a54272bb022b6ed466ee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226860"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079372"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Tilldela användare till program
 
@@ -33,15 +33,15 @@ För en användare att komma åt ett program, måste de först tilldelas till de
 
 2.  En administratör [tilldelar en grupp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) att användaren är medlem i program, inklusive:
 
-  * En grupp som synkroniserades från en lokal plats
+    * En grupp som synkroniserades från en lokal plats
 
-  * En statisk grupp skapas i molnet
+    * En statisk grupp skapas i molnet
 
-  * En [dynamisk säkerhetsgruppen](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) skapas i molnet
+    * En [dynamisk säkerhetsgruppen](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) skapas i molnet
 
-  * En Office 365-grupp som skapas i molnet
+    * En Office 365-grupp som skapas i molnet
 
-  * Den [alla användare](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups) grupp
+    * Den [alla användare](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups) grupp
 
 3.  En administratör aktiverar [Självbetjäning för programåtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare att lägga till ett program med hjälp av den [Programåtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till App** funktionen **utan företag**
 

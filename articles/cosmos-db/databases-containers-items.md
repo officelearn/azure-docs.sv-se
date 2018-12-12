@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9f2ed9c9059fa76a55ebd26fa3175605e89a4cdd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684866"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090283"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Arbeta med Azure Cosmos-databaser, behållare och objekt
 
@@ -53,7 +53,7 @@ När du skapar en Azure Cosmos-behållare kan konfigurera du dataflöde på någ
 
 * **Delade etablerat dataflöde** läge: de här behållarna dela det etablerade dataflödet som med andra behållare i samma databas (förutom de här behållarna som har konfigurerats med dedikerad etablerat dataflöde). Med andra ord delas dataflöde i databasen mellan alla ”delade” behållare. Mer information finns i [så här konfigurerar du etablerat dataflöde på en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 
-Ett Azure Cosmos behållare skalas Elastiskt, oavsett om du skapar behållare med antingen ”delade” eller ”dedikerad” etablerat dataflöde lägen, det vill säga de kan ha obegränsad lagring och dataflöde.  
+En Azure Cosmos-behållare kan Elastiskt skala, oavsett om du skapar behållare med antingen ”delade” eller ”dedikerad” etablerat dataflöde lägen.
 
 En Azure Cosmos-behållare är en schemaoberoende behållare för objekt. Objekt i en behållare kan ha valfri scheman. Till exempel kan ett objekt som representerar en person, ett objekt som representerar en bil placeras i samma behållare. Som standard indexera alla objekt som du lägger till en behållare automatiskt utan att kräva något explicit index eller schemahantering. Du kan anpassa beteendet indexering genom att konfigurera indexprincip på en behållare. 
 

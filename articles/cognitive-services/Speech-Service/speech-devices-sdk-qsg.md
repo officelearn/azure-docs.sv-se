@@ -1,5 +1,5 @@
 ---
-title: Kom igång med SDK för tal-enheter
+title: Kom igång med tal enheter SDK - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Krav och anvisningar för att komma igång med SDK för tal-enheter.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: e035e1bdedefc8e327b0179006b45f3bad4c41ee
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 46f7762a815a7fa4aa4663d9ac6e7c6001ea345c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470208"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097190"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Kom igång med SDK för tal-enheter
 
-Den här artikeln beskriver hur du konfigurerar din utveckling PC och tal Utvecklingskit för enheten för att utveckla tal-aktiverade enheter med hjälp av SDK för tal-enheter. Sedan skapar och distribuerar ett exempelprogram till enheten. 
+Den här artikeln beskriver hur du konfigurerar din utveckling PC och tal Utvecklingskit för enheten för att utveckla tal-aktiverade enheter med hjälp av SDK för tal-enheter. Sedan skapar och distribuerar ett exempelprogram till enheten.
 
 Källkoden för exempelprogrammet som ingår i SDK: N för tal-enheter. Det är också [finns på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -40,7 +41,7 @@ Innan du börjar utveckla med tal Devices SDK måste du samla in information och
 
 * Hämta en [Speech service prenumerationsnyckel](get-started.md). Du kan hämta en 30-dagars kostnadsfri utvärderingsversion eller hämta en nyckel från instrumentpanelen i Azure.
 
-* Om du vill använda tjänsten tal taligenkänning prenumerera på den [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) och [få en prenumerationsnyckel](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). 
+* Om du vill använda tjänsten tal taligenkänning prenumerera på den [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) och [få en prenumerationsnyckel](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
 
     Du kan [skapa en enkel LUIS-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller Använd exemplet LUIS-modell, LUIS-example.json. Exemplet LUIS-modellen är tillgänglig från den [tal Devices SDK hämtningsplats](https://shares.datatransfer.microsoft.com/). Ladda upp din modell JSON-filen till den [LUIS portal](https://www.luis.ai/home)väljer **importera ny app**, och välj sedan JSON-filen.
 
@@ -64,9 +65,9 @@ Innan du börjar utveckla med tal Devices SDK måste du samla in information och
 1. Installera certifikaten och filen wake word (nyckelordet) tabell och ange behörigheter för enheten. Skriv följande kommandon i Kommandotolken:
 
    ```
-   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/ 
+   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
    adb shell
-   cd /data/ 
+   cd /data/
    chmod 777 roobo_setup.sh
    ./roobo_setup.sh
    exit
@@ -77,34 +78,34 @@ Innan du börjar utveckla med tal Devices SDK måste du samla in information och
 
     > [!TIP]
     > Stäng av datorns mikrofon och högtalare för att säkerställa att du arbetar med i development kit mikrofoner. På så sätt kan du inte av misstag utlösa enheten med ljud från datorn.
-    
+
 1.  Starta Vysor på datorn.
 
     ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
-1.  Enheten bör visas under **väljer du en enhet**. Välj den **visa** knappen bredvid enheten. 
- 
+1.  Enheten bör visas under **väljer du en enhet**. Välj den **visa** knappen bredvid enheten.
+
 1.  Ansluta till det trådlösa nätverket genom att välja mappikonen och välj sedan **inställningar** > **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
- 
+
     > [!NOTE]
-    > Om ditt företag har principer om att ansluta enheter till dess Wi-Fi-system, måste du skaffa MAC-adressen och Kontakta IT-avdelningen om hur du ansluter till ditt företags Wi-Fi. 
+    > Om ditt företag har principer om att ansluta enheter till dess Wi-Fi-system, måste du skaffa MAC-adressen och Kontakta IT-avdelningen om hur du ansluter till ditt företags Wi-Fi.
     >
     > Välj filmappsikonen på skrivbordet för dev-paket för att hitta MAC-adressen för dev-paket.
     >
     >  ![Vysor filmapp](media/speech-devices-sdk/qsg-10.png)
     >
-    > Välj **inställningar**. Sök efter ”mac-adress” och välj sedan **Mac-adress** > **avancerade WLAN**. Skriv ned MAC-adressen som visas längst ned i dialogrutan. 
+    > Välj **inställningar**. Sök efter ”mac-adress” och välj sedan **Mac-adress** > **avancerade WLAN**. Skriv ned MAC-adressen som visas längst ned i dialogrutan.
     >
     > ![Vysor MAC-adress](media/speech-devices-sdk/qsg-11.png)
     >
     > Vissa företag kan ha en tidsgräns på hur lång tid en enhet kan vara ansluten till deras Wi-Fi-system. Du kan behöva utöka dev-paket registreringen med din Wi-Fi-system efter ett visst antal dagar.
-    > 
+    >
     > Om du vill koppla en talare till dev-paket kan ansluta du den till ljud rad ut. Du bör välja en god kvalitet, 3.5 mm talare.
     >
     > ![Vysor ljud](media/speech-devices-sdk/qsg-14.png)
- 
+
 ## <a name="run-a-sample-application"></a>Kör ett exempelprogram
 
 Om du vill köra testerna ROOBO och verifiera din development kit-konfiguration, skapa och installera exempelprogrammet:
@@ -114,10 +115,10 @@ Om du vill köra testerna ROOBO och verifiera din development kit-konfiguration,
 1.  Välja **Öppna ett befintligt Android Studio-projekt**.
 
     ![Android Studio – öppna ett befintligt projekt](media/speech-devices-sdk/qsg-5.png)
- 
+
 1.  Gå till C:\SDSDK\Android-Sample-Release\example. Välj **OK** att öppna exempelprojektet.
- 
-1.  Lägga till din prenumerationsnyckel för tal i källkoden. Om du vill prova taligenkänning kan också lägga till din [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerationsnyckel och program-ID. 
+
+1.  Lägga till din prenumerationsnyckel för tal i källkoden. Om du vill prova taligenkänning kan också lägga till din [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerationsnyckel och program-ID.
 
     Dina nycklar och information om programmet finns i följande rader i källfilen MainActivity.java:
 
@@ -135,7 +136,7 @@ Om du vill köra testerna ROOBO och verifiera din development kit-konfiguration,
     Du kan också [skapa en anpassad aktivering word](speech-devices-sdk-create-kws.md).
 
     Om du vill installera wake-ord som du vill använda:
- 
+
     * Skapa en mapp för nyckelord i datamappen på enheten genom att köra följande kommandon i Kommandotolken:
 
         ```
@@ -152,9 +153,9 @@ Om du vill köra testerna ROOBO och verifiera din development kit-konfiguration,
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```
-    
+
     * Referera till dessa filer i exempelprogrammet. Hitta följande rader i MainActivity.java. Kontrollera att det angivna nyckelordet är den som du använder och att sökvägen till den `kws.table` -fil som du överförde till enheten.
-        
+
         ```java
         private static final String Keyword = "Computer";
         private static final String KeywordModel = "/data/keyword/kws.table";
@@ -175,7 +176,7 @@ Om du vill köra testerna ROOBO och verifiera din development kit-konfiguration,
     private static final String SelectedGeometry = "Circular6+1";
     ```
     I följande tabell beskrivs de tillgängliga värdena:
-    
+
     |Variabel|Betydelse|Tillgängliga värden|
     |--------|-------|----------------|
     |`DeviceGeometry`|Fysiska mic-konfiguration|För en cirkulär dev-paket: `Circular6+1` |
@@ -186,12 +187,12 @@ Om du vill köra testerna ROOBO och verifiera din development kit-konfiguration,
     |||För en linjär dev-paket använder som två mikrofoner: `Linear2`|
 
 
-1.  Att skapa programmet på den **kör** menyn och välj **kör ”app”**. Den **Välj distributionsmålet** dialogrutan visas. 
+1.  Att skapa programmet på den **kör** menyn och välj **kör ”app”**. Den **Välj distributionsmålet** dialogrutan visas.
 
 1. Välj din enhet och välj sedan **OK** du distribuerar program till enheten.
 
     ![Välj dialogrutan distribution mål](media/speech-devices-sdk/qsg-7.png)
- 
+
 1.  Exempelprogram för tal Devices SDK startar och välja mellan följande alternativ:
 
     ![Exempelprogrammet tal Devices SDK exempel och alternativ](media/speech-devices-sdk/qsg-8.png)
@@ -208,12 +209,12 @@ Om det uppstår fel certifikat när du använder Speech-tjänsten kan du kontrol
 
     ![Under inställningar, väljer du datum och tid](media/speech-devices-sdk/qsg-12.png)
 
-1. Behåll den **automatisk datum och tid** alternativ som valts. Under **väljer tidszon**, Välj den aktuella tidszonen. 
+1. Behåll den **automatisk datum och tid** alternativ som valts. Under **väljer tidszon**, Välj den aktuella tidszonen.
 
     ![Välj alternativ för datum och tidszon](media/speech-devices-sdk/qsg-13.png)
 
-    När du ser att dev-paket tiden matchar tiden på datorn, är dev-paket ansluten till internet. 
-    
+    När du ser att dev-paket tiden matchar tiden på datorn, är dev-paket ansluten till internet.
+
     Läs mer i utveckling, den [ROOBO Utvecklingsguide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
 ### <a name="audio"></a>Ljud

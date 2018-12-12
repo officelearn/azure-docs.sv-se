@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: aa940e238601f06a53247c0da4d1a92f16b6f56c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 6c5554c664c4f0f47b2f8341b8e7c428732b0af7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840613"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086233"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planera kapacitet för Hyper-V-virtuella datorer med kapacitet och prestanda lösningen (förhandsversion)
 
@@ -51,8 +51,8 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | Ansluten källa | Support | Beskrivning |
 |---|---|---|
 | [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in information om kapacitet och prestanda från Windows-agenter. |
-| [Linux-agenter](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda från direkt Linux-agenter.|
-| [SCOM-hanteringsgrupp](../../log-analytics/log-analytics-om-agents.md) | Ja |Lösningen samlar in data för kapacitet och prestanda från agenter i en ansluten SCOM-hanteringsgrupp. En direktanslutning från SCOM-agenten till Log Analytics krävs inte.|
+| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda från direkt Linux-agenter.|
+| [SCOM-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) | Ja |Lösningen samlar in data för kapacitet och prestanda från agenter i en ansluten SCOM-hanteringsgrupp. En direktanslutning från SCOM-agenten till Log Analytics krävs inte.|
 | [Azure Storage-konto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Azure storage inkluderar inte kapacitet och prestanda.|
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -81,7 +81,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 När lösningen kapacitet och prestanda uppdateras ändras versionsnumret.
 
-Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="using-the-solution"></a>Använda lösningen
 

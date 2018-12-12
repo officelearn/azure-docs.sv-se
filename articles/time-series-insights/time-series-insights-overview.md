@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 85436fedacc765dcdf6a8005cf96f3d63312504c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365584"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868811"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure Time Series Insights?
 
@@ -34,7 +34,7 @@ Om du utvecklar ett program, vare sig det är för internt bruk eller för exter
 
 Om du är osäker på om dina data är tidsserier är det här det som du bör känna till.  Tidsseriedata representerar ändringar i en tillgång eller en process över tid.  De är unika på så sätt att de har en tidsstämpel, och det mest optimala är att visa tid som en axel.  Tidsseriedata anländer normalt i tidsordning och behandlas vanligtvis som en infogad post i stället för en uppdatering av databasen.  Eftersom Time Series Insights samlar in och lagrar varje ny händelse som en rad mäts ändringar över tid, vilket gör det lättare att söka bakåt och förutsäga framtida ändringar.  I stora volymer kan det vara svårt att lagra, indexera, fråga, analysera och visualisera tidsseriedata.  
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
 ### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>I den här videon ger vi en översikt över Time Series Insights, en molnbaserad IoT-analysplattform.</br>
 

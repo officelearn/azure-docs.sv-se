@@ -1,5 +1,6 @@
 ---
-title: Konfigurera beräkningsmål för modellträning med Azure Machine Learning-tjänsten | Microsoft Docs
+title: Skapa och använda beräkningsmål för modellträning
+titleSuffix: Azure Machine Learning service
 description: Lär dig mer om att välja och konfigurera utbildning miljöer (beräkningsmål) används för att träna dina maskininlärningsmodeller. Azure Machine Learning-tjänsten kan du enkelt växla miljöer för utbildning. Starta utbildning lokalt och om du vill skala ut kan växla till en molnbaserad beräkningsmål.
 services: machine-learning
 author: heatherbshapiro
@@ -10,14 +11,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 07ea61ffe3ffc17cd255b826e3506ffe2b1ce9cd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 1a6533c1ec25eb8500f67cb98494463d7daf752b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017730"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080103"
 ---
-# <a name="select-and-use-a-compute-target-to-train-your-model"></a>Använd ett beräkningsmål träna din modell
+# <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
 
 Med Azure Machine Learning-tjänsten kan du träna din modell på olika beräkningsresurser. Dessa beräkningsresurser, kallas __beräkningsmål__, kan vara lokala eller i molnet. I det här dokumentet lär du dig att stöds beräkningsmål och hur de används.
 
@@ -249,16 +251,24 @@ Följande steg använder SDK för att konfigurera en virtuell dator på datavete
 1. Om du vill koppla en befintlig virtuell dator som en beräkningsmål, måste du ange det fullständigt kvalificerade domännamnet, inloggningsnamn och lösenord för den virtuella datorn.  I det här exemplet ersätter ```<fqdn>``` med offentliga fullständigt kvalificerade domännamnet för den virtuella datorn eller den offentliga IP-adressen. Ersätt ```<username>``` och ```<password>``` med SSH-användare och lösenord för den virtuella datorn:
 
     ```python
-    from azureml.core.compute import RemoteCompute
+    from azureml.core.compute import RemoteCompute, ComputeTarget
+    
+    # Create compute config.
+    attach_config = RemoteCompute.attach_configuration(address = "ipaddress",
+                                                       ssh_port=22,
+                                                       username='<username>',
+                                                       password="<password>")
+    # If using SSH instead of a password, use this:
+    #                                                  ssh_port=22,
+    #                                                   username='<username>',
+    #                                                   password=None,
+    #                                                   private_key_file="path-to-file",
+    #                                                   private_key_passphrase="passphrase")
 
-    dsvm_compute = RemoteCompute.attach(ws,
-                                    name="attach-dsvm",
-                                    username='<username>',
-                                    address="<fqdn>",
-                                    ssh_port=22,
-                                    password="<password>")
+    # Attach the compute
+    compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
 
-    dsvm_compute.wait_for_completion(show_output=True)
+    compute.wait_for_completion(show_output=True)
 
 1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 
@@ -303,25 +313,15 @@ Azure Databricks är en Apache Spark-baserad miljö i Azure-molnet. Det kan anv�
 Om du vill koppla Azure Databricks som beräkningsmål, måste du använder Azure Machine Learning SDK och ange följande information:
 
 * __Beräkningsnamn__: namnet som du vill tilldela till den här beräkningsresursen.
-* __Resurs-ID__: resurs-ID för Azure Databricks-arbetsytan. Följande text är ett exempel på formatet för det här värdet:
-
-    ```text
-    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
-    ```
-
-    > [!TIP]
-    > Använd följande Azure CLI-kommando för att hämta resurs-ID. Ersätt `<databricks-ws>` med namnet på din Databricks-arbetsyta:
-    > ```azurecli-interactive
-    > az resource list --name <databricks-ws> --query [].id
-    > ```
-
+* __Databricks Arbetsytenamn__: namnet på Azure Databricks-arbetsytan.
 * __Åtkomsttoken__: den åtkomst-token som används för att autentisera till Azure Databricks. Generera en åtkomsttoken genom att se den [autentisering](https://docs.azuredatabricks.net/api/latest/authentication.html) dokumentet.
 
 Följande kod visar hur du ansluter Azure Databricks som beräkningsmål:
 
 ```python
 databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
-databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_workspace_name = os.environ.get("AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get("AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
 databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
 
 try:
@@ -330,13 +330,17 @@ try:
 except ComputeTargetException:
     print('compute not found')
     print('databricks_compute_name {}'.format(databricks_compute_name))
-    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_workspace_name {}'.format(databricks_workspace_name))
     print('databricks_access_token {}'.format(databricks_access_token))
-    databricks_compute = DatabricksCompute.attach(
-             workspace=ws,
-             name=databricks_compute_name,
-             resource_id=databricks_resource_id,
-             access_token=databricks_access_token
+
+    # Create attach config
+    attach_config = DatabricksCompute.attach_configuration(resource_group = databricks_resource_group,
+                                                           workspace_name = databricks_workspace_name,
+                                                           access_token = databricks_access_token)
+    databricks_compute = ComputeTarget.attach(
+             ws,
+             databricks_compute_name,
+             attach_config
          )
     
     databricks_compute.wait_for_completion(True)
@@ -354,23 +358,15 @@ Azure Data Lake Analytics är en analysplattform med stordata i Azure-molnet. De
 Om du vill koppla Data Lake Analytics som beräkningsmål du använder Azure Machine Learning SDK och ange följande information:
 
 * __Beräkningsnamn__: namnet som du vill tilldela till den här beräkningsresursen.
-* __Resurs-ID__: resurs-ID för Data Lake Analytics-kontot. Följande text är ett exempel på formatet för det här värdet:
-
-    ```text
-    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
-    ```
-
-    > [!TIP]
-    > Använd följande Azure CLI-kommando för att hämta resurs-ID. Ersätt `<datalakeanalytics>` med namnet på ditt Data Lake Analytics-kontonamn:
-    > ```azurecli-interactive
-    > az resource list --name <datalakeanalytics> --query [].id
-    > ```
+* __Resursgrupp__: den resursgrupp som innehåller Data Lake Analytics-kontot.
+* __Kontonamn__: The Data Lake Analytics-kontonamn.
 
 Följande kod visar hur du kopplar Data Lake Analytics som beräkningsmål:
 
 ```python
 adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
-adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+adla_resource_group = os.environ.get("AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get("AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
 
 try:
     adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
@@ -378,11 +374,16 @@ try:
 except ComputeTargetException:
     print('compute not found')
     print('adla_compute_name {}'.format(adla_compute_name))
-    print('adla_resource_id {}'.format(adla_resource_id))
-    adla_compute = AdlaCompute.attach(
-             workspace=ws,
-             name=adla_compute_name,
-             resource_id=adla_resource_id
+    print('adla_resource_id {}'.format(adla_resource_group))
+    print('adla_account_name {}'.format(adla_account_name))
+    # create attach config
+    attach_config = AdlaCompute.attach_configuration(resource_group = adla_resource_group,
+                                                     account_name = adla_account_name)
+    # Attach ADLA
+    adla_compute = ComputeTarget.attach(
+             ws,
+             adla_compute_name,
+             attach_config
          )
     
     adla_compute.wait_for_completion(True)
@@ -410,14 +411,17 @@ Om du vill konfigurera HDInsight som en beräkningsmål, måste du ange det full
 > ![Skärmbild av HDInsight-kluster översikt med URL-posten markerat](./media/how-to-set-up-training-targets/hdinsight-overview.png)
 
 ```python
-from azureml.core.compute import HDInsightCompute
+from azureml.core.compute import HDInsightCompute, ComputeTarget
 
 try:
     # Attaches a HDInsight cluster as a compute target.
-    HDInsightCompute.attach(ws,name = "myhdi",
-                            address = "<fqdn>",
-                            username = "<username>",
-                            password = "<password>")
+    attach_config = HDInsightCompute.attach_configuration(address = "fqdn-or-ipaddress",
+                                                          ssh_port = 22,
+                                                          username = "username",
+                                                          password = None, #if using ssh key
+                                                          private_key_file = "path-to-key-file",
+                                                          private_key_phrase = "key-phrase")
+    compute = ComputeTarget.attach(ws, "myhdi", attach_config)
 except UserErrorException as e:
     print("Caught = {}".format(e.message))
     print("Compute config already attached.")

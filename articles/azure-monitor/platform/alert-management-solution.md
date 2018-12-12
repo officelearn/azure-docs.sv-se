@@ -15,25 +15,25 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 76c2c7c7e99f10f48464d85030fea64bb7925cd7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 50dea9451205e565b954a35b3611a3e0302222d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845713"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088304"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Lösning i Azure Log Analytics för aviseringshantering
 
 ![Varningsikon för hantering](media/alert-management-solution/icon.png)
 
-Aviseringshantering-lösningen hjälper dig att analysera alla aviseringar i Log Analytics-lagringsplatsen.  Dessa aviseringar kan härröra från olika källor, inklusive de källorna [skapats av Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) eller [importeras från Nagios och Zabbix](../../log-analytics/log-analytics-quick-collect-linux-computer.md). Lösningen också importerar aviseringar från någon [anslutna System Center Operations Manager-hanteringsgrupper](../../log-analytics/log-analytics-om-agents.md).
+Aviseringshantering-lösningen hjälper dig att analysera alla aviseringar i Log Analytics-lagringsplatsen.  Dessa aviseringar kan härröra från olika källor, inklusive de källorna [skapats av Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) eller [importeras från Nagios och Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). Lösningen också importerar aviseringar från någon [anslutna System Center Operations Manager-hanteringsgrupper](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här lösningen fungerar med alla poster i Log Analytics-databasen med en typ av **avisering**, så du måste utföra konfigurationen som krävs för att samla in dessa poster.
 
 - För Log Analytics-aviseringar [skapa Varningsregler](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) skapa aviseringsposter direkt i databasen.
-- För Nagios och Zabbix-aviseringar [Konfigurera servrarna](../../log-analytics/log-analytics-quick-collect-linux-computer.md) att skicka aviseringar till Log Analytics.
-- För System Center Operations Manager-aviseringar [ansluta din Operations Manager-hanteringsgrupp till Log Analytics-arbetsytan](../../log-analytics/log-analytics-om-agents.md).  Alla varningar som skapats i System Center Operations Manager importeras till Log Analytics.  
+- För Nagios och Zabbix-aviseringar [Konfigurera servrarna](../../azure-monitor/learn/quick-collect-linux-computer.md) att skicka aviseringar till Log Analytics.
+- För System Center Operations Manager-aviseringar [ansluta din Operations Manager-hanteringsgrupp till Log Analytics-arbetsytan](../../azure-monitor/platform/om-agents.md).  Alla varningar som skapats i System Center Operations Manager importeras till Log Analytics.  
 
 ## <a name="configuration"></a>Konfiguration
 Lägg till lösning för aviseringshantering till Log Analytics-arbetsytan med processen som beskrivs i [lägga till lösningar](../../azure-monitor/insights/solutions.md). Det krävs ingen ytterligare konfiguration.
@@ -43,7 +43,7 @@ Om din hanteringsgrupp för System Center Operations Manager är ansluten till L
 
 * Microsoft System Center Advisor-aviseringshantering (Microsoft.IntelligencePacks.AlertManagement)
 
-Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="data-collection"></a>Datainsamling
 ### <a name="agents"></a>Agenter
@@ -52,8 +52,8 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | Ansluten källa | Support | Beskrivning |
 |:--- |:--- |:--- |
 | [Windows-agenter](agent-windows.md) | Nej |Direkta Windows-agenter genererar inte aviseringar.  Log Analytics-aviseringar kan skapas från händelser och prestandadata som samlats in från Windows agenter. |
-| [Linux-agenter](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nej |Direct Linux-agenter genererar inte aviseringar.  Log Analytics-aviseringar kan skapas från händelserna och prestandadata som samlats in från Linux-agenter.  Nagios och Zabbix-aviseringar har samlats in från dessa servrar som kräver Linux-agenten. |
-| [System Center Operations Manager-hanteringsgrupp](../../log-analytics/log-analytics-om-agents.md) |Ja |Aviseringar som genereras i Operations Manager-agenter levereras till hanteringsgruppen och sedan vidarebefordras till logganalys.<br><br>En direktanslutning från Operations Manager-agenter till Log Analytics krävs inte. Aviseringsdata vidarebefordras från hanteringsgruppen till Log Analytics-databasen. |
+| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej |Direct Linux-agenter genererar inte aviseringar.  Log Analytics-aviseringar kan skapas från händelserna och prestandadata som samlats in från Linux-agenter.  Nagios och Zabbix-aviseringar har samlats in från dessa servrar som kräver Linux-agenten. |
+| [System Center Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) |Ja |Aviseringar som genereras i Operations Manager-agenter levereras till hanteringsgruppen och sedan vidarebefordras till logganalys.<br><br>En direktanslutning från Operations Manager-agenter till Log Analytics krävs inte. Aviseringsdata vidarebefordras från hanteringsgruppen till Log Analytics-databasen. |
 
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens

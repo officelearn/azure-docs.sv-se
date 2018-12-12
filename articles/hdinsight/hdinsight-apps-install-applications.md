@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e1a6b453bb92ca57a1c9be9bff958ac0780ea12e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 47a634ca1c4e904cc1054db3a834483489ade0ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498047"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093564"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installera från tredje part Apache Hadoop-program på Azure HDInsight
 
@@ -29,7 +29,7 @@ I följande lista visas de publicerade programmen:
 * **DATAIKU DDS på HDInsight** kan data-experter kan skapa prototyper samt bygga och distribuera specifika tjänster som omvandlar rådata till effektfulla affärsförutsägelser.
 * **Datameer** är en självbetjäning skalbar plattform för att förbereda, utforska, och styr dina data för analys går det snabbare att omvandla komplexa flerkällig data till värdefull information i business ready, leverera snabbare, smartare insikter på en Enterprise-skalan.
 * **H2O artificiell intelligens för HDInsight (Beta)** H2O Sparkling Water har stöd för följande distribuerade algoritmer: GLM, Naïve Bayes, distribuerade slumpmässiga skog, Gradient Boosting-dator, djupa Neurala nätverk, Djupinlärning, K-means, PCA, Generaliserad med låg rangordnas modeller, Avvikelseidentifiering och Autoencoders.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) är ett informationslager för företag som drivs av Apache kylin med och Apache Hadoop, ger subsecond fråga svarstid på massiv skala datauppsättning och förenklar dataanalys för användare i verksamheten och analytiker. 
+* **Kyligence Enterprise**, drivs av Apache kylin med, ger omedelbar insyn för enorma datauppsättningar för affärsanalytiker för användare och data. Med banbrytande machine learning-teknik och intelligenta funktioner för datamodellering kan förbättrar det avsevärt produktiviteten för analys av stordata. 
 * **Paxata självbetjäning förberedelse av Data**
 * **Spark-jobbserver för KNIME Spark-Executor** Spark-jobbserver för KNIME Spark-Executor används för att ansluta analysplattform KNIME till HDInsight-kluster.
 * **Stjärnexplosion Presto** Presto är en snabb och skalbar distribuerad SQL frågemotor. Byggt för uppdelning av lagring och beräkning, är Presto perfekt för att fråga efter data i Azure Data Lake Storage, Azure Blob Storage, SQL och NoSQL-databaser och andra datakällor.

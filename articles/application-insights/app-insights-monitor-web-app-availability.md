@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 686e878b25c79538f3d228398bcb665622c2c36b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: MT
+ms.openlocfilehash: a5177293b24ec400714d8f87be4198a76d59214a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721671"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878728"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
 När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
@@ -182,7 +182,7 @@ Från ett tillgänglighetstestresultat kan du se transaktionsinformation för al
 
 * Kontrollera de svar som mottas från servern.
 * Diagnostisera fel med korrelerad telemetri på serversidan som samlats in under bearbetning av misslyckade tillgänglighetstestet.
-* Logga ett problem eller arbetsuppgift i Git eller VSTS för att spåra problemet. Buggen innehåller en länk till den här händelsen.
+* Logga ett problem eller arbetsuppgift i Git eller Azure-system för att spåra problemet. Buggen innehåller en länk till den här händelsen.
 * Öppna resultatet av webbtestet i Visual Studio.
 
 Lär dig mer om från slutpunkt till slutpunkt-transaktionsdiagnostik uppleva [här](app-insights-transaction-diagnostics.md).

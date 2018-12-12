@@ -1,21 +1,22 @@
 ---
-title: Planera dina program för Språkförståelse (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Planera din app
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Beskriver relevanta avsikter och entiteter och sedan skapa dina program-planer i Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: diberry
-ms.openlocfilehash: e8e6c32eca932803acfe0e7854de885e7ab129fc
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e14b9f2930ed9c170f31bd654829efe3b5a99446
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267672"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091315"
 ---
 # <a name="plan-your-luis-app"></a>Planera LUIS-appen
 
@@ -77,10 +78,10 @@ En lista över entitet är en explicit angiven lista med värden. Varje värde b
 
 Se [Dataextrahering](luis-concept-data-extraction.md#list-entity-data) mer information om extrahering av listan över entiteter från slutpunkten JSON frågesvaret. Prova följande [snabbstarten](luis-quickstart-intent-and-list-entity.md) mer information om hur du använder en entitet i listan.
 
-### <a name="regular-expression-entity"></a>Reguljärt uttryck entitet
+### <a name="regular-expression-entity"></a>Entitet för reguljära uttryck
 En entitet i reguljära uttryck kan LUIS för att extrahera välutformat data från ett uttryck baserat på ett reguljärt uttryck.
 
-![Reguljärt uttryck entitet](./media/luis-plan-your-app/regex-entity.png)
+![Entitet för reguljära uttryck](./media/luis-plan-your-app/regex-entity.png)
 
 Se [Dataextrahering](luis-concept-data-extraction.md#regular-expression-entity-data) mer information om hur du extraherar reguljärt uttryck entiteter från slutpunkten JSON frågesvaret. Prova den [snabbstarten](luis-quickstart-intents-regex-entity.md) mer information om hur du använder en entitet för reguljärt uttryck.
 

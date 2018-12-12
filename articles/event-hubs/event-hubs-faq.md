@@ -1,20 +1,21 @@
 ---
-title: Azure Event Hubs vanliga frågor och svar | Microsoft Docs
-description: Vanliga frågor (och svar FAQ) om Azure Event Hubs
+title: Vanliga frågor och svar – Azure Event Hubs | Microsoft Docs
+description: Den här artikeln innehåller en lista över vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 10/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 7308b122d878c225aa98a19a303bc9520f3201ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300683"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088249"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Event Hubs
 

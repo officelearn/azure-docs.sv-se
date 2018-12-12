@@ -1,20 +1,20 @@
 ---
 title: Rensa upp din Azure Stream Analytics-jobb
-description: Den här artikeln är en guide för hur du tar bort Azure Stream Analytics-jobb.
+description: Den här artikeln beskrivs olika metoder för att ta bort Azure Stream Analytics-jobb.
 services: stream-analytics
 author: mamccrea
-manager: kfile
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/22/2018
-ms.openlocfilehash: 580d05909ff3c94c982be5353b3b5e86a78fc43f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 85db38fef5e69c4de855f8cb6d54151496faebbe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969348"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090252"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>Rensa upp din Azure Stream Analytics-jobb
 
@@ -31,7 +31,7 @@ Azure Stream Analytics-jobb kan enkelt tas bort via Azure portal, Azure PowerShe
 
 3. På sidan Stream Analytics-jobb väljer **stoppa** att stoppa jobbet. 
 
-   ![Stoppa jobb](./media/stream-analytics-clean-up-your-job/stop-job.png)
+   ![Stoppa Azure Stream Analytics-jobb](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Ta bort ett jobb i Azure-portalen
@@ -42,7 +42,7 @@ Azure Stream Analytics-jobb kan enkelt tas bort via Azure portal, Azure PowerShe
 
 3. På sidan Stream Analytics-jobb väljer **ta bort** ta bort jobbet. 
 
-   ![Ta bort jobb](./media/stream-analytics-clean-up-your-job/delete-job.png)
+   ![Ta bort Azure Stream Analytics-jobb](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
 
 ## <a name="stop-or-delete-a-job-using-powershell"></a>Stoppa eller ta bort ett jobb med hjälp av PowerShell

@@ -8,12 +8,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e2366a9fb127d134d2b15acb345f424d2f84b666
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b6831e9c6b679d2fd4fa585331213290d67068c2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842109"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084030"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementera en lambda-arkitektur på Azure-plattformen 
 
@@ -34,7 +34,7 @@ En lambda-arkitekturen är generisk, skalbar och feltolerant databearbetning ark
 
 Källa: http://lambda-architecture.net/
 
-De grundläggande principerna för en lambda-arkitekturen beskrivs i föregående diagram enligt [ https://lambda-architecture.net ](http://lambda-architecture.net/).
+De grundläggande principerna för en lambda-arkitekturen beskrivs i föregående diagram enligt [ http://lambda-architecture.net ](http://lambda-architecture.net/).
 
  1. Alla **data** pushas till *både* den *batchlager* och *hastighetslagret*.
  2. Den **batchlager** har en master datauppsättning (inte kan ändras, Lägg endast uppsättning rådata) och beräkningar före batch-vyer.
@@ -278,4 +278,4 @@ Om du inte redan gjort hämta Spark till Azure Cosmos DB-anslutningen från den 
 * [Demonstrationer för ändringsfeed](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
 * [Stream bearbeta ändringar med hjälp av Azure Cosmos DB Change Feed och Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 
-Du kan också gå igenom den [Apache Spark SQL och DataFrames datauppsättningar Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) och [Apache Spark på Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikeln.
+Du kan också gå igenom den [Apache Spark SQL och DataFrames datauppsättningar Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) och [Apache Spark på Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikeln.

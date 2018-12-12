@@ -1,23 +1,24 @@
 ---
-title: Geografi V2 fördefinierade enhet – LUIS Reference
+title: Geografi V2 fördefinierade entitet
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller geographyV2 fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: cjgronlund
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 3559bc02944f88f486104d4d9553f0c45a1f1754
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 07bbb8e17a9f75bd878c384b5b8d90798d043814
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983420"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086237"
 ---
-# <a name="geographyv2-entity"></a>GeographyV2 entitet
+# <a name="geographyv2-entity"></a>GeographyV2-entitet
 Entiteten fördefinierade geographyV2 identifierar platser. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller GeographyV2 till programmet avsikter. GeographyV2 entiteten har stöd för engelska [kultur](luis-reference-prebuilt-entities.md).
 
 ## <a name="subtypes"></a>Undertyper
@@ -35,7 +36,7 @@ De geografiska platserna har undertyper:
 ## <a name="resolution-for-geographyv2-entity"></a>Lösning för GeographyV2 entitet
 I följande exempel visas av lösningen på den **builtin.geographyV2** entitet.
 
-```JSON
+```json
 {
     "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
     "topScoringIntent": {

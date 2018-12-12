@@ -1,21 +1,22 @@
 ---
-title: 'Självstudiekurs 6: Extrahera sammansatta data med LUIS sammansatta entitet'
+title: Sammansatt entitet ”
 titleSuffix: Azure Cognitive Services
 description: Lägg till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423509"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079219"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Självstudiekurs 6: Gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
@@ -70,7 +71,7 @@ Begäran om att flytta bör ta medarbetaren (med några synonymen) och den slutg
 
 Extraherade data från slutpunkten bör innehålla den här informationen och returnera den i den `RequestEmployeeMove` sammansatt entitet:
 
-```JSON
+```json
 "compositeEntities": [
   {
     "parentType": "RequestEmployeeMove",
@@ -103,22 +104,22 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
 
 3. Välj på förstoringsglaset i verktygsfältet om du vill filtrera listan yttranden. 
 
-    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Skärmbild av LUIS på 'MoveEmployee' avsikten med förstoringsglaset markerat")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    [![Skärmbild av LUIS på 'MoveEmployee' avsikten med förstoringsglaset markerat](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Skärmbild av LUIS på 'MoveEmployee' avsikten med förstoringsglaset markerat")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. Ange `tomorrow` i textrutan filter för att hitta uttryck `shift x12345 to h-1234 tomorrow`.
 
-    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Skärmbild av LUIS på 'MoveEmployee' syftet med filtret ”morgondagens' markerat")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    [![Skärmbild av LUIS på 'MoveEmployee' syftet med filtret ”morgondagens' markerat](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Skärmbild av LUIS på 'MoveEmployee' syftet med filtret” morgondagens' markerat")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
     En annan metod är att filtrera entiteten efter datetimeV2, genom att välja **entitet filter** därefter **datetimeV2** i listan. 
 
 5. Välj den första entiteten `Employee`och välj sedan **omsluta i sammansatt entitet** i listan över popup-menyn. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. Välj sedan det senaste entitet omedelbart `datetimeV2` i uttryck. En grön stapel dras under de valda ord som anger en sammansatt entitet. I popup-menyn, anger du sammansatta namn `RequestEmployeeMove` och sedan anger du väljer. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja senaste entitet i sammansatt och skapa entiteten markerat")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+    [![Skärmbild av LUIS på 'MoveEmployee' avsikt att markera senaste entitet i sammansatta och skapa entitet markerat](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att markera senaste entitet i sammansatta och skapa markerad entitet")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. I **vilken typ av enhet vill du skapa?**, nästan alla fält som krävs finns i listan. Endast den ursprungliga platsen saknas. Välj **lägga till en underordnad entitet**väljer **Locations::Origin** från listan över befintliga entiteter, Välj **klar**. 
 
@@ -135,15 +136,15 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
 
 1. Välj vänster-entitet som ska vara i sammansatt i varje exempel-uttryck. Välj sedan **omsluta i sammansatt entitet**.
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+    [![Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
 2. Välj det sista ordet i sammansatt entiteten och välj sedan **RequestEmployeeMove** på snabbmenyn. 
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja senaste entitet i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+    [![Skärmbild av LUIS på 'MoveEmployee' avsikt att välja senaste entitet i sammansatta markerat](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja senaste entitet i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
 3. Kontrollera alla uttryck i avsikten är märkta med den sammansatta entitet. 
 
-    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Skärmbild av LUIS på MoveEmployee om du med alla yttranden som är märkt")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+    [![Skärmbild av LUIS på MoveEmployee om du med alla yttranden som är märkt](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Skärmbild av LUIS på MoveEmployee om du med alla yttranden som är märkt")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train"></a>Träna
 
@@ -161,7 +162,7 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
 
     Eftersom det här testet är att verifiera sammansatt extraheras korrekt, kan ett test antingen inkludera en befintliga exempel-uttryck eller en ny uttryck. Ett bra test är att inkludera alla underordnade entiteter i sammansatt entiteten.
 
-    ```JSON
+    ```json
     {
       "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
       "topScoringIntent": {

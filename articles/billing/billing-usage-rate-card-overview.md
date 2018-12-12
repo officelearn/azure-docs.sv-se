@@ -1,5 +1,5 @@
 ---
-title: 'API: er med Azure fakturering | Microsoft Docs'
+title: 'Få Azure-användning med Azure Billing API: er | Microsoft Docs'
 description: Läs mer om Azure-fakturering användning och RateCard APIs som används för att ge insikter om Azure resursförbrukning och trender.
 services: ''
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
-ms.openlocfilehash: 7e504b2fb01bc8b92c529b68f818df5ed1b889a1
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 9e3ad2327297e0403b279ad40db2186fcb55ae93
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276456"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080987"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Använd Azure Billing API: er för att programmässigt få insikt i din Azure-användning
 Använda Azure Billing API: er att hämta användnings- och data till din önskade analysverktyg. Azures API:er för resursanvändning och RateCard kan hjälpa dig att korrekt förutse och hantera dina kostnader. API: er implementeras som en Provider för nätverksresurser och en del av familjen av API: er som exponeras av Azure Resource Manager.  

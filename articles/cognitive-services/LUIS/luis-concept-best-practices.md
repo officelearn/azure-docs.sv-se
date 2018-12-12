@@ -1,21 +1,22 @@
 ---
-title: Metodtips för att skapa appar med LUIS - Språkförståelse
-titleSuffix: Azure Cognitive Services
-description: Läs metodtipsen LUIS för att få bästa resultat.
+title: Bästa praxis
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Läs metodtipsen LUIS för att få bästa resultat från LUIS-app-modellen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6b7b9c8a2a3e7da1628ef3e6f93a4b632ce38615
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e63d6ed584c0e8afc823bbcdc6e70ceabbf43db6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637788"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085288"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Metodtips för att skapa en app med language understanding med Cognitive Services
 Använd appredigeringsprocessen för att skapa LUIS-appen. 
@@ -50,10 +51,10 @@ Om ordförråd mellan två avsikter är samma, kombinera avsikten och Använd en
 
 Överväg följande exempel talade:
 
-```
-Book a flight
-Book a hotel
-```
+|Exempel på yttranden|
+|--|
+|Boka en flygning|
+|Boka ett hotell|
 
 ”Boka en flygning” och ”boka ett hotell” använder samma vokabulär ”boken en”. Detta överlappande bör det vara samma avsikten med andra ord. flygning och hotell extraherade entiteter. 
 

@@ -10,12 +10,13 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: c4175a22cc503113f3b3ef64f03f0ae0913bd20e
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 6898b007287e4f4c87010649c6f0b66c03f7cf8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364905"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086274"
 ---
 # <a name="create-a-qna-maker-service"></a>Skapa en QnA Maker-tjänsten
 
@@ -27,7 +28,7 @@ Det här installationsprogrammet distribuerar några Azure-resurser. Tillsammans
 
 2.  Klicka på **Lägg till ny resurs**, och skriver ”qna maker” i sökningen och välj resursen som QnA Maker
 
-    ![Skapa en ny QnA Maker-tjänst](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+    ![Skapa en ny QnA Maker-tjänst – Lägg till ny resurs](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
 3.  Klicka på **skapa** när du har läst villkoren.
 
@@ -35,7 +36,7 @@ Det här installationsprogrammet distribuerar några Azure-resurser. Tillsammans
 
 4. I **QnA Maker**, väljer du lämpliga nivåer och regioner.
 
-    ![Skapa en ny QnA Maker-tjänst](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
+    ![Skapa en ny tjänst för QnA Maker - prisnivå och regioner](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
     * Fyll i **namn** med ett unikt namn som identifierar den här QnA Maker-tjänsten. Det här namnet identifierar även QnA Maker-slutpunkten som din kunskapsbaser kommer att associeras.
     * Välj den **prenumeration** i vilket QnA Maker-resursen ska distribueras.
@@ -44,7 +45,7 @@ Det här installationsprogrammet distribuerar några Azure-resurser. Tillsammans
     * Välj den **Search prisnivån** för Azure Search-tjänsten. Om du ser den kostnadsfria nivån nedtonat innebär det att du redan har en kostnadsfri Azure Search-nivå som distribuerats i prenumerationen. I så fall behöver du börjar med den grundläggande Azure Search-nivån. Se information om priser för Azure search [här](https://azure.microsoft.com/pricing/details/search/).
     * Välj den **sökplats** där du vill att Azure Search-data som ska distribueras. Begränsningar i där kunddata måste lagras informerar den plats som du väljer för Azure Search.
     * Namnge din App service i **appnamn**.
-    * Som standard i App service som standard till standardnivån (S1). Du kan ändra planen efter har skapats. Se mer information om priser för Apptjänst [här](https://azure.microsoft.com/en-in/pricing/details/app-service/).
+    * Som standard i App service som standard till standardnivån (S1). Du kan ändra planen efter har skapats. Se mer information om priser för Apptjänst [här](https://azure.microsoft.com/pricing/details/app-service/).
     * Välj den **plats för webbplats** där App Service ska distribueras.
 
         > [!NOTE]
@@ -57,7 +58,7 @@ Det här installationsprogrammet distribuerar några Azure-resurser. Tillsammans
 
 6.  När distributionen är klar visas i följande resurser som skapats i din prenumeration.
 
-    ![Skapa en ny QnA Maker-tjänst](../media/qnamaker-how-to-setup-service/resources-created.png)
+    ![Skapa en ny QnA Maker-tjänsten för resursen](../media/qnamaker-how-to-setup-service/resources-created.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

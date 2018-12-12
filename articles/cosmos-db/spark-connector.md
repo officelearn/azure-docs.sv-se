@@ -1,33 +1,31 @@
 ---
-title: Apache Spark ansluta till Azure Cosmos DB | Microsoft Docs
+title: Apache Spark ansluta till Azure Cosmos DB
 description: Läs mer om Azure Cosmos DB Spark-anslutningsappen som gör det möjligt att ansluta Apache Spark i Azure Cosmos DB. Du kan utföra distribuerade aggregeringar av globalt distribuerade databas för flera innehavare från Microsoft.
 keywords: Apache spark
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: fd1fa105a880acb0d2b18a3b69ba8d475d8f82a3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707188"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081599"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Påskynda analyser av stordata med Apache Spark för Azure Cosmos DB-anslutningsapp
  
-Apache Spark till Azure Cosmos DB-anslutningsappen gör att Azure Cosmos DB kan användas som ingång eller utgång för Apache Spark-jobb. Ansluta [Spark](http://spark.apache.org/) till [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ökar dina möjligheter att lösa snabbrörliga data science-problem. Du kan använda Azure Cosmos DB för att snabbt spara och fråga efter data. Anslutningsappen använder effektivt de inbyggda Azure Cosmos DB-hanterade indexen. Indexen gör att du kan använda uppdaterbara kolumner när du utför analyser och drar ned predikatfiltrering mot snabbt föränderliga, globalt distribuerade data. Den här typen av data kan vara mellan Internet of Things (IoT) och scenarier för datavetenskap och analys av data.
+Apache Spark till Azure Cosmos DB-anslutningsappen gör att Azure Cosmos DB kan användas som ingång eller utgång för Apache Spark-jobb. Ansluta [Spark](https://spark.apache.org//) till [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ökar dina möjligheter att lösa snabbrörliga data science-problem. Du kan använda Azure Cosmos DB för att snabbt spara och fråga efter data. Anslutningsappen använder effektivt de inbyggda Azure Cosmos DB-hanterade indexen. Indexen gör att du kan använda uppdaterbara kolumner när du utför analyser och drar ned predikatfiltrering mot snabbt föränderliga, globalt distribuerade data. Den här typen av data kan vara mellan Internet of Things (IoT) och scenarier för datavetenskap och analys av data.
 
 ## <a name="connector-components"></a>Connector-komponenter
 
 Spark kan Azure Cosmos DB-anslutningen har följande komponenter:
 
-* [Azure Cosmos DB](http://documentdb.com) kan du etablera och Elastiskt skala både dataflöde och lagring över valfritt antal geografiska regioner.  
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) kan du etablera och Elastiskt skala både dataflöde och lagring över valfritt antal geografiska regioner.  
 
-* [Apache Spark](http://spark.apache.org/) är en kraftfull bearbetning motor med öppen källkod, uppbyggda kring hastighet, enkel användning och avancerade analyser.  
+* [Apache Spark](https://spark.apache.org/) är en kraftfull bearbetning motor med öppen källkod, uppbyggda kring hastighet, enkel användning och avancerade analyser.  
 
 * [Apache Spark-kluster på Azure Databricks](https://docs.azuredatabricks.net/getting-started/index.html) gör det möjligt att köra Spark-jobb i Spark-klustret.
 
@@ -179,7 +177,7 @@ Kommunikation mellan Spark och Azure Cosmos DB är betydligt snabbare, eftersom 
 
 4. Extrahera innehållet i Twitter-flöde exemplet och öppna filen config.py. Uppdatera masterKey, värden, databaseId, collectionId och preferredLocations värden.  
 
-5. Gå till `http://apps.twitter.com/`, och registrera den Twitter-flöde program. När du har valt ett namn för ditt program visas med en **använda nyckeln, konsumenthemligheten, åtkomst-token och åtkomsttokenhemligheten**. Kopiera dessa värden och uppdatera dem i config.py filen att ge Twitter-flöde programmet Programmeringsåtkomst till Twitter.   
+5. Gå till `https://apps.twitter.com/`, och registrera den Twitter-flöde program. När du har valt ett namn för ditt program visas med en **använda nyckeln, konsumenthemligheten, åtkomst-token och åtkomsttokenhemligheten**. Kopiera dessa värden och uppdatera dem i config.py filen att ge Twitter-flöde programmet Programmeringsåtkomst till Twitter.   
 
 6. Spara filen config.py. Öppna en kommandotolk och kör Python-program med hjälp av följande kommando:
 
@@ -513,4 +511,4 @@ Om du inte redan gjort hämta Spark till Azure Cosmos DB-anslutningen från den 
 * [Aggregeringar exempel](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [Exempel på skript och anteckningsböcker](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-Du kan också gå igenom den [Apache Spark SQL och DataFrames datauppsättningar Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html), och [Apache Spark på Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikeln.
+Du kan också gå igenom den [Apache Spark SQL och DataFrames datauppsättningar Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html), och [Apache Spark på Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikeln.

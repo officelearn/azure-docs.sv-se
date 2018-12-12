@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs geohaveriberedskap | Microsoft Docs
+title: Geohaveriberedskap – Azure Event Hubs | Microsoft Docs
 description: Hur du använder geografiska regioner för redundans och utföra katastrofåterställning i Azure Event Hubs
 services: event-hubs
 documentationcenter: ''
@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 89ecfd93c22fe72fee3befd8d4a722eb41d816af
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747179"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091354"
 ---
-# <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs Geo-haveriberedskap
+# <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - geohaveriberedskap 
 
-När hela Azure-regioner eller Datacenter (om ingen [tillgänglighetszoner](../availability-zones/az-overview.md) används) drabbas, det är viktigt för att bearbeta till fortsätter att fungera i en annan region eller datacenter. Därför *geohaveriberedskap* och *Geo-replikering* är viktiga funktioner för vilket företag som helst. Azure Event Hubs stöder både geo-haveriberedskap och geo-replikering på namnområdesnivå. 
+När hela Azure-regioner eller Datacenter (om ingen [tillgänglighetszoner](../availability-zones/az-overview.md) används) drabbas, det är viktigt för att bearbeta till fortsätter att fungera i en annan region eller datacenter. Därför *geohaveriberedskap* och *Geo-replikering* är viktiga funktioner för vilket företag som helst. Azure Event Hubs stöder både geo-haveriberedskap och geo-replikering på namnområdesnivå. 
 
 Geo-disaster recovery-funktionen är globalt tillgänglig för Event Hubs Standard-SKU.
 

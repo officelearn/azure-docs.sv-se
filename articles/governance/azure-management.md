@@ -5,51 +5,52 @@ author: DCtheGeek
 manager: carmonm
 ms.service: governance
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: f058bf8195c56681be0419a0a30f3d814e5d1906
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f417338205b17c8b949156a6d5a60ef609458fc1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960840"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088144"
 ---
 # <a name="management-in-azure"></a>Hantering i Azure
 
-Styrning i Azure är en del av Azure Management. Den här artikeln beskriver kortfattat de olika hanteringsområdena som krävs för att distribuera och underhålla program och resurser i Azure och innehåller länkar till dokumentation som hjälper dig att komma igång.
+Styrning i Azure är en del av Azure Management. Den här artikeln beskriver de olika hanteringsområdena för att distribuera och underhålla dina resurser i Azure.
 
-Hantering syftar på uppgifter och processer som krävs för att underhålla företagsprogram samt resurser som stöder dessa program. Azure har flera tjänster och verktyg som samarbetar för att tillhandahålla fullständig hantering för såväl program som körs i Azure som för program i andra moln och lokalt. Det första steget för att utforma en komplett hanteringsmiljö är att förstå de olika verktygen som är tillgängliga, och hur de kan användas tillsammans i en mängd olika hanteringsscenarier.
+Hantering syftar på uppgifter och processer som krävs för att underhålla företagsprogram samt resurser som stöder dessa program. Azure har många tjänster och verktyg som arbetar tillsammans för att tillhandahålla fullständig hantering. Dessa tjänster är inte bara för resurser i Azure, utan även i andra moln och lokalt. Det första steget i utforma en komplett hanteringsmiljö är att förstå de olika verktygen och hur de fungerar tillsammans.
 
-Följande diagram visar de olika hanteringsområdena som krävs för att underhålla alla program och resurser. Dessa olika områden kan hanteras som livscyklar där varje område måste hanteras i kontinuerlig följd under en resurs livslängd. Det börjar med den första distributionen, fortsätter under drift, och slutar när resursen dras tillbaka.
+Följande diagram visar de olika hanteringsområdena som krävs för att underhålla alla program och resurser. Dessa olika områden kan betraktas som en livscykel. Varje område krävs i kontinuerlig följd under en resurs livslängd. Den här resursen livscykeln börjar med den första distributionen, fortsätter under drift, och slutligen när dras tillbaka.
 
-![Hanteringsfunktioner](../monitoring/media/management-overview/management-capabilities.png)
+![Management-områden](../monitoring/media/management-overview/management-capabilities.png)
 
-Ingen enskild Azure-tjänst uppfyller alla behov för ett visst hanteringsområde. Istället uppfylls kraven genom att flera tjänster arbetar ihop. Vissa tjänster tillhandahåller riktade funktioner, till exempel Application Insights som övervakar webbprogram. Andra tillhandahåller vanliga funktioner, exempelvis Log Analytics, som lagrar hanteringsdata för andra tjänster vilket gör att du kan analysera olika typer av data som samlats in av olika tjänster.
+Ingen enskild Azure-tjänst uppfyller kraven för ett visst område. I stället realiseras var och en av flera tjänster arbetar ihop. Vissa tjänster, till exempel Application Insights tillhandahåller riktade övervakningsfunktioner för webbprogram. Andra, lagrar som Log Analytics hanteringsdata för andra tjänster. Den här funktionen kan du analysera data av olika typer som samlas in av olika tjänster.
 
 Följande avsnitt beskriver i korta ordalag de olika hanteringsområdena och tillhandahåller länkar till detaljerat innehåll om de viktigaste Azure-tjänsterna.
 
 ## <a name="monitor"></a>Övervaka
 
-Övervakning syftar till insamling och analys av data för att avgöra prestanda, hälsotillstånd och tillgänglighet för affärsprogram och resurser som dessa program är beroende av. En effektiv övervakningsstrategi hjälper dig att få en detaljerad översikt över hur de olika komponenterna fungerar i ditt program och hjälper dig att förbättra din drifttid genom att proaktivt meddela dig om kritiska tillstånd så att du kan hantera dem innan de hunnit bli problem. I [Monitoring Azure applications and resources](../monitoring/monitoring-overview.md) (Övervaka Azure-program och -resurser) finns en översikt över övervakning i Azure och information om de olika tjänsterna som används för en övervakningsstrategi.
+Övervakning är syftar till insamling och analys av data för att granska prestanda, hälsotillstånd och tillgänglighet för dina resurser. En effektiv övervakningsstrategi hjälper dig att förstå hur komponenter och för att förbättra din drifttid med meddelanden. Läs en översikt över övervakning som täcker de olika tjänsterna som används vid [övervakning av Azure-program och resurser](../monitoring/monitoring-overview.md).
 
 ## <a name="configure"></a>Konfigurera
 
-Konfiguration syftar på den första distributionen och konfigurationen av program och resurser samt det löpande underhållet av dessa program och resurser som utförs genom korrigeringar och programvaruuppdateringar. Genom att automatisera de här uppgifterna via skript och principer kan du eliminera redundans och minimera tiden och arbetet som krävs samtidigt som du ökar din precision och effektivitet. [Azure Automation](../automation/automation-intro.md) innehåller många tjänster för att automatisera konfigurationsåtgärder. Förutom runbook-flöden för att automatisera processer tillhandahåller Azure Automation även hantering av konfigurationer och uppdateringar, vilket hjälper dig att hantera konfigurationer via principer och att identifiera och distribuera uppdateringar.
+Konfigurera refererar till den första distributionen och konfigurationen av resurser och löpande underhåll.
+Automatisering av dessa uppgifter kan du eliminera redundans och minimera tiden och ansträngning och ökar din Precision och effektivitet. [Azure Automation](../automation/automation-intro.md) innehåller många tjänster för att automatisera konfigurationsåtgärder. Medan runbooks hantera Processautomatisering, kan konfiguration och hantering av uppdateringar hantera konfigurationer.
 
 ## <a name="govern"></a>Styrning
 
 Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure. Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.
-Styrning i Azure implementeras främst genom två tjänster. [Azure Policy](../azure-policy/azure-policy-introduction.md) gör det möjligt att skapa, tilldela och hantera principdefinitioner som tillämpar olika regler och åtgärder på resurserna, så att resurserna följer företagets standarder och serviceavtal. [Azure Cost Management från Cloudyn](../cost-management/overview.md) gör det möjligt att spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer, inklusive AWS och Google.
+Styrning i Azure implementeras främst genom två tjänster. [Azure Policy](./policy/overview.md) kan du skapa, tilldela och hantera principdefinitioner för att tillämpa regler för dina resurser. Den här funktionen gör att dessa resurser i enlighet med företagets standarder. [Azure Cost Management från Cloudyn](../cost-management/overview.md) kan du spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer.
 
 ## <a name="secure"></a>Skydda
 
-Hantering av säkerhet för dina program, resurser och data innefattar en kombination av bedöma hot, samla in och analysera säkerhetsdata och att säkerställa att dina program och resurser är utformade och konfigurerade på ett säkert sätt. Säkerhetsanalys för säkerhetsövervakning och hotanalys tillhandahålls av Azure Security Center, som innehåller enhetlig säkerhetshantering och Avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Du bör även läsa [Introduktion till Azure-säkerhet](../security/azure-security.md) för mer utförlig information om säkerhet i Azure och för att få hjälp med att konfigurera Azure-resurser på ett säkert sätt.
+Hantera säkerheten för dina resurser och data. Ett säkerhetsprogram innebär att bedöma hot, samla in och analysera data och kompatibilitet för program och resurser. Säkerhetsanalys för säkerhetsövervakning och hotanalys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som ger enhetlig säkerhetshantering och Avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Se [introduktion till Azure Security](../security/azure-security.md) omfattande information och vägledning om hur du skyddar Azure-resurser.
 
 ## <a name="protect"></a>Skydda
 
-Skydd refererar till att säkerställa att program och data alltid är tillgängliga, även vid avbrott som du inte kan styra över. Skydd i Azure tillhandahålls av två tjänster. [Azure Backup](../backup/backup-introduction-to-azure-backup.md)tillhandahåller säkerhetskopiering och återställning av data, antingen i molnet eller lokalt. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) säkerställer hög tillgänglighet för ditt program genom att tillhandahålla verksamhetskontinuitet och omedelbar återställning vid haveri.
+Skydd refererar till att hålla dina program och data som är tillgängliga även med avbrott som ligger utanför din kontroll. Skydd i Azure tillhandahålls av två tjänster. [Azure Backup](../backup/backup-introduction-to-azure-backup.md)tillhandahåller säkerhetskopiering och återställning av data, antingen i molnet eller lokalt. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) tillhandahåller verksamhetskontinuitet och omedelbar återställning vid ett haveri.
 
 ## <a name="migrate"></a>Migrera
 
 Migrering refererar till att överföra arbetsbelastningar som körs lokalt till Azure-molnet.
-[Azure Migrate](../migrate/migrate-overview.md) är en tjänst som hjälper dig att bedöma lämpligheten för migrering. Den omfattar prestandabaserade storleksändringar och kostnadsuppskattningar för lokala virtuella datorer till Azure. Azure Site Recovery kan hjälpa dig att utföra den faktiska migreringen av virtuella datorer [från en lokal plats](../site-recovery/migrate-tutorial-on-premises-azure.md) eller [från Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database Migration](../dms/dms-overview.md) hjälper dig att migrera flera databaskällor till Azure-dataplattformar.
+[Azure Migrate](../migrate/migrate-overview.md) är en tjänst som hjälper dig att bedöma lämpligheten för migrering av lokala virtuella datorer till Azure. Azure Site Recovery migrerar virtuella datorer [från den lokala](../site-recovery/migrate-tutorial-on-premises-azure.md) eller [från Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database Migration](../dms/dms-overview.md) hjälper dig att migrera databaskällor till Azure-Dataplattformar.

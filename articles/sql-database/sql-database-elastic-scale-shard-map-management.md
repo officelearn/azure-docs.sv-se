@@ -3,7 +3,7 @@ title: Skala ut en Azure SQL database | Microsoft Docs
 description: Hur du använder ShardMapManager, klientbibliotek för elastiska databaser
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/16/2018
-ms.openlocfilehash: 71496a11deff5236161931d572e75d4a84b75c5f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 28387c1487c506173cba2eaaf3364dab36c7f70f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162074"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865860"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Skala ut databaser med fragmentkartehanteraren
 Använd en karthanteraren för att enkelt skala ut databaser på SQL Azure. Fragmentkartehanteraren är en särskild databas som upprätthåller globala mappningsinformation om alla shards (databaser) i en shard. Metadata som gör att program att ansluta till rätt databas baserat på värdet för den **shardingnyckel**. Dessutom kan varje fragment i uppsättningen innehåller mappningar som spårar lokala Fragmentera data (kallas även **shardletar**). 
@@ -53,7 +53,7 @@ Elastisk skalning stöder följande typer som horisontell partitionering nycklar
 | --- | --- |
 | heltal |heltal |
 | lång |lång |
-| GUID |UUID |
+| GUID |uuid |
 | byte  |byte |
 | datetime | tidsstämpel |
 | Tidsintervall | varaktighet|

@@ -8,13 +8,13 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.openlocfilehash: 438d71997d2c92e377cd068615d274af6b8b5edb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: c385d10aac01c844f1d4b390c0bb3d064b9befa3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856950"
+ms.locfileid: "52878711"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera din miljö för Azure Time Series Insights (förhandsversion)
 
@@ -22,19 +22,24 @@ Den här artikeln beskriver Metodtips för att planera och komma igång snabbt m
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Bästa praxis för planering och förberedelser
 
-Det är bäst att ha följande till hands innan du börjar:
+Det är bäst för att komma igång med Time Series Insights (TSI), om du känner till följande:
 
-* Du har identifierat dina **Time Series-ID: N**
-* Du har din **tidsstämpel** egenskap som är redo
-* Du har skapat din **Tidsseriemodell**
-* Du förstår hur man skickar händelser som är effektivt Avnormaliserade i JSON
+* Vad du får när du etablerar en TSI (förhandsgranskning)-miljö.
+* Vad din **Time Series-ID: N** och **tidsstämpel** egenskaper är.
+* Vilka nya **Tidsseriemodell** är och hur du skapar dina egna.
+* Så här skickar händelser effektivt i JSON.  
+* TSI företag möjligheterna för katastrofåterställning.
 
-Med dessa objekt redo bidrar till att förenkla planering och förberedelser. Dessutom är det klokt att planera i förväg och avgöra din haveriberedskap (BCDR) för företag behöver innan du skapar din instans (och inte efteråt). Då förbereds i förväg hjälper dig för att kontrollera din instans är högst förberedd.
+Time Series Insights-uppdateringen använder en användningsbaserad affärsmodell.  Mer information om kostnader och kapacitet finns i [Time Series Insights priser](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-> [!TIP]
-> Konfigurera din miljö så att den passar dina behov för BCDR tidigare och inte när du har skapat din instans.
+## <a name="the-time-series-insights-preview-environment"></a>Miljön för Time Series Insights (förhandsversion)
 
-Azure TSI (förhandsversion) använder en användningsbaserad affärsmodell. Mer information om kostnader och kapacitet finns i [Time Series Insights priser](https://azure.microsoft.com/pricing/details/time-series-insights).
+När du etablerar en TSI (förhandsgranskning)-miljö kan skapa du två Azure-resurser:
+
+* TSI (förhandsgranskning)-miljö
+* Azure storage allmänna V1-konto
+
+Om du vill komma igång behöver du tre ytterligare objekt.  Först är en [Tidsseriemodell](./time-series-insights-update-tsm.md), andra är en [händelsekälla ansluten till Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md), och tredje är [händelser som flödar till händelsekällan](./time-series-insights-send-events.md) som är både mappad till modellen och är i ett giltigt JSON-format.  
 
 ## <a name="configure-your-time-series-ids-and-timestamp-properties"></a>Konfigurera egenskaper för Time Series-ID och tidsstämpel
 
@@ -43,9 +48,9 @@ Om du vill skapa en ny TSI-miljö, Välj en **Time Series-ID**. Detta fungerar s
 > [!IMPORTANT]
 > **Time Series-ID: N** är **oföränderligt** och **kan inte ändras senare**. Kontrollera varje innan val och första användning.
 
-Du kan välja upp till **tre** (3) för att unikt skilja dina resurser. Läs den [bästa praxis för att välja en Time-ID](./time-series-insights-update-how-to-id.md) artikeln för mer information.
+Du kan välja upp till **tre** (3) för att unikt skilja dina resurser. Läs den [bästa praxis för att välja en Time-ID](./time-series-insights-update-how-to-id.md) och [Storage och ingående](./time-series-insights-update-storage-ingress.md) artiklar för mer information.
 
-Varje händelsekälla har en valfri **tidsstämpel** egenskap som används för att spåra händelsekällor över tid. **Tidsstämpel** värden är skiftlägeskänsliga och måste vara formaterad enskilda varje händelsekälla-specifikationen.
+Den **tidsstämpel** egenskapen är också mycket viktigt. Du kan ange den här egenskapen när du lägger till händelsekällor. Varje händelsekälla har en valfri **tidsstämpel** egenskap som används för att spåra händelsekällor över tid. **Tidsstämpel** värden är skiftlägeskänsliga och måste vara formaterad enskilda varje händelsekälla-specifikationen.
 
 > [!TIP]
 > Kontrollera formatering och parsning kraven för din händelsekällor.
@@ -56,9 +61,9 @@ När lämnas tomt används det **sätta Händelsetid** källa används av en hä
 
 Du kan nu konfigurera miljön TSI **Tidsseriemodell**. Den nya modellen gör det enkelt att söka efter och analysera IoT-data. Det sker genom att aktivera den hantering och underhåll berikande av time series-data och hjälper dig för att förbereda konsumenter datauppsättningar. Modellen använder **Time Series-ID: N**, som mappar till en instans som kopplar unika resursen till variabler (kallas typer) och hierarkier. Läs mer om den nya [Tidsseriemodell](./time-series-insights-update-tsm.md).
 
-Modellen är dynamiskt så att den kan byggd när som helst. Dock kommer du att kunna komma igång snabbare om den har skapats och laddat upp innan du börjar att skicka data till TSI. Om du vill skapa din modell, granska de [Tidsseriemodell](./time-series-insights-update-tsm.md) artikeln.
+Modellen är dynamiskt så att den kan byggd när som helst. Dock kommer du att kunna komma igång snabbare om den har skapats och laddat upp innan du börjar att skicka data till TSI. Om du vill skapa din modell, granska de [hur du använder TSM](./time-series-insights-update-how-to-tsm.md) artikeln.
 
-För många kunder vi förväntar oss den **Tidsseriemodell** att mappa till en befintlig tillgången modell eller ERP-systemet redan på plats. För de kunder som inte har en befintlig modell, en färdiga användarupplevelsen är [tillhandahålls](https://github.com/Microsoft/tsiclient) att komma igång snabbt.
+För många kunder vi förväntar oss den **Tidsseriemodell** att mappa till en befintlig tillgången modell eller ERP-systemet redan på plats. För de kunder som inte har en befintlig modell, en färdiga användarupplevelsen är [tillhandahålls](https://github.com/Microsoft/tsiclient) att komma igång snabbt. Du kan tänka på hur en modell kan hjälpa dig genom att visa vår [exempel demomiljö](https://insights.timeseries.azure.com/preview/demo).  
 
 ## <a name="shaping-your-events"></a>Forma dina händelser
 
@@ -71,7 +76,7 @@ En bra tumregel:
   * **Time Series-ID**
   * **Tidsstämpel**
 
-Granska den [så formhändelser](./time-series-insights-update-how-to-shape-events.md) artikeln för mer detaljer.
+Granska den [så formhändelser](./time-series-insights-send-events.md#json) artikeln för mer detaljer.
 
 ## <a name="business-disaster-recovery"></a>Haveriberedskap för företag
 
@@ -93,7 +98,7 @@ Särskilda åtgärder för att åstadkomma detta är följande:
 
 1. Skapa en miljö i en andra region. Läs mer om [TSI miljöer](./time-series-insights-get-started.md).
 1. Skapa en andra dedikerad konsumentgrupp för din händelsekälla och ansluta den händelsekällan till den nya miljön. Glöm inte att ange den andra, dedikerad konsumentgruppen. Läs mer i den [dokumentation för IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) eller [dokumentation för Event Hub](./time-series-insights-data-access.md).
-1. Om din primära region som har påverkats under en katastrofåterställning incident, kan du dirigera om åtgärder för att säkerhetskopiera TSI-miljön.
+1. Om din primära region påverkas vid en katastrof incident, kan du dirigera om åtgärder för att säkerhetskopiera TSI-miljön.
 
 > [!IMPORTANT]
 > * Observera att det kan uppstå en fördröjning i händelse av redundans.
@@ -102,6 +107,6 @@ Särskilda åtgärder för att åstadkomma detta är följande:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs den [Azure TSI (förhandsversion) lagring och Ingångsanspråk](./time-series-insights-update-storage-ingress.md).
+Läs den [Azure TSI (förhandsversion) lagring och ingående](./time-series-insights-update-storage-ingress.md).
 
-Läs mer om den nya [Tidsseriemodell](./time-series-insights-update-tsm.md).
+Läs mer om [datamodellering](./time-series-insights-update-tsm.md).

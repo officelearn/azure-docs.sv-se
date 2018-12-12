@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 1a0b7932d8dced086370027e1f8eecaf81841ab3
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300787"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866074"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverkslägen för behållare för Service Fabric
 
@@ -78,7 +78,7 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
             ],
     ```
 
-2. Konfigurera profilavsnittet nätverk för att tillåta flera IP-adresser som ska konfigureras på varje nod i klustret. I följande exempel ställer in fem IP-adresser per nod för Windows/Linux Service Fabric-kluster. Du kan ha fem instanser av tjänsten lyssnar på port på varje nod.
+2. Konfigurera profilavsnittet nätverk för att tillåta flera IP-adresser som ska konfigureras på varje nod i klustret. I följande exempel ställer in fem IP-adresser per nod för Windows/Linux Service Fabric-kluster. Du kan ha fem instanser av tjänsten lyssnar på port på varje nod. Registrera fem IP-adresser i Azure Load Balancer-Serverdelsadresspool för att du har fem IP-adresser som är tillgänglig från Azure Load Balancer, som visas nedan.
 
     ```json
     "variables": {
@@ -126,6 +126,11 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
                           "name": "[concat(parameters('nicName'),'-', 1)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -135,6 +140,11 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
                           "name": "[concat(parameters('nicName'),'-', 2)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -144,6 +154,11 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
                           "name": "[concat(parameters('nicName'),'-', 3)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -153,6 +168,11 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
                           "name": "[concat(parameters('nicName'),'-', 4)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -162,6 +182,11 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
                           "name": "[concat(parameters('nicName'),'-', 5)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }

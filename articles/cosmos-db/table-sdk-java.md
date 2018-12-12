@@ -1,10 +1,8 @@
 ---
-title: Azure Cosmos DB tabell-API för Java | Microsoft Docs
+title: Azure Cosmos DB tabell-API för Java
 description: Läs mer om Azure Cosmos DB Table API inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version.
 services: cosmos-db
 author: yarong
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: java
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 3bb4a433b06deff27ce80ab1fb631efde29a3f83
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: MT
+ms.openlocfilehash: 67d4da0a57e38863cc73faab1e3ed8d4b271ceb3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465584"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864170"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Azure Cosmos DB Table API för Java: viktig information och resurser
 > [!div class="op_single_selector"]

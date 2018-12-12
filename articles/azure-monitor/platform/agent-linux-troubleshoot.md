@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c9445793061b84a1bd1632d00b64ea99800bc2d1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: MT
+ms.openlocfilehash: 8da42ee6db4b9ec76fa97e94a77076ed347e2952
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643007"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080682"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Så här felsöker du problem med Log Analytics-agenten för Linux 
 
@@ -62,7 +62,7 @@ Om ingen av de här stegen fungerar för dig finns också stöd för följande k
 | NOT_DEFINED | Eftersom nödvändiga beroenden är installerade, installeras inte auoms auditd-plugin-programmet | Installation av auoms misslyckades, installera paketet auditd. |
 | 2 | Ogiltigt alternativ har angetts för shell-paket. Kör `sudo sh ./omsagent-*.universal*.sh --help` för användning |
 | 3 | Inget alternativ som angetts för shell-paket. Kör `sudo sh ./omsagent-*.universal*.sh --help` för användning. |
-| 4 | Ogiltigt paket skriver eller ogiltiga proxyinställningar; omsagent -*rpm*.sh paket kan endast installeras på RPM-baserade system och omsagent -*deb*.sh paket kan endast installeras på Debian-baserade system. Det är det rekommenderas att du använder universal installationsprogrammet från den [senaste versionen](../../log-analytics/log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux). Även [granska](#issue:-unable-to-connect-through-proxy-to-log-analytics) att kontrollera dina proxyinställningar. |
+| 4 | Ogiltigt paket skriver eller ogiltiga proxyinställningar; omsagent -*rpm*.sh paket kan endast installeras på RPM-baserade system och omsagent -*deb*.sh paket kan endast installeras på Debian-baserade system. Det är det rekommenderas att du använder universal installationsprogrammet från den [senaste versionen](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Även [granska](#issue:-unable-to-connect-through-proxy-to-log-analytics) att kontrollera dina proxyinställningar. |
 | 5 | Shell-paket måste köras som rot eller så uppstod 403-fel returneras under publiceringen. Kör kommandot med hjälp av `sudo`. |
 | 6 | Ogiltig paketera arkitektur eller så uppstod fel 200-felet som returnerades under publiceringen; omsagent -*x64.sh paket kan endast installeras på 64-bitars system och omsagent -* x86.sh paket kan endast installeras på 32-bitars system. Ladda ned rätt paket för din arkitektur från den [senaste versionen](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Det gick inte att installera OMS-paketet. Titta igenom kommandoutdata till rot-felet. |
@@ -410,7 +410,7 @@ Du kan fortsätta reonboard när du har använt den `--purge` alternativet
 ### <a name="resolution"></a>Lösning 
 Utför följande steg för att åtgärda problemet.
 1. Ta bort tillägg från Azure-portalen.
-2. Installera agenten efter den [instruktioner](../../log-analytics/log-analytics-quick-collect-linux-computer.md).
+2. Installera agenten efter den [instruktioner](../../azure-monitor/learn/quick-collect-linux-computer.md).
 3. Starta om agenten genom att köra följande kommando: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 * Vänta några minuter och Etableringsstatus ändras till **etablering lyckades**.
 

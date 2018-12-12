@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 6b0ef646ba9ea535038f181ebfff5bf7639afdf8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633630"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083419"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Skapa filter med Media Services REST API
 
@@ -32,7 +32,7 @@ För att slutföra stegen som beskrivs i det här avsnittet måste ha du till:
 
 - Granska [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto. 
-- [Konfigurera Postman för Azure Media Services REST API-anrop](media-rest-apis-with-postman.md)/
+- [Konfigurera Postman för Azure Media Services REST API-anrop](media-rest-apis-with-postman.md).
 
 ## <a name="define-a-filter"></a>Definiera ett filter  
 

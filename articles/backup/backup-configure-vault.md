@@ -2,19 +2,19 @@
 title: Säkerhetskopiera filer och mappar med hjälp av Azure Backup-agenten
 description: Säkerhetskopiera Windows-filer och mappar till Azure med hjälp av Microsoft Azure Backup-agenten. Skapa ett Recovery Services-valv, installera säkerhetskopieringsagenten, definiera principen för säkerhetskopiering och kör den första säkerhetskopieringen för filer och mappar.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: säkerhetskopieringsvalvet; Säkerhetskopiera en Windows-server. Säkerhetskopiera windows;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
-ms.author: markgal
-ms.openlocfilehash: 8107af53a78960d29f506c77f8ba9697c7a49d1c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252912"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874013"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Säkerhetskopiera en Windows-server eller -klient till Azure med hjälp av Resource Manager-distributionsmodellen
 Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Windows-klienten) filer och mappar till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen.

@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en plats-till-plats-VPN över Microsoft-peering för Azure ExpressRoute | Microsoft Docs
+title: Konfigurera en plats-till-plats-VPN över Microsoft-peering - ExpressRoute – Azure | Microsoft Docs
 description: Konfigurera IPsec/IKE-anslutningar till Azure över en peering Microsoft ExpressRoute-krets med hjälp av en plats-till-plats VPN-gateway.
 services: expressroute
 author: cherylmc
@@ -7,25 +7,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240922"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094210"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Konfigurera en VPN för plats-till-plats via ExpressRoute Microsoft-peering
 
-Den här artikeln hjälper dig att konfigurera säker krypterad anslutning mellan ditt lokala nätverk och din Azure-nätverk (Vnet) via en privat ExpressRoute-anslutning. Konfigurera en säker tunnel via ExpressRoute tillåter för datautbyte med konfidentialitet, anti repetitionsattacker, äkthetsbeviset och integritet.
+Den här artikeln hjälper dig att konfigurera säker krypterad anslutning mellan ditt lokala nätverk och din Azure-nätverk (Vnet) via en privat ExpressRoute-anslutning. Du kan använda Microsoft-peering för att upprätta en plats-till-plats IPsec/IKE VPN-tunnel mellan dina valda lokala nätverk och virtuella Azure-nätverk. Konfigurera en säker tunnel via ExpressRoute tillåter för datautbyte med konfidentialitet, anti repetitionsattacker, äkthetsbeviset och integritet.
 
-## <a name="architecture"></a>Arkitektur
-
-Du kan använda Microsoft-peering för att upprätta en plats-till-plats IPsec/IKE VPN-tunnel mellan dina valda lokala nätverk och virtuella Azure-nätverk.
-
-  >[!NOTE]
+>[!NOTE]
 >När du konfigurerar VPN för plats-till-plats via Microsoft-peering, debiteras du för VPN-gateway och VPN-utgående. Mer information finns i [prissättning för VPN-Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+## <a name="architecture"></a>Arkitektur
+
 
   ![Översikt över anslutning](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 

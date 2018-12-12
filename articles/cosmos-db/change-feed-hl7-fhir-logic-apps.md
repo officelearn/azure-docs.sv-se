@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 591b79d4d9d44c55c2438d872b61a90abbe6ecad
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841123"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089232"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Meddela patienter av HL7 FHIR hälsovård poständringar med Logic Apps och Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver ändringsflödet meddelande lösning som har skapats
 
 ## <a name="project-requirements"></a>Projektkrav
 - Leverantörer skicka HL7 konsoliderade kliniska dokumentet arkitektur (C-Videostrategin) dokument i XML-format. C-Videostrategin dokument omfatta nästan alla typer av kliniska dokument, inklusive kliniska dokument, till exempel family historik och vaccination poster, samt som administrativa, arbetsflöde och finansiella dokument. 
-- C-Videostrategin dokument konverteras till [HL7 FHIR resurser](http://hl7.org/fhir/2017Jan/resourcelist.html) i JSON-format.
+- C-Videostrategin dokument konverteras till [HL7 FHIR resurser](https://hl7.org/fhir/2017Jan/resourcelist.html) i JSON-format.
 - Ändrade FHIR resource dokument skickas via e-post i JSON-format.
 
 ## <a name="solution-workflow"></a>Arbetsflödet i en lösning 

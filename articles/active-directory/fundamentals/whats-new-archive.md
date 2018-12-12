@@ -1,5 +1,5 @@
 ---
-title: Arkiveringsjobb för vad som är nytt? i Azure Active Directory | Microsoft Docs
+title: Arkiveringsjobb för vad som är nytt? – Azure Active Directory | Microsoft Docs
 description: Vad är ny viktig i översikten delen av här Innehållspaketet innehåller 6 månaderna för aktiviteten. Efter sex månader artiklarna tas bort från den huvudsakliga artikeln och placera den här artikeln i arkivet.
 services: active-directory
 author: eross-msft
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 54e63cf90d72b64dbe00ab8b65179f015c23b646
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.openlocfilehash: 2a2b0da34357572ab63ed9ac0d6d17766466ca8f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427615"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079848"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 

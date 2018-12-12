@@ -1,26 +1,18 @@
 ---
-title: 'Konfigurera routningsfilter för Microsoft för Azure ExpressRoute-peering: CLI | Microsoft Docs'
+title: 'Konfigurera routningsfilter för Microsoft-peering - ExpressRoute: Azure CLI | Microsoft Docs'
 description: Den här artikeln beskriver hur du konfigurerar routningsfilter för Microsoft-Peering med hjälp av Azure CLI
-documentationcenter: na
 services: expressroute
 author: anzaman
-manager: ganesr
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 29cbe1686888a87fca6ddde957a1cbd35ba3df26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968704"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079304"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Konfigurera routningsfilter för Microsoft-peering: Azure CLI
 
@@ -30,7 +22,7 @@ ms.locfileid: "46968704"
 > * [Azure CLI](how-to-routefilter-cli.md)
 > 
 
-Flödesfilter är ett sätt att använda en underuppsättning av tjänster som stöds via Microsoft-peering. Stegen i den här artikeln hjälper dig att konfigurera och hantera flödesfilter för ExpressRoute-kretsar.
+Flödesfilter är ett sätt att använda en delmängd av tjänster som stöds via Microsoft-peering. Stegen i den här artikeln hjälper dig att konfigurera och hantera flödesfilter för ExpressRoute-kretsar.
 
 Dynamics 365-tjänster och Office 365-tjänster som Exchange Online, SharePoint Online och Skype för företag, är tillgängliga via Microsoft-peering. När Microsoft-peering har konfigurerats i en ExpressRoute-krets, visas alla prefix som är relaterade till dessa tjänster i BGP-sessioner upprättas. Ett community-värde för BGP är kopplat till varje prefix för att identifiera vilken tjänst som erbjuds genom prefixet. En lista över BGP community-värden och de tjänster som de mappas till finns i [BGP-communities](expressroute-routing.md#bgp).
 
@@ -70,7 +62,7 @@ För att kunna ansluta till tjänster via Microsoft-peering, måste du utföra f
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du börjar ska du installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om hur du installerar CLI-kommandon finns i [installera Azure CLI](/cli/azure/install-azure-cli) och [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli).
+Innan du börjar ska du installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om att installera CLI-kommandona finns i [Installera Azure CLI](/cli/azure/install-azure-cli) och [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 * Granska den [krav](expressroute-prerequisites.md) och [arbetsflöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 
@@ -80,7 +72,7 @@ Innan du börjar ska du installera den senaste versionen av CLI-kommandona (2.0 
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Logga in på ditt Azure-konto och välj din prenumeration
 
-Du börjar din konfiguration genom att logga in på ditt Azure-konto. Använd följande exempel för att ansluta:
+Du börjar din konfiguration genom att logga in på ditt Azure-konto. Om du använder det ”prova” kan du loggas in automatiskt och kan hoppa över steg för inloggning. Använd följande exempel för att ansluta:
 
 ```azurecli
 az login
@@ -88,13 +80,13 @@ az login
 
 Kontrollera prenumerationerna för kontot.
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 Välj den prenumeration som du vill skapa en ExpressRoute-krets.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
@@ -104,7 +96,7 @@ az account set --subscription "<subscription ID>"
 
 Använd följande cmdlet för att hämta listan över BGP community-värden som är associerade med tjänster som är tillgängliga via Microsoft-peering och listan med prefix som är associerade med dem:
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Skapa en lista över de värden som du vill använda
@@ -119,7 +111,7 @@ Ett flödesfilter kan ha endast en regel och regeln måste vara av typen 'Tillå
 
 Skapa först flödesfiltret. Kommandot ”az network route-filter create” skapar bara en resurs för route-filter. När du skapar resursen kan du sedan skapa en regel och koppla den till objektet route-filter. Kör följande kommando för att skapa en resurs för route-filter:
 
-```azurecli
+```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
 ```
 
@@ -127,7 +119,7 @@ az network route-filter create -n MyRouteFilter -g MyResourceGroup
 
 Kör följande kommando för att skapa en ny regel:
  
-```azurecli
+```azurecli-interactive
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
@@ -135,7 +127,7 @@ az network route-filter rule create --filter-name MyRouteFilter -n CRM --communi
 
 Kör följande kommando för att koppla flödesfiltret till ExpressRoute-krets:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
@@ -145,7 +137,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 Om du vill hämta egenskaperna för ett flödesfilter, använder du följande kommando:
 
-```azurecli
+```azurecli-interactive
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
 ```
 
@@ -153,7 +145,7 @@ az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilt
 
 Om flödesfiltret redan är ansluten till en krets sprida uppdateringar till BGP community-lista automatiskt lämpliga prefix annons ändringar genom etablerade BGP-sessioner. Du kan uppdatera BGP community-lista över dina flödesfilter med följande kommando:
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule update --filter-name MyRouteFilter -n CRM -g ExpressRouteResourceGroupName --add communities '12076:5040' --add communities '12076:5010'
 ```
 
@@ -161,7 +153,7 @@ az network route-filter rule update --filter-name MyRouteFilter -n CRM -g Expres
 
 När ett flödesfilter är frånkopplat från ExpressRoute-krets, har inget prefix annonserats via BGP-sessionen. Du kan koppla från ett flödesfilter från en ExpressRoute-krets med hjälp av följande kommando:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
@@ -169,7 +161,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 Du kan bara ta bort ett flödesfilter om den inte är ansluten till alla kretsar. Se till att flödesfiltret inte är ansluten till alla kretsar innan du försöker ta bort den. Du kan ta bort ett flödesfilter med följande kommando:
 
-```azurecli
+```azurecli-interactive
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635160"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877589"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-datamodell för Azure Backup-data
 Använd Log Analytics-datamodell för att skapa rapporter. Med datamodellen, kan du skapa egna förfrågningar och instrumentpaneler eller anpassa Azure Backup-data, hur du vill.
@@ -30,7 +30,7 @@ Den här tabellen innehåller information om aviseringen relaterade fält.
 | AlertUniqueId_s |Text |Unik identifierare för den genererade aviseringen |
 | AlertType_s |Text |Typen av avisering, till exempel säkerhetskopiering |
 | AlertStatus_s |Text |Status för aviseringen, till exempel aktiv |
-| AlertOccurenceDateTime_s |Datum/tid |Datum och tid då aviseringen skapades |
+| AlertOccurrenceDateTime_s |Datum/tid |Datum och tid då aviseringen skapades |
 | AlertSeverity_s |Text |Allvarlighetsgrad för aviseringen, till exempel kritiskt |
 | EventName_s |Text |Händelsens namn. Alltid AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Unik identifierare för det säkerhetskopieringsobjekt som är associerade med aviseringen |

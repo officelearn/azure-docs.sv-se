@@ -1,6 +1,6 @@
 ---
 title: Azure API management princip exempel - vägen begäran baserat på storleken på innehållet | Microsoft Docs
-description: Azure API management princip exemplet - visas hur du dirigera förfrågningar baserat på storleken på deras organ.
+description: Azure API management princip-exempel – visar hur du vidarebefordra begäranden baserat på storleken på deras organ.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: a93e1d9fecea59ebb68c512b96c8381b5b1a9346
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 7656401115cc370d6eee60fb9bddb9bcd92e4201
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284768"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872220"
 ---
-# <a name="route-the-request-based-on-the-size-of-its-body"></a>Vidarebefordra begäran baserat på storleken på innehållet
+# <a name="route-the-request-based-on-the-size-of-its-body"></a>Dirigera begäran baserat på storleken på dess brödtext
 
-Den här artikeln visar ett Azure API management princip exempel som visar hur du dirigera förfrågningar baserat på storleken på deras organ. Om du vill ange eller redigera en princip-kod, Följ stegen som beskrivs i [ange eller redigera en princip](../set-edit-policies.md). Andra exempel finns [princip exempel](../policy-samples.md).
+Den här artikeln visar ett urval av Azure API management-princip som visar hur du vidarebefordra begäranden baserat på storleken på deras organ. Om du vill ange eller redigera en princip för kod, följer du stegen som beskrivs i [ange eller redigera en princip](../set-edit-policies.md). Andra exempel finns i [princip exempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 
@@ -32,7 +32,7 @@ Klistra in koden i den **inkommande** block.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om APIM principer:
+Mer information om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
 + [Princip-exempel](../policy-samples.md)

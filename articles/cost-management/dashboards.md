@@ -1,21 +1,21 @@
 ---
 title: Visa viktiga mått med Cloudyn instrumentpaneler i Azure | Microsoft Docs
-description: Den här artikeln beskrivs hur visa viktiga mått med instrumentpaneler i Cloudyn.
+description: Den här artikeln beskrivs hur du visar viktiga mått med instrumentpaneler i Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: a058757c3b4ae5087d89cdbdc1ede5fe780606ea
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997072"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094124"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Visa nyckeln kostnad mått med instrumentpaneler
 
@@ -43,7 +43,7 @@ Om du vill komma igång snabbt med en anpassad instrumentpanel kan duplicera du 
 Skapa en anpassad instrumentpanel:
 
 1. På startsidan klickar du på **Lägg till ny +**. Sidan Min instrumentpanel visas.  
-    ![Min instrumentpanel](./media/dashboards/my-dashboard.png)
+    ![Min instrumentpanelssida där du lägger till nya rapporter](./media/dashboards/my-dashboard.png)
 2. Klicka på **Lägg till ny rapport**. Rutan Lägg till rapport visas.
 3. Välj den rapport som du vill lägga till en instrumentpanelwidget. Widgeten har lagts till på instrumentpanelen.
 4. Upprepa föregående steg tills instrumentpanelen är klar.
@@ -63,7 +63,7 @@ Du kan dela en anpassad instrumentpanel med andra att _offentliga_ eller _Mina e
 Dela en anpassad instrumentpanel till offentligt:
 
 1. I en instrumentpanel, klickar du på **inställningar för instrumentpanelen**. Rutan inställningar för instrumentpanelen visas.  
-    ![alternativ för instrumentpanelen](./media/dashboards/dashboard-options.png)
+    ![inställningar för instrumentpanelen för en anpassad instrumentpanel](./media/dashboards/dashboard-options.png)
 2. I rutan inställningar för instrumentpanelen klickar du på symbolen pilen och klickar sedan på **offentliga**. Den offentliga instrumentpanelen bekräftande dialogrutan visas.
 3. Klicka på **Ja**. Instrumentpanelen är nu tillgänglig för andra.
 
@@ -116,13 +116,13 @@ Du kan ange vilken instrumentpanel som standard. Ange den till din standard gör
 Eller
 
 1. Klicka på **inställningar för instrumentpanelen** att se en lista över tillgängliga instrumentpaneler och välj den instrumentpanel som du vill ange som standard.  
-    ![alternativ för instrumentpanelen](./media/dashboards/dashboard-options.png)
+    ![instrumentpanelen alternativ för en standardinstrumentpanel](./media/dashboards/dashboard-options.png)
 2. Klicka på **standard** på raden i instrumentpanelen. Dialogrutan standard instrumentpanelen visas.
 3. Klicka på **Ja**. Instrumentpanelen är inställd på standardvärdet.
 
 ## <a name="management-dashboard"></a>Hanteringspanelen
 Hanteringen (eller MSP-instrumentpanel för MSP-användare) instrumentpanel innehåller höjdpunkter i huvudrapporten-typer.  
-![Hanteringspanelen](./media/dashboards/management-dash.png)
+![Instrumentpanel för hantering som visar olika rapporter](./media/dashboards/management-dash.png)
 
 ### <a name="cost-entity-summary-enterprise-only"></a>Kostnadsenhet (endast Enterprise)
 Den här widgeten sammanfattas hanterade kostnaden-entiteter, t.ex. antal entiteter och antalet konton.
@@ -158,7 +158,7 @@ Widgenten visar storage-tjänsterna som används av avdelningar. Hovra över cir
 
 ## <a name="cost-controller-dashboard"></a>Kostnad instrumentpanel för kontrollenhet
 Kostnaden Controller instrumentpanelen visar förinställda cost allocation höjdpunkter.  
-![Kostnad instrumentpanel för kontrollenhet](./media/dashboards/cost-controller-dashboard.png)
+![Cost kontrollanten instrumentpanelen som visar olika rapporter](./media/dashboards/cost-controller-dashboard.png)
 
 ### <a name="cost-over-time"></a>Kostnad över tid
 Den här widgeten hjälper dig att upptäcka kostnadstrender. Den går igenom kostnaden för den sista dagen, baserat på trend de senaste 30 dagarna.
@@ -198,7 +198,7 @@ Den här widgeten höjdpunkter spendera under de senaste sex månaderna.
 ## <a name="asset-controller-dashboard"></a>Instrumentpanel för tillgången kontrollenhet
 
 Den här instrumentpanelen visar antalet instanser, tillgänglig och i användning diskar, distribution av instanstyper och lagringsinformation som körs.  
-![Instrumentpanel för tillgången kontrollenhet](./media/dashboards/asset-controller-dashboard.png)
+![Instrumentpanel för kontrollenhet tillgången som visar olika rapporter](./media/dashboards/asset-controller-dashboard.png)
 
 ### <a name="compute-instances"></a>Instanser
 Widgenten visar antalet instanser baserat på den informationen om användningstrenden under de senaste 30 dagarna som körs.
@@ -227,7 +227,7 @@ Widgenten visar antalet körda Amazon RDS-instanser baserat på trend de senaste
 
 ## <a name="optimizer-dashboard"></a>Instrumentpanel för optimering
 Den här instrumentpanelen visar downsizing rekommendationer, oanvända resurser och potentiella besparingar.  
-![Instrumentpanel för optimering](./media/dashboards/optimizer-dashboard.png)
+![Optimering instrumentpanelen som visar olika rapporter](./media/dashboards/optimizer-dashboard.png)
 
 ### <a name="ri-calculator"></a>RI-kalkylator
 Widgenten visar antalet köprekommendationer för RI och visar den potentiella årliga besparingar.
@@ -257,7 +257,7 @@ Rekommendationer för optimering baseras på användning och prestanda övervaka
 
 ## <a name="s3-tracker-dashboard"></a>S3-spåraren instrumentpanel
 Spårningsverktyget för S3-instrumentpanelen kan du hitta, analysera och visa dina aktuella lagringsanvändningen och trender.  
-![S3-spåraren instrumentpanel](./media/dashboards/s3-tracker-dashboard.png)
+![S3-spåraren instrumentpanelen som visar olika rapporter](./media/dashboards/s3-tracker-dashboard.png)
 
 ### <a name="all-buckets"></a>Alla Buckets
 Widgenten visar den totala storleken på alla dina buckets, i GB, och det totala antalet objekt i din buckets.
@@ -281,7 +281,7 @@ Widgenten visar antal objekt per bucket i faktiska antal och procentandel. Hovra
 
 ## <a name="cloud-comparison-dashboard"></a>Instrumentpanel för cloud-jämförelse
 Med en jämförelse av Molnapps-instrumentpanelen kan du jämföra kostnader från olika molnleverantörer baserat på priser, processortyp och RAM-storleken.  
-![Instrumentpanel för cloud-jämförelse](./media/dashboards/cloud-comparison-dashboard.png)
+![Jämförelse av instrumentpanelen som visar olika rapporter i molnet](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Kostnaden i Azure genom instanstyp
 Widgenten visar de senaste 30 dagarna av användning i priserna för på begäran. Jämför kostnaderna med de aktuella Amazon EC2 kostnaden jämfört med potentialen kostnaden i Azure.

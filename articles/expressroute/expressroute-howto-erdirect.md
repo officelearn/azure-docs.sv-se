@@ -1,18 +1,19 @@
 ---
-title: Så här konfigurerar du Azure ExpressRoute Direct | Microsoft Docs
-description: Den här sidan kan du konfigurera ExpressRoute Direct (förhandsversion)
+title: Konfigurera ExpressRoute Direct - Azure | Microsoft Docs
+description: Den här sidan kan du konfigurera ExpressRoute Direct (förhandsversion).
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
-ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 9dadd61c8c4c2d1cd2305aa852e4528bfb9a1421
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959683"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076618"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Så här konfigurerar du ExpressRoute Direct (förhandsversion)
 

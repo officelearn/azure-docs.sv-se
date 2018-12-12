@@ -1,7 +1,7 @@
 ---
 title: Migrera kunskapsbaser förhandsversion – Qna Maker
 titleSuffix: Azure Cognitive Services
-description: Så här importerar du en kunskapsbas
+description: Kunskapsbaser som skapats med QnA Maker kostnadsfri förhandsversion måste migreras till QnA Maker GA. QnA Maker förhandsversionen kommer att inaktualiseras i januari 2019.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,15 +10,16 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 261d42a6c21681ee8015edfe73ad78b4458eb0ee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365568"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078826"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrera en kunskapsbas med hjälp av export-import
-QnA Maker meddelat allmän tillgänglighet den 7 maj 2018 på den \\\build\ konferensen. QnA har Maker en ny arkitektur som bygger på Azure. Kunskapsbaser som skapats med QnA Maker kostnadsfri förhandsversion måste migreras till QnA Maker GA. QnA Maker förhandsversionen kommer att inaktualiseras i November 2018. Mer information om ändringar i QnA Maker GA finns i QnA Maker allmänheten [blogginlägget](https://aka.ms/qnamakerga-blog).
+QnA Maker meddelat allmän tillgänglighet den 7 maj 2018 på den \\\build\ konferensen. QnA har Maker en ny arkitektur som bygger på Azure. Kunskapsbaser som skapats med QnA Maker kostnadsfri förhandsversion måste migreras till QnA Maker GA. QnA Maker förhandsversionen kommer att inaktualiseras i januari 2019. Mer information om ändringar i QnA Maker GA finns i QnA Maker allmänheten [blogginlägget](https://aka.ms/qnamakerga-blog).
 
 QnA Maker har nu en [prissättningsmodellen](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 

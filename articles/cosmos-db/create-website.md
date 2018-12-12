@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 694682264a38d0b35f00fb6611f843ae7e518ba0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8af76c64e755b9c72ae4ebcc223e5f69549b92b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838182"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076743"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service Web Apps med en Azure Resource Manager-mall
 Den här självstudiekursen visar hur du använder en Azure Resource Manager-mall för att distribuera och integrera [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) webbapp och ett exempelwebbprogram.
@@ -119,7 +119,7 @@ Nu ska vi distribuera andra mallen.  Den här mallen är användbar för att vis
 ## <a name="next-steps"></a>Nästa steg
 Grattis! Du har distribuerat Azure Cosmos DB, App Service webbapp och ett exempelwebbprogram med hjälp av Azure Resource Manager-mallar.
 
-* Om du vill veta mer om Azure Cosmos DB, klickar du på [här](http://azure.com/docdb).
+* Om du vill veta mer om Azure Cosmos DB, klickar du på [här](https://azure.microsoft.com/services/cosmos-db/).
 * Om du vill veta mer om Azure App Service Web apps, klickar du på [här](https://go.microsoft.com/fwlink/?LinkId=325362).
 * Om du vill veta mer om Azure Resource Manager-mallar, klickar du på [här](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 

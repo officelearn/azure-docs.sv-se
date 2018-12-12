@@ -1,5 +1,6 @@
 ---
-title: Skapa en offentlig Load Balancer Standard med zonindelad offentlig IP-adress klientdel med Azure PowerShell | Microsoft Docs
+title: Skapa en offentlig Standard Load Balancer Standard med zonindelad frontend-IP - Azure PowerShell
+titlesuffix: Azure Load Balancer
 description: Lär dig att skapa offentlig Load Balancer Standard med en zonindelad offentlig IP-adress klientdel med Azure PowerShell
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: bf3abeaec402eaf42bee74c167812340b093161b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: da30bce34425d3537f9610c6e1f64ded4a836fd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413250"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100692"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>Skapa en offentlig Load Balancer Standard med zonindelad klientdel med Azure PowerShell
 

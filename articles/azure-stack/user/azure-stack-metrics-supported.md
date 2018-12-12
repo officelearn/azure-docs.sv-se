@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: f8ef54393f3de00ae231c45c117e3a16a8d1aad1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7ebb9d683803a6c5a5a0fa25308b348eeea586c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725615"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097904"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Mått som stöds med Azure Monitor på Azure Stack
 
@@ -26,7 +26,7 @@ ms.locfileid: "52725615"
 
 Du kan hämta dina mått från Azure monitor på Azure Stack i samma som global Azure. Du kan skapa dina mått i portalen, kommer från REST API eller skicka frågor mot dem med PowerShell eller CLI.
 
-I tabellerna nedan listas mått som är tillgängliga med Azure Monitor mått pipeline på Azure Stack. Om du vill fråga efter och komma åt de här måtten, behöver du den **2018-01-01** api-versionen version av API-profilen. Mer information om API-profiler och Azure Stack finns i [hantera API-versionsprofiler i Azure Stack](azure-stack-version-profiles.md).
+I tabellerna nedan listas mått som är tillgängliga med Azure Monitor mått pipeline på Azure Stack. För att fråga och få åtkomst till de här måtten, kommer du behöva använda den **2018-01-01** api-versionen version av API-profilen. Mer information om API-profiler och Azure Stack finns i [hantera API-versionsprofiler i Azure Stack](azure-stack-version-profiles.md).
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 

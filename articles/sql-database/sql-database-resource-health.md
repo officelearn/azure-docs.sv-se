@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.date: 11/14/2018
+ms.openlocfilehash: 8b982dbddf22393e276437c77007e18bc4d40042
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083894"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867197"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Använda Resource Health felsökning av anslutningar för Azure SQL Database
 
@@ -67,11 +67,11 @@ Analysen utförs för att fastställa en anledning när avbrott inträffar i din
 
 #### <a name="planned-maintenance"></a>Planerat underhåll
 
-Azure-infrastrukturen utför regelbundet planerat underhåll – uppgradering av maskin- eller komponenter i datacentret. När databasen genomgår underhåll, kan SQL avsluta vissa befintliga anslutningar och vägra nya. Misslyckade inträffade under planerat underhåll är vanligen övergående och [logik för omprövning](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) hjälper till att minska påverkan. Kontakta supporten om du fortsätter att uppleva fel vid inloggningen undviks.
+Azure-infrastrukturen utför regelbundet planerat underhåll – uppgradering av maskin- eller komponenter i datacentret. När databasen genomgår underhåll, kan SQL avsluta vissa befintliga anslutningar och vägra nya. Inloggningen fel inträffade under planerat underhåll är vanligen övergående och logik för omprövning bidrar till att minska effekten. Kontakta supporten om du fortsätter att uppleva fel vid inloggningen undviks.
 
 #### <a name="reconfiguration"></a>Omkonfiguration
 
-Reconfigurations betraktas som tillfälliga villkor och förväntas från tid till annan. De här händelserna kan utlösas av load balancing eller eller maskinvara fel. Produktion klientprogram som ansluter till en molndatabas bör implementera en robust anslutning [logik för omprövning](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), eftersom den skulle hjälpa dig att undvika sådana situationer och bör Allmänt se felen transparent för slutanvändaren.
+Reconfigurations betraktas som tillfälliga villkor och förväntas från tid till annan. De här händelserna kan utlösas av load balancing eller eller maskinvara fel. Produktion klientprogram som ansluter till en molndatabastjänst bör implementera en robust logik med begränsningslogik eftersom den skulle hjälpa dig att undvika sådana situationer och bör Allmänt se felen transparent för slutanvändaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

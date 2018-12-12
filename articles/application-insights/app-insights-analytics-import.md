@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 40b2959a59acb10443dfa917814f42cf98954640
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 7160232cf511226b26c15e6476ff75fcdf5ad33e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682715"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866608"
 ---
 # <a name="import-data-into-analytics"></a>Importera data till Analytics
 
@@ -368,5 +368,5 @@ Använd den här koden för varje blob.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Genomgång av Log Analytics-frågespråket](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Genomgång av Log Analytics-frågespråket](../azure-monitor/log-query/get-started-portal.md)
 * Om du använder Logstash kan använda den [Logstash plugin-programmet att skicka data till Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

@@ -3,7 +3,7 @@ title: Kom igång med Elastic Database-verktyg – Azure | Microsoft Docs
 description: Grundläggande förklaring av funktionen Verktyg för elastiska databaser i Azure SQL Database, inklusive ett enkelt och kör exempelappen.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: ''
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: ad07b0a9ae2d0c90f63d4f3a842a5d386ac4c59b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 13e9bb045bcce553ba9fdc344baa86ba96260387
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249871"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870239"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med elastiska Databasverktyg
 Det här dokumentet ger en introduktion till utvecklarupplevelsen för den [klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md) genom att hjälpa du kör en exempelapp. Exempelappen skapar ett enkelt delat program och utforskar nyckelfunktioner av funktionen Verktyg för elastiska databaser i Azure SQL Database. Den fokuserar på användningsområden för [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md), [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md), och [Multi-shard-frågor](sql-database-elastic-scale-multishard-querying.md). Det finns klientbiblioteket för .NET och Java. 

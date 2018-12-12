@@ -4,12 +4,12 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
-ms.openlocfilehash: 570ed080e208a890bec867b665c4344c502e4d71
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f38ebade035697f505d5e66f6fa2d990a8d2c259
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020216"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111635"
 ---
 .NET-program kan använda cacheklienten **StackExchange.Redis**. Den kan konfigureras i Visual Studio med ett NuGet-paket som förenklar konfigurationen av cacheklientprogram. 
 
@@ -31,7 +31,7 @@ Skriv **StackExchange.Redis** eller **StackExchange.Redis.StrongName** i sökrut
 
 ![NuGet-paket för StackExchange.Redis](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
-NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferenserna för klientprogrammet att komma åt Azure Azure Cache för Redis med StackExchange.Azure Cache för Redis-klient.
+NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferenserna för klientprogrammet att få åtkomst till Azure Cache för Redis med StackExchange.Azure Cache för Redis-klient.
 
 > [!NOTE]
 > Om du tidigare har konfigurerat ditt projekt till att använda StackExchange.Redis kan du söka efter uppdateringar till paketet från **NuGet Package Manager**. Om du vill söka efter och installera uppdaterade versioner av paketet StackExchange.Redis NuGet, klickar du på **uppdateringar** i den **NuGet-Pakethanteraren** fönster. Om det finns en uppdatering av paketet StackExchange.Redis NuGet kan du uppdatera ditt projekt för att använda den uppdaterade versionen.

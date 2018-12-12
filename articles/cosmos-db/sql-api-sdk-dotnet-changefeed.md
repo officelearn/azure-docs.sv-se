@@ -1,21 +1,20 @@
 ---
-title: 'Azure Cosmos DB: .NET ändringen Feed Processor API, SDK och resurser | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET ändringen Feed Processor API, SDK och resurser'
 description: Lär dig allt om ändringen Feed Processor-API och SDK, inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version av .NET-ändringen Feed Processor-SDK.
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ab4831a4a84e1f96624c5de1e53f9b8688a5c2cd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632491"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871677"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]

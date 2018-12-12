@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure IoT Edge-certifikat | Microsoft Docs
-description: Läs mer om Azure IoT Edge-certifikat och hur de används.
+title: Certifikat för enhetssäkerhet – Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge använder certifikat för att verifiera enheter, moduler och lövenheter och upprätta säkra anslutningar mellan dem.
 author: stevebus
 manager: philmea
 ms.author: stevebus
@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b1b8c660dfd6ea6890a940a97f5ff1ec1617c28d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1cf1411e227363e7dc9d54f04d0c630341f55a6e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963393"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099910"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Kostnadsinformation för Azure IoT Edge-certifikat
 

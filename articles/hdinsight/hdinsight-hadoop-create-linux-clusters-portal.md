@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 42b0a2440fa459fa31a7d6e137d124883646c205
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: MT
+ms.openlocfilehash: 013c425e911340a1b85c21ff6fc89819087e90a1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686019"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869168"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -28,7 +28,7 @@ Azure-portalen är ett webbaserat verktyg för tjänster och resurser som finns 
 * **En modern webbläsare**. Azure-portalen använder HTML5 och Javascript och kanske inte fungerar korrekt i äldre webbläsare.
 
 ## <a name="create-clusters"></a>Skapa kluster
-Azure-portalen visar de flesta av egenskaperna. Med Azure Resource Manager-mall kan dölja du många detaljer. Mer information finns i [skapa Linux-baserade Hadoop-kluster i HDInsight med hjälp av Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+Azure-portalen visar de flesta av egenskaperna. Med Azure Resource Manager-mall kan dölja du många detaljer. Mer information finns i [skapa Linux-baserade Apache Hadoop-kluster i HDInsight med hjälp av Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
@@ -136,23 +136,23 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har skapat ett HDInsight-kluster, Använd följande för att lära dig hur du arbetar med ditt kluster:
 
-### <a name="hadoop-clusters"></a>Hadoop-kluster
-* [Använda Hive med HDInsight](hadoop/hdinsight-use-hive.md)
-* [Använda Pig med HDInsight](hadoop/hdinsight-use-pig.md)
-* [Använda MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop-kluster
+* [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
+* [UseApache Pig med HDInsight](hadoop/hdinsight-use-pig.md)
+* [Använda Apache Hadoop MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase-kluster
-* [Kom igång med HBase i HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Utveckla Java-program för HBase på HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+### <a name="apache-hbase-clusters"></a>Apache HBase-kluster
+* [Kom igång med Apache HBase på HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Utveckla Java-program för Apache HBase på HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Storm-kluster
-* [Utveckla Java-topologier för Storm på HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Använda Python-komponenter i Storm på HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Distribuera och övervaka topologier med Storm på HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+### <a name="apache-storm-clusters"></a>Apache Storm-kluster
+* [Utveckla Java-topologier för Apache Storm på HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Använda Python-komponenter i Apache Storm på HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Distribuera och övervaka topologier med Apache Storm på HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="spark-clusters"></a>Spark-kluster
+### <a name="apache-spark-clusters"></a>Apache Spark-kluster
 * [Skapa ett fristående program med hjälp av Scala](spark/apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](spark/apache-spark-livy-rest-interface.md)
-* [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](spark/apache-spark-machine-learning-mllib-ipython.md)
 

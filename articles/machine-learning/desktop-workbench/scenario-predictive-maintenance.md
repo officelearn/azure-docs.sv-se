@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c638ed9132612db7b82168d3a57057aba9b2d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996221"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870342"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Förebyggande underhåll för verkliga scenarier
 
@@ -98,13 +98,13 @@ Exempel-anteckningsböcker lagras i katalogen kod. De bärbara datorerna är ins
 
 ## <a name="data-description"></a>Databeskrivning
 
-Den [simulerade data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) består av fem filer med kommaavgränsade värden (.csv). Använd följande länkar för att få detaljerade beskrivningar om datauppsättningarna.
+Den [simulerade data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide) består av följande [fem fil med kommaavgränsade värden (.csv) filer](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data):
 
-* [Datorer](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): funktioner som skilja varje dator, till exempel ålder och modell.
-* [Fel](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): felloggen innehåller bakåtkompatibla fel som kan uppkomma medan datorn fortfarande fungerar. De här felen beaktas inte fel, men de kan vara prediktiva för en framtida felhändelse. Datum / tid-värdena för fel som avrundas till närmaste timme eftersom dessa data som samlas in till ett timpris.
-* [Underhåll](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): Underhåll loggen innehåller både planerade och oplanerade Underhåll poster. Schemalagt underhåll motsvarar en regelbunden kontroll av komponenter. Oplanerat Underhåll kan uppstå från mekanisk fel eller andra prestandaförsämring. Datum / tid-värdena för underhåll avrundas till närmaste timme eftersom dessa data som samlas in till ett timpris.
-* [Telemetri](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): telemetridata som består av time series mått från flera sensorer på varje dator. Data loggas som medelvärdet sensorvärdena över varje intervall med en timme.
-* [Fel](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): fel som motsvarar komponenten ersättningar i loggen för underhåll. Varje post innehåller maskin-ID, komponenttyp och av Ersättningsdatum och tid. Dessa poster används för att skapa de machine learning-etiketter som du försöker förutse modellen.
+* [Datorer](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/machines.csv): funktioner som skilja varje dator, till exempel ålder och modell.
+* [Fel](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/errors.csv): felloggen innehåller bakåtkompatibla fel som kan uppkomma medan datorn fortfarande fungerar. De här felen beaktas inte fel, men de kan vara prediktiva för en framtida felhändelse. Datum / tid-värdena för fel som avrundas till närmaste timme eftersom dessa data som samlas in till ett timpris.
+* [Underhåll](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/maint.csv): Underhåll loggen innehåller både planerade och oplanerade Underhåll poster. Schemalagt underhåll motsvarar en regelbunden kontroll av komponenter. Oplanerat Underhåll kan uppstå från mekanisk fel eller andra prestandaförsämring. Datum / tid-värdena för underhåll avrundas till närmaste timme eftersom dessa data som samlas in till ett timpris.
+* [Telemetri](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/telemetry.csv): telemetridata som består av time series mått från flera sensorer på varje dator. Data loggas som medelvärdet sensorvärdena över varje intervall med en timme.
+* [Fel](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/failures.csv): fel som motsvarar komponenten ersättningar i loggen för underhåll. Varje post innehåller maskin-ID, komponenttyp och av Ersättningsdatum och tid. Dessa poster används för att skapa de machine learning-etiketter som du försöker förutse modellen.
 
 Ladda ner raw datauppsättningar från GitHub-lagringsplatsen och skapa PySpark-datauppsättningar för den här analysen genom att se den [datainmatning](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) Jupyter Notebook-scenario i mappen kod.
 

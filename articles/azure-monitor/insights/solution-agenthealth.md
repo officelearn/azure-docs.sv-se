@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 5823e6e3bf2614bf834a9ab64c3403829d58a779
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.openlocfilehash: 1c6012503c5300d64d17a4b8efc262fa91355c88
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715842"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890117"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Agenthälsolösning i Azure
 Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta eller en System Center Operations Manager-hanteringsgrupp ansluten till Log Analytics, som inte svarar och skicka operativa data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du distribuerar den här lösningen kan du bekräfta att du har för närvarande [Windows-agenter](../../log-analytics/log-analytics-windows-agent.md) rapporterar till Log Analytics-arbetsytan eller till en [Operations Manager-hanteringsgrupp](../../log-analytics/log-analytics-om-agents.md) integrerad med din arbetsyta.    
+Innan du distribuerar den här lösningen kan du bekräfta att du har för närvarande [Windows-agenter](../../log-analytics/log-analytics-windows-agent.md) rapporterar till Log Analytics-arbetsytan eller till en [Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) integrerad med din arbetsyta.    
 
 ## <a name="solution-components"></a>Lösningskomponenter
 Lösningen består av följande resurser som läggs till i din arbetsyta och ansluter direkt agenter eller Operations Manager-anslutna hanteringsgrupper.
@@ -36,7 +36,7 @@ Om din hanteringsgrupp för System Center Operations Manager är ansluten till e
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="configuration"></a>Konfiguration
 Lägga till agenthälsolösningen i Log Analytics-arbetsytan med processen som beskrivs i [lägga till lösningar](solutions.md). Det krävs ingen ytterligare konfiguration.

@@ -1,5 +1,6 @@
 ---
-title: Skapa PyTorch-modeller med Azure Machine Learning
+title: Träna modeller med PyTorch
+titleSuffix: Azure Machine Learning service
 description: Lär dig hur du kör en nod och distribuerad utbildning av PyTorch-modeller med PyTorch kostnadsuppskattning
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +11,14 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: dcd7b58e2c1f4d6e556515ad7db778f2989588b9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a6401c6059d8f72f344021879828b01c9ce77169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017431"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100573"
 ---
-# <a name="pytorch-models-with-azure-machine-learning-service"></a>PyTorch-modeller med Azure Machine Learning-tjänsten
+# <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Skapa PyTorch-modeller med Azure Machine Learning-tjänsten
 
 För djupa neurala (DNN) nätverksutbildning med PyTorch, Azure Machine Learning ger en anpassad `PyTorch` klassen för den `Estimator`. Azure SDK `PyTorch` estimator kan du enkelt skicka PyTorch upplärningsjobb för både en nod och distribuerade körs på Azure compute.
 

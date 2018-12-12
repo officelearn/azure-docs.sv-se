@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ab90b4431a0f8d3a4ee70869e053174f89f23dba
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: fdc45f6f1fbbb4580b71a46740fa51278b869ec0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785223"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889318"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Minne och samtidighet gränser för Azure SQL Data Warehouse
 Visa minne och samtidighet gränserna som allokerats till de olika prestandanivåer och resursklasser i Azure SQL Data Warehouse. Mer information, samt att tillämpa de här funktionerna på din plan för hantering av arbetsbelastning, se [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md). 
@@ -27,10 +27,14 @@ Följande tabeller visar den maximala kapaciteten för datalagret på olika pres
 
 ### <a name="gen2"></a>Gen2
 
-Gen2 innehåller 2,5 gånger mer minne per fråga än Gen1. Den här extra minne hjälper Gen2 leverera snabba prestanda.  Prestandanivåer för Gen2 mellan DW500c och DW30000c. 
+Gen2 innehåller 2,5 gånger mer minne per fråga än Gen1. Den här extra minne hjälper Gen2 leverera snabba prestanda.  Prestandanivåer för Gen2 mellan DW100c och DW30000c. 
 
 | Prestandanivå | Compute-noder | Distributioner per Compute-nod | Minne per datalager (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW100c            | 1             | 60                             |    60                          |
+| DW200c            | 1             | 60                             |   120                          |
+| DW300c            | 1             | 60                             |   180                          |
+| DW400c            | 1             | 60                             |   240                          |
 | DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
@@ -76,6 +80,10 @@ I följande tabell visas de maximalt antal samtidiga frågor och samtidighetsfac
 
 | Servicenivå | Maximalt antal samtidiga frågor | Samtidighetsfack som är tillgängliga |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
+| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
+| DW300c        | 12                         |   12                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
+| DW400c        | 16                         |   16                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
@@ -92,7 +100,7 @@ I följande tabell visas de maximalt antal samtidiga frågor och samtidighetsfac
 **Dynamiska resursklasser**
 
 > [!NOTE]
-> Resursklass smallrc på Gen2 dynamiskt lägger till minne servicenivån ökar och endast stöder en maximal 32 samtidiga frågor på DW1000c och 20 och DW500c.  När instansen skalas bortom DW1500c, samtidighetsfack och minnet som används av ökar smallrc när nivån ökar service. 
+> Resursklass smallrc på Gen2 dynamiskt lägger till minne servicenivån ökar och endast stöder en maximal 32 samtidiga frågor på DW1000c och 4 och DW100c.  När instansen skalas bortom DW1500c, samtidighetsfack och minnet som används av ökar smallrc när nivån ökar service. 
 >
 >
 
@@ -100,6 +108,10 @@ I följande tabell visas de maximalt antal samtidiga frågor och samtidighetsfac
 
 | Servicenivå | Maximalt antal samtidiga frågor | Samtidighetsfack som är tillgängliga | Platser som används av smallrc | Platser som används av mediumrc | Platser som används av largerc | Platser som används av xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
+| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
+| DW300c        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
+| DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
 | DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |

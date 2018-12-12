@@ -1,22 +1,23 @@
 ---
-title: Azure dedikerad HSM hög tillgänglighet | Microsoft Docs
-description: Azure dedikerade HSM tillhandahåller funktioner för lagring av nycklar i Azure som uppfyller FIPS 140-2 Level 3-certifiering
+title: Hög tillgänglighet – Azure dedikerad HSM | Microsoft Docs
+description: Exempel på Azure dedikerad HSM hög tillgänglighet och grundläggande överväganden
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: b02e3da086a3f33a55650fa72661f65028bfb78b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 991482d3d6be4d09b37014e5bb03708987e0f74e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680029"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078182"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Azure dedikerad HSM hög tillgänglighet
 

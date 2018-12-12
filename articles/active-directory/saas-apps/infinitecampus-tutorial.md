@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632814"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099961"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Självstudier: Azure Active Directory-integration med oändlig Campus
 
@@ -111,11 +111,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](common/editconfigure.png)
 
-5. På den **SAML grundkonfiguration** om du har **tjänstleverantör metadatafil** (steg **11.b**), utför följande steg:
+5. På den **SAML grundkonfiguration** om du har **tjänstleverantör metadatafil** (gå vidare till steg **11.c**), utför följande steg:
 
     a. Klicka på **ladda upp metadatafilen**.
 
-    ![image](common/b9_saml.png)
+        ![image](common/b9_saml.png)
 
     b. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
 
@@ -128,9 +128,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     d. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster (domänen varierar beroende på som är värd för modellen): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
-    > Du får den **tjänstleverantör metadatafil** på sidan oändlig Campus SSO konfiguration av ServiceProvider som beskrivs senare i självstudien.
+    > Du får den **tjänstleverantör metadatafil** på sidan oändlig Campus SSO konfiguration av ServiceProvider som beskrivs senare i självstudien. Om du börjar med en ny tjänstleverantör för SAML-konfiguration i oändlig Campus, gå vidare till **steg 11** att slutföra exporten av metadatafilen tjänstleverantör.
 
-6. Om du inte har **tjänstleverantör metadatafil**, utför följande steg:
+6. Om du inte har **tjänstleverantör metadatafil**, utför följande steg (Observera att domänen varierar beroende på som är värd för modellen):
 
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -169,10 +169,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
     a. Välj **aktivera SAML enkel inloggning**.
+    
+    b. På den **Välj ett alternativ för att hämta serverdata identitet Provider (IDP)** väljer du **Metadata_url**, klistra in den **Appfederationsmetadata** i rutan och sedan Klicka på **synkronisering**.
 
-    b. Klicka på **Metadata för Service Provider** länken för att spara den **tjänstleverantör metadatafil** på datorn och ladda upp den i **grundläggande SAML-konfiguration** avsnitt för att automatiskt polulate den **identifierare** och **svars-URL** värdena i Azure-portalen (finns i steg 5).
-
-    c. På den **Välj ett alternativ för att hämta serverdata identitet Provider (IDP)** väljer du **Metadata_url** och klistra in den **Appfederationsmetadata** i textrutan och Klicka sedan på **synkronisering**.
+    c. Klicka på **Service Provider Metadata** länken för att spara den **metadatafil för Service Provider** på din dator och ladda upp den i **grundläggande SAML-konfiguration** avsnitt för att automatiskt Fyll i den **identifierare** och **svars-URL** värden i Azure-portalen (se steg 4 för uppladdning och automatisk ifyllning av värden eller steg 5 för manuell inmatning).
 
     d. När du klickar på **synkronisering** värdena får fylls i **SSO konfiguration av ServiceProvider** sidan.
 

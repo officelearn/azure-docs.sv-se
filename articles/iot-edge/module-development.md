@@ -1,6 +1,6 @@
 ---
 title: Utveckla moduler för Azure IoT Edge | Microsoft Docs
-description: Lär dig hur du skapar anpassade moduler för Azure IoT Edge
+description: Utveckla anpassade moduler för Azure IoT Edge som kan kommunicera med runtime och IoT Hub
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cb97e2cf6d554753f64afc76de84f43e38443909
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 50e9c0667761e43c63b03fbaf5f8ce93eb49e749
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567238"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100097"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Förstå de krav och verktyg för att utveckla IoT Edge-moduler
 

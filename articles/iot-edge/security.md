@@ -1,6 +1,6 @@
 ---
-title: Säkerhet i Azure IoT Edge | Microsoft Docs
-description: Säkerhet, autentisering och auktorisering av IoT Edge-enheter
+title: Security framework - Azure IoT Edge | Microsoft Docs
+description: Lär dig om säkerhet, autentisering och auktorisering standarder som användes för att utveckla Azure IoT Edge och bör övervägas när du utformar din lösning
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,15 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4292dc3abf775d48ee33cc7a48793d080156efb1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 1042f53147122a7370b464f6bfc892dcee70fe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568945"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100148"
 ---
-# <a name="securing-azure-iot-edge"></a>Skydda Azure IoT Edge
+# <a name="security-standards-for-azure-iot-edge"></a>Säkerhetskrav för Azure IoT Edge
 
 Att skydda en intelligent gräns är nödvändigt att förtroende för driften av en IoT-lösning från slutpunkt till slutpunkt. Azure IoT Edge är utformat för säkerhet som kan utökas till olika riskprofiler, distributionsscenarier, och erbjuder samma skydd som du förväntar dig från alla Azure-tjänster.
 

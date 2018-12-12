@@ -4,12 +4,12 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
-ms.openlocfilehash: 8a9322862d63d856f96729e5784b88e0ef098fb6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 71d19b5d922616944c176cdda98470607c515af9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018500"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111892"
 ---
 | Resurs | Gräns |
 | --- | --- |
@@ -19,9 +19,9 @@ ms.locfileid: "53018500"
 | Azure Cache för Redis-repliker (för hög tillgänglighet) |1 |
 | Fragment i en premium-cache med klustring |10 |
 
-Azure Azure Cache för Redis begränsar och storlekar är olika för varje prisnivå. Prisnivåerna och deras associerade storlekar finns i [Azure Azure Cache Redis priser](https://azure.microsoft.com/pricing/details/cache/).
+Azure Redis-Cache begränsar och storlekar är olika för varje prisnivå. Prisnivåerna och deras associerade storlekar finns i [Azure Cache Redis priser](https://azure.microsoft.com/pricing/details/cache/).
 
-Mer information om Azure Cache för Azure Redis configuration gränser för finns i [Default Redis server configuration](../articles/azure-cache-for-redis/cache-configure.md#default-redis-server-configuration).
+Mer information om Azure Cache Redis configuration gränser för finns i [Default Redis server configuration](../articles/azure-cache-for-redis/cache-configure.md#default-redis-server-configuration).
 
-Eftersom konfiguration och hantering av Azure Azure Cache för Redis-instanser görs av Microsoft, stöds inte alla Redis-kommandon i Azure Azure Cache för Redis. Mer information finns i [Redis-kommandon som inte stöds i Azure Azure Cache för Redis](../articles/azure-cache-for-redis/cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
+Eftersom konfiguration och hantering av Azure Cache för Redis-instanser görs av Microsoft, stöds inte alla Redis-kommandon i Azure Cache för Redis. Mer information finns i [Redis-kommandon som inte stöds i Azure Cache för Redis](../articles/azure-cache-for-redis/cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 

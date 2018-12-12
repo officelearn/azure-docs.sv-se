@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970849"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088059"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -70,17 +70,6 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Ett problem har åtgärdats i vilka offentliga IP-adresser som har distribuerats med hjälp av dynamisk allokering metoden inte har garanterat bevaras när en frigörandet har utfärdats. De finns kvar.
 
 - <!-- 3078022 - IS, ASDK --> Om en virtuell dator var frigörandet innan 1808 gick det inte att uppdatera allokerade efter 1808 uppdateringen.  Det här problemet löses i 1809. Instanser som fanns i det här tillståndet och kunde inte startas kan startas i 1809 med den här snabbkorrigeringen. Korrigeringen förhindrar också att det här problemet igen.
-
-<!-- 3090289 – IS, ASDK --> 
-- Åtgärdat problemet där efter att uppdateringen 1808, du kan stöta på följande problem när du distribuerar virtuella datorer med hanterade diskar:
-
-   1. Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
-      1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
-      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
-   2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
-      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4481066).
-      2. Följ stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
-
 
 ### <a name="changes"></a>Ändringar
 
@@ -173,7 +162,7 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 > Förbereda distributionen av Azure Stack för tillägget värd som aktiveras av nästa uppdateringspaketet. Förbered datorn med hjälp av nedanstående procedur, [förbereda för tillägget för värd för Azure Stack](azure-stack-extension-host-prepare.md).
 
 Installera alla tillämpliga snabbkorrigeringar efter installationen av uppdateringen. Visa mer information i följande artiklar i kunskapsbasen, samt våra [Servicing princip](azure-stack-servicing-policy.md).  
-- [KB 4477849 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
+- [KB 4481548 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
 
@@ -226,7 +215,7 @@ Här följer efter installation kända problem för den här build-versionen.
    
   Kör den [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet för att kontrollera hälsotillståndet för rollinstanser för infrastruktur och skala enhet noder. Om inga problem har identifierats av [Test-AzureStack](azure-stack-diagnostic-test.md), du kan ignorera dessa aviseringar. Om ett problem har identifierats, kan du försöker starta rollinstansen infrastruktur eller nod med hjälp av administrationsportalen eller PowerShell.
 
-  Det här problemet löses i senast [1809 snabbkorrigering versionen](https://support.microsoft.com/help/4477849/), så var noga med att installera snabbkorrigeringen om du upplever problemet. 
+  Det här problemet löses i senast [1809 snabbkorrigering versionen](https://support.microsoft.com/help/4481548/), så var noga med att installera snabbkorrigeringen om du upplever problemet. 
 
 <!-- 1264761 - IS ASDK -->  
 - Du kan se aviseringar för den **hälsotillstånd controller** komponent som har följande information:  
@@ -292,7 +281,18 @@ Här följer efter installation kända problem för den här build-versionen.
 
    Gå till fönstret mått för att hitta mätvärden, till exempel CPU-procent diagrammet för den virtuella datorn, och visar alla stöds Windows VM gäst-mått.
 
+<!-- 3507629 - IS, ASDK --> 
+- Hanterade diskar skapar två nya [compute kvottyper](azure-stack-quota-types.md#compute-quota-types) att begränsa den maximala kapaciteten på hanterade diskar som kan etableras. Som standard tilldelas 2 048 GiB för varje typ av kvot för hanterade diskar. Men du kan stöta på följande problem:
 
+   - Av kvoter som skapats före uppdateringen 1808, visa kvot på Managed Disks 0 värden i administratörsportalen kan även om 2 048 GiB har allokerats. Du kan öka eller minska värdet utifrån dina faktiska behov och den nyligen ange kvotvärde åsidosätter 2048 GiB standard.
+   - Om du uppdaterar kvotvärdet till 0, motsvarar det att standardvärdet 2 048 GiB. Som en lösning kan du ange kvotvärdet till 1.
+
+<!-- TBD - IS ASDK --> Efter att ha tillämpat 1809 uppdatera, följande problem kan uppstå när du distribuerar virtuella datorer med hanterade diskar:
+
+   - Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks kan misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
+      1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
+      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
+   2. Om du har konfigurerat en miljö med flera organisationer kan kan distribuera virtuella datorer i en prenumeration som är associerade med en gäst-katalog misslyckas med ett internt felmeddelande. Lös felet genom att följa stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
 
 ### <a name="networking"></a>Nätverk  
 

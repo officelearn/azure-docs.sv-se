@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: be3fb5ab58afd4287bd572842e19dd9e41e8b13b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: e0ea6a82b1dbd9b3fa4a273fae2b79cdc3629904
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839304"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890729"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -61,7 +61,7 @@ Regioner som listan över stöds för ExpressRoute-övervakning är tillgänglig
 
 ### <a name="install-and-configure-agents"></a>Installera och konfigurera agenter 
 
-Använd basic-processer för att installera agenter på [ansluta Windows-datorer till Azure Log Analytics](../../log-analytics/log-analytics-om-agents.md) och [ansluta Operations Manager till Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Använd basic-processer för att installera agenter på [ansluta Windows-datorer till Azure Log Analytics](../../azure-monitor/platform/om-agents.md) och [ansluta Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Var du vill installera agenter 
 

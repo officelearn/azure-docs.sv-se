@@ -1,5 +1,6 @@
 ---
-title: Kända problem och felsökning för Azure Machine Learning-tjänsten
+title: Kända problem och felsökning
+titleSuffix: Azure Machine Learning service
 description: Hämta en lista över kända problem, lösningar, och felsökning för Azure Machine Learning-tjänsten.
 services: machine-learning
 author: j-martens
@@ -10,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 471a7494cefd008e8b32855ff232468701505ce7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 45eb24bb8a49fb59ae44533e59b2760940ee5c1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013397"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097716"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
  
@@ -30,7 +31,7 @@ Azure Machine Learning-SDK för Python: PyYAML är ett projekt för distutils in
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
-## <a name="azure-machine-learning-compute-usage-issue"></a>Beräkning av Machine Learning användning problem med Azure
+## <a name="trouble-creating-azure-machine-learning-compute"></a>Problem med att skapa beräkning av Azure Machine Learning
 Det finns en ovanligt risk att vissa användare som skapade sin Azure Machine Learning-arbetsyta från Azure-portalen innan GA-versionen kan inte skapa beräkning av Azure Machine Learning på arbetsytan. Du kan generera en supportförfrågan mot tjänsten, eller så kan du skapa en ny arbetsyta via portalen eller SDK, för att avblockera själv omedelbart. 
 
 ## <a name="image-building-failure"></a>Bild byggnad fel

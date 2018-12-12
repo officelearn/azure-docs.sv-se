@@ -1,6 +1,6 @@
 ---
-title: Azure API management princip exempel - skicka fel till Stackify för loggning | Microsoft Docs
-description: Azure API management princip exemplet - visar hur du lägger till en princip för loggning av fel om du vill skicka fel till Stackify för loggning...
+title: Exempel för Azure API-princip för hantering – skicka fel till Stackify för loggning | Microsoft Docs
+description: Azure API management princip exempel - visar hur du lägger till en princip för loggning av fel om du vill skicka fel till Stackify för loggning...
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 5daf21cb55289c874d56910b1240e1433f3d55d0
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 07cc83830fe2d467c611622bb66dfbb8c9429c2d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945963"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864884"
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>Skicka fel till Stackify för loggning
 
-Den här artikeln visar ett Azure API management princip exempel som visar hur du lägger till en princip för loggning av fel om du vill skicka fel till Stackify för loggning. Om du vill ange eller redigera en princip-kod, Följ stegen som beskrivs i [ange eller redigera en princip](../set-edit-policies.md). Andra exempel finns [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på Azure API management-princip som visar hur du lägger till en princip för loggning av fel om du vill skicka fel till Stackify för loggning. Om du vill ange eller redigera en princip för kod, följer du stegen som beskrivs i [ange eller redigera en princip](../set-edit-policies.md). Andra exempel finns i [princip exempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 
@@ -32,7 +32,7 @@ Klistra in koden i den **vid fel** block.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om APIM principer:
+Mer information om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
 + [Princip-exempel](../policy-samples.md)

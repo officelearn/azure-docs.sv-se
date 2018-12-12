@@ -1,11 +1,13 @@
 ---
-title: Tio saker som du kan göra på den virtuella datorn för datavetenskap på Azure | Microsoft Docs
+title: Datagranskning och modellering med Data Science Virtual Machine
+titleSuffix: Azure
 description: Utföra olika datagranskning och modellering aktiviteten på den virtuella datorn för datavetenskap.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52f0a298b1a9e9f3f209f51c1bc0362b8ddf2c4e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250925"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075697"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker som du kan göra på den Windows virtuell dator för datavetenskap
 
@@ -62,7 +64,7 @@ För Python, kan du använda en IDE som Visual Studio Community Edition, som har
 
 Här är vad inställningen för anpassad miljö ser ut som i Visual Studio.
 
-![PTVS installationen](./media/vm-do-ten-things/PTVSSetup.png)
+![Skärmbild av Visual Studio med Python Tools för Visual Studio som valts](./media/vm-do-ten-things/PTVSSetup.png)
 
 Se den [dokumentationen till PTVS](https://aka.ms/ptvsdocs) för ytterligare information om hur du skapar Python-miljöer.
 
@@ -249,7 +251,7 @@ Om du vill hämta kod från en GitHub-lagringsplats som du använder den ```git 
 
 I Visual Studio kan du göra samma kopieringen. Följande skärmbild visar hur du kommer åt Git och GitHub-verktygen i Visual Studio.
 
-![Git i Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
+![Skärmbild av Visual Studio med med GitHub-anslutningen visas](./media/vm-do-ten-things/VSGit.PNG)
 
 Du hittar mer information om hur du använder Git för att arbeta med din GitHub-lagringsplats från flera resurser som är tillgängliga på github.com. Den [facit](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) är användbar som referens.
 
@@ -261,12 +263,12 @@ Azure blob är en pålitlig, ekonomisk molnlagring för stora och små. Det här
 
 * **Skapa Azure Blob storage-kontot från [Azure-portalen](https://portal.azure.com).**
 
-![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Skärmbild av Storage-konto skapas i Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Bekräfta att de förinstallerade kommandoradsverktyget AzCopy påträffades vid ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Den katalog som innehåller azcopy.exe finns redan i miljövariabeln PATH för att undvika att skriva den fullständiga kommandosökvägen när du kör det här verktyget. Mer information om AzCopy-verktyget finns i [AzCopy-dokumentationen](../../storage/common/storage-use-azcopy.md)
 * Starta verktyget Azure Storage Explorer. Den kan hämtas från [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/). 
 
-![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
+![Skärmbild av Azure Storage Explorer åtkomst till ett Lagringskonto](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
 **Flytta data från virtuell dator till Azure Blob: AzCopy**
 
@@ -276,7 +278,7 @@ För att flytta data mellan din lokala filer och blob storage med AzCopy kan du 
 
 Ersätt **C:\myfolder** till den sökväg där filen lagras, **mystorageaccount** till ditt blob storage-kontonamn, **mycontainer** till behållarens namn **lagringskontonyckel** till din åtkomstnyckel för blob storage. Du kan hitta autentiseringsuppgifterna för ditt lagringskonto i [Azure-portalen](https://portal.azure.com).
 
-![StorageAccountCredential_v2](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
+![Skärmbild som visar lagringskontonycklar och information för behållare i Azure portal](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 Kör AzCopy-kommandot i PowerShell eller från en kommandotolk. Här är några exempel på användning av AzCopy-kommandot:
 
@@ -291,20 +293,20 @@ Kör AzCopy-kommandot i PowerShell eller från en kommandotolk. Här är några 
 
 När du kör AzCopy-kommandot för att kopiera till en Azure-blob, visas din fil som visas i Azure Storage Explorer inom kort.
 
-![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
+![Skärmbild av Storage-konto, visar den uppladdade CSV-filen](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
 **Flytta data från virtuell dator till Azure Blob: Azure Storage Explorer**
 
 Du kan också ladda upp data från den lokala filen i den virtuella datorn med Azure Storage Explorer:
 
-* Välj en målbehållare för att ladda upp data till en behållare, och klicka på den **överför** knappen.![ Ladda upp i Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Klicka på den **...**  till höger om den **filer** väljer du en eller flera filer att ladda upp från filsystemet och klicka på **överför** att påbörja uppladdningen av filerna.![ Ladda upp filer till blob](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Välj en målbehållare för att ladda upp data till en behållare, och klicka på den **överför** knappen.![ Skärmbild av knappen ladda upp i Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
+* Klicka på den **...**  till höger om den **filer** väljer du en eller flera filer att ladda upp från filsystemet och klicka på **överför** att påbörja uppladdningen av filerna.![ Skärmbild av dialogrutan för filöverföring-filer](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Läsa data från Azure Blob: modul för dataläsare för Machine Learning**
 
 Du kan använda i Azure Machine Learning Studio, en **importdata modulen** att läsa data från din blob.
 
-![AML_ReaderBlob_Module_v3](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
+![Skärmbild av modulen importera Data i Machine Learning Studio](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
 **Läsa data från Azure Blob: Python ODBC**
 
@@ -352,7 +354,7 @@ Sedan ansluter autentiseringsuppgifterna för ditt Azure-Blob och läsa data fr�
 
 Data läses i som en dataram:
 
-![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
+![Skärmbild av de första 10 datarader](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake Storage är en storskalig lagringsplats för stordataanalyser och kompatibel med Hadoop Distributed File System (HDFS). Det fungerar med Hadoop, Spark och Azure Data Lake Analytics. I det här avsnittet får du lära dig hur du kan flytta data till Azure Data Lake Store och kör analytics med hjälp av Azure Data Lake Analytics.
@@ -361,17 +363,17 @@ Azure Data Lake Storage är en storskalig lagringsplats för stordataanalyser oc
 
 * Skapa Azure Data Lake Analytics i [Azure-portalen](https://portal.azure.com).
 
-![Azure_Data_Lake_Create_v2](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+![Skärmbild av skapar Data Lake Analytics med hjälp av Azure-portalen](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 * Den **Azure Data Lake Tools** i **Visual Studio** hittades på den här [länk](https://www.microsoft.com/download/details.aspx?id=49504) redan är installerad på den Visual Studio Community Edition som finns på den virtuella datorn. När du startar Visual Studio och loggning i din Azure-prenumeration kan bör du se din Azure Data Analytics-konto och lagringsutrymme i den vänstra panelen av Visual Studio.
 
-![Azure_Data_Lake_PlugIn_v2](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
+![Skärmbild av Data Lake-verktygen i Visual Studio](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
 **Flytta data från virtuell dator till Data Lake: Azure Data Lake Explorer**
 
 Du kan använda **Azure Data Lake Explorer** att överföra data från de lokala filerna i den virtuella datorn till Data Lake-lagring.
 
-![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+![Skärmbild på hur du använder Data Lake Explorer för att ladda upp filer](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
 Du kan också skapa en datapipeline för att operationalisera dina data flyttas till eller från Azure Data Lake med hjälp av den [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Referera till denna [artikeln](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) att guida dig genom stegen för att skapa data pipelines.
 
@@ -379,11 +381,11 @@ Du kan också skapa en datapipeline för att operationalisera dina data flyttas 
 
 Om dina data finns i Azure Blob storage, kan du direkt läsa data från Azure storage blob i U-SQL-fråga. Kontrollera att blob storage-kontot är länkat till din Azure Data Lake innan du skriver U-SQL-fråga. Gå till **Azure-portalen**, hitta din Azure Data Lake Analytics-instrumentpanelen, klicka på **Lägg till datakälla**, Välj lagringstyp som ska **Azure Storage** och Anslut i Azure Storage-konto Namn och nyckel. Är du kunna referera till de data som lagras i lagringskontot.
 
-![Ange lagringskontot och nyckeln](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![Skärmbild av dialogrutan Lägg till datakälla](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 I Visual Studio kan du läsa data från blob storage, göra vissa datamanipulering, funktionstekniker och den resulterande utdata till Azure Data Lake eller Azure Blob Storage. När du refererar till data i blob storage, använda **wasb: / /**; när du refererar till data i Azure Data Lake, Använd **swbhdfs: / /**
 
-![Dataram](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![Skärmbild av frågan med posten WASB markerat](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 Du kan använda följande U-SQL-frågor i Visual Studio:
 
@@ -429,7 +431,7 @@ Du kan använda följande U-SQL-frågor i Visual Studio:
 
 När din fråga har skickats till servern, visas ett diagram som visar status för jobbet.
 
-![Status för jobbdiagram](./media/vm-do-ten-things/USQL_Job_Status.PNG)
+![Skärmbild av dialogrutan jobbstatus](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
 **Fråga efter data i Data Lake: U-SQL**
 
@@ -437,11 +439,11 @@ När datauppsättningen matas in i Azure Data Lake, kan du använda [U-SQL-språ
 
 När frågan har skickats till servern, tripdata_summary. CSV finns snart i **Azure Data Lake Explorer**, du kan förhandsgranska data genom att högerklicka på filen.
 
-![Filen i Azure Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
+![Skärmbild av csv-fil i Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
 
 Visa filinformationen:
 
-![Fil-sammanfattning](./media/vm-do-ten-things/USQL_tripdata_summary.png)
+![Skärmbild av den sammanfattande informationen för filen](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop-kluster
 Azure HDInsight är en hanterad Apache Hadoop, Spark, HBase och Storm-tjänst i molnet. Du kan arbeta enkelt med Azure HDInsight-kluster från den virtuella datorn för datavetenskap.
@@ -450,7 +452,7 @@ Azure HDInsight är en hanterad Apache Hadoop, Spark, HBase och Storm-tjänst i 
 
 * Skapa Azure Blob storage-kontot från [Azure-portalen](https://portal.azure.com). Det här lagringskontot används för att lagra data för HDInsight-kluster.
 
-![Skapa Azure Blob storage-konto](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Skärmbild för att skapa HDInsight från Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Anpassa Azure HDInsight Hadoop-kluster från [Azure-portalen](../team-data-science-process/customize-hadoop-cluster.md)
   
@@ -460,7 +462,7 @@ Azure HDInsight är en hanterad Apache Hadoop, Spark, HBase och Storm-tjänst i 
 
 * Aktivera **fjärråtkomst** till huvudnoden i klustret när den har skapats. Kom ihåg fjärråtkomst-autentiseringsuppgifter som du anger här eftersom du behöver dem i den efterföljande proceduren.
 
-![Aktivera fjärråtkomst](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![Aktivera fjärråtkomst till HDInsight-kluster](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
 * Skapa en Azure Machine Learning-arbetsyta. Machine Learning-experiment lagras i den här Machine Learning-arbetsytan. Välj de markerade alternativ i portalen, enligt följande skärmbild:
 
@@ -638,7 +640,7 @@ Du kan också beräkna avståndet mellan upphämtning och dropoff plats och jäm
     results.head(5)
 
 
-![Hämtning och dropoff tabell](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
+![De översta raderna i tabellen hämtning och dropoff](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
     results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
                        'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -782,7 +784,7 @@ Du kan se data har lästs in i Hadoop-kluster efter ett tag:
     pd.read_sql(queryString,connection)
 
 
-![Tabell med data](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![Översta rader med data från tabellen](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 **Läsa data från HDI med hjälp av Machine Learning: läsmodulen**
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 81927c4e69f36fbc4859ac2865bc15cbfacb17fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d1c9101f10342f98803a4ace420abbed5d49ba23
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843877"
+ms.locfileid: "52880122"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token-referens
 
@@ -89,7 +89,7 @@ Observera att anspråk i ID-token inte returneras i någon särskild ordning. De
 ### <a name="refresh-tokens"></a>Uppdatera token
 Uppdatera token är säkerhetstokens som din app kan använda för att hämta nya ID-token och åtkomsttoken i ett OAuth 2.0-flöde. Du får din app långsiktig åtkomst till resurser för användare utan interaktion med användare.
 
-Att ta emot en uppdatering av token i svaret token din app måste begära den `offline_acesss` omfång. Mer information om den `offline_access` omfång, referera till den [protokollreferens för Azure AD B2C](active-directory-b2c-reference-protocols.md).
+Att ta emot en uppdatering av token i svaret token din app måste begära den `offline_access` omfång. Mer information om den `offline_access` omfång, referera till den [protokollreferens för Azure AD B2C](active-directory-b2c-reference-protocols.md).
 
 Uppdatera token är det alltid är, helt täckande för din app. De kan har utfärdats av Azure AD och granskas och tolkas bara av Azure AD. De är långlivade, men din app ska inte skrivas med förväntan om att en uppdateringstoken varar en viss tidsperiod. Uppdateringstoken kan vara inaktuella när som helst av olika skäl. Det enda sättet för din app att veta om en uppdateringstoken är giltig är att försöka lösa in den genom att göra en begäran om token till Azure AD.
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 3796f5c8956b633a4789baaf31a439746dc96b96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 10a33163b2bfe6a1c9c24b9de58f83813e7534a6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233770"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863932"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Synkronisera innehåll från en molnmapp till Azure App Service
 Den här artikeln visar hur du synkroniserar ditt innehåll till [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) från Dropbox och OneDrive. 
@@ -61,7 +61,7 @@ När du vill synkronisera innehåll i mappen molnet med App Service går du till
 
 Om du vill inaktivera innehållssynkronisering inloggningsinformationen för din App Service app i den [Azure-portalen](https://portal.azure.com).
 
-I den vänstra menyn klickar du på **Deployment Center** > **OneDrive** eller **Dropbox** > **Disconnect**.
+I den vänstra menyn klickar du på **Deployment Center** > **Disconnect**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

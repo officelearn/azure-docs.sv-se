@@ -8,19 +8,19 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.openlocfilehash: 926d1a35cb10d50ddeacbed5476e2dcf14d0999d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: dc6244b6e263d3fb963d40b2f0c626cdfa9ecff8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52857050"
+ms.locfileid: "52873469"
 ---
 # <a name="data-modeling-in-azure-time-series-insights"></a>Datamodellering i Azure Time Series Insights
 
 Det här dokumentet beskriver hur du arbetar med **Time Series modeller** följer Azure Time Series Insights (förhandsversion). Den beskriver flera vanliga datascenarier.
 
-Läs den [Azure TSI (förhandsversion) Explorer](./time-series-insights-update-explorer.md) artikeln om du vill veta mer om att navigera den privata förhandsgranskningen.
+Läs den [Azure TSI (förhandsversion) explorer](./time-series-insights-update-explorer.md) artikeln om du vill veta mer om navigera uppdateringen.
 
 ## <a name="types"></a>Typer
 
@@ -130,9 +130,11 @@ Läs den [Azure TSI (förhandsversion) Explorer](./time-series-insights-update-e
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs [Time Series modeller](./time-series-insights-update-tsm.md) för mer information om **Time Series modeller**.
+Läs mer om [datamodellering](./time-series-insights-update-tsm.md) för mer information om **Time Series modeller**.
 
-Visa Azure TSI (förhandsversion) Explorer [artikeln](./time-series-insights-update-explorer.md) mer information om förhandsversionen.
+Visa Azure TSI (förhandsgranskning)-Utforskaren [artikeln](./time-series-insights-update-explorer.md) mer information om förhandsversionen.
+
+Lär dig mer om JSON-former som stöds genom att läsa [stöds JSON-former](./time-series-insights-send-events.md#json).
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png

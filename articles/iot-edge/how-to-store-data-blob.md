@@ -1,5 +1,5 @@
 ---
-title: Azure Blob-lagring på Azure IoT Edge-enheter | Microsoft Docs
+title: Store blockblob-objekt på enheter – Azure IoT Edge | Microsoft Docs
 description: Distribuera en Azure Blob Storage-modulen till IoT Edge-enhet för att lagra data på gränsen.
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: e56d49208740686b51cdaef1bab778e2c08a9b58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567289"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077928"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -105,7 +106,7 @@ Välj något av två sätt att hitta blob storage-modulen:
    > [!CAUTION]
    > Ändra inte den ”/ blobroot” för Linux och ”C:/BlobRoot” för Windows, för  **\<Storage directory bind >** värden.
 
-    ![Uppdatera modulen värden](./media/how-to-store-data-blob/edit-module.png)
+    ![Uppdatera modulen behållare skapa alternativ - portalen](./media/how-to-store-data-blob/edit-module.png)
 
 6. **Spara** värdena i ”IoT Edge anpassade moduler”
 7. Klicka på **nästa** i avsnittet ”Ställa in moduler”
@@ -149,7 +150,7 @@ Lösningsmallen skapar en manifest Distributionsmall som innehåller din avbildn
    {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"<storage directory bind>\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
    ```
 
-   ![Uppdatera modulen alternativ för att skapa](./media/how-to-store-data-blob/create-options.png)
+   ![Uppdatera modulen createOptions - VS Code](./media/how-to-store-data-blob/create-options.png)
 
 4. I Skapa-alternativen JSON uppdaterar `<storage directory bind>` beroende på operativsystemet för behållaren. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data.  
 

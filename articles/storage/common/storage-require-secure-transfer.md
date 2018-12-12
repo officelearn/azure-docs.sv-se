@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 201bf1e5d3580902934f139b70ca5363e7cc5930
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523023"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876510"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Kräv säker överföring i Azure Storage
 
 Alternativet ”säker överföring krävs” ger ökad säkerhet för ditt lagringskonto genom att bara tillåta begäranden till kontot från säkra anslutningar. Till exempel när du anropar REST API: er för att få åtkomst till ditt storage-konto, måste du ansluta via HTTPS. ”Säker överföring krävs” avvisar begäranden som använder HTTP.
 
-När du använder Azure Files-tjänsten misslyckas alla anslutningar utan kryptering när ”säker överföring krävs” är aktiverad. Detta inkluderar scenarier som använder SMB 2.1 och SMB 3.0 utan kryptering vissa versioner av Linux SMB-klienten. 
+När du använder Azure Files-tjänsten misslyckas alla anslutningar utan kryptering när ”säker överföring krävs” är aktiverad. Detta inkluderar scenarier som använder SMB 2.1 och SMB 3.0 utan kryptering vissa versioner av Linux SMB-klienten. 
 
-Som standard inaktiveras alternativet ”säker överföring krävs”.
+Som standard inaktiveras alternativet ”säker överföring krävs” när du skapar ett lagringskonto med SDK. Och det är aktiverat som standard när du skapar ett lagringskonto i Azure Portal.
 
 > [!NOTE]
 > Eftersom Azure Storage inte stöder HTTPS för anpassade domännamn, tillämpas inte det här alternativet när du använder ett anpassat domännamn. Och klassiska lagringskonton stöds inte.

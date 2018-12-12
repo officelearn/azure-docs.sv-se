@@ -1,5 +1,5 @@
 ---
-title: Skapa och dela en Jupyter notebook på Azure | Microsoft Docs
+title: Skapa och dela en Jupyter notebook på Azure
 description: Snabbt skapa och köra en Jupyter notebook i Azure-anteckningsböcker och sedan dela den notebook med andra.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 9f7659dadb4c710169ec1e700d31e60cbc957ac1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856794"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096281"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Snabbstart: Skapa och dela en anteckningsbok
 
@@ -97,11 +97,11 @@ ms.locfileid: "52856794"
 
 ## <a name="share-the-notebook"></a>Dela anteckningsboken
 
-1. Om du vill dela din bärbara dator vid behov växla tillbaka till projektsidan, högerklicka på anteckningsboksfilen, Välj **Kopiera länk** (kortkommandot: y), och klistra in länken i ett meddelande (e-post, Snabbmeddelanden osv.).
+Om du vill dela din bärbara dator vid behov växla tillbaka till projektsidan, högerklicka på anteckningsboksfilen, Välj **Kopiera länk** (kortkommandot: y), och klistra in länken i ett meddelande (e-post, Snabbmeddelanden osv.).
 
-    På projektsidan kan du också använda den **resursen** inbäddningskod i menyn för att få en länk, skapa ett e-postmeddelande med en länk eller hämta HTML och Markdown:
+På projektsidan kan du också använda den **resursen** inbäddningskod i menyn för att få en länk, skapa ett e-postmeddelande med en länk eller hämta HTML och Markdown:
 
-    ![Kommandot share för projektet](media/quickstarts/share-project-command.png)
+![Kommandot share för projektet](media/quickstarts/share-project-command.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

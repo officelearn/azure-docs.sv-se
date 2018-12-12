@@ -1,6 +1,6 @@
 ---
-title: Tilldela eller ta bort Azure Active Directory-licenser | Microsoft Docs
-description: Tilldela eller ta bort Azure Active Directory-licenser från användare eller grupper med hjälp av Azure Active Directory.
+title: Tilldela eller ta bort licenser – Azure Active Directory | Microsoft Docs
+description: Anvisningar om hur du tilldelar eller ta bort Azure Active Directory-licenser från användare eller grupper.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: e1b0b2f84c67e30c3bb998554dc662b002744003
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603899"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077469"
 ---
-# <a name="how-to-assign-or-remove-azure-active-directory-licenses"></a>Så här: tilldela eller ta bort licenser för Azure Active Directory
+# <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Tilldela eller ta bort licenser med hjälp av Azure Active Directory-portalen
 Många Azure Active Directory (Azure AD) tjänster måste du aktivera Azure AD-produkt och licensiera var och en av dina användare eller grupper (och associerade medlemmar) för produkten. Endast användare med aktiva licenser kommer att kunna komma åt och använda den licensierade Azure AD-tjänster.
 
 ## <a name="available-product-editions"></a>Tillgängliga produkten utgåvor
@@ -40,7 +40,7 @@ Specifik information om varje produkt-version och tillhörande licensiering info
 Du kan visa dina tillgängliga produkter, inklusive enskilda licenser söker efter alla väntande förfallodatum och antal tilldelningar som är tillgängliga.
 
 ### <a name="to-find-your-product-and-license-details"></a>Dina produkter och licenser information
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Globalt administratörskonto för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **licenser**.
 

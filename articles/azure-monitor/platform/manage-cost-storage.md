@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: be64d299ac61a47dd3c44ee2e422abd09785189e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 744a0f683f58aed98cea7bdef0b2a36af68ad2f1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002645"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097581"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics
 
@@ -67,7 +67,7 @@ När du skapar en Log Analytics-arbetsyta från Azure-portalen och du väljer de
 När den dagliga gränsen har uppnåtts, stoppar insamlingen av fakturerbara datatyper för resten av dagen. En varning banderoll överst på sidan för den valda Log Analytics-arbetsytan och en åtgärd händelse skickas till den *åtgärden* tabellen **LogManagement** kategori. Insamling av data återupptar när återställningstiden definierats *dagliga gränsen ställs in på*. Vi rekommenderar att definiera en aviseringsregel baserat på den här åtgärden-händelser som konfigurerats för att meddela när den dagliga data gränsen har uppnåtts. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga datagräns definiera 
-Granska [Log Analytics-användning och uppskattade kostnader](../../log-analytics/log-analytics-usage.md) att förstå till trenden för inmatning av data och vad är den dagliga Volymgränsen definiera. Det bör ses med försiktighet, eftersom du inte längre att övervaka dina resurser när gränsen har nåtts. 
+Granska [Log Analytics-användning och uppskattade kostnader](../../azure-monitor/platform/data-usage.md) att förstå till trenden för inmatning av data och vad är den dagliga Volymgränsen definiera. Det bör ses med försiktighet, eftersom du inte längre att övervaka dina resurser när gränsen har nåtts. 
 
 ### <a name="manage-the-maximum-daily-data-volume"></a>Hantera maximal daglig datavolym 
 Följande steg beskriver hur du konfigurerar en gräns för att hantera mängden data som Log Analytics att mata in per dag.  
@@ -125,4 +125,4 @@ Log Analytics använder UTC-tid. Återställningstiden varierar mellan arbetsyto
 
 ## <a name="next-steps"></a>Nästa steg  
 
-För att avgöra hur mycket data som samlas in, vilka källor skickar och vilka typer av data som skickas för att hantera förbrukning och kostnader, se [analysera dataanvändning i Log Analytics](../../log-analytics/log-analytics-usage.md).
+För att avgöra hur mycket data som samlas in, vilka källor skickar och vilka typer av data som skickas för att hantera förbrukning och kostnader, se [analysera dataanvändning i Log Analytics](../../azure-monitor/platform/data-usage.md).

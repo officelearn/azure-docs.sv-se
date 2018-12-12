@@ -1,5 +1,6 @@
 ---
-title: Aktivera datainsamling för modeller i produktion – Azure Machine Learning
+title: Aktivera datainsamling för modeller i produktion
+titleSuffix: Azure Machine Learning service
 description: Lär dig mer om att samla in Azure Machine Learning indatamodellen data i Azure Blob storage.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3033b049b3d4bbe49b6a30be7ec78e1c2caf49ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: e6b6a8e1dd1b3746977062341013b92acff132c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011154"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100553"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
@@ -55,7 +56,7 @@ Sökvägen till utdata i blob följande följande syntax:
 
 - En tränad modell för maskininlärning som ska distribueras till Azure Kubernetes Service (AKS). Om du inte har någon kan se den [träna bild klassificeringsmodellen](tutorial-train-models-with-aml.md) självstudien.
 
-- En [AKS-kluster](how-to-deploy-to-aks.md).
+- Ett Azure Kubernetes Service-kluster. Information om hur du skapar och distribuerar till en finns i den [hur du distribuerar och var](how-to-deploy-and-where.md) dokumentet.
 
 - [Konfigurera din miljö](how-to-configure-environment.md) och installera den [övervakning SDK](https://aka.ms/aml-monitoring-sdk).
 
@@ -103,7 +104,7 @@ För att göra det, måste du:
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. [Skapa ny avbildning och distribuera din tjänst.](how-to-deploy-to-aks.md) 
+5. Om du vill skapa en ny avbildning och distribuera tjänsten, se den [hur du distribuerar och var](how-to-deploy-and-where.md) dokumentet.
 
 
 Om du redan har en tjänst med beroenden som installerats i din **miljöfil** och **bedömningsfil**, aktivera insamling av data genom att:

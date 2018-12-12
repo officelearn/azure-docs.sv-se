@@ -1,10 +1,10 @@
 ---
-title: Definiera anpassade R-moduler för Azure Machine Learning Studio | Microsoft Docs
-description: Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa. Det illustrerar hur du skapar filer som definierar en modul och hur du registrerar modulen för distribution i en Machine Learning Studio-arbetsyta.
+title: Definiera anpassade R-moduler – Azure Machine Learning Studio | Microsoft Docs
+description: Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: b8ab22f1567102ed79ccf6e0bf49dbdbc3f42ea9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 5cddc767b4652df6753cc57eb7305b46ec45e19d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308447"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098649"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio
 
@@ -289,7 +289,7 @@ En modul-parameter har definierats med hjälp av den **Arg** underordnat element
   
   * **allowedTypes** -filter som kolumnen skriver från vilken du kan välja. Giltiga värden är: 
     
-    * Numerisk
+    * numeriskt
     * Boolesk
     * Kategoriska
     * Sträng

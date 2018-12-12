@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: ce6847accef6290497ff0833901a1c07ee59b7b6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4118e0bb0e42a1eec707b2fdb6682333400e2e1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998028"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099842"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Skapa en supportbegäran för Cloudyn
 
@@ -43,7 +43,7 @@ Om du vill skapa ett fakturering supportärende om Cost Management under **probl
 
 Du kan kontrollera status för en rapport som du har arkiverat [alla supportärenden](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
 
-Om du är en äldre Cloudyn-användare utan ett Azure-konto kan du öppna en supportbegäran på http://support.microsoft.com/oas/default.aspx?prid=16451.
+Om du är en äldre Cloudyn-användare utan ett Azure-konto kan du öppna en supportbegäran på https://support.microsoft.com/oas/default.aspx?prid=16451.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 04e4337581337a467fc49927f0f353d42c7b801a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: 7ffcf656762c82d81c86eb394b028722566dafdb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089675"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864425"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB Table API för Node.js: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "53089675"
 |   |   |
 |---|---|
 |**Hämta SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**API-dokumentation**|[Node.js API-referensdokumentation](https://azure.github.io/azure-storage-node/)|
+|**API-dokumentation**|[Node.js API-referensdokumentation](http://azure.github.io/azure-storage-node/)|
 |**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]

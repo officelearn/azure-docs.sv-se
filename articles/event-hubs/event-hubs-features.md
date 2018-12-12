@@ -1,6 +1,6 @@
 ---
-title: Översikt över funktioner i Azure Event Hubs | Microsoft Docs
-description: Översikt över och information om Azure Event Hubs-funktioner
+title: Översikt över funktioner – Azure Event Hubs | Microsoft Docs
+description: Den här artikeln innehåller information om funktioner och terminologi för Azure Event Hubs.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e27ac67db6a12b4ebfe04e9e1f89203e5e539318
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012733"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075174"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funktionerna och terminologin i Azure Event Hubs
 

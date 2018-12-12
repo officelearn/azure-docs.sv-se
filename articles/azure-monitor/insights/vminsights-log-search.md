@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: d12de42be9cf5d1a48288aabf21b25546e5b4bbc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 17d663873639cc36e9727881d990a3f32697c798
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833085"
+ms.locfileid: "52872160"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer samlar in prestanda- och anslutningshanteringstjänsten mått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till Log Analytics-datalager i Azure Monitor.  Informationen är tillgänglig för [search](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
@@ -238,5 +238,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du är nybörjare på att skriva frågor i Log Analytics kan du granska [hur du använder Log Analytics-sidan](../../log-analytics/query-language/get-started-analytics-portal.md) i Azure portal för att skriva Log Analytics-frågor.
-* Lär dig mer om [skriva sökfrågor](../../log-analytics/query-language/search-queries.md).
+* Om du är nybörjare på att skriva frågor i Log Analytics kan du granska [hur du använder Log Analytics-sidan](../../azure-monitor/log-query/get-started-portal.md) i Azure portal för att skriva Log Analytics-frågor.
+* Lär dig mer om [skriva sökfrågor](../../azure-monitor/log-query/search-queries.md).

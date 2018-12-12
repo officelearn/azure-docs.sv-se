@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: bb18a7338eb688ab427725933b9fc3f73b44b502
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992057"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077091"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudie: Optimera kostnaderna från rekommendationer
 
@@ -43,7 +43,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 Klicka på **Kostnadshantering + fakturering** i listan med tjänster i Azure Portal. Sedan i listan under **kostnadshantering**väljer **Advisor-rekommendationer**. Advisor kostnadsrekommendationer visas.
 
-![Advisor-rekommendationer](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
+![Cost Management Advisor-rekommendationer visas i Azure portal](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
 Lista över rekommendationer identifierar ineffektivitet eller visar rekommendationer för köp som kan hjälpa dig att spara ytterligare pengar. Den sammanräknad **potentiella årliga besparingar** visar det totala beloppet som du kan spara om du stänger ner eller frigör alla dina virtuella datorer som uppfyller reglerna för rekommendation. Om du inte vill att stänga av dem, bör du överväga att ändra storlek på dem till en mindre VM-SKU.
 
@@ -59,20 +59,20 @@ Azure Advisor övervakar din användning av virtuella datorer under 14 dagar och
 
 I listan över rekommendationer, klickar du på den **rätt storlek för eller Stäng av underutnyttjade virtuella datorer** rekommendation. I listan över kandidater för virtuell dator, väljer du en virtuell dator för att ändra storlek på och klicka sedan på den virtuella datorn. Den virtuella datorns information visas så att du kan kontrollera mätvärden för resursutnyttjande. Den **potentiella årliga besparingar** värdet är vad du kan spara om du stänger ner eller ta bort den virtuella datorn. Ändra storlek på en virtuell dator kommer förmodligen att spara pengar, men du kommer inte att spara med potentiella årliga besparingar.
 
-![Information om rekommendation](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
+![Exempel på information om rekommendation](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
 Kontrollera användningen av den virtuella datorn för att bekräfta att det är en lämplig storleksändring kandidat i VM-information.
 
-![VM-information](./media/tutorial-acm-opt-recommendations/vm-details.png)
+![Exempel VM information som visar historisk användning](./media/tutorial-acm-opt-recommendations/vm-details.png)
 
 Observera den aktuella virtuella datorns storlek. När du har kontrollerat att den virtuella datorn ska ändras, Stäng VM-information så att du ser listan över virtuella datorer.
 
 Välj i listan över kandidater att Stäng av eller ändra storlek på, **ändra storlek på den virtuella datorn**.
-![Ändra storlek på den virtuella datorn](./media/tutorial-acm-opt-recommendations/resize-vm.png)
+![Exempel rekommendation möjlighet att ändra storlek på den virtuella datorn](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 Därefter visas en lista med tillgängliga storleksändring alternativ. Välj det som ger bästa prestanda och kostnadseffektivitet för ditt scenario. I följande exempel visas valt alternativet ändrar storlek från en **DS14\_V2** till en **DS13\_V2**. Följa rekommendationen sparar 551.30 $/ månad eller $6,615.60/ år.
 
-![Välj en storlek](./media/tutorial-acm-opt-recommendations/choose-size.png)
+![Exempellistan över tillgängliga storlekar för Virtuella datorer där du kan välja en storlek](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
 När du väljer en lämplig storlek, klickar du på **Välj** att starta åtgärden storleksändring.
 
@@ -82,7 +82,7 @@ När du väljer en lämplig storlek, klickar du på **Välj** att starta åtgär
 
 När VM storleksändringen är klar visas ett meddelande om Azure.
 
-![Ändrade meddelande](./media/tutorial-acm-opt-recommendations/resized-notification.png)
+![Lyckad ändrade VM-meddelande](./media/tutorial-acm-opt-recommendations/resized-notification.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

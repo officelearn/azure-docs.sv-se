@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 9f36d6761e61f0de610cb3f612cd069092cdc242
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: ea6bad6c6711240b8a5a0c57813a69b7c109c9c0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083707"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878324"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB från serversidan programmering: lagrade procedurer, databasutlösare och UDF: er
 
-Lär dig hur Azure Cosmos DB språkintegrerade, transaktionell körning av JavaScript kan utvecklare skriva **lagrade procedurer**, **utlösare**, och **användardefinierade funktioner (UDF)**  internt i en [ECMAScript 2015](https://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript-integrering kan du skriva program logik som kan levereras och köras direkt i partitioner för lagring av databasen. 
+Lär dig hur Azure Cosmos DB språkintegrerade, transaktionell körning av JavaScript kan utvecklare skriva **lagrade procedurer**, **utlösare**, och **användardefinierade funktioner (UDF)**  internt i en [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript-integrering kan du skriva program logik som kan levereras och köras direkt i partitioner för lagring av databasen. 
 
 I den här artikeln får du lära dig besvara följande frågor:  
 
@@ -44,7 +44,7 @@ Den här metoden för *”JavaScript som en modern dag T-SQL”* Frigör utveckl
 
 Skapa och köra databasutlösare, lagrade procedurer och anpassade frågeoperatorer stöds via den [Azure-portalen](https://portal.azure.com), [REST API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), och [klient-SDK: er](sql-api-sdk-dotnet.md) i många plattformar, inklusive .NET, Node.js och JavaScript.
 
-Den här självstudien används den [Node.js-SDK med frågor och löften](https://azure.github.io/azure-documentdb-node-q/) att visa syntax och användning av lagrade procedurer, utlösare och UDF: er.   
+Den här självstudien används den [Node.js-SDK med frågor och löften](http://azure.github.io/azure-documentdb-node-q/) att visa syntax och användning av lagrade procedurer, utlösare och UDF: er.   
 
 ## <a name="stored-procedures"></a>Lagrade procedurer
 ### <a name="example-write-a-stored-procedure"></a>Exempel: Skriva en lagrad procedur
@@ -666,7 +666,7 @@ Med följande förklarar varje fråga i tabellen ovan.
 
 
 ## <a name="runtime-support"></a>Runtime-stöd
-Azure Cosmos DB [JavaScript server sida API](https://azure.github.io/azure-cosmosdb-js-server/) har stöd för de flesta av vanlig JavaScript-språkfunktioner som standardiserad av [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm).
+Azure Cosmos DB [JavaScript server sida API](https://azure.github.io/azure-cosmosdb-js-server/) har stöd för de flesta av vanlig JavaScript-språkfunktioner som standardiserad av [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Säkerhet
 JavaScript-lagrade procedurer och utlösare är i begränsat läge så att effekterna av ett skript inte läckts till en annan utan att gå via transaktionsisoleringen ögonblicksbild på databasnivå. Runtime-miljöer i pooler men rensas av kontexten efter varje körning. Därför garanterat de är säker för eventuella oväntade sidoeffekter från varandra.
@@ -831,7 +831,7 @@ Du kan också vara användbara följande referenser och resurser i din sökväg 
 
 * [Azure Cosmos DB JavaScript serversidan API-referens](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB-Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JavaScript ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
-* [Säker och bärbar databasen utökningsbarhet](https://dl.acm.org/citation.cfm?id=276339) 
-* [Tjänst-orienterade Database-arkitektur](https://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
-* [Som är värd för .NET-Runtime i Microsoft SQL server](https://dl.acm.org/citation.cfm?id=1007669)
+* [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
+* [Säker och bärbar databasen utökningsbarhet](http://dl.acm.org/citation.cfm?id=276339) 
+* [Tjänst-orienterade Database-arkitektur](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+* [Som är värd för .NET-Runtime i Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)

@@ -9,14 +9,14 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: 76e6bc006ff6049b631409a3515628fbd169f713
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f845c064ec3625d205ec346ddfc90c3a1b2c3d8d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976986"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874846"
 ---
-# <a name="what-is-custom-translator-preview"></a>Vad är Custom Translator (förhandsversion)?
+# <a name="what-is-custom-translator"></a>Vad är Custom Translator?
 
 [Custom Translator](https://portal.customtranslator.azure.ai) är en funktion i Microsoft Translator-tjänsten, där översättningsföretag, apputvecklare och leverantörer av språktjänster kan skapa anpassade NMT-system för neural maskinöversättning. De anpassade översättningssystemen integreras sömlöst i befintliga program, arbetsflöden och webbplatser. [Custom Translator](https://portal.customtranslator.azure.ai/) har liknande funktioner som [Microsoft Translator Hub](https://hub.microsofttranslator.com/) utför för statistisk maskinöversättning, men exklusivt för NMT-system för neural maskinöversättning.
 

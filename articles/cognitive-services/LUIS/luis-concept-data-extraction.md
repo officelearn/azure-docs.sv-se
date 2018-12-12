@@ -1,23 +1,24 @@
 ---
-title: Begrepp för extrahering i LUIS - Språkförståelse
-titleSuffix: Azure Cognitive Services
+title: Extrahering av data
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Lär dig vilka typer av data kan extraheras från Språkförståelse (LUIS)
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 284cc8ec6c2325df069d06039a6a22169c3107e7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638349"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098659"
 ---
-# <a name="data-extraction"></a>Extrahering av data
+# <a name="data-extraction-from-intents-and-entities"></a>Extrahering av data från avsikter och entiteter
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.
 
 De svåraste data att extrahera är datorn lärt dig data eftersom den inte är en exakt denna matchning. Extrahering av data för den datorn-lärt dig [entiteter](luis-concept-entity-types.md) måste vara en del av den [redigering cykel](luis-concept-app-iteration.md) tills du är säker på att du får de data du förväntar dig.

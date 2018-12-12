@@ -1,6 +1,6 @@
 ---
-title: Registrera en ny Azure IoT Edge-enhet (CLI) | Microsoft Docs
-description: Använd IoT-tillägget för Azure CLI för att registrera en ny IoT Edge-enhet
+title: Registrera en ny enhet från kommandoraden – Azure IoT Edge | Microsoft Docs
+description: Använd IoT-tillägget för Azure CLI för att registrera en ny IoT Edge-enhet och hämta anslutningssträngen
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 737a2dfe5c3b3382db00785b3465147143b17e9e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 28f20157de603cf20cb33e9db569064f87922bf8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569258"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081841"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Registrera en ny Azure IoT Edge-enhet med Azure CLI
 
@@ -43,7 +44,7 @@ Det här kommandot innehåller tre parametrar:
 * **hubbnamn**: Ange namnet på din IoT-hubb.
 * **Edge-aktiverade**: den här parametern anger att enheten är för användning med IoT Edge.
 
-   ![Skapa IoT Edge-enhet](./media/how-to-register-device-cli/Create-edge-device.png)
+   ![AZ iot hub-enhetsidentitet skapa utdata](./media/how-to-register-device-cli/Create-edge-device.png)
 
 ## <a name="view-all-devices"></a>Visa alla enheter
 

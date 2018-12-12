@@ -1,5 +1,6 @@
 ---
-title: Utbilda ML-modeller med Azure Machine Learning-tjänsten en kostnadsuppskattning-klass
+title: Utbilda ML-modeller med hjälp av en kostnadsuppskattning-klass
+titleSuffix: Azure Machine Learning service
 description: Lär dig hur du utför en nod och distribuerade utbildning av traditionella machine learning och deep learning-modeller med hjälp av Azure Machine Learning services kostnadsuppskattning-klass
 ms.author: minxia
 author: mx-iao
@@ -9,13 +10,13 @@ ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 53462fc0aecbb8f5aeef0bb9208264c714ce8394
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: e7157b9546d1f9ca40bab35d9e643c38051db04e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011428"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100760"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 

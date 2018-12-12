@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0d96844d9e156c702a5a6273b5181db04e5a79c5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: a27513f9ae3d2b4cfff77f4fd410fdc77e060feb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994720"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081684"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -218,7 +218,7 @@ S: du behöver lägga till ”etag' i brödtexten i API: et eller i Azure Resour
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>F. Hur mycket data kan jag skicka via agenten till Log Analytics? Finns det en maximal mängd data per kund?
 A. Det kostnadsfria abonnemanget anger en daglig högsta gräns på 500 MB per arbetsyta. Standard och premium-planer har ingen gräns för mängden data som överförs. Som en tjänst i molnet, Log Analytics har utformats för att automatiskt skala upp till referensen volymen kommer från en kund – även om det är terabyte per dag.
 
-Log Analytics-agenten har utformats för att se till att den har ett litet utrymme. Datavolymen varierar beroende på de lösningar som du aktiverar. Du kan hitta detaljerad information på datavolymen och se en analys på detaljnivå av lösningen i den [användning](../../log-analytics/log-analytics-usage.md) sidan.
+Log Analytics-agenten har utformats för att se till att den har ett litet utrymme. Datavolymen varierar beroende på de lösningar som du aktiverar. Du kan hitta detaljerad information på datavolymen och se en analys på detaljnivå av lösningen i den [användning](../../azure-monitor/platform/data-usage.md) sidan.
 
 Mer information kan du läsa en [kunden blogg](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) visar sina resultat när du har utvärderat Resursanvändning (fotavtryck) OMS-agenten.
 
@@ -234,7 +234,7 @@ A. Mängden data som skickats per agent beror på:
 * Antalet loggar och prestandaräknare som samlas in
 * Mängden data i loggarna
 
-Den kostnadsfria prisnivån är ett bra sätt att integrera flera servrar och mätare vanliga datavolym. Den totala användningen visas på den [användning](../../log-analytics/log-analytics-usage.md) sidan.
+Den kostnadsfria prisnivån är ett bra sätt att integrera flera servrar och mätare vanliga datavolym. Den totala användningen visas på den [användning](../../azure-monitor/platform/data-usage.md) sidan.
 
 Använd följande fråga för datorer som kommer köras WireData-agenten kan se hur mycket data som skickas:
 

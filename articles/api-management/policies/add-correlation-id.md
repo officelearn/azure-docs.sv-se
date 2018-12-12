@@ -1,6 +1,6 @@
 ---
-title: Exempel på princip för hantering av Azure API - lägga till ett sidhuvud som innehåller en Korrelations-id | Microsoft Docs
-description: Azure API management princip exemplet - visar hur du lägger till en rubrik som innehåller en Korrelations-id till en inkommande begäran.
+title: Exempel på princip för hantering av Azure API - Lägg till en rubrik som innehåller ett Korrelations-id | Microsoft Docs
+description: Azure API management princip exempel - visar hur du lägger till en rubrik som innehåller ett Korrelations-id på inkommande begäran.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 68f42124369194124ae1f8ebb93834a5be4e0128
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 126701674b6dc529404f5a7854cda9b31c336170
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287385"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868437"
 ---
-# <a name="add-a-header-containing-a-correlation-id"></a>Lägga till ett sidhuvud som innehåller en Korrelations-id
+# <a name="add-a-header-containing-a-correlation-id"></a>Lägga till ett huvud som innehåller ett Korrelations-id
 
-Den här artikeln visar ett Azure API management princip exempel som visar hur du lägger till en rubrik som innehåller en Korrelations-id till en inkommande begäran. Om du vill ange eller redigera en princip-kod, Följ stegen som beskrivs i [ange eller redigera en princip](../set-edit-policies.md). Andra exempel finns [princip exempel](../policy-samples.md).
+Den här artikeln visar en Azure API management princip exempel som visar hur du lägger till en rubrik som innehåller ett Korrelations-id på inkommande begäran. Om du vill ange eller redigera en princip för kod, följer du stegen som beskrivs i [ange eller redigera en princip](../set-edit-policies.md). Andra exempel finns i [princip exempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 
@@ -32,7 +32,7 @@ Klistra in koden i den **inkommande** block.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om APIM principer:
+Mer information om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
 + [Princip-exempel](../policy-samples.md)

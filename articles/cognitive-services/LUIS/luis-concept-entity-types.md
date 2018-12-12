@@ -1,21 +1,22 @@
 ---
-title: Entitetstyper i LUIS-appar – Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Entitetstyper
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Lägg till entiteter (viktiga data i ditt programs domän) i appar för Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: MT
+ms.openlocfilehash: 761b2101ed7b55de27628882778c51bc86c70ef4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085873"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075666"
 ---
 # <a name="entities-in-luis"></a>Entiteter i LUIS
 
@@ -71,7 +72,7 @@ LUIS erbjuder många typer av enheter. färdiga entiteter, anpassad dator lärt 
 | Namn | Kan etiketten | Beskrivning |
 | -- |--|--|
 | **Fördefinierade** <br/>[Anpassad](#prebuilt)| |  **Definition**<br>Inbyggda typer som representerar vanliga begrepp. <br><br>**Lista**<br/>Diskussionsämne tal, ordningstal, temperaturen, dimension, pengar, ålder, procent, e-post, URL: en, telefonnummer och diskussionsämne. <br><br>Fördefinierade entitetsnamn är reserverade. <br><br>Alla förskapade entiteter som läggs till programmet returneras i de [endpoint](luis-glossary.md#endpoint) fråga. Mer information finns i [förskapade entiteter](./luis-prebuilt-entities.md). <br/><br/>[Exempel på ett svar för entitet](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Reguljärt uttryck**<br/>[RegEx](#regex)||**Definition**<br>Anpassat reguljärt uttryck för formaterade raw uttryck text. Det är inte skiftlägeskänslig och ignorerar kulturella variant.  <br><br>Den här entiteten är bra för ord eller fraser som formateras konsekvent med alla variationer som också är konsekvent.<br><br>Matchning med reguljära uttryck tillämpas efter stavningskontroll förändras. <br><br>Om det reguljära uttrycket är för komplex, till exempel med många hakparenteser, går det inte att lägga till uttrycket i modellen. <br><br>**Exempel**<br>`kb[0-9]{6,}` matchar kb123456.<br/><br/>[Snabbstart](luis-quickstart-intents-regex-entity.md)<br>[Exempel på ett svar för entitet](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Reguljärt uttryck**<br/>[RegEx](#regex)||**Definition**<br>Anpassat reguljärt uttryck för formaterade raw uttryck text. Det är inte skiftlägeskänslig och ignorerar kulturella variant.  <br><br>Den här entiteten är bra för ord eller fraser som formateras konsekvent med alla variationer som också är konsekvent.<br><br>Matchning med reguljära uttryck tillämpas efter ändringar av stavningskontroll på teckennivån, inte på token-nivå. Använder en del men inte alla de [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) biblioteket.<br><br>Om det reguljära uttrycket är för komplex, till exempel med många hakparenteser, går det inte att lägga till uttrycket i modellen. <br><br>**Exempel**<br>`kb[0-9]{6,}` matchar kb123456.<br/><br/>[Snabbstart](luis-quickstart-intents-regex-entity.md)<br>[Exempel på ett svar för entitet](luis-concept-data-extraction.md)|
 | **Enkel** <br/>[Datorn lärt dig](#machine-learned) | ✔ | **Definition**<br>En enkel enhet är en allmän entitet som beskriver ett enda koncept och lära sig från datorn lärt dig kontext. Kontexten innehåller word val, word placering och uttryck längd.<br/><br/>Det här är en bra entitet efter ord eller fraser som inte är konsekvent formaterade men visar samma sak. <br/><br/>[Snabbstart](luis-quickstart-primary-and-secondary-data.md)<br/>[Exempel på ett svar för entitet](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Lista** <br/>[Exakt matchning](#exact-match)|| **Definition**<br>Lista över entiteter representerar en fast, stängda uppsättning närstående ord tillsammans med deras synoymns i systemet. <br><br>Varje lista entitet kan ha ett eller flera formulär. Bäst för en känd uppsättning av varianter på sätt att representera detsamma.<br/><br/>LUIS identifierar inte ytterligare värden för listan över entiteter. Använd den **rekommenderar** funktionen för att se förslag för nya ord baserat på den aktuella listan.<br/><br>Om det finns mer än en entitet i listan med samma värde, returneras varje entitet i frågan slutpunkt. <br/><br/>[Snabbstart](luis-quickstart-intent-and-list-entity.md)<br>[Exempel på ett svar för entitet](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Blandat](#mixed) | ✔|**Definition**<br>Patterns.any är en platshållare för variabel längd som används endast i ett mönster mall uttryck för att markera där entiteten börjar och slutar.  <br><br>**Exempel**<br>Med ett uttryck letar böcker baserat på rubriken kan extraherar pattern.any fullständig rubriken. En mall-uttryck med hjälp av pattern.any är `Who wrote {BookTitle}[?]`.<br/><br/>[Självstudie](luis-tutorial-pattern.md)<br>[Exempel på ett svar för entitet](luis-concept-data-extraction.md#composite-entity-data)|  
@@ -98,7 +99,7 @@ Granska [gränser](luis-boundaries.md#model-boundaries) att förstå hur många 
 
 ## <a name="roles-versus-hierarchical-entities"></a>Roller jämfört med hierarkisk entiteter
 
-Mer information finns i [roller jämfört med hierarkisk entiteter](luis-concept-roles.md#roles-versus-hierarchical-entities).
+Mer information finns i [Roller jämfört med hierarkiska entiteter](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="composite-vs-hierarchical-entities"></a>Sammansatta vs hierarkisk entiteter
 Sammansatta entiteter och hierarkisk entiteter både har överordnade och underordnade relationer och är datorn lärt dig. Machine learning kan LUIS för att förstå entiteter baserat på olika kontexter (placering av ord). Sammansatta entiteter är mer flexibla eftersom de låter olika enhetstyper som underordnade. En hierarkisk entitet underordnade är bara enkla enheter. 

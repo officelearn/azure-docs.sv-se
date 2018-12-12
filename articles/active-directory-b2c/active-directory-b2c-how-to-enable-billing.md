@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 80ba42d7eab1726c7add6c4c9426b7dde3b55480
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445973"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100063"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Länka en Azure-prenumeration till en Azure AD B2C-klient
 
@@ -25,7 +25,7 @@ ms.locfileid: "37445973"
 Användningskostnader för Azure AD B2C debiteras till en Azure-prenumeration. När en Azure AD B2C-klient har skapats kan måste klientadministratören uttryckligen länka Azure AD B2C-klient till en Azure-prenumeration. Den här artikeln visar hur du gör.
 
 > [!NOTE]
-> En prenumeration som är länkad till en Azure AD B2C-klient kan endast användas för att faktureringen för Azure AD B2C-användning. Prenumerationen kan inte användas för att lägga till andra Azure-tjänster eller Office 365-licenser *i Azure AD B2C-klient*.
+> En prenumeration som är länkad till en Azure AD B2C-klient kan användas för att faktureringen för Azure AD B2C användnings- eller andra Azure-resurser, inklusive ytterligare Azure AD B2C-resurser.  Det kan inte användas för att lägga till andra Azure-licens-baserade tjänster eller Office 365-licenser i Azure AD B2C-klient.
 
  Prenumerationslänken uppnås genom att skapa en Azure AD-B2C ”resurs” i Azure-målprenumerationen. Många Azure AD-B2C ”resurser” kan skapas i en enda Azure-prenumeration, tillsammans med andra Azure-resurser (till exempel virtuella datorer, datalagring, LogicApps). Du kan se alla resurser i prenumerationen genom att gå till Azure AD-klient som prenumerationen är associerad till.
 

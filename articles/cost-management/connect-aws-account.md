@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 3fa1083961caa4788516aba2bc7a04b456df285c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 0e3d6255d6e2787d407d24a4217a0262ae4c974d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996109"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098485"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Ansluta till en Amazon Web Services-konto
 
@@ -38,7 +38,7 @@ Det första steget är att få unika anslutning lösenfrasen från Cloudyn-porta
 2. Klicka på kugghjulet för symbolen och välj sedan **Molnkonton**.
 3. Kontohantering, Välj den **AWS-konton** fliken och klicka sedan på **Lägg till ny +**.
 4. I den **Lägg till konto för AWS** dialogrutan, kopiera den **externt ID** och spara värdet för AWS skapa stegen i nästa avsnitt. Externt ID är unikt för ditt konto. I följande bild, exemplet externt ID är _Contoso_ följt av ett tal. Ditt ID skiljer sig åt.  
-    ![Externt ID](./media/connect-aws-account/external-id.png)
+    ![Externt ID som visas i rutan Lägg till AWS-konto](./media/connect-aws-account/external-id.png)
 
 ### <a name="add-aws-read-only-role-based-access"></a>Lägg till AWS skrivskyddad rollbaserad åtkomst
 
@@ -46,12 +46,12 @@ Det första steget är att få unika anslutning lösenfrasen från Cloudyn-porta
 2. Klicka på **skapa roll** och välj sedan **en annan AWS-konto**.
 3. I den **konto-ID** rutan, klistra in `432263259397`. Detta konto-ID är Cloudyn data collector kontot som tilldelats av AWS Cloudyn-tjänsten. Använd det exakta konto-ID som visas.
 4. Bredvid **alternativ**väljer **kräver externt ID**. Klistra in din unikt värde som tidigare har kopierat från den **externt ID** i Cloudyn. Klicka sedan på **nästa: behörigheter**.  
-    ![Skapa roll](./media/connect-aws-account/create-role01.png)
+    ![Klistra in externt ID från Cloudyn på sidan Skapa roll](./media/connect-aws-account/create-role01.png)
 5. Under **bifoga säkerhetsbehörighetsprinciper**i den **principtypen** filter rutan Sök, skriver du in `ReadOnlyAccess`väljer **ReadOnlyAccess**, klicka sedan på **nästa: Granska**.  
-    ![Skrivskyddad åtkomst](./media/connect-aws-account/readonlyaccess.png)
+    ![Välj skrivskyddad åtkomst i listan över Principnamn](./media/connect-aws-account/readonlyaccess.png)
 6. På sidan Granska kontrollerar du att inställningarna är korrekta och Skriv en **rollnamn**. Till exempel *Azure-kostnad-Mgt*. Ange en **Rollbeskrivning**. Till exempel _rolltilldelningen för Cloudyn_, klicka sedan på **skapa roll**.
 7. I den **roller** listan, klicka på den roll som du har skapat och kopiera den **rollen ARN** värdet på sammanfattningssidan. Använd rollen ARN (Amazon resursnamnet) värdet senare när du registrerar din konfiguration i Cloudyn.  
-    ![Rollen ARN](./media/connect-aws-account/role-arn.png)
+    ![Kopiera rollen ARN från sidan Sammanfattning](./media/connect-aws-account/role-arn.png)
 
 ### <a name="configure-aws-iam-role-access-in-cloudyn"></a>Konfigurera AWS IAM rollåtkomst i Cloudyn
 
@@ -61,12 +61,12 @@ Det första steget är att få unika anslutning lösenfrasen från Cloudyn-porta
 4. I **kontonamn**, Skriv ett namn för kontot.
 5. Bredvid **åtkomsttyp**väljer **IAM rollen**.
 6. I den **rollen ARN** fältet, klistra in värdet som du tidigare kopierade och klicka sedan på **spara**.  
-    ![Lägg till box för AWS-konto](./media/connect-aws-account/add-aws-account-box.png)
+    ![Klistra in rollen ARN i Lägg till AWS-konto](./media/connect-aws-account/add-aws-account-box.png)
 
 
 AWS-konto visas i listan över konton. Den **ägar-ID** i listan matchar din roll ARN-värde. Din **kontostatus** bör ha en grön bock symbol som indikerar att Cloudyn kan komma åt din AWS-konto. Tills du möjliggjort fakturering för detaljerad AWS, din konsolideringsstatus visas som **fristående**.
 
-![AWS-kontostatus](./media/connect-aws-account/aws-account-status01.png)
+![AWS-kontostatus som visas på sidan konton](./media/connect-aws-account/aws-account-status01.png)
 
 Cloudyn börjar samla in data och fylla i rapporter. Nästa [Aktivera detaljerad AWS fakturering](#enable-detailed-aws-billing).
 
@@ -81,14 +81,14 @@ I följande avsnitt vägleder dig genom att skapa en skrivskyddad användare fö
 2. Klicka på **lägga till användare**.
 3. I den **användarnamn** skriver ett användarnamn.
 4. För **åtkomsttyp**väljer **Programmeringsåtkomst** och klicka på **nästa: behörigheter**.  
-    ![Lägg till användare](./media/connect-aws-account/add-user01.png)
+    ![Ange ett användarnamn på sidan Lägg till användare](./media/connect-aws-account/add-user01.png)
 5. Behörigheter, Välj **koppla befintliga principer direkt**.
 6. Under **bifoga säkerhetsbehörighetsprinciper**i den **principtypen** filter rutan Sök, skriver du in `ReadOnlyAccess`väljer **ReadOnlyAccess**, och klicka sedan på **nästa : Granska**.  
-    ![Ange behörigheter för användare](./media/connect-aws-account/set-permission-for-user.png)
+    ![Välj ReadOnlyAccess att ange behörigheter för användaren](./media/connect-aws-account/set-permission-for-user.png)
 7. Se till att inställningarna är korrekta och klicka sedan på sidan Granska **skapa användare**.
 8. På sidan har slutförts visas din nyckel-ID och hemlighet åtkomst åtkomstnyckel. Du kan använda den här informationen för att konfigurera registrering i Cloudyn.
 9. Klicka på **ladda ned CSV** och spara filen credentials.csv till en säker plats.  
-    ![Hämta autentiseringsuppgifter](./media/connect-aws-account/download-csv.png)
+    ![Klicka på ladda ned CSV om du vill spara autentiseringsuppgifterna](./media/connect-aws-account/download-csv.png)
 
 ### <a name="configure-aws-iam-user-based-access-in-cloudyn"></a>Konfigurera AWS IAM användarbaserade åtkomst i Cloudyn
 
@@ -122,7 +122,7 @@ Du skapar en S3-bucket för att lagra detaljerad faktureringsinformation.
 2. I tjänsten Search skriver *S3*, och välj **S3**.
 3. På sidan Amazon S3 **skapa bucket**.
 4. Välj en Bucketnamn och en Region i guiden Skapa bucket och klicka sedan på **nästa**.  
-    ![Skapa bucket](./media/connect-aws-account/create-bucket.png)
+    ![exempelinformation en sidan Skapa bucket](./media/connect-aws-account/create-bucket.png)
 5. På den **ange egenskaper** , Behåll standardvärdena, och klicka sedan på **nästa**.
 6. På sidan Granska **skapa bucket**. Bucket-listan visas.
 7. Klicka på en bucket som du skapade och välj den **behörigheter** fliken och välj sedan **Bucket princip**. Bucket-principredigeraren öppnas.
@@ -130,7 +130,7 @@ Du skapar en S3-bucket för att lagra detaljerad faktureringsinformation.
   - Ersätt `<BillingBucketName>` med namnet på din S3-bucket.
   - Ersätt `<ReadOnlyUserOrRole>` med rollen eller användaren ARN som du hade tidigare kopierade.
 
-  ```
+  ```json
   {
     "Version": "2012-10-17",
     "Id": "Policy1426774604000",
@@ -173,7 +173,7 @@ Du skapar en S3-bucket för att lagra detaljerad faktureringsinformation.
   ```
 
 9. Klicka på **Spara**.  
-    ![Bucket-principredigeraren](./media/connect-aws-account/bucket-policy-editor.png)
+    ![Klicka på Spara i principredigeraren Bucket](./media/connect-aws-account/bucket-policy-editor.png)
 
 
 ### <a name="enable-aws-billing-reports"></a>Aktivera AWS fakturering rapporter
@@ -183,11 +183,11 @@ När du skapar och konfigurerar en S3-bucket, går du till [fakturering inställ
 1. På sidan Inställningar väljer **får fakturering rapporter**.
 2. Under **får fakturering rapporter**, anger du namnet på en bucket som du skapade och klicka sedan på **Kontrollera**.  
 3. Välj alla fyra rapportalternativ granularitet och klicka sedan på **Spara inställningar**.  
-    ![Aktivera rapporter](./media/connect-aws-account/enable-reports.png)
+    ![Välj granularitet för att aktivera rapporter](./media/connect-aws-account/enable-reports.png)
 
 Cloudyn hämtar detaljerad faktureringsinformation från S3-bucket och fylls rapporter efter detaljerad fakturering. Det kan ta upp till 24 timmar tills detaljerad faktureringsinformation visas i Cloudyn-konsolen. Om det detaljerade faktureringsdata status för ditt konto konsolidering visas som **konsoliderade**. Kontostatus visas som **slutförd**.
 
-![Konto konsolideras Status](./media/connect-aws-account/consolidated-status.png)
+![konsolideringsstatus visas på fliken AWS-konton](./media/connect-aws-account/consolidated-status.png)
 
 Vissa av optimeringsrapporter kan kräva några få dagar för att hämta en tillräcklig data exempelstorlek för korrekta rekommendationer.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 62c89861d784931b2a13297abac578010e0fea5f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 61ec9d0639f4bee950be69ee951492974ac95c64
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251137"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867485"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Dirigera implementeringen av Azure DevTest Labs
 Den här artikeln innehåller en rekommenderad metod för snabb utveckling och implementering av Azure DevTest Labs. Följande bild visar den övergripande processen som vägledning när du får flexibilitet för att stödja olika branschspecifika krav och scenarier.
@@ -46,7 +46,7 @@ När nätverkstopologin är på plats, första/pilot-labb kan skapas genom att u
 2. Fastställa tillåten VM-avbildningar och storlekar för användning med lab. Bestäm om anpassade avbildningar kan överföras till Azure för användning med DevTest Labs.
 3. Säker åtkomst till labbet genom att skapa inledande rollbaserad Base åtkomst kontroller (RBAC) för labbet (labbägare och labbanvändare). Vi rekommenderar att du använder synkroniserad active directory-konton med Azure Active Directory för Identitetshantering med DevTest Labs.
 4. Konfigurera labb för att använda principer, till exempel scheman, kostnaden hantering, tillgängliga virtuella datorer, anpassade avbildningar eller formler.
-5. Upprätta en online-lagringsplatsen, till exempel VSTS/Git.
+5. Upprätta en online, till exempel Azure lagringsplatser/Git-lagringsplatsen.
 6. Bestäm om användning av offentliga eller privata lagringsplatser eller kombination av båda. Organisera JSON-mallar för distributioner och långsiktig sustainment.
 7. Om det behövs kan du skapa anpassade artefakter. Det här steget är valfritt. 
 

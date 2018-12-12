@@ -1,6 +1,6 @@
 ---
-title: Registrera en ny Azure IoT Edge-enhet (VS Code) | Microsoft Docs
-description: Använda Visual Studio Code för att skapa en ny IoT Edge-enhet i Azure IoT hub
+title: Registrera en ny enhet från Visual Studio Code - Azure IoT Edge | Microsoft Docs
+description: Använda Visual Studio Code för att skapa en ny IoT Edge-enhet i Azure IoT hub och hämta anslutningssträngen
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: cc812cc7f628f533cbf342edee66e01ce703678f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578713"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099796"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Registrera en ny Azure IoT Edge-enhet från Visual Studio Code
 
@@ -35,7 +36,7 @@ Du kan använda Azure IoT-tillägg för Visual Studio Code för att utföra åtg
 
 2. Längst ned i Utforskaren, expandera den **Azure IoT Hub-enheter** avsnittet. 
 
-   ![Expandera Azure IoT Hub-enheter](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
+   ![Expandera avsnittet Azure IoT Hub-enheter](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
 3. Klicka på den **...**  i den **Azure IoT Hub-enheter** avsnittsrubrik. Om du inte ser de tre punkterna, klicka på eller hovra över rubriken. 
 
@@ -63,7 +64,7 @@ På skärmen utdata visas resultatet av kommandot. Enhetsinformation skrivs ut, 
 
 Alla enheter som ansluter till IoT-hubben visas i den **Azure IoT Hub-enheter** avsnittet i Visual Studio Code-Utforskaren. IoT Edge-enheter är olika från icke-Edge-enheter med en annan ikon, och det faktum att de kan utökas för att visa modulerna som distribueras till varje enhet. 
 
-   ![Visa enheter i VS Code](./media/how-to-register-device-vscode/view-devices.png)
+   ![Visa alla IoT Edge-enheter i IoT hub](./media/how-to-register-device-vscode/view-devices.png)
 
 ## <a name="retrieve-the-connection-string"></a>Hämta anslutningssträngen
 

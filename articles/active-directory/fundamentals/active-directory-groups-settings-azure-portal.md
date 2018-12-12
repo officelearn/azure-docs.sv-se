@@ -1,6 +1,6 @@
 ---
-title: Så här redigerar du din gruppinformation med Azure Active Directory | Microsoft Docs
-description: Lär dig mer om att redigera information för en grupp med Azure Active Directory.
+title: Redigera gruppinformation – Azure Active Directory | Microsoft Docs
+description: Anvisningar om hur du redigerar din grupps information med hjälp av Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: a02987fdce3a15cd5d416234e3717df6d33622ec
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: b857b0bd56b479d4301535a4e1f734d8002dcc8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731350"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099060"
 ---
-# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>Så här: redigera gruppinformation med hjälp av Azure Active Directory
+# <a name="edit-your-group-information-using-azure-active-directory"></a>Redigera gruppinformation med hjälp av Azure Active Directory
 
-Med Azure Active Directory kan redigera du inställningarna för en grupp, inklusive uppdatera dess namn, beskrivning eller Medlemskapstyp.
+Med Azure Active Directory (Azure AD) kan redigera du inställningarna för en grupp, inklusive uppdatera dess namn, beskrivning eller medlemskap text.
 
 ## <a name="to-edit-your-group-settings"></a>Så här redigerar du gruppinställningarna för
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som Global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett Globalt administratörskonto för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **grupper**.
 
@@ -46,7 +46,7 @@ Med Azure Active Directory kan redigera du inställningarna för en grupp, inklu
 
     - **Gruppnamn.** Redigera det befintliga gruppnamnet.
     
-    - **Beskrivning av gruppen.** Redigera befintliga Gruppbeskrivning.
+    - **Gruppbeskrivning.** Redigera befintliga Gruppbeskrivning.
 
     - **Typ av grupp.** Du kan inte ändra typ av grupp när det har skapats. Ändra den **grupptyp**, måste du ta bort gruppen och skapa en ny.
     
@@ -67,6 +67,6 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 - [Hantera medlemskap i en grupp](active-directory-groups-membership-azure-portal.md)
 
-- [Hantera åtkomst till resurser med hjälp av grupper](active-directory-manage-groups.md)
+- [Hantera åtkomst till resurser med grupper](active-directory-manage-groups.md)
 
-- [Koppla eller lägga till en Azure-prenumeration i Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Associera eller lägg till en Azure-prenumeration till Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

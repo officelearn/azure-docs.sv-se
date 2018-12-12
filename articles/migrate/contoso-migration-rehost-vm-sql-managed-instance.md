@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231829"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879476"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso-migrering: byta Appvärd ett lokalt på en virtuell dator i Azure och SQL Database Managed Instance
 
@@ -186,14 +186,14 @@ Contoso-administratörer som konfigurerar det virtuella nätverket så här:
     - **SQLMI-DS-EUS2** (10.235.0.0.25)
     - **SQLMI-SAW-EUS2** (10.235.0.128/29). Det här undernätet används för att koppla en katalog till den hanterade instansen.
 
-    ![Hanterad instans - skapa virtuellt nätverk](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
+      ![Hanterad instans - skapa virtuellt nätverk](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
 
 4. När det virtuella nätverk och undernät har distribuerats, peer de-nätverk på följande sätt:
 
     - Peer-datorer **VNET-SQLMI-EUS2** med **VNET-HUB-EUS2** (det virtuella navnätverket för USA, östra 2).
     - Peer-datorer **VNET-SQLMI-EUS2** med **VNET-PROD-EUS2** (produktionsnätverket).
 
-    ![Nätverks-peering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
+      ![Nätverks-peering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
 5. De ange anpassade DNS-inställningar. DNS pekar först Contosos Azure-domänkontrollanter. Azure DNS är sekundär. Contoso Azure-domänkontrollanter finns på följande sätt:
 
@@ -202,7 +202,7 @@ Contoso-administratörer som konfigurerar det virtuella nätverket så här:
     - **CONTOSODC4** adress: 10.245.42.5
     - Azure DNS-matchning: 168.63.129.16
 
-     ![DNS-nätverksservrarna](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
+      ![DNS-nätverksservrarna](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
 
 *Behöver du mer hjälp?*
 
@@ -254,7 +254,7 @@ Contoso-administratörer kan nu etablera en SQL Database Managed Instance:
     - Ett virtuellt kluster i fallet Contoso har flera hanterade instanser.
     - SQL Server Database Managed Instance. 
 
-    ![Managed Instance](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
+      ![Managed Instance](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
 
 *Behöver du mer hjälp?*
 
@@ -615,7 +615,7 @@ Läs mer om säkerhetsrutiner för virtuella datorer i [säkerhetsmetodtips för
 
 Contoso utförs följande åtgärder för affärskontinuitet och haveriberedskap (BCDR):
 
-- Skydda data: Contoso säkerhetskopierar data på de virtuella datorerna med Azure Backup-tjänsten. [Läs mer] https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Skydda data: Contoso säkerhetskopierar data på de virtuella datorerna med Azure Backup-tjänsten. [Läs mer](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - Håll appar igång: Contoso replikerar appen virtuella datorer i Azure till en sekundär region med hjälp av Site Recovery. [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 - Contoso lär sig mer om att hantera SQL-hanterad instans, inklusive [säkerhetskopior](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
 

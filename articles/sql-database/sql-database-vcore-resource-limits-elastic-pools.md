@@ -3,7 +3,7 @@ title: Azure SQL Database vCore-baserade resursbegränsningar - elastiska pooler
 description: Den här sidan beskriver några vanliga vCore-baserade resursbegränsningar för elastiska pooler i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: f41974c6e2b2b0565f0a2703cfd638777a6bb9eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354180"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878031"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL Database vCore-baserade köpa modellen lagringsgränser för elastiska pooler
 

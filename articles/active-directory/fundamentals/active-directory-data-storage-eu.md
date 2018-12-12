@@ -1,6 +1,6 @@
 ---
-title: Var lagrar Azure AD identitetsdata för europeiska kunder? | Microsoft Docs
-description: Läs mer om var Microsoft Azure Active Directory lagrar identitetsrelaterade data för europeiska kunder.
+title: Identity-datalagring för Europeiska kunder – Azure Active Directory | Microsoft Docs
+description: Läs mer om där Azure Active Directory lagrar identitetsrelaterade data för dess europeiska kunder.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.custom: it-pro
-ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976901"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099946"
 ---
-# <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Var lagrar Microsoft Azure Active Directory (Azure AD) identitetsdata för europeiska kunder?
-Azure AD hjälper dig att hantera användaridentiteter och att skapa intelligensdrivna åtkomstprinciper som hjälper dig att skydda din organisations resurser. Identitetsdata lagras på en plats som baseras på den adress som din organisationen uppgav när du registrerade dig för tjänsten. Till exempel när du registrerar dig för en prenumeration på Office 365 eller Azure. Specifik information om var dina identitetsdata lagras finns i avsnittet [Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) på Microsoft Trust Center.
+# <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identity-datalagring för Europeiska kunder i Azure Active Directory
+Azure Active Directory (Azure AD) hjälper dig att hantera användaridentiteter och skapa intelligensdrivna åtkomstprinciper som hjälper dig att skydda din organisations resurser. Identitetsdata lagras på en plats som baseras på den adress som din organisationen uppgav när du registrerade dig för tjänsten. Till exempel när du registrerar dig för en prenumeration på Office 365 eller Azure. Specifik information om var dina identitetsdata lagras finns i avsnittet [Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) på Microsoft Trust Center.
 
 De flesta Azure AD-relaterade europeiska identitetsdata lagras på europeiska datacenter, men det finns fem användarrelaterade attribut som vanligtvis lagras på datacenter i USA. Dessa attribut är GivenName, Surname, userPrincipalName, Domain och PasswordHash. Attributet PasswordHash kan vara ett undantag och lagras inte alltid i USA om någon använder en lokal, federerad autentiseringsmetod som hindrar PasswordHash-värdet från att synkronisera med Azure AD. Det finns också vissa operativa, tjänstspecifika data som krävs för normal Azure AD-drift som lagras i USA och som inte innehåller några personuppgifter.
 

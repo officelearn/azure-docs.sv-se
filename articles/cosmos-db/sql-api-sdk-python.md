@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: SQL Python API, SDK och resurser | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL Python API, SDK och resurser'
 description: Lär dig allt om SQL Python API och SDK, inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version av Python SDK för Azure Cosmos DB.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b67f6bbb9ef2a8ee6bd42c89de56a0ff5a3024d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f67d8242eb1b2e29cf96a8065a664fe7f6dd6da5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724170"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875951"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]

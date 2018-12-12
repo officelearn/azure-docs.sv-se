@@ -1,17 +1,18 @@
 ---
 title: Skapa och anpassa återställningsplaner för haveriberedskap med hjälp av Azure Site Recovery | Microsoft Docs
 description: Lär dig mer om att skapa och anpassa återställningsplaner för haveriberedskap med hjälp av Azure Site Recovery-tjänsten.
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: aed37195f352719f3363992e4cee1e339e6e6056
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 85e649f3065d7f8d601541bbac6e93f4b2a0dc85
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835598"
+ms.locfileid: "52878682"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Skapa och anpassa återställningsplaner
 
@@ -42,7 +43,7 @@ Den här artikeln beskriver hur du skapar och anpassar en återställningsplan i
 
 ## <a name="add-a-group-to-a-plan"></a>Lägga till en grupp till en plan
 
-Du skapar fler grupper och lägga till datorer i olika grupper så att du kan ange olika sätt beroende på basis av grupp av Gru. Du kan till exempel ange när datorer i en grupp ska starta efter redundans eller ange anpassade åtgärder per grupp.
+Du skapar fler grupper och lägga till datorer i olika grupper så att du kan ange olika sätt beroende på basis av grupp för grupp. Du kan till exempel ange när datorer i en grupp ska starta efter redundans eller ange anpassade åtgärder per grupp.
 
 1. I **Återställningsplaner**, högerklickar på planen > **anpassa**. Som standard när du har skapat en plan placerade alla datorer som du lade till är i grupp 1.
 2. Klicka på **+ grupp**. Som standard är en ny grupp numrerade i den ordning som den har lagts till. Du kan ha upp till sju grupper.

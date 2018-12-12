@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: a9078d2f8a738700a30d265d9cfa3cd77ad72f08
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 4fdb7cf0007af5f92794ebe5f616c1c8a28af0e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015457"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099673"
 ---
 # <a name="how-to-diagnose-and-troubleshoot"></a>Diagnostisera och felsöka
 
@@ -91,7 +91,7 @@ Om den **tidsstämpel** egenskapen har inte uttryckligen angetts, vi ska använd
 
 1. Du kan komma åt en Time Series Insights S1 eller S2-miljö
 
-   Time Series-modeller stöds bara i **PAYG** miljöer. Se den här artikeln för mer information om hur du använder miljön S1/S2 från Time Series Insights Update explorer.
+   Time Series-modeller stöds bara i **PAYG** miljöer. Mer information om hur du kommer åt din S1/S2-miljö från förhandsversionen av Time Series Insights explorer finns i [visualisera data i Utforskaren](./time-series-insights-update-explorer.md).
 
    ![access][5]
 

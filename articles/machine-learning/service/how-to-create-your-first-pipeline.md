@@ -1,5 +1,6 @@
 ---
-title: Skapa och köra pipelines för ML - Azure Machine Learning-tjänsten
+title: Skapa och köra ML pipelines
+titleSuffix: Azure Machine Learning service
 description: Skapa och kör en machine learning-pipeline med Azure Machine Learning-SDK för Python.  Pipelines används för att skapa och hantera arbetsflöden som sadelhäftning tillsammans maskininlärning (ML) faser, till exempel dataförberedelser, modellinlärning, distribution av modeller och inferensjobb.
 services: machine-learning
 ms.service: machine-learning
@@ -9,17 +10,17 @@ ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 0119e60a6493ed13b04b36fc5fccc7227503fe0a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 3038d8978ed3705e9e18be58080afd532b9d72d6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015083"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100564"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
-I den här artikeln får du lära dig hur du skapar, publicera, köra och spåra en [maskininlärningspipeline](concept-ml-pipelines.md) med hjälp av den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Dessa pipelines att skapa och hantera de arbetsflöden som ihop olika faser av machine learning. Varje fas i en pipeline som förberedelse av data och modellträning, kan innehålla ett eller flera steg.
+I den här artikeln får du lära dig hur du skapar, publicera, köra och spåra en [maskininlärningspipeline](concept-ml-pipelines.md) med hjälp av den [Azure Machine Learning SDK](https://aka.ms/aml-sdk).  Dessa pipelines att skapa och hantera de arbetsflöden som ihop olika faser av machine learning. Varje fas i en pipeline som förberedelse av data och modellträning, kan innehålla ett eller flera steg.
 
 Pipelines som du skapar är synliga för medlemmar i din Azure Machine Learning-tjänsten [arbetsytan](how-to-manage-workspace.md). 
 

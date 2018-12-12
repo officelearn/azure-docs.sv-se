@@ -1,20 +1,18 @@
 ---
-title: Lär dig att skydda åtkomsten till data i Azure Cosmos DB | Microsoft Docs
+title: Lär dig att skydda åtkomsten till data i Azure Cosmos DB
 description: Läs mer om åtkomstkontrollkoncept i Azure Cosmos DB, såsom huvudnycklar, skrivskyddade nycklar, användare och behörigheter.
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: 0d5243a1dd2a7c9244860da15d39f407b281e1e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 1d1bc011de579588567fac3debe9d0b4af5d29f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726805"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878356"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Skydda åtkomst till Azure Cosmos DB-data
 Den här artikeln innehåller en översikt över att skydda åtkomsten till data som lagras i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

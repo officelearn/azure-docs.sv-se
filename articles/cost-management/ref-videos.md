@@ -5,24 +5,29 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 9c1df577dec5fe271d19be0d01d5b68ace8aaac1
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 13d1548e9b9c721d44c8d5af99bfdcc691c4866d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993603"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100624"
 ---
-# <a name="cloudyn-training-videos"></a>Cloudyn utbildningsvideor
+# <a name="cloudyn-walk-through-training-videos"></a>Cloudyn hanteringspaketen utbildningsvideor
 
 I följande videoklipp ger demonstrationer för att hjälper dig att komma igång med Cloudyn och använda dess funktioner. Cloudyn stöder flera moln Kostnadsuppföljning och optimering, inklusive Microsoft Azure, Amazon Web Services och Google Cloud Platform.
+
+## <a name="overview-video"></a>Översiktsvideo
 
 [Introduktion till Cloudyn](https://youtu.be/NWIRny6Wpsk)
 
 >[!VIDEO https://www.youtube.com/embed/NWIRny6Wpsk]
+
+## <a name="walk-through-videos"></a>Hanteringspaketen videor
 
 [Analysera faktureringsinformation moln kontra tid med Cloudyn](https://youtu.be/7LsVPHglM0g)
 

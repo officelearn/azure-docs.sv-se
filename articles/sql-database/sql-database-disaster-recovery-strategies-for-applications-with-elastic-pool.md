@@ -3,7 +3,7 @@ title: Utforma lösningar för haveriberedskap – Azure SQL Database | Microsof
 description: Lär dig hur du utformar din lösning för haveriberedskap i molnet genom att välja rätt redundans-mönster.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pools
+ms.subservice: elastic-poolss
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: 9ed01103a83073d1bbb22f476a9115af816571aa
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: MT
+ms.openlocfilehash: 8c5f6503375302852b9fd603accdffa431aab35f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166562"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877572"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategier för haveriberedskap för program som använder SQL Database elastiska pooler
 Vi har lärt dig att molntjänster är inte felsäker och kritiska incidenter sker under åren. SQL Database tillhandahåller flera funktioner för att tillhandahålla för företagskontinuitet programmets när dessa inträffar. [Elastiska pooler](sql-database-elastic-pool.md) och enskilda databaser stöder samma typ av funktioner för katastrofåterställning (DR). Den här artikeln beskriver flera strategier för Haveriberedskap för elastiska pooler som utnyttjar dessa funktioner för affärskontinuitet SQL-databas.

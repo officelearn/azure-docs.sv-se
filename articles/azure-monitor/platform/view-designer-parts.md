@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 876cb037aab718a91f469f8862c501bb9a29e4d6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 8f2bf9707d28744707c39a507108120e948dde7f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846442"
+ms.locfileid: "52866686"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Referensguide för Vydesigner visualisering delar i Log Analytics
 Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika visualiseringar från Log Analytics-arbetsytan med hjälp av Vydesigner i Azure Log Analytics. Den här artikeln är en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
@@ -324,7 +324,7 @@ Avgränsaren som namn och värde är den du använder för att parsa textegenska
 Anta exempelvis att en egenskap som kallas *plats* som finns med värden som *Redmond byggnad 41* och *Bellevue byggnad 12*. Du kan ange ett bindestreck (-) för namnet och värdet avgränsare och *Stad Byggnad* för namnet. Den här metoden Parsar varje värde i två egenskaper som kallas *Stad* och *byggnad*.
 
 ### <a name="click-through-navigation"></a>Genomklickningsnavigering
-Klicka igenom navigering definierar vilken åtgärd som ska vidtas när du klickar på en huvud- eller listobjekt i en vy.  Då öppnas en fråga i antingen den [loggsökningsportalen](../../log-analytics/log-analytics-log-search-portals.md) eller starta en annan vy.
+Klicka igenom navigering definierar vilken åtgärd som ska vidtas när du klickar på en huvud- eller listobjekt i en vy.  Då öppnas en fråga i antingen den [loggsökningsportalen](../../azure-monitor/log-query/portals.md) eller starta en annan vy.
 
 I följande tabell beskrivs inställningarna för klicka igenom navigering.
 

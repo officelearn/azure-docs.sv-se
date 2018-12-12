@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467726"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867588"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
@@ -87,7 +87,7 @@ Exempel:
 Anpassade röst systemet normaliserar avskrifter genom att konvertera texten till gemener och ta bort överflödig skiljetecken. Det är viktigt att avskrifter är 100% korrekt avskrifter av motsvarande ljudinspelningar.
 
 > [!TIP]
-> När kontot bygga produktion text till tal röster, väljer yttranden (eller skriva skript) som gör i både fonetiska täckning och effektivitet. Problem med att resultaten vill? [Anpassad Voice-teamet](mailto:tts@microsoft.com) att ta reda på mer om med oss finns.
+> När kontot bygga produktion text till tal röster, väljer yttranden (eller skriva skript) som gör i både fonetiska täckning och effektivitet. Problem med att resultaten vill? [Anpassad Voice-teamet](mailto:speechsupport@microsoft.com) att ta reda på mer om med oss finns.
 
 ## <a name="upload-your-datasets"></a>Ladda upp dina datauppsättningar
 

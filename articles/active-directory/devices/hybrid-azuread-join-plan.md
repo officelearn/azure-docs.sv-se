@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: MT
+ms.openlocfilehash: e273568a04ec2a3758684025acf8034b8e788627
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959995"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871361"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hur du planerar din hybrid Azure Active Directory join-implementering
 
@@ -130,9 +130,9 @@ Du kan konfigurera hybrid Azure AD-anslutning för följande scenarier:
 
 Om din miljö har hanterade domäner, stöder hybrid Azure AD-anslutning:
 
-- Vidarebefordra via autentisering (PTA) med sömlös enkel inloggning (SSO) 
+- Autentisering (PTA)
 
-- Lösenordets Hash-synkronisering (PHS) med sömlös enkel inloggning (SSO) 
+- Lösenordets Hash-synkronisering (PHS)
 
 Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för konfiguration av Hybrid Azure AD-anslutning. Med guiden kan du förenkla konfigurationsprocessen avsevärt. Mer information finns i:
 

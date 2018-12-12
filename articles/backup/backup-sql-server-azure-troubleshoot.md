@@ -3,7 +3,7 @@ title: Azure felsökningsguide för säkerhetskopiering för SQL Server VM | Mic
 description: Felsökningsinformation för att säkerhetskopiera SQL Server-datorer till Azure.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 3ad4afc740be01644145704679ee2674ebde3d07
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: acbb54da9cf52a73acf11b43d702675544bcc5fa
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720736"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873809"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 

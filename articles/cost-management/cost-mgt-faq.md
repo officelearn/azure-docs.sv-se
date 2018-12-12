@@ -1,21 +1,21 @@
 ---
 title: Vanliga frågor om Cloudyn i Azure | Microsoft Docs
-description: Innehåller svar på några vanliga frågor om Cloudyn.
+description: Den här artikeln innehåller svar på några vanliga frågor om Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: e387ba0a4e20d9b584d88f7d6388ab6472ccc04c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997285"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098098"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Vanliga frågor om Cloudyn
 

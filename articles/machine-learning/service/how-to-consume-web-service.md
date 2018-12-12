@@ -1,5 +1,6 @@
 ---
-title: Hur du använder webbtjänstdistributioner - Azure Machine Learning-tjänsten
+title: Använda distribuerade webbtjänster
+titleSuffix: Azure Machine Learning service
 description: 'Lär dig mer om att använda en webbtjänst som genererades när en modell har distribuerats med Azure Machine Learning-modell. Den webbtjänst som visar ett REST-API. Skapa klienter för den här API: T med vilket språk du önskar.'
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d964eef08557ddd95ff86bc9e7de806cd4a8ca18
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 0cf585ec3eb95b71080436791fd47d96239dfa9f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016648"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100478"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
@@ -124,6 +125,43 @@ Till exempel modellen i den [träna i anteckningsboken](https://github.com/Azure
 ``` 
 
 Webbtjänsten kan acceptera flera uppsättningar av data i en begäran. Den returnerar ett JSON-dokument som innehåller en matris av svar.
+
+### <a name="binary-data"></a>Binära data
+
+Om din modell accepterar binära data, till exempel en avbildning måste du ändra den `score.py` filen användes för distributionen för att godkänna raw HTTP-förfrågningar. Här är ett exempel på en `score.py` som accepterar binära data och återställer återförda byte för POST-förfrågningar. För GET-begäranden returneras den fullständiga URL: en i svarstexten:
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> Saker i den `azureml.contrib` namnområde ändras ofta arbetar vi för att förbättra tjänsten. Därför ska någonting i det här namnområdet räknas som en förhandsversion och stöds inte fullt ut av Microsoft.
+>
+> Om du vill testa detta på din lokala utvecklingsmiljö kan installera du komponenterna i contrib namnområdet med följande kommando:
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
 
 ## <a name="call-the-service-c"></a>Anropa tjänsten (C#)
 
@@ -447,7 +485,3 @@ Resultatet som returneras liknar följande JSON-dokument:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## <a name="next-steps"></a>Nästa steg
-
-Nu när du har lärt dig hur du skapar en klient för en distribuerad modell kan lära dig hur du [distribuera en modell till en IoT Edge-enhet](how-to-deploy-to-iot.md).

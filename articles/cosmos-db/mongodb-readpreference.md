@@ -1,22 +1,20 @@
 ---
-title: Använda läsinställningar för MongoDB med Azure Cosmos DB MongoDB API | Microsoft Docs
+title: Använda läsinställningar för MongoDB med Azure Cosmos DB MongoDB API
 description: Lär dig hur du använder MongoDB läsinställningar med Azure Cosmos DB MongoDB API
 services: cosmos-db
 author: vidhoonv
-manager: kfile
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: ''
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
-ms.author: sclyon
-ms.openlocfilehash: b0af47f9ed72507fe9bc47023b456fcb157e25de
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4f40a2dac04102a19be7b3209c6bf37be9252cde
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091693"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875356"
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Hur du distribuerar globalt läser använda läsinställningar med Azure Cosmos DB MongoDB API 
 

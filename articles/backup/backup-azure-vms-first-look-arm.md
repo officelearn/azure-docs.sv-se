@@ -2,21 +2,21 @@
 title: 'En första titt: Skydda virtuella datorer i Azure med ett Recovery Services-valv'
 description: Skydda virtuella datorer i Azure med ett Recovery Services-valv. Använd säkerhetskopior av Resource Manager-distribuerade virtuella datorer och klassiskt distribuerade virtuella datorer samt virtuella datorer med Premium Storage, krypterade virtuella datorer, virtuella datorer på hanterade diskar för att skydda dina data. Skapa och registrera ett Recovery Services-valv. Registrera virtuella datorer, skapa en princip och skydda virtuella datorer i Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: H1Hack27Feb2017
 keywords: säkerhetskopior. säkerhetskopiering av virtuella datorer
-ms.openlocfilehash: daa2355d028af9b61b0b14a453452c1a96487403
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233549"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869936"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
 

@@ -8,13 +8,13 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.openlocfilehash: 9d9fab9f0a515cacdf2a1425c4da06c9e3d4c364
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: 67be21ae7f0cb997563f17130b9d5ecb7d359b31
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52857001"
+ms.locfileid: "52873877"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Användningsfall för Azure Time Series Insights (förhandsversion)
 
@@ -27,11 +27,15 @@ När du har läst den här artikeln kommer du att kunna besvara följande frågo
 * Vilka är fördelarna med att använda Azure TSI för operativa analys och effektiviteten?
 * Vilka är fördelarna med att använda Azure TSI för avancerade analyser?
 
-Det här dokumentet innehåller en översikt över användningsfallen som Azure Time Series Insights privat förhandsgranskning är utformad för.
+Det här dokumentet innehåller en översikt över användningsfallen som Azure TSI Private Preview är avsedd för.
 
-## <a name="data-exploration-and-visual-anomaly-detection"></a>Datagranskning och visuell avvikelseidentifiering
+## <a name="introduction"></a>Introduktion
 
-Utforska och analysera miljarder händelser för att upptäcka avvikelser och direkt identifiera dolda trender i dina data. Azure TSI ger nästan i realtid prestanda för dina IoT- och DevOps analysis-arbetsbelastningar.
+Azure TSI är en slutpunkt till slutpunkt Platform-As-A-Service att mata in, bearbeta, lagra och fråga efter data med mycket contextualized, tid-serien – optimerad IoT-skala. Därför är Azure TSI perfekt för ad hoc-datagranskning samt operativa analys. TSI är unikt utbyggbar och anpassade, tjänst, som uppfyller brett behöver industriella IoT-distributioner.
+
+## <a name="data-exploration-and-visual-anomaly-detection"></a>Datautforskning och visuell avvikelseidentifiering
+
+Utforska och analysera direkt flera miljarder händelser för att upptäcka avvikelser och dolda trender i dina data. Azure TSI ger nästan i realtid prestanda för dina IoT- och DevOps analysis-arbetsbelastningar.
 
 ![data explorer][1]
 
@@ -41,47 +45,45 @@ Vi kan se kunder att dra nytta av den här att diagnostisera tillgången-relater
 
 Det finns tre primära sätt att interagera med data som lagras i TSD:
 
-1. Den första och enklast att komma igång med är vår visualiseringen i Utforskaren där du kan snabbt visualisera alla dina IoT-data på samma ställe. Den tillhandahåller verktyg som den termiska kartan som gör visuellt identifiera avvikelser i dina data enkelt samt perspektivvyn, vilket gör att du jämför upp till fyra vyer från en eller flera TSI-miljöer i en enda instrumentpanel, vilket ger dig en överblick över dina time series-data mellan alla dina platser. Läs mer om den [TSI-Utforskaren](./time-series-insights-update-explorer.md). Om du vill planera din miljö för uppdatering av TSI, läsa [TSI Uppdatera Planera](./time-series-insights-update-plan.md).
+1. Den första och enklast att komma igång med är vår visualiseringen i Utforskaren där du kan snabbt visualisera alla dina IoT-data på samma ställe. Den innehåller verktyg som den termiska kartan, vilket gör visuellt identifiera avvikelser i dina data enkelt. Det ger också perspektivvyn, vilka kan du jämföra upp till fyra vyer från en eller flera TSI-miljöer i en enda instrumentpanel, vilket ger dig en överblick över dina time series-data på alla dina platser. Läs mer om den [TSI-Utforskaren](./time-series-insights-update-explorer.md). Om du vill planera din miljö för uppdatering av TSI, läsa [TSI Uppdatera Planera](./time-series-insights-update-plan.md).
 
 1. Det andra sättet är att använda vårt JavaScript SDK för att snabbt bädda in kraftfulla tabeller och diagram i dina egna webbprogram. Med bara några rader kod kan skapa du kraftfulla frågor för att fylla i linjediagram, cirkeldiagram, liggande diagram, termiska kartor, datarutnät och mer. Alla dessa element finns out-of the box med hjälp av SDK. SDK: N avlägsnar också TSI fråga API: er, så att du kan redigera SQL-liknande predikat att fråga efter data som du vill visa på en instrumentpanel. För presentationslagret hybridlösningar och erbjuder TSI parametriserade URL: er som ger sömlös kopplingspunkter med explorer för djup aktivitetsgruppsrapport i data. Mer information om JavaScript SDK i [TSI JS-klientbiblioteket](https://docs.microsoft.com/azure/time-series-insights/tutorial-explore-js-client-lib) och [TSI klienten](https://github.com/Microsoft/tsiclient) dokumentation. Mer information om parametriserade URL: er kan du läsa vår artikel på [parametriserade URL: er](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-parameterized-urls).  
 
 1. Slutligen innehåller TSI kraftfulla API: er för att fråga efter data som lagras i TSD. TSI har temporala operatorer som från, till, först och den sista aggregeringar och transformeringar som genomsnitt, min, max, dela med, order by- och DateHistogram och filtrering operatörer som har i och, eller större än REGEX osv. De här operatorerna aktivera applikationer nedströms för att snabbt hitta intressant trender och mönster i dina data och kan användas för att fylla i hemmagjorda visualiseringar för att upptäcka avvikelser.  
 
-Läs mer på Azure-erbjudanden för IoT, [skapa i Sakernas Internet](https://www.microsoft.com/internet-of-things).
+## <a name="operational-analysis-and-driving-process-efficiency"></a>Operativ analys och processeffektivitet
 
-## <a name="operational-analysis-and-driving-process-efficiency"></a>Operativa analys och utveckla maskinutnyttjande
-
-Aktivera övervakning av hälsotillstånd, användning och prestanda för utrustningen har i skala, vilket ger ett enkelt sätt att mäta effektiviteten. Time Series Insights hjälper dig att hantera olika och oförutsägbara IoT-arbetsbelastningar utan att göra avkall på inmatning och frågeprestanda.
+Aktivera övervakning av hälsotillstånd, användning och prestanda för utrustningen har i skala, vilket ger ett enkelt sätt att mäta effektiviteten. Time Series Insights hjälper till att hantera mångskiftande och oberäkneliga IoT-arbetsbelastningar utan att offra datainmatnings- eller frågeprestanda.
 
 ![översikt][2]
 
-Strömning och kontinuerlig bearbetning av data som kommer från driftrutiner kan har omvandla alla företag om tillsammans med rätt tekniklösning. Dessa lösningar är ofta en kombination av flera system som gör det möjligt för undersökning och analys av data som ändras kontinuerligt särskilt i IoT-sfär. Dessa system tillsammans ljus upp de scenarier som delar ett gemensamt mönster när det gäller att mata in, bearbeta, lagra, analysera och visualisera IoT-data.
+Strömning och kontinuerlig bearbetning av data som kommer från driftrutiner kan har omvandla alla företag om tillsammans med rätt tekniklösning. Dessa lösningar är ofta en kombination av flera system som gör det möjligt för undersökning och analys av data som ändras kontinuerligt särskilt i IoT-sfär och delar ett gemensamt mönster.
 
-En del av lösningen, system behöver mata in miljontals händelser från enheter och sensorer som sträcker sig över olika språk. Sedan dessa system bearbeta och analysera data för att härleda insikter i realtid. Varma och kalla lagring för nära realtid och batchanalyser arkiveras sedan data.
+Dessa mönster börjar ofta med aktiverat IoT-plattformar som mata in miljontals händelser från enheter och sensorer som sträcker sig över olika språk. De här systemen bearbeta och analysera data för att härleda insikter i realtid och åtgärder, Data vanligtvis arkiveras varma och kalla lagring för nära realtid och batchanalyser. Data som samlas in går igenom serie bearbetning för att rensa och contextualize för underordnade frågor och analys. Microsoft Azure erbjuder omfattande tjänster som kan tillämpas på de här IoT-scenarier (tillgången underhåll, tillverkning, osv.). Dessa inkluderar Azure TSI, Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics, Azure Functions, Azure Logic Apps, Azure Databricks, Azure Machine Learning och Microsoft Power BI.
 
-Sedan måste dessa system du bearbeta data som samlas in om du vill aktivera rengöra och contextualization vid lagring av data för att aktivera scenarier med underordnade frågor och analys. Microsoft Azure erbjuder omfattande tjänster som kan användas för de här IoT-scenarier inklusive Azure TSI, Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics, Azure Functions, Azure Logic Apps, Azure Databricks, Azure Machine Learning och Microsoft Power BI.
-
-Med inställningarna ovan lösning samlas data in via Azure IoT eller Event Hubs som den erbjuder hög genomströmning datainmatning med kort svarstid. Data som samlas in och som behöver bearbetas för insikter i realtid som kan vara går till Azure Stream Analytics, Azure Logic Apps och Azure Functions. Resultatet kan matas sedan till Power BI för i realtid dashboarding samt kan läsas in i Azure Time Series Insights för avisering och övervakning jämföra dem med historiska seeding. Data som samlas in och som behöver datautforskning i nära realtid eller ad hoc fråga efter historiska trender kan läsas in direkt till Azure Time Series Insights. Data läses in är redo att efterfrågas tillsammans med obegränsade historiska data för operativa analys och analyser för att optimera processer för maximal effektivitet. Alla data eller bara dataändringar i som lästs in av nyligen kan användas som för referensdata som en del av analys i realtid. Dessutom kan kan data ytterligare finjusteras och bearbetas genom att ansluta Azure Time Series Insights-data till HDInsight för Map/Reduce, Hive, osv. Slutligen göra den tillgänglig i Power BI och i alla kundprogram via vårt offentliga surface fråga API: er.
+Den här lösningsarkitekturen kan ske enligt följande – mata in data via Azure IoT Hub eller Azure Event Hub för klassens bästa säkerhet, dataflöde och svarstid. Utföra bearbetning och beräkningar med stöd för funneling inmatade data via tjänster som Azure Stream Analytics, Azure Logic Apps, Azure Functions beroende bearbetning av specifika behov. Beräknad signaler från process-pipelinen skickas till Azure TSI för lagring och analys. Azure Time Series Insights erbjuder nästan i realtid datagranskning och tillgången insikter historiska data. Beroende på företagets behov, kan du köra MapReduce- och Hive-jobb på data som lagras i Time Series Insights genom att ansluta Time Series Insights till HDInsight. Data som lagras i Time Series Insights kan göras tillgängliga till Power BI och andra kundprogram via Time Series Insights offentliga surface fråga API: er för djupgående affärs- och driftsinformation scenarier.
 
 ## <a name="advanced-analytics"></a>Avancerad analys
 
-Integrera med avancerade Analystjänster som Azure Machine Learning och Azure Databricks. TSI ingresses rådata från miljontals enheter och lägger till kontextuella data som kan användas sömlöst av en uppsättning tjänster för Azure Analytics.
+Integrera med avancerad analys-tjänster som Azure Machine Learning och Azure Databricks. Time Series Insights för in rådata från flera miljoner enheter och lägger till sammanhangsbaserade data som kan förbrukas sömlöst med olika Azure-analystjänster.
 
 ![analys][3]
 
-Avancerad analys och maskininlärning använda och bearbeta stora mängder data att fatta datadrivna beslut och utföra förutsägande analys. I IoT-användningsfall, Lär dig algoritmer för avancerad analys av data som samlas in från miljontals enheter som kan överföra data flera gånger per sekund. Men data som samlas in från IoT-enheter är rådata och saknar kontextinformation som platsen för enheten, enhet sensor avläsningen osv. Dessa data kan inte användas direkt för avancerade analyser.
+Avancerad analys och maskininlärning använda och bearbeta stora mängder data att fatta datadrivna beslut och utföra förutsägande analys. I IoT-användningsfall, Lär dig algoritmer för avancerad analys av data som samlas in från miljontals enheter som kan överföra data flera gånger per sekund. Men data som samlas in från IoT-enheter är rådata och saknar kontextinformation som platsen för enheten, enhet sensor avläsningen osv, vilket gör det svårt för data som ska användas direkt för avancerade analyser.
 
-Azure TSI klyftan mellan IoT-data och avancerad analys på ett enkelt och kostnadseffektivt sätt. TSI samlar in råa telemetridata från miljontals enheter, berikar data med sammanhangsberoende information och omvandlar data till ”parquet-format” som enkelt kan integrera med ett antal Azure Advanced Analytics-tjänster som Azure Machine Learning, Azure DataBricks och dina egna program från tredje part. Avancerade modeller för textanalys kan lära dig kontinuerligt från inkommande telemetridata för IoT att göra mer exakta förutsägelser.
+Azure Time Series Insights klyftan mellan IoT-data och avancerad analys på två enkelt och kostnadseffektivt sätt. Först Time Series Insights update samlar in råa telemetridata från miljontals enheter med hjälp av IoT hub, berikar data med sammanhangsberoende information och omvandlar data till ”parquet-format” som enkelt kan integrera med ett antal tjänster för avancerad analys, till exempel som Azure Machine Learning, Azure Databricks och andra program från tredje part.  Time Series Insights kan fungera som den källa av sanningen för alla data i en organisation, så skapa en central lagringsplats för underordnade analys arbetsbelastningar kan använda.  Eftersom Time Series Insights är en nästan i realtid storage-tjänsten, avancerad analys som modeller kan få kontinuerligt i inkommande telemetridata för IoT att göra mer exakta förutsägelser.
+
+Andra kan Time Series Insights matas utdata för machine learning och förutsägande modeller att visualisera och lagra resultaten, vilket hjälper organisationer att optimera och justera sina modeller.  Dessutom gör Time Series Insights det enkelt att visualisera telemetridata på samma plan för direktuppspelning som den tränade modellen matar ut för att data datavetenskapsteam upptäcka avvikelser och identifiera mönster.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om den [TSI-Utforskaren](./time-series-insights-update-explorer.md).
+Läs mer om den [TSI-Utforskaren](./time-series-insights-update-explorer.md).
 
-* Om du vill planera din miljö, läsa [TSI (förhandsversion) planera](./time-series-insights-update-plan.md).
+Om du vill planera din miljö, läsa [TSI (förhandsversion) planera](./time-series-insights-update-plan.md).
 
-* Läs den [TSI klienten](https://github.com/Microsoft/tsiclient) dokumentation.
+Läs den [TSI klienten](https://github.com/Microsoft/tsiclient) dokumentation.
 
 <!-- Images -->
-[1]: media/v2-update-use-cases/data-explorer.png
-[2]: media/v2-update-use-cases/overview.png
-[3]: media/v2-update-use-cases/advanced-analytics.png
+[1]: media/v2-update-use-cases/data-explorer.svg
+[2]: media/v2-update-use-cases/overview.svg
+[3]: media/v2-update-use-cases/advanced-analytics.svg

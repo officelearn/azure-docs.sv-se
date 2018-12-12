@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c842efd6c66fd70bbac3969090b71c42c725545
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 24ffe9eded908c82750ce5a6d6fbe87991bdae72
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839646"
+ms.locfileid: "52872874"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Utforma och skapa en lösning i Azure (förhandsversion)
 > [!NOTE]
@@ -46,7 +46,7 @@ Det första steget när du utformar en lösning är att fastställa de data som 
 
 Det finns ett antal sätt datakällor som kan samlas in i Log Analytics-databasen enligt beskrivningen i [datakällor i Log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Detta innefattar händelser till händelseloggen i Windows eller genereras av Syslog förutom prestandaräknare för både Windows och Linux-klienter.  Du kan också samla in data från Azure-resurser som samlas in av Azure Monitor.  
 
-Om du kräver att data som inte kan nås via någon av de tillgängliga datakällorna så du kan använda den [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) där du kan skriva data till Log Analytics-databasen från alla klienter som kan anropa en REST-API.  Det vanligaste sättet för anpassad insamling i en lösning för hantering av är att skapa en [runbook i Azure Automation](../../automation/automation-runbook-types.md) som samlar in nödvändiga data från Azure eller externa resurser och använder Data Collector API för att skriva till den lagringsplats.  
+Om du kräver att data som inte kan nås via någon av de tillgängliga datakällorna så du kan använda den [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) där du kan skriva data till Log Analytics-databasen från alla klienter som kan anropa en REST-API.  Det vanligaste sättet för anpassad insamling i en lösning för hantering av är att skapa en [runbook i Azure Automation](../../automation/automation-runbook-types.md) som samlar in nödvändiga data från Azure eller externa resurser och använder Data Collector API för att skriva till den lagringsplats.  
 
 ### <a name="log-searches"></a>Loggsökningar
 [Loggsökningar](../../azure-monitor/log-query/log-query-overview.md) används för att extrahera och analysera data i Log Analytics-databasen.  De används i vyer och aviseringar förutom tillåter användare att utföra ad hoc-analyser av data i databasen.  

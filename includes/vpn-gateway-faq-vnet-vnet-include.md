@@ -5,29 +5,29 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/05/2018
+ms.date: 12/03/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 66ff1e2e02728e05cb0aeedce90de1882a8804ce
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
-ms.translationtype: HT
+ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30921316"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111631"
 ---
-Vanliga frågor och svar om VNet-till-VNet gäller för VPN Gateway-anslutningar. Om du letar efter VNet-Peering, se [Peering för virtuella nätverk](../articles/virtual-network/virtual-network-peering-overview.md)
+VNet-till-VNet vanliga frågor och svar gäller för VPN gateway-anslutningar. Information om VNet-peering finns i [peerkoppling av virtuella nätverk](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>Tar Azure ut avgifter för trafik mellan virtuella nätverk?
 
-Trafik mellan virtuella nätverk inom samma region är kostnadsfri i båda riktningarna när du använder en VPN-gatewayanslutning. Utgående trafik mellan virtuella nätverk i flera regioner debiteras med priset på utgående dataöverföring mellan virtuella nätverk, baserat på källregionerna. Se [sidan med prissättning för VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/) för mer information. Om du ansluter dina virtuella nätverk med VNet-peering istället för med VPN Gateway kan du titta på [sidan med prissättning för Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/).
+VNet-till-VNet-trafik i samma region är kostnadsfri i båda riktningarna när du använder en VPN-gatewayanslutning. Interregionala VNet-till-VNet utgående trafik debiteras med utgående inter-VNet-dataöverföring baserat på regioner. Mer information finns i [VPN-Gateway sidan med priser](https://azure.microsoft.com/pricing/details/vpn-gateway/). Om du ansluter ditt virtuella nätverk med hjälp av VNet-peering i stället för en VPN-gateway, se [prissättningen för virtuella](https://azure.microsoft.com/pricing/details/virtual-network/).
 
-### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>Skickas trafik mellan virtuella nätverk via Internet?
+### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>VNet-till-VNet-trafik färdas över internet?
 
-Nej. Trafik mellan virtuella nätverk skickas via Microsoft Azure-stamnätet, och inte via Internet.
+Nej. VNet-till-VNet-trafik skickas via Microsoft Azure-stamnätet, inte via internet.
 
-### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>Kan jag upprätta en anslutning mellan virtuella nätverk i flera AAD-klientorganisationer?
+### <a name="can-i-establish-a-vnet-to-vnet-connection-across-azure-active-directory-aad-tenants"></a>Kan jag upprätta en VNet-till-VNet-anslutning via Azure Active Directory (AAD)-klienter?
 
-Ja, anslutningar mellan virtuella nätverk som använder Azure VPN-gatewayer fungerar i flera AAD-klientorganisationer.
+Ja, VNet-till-VNet-anslutningar som använder Azure VPN-gateways fungerar mellan AAD-klienter.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>Är trafiken mellan virtuella nätverk säker?
 
@@ -41,13 +41,13 @@ Nej. Att ansluta flera virtuella Azure-nätverk till varandra kräver inte någo
 
 Nej. De virtuella nätverken kan finnas i samma eller olika Azure-regioner (platser).
 
-### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>Om de virtuella nätverken inte är i samma prenumeration, måste prenumerationerna associeras med samma AD-klient?
+### <a name="if-the-vnets-arent-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-active-directory-tenant"></a>Om de virtuella nätverken inte är i samma prenumeration, prenumerationerna som behöver vara kopplad till samma Active Directory-klient?
 
 Nej.
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Kan jag använda VNet-till-VNet för att ansluta virtuella nätverk i separata Azure-instanser? 
 
-Nej. Du kan använda VNet-till-VNet för att ansluta virtuella nätverk inom samma Azure-instans. Du kan till exempel inte skapa en anslutning mellan offentliga Azure och Azure-instanserna för Kina, Tyskland eller US Gov. I dessa scenarier kan du överväga att använda en VPN-anslutning för plats-till-plats.
+Nej. Du kan använda VNet-till-VNet för att ansluta virtuella nätverk inom samma Azure-instans. Exempel: du kan inte skapa en anslutning mellan globala Azure och kinesiska/tyska/US government Azure instanser. Överväg att använda en plats-till-plats-VPN-anslutning för dessa scenarier.
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Kan jag använda anslutningar mellan virtuella nätverk tillsammans med anslutningar mellan flera platser?
 
@@ -55,23 +55,23 @@ Ja. Virtuell nätverksanslutning kan användas samtidigt med VPN på flera plats
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>Hur många lokala platser och virtuella nätverk kan ett virtuellt nätverk ansluta till?
 
-Se tabellen med [Gateway-krav](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements).
+Se den [Gateway-krav](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements) tabell.
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>Kan jag använda anslutningar mellan virtuella nätverk för att ansluta virtuella datorer eller molntjänster utanför en virtuellt nätverk?
 
-Nej. VNet-till-VNet stöder anslutning av virtuella nätverk. Det stöder inte anslutning av virtuella datorer eller molntjänster som inte finns i ett virtuellt nätverk.
+Nej. VNet-till-VNet stöder anslutning av virtuella nätverk. Det stöder inte anslutning av virtuella datorer eller molntjänster som inte är i ett virtuellt nätverk.
 
-### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Kan en molntjänst eller en slutpunkt för utjämning av nätverksbelastning sträcka sig över virtuella nätverk?
+### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Kan en molntjänst eller en slutpunkt för Utjämning av nätverksbelastning sträcka sig över virtuella nätverk?
 
 Nej. En molntjänst eller en slutpunkt för belastningsutjämning kan inte omfatta flera virtuella nätverk, även om de är sammankopplade.
 
-### <a name="can-i-used-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Kan jag använda en principbaserad VPN-typ för virtuellt nätverk till virtuellt nätverk eller flerplatsanslutningar?
+### <a name="can-i-use-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Kan jag använda en PolicyBased VPN-typ för VNet-till-VNet eller flerplatsanslutningar?
 
-Nej. Anslutningar mellan olika virtuella nätverk och flera platser kräver Azure VPN-gatewayer med VPN-typen RouteBased (tidigare kallad dynamisk routning).
+Nej. VNet-till-VNet och flera platser kräver Azure VPN-gatewayer med RouteBased (tidigare kallad dynamisk routning) VPN-typer.
 
 ### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type"></a>Kan jag ansluta ett VNet med en routningsbaserad VPN-typ till ett annat VNet med en policybaserad VPN-typ?
 
-Nej, båda virtuella nätverken MÅSTE använda routningsbaserade VPN-anslutningar (tidigare kallat dynamisk routning).
+Nej, båda virtuella nätverken måste använda routningsbaserade (tidigare kallat dynamisk routning) VPN: er.
 
 ### <a name="do-vpn-tunnels-share-bandwidth"></a>Delar VPN-tunnlar bandbredd?
 

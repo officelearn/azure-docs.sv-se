@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a21a21f40e731e8bc1d20e01d3671c372df65d84
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622048"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877484"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Så här distribuerar du Access Panel-tillägg för Internet Explorer med hjälp av en Grupprincip
 Den här självstudien visar hur du använder grupprinciper för att fjärrinstallera Access Panel-tillägg för Internet Explorer på användarnas datorer. Det här tillägget är obligatoriskt för Internet Explorer-användare som behöver logga in på appar som har konfigurerats med hjälp av [lösenordsbaserad enkel inloggning](what-is-single-sign-on.md#password-based-sso).
@@ -54,7 +54,7 @@ Först måste du placera installer-paketet på en nätverksplats som kan använd
 1. Logga in på den server som är värd för din Active Directory Domain Services (AD DS)-installation.
 2. I Server Manager går du till **verktyg** > **Group Policy Management**.
    
-    ![Gå till Verktyg > Gruppera princip Managment](./media/deploy-access-panel-browser-extension/tools-gpm.png)
+    ![Gå till Verktyg > hantering av Grupprincip](./media/deploy-access-panel-browser-extension/tools-gpm.png)
 3. I den vänstra rutan i den **Group Policy Management** fönstret betrakta hierarkin organisationsenhet (OU) och avgör i vilken omfattning du vill tillämpa grupprincipen. Exempelvis kanske du vill välja en liten Organisationsenhet för att distribuera till några användare för testning, eller du kan välja en översta Organisationsenhet för att distribuera till hela organisationen.
    
    > [!NOTE]

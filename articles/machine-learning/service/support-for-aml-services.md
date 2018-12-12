@@ -1,5 +1,6 @@
 ---
-title: Få support och utbildning för Azure Machine Learning-tjänsten
+title: Tillgängliga support och utbildning
+titleSuffix: Azure Machine Learning service
 description: Den här artikeln visar hur du kan få support och utbildning för Azure Machine Learning-tjänsten
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: a857b813cee86079b96cd2bca297c1cf098819f5
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 6acebef4481fc3d22cc7186663ce17e2602cde53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113911"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073507"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Få support och utbildning för Azure Machine Learning-tjänsten
 

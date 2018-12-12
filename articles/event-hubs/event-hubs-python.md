@@ -1,5 +1,5 @@
 ---
-title: Använd Python för att skicka och ta emot meddelanden från Azure Event Hubs | Microsoft Docs
+title: Använd Python för att skicka och ta emot meddelanden - Azure Event Hubs | Microsoft Docs
 description: Lär dig hur du skickar händelser för att ta emot händelser från och samla in händelser som strömmas via Event Hubs med hjälp av Python.
 keywords: ''
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 9c9c1bd909222ebb3fed57fb31c4f19404382cd4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a0e2cd7e0c768512e1aafc042fe55338fdc206e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730292"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084982"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Hur du använder Azure Event Hubs från ett Python-program
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Mer information finns i [introduktion till Event Hubs](event-hubs-what-is-event-hubs.md). 

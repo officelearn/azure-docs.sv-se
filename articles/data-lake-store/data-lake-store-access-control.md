@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567493"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087175"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -71,15 +71,15 @@ I POSIX modellen som används av Data Lake Storage Gen1, förvaras behörigheter
 
 Nedan följer några vanliga scenarier för att förstå vilka behörigheter som krävs för att utföra vissa åtgärder på ett Data Lake Storage Gen1-konto.
 
-|    Åtgärd             |    /    | Seattle / | Portland / | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Läs Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Lägga till i Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Ta bort Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Skapa Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Lista /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| Lista /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Lista /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Åtgärd | Objekt              |    /      | Seattle /   | Portland /   | Data.txt       |
+|-----------|---------------------|-----------|------------|-------------|----------------|
+| Läsa      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Lägga till i | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Ta bort    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Skapa    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Visa lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Visa lista      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Visa lista      | /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]

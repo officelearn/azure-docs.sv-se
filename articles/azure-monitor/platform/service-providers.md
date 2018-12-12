@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: c43b2e265903b119812d16ef4ef329393c725e71
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 0c75926943ceb2e77335732445f56099961f7667
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992998"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099043"
 ---
 # <a name="log-analytics-for-service-providers"></a>Logganalys för tjänsteleverantörer
 Log Analytics kan leverantörer av hanterade tjänster (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur. 
@@ -80,7 +80,7 @@ Det finns två alternativ för att implementera den centrala platsen i Log Analy
 
 ## <a name="next-steps"></a>Nästa steg
 * Automatisera skapande och konfiguration av arbetsytor med hjälp av [Resource Manager-mallar](template-workspace-configuration.md)
-* Automatisera genereringen av arbetsytor med hjälp av [PowerShell](../../log-analytics/log-analytics-powershell-workspace-configuration.md) 
+* Automatisera genereringen av arbetsytor med hjälp av [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
 * Använd [aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) att integrera med befintliga system
 * Generera sammanfattningsrapporter med [Power BI](../../azure-monitor/platform/powerbi.md)
 * Gå igenom processen för [konfigurerar Log Analytics och Power BI för att övervaka flera CSP-kunder](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

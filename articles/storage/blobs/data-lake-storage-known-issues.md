@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: 29fe100821e5ad2d9d5d340a1178c19c60c6d821
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: fb0a67a9b3b556a85a2b28989fe15dfeea1f0d72
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995435"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099601"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -27,11 +27,23 @@ Om du vill använda samma verktyg för att arbeta med allt det innehåll som du 
 
 ## <a name="blob-storage-apis"></a>API: er för BLOB storage
 
-API: er för BLOB storage är ännu inte tillgängliga för Azure Data Lake Storage Gen 2-konton.
+API: er för BLOB storage är ännu inte tillgänglig för Azure Data Lake Storage Gen2 konton.
 
 Dessa API: er har inaktiverats för att förhindra oavsiktliga data access problem som kan uppstå eftersom API: erna för Blob Storage är ännu inte kompatibla med Azure Data Lake Gen2 API: er.
 
-Ohanterade diskar för virtuella datorer (VM) är beroende av dessa API: er, så om du vill aktivera hierarkisk namnområden på ett lagringskonto, Överväg att placera ohanterade Virtuella datordiskar till ett lagringskonto som inte har hierarkisk aktiverade namnområden.
+Om du använde dessa API: er för att läsa in data innan de har inaktiverats, och du har en produktion behöver komma åt dessa data kan sedan kontakta Microsoft Support med följande information:
+
+* Prenumerations-ID (GUID, inte namnet)
+
+* Lagringskontonamn
+
+* Om du aktivt påverkas i produktion och i så fall, för vilka storage-konton?
+
+* Även om du inte påverkas aktivt i produktion, berätta för oss om du behöver dessa data ska kopieras till ett annat lagringskonto av någon anledning och varför?
+
+Under dessa omständigheter kan vi återställa åtkomst till Blob-API: et under en begränsad tid så att du kan kopiera dessa data till ett lagringskonto som inte har hierarkisk aktiverade namnområden.
+
+Ohanterade diskar för virtuella datorer (VM) är beroende av den inaktiverade API: er för Blob Storage, så om du vill aktivera hierarkisk namnområden på ett lagringskonto, Överväg att placera ohanterade Virtuella datordiskar till ett lagringskonto som inte har hierarkisk aktiverade namnområden.
 
 ## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
 

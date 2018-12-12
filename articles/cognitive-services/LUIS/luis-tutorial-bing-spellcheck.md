@@ -1,21 +1,22 @@
 ---
-title: Lägg till stavningskontroll i Bing v7 i LUIS frågor | Microsoft Docs
+title: Rätt felstavade ord.
 titleSuffix: Azure
 description: Rätta felstavade ord i yttranden genom att lägga till Bing stavningskontroll kontrollera API V7 LUIS endpoint frågor.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6d197b014d6936b12b34a6d8783d1ebd29dfa28a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 478970c6b5f4035949c8b6579f1021dfa161fd39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443337"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096799"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Rätta felstavade ord med stavningskontroll i Bing
 
@@ -75,7 +76,7 @@ Slutpunkten URL: en har flera värden som ska skickas på rätt sätt. Stavnings
 
 4. LUIS svarar med ett JSON-resultat för `How far is the mountain?`. Om stavningskontroll i Bing v7 identifierar stavningsförslag, den `query` innehåller den ursprungliga frågan i fältet i LUIS-app JSON-svar och `alteredQuery` fältet innehåller korrigerad fråga som skickats till LUIS.
 
-```
+```json
 {
   "query": "How far is the mountainn?",
   "alteredQuery": "How far is the mountain?",

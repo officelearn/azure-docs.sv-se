@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 88041cf185aeb6ae5cb27f2405b62401cae069d9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964261"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098108"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -275,6 +275,12 @@ Här följer efter installation kända problem för den här build-versionen.
 <!-- 3179561 - IS --> 
 - Managed Disks-användning rapporteras i timmar, enligt beskrivningen i den [vanliga frågor om användning i Azure Stack](azure-stack-usage-related-faq.md#managed-disks). Fakturering för Azure Stack används dock månadspriset i stället så att du felaktigt kan debiteras för Managed Disks-användning på eller före September 27. Vi har tillfälligt inaktiverats avgifterna för Managed Disks efter 27 September tills fakturering problemet åtgärdas. Om du har debiterats felaktigt för Managed Disks-användning, kontakta Microsoft Support för fakturering.
 Användningsrapporter som genereras från API: er för Azure Stack-användning visa rätt antal och kan användas.
+
+<!-- 3507629 - IS, ASDK --> 
+- Hanterade diskar skapar två nya [compute kvottyper](azure-stack-quota-types.md#compute-quota-types) att begränsa den maximala kapaciteten på hanterade diskar som kan etableras. Som standard tilldelas 2 048 GiB för varje typ av kvot för hanterade diskar. Men du kan stöta på följande problem:
+
+   - Av kvoter som skapats före uppdateringen 1808, visa kvot på Managed Disks 0 värden i administratörsportalen kan även om 2 048 GiB har allokerats. Du kan öka eller minska värdet utifrån dina faktiska behov och den nyligen ange kvotvärde åsidosätter 2048 GiB standard.
+   - Om du uppdaterar kvotvärdet till 0, motsvarar det att standardvärdet 2 048 GiB. Som en lösning kan du ange kvotvärdet till 1.
 
 <!-- 2869209 – IS, ASDK --> 
 - När du använder den [ **Lägg till AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), måste du använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Om du använder den lokala sökvägen på disken kan cmdleten misslyckas med följande fel: *tidskrävande åtgärden misslyckades med statusen ”misslyckades”*. 

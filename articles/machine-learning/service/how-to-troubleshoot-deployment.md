@@ -1,6 +1,7 @@
 ---
-title: Distribution av felsökningsguide för Azure Machine Learning-tjänsten
-description: Lär dig hur till lösning kan lösa och felsöka vanliga Docker-distributionsfel med Azure Machine Learning-tjänsten.
+title: Distribuera felsökningsguide
+titleSuffix: Azure Machine Learning service
+description: Lär dig hur till lösning kan lösa och felsöka vanliga Docker-distributionsfel med AKS och ACI med hjälp av Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,18 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
-ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321690"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100522"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Felsökning av distribution av Azure Machine Learning-tjänster
+# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Felsökning av Azure Machine Learning-tjänsten AKS och ACI-distributioner
 
-I den här artikeln får lära du dig att undvika eller lösa vanliga Docker-distributionsfel med Azure Machine Learning-tjänsten.
+I den här artikeln får lära du dig att undvika eller lösa vanliga Docker-distributionsfel med Azure Container Instances (ACI) och Azure Kubernetes Service (AKS) med hjälp av Azure Machine Learning-tjänsten.
 
 När du distribuerar en modell i Azure Machine Learning-tjänsten, utförs ett antal uppgifter. Detta är en komplex händelsesekvens och ibland problem uppstår. Distribution aktiviteter är:
 
@@ -117,7 +119,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Felsöka Docker-avbildningen lokalt
-Några tillfällen Docker-loggen inte genererar tillräckligt med information om vad som händer fel. Du kan gå ett steg längre och hämta Docker-avbildningen, starta en lokal behållare och Felsök direkt i live-behållaren interaktivt. Om du vill starta en lokal behållare, måste du ha en Docker-motor som körs lokalt och det är mycket enklare om du även har [azure cli-](/cli/azure/install-azure-cli?view=azure-cli-latest) installerad.
+Några tillfällen Docker-loggen inte genererar tillräckligt med information om vad som händer fel. Du kan gå ett steg längre och hämta Docker-avbildningen, starta en lokal behållare och Felsök direkt i live-behållaren interaktivt. Om du vill starta en lokal behållare, måste du ha en Docker-motor som körs lokalt och det är mycket enklare om du även har [azure cli-](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installerad.
 
 Först måste vi ta reda på platsen:
 
@@ -222,10 +224,6 @@ def run(input_data):
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om distribution: 
-* [Hur du distribuerar till ACI](how-to-deploy-to-aci.md)
+* [Hur du distribuerar och var](how-to-deploy-and-where.md)
 
-* [Hur du distribuerar till AKS](how-to-deploy-to-aks.md)
-
-* [Del 1 av självstudiekursen: träna modellen](tutorial-train-models-with-aml.md)
-
-* [Del 2 av självstudiekursen: distribuera modell](tutorial-deploy-models-with-aml.md)
+* [Självstudie: Skapa och distribuera modeller](tutorial-train-models-with-aml.md)

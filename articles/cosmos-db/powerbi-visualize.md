@@ -1,21 +1,19 @@
 ---
-title: Power BI-självstudiekurs för Azure Cosmos DB-anslutningsapp | Microsoft Docs
+title: Power BI-självstudiekurs för Azure Cosmos DB-anslutningsapp
 description: Använd den här Power BI-självstudiekursen för att importera JSON, skapa insiktsfulla rapporter och visualisera data med Azure Cosmos DB och Power BI-kopplingen.
 keywords: Power bi självstudien, visualisera data, power bi-anslutningsapp
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5f75ada1d37f6bd5cb2d870dd5169de7a4844eb3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622099"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869065"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualisera data med Azure Cosmos DB med hjälp av anslutningsprogrammet för Power BI
 

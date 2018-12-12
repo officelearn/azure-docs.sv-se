@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 32198387be680fd01558e900e4c438cde2cdc5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267103"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880190"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace affärstransaktion funktioner och överväganden
 
@@ -177,8 +177,9 @@ Till exempel, om kunden köper med ett kreditkort:
 |Datum för Fakturaberäkning payout (per månad på den 15: e) | Den 1 oktober 2018 |
 |Payout datum | Den 15 oktober 2018 |
 
-Om kunden köper med hjälp av ett Enterprise-avtal:  
-|Beskrivning    |    Date  |
+Om kunden köper med hjälp av ett Enterprise-avtal:
+
+| Beskrivning |    Date  |
 |----------|----------|
 |Order-Period | Den 15 augusti 2018-30 augusti 2018 |
 |Termen slutar (kvartal) | Den 30 september 2018 |

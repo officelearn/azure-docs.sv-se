@@ -2,19 +2,19 @@
 title: Planera din infrastruktur för VM-säkerhetskopiering i Azure
 description: Att tänka på när du planerar att säkerhetskopiera virtuella datorer i Azure
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: Säkerhetskopiera virtuella datorer, virtuella datorer för säkerhetskopiering
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
-ms.author: markgal
-ms.openlocfilehash: 806d68370921a7658066a9bad770b36b4e8e59bf
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.author: raynew
+ms.openlocfilehash: 7ebb71c6c5968f8f3548f1accd8d659039e6b545
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680046"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871650"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planera din infrastruktur för VM-säkerhetskopiering i Azure
 Den här artikeln ger prestanda och resurs förslag på hur du planerar din infrastruktur för säkerhetskopiering av virtuell dator. Den definierar även viktiga aspekter av Backup-tjänsten; följande aspekter kan vara avgörande för att fastställa din arkitektur kapacitetsplanering och schemaläggning. Om du har [förberett din miljö](backup-azure-arm-vms-prepare.md), planering är nästa steg innan du börjar [att säkerhetskopiera virtuella datorer](backup-azure-arm-vms.md). Om du behöver mer information om virtuella Azure-datorer finns i den [dokumentation om Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).

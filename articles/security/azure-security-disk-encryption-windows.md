@@ -1,20 +1,21 @@
 ---
-title: Aktivera Azure Disk Encryption för Windows virtuella IaaS-datorer | Microsoft Docs
+title: Aktivera Azure Disk Encryption för Windows virtuella IaaS-datorer
 description: Den här artikeln innehåller anvisningar om hur du aktiverar Microsoft Azure Disk Encryption för Windows virtuella IaaS-datorer.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/12/2018
-ms.openlocfilehash: 545723a020609766b9556746e6547eb8b93e5de9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: MT
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: c4cada102a4996a388ce3a6ac7d8f83e79f1b074
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687528"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076754"
 ---
-# <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Aktivera Azure Disk Encryption för Windows virtuella IaaS-datorer 
+# <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Aktivera Azure Disk Encryption för Windows virtuella IaaS-datorer
 
 Du kan aktivera många diskkryptering scenarier och stegen kan variera beroende på scenario. Följande avsnitt beskriver scenarier i större detalj för Windows virtuella IaaS-datorer. Innan du kan använda diskkryptering, den [som krävs för Azure Disk Encryption](../security/azure-security-disk-encryption-prerequisites.md) måste slutföras. 
 
@@ -194,13 +195,13 @@ Använd den [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.
 
 ### <a name="register-for-disk-encryption-preview-using-azure-cli"></a>Registrera dig för förhandsversion av disk encryption med Azure CLI
 
-Azure-diskkryptering för VM-skalningsuppsättningar förhandsversion måste du registrera din prenumeration med [az funktionen registrera](/cli/azure/feature#az_feature_register). Du behöver bara utföra följande steg första gången du använder förhandsgranskningsfunktionen disk kryptering:
+Azure-diskkryptering för VM-skalningsuppsättningar förhandsversion måste du registrera din prenumeration med [az funktionen registrera](/cli/azure/feature#az-feature-register). Du behöver bara utföra följande steg första gången du använder förhandsgranskningsfunktionen disk kryptering:
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [az funktionen show](/cli/azure/feature#az_feature_show). När den `State` rapporter *registrerad*, registrera den *Microsoft.Compute* provider med [az provider register](/cli/azure/provider#az_provider_register):
+Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [az funktionen show](/cli/azure/feature#az-feature-show). När den `State` rapporter *registrerad*, registrera den *Microsoft.Compute* provider med [az provider register](/cli/azure/provider#az-provider-register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute

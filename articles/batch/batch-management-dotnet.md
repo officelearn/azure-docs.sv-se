@@ -16,17 +16,17 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65f8eb0752a181eda312515e557bb733c091e2e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fd511a8a9d17bf79f1237bbfe2dc2ddbc5ec1b2e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505401"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867434"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Hantera Batch-konton och kvoter med Batch Management-klientbiblioteket för .NET
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
 > 
 > 
@@ -153,7 +153,7 @@ Batch Management .NET-biblioteket är en Azure resource provider-klient och anv�
 
 ## <a name="sample-project-on-github"></a>Exempelprojektet på GitHub
 
-Om du vill se hur Batch Management .NET fungerar, ta en titt på [AccountManagment] [ acct_mgmt_sample] exempelprojektet på GitHub. AccountManagment-exempelprogrammet demonstrerar följande åtgärder:
+Om du vill se hur Batch Management .NET fungerar, ta en titt på [AccountManagement] [ acct_mgmt_sample] exempelprojektet på GitHub. AccountManagement-exempelprogrammet demonstrerar följande åtgärder:
 
 1. Hämta en säkerhetstoken från Azure AD med hjälp av [ADAL][aad_adal]. Om användaren inte är redan är inloggad uppmanas de att ange sina autentiseringsuppgifter för Azure.
 2. Med den säkerhetstoken som hämtats från Azure AD, skapa en [SubscriptionClient] [ resman_subclient] att fråga Azure efter en lista över prenumerationer som är kopplade till kontot. Användaren kan välja en prenumeration i listan om den innehåller mer än en prenumeration.

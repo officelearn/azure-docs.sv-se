@@ -1,47 +1,50 @@
 ---
-title: Hur du konfigurerar Azure ExpressRoute direkt med hjälp av CLI | Microsoft Docs
-description: Den här sidan kan du konfigurera ExpressRoute direkt med hjälp av CLI (förhandsversion)
+title: Konfigurera ExpressRoute Direct – Azure CLI | Microsoft Docs
+description: Den här artikeln hjälper dig att konfigurera ExpressRoute direkt med hjälp av Azure CLI (förhandsversion)
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 989e96aa00ae65d1206f961a10893e3331670553
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 285b429f565f8a2c7f8c20756f076e631223b10f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958312"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076728"
 ---
-# <a name="how-to-configure-expressroute-direct-using-cli-preview"></a>Så här konfigurerar du ExpressRoute direkt med hjälp av CLI (förhandsversion)
+# <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>Konfigurera ExpressRoute direkt med hjälp av Azure CLI (förhandsversion)
 
-ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. Mer information finns i [om ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+Du kan använda Azure ExpressRoute direkt för att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. Mer information finns i [om ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
 > [!IMPORTANT]
-> ExpressRoute direkt förhandsvisas just nu.
+> ExpressRoute Direct är för närvarande i förhandsversion.
 >
-> Den allmänt tillgängliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den offentliga förhandsversionen av ExpressRoute Direct tillhandahålls utan ett servicenivåavtal. Du bör inte använda ExpressRoute direkt förhandsversion för produktionsarbetsbelastningar. Vissa funktioner kanske inte finns stöd, vissa funktioner kan ha begränsad funktionalitet och vissa funktioner kanske inte är tillgängliga i alla Azure-platser. Mer information finns i [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="resources"></a>Skapa resursen
 
-1. Logga in på Azure och välj prenumerationen. ExpressRoute Direct resurs och ExpressRoute-kretsar måste vara i samma prenumeration.
+1. Logga in på Azure och välj den prenumeration som innehåller ExpressRoute. ExpressRoute-Direct-resursen och ExpressRoute-kretsarna måste vara i samma prenumeration. Kör följande kommandon i Azure-CLI:
 
   ```azurecli
   az login
   ```
 
-  Kontrollera prenumerationerna för kontot. 
+  Kontrollera prenumerationerna för kontot: 
 
   ```azurecli
   az account list 
   ```
 
-  Välj den prenumeration som du vill skapa en ExpressRoute-krets.
+  Välj den prenumeration som du vill skapa en ExpressRoute-krets:
+
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. Lista över alla platser där ExpressRoute Direct stöds.
+
+2. Lista över alla platser där ExpressRoute Direct stöds:
     
   ```azurecli
   az network express-route port location list
@@ -108,7 +111,7 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    }
   ]
   ```
-3. Ta reda på om en plats som anges ovan har tillgänglig bandbredd
+3. Avgöra om en av de platser som anges i föregående steg har tillgänglig bandbredd:
 
   ```azurecli
   az network express-route port location show -l "Equinix-Ashburn-DC2"
@@ -134,14 +137,14 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
   "type": "Microsoft.Network/expressRoutePortsLocations"
   }
   ```
-4. Skapa en ExpressRoute-Direct-resurs baserat på den plats som valts ovan
+4. Skapa en ExpressRoute-Direct-resurs som baseras på den plats som du valde i föregående steg.
 
-  ExpressRoute Direct stöder både QinQ och Dot1Q inkapsling. Om QinQ väljs dynamiskt ska tilldelas en S-tagg varje ExpressRoute-krets och ska vara unikt i hela ExpressRoute Direct-resursen. Varje C-tagg i kretsen måste vara unikt i kretsen, men inte i ExpressRoute-direkt.  
+  ExpressRoute Direct stöder både QinQ och Dot1Q inkapsling. Om du väljer QinQ varje ExpressRoute-krets tilldelas dynamiskt en S-tagg och är unikt i hela ExpressRoute Direct-resursen. Varje C-tagg i kretsen måste vara unikt i kretsen men inte mellan ExpressRoute Direct-resursen.  
 
-  Om Dot1Q inkapsling väljs, måste du hantera unikhet för C-taggen (VLAN) över hela ExpressRoute Direct-resursen.  
+  Om du väljer Dot1Q inkapsling måste du hantera unikhet för C-taggen (VLAN) över hela ExpressRoute Direct-resursen.  
 
   > [!IMPORTANT]
-  > ExpressRoute Direct kan endast vara en Inkapslingstyp. Inkapsling kan inte ändras när ExpressRoute Direct har skapats.
+  > ExpressRoute Direct kan vara endast en Inkapslingstyp av. Du kan inte ändra typen inkapsling när du har skapat ExpressRoute Direct-resursen.
   > 
  
   ```azurecli
@@ -149,10 +152,10 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
   ```
 
   > [!NOTE]
-  > Attributet inkapsling kan också anges till Dot1Q. 
+  > Du kan också ställa in den **inkapsling** attributet **Dot1Q**. 
   >
 
-  **Exempel på utdata:**
+  **Exempel på utdata**
 
   ```azurecli
   {
@@ -206,11 +209,11 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
   }  
   ```
 
-## <a name="state"></a>Ändra administratör tillståndet för länkar
+## <a name="state"></a>Ändra AdminState för länkar
 
-Den här processen ska användas för att utföra ett Lager1-test som säkerställer att varje korsanslutning korrekt korrigerad till varje router för primära och sekundära.
+Använd den här processen för att genomföra en nivå 1-test. Se till att varje korsanslutning är korrekt uppdaterad i varje router i de primära och sekundära portarna.
 
-1. Ange länken Enabled. Upprepa detta steg om du vill ange varje länk till aktiverat.
+1. Anger länkar **aktiverad**. Upprepa det här steget om du vill ställa in varje länk till **aktiverad**.
 
   Länkar [0] är den primära och länkar [1] är den sekundära porten.
 
@@ -220,7 +223,7 @@ Den här processen ska användas för att utföra ett Lager1-test som säkerstä
   ```azurecli
   az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
   ```
-  **Exempel på utdata:**
+  **Exempel på utdata**
 
   ```azurecli
   {
@@ -274,25 +277,25 @@ Den här processen ska användas för att utföra ett Lager1-test som säkerstä
   }
   ```
 
-  Använd samma procedur med `AdminState = “Disabled”` att sänka portarna.
+  Använd samma procedur och äldre portarna med hjälp av `AdminState = “Disabled”`.
 
 ## <a name="circuit"></a>Skapa en krets
 
-Du kan skapa 10 kretsar i prenumerationen där resursen ExpressRoute Direct är som standard. Detta kan utökas av support. Du är ansvarig för spårning av både etablerad och använder bandbredd. Etablerad bandbredd är summan av bandbredden för alla kretsar för ExpressRoute Direct-resursen och utnyttjade bandbredd är fysiska användningen av de underliggande fysiska gränssnitt.
+Du kan skapa 10 kretsar i den prenumeration som innehåller den ExpressRoute Direct-resursen som standard. Microsoft Support kan öka Standardgränsen. Du är ansvarig för spårning av etablerade och utnyttjade bandbredd. Etablerad bandbredd är summan av bandbredden för alla kretsar för ExpressRoute Direct-resursen. Utnyttjade bandbredd är fysiska användningen av de underliggande fysiska gränssnitt.
 
-Det finns ytterligare krets bandbredder som kan användas på ExpressRoute Direct för scenarier som beskrivs ovan. Dessa är: 40Gbps och 100Gbps.
+Du kan använda ytterligare krets bandbredder på ExpressRoute Direct för scenarier som beskrivs här. Vilka bandbredder är 40 Gbit/s och 100 Gbit/s.
 
-Standard- eller premium-kretsar kan skapas. Standard-kretsar som ingår i kostnaden, även om premium-kretsar har en kostnad baserat på den bandbredd som valts. Kretsar kan bara skapas som mäts, som ett obegränsat antal stöds inte på ExpressRoute direkt.
+Du kan skapa antingen Standard eller Premium-kretsar. Standard-kretsar som ingår i kostnaden för tjänsten. Kostnaden för Premium-kretsar baseras på den bandbredd som du väljer. Du kan skapa kretsar endast som mäts. Obegränsade kretsar stöds inte på ExpressRoute direkt.
 
-Skapa en krets på ExpressRoute Direct-resursen.
+Skapa en krets på ExpressRoute Direct-resursen:
 
   ```azurecli
   az network express-route create --express-route-port "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct" -n "Contoso-Direct-ckt" -g "Contoso-Direct-rg" --sku-family MeteredData --sku-tier Standard --bandwidth 100 Gbps
   ```
 
-  Andra bandbredder omfattar: 5 Gbit/s och 10 Gbit/s 40 Gbit/s
+  Andra bandbredder innehåller 5 Gbit/s och 10 Gbit/s 40 Gbit/s.
 
-  **Exempel på utdata:**
+  **Exempel på utdata**
 
   ```azurecli
   {

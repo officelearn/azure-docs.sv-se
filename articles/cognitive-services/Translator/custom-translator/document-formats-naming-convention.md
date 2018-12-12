@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fef4ecd207fd32b5a92a4c072832f3ab45b58300
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627637"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872772"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Dokumentera format och naming convention vägledning
 
@@ -43,11 +43,13 @@ Ordlistor stöder anpassade Translator alla filformat som de som stöds för tr�
 
 Dokument kan grupperas i en enda zip-fil och laddat upp. Anpassad Translator stöder zip-format (ZIP GZ och TGZ).
 
-Alla dokument i zip-filen måste följande namnkonvention:
+Varje dokument i zip-filen med tillägget TXT, HTML, HTM, PDF, DOCX, JUSTERA måste följande namnkonvention:
 
 {dokumentnamn} \_{språkkod} där {dokumentnamn} är namnet på dokumentet, {språkkod} är ISO LanguageID (två tecken), som anger att dokumentet innehåller meningar på det språket. Det måste finnas ett understreck (_) innan språkkoden.
 
 Till exempel för att ladda upp två parallella dokumenten i en zip för en engelska till spanska system ska filerna ha namnet ”data_en” och ”data_es”.
+
+Minne översättningsfiler (TMX, XLF, XLIFF, LCL, XLSX) behöver inte följa namngivningskonventionen, specifikt språk.  
 
 ## <a name="next-steps"></a>Nästa steg
 

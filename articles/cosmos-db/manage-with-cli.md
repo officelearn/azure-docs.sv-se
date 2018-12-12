@@ -1,25 +1,24 @@
 ---
-title: Hantera Azure Cosmos DB-resurser med hjälp av Azure CLI | Microsoft Docs
+title: Hantera Azure Cosmos DB-resurser med hjälp av Azure CLI
 description: Använda Azure CLI för att hantera ditt Azure Cosmos DB-konto, databas och behållare.
 services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: 3446f4f71349d0b7290a2514edf46efb37203324
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d79cae16c109b407840b8565eb80fb87bbed6432
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019227"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877555"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-cli"></a>Hantera Azure Cosmos DB-resurser med hjälp av Azure CLI
 
 Enligt följande anvisningar beskriver kommandon för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och behållare med hjälp av Azure CLI. Den innehåller också kommandon för att skala dataflöden i behållare. Det finns referenssidor för alla Azure Cosmos DB CLI-kommandon i [referensguiden för Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb). Du kan också hitta fler exempel i [Azure CLI-exempel för Azure Cosmos DB](cli-samples.md), inklusive hur du skapar och hanterar Cosmos DB-konton, databaser och behållare för MongoDB, Gremlin, Cassandra och tabell-API.
 
-Det här CLI-exempelskriptet skapar ett Azure Cosmos DB SQL API-konto, databas och behållare.  
+Det här CLI-skriptexemplet skapar ett Azure Cosmos DB SQL API-konto, databas och container.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

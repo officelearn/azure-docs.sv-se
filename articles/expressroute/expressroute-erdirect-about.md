@@ -1,5 +1,5 @@
 ---
-title: Om Azure ExpressRoute Direct | Microsoft Docs
+title: Om ExpressRoute Direct - Azure | Microsoft Docs
 description: Den här sidan innehåller en översikt över ExpressRoute Direct (förhandsversion)
 services: expressroute
 author: mialdrid
@@ -7,16 +7,17 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: mialdrid
-ms.openlocfilehash: 3b46f24edf10fee7001b35ffdd9fa218aa438e19
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 2310f007697cf1acbdbc907d4562853a2717eb5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959689"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097132"
 ---
 # <a name="about-expressroute-direct-preview"></a>Dirigera om ExpressRoute (förhandsversion)
 
-Med ExpressRoute Direct får kunder möjligheten att ansluta direkt till Microsofts globala nätverk vid peering-platser strategiskt fördelade runt om i världen. ExpressRoute Direct innehåller dubbla 100 Gbit/s-anslutningar som har stöd för aktiv/aktiv-anslutningar i stor skala.
+ExpressRoute Direct ger dig den möjligheten att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. ExpressRoute Direct innehåller dubbla 100 Gbit/s-anslutningar som har stöd för aktiv/aktiv-anslutningar i stor skala.
 
 Viktiga funktioner som tillhandahåller ExpressRoute Direct inkludera, men inte begränsat till:
 

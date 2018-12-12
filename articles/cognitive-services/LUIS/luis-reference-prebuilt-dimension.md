@@ -1,8 +1,9 @@
 ---
-title: LUIS förskapade entiteter dimensionen referens – Azure | Microsoft Docs
+title: Dimensionen fördefinierade entiteter
 titleSuffix: Azure
 description: Den här artikeln innehåller dimensionen fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
+ms.custom: seodec18
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
@@ -10,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 138cf1d2fbc050797c133afaffdb2a9820e2717f
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: 775c7800c2ea9abe4b960a2e82cebb85e3c74d3b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52332926"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098781"
 ---
 # <a name="dimension-entity"></a>Entitet för dimension
 Entiteten fördefinierade dimension identifierar olika typer av dimensioner, oavsett språkinställningar för LUIS-app. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller dimensioner till programmet avsikter. Dimensionen entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
@@ -28,7 +29,7 @@ Dimensionen hanteras från den [identifierare fulltext](https://github.com/Micro
 ## <a name="resolution-for-dimension-entity"></a>Lösning för dimensionen entitet
 I följande exempel visas av lösningen på den **builtin.dimension** entitet.
 
-```JSON
+```json
 {
   "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
   "topScoringIntent": {

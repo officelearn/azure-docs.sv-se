@@ -1,5 +1,5 @@
 ---
-title: Vad är standardbehörigheterna för användare i Azure Active Directory? | Microsoft Docs
+title: Standard användarbehörigheter - Azure Active Directory | Microsoft Docs
 description: Läs mer om de olika användarbehörigheterna som är tillgängliga i Azure Active Directory.
 services: active-directory
 author: eross-msft
@@ -11,16 +11,15 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-custom: it-pro
-ms.openlocfilehash: 9a9bd33dce4b2be9e15df2745dd25338cdb42702
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730487"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096611"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Vad är standardbehörigheterna för användare i Azure Active Directory?
-
 Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Directory (AD Azure). En användares behörighet består av typen av användare, deras [rollmedlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av standardinställningar för medlem och gäst.
 
 ## <a name="member-and-guest-users"></a>Medlems- och gästanvändare

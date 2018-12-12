@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 034e611f6ea95675dc3169feefe1916a81c50943
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: e94af6e50c923d975c6ce71cca94479354891e0d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972379"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097785"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: beroende spårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som kallas via HTTP, eller en databas eller ett filsystem. [Application Insights](app-insights-overview.md) mäter hur länge ditt program väntar beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
@@ -32,7 +32,7 @@ Beroendeövervakare för out-of the box rapporterar för närvarande anrop till 
 * Webbsidor
   * AJAX-anrop
 
-Övervaka fungerar med hjälp av [byte kod instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) runt utvalda metoder. Prestanda försämras är minimal.
+Övervaka fungerar med hjälp av [byte kod instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) cirka Välj metoder eller baserat på DiagnosticSource återanrop (i den senaste .NET SDK: er) från .NET Framework. Prestanda försämras är minimal.
 
 Du kan också skriva egna SDK-anrop för att övervaka andra beroenden, både i koden klienten och servern med hjälp av den [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 

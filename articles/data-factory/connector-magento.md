@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 36afc89ef583baa5484aa4e69c6969e7448c93c1
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 03757aaf13d48730a3061f07ae3138f0aadbdf00
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127592"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077859"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Kopiera data från Magento med Azure Data Factory (förhandsversion)
 
@@ -77,7 +77,12 @@ Följande egenskaper har stöd för Magento länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Magento datauppsättning.
 
-Kopiera data från Magento genom att ange typegenskapen på datauppsättningen till **MagentoObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Kopiera data från Magento genom att ange typegenskapen på datauppsättningen till **MagentoObject**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **MagentoObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -89,7 +94,8 @@ Kopiera data från Magento genom att ange typegenskapen på datauppsättningen t
         "linkedServiceName": {
             "referenceName": "<Magento linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -98,14 +104,14 @@ Kopiera data från Magento genom att ange typegenskapen på datauppsättningen t
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Magento källa.
 
-### <a name="magentosource-as-source"></a>MagentoSource som källa
+### <a name="magento-as-source"></a>Magento som källa
 
 Om du vill kopiera data från Magento, ange typ av datakälla i kopieringsaktiviteten till **MagentoSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MagentoSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Customers"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Customers"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: barbkess
-ms.openlocfilehash: c1e6c48ef262bf3cb71f7201ba2ff7e9105681dc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1876ff0cea2e46f8159b9ffb24de72a6272b3a79
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357632"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077094"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Så här konfigurerar du tilldelning av programåtkomst via självbetjäning
 
@@ -57,7 +57,7 @@ Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till et
 
 5.  Klicka på **alla program** att visa en lista över alla dina program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
 6.  Välj det program som du vill ge åtkomst till i listan.
 
@@ -67,8 +67,8 @@ Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till et
 
 9.  Klicka sedan på väljaren bredvid etiketten för att välja gruppen till vilken användare som begär åtkomst till det här programmet ska läggas till, **till vilken grupp ska tilldelade användare läggas?** och välj en grupp.
   
-  > [!NOTE]
-  > Grupper som synkroniserats från lokalt stöds inte för att användas för gruppen som användare som begär åtkomst till det här programmet ska läggas till.
+    > [!NOTE]
+    > Grupper som synkroniserats från lokalt stöds inte för att användas för gruppen som användare som begär åtkomst till det här programmet ska läggas till.
   
 10. **Valfritt:** om du inte vill att kräva ett företag godkännande innan användarna får åtkomst genom att ange den **kräver godkännande innan du beviljar åtkomst till det här programmet?** växla till **Ja**.
 
@@ -76,10 +76,10 @@ Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till et
 
 12. **Valfritt:** för att ange den företagsgodkännaren som har behörighet att bevilja åtkomst till det här programmet, klickar du på väljaren bredvid etiketten **som har behörighet att bevilja åtkomst till det här programmet?** att välja upp till 10 person företagsgodkännaren.
 
-   >[!NOTE]
-   >Grupper stöds inte.
-   >
-   >
+     > [!NOTE]
+     > Grupper stöds inte.
+     >
+     >
 
 13. **Valfritt:** **för program som exponera roller**, om du vill tilldela självbetjäning godkända användare till en roll, klickar du på väljaren bredvid den **till vilken roll ska användarna tilldelas i det här programmet?** att välja rollen som dessa användare ska tilldelas.
 

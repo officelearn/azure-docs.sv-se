@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238156"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865054"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera en strategi för skydd av data för din hybrididentitetslösning
 I det här steget definierar du strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i dataskydd:
@@ -92,7 +92,7 @@ Du kan aktivera ditt företag att använda en central identitetsdatabas samtidig
 
 Centraliserad hantering och helt integrering med andra kataloger
 
-Azure Active Directory tillhandahåller enkel inloggning till tusentals SaaS-program och lokala webbprogram. Se den [kompatibilitetslistan för Azure Active Directory federation: identitetsleverantörer från tredje part som kan användas för att implementera enkel inloggning](https://msdn.microsoft.com/library/azure/jj679342.aspx) nedan för mer information om den enkel inloggning från tredje parten som har testats av Microsoft. Den här funktionen gör det möjligt för organisation att implementera en mängd B2B-scenarier och bibehålla kontrollen över identitets- och åtkomsthantering. Under B2B är utforma processen dock viktigt att förstå den autentiseringsmetod som används av partnern och kontrollera om den här metoden stöds av Azure. Följande metoder är för närvarande stöds av Azure AD:
+Azure Active Directory tillhandahåller enkel inloggning till tusentals SaaS-program och lokala webbprogram. Se den [kompatibilitetslistan för Azure Active Directory federation: identitetsleverantörer från tredje part som kan användas för att implementera enkel inloggning](how-to-connect-fed-compatibility.md) nedan för mer information om den enkel inloggning från tredje parten som har testats av Microsoft. Den här funktionen gör det möjligt för organisation att implementera en mängd B2B-scenarier och bibehålla kontrollen över identitets- och åtkomsthantering. Under B2B är utforma processen dock viktigt att förstå den autentiseringsmetod som används av partnern och kontrollera om den här metoden stöds av Azure. Följande metoder är för närvarande stöds av Azure AD:
 
 * Security Assertion Markup Language (SAML)
 * OAuth

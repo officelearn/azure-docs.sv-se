@@ -1,6 +1,5 @@
 ---
-title: Hantera och begära resurskvoter
-titleSuffix: Azure Machine Learning service
+title: Hur du hanterar och begära kvoter för Azure Machine Learning-tjänsten
 description: Den här guiden beskrivs de olika kvoterna på resurser för Azure Machine Learning och hur du visar och begär högre kvot.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
-ms.custom: seodec18
-ms.openlocfilehash: b868e20ebb1054864116957fd671a17e2d980c0a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: 516e8a9c73fdeacba38d9c81f5cb2d0b8db106c8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083860"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867706"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Hantera och begära kvoter för Azure-resurser
 

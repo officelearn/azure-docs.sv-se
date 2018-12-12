@@ -7,12 +7,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: c241232de33d4371456a374f8bc511211b3e9449
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: ba4b47cb3b88400c6257d7711c93f2e4eb2628fd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082418"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864723"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migrering och application development partner
 
@@ -29,34 +29,18 @@ Från NoSQL migrering till programutveckling, kan du välja från en mängd olik
 
 |**Partner**  |**Funktioner och upplevelse**  |**Länder som stöds**  |**Kontakta**  |
 |---------|---------|---------|---------|
-| ![10thMagnitude][13] | NoSQL-migrering; Ny apputveckling | USA | [Webbplats](https://www.10thmagnitude.com/)|
-|![Altoros utveckling LLC][3]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling |   USA, Norge, Finland, Vitryssland, Argentina |  [Webbplats](http://www.altoros.com/)     |
-|![Attunix Redapt][4]     |   NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling      |    USA     |  [Webbplats](http://www.attunix.com/)       |
-| ![Avanade][26] | Ny apputveckling <br/> Appinnovation (befintliga appar) | Österrike, Tyskland, Schweiz, Italien, Norge, Spanien, Storbritannien | [Webbplats](https://www.avanade.com/)
-|![Bluemetal Architects][5]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    Nordamerika, Asien –     |  [Webbplats](http://www.bluemetal.com/)       |
-|![Capax globala LLC][6]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    USA     |  [Webbplats](http://www.capaxglobal.com/)       |
-| ![Capgemini][14] | NoSQL-migrering; Appinnovation (befintliga appar); Ny apputveckling | USA, Frankrike, Storbritannien, Nederländerna, Finland  | [Webbplats](https://www.capgemini.com/) | 
+|![Altoros][3]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling |     USA, EUROPA    |  [Webbplats](http://www.altoros.com/)       |
+|![Attunix][4]     |   NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling      |    USA     |  [Webbplats](http://www.attunix.com/)       |
+|![Bluemetal][5]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    Nordamerika, Asien –     |  [Webbplats](http://www.bluemetal.com/)       |
+|![Capax globala][6]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    USA     |  [Webbplats](http://www.capaxglobal.com/)       |
 |![Coeo][7]     |   Appinnovation (befintliga appar) <br/> Ny apputveckling |    Storbritannien     |  [Webbplats](http://www.coeo.com/)       |
-| ![Cognizant][15] | NoSQL-migrering |USA, Kanada, Storbritannien, Danmark, Nederländerna, Schweiz, Australien, Japan | [Webbplats](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL-migrering       |    Global     |  [Webbplats](http://www.infosys.com/)       |
-| ![Lagash][16] | NoSQL-migrering <br/> Ny apputveckling | Argentina, Chile, Colombia, Mexiko| [Webbplats](https://lagash.com/)|
-| ![Lambda3 Informatics][17] | NoSQL-migrering <br/> Ny apputveckling | Brasilien| [Webbplats](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     Utveckling av appar (nya appar)    |    USA     |  [Webbplats](http://www.nealanalytics.com/)       |
-|![Pragmatic fungerar programvara Inc][10]    |   NoSQL-migrering      |   USA      |  [Webbplats](http://www.pragmaticworks.com/)       |
-| ![Ricoh globala][18] | NoSQL-migrering <br/> Appinnovation (befintliga appar)| Storbritannien  | [Webbplats](https://www.ricoh.com/)|
-| ![SNP tekniker][19] | NoSQL-migrering| USA | [Webbplats](https://www.snp.com/)|
-| ![Solidsoft svar][20] | NoSQL-migrering | Kroatien, Sverige, Danmark, Irland, Bulgarien, Slovenien, Cypern, Malta, Litauen, Tjeckien, Island och Schweiz och Liechtenstein| [Webbplats](https://www.reply.com/solidsoft-reply/)|
-| ![Spanska peka tekniker][21] | NoSQL-migrering| Irland| [Webbplats](https://www.spanishpoint.ie/)|
-| ![Syone][22] | NoSQL-migrering| Portugal| [Webbplats](https://www.syone.com/)|
+|![Pragmatisk fungerar][10]    |   NoSQL-migrering      |   USA      |  [Webbplats](http://www.pragmaticworks.com/)       |
 |![Tallan][11]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    USA     |  [Webbplats](http://www.tallan.com/)       |
-| ![KAMERASYSTEM][23] | Appinnovation (befintliga appar) <br/> Ny apputveckling | USA, Storbritannien, Frankrike, Malaysia, Danmark, Norge, Sverige| [Webbplats](https://www.tcs.com/)|
 |![VTeamLabs][12]    | NoSQL-migrering       |  USA      | [Webbplats](http://www.vteamlabs.com/)       |
-| ![Vit ankor][24] |NoSQL-migrering <br/> Ny apputveckling | Tyskland | [Webbplats](https://whiteducksoftware.com/)|
-| ![Visa IT][25] | Ny apputveckling | Portugal, Storbritannien| [Webbplats](https://www.xpand-it.com/)|
-
 
 ## <a name="next-steps"></a>Nästa steg
-
 Mer information om några av Microsofts andra partner, finns det [Microsoft Partner-webbplats](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->
@@ -72,17 +56,3 @@ Mer information om några av Microsofts andra partner, finns det [Microsoft Part
 [10]: ./media/partners-migration-cosmosdb/pragmaticworks_logo.png
 [11]: ./media/partners-migration-cosmosdb/tallan_logo.png
 [12]: ./media/partners-migration-cosmosdb/vteamlabs_logo.png
-[13]: ./media/partners-migration-cosmosdb/10thmagnitude_logo.png
-[14]: ./media/partners-migration-cosmosdb/capgemini_logo.png
-[15]: ./media/partners-migration-cosmosdb/cognizant_logo.png
-[16]: ./media/partners-migration-cosmosdb/laglash_logo.png
-[17]: ./media/partners-migration-cosmosdb/lambda3_logo.png
-[18]: ./media/partners-migration-cosmosdb/ricoh_logo.png
-[19]: ./media/partners-migration-cosmosdb/snp_technologies_logo.png
-[20]: ./media/partners-migration-cosmosdb/solidsoft_reply_logo.png
-[21]: ./media/partners-migration-cosmosdb/spanish_point_logo.png
-[22]: ./media/partners-migration-cosmosdb/syone_logo.png
-[23]: ./media/partners-migration-cosmosdb/tcs_logo.png
-[24]: ./media/partners-migration-cosmosdb/whiteduck_logo.png
-[25]: ./media/partners-migration-cosmosdb/xpandit_logo.png
-[26]: ./media/partners-migration-cosmosdb/avanade_logo.png

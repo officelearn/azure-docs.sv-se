@@ -3,7 +3,7 @@ title: Skapa aviseringar för SQL-databas med hjälp av Azure portal | Microsoft
 description: Använd Azure-portalen för att skapa SQL Database-aviseringar som kan utlösa aviseringar eller automation när angivna villkor är uppfyllda.
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: MT
+ms.openlocfilehash: 56beb9779b0dde7074a2f49fab156c8b6e6577b3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979003"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870188"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Skapa aviseringar för Azure SQL Database och Data Warehouse med hjälp av Azure portal
 

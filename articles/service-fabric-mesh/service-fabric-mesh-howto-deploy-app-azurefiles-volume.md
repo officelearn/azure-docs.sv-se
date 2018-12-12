@@ -1,6 +1,6 @@
 ---
-title: Store tillstånd i ett Azure Service Fabric nät program genom att montera en Azure-filer baserat volym inuti behållaren | Microsoft Docs
-description: Lär dig hur du lagrar tillstånd i ett Azure Service Fabric nät program genom att montera en Azure-filer baserat volym inuti behållaren med hjälp av Azure CLI.
+title: Använda en Azure-filer baserat volym i ett Service Fabric-nät program | Microsoft Docs
+description: Lär dig hur du lagrar tillstånd i ett Azure Service Fabric nät program genom att montera en Azure-filer baserat volym inuti en tjänst med Azure CLI.
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
@@ -12,86 +12,236 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2018
+ms.date: 11/21/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 9bce2d0e6d01813fd376b2505838defc9c772d70
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614267"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891103"
 ---
-# <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Store-tillstånd i ett Azure Service Fabric nät program genom att montera en Azure-filer baserat volym inuti behållaren
+# <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montera en Azure-filer baserat volym i ett Service Fabric-nät program 
 
-Den här artikeln visar hur du lagrar tillstånd i Azure Files genom att montera en volym inuti behållaren i ett Service Fabric-nät program. I det här exemplet har räknaren programmet en ASP.NET Core-tjänst med en webbsida som visar räknarvärde i en webbläsare. 
+Den här artikeln beskriver hur du monterar en Azure-filer baserat volym i en tjänst i ett Service Fabric-nät program.  Azure Files volym drivrutinen är en drivrutin för Docker-volym som används för att montera en Azure Files-resurs till en behållare som du använder för att bevara tillståndet för tjänsten. Volymer ger dig allmänna fillagring och gör att du kan läsa/skriva filer med hjälp av normal disk-i/o-fil som API: er.  Läs mer om volymer och alternativ för att lagra programdata [lagra tillstånd](service-fabric-mesh-storing-state.md).
 
-Den `counterService` regelbundet läser ett värde för prestandaräknaren från en fil, ökar den och skriva tillbaka till filen. Filen lagras i en mapp som är monterad på den volym som backas upp av Azure Files-resurs.
+Om du vill montera en volym i en tjänst, skapa en volym-resurs i ditt Service Fabric-nät program och sedan referera till den volymen i din tjänst.  Deklarera volymresursen och refererar till den i tjänstresursen kan göras antingen i den [YAML-baserade resursfiler](#declare-a-volume-resource-and-update-the-service-resource-yaml) eller [JSON-baserade Distributionsmall](#declare-a-volume-resource-and-update-the-service-resource-json). Innan du monterar volymen först skapa ett Azure storage-konto och en [filresurs i Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här uppgiften. Om du vill använda Azure CLI med den här artikeln, kontrollerar du att `az --version` returnerar minst `azure-cli (2.0.43)`.  Installera (eller uppdatera) Azure Service Fabric nät CLI-tillägg-modulen genom att följa dessa [instruktioner](service-fabric-mesh-howto-setup-cli.md).
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här artikeln. 
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+Om du vill använda Azure CLI lokalt med den här artikeln, kontrollerar du att `az --version` returnerar minst `azure-cli (2.0.43)`.  Installera (eller uppdatera) Azure Service Fabric nät CLI-tillägg-modulen genom att följa dessa [instruktioner](service-fabric-mesh-howto-setup-cli.md).
 
-Logga in på Azure och konfigurera din prenumeration.
+Logga in på Azure och ange din prenumeration:
 
-```azurecli-interactive
+```azurecli
 az login
 az account set --subscription "<subscriptionID>"
 ```
 
-## <a name="create-a-file-share"></a>Skapa en filresurs
-
-Skapa en Azure-filresurs genom att följa de här [instruktioner](/azure/storage/files/storage-how-to-create-file-share). Lagringskontonamn, din lagringskontonyckel och namn på filresurs är refereras till som `<storageAccountName>`, `<storageAccountKey>`, och `<fileShareName>` i följande anvisningar. Dessa värden är tillgängliga i Azure portal:
-* <storageAccountName> -Under **Lagringskonton**, det är namnet på det lagringskonto som du använde när du skapade filresursen.
-* <storageAccountKey> -Välj ditt lagringskonto under **Lagringskonton** och välj sedan **åtkomstnycklar** och använda värde under **key1**.
-* <fileShareName> -Välj ditt lagringskonto under **Lagringskonton** och välj sedan **filer**. Namn är namnet på den filresurs som du nyss skapade.
-
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-
-Skapa en resursgrupp som programmet ska distribueras till. Följande kommando skapar en resursgrupp med namnet `myResourceGroup` på en plats i östra USA.
+## <a name="create-a-storage-account-and-file-share-optional"></a>Skapa en resurs för kontot och (valfritt)
+Montera en Azure Files-volym kräver en storage-konto och filresursen.  Du kan använda ett befintligt Azure storage-konto och filresursen eller skapa resurser:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus 
+az group create --name myResourceGroup --location eastus
+
+az storage account create --name myStorageAccount --resource-group myResourceGroup --location eastus --sku Standard_LRS --kind StorageV2
+
+$current_env_conn_string=$(az storage account show-connection-string -n myStorageAccount -g myResourceGroup --query 'connectionString' -o tsv)
+
+az storage share create --name myshare --quota 2048 --connection-string $current_env_conn_string
 ```
 
-## <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="get-the-storage-account-name-and-key-and-the-file-share-name"></a>Hämta lagringskontonamn och nyckel och namn på filresurs
+Namnet på lagringskontot och lagringskontonyckeln filresursens namn är refereras till som `<storageAccountName>`, `<storageAccountKey>`, och `<fileShareName>` i följande avsnitt. 
 
-Skapa program och relaterade resurser med följande kommando och ange värden för `storageAccountName`, `storageAccountKey` och `fileShareName` från den tidigare [skapa en filresurs](#create-a-file-share) steg.
-
-Den `storageAccountKey` parametern i mallen är en säker sträng. Den visas inte i distributionens status och `az mesh service show` kommandon. Se till att den har angetts korrekt i följande kommando.
-
-Följande kommando distribuerar en Linux-program med den [counter.azurefilesvolume.linux.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). För att distribuera ett Windows-program kan använda den [counter.azurefilesvolume.windows.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). Tänk på att större behållaravbildningar kan ta längre tid att distribuera.
-
+Lista dina lagringskonton och hämta namnet på lagringskontot med filresursen som du vill använda:
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az storage account list
 ```
 
-Om några minuter bör kommandot returnerar med `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
-
-## <a name="open-the-application"></a>Öppna programmet
-
-Distributionskommandot returneras den offentliga IP-adressen för tjänsteslutpunkt. När programmet har distribuerats kan du hämta den offentliga IP-adressen för tjänsteslutpunkt och öppna den från en webbläsare. En webbsida visas med räknarvärdet håller på att uppdateras varje sekund.
-
-Resursnamnet nätverk för det här programmet är `counterAppNetwork`. Du kan se information om appen dess beskrivning, plats, resursgrupp osv med hjälp av följande kommando:
-
+Hämta namnet på filresursen:
 ```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name counterAppNetwork
+az storage share list --account-name <storageAccountName>
 ```
 
-## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Kontrollera att programmet ska kunna använda volym
-
-Programmet skapar en fil med namnet `counter.txt` i filen dela inuti `counter/counterService` mapp. Innehållet i den här filen är räknarvärdet som visas på sidan.
-
-Filen laddas ned med ett verktyg som gör det möjligt att bläddra en Azure Files-filresurs som den [Microsoft Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/).
-
-## <a name="delete-the-resources"></a>Ta bort resurser
-
-Ofta ta bort de resurser som du inte längre använder i Azure. Ta bort de resurser som rör det här exemplet genom att ta bort resursgruppen som de har distribuerats (som tar bort allt som är associerade med resursgruppen) med följande kommando:
-
+Hämta lagringskontonyckeln (”key1”):
 ```azurecli-interactive
-az group delete --resource-group myResourceGroup
+az storage account keys list --account-name <storageAccountName> --query "[?keyName=='key1'].value"
+```
+
+Du kan också hitta de här värdena i den [Azure-portalen](https://portal.azure.com):
+* `<storageAccountName>` -Under **Lagringskonton**, namnet på lagringskontot som används för att skapa filresursen.
+* `<storageAccountKey>` -Välj ditt lagringskonto under **Lagringskonton** och välj sedan **åtkomstnycklar** och använda värde under **key1**.
+* `<fileShareName>` -Välj ditt lagringskonto under **Lagringskonton** och välj sedan **filer**. Namn är namnet på den filresurs som du skapade.
+
+## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Deklarera en volymresursen och uppdatera tjänstresurs (JSON)
+
+Lägga till parametrar för den `<fileShareName>`, `<storageAccountName>`, och `<storageAccountKey>` värden som du hittade i föregående steg. 
+
+Skapa en volym-resurs som en peer-datorn om programresursen. Ange ett namn och provider (”SFAzureFile” att använda Azure Files baserat volym). I `azureFileParameters`, anger du parametrarna för den `<fileShareName>`, `<storageAccountName>`, och `<storageAccountKey>` värden som du hittade i föregående steg.
+
+Om du vill montera volymen i din tjänst, lägger du till en `volumeRefs` till den `codePackages` element i tjänsten.  `name` är resurs-ID för volymen (eller en mallparameter i distributionen för volymresursen) och namnet på volymen som har deklarerats i resursfilen volume.yaml.  `destinationPath` är den lokala katalogen som volymen ska monteras till.
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "defaultValue": "EastUS",
+      "type": "String",
+      "metadata": {
+        "description": "Location of the resources."
+      }
+    },
+    "fileShareName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Azure Files file share that provides the volume for the container."
+      }
+    },
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Azure storage account that contains the file share."
+      }
+    },
+    "storageAccountKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Access key for the Azure storage account that contains the file share."
+      }
+    },
+    "stateFolderName": {
+      "type": "string",
+      "defaultValue": "TestVolumeData",
+      "metadata": {
+        "description": "Folder in which to store the state. Provide a empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2018-09-01-preview",
+      "name": "VolumeTest",
+      "type": "Microsoft.ServiceFabricMesh/applications",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "Microsoft.ServiceFabricMesh/networks/VolumeTestNetwork",
+        "Microsoft.ServiceFabricMesh/volumes/testVolume"
+      ],
+      "properties": {
+        "services": [
+          {
+            "name": "VolumeTestService",
+            "properties": {
+              "description": "VolumeTestService description.",
+              "osType": "Windows",
+              "codePackages": [
+                {
+                  "name": "VolumeTestService",
+                  "image": "volumetestservice:dev",
+                  "volumeRefs": [
+                    {
+                      "name": "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]",
+                      "destinationPath": "C:\\app\\data"
+                    }
+                  ],
+                  "environmentVariables": [
+                    {
+                      "name": "ASPNETCORE_URLS",
+                      "value": "http://+:20003"
+                    },
+                    {
+                      "name": "STATE_FOLDER_NAME",
+                      "value": "[parameters('stateFolderName')]"
+                    }
+                  ],
+                  ...
+                }
+              ],
+              ...
+            }
+          }
+        ],
+        "description": "VolumeTest description."
+      }
+    },
+    {
+      "apiVersion": "2018-09-01-preview",
+      "name": "testVolume",
+      "type": "Microsoft.ServiceFabricMesh/volumes",
+      "location": "[parameters('location')]",
+      "dependsOn": [],
+      "properties": {
+        "description": "Azure Files storage volume for the test application.",
+        "provider": "SFAzureFile",
+        "azureFileParameters": {
+          "shareName": "[parameters('fileShareName')]",
+          "accountName": "[parameters('storageAccountName')]",
+          "accountKey": "[parameters('storageAccountKey')]"
+        }
+      }
+    }
+    ...
+  ]
+}
+```
+
+## <a name="declare-a-volume-resource-and-update-the-service-resource-yaml"></a>Deklarera en volymresursen och uppdatera tjänstresurs (YAML)
+
+Lägga till en ny *volume.yaml* fil i den *appresurser* katalogen för ditt program.  Ange ett namn och provider (”SFAzureFile” att använda Azure Files baserat volym). `<fileShareName>`, `<storageAccountName>`, och `<storageAccountKey>` är de värden som du hittade i föregående steg.
+
+```yaml
+volume:
+  schemaVersion: 1.0.0-preview2
+  name: testVolume
+  properties:
+    description: Azure Files storage volume for counter App.
+    provider: SFAzureFile
+    azureFileParameters: 
+        shareName: <fileShareName>
+        accountName: <storageAccountName>
+        accountKey: <storageAccountKey>
+```
+
+Uppdatera den *service.yaml* fil i den *tjänstresurser* directory för att montera volymen i din tjänst.  Lägg till den `volumeRefs` elementet så att den `codePackages` element.  `name` är resurs-ID för volymen (eller en mallparameter i distributionen för volymresursen) och namnet på volymen som har deklarerats i resursfilen volume.yaml.  `destinationPath` är den lokala katalogen som volymen ska monteras till.
+
+```yaml
+## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: VolumeTest
+  properties:
+    services:
+      - name: VolumeTestService
+        properties:
+          description: VolumeTestService description.
+          osType: Windows
+          codePackages:
+            - name: VolumeTestService
+              image: volumetestservice:dev
+              volumeRefs:
+                - name: "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]"
+                  destinationPath: C:\app\data
+              endpoints:
+                - name: VolumeTestServiceListener
+                  port: 20003
+              environmentVariables:
+                - name: ASPNETCORE_URLS
+                  value: http://+:20003
+                - name: STATE_FOLDER_NAME
+                  value: TestVolumeData
+              resources:
+                requests:
+                  cpu: 0.5
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: VolumeTestNetwork
 ```
 
 ## <a name="next-steps"></a>Nästa steg

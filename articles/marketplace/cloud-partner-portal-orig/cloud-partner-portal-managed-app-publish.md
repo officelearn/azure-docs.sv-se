@@ -190,7 +190,7 @@ Formuläret marketplace inom ett erbjudande för azure-program begär fält som 
 
 #### <a name="preview-subscription-ids"></a>Förhandsversion av prenumerations-ID: N
 
-Ange en lista med ID i Azure-prenumeration som du vill ha åtkomst till erbjudandet när den publiceras. Dessa white visas prenumerationer gör att du kan testa förhandsgranskade erbjudandet innan du gör den live. Du kan vitlista upp till 100 prenumerationer partnerportalen.
+Ange en lista med ID i Azure-prenumeration som du vill ha åtkomst till erbjudandet när den publiceras. Dessa white visas prenumerationer gör att du kan testa förhandsgranskade erbjudandet innan du gör den live. Du kan placera upp till 100 prenumerationer i listan över tillåtna i partnerportalen.
 
 #### <a name="suggested-categories"></a>Föreslagna kategorier
 

@@ -181,7 +181,7 @@ I följande tabell visas de olika regionerna att du kan ange anpassade core pris
 | LK         | Sri Lanka            | USD               |
 | SE         | Sverige               | SEK               |
 | CH         | Schweiz          | CHF               |
-| TW         | Taiwan SAR               | TWD               |
+| TW         | Taiwan               | TWD               |
 | TH         | Thailand             | THB               |
 | TT         | Trinidad och Tobago  | TTD               |
 | TN         | Tunisien              | TND               |

@@ -143,7 +143,7 @@ Du får förrän den 1 November 2018 att ange ett nytt pris för regionerna där
 | **Tjeckien**       | CZ        | EUR                         |
 | **Egypten**                | T.EX.        | USD                         |
 | **Guatemala**            | GT        | USD                         |
-| **Hong Kong**            | HK        | USD                         |
+| **Hongkong**            | HK        | USD                         |
 | **Ungern**              | HU        | EUR                         |
 | **Island**              | ÄR        | EUR                         |
 | **Indonesien**            | ID        | USD                         |

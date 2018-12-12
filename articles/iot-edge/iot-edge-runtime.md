@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure IoT Edge-körningen | Microsoft Docs
-description: Läs mer om Azure IoT Edge-körningen och hur den hjälper dina gränsenheter
+title: Lär dig hur körningen hanterar enheter – Azure IoT Edge | Microsoft Docs
+description: Lär dig hur moduler, säkerhet, kommunikation och rapportering på dina enheter hanteras av Azure IoT Edge-körningen
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 05c97d21e9acf1bb49418e3a7d0ccf1657f84435
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 3495d157f1a681e80b6d113acced53d01751690f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685199"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077502"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge-körningen och dess arkitektur
 
@@ -29,7 +30,7 @@ IoT Edge-körningen utför följande funktioner på IoT Edge-enheter:
 * Underlättar kommunikationen mellan moduler på IoT Edge-enheten.
 * Underlättar kommunikationen mellan IoT Edge-enheten och molnet.
 
-![IoT Edge-körningen kommunicerar insikter och modulens hälsa till IoT Hub](./media/iot-edge-runtime/Pipeline.png)
+![Runtime kommunicerar insikter och modulens hälsa till IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
 Ansvaret för IoT Edge-körningen är indelade i två kategorier: kommunikation och modulen. Dessa två roller som utförs av två komponenter som utgör IoT Edge-körningen. IoT Edge hub ansvarar för kommunikation, medan IoT Edge-agenten hanterar distribution och övervakning av moduler. 
 
@@ -42,14 +43,14 @@ Edge hub är en av två moduler som utgör Azure IoT Edge-körningen. Den funger
 >[!NOTE]
 >Edge Hub har stöd för klienter som ansluter med hjälp av MQTT eller AMQP. Det har inte stöd för klienter som använder HTTP. 
 
-Edge hub är inte en fullständig version av IoT Hub som körs lokalt. Det finns några saker som Edge hub tyst delegerar till IoT Hub. Edge hub vidarebefordrar begäranden om autentisering till IoT Hub när en enhet först försöker ansluta. När den första anslutningen har upprättats kan cachelagras säkerhetsinformation lokalt Edge hub. Efterföljande anslutningar från den enheten tillåts utan att behöva autentisera till molnet. 
+Edge hub är inte en fullständig version av IoT Hub som körs lokalt. Det finns några saker som Microsoft Edge hub tyst delegerar till IoT Hub. Edge hub vidarebefordrar begäranden om autentisering till IoT Hub när en enhet först försöker ansluta. När den första anslutningen har upprättats kan cachelagras säkerhetsinformation lokalt Edge hub. Efterföljande anslutningar från den enheten tillåts utan att behöva autentisera till molnet. 
 
 >[!NOTE]
 >Vara måste ansluten körningen varje gång den försöker autentisera en enhet.
 
 För att minska bandbredden som din IoT Edge-lösning använder, Edge hub optimerar hur många faktiska anslutningar görs till molnet. Edge hub tar logiska anslutningar från klienter som moduler eller lövenheter och kombinerar dem för en enda fysisk anslutning till molnet. Information om den här processen är transparent för resten av lösningen. Klienter tror att de har sin egen anslutning till molnet, även om de är alla som skickas via samma anslutning. 
 
-![Edge hub fungerar som en gateway mellan flera fysiska enheter och molnet](./media/iot-edge-runtime/Gateway.png)
+![Edge hub är en gateway mellan fysiska enheter och IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
 Edge hub kan avgöra om den är ansluten till IoT Hub. Om anslutningen bryts, sparar Edge hub meddelanden eller twin uppdateringar lokalt. När en anslutningen återupprättas synkroniserar alla data. Platsen som används för den här tillfälliga cachen bestäms av en egenskap för Edge hub modultvilling. Storleken på cacheminnet är inte begränsat och kommer att växa så länge enheten har lagringskapacitet. 
 
@@ -57,7 +58,7 @@ Edge hub kan avgöra om den är ansluten till IoT Hub. Om anslutningen bryts, sp
 
 Edge Hub underlättar modulen till modulen kommunikationen. Med Edge Hub som en asynkron meddelandekö behåller moduler som är oberoende av varandra. Moduler behöver bara ange indata som de godkänner meddelanden och utdata som de skriva meddelanden. En för lösningsutvecklare sedan häftar samman dessa indata och utdata tillsammans så att modulerna som bearbetar data i ordningen som är specifika för lösningen. 
 
-![Edge Hub underlättar modulen till modulen kommunikationen](./media/iot-edge-runtime/ModuleEndpoints.png)
+![Edge Hub underlättar modulen till modulen kommunikationen](./media/iot-edge-runtime/module-endpoints.png)
 
 Om du vill skicka data till Edge hub, anropar metoden SendEventAsync i en modul. Det första argumentet anger på vilka utdata att skicka meddelandet. Följande pseudocode skickar ett meddelande på output1:
 
@@ -79,7 +80,7 @@ Lösningsutvecklaren är ansvarig för att ange reglerna som bestämmer hur Edge
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Rutter mellan moduler](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
+![Rutter mellan moduler som går igenom Edge hub](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
 ## <a name="iot-edge-agent"></a>IoT Edge-agenten
 

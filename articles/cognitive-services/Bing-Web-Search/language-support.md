@@ -61,7 +61,7 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Spanien|ES|
 |Sverige|SE|
 |Schweiz|CH|
-|Taiwan SAR|TW|
+|Taiwan|TW|
 |Turkiet|TR|
 |Storbritannien|GB|
 |USA|USA|
@@ -105,7 +105,7 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Sverige|Svenska|SV-SE|
 |Schweiz|Franska|fr CH|
 |Schweiz|Tyska|Tyskland – CH|
-|Taiwan SAR|Traditionell kinesiska|zh-TW|
+|Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
 |Storbritannien|Svenska|en-GB|
 |USA|Svenska|sv-SE|

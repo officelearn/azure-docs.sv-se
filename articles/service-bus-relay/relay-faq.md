@@ -127,7 +127,7 @@ En beskrivning av vanliga undantag och föreslagna åtgärder som du kan vidta f
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Vad är en signatur för delad åtkomst och vilka språk kan jag använda för att generera en signatur?
 Signaturer för delad åtkomst (SAS) är en autentiseringsmetod baserad på säkra SHA-256-hashvärden eller URI: er. Information om hur du skapar dina egna signaturer i Node, PHP, Java, C och C# finns i [Service Bus-autentisering med signaturer för delad åtkomst][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Är det möjligt att vitlista relay slutpunkter?
+### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Är det möjligt att placera reläslutpunkter i listan över tillåtna?
 Ja. Relay-klienten skickar anslutningar till Azure Relay-tjänsten med hjälp av fullständigt kvalificerade domännamn. Kunder kan lägga till en post för `*.servicebus.windows.net` för brandväggar som har stöd för DNS-listan över tillåtna program.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -70,7 +70,7 @@ Du kan också ange land/region med hjälp av den `cc` frågeparameter. Om du ang
 |Spanien|ES|
 |Sverige|SE|
 |Schweiz|CH|
-|Taiwan SAR|TW|
+|Taiwan|TW|
 |Turkiet|TR|
 |Storbritannien|GB|
 |USA|USA|
@@ -114,7 +114,7 @@ Du kan också ange land/region med hjälp av den `cc` frågeparameter. Om du ang
 |Sverige|Svenska|SV-SE|
 |Schweiz|Franska|fr CH|
 |Schweiz|Tyska|Tyskland – CH|
-|Taiwan SAR|Traditionell kinesiska|zh-TW|
+|Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
 |Storbritannien|Svenska|en-GB|
 |USA|Svenska|sv-SE|

@@ -65,7 +65,7 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Frankrike|Franska|fr-FR|  
 |Italien|Italienska|IT-IT|
 |Hongkong SAR|Traditionell kinesiska|zh-HK|  
-|Taiwan SAR|Traditionell kinesiska|zh-TW|
+|Taiwan|Traditionell kinesiska|zh-TW|
 |Japan|Japanska|ja-JP|  
 |Korea|Koreanska|ko-KR|  
 |Nederländerna|Nederländska|NL-NL|  
@@ -156,7 +156,7 @@ Följande är de koder för land/region som du kan ange i den `cc` frågeparamet
 |Spanien|ES|  
 |Sverige|SE|  
 |Schweiz|CH|  
-|Taiwan SAR|TW|  
+|Taiwan|TW|  
 |Turkiet|TR|  
 |Storbritannien|GB|  
 |USA|USA|

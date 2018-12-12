@@ -28,10 +28,10 @@ Registrering i Device Provisioning-tjänsten gör det möjligt för en enhet ska
 
 Enskilda registreringar gäller för en enskild enhet och kan använda X.509-certifikat eller SAS-token (i en verklig eller virtuell TPM) som attesteringsmekanism. (Enheter som använder SAS-token som kan du etablera sina attesteringsmetod endast via en enskild registrering.) För att blockeringslista en enhet som har en enskild registrering, kan du inaktivera eller ta bort registreringsposten. 
 
-Tillfälligt svartlista enheten genom att inaktivera dess registreringspost: 
+Tillfälligt blockeringslista enheten genom att inaktivera dess registreringspost: 
 
 1. Logga in på Azure portal och väljer **alla resurser** menyn till vänster.
-2. Välj etableringstjänsten som du vill svartlista enheten från i listan över resurser.
+2. Välj etableringstjänsten som du vill blockeringslista enheten från i listan över resurser.
 3. Välj i etableringstjänsten **hantera registreringar**, och välj sedan den **enskilda registreringar** fliken.
 4. Välj posten registreringen för den enhet som du vill blockeringslista. 
 
@@ -44,9 +44,9 @@ Tillfälligt svartlista enheten genom att inaktivera dess registreringspost:
 Att blockeringslista enheten permanent genom att ta bort registreringsposten:
 
 1. Logga in på Azure portal och väljer **alla resurser** menyn till vänster.
-2. Välj etableringstjänsten som du vill svartlista enheten från i listan över resurser.
+2. Välj etableringstjänsten som du vill blockeringslista enheten från i listan över resurser.
 3. Välj i etableringstjänsten **hantera registreringar**, och välj sedan den **enskilda registreringar** fliken.
-4. Markera kryssrutan bredvid registreringspost för den enhet som du vill svartlista. 
+4. Markera kryssrutan bredvid registreringspost för den enhet som du vill blockeringslista. 
 5. Välj **ta bort** högst upp i fönstret och välj sedan **Ja** att bekräfta att du vill ta bort registreringen. 
 
    ![Ta bort posten för enskild registrering i portalen](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
@@ -54,27 +54,27 @@ Att blockeringslista enheten permanent genom att ta bort registreringsposten:
 
 När du har slutfört proceduren bör du se ditt bidrag som tagits bort från listan över enskilda registreringar.  
 
-## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Svartlista ett mellanliggande X.509-certifikat eller ett rotcertifikatutfärdarcertifikat med hjälp av en grupp för registrering
+## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Blockeringslista ett mellanliggande X.509-certifikat eller ett rotcertifikatutfärdarcertifikat med hjälp av en grupp för registrering
 
 X.509-certifikat som är normalt ordnade i en certifikatkedja med förtroenden. Om ett certifikat för varje steg på en kedja har komprometterats, har förtroendet brutits. Certifikatet måste vara Svartlistad förhindra etablering enheter nedströms i kedjor som innehåller certifikatet Device Provisioning-tjänsten. Läs mer om X.509-certifikat och hur de används med etableringstjänsten i [X.509-certifikat](./concepts-security.md#x509-certificates). 
 
 En grupp för registrering är en post för enheter som delar en gemensam attesteringsmetod av X.509-certifikat som signerats av mellanliggande samma eller rotcertifikatutfärdare. Posten för registreringsgruppen har konfigurerats med X.509-certifikat som är associerade med mellanliggande eller rotcertifikatutfärdare. Posten konfigureras också med valfri konfigurationsvärden, till exempel tvillingstatus och IoT hub-anslutning som delas av enheter med detta certifikat i certifikatkedjan. För att blockeringslista certifikatet, kan du inaktivera eller ta bort gruppen, registrering.
 
-Tillfälligt svartlista certifikatet genom att inaktivera dess grupp för registrering: 
+Tillfälligt blockeringslista certifikatet genom att inaktivera dess grupp för registrering: 
 
 1. Logga in på Azure portal och väljer **alla resurser** menyn till vänster.
-2. Välj etableringstjänsten som du vill svartlista signeringscertifikatet från i listan över resurser.
+2. Välj etableringstjänsten som du vill blockeringslista signeringscertifikatet från i listan över resurser.
 3. Välj i etableringstjänsten **hantera registreringar**, och välj sedan den **Registreringsgrupper** fliken.
-4. Välj grupp för registrering med det certifikat som du vill svartlista.
+4. Välj grupp för registrering med det certifikat som du vill blockeringslista.
 5. Välj **inaktivera** på den **aktivera post** växla och markera **spara**.  
 
    ![Inaktivera registreringsposten för gruppen i portalen](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
     
-Att svartlista permanent certifikatet genom att ta bort grupp för registrering:
+Att blockeringslista permanent certifikatet genom att ta bort grupp för registrering:
 
 1. Logga in på Azure portal och väljer **alla resurser** menyn till vänster.
-2. Välj etableringstjänsten som du vill svartlista enheten från i listan över resurser.
+2. Välj etableringstjänsten som du vill blockeringslista enheten från i listan över resurser.
 3. Välj i etableringstjänsten **hantera registreringar**, och välj sedan den **Registreringsgrupper** fliken.
 4. Markera gruppen registrering för det certifikat som du vill blockeringslista. 
 5. Välj **ta bort** högst upp i fönstret och välj sedan **Ja** att bekräfta att du vill ta bort grupp för registrering. 
@@ -90,10 +90,10 @@ När du har slutfört proceduren bör du se ditt bidrag som tagits bort från li
 
 Enheter som implementerar X.509-attesteringsmetod använda enhetens certifikatkedjan och den privata nyckeln för att autentisera. När en enhet ansluter och autentiserar med Device Provisioning-tjänsten, letar tjänsten först efter en enskild registrering som matchar enhetens autentiseringsuppgifter. Tjänsten söker sedan registreringsgrupper för att avgöra om enheten kan etableras. Om tjänsten hittar en inaktiverad enskild registrering för enheten, kan enheten inte ansluta. Tjänsten förhindrar anslutningen även om det finns en aktiverad registreringsgrupp för ett mellanliggande certifikat eller rot-CA i enhetens certifikatkedjan. 
 
-Följ dessa steg för att svartlista en enskild enhet i en grupp för registrering:
+Följ dessa steg för att blockeringslista en enskild enhet i en grupp för registrering:
 
 1. Logga in på Azure portal och väljer **alla resurser** menyn till vänster.
-2. Välj etableringstjänsten som innehåller grupp för registrering för den enhet som du vill svartlista från listan över resurser.
+2. Välj etableringstjänsten som innehåller grupp för registrering för den enhet som du vill blockeringslista från listan över resurser.
 3. Välj i etableringstjänsten **hantera registreringar**, och välj sedan den **enskilda registreringar** fliken.
 4. Välj den **Lägg till enskild registrering** längst upp. 
 5. På den **Lägg till registrering** väljer **X.509** som bestyrkande **mekanism** för enheten.

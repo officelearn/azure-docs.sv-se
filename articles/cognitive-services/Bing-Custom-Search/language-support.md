@@ -63,7 +63,7 @@ Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt utes
 |Spanien|ES|
 |Sverige|SE|
 |Schweiz|CH|
-|Taiwan SAR|TW|
+|Taiwan|TW|
 |Turkiet|TR|
 |Storbritannien|GB|
 |USA|USA|
@@ -108,7 +108,7 @@ Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt utes
 |Sverige|Svenska|SV-SE|
 |Schweiz|Franska|fr CH|
 |Schweiz|Tyska|Tyskland – CH|
-|Taiwan SAR|Traditionell kinesiska|zh-TW|
+|Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
 |Storbritannien|Svenska|en-GB|
 |USA|Svenska|sv-SE|

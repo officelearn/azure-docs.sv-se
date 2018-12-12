@@ -486,7 +486,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - CM(Cameroon)
 
-        - KA (Kap Verde)
+        - KA (Cabo Verde)
 
         - DJ(Djibouti)
 

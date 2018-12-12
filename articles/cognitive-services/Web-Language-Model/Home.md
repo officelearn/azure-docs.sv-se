@@ -50,6 +50,6 @@ Web Language Model API har stöd för fyra sökåtgärder:
 
 I följande dokument beskrivs utvecklingen av de här språkmodellerna. Det ska anges som referens i forskningsartiklar där den här tjänsten används:
 
-- [An Overview of Microsoft Web N-gram Corpus and Applications](https://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL-HLT 2010
+- [En översikt över Microsoft Web N-gram Kristi och program](https://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL-HLT 2010
 
 Klicka [här](https://academic.microsoft.com/#/search?iq=And%28Ty%3D'0'%2CRId%3D2145833060%29&q=papers%20citing%20an%20overview%20of%20microsoft%20web%20n%20gram%20corpus%20and%20applications&filters=&from=0&sort=0) om du vill se en aktuell lista med forskningsartiklar där arbetet används som referens.

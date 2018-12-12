@@ -46,7 +46,7 @@ Använd den här tabellen för att förstå hur Threat Management Gateway (TMG),
 | Autentisering med rubriker | - | Ja | - | Ja, med PingAccess | 
 | Säkerhet för molnskala | - | - | - | Ja | 
 | Villkorlig åtkomst | - | Ja | - | Ja |
-| Inga komponenter i demilitariserad zon (DMZ) | - | - | - | Ja |
+| Ingen komponent i perimeternätverket (DMZ) | - | - | - | Ja |
 | Inga inkommande anslutningar | - | - | - | Ja |
 
 För de flesta fall rekommenderar vi Azure AD-program till den moderna lösningen. Du kan inte använda anpassade domäner i Azure Active Directory Web Application Proxy är bara önskade i scenarier som kräver en proxyserver för AD FS. 
@@ -56,7 +56,7 @@ Azure AD-programproxyn erbjuder unika fördelar jämfört med liknande produkter
 - Utöka Azure AD till lokala resurser
    - Skalbar säkerhet och skydd
    - Funktioner som villkorlig åtkomst och Multi-Factor Authentication är enkelt att aktivera
-- Inga Component i demilitariserad zon
+- Ingen komponent i perimeternätverket
 - Inga inkommande anslutningar som krävs
 - En åtkomstpanelen att användarna kan gå till för alla program, inklusive O365, Azure AD-integrerade SaaS-appar och din lokala webbappar. 
 

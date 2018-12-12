@@ -70,7 +70,7 @@ Azure AD B2C använder informationen som användaren anger för att identifiera 
 | SK | Slovakien | 16 | 18 |
 | TD | Tchad | Ingen | 21 |
 | TH | Thailand | Ingen | 20 |
-| TW | Taiwan SAR | Ingen | 20 | 
+| TW | Taiwan | Ingen | 20 | 
 | USA | USA | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Hantera alternativ ålder

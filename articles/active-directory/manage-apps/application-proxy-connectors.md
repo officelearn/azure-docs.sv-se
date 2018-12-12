@@ -99,7 +99,7 @@ Kopplingar kommer automatiskt att belastningsutjämna inom en anslutningsgrupp, 
 
 ## <a name="security-and-networking"></a>Säkerhet och nätverk
 
-Kopplingar kan installeras var som helst i nätverket som gör att de kan skicka begäranden till Application Proxy-tjänsten. Det är viktiga att den dator som kör anslutningstjänsten även har åtkomst till dina appar. Du kan installera kopplingar i företagets nätverk eller på en virtuell dator som körs i molnet. Kopplingar kan köras inom en demilitariserad zon (DMZ), men det är inte nödvändigt eftersom all trafik är utgående så att nätverket förblir säkert.
+Kopplingar kan installeras var som helst i nätverket som gör att de kan skicka begäranden till Application Proxy-tjänsten. Det är viktiga att den dator som kör anslutningstjänsten även har åtkomst till dina appar. Du kan installera kopplingar i företagets nätverk eller på en virtuell dator som körs i molnet. Kopplingar kan köras inom ett perimeternätverk (DMZ), men det är inte nödvändigt eftersom all trafik är utgående så att nätverket förblir säkert.
 
 Kopplingar kan bara skicka utgående begäranden. Den utgående trafiken skickas till Application Proxy-tjänsten och till publicerade program. Du behöver att öppna ingående portar eftersom trafiken flödar båda riktningarna när en session har upprättats. Du behöver inte konfigurera belastningsutjämning mellan anslutningarna eller konfigurera inkommande åtkomst genom dina brandväggar. 
 

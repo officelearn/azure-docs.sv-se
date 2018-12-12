@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-distributionsplaner | Microsoft Docs
-description: Innehåller vägledning slutpunkt till slutpunkt om hur du distribuerar Azure Active Directory-funktioner
+title: Distribution - planer i Azure Active Directory | Microsoft Docs
+description: Slutpunkt till slutpunkt vägledning om hur du distribuerar många funktioner i Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
-ms.openlocfilehash: f5a148cba172b4e1e4490b52afb3b500da3a593c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: f471f1183a7d0d695b5817003fe70a018787731d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434168"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094790"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Vill du ha vägledning slutpunkt till slutpunkt om hur du distribuerar vissa av Azure Active Directory-funktionerna (Azure AD)? Följande distributionsplaner går igenom affärsvärde, planeringsöverväganden, design och operativa procedurer som krävs för att distribuera några av de vanligaste Azure AD-funktionerna. 
@@ -36,5 +37,5 @@ Vi vill gärna höra din feedback om dokumenten. Delta i den här korta [unders�
 |[ADFS till hash-synkronisering av lösenord](https://aka.ms/ADFSTOPHSDPDownload)|Med hash-synkronisering av lösenord synkroniseras hash-värden för användarlösenord från lokal Active Directory till Azure AD, så att Azure AD kan autentisera användare utan interaktion med lokal Active Directory|
 |[Sömlös enkel inloggning](https://aka.ms/SeamlessSSODPDownload)|Sömlös enkel inloggning med Azure Active Directory (sömlös SSO med Azure AD) loggar automatiskt in användare när de är på sina företagsenheter som är anslutna till företagsnätverket. När du aktiverar den här funktionen behöver användare inte ange sina lösenord för att logga in på Azure AD, och vanligtvis behöver de inte ens skriva in sina användarnamn. Den här funktionen ger användarna enkel åtkomst till dina molnbaserade program utan några ytterligare lokala komponenter.|
 |[Självåterställning av lösenord](https://aka.ms/SSPRDPDownload)|Självåterställning av lösenord hjälper användarna att återställa sina lösenord utan inblandning av administratören, när och var som helst.|
-|[Azure AD-programproxy](https://aka.ms/AppProxyDPDownload)|I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De vill arbeta med sina egna enheter, oavsett om det gäller bärbara datorer, surfplattor eller telefoner. Anställda förväntar sig dessutom att kunna komma åt alla sina program, både SaaS-appar i molnet och företagsappar lokalt. Att ge åtkomst till lokala program har traditionellt inneburit virtuella privata nätverk (VPN) eller demilitariserade zoner (DMZ). De här lösningarna är inte bara komplexa och svåra att skydda, utan de är även dyra att konfigurera och hantera. Det finns ett bättre sätt! – Azure AD-programproxy|
+|[Azure AD-programproxy](https://aka.ms/AppProxyDPDownload)|I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De vill arbeta med sina egna enheter, oavsett om det gäller bärbara datorer, surfplattor eller telefoner. Anställda förväntar sig dessutom att kunna komma åt alla sina program, både SaaS-appar i molnet och företagsappar lokalt. Att ge åtkomst till lokala program har traditionellt inneburit virtuella privata nätverk (VPN) eller perimeternätverk (DMZ). De här lösningarna är inte bara komplexa och svåra att skydda, utan de är även dyra att konfigurera och hantera. Det finns ett bättre sätt! – Azure AD-programproxy|
 

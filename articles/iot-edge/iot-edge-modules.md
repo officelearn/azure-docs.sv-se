@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure IoT Edge-moduler | Microsoft Docs
-description: Läs mer om Azure IoT Edge-moduler och hur de konfigureras
+title: Lär dig hur moduler köras logik på dina enheter – Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge-moduler är behållare enheter som kan distribueras och hanteras via fjärranslutning så att du kan köra affärslogik på IoT Edge enheter
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3d76f5931e3636f19c2030c4090116a0791db819
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567340"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094193"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Förstå Azure IoT Edge-moduler
 
@@ -31,7 +32,7 @@ Bilderna finns i molnet och de kan uppdateras, ändras och distribueras i olika 
 
 Varje gång en avbildning av en modul har distribuerats till en enhet och startas av IoT Edge-körningen skapas en ny instans av modulen. Två enheter i olika delar av världen kan använda samma avbildning som modulen; men skulle var och en har sina egna modulinstans när modulen har startats på enheten. 
 
-![Modulen bilder i molnet – modulen instanser på enheter](./media/iot-edge-modules/image_instance.png)
+![Diagram - modulen bilder i molnet, modulen instanser på enheter](./media/iot-edge-modules/image_instance.png)
 
 Moduler bilder finns som behållaravbildningar i en databas i implementering och modulen instanser är behållare på enheter. 
 
@@ -46,7 +47,7 @@ Identiteten som är associerade med en modulinstans beror på identiteten för e
 
 Uppenbarligen i scenarier kan när du behöver distribuera en modul bild flera gånger på samma enhet, du distribuera samma avbildning flera gånger med olika namn.
 
-![Modulen identiteter är unika](./media/iot-edge-modules/identity.png)
+![Diagram - modulen identiteter är unika inom enheter och mellan enheter](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Modultvillingar
 

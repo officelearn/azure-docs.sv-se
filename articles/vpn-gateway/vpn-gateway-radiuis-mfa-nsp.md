@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 12e2f96e66305370499fbacf9ae6a834a22eb504
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fec5ef3ef190270d22e9a7d0306eb9477b39a8c8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412507"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095247"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrera Azure VPN gateway RADIUS-autentisering med NPS-server för Multifaktorautentisering 
 
@@ -58,7 +58,7 @@ Om du vill aktivera MFA måste användarna vara i Azure Active Directory (Azure 
     - **Adress (IP eller DNS)**: Skriv gateway-undernätet som du skapade i steg 1.
     - **Delad hemlighet**: Skriv alla hemlig nyckel och spara den för senare användning.
 
-    ![Bild som visar RADUIS-klientinställningar](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![Bild som visar RADUIS-klientinställningar](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  På den **Avancerat** fliken genom att ange leverantörsnamnet **RADIUS-Standard** och se till att den **ytterligare alternativ** inte är markerad.
@@ -77,7 +77,7 @@ Om du vill aktivera MFA måste användarna vara i Azure Active Directory (Azure 
     - **Autentiseringstyp**: Välj **RADIUS-autentisering**.
     - **Serverns IP-adress**: Ange IP-adressen för NPS-servern.
 
-    ![Bild som visar att platsinställningar](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+      ![Bild som visar att platsinställningar](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

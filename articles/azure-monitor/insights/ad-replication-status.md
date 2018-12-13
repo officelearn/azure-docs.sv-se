@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: be519dd2a6e6948bedeedd4166c7adf466dbb365
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 7a8f2fc0d8b9f023e20cf8c4d4939aa3094a13e8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836380"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890185"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Övervaka status för Active Directory-replikering med Log Analytics
 
@@ -33,7 +33,7 @@ AD-replikeringsstatus-lösningspaket övervakar regelbundet Active Directory-mil
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-* Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till Log Analytics. Information om hur du ansluter Windows-datorer till Log Analytics finns i [ansluta Windows-datorer till Log Analytics](../../azure-monitor/platform/agent-windows.md). Om domänkontrollanten finns redan i en befintlig System Center Operations Manager-miljö som du vill ansluta till Log Analytics finns i [ansluta Operations Manager till Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+* Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till Log Analytics. Information om hur du ansluter Windows-datorer till Log Analytics finns i [ansluta Windows-datorer till Log Analytics](../../azure-monitor/platform/agent-windows.md). Om domänkontrollanten finns redan i en befintlig System Center Operations Manager-miljö som du vill ansluta till Log Analytics finns i [ansluta Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
 * Lägga till Active Directory-replikeringsstatus-lösning för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md).  Det krävs ingen ytterligare konfiguration.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD-replikeringsstatus data samling information
@@ -48,7 +48,7 @@ Om du inte vill att ansluta alla dina domänkontrollanter direkt till Log Analyt
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Så här aktiverar du en icke-domänkontrollant att skicka AD-data till Log Analytics
 1. Kontrollera att datorn är medlem i den domän som du vill övervaka med hjälp av AD-replikeringsstatus-lösning.
-2. [Anslut Windows-datorn till Log Analytics](../../log-analytics/log-analytics-om-agents.md) eller [ansluta den med hjälp av din befintliga Operations Manager-miljö till Log Analytics](../../log-analytics/log-analytics-om-agents.md), om den inte redan är ansluten.
+2. [Anslut Windows-datorn till Log Analytics](../../azure-monitor/platform/om-agents.md) eller [ansluta den med hjälp av din befintliga Operations Manager-miljö till Log Analytics](../../azure-monitor/platform/om-agents.md), om den inte redan är ansluten.
 3. På datorn, anger du följande registernyckel:
 
    * Nyckel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management grupper\<ManagementGroupName > \Solutions\ADReplication**
@@ -149,7 +149,7 @@ S: normala användarbehörigheter till Active Directory är tillräckliga.
 ## <a name="troubleshoot-data-collection-problems"></a>Felsöka problem med insamling
 För att samla in data, kräver AD-replikeringsstatus-lösningspaket minst en domänkontrollant som är anslutna till Log Analytics-arbetsytan. Tills du ansluter en domänkontrollant, visas ett meddelande som anger att **data samlas fortfarande**.
 
-Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa dokumentationen på [ansluta Windows-datorer till Log Analytics](../../log-analytics/log-analytics-om-agents.md). Om domänkontrollanten är redan ansluten till en befintlig System Center Operations Manager-miljö kan du också visa dokumentationen på [ansluta System Center Operations Manager till Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa dokumentationen på [ansluta Windows-datorer till Log Analytics](../../azure-monitor/platform/om-agents.md). Om domänkontrollanten är redan ansluten till en befintlig System Center Operations Manager-miljö kan du också visa dokumentationen på [ansluta System Center Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 Om du inte vill att någon av dina domänkontrollanter ansluta direkt till Log Analytics eller till System Center Operations Manager, se [att aktivera en icke-domänkontrollant att skicka AD-data till Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 

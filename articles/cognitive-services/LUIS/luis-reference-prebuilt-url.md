@@ -1,21 +1,22 @@
 ---
-title: 'LUIS fördefinierade entiteter URL: en referens – Azure | Microsoft Docs'
+title: 'URL: en fördefinierade entiteter'
 titleSuffix: Azure
 description: Den här artikeln innehåller en url fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 62872a3fd3e6e830e25fc4cdba01d1f32b80db91
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: MT
+ms.openlocfilehash: e01bcd022b5688b6cf00f63fcf4a0f06a477ebed
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446542"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093632"
 ---
 # <a name="url-entity"></a>URL-entitet
 URL: en entitet extraherar URL: er med domännamn eller IP-adresser. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller URL: er till programmet. URL: en entitet har stöd för `en-us` kultur endast. 
@@ -26,7 +27,7 @@ URL: en hanteras från den [identifierare fulltext](https://github.com/Microsoft
 ## <a name="resolution-for-prebuilt-url-entity"></a>Lösning för den fördefinierade URL: en entitet
 I följande exempel visas av lösningen på den **builtin.url** entitet.
 
-```JSON
+```json
 {
   "query": "http://www.luis.ai is a great cognitive services example of artificial intelligence",
   "topScoringIntent": {

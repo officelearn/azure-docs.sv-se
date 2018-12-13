@@ -3,19 +3,19 @@ title: Hantering av tillfälliga anslutningsfel för Azure Database for MySQL | 
 description: Lär dig mer om att hantera tillfälliga anslutningsfel för Azure Database för MySQL.
 keywords: MySQL-anslutningen, anslutningssträngen, problem med nätverksanslutningen, tillfälligt fel, anslutningsfel
 services: mysql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 1944b30e5c658f1df896050d0ff43f1058d5dd32
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2d7b62d5f45f495d36b1ed103155f8f3178451e8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51284989"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887822"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mysql"></a>Hantering av tillfälliga anslutningsfel för Azure Database for MySQL
 
@@ -49,4 +49,4 @@ Se till att testa logik för omprövning. Prova till exempel att köra din kod v
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Felsöka problem med anslutningen till Azure Database för MySQL](howto-troubleshoot-common-connection-issues.md)
+* [Felsöka anslutningsproblem till Azure Database for MySQL](howto-troubleshoot-common-connection-issues.md)

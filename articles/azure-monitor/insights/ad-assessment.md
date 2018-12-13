@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 21b3ba88037c7956304fa6a53268e779841b14f3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 53401745d12bb7e0e1cef843cf743fbe9cc7cfb6
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838369"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888849"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimera din Active Directory-miljö med kontroll av Active Directory hälsotillstånd lösningen i Log Analytics
 
@@ -55,7 +55,7 @@ Om du vill utföra hälsokontroll mot domänkontrollanter som är medlemmar i do
 
 1. Installera den [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) om domänkontrollanten inte redan övervakas av System Center 2016 – Operations Manager eller Operations Manager 2012 R2.
 2. Om den är övervakad med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen är inte integrerat med Log Analytics-tjänsten, domänkontrollanten kan ha flera värdar med Log Analytics för att samla in data och vidarebefordra dem till den tjänsten och fortfarande att övervakas av Operations Manager.  
-3. I annat fall om Operations Manager-hanteringsgrupp är integrerad med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten anvisningarna under [lägga till datorer som hanteras med agent](../../log-analytics/log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) när du har aktiverat lösningen i din arbetsyta.  
+3. I annat fall om Operations Manager-hanteringsgrupp är integrerad med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten anvisningarna under [lägga till datorer som hanteras med agent](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) när du har aktiverat lösningen i din arbetsyta.  
 
 Agenten på domänkontrollanten vilka rapporter till en Operations Manager-hanteringsgrupp, samlar in data, vidarebefordrar till dess tilldelade hanteringsserver och sedan skickas direkt från en hanteringsserver till Log Analytics-tjänsten.  Data skrivs inte till Operations Manager-databaserna.  
 

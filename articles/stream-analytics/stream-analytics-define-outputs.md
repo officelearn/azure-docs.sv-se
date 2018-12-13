@@ -7,13 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 555a2bdfe3997114c1aaa202a89d650287f27c0e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310056"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091636"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data. 
@@ -34,13 +35,13 @@ Azure Data Lake Store-utdata från Stream Analytics är för närvarande inte ti
 
 1. När Data Lake Storage har valts som utdata i Azure-portalen uppmanas du att auktorisera en anslutning till en befintlig Data Lake Store.  
 
-   ![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+   ![Auktorisera anslutningen till Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 2. Om du redan har åtkomst till Data Lake Store väljer **auktorisera nu** och en sida öppnas som anger **omdirigering till auktorisering**. När auktoriseringen har slutförts visas sidan där du kan konfigurera Data Lake Store-utdata.
 
 3. När du har Data Lake Store-konto som autentiseras kan konfigurera du egenskaperna för Data Lake Store-utdata. Tabellen nedan är en lista över egenskapsnamn och deras beskrivning för att konfigurera din Data Lake Store-utdata.
 
-   ![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+   ![Definiera Data Lake Store som Stream Analytics-utdata](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 | Egenskapsnamn | Beskrivning | 
 | --- | --- |
@@ -59,7 +60,7 @@ Du måste autentiseras på nytt Data Lake Store-konto om lösenordet har ändrat
 
 Förnya auktorisering, **stoppa** jobbet > Gå till ditt Data Lake Store-utdata > klickar du på den **förnya auktoriseringen** länka och under en kort tid en sida kommer att visas som anger **omdirigering till auktorisering...** . Sidan stängs automatiskt och om det lyckas anger **auktoriseringen har förnyats**. Du måste sedan klicka på **spara** längst ned på sidan och kan gå vidare genom att starta om jobbet från den **senast stoppad** att undvika dataförlust.
 
-![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![Förnya auktoriseringen för Data Lake Store i utdata](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan användas som utdata för data som är relationell natur och för program som är beroende av innehållet finns i en relationsdatabas. Stream Analytics-jobb att skriva till en befintlig tabell i en Azure SQL Database.  Tabellschemat måste exakt matcha fälten och deras typer som utdata från jobbet. En [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan också anges som utdata via SQL-databas output-alternativet samt. Mer information om hur du kan förbättra genomströmning för skrivning, referera till den [Stream Analytics med Azure SQL DB som utdata](stream-analytics-sql-output-perf.md) artikeln. I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa en SQL Database-utdata.
@@ -133,11 +134,11 @@ Power BI-utdata från Stream Analytics är för närvarande inte tillgänglig i 
 ### <a name="authorize-a-power-bi-account"></a>Auktorisera en Power BI-konto
 1. När Power BI är markerat som utdata i Azure-portalen uppmanas du att auktorisera en befintlig Power BI-användare eller för att skapa en ny Power BI-konto.  
    
-   ![Auktorisera Power BI-användare](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+   ![Auktorisera Power BI-användare att konfigurera utdata](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
 2. Skapa ett nytt konto om du inte ännu har en och sedan klicka på auktorisera nu.  Följande sida visas:
    
-   ![Azure-konto Powerbi](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![Autentisera till Powerbi från Azure-konto](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
 3. I det här steget anger du arbets-eller skolkonto för auktorisering av Power BI-utdata. Om du inte redan har loggat för Power BI, väljer du registrering nu. Det arbeta- eller skolkonto konto som du använder för Power BI kan skilja sig från kontot Azure-prenumeration som du är inloggad med.
 
@@ -190,11 +191,11 @@ DateTime | Sträng | Sträng |  DateTime | Sträng
 ### <a name="renew-power-bi-authorization"></a>Förnya auktoriseringen för Power BI
 Om lösenordet för Power BI-kontot ändras när ditt Stream Analytics-jobb skapades eller senast autentiserade, måste du autentiseras på nytt Stream Analytics. Om Multi-Factor Authentication (MFA) har konfigurerats på din Azure Active Directory (AAD)-klient, måste du också förnya auktoriseringen för Power BI varannan vecka. Ett symtom på det här problemet är ingen jobbutdata och en ”autentisera användaren error” i loggarna för åtgärden:
 
-  ![Power BI-uppdatering, tokenfel](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
+  ![Powerbi autentisera användarfel](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
 Stoppa körs jobbet för att lösa problemet och gå till Power BI-utdata.  Välj den **förnya auktoriseringen** länka och starta om jobbet från den **senast stoppad** att undvika dataförlust.
 
-  ![Powerbi förnyar auktorisering](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
+  ![Förnya auktoriseringen för Power BI för utdata](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Table Storage
 [Azure tabellagring](../storage/common/storage-introduction.md) erbjuder hög tillgänglighet och mycket skalbar lagring, så att ett program kan anpassas automatiskt efter användarens behov. Table storage är Microsofts NoSQL nyckel-och attributdatabas, vilket kan utnyttja för strukturerade data med färre begränsningar i schemat. Azure Table storage kan användas för att lagra data för persistence och effektiv Filhämtning.

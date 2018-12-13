@@ -1,6 +1,6 @@
 ---
-title: Distribuera och övervaka moduler för Azure IoT Edge (CLI) | Microsoft Docs
-description: Hantera de moduler som körs på edge-enheter
+title: Skapa automatiska distributioner från kommandoraden – Azure IoT Edge | Microsoft Docs
+description: Använd IoT-tillägget för Azure CLI för att skapa automatiska distributioner för grupper av IoT Edge-enheter
 keywords: ''
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f2e7de6b32b4cca6320933050775f843e2cdf39
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 64c4b82208b2f8a20f7fd00fb574d5e017030e81
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567941"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094159"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure CLI
 

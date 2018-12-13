@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute-övervakning, mått och aviseringar | Microsoft Docs
+title: Övervakning, mått och aviseringar – Azure ExpressRoute | Microsoft Docs
 description: Den här sidan innehåller information om ExpressRoute-övervakning
 services: expressroute
 author: cherylmc
@@ -7,19 +7,20 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: 90735ac04c95ee3d270853c18eddebd3f11dd8c1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725972"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091772"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar i ExpressRoute
 
-Den här artikeln hjälper dig att förstå ExpressRoute-övervakning, mått och aviseringar. Azure Monitor är en plats du behöver för alla mått, aviseringar, diagnostikloggar för alla Azure.
+Den här artikeln hjälper dig att förstå ExpressRoute-övervakning, mått och aviseringar med Azure Monitor. Azure Monitor är en plats du behöver för alla mått, aviseringar, diagnostikloggar för alla Azure.
  
 >[!NOTE]
->Med hjälp av **klassiska mått** rekommenderas inte. 
+>Med hjälp av **klassiska mått** rekommenderas inte.
 >
 
 ## <a name="circuit-metrics"></a>Kretsen mått
@@ -46,7 +47,7 @@ Du kan visa mått för privat, offentlig och Microsoft-peering i bitar per sekun
 
 2. Klicka på **+ Välj mål** och välj resursen som ExpressRoute-gateway-anslutning.
 
-  ![Mål]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+  ![mål]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Definiera Aviseringsinformationen.
 
   ![Åtgärdsgrupp](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)

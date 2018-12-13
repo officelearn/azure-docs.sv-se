@@ -1,31 +1,39 @@
 ---
-title: Undvika avbrott i Azure Stream Analytics-jobb
-description: Den här artikeln beskriver riktlinjer om hur du gör dina Stream Analytics-jobb uppgradera flexibel.
+title: Undvik avbrott i tjänsten i Azure Stream Analytics-jobb
+description: Den här artikeln innehåller på att göra din Stream Analytics-jobb uppgradera flexibel.
 services: stream-analytics
 author: jseb225
-manager: kfile
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 47ccfe99d2ee6576dbb70324eb383f52d2a1b2e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7375fb2763ad83e049b1ef30a623f164e059a792
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902728"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090813"
 ---
-# <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantera Stream Analytics-jobbet tillförlitlighet under uppdateringar av tjänsten
+# <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garanterar tillförlitlighet för Stream Analytics-jobb under uppdateringar av tjänsten
 
-En del av en helt hanterad tjänst som är möjligheten att införa den nya tjänsten funktioner och förbättringar i en snabb takt. Stream Analytics kan därför ha en tjänstuppdatering distribuera varje vecka (eller oftare). Oavsett hur mycket testning finns fortfarande en risk för att en befintlig, körs jobbet avbryts på grund av ett programfel. För kunder som kör kritiska strömmande bearbetning jobb behöver dessa risker undvikas. En funktion som kunder kan använda för att minska denna risk är Azures **[parad region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** modell. 
+För att en helt hanterad tjänst är möjligheten att introducera nya service-funktioner och förbättringar i snabb takt. Stream Analytics kan därför ha en tjänstuppdatering distribuera varje vecka (eller oftare). Oavsett hur mycket testning har fortfarande en risk att en befintlig, körs jobbet kan sluta fungera på grund av introduktionen av en bugg. Dessa risker måste undvikas för kunder som kör kritiska direktuppspelningsjobb bearbetning. En mekanism som kunder kan använda för att minska denna risk är Azures **[parad region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** modell. 
 
-## <a name="how-do-azure-paired-regions-address-this-concern"></a>Hur parad Azure-regioner adressera detta?
+## <a name="how-do-azure-paired-regions-address-this-concern"></a>Hur Azure länkade regioner upp det här problemet?
 
-Stream Analytics garanterar jobb i parad regioner har uppdaterats i separata grupper. Det finns därför en tillräcklig lucka mellan uppdateringar att identifiera potentiella bryta buggar och åtgärda dem.
+Stream Analytics garanterar jobb i hopparade regioner har uppdaterats i separata batchar. Det finns därför en tillräcklig lucka i tiden mellan uppdateringar att identifiera potentiella programfel för de senaste och åtgärda dem.
 
-_Med undantag för centrala Indien_ (vars parad region, södra Indien och inte har Stream Analytics förekomst), distribution av en uppdatering till Stream Analytics inte skulle uppstå samtidigt i en parad regioner. Distribution i flera områden **i samma grupp** kan uppstå **samtidigt**.
+_Med undantag för centrala Indien_ (vars parad region, södra Indien har inte Stream Analytics-presence), distribution av en uppdatering av Stream Analytics inte skulle ske samtidigt i en uppsättning med länkade regioner. Distributioner i flera regioner **i samma grupp** kan uppstå **samtidigt**.
 
-Artikel om **[tillgänglighet och parad regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** har den senaste informationen som regioner har parats ihop.
+Artikeln om **[tillgänglighet och länkade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** har den senaste informationen som regioner har parats ihop.
 
-Kunder bör distribuera identiska jobb till båda parad regioner. Förutom Stream Analytics interna övervakningsfunktionerna kunder bör också övervaka jobb som om **både** produktion jobb. Om ett avbrott identifieras som ett resultat av tjänstuppdatering Stream Analytics eskalera på rätt sätt och över några underordnade konsumenter till Felfri jobbutdata. Eskalering till stöd för kommer att förhindra att parad region påverkas av den nya distributionen och underhålla integriteten hos parad jobb.
+Kunder bör distribuera identiska jobb till båda länkade regioner. Förutom Stream Analytics interna funktioner för övervakning, kunder bör också övervaka jobb som om **både** är produktionsjobb. Om ett avbrott identifieras för att vara ett resultat av Stream Analytics service-uppdatering, eskalera på rätt sätt och växla över några underordnade konsumenter till felfria jobbutdata. Eskalering till stöd för kommer att förhindra att den parade regionen påverkas av den nya distributionen och underhålla integriteten hos de kopplade jobb.
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Introduktion till Stream Analytics](stream-analytics-introduction.md)
+* [Kom igång med Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Skala Stream Analytics-jobb](stream-analytics-scale-jobs.md)
+* [Frågespråksreferens för Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics management REST API-referens](https://msdn.microsoft.com/library/azure/dn835031.aspx)

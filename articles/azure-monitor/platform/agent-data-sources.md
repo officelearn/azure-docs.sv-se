@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 022dd52e05b9227e3ce0920a083f75413a2eebc8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 29306fa508a2c0702e69f6b6ebcb7571041d57d6
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836924"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890270"
 ---
 # <a name="data-sources-in-log-analytics"></a>Datakällor i Log Analytics
 Log Analytics samlar in data från dina anslutna källor och lagrar dem i Log Analytics-arbetsytan.  De data som samlas in från varje definieras av datakällor som du konfigurerar.  Data i Log Analytics lagras som en uppsättning poster.  Varje datakälla skapar poster i en viss typ med varje typ av att ha en egen uppsättning egenskaper.
@@ -59,7 +59,7 @@ Du konfigurerar datakällor från den **Data** menyn i Log Analytics **avancerad
 ## <a name="data-collection"></a>Datainsamling
 Datakällskonfigurationer levereras till agenter som är anslutna direkt till Log Analytics inom några minuter.  Angivna data samlas in från agenten och levereras direkt till Log Analytics med intervall som är specifika för varje datakälla.  Finns i dokumentationen för varje datakälla dessa ge specifik information.
 
-System Center Operations Manager-agenter i en ansluten hanteringsgrupp, datakällskonfigurationer översättas till hanteringspaket och levereras till hanteringsgruppen var femte minut som standard.  Agenten hämtar hanteringspaket som med andra och samlar in angivna data. Beroende på datakällan, data kommer att antingen skickas till en hanteringsserver som vidarebefordrar data till Log Analytics eller agenten skickar data till Log Analytics utan att gå via management-servern. Se [Data samling information om lösningar i Azure](../../azure-monitor/insights/solutions-inventory.md) mer information.  Du kan läsa om information om att ansluta Operations Manager och Log Analytics och ändra frekvensen konfigurationen levereras på [konfigurerar integrering med System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md).
+System Center Operations Manager-agenter i en ansluten hanteringsgrupp, datakällskonfigurationer översättas till hanteringspaket och levereras till hanteringsgruppen var femte minut som standard.  Agenten hämtar hanteringspaket som med andra och samlar in angivna data. Beroende på datakällan, data kommer att antingen skickas till en hanteringsserver som vidarebefordrar data till Log Analytics eller agenten skickar data till Log Analytics utan att gå via management-servern. Se [Data samling information om lösningar i Azure](../../azure-monitor/insights/solutions-inventory.md) mer information.  Du kan läsa om information om att ansluta Operations Manager och Log Analytics och ändra frekvensen konfigurationen levereras på [konfigurerar integrering med System Center Operations Manager](../../azure-monitor/platform/om-agents.md).
 
 Om agenten inte kan ansluta till Log Analytics eller Operations Manager, fortsätter den att samla in data som den ger när den upprättar en anslutning.  Data kan förloras om mängden data når den största möjliga cachestorleken för klienten, eller om agenten inte kan upprätta en anslutning inom 24 timmar.
 

@@ -3,7 +3,7 @@ title: Skapa och hantera Azure SQL Elastic Database-jobb med hjälp av Transact-
 description: Köra skript över flera databaser med Elastic Database-jobb agent med hjälp av Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: MT
+ms.openlocfilehash: ead7b92640262a1c386fc9b8c3def803d2525843
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056795"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868964"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 

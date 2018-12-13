@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c8edaba8de597e3e76e760e1f5109006338a663c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238828"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888468"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Koppla format som stöds av Azure Maps
-Azure maps stöd för fyra olika inbyggda Koppla format. Format med deras beskrivningar finns nedan.
+Azure maps stöder flera olika inbyggda Koppla format som beskrivs nedan.
 
 ## <a name="road"></a>Väg
 En **väg** kartan är en standard karta som visar vägar, naturliga och konstgjorda funktioner tillsammans med etiketterna för dessa funktioner.
@@ -49,6 +49,14 @@ Den här kartan format är en kombination av vägar och etiketter som aktivitete
 **Gråskala mörk** är en mörk version av formatmallen översikten.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+
+**Tillämpliga API: er:**
+* JS kartkontroll 
+
+## <a name="night"></a>natten
+**natten** är en mörk version av formatet vägkarta med färgade vägar och symboler.
+
+![natten](./media/supported-map-styles/night.PNG)
 
 **Tillämpliga API: er:**
 * JS kartkontroll 

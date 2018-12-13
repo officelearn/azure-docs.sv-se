@@ -2,19 +2,19 @@
 title: Vanliga problem med att felsöka i Azure Stream Analytics
 description: Den här artikeln beskriver flera vanliga problem i Azure Stream Analytics och steg för att felsöka problemen.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 2fe180873f8f410d80b06d29d16881eb49f7fc2a
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978455"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090983"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Vanliga problem i Stream Analytics och steg för att felsöka
 
@@ -24,7 +24,7 @@ ms.locfileid: "50978455"
  
  När ett Stream Analytics-jobb tar emot ett felaktigt meddelande från indata, ignoreras meddelandet och meddelar användaren med en varning. En varningssymbol visas på den **indata** panelen för ditt Stream Analytics-jobb (den här varningen logga finns så länge som jobbet är i körningstillstånd):
 
-![Indata-panel](media/stream-analytics-malformed-events/inputs_tile.png)
+![Indata-panelen på instrumentpanelen för Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Aktivera diagnostikloggar att visa information om varningen om du vill se mer information. För felaktig inmatningshändelser loggarna för jobbkörning innehåller en post med meddelandet som ser ut som ”: meddelande: Det gick inte att deserialisera indatahändelserna från resursen <blob URI> som json”. 
 
@@ -34,7 +34,7 @@ Aktivera diagnostikloggar att visa information om varningen om du vill se mer in
 
 2. Indatainformation panelen visar en uppsättning varningar med information om problemet. Följande är ett exempel varning, varningsmeddelandet visar Partition, förskjutning och sekvensnummer där det finns felaktiga JSON-data. 
 
-   ![Varningsmeddelande med förskjutning](media/stream-analytics-malformed-events/warning_message_with_offset.png)
+   ![Indatameddelande varning med förskjutning](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
 3. Kör CheckMalformedEvents.cs kod för att få JSON-data som har fel format. Det här exemplet är tillgänglig i den [GitHub-lagringsplats med exempel](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Den här koden läsningar partitions-ID, förskjutning och skriver ut de data som finns i förskjutningen. 
 

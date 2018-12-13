@@ -1,6 +1,6 @@
 ---
-title: Skicka händelser till Azure Event Hubs med .NET Framework| Microsoft Docs
-description: Komma igång med att skicka händelser till Event Hubs med .NET Framework
+title: Skicka händelser med hjälp av .NET Framework - Azure Event Hubs | Microsoft Docs
+description: Den här artikeln innehåller en genomgång för att skapa ett .NET Fraemwork-program som skickar händelser till Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: fac720940c2f8d3eb38e2231ce89284147d56b6a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 062dc707dea99ed6e5e04905a13572c234f0c172
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011237"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091175"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Skicka händelser till Azure Event Hubs med .NET Framework
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).

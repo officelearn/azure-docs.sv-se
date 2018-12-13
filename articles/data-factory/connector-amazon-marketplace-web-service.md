@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: bcda662790c1af72e28b8968142bab15f62e83bf
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c58b956a0fc1899b12050daf0fbf61514ca24407
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127190"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095145"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Kopiera data från Amazon Marketplace-webbtjänst med hjälp av Azure Data Factory (förhandsversion)
 
@@ -85,7 +85,12 @@ Följande egenskaper har stöd för Amazon Marketplace Web Service-länkade tjä
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Marketplace Amazon Web Service-datauppsättningen.
 
-Om du vill kopiera data från Amazon Marketplace Web Service, ange typegenskapen på datauppsättningen till **AmazonMWSObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Om du vill kopiera data från Amazon Marketplace Web Service, ange typegenskapen på datauppsättningen till **AmazonMWSObject**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **AmazonMWSObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -97,7 +102,8 @@ Om du vill kopiera data från Amazon Marketplace Web Service, ange typegenskapen
         "linkedServiceName": {
             "referenceName": "<AmazonMWS linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -107,14 +113,14 @@ Om du vill kopiera data från Amazon Marketplace Web Service, ange typegenskapen
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Marketplace Amazon Web Service-källa.
 
-### <a name="amazonmwssource-as-source"></a>AmazonMWSSource som källa
+### <a name="amazon-mws-as-source"></a>Amazon MWS som källa
 
 Om du vill kopiera data från Amazon Marketplace Web Service, ange källtypen i kopieringsaktiviteten till **AmazonMWSSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AmazonMWSSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

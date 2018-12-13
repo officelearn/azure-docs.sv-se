@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0bbfafcda77ca48fb22ad919c5848a7670a102
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67658d75f7ad4a6db1af5db97a525774b0ab6e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309682"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095286"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiera data från ServiceNow med Azure Data Factory
 
@@ -77,7 +77,12 @@ Följande egenskaper har stöd för ServiceNow länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av ServiceNow-datauppsättningen.
 
-Kopiera data från ServiceNow genom att ange typegenskapen på datauppsättningen till **ServiceNowObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Kopiera data från ServiceNow genom att ange typegenskapen på datauppsättningen till **ServiceNowObject**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **ServiceNowObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -89,7 +94,8 @@ Kopiera data från ServiceNow genom att ange typegenskapen på datauppsättninge
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -105,7 +111,7 @@ Om du vill kopiera data från ServiceNow, ange typ av datakälla i kopieringsakt
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ServiceNowSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Actual.alm_asset"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Actual.alm_asset"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 Tänk på följande när du anger schemat och kolumnen för ServiceNow i fråga och **avser [prestandatips](#performance-tips) på Kopiera prestanda de**.
 

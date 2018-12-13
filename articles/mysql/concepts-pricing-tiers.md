@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: e3d0e54c32a08c613407f1a90c78cc63be929078
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: MT
+ms.openlocfilehash: 0e316bf06cc6e2915adca5e7961083e6668bbfc1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091801"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889131"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database för MySQL prisnivåer
 
@@ -23,7 +23,7 @@ Du kan skapa en Azure Database for MySQL-server i en av tre olika tjänstnivåer
 |    | **Basic** | **Generell användning** | **Optimerat minne** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute-generering | Gen 4, generation 5 | Gen 4, generation 5 | Generation 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
 | Lagringstyp | Azure Standard-lagring | Azure Premium Storage | Azure Premium Storage |

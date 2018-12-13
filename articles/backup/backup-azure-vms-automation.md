@@ -2,19 +2,19 @@
 title: Distribuera och hantera säkerhetskopiering för Resource Manager-distribuerade virtuella datorer med hjälp av PowerShell
 description: Använd PowerShell för att distribuera och hantera säkerhetskopior i Azure för Resource Manager-distribuerade virtuella datorer
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 10/20/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855a046425f051739f61c74b551d4ffea7b9120a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252368"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877878"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Använd PowerShell för att säkerhetskopiera och återställa virtuella datorer
 

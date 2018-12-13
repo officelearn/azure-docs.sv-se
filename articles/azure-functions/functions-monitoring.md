@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497244"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876527"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -330,6 +330,21 @@ Enligt vad som anges i föregående avsnitt, aggregerar körningen data om funkt
 ## <a name="configure-sampling"></a>Konfigurera sampling
 
 Application Insights har en [sampling](../application-insights/app-insights-sampling.md) funktion som kan skydda dig från att producera för mycket telemetridata vid tidpunkter med hög belastning. När mängden inkommande telemetri överskrider ett angivet tröskelvärde, startar Application Insights att ignorera slumpmässigt några av de inkommande objekt. Standardinställningen för maximalt antal objekt per sekund är 5. Du kan konfigurera linjer i [host.json](functions-host-json.md).  Här är ett exempel:
+
+### <a name="version-2x"></a>Version 2.x 
+
+```json
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond" : 5
+      }
+    }
+  }
+}
+```
 
 ### <a name="version-1x"></a>Version 1.x 
 

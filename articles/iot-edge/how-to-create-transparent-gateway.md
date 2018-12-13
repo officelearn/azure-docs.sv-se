@@ -1,6 +1,6 @@
 ---
-title: Skapa en transparent gateway med Azure IoT Edge | Microsoft Docs
-description: Använda en Azure IoT Edge-enhet som en transparent gateway som kan bearbeta information för flera enheter
+title: Skapa transparent gateway-enhet – Azure IoT Edge | Microsoft Docs
+description: Använda en Azure IoT Edge-enhet som en transparent gateway som kan bearbeta information från underordnade enheter
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 55968393ff64d9eed1f5b384094a77d0d169dc5d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681202"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094363"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway
 
@@ -31,7 +32,7 @@ En underordnad enhet kan vara valfritt program eller en plattform som har en ide
 
 Du kan skapa någon infrastruktur för certifikat som gör det förtroendet som krävs för din enhet-gateway-topologi. I den här artikeln förutsätter vi att samma inställningar för certifikat som du använder för att aktivera [X.509 CA-säkerheten](../iot-hub/iot-hub-x509ca-overview.md) i IoT Hub, som omfattar ett X.509 CA-certifikat som är kopplad till en specifik IoT-hubb (IoT hub ägaren CA) och en serie med certifikat registrerat med den här Certifikatutfärdaren och en Certifikatutfärdare för Edge-enhet.
 
-![Installationsprogram för gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![Installationsprogram för gateway-certifikatet](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 Gatewayen anger certifikatutfärdarcertifikatet Edge-enhet till underordnade enheten under initiering av anslutningen. Underordnad enhet kontrollerar om du vill kontrollera att Edge-enhetens CA-certifikat som har signerats av CA-certifikatet ägare. Den här processen kan underordnade enheten för att kontrollera gatewayen kommer från en betrodd källa.
 

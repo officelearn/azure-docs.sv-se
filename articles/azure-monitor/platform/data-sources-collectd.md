@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 1a6ccb42e00431c16ce7767f19d6cdc9cbb3cffe
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 25dc4715e4cfd028b6d0f83a32edd3f8ef93d560
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841701"
+ms.locfileid: "52874897"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Samla in data från insamlade på Linux-agenter i Log Analytics
 [Insamlade](https://collectd.org/) är en Linux-daemon för öppen källkod som regelbundet samlar in prestandamått från program och system nivåinformation. Exempelprogram är Java Virtual Machine (JVM), MySQL-Server och Nginx. Den här artikeln innehåller information om att samla in prestandadata från insamlade i Log Analytics.
@@ -125,5 +125,5 @@ Om du vill upprätthålla en modell med välbekanta infrastruktur mått som reda
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
-* Använd [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) att parsa data från syslog-poster i enskilda fält.
+* Använd [anpassade fält](../../azure-monitor/platform/custom-fields.md) att parsa data från syslog-poster i enskilda fält.
 

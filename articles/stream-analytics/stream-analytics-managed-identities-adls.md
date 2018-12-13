@@ -1,20 +1,21 @@
 ---
-title: Använda hanterade identiteter för att autentisera Azure Stream Analytics-jobb till Azure Data Lake Storage Gen1 utdata (förhandsversion)
-description: ''
+title: Autentisera Azure Stream Analytics-jobb till Azure Data Lake Storage Gen1 utdata
+description: Den här artikeln beskriver hur du använder hanterade identiteter för att autentisera ditt Azure Stream Analytics-jobb till Azure Data Lake Storage Gen1 utdata.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2018
-ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365296"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090439"
 ---
-# <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Använda hanterade identiteter för att autentisera Azure Stream Analytics-jobb till Azure Data Lake Storage Gen1 utdata (förhandsversion)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autentisera Stream Analytics till Azure Data Lake Storage Gen1 med hjälp av hanterade identiteter (förhandsversion)
 
 Azure Stream Analytics stöder hanterad identitetsautentisering med Azure Data Lake Storage (ADLS) Gen1 utdata. Identiteten är ett hanterat program i Azure Active Directory som representerar ett visst Stream Analytics-jobb och kan användas för att autentisera till en resurs. Hanterade identiteter utan begränsningar av användarbaserade autentiseringsmetoder, som behöver autentiseras på nytt på grund av ändring av lösenord eller användaren token kontolösenordet som sker var 90: e dag. Dessutom hanterade identiteter med hjälp av automatisering av Stream Analytics-jobbet distributioner som utdata till Azure Data Lake Storage Gen1.
 
@@ -32,7 +33,7 @@ Den här artikeln visar två sätt att aktivera hanterad identitet för Azure St
 
    När konfigurationen är sparad anges i objekt-ID (OID) för tjänstens huvudnamn som ägar-ID som visas nedan:
 
-   ![Stream Analytics huvudkonto-ID](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
+   ![ID för Stream Analytics tjänstens huvudnamn](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
    Tjänstens huvudnamn har samma namn som Stream Analytics-jobb. Om namnet på ditt jobb är till exempel **MyASAJob**, namnet på tjänstens huvudnamn har skapats är också **MyASAJob**.
 
@@ -56,11 +57,11 @@ Den här artikeln visar två sätt att aktivera hanterad identitet för Azure St
  
 8. I den **behörigheter** fönstret, kontrollera den **skriva** och **kör** behörigheter och koppla det till **den här mappen och alla underordnade**. Klicka sedan på **Ok**.
 
-   ![Välj en behörighet](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+   ![Välj Skriv och kör-behörighet](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
 9. Tjänstens huvudnamn i listan under **tilldelade behörigheter** på den **åtkomst** fönstret som visas nedan. Du kan nu gå tillbaka och börja ditt Stream Analytics-jobb.
 
-   ![Listan över appåtkomst](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
+   ![Stream Analytics åtkomst till listan i portalen](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Läs mer om Data Lake Storage Gen1 filsystemsbehörigheter i [åtkomstkontroll i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 

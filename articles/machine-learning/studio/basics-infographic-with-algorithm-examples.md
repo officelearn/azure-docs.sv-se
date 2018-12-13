@@ -1,11 +1,11 @@
 ---
-title: 'Infografik: Machine learning-grunder – algoritmexempel – Azure Machine Learning Studio | Microsoft Docs'
+title: Algoritmexempel – Azure Machine Learning Studio | Microsoft Docs
 description: Översiktligt lätt att förstå grunderna i machine learning innehåller algoritmexempel. Nedladdningsbar infografik omfattar de flesta frågor för maskininlärning.
 keywords: Grunderna i Machine learning, algoritmexempel, machine learning för nybörjare, machine learning-frågor, populära algoritmer, algoritmen informationsgrafik
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: ccbe152901ff7f59548239a1d59e585b8e356c23
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 610cc430170ac31832703b822e027f3dbdd053a2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308010"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093768"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Nedladdningsbar infografik: Machine Learning-grunder med algoritmexempel
 Ladda ned den här lätt att förstå informationsgrafik över grunderna i machine learning att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning. Algoritmexempel hjälpa machine learning-nybörjare förstå vilka algoritmer som ska användas och vad de används för.

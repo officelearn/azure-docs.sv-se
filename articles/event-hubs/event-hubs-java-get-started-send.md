@@ -1,20 +1,21 @@
 ---
-title: Skicka händelser till Azure Event Hubs med Java | Microsoft Docs
-description: Kom igång med att skicka till Event Hubs med Java
+title: Skicka händelser med Java – Azure Event Hubs | Microsoft Docs
+description: Den här artikeln innehåller en genomgång om hur du skapar ett Java-program som skickar händelser till Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 11/12/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8fd0b1923bd1e89b16a1e33be908dc9ef73b398b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 80c413c874ca3e1bf46bfa4e5becb184223c5eeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955402"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091305"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Skicka händelser till Azure Event Hubs med Java
 

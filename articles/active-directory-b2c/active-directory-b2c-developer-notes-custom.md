@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31ca79976ec2ecf2755b975749e9c9150c4a49e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441081"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272719"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Viktig information för Azure Active Directory B2C förhandsversion för anpassad princip
 Anpassad princip funktionsuppsättningen är nu tillgänglig för utvärdering under förhandsversion för alla Azure Active Directory B2C (Azure AD B2C) kunder. Den här funktionsuppsättningen är avsett för avancerade identity-utvecklare som skapar de mest komplexa identity-lösningarna.  
@@ -25,10 +25,9 @@ Idag kräver den här funktionsuppsättningen utvecklare att konfigurera Identit
 ## <a name="features-included-in-this-public-preview"></a>Funktioner som ingår i den här förhandsversionen
 Med de nya funktionerna som introducerades i offentlig förhandsversion, kan utvecklare göra följande:<br>
 
-* Författare och överföra anpassad autentisering användaren utbildning genom att använda anpassade principer. 
+* Skapa och överför anpassad autentisering användaren resor med hjälp av anpassade principer. 
    * Beskriv användaren resor stegvisa som utbyten mellan Anspråksproviders. 
-   * Definiera villkorlig branchning i utbildning för användaren. 
-* Integrera REST API-aktiverade tjänster i din utbildning för anpassad autentisering-användaren.  
+   * Definiera villkorlig branchning i utbildning för användaren. * Integrera REST API-aktiverade tjänster i din utbildning för anpassad autentisering-användaren.  
 * Lägg till federation med identitetsleverantörer som är kompatibla med OpenIDConnect standard. <br>
 * Lägg till federation med identitetsleverantörer som följer SAML 2.0-protokollet. 
 
@@ -36,13 +35,13 @@ Med de nya funktionerna som introducerades i offentlig förhandsversion, kan utv
 
 * Vi rekommenderar att du kan använda de nya funktionerna i utvärderingssyfte.<br>
 * De nya funktionerna är inte avsedda att användas i en produktionsmiljö.<br>
-* Serviceavtal (SLA) gäller inte för de nya funktionerna. <br>
+* Servicenivåavtal (SLA) gäller inte för de nya funktionerna. <br>
 * Supportärenden kan lämnas via vanliga supportkanaler. <br>
 * Det finns inget framtida datum för allmän tillgänglighet.<br>
 * Enligt vår bedömning, och om du av någon anledning, kan Microsoft flagga och avvisa eller begränsa scenarier och användaren utbildning som överskrider omfånget för auktoriserad för Azure AD B2C-produkt som fungerar som en kund identitets- och hantering av Kundidentitet plattform.
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Ansvaret för anpassad princip funktionsuppsättningen utvecklare
-Manuell konfiguration ger lägre nivå åtkomst till den underliggande Azure AD B2C-plattformen och resulterar i att skapa ett unikt helt anpassningsbara förtroende-ramverk. Möjliga varianter av anpassade identitetsprovidrar, förtroenderelationer integreringar med externa tjänster och stegvisa arbetsflöden Placera större krav på avancerade utvecklare som använder dem.
+Manuell konfiguration ger lägre nivå åtkomst till den underliggande Azure AD B2C-plattformen och resulterar i att skapa ett unikt helt anpassningsbara förtroende-ramverk. Möjliga varianter av anpassade identitetsprovidrar, förtroenderelationer integreringar med externa tjänster och stegvisa arbetsflöden Placera större krav på avancerade utvecklare som använder dem.
 
 Om du vill utnyttja helt offentlig förhandsversion, föreslår vi att utvecklare som använder funktionen för anpassade principuppsättningen följa följande riktlinjer:
 * Bekanta dig med Identitetsramverk och nyckel/hemligheter management configuration språk.
@@ -52,7 +51,7 @@ Om du vill utnyttja helt offentlig förhandsversion, föreslår vi att utvecklar
 * Håll dig informerad om ny utveckling från identitetsleverantörer och tjänster som du integrerar med. Till exempel Håll koll på ändringar i hemligheter och planerade och oplanerade ändringar till tjänsten.
 * Konfigurera övervakning av aktiva och övervaka svarstiden för produktionsmiljöer.
 * Håll kontakta e-postadresser i Azure-prenumeration och hålls nere till e-post med Microsoft team på aktiv webbplats.
-* Vidta lämpliga åtgärder när vi rekommenderar att göra det genom Microsofts team för live-webbplatser. 
+* Vidta lämpliga åtgärder när vi rekommenderar att göra det genom Microsofts team för live-webbplatser. 
 
 ## <a name="features-by-stage-and-known-issues"></a>Funktioner av steg och kända problem
 Den anpassade principen/Identitetsramverk funktioner är under konstant och snabb utveckling.  Den här tabellen är ett index över funktioner/komponenttillgänglighet.
@@ -100,7 +99,7 @@ Gränssnitt med externa komponenter och program
 |   Lokalt konto för inloggning, api.localaccountsignin |  | x |  |  |
 |   Registrering för, api.localaccountsignup för lokalt konto |  | x |  |  |
 |   MFA-sida, api.phonefactor |  | x |  |  |
-|   Lokal verifieringsvillkor – till exempel socialt konto sig upp api.selfasserted |  | x |  |  |
+|   Lokal verifieringsvillkor – till exempel registrering för, api.selfasserted för socialt konto |  | x |  |  |
 |   Lokal verifieringsvillkor profil update api.selfasserted.profileupdate |  | x |  |  |
 |   Enhetlig registrering eller på inloggningssidan, api.signuporsignin |  | x |  |  |
 

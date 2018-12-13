@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: ca920a3c46a336b66a7238eeca83e3389221033a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d082f8ee4d516e3c9571ec63653f39723cad8c77
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087651"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141993"
 ---
-# <a name="prediction-score"></a>Förutsägelseresultat
+# <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Resultat för förutsägelse anger prognosens noggrannhet för avsikt och entiteter
 En förutsägelse poäng indikerar grad av säkerhet som LUIS har för förutsägelser. 
 
 En förutsägelse poäng är mellan noll (0) och en (1). Ett exempel på en mycket säker på LUIS-poäng är 0,99. Ett exempel på en poäng med låg säkerhet är 0,01. 

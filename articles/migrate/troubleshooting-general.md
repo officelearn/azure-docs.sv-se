@@ -4,14 +4,14 @@ description: Innehåller en översikt över kända problem i Azure Migrate-tjän
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9303f20d84547dee62e7012e0dca50f47ad54083
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839593"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259162"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -23,11 +23,11 @@ ms.locfileid: "52839593"
 
 Identifiering av kontinuerlig installationen endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
-- Tillägg av objekt (virtuella datorer, kärnor osv.): Om du vill återspegla dessa ändringar i Azure-portalen kan du stoppa identifieringen från installationen och sedan börja om igen. Då uppdateras ändringarna i Azure Migrate-projektet.
+- Tillägg av objekt (virtuella datorer, diskar, kärnor osv.): För att återspegla dessa ändringar i Azure-portalen, kan du stoppar identifieringen av programmet och sedan starta det igen. Då uppdateras ändringarna i Azure Migrate-projektet.
 
    ![Stoppa identifiering](./media/troubleshooting-general/stop-discovery.png)
 
-- Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
+- Borttagning av virtuella datorer: Borttagning av virtuella datorer återspeglas inte på grund av det sätt som är utformad för installationen, även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Skapa projekt för migreringen misslyckades med felet *förfrågningar måste innehålla användaridentitetsrubriker*
 
@@ -41,23 +41,31 @@ Om det inte går att exportera utvärderingsrapporten från portalen kan du prov
 
 1. Installera *armclient* på datorn (om du inte har den redan installerats):
 
-a. Kör följande kommando i Kommandotolkens fönster för en administratör:  *@powershell - NoProfile - ExecutionPolicy kringgå - kommandot ”iex ((New-Object System.Net.WebClient). DownloadString('https://chocolatey.org/install.ps1')) ”& & Ställ in” PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin ”*
+  a. Kör följande kommando i Kommandotolkens fönster för en administratör: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-b.In en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: *choco installera armclient*
+  b. I en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: ```choco install armclient```
 
 2.  Hämta nedladdnings-URL för utvärderingsrapporten med hjälp av Azure Migrate REST API
 
-a.  I en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: *armclient inloggning* öppnas Azure inloggningen popup där du måste logga in på Azure.
+  a.    I en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: ```armclient login```
 
-b.  Kör följande kommando för att hämta nedladdnings-URL för utvärderingsrapporten (Ersätt URI-parametrar med relevanta värden, API-exemplet begär nedan) i samma PowerShell-fönstret
+  Då öppnas Azure inloggningen popup där du måste logga in på Azure.
 
-       *armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02*
+  b.    Kör följande kommando för att hämta nedladdnings-URL för utvärderingsrapporten (Ersätt URI-parametrar med relevanta värden, API-exemplet begär nedan) i samma PowerShell-fönstret
 
-Exempel på begäran och utdata:
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-PS C:\WINDOWS\system32 > armclient INLÄGG https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2 018_12_16_21/downloadUrl? api-version = 2018-02-02 {” assessmentReportUrl ””:https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r”,” expirationTime ””: 2018-11-20T22:09:30.5681954 + 05:30 ”
+       Exempel på begäran och utdata:
+
+       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+018_12_16_21/downloadUrl?api-version=2018-02-02
+{
+  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Kopiera URL: en från svaret och öppna den i en webbläsare för att hämta utvärderingsrapporten.
+
 4. När rapporten har hämtats, kan du använda Excel för att bläddra till mappen hämtade och öppna filen i Excel för att visa den.
 
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Prestandadata för diskar och nätverk-kort som visar nollor
@@ -74,7 +82,7 @@ Du kan gå till den **Essentials** i avsnittet den **översikt** projektets att 
 
 ## <a name="collector-errors"></a>Fel för logginsamlare
 
-### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Distribution av Azure Migrate Collector misslyckades med fel: den angivna manifestfilen är ogiltig: Ogiltigt OVF manifest posten.
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Distribution av Azure Migrate Collector misslyckades med felet: Den angivna manifestfilen är ogiltig: Ogiltig OVF manifest post.
 
 1. Kontrollera om Azure Migrate Collector OVA-filen laddas ned korrekt genom att kontrollera hash-värdet. Se [artikeln](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) för att kontrollera hash-värdet. Om hash-värdet inte matchar, hämta OVA-filen igen och försöker distribuera igen.
 2. Om det fortfarande inte fungerar, och du använder VMware vSphere-klienten för att distribuera OVT, provar du att distribuera den via vSphere-webbklienten. Om det fortfarande inte, försök att använda olika webbläsare.
@@ -138,7 +146,7 @@ Det här problemet kan inträffa på grund av ett problem med VMware PowerCLI-in
 
 ### <a name="error-unabletoconnecttoserver"></a>Felet UnableToConnectToServer
 
-Det gick inte att ansluta till vCenter-servern ”Servername.com:9443” på grund av följande fel: Det fanns inte någon slutpunkt som lyssnade på https://Servername.com:9443/sdk som kunde acceptera meddelandet.
+Det går inte att ansluta till vCenter-servern ”Servername.com:9443” på grund av felet: Det fanns inte någon slutpunkt som lyssnade på https://Servername.com:9443/sdk som kunde acceptera meddelandet.
 
 Kontrollera om du kör den senaste versionen av insamlingsprogrammet, om inte, uppgradera installationen till den [senaste versionen](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
 
@@ -150,6 +158,10 @@ Om problemet inträffar fortfarande i den senaste versionen kan bero det insamla
 4. Kontrollera slutligen om vCenter-servern är igång.
 
 ## <a name="dependency-visualization-issues"></a>Visualisering beroendeproblem
+
+### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>Det går att hitta beroendevisualiseringsfunktionen för Azure Government-projekt.
+
+Azure Migrate beror på Tjänstkartan för beroendevisualiseringsfunktionen och eftersom Tjänstkarta är för närvarande inte tillgänglig i Azure Government är den här funktionen är inte tillgänglig i Azure Government.
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Jag har installerat Microsoft Monitoring Agent (MMA) och beroendeagenten på min lokala virtuella datorer, men beroenden som nu visas i Azure Migrate-portalen.
 

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 097b7efd7643e3b8450284d19e13a428dfd48ac2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138865"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316989"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Kan inte använda RDP till en virtuell dator eftersom den virtuella datorn startas i felsäkert läge
 
 Den här artikeln visar hur du löser problem som du inte kan ansluta till Azure Windows Virtual Machines (VM) eftersom den virtuella datorn är konfigurerad att starta i felsäkert läge.
 
 > [!NOTE]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
 
 ## <a name="symptoms"></a>Symtom
 
@@ -111,23 +111,24 @@ Kör följande skript för att aktivera dump logg- och Seriekonsol.
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
 
     reg unload HKLM\BROKENSYSTEM
+    ```
 
-#### Configure the Windows to boot into normal mode
+#### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Konfigurera Windows att starta i normalläge.
 
-1. Open an elevated command prompt session (**Run as administrator**).
-2. Check the boot configuration data. In the following commands, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM.
+1. Öppna en upphöjd kommandotolk-session (**kör som administratör**).
+2. Kontrollera boot configuration data. I följande kommandon förutsätter vi att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F. Ersätt enhetsbeteckningen med lämpligt värde för den virtuella datorn.
 
         bcdedit /store F:\boot\bcd /enum
-    Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".
+    Anteckna ID-namnet för den partition som har den **\windows** mapp. Som standard är ID-namnet ”standard”.
 
-    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
+    Om den virtuella datorn är konfigurerad för att starta i felsäkert läge, ser du en extra flagga under den **Windows Boot Loader** avsnitt som heter **safeboot**. Om du inte ser den **safeboot** flagga den här artikeln gäller inte för ditt scenario.
 
-    ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
+    ![Bild som visar start identifierare](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
-3. Remove the **safeboot** flag, so the VM will boot into normal mode:
+3. Ta bort den **safeboot** flaggan, så att den virtuella datorn startar i normalt läge:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
+4. Kontrollera boot configuration data för att se till att den **safeboot** flaggan tas bort:
 
         bcdedit /store F:\boot\bcd /enum
-5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.
+5. [Koppla från den OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrollera sedan om problemet är löst.

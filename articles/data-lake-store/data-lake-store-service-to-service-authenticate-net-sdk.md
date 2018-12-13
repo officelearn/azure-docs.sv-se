@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 61d9606ff14a48e6c224108596f0f01daa4813e1
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 58d8cfdbd2ad5d7e727decfa3e3cfdd7151b0048
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954302"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250218"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ Lägg till det här kodfragmentet i dina .NET-klientprogram. Ersätt platshålla
         var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
     }
 
-I föregående kodfragment används en hjälpfunktionen `GetCreds_SPI_SecretKey`. Koden för den här hjälpfunktionen finns [här på Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
+I föregående kodfragment används en hjälpfunktionen `GetCreds_SPI_SecretKey`. Koden för den här hjälpfunktionen finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Tjänst-till-tjänst-autentisering med certifikat
 
@@ -113,7 +113,7 @@ Lägg till det här kodfragmentet i dina .NET-klientprogram. Ersätt platshålla
         var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
     }
 
-I föregående kodfragment används en hjälpfunktionen `GetCreds_SPI_Cert`. Koden för den här hjälpfunktionen finns [här på Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
+I föregående kodfragment används en hjälpfunktionen `GetCreds_SPI_Cert`. Koden för den här hjälpfunktionen finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du använder tjänst-till-tjänst-autentisering för att autentisera med Data Lake Storage Gen1 med .NET SDK. Du kan nu se ut i följande artiklar som pratar om hur du använder .NET SDK för att arbeta med Data Lake Storage Gen1.

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 12/04/2018
+ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056751"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274436"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Återställ en enskild klientorganisation med ett databas-per-klient SaaS-program
 
@@ -26,10 +26,8 @@ Modellen databas-per-klient gör det enkelt att återställa en enskild klient t
 I de här självstudierna lär du dig två mönster för återställning av data:
 
 > [!div class="checklist"]
-
 > * Återställa en databas till en parallell databasen (sida vid sida).
 > * Återställa en databas på plats, ersätter den befintliga databasen.
-
 
 |||
 |:--|:--|
@@ -44,13 +42,13 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Introduktion till SaaS-mönstren klient återställning
 
-Det finns två enkla mönster för att återställa en enskild klientorganisation data. Eftersom klientdatabaser är isolerade från varandra, har återställa en klient ingen inverkan på alla andra klientdata. Funktionen Azure SQL Database punkt i tiden återställning (PITR) används i både mönster. PITR skapar alltid en ny databas.   
+Det finns två enkla mönster för att återställa en enskild klientorganisation data. Eftersom klientdatabaser är isolerade från varandra, har återställa en klient ingen inverkan på alla andra klientdata. Funktionen Azure SQL Database punkt i tiden återställning (PITR) används i både mönster. PITR skapar alltid en ny databas.
 
-* **Återställa parallellt**: I det första mönstret skapas en ny parallell databas tillsammans med klientens aktuella databasen. Klienten får sedan skrivskyddad åtkomst till den återställda databasen. Dessa data kan granskas och potentiellt används för att skriva över den aktuella datavärden. Det är upp till appdesignern att avgöra hur klienten har åtkomst till den återställda databasen och vilka alternativ för återställning tillhandahålls. Helt enkelt låta klienten att granska data med en tidigare tidpunkt kan vara allt som krävs i vissa scenarier. 
+* **Återställa parallellt**: I det första mönstret skapas en ny parallell databas tillsammans med klientens aktuella databasen. Klienten får sedan skrivskyddad åtkomst till den återställda databasen. Dessa data kan granskas och potentiellt används för att skriva över den aktuella datavärden. Det är upp till appdesignern att avgöra hur klienten har åtkomst till den återställda databasen och vilka alternativ för återställning tillhandahålls. Helt enkelt låta klienten att granska data med en tidigare tidpunkt kan vara allt som krävs i vissa scenarier.
 
-* **Återställer på plats**: andra mönstret är användbart om data skulle tappas bort eller skadad och klienten vill återgå till en tidigare tidpunkt. Klienten har tagits offline när databasen har återställts. Den ursprungliga databasen tas bort och den återställda databasen har bytt namn. Säkerhetskopiering kedjan av den ursprungliga databasen är fortfarande tillgängliga efter borttagningen, så att du kan återställa databasen till en tidigare tidpunkt, om det behövs.
+* **Återställer på plats**: Det andra mönstret är användbart om data skulle tappas bort eller skadad och klienten vill återgå till en tidigare tidpunkt. Klienten har tagits offline när databasen har återställts. Den ursprungliga databasen tas bort och den återställda databasen har bytt namn. Säkerhetskopiering kedjan av den ursprungliga databasen är fortfarande tillgängliga efter borttagningen, så att du kan återställa databasen till en tidigare tidpunkt, om det behövs.
 
-Om databasen använder [geo-replikering](sql-database-geo-replication-overview.md) och återställa parallellt, rekommenderar vi att du kopierar alla nödvändiga data från den återställda kopian till den ursprungliga databasen. Om du ersätter den ursprungliga databasen med den återställda databasen måste du konfigurera om och omsynkronisera geo-replikering.
+Om databasen använder [aktiv geo-replikering](sql-database-active-geo-replication.md) och återställa parallellt, rekommenderar vi att du kopierar alla nödvändiga data från den återställda kopian till den ursprungliga databasen. Om du ersätter den ursprungliga databasen med den återställda databasen måste du konfigurera om och omsynkronisera geo-replikering.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta Wingtip biljetter SaaS databas-per-klient programskript
 
@@ -74,7 +72,6 @@ För att demonstrera hur dessa scenarion för återställning, först ”av miss
 
    ![Senaste händelse visas](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
-
 ### <a name="accidentally-delete-the-last-event"></a>”Råkar” ta bort den sista händelsen
 
 1. I PowerShell ISE öppnar du... \\Inlärningsmoduler\\affärskontinuitet och Haveriberedskap\\RestoreTenant\\*Demo-RestoreTenant.ps1*, och ange följande värde:
@@ -88,15 +85,13 @@ För att demonstrera hur dessa scenarion för återställning, först ”av miss
    ```
 
 3. Contoso händelser sida öppnas. Bläddra nedåt och kontrollera att händelsen är borta. Om händelsen är fortfarande i listan, Välj **uppdatera** och kontrollera att det har gått.
-
    ![Senaste händelsen har tagits bort](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
-
 
 ## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>Återställa en klientdatabas parallellt med produktionsdatabasen
 
 Den här övningen återställer Contosos Konserthall databasen till en tidpunkt innan händelsen togs bort. Det här scenariot förutsätter att du vill granska de borttagna data i en parallell-databas.
 
- Den *återställning TenantInParallel.ps1* skriptet skapar en parallell klientdatabas med namnet *ContosoConcertHall\_gamla*, med en parallell katalogpost. Det här mönstret av återställning passar bäst för att återställa från en mindre data går förlorade. Du kan också använda det här mönstret om du vill granska data för efterlevnad eller granskning. Det är den rekommenderade metoden när du använder [geo-replikering](sql-database-geo-replication-overview.md).
+ Den *återställning TenantInParallel.ps1* skriptet skapar en parallell klientdatabas med namnet *ContosoConcertHall\_gamla*, med en parallell katalogpost. Det här mönstret av återställning passar bäst för att återställa från en mindre data går förlorade. Du kan också använda det här mönstret om du vill granska data för efterlevnad eller granskning. Det är den rekommenderade metoden när du använder [aktiv geo-replikering](sql-database-active-geo-replication.md).
 
 1. Slutför den [simulera en klient oavsiktligen Raderar data](#simulate-a-tenant-accidentally-deleting-data) avsnittet.
 2. I PowerShell ISE öppnar du... \\Inlärningsmoduler\\affärskontinuitet och Haveriberedskap\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
@@ -115,7 +110,6 @@ Exponera återställda klienten som ett ytterligare klienten, med sin egen evene
 2. Tryck på F5 för att köra skriptet.
 3. Den *ContosoConcertHall\_gamla* nu bort från katalogen. Stäng sidan händelser för den här klienten i din webbläsare.
 
-
 ## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>Återställa en klient på plats, ersätter den befintliga klientdatabasen
 
 Den här övningen återställer Contosos Konserthall-klient till en tidpunkt innan händelsen togs bort. Den *återställning TenantInPlace* skriptet återställer en klientdatabas till en ny databas och tar bort ursprungligt. Det här mönstret för återställning är bäst att återställa från skadade allvarligt data och klienten kan behöva hantera dataförluster.
@@ -128,14 +122,13 @@ Skriptet återställer klientdatabasen till en tidpunkt innan händelsen togs bo
 
 Du återställt har databasen till en tidpunkt innan händelsen togs bort. När den **händelser** öppnas, bekräfta att den senaste händelsen har återställts.
 
-När du har återställt databasen tar en annan 10 till 15 minuter innan den första fullständiga säkerhetskopian är tillgängligt för att återställa från igen. 
+När du har återställt databasen tar en annan 10 till 15 minuter innan den första fullständiga säkerhetskopian är tillgängligt för att återställa från igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-
 > * Återställa en databas till en parallell databasen (sida vid sida).
 > * Återställa en databas på plats.
 

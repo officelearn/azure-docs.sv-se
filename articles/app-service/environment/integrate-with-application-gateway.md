@@ -1,5 +1,5 @@
 ---
-title: Integrera din ILB App Service-miljö med Azure Application Gateway
+title: Integrera ILB App Service-miljö med Application Gateway – Azure
 description: Genomgång av hur du integrerar en app i din ILB App Service Environment med en Application Gateway
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: f1e527918086fb003696c09828969e371ff9ca96
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ea46b5e57e4e508a3311de8633ae61d346b574eb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968825"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273824"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrera din ILB App Service-miljö med Azure Application Gateway #
 
@@ -64,7 +65,7 @@ Du kan också placera gatewayen i det undernät som använder din ILB App Servic
 
 1. I Azure-portalen går du till **New** > **nätverk** > **Application Gateway**.
 
-1. I den **grunderna** området:
+2. I den **grunderna** området:
 
    a. För **namnet**, anger du namnet på Application Gateway.
 
@@ -78,7 +79,7 @@ Du kan också placera gatewayen i det undernät som använder din ILB App Servic
 
    ![Ny grunderna för skapande av Application Gateway][2]
 
-1. I den **inställningar** området:
+3. I den **inställningar** området:
 
    a. För **virtuellt nätverk**, Välj det virtuella nätverket för App Service Environment.
 
@@ -94,25 +95,25 @@ Du kan också placera gatewayen i det undernät som använder din ILB App Servic
 
    ![Nya inställningar för skapande av Application Gateway][3]
     
-1. I den **sammanfattning** , granskar du inställningarna och väljer **OK**. Application Gateway kan ta lite mer än 30 minuter att slutföra installationen.  
+4. I den **sammanfattning** , granskar du inställningarna och väljer **OK**. Application Gateway kan ta lite mer än 30 minuter att slutföra installationen.  
 
-1. När Application Gateway är klar installationen går du till din Application Gateway-portal. Välj **serverdelspool**. Lägg till ILB-adressen för din ILB App Service Environment.
+5. När Application Gateway är klar installationen går du till din Application Gateway-portal. Välj **serverdelspool**. Lägg till ILB-adressen för din ILB App Service Environment.
 
    ![Konfigurera serverdelspoolen][4]
 
-1. När konfigureringen av backend-poolen är klar väljer **hälsoavsökningar**. Skapa en hälsoavsökning för det domännamn som du vill använda för din app. 
+6. När konfigureringen av backend-poolen är klar väljer **hälsoavsökningar**. Skapa en hälsoavsökning för det domännamn som du vill använda för din app. 
 
    ![Konfigurera hälsotillståndsavsökningar][5]
     
-1. När processen med att konfigurera din hälsokontroller av slutpunkter är klar väljer **HTTP-inställningar**. Redigera de befintliga inställningarna genom att markera **Använd anpassad avsökning**, och välj avsökningen som du har konfigurerat.
+7. När processen med att konfigurera din hälsokontroller av slutpunkter är klar väljer **HTTP-inställningar**. Redigera de befintliga inställningarna genom att markera **Använd anpassad avsökning**, och välj avsökningen som du har konfigurerat.
 
    ![Konfigurera HTTP-inställningar][6]
     
-1. Gå till Application Gateway **översikt** avsnitt och kopiera den offentliga IP-adressen som Application Gateway använder. Ange IP-adress som en A-post för din app-domännamnet eller Använd DNS-namnet för den här adressen i en CNAME-post. Det är lättare att välja den offentliga IP-adressen och kopiera den offentliga IP-adressens användargränssnittet i stället för att kopiera den från länken i Application Gateway **översikt** avsnittet. 
+8. Gå till Application Gateway **översikt** avsnitt och kopiera den offentliga IP-adressen som Application Gateway använder. Ange IP-adress som en A-post för din app-domännamnet eller Använd DNS-namnet för den här adressen i en CNAME-post. Det är lättare att välja den offentliga IP-adressen och kopiera den offentliga IP-adressens användargränssnittet i stället för att kopiera den från länken i Application Gateway **översikt** avsnittet. 
 
    ![Application Gateway-portalen][7]
 
-1. Ange det anpassade domännamnet för din app i din ILB App Service Environment. Gå till din app i portalen och under **inställningar**väljer **anpassade domäner**.
+9. Ange det anpassade domännamnet för din app i din ILB App Service Environment. Gå till din app i portalen och under **inställningar**väljer **anpassade domäner**.
 
    ![Ange anpassat domännamn för appen][8]
 

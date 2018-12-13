@@ -12,23 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d3682d18fb849b2d851bae0986f9e61f216aaf2c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d51fffad897ba2658c7bee51c26e7e3be9f10e88
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639948"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188766"
 ---
 # <a name="virtual-machine-offer"></a>Erbjudande för virtuell dator
 
-Det här avsnittet beskriver de element för att publicera en virtuell dator (VM) och är avsedd som en vägledning för utgivaren för att den [Azure Marketplace](https://azuremarketplace.microsoft.com).  Från den här synpunkt, är den uppdelad i följande huvuddelar:
+|    |    |
+|-----------------------------------------------------------------|------------------------------------------|
+| Det här avsnittet beskrivs hur du publicerar ett nytt erbjudande för virtuell dator till den [Azure Marketplace](https://azuremarketplace.microsoft.com). Det finns stöd för både Windows- och Linux-baserade virtuella datorer, som innehåller ett operativsystem virtuell hårddisk (VHD) och noll eller flera data virtuella hårddiskar. | ![ikon för virtuell dator](./media/virtual-machine-icon.png)  |
 
-- [Förutsättningar](./cpp-prerequisites.md) – visar en lista över tekniska och affärsmässiga krav innan du skapar eller publicera ett erbjudande för virtuell dator
-- [Skapa erbjudande för virtuell dator](./cpp-create-offer.md) – visar de steg som krävs för att skapa en ny virtuell dator erbjuder posten med den [partnerportalen i molnet](https://cloudpartner.azure.com)
-- [Skapa VM tekniska resurser](./cpp-create-technical-assets.md) – hur du skapar tekniskt erbjuder tillgångar för en virtuell dator och hur du konfigurerar det här paketet som en virtuell dator på Azure Marketplace
-- [Publicera erbjudande för VM](./cpp-publish-offer.md) – hur du skickar in erbjudande för publicering på Azure Marketplace
+
+## <a name="publishing-overview"></a>Översikt över publicering
+
+På nedanstående video, [optimera dina Azure Marketplace-erbjudande](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), visas en översikt av Azure Marketplace, inklusive hur du publicerar på den här marketplace (med en lösning för virtuell dator), hur du optimerar användarupplevelsen med din produktsidan och valfritt Test Drive-upplevelsen, hur användaren leder genereras och hur du kan använda dem och optimera Kundengagemang.
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026]
 
 
 ## <a name="vm-publishing-process-flow"></a>Processflöde för VM-publicering

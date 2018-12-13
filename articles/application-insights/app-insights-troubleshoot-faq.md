@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0e934a629edc41ce09cad810b0d3b9b88e36c6d6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996528"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323362"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -26,7 +26,7 @@ ms.locfileid: "52996528"
 
 * [.NET-app](app-insights-asp-net-troubleshoot-no-data.md)
 * [Övervaka en app redan körs](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure-diagnostik](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure-diagnostik](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java-webbapp](app-insights-java-troubleshoot.md)
 
 *Jag får inga data från Min server*
@@ -118,7 +118,7 @@ Från [klienten webbsidor](app-insights-javascript.md):
 
 Från andra källor, om du konfigurerar dem:
 
-* [Azure-diagnostik](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure-diagnostik](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Docker-behållare](app-insights-docker.md)
 * [Importera tabellerna till Analytics](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
@@ -137,8 +137,8 @@ Lär dig mer om [ASP.NET](app-insights-api-filtering-sampling.md) eller [Java](a
 
 Vi ser IP-adress (IPv4 eller IPv6) för webbklienten med [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
 
-* Webbläsartelemetri: vi samlar in avsändarens IP-adress.
-* Telemetri: The Application Insights-modulen samlar in klientens IP-adress. Den har inte samlats in om `X-Forwarded-For` har angetts.
+* Webbläsartelemetri: Vi samlar in avsändarens IP-adress.
+* Telemetri: Modulen Application Insights samlar in klientens IP-adress. Den har inte samlats in om `X-Forwarded-For` har angetts.
 
 Du kan konfigurera den `ClientIpHeaderTelemetryInitializer` att ta den IP-adressen från en annan rubrik. I vissa system, till exempel den flyttas av en proxy, läsa in belastningsutjämnare eller CDN för att `X-Originating-IP`. [Läs mer](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 

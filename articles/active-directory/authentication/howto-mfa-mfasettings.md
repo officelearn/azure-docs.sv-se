@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 772807fc0a1378eea662a7c4a7e3c720d7092bef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7bd63dc991500f1d7f68169342b9612c1b303a07
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013022"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320666"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -87,8 +87,8 @@ Konfigurera den _bedrägerivarning_ funktion så att dina användare kan rapport
 
 ### <a name="configuration-options"></a>Konfigurationsalternativ
 
-* **Blockera användare när bedrägeri rapporteras**: om en användare rapporterar bedrägerier, deras konto är blockerad i 90 dagar eller tills en administratör häver blockeringen för sitt konto. En administratör kan granska inloggningar med hjälp av rapporten inloggning och vidta lämpliga åtgärder för att förhindra framtida bedrägerier. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
-* **Kod för att rapportera bedrägeri under inledande hälsning**: när användarna får ett telefonsamtal för tvåstegsverifiering, de normalt trycker du på **#** att bekräfta deras inloggning. Att rapportera bedrägeri användaren anger en kod innan du trycker på **#**. Den här koden är **0** som standard, men du kan anpassa den.
+* **Blockera användare när bedrägeri rapporteras**: Om en användare rapporterar bedrägerier, är deras konto blockerad i 90 dagar eller tills en administratör häver blockeringen för sitt konto. En administratör kan granska inloggningar med hjälp av rapporten inloggning och vidta lämpliga åtgärder för att förhindra framtida bedrägerier. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
+* **Kod för att rapportera bedrägeri under inledande hälsning**: När användarna får ett telefonsamtal för tvåstegsverifiering, de normalt trycker du på **#** att bekräfta deras inloggning. Att rapportera bedrägeri användaren anger en kod innan du trycker på **#**. Den här koden är **0** som standard, men du kan anpassa den.
 
    >[!NOTE]
    >Standard röstmeddelanden från Microsoft Instruera användarna att trycka på **0#** att skicka ett bedrägeriförsök. Om du vill använda en kod än **0**, registrera och ladda upp dina egna anpassade röstmeddelanden med rätt anvisningar för dina användare.
@@ -257,12 +257,15 @@ Användarna kan också skapa applösenord efter registreringen. Applösenord kan
 
 Den _tillförlitliga IP-adresser_ funktion i Azure Multi-Factor Authentication används av administratörer för en hanterad eller federerade klient. Funktionen kringgår tvåstegsverifiering för användare som loggar in från intranätet. Funktionen är tillgänglig med den fullständiga versionen av Azure Multi-Factor Authentication och inte den kostnadsfria versionen för administratörer. Mer information om hur du hämtar den fullständiga versionen av Azure Multi-Factor Authentication finns [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
+> [!NOTE]
+> Det betrodda MFA IP-adresser och villkorlig åtkomst – namngivna platser fungerar endast med IPV4-adresser.
+
 Om din organisation distribuerar NPS-tillägget för att ge MFA till lokala program anteckning visas alltid källans IP-adress till att autentiseringen flödar genom att försöka NPS-servern.
 
 | Azure AD tenant-typ | Betrodda IP-adresser Funktionsalternativ |
 |:--- |:--- |
-| Hanterad |**Specifika IP-adressintervall**: administratörer ange ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från intranätet.|
-| Federerad |**Alla federerade användare**: alla federerade användare som loggar in från inom organisationen kan kringgå tvåstegsverifiering. Användarna kringgå verifiering med hjälp av ett anspråk som utfärdas av Active Directory Federation Services (AD FS).<br/>**Specifika IP-adressintervall**: administratörer ange ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från intranätet. |
+| Hanterad |**Specifika IP-adressintervall**: Administratörer ange ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från intranätet.|
+| Federerad |**Alla federerade användare**: Alla externa användare som loggar in därifrån inom organisationen kan kringgå tvåstegsverifiering. Användarna kringgå verifiering med hjälp av ett anspråk som utfärdas av Active Directory Federation Services (AD FS).<br/>**Specifika IP-adressintervall**: Administratörer ange ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från intranätet. |
 
 Tillförlitliga IP-adresser kringgå fungerar endast från i intranätet. Om du väljer den **alla federerade användare** alternativet och en användare loggar du in från utanför företagets intranät som användaren måste autentiseras med hjälp av tvåstegsverifiering. Processen är samma även om användaren anger ett AD FS-anspråk. 
 
@@ -293,7 +296,7 @@ Oavsett om funktionen tillförlitliga IP-adresser är aktiverat, krävs tvåsteg
 3. Välj **konfigurera betrodda MFA IP-adresser**.
 4. På den **tjänstinställningar** sidan under **tillförlitliga IP-adresser**, Välj från någon av följande två alternativ:
 
-   * **För förfrågningar från federerade användare som kommer från mitt intranät**: Välj det här alternativet genom att markera kryssrutan. Alla externa användare som loggar in från företagsnätverket kringgå tvåstegsverifiering med hjälp av ett anspråk som utfärdas av AD FS. Kontrollera att AD FS har en regel för att lägga till intranätet anspråk på lämpligt trafik. Om regeln inte finns, kan du skapa följande regel i AD FS:
+   * **För förfrågningar från federerade användare som kommer från mitt intranät**: Markera kryssrutan för att välja det här alternativet. Alla externa användare som loggar in från företagsnätverket kringgå tvåstegsverifiering med hjälp av ett anspråk som utfärdas av AD FS. Kontrollera att AD FS har en regel för att lägga till intranätet anspråk på lämpligt trafik. Om regeln inte finns, kan du skapa följande regel i AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
@@ -312,7 +315,7 @@ Oavsett om funktionen tillförlitliga IP-adresser är aktiverat, krävs tvåsteg
 4. Under Multi-Factor Authentication, väljer **tjänstinställningar**.
 5. På den **tjänstinställningar** sidan under **tillförlitliga IP-adresser**, väljer du en (eller båda) av följande två alternativ:
 
-   * **För förfrågningar från federerade användare från mitt intranät**: Välj det här alternativet genom att markera kryssrutan. Alla externa användare som loggar in från företagsnätverket kringgå tvåstegsverifiering med hjälp av ett anspråk som utfärdas av AD FS. Kontrollera att AD FS har en regel för att lägga till intranätet anspråk på lämpligt trafik. Om regeln inte finns, kan du skapa följande regel i AD FS:
+   * **För förfrågningar från federerade användare från mitt intranät**: Markera kryssrutan för att välja det här alternativet. Alla externa användare som loggar in från företagsnätverket kringgå tvåstegsverifiering med hjälp av ett anspråk som utfärdas av AD FS. Kontrollera att AD FS har en regel för att lägga till intranätet anspråk på lämpligt trafik. Om regeln inte finns, kan du skapa följande regel i AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
@@ -385,6 +388,6 @@ Funktionen minskar antalet autentiseringar i web apps, som normalt att efterfrå
 
 När du har aktiverat funktionen Kom ihåg Multi-Factor Authentication användarna kan markera en enhet som betrodda när de loggar in genom att välja **fråga inte igen**.
 
-# <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
-[Ändra Azure AD-inloggningssida anpassning](..\fundamentals\customize-branding.md)
+[Ändra Azure AD-inloggningssida anpassning](../fundamentals/customize-branding.md)

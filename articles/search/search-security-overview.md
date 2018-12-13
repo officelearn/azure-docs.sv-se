@@ -1,5 +1,5 @@
 ---
-title: Säkerhet och sekretess i Azure Search | Microsoft Docs
+title: Säkerhet och sekretess – Azure Search
 description: Azure Search är kompatibla med SOC 2, HIPAA och andra certifieringar. Anslutning och kryptering, autentisering och identitet åtkomst via användare och grupp säkerhets-ID i Azure Search filter.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.custom: seodec2018
+ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092639"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311719"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Säkerhet och sekretess i Azure Search
 
@@ -99,7 +100,7 @@ Per användare åtkomst till innehållet i ett index implementeras via säkerhet
 |[Säkerhetsoptimering baserat på identitetsfilter](search-security-trimming-for-azure-search.md)  | Det grundläggande arbetsflödet för att implementera Användaråtkomstkontroll för identity-dokument. Det omfattar att lägga till säkerhets-ID till ett index och sedan förklarar filtrering mot fältet att trimma resultatet av otillåten innehåll. |
 |[Säkerhetsoptimering baserat på Azure Active Directory-identiteter](search-security-trimming-for-azure-search-with-aad.md)  | Den här artikeln kan utökas med föregående artikeln för att tillhandahålla steg för att hämta identiteter från Azure Active Directory (AAD), en av de [kostnadsfria tjänster](https://azure.microsoft.com/free/) i Azure-molnplattformen. |
 
-## <a name="table-permissioned-operations"></a>Tabeller: Permissioned åtgärder för
+## <a name="table-permissioned-operations"></a>Tabell: Permissioned åtgärder
 
 I följande tabell sammanfattas de åtgärder som tillåts i Azure Search och vilken nyckel ger åtkomst till en viss åtgärd.
 

@@ -1,22 +1,24 @@
 ---
-title: Utgående anslutningar i Azure (klassisk) | Microsoft Docs
+title: Utgående anslutningar i Azure (klassisk)
+titlesuffix: Azure Load Balancer
 description: Den här artikeln förklarar hur Azure kan molntjänster att kommunicera med offentliga internet-tjänster.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 5cb0647148d2cd90ad4cce6e16de30b72fff8429
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219672"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190007"
 ---
 # <a name="outbound-connections-classic"></a>Utgående anslutningar (klassiska)
 

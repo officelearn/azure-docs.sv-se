@@ -1,6 +1,6 @@
 ---
-title: OCR kognitiv sökning färdighet (Azure Search) | Microsoft Docs
-description: Extrahera text från bildfiler i en Azure Search berikande pipeline.
+title: OCR kognitiv sökning färdigheter – Azure Search
+description: Extrahera text från bildfiler som med optisk teckenigenkänning (OCR) i ett Azure Search berikande pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 97d594a232c3576d0a0163b2d6847f06328bcd7b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 097fd93955a4ca3fd96ae6452fa3b503b029ffc3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167519"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313232"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR kognitiva kunskaper
 
@@ -29,7 +30,12 @@ Den **OCR** färdighet extraherar text från bildfiler. Filformat som stöds är
 + . GIF
 
 > [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetens körning och extrahering av avbildningen och normalisering är för närvarande erbjuds kostnadsfritt. Vid ett senare tillfälle meddelas priserna för dessa funktioner. 
+> Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. Detta gör att vi börjar debitera för körning av kompetens. På det här datumet måste också börjar vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
+>
+> Körningen av inbyggda kunskaper debiteras med den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser kommer att debiteras enligt priserna för förhandsversionen och beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). Lär dig [mer](cognitive-search-attach-cognitive-services.md).
+>
+>  OCR färdighet mappar till följande cognitive services-funktioner: När textExtractionAlgorithm anges till ”handskriven”, den [”RecognizeText”](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) funktioner används.
+>  När textExtractionAlgorithm anges till ”skriva ut”, den [”OCR”](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) funktion används för andra språk än engelska. För engelska, den nya [”identifiera Text”](../cognitive-services/computer-vision/concept-recognizing-text.md) funktioner för tryckt text används.
 
 ## <a name="skill-parameters"></a>Färdighet parametrar
 

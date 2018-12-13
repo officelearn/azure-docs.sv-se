@@ -1,5 +1,5 @@
 ---
-title: Analysverktyg i Azure Search | Microsoft Docs
+title: Analysverktyg för språklig och bearbetning av text - Azure Search
 description: Tilldela analysatorer till sökbara fält i ett index att ersätta standard standard Lucene med anpassade, fördefinierade eller språkspecifika varianter.
 services: search
 ms.service: search
@@ -8,14 +8,15 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec2018
+ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116378"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310546"
 ---
-# <a name="analyzers-in-azure-search"></a>Analysverktyg i Azure Search
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Analysverktyg för textbearbetning i Azure Search
 
 En *analyzer* är en komponent i [fulltextsökning](search-lucene-query-architecture.md) ansvarar för bearbetningen av text i frågesträngar och indexerade dokumenten. Följande omvandlingar är typiska under analysen:
 

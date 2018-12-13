@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: fe1557a6f9e5fd4e463af254fa1dd52726e73024
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e71ac4666c86c72828e9937c353eda8ba5a0668e
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713052"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322268"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostikloggar till Log Analytics
 
@@ -37,7 +37,7 @@ Log Analytics-arbetsytan behöver inte finnas i samma prenumeration som resursen
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
+> *Till exempel*: ”Inkommande meddelanden'-mått i en Händelsehubb kan utforskas och läggas till på en per kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 >
 
@@ -75,7 +75,7 @@ Observera att egenskapen workspaceID tar fullständiga Azure-resurs-ID för arbe
 
 ### <a name="via-azure-cli"></a>Via Azure CLI
 
-Strömning den [Azure CLI](insights-cli-samples.md), du kan använda den [az monitor diagnostic-settings skapa](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) kommando.
+Strömning den [Azure CLI](../azure-monitor/platform/cli-samples.md), du kan använda den [az monitor diagnostic-settings skapa](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) kommando.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

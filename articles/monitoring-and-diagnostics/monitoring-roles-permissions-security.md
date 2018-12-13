@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 367ecd4534a2221e996e706f8b4426ea6f70f213
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d160eb377c3d4d73105cdb61b5722a147d22ed37
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680505"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321189"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure Monitor
 Många team behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har som fungerar endast om hur du övervakar (support-tekniker, devops-tekniker) eller om du använder en leverantör av hanterade tjänster kan du behöva ge dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt gäller en inbyggd övervakning RBAC-roll för en användare i Azure eller skapa en egen anpassad roll för en användare behöver begränsade behörigheter för övervakning. Det diskuterar sedan säkerhetsaspekter för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till den data de innehåller.
 
 ## <a name="built-in-monitoring-roles"></a>Inbyggd övervakning roller
-Azure Monitor inbyggda roller är avsedda att begränsa åtkomsten till resurser i en prenumeration samtidigt som de som ansvarar för övervakning av infrastruktur för att hämta och konfigurera de data de behöver. Azure Monitor innehåller två out-of the box-roller: A övervakning läsare och deltagare övervakning.
+Azure Monitor inbyggda roller är avsedda att begränsa åtkomsten till resurser i en prenumeration samtidigt som de som ansvarar för övervakning av infrastruktur för att hämta och konfigurera de data de behöver. Azure Monitor innehåller två out-of the box-roller: En övervakning läsare och deltagare övervakning.
 
 ### <a name="monitoring-reader"></a>Övervaka läsare
 Personer som har tilldelats rollen övervakning läsare kan visa alla övervakningsdata i en prenumeration men det går inte att ändra alla resurser eller redigera alla inställningar som rör övervakning av resurser. Den här rollen är lämplig för användare i en organisation, till exempel support eller åtgärder tekniker som behöver för att kunna:
 
 * Visa övervakning instrumentpaneler i portalen och skapa sina egna privata instrumentpaneler för övervakning.
 * Visa Varningsregler som definierats i [Azure-aviseringar](monitoring-overview-alerts.md)
-* Fråga om mått med hjälp av den [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdletar](insights-powershell-samples.md), eller [plattformsoberoende CLI](insights-cli-samples.md).
+* Fråga om mått med hjälp av den [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdletar](insights-powershell-samples.md), eller [plattformsoberoende CLI](../azure-monitor/platform/cli-samples.md).
 * Fråga med hjälp av portalen, Azure Monitor REST API, PowerShell-cmdletar eller plattformsoberoende CLI aktivitetsloggen.
 * Visa den [diagnostikinställningar](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) för en resurs.
 * Visa den [loggprofilen](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) för en prenumeration.

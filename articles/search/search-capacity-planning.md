@@ -1,5 +1,5 @@
 ---
-title: Allokera partitioner och -repliker för frågor och indexering i Azure Search | Microsoft Docs
+title: Allokera partitioner och -repliker för frågor och indexering – Azure Search
 description: Justera partition och repliken datorresurser i Azure Search, där varje resurs prissätts i fakturerbara search-enheter.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fa1a13c5c786867f6e92a678c40a491e0a226076
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238750"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316122"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Allokera partitioner och -repliker för fråge- och indexeringsarbetsbelastningar i Azure Search
 När du [Välj en prisnivå](search-sku-tier.md) och [etablera en söktjänst](search-create-service-portal.md), nästa steg är att du kan också öka antalet repliker eller partitioner som används av din tjänst. Varje nivå erbjuder ett fast antal faktureringsenheter. Den här artikeln beskriver hur du allokera dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för frågekörning, indexering och lagring.
@@ -92,12 +93,12 @@ Sök efter program som kräver nästan i realtid datauppdatering behöver propor
 
 Större index ta längre tid att fråga. Därför kanske du upptäcker att varje inkrementell ökning av partitioner kräver en mindre men proportionell ökning av repliker. Komplexitet frågorna och fråga volymen ska ta med i hur snabbt Frågekörningen stängs.
 
-## <a name="basic-tier-partition-and-replica-combinations"></a>Basic-nivån: kombinationer av Partition och repliken
+## <a name="basic-tier-partition-and-replica-combinations"></a>Basic-nivån: Kombinationer av partition och repliken
 En grundläggande tjänst kan ha exakt en partition och upp till tre repliker i maximalt begränsa tre SUS. Endast justerbara resursen är repliker. Du behöver minst två repliker för hög tillgänglighet på frågor.
 
 <a id="chart"></a>
 
-## <a name="standard-tiers-partition-and-replica-combinations"></a>Standard-nivåerna: kombinationer av Partition och repliken
+## <a name="standard-tiers-partition-and-replica-combinations"></a>Standard-nivån: Kombinationer av partition och repliken
 Den här tabellen visar su: er som krävs för att stödja kombinationer av repliker och partitioner, omfattas av 36 SU-gränsen för alla Standard-nivåerna.
 
 |   | **1 partition** | **2 partitioner** | **3 partitioner** | **4 partitioner** | **6 partitioner** | **12 partitioner** |

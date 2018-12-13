@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016709"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164657"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -39,7 +39,7 @@ Ja.
 
 Kärnan i Service Fabric-klusterteknik kan användas för att kombinera datorer som körs var som helst i världen, så länge som de har nätverksanslutning till varandra. Bygga och köra sådant kluster kan dock vara komplicerat.
 
-Om du är intresserad av att det här scenariot kan vi uppmanar dig att komma i kontakt antingen via den [Service Fabric Github-Problemlista](https://github.com/azure/service-fabric-issues) eller via supportrepresentant för att få ytterligare hjälp. Service Fabric-teamet arbetar för att tillhandahålla ytterligare tydlighet, vägledning och rekommendationer för det här scenariot. 
+Om du är intresserad av att det här scenariot kan vi uppmanar dig att komma i kontakt antingen via den [Service Fabric GitHub-Problemlista](https://github.com/azure/service-fabric-issues) eller via supportrepresentant för att få ytterligare hjälp. Service Fabric-teamet arbetar för att tillhandahålla ytterligare tydlighet, vägledning och rekommendationer för det här scenariot. 
 
 Några saker som du bör tänka på: 
 

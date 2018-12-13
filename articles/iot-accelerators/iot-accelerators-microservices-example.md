@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b206d7b56fc8a65c422a4ce22b2f5585e71c8da
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219433"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315765"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Anpassa och distribuera om en mikrotjänst
 
-Den här självstudien visar hur du redigerar en av mikrotjänster i lösningen för fjärrövervakning, skapa en avbildning av din mikrotjänst, distribuera avbildningen till docker hub och sedan använda lösningen för fjärrövervakning. För att införa detta begrepp används i självstudiekursen ett enkelt scenario där du kan anropa en mikrotjänst API och ändrar statusmeddelandet från ”Alive och bra” till ”New redigerar Made här”!
+Den här självstudiekursen visar hur du redigerar en av de [mikrotjänster](http://azure.com/microservices) i lösningen för fjärrövervakning, skapar du en avbildning av din mikrotjänst, distribuera avbildningen till docker hub och sedan använda lösningen för fjärrövervakning. För att införa detta begrepp används i självstudiekursen ett enkelt scenario där du kan anropa en mikrotjänst API och ändrar statusmeddelandet från ”Alive och bra” till ”New redigerar Made här”!
 
 Remote Monitoring-lösningen använder mikrotjänster som skapas med hjälp av docker-avbildningar som hämtas från en docker-hubb. 
 
@@ -45,7 +45,7 @@ I den här delen kan du anropa standard IoT hub manager mikrotjänst API. API: e
 1. Kontrollera att lösningen för fjärrövervakning körs lokalt på din dator.
 2. Leta upp som du laddade ned Postman och öppna den.
 3. I Postman, anger du följande i GET: http://localhost:8080/iothubmanager/v1/status.
-4. Visa avkastningen och du bör se, ”Status” ”: OK: Alive och väl”.
+4. Visa avkastningen och du bör se, ”Status”: ”OK: Alive och väl”.
 
     ![Alive och väl Postman meddelande](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
@@ -54,25 +54,31 @@ I den här delen kan du anropa standard IoT hub manager mikrotjänst API. API: e
 Ändra nu statusmeddelande för Iot Hub-hanterare mikrotjänst till ”nya ändringar görs här”! och sedan återskapa docker-avbildning med den nya statusen. Om du stöter på problem här, se vår [felsökning](#Troubleshoot) avsnittet.
 
 1. Kontrollera att din terminal är öppen och ändra till den katalog där du har klonade av lösningen för fjärrövervakning. 
-2. Ändra katalogen till ”azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers”.
-3. Öppna StatusController.cs i valfri textredigerare eller IDE som helst. 
-4. Leta upp följande kod:
+1. Ändra katalogen till ”azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services”.
+1. Öppna StatusService.cs i valfri textredigerare eller IDE som helst. 
+1. Leta upp följande kod:
 
     ```csharp
-    return new StatusApiModel(true, "Alive and well");
+    var result = new StatusServiceModel(true, "Alive and well!");
     ```
 
     och ändra den till koden nedan och spara den.
 
     ```csharp
-    return new StatusApiModel(true, "New Edits Made Here!");
+    var result = new StatusServiceModel(true, "New Edits Made Here!");
     ```
 
 5. Gå tillbaka till terminalen men nu ändras till följande katalog: ”azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker”.
 6. Om du vill skapa en ny docker-avbildning, skriver du:
 
-    ```cmd/sh
+    ```sh
     sh build
+    ```
+    
+    eller på Windows:
+    
+    ```
+    ./build.cmd
     ```
 
 7. Så här kontrollerar du din nya avbildningen har skapats
@@ -138,7 +144,7 @@ Slutför genom att omdistribuera en lokal instans av lösningen för fjärröver
     ```
 
 3. Leta upp som du laddade ned Postman och öppna den.
-4. Ange följande GET-begäran i Postman: http://localhost:8080/iothubmanager/v1/status. Du bör nu se, ”Status” ”: OK: nya ändringar som görs här”!.
+4. Ange följande GET-begäran i Postman: http://localhost:8080/iothubmanager/v1/status. Du bör nu se, ”Status”: ”OK: Nya ändringar som görs här ”!.
 
 ![Nytt redigerar gjorts här postman meddelande](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

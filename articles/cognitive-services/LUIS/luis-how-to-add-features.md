@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 905970c3ab449f139710cf974111618f16da141a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 39a6ead041b1783a3effcb9659c59ea788cd2bf6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086648"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139511"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Använd frasen visar att boost signaler med ordlistan
 
@@ -38,11 +38,11 @@ En lista med frasen lägger till vokabulär app-domänen som en signal för andr
 
 4. LUIS kan föreslå relaterade värden för att lägga till i listan fras. Klicka på **rekommenderar** att hämta en grupp med föreslagna värden från relaterade till added value(s). Du kan klicka på någon av de föreslagna värdena eller klicka på **Lägg till alla** att lägga till dem alla.
 
-    ![Fras listan över föreslagna värden](./media/luis-add-features/related-values.png)
+    ![Fras föreslagen listvärden – Lägg till alla](./media/luis-add-features/related-values.png)
 
 5. Klicka på **dessa värden är utbytbara** om listvärden har lagts till frasen finns alternativ som är utbytbara.
 
-    ![Fras listan över föreslagna värden](./media/luis-add-features/interchangeable.png)
+    ![Fras föreslagen listvärden – utbytbara kryssrutan ](./media/luis-add-features/interchangeable.png)
 
 6. Klicka på **Spara**. Listan med frasen ”städer” har lagts till i den **fras listor** sidan.
 

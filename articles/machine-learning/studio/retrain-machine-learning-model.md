@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 57e3a444c9de951fdd974d98679908eb5a744ad1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 614a342dd28b711e3030c19f347fa432e3994a86
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099825"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257598"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Omtrimning av en Azure Machine Learning Studio-modell
 Som en del av processen för driftsättning av machine learning-modeller i Azure Machine Learning, är din modell tränas och sparas. Du sedan använda den för att skapa en förutsägbar webbtjänst. Webbtjänsten kan sedan användas i webbplatser, instrumentpaneler och mobila appar. 
@@ -43,7 +42,7 @@ I dessa scenarion använder är en programmatisk API ett enkelt sätt att låta 
 > 
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
-Processen omfattar följande komponenter: A Träningsexperiment och ett Förutsägelseexperiment som publiceras som en webbtjänst. Om du vill aktivera omtrimning av en trained model måste Träningsexperimentet publiceras som en webbtjänst med utdata från en tränad modell. Detta gör det möjligt för API-åtkomst till modellen för att träna. 
+Processen består av följande komponenter: Ett Träningsexperiment och ett Förutsägelseexperiment som publiceras som en webbtjänst. Om du vill aktivera omtrimning av en trained model måste Träningsexperimentet publiceras som en webbtjänst med utdata från en tränad modell. Detta gör det möjligt för API-åtkomst till modellen för att träna. 
 
 Följande steg gäller för både nya och klassiska webbtjänster:
 

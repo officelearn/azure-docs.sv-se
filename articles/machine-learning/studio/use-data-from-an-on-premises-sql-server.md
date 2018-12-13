@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: 059dd3d902409abfa80be2b7aac579a54de1868f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: dccea7c5d7967af2e81ab4728704a5a104a007b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090678"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269299"
 ---
-# <a name="perform-analytics-with-azure-machine-learning-using-an-on-premises-sql-server-database"></a>Utföra analyser med Azure Machine Learning med hjälp av en lokal SQL Server-databas
+# <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Utföra analyser med Azure Machine Learning Studio med hjälp av en lokal SQL Server-databas
 
 Ofta företag som fungerar med lokala data vill dra nytta av skalan och flexibilitet med molnet för sina maskininlärningsarbetsbelastningar. Men de vill inte störa deras aktuella affärsprocesser och arbetsflöden genom att flytta sina lokala data till molnet. Azure Machine Learning har nu stöd för att läsa data från en lokal SQL Server-databas och sedan utbildning och bedömning av en modell med dessa data. Du har inte längre att manuellt kopiera och synkronisera data mellan molnet och den lokala servern. I stället den **importdata** modul i Azure Machine Learning Studio kan nu läsa direkt från din lokala SQL Server-databas för utbildning och bedömning jobb.
 
@@ -36,7 +35,7 @@ Den här artikeln innehåller en översikt över hur du ingående lokala SQL ser
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Installera Data Factory lokal Integration Runtime
 För att komma åt en lokal SQL Server-databas i Azure Machine Learning, måste du ladda ned och installera den Data Factory lokal Integration Runtime, tidigare känd som Data Management Gateway. När du konfigurerar anslutningen i Machine Learning Studio, har du möjlighet att ladda ned och installera Integration Runtime (IR) med den **nedladdning och registrera datagateway** dialogrutan som beskrivs nedan.

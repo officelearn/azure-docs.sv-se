@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24ffe9eded908c82750ce5a6d6fbe87991bdae72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 03a7454aec43963a093dc0d7fcc347dac3ef5d43
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872874"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192931"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Utforma och skapa en lösning i Azure (förhandsversion)
 > [!NOTE]
@@ -58,7 +57,7 @@ Du bör definiera alla frågor som du tror att användbara för användaren äve
 
 Om problemet kan eventuellt åtgärdas med en automatiserad process, ska du vanligtvis skapa en runbook i Azure Automation för att utföra den här reparationen.  De flesta Azure-tjänster kan hanteras med [cmdletar](/powershell/azure/overview) som runbook skulle använda för att utföra dessa funktioner.
 
-Om din lösning kräver externa funktioner som svar på en avisering så kan du använda en [webhook-svar](../../monitoring-and-diagnostics/alert-metric.md).  På så sätt kan du anropa en extern webbtjänst skickar information från aviseringen.
+Om din lösning kräver externa funktioner som svar på en avisering så kan du använda en [webhook-svar](../../azure-monitor/platform/alerts-metric.md).  På så sätt kan du anropa en extern webbtjänst skickar information från aviseringen.
 
 ### <a name="views"></a>Vyer
 Vyer i Log Analytics används för att visualisera data från Log Analytics-databasen.  Varje lösning vanligtvis innehåller en enda vy med en [panelen](../../azure-monitor/platform/view-designer-tiles.md) som visas på användarens huvudinstrumentpanel.  Vyn kan innehålla valfritt antal [visualisering delar](../../azure-monitor/platform/view-designer-parts.md) att tillhandahålla olika visualiseringar av insamlade data för användaren.

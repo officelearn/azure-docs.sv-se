@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 84bc151e8d7acf8d320b5883e8637c321762fb32
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090354"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251393"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio-webbtjänster som använder moduler för dataimport och dataexport
 
@@ -29,10 +28,10 @@ När du skapar ett förutsägbart experiment kan du vanligtvis lägga till en we
 
 Importera Data och exportera data moduler kan läsa från och skriva till olika data platser, till exempel en URL för via HTTP, en Hive-fråga, en Azure SQL-databas, Azure Table storage, Azure Blob storage, en Datafeed ger eller en lokal SQL-databas.
 
-Det här avsnittet använder de ”exempel 5: Train, Test, utvärdera för binär klassificering: vuxna datauppsättningen” exempel och antar datauppsättningen har redan lästs in i en Azure SQL-tabell som heter censusdata.
+Det här avsnittet använder det ”exempel 5: Träna, testa, utvärdera för binär klassificering: Vuxet datauppsättningen ”exempel och antar datauppsättningen har redan lästs in i en Azure SQL-tabell som heter censusdata.
 
 ## <a name="create-the-training-experiment"></a>Skapa träningsexperimentet
-När du öppnar den ”exempel 5: träna, testa, utvärdera för binär klassificering: vuxna datauppsättningen” exempel som är olämpligt för barn insamlade binära Intäktsklassificering exempeldatauppsättningen används. Och experiment i arbetsytan ser ut ungefär som följande bild:
+När du öppnar den ”exempel 5: Träna, testa, utvärdera för binär klassificering: Vuxet datauppsättningen ”exempel vuxet insamlade binära Intäktsklassificering exempeldatauppsättningen används. Och experiment i arbetsytan ser ut ungefär som följande bild:
 
 ![Inledande konfiguration av experimentet.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -104,7 +103,7 @@ Du distribuerar som en klassiska webbtjänst och skapar ett program att använda
 2. När körningen har slutförts klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [klassisk]**.
 3. På instrumentpanelen för webbtjänsten, letar du upp din API-nyckel. Kopiera och spara den för senare användning.
 4. I den **standard-slutpunkt** tabellen, klickar du på den **batchkörning** länk för att öppna API-hjälpsidan.
-5. I Visual Studio skapar du en C# konsolapp: **New** > **projekt** > **Visual C#**   >   **Windows Classic Desktop** > **konsolprogram (.NET Framework)**.
+5. I Visual Studio skapar du en C# konsolapp: **Ny** > **projekt** > **Visual C#**   >  **Windows Classic Desktop**  >   **Konsolprogram (.NET Framework)**.
 6. På sidan API hitta den **exempelkoden** avsnittet längst ned på sidan.
 7. Kopiera och klistra in den C# exempelkoden i filen Program.cs och ta bort alla referenser till blob-lagringen.
 8. Uppdatera värdet för den *apiKey* variabeln med API-nyckel som sparats tidigare.
@@ -133,7 +132,7 @@ Distribuera som en ny webbtjänst och skapa ett program att använda den:
 3. Ange ett namn för din webbtjänst på sidan distribuera Experiment och en prisplanen och sedan klicka på **distribuera**.
 4. På den **snabbstarten** klickar du på **förbruka**.
 5. I den **exempelkoden** klickar du på **Batch**.
-6. I Visual Studio skapar du en C# konsolapp: **New** > **projekt** > **Visual C#**   >   **Windows Classic Desktop** > **konsolprogram (.NET Framework)**.
+6. I Visual Studio skapar du en C# konsolapp: **Ny** > **projekt** > **Visual C#**   >  **Windows Classic Desktop**  >   **Konsolprogram (.NET Framework)**.
 7. Kopiera och klistra in den C# exempelkoden i filen Program.cs.
 8. Uppdatera värdet för den *apiKey* variabeln med den **primärnyckel** finns i den **grundläggande förbrukning info** avsnittet.
 9. Leta upp den *scoreRequest* deklarationen och uppdaterar värdet för Webbtjänstparametrar som skickas till den *importdata* och *exportera Data* moduler. I det här fallet du använda den ursprungliga frågan, men definiera ett nytt tabellnamn.

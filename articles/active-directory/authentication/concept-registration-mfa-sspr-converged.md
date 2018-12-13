@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 44a5b32b68b0365e957d97a516f0d767e6501c0f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: dbced5cfa2a47dc2fdcf630d62104bb7ba8e7bc0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630332"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186658"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Konvergerade registrering för lösenordsåterställning via självbetjäning och Azure Multi-Factor Authentication (förhandsversion)
 
@@ -74,6 +74,8 @@ Användarna ser tidigare registrerad autentiseringsmetoder och autentiseringsmet
 Granskningsloggarna för den här nya upplevelsen finns under kategorin autentiseringsmetoder i granskningsloggen.  
 
 ## <a name="known-issues"></a>Kända problem
+
+Vi har identifierat en bugg med konvergerade registration där B2B-gästanvändare som är aktiverade för konvergerade registrering inte kan registrera för MFA. När de är riktade till registreringssidan sidfel ut. Våra utvecklare är medvetna om problemet och arbetar för att tillhandahålla en lösning. Rekommendationen är att skapa en grupp och utesluta alla B2B-användare i gruppen för tillfället.
 
 **Standardmetoden för MFA har angetts till telefonsamtal när en användare registrerar en telefon med SMS**
 

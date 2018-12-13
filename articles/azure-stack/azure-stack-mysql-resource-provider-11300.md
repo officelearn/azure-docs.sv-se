@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 6354212eb95fbefb217dd5339613d050da55f4ba
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 2f300e496873c0b048ccc1acc078bf1650e6bd9c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688157"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166293"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL resource provider 1.1.30.0 viktig information
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Följande versionsinformation innehåller förbättringar och kända problem i MySQL resurs-providerversion 1.1.30.0.
 
@@ -60,9 +60,22 @@ Den här versionen av Azure Stack MySQL-resursprovider innehåller följande fö
 
 - **Återanvändas MySQL inloggningar**. Försök att skapa en ny MySQL resulterar logga in med samma användarnamn som en befintlig inloggning i samma prenumeration i att återanvända samma inloggning och det befintliga lösenordet. 
 
-    **Lösning**: använda olika användarnamn när du skapar nya inloggningar i samma prenumeration eller skapa inloggningar med samma användarnamn under olika prenumerationer.
+    **Lösning**: Använd olika användarnamn när du skapar nya inloggningar i samma prenumeration eller skapa inloggningar med samma användarnamn under olika prenumerationer.
 
+- **TLS 1.2 supportkraven**. Om du försöker distribuera eller uppdatera MySQL-resursprovider från en dator där TLS 1.2 inte har aktiverats, misslyckas åtgärden. Kör följande PowerShell-kommando på datorn som används för att distribuera om eller uppdatera resursprovidern för att kontrollera att TLS 1.2 returneras som stöds:
 
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  Om **Tls12** är inte ingår i resultatet av kommandot, TLS 1.2 är inte aktiverat på datorn.
+
+    **Lösning**: Kör följande PowerShell-kommando för att aktivera TLS 1.2 och sedan starta resource provider-distribution eller uppdatera skriptet från samma PowerShell-session:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
+ 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Kända problem med Cloud administratörerna fungerar Azure Stack
 Finns i dokumentationen i den [viktig för Azure Stack](azure-stack-servicing-policy.md).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9d75195656581021253b5787a8bfd46639cc1754
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458199"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323140"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Hur du använder anpassade allokeringsprinciper
 
@@ -100,9 +100,9 @@ I det här avsnittet skapar du en ny grupp för registrering som använder den a
 
     **Typ av attestering**: Välj **symmetrisk nyckel**.
 
-    **Generera nycklar automatiskt**: den här kryssrutan redan bör kontrolleras.
+    **Generera nycklar automatiskt**: Den här kryssrutan bör redan vara markerad.
 
-    **Välj hur du vill tilldela enheter till hubs**: Välj **anpassad (Använd Azure-funktion)**.
+    **Välj hur du vill tilldela enheter till hubs**: Välj **anpassad (använda Azure-funktion)**.
 
     ![Lägg till grupp för registrering av anpassade allokering för symmetrisk nyckelattestering](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -113,7 +113,7 @@ I det här avsnittet skapar du en ny grupp för registrering som använder den a
 
     **Prenumeration**: Om du har flera prenumerationer väljer du den prenumeration där du skapade avdelningar IoT-hubbar.
 
-    **IoT hub**: Välj något av de avdelningar nav som du skapade.
+    **IoT hub**: Välj en av de avdelningar nav som du skapade.
 
     **Princip för**: Välj **iothubowner**.
 
@@ -133,7 +133,7 @@ I det här avsnittet skapar du en ny grupp för registrering som använder den a
 
     **Resursgrupp**: Välj **Använd befintlig** och **contoso-oss-resource-group** att hålla alla resurser som skapats i den här artikeln tillsammans.
 
-    **Application Insights**: den här övningen du kan inaktivera detta.
+    **Application Insights**: Du kan stänga av den här övningen detta.
 
     ![Skapa funktionsappen](./media/how-to-use-custom-allocation-policies/function-app-create.png)
 
@@ -390,7 +390,7 @@ Det här avsnittet är riktade mot en Windows-arbetsstation. En Linux-exempel fi
 4. Kör följande kommando som skapar en version av SDK:t som är specifik för plattformen i din utvecklingsklient. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Om `cmake` inte hittar din C++-kompilerare kan du få kompileringsfel när du kör kommandot ovan. Om det händer ska du försöka köra det här kommandot i [kommandotolken i Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -398,7 +398,7 @@ Det här avsnittet är riktade mot en Windows-arbetsstation. En Linux-exempel fi
     När bygget är klart ser de sista utdataraderna ut ungefär som följande utdata:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -526,12 +526,12 @@ I följande tabell visar förväntad scenarier och resultat felkoder som kan upp
 
 | Scenario | Registrering av resultatet från Provisioning-tjänsten | Etablering SDK-resultat |
 | -------- | --------------------------------------------- | ------------------------ |
-| Webhooken returnerar 200 OK med 'iotHubHostName' inställt på ett giltigt värdnamn för IoT hub | Resultera status: tilldelade  | SDK: N returnerar PROV_DEVICE_RESULT_OK tillsammans med hub information |
-| Webhooken returnerar 200 OK med 'iotHubHostName' i svaret, men att en tom sträng eller null | Resultera status: misslyckades<br><br> Felkod: CustomAllocationIotHubNotSpecified (400208) | SDK: N returnerar PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| Webhooken returnerar 401 Ej behörig | Resultera status: misslyckades<br><br>Felkod: CustomAllocationUnauthorizedAccess (400209) | SDK: N returnerar PROV_DEVICE_RESULT_UNAUTHORIZED |
-| En enskild registrering har skapats för att inaktivera enheten | Resultera status: inaktiverat | SDK: N returnerar PROV_DEVICE_RESULT_DISABLED |
+| Webhooken returnerar 200 OK med 'iotHubHostName' inställt på ett giltigt värdnamn för IoT hub | Resultat: Tilldelad  | SDK: N returnerar PROV_DEVICE_RESULT_OK tillsammans med hub information |
+| Webhooken returnerar 200 OK med 'iotHubHostName' i svaret, men att en tom sträng eller null | Resultat: Misslyckad<br><br> Felkod: CustomAllocationIotHubNotSpecified (400208) | SDK: N returnerar PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| Webhooken returnerar 401 Ej behörig | Resultat: Misslyckad<br><br>Felkod: CustomAllocationUnauthorizedAccess (400209) | SDK: N returnerar PROV_DEVICE_RESULT_UNAUTHORIZED |
+| En enskild registrering har skapats för att inaktivera enheten | Resultat: Disabled | SDK: N returnerar PROV_DEVICE_RESULT_DISABLED |
 | Webhooken returnerar felkod > = 429 | DPS-dirigering kommer att försöka igen flera gånger. Återförsöksprincipen är för närvarande:<br><br>&nbsp;&nbsp;– Antal nya försök: 10<br>&nbsp;&nbsp;-Första intervall: 1s<br>&nbsp;&nbsp;-Öka: 9s | SDK: N ska ignorera felet och skicka en annan get-statusmeddelande inom den angivna tiden |
-| Webhooken returnerar alla andra statuskod | Resultera status: misslyckades<br><br>Felkod: CustomAllocationFailed (400207) | SDK: N returnerar PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| Webhooken returnerar alla andra statuskod | Resultat: Misslyckad<br><br>Felkod: CustomAllocationFailed (400207) | SDK: N returnerar PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: 6ce737cb221b948a1cc25b8a441d3b623915662b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ceb3f1da742c79d80398b87b9c4880781175690c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466538"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321519"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en VM-skalningsuppsättning i Azure portal
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app.
@@ -131,4 +131,4 @@ I den här artikeln har du lärt dig hur du använder regler för automatisk ska
 
 Information om hur du hanterar dina VM-instanser finns i [hantera VM-skalningsuppsättningar med Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 
-Läs hur du genererar aviseringar när dina autoskalningsregler utlösare i [använda åtgärder för automatisk skalning för att skicka e-post och webhook-aviseringar i Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). Du kan också [Använd granskningsloggar för att skicka e-post och webhook-aviseringar i Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Läs hur du genererar aviseringar när dina autoskalningsregler utlösare i [använda åtgärder för automatisk skalning för att skicka e-post och webhook-aviseringar i Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Du kan också [Använd granskningsloggar för att skicka e-post och webhook-aviseringar i Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).

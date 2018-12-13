@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 12/12/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 1ecdbdfb657d0372fea87c4260226f9de8ded9ce
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d1c95802889c80baf79eaf0a0af1e30d6bc3fdfd
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682511"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322285"
 ---
-# <a name="application-map-triage-distributed-applications"></a>Programavbildning: Hantera distribuerade program
+# <a name="application-map-triage-distributed-applications"></a>Programkartan: Hantera distribuerade program
 
 Programavbildning hjälper dig att upptäcka flaskhalsar eller fel-anslutningar för alla komponenter i det distribuerade programmet. Varje nod på kartan representerar en programkomponent eller dess beroenden; och har hälsotillstånd KPI och varnar status. Du kan klicka vidare från valfri komponent till mer detaljerad analys, till exempel Application Insights-händelser. Om appen använder Azure-tjänster kan även klicka vidare till Azure-diagnostik, till exempel SQL Database Advisor-rekommendationer.
 
@@ -38,7 +38,7 @@ Du kan se hela programmets topologi över flera nivåer av relaterade programkom
 
 Den här upplevelsen börjar med progressiv identifiering av komponenter. När du först läser in programkartan utlöses en uppsättning frågor för att identifiera de komponenter som hör till den här komponenten. En knapp i det övre vänstra hörnet uppdateras med antalet komponenter i ditt program när de upptäcks. 
 
-När du klickar på ”Uppdatera kartkomponenter”, uppdateras kartan med alla komponenter som identifieras förrän som pekar.
+När du klickar på ”Uppdatera kartkomponenter”, uppdateras kartan med alla komponenter som identifieras förrän som pekar. Det kan ta någon minut att läsa in beroende på komplexiteten för ditt program.
 
 Den här identifieringssteget är inte obligatoriskt om alla komponenter är roller i en enda Application Insights-resurs. Den initiala inläsningen för ett sådant program kommer att ha alla dess komponenter.
 
@@ -60,7 +60,7 @@ Välj **Undersök fel** att starta fönstret fel.
 
 ### <a name="investigate-performance"></a>Undersök prestanda
 
-Felsökning av problem väljer du prestanda **Undersök prestanda**
+Om du vill felsöka prestandaproblem, Välj **Undersök prestanda**.
 
 ![Skärmbild av Undersök prestanda-knappen](media/app-insights-app-map/investigate-performance.png)
 
@@ -68,7 +68,7 @@ Felsökning av problem väljer du prestanda **Undersök prestanda**
 
 ### <a name="go-to-details"></a>Gå till information
 
-Välj **går du till information om** att utforska transaktion slutpunkt till slutpunkt-upplevelse som kan erbjuda vyer som klar för att anropa stack-nivå.
+Välj **går du till information om** att utforska transaktion slutpunkt till slutpunkt-upplevelsen, vilken kan erbjuda vyer som klar för att anropa stack-nivå.
 
 ![Skärmbild av knappen Gå till information](media/app-insights-app-map/go-to-details.png)
 
@@ -76,7 +76,7 @@ Välj **går du till information om** att utforska transaktion slutpunkt till sl
 
 ### <a name="view-in-analytics"></a>Visa i Analytics
 
-Fråga och undersöka program data ytterligare klickar på **visa i analys**.
+Fråga och undersöka programdata ytterligare genom att klicka på **visa i analys**.
 
 ![Skärmbild av vyn i knappen analytics](media/app-insights-app-map/view-in-analytics.png)
 
@@ -84,21 +84,128 @@ Fråga och undersöka program data ytterligare klickar på **visa i analys**.
 
 ### <a name="alerts"></a>Aviseringar
 
-Om du vill visa aktiva varningar och de underliggande reglerna som orsakar att aviseringarna ska tiggered, Välj **aviseringar**.
+Om du vill visa aktiva varningar och de underliggande reglerna som orsakar att aviseringarna utlöses, Välj **aviseringar**.
 
 ![Skärmbild av knappen för aviseringar](media/app-insights-app-map/alerts.png)
 
 ![Skärmbild av analytics](media/app-insights-app-map/alerts-view.png)
 
-## <a name="video"></a>Video
+## <a name="set-cloudrolename"></a>Ställ in cloud_RoleName
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+Programavbildning använder den `cloud_RoleName` egenskapen att identifiera komponenterna på kartan. Application Insights SDK lägger automatiskt till den `cloud_RoleName` egenskapen till telemetri som genereras av komponenter. Till exempel SDK kommer att lägga till en webbplatsens namn eller tjänstnamnet som rollen ska den `cloud_RoleName` egenskapen. Men finns det fall där kan du åsidosätta standardvärdet. Att åsidosätta cloud_RoleName och ändra det hämtar visas på kartan för programmet:
 
-## <a name="feedback"></a>Feedback
-Ge feedback via portalen feedback-alternativet.
+### <a name="net"></a>.NET
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here
+                telemetry.Context.Cloud.RoleName = "RoleName";
+            }
+        }
+    }
+}
+```
+
+**Läsa in din initieraren**
+
+I ApplicationInsights.config:
+
+```xml
+    <ApplicationInsights>
+      <TelemetryInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="CustomInitializer.Telemetry.MyTelemetryInitializer, CustomInitializer"/>
+        ...
+      </TelemetryInitializers>
+    </ApplicationInsights>
+```
+
+En alternativ metod är att skapa en instans av initierare i kod, till exempel i Global.aspx.cs:
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+### <a name="nodejs"></a>Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+appInsights.defaultClient.context.tags["ai.cloud.role"] = "your role name";
+appInsights.defaultClient.context.tags["ai.cloud.roleInstance"] = "your role instance";
+```
+
+### <a name="alternate-method-for-nodejs"></a>Alternativ metod för Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+
+appInsights.defaultClient.addTelemetryProcessor(envelope => {
+    envelope.tags["ai.cloud.role"] = "your role name";
+    envelope.tags["ai.cloud.roleInstance"] = "your role instance"
+});
+```
+
+### <a name="java"></a>Java
+
+Om du använder Spring Boot med Application Insights Spring Boot starter är den enda önskade ändringen att ange ditt eget namn för programmet i application.properties-filen.
+
+`spring.application.name=<name-of-app>`
+
+Spring Boot starter tilldelas automatiskt cloudRoleName till värdet du anger för egenskapen spring.application.name.
+
+Mer information om Java korrelation och hur du konfigurerar cloudRoleName för icke-SpringBoot program utcheckning detta [avsnittet](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) på korrelation.
+
+### <a name="clientbrowser-side-javascript"></a>Klientens/webbläsaren JavaScript
+
+```javascript
+appInsights.queue.push(() => {
+appInsights.context.addTelemetryInitializer((envelope) => {
+  envelope.tags["ai.cloud.role"] = "your role name";
+  envelope.tags["ai.cloud.roleInstance"] = "your role instance";
+});
+});
+```
+
+Mer information om hur du åsidosätter egenskapen cloud_RoleName med telemetri-initierare finns i [Lägg till egenskaper: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+
+## <a name="troubleshooting"></a>Felsökning
+
+Om du har problem med att få Programkartan som fungerar som förväntat, kan du prova de här stegen:
+
+1. Kontrollera att du använder en SDK som officiellt stöds. SDK: er som inte stöds/gruppen kanske inte stöder korrelation.
+
+    Referera till denna [artikeln](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) en lista över stödda SDK: erna.
+
+2. Uppgradera alla komponenter till den senaste versionen av SDK.
+
+3. Om du använder Azure Functions med C#, uppgradera till [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+
+4. Bekräfta [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) är korrekt konfigurerad.
+
+## <a name="portal-feedback"></a>Portalen feedback
+Använder du portalen feedback om du vill ge feedback.
 
 ![MapLink-1-bild](./media/app-insights-app-map/13.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure Portal](https://portal.azure.com)
+* [Förstå korrelation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)

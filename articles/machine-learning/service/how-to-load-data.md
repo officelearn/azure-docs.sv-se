@@ -1,5 +1,5 @@
 ---
-title: Läs in och Förbered data med Data Prep Python SDK
+title: 'Läs in: Förbered data Python SDK'
 titleSuffix: Azure Machine Learning service
 description: Läs mer om att läsa in data med Azure Machine Learning Data Prep SDK. Du kan läsa in olika typer av indata, ange data filtyper och parametrar eller använda smart läsning av SDK-funktioner för att automatiskt identifiera filtyp.
 services: machine-learning
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0d7561c0dc89fb47f88ca6e54616736067262391
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9d3b72e62c778d02b25b082643e0de4c6cc09a60
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095077"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190772"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
 

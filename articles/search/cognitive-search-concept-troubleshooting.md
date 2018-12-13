@@ -1,5 +1,5 @@
 ---
-title: Felsökningstips för kognitiv sökning i Azure Search | Microsoft Docs
+title: Felsökningstips för kognitiv sökning – Azure Search
 description: Tips och felsökning för att konfigurera cognitive Sök pipelines i Azure Search.
 services: search
 manager: pablocas
@@ -10,20 +10,21 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575327"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316302"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Felsökningstips för kognitiv sökning
 
 Den här artikeln innehåller en lista med tips och knep för att hålla dig flytta när du kommer igång med funktioner för kognitiv sökning i Azure Search. 
 
-Om du redan inte har gjort det, gå igenom den [självstudie: Lär dig att anropa cognitive search API: er](cognitive-search-quickstart-blob.md) för praxis vid tillämpning av kognitiv sökning enrichments till en blob-datakälla.
+Om du redan inte har gjort det, gå igenom den [självstudien: Lär dig att anropa cognitive search API: er](cognitive-search-quickstart-blob.md) för praxis vid tillämpning av kognitiv sökning enrichments till en blob-datakälla.
 
-## <a name="tip-1-start-with-a-small-dataset"></a>Tips 1: Starta med en liten datamängd
+## <a name="tip-1-start-with-a-small-dataset"></a>Tips 1: Börja med en liten datamängd
 Det bästa sättet att snabbt hitta problem är att öka hastigheten med vilken du kan åtgärda problem. Det bästa sättet att minska tid som indexering är genom att minska antalet dokument som ska indexeras. 
 
 Börja med att skapa en datakälla med bara ett fåtal av dokument/poster. Dokument-exemplet ska vara en god bild av utbud av dokument som indexeras. 
@@ -83,7 +84,7 @@ Lägg till en ```enriched``` fältet som en del av din Indexdefinition för fels
 
 Innehåll saknas kan vara resultatet av dokument som avbryts under indexering. Nivåerna kostnadsfri och Basic har låg begränsningar på dokumentstorlek. Alla filer som överstiger gränsen ignoreras under indexering. Du kan söka efter släppta dokument i Azure-portalen. Dubbelklicka på panelen indexerare i instrumentpanelen för search-tjänsten. Granska förhållandet mellan lyckade dokument som indexerats. Om det inte är 100%, klickar du på förhållandet mellan för att få mer information. 
 
-Om problemet är relaterat till filstorlek, kan du se ett fel så här: ”blob < filnamn >” har storleken på < filstorlek > byte, vilket överskrider den maximala storleken för extrahering av dokumentet för din aktuella tjänstnivå ”. Mer information om indexerare gränser finns [tjänstbegränsningar](search-limits-quotas-capacity.md).
+Om problemet är relaterat till filstorlek, kan du se ett fel så här: ”Blob < filnamn >” har storleken på < filstorlek > byte, vilket överskrider den maximala storleken för extrahering av dokumentet för din aktuella tjänstnivå ”. Mer information om indexerare gränser finns [tjänstbegränsningar](search-limits-quotas-capacity.md).
 
 En andra orsak för innehåll som inte visas kan vara relaterade indata/utdata Mappningsfel. Till exempel en utdatanamnet för målet är ”personer” men fältnamnet index är gemena ”användare”. Systemet kan returnera 201 meddelanden om lyckade åtgärder för hela pipelinen så att du tycker att indexering lyckades, när i själva verket ett fält är tom. 
 
@@ -93,7 +94,7 @@ Bildanalys är beräkningsmässigt-intensiva även enkla fall, så när bilderna
 
 Maximal körtid varierar beroende på nivån: flera minuter på kostnadsfritt nivån, 24 timmars indexering på faktureringsbar nivå. Om bearbetningen kan inte slutföras inom en 24-timmarsperiod för bearbetning på begäran, växla till ett schema för att låta indexeraren fortsatte bearbetning där den avbröts. 
 
-Indexera återupptas på schema senaste kända dokumentet för schemalagda indexerare. Med hjälp av ett återkommande schema, fungerar indexeraren genom eftersläpningen avbildningen över ett antal timmar eller dagar, tills alla icke bearbetade avbildningar behandlas. Mer information om schema-syntax finns i [steg3: skapa en indexerare](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Indexera återupptas på schema senaste kända dokumentet för schemalagda indexerare. Med hjälp av ett återkommande schema, fungerar indexeraren genom eftersläpningen avbildningen över ett antal timmar eller dagar, tills alla icke bearbetade avbildningar behandlas. Mer information om schema-syntax finns i [steg3: Skapa en indexerare](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
 
 För portalbaserad indexering (enligt beskrivningen i snabbstarten), välja ”köras en gång”-indexeraren alternativet gränser bearbetning till 1 timme (`"maxRunTime": "PT1H"`). Du kanske vill utöka fönstret bearbetning till något längre tid.
 
@@ -104,7 +105,7 @@ Mer information finns i [indexering stora datauppsättningar](search-howto-index
 
 ## <a name="see-also"></a>Se också
 + [Snabbstart: Skapa en pipeline för kognitiv sökning i portalen](cognitive-search-quickstart-blob.md)
-+ [: Självstudier cognitive search REST API: er](cognitive-search-tutorial-blob.md)
++ [Självstudiekurs: Lär dig cognitive search REST API: er](cognitive-search-tutorial-blob.md)
 + [Att ange autentiseringsuppgifter för datakälla](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexering av stora datauppsättningar](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)

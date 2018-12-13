@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fe096efba5419b283981f27e16c3e30a791412da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979207"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322678"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problem med konfiguration och hantering för Azure Cloud Services: vanliga frågor (FAQ)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och av hanteringsproblem för Azure Cloud Services: Vanliga frågor och svar (FAQ)
 
 Den här artikeln innehåller vanliga frågor och svar om konfiguration och hantering av problem för [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Du kan också läsa den [VM-storlek för Cloud Services-sidan](cloud-services-sizes-specs.md) storlek information.
 
@@ -53,7 +53,7 @@ Den här artikeln innehåller vanliga frågor och svar om konfiguration och hant
 **Behörigheter**
 
 - [Kan Microsoft interna tekniker fjärrskrivbord till Cloud Service-instanser utan tillstånd?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Jag kan inte fjärrskrivbord till Cloud Service VM med hjälp av RDP-filen. Jag får följande fel: ett autentiseringsfel inträffade (kod: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Jag kan inte fjärrskrivbord till Cloud Service VM med hjälp av RDP-filen. Jag får följande fel: Ett autentiseringsfel inträffade (kod: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Skalning**
 
@@ -170,7 +170,7 @@ Du kan ange timeout-värdet i din (csdef) tjänstdefinitionsfilen så här:
     </Endpoints>
   </WorkerRole>
 ```
-Se [New: konfigurerbara Idle Timeout för Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) för mer information.
+Se [nya: Konfigurerbara Idle Timeout för Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) för mer information.
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Hur associerar jag statisk IP-adress till min molntjänst?
 Om du vill konfigurera en statisk IP-adress, måste du skapa en reserverad IP. Den här reserverade IP-Adressen kan associeras till en ny molntjänst eller till en befintlig distribution. Se följande dokument för mer information:
@@ -199,7 +199,7 @@ Windows 10 och Windows Server 2016 levereras med stöd för HTTP/2 på både kli
 Mer information finns i:
 
 - [HTTP/2 i IIS](https://blogs.iis.net/davidso/http2)
-- [Video: HTTP/2 i Windows 10: webbläsare, appar och webbservern](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [Video: HTTP/2 i Windows 10: Webbläsare, appar och webbservern](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 De här stegen kan automatiseras via en startåtgärd så att varje gång en ny PaaS-instans skapas, det kan göra ändringar ovan i systemregistret. Mer information finns i [hur du konfigurerar och köra startåtgärder för en molntjänst](cloud-services-startup-tasks.md).
@@ -224,7 +224,7 @@ Se [förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-di
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Kan Microsoft interna tekniker fjärrskrivbord till Cloud Service-instanser utan tillstånd?
 Microsoft följer en strikt process som inte tillåter internt tekniker för fjärrskrivbord i din molntjänst utan skriftligt tillstånd (e-post eller andra skriftligt meddelande) från ägaren eller deras utsedda.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Jag kan inte fjärrskrivbord till Cloud Service VM med hjälp av RDP-filen. Jag får följande fel: ett autentiseringsfel inträffade (kod: 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Jag kan inte fjärrskrivbord till Cloud Service VM med hjälp av RDP-filen. Jag får följande fel: Ett autentiseringsfel inträffade (kod: 0x80004005)
 
 Det här felet kan uppstå om du använder RDP-fil från en dator som är ansluten till Azure Active Directory. Följ dessa steg för att lösa problemet:
 
@@ -244,7 +244,7 @@ Du kan använda Application Insights för att undvika problemet. Automatisk skal
 
 Mer information om hur du använder ett anpassat mått via Application Insights för att konfigurera automatisk skalning på molntjänster finns i [komma igång med automatisk skalning med anpassat mått i Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
 
-Läs mer om hur du integrerar Azure Diagnostics med Application Insights för Cloud Services, [skicka molntjänst, virtuell dator eller Service Fabric diagnostiska data till Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+Läs mer om hur du integrerar Azure Diagnostics med Application Insights för Cloud Services, [skicka molntjänst, virtuell dator eller Service Fabric diagnostiska data till Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 Läs mer om att aktivera Application Insights för Cloud Services [Application Insights för Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 

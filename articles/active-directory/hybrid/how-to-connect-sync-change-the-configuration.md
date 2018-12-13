@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect-synkronisering: gjort en konfigurationsändring i Azure AD Connect-synkronisering | Microsoft Docs'
+title: 'Azure AD Connect-synkronisering: Gjort en konfigurationsändring i Azure AD Connect-synkronisering | Microsoft Docs'
 description: Går igenom hur du gör en ändring i konfigurationen i Azure AD Connect-synkronisering.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8aa337be2dd3c4209a3095d8733893d78f6cb74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6579e2ced3742eb1a70ccca96b9608fc6da628ee
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314869"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190643"
 ---
-# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: gör en ändring i standardkonfigurationen
+# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: Gör en ändring i standardkonfigurationen
 Syftet med den här artikeln är att hjälper dig att göra ändringar i standardkonfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med denna kunskap kan ska du kunna göra enkla ändringar i din egen konfiguration baserat på dina egna affärsregler.
 
 > [!WARNING]
@@ -59,13 +59,13 @@ Den [scheduler](how-to-connect-sync-feature-scheduler.md) körs var 30: e minut 
 1. Klicka på **Lägg till ny regel**.
 2. På den **beskrivning** anger du följande:  
    ![Inkommande regel filtrering](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   * **Namn på**: ge regeln ett beskrivande namn.
-   * **Beskrivning av**: ge klargöranden så att någon annan kan förstå vad regeln för.
-   * **Anslutna System**: det här är systemet där objektet finns. I det här fallet väljer **Active Directory-koppling**.
+   * **Namn på**: Ge regeln ett beskrivande namn.
+   * **Beskrivning av**: Ge klargöranden så att någon annan kan förstå vad regeln för.
+   * **Anslutna System**: Det här är systemet där objektet finns. I det här fallet väljer **Active Directory-koppling**.
    * **Anslutna System/metaversum-objekttyp**: Välj **användaren** och **Person**respektive.
-   * **Länktyp**: ändra det här värdet till **ansluta**.
+   * **Länktyp**: Ändra det här värdet till **ansluta**.
    * **Prioritet**: Ange ett värde som är unikt i systemet. Lägre numeriska värdet anger högre prioritet.
-   * **Taggen**: lämna det tomt. Endast out-of-box regler från Microsoft ska ha den här rutan som fyllts med ett värde.
+   * **Taggen**: Lämna det tomt. Endast out-of-box regler från Microsoft ska ha den här rutan som fyllts med ett värde.
 3. På den **Scoping filter** anger **givenName ISNOTNULL**.  
    ![Regel för inkommande trafik Omfångsfilter](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Det här avsnittet används för att definiera vilka objekt som regeln gäller. Om det lämnas tomt används skulle regeln gälla för alla användarobjekt. Dock innehålla som konferensrum tjänstkonton och andra icke-personer användarobjekt.
@@ -201,7 +201,7 @@ Azure AD Connect stöder synkronisering av den **UserType** attributet för **an
 
 Som standard aktiveras inte UserType-attributet för synkronisering eftersom det finns inga motsvarande UserType-attributet i en lokal Active Directory. Du måste manuellt Aktivera synkronisering. Innan du gör detta måste du ta del av följande beteenden som tillämpas av Azure AD:
 
-- Azure AD accepterar bara två värden för UserType-attributet: **medlem** och **gäst**.
+- Azure AD accepterar bara två värden för UserType-attributet: **Medlemmen** och **gäst**.
 - Om UserType-attributet inte är aktiverad för synkronisering i Azure AD Connect, Azure AD-användare som skapats via katalogsynkronisering skulle ha UserType-attributet **medlem**.
 - Azure AD tillåter inte UserType-attributet på befintliga Azure AD-användare ändras av Azure AD Connect. Det kan bara anges under genereringen av Azure AD-användare.
 
@@ -211,7 +211,7 @@ Innan du aktiverar synkronisering av UserType-attributet måste du först bestä
 
     Om du väljer den här metoden måste du kontrollera att det angivna attributet fylls med rätt värde för alla befintliga användarobjekt i den lokala Active Directory som synkroniseras till Azure AD innan du aktiverar synkronisering av UserType-attributet .
 
-- Du kan också härleda värdet för UserType-attributet för andra egenskaper. Exempelvis kan du vill synkronisera alla användare som **gäst** om sina lokala AD userPrincipalName-attribut som slutar med domändelen *@partners.fabrikam123.org*. 
+- Du kan också härleda värdet för UserType-attributet för andra egenskaper. Exempelvis kan du vill synkronisera alla användare som **gäst** om sina lokala AD userPrincipalName-attribut som slutar med domändelen <em>@partners.fabrikam123.org</em>. 
 
     Som tidigare nämnts är tillåter inte UserType-attributet på befintliga Azure AD-användare ändras av Azure AD Connect i Azure AD Connect. Därför måste du säkerställa att den logik som du har valt är konsekvent med hur UserType-attributet har redan konfigurerats för alla befintliga Azure AD-användare i din klient.
 
@@ -289,7 +289,7 @@ Regel för inkommande synkronisering tillåter attributvärdet som flödar från
     | --- | --- | --- | --- | --- |
     | Direkt | UserType | extensionAttribute1 | Alternativet är avmarkerat | Uppdatering |
 
-    Ett annat exempel är som du vill erhålla värde för UserType-attributet för andra egenskaper. Exempelvis kan du vill synkronisera alla användare som gäst om sina lokala AD userPrincipalName-attribut som slutar med domändelen *@partners.fabrikam123.org*. Du kan implementera ett uttryck så här:
+    Ett annat exempel är som du vill erhålla värde för UserType-attributet för andra egenskaper. Exempelvis kan du vill synkronisera alla användare som gäst om sina lokala AD userPrincipalName-attribut som slutar med domändelen <em>@partners.fabrikam123.org</em>. Du kan implementera ett uttryck så här:
 
     | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |

@@ -1,5 +1,5 @@
 ---
-title: Konfiguration av frågor och svar om Azure-webbappar | Microsoft Docs
+title: Konfiguration av vanliga frågor och svar – Azure Apptjänst | Microsoft Docs
 description: Få svar på vanliga frågor och svar om konfiguration och hantering av problem för funktionen Web Apps i Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: b98b0ea68e91bad2a62f40d3dc611308f1bed2de
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c2758084331a487d65235b70bed803a74d0a34b5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967750"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322541"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfiguration och hantering av vanliga frågor och svar för Web Apps i Azure
 
@@ -138,7 +138,7 @@ Granska WebJob-loggar:
 6. Välj den **växla utdata** knappen.
 7. Välj länken.
 
-## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Jag försöker använda Hybridanslutningar med SQL Server. Varför visas meddelandet ”System.OverflowException: aritmetisk operation orsakade spill”?
+## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Jag försöker använda Hybridanslutningar med SQL Server. Varför visas meddelandet ”System.OverflowException: Aritmetisk operation orsakade spill ”?
 
 Om du använder Hybridanslutningar för att ansluta till SQL Server, orsaka en Microsoft .NET-uppdatering för den 10 maj 2016, anslutningar misslyckas. Du kan se det här meddelandet:
 
@@ -199,7 +199,7 @@ Om du vill visa en HAR-filen som du kan använda den [HAR viewer](http://www.sof
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>Varför får jag ett fel när jag försöker ansluta en App Service-webbapp till ett virtuellt nätverk som är anslutet till ExpressRoute?
 
-Om du försöker ansluta en Azure-webbapp till ett virtuellt nätverk som har anslutit till Azure ExpressRoute, misslyckas det. Följande meddelande visas: ”gatewayen är inte en VPN-gateway”.
+Om du försöker ansluta en Azure-webbapp till ett virtuellt nätverk som har anslutit till Azure ExpressRoute, misslyckas det. Följande meddelande visas: ”Gatewayen är inte en VPN-gateway”.
 
 Du kan för närvarande inte punkt-till-plats VPN-anslutningar till ett virtuellt nätverk som är anslutet till ExpressRoute. En punkt-till-plats VPN och ExpressRoute kan inte samexistera för samma virtuella nätverk. Mer information finns i [ExpressRoute och plats-till-plats VPN-anslutningar gränser och begränsningar](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations).
 
@@ -296,7 +296,7 @@ Det är det snabbaste sättet att se vilken version av Microsoft .NET som instal
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Varför inte automatisk skalning fungerar som förväntat?
 
-Om Azure Autoscale inte har skalas i eller skala ut web app-instansen som du väntade dig, kanske körs i ett scenario där vi avsiktligt inte väljer att skala för att undvika en oändlig loop på grund av ”växlar”. Detta inträffar vanligtvis när det finns inte en tillräcklig marginal mellan tröskelvärden för skalning och skala in. Läs hur du undviker ”växlar” och Läs mer om andra Metodtips för autoskalning i [Metodtips för autoskalning](../monitoring-and-diagnostics/insights-autoscale-best-practices.md#autoscale-best-practices).
+Om Azure Autoscale inte har skalas i eller skala ut web app-instansen som du väntade dig, kanske körs i ett scenario där vi avsiktligt inte väljer att skala för att undvika en oändlig loop på grund av ”växlar”. Detta inträffar vanligtvis när det finns inte en tillräcklig marginal mellan tröskelvärden för skalning och skala in. Läs hur du undviker ”växlar” och Läs mer om andra Metodtips för autoskalning i [Metodtips för autoskalning](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Varför automatisk skalning ibland skala endast delvis?
 

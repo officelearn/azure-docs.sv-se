@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 426df541def0aa8d4d8b6a81a7364b32ee7f11dd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f3eb5cd62d24ea7251829aed8abba38415835023
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074720"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162825"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett GitHub-konto med hjälp av Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "53074720"
 > Den här funktionen är en förhandsversion.
 > 
 
-Om du vill använda ett Github-konto som identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Github-konto, kan du hämta den på [ https://www.github.com/ ](https://www.github.com/).
+Om du vill använda ett GitHub-konto som identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett program i din klient som representerar den. Om du inte redan har ett GitHub-konto, kan du hämta den på [ https://www.github.com/ ](https://www.github.com/).
 
 ## <a name="create-a-github-oauth-application"></a>Skapa ett GitHub OAuth-program
 
@@ -40,7 +40,7 @@ Om du vill använda ett Github-konto som identitetsprovider i Azure Active Direc
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
-5. Ange en **namn**. Ange till exempel *Github*.
-6. Välj **identifiera providertyp**väljer **Github (förhandsversion)**, och klicka på **OK**.
-7. Välj **ställa in den här identitetsprovidern** och ange klient-Id som du antecknade tidigare som den **klient-ID** och ange Klienthemligheten som du registrerade som den **klienthemlighet**av programmet för Github-konto som du skapade tidigare.
-8. Klicka på **OK** och klicka sedan på **skapa** att spara din konfiguration för Github-konto.
+5. Ange en **namn**. Ange till exempel *GitHub*.
+6. Välj **identifiera providertyp**väljer **GitHub (förhandsversion)**, och klicka på **OK**.
+7. Välj **ställa in den här identitetsprovidern** och ange klient-Id som du antecknade tidigare som den **klient-ID** och ange Klienthemligheten som du registrerade som den **klienthemlighet**av programmet för GitHub-konto som du skapade tidigare.
+8. Klicka på **OK** och klicka sedan på **skapa** att spara din konfiguration för GitHub-konto.

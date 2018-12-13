@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 49f7e0b19f454e37e70774f3a675bd5094687114
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 686985c705b4026ccc26238fc5919296c98d5cb7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967086"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277530"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -137,12 +137,12 @@ Nej. Du kan inte ange ett anpassat DNS-suffix för dina virtuella nätverk.
 Ja. Alla nätverksgränssnitt (NIC) kopplade till en virtuell dator distribueras via Resource Manager-distributionsmodellen måste vara ansluten till ett virtuellt nätverk. Virtuella datorer distribueras via den klassiska distributionsmodellen kan också anslutas till ett virtuellt nätverk.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Vilka är de olika typerna av IP-adresser som jag kan tilldelas virtuella datorer?
-* **Privat:** tilldelad till varje nätverkskort på varje virtuell dator. Adressen har tilldelats med hjälp av antingen metoden statisk eller dynamisk. Privata IP-adresser tilldelas från det adressintervall som du angav i Undernätverksinställningarna för för ditt VNet. Resurser som distribueras via den klassiska distributionsmodellen tilldelas privata IP-adresser, även om de inte är ansluten till ett virtuellt nätverk. Beteendet för allokeringsmetoden är olika beroende på om en resurs har distribuerats med Resource Manager eller klassiska distributionsmodellen: 
+* **Privata:** Tilldelad till varje nätverkskort på varje virtuell dator. Adressen har tilldelats med hjälp av antingen metoden statisk eller dynamisk. Privata IP-adresser tilldelas från det adressintervall som du angav i Undernätverksinställningarna för för ditt VNet. Resurser som distribueras via den klassiska distributionsmodellen tilldelas privata IP-adresser, även om de inte är ansluten till ett virtuellt nätverk. Beteendet för allokeringsmetoden är olika beroende på om en resurs har distribuerats med Resource Manager eller klassiska distributionsmodellen: 
 
-  - **Resource Manager**: en privat IP-adress med metoden dynamisk eller statisk fortfarande kopplad till en virtuell dator (Resource Manager) tills resursen tas bort. Skillnaden är att du väljer adressen som ska tilldelas när du använder statiskt och Azure väljer när du använder dynamisk. 
-  - **Klassiska**: en privat IP-adress med metoden dynamisk kan ändras när en virtuell dator (klassisk) virtuell dator startas om efter att ha varit i tillståndet Stoppad (frigjord). Om du vill se till att den privata IP-adressen för en resurs som distribueras via den klassiska distributionsmodellen aldrig ändras kan du tilldela en privat IP-adress med statisk metod.
+  - **Resource Manager**: En privat IP-adress med metoden dynamisk eller statisk fortfarande kopplad till en virtuell dator (Resource Manager) tills resursen tas bort. Skillnaden är att du väljer adressen som ska tilldelas när du använder statiskt och Azure väljer när du använder dynamisk. 
+  - **Klassiska**: En privat IP-adress med metoden dynamisk kan ändras när en virtuell dator (klassisk) virtuell dator startas om efter att ha varit i tillståndet Stoppad (frigjord). Om du vill se till att den privata IP-adressen för en resurs som distribueras via den klassiska distributionsmodellen aldrig ändras kan du tilldela en privat IP-adress med statisk metod.
 
-* **Offentliga:** eventuellt tilldelad till nätverkskort som är kopplade till virtuella datorer distribueras via Azure Resource Manager-distributionsmodellen. Adressen kan tilldelas med statisk eller dynamisk allokeringsmetod. Alla virtuella datorer och molntjänster rollinstanser som distribuerats via den klassiska distributionsmodellen finns i en molntjänst som är tilldelad en *dynamisk*, offentlig virtuell IP (VIP)-adress. En offentlig *Statiska* IP-adress, som kallas en [reserverad IP-adress](virtual-networks-reserved-public-ip.md), kan du kan också tilldelas som en VIP. Du kan tilldela offentliga IP-adresser till enskilda virtuella datorer eller molntjänster rollinstanser distribueras via den klassiska distributionsmodellen. De här adresserna kallas [instans på offentlig IP-adress (ILPIP](virtual-networks-instance-level-public-ip.md) -adresser och kan tilldelas dynamiskt.
+* **Offentlig:** Du kan också tilldelas nätverkskort som är kopplade till virtuella datorer distribueras via Azure Resource Manager-distributionsmodellen. Adressen kan tilldelas med statisk eller dynamisk allokeringsmetod. Alla virtuella datorer och molntjänster rollinstanser som distribuerats via den klassiska distributionsmodellen finns i en molntjänst som är tilldelad en *dynamisk*, offentlig virtuell IP (VIP)-adress. En offentlig *Statiska* IP-adress, som kallas en [reserverad IP-adress](virtual-networks-reserved-public-ip.md), kan du kan också tilldelas som en VIP. Du kan tilldela offentliga IP-adresser till enskilda virtuella datorer eller molntjänster rollinstanser distribueras via den klassiska distributionsmodellen. De här adresserna kallas [instans på offentlig IP-adress (ILPIP](virtual-networks-instance-level-public-ip.md) -adresser och kan tilldelas dynamiskt.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Kan jag reservera en privat IP-adress för en virtuell dator som jag skapar vid ett senare tillfälle?
 Nej. Du kan inte reservera en privat IP-adress. Om det finns en privat IP-adress tilldelas den till en virtuell dator eller rollen instans av DHCP-servern. Den virtuella datorn kanske eller kanske inte det som du vill tilldela privata IP-adress. Du kan dock ändra privata IP-adressen för en redan skapad VM till alla tillgängliga privata IP-adress.
@@ -326,7 +326,7 @@ Om du vill skydda Azure-tjänster till flera undernät inom ett virtuellt nätve
 Om du vill granska eller filtrera trafik till en Azure-tjänst från ett virtuellt nätverk kan du distribuera en virtuell nätverksinstallation inom det virtuella nätverket. Du kan sedan använda tjänstslutpunkter för undernätet där den virtuella nätverksinstallationen är distribuerad och säkra Azure-tjänstresurser endast för det här undernätet via VNet-ACL: er. Det här scenariot kan också vara användbart om du vill begränsa Azure-tjänståtkomst från ditt virtuella nätverk till specifika Azure-resurser med hjälp av filtrering av nätverket virtuell installation. Mer information finns i [Utgående trafik med virtuella nätverksinstallationer](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>Vad händer när du har åtkomst till ett Azure service-konto som har virtuella nätverk åtkomstkontrollistan (ACL) aktiverat från utanför det virtuella nätverket?
-HTTP 404-fel returneras.
+HTTP 403 eller HTTP 404-fel returneras.
 
 ### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-service-account-in-another-region"></a>Är undernät i ett virtuellt nätverk som skapats i olika regioner som har tillgång till ett Azure service-konto i en annan region? 
 Ja, för de flesta Azure-tjänster, virtuella nätverk som skapats i olika regioner kommer åt Azure-tjänster i en annan region via VNet-tjänstslutpunkter. Till exempel om ett Azure Cosmos DB-konto är i USA, västra eller USA, östra och virtuella nätverk finns i flera regioner, det virtuella nätverket kan komma åt Azure Cosmos DB. Lagring och SQL är undantag och regionala sin natur och både det virtuella nätverket och Azure-tjänsten måste finnas i samma region.
@@ -366,7 +366,7 @@ Det finns ingen gräns för totalt antal VNet-tjänstslutpunkter i ett virtuellt
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|
-|Azure KeyVault|    128|
+|Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Azure händelsehubb|   128|
 |Azure Service Bus| 128|

@@ -14,15 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2d75a432e84c3490186da6f8342562fddcaa32e1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c0109839144775e9064db4f8396f19688fcc13e8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811234"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308642"
 ---
-<a name="lcs-subscription"></a>LCS-prenumeration
-================
+# <a name="lcs-subscription"></a>LCS-prenumeration
 
 I den här självstudien får du lära dig hur skapar en prenumeration. Den här prenumerationen ger dig en Testklient för Microsoft Online och Microsoft Dynamics Lifecycle Services-projekt där du kan distribuera en miljö. Du också konfigurera ytterligare användare i din Microsoft Online-klient och få upplevelse med följande funktioner för administration av tjänsten. Här följer de färdigheter som du får lära dig:
 
@@ -32,8 +31,7 @@ I den här självstudien får du lära dig hur skapar en prenumeration. Den här
 - Lägga till ytterligare användare i Microsoft Azure Active Directory och klienten.
 - Visa resurser i din prenumeration i e-post.
 
-<a name="key-terms"></a>Viktiga begrepp
-=========
+## <a name="key-terms"></a>Viktiga begrepp
 
 **Microsoft Online Services-klient** – en klient är gruppen av alla prenumerationer och användare för din organisation. Klienten skapas samtidigt som din första prenumeration på Microsoft Online Services.
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3cdedd0c8ddf6d2c724351cf150499434e3886c9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994708"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317448"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -495,7 +495,7 @@ Om din funktionsapp använder [App Service-autentisering / auktorisering](../app
 
 Du kan också läsa den här informationen från binda data. Den här funktionen är endast tillgängligt för funktioner 2.x-körningen. Det är också för närvarande endast tillgängliga för .NET-språk.
 
-I .NET languagues den här informationen är tillgänglig som en [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). ClaimsPrincipal är tillgänglig som en del av begärandets kontext som visas i följande exempel:
+I .NET-språk, den här informationen är tillgänglig som en [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). ClaimsPrincipal är tillgänglig som en del av begärandets kontext som visas i följande exempel:
 
 ```csharp
 using System.Net;
@@ -540,8 +540,8 @@ Functions kan du använda för att göra det svårare att komma åt din HTTP-slu
 
 Det finns två typer av nycklar:
 
-* **Värdnycklar**: de här nycklarna som delas av alla funktioner i funktionsappen. När det används som en API-nyckel, de här alternativen kan åtkomst till en funktion i funktionsappen.
-* **Funktionstangenter**: de här nycklarna gäller endast för specifika funktioner som de definieras. När det används som en API-nyckel, Tillåt dessa endast åtkomst till funktionen.
+* **Värdnycklar**: De här nycklarna är gemensamma för alla funktioner i funktionsappen. När det används som en API-nyckel, de här alternativen kan åtkomst till en funktion i funktionsappen.
+* **Funktionstangenter**: De här nycklarna gäller endast för specifika funktioner som de definieras. När det används som en API-nyckel, Tillåt dessa endast åtkomst till funktionen.
 
 Varje nyckel heter referens och det är en standardnyckel (med namnet ”standard”) på funktionen och värden. Funktionstangenter företräde framför värdnycklar. När två nycklar har definierats med samma namn, används alltid funktionsnyckel.
 
@@ -606,8 +606,8 @@ Slack webhook genererar en token för dig i stället för där du kan ange den, 
 
 Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-utlösare och mekanismen varierar beroende på typ av webhook. Varje metod förlitar sig på en nyckel. Som standard används funktionsnyckel med namnet ”standard”. Konfigurera webhook-providern för att skicka nyckelnamnet med förfrågan i något av följande sätt om du vill använda en annan nyckel:
 
-* **Frågesträng**: providern skickar nyckelnamnet i den `clientid` frågesträngparametern, till exempel `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-* **Begärandehuvud**: providern skickar nyckelnamnet i den `x-functions-clientid` rubrik.
+* **Frågesträng**: Providern skickar nyckelnamnet i den `clientid` frågesträngparametern, till exempel `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Begärandehuvud**: Providern skickar nyckelnamnet i den `x-functions-clientid` rubrik.
 
 ## <a name="trigger---limits"></a>Utlösare - gränser
 

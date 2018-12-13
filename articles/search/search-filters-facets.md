@@ -1,6 +1,6 @@
 ---
-title: Begränsningsaspekten filter i Azure Search | Microsoft Docs
-description: Filtervillkor av användaridentitet för säkerhet, språk, geografiska plats eller numeriska värden att minska sökresultat på frågorna i Azure Search värdbaserade moln search-tjänsten på Microsoft Azure.
+title: Facet-filter för söknavigering i appar – Azure Search
+description: Filtrera efter användaridentitet för säkerhet, geografiska plats eller numeriska värden att minska sökresultat på frågor i Azure Search, en värdbaserad molnsöktjänst på Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,54 +8,55 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3f2cfea52d3c3f4bfc75364d0662a4218219152d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792417"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314813"
 ---
-# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Hur du skapar ett filter för aspekten i Azure Search 
+# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Hur du skapar ett facet-filter i Azure Search 
 
-Fasetterad navigering används för automatisk dirigerad filtrering på resultatet av frågan i en sökning-app, där programmet ger UI-kontroller för målgrupp sökning till grupper av dokument (till exempel kategorier eller märken) och Azure Search innehåller datastrukturen tillbaka den upplevelse. Granska de grundläggande stegen för att skapa en navigeringsstruktur för fasetterad säkerhetskopierar sökinställningar som du vill ge snabbt i den här artikeln. 
+Aspektbaserad navigering används för automatiskt dirigerad filtrering på frågeresultaten i en app, där ditt program erbjuder UI-kontroller för gemensam sökning till grupper av dokument (till exempel kategorier eller varumärken) och Azure Search innehåller datastruktur för säkerhetskopiering i upplevelse. I den här artikeln du snabbt gå igenom de grundläggande stegen för att skapa en aspektbaserad navigeringsstruktur som backar upp sökupplevelsen som du vill ge. 
 
 > [!div class="checklist"]
-> * Välj fält för att filtrera och faceting
+> * Välj fält för filtrering och fasettering
 > * Ange attribut i fältet
-> * Skapa index och Läs in data
-> * Lägga till filter för aspekten för en fråga
+> * Skapa index och läsa in data
+> * Lägg till facet-filter till en fråga
 > * Hantera resultat
 
-Facets är dynamiska och returnerade på en fråga. Sökningssvar ta med sig aspekten kategorier som används för att gå till resultaten. Om du inte är bekant med facets är följande exempel en illustration av en aspekten navigeringsstruktur.
+Fasetter är dynamiska och returnerade på en fråga. Sök efter svar ta med sig aspektkategorier som används för att gå till resultaten. Om du inte är bekant med fasetterna är i följande exempel en illustration av en struktur för aspektbaserad navigering.
 
   ![](./media/search-filters-facets/facet-nav.png)
 
-Ny till fasetterad navigering och vill mer information? Se [implementera fasetterad navigering i Azure Search](search-faceted-navigation.md).
+Nya för aspektbaserad navigering och vill ha mer information? Se [implementera aspektbaserad navigering i Azure Search](search-faceted-navigation.md).
 
 ## <a name="choose-fields"></a>Välj fält
 
-Facets kan beräknas över enskilt värde samt som samlingar. Fält som fungerar bäst i fasetterad navigeringen har låg kardinalitet: ett litet antal distinkta värden som upprepas under hela dokument i din sökning Kristi (till exempel en lista över färger, land eller märken). 
+Fasetter kan beräknas över enskilt värdefält samt samlingar. Fält som fungerar bäst i aspektbaserad navigering har låg kardinalitet: ett litet antal distinkta värden som upprepas under hela dokument i din sökkorpus (till exempel en lista över färger, länder eller varumärken). 
 
-Faceting är aktiverat på grund av fältet när du skapar index, genom att ange följande attribut till TRUE: `filterable`, `facetable`. Endast filtrerbara fält kan fasetteras.
+Fasettering är aktiverat på basis av fält i taget när du skapar index, genom att ange följande attribut till TRUE: `filterable`, `facetable`. Endast filtrerbara fält kan fasetteras.
 
-Alla [fälttyp](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) som eventuellt kan användas i fasetterad navigering har markerats som ”facetable”:
+Alla [fälttyp](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) som eventuellt skulle kunna användas i aspektbaserad navigering har markerats som ”fasettbar”:
 
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
 + Edm.Collections
-+ Numeriska fälttyp: Edm.Int32, Edm.Int64, Edm.Double
++ Numeriskt fälttyper: Edm.Int32, Edm.Int64, Edm.Double
 
-Du kan inte använda Edm.GeographyPoint i fasetterad navigeringsfältet. Facets konstrueras från läsbar text eller siffror. Därför stöds facets inte för geo-koordinater. Du behöver en stad eller region fältet till aspekten per plats.
+Du kan inte använda Edm.GeographyPoint i aspektbaserad navigering. Fasetter skapas från läsbar text eller siffror. Fasetter har därför inte stöd för geo-koordinater. Du behöver ett fält för ort eller region i aspekten efter plats.
 
 ## <a name="set-attributes"></a>Ange attribut
 
-Index-attribut som styr hur ett fält används läggs till enskilda fältdefinitioner i indexet. I följande exempel fält med låg kardinalitet användbart för faceting, som består av: kategori (hotell, översikt, hostel), erbjuder eller klassificeringar. 
+Indexattribut som styr hur ett fält används läggs till enskilda fältdefinitioner i indexet. I följande exempel fält med låg kardinalitet, användbara för aspekter, som består av: kategori (hotell, motel, hostel), bekvämligheterna och betyg. 
 
-Filtrera attribut måste anges explicit i .NET-API. Faceting och filtrering är aktiverade som standard, vilket innebär att du bara behöver att explicit ange attribut när du vill inaktivera dem i REST-API. Även om det inte är tekniskt nödvändigt kan visar vi uppgift i följande exempel REST i instruktions syfte. 
+I .NET-API har attribut som filtrerande anges uttryckligen. Fasettering och filtrering är aktiverat som standard, vilket innebär att du behöver bara att uttryckligen ange attribut när du vill inaktivera dem i REST-API. Även om du inte behöver tekniskt, visar vi uppgift i exemplet nedan REST för instruktioner. 
 
 > [!Tip]
-> Som bästa praxis för prestanda och lagringsoptimering, inaktivera faceting för fält som ska aldrig användas som en säkerhetsåtgärd. I synnerhet strängfält för singleton-värden, till exempel ett ID eller produkt-namn ska vara inställd på ”Facetable”: false för att förhindra att deras oavsiktliga (och ineffektiv) används i fasetterad navigeringsfältet.
+> Som bästa praxis för prestanda och lagringsoptimering, inaktivera fasettering för fält som ska aldrig användas som ett fasettvärde. I synnerhet strängfält för singleton-värden, till exempel ett ID eller produkt-namn ska vara inställd på ”Fasettbar”: false för att förhindra att deras oavsiktliga (och ineffektiv) använda i aspektbaserad navigering.
 
 
 ```http
@@ -79,15 +80,15 @@ Filtrera attribut måste anges explicit i .NET-API. Faceting och filtrering är 
 ```
 
 > [!Note]
-> Den här indexdefinitionen kopieras från [skapa ett Azure Search-index med hjälp av REST-API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Det är identiska förutom ytliga skillnader i fältdefinitioner. Filtrera och facetable attributen läggs uttryckligen på kategorin taggar, parkingIncluded, smokingAllowed och klassificering av fält. I praktiken kan du hämta filtrera och facetable för ledigt på Edm.String och Edm.Boolean Edm.Int32 fälttyp. 
+> Den här indexdefinitionen kopieras från [skapa ett Azure Search-index med REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Det är identiska förutom ytlig skillnader i fältdefinitioner. Attribut för Filtrerbart och fasettbart fält läggs till explicit på kategori, taggar, parkingIncluded, smokingAllowed och klassificering fält. Du får Filtrerbart och fasettbart fält för ledig på Edm.String och Edm.Boolean Edm.Int32 fälttyper i praktiken. 
 
 ## <a name="build-and-load-an-index"></a>Skapa och läsa in ett index
 
-Ett mellanliggande (och kanske uppenbara) steg är att du behöver [bygga och Fyll i indexet](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) innan du utforma en fråga. Vi har nämnt det här steget för fullständighetens skull. Ett sätt att avgöra om indexet är tillgänglig är genom att kontrollera listan över index den [portal](https://portal.azure.com).
+Ett mellanliggande (och kanske uppenbara) steg är att du behöver [skapa och Fyll i indexet](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) innan utformningen av en fråga. Vi nämna det här steget för fullständighetens skull. Ett sätt att avgöra om indexet är tillgänglig är genom att kontrollera listan den [portal](https://portal.azure.com).
 
-## <a name="add-facet-filters-to-a-query"></a>Lägga till filter för aspekten för en fråga
+## <a name="add-facet-filters-to-a-query"></a>Lägg till facet-filter till en fråga
 
-Skapa en fråga som anger alla delar av en giltig fråga, inklusive sökuttryck, facets, filter, bedömningen profiler – allt används för att formulera en begäran i programkoden. I följande exempel skapas en begäran som skapar aspekten navigering baserat på vilken typ av logi, klassificering och andra faciliteter.
+I programkoden, skapar du en fråga som anger alla delar av en giltig fråga, inklusive sökuttryck, fasetter, filter, bedömning profiler – allt används för att formulera en begäran. I följande exempel skapas en begäran som skapar aspekten navigering beroende på vilken typ av logi, klassificering och andra bekvämligheterna.
 
 ```csharp
 SearchParameters sp = new SearchParameters()
@@ -98,33 +99,33 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-### <a name="return-filtered-results-on-click-events"></a>Returnera filtrerade resultat på på händelser
+### <a name="return-filtered-results-on-click-events"></a>Returnera filtrerade resultat på klickar du på händelser
 
-Filteruttrycket hanterar klickningshändelsen på aspektvärdet. Klicka på kategorin ”översikt” ges en kategori-begränsningsaspekt implementeras via en `$filter` som väljer anpassningar av den typen. När en användare klickar på ”motell” för att indikera att endast motell ska visas i nästa fråga programmet skickar innehåller $filter = kategori eq 'motell'.
+Filteruttrycket hanterar click-händelse på aspektvärdet. Klicka på kategorin ”motel” med en kategori aspekten kan implementeras via en `$filter` som väljer boende av den typen. När en användare klickar på ”motell” för att indikera att endast motell ska visas i nästa fråga som programmet skickar innehåller $filter = kategori eq 'motell'.
 
-Följande kodavsnitt lägger till kategorin filtret om en användare väljer ett värde från kategori-begränsningsaspekt.
+Följande kodavsnitt lägger till kategorin filtret om användaren väljer ett värde från kategori-aspekten.
 
 ```csharp
 if (categoryFacet != "")
   filter = "category eq '" + categoryFacet + "'";
 ```
-Med hjälp av REST-API, skulle begäran att Ledad som `$filter=category eq 'c1'`. Om du vill göra kategori ett flervärdesfält, använder du följande syntax: `$filter=category/any(c: c eq 'c1')`
+Med hjälp av REST-API, begäran skulle vara uppvisat som `$filter=category eq 'c1'`. Om du vill göra en flervärdesfält för kategori, använder du följande syntax: `$filter=category/any(c: c eq 'c1')`
 
-## <a name="tips-and-workarounds"></a>Tips och lösningar
+## <a name="tips-and-workarounds"></a>Tips och tillfälliga lösningar
 
-### <a name="initialize-a-page-with-facets-in-place"></a>Initiera en sida av aspekter på plats
+### <a name="initialize-a-page-with-facets-in-place"></a>Initiera en sida med fasetter på plats
 
-Om du vill initiera en sida av aspekter på plats kan du skicka en fråga som en del av sidan initiering som startvärde för sidan med en inledande aspekten struktur.
+Om du vill initiera en sida med fasetter på plats kan du skicka en fråga som en del av initieringen av sidan att seeda sida med en inledande aspekten struktur.
 
-### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Bevara en aspekten navigeringsstruktur asynkront filtrerade resultat
+### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Bevara en struktur för aspektbaserad navigering asynkront av filtrerade resultat
 
-En av utmaningarna med aspekten navigering i Azure Search är att det finns facets för aktuella resultat. I praktiken är det vanligt att behålla en statisk uppsättning facets så att användaren kan navigera i omvänd, följa tillbaka steg för att utforska alternativa sökvägar genom Sök efter innehåll. 
+En av utmaningarna med aspekten navigering i Azure Search är att det finns fasetterna för aktuella resultaten. I praktiken är det vanligt att behålla en statisk uppsättning fasetter så att användaren kan navigera bakåt följa tillbaka steg för att utforska alternativa vägar via Sök efter innehåll. 
 
-Detta är ett vanligt användningsfall, det är inte något aspekten navigeringsstrukturen innehåller för närvarande out box. Utvecklare som vill statiska facets vanligtvis kringgå begränsningen genom att utfärda två filtrerade frågor: en begränsad till resultaten, den andra används för att skapa en statisk lista över facets för navigering.
+Även om det här är ett vanligt användningsfall, är det inte något struktur för aspektbaserad navigering innehåller för närvarande out-of the box. Utvecklare som vill statiska fasetter vanligtvis runt begränsningen genom att utfärda två filtrerade frågor: en begränsad till resultatet, den andra används för att skapa en statisk lista över fasetterna för navigering.
 
 ## <a name="see-also"></a>Se också
 
 + [Filter i Azure Search](search-filters.md)
 + [Skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [Sök dokument REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Söka efter dokument REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

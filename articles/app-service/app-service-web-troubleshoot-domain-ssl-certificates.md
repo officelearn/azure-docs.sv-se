@@ -1,5 +1,5 @@
 ---
-title: Felsöka domän och SSL-certifikat problem i Azure web apps | Microsoft Docs
+title: Felsöka domän och SSL - certifikat i Azure App Service | Microsoft Docs
 description: Felsöka domän och SSL-certifikat problem i Azure web apps
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 5c5bdb8fad60a2e4196c2c9f74764e27cec5ba62
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 726bc78532cfe621eb3f3787aa05a7a54571a8c3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970781"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251614"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Felsöka domän och SSL-certifikat problem i Azure web apps
 
@@ -74,22 +75,22 @@ Det här problemet kan inträffa för någon av följande orsaker:
 
 - App Service-planen är kostnadsfri eller delad. De här prisnivåerna stöder inte SSL. 
 
-    **Lösningen**: uppgradera App Service-plan för webbappen till Standard.
+    **Lösningen**: Uppgradera App Service-plan för webbappen till Standard.
 
 - Prenumerationen har inte ett giltigt kreditkort.
 
-    **Lösningen**: lägga till ett giltigt kreditkort i prenumerationen. 
+    **Lösningen**: Lägga till ett giltigt kreditkort i prenumerationen. 
 
 - Prenumerationserbjudande stöder inte köpa ett App Service-certifikat, till exempel Microsoft Student.  
 
-    **Lösningen**: uppgradera din prenumeration. 
+    **Lösningen**: Uppgradera din prenumeration. 
 
 - Prenumerationen nått gränsen för köp som tillåts för en prenumeration.
 
     **Lösningen**: App Service-certifikat har en gräns på 10 inköp av certifikat för prenumerationstyper betala per användning och EA. För andra prenumerationstyper av är gränsen 3. Om du vill öka gränsen kontaktar [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- App Service certificate har markerats som bedrägeri. Du har fått följande felmeddelande: ”ditt certifikat har flaggats för potentiellt bedrägeri. Begäran är för närvarande under granskning. Om certifikatet inte är användbar inom 24 timmar, kontakta supporten för Azure ”.
+- App Service certificate har markerats som bedrägeri. Du har fått följande felmeddelande visas: ”Ditt certifikat har flaggats för potentiellt bedrägeri. Begäran är för närvarande under granskning. Om certifikatet inte är användbar inom 24 timmar, kontakta supporten för Azure ”.
 
-    **Lösningen**: om certifikatet har markerats som bedrägerier och inte är löst efter 24 timmar, följer du dessa steg:
+    **Lösningen**: Om certifikatet har markerats som bedrägerier och inte är löst efter 24 timmar, följer du dessa steg:
 
     1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Gå till **App Service-certifikat**, och välj certifikatet.
@@ -124,7 +125,7 @@ Du kan tvinga en synkronisering för certifikatet:
 
 1. Logga in på [Azure Portal](https://portal.azure.com). Välj **App Service-certifikat**, och välj sedan certifikatet.
 2. Välj **uppdatera nyckel och synkronisera**, och välj sedan **synkronisering**. Synkroniseringen tar lite tid att slutföra. 
-3. När synkroniseringen är klar visas följande meddelande: ”har uppdaterats alla resurser med det senaste certifikatet”.
+3. När synkroniseringen är klar visas följande meddelande: ”Har uppdaterats alla resurser med det senaste certifikatet”.
 
 ### <a name="domain-verification-is-not-working"></a>Domänverifiering fungerar inte 
 
@@ -163,17 +164,17 @@ Det här problemet beror på något av följande orsaker:
 
 - Det finns inget kreditkort på Azure-prenumeration eller kreditkortet är ogiltig.
 
-    **Lösningen**: lägga till ett giltigt kreditkort i prenumerationen.
+    **Lösningen**: Lägga till ett giltigt kreditkort i prenumerationen.
 
 - Du är inte prenumerationsägare, så att du inte har behörighet att köpa en domän.
 
-    **Lösningen**: [tilldela rollen ägare](../role-based-access-control/role-assignments-portal.md) till ditt konto. Eller kontakta prenumerationsadministratören för att få behörighet att köpa en domän.
+    **Lösningen**: [Tilldela rollen ägare](../role-based-access-control/role-assignments-portal.md) till ditt konto. Eller kontakta prenumerationsadministratören för att få behörighet att köpa en domän.
 - Du har nått gränsen för att köpa domäner i din prenumeration. Den aktuella gränsen är 20.
 
     **Lösningen**: Om du vill begära en ökning av gränsen, kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Prenumerationstyp Azure stöder inte köp av en App Service-domän.
 
-    **Lösningen**: uppgradera din Azure-prenumeration till en annan prenumerationstyp, till exempel en betala per användning-prenumeration.
+    **Lösningen**: Uppgradera din Azure-prenumeration till en annan prenumerationstyp, till exempel en betala per användning-prenumeration.
 
 ### <a name="you-cant-add-a-host-name-to-a-web-app"></a>Du kan inte lägga till ett värdnamn till en webbapp 
 
@@ -190,7 +191,7 @@ Det här problemet beror på något av följande orsaker:
     **Lösningen**: Kontakta prenumerationsadministratören för att ge dig behörighet att lägga till ett värdnamn.
 - Det gick inte att verifiera domänägarskapet.
 
-    **Lösningen**: Verifiera att din CNAME-post eller en post har konfigurerats korrekt. Skapa en CNAME-post eller en A-post för att mappa en anpassad domän till webbapp. Om du vill använda en rotdomän måste du använda A- och TXT-poster:
+    **Lösningen**: Kontrollera att din CNAME-post eller en post har konfigurerats korrekt. Skapa en CNAME-post eller en A-post för att mappa en anpassad domän till webbapp. Om du vill använda en rotdomän måste du använda A- och TXT-poster:
 
     |Posttyp|Värd|Peka på|
     |------|------|-----|

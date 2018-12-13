@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 609389460ab18ba947130e64dbe7b599574816a5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981774"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53215928"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visa virtuella datorer som har schemalagts för underhåll i portalen
 
@@ -43,13 +43,13 @@ Du kan använda Azure portal och leta efter virtuella datorer som är schemalagd
 
    **Underhåll – självbetjäning period**: Visar på vilket tidsfönster då du själv kan starta Underhåll på dina virtuella datorer.
    
-   **Underhåll – schemalagd period**: visar tidsfönstret när Azure ska behålla den virtuella datorn för att kunna utföra underhåll. 
+   **Underhåll – schemalagd period**: Visar tidsfönstret när Azure ska behålla den virtuella datorn för att kunna utföra underhåll. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Meddelanden och aviseringar i portalen
 
-Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till gruppen prenumeration ägare och Medägare. Du kan lägga till ytterligare mottagare och kanaler denna kommunikation genom att skapa aviseringar för Azure-aktivitet. Mer information finns i [skapa aviseringar för aktivitetsloggen för tjänstmeddelanden](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till gruppen prenumeration ägare och Medägare. Du kan lägga till ytterligare mottagare och kanaler denna kommunikation genom att skapa aviseringar för Azure-aktivitet. Mer information finns i [skapa aviseringar för aktivitetsloggen för tjänstmeddelanden](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 Se till att ange den **händelsetyp** som **planerat underhåll** och **Services** som **Virtual Machine Scale Sets** och/eller **Virtuella datorer**
     

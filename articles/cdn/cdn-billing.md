@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
-ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091819"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309295"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Så här fungerar fakturering för Azure CDN
 
@@ -30,7 +30,7 @@ En Faktureringsregion är ett geografiskt område som används för att avgöra 
 
 - Zon 1: Nordamerika, Europa, Mellanöstern och Afrika
 
-- Zon 2: Asien och stillahavsområdet (inklusive Japan)
+- Zon 2: Asien och Stillahavsområdet (inklusive Japan)
 
 - Zon 3: Sydamerika
 
@@ -40,7 +40,7 @@ En Faktureringsregion är ett geografiskt område som används för att avgöra 
 
 Information om point of presence (POP) regioner finns i [Azure CDN POP-platser efter region](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Till exempel en POP i Mexiko är i regionen Nordamerika och ingår därför i zon 1. 
 
-Information om priser för Azure CDN finns i [prissättningen för CDN](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+Information om priser för Azure CDN finns i [prissättningen för CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>Hur beräknas leverans avgifter per region?
 Azure CDN Faktureringsregion baseras på platsen för källservern som levererar innehåll till slutanvändaren. Faktureringsregion anses inte vara målet (fysiska plats) av klienten.
@@ -55,19 +55,19 @@ Använda Azure CDN även medför vissa kostnader för tjänsterna som används s
 
 Om du använder Azure Blob storage som ursprung för ditt innehåll kan medföra du också på följande lagringskostnaderna för cache färger:
 
-- Faktiska GB som används: det faktiska lagringsutrymmet för källobjekt.
+- Faktiska GB används: Det faktiska lagringsutrymmet för källobjekt.
 
-- Överföringar i GB: mängden data som överförs till Fyll CDN-cacheminnen.
+- Överföringar i GB: Mängden data som överförs till Fyll CDN-cacheminnen.
 
-- Transaktioner: som behövs för att fylla i cachen.
+- Transaktioner: Som behövs för att fylla i cachen.
 
 Mer information om fakturering för Azure Storage finns i [förstå Azure Storage-fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
 Om du använder *finns serviceleverans*, debiteras du enligt följande:
 
-- Azure beräkningstid: beräkningsinstanser som fungerar som ursprung.
+- Azure-beräkningstid: De beräkningsinstanser som fungerar som ursprung.
 
-- Azure-beräkning överföring: data som överförs från de beräkningsinstanser för att fylla det Azure CDN-cacheminnet.
+- Azure-beräkning överföring: Data som överförs från de beräkningsinstanser för att fylla det Azure CDN-cacheminnet.
 
 Om klienten använder byte-intervall begäranden (oavsett ursprung service), gäller följande:
 
@@ -78,11 +78,11 @@ Om klienten använder byte-intervall begäranden (oavsett ursprung service), gä
 ## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Hur mycket överföringsaktivitet utförs för att stödja cachen?
 Varje gång en CDN POP behöver för att fylla sin cache, skickar den en begäran till ursprunget för objektet att cachelagras. Därför medför ursprunget en fakturerbar transaktion på varje cachemiss. Antalet cachemissar beror på ett antal faktorer:
 
-- Hur komma innehållet är: om innehållet har hög TTL (time-to-live) / giltighetstid standardvärden och är används ofta så förblir den populära i cacheminnet och det stora flertalet belastningen hanteras av CDN. Ett typiskt bra Cacheträff förhållande är väl över 90%, vilket innebär att mindre än 10% av klientbegäranden behöver gå tillbaka till ursprung, antingen för en cachemiss eller ett objekt uppdatera.
+- Hur komma innehållet är: Om innehållet har hög TTL (time-to-live) / giltighetstid standardvärden och är hanteras används ofta så förblir den populära i cacheminnet och det stora flertalet belastningen av CDN. Ett typiskt bra Cacheträff förhållande är väl över 90%, vilket innebär att mindre än 10% av klientbegäranden behöver gå tillbaka till ursprung, antingen för en cachemiss eller ett objekt uppdatera.
 
-- Hur många noder behöver läsa in objektet: varje gång en nod har lästs in ett objekt från ursprunget medför en fakturerbar transaktion. Därför kan resulterar fler globala innehåll (som öppnas från flera noder) i fler faktureringsbara transaktioner.
+- Hur många noder behöver läsa in objektet: Varje gång en nod har lästs in ett objekt från ursprunget medför en fakturerbar transaktion. Därför kan resulterar fler globala innehåll (som öppnas från flera noder) i fler faktureringsbara transaktioner.
 
-- TTL inflytande: en högre TTL-värde för ett objekt innebär att den måste hämtas från ursprunget mindre ofta. Det innebär också klienter, till exempel webbläsare, kan cachelagra objektet längre, vilket kan minska transaktionerna till CDN.
+- TTL påverkan: En högre TTL-värde för ett objekt innebär att den måste hämtas från ursprunget mindre ofta. Det innebär också klienter, till exempel webbläsare, kan cachelagra objektet längre, vilket kan minska transaktionerna till CDN.
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Hur hanterar jag mina kostnader så effektivt som möjligt?
 Ange den längsta TTL möjligt på ditt innehåll. 

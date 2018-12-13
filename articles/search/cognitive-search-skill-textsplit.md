@@ -1,5 +1,5 @@
 ---
-title: Text dela kognitiv sökning färdighet (Azure Search) | Microsoft Docs
+title: Text dela kognitiv sökning färdigheter – Azure Search
 description: Dela upp text i segment eller sidor med text baserat på längden i en Azure Search berikande pipeline.
 services: search
 manager: pablocas
@@ -10,19 +10,17 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 583d2ac5a8ac4c236612cdfe78595da1812c56fa
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 376a5a2214c5f1d77439923d6a11aaad5e011e73
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730774"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313861"
 ---
 #   <a name="text-split-cognitive-skill"></a>Text dela kognitiva kunskaper
 
 Den **Text dela** färdighet delar upp text i segment med text. Du kan ange om du vill dela texten i meningar eller sidor i en viss längd. Kompetensen är särskilt användbart om det finns maximala text längdkraven i andra färdigheter nedströms. 
-
-> [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetens körning och extrahering av avbildningen och normalisering är för närvarande erbjuds kostnadsfritt. Vid ett senare tillfälle meddelas priserna för dessa funktioner. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -34,7 +32,7 @@ Parametrar är skiftlägeskänsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | textSplitMode      | ”Sidor” eller ”meningar” | 
-| maximumPageLength | Om textSplitMode anges till ”sidor”, avser den maximala sidlängden enligt `String.Length`. Det lägsta värdet är 100. | 
+| maximumPageLength | Om textSplitMode anges till ”sidor”, avser den maximala sidlängden enligt `String.Length`. Det lägsta värdet är 100.  Om textSplitMode har angetts till ”sidor” försöker algoritmen att dela upp texten i segment som innehåller högst ”maximumPageLenth” i storlek. I det här fallet fungerar algoritmen som bra att bryta meningen på en mening gräns så att storleken på segmentet kan vara något mindre än ”maximumPageLength”. | 
 | defaultLanguageCode   | (valfritt) En av följande språkkoder: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska (en). Några saker att tänka på:<ul><li>Om du skickar ett languagecode countrycode format används bara den languagecode delen av formatet.</li><li>Om språket inte är i listan ovan, delar dela färdighet texten med tecknet-gränser.</li><li>Att tillhandahålla en språkkod är användbar för att undvika att klippa ut ett ord i hälften för språk som inte är blanksteg, till exempel kinesiska, japanska och koreanska.</li></ul>  |
 
 

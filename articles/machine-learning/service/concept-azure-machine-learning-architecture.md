@@ -1,5 +1,5 @@
 ---
-title: Hur fungerar det?
+title: 'ML i molnet: villkoren och arkitektur'
 titleSuffix: Azure Machine Learning service
 description: Läs mer om arkitekturen, termer och begrepp som utgör Azure Machine Learning-tjänsten. Här beskrivs också hur det allmänna arbetsflödet för att använda tjänsten och Azure-tjänster som används av Azure Machine Learning-tjänsten.
 services: machine-learning
@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e006c3ac9684cc9e51e8b3505659864123758d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3966d4b27f0e3d42f47d84fb5c9f5c8519a27b6c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098006"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184737"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Hur fungerar Azure Machine Learning-tjänsten: arkitektur och begrepp
 
@@ -75,7 +75,7 @@ En modell produceras av en körning i Azure Machine Learning. Du kan också anv�
 
 Azure Machine Learning-tjänsten är framework oberoende. Du kan använda valfritt populära machine learning-ramverk när du skapar en modell, till exempel scikit-Läs xgboost, PyTorch, TensorFlow, Chainer och CNTK.
 
-Ett exempel för att träna en modell finns i den [Snabbstart: skapa en machine learning-arbetsyta](quickstart-get-started.md) dokumentet.
+Ett exempel för att träna en modell finns i den [snabbstarten: Skapa en machine learning-arbetsyta](quickstart-get-started.md) dokumentet.
 
 ### <a name="model-registry"></a>Modell-registret
 
@@ -99,8 +99,8 @@ Bilder är ett sätt att distribuera en modell, tillsammans med alla komponenter
 
 Det finns två typer av avbildningar som kan skapas med Azure Machine Learning:
 
-* FPGA avbildning: används för att distribuera till en fält-programmable gate i Azure-molnet.
-* Docker-avbildning: används när du distribuerar för att beräkna mål än FPGA. Till exempel Azure Container Instances och Azure Kubernetes Service.
+* FPGA avbildning: Används när du distribuerar till en fält-programmable gate-matris på Azure-molnet.
+* Docker-avbildningen: Används när du distribuerar för att beräkna mål än FPGA. Till exempel Azure Container Instances och Azure Kubernetes Service.
 
 Ett exempel för att skapa en avbildning finns i den [distribuera en modell för klassificering av avbildning i Azure Container Instance](tutorial-deploy-models-with-aml.md) dokumentet.
 
@@ -148,13 +148,13 @@ En körning är en post som innehåller följande information:
 
 En körning skapas när du skickar in ett skript för att träna en modell. En körning kan ha noll eller flera underordnade körs. Så det översta kör kan ha två underordnade körningar, som kan ha körs sina egna underordnade.
 
-Ett exempel på Visa körs producerade genom att träna en modell finns i den [Snabbstart: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md) dokumentet.
+Ett exempel på Visa körs producerade genom att träna en modell finns i den [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md) dokumentet.
 
 ## <a name="experiment"></a>Experiment
 
 Ett experiment är en gruppering av många körs från ett givet skript. Det är alltid hör till en arbetsyta. När du skickar in en körning ska ange du ett namn på experiment. Information om körningen lagras under försöket. Om du skickar en körning och ange ett namn på experiment som inte finns, skapas automatiskt ett nytt experiment med det namnet.
 
-Ett exempel på hur du använder ett experiment finns i den [Snabbstart: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md) dokumentet.
+Ett exempel på hur du använder ett experiment finns i den [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md) dokumentet.
 
 ## <a name="pipeline"></a>Pipeline
 
@@ -228,4 +228,4 @@ Använd följande länkar för att komma igång med Azure Machine Learning:
 
 * [Vad är Azure Machine Learning-tjänsten?](overview-what-is-azure-ml.md)
 * [Snabbstart: Skapa en arbetsyta med Python](quickstart-get-started.md)
-* [Självstudie: Träna en modell](tutorial-train-models-with-aml.md)
+* [Självstudiekurs: Träna en modell](tutorial-train-models-with-aml.md)

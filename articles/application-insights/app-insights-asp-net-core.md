@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights för ASP.NET Core | Microsoft Docs
-description: Övervaka webbprogram för tillgänglighet, prestanda och användning.
+description: Övervaka ASP.NET Core-webbprogram för tillgänglighet, prestanda och användning.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7bdf53ac7adc8b3165a2483a56247cefeaad7ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 80f4d8544d18535b853323699a174ec5665ad5a3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680320"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277037"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights för ASP.NET Core
 

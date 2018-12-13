@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 2f4f5bf19815469f76c1ee18ff42177f77faec28
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/12/2018
+ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871123"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311668"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Begränsningar i Azure Database för PostgreSQL
 I följande avsnitt beskrivs kapacitet och funktionella begränsningar i databastjänsten.
@@ -58,6 +58,9 @@ Azure-systemet kräver fem anslutningar att övervaka Azure Database for Postgre
 - När du använder funktionen PITR, skapas den nya servern med samma prisnivå nivå diskkonfigurationer som den är baserad på-servern.
 - Den nya servern som skapades under en återställning har inte de brandväggsregler som fanns på den ursprungliga servern. Brandväggsregler måste konfigureras separat för den här nya servern.
 - När du återställer en borttagen server stöds inte.
+
+### <a name="utf-8-characters-on-windows"></a>UTF-8 tecken på Windows
+- I vissa situationer UTF-8 tecken stöds inte helt i öppen PostgreSQL på Windows, vilket påverkar Azure Database för PostgreSQL. Finns tråden om [bugg #15476 i arkivet postgresql](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 - Förstå [vad som finns i varje prisnivå](concepts-pricing-tiers.md)

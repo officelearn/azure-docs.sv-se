@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963921"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191537"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Skydda virtuella datorer som distribueras på Azure Stack
 
@@ -55,8 +55,8 @@ Planera din strategi för säkerhetskopiering, återställning och katastrofåte
 
 |  | Global Azure | Azure Stack som distribueras till CSP-datacentret och drivs av CSP: N | Azure Stack som distribueras i kundernas datacenter och drivs av kunden |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack som distribueras till CSP-datacentret och drivs av CSP: N** | Användare VMs distribueras till CSP drivs Azure Stack. Användare VMs återställts från en säkerhetskopia eller växlas över direkt till Azure. | CSP: N fungerar de primära och sekundära instanserna av Azure Stack i sina egna datacenter. Användare VMs återställas eller redundansväxlats mellan två Azure Stack-instanser. | CSP: N fungerar Azure Stack på den primära platsen. Kundens datacenter är målet för återställning eller redundans. |
-| **Azure Stack som distribueras i kundernas datacenter och drivs av kunden** | Användare VMs distribueras till kunden drivs av Azure Stack. Användare VMs återställts från en säkerhetskopia eller växlas över direkt till Azure. | Kunden fungerar de primära och sekundära instanserna av Azure Stack i sina egna datacenter. Användare VMs återställas eller redundansväxlats mellan två Azure Stack-instanser. | Kunden fungerar Azure Stack på den primära platsen. CSP-datacenter är målet för återställning eller redundans. |
+| **Azure Stack som distribueras till CSP-datacentret och drivs av CSP: N** | Användare VMs distribueras till CSP drivs Azure Stack.<br><br>Användare VMs återställts från en säkerhetskopia eller växlas över direkt till Azure. | CSP: N fungerar de primära och sekundära instanserna av Azure Stack i sina egna datacenter.<br><br>Användare VMs återställas eller redundansväxlats mellan två Azure Stack-instanser. | CSP: N fungerar Azure Stack på den primära platsen.<br><br>Kundens datacenter är målet för återställning eller redundans. |
+| **Azure Stack som distribueras i kundernas datacenter och drivs av kunden** | Användare VMs distribueras till kunden drivs av Azure Stack.<br><br>Användare VMs återställts från en säkerhetskopia eller växlas över direkt till Azure. | Kunden fungerar Azure Stack på den primära platsen.<br><br>CSP-datacenter är målet för återställning eller redundans. | Kunden fungerar de primära och sekundära instanserna av Azure Stack i sina egna datacenter.<br><br>Användare VMs återställas eller redundansväxlats mellan två Azure Stack-instanser. |
 
 ![Källa / mål-kombinationer](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
@@ -81,9 +81,9 @@ Det vanligaste protection schemat för VM-baserade program är att använda prog
 
 Återställa programmet kräver att återställa en eller flera virtuella datorer i samma moln eller på ett nytt moln. Du kan använda ett moln i ditt datacenter eller det offentliga molnet. Molnet som du väljer är helt inom din kontroll och baseras på dina krav på sekretess och datasuveränitet.
  
- - RTO: Driftstopp mäts i timmar
+ - RTO: Nedtid som mäts i timmar
  - RPO: Variabeln dataförlust (beroende på säkerhetskopieringsfrekvensen)
- - Topologi för distribution: aktiv/passiv
+ - Topologi för distribution: Aktiv/passiv
 
 #### <a name="planning-your-backup-strategy"></a>Planera din strategi för säkerhetskopiering
 
@@ -111,7 +111,7 @@ Med den här metoden kan programmet distribueras i ett moln och dess virtuella d
 
  - RTO: Nedtid i minuter
  - RPO: Variabeln dataförlust (beroende på replikeringsfrekvensen)
- - Topologi för distribution: aktiv/passiv vänteläge
+ - Topologi för distribution: Aktiv/passiv vänteläge
  
 ### <a name="high-availabilityautomatic-failover"></a>Hög tillgänglighet/automatisk växling vid fel
 
@@ -121,9 +121,9 @@ I kombination med skalningsuppsättningar måste ditt program har inbyggt stöd 
 
 Med den här metoden kan programmet endast är aktiv i ett moln, men programvaran distribueras till flera moln. De andra molnen är i vänteläge redo att starta programmet när redundansen utlöses.
 
- - RTO: Driftstopp mätt i sekunder
- - Återställningspunktmål: Minimal dataförlust
- - Topologi för distribution: aktiv/aktiv vänteläge
+ - RTO: Nedtid mätt i sekunder
+ - RPO: Minimal dataförlust
+ - Topologi för distribution: Aktiv/aktiv vänteläge
 
 ### <a name="fault-tolerance"></a>Feltolerans
 
@@ -135,13 +135,13 @@ Tänk på att varje Azure Stack-molnet är oberoende av varandra, så molnen bet
 
  - RTO: Utan avbrott
  - RPO: Ingen dataförlust
- - Topologi för distribution: aktiv/aktiv
+ - Topologi för distribution: Aktiv/aktiv
 
 ### <a name="no-recovery"></a>Inte kan återställas
 
 Vissa program i din miljö kanske inte behöver skydd mot oplanerade avbrott eller dataförlust. Till exempel virtuella datorer som används för utveckling och testning vanligtvis behöver du inte återställas. Det är ditt beslut att göra utan skydd för ett program eller en specifik virtuell dator. Azure Stack erbjuder inte säkerhetskopiering eller replikering av virtuella datorer från den underliggande infrastrukturen. Liknar Azure, behöver du anmäla sig till skydd för varje virtuell dator i var och en av dina prenumerationer.
 
- - RTO: ett oåterkalleligt
+ - RTO: Ett oåterkalleligt
  - RPO: Fullständig dataförlust
 
 ## <a name="recommended-topologies"></a>Rekommenderade topologier

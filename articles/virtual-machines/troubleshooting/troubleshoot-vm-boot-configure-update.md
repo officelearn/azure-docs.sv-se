@@ -1,6 +1,6 @@
 ---
-title: Uppstarten av den virtuella datorn fastnar i läget "Förbereder Windows. Stäng inte av datorn”. i Azure | Microsoft Docs
-description: Introducera stegen för att felsöka problemet i vilken VM Start har fastnat på ”Windows förbereda. Stäng inte av datorn ”.
+title: VM Start har fastnat på ”Getting Windows redo. Stäng inte av datorn ”i Azure | Microsoft Docs
+description: Introducera stegen för att felsöka problemet där VM Start har fastnat på ”Getting Windows redo. Stäng inte av datorn”.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 722bf7b42e500e3e6a46f48646ff1fd2edfb68f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: eb27b4e6c60f23a55a58cd2aae3cff927ffeaf03
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955744"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316105"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Uppstarten av den virtuella datorn fastnar i läget "Förbereder Windows. Stäng inte av datorn”. i Azure
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM Start har fastnat på ”Getting Windows redo. Stäng inte av datorn ”i Azure
 
-Den här artikeln hjälper dig att lösa problemet när dina virtuella datorer (VM) har fastnat på den ”Windows förbereda. Stäng inte av datorn”. steg under starten.
+Den här artikeln hjälper dig att lösa problemet när den virtuella datorn (VM) har fastnat på den ”Windows förbereda. Stäng inte av datorn ”steg under starten.
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder **Startdiagnostik** för att få Skärmbild av en virtuell dator kan du hitta operativsystemet inte fullständigt startas. Dessutom kan den virtuella datorn visas en **”förbereda för Windows. Stäng inte av datorn ”.** meddelande.
+När du använder **Startdiagnostik** Skärmbild av en virtuell dator får operativsystemet inte fullständigt startas. Den virtuella datorn visar meddelandet ”Getting Windows redo. Stäng inte av datorn”.
 
-![Exempel på meddelande](./media/troubleshoot-vm-configure-update-boot/message1.png)
+![Exempel på meddelande för Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
 ![Exempel på meddelande](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
 ## <a name="cause"></a>Orsak
 
-Det här problemet uppstår vanligen när servern gör den slutliga omstarten när konfigurationen ändrades. Konfigurationsändringen kunde initieras av Windows-uppdateringar eller av ändringar på roller /-funktionen på servern. För Windows Update, om storleken på uppdateringarna som har stor eller behöver operativsystemet mer tid för att konfigurera om ändringarna.
+Det här problemet uppstår vanligen när servern gör den slutliga omstarten när konfigurationen ändrades. Konfigurationsändringen kan initieras av Windows-uppdateringar eller av ändringar på roller /-funktionen på servern. För Windows Update, om storleken på uppdateringarna som har stor eller måste operativsystemet mer tid för att konfigurera om ändringarna.
 
 ## <a name="back-up-the-os-disk"></a>Säkerhetskopiera OS-disken
 
-Säkerhetskopiera OS-disken innan du försöker åtgärda problemet:
+Säkerhetskopiera OS-disken innan du försöker åtgärda problemet.
 
 ### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>För virtuella datorer med en krypterad disk, du måste låsa upp diskarna först
 
-Kontrollera om den virtuella datorn är en krypterad virtuell dator. Det gör du genom att följa dessa steg:
+Följ stegen nedan för att avgöra om den virtuella datorn är en krypterad virtuell dator.
 
-1. Öppna den virtuella datorn på portalen och bläddra sedan till diskarna.
+1. Öppna din virtuella dator på Azure portal och bläddra sedan till diskarna.
 
-2. Du ser en kolumn som anropar ”kryptering”, som talar om kryptering är aktiverat.
+2. Titta på den **kryptering** kolumnen för att se om kryptering har aktiverats.
 
-Låsa upp den krypterade disken om OS-disken är krypterad. Det gör du genom att följa dessa steg:
+Låsa upp den krypterade disken om OS-disken är krypterad. Följ dessa steg för att låsa upp disken.
 
 1. Skapa ett Recovery virtuell dator som finns i samma resursgrupp, Storage-konto och plats som den berörda virtuella datorn.
 
@@ -72,7 +72,7 @@ Låsa upp den krypterade disken om OS-disken är krypterad. Det gör du genom at
     Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
     ```
 
-5. När du har hemligt namn, kör du följande kommandon i PowerShell:
+5. När du har det hemliga namnet, kör du följande kommandon i PowerShell.
 
     ```Powershell
     $secretName = 'SecretName'
@@ -80,10 +80,10 @@ Låsa upp den krypterade disken om OS-disken är krypterad. Det gör du genom at
     $bekSecretBase64 = $keyVaultSecret.SecretValueText
     ```
 
-6. Konvertera Base64-kodad värde till byte och skriva utdata till en fil. 
+6. Konvertera det Base64-kodad värdet till byte och skriva utdata till en fil. 
 
     > [!Note]
-    > BEK filnamnet måste matcha ursprungligt BEK GUID om du använder USB låsa upp alternativet. Du måste också att skapa en mapp på enhet C med namnet ”BEK” följande steg ska fungera.
+    > Om du använder USB låsa upp alternativet, BEK filnamnet måste matcha det ursprungliga BEK GUID. Skapa en mapp på enhet C med namnet ”BEK” innan du följer dessa steg.
     
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
@@ -92,22 +92,22 @@ Låsa upp den krypterade disken om OS-disken är krypterad. Det gör du genom at
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. När filen BEK har skapats på din dator kan du kopiera filen till återställningen VM som du har låst OS-disken är ansluten till. Kör följande med BEK Filplats:
+7. När filen BEK har skapats på din dator kan du kopiera filen till återställningen VM som du har låst OS-disken är ansluten till. Kör följande kommandon med hjälp av BEK filens plats.
 
     ```Powershell
     manage-bde -status F:
     manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
     ```
-    **Valfritt** i vissa situationer kan vara nödvändigt även dekryptera disken med det här kommandot.
+    **Valfritt**: I vissa situationer kan det vara nödvändigt att dekryptera disken med hjälp av det här kommandot.
    
     ```Powershell
     manage-bde -off F:
     ```
 
     > [!Note]
-    > Detta har tagit med att disken för att kryptera på bokstaven F:.
+    > Föregående kommando förutsätter att kryptera disken finns på bokstaven F.
 
-8. Om du vill samla in loggar du kan navigera till sökvägen **enhet BOKSTAV: \Windows\System32\winevt\Logs**.
+8. Om du behöver samla in loggar, går du till sökvägen **enhet BOKSTAV: \Windows\System32\winevt\Logs**.
 
 9. Koppla bort enheten från dator för återställning.
 
@@ -121,17 +121,17 @@ Följ stegen i den [samla in os dump](troubleshoot-common-blue-screen-error.md#c
 
 ## <a name="contact-microsoft-support"></a>Kontakta Microsoft-supporten
 
-När du har samlat in dumpfilen Kontakta [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) till analys av grundorsaken.
+När du har samlat in dumpfilen Kontakta [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att analysera rotorsaken.
 
 
-## <a name="rebuild-the-vm-using-powershell"></a>Återskapa den virtuella datorn med hjälp av PowerShell
+## <a name="rebuild-the-vm-by-using-powershell"></a>Återskapa den virtuella datorn med hjälp av PowerShell
 
-När du har samlat in minnesdumpen, Använd följande steg för att återskapa den virtuella datorn.
+När du samlar in minnesdumpen, följer du stegen nedan för att återskapa den virtuella datorn.
 
 **För icke-hanterade diskar**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -162,7 +162,7 @@ New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 **För hanterade diskar**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -183,7 +183,7 @@ $avName = "AvailabilitySetName";
 $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
-#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
+#This can be found by selecting the Managed Disks you wish you use in the Azure portal if the format below doesn't match
 $osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 

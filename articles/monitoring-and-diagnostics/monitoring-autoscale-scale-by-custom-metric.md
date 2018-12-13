@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 9df587d92b9e35db496c787186ff2945db7965ce
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ac4cf9c3fe270b3b2a6d499a90184e8d5274e765
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987823"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309679"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Komma igång med automatisk skalning med anpassat mått i Azure
 Den här artikeln beskriver hur du skalar din resurs genom ett anpassat mått i Azure-portalen.
 
 Automatisk skalning i Azure Monitor gäller endast [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
-# <a name="lets-get-started"></a>Kan komma igång
+## <a name="lets-get-started"></a>Kan komma igång
 Den här artikeln förutsätter att du har en webbapp med application insights har konfigurerats. Om du inte har ett redan, kan du [ställa in Application Insights för ASP.NET-webbplats][1]
 
 - Öppna [Azure-portalen][2]
@@ -36,12 +36,12 @@ Den här artikeln förutsätter att du har en webbapp med application insights h
 - Ett liknande sätt steget ovan, lägga till en skala-regel som ska skalas i och minska skalningsantalet med 1 om anpassat mått som ligger under ett tröskelvärde.
   ![Skala baserat på cpu][7]
 - Ange du instansgränser. Till exempel om du vill skala mellan 2 – 5 instanser beroende på de anpassade mått variationerna, ange lägsta till '2', maximalt '5' och 'default' till ' 2'
-> Obs: om det finns ett problem med att läsa mätvärden för resurs och den aktuella kapaciteten är under standardkapacitet, sedan för att säkerställa tillgängligheten för resursen, automatisk skalning skalas ut till standardvärdet. Om den aktuella kapaciteten är högre än standardkapacitet, kommer autoskalning inte att skala in.
+> Obs! Om det finns ett problem med att läsa mätvärden för resurs och den aktuella kapaciteten är under standardkapacitet, sedan skalas för att säkerställa tillgängligheten för resursen, automatisk skalning ut till standardvärdet. Om den aktuella kapaciteten är högre än standardkapacitet, kommer autoskalning inte att skala in.
 - Klicka på ”Spara”
 
 Grattis! Du nu har skapat din skalinställning för att automatiskt skala din webbapp baserat på ett anpassat mått.
 
-> Obs: Likadant gäller att komma igång med en VMSS eller cloud service-roll.
+> Obs! Samma steg kan användas för att komma igång med en VMSS eller cloud service-roll.
 
 <!--Reference-->
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net

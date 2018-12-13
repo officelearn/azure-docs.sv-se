@@ -1,7 +1,7 @@
 ---
 title: Skicka avbildningen frågor – bildsökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om hur du anpassar sökfrågor som skickas till den bildsökning i Bing.
+description: Lär dig mer om hur du anpassar sökfrågor som du skickar till sökning i Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: 5d2dcc60a8707394ec07a76e3286929db365c651
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5d850b7b95c15137f70a0d343f97171ec2d2f753
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296523"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256986"
 ---
 # <a name="send-queries-to-the-bing-image-search-api"></a>Skicka frågor till sökning i Bing
 

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: b2adb2e69475b79324cad2d11a420cbefdf8b059
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a938e5d872d2c1602f7ce898f0d14e3e04feb759
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514493"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312576"
 ---
 # <a name="get-started-with-device-twins-java"></a>Kom igång med enhetstvillingar (Java)
 
@@ -39,7 +39,7 @@ För att slutföra den här kursen behöver du:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -228,7 +228,7 @@ I det här avsnittet skapar du en Java-konsolapp som anger en rapporterad egensk
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.32</version>
+      <version>1.14.2</version>
     </dependency>
     ```
 
@@ -278,6 +278,17 @@ I det här avsnittet skapar du en Java-konsolapp som anger en rapporterad egensk
 
     Den här exempelappen använder variabeln **protocol** när den instantierar ett **DeviceClient**-objekt. 
 
+1. Lägg till följande metod för att den **App** klassen för att skriva ut information om uppdateringar för enhetstvilling:
+
+    ```java
+    protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
+        @Override
+        public void execute(IotHubStatusCode status, Object context) {
+          System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        }
+      }
+    ```
+
 9. Lägg till följande kod till den **huvudsakliga** metod för att:
     * Skapa en klientenhet att kommunicera med IoT Hub.
     * Skapa en **enhet** objekt för att lagra tvillingegenskaper.
@@ -310,7 +321,7 @@ I det här avsnittet skapar du en Java-konsolapp som anger en rapporterad egensk
     catch (Exception e) {
       System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
       dataCollector.clean();
-      client.close();
+      client.closeNow();
       System.out.println("Shutting down...");
     }
     ```
@@ -327,7 +338,13 @@ I det här avsnittet skapar du en Java-konsolapp som anger en rapporterad egensk
     client.close();
     ```
 
-12. Spara och Stäng den `simulated-device\src\main\java\com\mycompany\app\App.java` filen.
+1. Ändra signaturen för **main**-metoden och ta med undantagen som visas nedan:
+
+    ```java
+    public static void main(String[] args) throws URISyntaxException, IOException
+    ```
+
+1. Spara och Stäng den `simulated-device\src\main\java\com\mycompany\app\App.java` filen.
 
 13. Skapa den **simulated-device** app och korrigera eventuella fel. I Kommandotolken, navigera till den `simulated-device` mappen och kör sedan följande kommando:
 

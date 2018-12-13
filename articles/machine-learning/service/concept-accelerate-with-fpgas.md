@@ -1,5 +1,5 @@
 ---
-title: Vad är en FPGA och Project Brainwave?
+title: Vad är FPGA och Project Brainwave?
 titleSuffix: Azure Machine Learning service
 description: Lär dig att påskynda modeller och djupa neurala nätverk med FPGA på Azure. Den här artikeln innehåller en introduktion till fältet-programmable gate matriser (FPGA) och hur Azure Machine Learning-tjänsten tillhandahåller i realtid artificiell intelligens (AI) när du distribuerar din modell till en Azure-FPGA.
 services: machine-learning
@@ -11,43 +11,43 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: b55d641f9a72fc2f757a7687b1b6214a98c92507
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: bc08025f070fb31d83fed26bfec00cec11cee061
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094006"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313640"
 ---
-# <a name="what-is-fpga-and-project-brainwave"></a>Vad är FPGA och Project Brainwave?
+# <a name="what-are-fpgas-and-project-brainwave"></a>Vad är FPGA och Project Brainwave?
 
 Den här artikeln innehåller en introduktion till fältet-programmable gate matriser (FPGA) och hur Azure Machine Learning-tjänsten tillhandahåller i realtid artificiell intelligens (AI) när du distribuerar din modell till en Azure-FPGA.
 
-FPGA innehåller en matris av programmerbara logiska block och en hierarki av omkonfigurerbara sammanbinder. Den sammanbinder Tillåt rutorna konfigureras i olika sätt efter tillverkning. FPGA ger en kombination av programmering och prestanda jämfört med andra kretsar.
+FPGA innehåller en matris av programmerbara logiska block och en hierarki av omkonfigurerbara anslutningar. Den sammanbinder Tillåt rutorna konfigureras på olika sätt när tillverkning. FPGA ange jämfört med andra kretsar, en kombination av programmering och prestanda.
 
 ## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGA vs. CPU, GPU och ASIC
 
-![Azure Machine Learning-tjänsten FPGA jämförelse](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+Följande diagram och tabell som visar hur FPGA jämfört med andra processorer.
+
+![Diagram över Azure Machine Learning-tjänsten FPGA jämförelse](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |Processor||Beskrivning|
 |---|:-------:|------|
 |Programspecifika integrerade kretsar|ASICs|Anpassade kanaler, till exempel Googles TensorFlow Processor enheter (TPU), ger högsta möjliga effektivitet. De kan inte konfigureras när dina behov ändras.|
-|Fältet-programmable gate-matriser|FPGA|FPGA, till exempel de som är tillgängliga på Azure, ger prestanda nära ASICs, men är flexibla och omkonfigurerbara över tid för att implementera logik som är nya.|
-|Bearbetningsenheter för grafik|GPU: er|Ett populärt alternativ för AI-beräkningar som erbjuder parallellbearbetning funktioner som gör det snabbare på bildåtergivning än processorer.|
-|Enheter|CPU:er|Allmänna processorer vars prestanda inte är idealiskt för grafik och video bearbetning.|
+|Fältet-programmable gate-matriser|FPGA|FPGA, till exempel de som är tillgängliga på Azure, ger prestanda nära ASICs. De är också flexibelt och omkonfigurerbara över tid, för att implementera logik som är nya.|
+|Bearbetningsenheter för grafik|GPU: er|Ett populärt alternativ för AI-beräkningar. GPU: er erbjuder funktioner för parallell bearbetning, vilket gör det snabbare på bildåtergivning än processorer.|
+|Enheter|CPU:er|Allmänna processorer, som inte är perfekt för grafik och bearbetning av livevideo.|
 
 ## <a name="project-brainwave-on-azure"></a>Project Brainwave på Azure
 
-[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) är Microsofts ekonomiskt maskinvaruarkitektur baserat på Intels FPGA enheter att dataexperter och utvecklare som använder för att påskynda i realtid AI-beräkningar.  Den här FPGA-aktiverade arkitekturen erbjuder **prestanda**, **flexibilitet**, och **skala** och är tillgänglig på Azure.
+[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) är en maskinvaruarkitektur från Microsoft. Den är baserad på Intels FPGA enheter, vilka dataexperter och utvecklare använder för att påskynda i realtid AI-beräkningar. Den här arkitekturen för FPGA-aktiverade erbjuder prestanda, flexibilitet och skalbarhet och är tillgängliga på Azure.
 
-**FPGA gör det möjligt att uppnå med låg latens för i realtid inferensjobb begäranden.** Asynkrona begäranden (batch) behövs inte. Batchbearbetning kan orsaka svarstid eftersom mer data som behöver bearbetas, men det kan förbättra genomflöde i vissa sammanhang. Project Brainwave implementeringar av neurala bearbetningsenheter kräver inte batchbearbetning; Därför kan fördröjningen vara många gånger lägre jämfört med processor- och GPU.
+FPGA gör det möjligt att uppnå med låg latens för i realtid inferensjobb begäranden. Asynkrona begäranden (batchbearbetning) behövs inte. Batchbearbetning kan orsaka svarstid, eftersom mer data som behöver bearbetas. Project Brainwave implementeringar av neurala bearbetningsenheter kräver inte batchbearbetning; fördröjningen kan därför många gånger lägre jämfört med processor- och GPU-processorer.
 
 ### <a name="reconfigurable-power"></a>Omkonfigurerbara power
-**FPGA kan konfigureras för olika typer av machine learning-modeller.** Den här flexibiliteten gör det enklare att påskynda de programmen baserat på den mest optimala numerisk precision och modellen i minnet som används.
-
-Nya machine learning-teknik håller på att utvecklas med jämna mellanrum och även Project Brainwave maskinvara design utvecklas snabbt. Eftersom FPGA är omkonfigurerbara, är det möjligt att hålla dig uppdaterad med kraven för snabbt föränderliga AI-algoritmer.
+Du kan konfigurera om FPGA för olika typer av machine learning-modeller. Den här flexibiliteten gör det enklare att påskynda de programmen baserat på den mest optimala numerisk precision och modellen i minnet som används. Eftersom FPGA är omkonfigurerbara kan du Håll dig uppdaterad med kraven för att snabbt förändrade AI-algoritmer.
 
 ### <a name="whats-supported-on-azure"></a>Vad som stöds på Azure
-**Microsoft Azure är världens största molninvestering i FPGA.** Du kan köra Project Brainwave i Azures skala infrastruktur.
+Microsoft Azure är världens största molninvestering i FPGA. Du kan köra Project Brainwave i Azures skala infrastruktur.
 
 Idag, stöder Project Brainwave:
 + Bild klassificering och igenkänning av scenarier
@@ -59,7 +59,7 @@ Med den här FPGA-aktiverade maskinvaruarkitektur tränade neurala nätverk sker
 
 ### <a name="scenarios-and-applications"></a>Scenarier och program
 
-Project Brainwave är integrerad med Azure Machine Learning. Microsoft använder FPGA för DNN-utvärdering, Bing search rangordning och programvara definierats networking (SDN)-acceleration för att minska svarstiden samtidigt som processorer för andra aktiviteter.
+Project Brainwave är integrerad med Azure Machine Learning. Microsoft använder FPGA för DNN-utvärdering, Bing search rangordning och programvara definierats networking (SDN)-acceleration för att minska svarstiden, samtidigt som processorer för andra aktiviteter.
 
 Följande scenarier använder FPGA i Project Brainwave arkitektur:
 + [Automatiserad optiska kontrollsystem](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
@@ -68,15 +68,15 @@ Följande scenarier använder FPGA i Project Brainwave arkitektur:
 
 ## <a name="deploy-to-fpgas-on-azure"></a>Distribuera till FPGA på Azure
 
-Här är arbetsflödet för att skapa en avbildning av tjänst i Azure med stöds dnn: er som en upplärda för distribution på Azure FPGA:
+För att skapa en avbildning av tjänst i Azure, kan du använda stöds dnn: er som en upplärda för distribution på Azure FPGA:
 
-1. Använd den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) för att skapa en tjänstdefinition, vilket är en fil som beskriver en pipeline med diagram (indata, upplärda och klassificerare) baserat på TensorFlow. Distributionskommandot automatiskt komprimera definitions- och diagram i en ZIP-fil och ladda upp ZIP-filen till Azure Blob storage.  DNN redan har distribuerats på Project Brainwave ska köras på FPGA.
+1. Använd den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) att skapa en tjänstdefinition. En tjänstdefinition är en fil som beskriver en pipeline med diagram (indata, upplärda och klassificerare) baserat på TensorFlow. Distributionskommandot automatiskt komprimerar definitions- och diagram till en ZIP-fil och laddar upp ZIP-filen till Azure Blob storage. DNN redan har distribuerats på Project Brainwave ska köras på FPGA.
 
-1. Registrera modellen med hjälp av SDK med ZIP-filen i Azure Blob storage.
+1. Registrera modellen med hjälp av SDK: N med ZIP-filen i Azure Blob storage.
 
 1. Distribuera tjänsten med den registrerade modellen med hjälp av SDK.
 
-Du kan börja distribuera den anpassade DNN modeller som FPGA i Azure i molnet med den här artikeln **”[distribuera en modell som en webbtjänst på en FPGA](how-to-deploy-fpga-web-service.md)”**.
+Kom igång med att distribuera anpassade DNN-modeller till FPGA i Azure-molnet, se [distribuera en modell som en webbtjänst på en FPGA](how-to-deploy-fpga-web-service.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

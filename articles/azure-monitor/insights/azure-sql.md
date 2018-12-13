@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: ce84d1ba16ec75525740a2b799fd78c35474cda9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7c567cc70a87e7856f511112d3bff692f5af3993
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096645"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194019"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -185,7 +185,7 @@ Automatiserade aviseringar i lösningen baseras på skriva en Log Analytics-frå
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Skapa aviseringar för Azure SQL Database
 
-Du kan enkelt [skapa aviseringar](../../monitoring-and-diagnostics/alert-metric.md) med data från Azure SQL Database-resurser. Här är några användbara [logga frågor](../../azure-monitor/log-query/log-query-overview.md) som du kan använda med en logg-avisering:
+Du kan enkelt [skapa aviseringar](../../azure-monitor/platform/alerts-metric.md) med data från Azure SQL Database-resurser. Här är några användbara [logga frågor](../../azure-monitor/log-query/log-query-overview.md) som du kan använda med en logg-avisering:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Hög CPU i Azure SQL-databas
 

@@ -1,6 +1,6 @@
 ---
-title: Ansluten Factory lösning funktioner - Azure | Microsoft Docs
-description: En översikt över funktionerna i anslutet fabriken förkonfigurerade lösningen.
+title: Ansluten fabrik-lösning funktioner – Azure | Microsoft Docs
+description: En översikt över funktioner i lösningen ansluten fabrik förkonfigurerade.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,62 +8,64 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3478217771418ab31772d6a42a7ed8d8a2e8069a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: af2a2c84f9eb420a7ca9a8bd5909cbf856d29a5e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626504"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309203"
 ---
-# <a name="what-is-connected-factory-iot-solution-accelerator"></a>Vad är ansluten Factory IoT solution accelerator?
+# <a name="what-is-connected-factory-iot-solution-accelerator"></a>Vad är ansluten fabrik IoT lösningsaccelerator?
 
-Anslutna fabriken är en implementering av Microsofts Azure industriella IoT Referensarkitektur, paketeras som på öppen källkod lösning. Du kan använda den som en startpunkt för en kommersiell produkt. Du kan distribuera en förskapad version av anslutna Factory-lösningen till din Azure-prenumeration från [Azure IoT solution Accelerator](https://www.azureiotsolutions.com/#solutions/types/CF).
+Ansluten fabrik är en implementering av Microsofts Azure industriella IoT-Referensarkitektur, paketeras som på öppen källkod. Du kan använda den som en startpunkt för en kommersiell produkt. Du kan distribuera en version som är inbyggda i lösningen ansluten fabrik i Azure-prenumerationen från [Azure IoT-Lösningsacceleratorer](https://www.azureiotsolutions.com/#solutions/types/CF).
 
-![Anslutna Factory lösning instrumentpanelen](./media/iot-accelerators-connected-factory-features/dashboard.png)
+![Instrumentpanelen för lösningen för ansluten fabrik](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
-Anslutna fabriken innehåller följande funktioner:
+Ansluten fabrik lösningsaccelerator [koden finns på GitHub](https://github.com/Azure/azure-iot-connected-factory).
 
-## <a name="industrial-device-interoperability"></a>Industriella enheten samverkan
+Ansluten fabrik innehåller följande funktioner:
 
-- Ansluta till industriella tillgångar med ett OPC UA-gränssnitt.
-- Använd simulerade produktion raderna (som kör OPC UA servrar i behållare med Docker) om du vill se live telemetri från dem.
-- Bläddra OPC UA informationsmodellen OPC UA-servrar från en instrumentpanel i molnet.
+## <a name="industrial-device-interoperability"></a>Industriella enheter samverkan
+
+- Anslut till industriella tillgångar med en OPC UA-gränssnitt.
+- Använda simulerade produktionsrader (köra OPC UA-servrar i Docker-behållare) för att se live telemetri från dem.
+- Bläddra OPC UA-informationsmodellen av OPC UA-servrar från en instrumentpanel i molnet.
 
 ## <a name="remote-management"></a>Fjärrhantering
 
-- Konfigurera dina OPC UA tillgångar från molnet instrumentpanelen (anrop metoder, läsa och skriva data).
-- Publicera och avpublicera telemetridata från dina OPC UA tillgångar från en instrumentpanel i molnet.
+- Konfigurera dina OPC UA-tillgångar från molnet instrumentpanelen (anropa metoder, läsa och skriva data).
+- Publicera och avpublicera telemetridata från dina OPC UA-resurser från en instrumentpanel i molnet.
 
 ## <a name="cloud-dashboard"></a>Cloud-instrumentpanelen
 
-- Visa telemetri förhandsgranskningar direkt i en instrumentpanel i molnet.
-- Visa trender i telemetridata och skapa samband med hjälp av instrumentpanelen tid serien insikter Explorer.
+- Visa telemetri förhandsversioner direkt i en instrumentpanel i molnet.
+- Visa trender i dessa data och skapa samband med hjälp av Time Series Insights Explorer-instrumentpanel.
 - Se beräknade övergripande utrustning effektivitet (OEE) och (Key Performance Indicator) från en instrumentpanel i molnet.
-- Visa industriella tillgången hierarkier i en topologi i trädet och på en interaktiv karta.
-- Visa, bekräfta och stänga aviseringar från en instrumentpanel i molnet.
+- Visa industriella tillgångar hierarkier i en topologi i trädet och på en interaktiv karta.
+- Visa, är medveten om och stänga aviseringar från en instrumentpanel i molnet.
 
 ## <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-- [Azure tid serien insikter](../time-series-insights/time-series-insights-overview.md) är utformat för att lagra, visualisera och fråga stora mängder time series-data. Ansluten Factory använder den här tjänsten.
-- Anslutna fabriken integrerar med den här tjänsten som gör att du utför djup realtid analys av dina data på enheten.
+- [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) har utformats för att lagra, visualisera och fråga stora mängder time series-data. Ansluten fabrik använder den här tjänsten.
+- Ansluten fabrik kan integreras med den här tjänsten gör att du utför djup i realtid analys av dina enhetsdata.
 
 ## <a name="rules-and-alerts"></a>Regler och aviseringar
 
-[Konfigurera tröskelvärde-baserade regler för aviseringar](iot-accelerators-connected-factory-configure.md).
+[Konfigurera tröskelbaserade regler för aviseringar](iot-accelerators-connected-factory-configure.md).
 
 ## <a name="end-to-end-security"></a>Slutpunkt till slutpunkt säkerhet
 
 - Konfigurera behörigheter för användare med hjälp av rollbaserad åtkomstkontroll (RBAC).
-- Kryptering från slutpunkt till slutpunkt implementeras med hjälp av OPC UA autentisering (med X.509-certifikat) samt säkerhetstoken.
+- Slutpunkt till slutpunkt kryptering implementeras med hjälp av OPC UA-autentisering (med X.509-certifikat) samt säkerhetstoken.
 
-## <a name="customizability"></a>Anpassningsbarheten
+## <a name="customizability"></a>Anpassningsbarhet
 
-- Anpassa lösningen för att uppfylla specifika krav i företaget.
-- Fullständig lösning-källkod finns på GitHub. Finns det [anslutna Factory förkonfigurerade lösningen](https://github.com/Azure/azure-iot-connected-factory) databasen.
+- Anpassa lösningen för att uppfylla specifika affärsbehov.
+- Hela lösningen-källkoden finns på GitHub. Se den [förinställda lösningen ansluten fabrik](https://github.com/Azure/azure-iot-connected-factory) lagringsplats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den anslutna Factory förkonfigurerade lösningen genom att läsa följande artiklar:
+Läs mer om lösningen ansluten fabrik förkonfigurerade genom att läsa följande artiklar:
 
-* [Anslutna Factory förkonfigurerade lösningen genomgång](iot-accelerators-connected-factory-sample-walkthrough.md)
+* [Den förkonfigurerade genomgång av lösningen ansluten fabrik](iot-accelerators-connected-factory-sample-walkthrough.md)
 * [Distribuera en gateway för ansluten fabrik]( iot-accelerators-connected-factory-gateway-deployment.md)

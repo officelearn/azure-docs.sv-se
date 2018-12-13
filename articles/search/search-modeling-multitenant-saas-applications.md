@@ -2,19 +2,20 @@
 title: Modellering Multitenancy i Azure Search | Microsoft Docs
 description: Läs mer om vanliga designmönster för SaaS-program med flera klientorganisationer när du använder Azure Search.
 manager: jlembicz
-author: ashmaka
+author: LiamCavanagh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: liamca
+ms.custom: seodec2018
+ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232389"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313045"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Designmönster för SaaS-program för flera innehavare och Azure Search
 Ett program för flera är en som innehåller samma tjänster och funktioner till valfritt antal klienter som inte kan se eller dela data med andra innehavare. Det här dokumentet beskriver innehavare isolering strategier för program för flera innehavare som skapats med Azure Search.
@@ -57,20 +58,20 @@ Concretely, kan en S3-tjänsten ha mellan 1 och 200 index som tillsammans kan va
 ## <a name="considerations-for-multitenant-applications"></a>Överväganden för program med flera klienter
 Program med flera klienter måste effektivt distribuera resurser mellan klienterna och behålla viss nivå av sekretess mellan olika klienter. Det finns några överväganden vid utformning av arkitekturen för ett sådant program:
 
-* *Klientisolering:* programutvecklare behöva vidta lämpliga åtgärder för att se till att inga klienter har Ej behörig eller oönskad åtkomst till data med andra klienter. Utöver perspektiv på datasekretess kräver strategier för isolering av klienten effektiv hantering av delade resurser och skydd mot störningar grannar.
-* *Resurskostnader i molnet:* som med alla andra program programvarulösningar måste vara konkurrenskraftiga som en del av ett program för flera kostnaden.
-* *Enkel Operations:* när du utvecklar en arkitektur med flera innehavare, påverkan på programmets åtgärder och komplexiteten är viktigt. Azure Search har ett [serviceavtal på 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* *Globala fotavtrycket:* program med flera klienter kan behöva effektivt hantera klienter som distribueras över hela världen.
-* *Skalbarhet:* programutvecklare behöver tänka på hur de stämma av mellan upprätthålla en tillräckligt låg nivå av komplexitet för programmet och utformning av programmet som ska skalas tillsammans med antalet klienter och storleken på klienternas data och arbetsbelastning.
+* *Klientisolering:* Programmet utvecklare behöver vidta lämpliga åtgärder för att säkerställa att inga klienter har Ej behörig eller oönskad åtkomst till data med andra klienter. Utöver perspektiv på datasekretess kräver strategier för isolering av klienten effektiv hantering av delade resurser och skydd mot störningar grannar.
+* *Resurskostnader för molnet:* Precis som med alla andra program måste programvarulösningar vara konkurrenskraftiga som en del av ett program för flera kostnaden.
+* *Enkel åtgärder:* När du utvecklar en arkitektur med flera innehavare är viktigt, påverkan på programmets åtgärder och komplexitet. Azure Search har ett [serviceavtal på 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* *Globala fotavtrycket:* Program med flera klienter kan behöva effektivt hantera klienter som distribueras över hela världen.
+* *Skalbarhet:* Programutvecklare måste du överväga hur de stämma av mellan upprätthålla en tillräckligt låg nivå av komplexitet för programmet och utformning av programmet som ska skalas tillsammans med antalet klienter och storleken på klienternas data och arbetsbelastningen.
 
 Azure Search erbjuder några gränser som kan användas för att isolera klienternas data och arbetsbelastningen.
 
 ## <a name="modeling-multitenancy-with-azure-search"></a>Modellering flera innehavare med Azure Search
 När det gäller ett scenario med flera innehavare programutvecklaren använder en eller flera söktjänster och dela sina klienter mellan tjänster, index eller båda. Azure Search har några vanliga mönster när modellering ett scenario med flera innehavare:
 
-1. *Index per klient:* varje klient har ett eget index i en söktjänst som delas med andra klienter.
-2. *Tjänsten per klient:* varje klientorganisation har sin egen dedikerade Azure Search-tjänst som erbjuder den högsta nivån på data och arbetsbelastningen uppdelning.
-3. *Blandning av båda:* större, mer aktiva klienter tilldelas dedikerade tjänster medan mindre klienter tilldelas individuella index i delade tjänster.
+1. *Index per klient:* Varje klient har ett eget index i en söktjänst som delas med andra klienter.
+2. *Tjänsten per klient:* Varje klient har sin egen dedikerade Azure Search-tjänst som erbjuder den högsta nivån på data och arbetsbelastningen uppdelning.
+3. *Blandning av båda:* Större, mer aktiva klienter tilldelas dedikerade tjänster medan mindre klienter tilldelas individuella index i delade tjänster.
 
 ## <a name="1-index-per-tenant"></a>1. Index per klient
 ![En bild av modellen index-per-klient](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)

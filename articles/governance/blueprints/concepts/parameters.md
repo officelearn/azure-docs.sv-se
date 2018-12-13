@@ -1,5 +1,5 @@
 ---
-title: Skapa dynamiska skisser genom parametrar i Azure skisser
+title: Använda parametrar för att skapa dynamiska skisser
 description: Läs mer om statiska och dynamiska parametrar och hur använder dem skapar dynamiska skisser.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f6485b01c391ba336799ceb35ee67402b3603585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eef85fe92682eb3a6fd1dbc036cf547b163db97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093759"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310325"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska skisser genom parametrar
 
@@ -51,13 +52,13 @@ Ett parametervärde som definierats i definitionen av en skiss kallas en **Stati
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Ställa in statisk parametrar i portalen
 
-1. Klicka på **alla tjänster** och söka efter och välja **princip** i den vänstra rutan. Klicka på **Skisser** på sidan **Princip**.
+1. Klicka på **Alla tjänster** och sök efter och välj **Princip** i den vänstra fönsterrutan. Klicka på **Skisser** på sidan **Princip**.
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
 1. Klicka på en befintlig skissen och klicka sedan på **redigera skiss** eller klicka på **+ skapa skiss** och Fyll i informationen på den **grunderna** fliken.
 
-1. Klicka på **nästa: artefakter** eller klicka på den **artefakter** fliken.
+1. Klicka på **nästa: Artefakter** eller klicka på den **artefakter** fliken.
 
 1. Artefakter som lagts till i skissen och som har parameteralternativ visa **X Y parametrar har fyllts i** i den **parametrar** kolumn. Klicka på raden artefakt som ska redigera artefakt-parametrar.
 
@@ -168,7 +169,7 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Ange dynamiska parametrar i portalen
 
-1. Klicka på **alla tjänster** och söka efter och välja **princip** i den vänstra rutan. Klicka på **Skisser** på sidan **Princip**.
+1. Klicka på **Alla tjänster** och sök efter och välj **Princip** i den vänstra fönsterrutan. Klicka på **Skisser** på sidan **Princip**.
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 

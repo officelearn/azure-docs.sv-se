@@ -10,17 +10,15 @@ ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 33ceece70c920bcb8bfd49fcfc8ff544af592b6b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 49f515c4321b13652d64c2e6f5b8e44ed6a29bca
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088212"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188103"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
@@ -73,7 +71,7 @@ Azure-resurser som stöder [Azure monitor](../../azure-monitor/overview.md) kan 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden till Log Analytics via diagnostikinställningarna. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. Men när exporteras via diagnostikinställningar mått representeras som alla inkommande meddelanden för alla köer i hubben.
+> *Till exempel*: ”Inkommande meddelanden'-mått i en Händelsehubb kan utforskas och läggas till på en per kö-nivå. Men när exporteras via diagnostikinställningar mått representeras som alla inkommande meddelanden för alla köer i hubben.
 >
 >
 

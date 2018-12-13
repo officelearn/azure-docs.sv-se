@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
@@ -16,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: a95004a24a9b136708f948f6a2697563216506fb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ebcae3e8e8f13904936dbe122f285a01a2a71459
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086042"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270458"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Hantera iterationer av experiment i Azure Machine Learning Studio
 Utveckla en förutsägande analysmodell är en iterativ process - allteftersom du ändrar de olika funktioner och parametrar av experimentet resultaten att Konvergera tills du är nöjd att du har en tränad, effektiv modell. Nyckeln till den här processen för att spåra olika iterationer av dina experiment parametrar och konfigurationer.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Du kan granska tidigare körningar för dina experiment när som helst för att utmana, gå tillbaka till, och slutligen antingen bekräfta eller förfina föregående antaganden. När du kör ett experiment, sparar en historik över kör, bland annat datauppsättning, modulen kommunikationsportar och parametrar i Machine Learning Studio. Denna historik samlar även in resultat, runtime information, till exempel start- och stopptider, loggmeddelanden och jobbstatus. Du kan gå tillbaka till någon av dessa körs när som helst granska kronologisk ordning experiment och mellanliggande resultat. Du kan även använda en tidigare körning av experimentet för att starta i en ny fas i förfrågan och identifiering i sökvägen till att skapa enkla eller komplexa även ensemble modellering lösningar.
 

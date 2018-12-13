@@ -1,5 +1,5 @@
 ---
-title: Visualisera data i förhandsversionen av Azure Time Series Insights-Utforskaren | Microsoft Docs
+title: Azure Time Series Insights Preview explorer – visualisera data i förhandsversionen av Azure Time Series Insights-Utforskaren | Microsoft Docs
 description: Den här artikeln beskrivs funktioner och alternativ som är tillgängliga i förhandsversionen av Azure Time Series Insights explorer webbapp.
 author: ashannon7
 ms.author: anshan
@@ -9,12 +9,13 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 3a2958d838f0646ac030421b3785fc11a1466dd6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 5372a36291ee13966d497bdae83a6e214dce99b9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086733"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272345"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualisera data i explorer Preview
 
@@ -24,7 +25,7 @@ Den här artikeln beskrivs funktioner och alternativ som är tillgängliga i fö
 
 Innan du använder förhandsversionen av Azure Time Series Insights explorer måste du:
 
-* Har en Time Series Insights-miljö ställer in. Mer information finns i [Självstudier: Azure Time Series Insights Preview](./time-series-insights-update-create-environment.md).
+* Har en Time Series Insights-miljö ställer in. Mer information finns i [självstudien: Förhandsversion av Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 * Tillhandahålla dataåtkomst i Time Series Insights-miljön som du skapade för kontot. Du kan ge åtkomst till andra samt för att själv.
 * Lägga till en händelsekälla till Time Series Insights-miljö för att skicka data till miljön.
 
@@ -34,12 +35,12 @@ Innan du använder förhandsversionen av Azure Time Series Insights explorer må
 
 Förhandsversion av Azure Time Series Insights explorer består av följande element:
 
-* **Navigeringsfältet**: kan du växla mellan sidorna analytics och modellen.
-* **Hierarkiträdet**: du kan välja specifika dataelement för diagrammet.
+* **Navigeringsfältet**: Kan du växla mellan sidor för analys och modellen.
+* **Hierarkiträdet**: Kan du välja specifika dataelement för diagrammet.
 * **Time series bra**: Visar dina valda dataelement.
 * **Diagrammet panelen**: Visar aktuella fungerande diagrammet.
-* **Tidslinje**: kan du ändra din fungerande tidsintervall.
-* **Appfältet**: innehåller dina alternativ för användare, till exempel aktuell klient, och du kan ändra tema och språkinställningar.
+* **Tidslinje**: Kan du ändra din fungerande tidsintervall.
+* **Appfältet**: Innehåller dina alternativ för användare, till exempel aktuell klient, och du kan ändra tema och språkinställningar.
 
 ## <a name="time-series-insights-preview-environment-panel"></a>Time Series Insights Preview miljö panelen
 
@@ -53,17 +54,17 @@ Miljö-panelen visar alla Time Series Insights-miljöer som du har åtkomst till
 
 Du kan växla mellan Time Series Insights-appar med navigeringsmenyn:
 
-* **Analysera**: låter dig skapa diagram över och utföra omfattande analysfunktioner på din modellerade eller unmodeled time series-data.
+* **Analysera**: Låter dig skapa diagram över och utföra omfattande analysfunktioner på din modellerade eller unmodeled time series-data.
 
-* **Modellen**: låter dig skicka ny Time Series Insights Preview-typer, hierarkier och instanser till din Time Series Insights-modell.
+* **Modellen**: Låter dig skicka ny Time Series Insights Preview-typer, hierarkier och instanser till din Time Series Insights-modell.
 
 ## <a name="time-series-insights-preview-model-authoring"></a>Time Series Insights Preview modellredigering
 
 Med den här appen kan du utföra åtgärder för skapa, läsa, uppdatera och ta bort (CRUD) på din Time Series-modell.  
 
 * **Time Series-modell typ**: Time Series Insights typer kan definiera variabler eller formler för att göra beräkningar. De är associerade med en viss Time Series Insights-instans. En typ kan ha en eller flera variabler.
-* **Time Series-modell hierarkin**: hierarkier är systematisk organisationer i dina data. Hierarkier visas relationerna mellan olika enheter i din Time Series Insights-data.
-* **Time Series-modell instans**: instanser är tidsserier själva. I de flesta fall är de DeviceID eller AssetID, vilket är den unika identifieraren för tillgången i miljön.
+* **Time Series-modell hierarkin**: Hierarkier är systematisk organisationer i dina data. Hierarkier visas relationerna mellan olika enheter i din Time Series Insights-data.
+* **Time Series-modell instans**: Instanser är tidsserier själva. I de flesta fall är de DeviceID eller AssetID, vilket är den unika identifieraren för tillgången i miljön.
 
 Läs mer om Time Series-modell i [gånger serien modeller](./time-series-insights-update-tsm.md).
 
@@ -94,19 +95,19 @@ Diagrammet, kan du visa time series-instanser som rader. Du kan dölja miljö pa
 
   ![Explorer-8][8]
 
-1. **Valda datumintervallet**: kontroller vilka dataelement är tillgängliga för visualisering.
+1. **Valda datumintervallet**: Styr vilka dataelement är tillgängliga för visualisering.
 
-1. **Inre datum intervallet skjutreglaget verktyget**: använda två endpoint-kontroller genom att dra dem under den önskade tiden.
+1. **Inre datum intervallet skjutreglaget verktyget**: Använd två endpoint-kontroller genom att dra dem under den önskade tiden.
 
-1. **Time span Dölj kontrollen**: komprimerar och expanderar time span panelen redigeraren.
+1. **Time span Dölj kontrollen**: Komprimerar och expanderar time span panelen redigeraren.
 
-1. **Y-axeln Formatera kontroll**: växlar mellan de tillgängliga alternativen för y-axeln vy:
+1. **Y-axeln Formatera kontroll**: Växlar mellan de tillgängliga alternativen för y-axeln vy:
 
     * `Default`: Varje rad har en enskild y-axeln.
     * `Stacked`: Om du vill stapla flera rader på samma y-axeln, med det y-axeln data som ändras baserat på den rad som valts.
     * `Shared`: Alla y-axeln data som visas tillsammans.
 
-1. **Aktuella dataelement**: dataelementet för valda och dess tillhörande information.
+1. **Aktuella dataelement**: Dataelementet för valda och dess tillhörande information.
 
 Du ytterligare detaljer i en specifik datasektor genom vänsterklicka en datapunkt i det aktuella diagrammet och sedan dra det markerade området till slutpunkten för ditt val. Högerklicka på det grå, valda området och klickar på zoomning som visas i den här följande bild:
 
@@ -126,19 +127,19 @@ När du arbetar med Time Series Insights Preview måste välja du först ett tid
 
   ![Explorer-tolv][12]
 
-1. **Inre datumintervall skjutreglaget verktyget**: använda två endpoint-kontroller genom att dra dem under den önskade tiden. Den här inre datumintervall begränsas av yttre datumintervall skjutreglage.
+1. **Inre datumintervall skjutreglaget verktyget**: Använd två endpoint-kontroller genom att dra dem under den önskade tiden. Den här inre datumintervall begränsas av yttre datumintervall skjutreglage.
 
-1. **Öka och minska datum intervallet knappar**: öka eller minska din tid sträcker sig över genom att välja någon av knapparna för intervallet.
+1. **Öka och minska datum intervallet knappar**: Öka eller minska din tidsintervall genom att välja någon av knapparna för intervallet.
 
-1. **Time span Dölj kontrollen**: här kontrollen kan du dölja alla kontroller utom verktyget inre datumintervall skjutreglaget.
+1. **Time span Dölj kontrollen**: Här kontrollen kan du dölja alla kontroller utom verktyget inre datumintervall skjutreglaget.
 
 1. **Skjutreglage för datumintervall för yttre**: Använd endpoint-kontroller för att välja det yttre-datumintervallet, som är tillgängliga för din inre datumintervall kontroll.
 
-1. **Snabbtider datum intervallet listrutan**: gör att du snabbt växla mellan förinställda time span val, till exempel de senaste 30 minuterna, de senaste 12 timmarna eller ett anpassat intervall. Ändra det här värdet ändras också de tillgängliga intervall intervall som beskrivs i verktyget intervallstorlek skjutreglaget.
+1. **Snabbgånger datum intervallet listrutan**: Kan du snabbt växla mellan förinställda time span val, till exempel de senaste 30 minuterna, de senaste 12 timmarna eller ett anpassat intervall. Ändra det här värdet ändras också de tillgängliga intervall intervall som beskrivs i verktyget intervallstorlek skjutreglaget.
 
-1. **Intervallstorlek skjutreglaget**: kan du zooma in och ut ur intervall via samma angivna tidsintervallet. Den här åtgärden ger mer exakt kontroll av flytt mellan stora sektorer tid. Smidig trender ned till segment som är så litet som en millisekund, så att du kan se detaljerad, högupplösta rabatter för dina data visas. Skjutreglagets standard startpunkt har angetts som den mest optimala vy av data från ditt val som balanserar upplösning, fråga hastighet och granularitet.
+1. **Intervallstorlek skjutreglaget**: Kan du zooma in och ut ur intervall över samma tidsintervall. Den här åtgärden ger mer exakt kontroll av flytt mellan stora sektorer tid. Smidig trender ned till segment som är så litet som en millisekund, så att du kan se detaljerad, högupplösta rabatter för dina data visas. Skjutreglagets standard startpunkt har angetts som den mest optimala vy av data från ditt val som balanserar upplösning, fråga hastighet och granularitet.
 
-1. **Datumintervall till och från webbkontrollen**: här kontrollen kan du enkelt klicka och välj din önskade datum- och tidsintervall. Du kan också använda kontrollen för att växla mellan olika tidszoner. När du har gjort ändringarna ska tillämpas på din aktuella arbetsyta väljer **spara**.
+1. **Datumintervall till och från webbkontrollen för**: Den här kontrollen kan enkelt klickar du på och välj din önskade datum- och tidsintervall. Du kan också använda kontrollen för att växla mellan olika tidszoner. När du har gjort ändringarna ska tillämpas på din aktuella arbetsyta väljer **spara**.
 
   ![Explorer-13][13]
 
@@ -169,8 +170,8 @@ Välj länken webbkontrollen (markerat) för att generera en URL för att spara 
 
 Azure Time Series Insights Preview stöder två teman:
 
-* **Ljust tema**: standardtemat som visas i hela dokumentet.
-* **Mörkt tema**: återges i Utforskaren som visas här:
+* **Ljust tema**: Standardtemat som visas i hela dokumentet.
+* **Mörkt tema**:  Återges i Utforskaren som visas här:
 
   ![Explorer-seventeen][17]
 
@@ -188,7 +189,7 @@ I stället för hierarkin visas panelen Time Series Insights villkoren som defin
 
 Time Series Insights Preview redigeraren termpanelen använder följande parametrar:
 
-**Där**: where sats kan du snabbt filtrera händelser med hjälp av uppsättningen operander visas i följande tabell. Om du gör en sökning genom att välja en operand uppdateras predikatet automatiskt utifrån sökningen. Operandtyperna som stöds är:
+**Där**: Where sats kan du snabbt filtrera händelser med hjälp av uppsättningen operander visas i följande tabell. Om du gör en sökning genom att välja en operand uppdateras predikatet automatiskt utifrån sökningen. Operandtyperna som stöds är:
 
 | Åtgärd | Typer som stöds   | Anteckningar |
 | --- | --- | --- |
@@ -203,9 +204,9 @@ Läs mer om stöds frågetyper för drift och genom att läsa [Time Series uttry
 
   ![Explorer-nitton][19]
 
-**Måttet**: den här listan visar alla numeriska kolumner (**Double-värden**) som du kan använda som element för din aktuella diagrammet.
+**Måttet**: Den här listan visar alla numeriska kolumner (**Double-värden**) som du kan använda som element för din aktuella diagrammet.
 
-**Dela efter**: den här listan visar alla tillgängliga kategoriska kolumner (strängar) i din modell som du kan gruppera dina data genom. Du kan lägga till upp till fem villkoren för att visa på samma x-axeln. Ange önskade parametrar och välj sedan **Lägg till** att lägga till ett nytt villkor.
+**Dela efter**: Den här listan visar alla tillgängliga kategoriska kolumner (strängar) i din modell som du kan gruppera dina data genom. Du kan lägga till upp till fem villkoren för att visa på samma x-axeln. Ange önskade parametrar och välj sedan **Lägg till** att lägga till ett nytt villkor.
 
   ![Explorer-20][20]
 

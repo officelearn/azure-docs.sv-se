@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: e071c24b27a7f2240d10719ba61684146da81074
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a43e14401861ee33789054a8dcd48289dbbcc88
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002657"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187185"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Ta bort en Azure Log Analytics-arbetsyta med Azure portal
 Den här artikeln visar hur du använder Azure-portalen för att ta bort en Log Analytics-arbetsyta som du kan inte längre behöver. 

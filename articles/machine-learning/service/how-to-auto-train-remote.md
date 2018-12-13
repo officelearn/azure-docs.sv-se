@@ -1,7 +1,7 @@
 ---
-title: Konfigurera fjärransluten beräkningsmål för automatiserade ML
+title: Automatiserad ML remote beräkningsmål
 titleSuffix: Azure Machine Learning service
-description: Den här artikeln förklarar hur du skapar modeller med automatiserade maskininlärning på Data Science Virtual machine (DSVM) remote beräkningsmål med Azure Machine Learning-tjänsten
+description: Lär dig att bygga modeller med automatiserade maskininlärning på Data Science Virtual machine (DSVM) remote beräkningsmål med Azure Machine Learning-tjänsten
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e8761b0671de38e7934df56847a5d0a7eafd3649
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 18b2b3df2748392b12b60517604478b120871754
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097723"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256068"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
@@ -41,7 +41,7 @@ ws = Workspace.from_config()
 
 Skapa DSVM i din arbetsyta (`ws`) om den inte redan finns. Om DSVM skapades tidigare finns den här koden hoppar över skapandeprocessen och läser in befintliga resurs-information till den `dsvm_compute` objekt.  
 
-**Uppskattad tidsåtgång**: skapandet av den virtuella datorn tar cirka 5 minuter.
+**Uppskattad tidsåtgång**: Skapandet av den virtuella datorn tar cirka 5 minuter.
 
 ```python
 from azureml.core.compute import DsvmCompute
@@ -250,12 +250,12 @@ Finns det loggar på DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 Hämtning av modellen förklaring data kan du se detaljerad information om modeller för att öka transparens för program som körs på serverdelen. I det här exemplet kör du modellen förklaringar endast för den bästa anpassa modellen. Om du kör för alla modeller i pipelinen, resulterar det i betydande körningstid. Förklaring modellinformation innehåller:
 
-* shape_values: förklaring-information som genereras av formen lib
-* expected_values: det förväntade värdet av modellen som används för att ställa in X_train data.
-* overall_summary: modellen på funktionen vikten värden sorteras i fallande ordning
-* overall: funktionsnamn sorteras i samma ordning som i overall_summary
-* per_class_summary: klass på funktionen vikten värden sorteras i fallande ordning. Endast tillgängligt för klassificering
-* per_class: funktionsnamn sorteras i samma ordning som i per_class_summary. Endast tillgängligt för klassificering
+* shap_values: Förklaring-information som genereras av formdata lib
+* expected_values: Det förväntade värdet av modellen som används för att ställa in X_train data.
+* overall_summary: Modellen på funktionen vikten värden sorteras i fallande ordning
+* overall: Funktionsnamn sorteras i samma ordning som i overall_summary
+* per_class_summary: Klass på funktionen vikten värden sorteras i fallande ordning. Endast tillgängligt för klassificering
+* per_class: Funktionsnamnen sorteras i samma ordning som i per_class_summary. Endast tillgängligt för klassificering
 
 Använd följande kod för att välja den bästa pipelinen från din iterationer. Den `get_output` metoden returnerar den bästa körningen och den anpassade modellen för senaste passar anrop.
 
@@ -268,7 +268,7 @@ Importera den `retrieve_model_explanation` fungerar och körs på den bästa mod
 ```python
 from azureml.train.automl.automlexplainer import retrieve_model_explanation
 
-shape_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
+shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
     retrieve_model_explanation(best_run)
 ```
 

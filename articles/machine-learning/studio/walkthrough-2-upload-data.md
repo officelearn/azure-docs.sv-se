@@ -1,12 +1,11 @@
 ---
 title: 'Steg 2: Ladda upp data till en Machine Learning Studio-experiment - Azure | Microsoft Docs'
-description: 'Steg 2 av utveckla en förutsägelselösning genomgång: ladda upp lagras offentliga data till Azure Machine Learning Studio.'
+description: 'Steg 2 av utveckla en förutsägelselösning genomgång: Ladda upp offentliga lagrade data till Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 90a73de4177cec74187da852709137d77d60b4d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311984"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261459"
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Genomgång steg 2: Överför befintliga data i ett Azure Machine Learning Studio-experiment
 Det här är det andra steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -101,7 +100,7 @@ Du kan hantera datauppsättningar som du har överfört till Studio genom att kl
 
 Läs mer om hur du importerar andra typer av data i ett experiment, [importera dina utbildningsdata till Azure Machine Learning Studio](import-data.md).
 
-**Nästa: [skapa ett nytt experiment](walkthrough-3-create-new-experiment.md)**
+**Nästa: [Skapa ett nytt experiment](walkthrough-3-create-new-experiment.md)**
 
 [1]: media/walkthrough-2-upload-data/menu.png
 [2]: media/walkthrough-2-upload-data/add-dataset.png

@@ -1,5 +1,5 @@
 ---
-title: Azure App Service-Hybridanslutningar | Microsoft Docs
+title: Hybridanslutningar – Azure App Service | Microsoft Docs
 description: Hur du skapar och använda Hybridanslutningar för att komma åt resurser i olika nätverk
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
-ms.openlocfilehash: cdfe1a35dbbf8fa048e0b0ca24f06bb0e73bde61
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968330"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258023"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service-Hybridanslutningar #
 
@@ -136,7 +137,7 @@ När du startar HCM UI, är det första som du ser en tabell med alla Hybridansl
 Att lägga till en eller flera Hybridanslutningar i din HCM:
 
 1. Starta HCM-Användargränssnittet.
-1. Välj **konfigurera en annan Hybridanslutning**.
+2. Välj **konfigurera en annan Hybridanslutning**.
 ![Skärmbild av konfigurera nya Hybridanslutningar][8]
 
 1. Logga in med ditt Azure-konto.
@@ -197,7 +198,7 @@ JSON-objekt som är associerade med en Hybridanslutning ser ut som:
       }
     }
 
-Ett sätt att använda den här informationen är med armclient som du kan hämta från den [ARMClient] [ armclient] github-projektet. Här är ett exempel på att koppla en befintlig Hybrid-anslutning till din webbapp. Skapa en JSON-fil per ovan schemat som:
+Ett sätt att använda den här informationen är med armclient som du kan hämta från den [ARMClient] [ armclient] GitHub-projektet. Här är ett exempel på att koppla en befintlig Hybrid-anslutning till din webbapp. Skapa en JSON-fil per ovan schemat som:
 
     {
       "name": "relay-demo-hc",

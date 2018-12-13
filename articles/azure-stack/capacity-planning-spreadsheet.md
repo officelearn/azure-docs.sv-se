@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 3b07485d4168e38736c12a74b0d36bcc8a276748
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7b8276281b8b550492fed17adc516e9539380987
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233073"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269744"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner är ett kalkylblad som används för kapacitetsplanering för Azure Stack-resurs. Capacity planner ger dig möjlighet att utforma olika allokeringen av datorresurser och se hur de skulle passa över ett urval av maskinvara. Detaljerade anvisningar för användning av Azure Stack-Kalkylatorn finns nedan.
@@ -61,7 +61,7 @@ Välj fliken ”DefineByVMFootprint” för att skapa en modell med en enda saml
 3. Du är nu redo att börja lägga till olika storlekar virtuella datorer i din modell. För att inkludera en viss typ av virtuell dator, anger du värdet för antal i blått nedan rutan till vänster om den virtuella dator posten.
 
   > [!NOTE]
-  > Varje virtuell dator startar med ett initialt tilldelade lagringsstorlek. Lagringsstorlek visas med en listruta och kan ändras så att de passar din önskade nivå av lagringsresurs för varje virtuell dator i Azure Stack. Om du vill använda storlek inte anges, du kan lägga till den genom att ändra någon av de 10 inledande storlekarna som ingår i listan ”tillgängliga lagringskonfigurationer” finns på höger sida på sidan.<br><br>Varje virtuell dator startar med ett initialt tilldelade lokal temporär lagring. För att återspegla tunn allokering av temporär lagring kan lokala temp-talet ändras till något i nedrullningsbara menyn som bland annat hur maximal tillåten temporär lagring.
+  > Totalt antal VM-lagring refererar till den totala kapaciteten för datadisken för den virtuella datorn (antal diskar stöds * maximal kapacitet för en enskild disk (1 TB)). Baserat på konfigurationen indikatorer ifyllda vi tillgängliga lagringskonfigurationer-tabellen så att du kan välja din önskade nivå av lagringsresurs för varje virtuell dator i Azure Stack. Det är dock viktigt att Observera att du kan lägga till eller ändra tabellen tillgängliga lagringskonfigurationer som det behövs.<br><br>Varje virtuell dator startar med ett initialt tilldelade lokal temporär lagring. För att återspegla tunn allokering av temporär lagring kan lokala temp-talet ändras till något i nedrullningsbara menyn som bland annat hur maximal tillåten temporär lagring.
 
 4. När du lägger till virtuella datorer visas diagram som visar tillgängliga SKU: N resurser ändra. På så sätt kan du se effekterna av att lägga till olika storlekar och kvantiteter av virtuella datorer under modelleringsprocessen. Ett annat sätt att visa effekten av ändringarna är att titta på förbrukade och fortfarande tillgängliga siffrorna visas direkt nedanför listan med tillgängliga virtuella datorer. Dessa siffror visas beräknade värden baserat på valda SKU-maskinvara.
 5. När du har skapat en uppsättning virtuella datorer kan hittar du den föreslagna maskinvaran SKU: N genom att klicka på ”föreslagna SKU” hittades i det övre högra hörnet på sidan, direkt under etiketten ”aktuella SKU: N”. Med den här knappen kan du sedan ändrar dina VM-konfigurationer och se vilka maskinvaran har stöd för varje konfiguration.

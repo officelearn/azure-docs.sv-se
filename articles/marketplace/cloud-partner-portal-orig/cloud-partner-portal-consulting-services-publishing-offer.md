@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7ea4a58f072071f60cf87d1e8817ae19658be5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037778"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310427"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure och Dynamics 365 Consulting tjänst-erbjudande
 
 <table> <tr> <td>Det här avsnittet beskrivs hur du publicerar konsulter till antingen Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> eller <a href="https://appsource.microsoft.com">AppSource-marknadsplatsen</a>. Lösningar baserat på Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, och <a href="https://powerapps.microsoft.com">PowerApps</a> är berättigade att lista på AppSource. Andra erbjudanden baserat på andra Microsoft- <a href="https://azure.microsoft.com/services">Azure-tjänster</a> är listad på på Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
 
-# <a name="publishing-benefits"></a>Publicera fördelar
+## <a name="publishing-benefits"></a>Publicera fördelar
 
 Publicering till antingen Microsoft-marknadsplatser har betydande fördelar:
 
@@ -36,13 +36,11 @@ Publicering till antingen Microsoft-marknadsplatser har betydande fördelar:
 - Hämta dina befordras av Microsoft-fältet och telefonförsäljning team-tjänster.
 
 
-<a name="define-your-consulting-services-offer"></a>Definiera ditt Consulting Services-erbjudande
--------------------------------------
+## <a name="define-your-consulting-services-offer"></a>Definiera ditt Consulting Services-erbjudande
 
 Definiera din paketerade konsult tjänst-erbjudande. Fokusera på fast omfattning, fast varaktighet, Uppskattat, fast pris (eller kostnadsfri) och främst certifikathierarkin sales-orienterade erbjudanden för en enda kund. Välj upprepningsbara paketerade engagemang som är populära och effektiva för att driva verksamheten åt dig.
 
-<a name="publish-a-consulting-service-offer"></a>Publicera en konsult tjänsterbjudande
-----------------------------------
+## <a name="publish-a-consulting-service-offer"></a>Publicera en konsult tjänsterbjudande
 
 I följande avsnitt beskrivs processen för att publicera erbjudandet konsulttjänster
 
@@ -62,7 +60,7 @@ Utför följande steg för att skapa ett nytt erbjudande:
 
 ### <a name="define-offer-settings"></a>Definiera inställningar för erbjudandet
 
-På skärmen för nytt erbjudande är det första steget att skapa erbjudandet identiteten.  Erbjudandet identiteten består av tre delar: **erbjudande-ID**, **Publicerings-ID**, och **namn**.  De olika delarna beskrivs i följande avsnitt.
+På skärmen för nytt erbjudande är det första steget att skapa erbjudandet identiteten.  Erbjudandet identiteten består av tre delar: **ID för erbjudande**, **Publicerings-ID**, och **namn**.  De olika delarna beskrivs i följande avsnitt.
 
 #### <a name="offer-id"></a>ID för erbjudande
 
@@ -80,7 +78,7 @@ Den här identifieraren är relaterat till ditt konto. När du har loggat in med
 
 Strängen är vad som visas som erbjudandet namnen på AppSource eller Azure Marketplace.
 
-**Viktigt:** bara ange namnet på den faktiska servicen här. Omfattar inte varaktighet och typ av tjänst.
+**Viktigt!** Ange endast namnet på den faktiska servicen här. Omfattar inte varaktighet och typ av tjänst.
 
 I följande exempel av Edgewater Fullscope visas hur erbjudandenamn är klar. Erbjudandenamn visas som:
 
@@ -95,11 +93,11 @@ Erbjudandenamn består av fyra delar:
 
 Följande lista innehåller flera väl namngivna erbjudandet namn:
 
--   Essentials för professionella tjänster: genomgång för 1 tim
--   Molnplattform för migrering: 1 tim genomgång
+-   Essentials för professionella tjänster: Genomgång för 1 tim
+-   Molnplattform för migrering: Genomgång för 1 tim
 -   PowerApps och Microsoft Flow: 1-dagars Workshop
 -   Azure Machine Learning-tjänster: 3 veckor PoC
--   Bricka och klicka på exempel på lösning: genomgång för 1 tim
+-   Bricka och klicka på Retail-lösningen: Genomgång för 1 tim
 -   Hämta dina egna Data: 1 vecka Workshop
 -   Molnet Analytics: 3 dagars Workshop
 -   Utbildning för Power BI: 3 dagars Workshop
@@ -131,28 +129,28 @@ Sammanfattning av erbjudandet är en kort beskrivning av ditt erbjudande som vis
 
 *Exempel 1*
 
--   **Erbjudandets namn:** molnbaserade analyser: 3 dagars Workshop
--   **Erbjuder Sammanfattning:** översikt över Microsoft Azure och Power BI, bedömning av aktuella miljön och mini POC.
+-   **Erbjudandets namn:** Molnet Analytics: 3 dagars Workshop
+-   **Sammanfattning av erbjudandet:** Översikt över Microsoft Azure och Power BI, bedömning av aktuella miljön och mini POC.
 
 *Exempel 2*
 
--   **Erbjudandets namn:** industriella Azure IoT: 30-dagars konceptbevis
--   **Erbjuder Sammanfattning:** skapa en industriella anslutna produkten pilotprojekt för att på ett säkert sätt ansluta utrustning i fältet till en Azure IoT Hub-lösning med instrumentpaneler, rapporter och meddelanden.
+-   **Erbjudandets namn:** Industriella Azure IoT: 30-dagars konceptbevis
+-   **Sammanfattning av erbjudandet:** Skapa en industriella anslutna produkten pilotprojekt för att på ett säkert sätt ansluta utrustning i fältet till en Azure IoT Hub-lösning med instrumentpaneler, rapporter och meddelanden.
 
 *Exempel 3*
 
--   **Erbjudandets namn:** professionella tjänster: genomgång för 1 tim
--   **Sammanfattning av erbjudandet:** översikt och demonstration av förkonfigurerade, utökad Dynamics 365 för åtgärder lösningen ger förbättrad hantering av projekt, fakturering och resurser för professionella tjänster.
+-   **Erbjudandets namn:** Professionella tjänster: Genomgång för 1 tim
+-   **Sammanfattning av erbjudandet:** Översikt och demonstration av förkonfigurerade, utökad Dynamics 365 för Operations-lösning som ger förbättrad hantering av projekt, fakturering och resurser för professionella tjänster.
 
 *Exempel 4*
 
--   **Erbjudandets namn:** Power BI i din värld: 4 tim Workshop
--   **Erbjuder Sammanfattning:** komma igång med din första instrumentpanel och få metodtips. För upp till 12 studenter som genomförs på plats.
+-   **Erbjudandets namn:** Powerbi i din värld: 4 tim Workshop
+-   **Sammanfattning av erbjudandet:** Kom igång med din första instrumentpanel och Läs om bästa praxis. För upp till 12 studenter som genomförs på plats.
 
 *Exempel 5*
 
 -   **Erbjudandets namn:** Dynamics och projekt: 3-dagars utvärdering
--   **Erbjuder Sammanfattning:** krav samla in och utvärdering för ERP-lösning som utformats för professionella tjänster företag och projekt-drivna företag.
+-   **Sammanfattning av erbjudandet:** Samla in kraven och utvärdering för ERP-lösning som utformats för professionella tjänster företag och projekt-drivna företag.
 
 ##### <a name="offer-description"></a>Beskrivning av erbjudande
 
@@ -168,11 +166,11 @@ Håll det kort beskrivning av ditt erbjudande och följa teckengränsen som anv�
 
 I följande exempel visar en bra består beskrivning av erbjudande och dess relaterade namn och en sammanfattning:
 
-**Erbjudandets namn:** molnbaserade analyser: 3 dagars Workshop
+**Erbjudandets namn:** Molnet Analytics: 3 dagars Workshop
 
-**Erbjuder Sammanfattning:** översikt över Microsoft Azure och Power BI, bedömning av aktuella miljön och mini POC.
+**Sammanfattning av erbjudandet:** Översikt över Microsoft Azure och Power BI, bedömning av aktuella miljön och mini POC.
 
-**Erbjuder beskrivning:** det här 3-dagars workshop för tekniska och affärsmässiga ledare och lagras på plats hos klientens anläggning.
+**Beskrivning av erbjudande:** Den här 3-dagars workshop är för tekniska och affärsmässiga ledare och lagras på plats hos klientens anläggning.
 
 ***Agenda***
 
@@ -236,11 +234,11 @@ Microsoft är koncentrera exklusivt på fasta gränser, fast varaktighet, beräk
 
 För följande typer av erbjudanden ingår:
 
--   **Utvärderingen:** en utvärdering av en kunds miljö för att fastställa tillämpligheten hos en lösning och ange en uppskattning av kostnaden och val av tidpunkt.
--   **Genomgång:** en introduktion till en lösning eller en tjänst som konsult för att rita kunden närheten med hjälp av ramverk, demonstrationer och Kundexempel. Implikationer måste vara ledda på plats.
--   **Implementering:** en fullständig installation som resulterar i en fullt fungerande lösning. Microsoft rekommenderar att begränsa till lösningar som kan vara implementerade i en vecka eller mindre för detta pilotprogram.
--   **Konceptbevis:** implementering begränsat omfång för att avgöra om en lösning som passar kraven för en kund.
--   **Workshop:** en interaktiv engagement utförs i en kunds lokala som kan inkludera utbildningssessioner, implikationer, utvärderingar och demonstrationer som bygger på kundens data eller miljö.
+-   **Utvärdering av:** En utvärdering av en kunds miljö för att fastställa tillämpligheten hos en lösning och ange en uppskattning av kostnaden och val av tidpunkt.
+-   **Genomgång:** En introduktion till en lösning eller en tjänst som konsult för att rita kunden närheten med hjälp av ramverk, demonstrationer och Kundexempel. Implikationer måste vara ledda på plats.
+-   **Implementering:** En fullständig installation som resulterar i en fullt fungerande lösning. Microsoft rekommenderar att begränsa till lösningar som kan vara implementerade i en vecka eller mindre för detta pilotprogram.
+-   **Konceptbevis:** Implementering av begränsat omfång att avgöra om en lösning som passar kraven för en kund.
+-   **Workshop:** En interaktiv engagement utförs i en kunds lokala som kan inkludera utbildningssessioner, implikationer, utvärderingar och demonstrationer som bygger på kundens data eller miljö.
 
 **Tillgänglighet för land/region**
 

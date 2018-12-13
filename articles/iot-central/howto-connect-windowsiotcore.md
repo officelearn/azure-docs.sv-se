@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5be556ca13b9e4f681239998205aac073cc0fb99
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7d593a992d0ff189d23185b3422dee86a55308d1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974763"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309458"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
@@ -57,9 +57,9 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **Wind
 
 ### <a name="what-youll-need"></a>Det här behöver du
 
-Om du vill konfigurera en fysisk Windows 10 IoT Core-enhet behöver du först ha en enhet som kör Windows 10 IoT Core. Lär dig hur du konfigurerar en Windows 10 IoT Core-enhet [här](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup).
+Om du vill konfigurera en fysisk Windows 10 IoT Core-enhet behöver du först ha en enhet som kör Windows 10 IoT Core. Lär dig hur du konfigurerar en Windows 10 IoT Core-enhet [här](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
-Du måste också ett klientprogram som kan kommunicera med Azure IoT Central. Du kan skapa egna anpassade program med Azure SDK och distribuera den till din enhet med hjälp av Visual Studio eller du kan ladda ned en [färdiga exemplet](https://developer.microsoft.com/en-us/windows/iot/samples) och helt enkelt distribuera och köra den på enheten. 
+Du måste också ett klientprogram som kan kommunicera med Azure IoT Central. Du kan skapa egna anpassade program med Azure SDK och distribuera den till din enhet med hjälp av Visual Studio eller du kan ladda ned en [färdiga exemplet](https://developer.microsoft.com/windows/iot/samples) och helt enkelt distribuera och köra den på enheten. 
 
 ### <a name="deploying-the-sample-client-application"></a>Distribuera exempelprogrammet för klienten
 

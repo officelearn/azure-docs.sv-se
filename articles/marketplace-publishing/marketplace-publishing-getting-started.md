@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 3556384d71649391d094172a136b863ed26fd2ad
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c8c97d8f5477e7640df87030ed6ef27c4c7b979
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227407"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310087"
 ---
+# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publicera och hantera ett erbjudande på Azure Marketplace
+
 > [!NOTE]
 > Den här dokumentationen är inte längre aktuellt och är inte korrekt. I stället gå till Azure Marketplace [Säljguide för](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) vägledning för att publicera ett erbjudande på Azure Marketplace.
 
-# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publicera och hantera ett erbjudande på Azure Marketplace
 Den här artikeln är som hjälper utvecklare att skapa, distribuera och hantera sina lösningar i Azure Marketplace för andra Azure-kunder och partner att köpa och använda.
 
 ## <a name="marketplace-publishing"></a>Marketplace-publicering

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 938472edf0c82da6f3e1fdaf4e6b052ac178bd8a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722981"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258210"
 ---
 <a name="logic-app-test-drive"></a>Logic App-provkörning
 ====================
@@ -29,7 +29,7 @@ Den här artikeln är utgivare som har sitt erbjudande på AppSource och vill sk
 <a name="how-to-build-a-logic-app-test-drive"></a>Hur du skapar en Logic App Test Drive
 -----------------------------------
 
-Test Drive-dokumentationen för Logic App Test Drives håller fortfarande på github för [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) och [Kundengagemang](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app)går att läsa mer.
+Test Drive-dokumentationen för Logic App Test Drives håller fortfarande på GitHub för [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) och [Kundengagemang](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app)går att läsa mer.
 
 <a name="how-to-publish-a-test-drive"></a>Så här publicerar du en Test Drive
 ---------------------------
@@ -40,7 +40,7 @@ Nu när du har din provkörning som skapats beskriver i det här avsnittet var o
 
 Fältet första och viktigaste är att ange om du vill testa med alla obligatoriska fält visas för att fylla. När du väljer **Nej,** formuläret blir inaktiverad och om du publicerar med Test Drive inaktiverat din provkörning tas bort från produktionen.
 
-*Obs*: om det finns några Test-enheter som aktivt används av användare, dessa Provkörningar fortsätter att köras tills sin session upphör att gälla.
+*Obs*: Om det finns några Provkörningar som aktivt används av användare, fortsätter dessa Provkörningar att köras tills sin session upphör att gälla.
 
 ### <a name="details"></a>Information
 
@@ -70,11 +70,11 @@ Nästa avsnitt för att fylla i kan du konfigurera din Test Drive Logikapp och d
 
 - **Region** - *[krävs Field]* den region som du väljer är där du kan välja där Test Drive Logic App-resurser distribueras.
 
-    *Obs:* om din Logikapp har alla anpassade resurser som lagras i en region, kontrollera att den regionen väljs här. Det bästa sättet att göra detta är att **fullständigt distribuera Logikappen lokalt på din Azure-prenumeration i portalen och kontrollera att det fungerar** innan du skriver in här.
+    *Obs:* Om din Logikapp har alla anpassade resurser som lagras i en region, kontrollerar du den regionen väljs här. Det bästa sättet att göra detta är att **fullständigt distribuera Logikappen lokalt på din Azure-prenumeration i portalen och kontrollera att det fungerar** innan du skriver in här.
 
 - **Maximal samtidiga Provkörningar** - *[krävs Field]* nummer Provköra instanser som redan är distribuerad och väntar på åtkomst per valda regionen. Kunder kan direkt komma åt den här Provkörningar i stället för att behöva vänta på en distribution.
 
-    *Obs:* om du kör en webbseminarium/klass där du vill att alla dina N antalet studenter att testa, rekommenderar vi att publicera med N antal frekvent instanser och sedan en gång klassen är över att publicera tillbaka till det normala antalet frekvent instanser.
+    *Obs:* Om du kör en webbseminarium/klass där du vill att alla dina N antalet studenter att testa, rekommenderar vi att publicera med N antal frekvent instanser och sedan en gång klassen är över att publicera tillbaka till det normala antalet frekvent instanser.
 
 - **Driv varaktighet (timmar) -** *[krävs Field]* varaktigheten för hur länge Test Drive förblir aktiv i \# timmar. Test Drive avslutas automatiskt efter denna tid har löpt ut.
 

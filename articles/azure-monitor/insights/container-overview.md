@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b5e8442e6d6762fda875460544aa4369e54d49b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 574b2ad048ca9572447b55885deb98415c3e3753
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889029"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183207"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Översikt över övervakning av behållare i Azure
 Med Azure kan du effektivt övervaka och hantera dina arbetsbelastningar som distribuerats på Azure som kör Kubernetes eller Docker-behållare. Det är viktigt att förstå hur behållare med flera mikrotjänstprogram utför för att leverera en tillförlitlig tjänst i skala och övervakning planen. Den här artikeln innehåller en kort översikt över hanterings- och övervakningsfunktionerna i Azure för att förstå dem och som är lämplig baserat på dina krav.

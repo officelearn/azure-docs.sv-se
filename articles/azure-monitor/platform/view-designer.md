@@ -10,25 +10,23 @@ ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 2aa2f4e55d375f6ed7960af8bbe327d45b5ea025
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871769"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192272"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Skapa anpassade vyer med hjälp av Vydesigner i Log Analytics
 Med hjälp av Vydesigner i [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), du kan skapa en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln presenteras en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
 
 Mer information om Vydesigner finns:
 
-* [Panelen referens](view-designer-tiles.md): ger en referensguide i inställningarna för var och en av de tillgängliga panelerna i dina anpassade vyer.
-* [Referens för visualiseringsdel](view-designer-parts.md): ger en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
+* [Panelen referens](view-designer-tiles.md): Innehåller en referensguide till inställningarna för var och en av de tillgängliga panelerna i dina anpassade vyer.
+* [Referens för visualiseringsdel](view-designer-parts.md): Innehåller en referensguide till inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
 
 
 ## <a name="concepts"></a>Begrepp
@@ -72,9 +70,9 @@ Du kan skapa en ny vy i Vydesigner genom att välja **Vydesigner** på menyn i L
 Du kan använda View Designer för att skapa nya vyer eller redigera befintliga. 
 
 Vydesigner har tre fönster: 
-* **Design**: innehåller den vy som du skapar eller redigerar. 
-* **Kontroller**: innehåller paneler och delar som du lägger till den **Design** fönstret. 
-* **Egenskaper för**: visas egenskaperna för paneler eller valda delar.
+* **Design**: Innehåller den vy som du skapar eller redigerar. 
+* **Kontroller**: Innehåller paneler och delar som du lägger till den **Design** fönstret. 
+* **Egenskaper för**: Visar egenskaperna för paneler eller valda delar.
 
 ![Vydesigner](media/view-designer/view-designer-screenshot.png)
 

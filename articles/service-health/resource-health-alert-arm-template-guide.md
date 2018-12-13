@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: ac1b9dbbb5739dd015c0bda5f1ea82fe26bb0c70
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625954"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184108"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resource health-aviseringar med hjälp av Resource Manager-mallar
 
@@ -32,7 +32,7 @@ Azure Resource Health håller dig informerad om aktuell och historisk hälsotill
 Om du vill följa anvisningarna på den här sidan måste du konfigurera några saker i förväg:
 
 1. Du måste installera den [Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
-2. Du behöver [skapa eller återanvända en åtgärdsgrupp](../monitoring-and-diagnostics/monitoring-action-groups.md) konfigurerad för att meddela dig
+2. Du behöver [skapa eller återanvända en åtgärdsgrupp](../azure-monitor/platform/action-groups.md) konfigurerad för att meddela dig
 
 ## <a name="instructions"></a>Instruktioner
 1. Med hjälp av PowerShell, logga in på Azure med ditt konto och välj den prenumeration som du vill interagera med
@@ -233,7 +233,7 @@ Om du vill bli informerad om alla fyra faser i health-händelser, kan du ta bort
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Justera Resource Health-aviseringar för att undvika ”okänt” händelser
 
-Azure Resource Health kan rapportera till du senaste hälsotillståndet för dina resurser genom att ständigt övervaka dem med hjälp av test-deltagare. Den relevanta rapporterade health-statusen är: ”tillgänglig”, ”ej tillgänglig” och ”degraderad”. Men i situationer där köraren och Azure-resursen är inte kan kommunicera, ett ”okänt” hälsotillståndet rapporteras för resursen och som betraktas som en ”aktiv” hälsotillståndshändelse.
+Azure Resource Health kan rapportera till du senaste hälsotillståndet för dina resurser genom att ständigt övervaka dem med hjälp av test-deltagare. Den relevanta rapporterade health-statusen är: ”Tillgänglig”, ”ej tillgänglig” och ”försämrad”. Men i situationer där köraren och Azure-resursen är inte kan kommunicera, ett ”okänt” hälsotillståndet rapporteras för resursen och som betraktas som en ”aktiv” hälsotillståndshändelse.
 
 När en resurs rapporterar ”okänt”, är det dock sannolikt att dess hälsostatus inte har ändrats sedan den senaste korrekta rapporten. Om du vill undvika aviseringar för händelser som ”okänt” kan du ange denna logik i mallen:
 
@@ -435,4 +435,4 @@ Läs mer om Resource Health:
 -  [Resurstyper och hälsokontroller är tillgängliga genom Azure Resource Health](resource-health-checks-resource-types.md)
 
 Skapa Service Health-aviseringar:
--  [Konfigurera aviseringar för Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Konfigurera aviseringar för Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

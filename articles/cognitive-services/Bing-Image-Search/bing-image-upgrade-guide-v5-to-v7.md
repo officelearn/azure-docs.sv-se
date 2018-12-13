@@ -1,7 +1,7 @@
 ---
-title: Uppgradera från Bing bild Search API v5 till v7 - API för Bing-bildsökning
+title: Uppgradera från Bing bild Search API v5 till v7
 titleSuffix: Azure Cognitive Services
-description: Den här uppgraderingshandboken identifierar ändringar mellan version 5 och version 7 av den bildsökning i Bing. Använd den här guiden hjälper dig att identifiera delarna av programmet som du behöver uppdatera om du vill använda version 7.
+description: Den här uppgraderingshandboken redogörs för ändringar mellan version 5 och version 7 av den bildsökning i Bing. Använd den här guiden hjälper dig att identifiera delarna av programmet som du behöver uppdatera om du vill använda version 7.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,14 +11,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 53713a629dbe2682ef393a3a5dbf7845b5075591
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2192e3d2a344a31717c59c813123ed0c807a2841
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296370"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256561"
 ---
-# <a name="image-search-api-upgrade-guide"></a>Uppgraderingsguide för bild-API för webbsökning
+# <a name="bing-image-search-api-upgrade-guide"></a>Uppgraderingsguide för bildsökning i Bing
 
 Den här uppgraderingshandboken identifierar ändringar mellan version 5 och version 7 av den bildsökning i Bing. Använd den här guiden hjälper dig att identifiera delarna av programmet som du behöver uppdatera om du vill använda version 7.
 

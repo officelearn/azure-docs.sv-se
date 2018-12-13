@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: d9a0342332c2483b859e916b50fd05c9cb1e3395
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986775"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187376"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Konfigurera routningsmetoden för flera värden i Traffic Manager
 
@@ -39,6 +39,7 @@ Skapa en Traffic Manager-profil som dirigerar användartrafik som genom att skic
 
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Traffic Manager-profil** > **Skapa**.
 2. I **skapa Traffic Manager-profil**, ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **skapa**:
+    
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Namn                   | Namnet måste var unikt inom trafficmanager.net-zonen och generera DNS-namnet, trafficmanager.net, som används för att öppna din Traffic Manager-profil.                                   |
@@ -46,7 +47,7 @@ Skapa en Traffic Manager-profil som dirigerar användartrafik som genom att skic
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj *myResourceGroupTM1*. |
     | Plats                | Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
-    |
+    
   
     ![Skapa en Traffic Manager-profil](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 

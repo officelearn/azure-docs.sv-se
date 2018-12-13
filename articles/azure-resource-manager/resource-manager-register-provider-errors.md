@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 787d6549eb8413c9dcfc0c906167cc36d4cff6b0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135720"
+ms.locfileid: "53184550"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Åtgärda fel för registreringen av resursprovidern
 
@@ -47,9 +47,9 @@ Felmeddelandet bör ge dig förslag på platser som stöds och API-versioner. Du
 
 De här felen visas i någon av tre orsaker:
 
-1. Resursprovidern har inte registrerats för din prenumeration
-1. API-versionen stöds inte för resurstypen
-1. Plats stöds inte för resurstypen
+* Resursprovidern har inte registrerats för din prenumeration
+* API-versionen stöds inte för resurstypen
+* Plats stöds inte för resurstypen
 
 ## <a name="solution-1---powershell"></a>Lösning 1 – PowerShell
 

@@ -1,5 +1,5 @@
 ---
-title: Formaren kognitiv sökning färdighet (Azure Search) | Microsoft Docs
+title: Formaren kognitiv sökning färdigheter – Azure Search
 description: Extrahera metadata och strukturerad information från Ostrukturerade data och forma dem som en komplex typ i en Azure Search berikande pipeline.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729011"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313844"
 ---
 #   <a name="shaper-cognitive-skill"></a>Formaren kognitiva kunskaper
 
@@ -26,9 +27,6 @@ Formaren färdighet kan du skapa en struktur, ange namnet på medlemmarna i denn
 Som standard stöder den här tekniken objekt som är en nivå. Du kan länka flera formaren steg för mer komplexa objekt.
 
 I svaret, är utdatanamnet alltid ”utdata”. Internt pipelinen kan mappa ett annat namn, till exempel ”analyzedText” i exemplen nedan till ”utdata”, men formaren färdighet själva returnerar ”utdata” i svaret. Det kan vara viktigt om du felsöker avancerad och dokument och notera avvikelsen namngivning, eller om du bygger en anpassad kunskap och strukturerar svaret själv.
-
-> [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetens körning och extrahering av avbildningen och normalisering är för närvarande erbjuds kostnadsfritt. Vid ett senare tillfälle meddelas priserna för dessa funktioner. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

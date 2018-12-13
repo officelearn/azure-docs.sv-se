@@ -1,7 +1,7 @@
 ---
-title: Välj var du vill distribuera modeller
+title: Distribuera modeller som webbtjänster
 titleSuffix: Azure Machine Learning service
-description: Läs mer om hur du kan distribuera dina modeller i produktion med hjälp av Azure Machine Learning-tjänsten.
+description: 'Lär dig hur och var att distribuera dina modeller för Azure Machine Learning-tjänsten som bland annat: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge och Field-programmable gate-matriser.'
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 53f3c61a98bc08b453ae894abaa512b94044bcf7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e7840bb3ac6449009b843bb74cc19b960b492205
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100709"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310155"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -30,6 +30,8 @@ Du kan distribuera modeller till följande beräkning:
 | [Azure Kubernetes Service (AKS)](#aks) | Webbtjänst | Bra för Produktionsdistribution av hög skalbarhet. Tillhandahåller automatisk skalning och snabba svarstider. |
 | [Azure IoT Edge](#iotedge) | IoT-modul | Distribuera modeller på IoT-enheter. Inferensjobb sker på enheten. |
 | [Fältet-programmable gate array FPGA)](#fpga) | Webbtjänst | Extremt låg latens för i realtid inferensjobb. |
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -53,9 +55,9 @@ Processen för att distribuera en modell är liknande för alla beräkningsmål:
 
     * När **distribueras som en webbtjänst**, det finns tre alternativ:
 
-        * [distribuera](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): när du använder den här metoden kan du inte behöver registrera modellen eller skapa avbildningen. Men du kan inte styra namnet på modellen eller avbildning eller associerade taggar och beskrivningar.
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): när du använder den här metoden kan du inte behöver skapa en avbildning. Men du har inte kontroll över namnet på den avbildning som har skapats.
-        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): registrera modellen och skapa en avbildning innan du använder den här metoden.
+        * [Distribuera](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): När du använder den här metoden kan behöver du inte registrera modellen eller skapa avbildningen. Men du kan inte styra namnet på modellen eller avbildning eller associerade taggar och beskrivningar.
+        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): När du använder den här metoden kan behöver du inte skapa en avbildning. Men du har inte kontroll över namnet på den avbildning som har skapats.
+        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): Registrera modellen och skapa en avbildning innan du använder den här metoden.
 
         Exemplen i det här dokumentet används `deploy_from_image`.
 
@@ -78,7 +80,7 @@ model = Model.register(model_path = "model.pkl",
 > [!NOTE]
 > Även om exemplet visar med hjälp av en modell som lagras som en pickle-filen, men du kan också använda ONNX-modeller. Mer information om hur du använder ONNX-modeller finns i den [ONNX och Azure Machine Learning](how-to-build-deploy-onnx.md) dokumentet.
 
-Mer information finns i referensdokumentationen för den [Modellklass](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+Mer information finns i referensdokumentationen för den [Modellklass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
 ## <a id="configureimage"></a> Skapa en konfiguration för avbildning
 
@@ -102,7 +104,7 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
 
 Den här konfigurationen använder en `score.py` fil att skicka begäranden till modellen. Den här filen innehåller två funktioner:
 
-* `init()`: Den här funktionen läser vanligtvis in modellen till ett globala objekt. Den här funktionen körs endast en gång när Docker-containern startas. 
+* `init()`: Den här funktionen läses vanligtvis in modellen till ett globala objekt. Den här funktionen körs endast en gång när Docker-containern startas. 
 
 * `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indatan och utdatan i körningen använder vanligtvis JSON för serialisering och deserialisering, men andra format stöds också.
 
@@ -125,11 +127,9 @@ image = ContainerImage.create(name = "myimage",
                               )
 ```
 
-**Uppskattad tidsåtgång**: ca 3 minuter.
+**Uppskattad tidsåtgång**: Ca 3 minuter.
 
 Bilder är version automatiskt när du registrerar flera avbildningar med samma namn. Till exempel den första bilden registrerad som `myimage` tilldelas ID `myimage:1`. Nästa gång du registrerar en bild som `myimage`, ID för den nya avbildningen är `myimage:2`.
-
-Skapa avbildningar tar cirka 5 minuter.
 
 Mer information finns i referensdokumentationen för [ContainerImage klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
@@ -147,7 +147,7 @@ När du kommer till distribution, är processen variera beroende på beräknings
 Använd Azure Container Instances för att distribuera dina modeller som en webbtjänst om en eller flera av följande villkor är uppfyllt:
 
 - Du behöver att snabbt distribuera och verifiera din modell. ACI-distributionen är klar på mindre än 5 minuter.
-- Du testar en modell som är under utveckling. ACI kan du distribuera 20 behållargrupper per prenumeration. Mer information finns i den [kvoter och regiontillgänglighet för Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) dokumentet.
+- Du testar en modell som är under utveckling. Kvoter och regional tillgänglighet för ACI finns i den [kvoter och regiontillgänglighet för Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) dokumentet.
 
 Om du vill distribuera till Azure Container Instances, använder du följande steg:
 
@@ -159,7 +159,7 @@ Om du vill distribuera till Azure Container Instances, använder du följande st
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
 
-    **Uppskattad tidsåtgång**: ca 3 minuter.
+    **Uppskattad tidsåtgång**: Ca 3 minuter.
 
     > [!TIP]
     > Om det uppstår fel under distributionen kan du använda `service.get_logs()` att visa loggar för AKS-tjänsten. Loggade informationen kan tyda på orsaken till felet.
@@ -204,7 +204,7 @@ Använd följande steg om du vill distribuera till Azure Kubernetes Service:
     print(aks_target.provisioning_errors)
     ```
 
-    **Uppskattad tidsåtgång**: cirka 20 minuter.
+    **Uppskattad tidsåtgång**: Ungefär 20 minuter.
 
     > [!TIP]
     > Om du redan har AKS-kluster i Azure-prenumerationen och det är version 1.11. *, du kan använda den för att distribuera din avbildning. Följande kod visar hur du kopplar ett befintligt kluster till din arbetsyta:
@@ -278,8 +278,8 @@ När du har autentiseringsuppgifterna, Följ stegen i den [distribuera Azure IoT
 > [!NOTE]
 > Om du är bekant med Azure IoT finns i följande dokument för information om att komma igång med tjänsten:
 >
-> * [Snabbstart: Distribuera ditt första IoT Edge-modul till en Linux-enhet](../../iot-edge/quickstart-linux.md)
-> * [Snabbstart: Distribuera ditt första IoT Edge-modul till en Windows-enhet](../../iot-edge/quickstart.md)
+> * [Snabbstart: Distribuera din första IoT Edge-modul till en Linux-enhet](../../iot-edge/quickstart-linux.md)
+> * [Snabbstart: Distribuera din första IoT Edge-modul till en Windows-enhet](../../iot-edge/quickstart.md)
 
 ## <a name="testing-web-service-deployments"></a>Testa webbtjänstdistributioner
 

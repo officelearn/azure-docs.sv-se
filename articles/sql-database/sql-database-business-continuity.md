@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: c391df27b8ee0d5ceadcd388fffcafe0f756ec40
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/10/2018
+ms.openlocfilehash: aecfecda08a6008b931738802bb89054f9d3963c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866184"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274137"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
-Azure SQL Database är en implementering av den senaste stabila SQL Server Database Engine konfigureras och optimerad för Azure-molnmiljö som ger [hög tillgänglighet](sql-database-high-availability.md) och återställning vid fel som kan påverka din affärsprocess. **Affärskontinuitet** refererar till de mekanismer, principer och procedurer som gör det möjligt för ett företag som även körs vid störningar, särskilt i sin infrastruktur för databehandling i Azure SQL Database. I de flesta fall hanterar Azure SQL Database de störande händelser som kan inträffa i molnmiljön och hålla dina affärsprocesser som körs. Det finns dock vissa störande händelser som inte kan hanteras av SQL-databas som:
+**Affärskontinuitet** refererar till den mekanismer, principer och procedurer som gör att ditt företag även om störningar, särskilt i sin infrastruktur för databehandling i Azure SQL Database. I de flesta fall hanterar störande händelser som kan inträffa i molnmiljön och se till att program och processer som körs i Azure SQL Database. Det finns dock vissa störande händelser som inte kan hanteras av SQL-databas som:
 
 - Användaren har tagits bort av misstag eller uppdatera en rad i en tabell.
 - Angripare är klar att ta bort data eller ta bort en databas.
@@ -48,7 +48,8 @@ Sedan kan du lära dig om de ytterligare mekanismer som du kan använda för att
 - [Inbyggda automatiska säkerhetskopior](sql-database-automated-backups.md) och [tidpunkt för återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore) gör det möjligt att återställa fullständig till någon gång under de senaste 35 dagarna.
 - Du kan [återställa en borttagen databas](sql-database-recovery-using-backups.md#deleted-database-restore) till den tidpunkt då den togs bort om den **logisk server inte har tagits bort**.
 - [Långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md) gör det möjligt för dig att hålla säkerhetskopior till 10 år.
-- [Automatisk redundans grupp](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) kan programmet automatiskt återhämtning vid avbrott på datacentret skala.
+- [Aktiv geo-replikering](sql-database-active-geo-replication.md) kan du skapa läsbara repliker och manuellt växla över till alla repliker vid en data center avbrott eller programmet uppgradering.
+- [Automatisk redundans grupp](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) kan programmet automatiskt återhämtning vid avbrott i datacentret.
 
 Den uppskattade återställningstiden (ERT) och den potentiella dataförlusten för de senaste transaktionerna skiljer sig mellan de olika metoderna. Om du förstår de olika alternativen blir det enklare att välja mellan dem, och i de flesta fall kan du använda dem tillsammans för olika scenarier. När du utvecklar din affärskontinuitetsplan måste du förstå den högsta acceptabla tiden innan programmet är helt återställt efter en avbrottshändelse. Den tid som krävs för programmet för att återställa kallas återställningstid (RTO). Du måste också att förstå den längsta tid för senaste datauppdateringar (tidsintervall) som programmet kan tolerera att förlora när det återställs efter en avbrottshändelse. Tid då uppdateringar som du kanske har råd att förlora kallas mål för återställningspunkt (RPO).
 
@@ -75,8 +76,7 @@ Använd automatiska säkerhetskopieringar och [point-in-time-återställning](sq
 - Har en låg frekvens av dataändringar (lågt antal transaktioner per timme) och en förlust på upp till en timmes ändringar är en acceptabel dataförlust.
 - Är kostnadskänsligt.
 
-Om du behöver snabbare återställning använder [redundansgrupper](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
-) (beskrivs nedan). Om du behöver för att kunna återställa data från en period som är äldre än 35 dagar eller använda [långsiktig kvarhållning](sql-database-long-term-retention.md).
+Om du behöver snabbare återställning använder [aktiv geo-replikering](sql-database-active-geo-replication.md) eller [automatisk redundans grupper](sql-database-auto-failover-group.md). Om du behöver för att kunna återställa data från en period som är äldre än 35 dagar eller använda [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region"></a>Återställa en databas till en annan region
 
@@ -84,14 +84,14 @@ Om du behöver snabbare återställning använder [redundansgrupper](sql-databas
 
 - Ett alternativ är att vänta tills databasen är tillbaka online när avbrottet på datadatacentret är över. Det här fungerar för program som har råd att ha databasen offline. Till exempel ett utvecklingsprojekt eller en kostnadsfri utvärderingsversion som du inte behöver arbeta med hela tiden. När det uppstår ett avbrott i ett datacenter, vet inte du hur länge driftstörningarna kan vara, så det här alternativet fungerar bara om du inte behöver databasen på ett tag.
 - Ett annat alternativ är att återställa en databas på en server i alla Azure-region med [geo-redundanta databassäkerhetskopior](sql-database-recovery-using-backups.md#geo-restore) (geo-återställning). GEO-återställning använder en geo-redundant säkerhetskopia som källa och kan användas för att återställa en databas, även om databasen eller datacenter är otillgängligt på grund av ett avbrott.
-- Slutligen kan du snabbt kan återställa från ett avbrott om du har konfigurerat en [automatisk redundans grupp](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) för din databas eller databaser. Du kan anpassa princip för redundansväxling för att använda automatisk eller manuell växling vid fel. Även om redundans själva tar bara några sekunder, tar tjänsten minst 1 timme för att aktivera den. Detta är nödvändigt att säkerställa att växling vid fel är berättigade av skalan om avbrottet. Dessutom kan redundansen resultera i små dataförlust på grund av asynkron replikering. Se tabellen tidigare i den här artikeln för information om automatisk redundans RTO och RPO.
+- Slutligen kan du snabbt kan återställa från ett avbrott om du har konfigurerat antingen georepliker med [aktiv geo-replikering](sql-database-active-geo-replication.md) eller en [automatisk redundans grupp](sql-database-auto-failover-group.md) för din databas eller databaser. Du kan använda antingen manuell eller automatisk redundans beroende på ditt val av dessa tekniker. Även om redundans själva tar bara några sekunder, tar tjänsten minst 1 timme för att aktivera den. Detta är nödvändigt att säkerställa att växling vid fel är berättigade av skalan om avbrottet. Dessutom kan redundansen resultera i små dataförlust på grund av asynkron replikering. Se tabellen tidigare i den här artikeln för information om automatisk redundans RTO och RPO.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 > [!IMPORTANT]
 > Om du vill använda aktiv geo-replikering och automatisk redundans grupper, måste du vara prenumerationsägaren eller ha administrativ behörighet i SQL Server. Du kan konfigurera och redundansväxla med Azure portal, PowerShell eller REST-API med hjälp av Azure-Prenumerationsbehörigheter eller med hjälp av Transact-SQL med SQL Server-behörigheter.
 
-Använda grupper i active automatisk redundans om programmet uppfyller något av dessa villkor:
+Använda grupper för automatisk redundans om programmet uppfyller något av dessa villkor:
 
 - Är verksamhetskritiskt.
 - Har ett servicenivåavtal (SLA) som inte tillåter 12 timmar eller mer stillestånd.

@@ -4,9 +4,8 @@ description: Beskrivningar av de datauppsättningar som används i exemplet mode
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308842"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270492"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -34,7 +33,7 @@ Resten av dessa exempel på datauppsättningar som är tillgängliga i din arbet
 Du kan använda någon av de här datauppsättningarna i dina egna experiment genom att dra den till experimentets arbetsyta.
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <table>
 
@@ -48,7 +47,7 @@ Du kan använda någon av de här datauppsättningarna i dina egna experiment ge
   <td>
 En delmängd av 1994 insamlade databasen, med fungerande vuxna än 16 med ett index som justerad inkomst > 100.
 <p></p>
-<b>Användning:</b> klassificera personer som använder demografi för att förutsäga om en person grundats över 50 K per år.
+<b>Syntax:</b> Klassificera personer som använder demografi för att förutsäga om en person grundats över 50K per år.
 <p></p>
 <b>Relaterade Research:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
@@ -69,9 +68,9 @@ Information om bilar av märke och modell, inklusive priser, funktioner, till ex
 <p></p>
 Riskpoängen är inledningsvis associerad med automatisk pris. Den justeras sedan för faktiska risk i en process som är kända för aktuarier som symboling. Värdet + 3 anger att automatiskt är riskfyllda och ett värde för-3 att den är förmodligen säkert.
 <p></p>
-<b>Användning:</b> förutsäga riskpoäng med funktioner som använder regression eller multivariate klassificering. 
+<b>Syntax:</b> Förutsäga riskpoäng med funktioner, med hjälp av regression eller multivarierad klassificering. 
 <p></p>
-<b>Relaterade Research:</b> Schlimmer, J.C. (1987). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> Schlimmer J.C. (1987). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -100,7 +99,7 @@ En delmängd av data från vinstsyfte Service Center Hsin Chu stad, Taiwan blod 
 <p></p>
 Bidragsgivare data inklusive månader sedan senaste donation), och frekvens, eller det totala antalet donationer, tid sedan senaste donation och mängden blod donerat.
 <p></p>
-<b>Användning:</b> målet är att förutsäga via klassificering om bidragsgivare donerat blod i mars 2007, där 1 anger en bidragsgivare under perioden som mål och 0 icke-bidragsgivare. 
+<b>Syntax:</b> Målet är att förutsäga via klassificering om bidragsgivare donerat blod i mars 2007, där 1 anger en bidragsgivare under perioden som mål och 0 icke-bidragsgivare. 
 <p></p>
 <b>Relaterade Research:</b> Yeh, I.C., (2008). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
 <p></p>
@@ -113,7 +112,7 @@ Yeh, jag-Cheng, Yang, King Jang och cering, tagg-mobilnät, ”Knowledge discove
   <td>
 En av tre cancer-relaterade datauppsättningar som tillhandahålls av Oncology Institute som visas ofta i machine learning-dokumentation. Kombinerar diagnostikinformation med funktioner från laboratorieanalys av ungefär 300 vävnadsprover.
 <p></p>
-<b>Användning:</b> klassificera datatypen för cancer, baserat på 9 attribut, vilket är linjär och vissa är kategoriska. 
+<b>Syntax:</b> Klassificera datatypen för cancer, baserat på 9 attribut, vilket är linjär och vissa är kategoriska. 
 <p></p>
 <b>Relaterade Research:</b> Wohlberg, W.H., gata, W.N. och Mangasarian, O.L. (1995). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
@@ -166,7 +165,7 @@ Etiketter från KDD Cup 2009 kunden relation förutsägelse utmaningen (<a href=
   <td>
 En samling av simulerade energi profiler, baserat på 12 annan byggnad former. Byggnaderna åtskiljs av åtta funktioner. Detta inkluderar glas området, rutor området distribution och orientering.
 <p></p>
-<b>Användning:</b> använda regression eller klassificering för att förutsäga den energieffektivitet omdöme baserat som en av två riktig värdefull svar. Flera klassificering, är i avrunda variabeln svar till närmaste heltal. 
+<b>Syntax:</b> Använda regression eller klassificering för att förutsäga betyget energieffektivitet baserat som en av två riktig värdefull svar. Flera klassificering, är i avrunda variabeln svar till närmaste heltal. 
 <p></p>
 <b>Relaterade Research:</b> Xifara A. & Tsanas A. (2012). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
@@ -181,7 +180,7 @@ Datauppsättningen tar upp hur lång tid April – oktober 2013. Innan du skicka
   <li>Datauppsättningen har filtrerats för att täcka endast de 70 mest använda flygplatserna i kontinentala USA</li>
   <li>Avbrutna flyg märkta som försenade på grund av mer än 15 minuter</li>
   <li>Och distribueras flyg filtrerades bort</li>
-  <li>Följande kolumner har valts: år, månad, dag i månaden, DayOfWeek, operatör, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, avbruten</li>
+  <li>Följande kolumner har valts: År, månad, dag i månaden, DayOfWeek, operatör, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, har avbrutits</li>
 </ul>
 </td>
 </tr>
@@ -191,9 +190,9 @@ Datauppsättningen tar upp hur lång tid April – oktober 2013. Innan du skicka
   <td>
 Poster flygplan flygning tillförsel och leveranser inom USA från oktober 2011.
 <p></p>
-<b>Användning:</b> förutsäga flygförseningar. 
+<b>Syntax:</b> Förutsäga flygförseningar. 
 <p></p>
-<b>Relaterade Research:</b> från USA Avd. Transportmyndighet <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
+<b>Relaterade Research:</b> Från USA Avd. Transportmyndighet <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
   </td>
 </tr>
 
@@ -202,7 +201,7 @@ Poster flygplan flygning tillförsel och leveranser inom USA från oktober 2011.
   <td>
 Innehåller weather-data, till exempel temperatur och fuktighet index och vindhastighet. Data hämtas från ett område i nordöstra Portugal, i kombination med poster i skogsbränder.
 <p></p>
-<b>Användning:</b> det här är en svårt regression uppgift om syftet är att förutsäga området brända skogsbränder. 
+<b>Syntax:</b> Det här är en svårt regression uppgift om syftet är att förutsäga området brända skogsbränder. 
 <p></p>
 <b>Relaterade Research:</b> Cortez, P., & Morais A. (2008). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
 <p></p>
@@ -231,7 +230,7 @@ Datauppsättningen innehåller information om filmer som har klassificerat i Twi
   <td>
 Detta är kanske mest känd databasen ska finnas i mönstret för dokumentation. Datauppsättningen är relativt liten, som innehåller 50 exempel varje på petal mått från tre iris sorterna.
 <p></p>
-<b>Användning:</b> förutsäga iris-typen från mätningar.  
+<b>Syntax:</b> Förutsäga iris-typen från mätningar.  
 <p></p>
 <b>Relaterade Research:</b> Fisher R.A. (1988). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
@@ -250,9 +249,9 @@ Den här datauppsättningen är en något justerad version av datauppsättningen
 <p></p>
 Data visas i olika bilar i miles per gallon samband med bränsle. Den innehåller också information som antalet cylindrar, motorn Förskjutning, hästkrafter, total vikt och acceleration.
 <p></p>
-<b>Användning:</b> förutsäga bränsleekonomin baserat på tre diskreta flervärdesattribut och fem kontinuerliga attribut. 
+<b>Syntax:</b> Förutsäga bränsleekonomin baserat på tre diskreta flervärdesattribut och fem kontinuerliga attribut. 
 <p></p>
-<b>Relaterade Research:</b> StatLib Carnegie Mellon University (1993). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> StatLib, Carnegie Mellon University (1993). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -260,9 +259,9 @@ Data visas i olika bilar i miles per gallon samband med bränsle. Den innehålle
   <td>
 En delmängd av data från National Institute av Diabetes och mag och lever sjukdomar. Datauppsättningen har filtrerats för att fokusera på kvinnliga patienter av Pima indiska arv. Innehåller information som medicinska data, till exempel glukos och inulinsirap nivåer samt livsstil faktorer.
 <p></p>
-<b>Användning:</b> förutsäga om ämnet har diabetes (binär klassificering). 
+<b>Syntax:</b> Förutsäg om ämnet har diabetes (binär klassificering). 
 <p></p>
-<b>Relaterade Research:</b> Sigillito, V. (1990). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml”</a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> Sigillito V. (1990). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml”</a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -270,7 +269,7 @@ En delmängd av data från National Institute av Diabetes och mag och lever sjuk
   <td>
 En uppsättning metadata om kunder, inklusive demografi och inställningar.
 <p></p>
-<b>Användning:</b> använder den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
+<b>Syntax:</b> Använd den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
 <p></p>
 <b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
   </td>
@@ -281,7 +280,7 @@ En uppsättning metadata om kunder, inklusive demografi och inställningar.
   <td>
 En uppsättning metadata om restauranger och deras funktioner, till exempel mat typ, äta middag format och plats.
 <p></p>
-<b>Användning:</b> använder den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
+<b>Syntax:</b> Använd den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
 <p></p>
 <b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
   </td>
@@ -292,7 +291,7 @@ En uppsättning metadata om restauranger och deras funktioner, till exempel mat 
   <td>
 Innehåller klassificeringar som anges av användarna restauranger på en skala från 0 till 2.
 <p></p>
-<b>Användning:</b> använder den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
+<b>Syntax:</b> Använd den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
 <p></p>
 <b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
   </td>
@@ -303,7 +302,7 @@ Innehåller klassificeringar som anges av användarna restauranger på en skala 
   <td>
 Den här datauppsättningen innehåller en serie poster från stål glödgning utvärderingsversioner. Den innehåller de fysiska egenskaperna (bredd, tjocklek, typ (slutet, blad osv.) i den nya stål typer.
 <p></p>
-<b>Användning:</b> förutsäga något av två numeriska klassattribut; hårdhet eller styrka. Du kan också analysera korrelationer mellan attribut.
+<b>Syntax:</b> Förutsäga något av två numeriska klassattribut; hårdhet eller styrka. Du kan också analysera korrelationer mellan attribut.
 <p></p>
 Stål betyg följer en set-standard definieras av SAE och andra organisationer. Du letar efter en specifik ”i företagsklass” (Klassvariabeln) och vill förstå de värden som behövs. 
 <p></p>
@@ -322,13 +321,13 @@ Syftet med simuleringen var att förbättra marken atmospheric Cherenkov gamma t
 <p></p>
 Data har bearbetats för att skapa ett avlångt kluster med långt axel är inriktad på kamera center. Egenskaperna för den här ellips (kallas ofta Hillas parametrar) är bland de bildparametrar som kan användas för diskriminering.
 <p></p>
-<b>Användning:</b> förutsäga om avbildning av en representerar signal eller bakgrund bruset.
+<b>Syntax:</b> Förutsäg om avbildning av en representerar signal eller bakgrund bruset.
 <p></p>
-<b>Obs:</b> enkel klassificering är inte meningsfullt för dessa data sedan klassificera en händelse i bakgrunden eftersom signalen är sämre än klassificera en signalhändelse som bakgrund. Jämförelse av olika klassificerare ska ROC-diagrammet användas. Sannolikheten för att acceptera en händelse i bakgrunden som signalen måste vara under följande tröskelvärden: 0,01, 0,02, 0,05, 0,1 eller 0,2.
+<b>Anteckningar:</b> Enkel klassificering är inte meningsfullt för dessa data sedan klassificera en händelse i bakgrunden eftersom signalen är sämre än klassificera en signalhändelse som bakgrund. Jämförelse av olika klassificerare ska ROC-diagrammet användas. Sannolikheten för att acceptera en händelse i bakgrunden som signalen måste vara under följande tröskelvärden: 0,01, 0,02, 0,05, 0,1 eller 0,2.
 <p></p>
 Observera också att antalet händelser som bakgrund (för hadronic duschar h) är överskattade. I verkliga mått representerar klassen h eller brus merparten av händelser. 
 <p></p>
-<b>Relaterade Research:</b> Bock, R.K. (1995). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation </td>
+<b>Relaterade Research:</b> Bock R.K. (1995). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation </td>
 </tr>
 
 <tr>
@@ -341,7 +340,7 @@ Väderdata täcker observationer som görs från en flygplats väder stationer, 
   <li>-Väderstation, ID: N har mappats till motsvarande flygplats ID: N</li>
   <li>Väder stationer som inte är associerade med 70 mest använda flygplatser filtrerades bort</li>
   <li>Datumkolumnen är uppdelad i separata kolumner för år, månad och dag</li>
-  <li>Följande kolumner har valts: AirportID, år, månad, dag, tid, tidszon, SkyCondition, synlighet, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, Vindhastigheten, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
+  <li>Följande kolumner har valts: AirportID, år, månad, dag, tid, tidszon, SkyCondition, synlighet, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, vindhastigheten, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
 </ul>
   </td>
 </tr>

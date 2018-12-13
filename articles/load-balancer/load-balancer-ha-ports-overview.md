@@ -11,24 +11,24 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/07/2018
+ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: e37b127b112768cd09989e1a4b5edf99ca101983
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141874"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317210"
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
 
 Azure Standard Load Balancer hjälper dig att belastningsutjämna TCP och UDP flöden på alla portar samtidigt när du använder en intern belastningsutjämnare. 
 
-En regel för hög tillgänglighet (HA)-portar är en variant av en belastningsutjämning regel som konfigurerats på en intern Standard Load Balancer. Du kan förenkla användningen av en belastningsutjämnare genom att tillhandahålla en enkel regel för att belastningsutjämna alla TCP och UDP flöden som tas emot på alla portar för en intern Standard Load Balancer. Beslutet belastningsutjämning görs per flöde. Den här åtgärden är baserad på följande fem-tuppel-anslutning: käll-IP-adress, källport, målets IP-adress, målport och protokoll.
+En hög tillgänglighet (HA) portar regel för belastningsutjämning är en variant av en regel som konfigurerats på en intern Standard Load Balancer för belastningsutjämning. Du kan förenkla användningen av en belastningsutjämnare genom att tillhandahålla en enkel regel för att belastningsutjämna alla TCP och UDP flöden som tas emot på alla portar för en intern Standard Load Balancer. Beslutet belastningsutjämning görs per flöde. Den här åtgärden är baserad på följande fem-tuppel-anslutning: käll-IP-adress, källport, målets IP-adress, målport och protokoll
 
-Funktionen portar för hög tillgänglighet hjälper dig med viktiga scenarier, till exempel hög tillgänglighet och skalbarhet för virtuella nätverksinstallationer (Nva) i virtuella nätverk. Funktionen kan också när ett stort antal portar måste vara Utjämning av nätverksbelastning. 
+Belastningsutjämningsregler de HA portar hjälper dig med viktiga scenarier, till exempel hög tillgänglighet och skalbarhet för virtuella nätverksinstallationer (Nva) i virtuella nätverk. Funktionen kan också när ett stort antal portar måste vara Utjämning av nätverksbelastning. 
 
-Funktionen HA portar konfigureras när du ställer in de frontend och backend-portarna på **0** och protokoll som **alla**. Interna belastningsutjämningsresursen balanserar sedan alla flöden i TCP och UDP, oavsett portnummer.
+Hög tillgänglighet portar belastningsutjämningsreglerna konfigureras när du ställer in de frontend och backend-portarna på **0** och protokoll som **alla**. Interna belastningsutjämningsresursen balanserar sedan alla flöden i TCP och UDP, oavsett portnummer
 
 ## <a name="why-use-ha-ports"></a>Varför använda högtillgänglighetsportar?
 
@@ -44,8 +44,9 @@ NVA HA scenarier erbjuder högtillgänglighetsportar följande fördelar:
 - Ange *n*-aktiva och aktivt-passivt scenarier
 - I stället för komplicerade lösningar, till exempel Apache ZooKeeper-noder för att övervaka installationer
 
-I följande diagram visas ett nav och eker virtual network-distributionen. Den ekrar tvinga tunneltrafik sin trafik till det virtuella navnätverket och via NVA, innan de lämnar det betrodda utrymmet. Nva: erna är bakom en intern Standard Load Balancer med en konfiguration för hög tillgänglighet portar. All trafik kan bearbetas och vidarebefordrats i enlighet med detta.
+I följande diagram visas ett nav och eker virtual network-distributionen. Den ekrar tvinga tunneltrafik sin trafik till det virtuella navnätverket och via NVA, innan de lämnar det betrodda utrymmet. Nva: erna är bakom en intern Standard Load Balancer med en konfiguration för hög tillgänglighet portar. All trafik kan bearbetas och vidarebefordrats i enlighet med detta. Konfigurerades som visas i följande diagram ger en HA Ports belastningsutjämningsregel dessutom flow symmetri för ingående och utgående trafik.
 
+<a node="diagram"></a>
 ![Diagram över NAV och eker virtuellt nätverk, med Nva som distribuerats i läge för hög tillgänglighet](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
@@ -99,7 +100,7 @@ Du kan konfigurera *en* offentlig Standard Load Balancer-resurs för backend-res
 
 - Hög tillgänglighet portar funktionen är inte tillgänglig för IPv6.
 
-- Flow symmetri för NVA scenarier stöds med ett enda nätverkskort. Se beskrivningen och diagram för [virtuella nätverksinstallationer](#nva). Om ett mål NAT kan användas i ditt scenario, kan du dock använda den för att kontrollera att den interna belastningsutjämnaren skickar den returnera trafiken till samma NVA.
+- Flow symmetri (främst för scenarier för NVA) stöds med backend-instans och en enda nätverkskort (och enda IP-konfiguration) endast när den används, enligt den [diagram](#diagram) ovan och använda HA Ports regler för belastningsutjämning. Den finns inte i något annat. Det innebär att två eller flera belastningsutjämnare resurser och deras respektive regler oberoende fatta och samordnas aldrig. Se beskrivningen och diagram för [virtuella nätverksinstallationer](#nva). När du använder flera nätverkskort eller sandwiching NVA mellan en offentliga och interna belastningsutjämnare, är flow symmetri inte tillgänglig.  Du kanske kan lösa detta genom källa NAT'ing ingående flöda till den IP-Adressen för en enhet så att svar tas emot på samma NVA.  Vi rekommenderar emellertid använder ett enda nätverkskort och referensarkitekturen visas i den [diagram](#diagram) ovan.
 
 
 ## <a name="next-steps"></a>Nästa steg

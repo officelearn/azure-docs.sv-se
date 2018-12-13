@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: ede96607e14a43e85c3605e2d710c15ef0495c1f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 5e3c282c198b6a1290e724549a4af30119f9cb04
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868196"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251223"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dynamiskt skala databasresurser med minimal avbrottstid
 
@@ -36,7 +36,7 @@ Du behöver inte bekymra dig om att köpa maskinvara och ändra underliggande in
 Azure SQL Database erbjuder den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
 - Den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) erbjuder en kombination av beräkning, minne och IO-resurser i tre tjänstnivåer för att stödja lätta till tunga arbetsbelastningar: Basic, Standard och Premium. Det finns prestandanivåer inom varje nivå med en blandning av dessa resurser, och du kan lägga till ytterligare lagringsresurser till dessa.
-- Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) kan du välja antal virtuella kärnor, hur mycket eller minne, och mycket och snabbt lagringsutrymme. Den här inköpsmodellen erbjuder tre tjänstnivåer: generell användning, affärskritisk och hyperskala (förhandsversion).
+- Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) kan du välja antal virtuella kärnor, hur mycket eller minne, och mycket och snabbt lagringsutrymme. Den här inköpsmodellen erbjuder tre tjänstnivåer: Allmänt syfte, affärskritisk och hyperskala (förhandsversion).
 
 Du kan skapa din första app på en liten, enkel databas till en låg kostnad per månad på tjänstnivån Basic, Standard- eller generell användning och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst på Premium- eller affärskritiska tjänstnivån att uppfylla ne EDS i lösningen. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
 
@@ -50,7 +50,7 @@ Det finns dock skript som kan hjälpa dig att automatisera skalbarhet för en Az
 
 Du kan ändra [DTU tjänstnivåerna](sql-database-service-tiers-dtu.md) eller [vCore egenskaper](sql-database-vcore-resource-limits-single-databases.md) när som helst med minimalt avbrott för ditt program (normalt mindre än fyra sekunder). För många företag och appar räcker det att kunna skapa databaser och reglera prestanda för fristående databaser upp eller ner efter behov, speciellt om användningsmönstren är relativt förutsägbara. Men om du har oförutsägbara användningsmönster, kan det vara svårt att hantera kostnader och din affärsmodell. Det här scenariot kan använda du en elastisk pool med ett visst antal edtu: er som delas mellan flera databaser i poolen.
 
-![Introduktion till SQL Database: DTU:er för enkla databaser efter nivå](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+![Introduktion till SQL Database: Enkel databas dtu: er efter nivå](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Alla tre varianter av Azure SQL Database erbjuder vissa möjlighet att dynamiskt skala dina databaser:
 
@@ -62,7 +62,7 @@ Alla tre varianter av Azure SQL Database erbjuder vissa möjlighet att dynamiskt
 
 Skalning av resurser är den enklaste och det mest effektiva sättet att förbättra databasens prestanda utan att ändra koden för databasen eller programmet. I vissa fall kan kan även de högsta tjänstnivåer, storlekar och prestandaoptimering inte hantera din arbetsbelastning på lyckad och kostnadseffektivt sätt. I de fall har dessa ytterligare alternativ för att skala din databas:
 
-- [Lässkalning](sql-database-read-scale-out.md) är en funktion som är tillgängliga i där du får en skrivskyddad replik av dina data där du kan köra krävande skrivskyddade frågor, till exempel rapporter. Repliken i enbart Red hanterar din skrivskyddad arbetsbelastning utan att påverka resursanvändning på den primära databasen.
+- [Lässkalning](sql-database-read-scale-out.md) är en funktion som är tillgängliga i där du får en skrivskyddad replik av dina data där du kan köra krävande skrivskyddade frågor, till exempel rapporter. Skrivskyddad replik hanterar din skrivskyddad arbetsbelastning utan att påverka resursanvändning på den primära databasen.
 - [Database sharding](sql-database-elastic-scale-introduction.md) är en uppsättning tekniker som gör det möjligt att dela dina data i flera databaser och skalas oberoende av varandra.
 
 ## <a name="next-steps"></a>Nästa steg

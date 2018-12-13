@@ -4,9 +4,8 @@ description: 'Syntaxen för den Net # neural networks-språket, tillsammans med 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315315"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272243"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning Studio
 
@@ -29,7 +28,7 @@ NET # är ett språk som utvecklats av Microsoft och som används för att defin
 
 Du kan använda en Net # arkitektur specifikation dessa när det gäller:
 
-+ Alla neurala nätverksmoduler i Microsoft Azure Machine Learning Studio: [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Tvåklassförhöjt Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), och [Neurala nätverk Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Alla neurala nätverksmoduler i Microsoft Azure Machine Learning Studio: [Inom Neuralt nätverk](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Tvåklassförhöjt Neuralt nätverk](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), och [Neuralt nätverk Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
 + Neuralt nätverksfunktioner i MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) och [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)för R-språket och [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) för Python.
 
 
@@ -39,7 +38,7 @@ Den här artikeln beskriver grundläggande begrepp och syntax som krävs för at
 + Syntaxen och nyckelorden i Net #-specifikationsspråk
 + Exempel på anpassade neurala nätverk som skapats med hjälp av Net # 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="neural-network-basics"></a>Grunderna i neuralt nätverk
 
@@ -114,7 +113,7 @@ output Result[2] from Hidden all;
 ```
 
 + Produkten av dimensionerna är antalet noder i lagret. I det här exemplet finns två dimensioner [5,20], vilket innebär att det finns 100 noder i lagret.
-+ Lagren kan deklareras i valfri ordning, med ett undantag: Om flera inkommande lager har definierats kan den ordning de deklareras måste matcha ordningen på funktioner i indata.
++ Lagren kan deklareras i valfri ordning, med ett undantag: Om fler än ett inkommande lager har definierats använder måste den ordning de deklareras matcha ordningen på funktioner i indata.
 
 Om du vill att antalet noder i ett lager fastställas automatiskt använder den `auto` nyckelord. Den `auto` nyckelordet har olika effekter, beroende på lagret:
 
@@ -219,7 +218,7 @@ Det finns två uppsättningar med egenskaper som styr utfyllnad, egenskaper som 
     
     Om värdet för en dimension är FALSKT, definieras kernlar som är så att antalet noder på varje sida som lämnas ut är samma (upp till en skillnad på 1). Standardvärdet för det här attributet är en tuppel med alla komponenter som är lika med False.
 
-+ **UpperPad** och **LowerPad**: (valfritt) Ange större kontroll över utfyllnad att använda. **Viktigt:** dessa attribut kan vara definierad om och bara om den **utfyllnad** egenskapen ovan är ***inte*** definierats. Värdena måste vara integer-värden tupplar med längder som är specifikaci för paketet. När dessa attribut anges, läggs ”dummy” noder på lägre och övre kanten av varje dimension skiktets indata. Antalet noder som har lagts till i det lägre och övre upphört att gälla i varje dimension bestäms av **LowerPad**[i] och **UpperPad**[i] respektive. 
++ **UpperPad** och **LowerPad**: (valfritt) Ange större kontroll över utfyllnad att använda. **Viktigt!** Dessa attribut kan vara definierad om och bara om den **utfyllnad** egenskapen ovan är ***inte*** definierats. Värdena måste vara integer-värden tupplar med längder som är specifikaci för paketet. När dessa attribut anges, läggs ”dummy” noder på lägre och övre kanten av varje dimension skiktets indata. Antalet noder som har lagts till i det lägre och övre upphört att gälla i varje dimension bestäms av **LowerPad**[i] och **UpperPad**[i] respektive. 
 
     För att säkerställa att kernlar motsvara endast ”verklig” noder och inte till ”dummy” noder, måste följande villkor vara uppfyllda:
       - Varje komponent i **LowerPad** måste vara strikt mindre än `KernelShape[d]/2`. 

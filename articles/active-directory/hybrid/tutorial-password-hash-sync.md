@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Integrera en enda AD-skog till Azure med lösenordets hash-synkronisering (PHS) | Microsoft Docs'
+title: 'Självstudiekurs:  Integrera en enda AD-skog till Azure med lösenordets hash-synkronisering (PHS) | Microsoft Docs'
 description: Visar hur du ställer in en hybridmiljö identitet med hjälp av hash-synkronisering av lösenord.
 services: active-directory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e8a39e16bd67169aac8dd7328338197b604e93f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426918"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164719"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudie: Integrera en enda AD-skog med hjälp av lösenordets hash-synkronisering (PHS)
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudiekurs:  Integrera en enskild AD-skog med hjälp av synkronisering av lösenordshash (PHS)
 
 ![Skapa](media/tutorial-password-hash-sync/diagram.png)
 
@@ -38,7 +38,7 @@ Följande är förutsättningar som krävs för den här kursen
 >
 >Skript som används för skapa en allmän Active Directory-miljö innan du installerar Azure AD Connect.  De är relevanta för alla självstudier.
 >
-> Kopior av PowerShell-skript som används i den här självstudien finns på Github [här](https://github.com/billmath/tutorial-phs).
+> Kopior av PowerShell-skript som används i den här självstudien finns på GitHub [här](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 Det första som vi behöver göra för att få vår hybrid identity miljö och körs är att skapa en virtuell dator som ska användas som vår lokala Active Directory-server.  Gör följande:
@@ -81,7 +81,7 @@ För att du är klar med att skapa den virtuella datorn kan behöva du slutför 
 5. Klicka på **installera nu**.
 6. Ange licensnyckeln och klicka på **nästa**.
 7. Kontrollera ** jag accepterar licensvillkoren och klicka på **nästa**.
-8. Välj **anpassad: Installera Windows endast (Avancerat)**
+8. Välj **anpassade:  Installera Windows endast (Avancerat)**
 9. Klicka på **Nästa**
 10. När installationen är klar startas den virtuella datorn, logga in och kör Windows uppdaterar för att säkerställa att den virtuella datorn är den mest aktuella.  Installera de senaste uppdateringarna.
 

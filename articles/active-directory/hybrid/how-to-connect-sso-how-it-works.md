@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 236a9dac64fa98b9db68a610de097c1deba3e7ee
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 54b614e49bc7c03325ebeada60232fca861874e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970439"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193084"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: teknisk djupdykning
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: Teknisk djupdykning
 
 Den här artikeln ger teknisk information till hur Azure Active Directory sömlös enkel inloggning (sömlös SSO)-funktionen fungerar.
 
@@ -58,8 +58,8 @@ Logga in flödet i en webbläsare är följande:
 2. Om du inte redan har signerats omdirigeras användaren till inloggningssidan för Azure AD.
 3. Användaren skriver sitt användarnamn till inloggningssidan för Azure AD.
 
-  >[!NOTE]
-  >För [vissa program](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), steg 2 och 3 hoppas över.
+   >[!NOTE]
+   >För [vissa program](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), steg 2 och 3 hoppas över.
 
 4. Azure AD anropar med hjälp av JavaScript i bakgrunden, webbläsaren, via ett 401, obehörig svar, att tillhandahålla en Kerberos-biljett.
 5. Webbläsaren kan i sin tur begär en biljett från Active Directory för den `AZUREADSSOACC` datorkontot (som representerar Azure AD).

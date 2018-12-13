@@ -1,6 +1,6 @@
 ---
-title: Time Series-modell | Microsoft Docs
-description: Förstå Time Series-modell
+title: Azure Time Series Insights – Time Series-modell | Microsoft Docs
+description: Förstå Azure Time Series Insights Time Series-modell.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,40 +9,45 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 5d5f94aebcd55474385e903246ce7945586456dd
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 2ead7a9a71c0afe72736bef8796107cae42009f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890423"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278193"
 ---
 # <a name="time-series-model"></a>Time Series-modell
 
-Den här dokumentet beskriver de **Tidsseriemodell** (TSM) tillsammans med Azure Time Series Insights (TSI)-uppdateringen. Den beskriver modellens egen säkerhetsuppsättning, dess funktioner och hur du kommer igång att skapa och uppdatera din egen modell.
+Den här artikeln beskriver Tidsseriemodell en del av förhandsversionen av Azure Time Series Insights. Det diskuterar modellens egen säkerhetsuppsättning, dess funktioner och hur du kommer igång att skapa och uppdatera din egen modell.
 
-Traditionellt har saknar data som samlas in från IoT-enheter kontextinformation, vilket gör det svårt att hitta och analysera sensorer snabbt. Det huvudsakliga skälet till TSM är att förenkla söka efter och analysera IoT-data genom att aktivera hantering, underhåll och berikande av time series-data för att förbereda konsumenter datauppsättningar. TSMs spela en viktig roll i frågor och navigering eftersom de contextualize enhets- och icke-device-entiteter. Data sparas i TSM stänger time series frågor beräkningar genom att använda de formler som lagras i dem.
+Traditionellt har saknar de data som samlas in från IoT-enheter kontextinformation, vilket gör det svårt att hitta och analysera sensorer snabbt. Det huvudsakliga skälet till Tidsseriemodell är att förenkla söka efter och analysera IoT-data. Det ger det här målet genom att aktivera den hantering och underhåll berikande av time series-data för att förbereda konsumenter datauppsättningar. 
+
+Time Series modeller spela en viktig roll i frågor och navigering eftersom de contextualize enhets- och icke-device-entiteter. Data som har sparat i Tidsseriemodell Driver time series-fråga beräkningar genom att utnyttja de formler som lagras i dem.
 
 ![TSM][1]
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 
-Med målet att göra det enkelt och enkel att hantera time series contextualization kan TSM följande funktioner i The Azure TSI (förhandsversion):
+Med målet att göra det enkelt och enkel att hantera time series contextualization kan Tidsseriemodell följande funktioner i förhandsversionen av Time Series Insights. Det hjälper dig att:
 
-* Möjligheten att skapa och hantera beräkningar eller formler för att omvandla data att utnyttja skalärfunktioner, sammanställd operations osv.
-* Definiera överordnade och underordnade objekt för att aktivera navigering och referens för att tillhandahålla kontexten till time series telemetri.
-* Definierar egenskaper som är associerade med den instanser delen av instansfält och använda dessa för att skapa hierarkier.
+* Skapa och hantera beräkningar eller formler, transformera data att utnyttja skalärfunktioner, aggregera operations och så vidare.
+
+* Definiera överordnade och underordnade relationer för att aktivera navigering och referens och ge ett sammanhang till time series telemetri.
+
+* Definierar egenskaper som är associerade med de instanser som en del av *instans fält* och använda dem för att skapa hierarkier.
 
 ## <a name="times-series-model-key-components"></a>Times Series-modell nyckelkomponenter
 
-Det finns tre viktiga komponenter i TSM:
+Time Series-modell har tre huvudkomponenter:
 
-* **Time Series-modell** *typer*
-* **Time Series-modell** *hierarkier*
-* **Time Series-modell** *instanser*
+* Time Series-modell *typer*
+* Time Series-modell *hierarkier*
+* Time Series-modell *instanser*
 
 ## <a name="time-series-model-types"></a>Time Series-modell typer
 
-**Time Series-modell** *typer* aktivera definiera variabler eller formler för att göra beräkningar och associeras med en viss TSI-instans. En typ kan ha en eller flera variabler. Till exempel en TSI-instans kan vara av typen **temperatursensor**, som består av variabler: *genomsnittlig temperatur*, *min temperatur*, och *max temperatur*. Vi skapar en standardtyp när data börjar flöda i TSD. Den kan hämtas och uppdateras från modellinställningarna. Standardtyperna har en variabel som räknar antalet händelser.
+Time Series-modell *typer* hjälper dig att definiera variabler eller formler för att göra beräkningar. Typerna är associerad med en specifik Time Series Insights-instans. En typ kan ha en eller flera variabler. Till exempel en Time Series Insights-instans kan vara av typen *temperatursensor*, som består av variabler *genomsnittlig temperatur*, *min temperatur*, och *max temperatur*. Vi skapar en standardtyp när data börjar flöda till Time Series Insights. Typ av kan hämtas och uppdateras från modellinställningarna. Standardtyperna har en variabel som räknar antalet händelser.
 
 ## <a name="time-series-model-type-json-example"></a>Time Series-modell typen JSON-exempel
 
@@ -69,13 +74,13 @@ Exempel:
 }
 ``````
 
-Läs mer om Tidsseriemodell typer från den [referensdokumentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+Mer information om Tidsseriemodell typer finns i den [referensdokumentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ## <a name="variables"></a>Variabler
 
-Azure TSI-typer har variabler, som är namngivna beräkningar över värden från händelserna. TSI variabeln definitioner innehåller formeln och alla beräkningar som regler. Variabeln definitioner är typ, värde, filter, minskning och gränser. Variabler lagras i typdefinitionen i TSM och kan anges infogade Query-API: er att åsidosätta lagrade definitionen.
+Time Series Insights-typerna har variabler, som är namngivna beräkningar över värden från händelserna. Time Series Insights variabeln definitioner innehåller formeln och alla beräkningar som regler. Variabeln definitioner inkluderar *typ*, *värdet*, *filter*, *minskning*, och *gränser*. Variabler lagras i typdefinitionen i Time Series-modell och kan anges infogade Query-API: er att åsidosätta lagrade definitionen.
 
-Matrisen nedan fungerar som en förklaring för variabeln definitioner:
+Följande matrisen fungerar som en förklaring för variabeln definitioner:
 
 ![tabell][2]
 
@@ -83,8 +88,8 @@ Matrisen nedan fungerar som en förklaring för variabeln definitioner:
 
 Följande variabel typer stöds:
 
-* Numerisk
-* Aggregera
+* *numeriskt*
+* *Mängd*
 
 ### <a name="variable-filter"></a>Variabeln filter
 
@@ -96,13 +101,13 @@ Variabelvärden är och ska användas i beräkningen. Detta är kolumnen i de h�
 
 ### <a name="variable-aggregation"></a>Variabeln aggregering
 
-Mängdfunktionen variabeln kan en del av beräkning. TSI stöder vanliga aggregeringar (nämligen **min**, **max**, **genomsnittlig**, **summan**, och **antal**).
+Mängdfunktionen för variabeln kan en del av beräkning. Tidserieinsikter stöder vanliga aggregeringar (nämligen *min*, *max*, *genomsnittlig*, *summan*, och *antal*).
 
 ## <a name="time-series-model-hierarchies"></a>Time Series-modell hierarkier
 
-Hierarkier organisera instanser genom att ange egenskapsnamn och deras relationer. Du kan ha en enda hierarki eller flera hierarkier. Dessutom kan de behöver inte vara en aktuella del av dina data, men varje instans ska mappa till en hierarki. En TSM-instans kan mappa till en enda hierarki eller flera hierarkier.
+Hierarkier organisera instanser genom att ange egenskapsnamn och deras relationer. Du kan ha en enda hierarki eller flera hierarkier. De behöver inte vara en aktuella del av dina data, men varje instans ska mappa till en hierarki. En Tidsseriemodell-instans kan mappa till en enda hierarki eller flera hierarkier.
 
-Hierarkier har definierats av **hierarki-ID**, **namn**, och **källa**. Hierarkier har sökvägar, en sökväg är uppifrån och ned överordnad-underordnad ordning i hierarkin som användaren vill skapa. Egenskaper för överordnade/underordnade mappar instansfält.
+Hierarkier har definierats av *hierarki-ID*, *namn*, och *källa*. Hierarkier har en sökväg, vilket är en uppifrån och ned överordnad-underordnad-ordning i hierarkin som användare vill skapa. Överordnad-underordnad egenskaper för kartan *instans fält*.
 
 ### <a name="time-series-model-hierarchy-json-example"></a>Time Series-modell hierarki JSON-exempel
 
@@ -121,33 +126,33 @@ Exempel:
 }
 ```
 
-Läs mer om Tidsseriemodell hierarkier från den [referensdokumentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+Mer information om Tidsseriemodell hierarkier finns i den [referensdokumentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-definition-behavior"></a>Hierarkin definition beteende
 
-Överväg följande exempel där hierarki H1 har ”skapa”, ”våning” och ”plats” som en del av dess definition:
+Fundera på följande exempel där hierarki H1 har *att skapa*, *våning*, och *rummet* som en del av dess definition:
 
 ```plaintext
  H1 = [“building”, “floor”, “room”]
 ```
 
-Beroende på fälten instans, hierarki-attribut och värden visas visas: 
+Beroende på den *instans fält*, hierarki-attribut och värden som ska visas som visas i följande tabell: 
 
 | Time Series-ID | Instansfält |
 | --- | --- |
 | ID1 | ”Skapa” = ”1000”, ”våning” = ”10”, ”plats” = ”55”  |
 | ID2 | ”Skapa” = ”1000”, ”plats” = ”55” |
-| ID3 |  ”våning” = ”10” |
+| ID3 | ”våning” = ”10” |
 | ID4 | ”Skapa” = ”1000”, ”våning” = ”10”  |
 | ID5 | |
 
-I ovanstående exempel ID1 visas som en del av hierarkin H1 i Användargränssnittet/UX-Gränssnittet, medan resten klassificeras enligt `Unparented Instances` eftersom de inte överensstämmer med angiven data-hierarkin.
+I föregående exempel ID1 visas som en del av hierarkin H1 i Användargränssnittet/UX-Gränssnittet och resten klassificeras enligt *utan överordnat objekt instanser* eftersom de inte överensstämmer med angiven data-hierarkin.
 
 ## <a name="time-series-model-instances"></a>Time Series-modell instanser
 
-Instanser är tidsserier själva. I de flesta fall den *deviceId* eller *assetId* blir den unika identifieraren för tillgången i miljön. Instanser har beskrivande information som är kopplade till dem kallas instansegenskaper. Instansegenskaper för omfattar minst hierarkiinformation. De kan också innehålla användbar och beskrivande data som tillverkaren, operatorn och det sista datumet i tjänsten.
+Instanser är tidsserier själva. I de flesta fall den *deviceId* eller *assetId* är den unika identifieraren för tillgången i miljön. Instanser har beskrivande information som är kopplade till dem kallas instansegenskaper. Instansegenskaper för omfattar minst hierarkiinformation. De kan också innehålla användbar och beskrivande data som tillverkaren, operatorn och det sista datumet i tjänsten.
 
-Instanser definieras av *timeSeriesId*, *typeId*, *hierarchyId*, och *instanceFields*. Varje instans som mappar till endast en *typ*, och en eller flera hierarkier. Instanser ärver alla egenskaper från hierarkier, medan ytterligare *instanceFields* kan läggas till för ytterligare instans egenskapsdefinition.
+Instanser definieras av *timeSeriesId*, *typeId*, *hierarchyId*, och *instanceFields*. Varje instans som mappar till endast en *typ*, och en eller flera hierarkier. Instanser ärver alla egenskaper från hierarkier, och ytterligare *instanceFields* kan läggas till för ytterligare instans egenskapsdefinition.
 
 *instanceFields* är egenskaper för en instans och statiska data som definierar en instans. De definierar värdena för egenskaperna för hierarkin eller -hierarki också stöd för indexering för att utföra sökningar.
 
@@ -170,7 +175,7 @@ Exempel:
 }
 ```
 
-Läs mer om Tidsseriemodell instanser från den [referensdokumentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+Mer information om Tidsseriemodell instanser finns i den [referensdokumentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## <a name="time-series-model-settings-example"></a>Exempel på inställningar på Time Series-modell
 
@@ -191,13 +196,13 @@ Exempel:
 }
 ```
 
-Läs mer om Tidsseriemodell inställningar från den [referensdokumentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+Mer information om Tidsseriemodell inställningar finns i den [referensdokumentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs den [Azure TSI (förhandsversion) lagring och ingående](./time-series-insights-update-storage-ingress.md).
+Se [förhandsversion av Azure Time Series Insights storage och ingående](./time-series-insights-update-storage-ingress.md).
 
-Läs den om den nya [tidsseriemodell](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
+Se den nya [Tidsseriemodell](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
 
 <!-- Images -->
 [1]: media/v2-update-tsm/tsm.png

@@ -4,10 +4,9 @@ description: Så här skapar du en enkel regressionsmodell för att förutsäga 
 keywords: Skapa en modell, enkel modell, priset förutsägelse, enkel regression-modellen
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 155b853ef46c54fbb6e230573b860189bacc0d64
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e2c49b9da215c038cfa47689f11da22b2dffc2dc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092942"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253603"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Förutsäga ett svar med en enkel modell
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Datavetenskap för nybörjare-serien
@@ -39,10 +38,10 @@ Titta på alla för att få ut det mesta av serien. [Gå till listan över video
 *Datavetenskap för nybörjare* är en snabbintroduktion i datakunskap med fem korta filmer.
 
 * Video 1: [5 frågor och svar om datavetenskap](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sek.)*
-* Video 2: [är dina data klara för datavetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sek)*
+* Video 2: [Är dina data klara för datavetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sek)*
 * Video 3: [Ställ en fråga som du kan svara på med data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sek)*
-* Video 4: Förutsäg ett svar med en enkel modell
-* Video 5: [kopiera andras arbete för att göra datavetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek)*
+* Video 4: Förutsäga ett svar med en enkel modell
+* Video 5: [Kopiera andras arbete för att göra datavetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek)*
 
 ## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Avskriften: Förutsäga ett svar med en enkel modell
 Välkommen till den fjärde videon i den ”Data datavetenskap för nybörjare” serien. I det här objektet ska vi skapa en enkel modell och göra en förutsägelse.
@@ -66,7 +65,7 @@ Faktiskt har vi skapat en liten datauppsättning här – en tabell. Lägg märk
 * Och eftersom vi ser den har **tillräckligt med** data som svar på våra fråga
 
 ## <a name="ask-a-sharp-question"></a>Ställ en sharp fråga
-Nu ska vi utgöra vår fråga på en sharp sätt: ”hur mycket det kostar för att köpa en 1.35 cirkumflex romb”?
+Nu ska vi utgöra vår fråga på en sharp sätt: ”Hur mycket det kostar för att köpa en 1.35 cirkumflex romb”?
 
 Vår lista har en 1.35 cirkumflex romb, så vi måste du använda resten av våra data för att få ett svar på frågan.
 
@@ -97,18 +96,18 @@ Det faktum att alla punkter inte exakt genomgå raden är OK. Dataexperter förk
 Eftersom vi försöker besvara frågan *hur mycket?* detta kallas en *regression*. Och eftersom vi använder en rak linje, det är en *linjär regression*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Använd modellen svaret
-Nu har vi en modell och vi har Ställ vår fråga: hur mycket kostar en 1.35 cirkumflex romb?
+Nu har vi en modell och vi har Ställ vår fråga: Hur mycket kostar en 1.35 cirkumflex romb?
 
-För att besvara vår fråga vi ögonikonen 1.35 carats och rita en lodrät linje. Där den korsar raden modellen eyeball vi en vågrät linje dollar axel. Det kommer till höger på 10 000. Japp! Det är svaret: en 1.35 cirkumflex romb kostar cirka 10 000 USD.
+För att besvara vår fråga vi ögonikonen 1.35 carats och rita en lodrät linje. Där den korsar raden modellen eyeball vi en vågrät linje dollar axel. Det kommer till höger på 10 000. Japp! Svaret är: En 1.35 cirkumflex romb kostnaderna om 10 000 USD.
 
 ![Hitta svaret på modellen](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Skapa en konfidensintervallet
-Det är naturlig fundera över hur exakt den här förutsägelse är. Det är bra att veta om 1.35 cirkumflex romb ska vara mycket nära 10 000 USD, eller mycket högre eller lägre. För att fastställa detta vi rita ett kuvert runt regressionslinjen som innehåller de flesta av punkterna. Den här kuvert kallas vår *konfidensintervall*: vi är ganska säker på att priserna ligger inom det här kuvertet eftersom i den senaste de flesta av dem har. Vi kan hämta två mer vågräta linjer från där 1.35 cirkumflex linje korsar upp och längst ned på kuvertets.
+Det är naturlig fundera över hur exakt den här förutsägelse är. Det är bra att veta om 1.35 cirkumflex romb ska vara mycket nära 10 000 USD, eller mycket högre eller lägre. För att fastställa detta vi rita ett kuvert runt regressionslinjen som innehåller de flesta av punkterna. Den här kuvert kallas vår *konfidensintervall*: Vi är ganska säker på att priserna ligger inom det här kuvertet eftersom i den senaste de flesta av dem har. Vi kan hämta två mer vågräta linjer från där 1.35 cirkumflex linje korsar upp och längst ned på kuvertets.
 
 ![Konfidensintervall](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Nu kan vi anta att något om vårt konfidensintervall: vi kan säga tryggt att priset för en 1.35 cirkumflex romb är ungefär $ 10 000 – men det kan vara så lågt som 8 000 och det kan vara så mycket som 12 000 $.
+Nu kan vi säga något om vårt konfidensintervall:  Vi kan säga tryggt att priset för en 1.35 cirkumflex romb är ungefär $ 10 000 – men det kan vara så lågt som 8 000 och det kan vara så mycket som 12 000 $.
 
 ## <a name="were-done-with-no-math-or-computers"></a>Vi är klara, utan matematiska eller datorer
 Vi gjorde vad dataforskare få betalt för att göra och vi gjorde det genom att rita:

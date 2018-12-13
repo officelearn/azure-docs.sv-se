@@ -1,6 +1,6 @@
 ---
-title: Välj en prisnivå nivå eller SKU för Azure Search-tjänst | Microsoft Docs
-description: 'Azure Search kan etableras på dessa SKU: er: kostnadsfri, Basic och Standard, där Standard finns i olika resurskonfigurationer och kapacitet nivåer.'
+title: Välj en prisnivå nivå eller SKU för Azure Search-tjänst – Azure Search
+description: 'Azure Search kan etableras på dessa SKU: er: Kostnadsfri, Basic och Standard, där Standard finns i olika resurskonfigurationer och kapacitet nivåer.'
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.custom: seodec2018
+ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785315"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315562"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 

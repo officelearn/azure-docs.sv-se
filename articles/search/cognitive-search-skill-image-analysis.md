@@ -1,5 +1,5 @@
 ---
-title: Bild Analysis kognitiv sökning färdighet (Azure Search) | Microsoft Docs
+title: Bild Analysis kognitiv sökning färdigheter – Azure Search
 description: Extrahera semantiska text genom bildanalys med ImageAnalysis kognitiva kunskaper i en Azure Search berikande pipeline.
 services: search
 manager: pablocas
@@ -10,19 +10,23 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 8ec3b6c5dfdd63de45e287cf0b68e90c7b0cbbd8
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.custom: seodec2018
+ms.openlocfilehash: fc8780c5b99ce98a55a6cb08cfaa6585e5a4e89a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829554"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313317"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Bild Analysis kognitiva kunskaper
 
 Den **bildanalys** färdighet extraherar en omfattande uppsättning visuella funktioner baserat på innehållet i. Du kan till exempel generera en etikett från en avbildning, generera taggar eller identifiera kändisar och landmärken.
 
 > [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetens körning och extrahering av avbildningen och normalisering är för närvarande erbjuds kostnadsfritt. Vid ett senare tillfälle meddelas priserna för dessa funktioner. 
+> Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. Detta gör att vi börjar debitera för körning av kompetens. På det här datumet måste också börjar vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
+>
+> Körningen av inbyggda kunskaper debiteras med den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser kommer att debiteras enligt priserna för förhandsversionen och beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). Lär dig [mer](cognitive-search-attach-cognitive-services.md).
+
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 

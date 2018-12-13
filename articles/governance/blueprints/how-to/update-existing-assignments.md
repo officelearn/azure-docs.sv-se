@@ -1,5 +1,5 @@
 ---
-title: Hur du uppdaterar en befintlig Azure-skisstilldelningen
+title: Hur du uppdaterar en befintlig tilldelning
 description: Läs mer om mekanism för att uppdatera en befintlig tilldelning i Azure skisser.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 2c9f660e54da50e32ce1d0dc43b0efeacd643c57
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093793"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314842"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Hur du uppdaterar en befintlig tilldelning av skiss
 
@@ -25,7 +26,7 @@ När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera orsaker ti
 
 ## <a name="updating-assignments"></a>Uppdatering av tilldelningar
 
-1. Klicka på **alla tjänster** och söka efter och välja **princip** i den vänstra rutan. Klicka på **Skisser** på sidan **Princip**.
+1. Klicka på **Alla tjänster** och sök efter och välj **Princip** i den vänstra fönsterrutan. Klicka på **Skisser** på sidan **Princip**.
 
 1. Välj **Tilldelade skisser** på sidan till vänster.
 

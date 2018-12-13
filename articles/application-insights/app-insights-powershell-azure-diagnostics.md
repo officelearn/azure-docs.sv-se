@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: 41669e9f88518382608830140f710bf41daec481
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e8fafbe1c5fafd338009b1bdd8c5d838c3fac726
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52741832"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323294"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Ställa in Application Insights i en Azure-webbapp med hjälp av PowerShell
-[Microsoft Azure](https://azure.com) kan [konfigureras att skicka Azure Diagnostics-data](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) till [Azure Application Insights](app-insights-overview.md). Diagnostiken gäller Azure Cloud Services och virtuella datorer i Azure. De kompletterar telemetrin som du skickar inifrån appen med hjälp av Application Insights SDK. Som en del av automatiseringen av processen för att skapa nya resurser i Azure kan du konfigurera diagnostik med hjälp av PowerShell.
+[Microsoft Azure](https://azure.com) kan [konfigureras att skicka Azure Diagnostics-data](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) till [Azure Application Insights](app-insights-overview.md). Diagnostiken gäller Azure Cloud Services och virtuella datorer i Azure. De kompletterar telemetrin som du skickar inifrån appen med hjälp av Application Insights SDK. Som en del av automatiseringen av processen för att skapa nya resurser i Azure kan du konfigurera diagnostik med hjälp av PowerShell.
 
 ## <a name="azure-template"></a>Azure-mall
 Om webbappen finns i Azure och du skapar dina resurser med hjälp av en Azure Resource Manager-mall kan du konfigurera Application Insights genom att lägga till följande till resursnoden:
@@ -135,6 +135,6 @@ Så här tar du bort diagnostiktillägget från varje enskild roll:
 
 ## <a name="see-also"></a>Se också
 * [Övervaka Azure Cloud Services-appar med Application Insights](app-insights-cloudservices.md)
-* [Skicka Azure Diagnostics-data till Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Skicka Azure Diagnostics-data till Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automatisera konfigurationen av aviseringar](app-insights-powershell-alerts.md)
 

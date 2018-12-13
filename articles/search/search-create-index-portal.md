@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Azure Search-index i portalen | Microsoft Docs
+title: Skapa ett Azure Search-index i Azure portal – Azure Search
 description: Lär dig hur du skapar ett index för Azure Search med hjälp av inbyggda portal index designers.
 manager: cgronlun
 author: heidisteen
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 4bba8b41418dadad1b241d60ab0b7aeee4c046d7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990854"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316717"
 ---
 # <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Så här skapar du ett Azure Search-index med hjälp av Azure portal
 
@@ -95,7 +96,7 @@ API-dokumentationen för Azure Search innehåller kodexempel med ett enkelt *hot
 
 När du har skapat ett Azure Search-index kan du gå till nästa steg: [ladda upp sökbara data till indexet](search-what-is-data-import.md).
 
-Du kan också ta en närmare titt på index. Förutom samlingen Fält anges i index även analysverktyg, förslagsställare, bedömningsprofiler och CORS-inställningar. Portalen innehåller fliksidor för att definiera de vanligaste elementen: fält, analysverktyg och förslagsställare. Om du vill skapa eller ändra andra element kan du använda REST-API:et eller .NET SDK.
+Du kan också ta en närmare titt på index. Förutom samlingen Fält anges i index även analysverktyg, förslagsställare, bedömningsprofiler och CORS-inställningar. Portalen innehåller fliksidor för att definiera de vanligaste elementen: Fält, analysverktyg och förslagsställare. Om du vill skapa eller ändra andra element kan du använda REST-API:et eller .NET SDK.
 
 ## <a name="see-also"></a>Se också
 

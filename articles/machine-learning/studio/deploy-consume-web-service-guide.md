@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a596fe572e31a330fa976470d31dc7d0de5b0398
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073745"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268435"
 ---
-# <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning-webbtjänster: Distribution och användning
+# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio-webbtjänster: Distribution och användning
 Du kan använda Azure Machine Learning för att distribuera machine learning arbetsflöden och modeller som webbtjänster. Dessa webbtjänster kan sedan användas för att anropa maskininlärningsmodeller från program via Internet för att göra förutsägelser i realtid eller i batchläge. Eftersom webbtjänsterna är RESTful, kan du anropa dem från olika programmeringsspråk och plattformar, till exempel .NET och Java och program, till exempel Excel.
 
 I nästa avsnitt innehåller länkar till genomgångar, kod och dokumentation som hjälper dig att komma igång.
@@ -37,7 +36,7 @@ Följande länkar ger allmän Information om hur du distribuerar en ny webbtjän
 
 * En översikt om hur du distribuerar en ny webbtjänst som baseras på Azure Resource Manager finns i [distribuera en ny webbtjänst](publish-a-machine-learning-web-service.md).
 * En genomgång om hur du distribuerar en webbtjänst finns i [distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
-* En fullständig genomgång om hur du skapar och distribuerar en webbtjänst finns i [genomgång steg 1: skapa en Machine Learning-arbetsyta](walkthrough-1-create-ml-workspace.md).
+* En fullständig genomgång om hur du skapar och distribuerar en webbtjänst finns i [genomgång steg 1: Skapa en Machine Learning-arbetsyta](walkthrough-1-create-ml-workspace.md).
 * Specifika exempel som distribuerar en webbtjänst finns:
 
   * [Genomgång steg 5: Distribuera Azure Machine Learning-webbtjänst](walkthrough-5-publish-web-service.md)

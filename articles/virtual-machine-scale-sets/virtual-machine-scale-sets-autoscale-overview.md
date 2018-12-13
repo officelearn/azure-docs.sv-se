@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c50e78fc7f4f5b6f779b696a3d16520d3ffccd5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 18be454c93c32e0902a55a08748045c26d649ce7
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465329"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322047"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över automatisk skalning med Azure-datorer anger
 En Azure VM-skalningsuppsättning kan automatiskt öka eller minska antalet Virtuella datorinstanser som kör programmet. Detta automatiserad och elastiska minskar hanteringsomkostnaderna för att övervaka och optimera prestanda för ditt program. Du kan skapa regler som definierar acceptabel prestanda för en positiv kundupplevelse. När de definierade tröskelvärdena är uppfyllda, regler för automatisk skalning att vidta åtgärder för att justera kapaciteten för din skalningsuppsättning. Du kan även schemalägga händelser att automatiskt öka eller minska kapaciteten för din skalningsuppsättning på fast gånger. Den här artikeln innehåller en översikt över vilka mått som är tillgängliga och vilka åtgärder som automatisk skalning kan utföra.
@@ -146,4 +146,4 @@ Den här översikten beskrivs hur du använder regler för automatisk skalning a
 
 Information om hur du hanterar dina VM-instanser finns i [hantera VM-skalningsuppsättningar med Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 
-Läs hur du genererar aviseringar när dina autoskalningsregler utlösare i [använda åtgärder för automatisk skalning för att skicka e-post och webhook-aviseringar i Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). Du kan också [Använd granskningsloggar för att skicka e-post och webhook-aviseringar i Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Läs hur du genererar aviseringar när dina autoskalningsregler utlösare i [använda åtgärder för automatisk skalning för att skicka e-post och webhook-aviseringar i Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Du kan också [Använd granskningsloggar för att skicka e-post och webhook-aviseringar i Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).

@@ -1,12 +1,11 @@
 ---
 title: 'Steg 3: Skapa ett nytt experiment i Machine Learning Studio – Azure | Microsoft Docs'
-description: 'Steg 3 i utveckla en förutsägelselösning genomgång: skapa en ny träningsexperiment i Azure Machine Learning Studio.'
+description: 'Steg 3 av utveckla en förutsägelselösning genomgång: Skapa en ny träningsexperiment i Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317536"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260794"
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Genomgång steg 3: Skapa ett nytt Azure Machine Learning Studio-experiment
 Det här är det tredje steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -164,7 +163,7 @@ Vår experimentet nu ser ut ungefär så här:
 
 Mer information om hur du använder R-skript i dina experiment finns i [Utöka ditt experiment med R](extend-your-experiment-with-r.md).
 
-**Nästa: [träna och utvärdera modellerna](walkthrough-4-train-and-evaluate-models.md)**
+**Nästa: [Träna och utvärdera modellerna](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png

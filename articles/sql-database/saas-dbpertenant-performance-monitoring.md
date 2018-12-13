@@ -1,5 +1,5 @@
 ---
-title: 'Saas-app: övervaka prestanda för många Azure SQL-databaser | Microsoft Docs'
+title: 'Saas-app: Övervaka prestanda för många Azure SQL-databaser | Microsoft Docs'
 description: Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353908"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259145"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 
@@ -75,7 +75,7 @@ Om du redan har etablerat en batch med klienter i en tidigare självstudiekurs g
 
 Skriptet distribuerar 17 klienter på mindre än fem minuter.
 
-Den *New-TenantBatch* skriptet använder en kapslad eller länkad uppsättning [Resource Manager](../azure-resource-manager/index.md) mallar som skapar en batch med klienter, vilket som standard kopieras databasen **basetenantdb**på katalogservern för att skapa den nya innehavaren databaser, och registrerar sedan dessa i katalogen och slutligen initieras de med klienttyp och platstyp. Det här är likadant som hur appen etablerar en ny klient. Ändringar som görs till *basetenantdb* tillämpas på alla nya klienter som etableras därefter. Se den [schemahanteringsguiden](saas-tenancy-schema-management.md) att se hur du gör schemaändringar för *befintliga* klientdatabaser (inklusive den *basetenantdb* databas).
+Den *New-TenantBatch* skriptet använder en kapslad eller länkad uppsättning [Resource Manager](../azure-resource-manager/index.yml) mallar som skapar en batch med klienter, vilket som standard kopieras databasen **basetenantdb**på katalogservern för att skapa den nya innehavaren databaser, och registrerar sedan dessa i katalogen och slutligen initieras de med klienttyp och platstyp. Det här är likadant som hur appen etablerar en ny klient. Ändringar som görs till *basetenantdb* tillämpas på alla nya klienter som etableras därefter. Se den [schemahanteringsguiden](saas-tenancy-schema-management.md) att se hur du gör schemaändringar för *befintliga* klientdatabaser (inklusive den *basetenantdb* databas).
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simulera användning på alla klientdatabaser
 

@@ -1,13 +1,11 @@
 ---
-title: Diagnostik för Azure Standard Load Balancer | Microsoft Docs
+title: Azure Standard Load Balancer-diagnostik
+titlesuffix: Azure Load Balancer
 description: Använd tillgänglig information för mått och hälsa för diagnostik för Azure Standard Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426476"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189055"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Mått och hälsotillstånd diagnostik för Standard Load Balancer
 
 Azure Standard Load Balancer exponerar Azure Standard Load Balancer ger dina resurser följande diagnostiska funktioner:
-* **Flerdimensionella mått**: ger nya funktioner för flerdimensionella diagnostiska via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för både offentliga och interna laddar belastningsutjämnaren konfigurationer. Du kan övervaka, hantera och felsöka dina resurser för belastningsutjämning.
+* **Flerdimensionella mått**: Innehåller nya flerdimensionella diagnostiska funktioner via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för både offentliga och interna laddar belastningsutjämnaren konfigurationer. Du kan övervaka, hantera och felsöka dina resurser för belastningsutjämning.
 
-* **Resurshälsa**: The Load Balancer-sidan på Azure portal och Resource Health-sidan (under övervakning) exponerar avsnittet Resource Health för den offentliga belastningsutjämningskonfigurationen för Standard Load Balancer.
+* **Resurshälsa**: Sidan belastningsutjämnare i Azure portal och Resource Health-sidan (under övervakning) exponerar avsnittet Resource Health för den offentliga belastningsutjämningskonfigurationen för Standard Load Balancer.
 
 Den här artikeln innehåller en snabb genomgång av funktionerna och sätt att använda dem för Standard Load Balancer.
 
@@ -82,7 +80,7 @@ Hämta VIP-tillgänglighet för dina resurser för Standard Load Balancer:
 
 ![VIP-avsökning](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Bild: VIP för belastningsutjämnaren information-avsökning*
+*Bild: Läsa in VIP för belastningsutjämnaren information-avsökning*
 
 Måttet genereras av en aktiv, in-band-mätning. En sökning-tjänst inom regionen kommer trafik för mätning. Tjänsten är aktiverad när du skapar en distribution med en offentlig klientdel och den fortsätter tills du tar bort klientdelen. 
 
@@ -157,7 +155,7 @@ Hämta paket eller byte sammanställd statistik:
 
 ![Antal byte](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Bild: Antal för Load Balancer-byte*
+*Bild: Läsa in antal byte för belastningsutjämnare*
 
 #### <a name = "vipavailabilityandhealthprobes"></a>Hur diagnostiserar jag min load balancer-distribution?
 
@@ -169,7 +167,7 @@ Du kan ta ett steg ytterligare och använda VIP tillgänglighetsmått få insikt
 
 ![VIP-diagnostik](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
 
-*Bild: Kombinera DIP och VIP tillgänglighetsmått*
+*Bild: Kombinera mått för DIP och VIP-tillgänglighet*
 
 Diagrammet visar följande information:
 - Infrastrukturen själva har felfri, den infrastruktur som är värd för dina virtuella datorer har kan nås och mer än en virtuell dator har placerats i serverdelen. Den här informationen visas med blå spårningen för VIP-tillgänglighet, vilket är 100 procent. 
@@ -193,7 +191,7 @@ Visa hälsotillståndet för dina offentlig Standard Load Balancer-resurser:
 
    ![Övervaka sidan](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   *Bild: Tjänstehälsa för länken i Azure Monitor*
+   *Bild: Länken Service Health på Azure Monitor*
 
 2. Välj **Resource Health**, och kontrollera att **prenumerations-ID** och **resurstyp = belastningsutjämnaren** har valts.
 
@@ -205,7 +203,7 @@ Visa hälsotillståndet för dina offentlig Standard Load Balancer-resurser:
 
     ![Läsa in hälsostatusen för belastningsutjämnaren](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Bild: Belastningsutjämnare resurshälsovyn*
+   *Bild: Läsa in belastningsutjämnare resurshälsovyn*
  
 Olika resource health statusvärden och deras beskrivningar finns i följande tabell: 
 

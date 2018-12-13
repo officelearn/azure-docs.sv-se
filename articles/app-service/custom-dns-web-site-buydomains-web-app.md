@@ -1,5 +1,5 @@
 ---
-title: Köp ett anpassat domännamn för Azure Web Apps
+title: Köp anpassade domännamn i Azure - App Service
 description: Lär dig hur du köper ett anpassat domännamn med en webbapp i Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 48e0e68794e83739835d97aa8a2b26516c660357
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.custom: seodec18
+ms.openlocfilehash: 3f587b7e1b051b28d11ad84fcb2d02bd01315de5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345199"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256442"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Köp ett anpassat domännamn för Azure Web Apps
 
@@ -153,7 +154,7 @@ Om du väljer att inte tilldela en eller flera standard-värdnamn till din webba
 
 Du kan också tilldela värdnamn i App Service-domänen till webbapp. Stegen är beroende av om App Service-domänen och webbappen tillhör samma prenumeration.
 
-- Annan prenumeration: mappa anpassade DNS-poster från App Service-domänen till webbappen som en externt köpta domän. Information om att lägga till anpassade DNS-namn till en App Service-domän finns i [hantera anpassade DNS-poster](#custom). Om du vill mappa en extern köpta domän till en webbapp, se [mappa ett befintligt anpassat DNS-namn till Azure Web Apps](app-service-web-tutorial-custom-domain.md). 
+- Annan prenumeration: Kartan anpassade DNS-poster från App Service-domänen till webbappen som en externt köpta domän. Information om att lägga till anpassade DNS-namn till en App Service-domän finns i [hantera anpassade DNS-poster](#custom). Om du vill mappa en extern köpta domän till en webbapp, se [mappa ett befintligt anpassat DNS-namn till Azure Web Apps](app-service-web-tutorial-custom-domain.md). 
 - Samma prenumeration: Använd följande steg.
 
 ### <a name="launch-add-hostname"></a>Starta Lägg till värddatornamn
@@ -280,4 +281,4 @@ Som standard dirigerar App Service webbegäranden till rotkatalogen för din app
 
 ## <a name="more-resources"></a>Fler resurser
 
-[Vanliga frågor och svar: App Service-domänen (förhandsversion) och anpassade domäner](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)
+[VANLIGA FRÅGOR OCH SVAR: App Service-domänen (förhandsversion) och anpassade domäner](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 9c1c833046c7dff0f26621be57768021dc036846
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 0355b8cf19209509dca2f3cac93c7abb92a63990
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888995"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323328"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för att hämta en åtkomsttoken 
 
@@ -51,6 +51,7 @@ Ett klientprogram kan begära hanterade identiteter för Azure-resurser [appspec
 | [Hämta en token via HTTP](#get-a-token-using-http) | Information om protokoll för hanterade identiteter för Azure-resurser token slutpunkt |
 | [Hämta en token med hjälp av Microsoft.Azure.Services.AppAuthentication-klientbiblioteket för .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exempel på hur du använder biblioteket Microsoft.Azure.Services.AppAuthentication från en .NET-klient
 | [Hämta en token med C#](#get-a-token-using-c) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en C#-klient |
+| [Hämta en token med hjälp av Java](#get-a-token-using-java) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en Java-klient |
 | [Hämta en token med hjälp av Go](#get-a-token-using-go) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en Go-klient |
 | [Hämta en token med Azure PowerShell](#get-a-token-using-azure-powershell) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en PowerShell-klient |
 | [Hämta en token med CURL](#get-a-token-using-curl) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en Bash/CURL-klient |
@@ -172,6 +173,50 @@ catch (Exception e)
     string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
 }
 
+```
+
+## <a name="get-a-token-using-java"></a>Hämta en token med hjälp av Java
+
+Använd det här [JSON-biblioteket](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) att hämta en token med hjälp av Java.
+
+```Java
+import java.io.*;
+import java.net.*;
+import com.fasterxml.jackson.core.*;
+ 
+class GetMSIToken {
+    public static void main(String[] args) throws Exception {
+ 
+        URL msiEndpoint = new URL("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+        HttpURLConnection con = (HttpURLConnection) msiEndpoint.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("Metadata", "true");
+ 
+        if (con.getResponseCode()!=200) {
+            throw new Exception("Error calling managed identity token endpoint.");
+        }
+ 
+        InputStream responseStream = con.getInputStream();
+ 
+        JsonFactory factory = new JsonFactory();
+        JsonParser parser = factory.createParser(responseStream);
+ 
+        while(!parser.isClosed()){
+            JsonToken jsonToken = parser.nextToken();
+ 
+            if(JsonToken.FIELD_NAME.equals(jsonToken)){
+                String fieldName = parser.getCurrentName();
+                jsonToken = parser.nextToken();
+ 
+                if("access_token".equals(fieldName)){
+                    String accesstoken = parser.getValueAsString();
+                    System.out.println("Access Token: " + accesstoken.substring(0,5)+ "..." + accesstoken.substring(accesstoken.length()-5));
+                    return;
+                }
+            }
+        }
+    }
+}
 ```
 
 ## <a name="get-a-token-using-go"></a>Hämta en token med hjälp av Go
@@ -327,7 +372,7 @@ Det här avsnittet beskrivs möjliga felsvar. En ”200 OK” status är ett lyc
 
 | Statuskod | Fel | Felbeskrivning | Lösning |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Felaktig förfrågan | invalid_resource | AADSTS50001: Programmet med namnet *\<URI\>* hittades inte i klientorganisationen med namnet  *\<TENANT-ID\>*. Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänts av någon användare i klienten. Du kanske har skickat din begäran om autentisering till fel klient. \ | (Endast Linux) |
+| 400 Felaktig förfrågan | invalid_resource | AADSTS50001: Programmet heter *\<URI\>* hittades inte i klientorganisationen med namnet  *\<TENANT-ID\>*. Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänts av någon användare i klienten. Du kanske har skickat din begäran om autentisering till fel klient. \ | (Endast Linux) |
 | 400 Felaktig förfrågan | bad_request_102 | Metadata som krävs-huvud har inte angetts | Antingen den `Metadata` begäran rubrik fält saknas i din begäran eller är felaktigt formaterad. Värdet måste anges som `true`, i gemener. Se ”Sample-begäran” i den [föregående REST avsnittet](#rest) ett exempel.|
 | 401 Ej behörig | unknown_source | Okänd källa  *\<URI\>* | Kontrollera att din HTTP GET-begäran URI har formaterats korrekt. Den `scheme:host/resource-path` del måste anges som `http://localhost:50342/oauth2/token`. Se ”Sample-begäran” i den [föregående REST avsnittet](#rest) ett exempel.|
 |           | invalid_request | Begäran saknar en obligatorisk parameter, innehåller ett ogiltigt parametervärde, innehåller en parameter mer än en gång eller annars har fel format. |  |

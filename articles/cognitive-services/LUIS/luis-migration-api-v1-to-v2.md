@@ -1,7 +1,7 @@
 ---
 title: V1 till v2 API-migrering
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du migrerar till den senaste API-uppsättningen.
+description: 'Version 1 slutpunkt och redigering API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2-slutpunkten och redigera API: er.'
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 7514390593b4afca4793923089516f3393db0428
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105843"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138831"
 ---
-# <a name="api-v2-migration-guide"></a>Migreringsguide för API v2
-Version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) och [redigering](https://aka.ms/v1-authoring-api-docs) API: er upphör att gälla. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://aka.ms/luis-endpoint-apis) och [redigering](https://aka.ms/luis-authoring-apis) API: er. 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2-Migreringsguide för LUIS-appar
+Version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) och [redigering](https://aka.ms/v1-authoring-api-docs) API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://aka.ms/luis-endpoint-apis) och [redigering](https://aka.ms/luis-authoring-apis) API: er. 
 
 ## <a name="new-azure-regions"></a>Nya Azure-regioner
 LUIS har nya [regioner](https://aka.ms/LUIS-regions) för LUIS APIs. LUIS innehåller en annan webbplats för regionsgrupper. Programmet måste skrivas i samma region som du förväntar dig att fråga. Program migreras inte automatiskt regioner. Du kan exportera en app från en region och sedan importera till en annan för att vara tillgängligt i en ny region.

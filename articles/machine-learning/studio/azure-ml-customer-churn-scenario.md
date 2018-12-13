@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 2063198ab2a7b11e15528e81acb46ba16277782a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097649"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272175"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analysera kundens omsättning med hjälp av Azure Machine Learning Studio
 ## <a name="overview"></a>Översikt
@@ -31,11 +30,11 @@ Den här artikeln beskriver vi en referensimplementering av ett kundomsättning 
 Det här experimentet utvecklades och testats av Serge Berger huvudnamn dataexpert hos Microsoft och Roger Barga, tidigare Product Manager för Microsoft Azure Machine Learning. Azure-Dokumentationsteamet mycket bekräftar sin expertis och tack dem för att dela det här dokumentet.
 
 > [!NOTE]
-> Data som används för det här experimentet är inte allmänt tillgängliga. Ett exempel på hur du skapar en maskininlärningsmodell för omsättning analys, se: [detaljhandel omsättningen modellen mallen](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) i [Azure AI-galleriet](http://gallery.cortanaintelligence.com/)
+> Data som används för det här experimentet är inte allmänt tillgängliga. Ett exempel på hur du skapar en maskininlärningsmodell för omsättning analys finns: [Detaljhandel omsättningen modellen mallen](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) i [Azure AI-galleriet](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>Problemet med kundomsättning
 Företag i konsumentmarknaden och i alla enterprise sektorer måste hantera omsättning. Ibland omsättning är för lång tid och påverkar policybeslut. Traditionell lösning är att förutsäga hög benägenhet churners och deras behov via en concierge-tjänst, marknadsföring, eller genom att tillämpa särskilda dispens. Dessa metoder kan variera från bransch till bransch. De kan även variera från ett visst konsument-kluster till ett annat inom en bransch (till exempel telekommunikation).
@@ -112,7 +111,7 @@ Följande diagram visar de data som har använts.
  
 
 > Observera att dessa data är privat och därför modell och data kan inte delas.
-> Dock finns i det här exemplet experimentera i en liknande modell med offentligt tillgängliga data, den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/): [Telco kundens omsättning](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Dock finns i det här exemplet experimentera i en liknande modell med offentligt tillgängliga data, den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/): [Telco Konsumentförlust](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Om du vill veta mer om hur du kan implementera en modell för analys av omsättning med Cortana Intelligence Suite kan vi rekommenderar också [videon](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) av programchef Wee Hyong Tok. 
 > 
@@ -168,7 +167,7 @@ Följande diagram från Wikipedia visar relationen i en livlig, enkelt att förs
 
 ![][8]
 
-*Bild 10: Kompromiss mellan noggrannhet och precision*
+*Bild 10: Förhållandet mellan noggrannhet och precision*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Noggrannhet och precision resultat för beslutsträd trädet modell
 Följande diagram visar rådata resultaten från bedömning med Machine Learning-prototyp för beslutsträd trädet modellen råkar vara det mest korrekta bland fyra modeller:  
@@ -217,13 +216,13 @@ Det här dokumentet beskriver en metod som är känsliga för att lösa vanliga 
  
 
 ## <a name="references"></a>Referenser
-[1] Förutsägelseanalys: utöver förutsägelser västra McKnight informationshantering, juli/augusti 2011, s.18-20.  
+[1] förutsägande analys: Utöver de förutsägelser västra McKnight informationshantering, juli/augusti 2011, s.18-20.  
 
-[2] Wikipedia-artikel: [noggrannhet och precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia-artikel: [Noggrannhet och precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [SKARPA-DM 1.0: stegvisa Data-utvinning Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [SKARPA-DM 1.0: Stegvisa Data-utvinning Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Stordata marknadsföring: engagera dina kunder mer effektivt och Driv värde](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Stordata marknadsföring: Engagera dina kunder mer effektivt och Driv värde](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Telco omsättningen modellen mallen](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) i [Azure AI-galleriet](http://gallery.cortanaintelligence.com/) 
  

@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure WebJobs SDK
+title: Kom igång med WebJobs-SDK - Azure
 description: Introduktion till WebJobs-SDK för händelsedrivna Bakgrundsbearbetning. Lär dig hur du kommer åt data i Azure-tjänster och tjänster från tredje part.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 95fd44d5865eb804cb91d7adc2cc17bb5f957b5c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140357"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275218"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -63,9 +63,9 @@ Den här artikeln förutsätter att du har [ett Azure-konto](https://azure.micro
 
 1. I Visual Studio väljer **Arkiv > Nytt projekt**.
 
-1. Välj **Windows Classic Desktop > konsolprogram (.NET Framework)**.
+2. Välj **Windows Classic Desktop > konsolprogram (.NET Framework)**.
 
-1. Ge projektet namnet *WebJobsSDKSample*, och välj sedan **OK**.
+3. Ge projektet namnet *WebJobsSDKSample*, och välj sedan **OK**.
 
    ![Dialogrutan Nytt projekt](./media/webjobs-sdk-get-started/new-project.png)
 

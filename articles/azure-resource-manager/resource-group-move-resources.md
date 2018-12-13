@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: d16f05c208e737f7c0095fc95c4272fe216f7a34
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 36cdb8a84c7ec7e05917be1144ae008f90cad03a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094941"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321143"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -35,7 +35,7 @@ Du kan inte ändra platsen för resursen. En resurs flyttas bara flyttar det til
 
 ## <a name="checklist-before-moving-resources"></a>Checklistan innan du flyttar resurser
 
-Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel genom att verifiera dessa villkor.
+Det finns några viktiga steg att göra innan du flyttar en resurs. Du kan undvika fel genom att verifiera dessa villkor.
 
 1. Käll- och målprenumerationer måste finnas inom samma [Azure Active Directory-klient](../active-directory/develop/quickstart-create-new-tenant.md). Om du vill kontrollera att båda prenumerationerna har samma klient-ID, använder du Azure PowerShell eller Azure CLI.
 
@@ -58,7 +58,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
   * [Så här associerar du eller lägger till en prenumeration i din Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kan stöta på detta problem när en resurs flyttas till en ny prenumeration, men prenumerationen aldrig har använts med den resurstypen.
+1. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kan se det här felet när du flyttar en resurs till en ny prenumeration, men att prenumerationen aldrig har använts med den resurstypen.
 
   Använd följande kommandon för att hämta registreringsstatus PowerShell:
 
@@ -93,7 +93,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 
 1. Kontrollera prenumerationskvoter för den prenumeration som du flyttar resurser till innan du flyttar resurser. Om du flytta resurserna innebär prenumerationen kommer att överskrida gränsen, måste du granska om du kan begära en ökning av kvoten. En lista över begränsningar och hur du begär en ökning, se [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
 
-1. När det är möjligt, flyttar break stora till separata flyttåtgärder. Resource Manager misslyckas omedelbart försök att flytta fler än 800 resurser i en enda åtgärd. Men kan flyttar resurser som är mindre än 800 också misslyckas av tiden går ut.
+1. När det är möjligt, flyttar break stora till separata flyttåtgärder. Resource Manager returnerar omedelbart ett fel när det finns fler än 800 resurser i en enda åtgärd. Men kan flyttar resurser som är mindre än 800 också misslyckas av tiden går ut.
 
 1. Tjänsten måste göra det möjligt att flytta resurser. Att fastställa om flytten kommer att lyckas [verifiera din begäran om att flytta](#validate-move). I avsnitten nedan i den här artikeln som [tjänster kan flytta resurser](#services-that-can-be-moved) och vilka [tjänster inte kan flytta resurser](#services-that-cannot-be-moved).
 
@@ -130,7 +130,7 @@ Med en brödtext i begäran:
 
 ```json
 {
- "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "resources": ["<resource-id-1>", "<resource-id-2>"],
  "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
 }
 ```
@@ -169,7 +169,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Analysis Services
 * API Management
 * App Service-appar (webbappar) – Se [begränsningar för App Service](#app-service-limitations)
-* App Service Certificate
+* App Service-certifikat – Se [begränsningar för App Service Certificate](#app-service-certificate-limitations)
 * Application Insights
 * Automation
 * Azure Active Directory B2C
@@ -226,7 +226,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Storage - konton i olika regioner kan inte flyttas på samma gång. Använd i stället separata åtgärder för varje region.
 * Storage (klassisk) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * Stream Analytics - tillstånd för Stream Analytics-jobb inte kan flyttas när du kör i.
-* SQL Database-server - databas och server måste finnas i samma resursgrupp. Om du flyttar en SQLServer, flyttas även alla dess databaser. Det här beteendet gäller för Azure SQL Database och Azure SQL Data Warehouse-databaser.
+* SQL Database-server - databas och server måste vara i samma resursgrupp. Om du flyttar en SQLServer, flyttas även alla dess databaser. Det här beteendet gäller för Azure SQL Database och Azure SQL Data Warehouse-databaser.
 * Time Series Insights
 * Traffic Manager
 * Virtual Machines – för virtuella datorer med hanterade diskar, se [begränsningar för virtuella datorer](#virtual-machines-limitations)
@@ -309,18 +309,10 @@ Det här stödet innebär att du kan också flytta:
 * Hanterade ögonblicksbilder
 * Tillgänglighetsuppsättningar med virtuella datorer med hanterade diskar
 
-Här följer de begränsningar som ännu inte stöds:
+Här följer begränsningarna som ännu inte stöds:
 
 * Virtuella datorer med certifikat som lagras i Key Vault kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
-* Virtuella datorer som konfigurerats med Azure Backup. Använd den under en lösning för att flytta de virtuella datorerna
-  * Leta upp platsen för den virtuella datorn.
-  * Leta reda på en resursgrupp med följande namngivningsmönstret: `AzureBackupRG_<location of your VM>_1` exempelvis AzureBackupRG_westus2_1
-  * Azure-portalen och sedan kontrollera om ”Visa dolda typer”
-  * Om du är i PowerShell, använder de `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
-  * Om du är i CLI, använder den `az resource list -g AzureBackupRG_<location of your VM>_1`
-  * Nu letar du upp resursen med typen `Microsoft.Compute/restorePointCollections` som har namngivningsmönstret `AzureBackup_<name of your VM that you're trying to move>_###########`
-  * Ta bort den här resursen
-  * När Delete är klar kan kan du flytta den virtuella datorn
+* Om den virtuella datorn har konfigurerats för säkerhetskopiering, se [begränsningar för Recovery Services](#recovery-services-limitations).
 * Virtual Machine Scale Sets med Standard-SKU-belastningsutjämnare eller SKU offentlig IP kan inte flyttas
 * Virtuella datorer som skapats från Marketplace-resurser med anslutna-planer kan inte flyttas mellan resursgrupper eller prenumerationer. Avetablera den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
 
@@ -334,19 +326,17 @@ Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det vir
 
 ## <a name="app-service-limitations"></a>Begränsningar för App Service
 
-Begränsningar för att flytta App Service-resurser variera beroende på om du flyttar resurser inom en prenumeration eller till en ny prenumeration.
-
-De begränsningar som beskrivs i dessa avsnitt gäller för uppladdade certifikat, inte App Service-certifikat. Du kan flytta App Service-certifikat till en ny resursgrupp eller prenumeration utan begränsningar. Om du har flera webbprogram som använder samma App Service Certificate först flytta alla webbappar, flyttar du certifikatet.
+Begränsningar för att flytta App Service-resurser variera beroende på om du flyttar resurser inom en prenumeration eller till en ny prenumeration. Om din webbapp använder ett App Service Certificate kan se [begränsningar för App Service Certificate](#app-service-certificate-limitations)
 
 ### <a name="moving-within-the-same-subscription"></a>Flytta inom samma prenumeration
 
-När du flyttar en Webbapp _inom samma prenumeration_, du kan inte flytta uppladdade SSL-certifikat. Men du kan flytta en Webbapp till den nya resursgruppen utan att flytta dess överfört SSL-certifikat och appens SSL fortfarande fungerar.
+När du flyttar en Webbapp _inom samma prenumeration_, du kan inte flytta från tredje part SSL-certifikat. Men du kan flytta en Webbapp till den nya resursgruppen utan att flytta dess certifikat från tredje part och appens SSL fortfarande fungerar.
 
 Om du vill flytta SSL-certifikat med Webbappen gör du följande:
 
-1. Ta bort överförda certifikat från Webbappen.
+1. Ta bort certifikatet från tredje part från Web App, men behålla en kopia av certifikatet
 2. Flytta Webbappen.
-3. Överför certifikatet till flyttade Webbappen.
+3. Ladda upp certifikatet från tredje part till flyttade Webbappen.
 
 ### <a name="moving-across-subscriptions"></a>Flytta mellan prenumerationer
 
@@ -359,6 +349,10 @@ När du flyttar en Webbapp _mellan prenumerationer_, gäller följande begränsn
     - Apptjänstmiljöer
 - Alla App Service-resurser i resursgruppen måste flyttas tillsammans.
 - App Service-resurser kan bara flyttas från resursgruppen där de skapades. Om en App Service-resursen är inte längre i dess ursprungliga resursgruppen, den måste flyttas tillbaka till den ursprungliga resursgruppen först och sedan de kan flyttas mellan prenumerationer.
+
+## <a name="app-service-certificate-limitations"></a>Begränsningar för App Service Certificate
+
+Du kan flytta din App Service-certifikat till en ny resursgrupp eller prenumeration. Om din App Service-certifikat är bundet till en webbapp, måste du vidta vissa åtgärder innan du flyttar resurser till en ny prenumeration. Ta bort SSL-bindning och privata certifikat från webbapp innan du flyttar resurser. App Service Certificate behöver inte tas bort, bara privata certifikat i webbapp.
 
 ## <a name="classic-deployment-limitations"></a>Begränsningar för klassisk distribution
 
@@ -382,7 +376,7 @@ Flytta klassiska resurser till en ny resursgrupp i samma prenumeration genom att
 När du flyttar resurser till en ny prenumeration, gäller följande begränsningar:
 
 * Alla klassiska resurser i prenumerationen måste flyttas på samma gång.
-* Målprenumerationen får inte innehålla andra klassiska resurser.
+* Målprenumerationen får inte ha andra klassiska resurser.
 * Flytten kan bara begäras via en separat REST-API för klassiska flyttar. Standardkommandon för Resource Manager-flytta fungerar inte när du flyttar klassiska resurser till en ny prenumeration.
 
 Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtgärder som är specifika för klassiska resurser. Om du vill använda REST, utför du följande steg:
@@ -448,18 +442,21 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
 
 Om du vill flytta ett Recovery Services-valv, måste du registrera i privat förhandsgranskning. Om du vill testa den genom att skriva till AskAzureBackupTeam@microsoft.com.
 
-Flytta är inte aktiverad för lagring, nätverk och beräkning av de resurser som används för att konfigurera haveriberedskap med Azure Site Recovery.
+För närvarande kan du flytta ett Recovery Services-valv per region i taget. Du kan inte flytta valv som säkerhetskopiera Azure Files eller Azure File Sync SQL i IaaS-datorer. 
 
-Anta exempelvis att du har konfigurerat replikeringen av dina lokala datorer till ett lagringskonto (Storage1) och vill att den skyddade datorn för att få fram efter en redundansväxling till Azure som en virtuell dator (VM1) kopplade till ett virtuellt nätverk (Network1). Du kan inte flytta någon av dessa Azure-resurser – Storage1 VM1 och Network1 - mellan resursgrupper i samma prenumeration eller mellan prenumerationer.
+Om en virtuell dator inte flyttas med valvet, förblir aktuella återställningspunkterna för virtuell dator i valvet tills de upphör att gälla. Om den virtuella datorn flyttas med valvet eller inte, kan du återställa den virtuella datorn från historik för säkerhetskopiering i valvet.
 
-Att flytta en virtuell dator som har registrerats i **Azure backup** mellan resursgrupper:
- 1. Tillfälligt stoppa säkerhetskopiering och behåller säkerhetskopierade data
- 2. Flytta den virtuella datorn till målresursgruppen
- 3. Skydda den igen under samma/nytt valv
+Recovery Services-valv stöder inte över prenumerationer säkerhetskopieringar. Om du flyttar ett valv med säkerhetskopierade data för virtuell dator mellan prenumerationer måste du flytta dina virtuella datorer till samma prenumeration och Använd samma målresursgruppen för att fortsätta säkerhetskopieringar.
 
-Användare kan återställa från tillgängliga återställningspunkter som skapats före flyttåtgärden.
+Principer för säkerhetskopiering som definierats för valvet hålls när valvet har flyttats. Rapportering och övervakning måste ställas in igen för valvet efter flytten.
 
-Om användaren flyttar den säkerhetskopierade virtuella datorn för prenumerationer, är steg 1 och steg 2 desamma. I steg 3, användare som behöver skydda den virtuella datorn under ett nytt valv finns / skapas i målprenumerationen. Recovery Services-valv stöder inte över prenumerationer säkerhetskopieringar.
+Flytta en virtuell dator till en ny prenumeration utan att flytta Recovery Services-valvet:
+
+ 1. Tillfälligt stoppa säkerhetskopiering
+ 2. Flytta de virtuella datorerna till den nya prenumerationen
+ 3. Skydda den igen under ett nytt valv i prenumerationen
+
+Flytta är inte aktiverad för lagring, nätverk och beräkning av de resurser som används för att konfigurera haveriberedskap med Azure Site Recovery. Anta exempelvis att du har konfigurerat replikeringen av dina lokala datorer till ett lagringskonto (Storage1) och vill att den skyddade datorn för att få fram efter en redundansväxling till Azure som en virtuell dator (VM1) kopplade till ett virtuellt nätverk (Network1). Du kan inte flytta någon av dessa Azure-resurser – Storage1 VM1 och Network1 - mellan resursgrupper i samma prenumeration eller mellan prenumerationer.
 
 ## <a name="hdinsight-limitations"></a>HDInsight-begränsningar
 
@@ -469,7 +466,7 @@ När du flyttar ett HDInsight-kluster till en ny prenumeration först flytta and
 
 ## <a name="search-limitations"></a>Sök begränsningar
 
-Du kan inte flytta flera Sök efter resurser placeras i olika regioner på samma gång.
+Du kan inte flytta flera Sök efter resurser i olika regioner på samma gång.
 I sådana fall behöver du flytta dem separat.
 
 ## <a name="lb-limitations"></a> Load Balancer begränsningar
@@ -484,7 +481,7 @@ Standard-SKU offentlig IP-adress kan inte flyttas.
 
 ## <a name="use-portal"></a>Använda portalen
 
-Välj den resursgrupp som innehåller de här resurserna för att flytta resurser, och välj sedan den **flytta** knappen.
+Välj resursgruppen med dessa resurser för att flytta resurser, och välj sedan den **flytta** knappen.
 
 ![Flytta resurser](./media/resource-group-move-resources/select-move.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Övervaka appar i Azure App Service | Microsoft Docs
+title: Övervaka appar – Azure Apptjänst | Microsoft Docs
 description: Lär dig hur du övervakar appar i Azure App Service med hjälp av Azure portal.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 6334b4cc50bfa6dca709fdc9d65938f0fec3ad1c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 103b5c1d2bc70f187b6e65a9fa9d80a35ad8e0c1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956779"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321587"
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>Så här: övervaka appar i Azure App Service
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>Anvisningar: Övervaka appar i Azure Apptjänst
 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervakningsfunktioner i den [Azure-portalen](https://portal.azure.com).
 Azure-portalen innehåller möjligheten att granska **kvoter** och **mått** för en app som App Service-planen, hur du konfigurerar **aviseringar** och även **skalning**  automatiskt baserat på de här måtten.
 
@@ -53,7 +54,7 @@ Om programmet körs i en **grundläggande**, **Standard** eller **Premium** plan
 
 Den enda kvoten för appar i **grundläggande**, **Standard**, och **Premium** planer är **filsystem**.
 
-Mer information om specifika kvoter, gränser och funktioner som är tillgängliga för olika App Service SKU: er finns här: [tjänstbegränsningar för Azure-prenumeration](../azure-subscription-service-limits.md#app-service-limits)
+Mer information om specifika kvoter, gränser och funktioner som är tillgängliga för olika App Service SKU: er finns här: [Tjänstbegränsningar för Azure-prenumeration](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Kvoter
 Om ett program överskrider den **CPU (kort)**, **CPU (dag)**, eller **bandbredd** kvot sedan programmet stoppas tills kvoten återställs. Under denna tid som alla inkommande begäranden resultera i en **HTTP 403**.
@@ -75,7 +76,7 @@ För en **programmet**, tillgängliga mått är:
 * **Genomsnittligt arbetsminne**
   * Genomsnittlig mängd minne i MIB som används av appen.
 * **CPU-tid**
-  * Hur mycket Processorkraft i sekunder som används av appen. Läs mer om det här måttet: [vs CPU CPU-tid i procent](#cpu-time-vs-cpu-percentage)
+  * Hur mycket Processorkraft i sekunder som används av appen. Mer information om det här måttet finns: [Vs CPU CPU-tid i procent](#cpu-time-vs-cpu-percentage)
 * **Data i**
   * Mängden inkommande bandbredd som används av appen i MIB.
 * **Data ut**
@@ -147,12 +148,12 @@ Du kan granska status för de olika **kvoter** och **mått** påverkar ett progr
 **Mått** kan nås direkt från resurssidan. Du kan också anpassa diagrammet efter: (1) **klickar du på** på den och väljer (2) **redigera diagram**.
 Härifrån kan du ändra (3) **tidsintervall**, (4) **diagramtyp**, 5 **mått** ska visas.  
 
-Du kan lära dig mer om mätvärden här: [övervakar tjänstmått](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Du kan lära dig mer om mätvärden här: [Övervaka tjänstmått](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Aviseringar och automatisk skalning
 Mått för en App eller App Service-plan kan vara kopplat till aviseringar. Mer information om det finns [Varningsaviseringar](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service-appar som finns i basic, standard eller premium stöd för App Service-planer **Autoskala**. Automatisk skalning kan du konfigurera regler som övervakar mått för App Service-plan. Regler kan öka eller minska instansantalet med ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när programmet etableras över. Du kan läsa mer om automatisk skalning här: [hur du skalar](../monitoring-and-diagnostics/insights-how-to-scale.md) och här [bästa praxis för automatisk skalning i Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+App Service-appar som finns i basic, standard eller premium stöd för App Service-planer **Autoskala**. Automatisk skalning kan du konfigurera regler som övervakar mått för App Service-plan. Regler kan öka eller minska instansantalet med ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när programmet etableras över. Du kan läsa mer om automatisk skalning här: [Hur du skalar](../monitoring-and-diagnostics/insights-how-to-scale.md) och här [bästa praxis för automatisk skalning i Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.

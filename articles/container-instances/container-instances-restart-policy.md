@@ -1,18 +1,18 @@
 ---
-title: Köra behållarbaserade uppgifter i Azure Container Instances med principer för omstart
+title: Använd omstartspolicyer med behållarbaserade uppgifter i Azure Container Instances
 description: Lär dig hur du använder Azure Container Instances köra uppgifter som körs kan slutföras, till exempel i build-, test- eller image Renderingsjobb.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 12/10/2018
 ms.author: danlep
-ms.openlocfilehash: c9e3fadd5164ca0d770f36ba95c30db933efcd39
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853903"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321041"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Köra behållarbaserade uppgifter med principer för omstart
 
@@ -24,7 +24,7 @@ I exemplen som visas i den här artikeln används Azure CLI. Du måste ha Azure 
 
 ## <a name="container-restart-policy"></a>Omstartsprincipen för behållaren
 
-När du skapar en behållare i Azure Container Instances kan ange du en av tre principinställningar för omstart.
+När du skapar en [behållargruppen](container-instances-container-groups.md) i Azure Container Instances kan du ange en av tre principinställningar för omstart.
 
 | Starta om princip   | Beskrivning |
 | ---------------- | :---------- |
@@ -76,7 +76,7 @@ När statusen för behållaren exempel *Uppsagd*, du kan se dess uppgiftsutdata 
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 [('the', 990),
@@ -93,6 +93,24 @@ Resultat:
 
 Det här exemplet visar utdata som skriptet skickas till STDOUT. Dina behållarbaserade uppgifter, men kan i stället skriva sina utdata till beständig lagring för senare hämtning. Till exempel till ett [Azure-filresurs](container-instances-mounting-azure-files-volume.md).
 
+## <a name="manually-stop-and-start-a-container-group"></a>Stoppa och starta en behållargrupp manuellt
+
+Oavsett omstartsprincip som konfigurerats för en [behållargruppen](container-instances-container-groups.md), kanske du vill stoppa och starta en behållargrupp manuellt.
+
+* **Stoppa** – du kan manuellt stoppa en behållargrupp som körs när som helst – till exempel med hjälp av den [az container stoppa] [ az-container-stop] kommando. För vissa arbetsbelastningar, kan du stoppa en behållargrupp när du har en definierad period att sänka kostnaderna. 
+
+  Stoppa en behållargrupp avslutas och återanvänds behållare i gruppen. behållartillstånd bevaras inte. 
+
+* **Starta** – när en behållargrupp har stoppats - antingen eftersom behållarna avbröts på egen hand eller manuellt stoppad gruppen – du kan använda den [behållare starta API](/rest/api/container-instances/containergroups/start) eller Azure portal för att manuellt starta behållarna i gruppen. Om behållaravbildning för alla behållare uppdateras, hämtas en ny avbildning. 
+
+  Starta en behållargrupp börjar en ny distribution med samma behållarkonfiguration för. Med hjälp av den här åtgärden kan du snabbt återanvända en grupp kända container-konfiguration som fungerar som förväntat. Du behöver att skapa en ny behållargrupp som kör samma arbetsbelastning.
+
+* **Starta om** – du kan starta om en behållargrupp när den körs – till exempel med hjälp av den [az container omstart] [ az-container-restart] kommando. Den här åtgärden startar om alla behållare i behållargruppen. Om behållaravbildning för alla behållare uppdateras, hämtas en ny avbildning. 
+
+  Starta om en behållargrupp är användbart när du vill felsöka ett distributionsproblem. Till exempel om en temporär begränsningen förhindrar att dina behållare körs, kan startar om gruppen lösa problemet.
+
+Starta om principen när du manuellt starta eller starta om en behållargrupp behållare grupp körs enligt det konfigurerade.
+
 ## <a name="configure-containers-at-runtime"></a>Konfigurera behållare vid körning
 
 När du skapar en behållarinstans kan du ange dess **miljövariabler**, samt ange en anpassad **kommandoraden** ska köras när behållaren har startats. Du kan använda de här inställningarna i dina batch-jobb för att förbereda varje behållare med uppgiftsspecifika konfiguration.
@@ -103,9 +121,9 @@ Ange miljövariabler i din behållare för dynamisk konfiguration av program ell
 
 Du kan till exempel ändra beteendet för skriptet i behållaren exempel genom att ange följande miljövariabler när du skapar behållarinstansen:
 
-*NumWords*: antalet ord som skickas till STDOUT.
+*NumWords*: Antalet ord som skickas till STDOUT.
 
-*MinLength*: det minsta antalet tecken i ett ord för att det ska räknas. En hög siffra ignorerar vanliga ord som ”av” och ”den”.
+*MinLength*: Minsta antalet tecken i ett ord för att det ska räknas. En hög siffra ignorerar vanliga ord som ”av” och ”den”.
 
 ```azurecli-interactive
 az container create \
@@ -122,7 +140,7 @@ Genom att ange `NumWords=5` och `MinLength=8` för behållarens miljövariabler,
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 [('CLAUDIUS', 120),
@@ -131,6 +149,8 @@ Resultat:
  ('ROSENCRANTZ', 69),
  ('GUILDENSTERN', 54)]
 ```
+
+
 
 ## <a name="command-line-override"></a>Åsidosättning av kommandoraden
 
@@ -156,7 +176,7 @@ Igen, när behållaren är *Uppsagd*, visa utdata genom att visa behållarens lo
 az container logs --resource-group myResourceGroup --name mycontainer3
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
@@ -174,5 +194,7 @@ Mer information om hur du bevarar utdata för dina behållare att slutföras fin
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

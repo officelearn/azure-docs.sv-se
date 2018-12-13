@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3c33612ef76a572bd4bf63a5e7d6f05e36c7847b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082007"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271529"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika.  Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Mönster lösa låg avsikt förtroende
-Överväg en personalapp som rapporterar om Organisationsschema i förhållande till en medarbetare. Baserat på en medarbetares namn och relationen, returnerar LUIS anställda som ingår. Överväg att en anställd, Tom, med en chef namn Alice och ett team med underordnade med namnet: Michael och Rebecca Carl.
+Överväg en personalapp som rapporterar om Organisationsschema i förhållande till en medarbetare. Baserat på en medarbetares namn och relationen, returnerar LUIS anställda som ingår. Överväg att en anställd, Tom, med en chef namn Alice och ett team med underordnade med namnet: Michael Rebecca och Carl.
 
 ![Bild av organisationsschema](./media/luis-concept-patterns/org-chart.png)
 
@@ -43,6 +43,8 @@ Mönster använder en blandning av tekniker för förutsägelse. Ange ett syfte 
 
 ## <a name="patterns-do-not-improve-entity-detection"></a>Mönster förbättras inte entiteten identifiering
 Medan mönster kräver entiteter, hjälper arbetsprofilen inte identifiera entiteten. Ett mönster är endast avsedd att hjälpa förutsägelser med avsikter och roller.  
+
+Inte räknar med att se förbättrad entitet förutsägelse när du minimerar flera uttryck i ett enda mönster. För enkla enheter innan behöver du lägga till yttranden eller Använd listan över entiteter annan mönstret inte utlöses.
 
 ## <a name="patterns-use-entity-roles"></a>Mönster använder entiteten
 Om två eller flera entiteter i ett mönster är sammanhangsmässigt relaterade, mönster använda entiteten [roller](luis-concept-roles.md) extrahera sammanhangsberoende information om entiteter. Detta motsvarar hierarkisk entitet barn, men är **endast** tillgängliga i ett mönster. 

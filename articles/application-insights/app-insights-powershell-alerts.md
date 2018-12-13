@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 01ba8b6d9ebef5d79b660638d60d5b745c624786
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: dda4e26de74dbd5579f2dd45ea47f42c904f028f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725394"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271733"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 Du kan automatisera konfigurationen av [aviseringar](app-insights-alerts.md) i [Application Insights](app-insights-overview.md).
 
-Dessutom kan du [ange webhooks för att automatisera dina svar på en avisering](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Dessutom kan du [ange webhooks för att automatisera dina svar på en avisering](../azure-monitor/platform/alerts-webhooks.md).
 
 > [!NOTE]
 > Om du vill skapa resurser och aviseringar på samma gång kan du överväga att [med en Azure Resource Manager-mall](app-insights-powershell.md).
@@ -99,27 +99,27 @@ Samma regel kan användas för det mått som rapporteras med hjälp av den [mät
 ## <a name="metric-names"></a>Tjänstmåttets namn
 | Måttnamn | Skärmnamn | Beskrivning |
 | --- | --- | --- |
-| `basicExceptionBrowser.count` |Webbläsarundantag |Antal undantagsfel som utlösts i webbläsaren. |
+| `basicExceptionBrowser.count` |Webbläsarundantag |Antal undantagsfel utan felhantering som har utlösts i webbläsaren. |
 | `basicExceptionServer.count` |Serverundantag |Antal ohanterade undantag som utlöses av appen |
 | `clientPerformance.clientProcess.value` |Klientbehandlingstid |Tiden mellan ta emot de sista byten av ett dokument till dess att DOM har lästs. Asynkrona begäranden kan fortfarande vara under bearbetning. |
-| `clientPerformance.networkConnection.value` |Nätverket connect sidinläsningstiden |Tid som webbläsaren tar för att ansluta till nätverket. Kan vara 0 om cachelagrade. |
+| `clientPerformance.networkConnection.value` |Nätverksanslutningstid för sidhämtning |Tid som webbläsaren tar för att ansluta till nätverket. Kan vara 0 om cachelagrade. |
 | `clientPerformance.receiveRequest.value` |Tar emot svarstid |Tiden mellan webbläsaren skickar begäran till början på svar. |
-| `clientPerformance.sendRequest.value` |Skicka tid för begäran |Åtgången tid för webbläsaren att skicka begäran. |
-| `clientPerformance.total.value` |Webbsideinläsningar |Tiden från användarförfrågan till dess att DOM, formatmallar, skript och bilder har lästs in. |
-| `performanceCounter.available_bytes.value` |Tillgängligt minne |Fysiskt minne som är omedelbart tillgängligt för en process eller för systemanvändning. |
-| `performanceCounter.io_data_bytes_per_sec.value` |Behandlingstakten för i/o |Totalt antal byte per sekund som har lästs och skrivits till filer, nätverk och enheter. |
+| `clientPerformance.sendRequest.value` |Tid för att skicka förfrågan |Åtgången tid för webbläsaren att skicka begäran. |
+| `clientPerformance.total.value` |Sidhämtningstid för webbläsare |Tiden från användarförfrågan till dess att DOM, formatmallar, skript och bilder har lästs in. |
+| `performanceCounter.available_bytes.value` |Ledigt minne |Fysiskt minne som är omedelbart tillgängligt för en process eller för systemanvändning. |
+| `performanceCounter.io_data_bytes_per_sec.value` |IO-frekvens för process |Totalt antal byte per sekund som har lästs och skrivits till filer, nätverk och enheter. |
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |antal undantag |Undantag per sekund. |
 | `performanceCounter.percentage_processor_time.value` |Processoranvändning för process |Procentandelen av förfluten tid som alla processens trådar använda processorn för att köra instruktioner för hur program. |
-| `performanceCounter.percentage_processor_total.value` |Processortid |Procentandelen av tiden som processorn ägnat åt icke-inaktiva trådar. |
-| `performanceCounter.process_private_bytes.value` |Privata byte för process |Minne som tilldelats exklusivt för att övervaka programprocesser. |
-| `performanceCounter.request_execution_time.value` |Körningstid för ASP.NET-begäran |Körningstid för den senaste begäran. |
-| `performanceCounter.requests_in_application_queue.value` |ASP.NET-begäranden i kö för körning |Längden på programbegärandekön. |
-| `performanceCounter.requests_per_sec.value` |ASP.NET-begärandehastighet |Hastighet för alla förfrågningar till programmet per sekund från ASP.NET. |
+| `performanceCounter.percentage_processor_total.value` |Processortid |Den procentandel av tiden som processorn ägnat åt icke-inaktiva trådar. |
+| `performanceCounter.process_private_bytes.value` |Privata byte för process |Minne som har tilldelats exklusivt för att övervaka programprocesser. |
+| `performanceCounter.request_execution_time.value` |Körningstid för ASP.NET-begäran |Körningstid för de senaste förfrågningarna. |
+| `performanceCounter.requests_in_application_queue.value` |ASP.NET-begäranden i kö för körning |Programfrågeköns längd |
+| `performanceCounter.requests_per_sec.value` |ASP.NET-begärandehastighet |Hastigheten per sekund för alla förfrågningar till programmet från ASP.NET. |
 | `remoteDependencyFailed.durationMetric.count` |Beroendefel |Antal misslyckade anrop gjorda av serverprogrammet till externa resurser. |
-| `request.duration` |Svarstid för servern |Tiden mellan ta emot en HTTP-begäran och slutför att svaret. |
+| `request.duration` |Serversvarstid  |Tid från det att en HTTP-förfrågning mottagits till dess att svaret har skickats. |
 | `request.rate` |Förfrågningsfrekvens |Hastighet för alla förfrågningar till programmet per sekund. |
 | `requestFailed.count` |Misslyckade förfrågningar |Antal HTTP-begäranden som resulterade i en svarskoden > = 400 |
-| `view.count` |Sidvisningar |Antal klientens användarbegäranden för en webbsida. Syntetisk trafik filtreras. |
+| `view.count` |Sidvisning |Antal klientens användarbegäranden för en webbsida. Syntetisk trafik filtreras. |
 | {din anpassade Måttnamn} |{Måttnamnet} |Din måttvärde rapporteras av [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) eller i den [mätningar av parametern för ett spårnings-anrop](app-insights-api-custom-events-metrics.md#properties). |
 
 Mått som skickas av flera telemetriska moduler:
@@ -132,10 +132,10 @@ Mått som skickas av flera telemetriska moduler:
 | begäran<br/>requestFailed |[Serverbegäran](app-insights-configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhooks
-Du kan [automatisera dina svar på en avisering](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure anropar en webbadress för valfri när en avisering genereras.
+Du kan [automatisera dina svar på en avisering](../azure-monitor/platform/alerts-webhooks.md). Azure anropar en webbadress för valfri när en avisering genereras.
 
 ## <a name="see-also"></a>Se också
 * [Skript för att konfigurera Application Insights](app-insights-powershell-script-create-resource.md)
 * [Skapa Application Insights och testa webbresurser från mallar](app-insights-powershell.md)
 * [Automatisera koppling Microsoft Azure Diagnostics-data till Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Automatisera dina svar på en avisering](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Automatisera dina svar på en avisering](../azure-monitor/platform/alerts-webhooks.md)

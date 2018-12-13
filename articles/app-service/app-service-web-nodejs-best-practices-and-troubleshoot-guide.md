@@ -1,6 +1,6 @@
 ---
-title: Metodtips och felsökningsguide för nodprogram i Azure Web Apps
-description: Lär dig metodtips och felsökningssteg för nodprogram i Azure Web Apps.
+title: Metodtips och felsökning för Node.js – Azure App Service
+description: Lär dig metodtips och felsökningssteg för node.js-program på Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
-ms.openlocfilehash: 6918d216be11763a34d7738c616e917a2db01ade
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961456"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315731"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Metodtips och felsökningsguide för nodprogram i Azure Web Apps
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metodtips och felsökningsguide för nodprogram i Azure App Service Windows
 
 I den här artikeln får du lära dig metodtips och felsökning av [nodprogram](app-service-web-get-started-nodejs.md) som körs på Azure Web Apps (med [iisnode](https://github.com/azure/iisnode)).
 

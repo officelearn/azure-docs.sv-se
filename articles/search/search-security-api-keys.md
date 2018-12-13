@@ -1,5 +1,5 @@
 ---
-title: Skapa, hantera och skydda admin och fråga api-nycklar för Azure Search | Microsoft Docs
+title: Skapa, hantera och skydda admin och fråga api-nycklar – Azure Search
 description: API-nycklarna styr åtkomsten till tjänsteslutpunkt. Administratörsnycklar beviljar skrivbehörighet. Frågenycklar kan skapas för skrivskyddad åtkomst.
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 0a8975fad21645535a6e7407bcd2d59f537a9fff
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec2018
+ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727981"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316941"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Skapa och hantera api-nycklar för en Azure Search-tjänst
 
@@ -67,7 +68,7 @@ Nyckelsäkerhet säkerställs genom att begränsa åtkomst via portalen eller Re
 
 + I instrumentpanelen för tjänsten klickar du på **åtkomstkontroll (IAM)** och sedan den **rolltilldelningar** fliken för att visa rolltilldelningar för din tjänst.
 
-Medlemmar i följande roller kan visa och återskapa nycklar: ägare, deltagare, [Search Service deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
+Medlemmar i följande roller kan visa och återskapa nycklar: Ägare, deltagare, [Sök Service deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 
 > [!Note]
 > För identitetsbaserad åtkomst via sökresultat, kan du skapa säkerhetsfilter för att trimma resultat av identitet, ta bort dokument som begäranden inte ska ha åtkomst. Mer information finns i [säkerhetsfilter](search-security-trimming-for-azure-search.md) och [Secure med Active Directory](search-security-trimming-for-azure-search-with-aad.md).

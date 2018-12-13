@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6dc66e551c1bce94b473a356cf4648e5c2353a2b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433797"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271308"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Konfigurera service health-aviseringar med ServiceNow
 
@@ -154,7 +154,7 @@ Den här artikeln visar hur du integrerar Azure service health-aviseringar med S
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Skapa en avisering med ServiceNow i Azure-portalen
 ### <a name="for-a-new-action-group"></a>För en ny åtgärdsgrupp:
-1. Följ steg 1 till och med 8 i [i den här artikeln](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) att skapa en avisering med en ny åtgärdsgrupp.
+1. Följ steg 1 till och med 8 i [i den här artikeln](../azure-monitor/platform/alerts-activity-log-service-notifications.md) att skapa en avisering med en ny åtgärdsgrupp.
 
 1. Definiera i listan över **åtgärder**:
 
@@ -162,7 +162,7 @@ Den här artikeln visar hur du integrerar Azure service health-aviseringar med S
 
     b. **Information:** ServiceNow **integrering URL** du sparat tidigare.
 
-    c. **Namn:** Webhook's, alias eller identifierare.
+    c. **Namn:** Webhooks namn, alias eller identifierare.
 
 1. Välj **spara** när du är klar för att skapa aviseringen.
 
@@ -179,12 +179,12 @@ Den här artikeln visar hur du integrerar Azure service health-aviseringar med S
 
     b. **Information:** ServiceNow **integrering URL** du sparat tidigare.
 
-    c. **Namn:** Webhook's, alias eller identifierare.
+    c. **Namn:** Webhooks namn, alias eller identifierare.
 
 1. Välj **spara** när du är klar för att uppdatera åtgärdsgruppen.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa webhook-integrering via en HTTP POST-begäran
-1. Skapa service health-nyttolasten som du vill skicka. Du hittar ett exempel service health webhook-nyttolasten på [Webhooks för Azure-aktivitetsloggar loggaviseringar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Skapa service health-nyttolasten som du vill skicka. Du hittar ett exempel service health webhook-nyttolasten på [Webhooks för Azure-aktivitetsloggar loggaviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Skapa en HTTP POST-begäran enligt följande:
 
@@ -201,6 +201,6 @@ Den här artikeln visar hur du integrerar Azure service health-aviseringar med S
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system](service-health-alert-webhook-guide.md).
-- Granska den [avisering webhook för aktivitetslogg](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Granska den [avisering webhook för aktivitetslogg](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Lär dig mer om [service health meddelanden](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Läs mer om [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Läs mer om [åtgärdsgrupper](../azure-monitor/platform/action-groups.md).

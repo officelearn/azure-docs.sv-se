@@ -1,5 +1,5 @@
 ---
-title: Vägledning för att distribuera Azure-webbappar med hjälp av mallar | Microsoft Docs
+title: Vägledning för att distribuera appar med mallar – Azure App Service | Microsoft Docs
 description: Rekommendationer för att skapa Azure Resource Manager-mallar för att distribuera web apps.
 services: app-service
 documentationcenter: app-service
@@ -11,12 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: c2f600d86965e1115d4be1370da8f7c8e1b67f05
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.custom: seodec18
+ms.openlocfilehash: 523574f49673ee961665136d90f04183e7c1a679
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927680"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277768"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Vägledning för att distribuera webbappar med hjälp av Azure Resource Manager-mallar
 
@@ -87,7 +88,7 @@ I följande exempel visas en del av en mall. Värdet för strängen anslutningsk
 }
 ```
 
-Ett är klara och kör exempel som använder koden ovan, se [mall: skapa en enkel Umbraco-Webbapp](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+Ett är klara och kör exempel som använder koden ovan, se [mall: Skapa en enkel Umbraco-Webbapp](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Hitta information om MSDeploy-fel
 
@@ -128,7 +129,7 @@ I Azure Government, App Service-tjänstens huvudnamn har ID för **6a02c803-dafd
 
 Välj i Key Vault, **certifikat** och **generera/importera** att ladda upp.
 
-![Importera certifikat](media/web-sites-rm-template-guidance/import-certificate.png)
+![Importera certifikatet](media/web-sites-rm-template-guidance/import-certificate.png)
 
 I mallen, ange namnet på certifikatet för den `keyVaultSecretName`.
 

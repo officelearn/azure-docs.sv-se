@@ -1,11 +1,10 @@
 ---
-title: Så här väljer du maskininlärningsalgoritmer - Azure Machine Learning Studio | Microsoft Docs
+title: Så här väljer du algoritmer för Azure Machine Learning Studio | Microsoft Docs
 description: Så här väljer du Azure Machine Learning Studio-algoritmer för övervakad och oövervakad inlärning i kluster-, klassificerings- eller regressionsmodell experiment.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
@@ -13,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9e601464f97a7717a2ccef0e60172357d3169697
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312426"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256935"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
 
@@ -44,7 +43,7 @@ Läsa sökvägen och algoritmen etiketterna i diagrammet som ”för  *&lt;sökv
 Ibland är ingen av dem en perfekt passning. De är avsedda att vara regeln av USB-rekommendationer, så oroa dig inte om den är exakt.
 Flera datatekniker som jag pratade med dessa som det enda säkra sättet att hitta den allra bästa algoritmen är att försöka dem alla.
 
-Här är ett exempel från den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [jämföra flera klassificerare: enhetsbokstaven för](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Här är ett exempel från den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [Jämför flera klassificerare: Enhetsbokstaven för](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.

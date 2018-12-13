@@ -1,5 +1,5 @@
 ---
-title: Autentisering och auktorisering i Azure App Service | Microsoft Docs
+title: Autentisering och auktorisering – Azure App Service | Microsoft Docs
 description: Konceptuell referens och översikt över autentisering / auktorisering funktion för Azure App Service
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 27726f261b2d9c88f1544a6e66ea352fbb98d253
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: add470aec1b19a8862a17d4a5a84bc221b8582b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685675"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250883"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -91,8 +92,8 @@ När du aktiverar autentisering och auktorisering med någon av dessa providers 
 
 Autentiseringsflödet är densamma för alla leverantörer, men skiljer sig beroende på om du vill logga in med leverantörens SDK:
 
-- Utan provider-SDK: programmet delegerar sammansluten inloggning till App Service. Detta är vanligtvis fallet med webbläsarbaserade appar som kan ge leverantörens inloggningssidan för användaren. Serverkoden hanterar inloggningsprocessen, det kallas även _server-riktade flow_ eller _server flow_. Det här fallet gäller till web apps. Det gäller även för interna appar som loggar in användare med SDK för Mobile Apps-klient eftersom SDK: N öppnar en webbvy för att du loggar in användare med App Service-autentisering. 
-- Med SDK-provider: programmet loggar användarna i providern manuellt och skickar sedan autentiseringstoken till App Service för verifiering. Detta är vanligtvis fallet med webbläsare utan appar som det går inte att presentera leverantörens på inloggningssidan för användaren. Programkoden hanterar inloggningsprocessen, det kallas även _klienten dirigeras flödet_ eller _klientflödet_. Det här fallet gäller för REST API: er, [Azure Functions](../azure-functions/functions-overview.md), JavaScript-webbläsarklienter, samt och web apps som behöver mer flexibilitet i processen för inloggning. Det gäller även för inbyggda mobilappar som loggar in användare i med hjälp av leverantörens SDK.
+- Utan provider-SDK: Programmet delegerar sammansluten inloggning till App Service. Detta är vanligtvis fallet med webbläsarbaserade appar som kan ge leverantörens inloggningssidan för användaren. Serverkoden hanterar inloggningsprocessen, det kallas även _server-riktade flow_ eller _server flow_. Det här fallet gäller till web apps. Det gäller även för interna appar som loggar in användare med SDK för Mobile Apps-klient eftersom SDK: N öppnar en webbvy för att du loggar in användare med App Service-autentisering. 
+- Med SDK-provider: Programmet loggar användarna i providern manuellt och skickar sedan autentiseringstoken till App Service för verifiering. Detta är vanligtvis fallet med webbläsare utan appar som det går inte att presentera leverantörens på inloggningssidan för användaren. Programkoden hanterar inloggningsprocessen, det kallas även _klienten dirigeras flödet_ eller _klientflödet_. Det här fallet gäller för REST API: er, [Azure Functions](../azure-functions/functions-overview.md), JavaScript-webbläsarklienter, samt och web apps som behöver mer flexibilitet i processen för inloggning. Det gäller även för inbyggda mobilappar som loggar in användare i med hjälp av leverantörens SDK.
 
 > [!NOTE]
 > Anrop från en betrodd browser-appen i App Service anropar en annan REST-API i App Service eller [Azure Functions](../azure-functions/functions-overview.md) kan autentiseras med hjälp av server-riktade flödet. Mer information finns i [anpassa autentisering och auktorisering i Apptjänst](app-service-authentication-how-to.md).
@@ -139,8 +140,8 @@ Det här alternativet ger bättre flexibilitet vid hantering av anonyma begäran
 
 ## <a name="more-resources"></a>Fler resurser
 
-[Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
-[Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)  
+[Självstudiekurs: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Självstudiekurs: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)  
 [Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md)
 
 Provider-specifik instruktionsguider:
@@ -150,7 +151,7 @@ Provider-specifik instruktionsguider:
 * [Så här konfigurerar du din app för att använda Google-inloggning][Google]
 * [Så här konfigurerar du din app om du vill använda Microsoft Account login][MSA]
 * [Så här konfigurerar du din app för att använda Twitter-inloggning][Twitter]
-* [Så här: Använd anpassad autentisering för ditt program][custom-auth]
+* [Hur: Använd anpassad autentisering för ditt program][custom-auth]
 
 [AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md

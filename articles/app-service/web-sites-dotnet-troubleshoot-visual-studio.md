@@ -1,5 +1,5 @@
 ---
-title: Felsöka en webbapp i Azure App Service med Visual Studio
+title: Felsöka en webbapp med Visual Studio – Azure App Service
 description: Lär dig hur du felsöker en Azure-webbapp med hjälp av fjärrfelsökning, spårning och loggningsverktyg som är inbyggda i Visual Studio 2013.
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: eafb4e82a319a0fdbe954757158a09aba83e9be0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 689ff528f18a810c35031dd60a65470d4351b9a7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972294"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278533"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Felsöka en webbapp i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -71,7 +72,7 @@ Visual Studio har åtkomst till en delmängd av web app-hanteringsfunktioner och
 
     I de här självstudierna ska du använda loggning och spårning av listrutorna. Du använder också fjärrfelsökning men du använder en annan metod för att aktivera den.
 
-    Läs om hur rutorna Appinställningar och anslutningssträngar i det här fönstret [Azure Web Apps: strängar fungerar och hur Programsträngar](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+    Läs om hur rutorna Appinställningar och anslutningssträngar i det här fönstret [Azure Web Apps: Hur Programsträngar och anslutningen strängar Work](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
     Om du vill utföra en hanteringsaktivitet för web-app som inte kan utföras i det här fönstret klickar du på **öppna i hanteringsportalen** att öppna ett webbläsarfönster på Azure Portal.
 

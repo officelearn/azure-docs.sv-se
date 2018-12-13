@@ -7,13 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 450eac3613df18997c5b0f9189555555da20cfcf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1ea8fddf2b4e75abba38f011a271aada848a8cb5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585580"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192200"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor tillbakadragning av klassiska distributionsmodellen API: er för mått och automatisk skalning
 
@@ -76,9 +75,9 @@ Det kan inte direkt påverkar dina Azure-tjänster eller sina arbetsbelastningar
 
 Något anrop till klassiskt API: er som angavs tidigare misslyckas och returnerar felmeddelanden liknande följande:
 
-För autoskalning: *API: et är inaktuellt. Använda Azure-portalen, Azure Monitor SDK, PowerShell, CLI eller Resource Manager-mallar för att hantera inställningarna för automatisk skalning*.  
+För autoskalning: *Detta API är inaktuell. Använda Azure-portalen, Azure Monitor SDK, PowerShell, CLI eller Resource Manager-mallar för att hantera inställningarna för automatisk skalning*.  
 
-För mått: *API: et är inaktuellt. Använd Azure portal, Azure Monitor-SDK, PowerShell, CLI för att fråga efter mått*.
+För mått: *Detta API är inaktuell. Använd Azure portal, Azure Monitor-SDK, PowerShell, CLI för att fråga efter mått*.
 
 ## <a name="email-notifications"></a>E-postmeddelanden
 

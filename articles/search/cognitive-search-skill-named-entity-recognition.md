@@ -1,5 +1,5 @@
 ---
-title: Med namnet Entitetsidentifiering kognitiv sökning färdighet (Azure Search) | Microsoft Docs
+title: Med namnet Entitetsidentifiering kognitiv sökning färdigheter – Azure Search
 description: Extrahera namngivna enheter för person, plats och organisation från texten i en Azure Search kognitiv sökning pipeline.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: f9ff3f66f3a73fbaf1a4c2ca280c85f4bde65444
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: e63354152f8821c5ce975563639c8b87fb332bd4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442037"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313997"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Namngivna Entitetsidentifiering kognitiva kunskaper
 
@@ -23,8 +24,10 @@ Den **med namnet Entitetsidentifiering** färdighet extraherar namngivna enheter
 
 > [!NOTE]
 > <ul>
-> <li>Kognitiv sökning är tillgängligt som en förhandsversion. Körning av kunskapsuppsättning och extrahering och normalisering av bilder erbjuds för närvarande kostnadsfritt. Priserna för dessa funktioner meddelas vid ett senare tillfälle. </li>
-> <li> Namngiven entitet erkännande färdighet anses ”föråldrade” och officiellt stöds inte startar Feburary 15 2019. Följ rekommendationerna som anges i <a href="cognitive-search-skill-deprecated.md">inaktuell kognitiva Sök funktioner</a> sidan för att migrera till en stöds färdighet</li>
+> <li>
+> Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. Detta gör att vi börjar debitera för körning av kompetens. På det här datumet måste också börjar vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.>
+> Körningen av inbyggda kunskaper debiteras med den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser kommer att debiteras enligt priserna för förhandsversionen och beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). Lär dig [mer](cognitive-search-attach-cognitive-services.md).</li>
+> <li> Namngiven entitet erkännande färdighet anses ”föråldrade” och officiellt stöds inte startar Feburary 15 2019. Följ rekommendationerna som anges i <a href="cognitive-search-skill-deprecated.md">inaktuell kognitiva Search funktioner</a> sidan för att migrera till en stöds färdighet</li>
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill

@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -16,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 74791c3dce543ae9c0489a6c6124e4edba9204d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 12fb45b00848e5e34760ccb0691998c1f72237b8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096969"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269309"
 ---
-# <a name="discover-experiments-in-azure-ai-gallery"></a>Identifiera experiment i Azure AI-galleriet
+# <a name="discover-azure-machine-learning-studio-experiments-in-azure-ai-gallery"></a>Identifiera Azure Machine Learning Studio-experiment i Azure AI-galleriet
 
 [Azure AI-galleriet](http://gallery.cortanaintelligence.com) har olika [experiment](https://gallery.cortanaintelligence.com/experiments) som har utvecklats i [Azure Machine Learning Studio](https://studio.azureml.net). Experiment sträcker sig från snabb proof of concept-experiment som visar en specifik machine learning-teknik för att fullständigt har utvecklat lösningar för problem med komplexa machine learning.
 
 > [!NOTE]
-> En ***experimentera*** är en arbetsyta i Machine Learning Studio som du kan använda för att skapa en prediktiv analysmodell. Du kan skapa modellen genom att ansluta data med olika analytiska moduler. Du kan prova olika idéer gör testkörningar och slutligen distribuerar din modell som en webbtjänst i Azure. Ett exempel på hur du skapar en grundläggande experiment finns i [självstudie om maskininlärning: skapa ditt första experiment i Azure Machine Learning Studio](create-experiment.md). En mer omfattande genomgång av hur du skapar en lösning för förutsägelseanalys, se [genomgång: utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+> En ***experimentera*** är en arbetsyta i Machine Learning Studio som du kan använda för att skapa en prediktiv analysmodell. Du kan skapa modellen genom att ansluta data med olika analytiska moduler. Du kan prova olika idéer gör testkörningar och slutligen distribuerar din modell som en webbtjänst i Azure. Ett exempel på hur du skapar en grundläggande experiment finns i [självstudie om maskininlärning: Skapa ditt första experiment i Azure Machine Learning Studio](create-experiment.md). En mer omfattande genomgång av hur du skapar en lösning för förutsägelseanalys, se [genomgång: Utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 >
 >
 
@@ -82,7 +81,7 @@ När du loggar in i galleriet, bli medlem i galleri. Du kan bidra dina egna expe
 3. När du är redo att publicera ditt experiment i galleriet, i listan över åtgärder under arbetsytan för experimentet väljer **publicera på galleriet**.
 
     ![Välj ”publicera till galleriet”](./media/gallery-experiments/publish-experiment-to-gallery.png)
-4. På den **Experiment beskrivning** anger en rubrik och taggar. Gör rubriken och taggar beskrivande. Markera de tekniker som du använde eller verkliga problemet som du vill lösa. Ett exempel på en beskrivande experiment rubrik är ”binär klassificering: Twitter-Attitydanalys”.
+4. På den **Experiment beskrivning** anger en rubrik och taggar. Gör rubriken och taggar beskrivande. Markera de tekniker som du använde eller verkliga problemet som du vill lösa. Ett exempel på en beskrivande experiment rubrik är ”binär klassificering: Twitter-Attitydanalys ”.
 
     ![Ange rubrik och taggar för publicering](./media/gallery-experiments/experiment-description.png)
 5. I den **sammanfattning** anger du en sammanfattning av experimentet. Beskriv experimentet löste problemet och hur du närmat sig.
@@ -189,4 +188,4 @@ När du anger en tagg för att ange en annan tagg, trycker du på TABB-tangenten
 
 **[Gå till galleriet](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

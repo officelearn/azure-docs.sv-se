@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a5177293b24ec400714d8f87be4198a76d59214a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 11a421a30508774d976def8d5836451743ecb6ea
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878728"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270390"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
 När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
@@ -49,9 +49,9 @@ Klicka på **alla resurser** för att öppna översiktsbladet för den nya resur
 ![Fyll åtminstone i URL:en för din webbplats](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **URL: en** kan vara en webbsida som du vill testa, men den måste vara synlig från Internet. URL: en kan innehålla en frågesträng. Du kan arbeta med din databas om du vill. Om URL-adressen matchar en omdirigering följer vi den upp till tio omdirigeringar.
-* **Parsa beroendebegäranden**: om det här alternativet är markerat begärs bilder, skript, filer och andra filer som ingår i webbsidan under testet. Den registrerade svarstiden innefattar den tid det tar att hämta dessa filer. Testet misslyckas om dessa resurser inte kan laddas ned inom tidsgränsen för hela testet. Om alternativet inte är markerat begärs endast filen på den URL som du har angett i testet.
+* **Parsa beroendebegäranden**: Om det här alternativet är markerat begärs bilder, skript, formatfiler och andra filer som ingår i webbsidan under testet. Den registrerade svarstiden innefattar den tid det tar att hämta dessa filer. Testet misslyckas om dessa resurser inte kan laddas ned inom tidsgränsen för hela testet. Om alternativet inte är markerat begärs endast filen på den URL som du har angett i testet.
 
-* **Aktivera återförsök**: Om det här alternativet är markerat och testet misslyckas görs ett nytt försök efter en liten stund. Ett fel rapporteras endast om tre på varandra följande försök misslyckas. Efterföljande tester utförs sedan med den vanliga testfrekvensen. Återförsök pausas tillfälligt tills nästa lyckade test. Den här regeln tillämpas separat på varje testplats. Vi rekommenderar det här alternativet. I genomsnitt försvinner ca 80 % av felen vid återförsök.
+* **Aktivera återförsök**:  Om det här alternativet är markerat och testet misslyckas, görs ett nytt efter en liten stund. Ett fel rapporteras endast om tre på varandra följande försök misslyckas. Efterföljande tester utförs sedan med den vanliga testfrekvensen. Återförsök pausas tillfälligt tills nästa lyckade test. Den här regeln tillämpas separat på varje testplats. Vi rekommenderar det här alternativet. I genomsnitt försvinner ca 80 % av felen vid återförsök.
 
 * **Testfrekvens**: Anger hur ofta testet körs från varje testplats. Med en standardfrekvens på fem minuter och fem testplatser testas din webbplats i genomsnitt varje minut.
 
@@ -160,8 +160,8 @@ Välj ett visst test, en viss plats eller minska tidsperioden för att visa fler
 
 Förutom rådataresultat finns även två tillgänglighetsmått i Metrics Explorer: 
 
-1. Tillgänglighet: antal procent av testerna som lyckades av alla testkörningar. 
-2. Testets varaktighet: genomsnittlig tid för alla testkörningar.
+1. Tillgänglighet: Procent av testerna som lyckades av alla testkörningar. 
+2. Testets varaktighet: Genomsnittlig testvaraktighet alla testkörningar.
 
 Du kan använda filter för testnamn och plats om du vill analysera trender för ett visst test och/eller en viss plats.
 
@@ -202,7 +202,7 @@ X utanför Y platser varningsregel är aktiverat som standard i den [nya aviseri
 
 ![Skapa upplevelse](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-**Viktiga**: med den [nya enhetliga aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), varningsregel allvarlighetsgrad och notification-inställningar med [åtgärdsgrupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **måste vara** konfigurerats i den aviseringar upplevelse. Utan följande steg ska får du bara meddelanden i portalen. 
+**Viktiga**: Med den [nya enhetliga aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), varningsregel allvarlighetsgrad och notification-inställningar med [åtgärdsgrupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **måste vara** konfigurerats i aviseringarna. Utan följande steg ska får du bara meddelanden i portalen. 
 
 1. Klicka på namnet på nya test att gå till information om när du har sparat tillgänglighetstestet. Klicka på ”Redigera avisering” ![redigera efter spara](./media/app-insights-monitor-web-app-availability/editaftersave.png)
 
@@ -217,7 +217,7 @@ X utanför Y platser varningsregel är aktiverat som standard i den [nya aviseri
 ### <a name="alert-on-availability-metrics"></a>Avisera om tillgänglighetsmått
 Med hjälp av den [nya enhetliga aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), du Avisera om segmenterade sammanställd tillgänglighet och testa samt varaktighet mått:
 
-1. Välj en Application Insights-resurs i mått-upplevelsen och välj ett mått för tillgänglighet: ![tillgänglighet mått val](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+1. Välj en Application Insights-resurs i mått-upplevelsen och välj ett mått för tillgänglighet:  ![Val av tillgänglighet-mått](./media/app-insights-monitor-web-app-availability/selectmetric.png)
 
 2. Konfigurera alternativ på menyn tar dig till den nya miljön där du kan välja specifika test eller platser för att ställa in varningsregel för aviseringar. Du kan också konfigurera åtgärdsgrupper för den här aviseringsregeln här.
     ![Konfiguration av tillgänglighet aviseringar](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
@@ -281,7 +281,7 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 
 ## <a name="automation"></a>Automation
 * [Konfigurera ett tillgänglighetstest automatiskt med hjälp av PowerShell-skript](app-insights-powershell.md#add-an-availability-test).
-* Konfigurera en [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) som anropas när en avisering genereras.
+* Konfigurera en [webhook](../azure-monitor/platform/alerts-webhooks.md) som anropas när en avisering genereras.
 
 ## <a name="qna"></a> VANLIGA FRÅGOR OCH SVAR
 
@@ -309,7 +309,7 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 
     Felet (”protokollfel... CR måste följas av LF ”) anger ett problem med servern (eller beroenden). Detta händer när felaktiga huvuden är inställda i svaret. Detta kan orsakas av lastbalanserare eller andra CDN-lösningar. Mer specifikt kanske vissa huvuden inte använder CRLF för att ange radslut vilket överskrider HTTP-specifikationen och därför misslyckas valideringen på .NET WebRequest-nivån. Kontrollera svaret för att hitta huvuden som kan vara felaktiga.
     
-    Obs: URL:en kanske inte är felaktig på webbläsare som har en avslappnad verifiering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+    Obs! URL: en kanske inte är felaktig på webbläsare som har en Avslappnad verifiering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
 * *Jag ser inte någon relaterad telemetri på serversidan för att diagnostisera testfel?*
     

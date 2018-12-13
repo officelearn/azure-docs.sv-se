@@ -10,17 +10,15 @@ ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: fec1b81ab879865bd690048b992075d45621da27
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 41508a1d99ed243d377cc72c0accc005c5ca737d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890372"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189208"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planera kapacitet för Hyper-V-virtuella datorer med kapacitet och prestanda lösningen (förhandsversion)
 
@@ -51,7 +49,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | Ansluten källa | Support | Beskrivning |
 |---|---|---|
 | [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in information om kapacitet och prestanda från Windows-agenter. |
-| [Linux-agenter](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda från direkt Linux-agenter.|
+| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda från direkt Linux-agenter.|
 | [SCOM-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) | Ja |Lösningen samlar in data för kapacitet och prestanda från agenter i en ansluten SCOM-hanteringsgrupp. En direktanslutning från SCOM-agenten till Log Analytics krävs inte.|
 | [Azure Storage-konto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Azure storage inkluderar inte kapacitet och prestanda.|
 

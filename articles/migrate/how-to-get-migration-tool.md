@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0b02ae4b75426b379ad7c124f5ddeb053c142ce6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 068b55e40afc96dbcfae26c8bf7da8a1b9ea349a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730302"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249786"
 ---
 # <a name="migrate-machines-after-assessment"></a>Migrera datorer efter utvärdering
 
@@ -19,6 +19,9 @@ ms.locfileid: "45730302"
 [Azure Migrate](migrate-overview.md) utvärderar lokala datorer för att kontrollera om de är lämplig för migrering till Azure och ger uppskattningar för storlek och kostnad för att köra datorn i Azure. För närvarande kan utvärderar Azure Migrate enbart datorer för migrering. Själva migreringen utförs för närvarande med andra Azure-tjänster.
 
 Den här artikeln beskriver hur du får förslag på Migreringsverktyg när du har kört en migreringsutvärdering.
+
+> [!NOTE]
+> Migrering verktyget förslag är inte tillgänglig i Azure Government.
 
 ## <a name="migration-tool-suggestion"></a>Migrering verktyget förslag
 

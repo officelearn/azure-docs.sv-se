@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: ddf749dd033771ae9bad09f4548c277c279c2bb5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839373"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186131"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med lösningen för System Center Operations Manager hälsokontroll (förhandsversion)
 
@@ -99,7 +97,7 @@ Nu när kör som-kontot har skapats måste mål hanteringsservrar i hanteringsgr
 2. På den **Distribution** fliken **Lägg till** för den **valda datorer** lägger till hanteringsservern för att distribuera kontot på.  Klicka på **OK** två gånger för att spara dina ändringar.
 3. Under **kör som-konfiguration**, klickar du på **profiler**.
 4. Sök efter den *SCOM-utvärdering profil*.
-5. Namnet på profilen bör vara: *Microsoft System Center Advisor SCOM-utvärdering kör som-profil*.
+5. Namnet på profilen bör vara: *SCOM-utvärdering för Microsoft System Center Advisor kör som-profil*.
 6. Högerklicka på och uppdatera dess egenskaper och lägga till nyligen skapade kör som-kontot du skapade tidigare.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>SQL-skript för att tilldela detaljerade behörigheter till Kör som-konto
@@ -161,8 +159,8 @@ Microsoft System Center Advisor SCOM-utvärdering kör utvärdering av regeln ä
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Aktivera regeln för en viss hanteringsserver
 
 1. I den **redigering** arbetsyta i Operations Manager Operations-konsolen, Sök efter regeln *Microsoft System Center Advisor SCOM-utvärdering kör utvärdering av regeln* i den **regler** fönstret.
-2. I sökresultaten väljer du det som innehåller texten *typ: hanteringsservern*.
-3. Högerklicka på regeln och klickar sedan på **åsidosätter** > **för ett specifikt objekt i klassen: hanteringsservern**.
+2. I sökresultaten väljer du det som innehåller texten *typ: Hanteringsservern*.
+3. Högerklicka på regeln och klickar sedan på **åsidosätter** > **för ett specifikt objekt i klassen: Hanteringsservern**.
 4.  Välj management-servern där regeln ska köras i listan tillgängliga servrar.  Det bör vara samma hanteringsserver som du konfigurerade tidigare för att associera kör som-kontot med.
 5.  Se till att du ändrar åsidosättningsvärde till **SANT** för den **aktiverad** parametervärde.<br><br> ![åsidosätt parametern](./media/scom-assessment/rule.png)
 
@@ -173,8 +171,8 @@ Microsoft System Center Advisor SCOM-utvärdering kör utvärdering av regeln ä
 Utvärderingen är konfigurerad för att köras var 10 080 minuter (eller sju dagar) som standard. Du kan åsidosätta värdet till minsta värdet 1 440 minuter (eller en dag). Värdet som representerar minimitid klyftan krävs mellan efterföljande utvärdering körs. Följ anvisningarna nedan om du vill åsidosätta intervallet.
 
 1. I den **redigering** arbetsyta i Operations Manager-konsolen, Sök efter regeln *Microsoft System Center Advisor SCOM-utvärdering kör utvärdering av regeln* i den **regler** avsnittet.
-2. I sökresultaten väljer du det som innehåller texten *typ: hanteringsservern*.
-3. Högerklicka på regeln och klickar sedan på **Åsidosätt regeln** > **för alla objekt i klassen: hanteringsservern**.
+2. I sökresultaten väljer du det som innehåller texten *typ: Hanteringsservern*.
+3. Högerklicka på regeln och klickar sedan på **Åsidosätt regeln** > **för alla objekt i klassen: Hanteringsservern**.
 4. Ändra den **intervall** din önskade intervallvärdet parametervärde. I exemplet nedan anges värdet till 1 440 minuter (en dag).<br><br> ![intervall för parametern](./media/scom-assessment/interval.png)<br>  
 
     Om värdet anges till mindre än 1 440 minuter, körs regeln på ett intervall för en dag. I det här exemplet regeln ignorerar intervallvärdet och kör en frekvens på en dag.

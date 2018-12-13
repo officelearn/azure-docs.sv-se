@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 1512098c29c8916a0486ed66b438654ba29f0601
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/12/2018
+ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968245"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315646"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database Managed Instance resursbegränsningar
 
@@ -70,6 +70,8 @@ Hanterad instans stöder för närvarande distribution endast för följande typ
 - [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Molntjänstleverantör (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Enterprise – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Betala per användning – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
 > [!NOTE]
 > Den här begränsningen är tillfällig. Nya typer av prenumerationer aktiveras i framtiden.
@@ -78,8 +80,8 @@ Hanterad instans stöder för närvarande distribution endast för följande typ
 
 Stöds prenumerationstyper kan innehålla ett begränsat antal resurser per region. Hanterad instans har två standardgränser per Azure-region beroende på en typ av prenumerationstyp:
 
-- **Undernät gränsen**: det maximala antalet undernät där hanterade instanser har distribuerats i en region.
-- **Gränsen för antal instans**: det maximala antalet instanser som kan distribueras i en region.
+- **Undernät gränsen**: Det maximala antalet undernät där hanterade instanser har distribuerats i en region.
+- **Gränsen för antal instans**: Det maximala antalet instanser som kan distribueras i en region.
 
 I följande tabell visas regionala standardgränser för stöds prenumerationer:
 
@@ -87,6 +89,8 @@ I följande tabell visas regionala standardgränser för stöds prenumerationer:
 | :---| :--- | :--- |:--- |:--- |
 |Användningsbaserad betalning|1 *|4 *|4 *|1 *|
 |CSP |1 *|4 *|4 *|1 *|
+|Betala per användning – utveckling/testning|1 *|4 *|4 *|1 *|
+|Enterprise – utveckling/testning|1 *|4 *|4 *|1 *|
 |EA|3 **|12 **|12 **|3 **|
 
 \* Du kan antingen distribuera 1 BC eller 4 GP-instanser i ett undernät så att det totala antalet ”instans enheter” i undernätet aldrig överstiger 4.

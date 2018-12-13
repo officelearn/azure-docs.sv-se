@@ -1,5 +1,5 @@
 ---
-title: Återskapa en Azure Search-index eller uppdatering sökbart innehåll | Microsoft Docs
+title: Återskapa en Azure Search-index eller uppdatera sökbart innehåll – Azure Search
 description: Lägga till nya element, uppdatera befintliga element eller dokument eller ta bort föråldrade dokument i en fullständig återskapning eller partiella inkrementella indexering för att uppdatera ett Azure Search-index.
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 374e7601169647f0eb7d3a214cf15567b7b11090
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641432"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316904"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Återskapar ett Azure Search-index
 
@@ -35,7 +36,7 @@ Plan för frekventa, fullständig återskapar under aktivt med utveckling, när 
 
 | Ändring av | Återskapa status|
 |--------------|---------------|
-| Ändra ett fältnamn datatypen, eller dess [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index) | Om du ändrar en fältdefinition vanligtvis tillkommer en återskapning särskilda avgifter, med undantag för dessa [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index): hämtningsbar, SearchAnalyzer, SynonymMaps. Du kan lägga till attributen hämtningsbara, SearchAnalyzer och SynonymMaps till ett befintligt fält utan att behöva återskapa dess index.|
+| Ändra ett fältnamn datatypen, eller dess [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index) | Om du ändrar en fältdefinition vanligtvis tillkommer en återskapning särskilda avgifter, med undantag för dessa [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index): Hämtningsbar, SearchAnalyzer, SynonymMaps. Du kan lägga till attributen hämtningsbara, SearchAnalyzer och SynonymMaps till ett befintligt fält utan att behöva återskapa dess index.|
 | Lägg till ett fält | Inga strikta krav på återskapning. Befintliga indexerade dokumenten ges ett null-värde för det nya fältet. I en framtida reindex Ersätt värden källdata null-värden har lagts till av Azure Search. |
 | Ta bort ett fält | Du kan inte ta bort ett fält direkt från ett Azure Search-index. I stället bör du ha programmet Ignorera fältet ”borttagen” för att undvika att använda den. Fysiskt, förblir fältdefinition och innehåll i indexet tills nästa gång du återskapa index med hjälp av ett schema som utesluter det aktuella området.|
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 33d7322bfa3c6e6143dd2d945c5ed86c15da2fb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: de5d3fcd7eff0042e912e164050f917a0070b2c3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249973"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164683"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Skapa och ladda upp en diskavbildning i OpenBSD till Azure
 Den här artikeln visar hur du skapar och laddar upp en virtuell hårddisk (VHD) som innehåller OpenBSD-operativsystem. När du har överfört kan du använda den som en egen avbildning för att skapa en virtuell dator (VM) i Azure med Azure CLI.
@@ -68,7 +68,7 @@ På den virtuella datorn där du installerade OpenBSD operativsystemet 6.1, som 
     ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
-6. Den senaste versionen av Azure-agenten finns på alltid [Github](https://github.com/Azure/WALinuxAgent/releases). Installera agenten på följande sätt:
+6. Den senaste versionen av Azure-agenten finns på alltid [GitHub](https://github.com/Azure/WALinuxAgent/releases). Installera agenten på följande sätt:
 
     ```sh
     git clone https://github.com/Azure/WALinuxAgent 

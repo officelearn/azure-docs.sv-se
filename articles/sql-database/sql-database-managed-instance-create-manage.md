@@ -1,5 +1,5 @@
 ---
-title: Skapa, hantera Azure SQL Managed Instance | Microsoft Docs
+title: Hanterings-API-referens för Azure SQL Database Managed Instance | Microsoft Docs
 description: Lär dig mer om att skapa och hantera Azure SQL Database-hanterade instanser.
 services: sql-database
 ms.service: sql-database
@@ -11,28 +11,28 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 3e714df775d316ceaafe1a0ce9b55c4e986804cd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/12/2018
+ms.openlocfilehash: 7fb6917e129c015536143a707fd2a89fc5423a99
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856870"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323088"
 ---
-# <a name="create-and-manage-azure-sql-database-managed-instances"></a>Skapa och hantera Azure SQL Database-hanterade instanser
+# <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Hanterade API-referens för Azure SQL Database-hanterade instanser
 
-Du kan skapa och hantera Azure SQL Database-hanterade instanser med hjälp av Azure portal, PowerShell, Azure CLI, REST API och Transact-SQL.
+Du kan skapa och hantera Azure SQL Database-hanterade instanser med hjälp av Azure portal, PowerShell, Azure CLI, REST API och Transact-SQL. I den här artikeln hittar du en översikt över funktioner och API: et som du kan använda för att skapa och konfigurera Managed Instance.
 
-## <a name="azure-portal-create-a-managed-instance"></a>Azure-portalen: skapa en hanterad instans
+## <a name="azure-portal-create-a-managed-instance"></a>Azure-portalen: Skapa en hanterad instans
 
-En Snabbstart som visar hur du skapar en Azure SQL Database Managed Instance finns [Snabbstart: skapa en Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md).
+En Snabbstart som visar hur du skapar en Azure SQL Database Managed Instance finns [Snabbstart: Skapa en Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md).
 
 ## <a name="powershell-create-and-manage-a-managed-instance"></a>PowerShell: Skapa och hantera en hanterad instans
 
 Använd följande PowerShell-cmdletar för att skapa och hantera Azure SQL server, databaser och brandväggar med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps).
 
 > [!TIP]
-> Exempelskript för PowerShell, se [skript för Snabbstart: skapa Azure SQL Managed Instance med hjälp av PowerShell-biblioteket](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+> Exempelskript för PowerShell, se [Snabbstart skript: Skapa Azure SQL Managed Instance med hjälp av PowerShell-biblioteket](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
 
 | Cmdlet | Beskrivning |
 | --- | --- |
@@ -62,7 +62,7 @@ Skapa och hantera Azure SQL server, databaser och brandväggar med [Azure CLI](/
 Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL Database Managed Instance databas när den hanterade instansen har skapats. Du kan skicka dessa kommandon med hjälp av Azure-portalen [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs), eller andra program som kan ansluta till en Azure SQL Database-server och skicka Transact-SQL-kommandon.
 
 > [!TIP]
-> Snabbstart som visar du behöva konfigurera och ansluta till en hanterad instans med SQL Server Management Studio på Microsoft Windows finns i [Snabbstart: Konfigurera Azure VM för att ansluta till en Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) och [ Snabbstart: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Managed Instance från den lokala](sql-database-managed-instance-configure-p2s.md).
+> Snabbstart som visar du behöva konfigurera och ansluta till en hanterad instans med SQL Server Management Studio på Microsoft Windows finns i [snabbstarten: Konfigurera virtuell Azure-dator att ansluta till en Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) och [snabbstarten: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Managed Instance från den lokala](sql-database-managed-instance-configure-p2s.md).
 > [!IMPORTANT]
 > Du kan inte skapa eller ta bort en hanterad instans med hjälp av Transact-SQL.
 
@@ -71,7 +71,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL Database 
 |[SKAPA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Skapar en ny hanterad instans-databas. Du måste vara ansluten till huvuddatabasen för att skapa en ny databas.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Ändrar en databas i Azure SQL Managed Instance.|
 
-## <a name="rest-api-manage-logical-servers-and-databases"></a>REST API: Hantera logiska servrar och databaser
+## <a name="rest-api-manage-logical-servers-and-databases"></a>REST-API: Hantera logiska servrar och databaser
 
 Använd dessa REST API-begäranden för att skapa och hantera Azure SQL Database Managed Instance.
 

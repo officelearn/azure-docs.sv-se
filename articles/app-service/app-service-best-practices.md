@@ -1,5 +1,5 @@
 ---
-title: Metodtips för Azure App Service
+title: Metodtips – Azure App Service
 description: Läs om metodtips och felsökning för Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ff79680c00a394790ba56db9ab4b237f06c677e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240638"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261831"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Metodtips för Azure App Service
 Den här artikeln sammanfattas Metodtips för [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -38,7 +39,7 @@ När du ser en app förbrukar mer minne än förväntat som anges via övervakni
 ## <a name="CPUresources"></a>När appar använder mer Processorkraft än förväntat
 När du upptäcker en app förbrukar mer Processorkraft än förväntat eller upplevelser upprepade processoranvändning som anges via övervakning eller tjänsten rekommendationer, Överväg att skala upp eller skala ut App Service-planen. Om ditt program är tillståndskänsliga, är skala upp det enda alternativet om programmet är tillståndslösa, skala ut ger större flexibilitet och högre skala potential. 
 
-Mer information om ”tillståndskänsliga” vs ”tillståndslösa” program kan du titta på den här videon: [planera en skalbar från slutpunkt till slutpunkt-Flernivåapp på Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för skalning och automatisk skalning av App Service finns i [skala en Webbapp i Azure App Service](web-sites-scale.md).  
+Mer information om ”tillståndskänsliga” vs ”tillståndslösa” program kan du titta på den här videon: [Planera en skalbar slutpunkt till slutpunkt-Flernivåapp på Microsoft Azure Webbapp](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för skalning och automatisk skalning av App Service finns i [skala en Webbapp i Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>När socketresurser slut
 En vanlig orsak till förbrukar utgående TCP-anslutningar är användningen av klientbibliotek som implementeras inte återanvända TCP-anslutningar eller när en högre nivå protokoll som HTTP - Keep-Alive används inte. Läs dokumentationen för varje bibliotek som refereras av appar i din App Service-Plan att se till att de är konfigurerade eller används i koden för effektiv återanvändning av utgående anslutningar. Också följa riktlinjerna för biblioteket-dokumentationen för rätt skapande och versionen eller rensa för att undvika läcker anslutningar. Sådana klienten bibliotek undersökningar är pågår, kan du minimera effekten genom att skala ut till flera instanser.

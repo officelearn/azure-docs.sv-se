@@ -1,5 +1,5 @@
 ---
-title: Skapa och köra ML pipelines
+title: Skapa, köra och spåra ML pipelines
 titleSuffix: Azure Machine Learning service
 description: Skapa och kör en machine learning-pipeline med Azure Machine Learning-SDK för Python.  Pipelines används för att skapa och hantera arbetsflöden som sadelhäftning tillsammans maskininlärning (ML) faser, till exempel dataförberedelser, modellinlärning, distribution av modeller och inferensjobb.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3038d8978ed3705e9e18be58080afd532b9d72d6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8478b6760921f4641cd214b1ff19cae9757b6d7e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100564"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269053"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -26,10 +26,10 @@ Pipelines som du skapar är synliga för medlemmar i din Azure Machine Learning-
 
 Pipelines Använd remote beräkningsmål för beräkning och lagring av mellanliggande och slutlig data som är associerade med denna pipeline.  Pipelines kan läsa och skrivdata till och från stöds [Azure storage](https://docs.microsoft.com/azure/storage/) platser.
 
+>[!Note]
+>Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
 
 ## <a name="prerequisites"></a>Förutsättningar
-
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
 
 * [Konfigurera utvecklingsmiljön](how-to-configure-environment.md) att installera Azure Machine Learning-SDK.
 

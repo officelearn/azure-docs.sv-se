@@ -6,19 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 91088e5279702f92f240e3620d3a544cb946d911
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 03268981bcfe90f14f35c74effe5799dd31e4ac0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974957"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185791"
 ---
 # <a name="parse-text-data-in-log-analytics"></a>Parsa textdata i Log Analytics
 Vissa data som samlas in av Log Analytics innehåller flera typer av information i en enskild egenskap. Dela dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel loggpost med flera värden i en enskild egenskap. Du kan söka genom att skapa olika egenskaper för de olika värdena och sammanställda på var och en.

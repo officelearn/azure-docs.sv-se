@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 8afa6a29d7d97b1d961f8a8ea44a2b62896ec4da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636772"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323071"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Skicka anpassade mått för en Azure-resurs till arkivet som Azure Monitor-mått med hjälp av ett REST-API
 
@@ -94,7 +94,7 @@ Om du får ett felmeddelande med en del av processen, bör följande felsökning
 1. Du kan inte utfärda måtten mot en prenumeration eller resursgrupp som din Azure-resurs. 
 1. Du kan inte lägga ett mått i arkivet som är över 20 minuter. Arkivet mått är optimerat för avisering och i realtid diagram. 
 2. Antalet dimensionsnamn måste matcha värdena och vice versa. Kontrollera värdena. 
-2. Du kan avger måtten mot en region som inte stöder anpassade mått. Se [regioner som stöds](metrics-custom-overview.md#supported-regions). 
+2. Du kan avger måtten mot en region som inte stöder anpassade mått. Se [regioner som stöds](../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -118,4 +118,4 @@ Om du får ett felmeddelande med en del av processen, bör följande felsökning
 
  
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [anpassade mått](metrics-custom-overview.md).
+- Läs mer om [anpassade mått](../azure-monitor/platform/metrics-custom-overview.md).

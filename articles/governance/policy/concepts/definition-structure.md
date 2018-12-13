@@ -1,5 +1,5 @@
 ---
-title: Azure Policy-definitionsstruktur
+title: Information om policy-definitionsstruktur
 description: Beskriver hur resource principdefinitionen används av Azure Policy för att etablera konventioner för resurser i din organisation genom att beskriva när principen tillämpas och vilken effekt ska börja.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 456ac392d74db0dc596c24a47d176e19d267bc85
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: c09f1f5af8ef417fc4ed195b8ff17cc23c744319
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079525"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313147"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -216,6 +217,8 @@ Följande fält stöds:
 - `kind`
 - `type`
 - `location`
+- `identity.type`
+  - Returnerar typen för [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) aktiverad på resursen.
 - `tags`
 - `tags.<tagName>`
   - Där **\<tagName\>** är namnet på taggen för att verifiera villkoret för.

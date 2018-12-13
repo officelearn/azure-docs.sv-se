@@ -1,5 +1,5 @@
 ---
-title: Nätverksöverväganden med en Azure App Service Environment
+title: Nätverksöverväganden med App Service Environment - Azure
 description: 'Förklarar ASE-nätverkstrafik och hur du ställer in NSG: er och udr: er med din ASE'
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: b39ff01fec9fa51f6e208728b5c8f78c68654484
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964891"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271019"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för App Service Environment #
 
@@ -26,8 +27,8 @@ ms.locfileid: "52964891"
 
  Azure [App Service Environment] [ Intro] är en distribution av Azure App Service till ett undernät i Azure-nätverk (VNet). Det finns två distributionstyper för en App Service environment (ASE):
 
-- **Extern ASE**: exponerar apparna ASE som värd på en internet-tillgänglig IP-adress. Mer information finns i [skapar en extern ASE][MakeExternalASE].
-- **ILB ASE**: exponerar apparna ASE som värd på en IP-adress i det virtuella nätverket. Den interna slutpunkten är en intern belastningsutjämnare (ILB), vilket är anledningen till det kallas en ILB ASE. Mer information finns i [skapa och använda en ILB ASE][MakeILBASE].
+- **Extern ASE**: Exponerar apparna ASE som värd på en internet-tillgänglig IP-adress. Mer information finns i [skapar en extern ASE][MakeExternalASE].
+- **ILB ASE**: Exponerar apparna ASE som värd på en IP-adress i det virtuella nätverket. Den interna slutpunkten är en intern belastningsutjämnare (ILB), vilket är anledningen till det kallas en ILB ASE. Mer information finns i [skapa och använda en ILB ASE][MakeILBASE].
 
 Det finns två versioner av App Service Environment: ASEv1 och ASEv2. Information om ASEv1 finns i [introduktion till App Service Environment v1][ASEv1Intro]. ASEv1 kan distribueras i en klassisk eller Resource Manager-VNet. ASEv2 kan endast distribueras till ett Resource Manager-VNet.
 
@@ -74,9 +75,9 @@ ASE inkommande åtkomst beroenden är:
 | Användning | Från | Till |
 |-----|------|----|
 | Hantering | Hanteringsadresser för App Service | ASE-undernät: 454, 455 |
-|  ASE intern kommunikation | ASE-undernät: alla portar | ASE-undernät: alla portar
-|  Tillåt Azure-belastningsutjämnare inkommande | Azure-lastbalanserare | ASE-undernät: alla portar
-|  App tilldelade IP-adresser | App som är tilldelade adresser | ASE-undernät: alla portar
+|  ASE intern kommunikation | ASE-undernät: Alla portar | ASE-undernät: Alla portar
+|  Tillåt Azure-belastningsutjämnare inkommande | Azure-lastbalanserare | ASE-undernät: Alla portar
+|  App tilldelade IP-adresser | App som är tilldelade adresser | ASE-undernät: Alla portar
 
 Inkommande hanteringstrafik ger kontroll av ASE förutom systemövervakning. Käll-adresserna för den här trafiken finns i den [ASE Management adresser] [ ASEManagement] dokumentet. Nätverkssäkerhetskonfigurationen måste tillåta åtkomst från alla IP-adresser på port 454 och 455. Om du blockerar åtkomst från dessa adresser kan din ASE blir ohälsosamt och sedan blir pausas.
 
@@ -136,10 +137,10 @@ Både Functions och webb-jobb beror på SCM-webbplatsen men stöds för användn
 
 En ASE har några IP-adresser känna till. De är:
 
-- **Offentliga inkommande IP-adressen**: används för trafik i en extern ASE och hanteringstrafik i både en extern ASE och en ILB ASE.
-- **Utgående offentliga IP-Adressen**: används som ”från”-IP för utgående anslutningar från ase: N som lämnar det virtuella nätverket, vilket inte dirigeras ned en VPN-anslutning.
+- **Offentliga inkommande IP-adressen**: Används för trafik i en extern ASE och hanteringstrafik i både en extern ASE och en ILB ASE.
+- **Utgående offentliga IP-Adressen**: Används som ”från”-IP för utgående anslutningar från ase: N som lämnar det virtuella nätverket, vilket inte dirigeras ned en VPN-anslutning.
 - **ILB-IP-adress**: Om du använder en ILB ASE.
-- **App-tilldelad IP-baserad SSL-adresser**: bara möjligt med en extern ASE och när IP-baserad SSL har konfigurerats.
+- **App-tilldelad IP-baserad SSL-adresser**: Bara kan utföras med en extern ASE och när IP-baserad SSL har konfigurerats.
 
 Dessa IP-adresser är väl synlig i en ASEv2 i Azure-portalen från ASE UI. Om du har en ILB ASE, visas den IP-Adressen för den interna Belastningsutjämnaren.
 

@@ -9,19 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.component: ''
-ms.openlocfilehash: 9e9fdfce9dbb165227f88e9f72bc219dce8f3307
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a4e5440a9b8b6ce36d8472463b35201f39d3ac5a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428692"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192795"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Prisändringar för Azure Network Performance Monitor
 
@@ -39,8 +37,8 @@ I följande avsnitt beskrivs prisändringar för NPM-komponenter.
 **Hur var användningen av Prestandaövervakaren faktureras enligt den gamla modellen?**
 
 Faktureringen för NPM baserades på användning och förbrukning av två komponenter:
-* **Noder**: alla syntetiska transaktioner har sitt ursprung och avsluta på noderna. Noder är kallas även agenter eller Microsoft Hanteringsagenter.
-* **Data**: resultatet av olika nätverkstester lagras i Azure Log Analytics-databasen.
+* **Noder**: Alla syntetiska transaktioner har sitt ursprung och avsluta på noderna. Noder är kallas även agenter eller Microsoft Hanteringsagenter.
+* **Data**: Resultatet av olika nätverkstester lagras i Azure Log Analytics-databasen.
 
 Under den gamla modellen beräknades fakturan utifrån antalet noder och mängden data som genereras. 
 
@@ -121,5 +119,5 @@ Referera till den [Anslutningsövervakning](https://azure.microsoft.com/pricing/
 
 ## <a name="references"></a>Referenser
 
-[Logga Analytics priser vanliga frågor och svar](https://azure.microsoft.com/pricing/details/log-analytics/): The vanliga frågor och svar har information på nivån kostnadsfri, per nod och andra prisinformation.
+[Log Analytics priser vanliga frågor och svar](https://azure.microsoft.com/pricing/details/log-analytics/): Vanliga frågor och svar-avsnittet innehåller information om nivån kostnadsfri, per nod och andra prisinformation.
 

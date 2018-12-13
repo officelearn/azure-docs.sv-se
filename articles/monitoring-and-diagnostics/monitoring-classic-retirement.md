@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5781112d4e45d29f8d623e3175fa5eb8e82444f9
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 04dbc5c60e802e7861b9e2a98c51446281b7ae3f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682307"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320615"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig aviseringar och övervakning i Azure Monitor ersätter klassiska aviseringar och övervakning
 
@@ -41,19 +41,19 @@ Ny enhetlig övervakning och aviseringar för Application Insights omfattar:
 Sedan mars 2018 har nästa generation av avisering och flerdimensionella övervakning för Azure-resurser tillgängliga. Nu plattformen för nyare mått och aviseringar är snabbare med funktioner för nästan i realtid. Nyare måttavisering plattform aviseringar ge planet blir mer detaljrikedom, eftersom nyare plattformen har alternativet av dimensioner som gör att du kan segment och filter för att specifikt värde kombination, villkoret eller åtgärden. Precis som alla aviseringar i den nya Azure Monitor är nyare måttaviseringar mer omfattande med hjälp av ActionGroups – så att meddelanden att expandera utöver e-post eller webhook till SMS, röst, Azure-funktion, Automation-Runbook och mycket mer.
 Nyare mätvärden för Azure-resurser är tillgängliga som:
 
-- **Azure Monitor-plattformen standardmått** – som innehåller populära förifyllda mått från olika Azure-tjänster och produkter. Mer information finns i den här artikeln på [stöds mått i Azure Monitor](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) och [stöder måttaviseringar på Azure Monitor](alert-metric-overview.md#supported-resource-types-for-metric-alerts).
-- **Azure Monitor anpassade mått** – som tillhandahåller mått från användarstyrd källor, inklusive Azure Diagnostics-agenten. Mer information finns i den här artikeln på [anpassade mått i Azure Monitor](metrics-custom-overview.md). Med anpassade mått kan du även publicera mätvärden som samlats in av [Windows Azure Diagnostics-agenten](metrics-store-custom-guestos-resource-manager-vm.md) och [InfluxData Telegraf agenten](metrics-store-custom-linux-telegraf.md).
+- **Azure Monitor-plattformen standardmått** – som innehåller populära förifyllda mått från olika Azure-tjänster och produkter. Mer information finns i den här artikeln på [stöds mått i Azure Monitor](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) och [stöder måttaviseringar på Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md#supported-resource-types-for-metric-alerts).
+- **Azure Monitor anpassade mått** – som tillhandahåller mått från användarstyrd källor, inklusive Azure Diagnostics-agenten. Mer information finns i den här artikeln på [anpassade mått i Azure Monitor](../azure-monitor/platform/metrics-custom-overview.md). Med anpassade mått kan du även publicera mätvärden som samlats in av [Windows Azure Diagnostics-agenten](../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md) och [InfluxData Telegraf agenten](../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md).
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Tillbakadragning av klassisk övervakning och avisering plattform
 
-Som vi nämnt tidigare, klassisk övervakning och avisering plattform för närvarande användas från den [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) av Azure portal kommer att dras tillbaka i kommande månader får de har ersatts av det nyare systemet.
+Som vi nämnt tidigare, klassisk övervakning och avisering plattform för närvarande användas från den [aviseringar (klassisk) avsnittet](../azure-monitor/platform/alerts-classic.overview.md) av Azure portal kommer att dras tillbaka i kommande månader får de har ersatts av det nyare systemet.
 Äldre klassisk övervakning och avisering tas ur bruk den 30 juni 2019; inklusive stängningen av relaterade API: er, Azure portal-gränssnittet och tjänster i den. Mer specifikt kan att dessa funktioner bli inaktuell:
 
-- Äldre (klassisk) mått och aviseringar för Azure-resurser som för närvarande tillgänglig via [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) av Azure portal, tillgänglig som [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resurs
-- Äldre (klassisk)-plattformen och anpassade mått för Application Insights samt aviseringar på dem som för närvarande tillgänglig via [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) av Azure-portalen och tillgänglig som [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resurs
-- Äldre (klassisk) Felavvikelser avisering för närvarande tillgängligt som [Smart identifiering i Application Insights](../application-insights/app-insights-proactive-diagnostics.md) på Azure portal, med aviseringar har konfigurerats visas i [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) i Azure Portal
+- Äldre (klassisk) mått och aviseringar för Azure-resurser som för närvarande tillgänglig via [aviseringar (klassisk) avsnittet](../azure-monitor/platform/alerts-classic.overview.md) av Azure portal, tillgänglig som [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resurs
+- Äldre (klassisk)-plattformen och anpassade mått för Application Insights samt aviseringar på dem som för närvarande tillgänglig via [aviseringar (klassisk) avsnittet](../azure-monitor/platform/alerts-classic.overview.md) av Azure-portalen och tillgänglig som [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resurs
+- Äldre (klassisk) Felavvikelser avisering för närvarande tillgängligt som [Smart identifiering i Application Insights](../application-insights/app-insights-proactive-diagnostics.md) på Azure portal, med aviseringar har konfigurerats visas i [aviseringar (klassisk) avsnittet](../azure-monitor/platform/alerts-classic.overview.md) i Azure Portal
 
-Alla klassiska övervakning och avisering system, inklusive motsvarande [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure-portalsidan](alert-metric-classic.md), och [ Resursmall](monitoring-enable-alerts-using-template.md) förblir användbart fram till slutet av juni 2019. 
+Alla klassiska övervakning och avisering system, inklusive motsvarande [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [Azure-portalsidan](../azure-monitor/platform/alerts-classic-portal.md), och [ Resursmall](monitoring-enable-alerts-using-template.md) förblir användbart fram till slutet av juni 2019. 
 
 I slutet av juni 2019 i Azure Monitor:
 
@@ -61,7 +61,7 @@ I slutet av juni 2019 i Azure Monitor:
 - Varningsregler som förblir desamma i aviseringar (klassisk) utöver juni 2019 fortsätter att köra och utlösa aviseringar, men inte är tillgängliga för ändring av.
 - Startar juli 2019 flyttas Varningsregler i klassiska övervakning och avisering automatiskt av Microsoft till motsvarande i den nya Azure monitor-plattformen. Processen att sömlös utan någon avbrottstid och kunder kommer att ha någon minskad övervakning täckning.
 
-Vi kommer snart med verktyg så att du kan migrera dina aviseringar från frivilligt [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) Azure-portalen till de nya Azure-aviseringarna. Alla regler som konfigurerats i aviseringar (klassisk) som har migrerats till den nya Azure Monitor fortsätter att vara kostnadsfria och inte att debiteras. Migrerade klassiska Varningsregler bär också inte någon avgift för push-meddelanden via e-post, webhook eller LogicApp. Användning av typen nyare meddelande eller åtgärd (till exempel SMS, röstsamtal, ITSM-integration, osv.) är dock debiterbar om lagts till i en migrerade eller ny avisering. Mer information finns i [priser för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Vi kommer snart med verktyg så att du kan migrera dina aviseringar från frivilligt [aviseringar (klassisk) avsnittet](../azure-monitor/platform/alerts-classic.overview.md) Azure-portalen till de nya Azure-aviseringarna. Alla regler som konfigurerats i aviseringar (klassisk) som har migrerats till den nya Azure Monitor fortsätter att vara kostnadsfria och inte att debiteras. Migrerade klassiska Varningsregler bär också inte någon avgift för push-meddelanden via e-post, webhook eller LogicApp. Användning av typen nyare meddelande eller åtgärd (till exempel SMS, röstsamtal, ITSM-integration, osv.) är dock debiterbar om lagts till i en migrerade eller ny avisering. Mer information finns i [priser för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 Dessutom kan följande ska debiteras under omfattas av [priser för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/):
 

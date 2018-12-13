@@ -1,21 +1,21 @@
 ---
-title: Skapa ett index (REST-API – Azure Search)| Microsoft Docs
-description: Skapa ett index med kod med hjälp av HTTP REST-API:et för Azure Search.
+title: Skapa ett index i kod med hjälp av REST-API – Azure Search
+description: Skapa ett sökbart fulltextindex i kod med hjälp av HTTP-reqeusts och Azure Search REST API.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
 ms.author: magottei
-tags: azure-portal
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ff534bc287e3872ee87ed808be249a6e68c68ab3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: f47aead95d7135e2528fea11c116effa93df4c4c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403551"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309220"
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Skapa ett Azure Search-index med hjälp av REST-API:et
 > [!div class="op_single_selector"]

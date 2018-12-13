@@ -5,9 +5,8 @@ keywords: Snabbstart, r-språket, r-programspråket, r-programmeringsspråket sj
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317678"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278669"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Snabbstartssjälvstudier R-programmeringsspråket för Azure Machine Learning Studio
 
@@ -33,7 +32,7 @@ I den här kursen hjälper dig att snabbt börja utöka Azure Machine Learning m
 
 Microsoft Azure Machine Learning innehåller många kraftfulla machine learning och data manipulation moduler. Kraftfulla R-språket har beskrivits som lingua franca analysens. Lyckligtvis kan manipulering av analyser och data i Azure Machine Learning utökas med hjälp av R. Den här kombinationen ger skalbarhet och enkel distribution av Azure Machine Learning med flexibilitet och djupgående analys av R.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="forecasting-and-the-dataset"></a>Prognoser och datauppsättningen
 Prognoser är en mycket anställda och ganska användbart analytiska metod. Vanliga användningsområden sträcker sig från att förutsäga försäljning på säsongens objekt, avgör optimala lagernivåer, att förutsäga makroekonomiska variabler. Prognostisering görs normalt med time series-modeller.
@@ -61,7 +60,7 @@ Jag använder RStudio för att utveckla, testa och felsöka R-kod i liten skala.
 ### <a name="the-execute-r-script-module"></a>Modulen köra R-skript
 Inom Machine Learning Studio, R-skript körs inom den [kör R-skript] [ execute-r-script] modulen. Ett exempel på den [kör R-skript] [ execute-r-script] modul i Machine Learning Studio illustreras i bild 1.
 
- ![R-programspråket: köra R Script modul har valts i Machine Learning Studio][1]
+ ![R-programspråket: Kör R-skript-modulen som valts i Machine Learning Studio][1]
 
 *Bild 1. Machine Learning Studio-miljön som visar modulen köra R-skript som valts.*
 
@@ -1236,7 +1235,7 @@ Den här programming R-självstudien tar upp grunderna för vad du behöver anv�
 
 Det finns många böcker på R som hjälper dig att komma igång. Här är några jag vara användbara:
 
-* Bilder av R-programmering: en genomgång av statistiska programdesign av Norman Matloff är en utmärkt introduktion till programmering i R.  
+* Bilder av R-programmering: En genomgång av statistiska programdesign av Norman Matloff är en utmärkt introduktion till programmering i R.  
 * R-Cookbook av Paul Teetor ger en problemet och lösningen metod för med R.  
 * R i praktiken genom Robert Kabacoff är en annan användbar inledande boken. Tillhörande snabb R webbplats är en bra resurs på http://www.statmethods.net/.
 * R-Inferno av Patrick Burns är en överraskande lättsam bok som behandlar ett antal svårt och dyrt avsnitt som kan uppstå vid programmering i R. Boken är tillgänglig kostnadsfritt på http://www.burns-stat.com/documents/books/the-r-inferno/.

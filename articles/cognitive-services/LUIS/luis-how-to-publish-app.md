@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fe8806b4cc84bb9a15ce5620366fee23bba328c4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 73788b05cad3abac19b1ef509f1250542d10dba2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106438"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136655"
 ---
 # <a name="publish-your-trained-app"></a>Publicera din tränade app
 
@@ -38,7 +38,7 @@ Appen har publicerats i alla regioner som associeras med LUIS-resurser som har l
 
 När din app har publicerats visas ett meddelande om grönt överst i webbläsaren. Grön meddelandefältet innehåller också en länk till slutpunkterna. 
 
-![Publicering av popup-fönster](./media/luis-how-to-publish-app/publish-success.png)
+![Publicering av popup-fönster med länk till slutpunkten](./media/luis-how-to-publish-app/publish-success.png)
 
 Välj länken om du behöver slutpunkts-URL. Du kan också få URL: er för slutpunkten genom att välja **hantera** i den översta menyn och markera **nycklar och slutpunkter** på den vänstra menyn. 
 

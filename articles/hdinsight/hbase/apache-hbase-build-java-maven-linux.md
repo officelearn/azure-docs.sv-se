@@ -1,20 +1,20 @@
 ---
-title: Java HBase klient - Azure HDInsight
+title: Skapa Java-HBase-klient som använder Apache Maven - Azure HDInsight
 description: Lär dig använda Apache Maven för att skapa ett Java-baserade Apache HBase-program och sedan distribuera den till HBase på Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445659"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164066"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Skapa Java-program för Apache HBase
 
@@ -56,8 +56,8 @@ Stegen i det här dokumentet används [Apache Maven](https://maven.apache.org/) 
 
     Det här kommandot skapar en katalog med samma namn som den **artifactID** parametern (**hbaseapp** i det här exemplet.) Den här katalogen innehåller följande objekt:
 
-   * **pom.XML**: The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) innehåller information om och konfiguration information som används för att skapa projektet.
-   * **SRC**: den katalog som innehåller den **main/java/com/microsoft/exempel** directory, där du skapar programmet.
+   * **pom.XML**:  Projektet Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) innehåller information om och konfiguration information som används för att skapa projektet.
+   * **SRC**: Den katalog som innehåller den **main/java/com/microsoft/exempel** directory, där du skapar programmet.
 
 3. Ta bort den `src/test/java/com/microsoft/examples/apptest.java` filen. Den används inte i det här exemplet.
 

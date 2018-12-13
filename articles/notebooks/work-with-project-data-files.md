@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b0b52fc32b2895fdcd994bad5bfc73dbf938add2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ae50581404dceb7b59b2ca145207f7d4ade23440
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102086"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309254"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Arbeta med datafiler i Azure Notebook-projekt
 
@@ -46,13 +46,13 @@ Du kan sätta filer i ett projekt från instrumentpanelen för projektet eller i
 
     ![Ladda upp från URL: en popup-fönstret](media/quickstarts/upload-from-url-popup.png)
 
-    - **Från datorn**: dra och släppa filer i popup-fönstret, eller välja **Välj filer**, bläddra till och välj de filer du vill importera. Du kan släppa eller välja valfritt antal filer av valfri typ och format, eftersom det är upp till koden i anteckningsboken för att öppna filen och parsa data.
+    - **Från datorn**: Dra och släppa filer i popup-fönstret, eller välja **Välj filer**, bläddra till och välj de filer du vill importera. Du kan släppa eller välja valfritt antal filer av valfri typ och format, eftersom det är upp till koden i anteckningsboken för att öppna filen och parsa data.
 
     ![Överför från datorn popup-fönstret](media/quickstarts/upload-from-computer-popup.png)
 
 1. När du importerat filer visas på instrumentpanelen för projektet och kan nås i anteckningsboken kod med relativa sökvägar till mappen som innehåller.
 
-### <a name="import-files-from-the-data-menu-in-a-notebook"></a>Importera filer från menyn Data på en bärbar dator
+### <a name="import-files-from-the-file-menu-in-a-notebook"></a>Importera filer från Arkiv-menyn i en anteckningsbok
 
 1. Inom en pågående anteckningsbok, Välj den **filen** > **överför** kommando:
 
@@ -62,7 +62,7 @@ Du kan sätta filer i ett projekt från instrumentpanelen för projektet eller i
 
 1. I den **status för uppladdning** popup-fönstret som visas, väljer du en **målmapp** från den nedrullningsbara listan:
 
-    - Sessionen mapp (*~/* ): Överför filerna till den aktuella notebook-sessionen men inte skapa filer i projektet. Mappen session är en peer till projektmappen, men bevaras inte när sessionen har upphört. Prefixet filnamnen med den relativa sökvägen för att komma åt sessionsfiler i koden, *... /*.
+    - Sessionen mapp (*~/* ): Överför filer till den aktuella notebook-sessionen men skapa inte filer i projektet. Mappen session är en peer till projektmappen, men bevaras inte när sessionen har upphört. Prefixet filnamnen med den relativa sökvägen för att komma åt sessionsfiler i koden, *... /*.
 
         Med hjälp av mappen session är användbar för experimentering och undviker att fylla i projektet med filer som du kanske eller kanske inte behöver på lång sikt. Du kan också ladda upp filer till mappen session som har identiska namn till filer i projektet utan att orsaka konflikter och utan att behöva byta namn på filerna. Exempel: Anta att du har en version av *data.csv* i projektet redan, där du vill experimentera med en annan version av *data.csv*. Du kan köra anteckningsboken med hjälp av data i den överförda filen genom att ladda upp filen till mappen session (refererar till den i kod med *... /data.csv*) i stället för data i projektets-filen.
 

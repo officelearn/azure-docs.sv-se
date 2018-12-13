@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 56beb9779b0dde7074a2f49fab156c8b6e6577b3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870188"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273355"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Skapa aviseringar för Azure SQL Database och Data Warehouse med hjälp av Azure portal
 
@@ -38,8 +38,8 @@ Du kan konfigurera en avisering om du vill göra följande när den utlöses:
 Du kan konfigurera och få information om Varningsregler med hjälp av
 
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Kommandoradsgränssnittet (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [Kommandoradsgränssnittet (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Skapa en aviseringsregel på ett mått med Azure portal
@@ -48,7 +48,7 @@ Du kan konfigurera och få information om Varningsregler med hjälp av
    
      ![Övervakning](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **ENDAST SQL DW**: Klicka på den **DWU-användning** graph. Välj **Visa klassiska aviseringar**
+   - **SQL DW ENDAST**: Klicka på den **DWU-användning** graph. Välj **Visa klassiska aviseringar**
 
 3. Välj den **Lägg till måttavisering (klassisk)** knappen och Fyll i fälten.
    
@@ -116,6 +116,6 @@ När du har skapat en avisering, kan du välja den och:
 
 ## <a name="next-steps"></a>Nästa steg
 * [Få en översikt över Azure-övervakning](../monitoring-and-diagnostics/monitoring-overview.md) , inklusive typerna av information som du kan samla in och övervaka.
-* Läs mer om [konfigurerar webhooks i aviseringar](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+* Läs mer om [konfigurerar webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).
 * Hämta en [översikt över diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) och samla in detaljerade mätvärden för hög frekvens på din tjänst.
 * Hämta en [översikt över mått samling](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) att kontrollera att tjänsten är tillgänglig och svarar.

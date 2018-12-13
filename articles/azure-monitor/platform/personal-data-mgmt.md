@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: be14b560eb48adc2fcf0ad0a1cf7fe27792a402a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5b8db52623eead2800b0a5d8154a222573808750
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002598"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192438"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Vägledning för personliga data som lagras i Log Analytics och Application Insights
 
@@ -50,24 +49,24 @@ Log Analytics är en flexibel store, som vid datavetenskapsmetod som fastställe
     | where * matches regex @'\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b' //RegEx originally provided on https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
     | summarize count() by $table
     ```
-* *Användar-ID*: användar-ID finns i en mängd olika lösningar och tabeller. Du kan söka efter ett visst användarnamn över hela datauppsättningen med hjälp av kommandot search:
+* *Användar-ID*: Användar-ID finns i en mängd olika lösningar och tabeller. Du kan söka efter ett visst användarnamn över hela datauppsättningen med hjälp av kommandot search:
     ```
     search "[username goes here]"
     ```
 Kom ihåg att se ut för läsbara användarnamn men GUID som kan spåras tillbaka direkt till en viss användare!
-* *Enhets-ID*: som användar-ID, enhets-ID ibland betraktas som ”privat”. Använd samma metod som anges ovan för användar-ID för att identifiera tabeller där det kan vara ett problem. 
-* *Anpassade data*: logganalys möjliggör insamling i flera olika sätt: anpassade loggar och anpassade fält, de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) , och anpassade data som samlas in som en del av systemets händelseloggar. Alla dessa kan vara utsatta för som innehåller privata data och bör undersökas för att kontrollera om några sådana data finns.
-* *Lösningen insamlade data*: eftersom mekanismen för lösningen är en kunskapsuppsättning, rekommenderar vi att granska alla tabeller som genererats av lösningar för att säkerställa att.
+* *Enhets-ID*: Som användar-ID anses ibland enhets-ID ”privat”. Använd samma metod som anges ovan för användar-ID för att identifiera tabeller där det kan vara ett problem. 
+* *Anpassade data*: Log Analytics möjliggör insamling i flera olika sätt: anpassade loggar och anpassade fält, de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) , och anpassade data som samlas in som en del av systemets händelseloggar. Alla dessa kan vara utsatta för som innehåller privata data och bör undersökas för att kontrollera om några sådana data finns.
+* *Lösningen insamlade data*: Eftersom mekanismen för lösningen är en kunskapsuppsättning, rekommenderar vi att granska alla tabeller som genererats av lösningar för att säkerställa att.
 
 ### <a name="application-data"></a>Programdata
 
-* *IP-adresser*: medan Application Insights kommer som standard Förvräng alla fält för IP-adress att ”0.0.0.0”, är det ett relativt vanligt mönster för att åsidosätta det här värdet med faktiska användar-IP-adress för att upprätthålla sessionsinformation. Analytics-frågan nedan kan användas för att hitta någon tabell som innehåller värdena i kolumnen IP-adress än ”0.0.0.0” under de senaste 24 timmarna:
+* *IP-adresser*: Application Insights kommer som standard Förvräng alla fält för IP-adress att ”0.0.0.0”, men det är ett relativt vanligt mönster för att åsidosätta det här värdet med faktiska användar-IP-adress för att upprätthålla sessionsinformation. Analytics-frågan nedan kan användas för att hitta någon tabell som innehåller värdena i kolumnen IP-adress än ”0.0.0.0” under de senaste 24 timmarna:
     ```
     search client_IP != "0.0.0.0"
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *Användar-ID*: som standard, Application Insights använder slumpmässigt genererat ID: N för användaren och sessionsspårning. Det är dock vanligt att de här fälten åsidosätts för att lagra ett ID som är mer relevant för programmet. Till exempel: användarnamn, AAD-GUID, osv. Dessa ID: N ofta anses omfattade som personliga data, och därför bör hanteras på rätt sätt. Vår rekommendation är alltid att försöka Förvräng eller maskera dessa ID: N. Fält där dessa värden finns vanligtvis är session_Id, user_Id, user_AuthenticatedId, user_AccountId samt customDimensions.
+* *Användar-ID*: Som standard använder Application Insights slumpmässigt genererat ID: N för användar- och sessionsspårning. Det är dock vanligt att de här fälten åsidosätts för att lagra ett ID som är mer relevant för programmet. Till exempel: användarnamn, AAD-GUID, osv. Dessa ID: N ofta anses omfattade som personliga data, och därför bör hanteras på rätt sätt. Vår rekommendation är alltid att försöka Förvräng eller maskera dessa ID: N. Fält där dessa värden finns vanligtvis är session_Id, user_Id, user_AuthenticatedId, user_AccountId samt customDimensions.
 * *Anpassade data*: Application Insights kan du lägga till en uppsättning av anpassade dimensioner till någon datatyp av. Dessa dimensioner kan vara *alla* data. Använd följande fråga för att identifiera eventuella anpassade dimensioner som samlas in under de senaste 24 timmarna:
     ```
     search * 
@@ -76,7 +75,7 @@ Kom ihåg att se ut för läsbara användarnamn men GUID som kan spåras tillbak
     | project $table, timestamp, name, customDimensions 
     ```
 * *Data i minnet och under överföring*: Application Insights spårar undantag, begäranden, beroendeanrop och spårningar. Privata data kan ofta samlas på koden och HTTP-anrop nivå. Granska undantag, begäranden, beroenden och spårningar tabeller för att identifiera sådana data. Använd [telemetri-initierare](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) där det är möjligt att Förvräng dessa data.
-* *Snapshot Debugger insamlingar*: den [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) funktion i Application Insights kan du samla in ögonblicksbilder för felsökning när ett undantag har inträffat på instansen av ditt program. Ögonblicksbilder utsätter den fullständiga stackspårningen som leder till undantagen som värden för lokala variabler vid varje steg i stacken. Tyvärr tillåter inte den här funktionen för selektiv radering av fästpunkter eller programmatisk åtkomst till data i ögonblicksbilden. Om frekvensen för standard ögonblicksbilder kvarhållning inte uppfyller efterlevnadskraven, därför rekommenderar vi att stänga av funktionen.
+* *Snapshot Debugger insamlingar*: Den [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) funktion i Application Insights kan du samla in ögonblicksbilder för felsökning när ett undantag har inträffat på instansen av ditt program. Ögonblicksbilder utsätter den fullständiga stackspårningen som leder till undantagen som värden för lokala variabler vid varje steg i stacken. Tyvärr tillåter inte den här funktionen för selektiv radering av fästpunkter eller programmatisk åtkomst till data i ögonblicksbilden. Om frekvensen för standard ögonblicksbilder kvarhållning inte uppfyller efterlevnadskraven, därför rekommenderar vi att stänga av funktionen.
 
 ## <a name="how-to-export-and-delete-private-data"></a>Exportera och ta bort privata data
 

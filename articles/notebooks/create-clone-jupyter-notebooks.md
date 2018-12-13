@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: c4325f0c9de0d945d1612a3ab4171a2bfe1be25b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106523"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164423"
 ---
 # <a name="create-and-clone-projects"></a>Skapa och klona projekt
 
@@ -42,7 +42,7 @@ Vad du kan göra på instrumentpanelen beror på om du har loggat in med kontot 
 | **Ta bort** | Ägare | Tar bort det valda projektet. Du kan inte ångra den här åtgärden. |
 | **Terminal** | Ägare | Startar projektserver, och sedan öppnas ett nytt webbläsarfönster med bash terminal för den här servern. |
 | **+ Nytt projekt** | Ägare | Skapar ett nytt projekt. Se [skapa ett nytt projekt](#create-a-new-project). |
-| **Ladda upp Github-lagringsplatsen** | Ägare | Importerar en projektet från GitHub. [Importera ett projekt från GitHub](#import-a-project-from-github). |
+| **Ladda upp GitHub-lagringsplatsen** | Ägare | Importerar en projektet från GitHub. [Importera ett projekt från GitHub](#import-a-project-from-github). |
 | **Klona** | Vem som helst | Kopierar ett valt projekt till ditt eget konto. Du uppmanas att logga in om den inte redan. Se [klona en projektet](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Hämta en start-märket
@@ -104,10 +104,10 @@ Att klona ett projekt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utforska exempelanteckningsböcker](azure-notebooks-samples.md)
-- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Så här: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
-- [Så här: presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
-- [Så här: arbeta med filer](work-with-project-data-files.md)
-- [Så här: åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
-- [Så här: använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Utforska notebook-exempelfiler](azure-notebooks-samples.md)
+- [Hur: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Hur: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
+- [Hur: Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
+- [Hur: Arbeta med filer](work-with-project-data-files.md)
+- [Hur: Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)
+- [Hur: Använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

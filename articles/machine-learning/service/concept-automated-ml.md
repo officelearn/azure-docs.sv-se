@@ -1,7 +1,7 @@
 ---
-title: Vad är automatisk Machine Learning
+title: Automatiserad ML-algoritmen och val av justering
 titleSuffix: Azure Machine Learning service
-description: Läs mer om hur Azure Machine Learning-tjänsten kan automatiskt välja en algoritm för dig och skapa en modell från att spara tid genom att använda parametrar och kriterier som du anger för att välja den bästa algoritmen för din modell.
+description: Lär dig hur Azure Machine Learning-tjänsten kan automatiskt välja en algoritm för dig och skapa en modell från den för att spara tid genom att använda parametrar och kriterier som du anger för att välja den bästa algoritmen för din modell.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8c1641c975ff235b581f784f0965caf203a9562f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 09d4ef0b6a3455728ddab0484db4c701c6764214
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142536"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270934"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -59,7 +59,7 @@ En gemensam eftersom operativsystemet använder principbaserad av automatiserade
 
 Se exempel och lär dig hur du skapar modeller med hjälp av automatisk Machine Learning:
 
-+ [Självstudie: Automatiskt träna en klassificering modell med Azure automatiserad Machine Learning](tutorial-auto-train-models.md)
++ [Självstudiekurs: Automatiskt träna en modell för klassificering med Azure automatiserad Machine Learning](tutorial-auto-train-models.md)
 
 + [Konfigurera inställningar för automatisk utbildning](how-to-configure-auto-train.md)
 

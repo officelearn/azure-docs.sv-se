@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: 22a22789f7eed6402d7bf3abd3b356dbcb4caa37
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134894"
+ms.locfileid: "53166650"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelleringsdokumentdata för NoSQL-databaser
 
@@ -38,7 +38,7 @@ Innan vi fördjupar oss för mycket ytterligare, låt oss ta tillbaka några få
 
 När du arbetar med relationsdatabaser, har vi varit undervisats i flera år för att normalisera, normalisera, normalisera.
 
-Normaliserar dina data vanligtvis innebär att en enhet, till exempel en person och dela upp frågan diskreta delar av data. I exemplet ovan är kan en person ha flera kontaktinformation poster samt flera poster. Vi även gå ett steg längre och bryter ned kontaktinformation genom att extrahera ytterligare vanliga fält som en typ. På samma sätt som för adress, här varje post har en typ som *Start* eller *företag* 
+Normaliserar dina data vanligtvis innebär att en enhet, till exempel en person och förklara i diskreta delar av data. I exemplet ovan är kan en person ha flera kontakta poster samt flera poster. Vi även gå ett steg längre och bryter ned kontaktinformation genom att extrahera ytterligare vanliga fält som en typ. På samma sätt som för adress, här varje post har en typ som *Start* eller *företag* 
 
 Den guidar premise när normaliserar data ska **Undvik att lagra redundanta data** på varje post och i stället hänvisa till data. I det här exemplet för att läsa en person med deras kontaktuppgifter och adresser, behöver du använda kopplingar för att effektivt aggregera dina data vid körning.
 

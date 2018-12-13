@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157368"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256680"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Systemkrav för Azure Data Box-Gateway (förhandsversion)
 
@@ -26,6 +26,19 @@ Systemkrav för den virtuella enheten Data Box-Gateway är:
 
 > [!IMPORTANT]
 > Data Box Gateway är en förhandsversion. Läs [användningsvillkoren för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen. 
+
+## <a name="specifications-for-the-virtual-device"></a>Specifikationer för den virtuella enheten
+
+Underliggande värdsystemet för Data Box-Gateway är att dedikera följande resurser för att etablera din virtuella enhet:
+
+| Specifikationer                                          | Beskrivning              |
+|---------------------------------------------------------|--------------------------|
+| Virtuella processorer (kärnor)   | Minst 4 |            
+| Minne  | Minst 8 GB|
+| Tillgänglighet|Enkel nod|
+| Diskar| OS-disken: 250 GB <br> Datadisk: 2 TB, minst, tunn etablerad, och måste vara backas upp av SSD-enheter|
+| Nätverksgränssnitt|Minst 1 virtuellt nätverksgränssnitt|
+
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Operativsystem som stöds för klienter som är anslutna till enhet
 

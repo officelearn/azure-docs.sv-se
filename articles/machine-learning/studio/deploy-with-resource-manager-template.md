@@ -1,12 +1,11 @@
 ---
-title: Distribuera arbetsyta med Azure Resource Manager – Azure Machine Learning Studio | Microsoft Docs
+title: Distribuera Studio-arbetsyta med Azure Resource Manager – Azure Machine Learning Studio | Microsoft Docs
 description: Så här distribuerar du en arbetsyta för Azure Machine Learning med hjälp av Azure Resource Manager-mall
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
 ms.service: machine-learning
@@ -15,15 +14,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/05/2018
-ms.openlocfilehash: e3836e3c299b2dff1252c0bceaec5266fc54b2e8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 02/05/2018
+ms.openlocfilehash: ac9cecd07d600189f0fb08771b0992d49236aea9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074614"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268928"
 ---
-# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Distribuera Machine Learning-arbetsyta med hjälp av Azure Resource Manager
+# <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Distribuera Azure Machine Learning Studio-arbetsyta med Azure Resource Manager
 
 Med en Azure Resource Manager-mall för distribution av sparar du tid genom att ge ett skalbart sätt att distribuera sammankopplade komponenter med en verifiering och återförsöksmekanism. Om du vill konfigurera Azure Machine Learning-arbetsytor, till exempel behöver du du först konfigurera ett Azure storage-konto och sedan distribuerar din arbetsyta. Tänk dig att göra detta manuellt för hundratals arbetsytor. Ett enklare alternativ är att använda en Azure Resource Manager-mall för att distribuera en Azure Machine Learning-arbetsyta och alla dess beroenden. Den här artikeln tar dig igenom processen steg för steg. En bra översikt över Azure Resource Manager finns i [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 

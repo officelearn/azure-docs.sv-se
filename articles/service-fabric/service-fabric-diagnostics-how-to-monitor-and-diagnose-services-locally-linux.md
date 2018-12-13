@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5aeb87538968304d3eaf73873d4c4c762c07329c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051382"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309169"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en inställning för utveckling av lokal dator
 
@@ -35,7 +35,7 @@ ms.locfileid: "44051382"
 
 ## <a name="debugging-service-fabric-java-applications"></a>Felsöka Service Fabric Java-program
 
-För Java-program, [flera loggningsramverk](http://en.wikipedia.org/wiki/Java_logging_framework) är tillgängliga. Eftersom `java.util.logging` är standardalternativet med JRE, det används också för de [kodexempel i github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  Följande information beskriver hur du konfigurerar den `java.util.logging` framework.
+För Java-program, [flera loggningsramverk](http://en.wikipedia.org/wiki/Java_logging_framework) är tillgängliga. Eftersom `java.util.logging` är standardalternativet med JRE, det används också för de [kodexempel i GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started). Följande information beskriver hur du konfigurerar den `java.util.logging` framework.
 
 Du kan använda java.util.logging för att omdirigera programloggarna minne, utdataströmmar, konsolfiler eller sockets. Det finns standard hanterare som redan ges inom ramen för var och en av dessa alternativ. Du kan skapa en `app.properties` filen för att konfigurera Hanteraren för filen för ditt program att omdirigera alla loggar till en lokal fil.
 
@@ -48,7 +48,7 @@ java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.limit = 1024000
 java.util.logging.FileHandler.count = 10
-java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log             
+java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
 Mappen som pekar på den `app.properties` filen måste finnas. Efter den `app.properties` fil skapas, måste du också ändra din startpunktsskriptet `entrypoint.sh` i den `<applicationfolder>/<servicePkg>/Code/` mappen för att ange egenskapen `java.util.logging.config.file` till `app.propertes` fil. Posten bör se ut som följande fragment:
@@ -64,7 +64,7 @@ Den här konfigurationen leder loggarna som samlas in på ett roterande sätt p�
 
 Som standard om någon hanterare uttryckligen har konfigurerats i konsolen hanteraren är registrerad. En kan visa loggarna i syslog under /var/log/syslog.
 
-Mer information finns i den [kodexempel i github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
+Mer information finns i den [kodexempel i GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Felsöka Service Fabric C#-program
@@ -83,8 +83,8 @@ Du kan använda en anpassad EventListener att lyssna efter händelsen tjänst oc
 
 ```csharp
 
- public class ServiceEventSource : EventSource
- {
+public class ServiceEventSource : EventSource
+{
         public static ServiceEventSource Current = new ServiceEventSource();
 
         [NonEvent]
@@ -105,8 +105,8 @@ Du kan använda en anpassad EventListener att lyssna efter händelsen tjänst oc
 
 
 ```csharp
-   internal class ServiceEventListener : EventListener
-   {
+internal class ServiceEventListener : EventListener
+{
 
         protected override void OnEventSourceCreated(EventSource eventSource)
         {
@@ -114,20 +114,20 @@ Du kan använda en anpassad EventListener att lyssna efter händelsen tjänst oc
         }
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
-            using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-        { 
-                 // report all event information               
-         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
-                if (eventData.Message != null)              
-            Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
-            else             
-        { 
-                    string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
-                    Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");             
+                using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))
+                {
+                        // report all event information
+                        Out.Write(" {0} ", Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+                        if (eventData.Message != null)
+                                Out.WriteLine(eventData.Message, eventData.Payload.ToArray());
+                        else
+                        {
+                                string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
+                                Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");
+                        }
+                }
         }
-           }
-        }
-    }
+}
 ```
 
 

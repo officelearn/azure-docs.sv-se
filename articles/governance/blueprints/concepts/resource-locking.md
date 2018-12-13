@@ -1,5 +1,5 @@
 ---
-title: Förstå resource låsning i Azure skisser
+title: Förstå resource låsning
 description: Läs mer om låsning alternativen för att skydda resurser när du tilldelar en skiss.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: seodec18
+ms.openlocfilehash: 0e272f7137967b545269a408b6e83552de532682
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139450"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309441"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resource låsning i Azure skisser
 
@@ -21,9 +22,9 @@ Skapandet av enhetliga testmiljöer i stor skala är endast verkligen användbar
 
 ## <a name="locking-modes-and-states"></a>Låsning lägen och tillstånd
 
-Låsning läge gäller skisstilldelningen och har bara två alternativ: **ingen** eller **alla resurser**. Låsning läget konfigureras under skisstilldelningen och kan inte ändras när tilldelningen har tillämpats för prenumerationen.
+Låsning läge gäller skisstilldelningen och har bara två alternativ: **Ingen** eller **alla resurser**. Låsning läget konfigureras under skisstilldelningen och kan inte ändras när tilldelningen har tillämpats för prenumerationen.
 
-Resurser som skapas av artefakter i en skisstilldelningen har tre lägen: **inte låst**, **skrivskyddad**, eller **det går inte att redigera / ta bort**. Varje artefakt kan finnas i den **inte låst** tillstånd. Icke-resursgruppen artefakter har dock **skrivskyddad** och resursgrupper har **det går inte att redigera / ta bort** tillstånd. Den här skillnaden är en viktig skillnad i hur de här resurserna hanteras.
+Resurser som skapas av artefakter i en skisstilldelningen har tre lägen: **Inte låst**, **skrivskyddad**, eller **det går inte att redigera / ta bort**. Varje artefakt kan finnas i den **inte låst** tillstånd. Icke-resursgruppen artefakter har dock **skrivskyddad** och resursgrupper har **det går inte att redigera / ta bort** tillstånd. Den här skillnaden är en viktig skillnad i hur de här resurserna hanteras.
 
 Den **skrivskyddad** tillstånd är exakt som de definierats: resursen kan inte ändras på något sätt – inga ändringar och den kan inte tas bort. Den **det går inte att redigera / ta bort** mer nyanserade på grund av den ”behållare” natur resursgrupper. Gruppobjektet resurs är skrivskyddad, men det är möjligt att göra ändringar i icke-låst resurser i resursgruppen.
 

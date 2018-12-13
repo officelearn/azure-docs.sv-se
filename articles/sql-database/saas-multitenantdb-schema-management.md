@@ -12,15 +12,15 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056649"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315224"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Hantera schemat i ett SaaS-program som använder delat SQL-databaser för flera innehavare
- 
+
 Den här självstudien går igenom utmaningarna med att underhålla en flotta med databaser i en programvara som en tjänst (SaaS). Lösningar visas för fläkt ut schemaändringar hela flottan databaser.
 
 Precis som alla program Wingtip biljetter SaaS-appen kommer att utvecklas med tiden och kräver ändringar i databasen. Ändringar kan påverka schemat eller referens data eller använda uppgifter för databasunderhåll. Med ett SaaS-program med hjälp av en databas per klient mönster, måste ändringarna samordnas över en potentiellt massiv mängd klientdatabaser. Dessutom måste du inkludera dessa ändringar i databasen etableringsprocessen för att säkerställa att de inkluderas i nya databaser som har skapats.
@@ -64,12 +64,12 @@ Fragmenterade (sharded) databas för flera innehavare modellen som används i de
 ## <a name="elastic-jobs-limited-preview"></a>Elastiska jobb begränsad förhandsvisning
 
 Det finns en ny version av elastiska jobb som nu finns en inbyggd funktion i Azure SQL Database. Den här nya versionen av elastiska jobb är för närvarande i begränsad förhandsvisning. I begränsad förhandsversion för närvarande stöder som använder PowerShell för att skapa en jobbagent och T-SQL för att skapa och hantera jobb.
-> [!NOTE] 
+> [!NOTE]
 > Den här guiden använder funktioner för SQL Database-tjänsten som finns i en begränsad förhandsgranskning (Elastic Database-jobb). Om du vill följa den här guiden kan du ange ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = förhandsgranskning av elastiska jobb. När ett meddelande bekräftar att din prenumeration har aktiverats, hämta och installera den senaste förhandsversionen av jobs-cmdletarna. Den här förhandsversionen är begränsat, så Kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta källkoden för databas för flera klienter i Wingtip biljetter SaaS-program och skript
 
-Databas för flera klienter i Wingtip biljetter SaaS-skript och programmets källkod finns tillgängliga i den [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) arkivet på Github. Se den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg att ladda ned och avblockera Wingtip biljetter SaaS-skript. 
+Databas för flera klienter i Wingtip biljetter SaaS-skript och programmets källkod finns tillgängliga i den [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) arkivet på GitHub. Se den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg att ladda ned och avblockera Wingtip biljetter SaaS-skript.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Skapa en jobbagent databas och nya jobbagent
 
@@ -84,9 +84,9 @@ Den *Demo-SchemaManagement.ps1* anropar skriptet den *Deploy-SchemaManagement.ps
 
 #### <a name="prepare"></a>Förbereda
 
-Varje klientdatabas inkluderar en uppsättning platstyper i den **VenueTypes** tabell. Varje platstypen definierar vilken typ av händelser som kan användas på en plats. De här platstyperna motsvarar bakgrundsbilder som du ser i klienternas evenemangsapp.  I den här övningen ska du distribuera en uppdatering till alla databaser att lägga till två ytterligare platstyper: *Motorcycle Racing* och *Swimming Club*. 
+Varje klientdatabas inkluderar en uppsättning platstyper i den **VenueTypes** tabell. Varje platstypen definierar vilken typ av händelser som kan användas på en plats. De här platstyperna motsvarar bakgrundsbilder som du ser i klienternas evenemangsapp.  I den här övningen ska distribuera du en uppdatering till alla databaser att lägga till två ytterligare platstyper: *Motorcycle Racing* och *Swimming Club*.
 
-Granska först platstyper som ingår i varje klientdatabas. Ansluta till en av klientdatabaser i SQL Server Management Studio (SSMS) och granska tabellen VenueTypes.  Du kan också fråga den här tabellen i frågeredigeraren i Azure-portalen kan nås via databas. 
+Granska först platstyper som ingår i varje klientdatabas. Ansluta till en av klientdatabaser i SQL Server Management Studio (SSMS) och granska tabellen VenueTypes.  Du kan också fråga den här tabellen i frågeredigeraren i Azure-portalen kan nås via databas.
 
 1. Öppna SSMS och Anslut till klientservern: *tenants1-dpt -&lt;användaren&gt;. database.windows.net*
 1. Att bekräfta att *Motorcycle Racing* och *Swimming Club* **inte** för närvarande ingår, bläddra till den *contosoconcerthall* databasen på den *tenants1-dpt -&lt;användaren&gt;*  servern och frågar den *VenueTypes* tabell.

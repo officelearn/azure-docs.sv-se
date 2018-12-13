@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: b2eff49f94dfcd67cb9741055520d990429051cd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098567"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322712"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
 Lär dig mer om att välja den lämpligaste enkla inloggning metoden när du konfigurerar program i Azure Active Directory (AD Azure). 
@@ -67,7 +67,7 @@ För att konfigurera ett program för SAML-baserad enkel inloggning, se [konfigu
 Mer information om hur SAML-protokoll fungerar finns i [enkel inloggning SAML-protokoll](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="password-based-sso"></a>Lösenordsbaserad SSO
-Med lösenordsbaserad inloggning autentiseras programmet mot programmet med ett användarnamn och lösenord. Slutanvändare logga in till den tidpunkt när programmet först de komma åt den. Efter den första inloggning tillhandahåller Azure Active Directory användarnamnet och lösenordet till programmet. 
+Lösenordsbaserad inloggning kan slutanvändarna logga in på programmet med ett användarnamn och lösenord för första gången som de har åtkomst till den. Efter den första inloggning tillhandahåller Azure Active Directory användarnamnet och lösenordet till programmet. 
 
 Lösenordsbaserad enkel inloggning använder du den befintliga autentiseringsprocessen som tillhandahålls av programmet. När du aktiverar lösenord för enkel inloggning för ett program, Azure AD samlar in och lagrar på ett säkert sätt användarnamn och lösenord för programmet. Användarens autentiseringsuppgifter lagras i ett krypterat tillstånd i katalogen. 
 
@@ -177,6 +177,6 @@ Mer information finns i [Azure Active Directory-versioner](../fundamentals/activ
 * [Självstudier för att integrera SaaS-program med Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Självstudie för att konfigurera enkel inloggning](configure-single-sign-on-portal.md)
 * [Introduktion till hantering av åtkomst till program](what-is-access-management.md)
-* Nedladdningslänk: [enkel inloggning distributionsplan](https://aka.ms/SSODeploymentPlan).
+* Nedladdningslänk: [Enkel inloggning distributionsplan](https://aka.ms/SSODeploymentPlan).
 
 

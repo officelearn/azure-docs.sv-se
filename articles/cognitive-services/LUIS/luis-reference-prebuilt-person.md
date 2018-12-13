@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: ad19aa8eef72234e034fe9c0e1905e848ace0650
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 31dce870e99cbe74e2795a3ba661b0caf92dd48e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091755"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140242"
 ---
-# <a name="personname-entity"></a>PersonName-entitet
+# <a name="personname-prebuilt-entity-for-a-luis-app"></a>PersonName fördefinierade entitet för en LUIS-app
 Entiteten fördefinierade personName identifierar namn på kontakter. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller personName till programmet avsikter. personName entiteten har stöd för engelska och kinesiska [kulturer](luis-reference-prebuilt-entities.md).
 
 ## <a name="resolution-for-personname-entity"></a>Lösning för personName entitet

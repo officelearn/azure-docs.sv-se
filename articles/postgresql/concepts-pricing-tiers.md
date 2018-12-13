@@ -9,16 +9,16 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 31ea45eba9d15240fc82828b8010ecd1fe0f82bd
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: a57e481093bca12a1726a4cc16fa090aa158c1d8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890525"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320905"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database för PostgreSQL prisnivåer
 
-Du kan skapa en Azure Database for PostgreSQL-server i en av tre olika tjänstnivåer: Basic, generell användning och Minnesoptimerad. Prisnivåerna åtskiljs av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå för PostgreSQL. En server kan ha en eller flera databaser.
+Du kan skapa en Azure Database for PostgreSQL-server i någon av tre olika tjänstnivåer: Basic, generell användning och Minnesoptimerad. Prisnivåerna åtskiljs av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå för PostgreSQL. En server kan ha en eller flera databaser.
 
 |    | **Basic** | **Generell användning** | **Optimerat minne** |
 |:---|:----------|:--------------------|:---------------------|
@@ -43,6 +43,9 @@ När du har skapat en server, antalet virtuella kärnor, skapande av maskinvara 
 ## <a name="compute-generations-and-vcores"></a>Beräkningsgenereringar och virtuella kärnor
 
 Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU som den underliggande maskinvaran. För närvarande kan du välja mellan två beräkningsgenereringar Gen 4 och 5 för Gen. Gen 4 logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer. Gen 5 logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3 GHz-processorer. Gen 4 och 5 Gen finns i följande regioner (”X” anger tillgängliga). 
+
+> [!IMPORTANT]
+> Från och 12 December 2018 kommer nya kunder inte att kunna etablera compute generation 4 servrar i södra Brasilien, centrala Kanada, Östra Kanada, östra Asien, östra USA 2, centrala Indien, västra Indien, västra Japan, norra centrala USA, västra USA. Tidigare skapade compute generation 4 servrar kommer att migreras till beräknings-generation 5 med början den 1 februari 2019 i dessa regioner.
 
 | **Azure-region** | **Generation 4** | **5: e generationen** |
 |:---|:----------:|:--------------------:|

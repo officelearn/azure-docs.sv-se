@@ -1,5 +1,5 @@
 ---
-title: Sidindela sökresultat i Azure Search | Microsoft Docs
+title: Så här objekt i en sökresultatsida – Azure Search
 description: Sidbrytning i Azure Search, en värdbaserad molnsöktjänst på Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.custom: seodec2018
+ms.openlocfilehash: 5f36dbb72e2518f7e3a27ef3aadec85312d751c2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527077"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309352"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Arbeta med sökresultatsidor i Azure Search
 Den här artikeln innehåller råd om hur du använder Azure Search Service REST API för att implementera standardelement på en sökresultatsida, till exempel totala antalet, hämta dokument, sorteringsordningar och navigering.

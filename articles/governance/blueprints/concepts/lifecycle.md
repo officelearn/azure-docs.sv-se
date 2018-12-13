@@ -1,6 +1,6 @@
 ---
-title: Förstå livscykeln för en Azure-skiss
-description: Läs om livscykeln som passerar en skiss och information om varje steg.
+title: Förstå livscykeln för en skiss
+description: Läs mer om livscykel som passerar en skiss och information om varje steg.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,17 +8,18 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094167"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309814"
 ---
-# <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>Förstå livscykeln för en Azure-skiss
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Förstå livscykeln för en Azure-skiss
 
-Precis som många resurser i Azure har en skiss i Azure skisser typisk och naturlig livscykelhantering. De är skapade, distribueras och slutligen bort när inte längre behövs eller relevanta.
-Skisser stöder standard livscykel åtgärder. Den sedan bygger på dem för att ge extra kontrollnivåer status som har stöd för vanliga kontinuerlig integrering och kontinuerlig distribution pipelines för organisationer som hanterar sin infrastruktur som kod – en nyckelfaktor i DevOps.
+Precis som många resurser i Azure har en skiss i Azure skisser en typisk och naturlig livscykel. De är skapade, distribueras och slutligen bort när inte längre behövs eller relevanta.
+Skisser stöder standard livscykelåtgärder. Den sedan bygger på dem för att ge extra kontrollnivåer status som har stöd för vanliga kontinuerlig integrering och kontinuerlig distribution pipelines för organisationer som hanterar sin infrastruktur som kod – en nyckelfaktor i DevOps.
 
 För att helt förstå en skiss och stegen kan går vi igenom en standard livscykel:
 
@@ -68,7 +69,7 @@ Varje version av en skiss är ett unikt objekt och kan vara individuellt **publi
 > [!NOTE]
 > Det går inte att ta bort en skiss som har aktiva uppgifter. Ta bort tilldelningar först och sedan ta bort den version som du vill ta bort.
 
-1. Klicka på **alla tjänster** och söka efter och välja **princip** i den vänstra rutan. Klicka på **Skisser** på sidan **Princip**.
+1. Klicka på **Alla tjänster** och sök efter och välj **Princip** i den vänstra fönsterrutan. Klicka på **Skisser** på sidan **Princip**.
 
 1. Välj **Skissdefinitioner** från sidan till vänster och Använd filteralternativ för att hitta skissen som du vill ta bort en version av. Klicka på det för att öppna sidan Redigera.
 

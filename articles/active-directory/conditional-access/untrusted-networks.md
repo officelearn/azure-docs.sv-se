@@ -1,8 +1,8 @@
 ---
-title: Hur – konfigurera Azure Active Directory villkorliga åtkomstprinciper för åtkomstförsök från ej betrodda nätverk | Microsoft Docs
+title: Så här kräver du multifaktorautentisering (MFA) för åtkomst från ej betrodda nätverk med villkorlig åtkomst i Azure Active Directory (Azure AD) | Microsoft Docs
 description: Lär dig mer om att konfigurera en princip för villkorlig åtkomst i Azure Active Directory (Azure AD) för för åtkomstförsök från ej betrodda nätverk.
 services: active-directory
-keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,37 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/23/2018
+ms.date: 12/10/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5ddde65b2a68e71d86af6ce3dcd2847736cf5823
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c40db6c253899d7aab21d277e93b23dd0c6feb97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627193"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314014"
 ---
-# <a name="how-to-configure-conditional-access-policies-for-access-attempts-from-untrusted-networks"></a>Så här: Konfigurera principer för villkorlig åtkomst för åtkomstförsök från ej betrodda nätverk   
+# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Anvisningar: Kräva MFA för åtkomst från ej betrodda nätverk med villkorlig åtkomst   
 
-I en mobil- och molnorienterade värld, Azure Active Directory (Azure AD) som möjliggör enkel inloggning till enheter, appar och tjänster från var som helst. Till följd av detta, kan användarna komma åt dina appar i molnet inte bara från din organisations nätverk, utan även från alla ej betrodd plats på Internet. Med [villkorlig åtkomst i Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare kan komma åt dina appar i molnet. Ett vanligt krav i det här sammanhanget är att kontrollera åtkomstförsök som initieras från ej betrodda nätverk. Den här artikeln ger dig den information du behöver att konfigurera en princip för villkorlig åtkomst som hanterar det här kravet. 
+Azure Active Directory (Azure AD) möjliggör enkel inloggning till enheter, appar och tjänster från var som helst. Användarna kan komma åt dina appar i molnet, inte bara från din organisations nätverk, utan även från alla ej betrodd plats på Internet. Vanliga bästa praxis för åtkomst från ej betrodda nätverk är att kräva multifaktorautentisering (MFA).
+
+Den här artikeln ger dig den information du behöver att konfigurera en princip för villkorlig åtkomst som kräver MFA för åtkomst från ej betrodda nätverk. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med: 
 
-- De grundläggande principerna för villkorlig åtkomst i Azure AD 
-- Konfigurera principer för villkorlig åtkomst i Azure portal
+- Den [grundbegreppen](overview.md) av Azure AD villkorsstyrd åtkomst 
+- Den [bästa praxis](best-practices.md) för att konfigurera principer för villkorlig åtkomst i Azure portal
 
-Se:
-
-- [Vad är villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md) – en översikt av villkorlig åtkomst 
-
-- [Snabbstart: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md) – om du vill få lite erfarenhet och konfigurerar principer för villkorlig åtkomst. 
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-Det kan vara tillräckliga för att du bara behöver dina användare ska kunna autentiseras med ett lösenord för att bemästra balans mellan säkerhet och produktivitet. När ett åtkomstförsök görs från en ej betrodd nätverksplats, det finns dock en ökad risk som inte är inloggningar som utförs av behöriga användare. För att åtgärda det här problemet kan du blockera åtkomstförsök från ej betrodda nätverk. Du kan också kan du också kräva multifaktorautentisering (MFA) för att få tillbaka ytterligare trygghet som ett försök gjordes av är tillförlitligt ägare för kontot. 
+Om du vill balans mellan säkerhet och produktivitet, kan det vara tillräckliga för att du endast kräva ett lösenord för inloggningar från din organisations nätverk. För åtkomst från en ej betrodd nätverksplats, det finns dock en ökad risk som inte är inloggningar som utförs av behöriga användare. För att åtgärda det här problemet kan du blockera åtkomst från ej betrodda nätverk. Du kan också kan du också kräva multifaktorautentisering (MFA) för att få tillbaka ytterligare trygghet som ett försök gjordes av är tillförlitligt ägare för kontot. 
 
 Med Azure AD villkorlig åtkomst, kan du lösa det här kravet med en enda princip som tilldelar åtkomst: 
 
@@ -54,14 +51,14 @@ Med Azure AD villkorlig åtkomst, kan du lösa det här kravet med en enda princ
 
 - Att kräva multifaktorautentisering 
 
-- När åtkomst försök från: 
+- När åtkomst kommer från: 
 
     - En plats som inte är betrodd
 
 
-## <a name="considerations"></a>Överväganden
+## <a name="implementation"></a>Implementering
 
-Den stora utmaningen med det här scenariot är att översätta *när ett åtkomstförsök görs från en plats som inte är betrodd* till ett villkor för villkorlig åtkomst. I en princip för villkorlig åtkomst kan du konfigurera den [platser villkor](location-condition.md) kunna hantera scenarier som är relaterade till nätverksplatser. Villkoret platser kan du välja namngivna platser, som representerar logiska grupperingar av IP-adressintervall, länder och regioner.  
+Den stora utmaningen med det här scenariot är att översätta *åtkomst från en ej betrodd nätverksplats* till ett villkor för villkorlig åtkomst. I en princip för villkorlig åtkomst kan du konfigurera den [platser villkor](location-condition.md) kunna hantera scenarier som är relaterade till nätverksplatser. Villkoret platser kan du välja namngivna platser som är logiska grupperingar av IP-adressintervall, länder och regioner.  
 
 Normalt kan äger din organisation en eller flera adressintervall, till exempel 199.30.16.0 - 199.30.16.24.
 Du kan konfigurera en namngiven plats genom att:
@@ -73,7 +70,7 @@ Du kan konfigurera en namngiven plats genom att:
 
 I stället att definiera vilka alla platser är som inte är betrodd, kan du:
 
-- Ta med 
+- Inkludera valfri plats 
 
     ![Villkorlig åtkomst](./media/untrusted-networks/02.png)
 
@@ -83,9 +80,9 @@ I stället att definiera vilka alla platser är som inte är betrodd, kan du:
 
 
 
-## <a name="implementation"></a>Implementering
+## <a name="policy-deployment"></a>Distribution av princip
 
-Med den metod som beskrivs i den här artikeln kan du nu konfigurera en princip för villkorlig åtkomst för ej betrodda platser. Du bör alltid testa din princip innan den distribueras ut i produktionen för att se till att den fungerar som förväntat. Vi rekommenderar bör om möjligt du göra dina inledande tester i en test-klient. Mer information finns i [hur ska du distribuera en ny princip](best-practices.md#how-should-you-deploy-a-new-policy). 
+Med den metod som beskrivs i den här artikeln kan du nu konfigurera en princip för villkorlig åtkomst för ej betrodda platser. För att säkerställa att din princip fungerar som förväntat, är rutin att testa den innan du distribuerar det till produktion. Använd helst en test-klient för att kontrollera om den nya principen fungerar som avsett. Mer information finns i [så här distribuerar du en ny princip](best-practices.md#how-should-you-deploy-a-new-policy). 
 
 
 

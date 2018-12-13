@@ -1,5 +1,5 @@
 ---
-title: Hantera referensdata med Azure Time Series Insights-miljö med C# | Microsoft Docs
+title: Azure Time Series Insights C# referensdata – hantera referens för data i Azure Time Series Insights-miljö med C# | Microsoft Docs
 description: Den här artikeln beskriver hur du hanterar referensdata för en Azure Time Series Insights-miljö genom att skapa ett anpassat program som skrivits i språket C# (c sharp) .NET.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 52456533d40c8efde6a196d4e480c06bce2f08ab
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 299f1de73b1b0023f55089417b9d9ee5ba98b93f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629193"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276850"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera referensdata för en Azure Time Series Insights-miljö med C#
 

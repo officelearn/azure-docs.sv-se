@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582463"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184057"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordna enheten anslutningshändelser från Azure IoT Hub med Azure Cosmos DB
 
@@ -200,11 +200,11 @@ I ditt logikapparbetsflöde att villkor köra specifika åtgärder efter skicka 
 
 2. Fyll villkoret som visas nedan för att utföra detta endast för enheten ansluten och enheten frånkopplad händelser:
 
-  * Välj ett värde: **händelsetyp**
-  * Ändra ”är lika med” att **slutar med**
-  * Välj ett värde: **nected**
+   * Välj ett värde: **händelsetyp**
+   * Ändra ”är lika med” att **slutar med**
+   * Välj ett värde: **nected**
 
-   ![Fyll villkor](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Fyll villkor](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. Om villkoret är sant, klickar du på **Lägg till en åtgärd**.
   
@@ -248,9 +248,9 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
 4. Skapa händelseprenumerationen med följande värden: 
 
-   * **Händelsetyp**: avmarkera prenumerera på alla händelsetyper och välj **enheten ansluten** och **enheten frånkopplad** på menyn.
+   * **Händelsetyp**: Avmarkera prenumerera till alla händelsetyper och välj **enheten ansluten** och **enheten frånkopplad** på menyn.
 
-   * **Information om slutpunkten**: Välj slutpunktstypen **Webhook** och klicka på den valda slutpunkten. Klistra in webbadressen som du kopierade från logikappen och bekräfta valet.
+   * **Information om slutpunkten**: Välj typ av slutpunkt som **Webhook** och klicka på Välj slutpunkt och klistra in den URL som du kopierade från din logikapp och bekräfta valet.
 
        ![webbadress till vald slutpunkt](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 

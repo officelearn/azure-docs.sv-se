@@ -1,5 +1,5 @@
 ---
-title: Bearbeta och extrahera text från bilder i Azure Search | Microsoft Docs
+title: Processen och extrahera text från bilder i cognitive search – Azure Search
 description: Processen och extrahera text och annan information från bilder i cognitive Sök pipelines i Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 5ee821f3d1e81e581f376d4b14b3e8393a8f190c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444643"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312620"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hur du bearbetar och extrahera information från bilder i scenarier med kognitiv sökning
 
@@ -90,7 +91,7 @@ När den *imageAction* är inställd på ”generateNormalizedImages” den nya 
 
 ## <a name="image-related-skills"></a>Bild-relaterade kunskaper
 
-Det finns två inbyggda kognitiva kunskaper som tar bilder som indata: [OCR](cognitive-search-skill-ocr.md) och [bildanalys](cognitive-search-skill-image-analysis.md). 
+Det finns två inbyggda kognitiva kunskaper som tar bilder som indata: [OCR](cognitive-search-skill-ocr.md) och [bild Analysis](cognitive-search-skill-image-analysis.md). 
 
 Dessa kunskaper fungerar för närvarande bara med bilder som skapas från dokumentet knäcka steg. Därför stöds endast indata är `"/document/normalized_images"`.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 8080cdf78333eed9541311ba67221c713341a21a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b961dadbe8743f1485ef0d13a44a1bb0f3ce32b5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741580"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321383"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Anger vertikal automatisk skalning med VM-skalningsuppsättning
 Den här artikeln beskrivs hur du skalar Azure lodrätt [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) med eller utan reprovisioning. Vertikal skalning av virtuella datorer som inte ingår i skalningsuppsättningar finns i [lodrätt skalning av Azure-dator med Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -84,7 +84,7 @@ När du har importerat runbooks, lägga till en webhook för runbooken så att d
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Lägga till en avisering till din skalningsuppsättning för virtuell dator
-Nedan anges ett PowerShell-skript som visar hur du lägger till en avisering till en virtuell datorskalning. Följande artikel för att hämta namnet på mått som ska utlösa aviseringen på: [vanliga mått för automatisk skalning för Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+Nedan anges ett PowerShell-skript som visar hur du lägger till en avisering till en virtuell datorskalning. Se följande artikel för att hämta namnet på mått som ska utlösa aviseringen på: [Azure Monitor autoskalning vanliga mått](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -120,7 +120,7 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 Mer information om hur du skapar aviseringar finns i följande artiklar:
 
 * [Azure Monitor PowerShell quickstart-exempel](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* [Azure Monitor plattformsoberoende CLI quickstart-exempel](../monitoring-and-diagnostics/insights-cli-samples.md)
+* [Azure Monitor plattformsoberoende CLI quickstart-exempel](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Sammanfattning
 Den här artikeln visade enkla exempel för lodrät skalning. Med dessa byggstenar - Automation-konto, runbooks, webhooks, aviseringar – kan du ansluta en rad olika händelser med en anpassad uppsättning åtgärder.

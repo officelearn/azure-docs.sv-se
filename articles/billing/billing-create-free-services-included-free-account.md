@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 77022b442a78c8d14284e06af4f156302c1e6ffc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 43ecc79db977624954109c4565c613e2471cea88
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584408"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312039"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Skapa tjänster som ingår kostnadsfritt Azure-konto
 
 Kostnadsfritt Azure-konto innehåller en begränsad mängd kostnadsfria tjänster i 12 månader. Mer information finns i [vad är kostnadsfritt Azure-konto](https://azure.microsoft.com/free/free-account-faq/). Azure håller reda på din användning av varje tjänst och debiterar inte dig om du överskrider gränserna. I de här gränserna ger kostnadsfritt Azure-konto dig flexibilitet att använda olika konfigurationer som uppfyller dina behov. 
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Skapa kostnadsfria tjänster i Azure portal
-Vi rekommenderar att du använder den [gratistjänst sidan](https://go.microsoft.com/fwlink/?linkid=859151) att skapa nya tjänster. Eller du kan logga in på den [Azure-portalen](http://portal.azure.com)väljer **alla tjänster** till vänster och Sök på **kostnadsfria tjänster**. 
+Vi rekommenderar att du använder den [gratistjänst sidan](https://go.microsoft.com/fwlink/?linkid=859151) att skapa nya tjänster. Eller du kan logga in på den [Azure-portalen](https://portal.azure.com)väljer **alla tjänster** till vänster och Sök på **kostnadsfria tjänster**. 
 
 ## <a name="services-can-be-created-in-any-region"></a>Tjänster kan skapas i valfri region
 Så länge du är inom gränserna som kan skapa du tjänster kostnadsfritt i alla regioner där tjänster är tillgängliga. Exempelvis kan få du 750 timmar av en B1S Windows virtuella datorer helt gratis månatliga kostnadsfria Azure-konto. Du kan skapa den virtuella datorn i valfri region där virtuella datorer i B-serien är tillgängliga. Azure tar inte betalt du om du överskrider 750 timmars användning. Till exempel kan en kund i USA etablera en virtuell dator i B1S Windows i västra Europa och använda 750 timmar utan kostnad. 

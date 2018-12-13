@@ -1,6 +1,6 @@
 ---
-title: Fältmappningar i Azure Search-indexerare
-description: Konfigurera Azure Search-indexeraren fältmappningar för skillnader i fältnamn och representationer av data
+title: Fältmappningar för automatisk indexering med hjälp av indexerare – Azure Search
+description: Konfigurera Azure Search-indexeraren fältmappningar för skillnader i fältnamn och representationer av data.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 01edc7001ec463cb16d8b6c715794b0028508143
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 94a7274c0e950661d118ad5421e7c763fe555434
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404737"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312705"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Fältmappningar i Azure Search-indexerare
 När du använder Azure Search-indexerare kan ibland hitta själv i situationer där dina indata ganska inte matchar schemat för ditt målindex. I sådana fall kan du använda **fältmappningar** att omvandla data till önskad form.
@@ -134,7 +135,7 @@ Om du inte anger någon `parameters`, sedan standardvärdet `useHttpServerUtilit
 <a name="base64details"></a>
 
 ### <a name="details-of-base64-encoding-and-decoding"></a>Information om base64-kodning och avkodning
-Azure Search har stöd för två base64-kodning: HttpServerUtility URL: en token och URL: en säker base64-kodning utan utfyllnad. Du måste använda samma kodning som mappning funktioner om du vill koda en dokumentnyckeln för titt upp, koda ett värde till att avkoda av indexeraren eller avkoda ett fält som kodats med indexeraren.
+Azure Search har stöd för två base64-kodning: HttpServerUtility URL: en token och URL-safe base64-kodning utan utfyllnad. Du måste använda samma kodning som mappning funktioner om du vill koda en dokumentnyckeln för titt upp, koda ett värde till att avkoda av indexeraren eller avkoda ett fält som kodats med indexeraren.
 
 Om `useHttpServerUtilityUrlTokenEncode` eller `useHttpServerUtilityUrlTokenDecode` parametrar för att koda och avkoda respektive ställs in till `true`, sedan `base64Encode` fungerar som [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) och `base64Decode` fungerar som [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 

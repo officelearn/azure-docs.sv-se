@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: b52604fa19a5598e8aff5b8a1ea25e7361add553
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 22dab5ecaba71093056e9bb2f6843c19896f845d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997019"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323396"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 Du kan övervaka [Microsoft Azure Cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) tillgänglighet, prestanda, fel och användning med [Application Insights][start] genom att kombinera data från Application Insights SDK:er med data från [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) från Cloud Services. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -95,14 +95,14 @@ Om du har valt att använda en separat Application Insights-resurs för varje ve
 
 Detta gör att dina Application Insights-instrumenteringsnycklar infogas i filerna med namnet `ServiceConfiguration.*.cscfg`. ([Exempelkod](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-Om du vill ändra nivån för hur mycket diagnostikinformation som skickas till Application Insights kan du göra det [genom att redigera `.cscfg`-filerna direkt](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Om du vill ändra nivån för hur mycket diagnostikinformation som skickas till Application Insights kan du göra det [genom att redigera `.cscfg`-filerna direkt](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 ## <a name="sdk"></a>Installera SDK i varje projekt
 Det här alternativet gör det möjligt att lägga till anpassad telemetri till valfri roll för en närmare analys av hur programmet används och fungerar.
 
 I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojekt.
 
-1. **Webbroller**: Högerklicka på projektet och välj **Konfigurera Application Insights** eller **Lägg till > Application Insights Telemetry**.
+1. **Webbroller**: Högerklicka på projektet och välj **konfigurera Application Insights** eller **Lägg till > Application Insights telemetry**.
 
 2. **Arbetsroller**: 
  * Högerklicka på projektet och välj **hantera NuGet-paket**.
@@ -203,7 +203,7 @@ Det är en omfattande diagnostikupplevelse där du kan se vad som ledde till en 
 Så här gör du:
 
 * Ange korrelations-ID:t i en CallContext som du ser [här](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). I detta fall använder vi ID:t för begäran som korrelations-ID
-* Lägg till en anpassad TelemetryInitializer-implementering och ange Operation.Id till det correlationId som du angav ovan. Ett exempel finns här: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
+* Lägg till en anpassad TelemetryInitializer-implementering och ange Operation.Id till det correlationId som du angav ovan. Det är här ett exempel: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
 * Lägg till den anpassade telemetriinitieraren. Du kan göra det i filen ApplicationInsights.config eller i koden som visas [här](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Klienttelemetri
@@ -230,7 +230,7 @@ Utvecklade du för .NET 4.6? 4.6 stöds inte automatiskt i Azure Cloud Services-
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Nästa steg
-* [Konfigurera Azure Diagnostics-överföring till Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Konfigurera Azure Diagnostics-överföring till Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automatisera genereringen av Application Insights-resurser](app-insights-powershell.md)
 * [Automatisera Azure-diagnostik](app-insights-powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)

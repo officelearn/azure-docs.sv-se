@@ -1,12 +1,12 @@
 ---
-title: Felsök Azure Load Balancer | Microsoft Docs
+title: Felsök Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Felsöka kända problem med Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: ''
-ms.assetid: ''
+ms.custom: seodoc18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 1a4be7b5caba751f0f90e865d8ef23e5e9c899d6
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 495325696dad79a6cc1a77b9a87f6db0af4c1156
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058467"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253263"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 
@@ -30,7 +30,7 @@ Den här sidan innehåller felsökningsinformation för vanliga frågor för Azu
 - Virtuella datorer bakom belastningsutjämnaren svarar inte på trafik på den konfigurerade porten
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptom: Virtuella datorer bakom belastningsutjämnaren svarar inte på hälsoavsökningar
-De måste klara avsökningskontroll för backend-servrarna att delta i belastningsutjämningsuppsättningen. Läs mer om hälsoavsökningar [förstå Load Balancer kontrollerar](load-balancer-custom-probe-overview.md). 
+De måste klara avsökningskontroll för backend-servrarna att delta i belastningsutjämningsuppsättningen. Läs mer om hälsoavsökningar [förstå Load Balancer kontrollerar](load-balancer-custom-probe-overview.md). 
 
 Serverdelspool för belastningsutjämnaren virtuella datorer kanske inte svarar på avsökningar på grund av något av följande skäl: 
 - Belastningsutjämnarens serverdelspool virtuell dator är i feltillstånd 
@@ -38,24 +38,24 @@ Serverdelspool för belastningsutjämnaren virtuella datorer kanske inte svarar 
 - Brandvägg eller en nätverkssäkerhetsgrupp blockerar port på belastningsutjämnaren serverdelspoolen virtuella datorer 
 - Andra inställningar i belastningsutjämnaren
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>Orsak 1: Serverdelspool för belastningsutjämnaren virtuell dator är i feltillstånd 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>Orsak 1: Belastningsutjämnarens serverdelspool virtuell dator är i feltillstånd 
 
 **Validering och lösning**
 
 Logga in på deltagande datorer för att lösa problemet och kontrollera om VM-status är felfri och kan svara på **PsPing** eller **TCPing** från en annan virtuell dator i poolen. Om den virtuella datorn är skadad eller kan inte svara på avsökningen, måste du åtgärda problemet och hämta den virtuella datorn till felfritt tillstånd innan den kan kommunicera med Utjämning av nätverksbelastning.
 
-### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Orsak 2: Serverdelspool för belastningsutjämnaren VM inte lyssnar på avsökningsporten
+### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Orsak 2: Belastningsutjämnarens serverdelspool VM inte lyssnar på avsökningsporten
 Om den virtuella datorn är felfri, men svarar inte på avsökningen, en möjlig orsak kan vara att avsökningsporten inte är öppen på deltagande virtuell dator eller den virtuella datorn inte lyssnar på porten.
 
 **Validering och lösning**
 
 1. Logga in på den virtuella datorn på serversidan. 
-2. Öppna en kommandotolk och kör följande kommando för att verifiera det är ett program som lyssnar på avsökningsporten:   
+2. Öppna en kommandotolk och kör följande kommando för att verifiera det är ett program som lyssnar på avsökningsporten:   
             netstat - an
 3. Om port tillstånd inte visas som **lyssna**, konfigurera rätt port. 
-4. Du kan också välja en annan port, som anges som **lyssna**, och uppdatera därefter läsa in konfigurationen för belastningsutjämnaren.              
+4. Du kan också välja en annan port, som anges som **lyssna**, och uppdatera därefter läsa in konfigurationen för belastningsutjämnaren.              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Orsak 3: Brandvägg eller en nätverkssäkerhetsgrupp blockerar porten på belastningsutjämnarens serverdelspool virtuella datorer  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Orsak 3: Brandvägg eller en nätverkssäkerhetsgrupp blockerar porten på belastningsutjämnarens serverdelspool virtuella datorer  
 Om brandväggen på den virtuella datorn blockerar avsökningsporten, eller en eller flera nätverkssäkerhetsgrupper som konfigureras i undernät eller på den virtuella datorn, är inte tillåten om avsökningen för att nå porten, kan den virtuella datorn inte svarar på hälsoavsökningen.          
 
 **Validering och lösning**
@@ -63,7 +63,7 @@ Om brandväggen på den virtuella datorn blockerar avsökningsporten, eller en e
 * Om en brandvägg har aktiverats, kontrollerar du om den är konfigurerad för att tillåta avsökningsporten. Annars kan du konfigurera brandväggen att tillåta trafik på avsökningsporten och testa igen. 
 * Kontrollera om inkommande eller utgående trafik på avsökningsporten har störningar från listan över nätverkssäkerhetsgrupper. 
 * Kontrollera också om en **neka alla** nätverkssäkerhetsgrupper-regel för nätverkskortet på den virtuella datorn eller undernätet som har högre prioritet än Standardregeln som tillåter LB avsökningar & trafik (nätverkssäkerhetsgrupper måste tillåta Load Balancer-IP 168.63.129.16). 
-* Om någon av de här reglerna blockerar trafiken avsökning, ta bort och konfigurera regler för att tillåta trafik för avsökning.  
+* Om någon av de här reglerna blockerar trafiken avsökning, ta bort och konfigurera regler för att tillåta trafik för avsökning.  
 * Testa om den virtuella datorn har nu börjat svara på hälsoavsökningarna. 
 
 ### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Orsak 4: Andra inställningar i belastningsutjämnaren
@@ -85,22 +85,21 @@ Om alla föregående orsaker verkar valideras och matchas korrekt och den virtue
 
 Om en serverdelspool VM som felfri och svarar på hälsoavsökningar, men fortfarande inte deltar i Utjämning av nätverksbelastning eller svarar inte på data-trafik, kanske den på grund av något av följande skäl: 
 * Belastningsutjämnarens serverdelspool VM inte lyssnar på dataporten 
-* Nätverkssäkerhetsgrupp blockerar port på belastningsutjämnaren serverdelspoolen VM  
+* Nätverkssäkerhetsgrupp blockerar port på belastningsutjämnaren serverdelspoolen VM  
 * Åtkomst till belastningsutjämnaren från samma VM och NIC 
 * Åtkomst till Internet-belastningsutjämnare klientdelen från deltagande belastningsutjämnaren serverdelspoolen VM 
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Orsak 1: Serverdelspool för belastningsutjämnaren VM inte lyssnar på dataporten 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Orsak 1: Belastningsutjämnarens serverdelspool VM inte lyssnar på dataporten 
 Om en virtuell dator inte svarar på data-trafik, det kan vara eftersom målporten inte är öppen på den deltagande virtuell datorn eller den virtuella datorn inte lyssnar på porten. 
 
 **Validering och lösning**
 
 1. Logga in på den virtuella datorn på serversidan. 
-2. Öppna en kommandotolk och kör följande kommando för att verifiera det är ett program som lyssnar på dataporten:  
-            netstat - an 
+2. Öppna en kommandotolk och kör följande kommando för att verifiera det är ett program som lyssnar på dataporten:  netstat - an 
 3. Om porten inte visas med tillståndet ”lyssnar” konfigurera rätt lyssningsport 
 4. Om porten har markerats som lyssna, kontrollerar du målprogrammet på porten för alla eventuella problem. 
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Orsak 2: Nätverkssäkerhetsgrupp blockerar port på belastningsutjämnaren serverdelspoolen VM  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Orsak 2: Nätverkssäkerhetsgrupp blockerar port på belastningsutjämnaren serverdelspoolen VM  
 
 Om en eller flera nätverkssäkerhetsgrupper konfigurerad på undernätet eller på den virtuella datorn, blockerar käll-IP eller port, och sedan på Virtuellt datorn inte svarar.
 
@@ -108,7 +107,7 @@ Om en eller flera nätverkssäkerhetsgrupper konfigurerad på undernätet eller 
 * Från listan över nätverkssäkerhetsgrupper, kontrollerar du om:
     - inkommande eller utgående trafik på dataporten med störningar. 
     - en **neka alla** nätverks-regel för nätverkssäkerhetsgrupper på nätverkskortet på den virtuella datorn eller undernätet som har högre prioritet som standardregel som tillåter belastningsutjämnaren avsökningar och trafik (nätverkssäkerhetsgrupper måste tillåta Load Balancer IP-Adressen för 168.63.129.16, Det är avsökningsporten) 
-* Om någon av reglerna som blockerar trafiken, ta bort och konfigurera om dessa regler för att tillåta datatrafik.  
+* Om någon av reglerna som blockerar trafiken, ta bort och konfigurera om dessa regler för att tillåta datatrafik.  
 * Testa om den virtuella datorn nu har börjat svara på hälsoavsökningarna.
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Orsak 3: Åtkomst till belastningsutjämnaren från samma gränssnitt för virtuella datorer och nätverk 
@@ -129,7 +128,7 @@ Om en intern belastningsutjämnare konfigureras i ett virtuellt nätverk och en 
 Samla in följande information för en snabbare lösning om du vill öppna ett supportärende. Välj en enda serverdel virtuell dator för att utföra följande test:
 - Använd Psping från någon av serverdelen virtuella datorer i det virtuella nätverket för att testa avsökningen port svar (exempel: psping 10.0.0.4:3389) och registrera resultaten. 
 - Om inget svar tas emot i dessa Pingtest, kör du en samtidig Netsh-spårning på den virtuella datorn på serversidan och den Virtuella testdatorn i VNet när du kör PsPing och sedan stoppa Netsh-spårning. 
-  
+  
 ## <a name="next-steps"></a>Nästa steg
 
 Om föregående steg inte löser problemet kan du öppna en [supportärende](https://azure.microsoft.com/support/options/).

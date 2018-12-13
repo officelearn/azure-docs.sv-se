@@ -10,25 +10,23 @@ ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 53837573daef56bad12f627400f7db1ccd1c26cf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836975"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186811"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Referensguide till Vydesigner paneler i Log Analytics
 Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika visualiseringar i Log Analytics-arbetsytan med hjälp av Vydesigner i Azure Log Analytics. Den här artikeln är en referensguide i inställningarna för panelerna som är tillgängliga i dina anpassade vyer.
 
 Mer information om Vydesigner finns:
 
-* [Visa Designer](view-designer.md): innehåller en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
-* [Referens för visualiseringsdel](view-designer-parts.md): ger en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
+* [Visa Designer](view-designer.md): Översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
+* [Referens för visualiseringsdel](view-designer-parts.md): Innehåller en referensguide till inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
 
 
 Tillgängliga Vydesigner paneler beskrivs i följande tabell:  
@@ -96,7 +94,7 @@ Den **ringdiagram** panelen visar ett enda tal som sammanfattar en värdekolumn 
 | Söka i data |Den fråga som körs för ringen. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. |
 | **Ringdiagram** |**> Center** |
 | Text |Den text som visas under värdet mellan ringen. |
-| Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enda värde.<ul><li>Sum: Lägga till värden för alla poster med egenskapens värde.</li><li>Procent: Procent av summerade värden från poster med egenskapsvärdet jämfört med de samlade värdena i alla poster.</li></ul> |
+| Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enda värde.<ul><li>Sum: Lägg till värdena för alla poster med egenskapens värde.</li><li>Procent: Procentandel av summerade värden från poster med egenskapsvärdet jämfört med de samlade värdena i alla poster.</li></ul> |
 | Resultatvärden som används i mittåtgärd |Du kan också klicka på plustecknet (+) att lägga till ett eller flera värden. Frågans resultat är begränsade till poster med egenskapsvärden som du anger. Om inga värden har lagts till, ingår alla poster i frågan. |
 | **Ringdiagram** |**> Ytterligare alternativ** |
 | Färger |Färgen som visas för var och en av de tre översta egenskaperna. Om du vill ange alternativa färger för speciella egenskapsvärden, använda *avancerade färg mappning*. |
@@ -142,7 +140,7 @@ Den här panelen har både en rad diagram som visar flera serier från en logg f
 | **Linjediagram** |**> Bildtext** |
 | Bildtextrubrik | Den text som visas ovanför bildtextvärdet. |
 | Dataseriens namn |Serien egenskapens värde som ska användas som värde för pratbubbla. Om inga serier anges, används alla poster från frågan. |
-| Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Genomsnittlig: Medelvärdet av värdena från alla poster.</li><li>Antal: Antal alla poster som returneras av frågan.</li><li>Senaste exempel: värdet för det sista intervallet som ingår i diagrammet.</li><li>Max: Det högsta värdet för de intervall som ingår i diagrammet.</li><li>Min: Det lägsta värdet på de intervall som ingår i diagrammet.</li><li>Sum: Summan av värdena från alla poster.</li></ul> |
+| Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet poster som returneras av frågan.</li><li>Senaste exempel: Värdet på det sista intervallet som ingår i diagrammet.</li><li>Max: Det högsta värdet för de intervall som ingår i diagrammet.</li><li>Min: Det lägsta värdet på de intervall som ingår i diagrammet.</li><li>Sum: Summan av värdena från alla poster.</li></ul> |
 | **Linjediagram** |**> Y-axeln** |
 | Använda logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheter för värden som returneras av frågan. Den här informationen används för att visa diagrammet etiketter som beskriver värdetyperna och du kan också konvertera värdena. Den *enhet* typen anger kategorin för enheten och definierar de tillgängliga *aktuella enheten* skriver värden. Om du väljer ett värde i *konvertera till*, de numeriska värdena konverteras från den *aktuella enheten* skriver till den *konvertera till* typen. |
@@ -166,12 +164,12 @@ Den **två tidslinjer** panelen visar resultatet av två loggfrågor över tid s
 | Teckenförklaring |Den text som visas under bildtext för den första serien. |
 | Färg |Färg som används för kolumnerna i den första serien. |
 | Diagramfråga |Den fråga som körs för första serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
-| Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Genomsnittlig: Medelvärdet av värdena från alla poster.</li><li>Antal: Antal alla poster som returneras av frågan.</li><li>Senaste exempel: värdet för det sista intervallet som ingår i diagrammet.</li><li>Max: Det högsta värdet för de intervall som ingår i diagrammet.</li></ul> |
+| Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet poster som returneras av frågan.</li><li>Senaste exempel: Värdet på det sista intervallet som ingår i diagrammet.</li><li>Max: Det högsta värdet för de intervall som ingår i diagrammet.</li></ul> |
 | **Diagram 2** | |
 | Teckenförklaring |Den text som visas under bildtext för den andra serien. |
 | Färg |Färg som används för kolumnerna i den andra serien. |
 | Diagramfråga |Den fråga som körs för den andra serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
-| Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Genomsnittlig: Medelvärdet av värdena från alla poster.</li><li>Antal: Antal alla poster som returneras av frågan.</li><li>Senaste exempel: värdet för det sista intervallet som ingår i diagrammet.</li><li>Max: Det högsta värdet för de intervall som ingår i diagrammet. |
+| Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet poster som returneras av frågan.</li><li>Senaste exempel: Värdet på det sista intervallet som ingår i diagrammet.</li><li>Max: Det högsta värdet för de intervall som ingår i diagrammet. |
 | **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Söka i data |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |

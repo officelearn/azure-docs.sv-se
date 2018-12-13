@@ -1,7 +1,7 @@
 ---
 title: Slutpunkten region, Node.js
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Programmässigt hitta publicera region med slutpunktsnyckeln och program-ID för LUIS.
+description: Med Node.js, hitta publicera region med slutpunktsnyckeln och program-ID för LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3785608da690da4cd1c10fb9305df7f7a79dd4dd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6bcea43fb21cae6f000f3522b498dfc6c0f6d9a7
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017499"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166225"
 ---
 # <a name="find-endpoint-region-with-nodejs"></a>Hitta endpoint region med Node.js
 Om du har LUIS app-ID och prenumerations-ID LUIS kan du vilken region du ska använda för slutpunkten frågor.
 
 > [!NOTE] 
-> Den fullständiga Node.js-lösningen finns i [**LUIS-Samples** Github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
+> Den fullständiga lösningen till Node.js är tillgänglig från den [ **LUIS-Samples** GitHub-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS endpoint fråga strategi
 Varje slutpunkt LUIS-fråga kräver:

@@ -7,16 +7,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 35af3a926ab3c3a3046eab921e86b6610edc309c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: dd3fe059bf2352fee7471fac7aeee23ad90c7cb0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162968"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274946"
 ---
 # <a name="monitor-and-improve-performance"></a>Övervaka och förbättra prestanda
 Azure SQL-databas identifierar potentiella problem i din databas och rekommenderar åtgärder som kan förbättra prestanda genom att tillhandahålla intelligent justeringsåtgärder och rekommendationer.

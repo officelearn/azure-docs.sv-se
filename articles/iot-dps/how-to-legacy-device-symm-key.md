@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9553d1dd5dd8d8ff11ea480618b471b9898985e3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60321b2463a535c3f7a0c73e0922010bd12a3e82
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456566"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323243"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Hur du etablerar äldre enheter med symmetriska nycklar
 
@@ -35,7 +35,7 @@ En unik registrerings-ID definieras för varje enhet baserat på information som
 
 En registreringsgrupp som använder [symmetriska nyckelattestering](concepts-symmetric-key-attestation.md) skapas med Device Provisioning-tjänsten. Registreringsgruppen innehåller en huvudnyckel för gruppen. Denna master-nyckel används för att hash-varje unika registrerings-ID för att generera ett unikt enhets-nyckel för varje enhet. Enheten använder den härledda enhetsnyckeln med dess unika registrerings-ID för att intyga med Device Provisioning-tjänsten och vara tilldelad till en IoT-hubb.
 
-Koden för enheten som visas i den här artikeln följer samma mönster som den [Snabbstart: etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md). Kod som simulerar en enhet med ett exempel från den [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Den simulerade enheten kommer intyga med en grupp för registrering i stället för en enskild registrering som visas i snabbstarten.
+Koden för enheten som visas i den här artikeln följer samma mönster som den [Snabbstart: Etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md). Kod som simulerar en enhet med ett exempel från den [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Den simulerade enheten kommer intyga med en grupp för registrering i stället för en enskild registrering som visas i snabbstarten.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,7 +90,7 @@ SDK innehåller exempelkod för den simulerade enheten. Den här simulerade enhe
 4. Kör följande kommando som skapar en version av SDK:t som är specifik för plattformen i din utvecklingsklient. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Om `cmake` inte hittar din C++-kompilerare kan du få kompileringsfel när du kör kommandot ovan. Om det händer ska du försöka köra det här kommandot i [kommandotolken i Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -98,7 +98,7 @@ SDK innehåller exempelkod för den simulerade enheten. Den här simulerade enhe
     När bygget är klart ser de sista utdataraderna ut ungefär som följande utdata:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -124,7 +124,7 @@ SDK innehåller exempelkod för den simulerade enheten. Den här simulerade enhe
 
     - **Typ av attestering**: Välj **symmetrisk nyckel**.
 
-    - **Generera nycklar automatiskt**: Markera den här kryssrutan.
+    - **Generera nycklar automatiskt**: Den här kryssrutan.
 
     - **Välj hur du vill tilldela enheter till hubs**: Välj **statisk konfiguration** så att du kan tilldela till en specifik hubb.
 

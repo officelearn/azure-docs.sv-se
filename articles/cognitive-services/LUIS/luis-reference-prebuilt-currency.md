@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 432ee8a7dda75b01015795034ee7f55fe0840775
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c87bfddb611e3e232d4a43f45ae60412566b98fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102730"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161771"
 ---
-# <a name="currency-entity"></a>Entitet för valuta
+# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Valuta fördefinierade entitet för en LUIS-app
 Valutaentiteten fördefinierade identifierar valuta i många benämningar och länder/regioner, oavsett LUIS app kultur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller den valuta som programmet avsikter. Valuta entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Typer av valuta
-Valuta hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) Github-lagringsplats
+Valuta hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) GitHub-lagringsplats
 
 ## <a name="resolution-for-currency-entity"></a>Lösning för valuta entitet
 I följande exempel visas av lösningen på den **builtin.currency** entitet.

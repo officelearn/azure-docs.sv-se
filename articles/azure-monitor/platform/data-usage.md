@@ -10,17 +10,15 @@ ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 8a1ee511848cf854374323b356492f374988d5d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: af41e2af87afbbeb8629d07508d4e5244351a4df
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109966"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277360"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 
@@ -174,7 +172,7 @@ I det här avsnittet beskrivs hur du skapar en avisering om:
 - Datavolymen överskrider en angiven mängd.
 - Datavolymen förväntas överskrida en angiven mängd.
 
-Azure-aviseringar har stöd för [loggaviseringar](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md) som använder sökfrågor. 
+Azure-aviseringar har stöd för [loggaviseringar](../../azure-monitor/platform/alerts-unified-log.md) som använder sökfrågor. 
 
 Följande fråga har ett resultat när det finns fler än 100 GB data som har samlats in under de senaste 24 timmarna:
 
@@ -186,7 +184,7 @@ Följande fråga använder en enkel formel för att förutsäga när mer än 100
 
 Ändra 100 i frågan till antalet GB som du vill ange som gräns för att skicka en datavolymavisering.
 
-Använd stegen som beskrivs i [skapa en ny loggavisering](../../monitoring-and-diagnostics/alert-metric.md) om du vill meddelas när datainsamlingen är högre än förväntat.
+Använd stegen som beskrivs i [skapa en ny loggavisering](../../azure-monitor/platform/alerts-metric.md) om du vill meddelas när datainsamlingen är högre än förväntat.
 
 När du skapar aviseringen för den första frågan--när det finns fler än 100 GB data på 24 timmar, ange:  
 
@@ -200,7 +198,7 @@ När du skapar aviseringen för den första frågan--när det finns fler än 100
    - **Namnet** till *Datavolym är större än 100 GB på 24 timmar*
    - **Allvarlighetsgrad** till *varning*
 
-Ange en befintlig eller skapa en ny [Åtgärdsgrupp](../../monitoring-and-diagnostics/monitoring-action-groups.md) så att när loggaviseringen matchar kriterierna, får du ett meddelande.
+Ange en befintlig eller skapa en ny [Åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) så att när loggaviseringen matchar kriterierna, får du ett meddelande.
 
 När du skapar aviseringen för den andra frågan--när mer än 100 GB data på 24 timmar förväntas, ange:
 
@@ -214,13 +212,13 @@ När du skapar aviseringen för den andra frågan--när mer än 100 GB data på 
    - **Namnet** till *Datavolym förväntas vara större än 100 GB på 24 timmar*
    - **Allvarlighetsgrad** till *varning*
 
-Ange en befintlig eller skapa en ny [Åtgärdsgrupp](../../monitoring-and-diagnostics/monitoring-action-groups.md) så att när loggaviseringen matchar kriterierna, får du ett meddelande.
+Ange en befintlig eller skapa en ny [Åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) så att när loggaviseringen matchar kriterierna, får du ett meddelande.
 
 När du får en avisering kan du använda stegen i följande avsnitt för att felsöka varför användningen är högre än förväntat.
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [Loggsökningar i Log analytics](../log-query/log-query-overview.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
-* Använd stegen som beskrivs i [Skapa en ny loggavisering](../../monitoring-and-diagnostics/alert-metric.md) om du vill meddelas när ett sökvillkor har uppfyllts.
+* Använd stegen som beskrivs i [Skapa en ny loggavisering](../../azure-monitor/platform/alerts-metric.md) om du vill meddelas när ett sökvillkor har uppfyllts.
 * Använd [lösningsriktning](../insights/solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 * Om du vill konfigurera en effektiv princip för insamling av säkerhetshändelse kan du läsa [filtreringsprincipen för Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 * Ändra [prestandaräknarens konfiguration](data-sources-performance-counters.md).

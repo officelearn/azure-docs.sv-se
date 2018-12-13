@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: cf470ad14c27fd36cf60bb540e823b15fc58eded
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8d3ffa2664c747f5fbbd4269b23ae54850e0d750
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496902"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321007"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Hantera användarinställningar med Azure Multi-Factor Authentication i molnet
 
@@ -30,8 +30,8 @@ Den här inställningen Tvingar användaren att slutföra registreringsprocessen
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Hur användare ska uppge kontaktmetoder igen
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Till vänster, Välj **Azure Active Directory** > **användare och grupper** > **alla användare**.
-3. Välj **Multifaktorautentisering**. Multifaktorautentiseringssidan öppnas. 
+2. Till vänster, Välj **Azure Active Directory** > **användare** > **alla användare**.
+3. Till höger, Välj **Multifaktorautentisering** i verktygsfältet. Multifaktorautentiseringssidan öppnas. 
 4. Markera kryssrutan bredvid den eller de användare som du vill hantera. En lista med snabba steg alternativ visas till höger. 
 5. Välj **hantera användarinställningar**.
 6. Markera kryssrutan för **Kräv att valda användare ska uppge kontaktmetoder igen**.
@@ -44,8 +44,8 @@ Den här inställningen tar bort alla applösenord som en användare har skapat.
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Ta bort användare som har befintliga applösenord
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Till vänster, Välj **Azure Active Directory** > **användare och grupper** > **alla användare**.
-3. Välj **Multifaktorautentisering**. Multifaktorautentiseringssidan öppnas. 
+2. Till vänster, Välj **Azure Active Directory** > **användare** > **alla användare**.
+3. Till höger, Välj **Multifaktorautentisering** i verktygsfältet. Multifaktorautentiseringssidan öppnas. 
 6. Markera kryssrutan bredvid den eller de användare som du vill hantera. En lista med snabba steg alternativ visas till höger. 
 7. Välj **hantera användarinställningar**.
 8. Markera kryssrutan för **ta bort alla befintliga applösenord som de valda användarna**.
@@ -62,8 +62,8 @@ Den **Återställ multifaktorautentisering på alla sparade enheter** måste ins
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Så här återställer du MFA på alla pausade enheter för en användare
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Till vänster, Välj **Azure Active Directory** > **användare och grupper** > **alla användare**.
-3. Välj **Multifaktorautentisering**. Multifaktorautentiseringssidan öppnas. 
+2. Till vänster, Välj **Azure Active Directory** > **användare** > **alla användare**.
+3. Till höger, Välj **Multifaktorautentisering** i verktygsfältet. Multifaktorautentiseringssidan öppnas. 
 6. Markera kryssrutan bredvid den eller de användare som du vill hantera. En lista med snabba steg alternativ visas till höger. 
 7. Välj **hantera användarinställningar**.
 8. Markera kryssrutan för **Återställ multifaktorautentisering på alla sparade enheter**

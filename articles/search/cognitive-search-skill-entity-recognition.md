@@ -1,5 +1,5 @@
 ---
-title: Entitet för kognitiv sökning färdighet (Azure Search) | Microsoft Docs
+title: Entitet för kognitiv sökning färdigheter – Azure Search
 description: Extrahera olika typer av enheter från texten i en Azure Search kognitiv sökning pipeline.
 services: search
 manager: pablocas
@@ -10,19 +10,23 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 7599ab7eb7a6ff247548d988c57bdc6c501a5a6b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 9745934891cd7ba99fa821377318e38134b7d2a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450041"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311872"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Entiteten erkännande kognitiva kunskaper
 
 Den **Entitetsidentifiering** färdighet extraherar entiteter av olika typer i texten. 
 
 > [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Körning av kunskapsuppsättning och extrahering och normalisering av bilder erbjuds för närvarande kostnadsfritt. Priserna för dessa funktioner meddelas vid ett senare tillfälle. 
+> Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. Detta gör att vi börjar debitera för körning av kompetens. På det här datumet måste också börjar vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
+>
+> Körningen av inbyggda kunskaper debiteras med den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser kommer att debiteras enligt priserna för förhandsversionen och beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). Lär dig [mer](cognitive-search-attach-cognitive-services.md).
+
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.EntityRecognitionSkill
@@ -51,7 +55,7 @@ Parametrar är skiftlägeskänsliga och är valfria.
 
 ## <a name="skill-outputs"></a>Färdighet utdata
 
-**Obs**: inte alla entiteten kategorier som stöds för alla språk.
+**OBS**: Inte alla entiteten kategorier har stöd för alla språk.
 Endast _en_, _es_ stöd för extrahering av `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` typer.
 
 | Namn på utdata     | Beskrivning                   |
@@ -64,7 +68,7 @@ Endast _en_, _es_ stöd för extrahering av `"Quantity"`, `"Datetime"`, `"URL"`,
 | URL: er | En matris med strängar där varje sträng representerar en URL |
 | e-postmeddelanden | En matris med strängar där varje sträng representerar ett e-postmeddelande |
 | namedEntities | En matris med komplexa typer som innehåller följande fält: <ul><li>category</li> <li>värde (faktiska entitetsnamnet)</li><li>förskjutning (plats där det hittades i texten)</li><li>förtroende (används inte för tillfället. Anges till värdet -1)</li></ul> |
-| entiteter | En matris med komplexa typer som innehåller omfattande information om de entiteter som extraheras från text, med följande fält <ul><li> (det faktiska entitet namn. Detta motsvarar ett ”normaliserade” formulär)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (en länk till Wikipedia-sida för entiteten)</li><li>bingId</li><li>typ (kategorin för den entitet som känns igen)</li><li>Undertyp (tillgänglig endast för särskilda kategorier, detta ger en mer granual vy av entitetstypen)</li><li> matchar (en komplex samling som innehåller)<ul><li>text (rå text för entiteten)</li><li>förskjutning (plats där det hittades)</li><li>längden (längden på texten raw entitet)</li></ul></li></ul> |
+| entiteter | En matris med komplexa typer som innehåller omfattande information om de entiteter som extraheras från text, med följande fält <ul><li> (det faktiska entitet namn. Detta motsvarar ett ”normaliserade” formulär)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (en länk till Wikipedia-sida för entiteten)</li><li>bingId</li><li>typ (kategorin för den entitet som känns igen)</li><li>Undertyp (tillgänglig endast för särskilda kategorier, detta ger en mer detaljerad vy av entitetstypen)</li><li> matchar (en komplex samling som innehåller)<ul><li>text (rå text för entiteten)</li><li>förskjutning (plats där det hittades)</li><li>längden (längden på texten raw entitet)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Exempeldefinition
 

@@ -1,6 +1,6 @@
 ---
-title: Forma händelser med Azure Time Series Insights Preview | Microsoft Docs
-description: Förstå hur du utformar händelser förhandsversion av Azure Time Series Insights
+title: Time Series Insights förhandsversionen av Azure forma – händelser form med förhandsversionen av Azure Time Series Insights | Microsoft Docs
+description: Förstå hur du utformar händelser förhandsversion av Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,12 +9,13 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: dcab5fba62d1a17ba16b541ccbaa6a4a2b2bf2bd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: b0ce3b5bbd58c594147f64de9f06f248f4a87fc3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078505"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269081"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formhändelser med förhandsversionen av Azure Time Series Insights
 

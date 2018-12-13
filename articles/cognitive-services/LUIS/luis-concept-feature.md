@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 57ad7d680d83e13d9aff1d55a52ab982c585df76
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080205"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271393"
 ---
-# <a name="phrase-list-features-in-luis"></a>Fras funktioner i LUIS
+# <a name="phrase-list-features-in-your-luis-app"></a>Fras funktioner i din LUIS-app
 
 I machine learning, en *funktionen* är en särskiljande egenskap eller ett attribut av data där dina system. 
 
@@ -32,9 +32,17 @@ En lista med frasen lägger till vokabulär app-domänen som en signal för andr
 ## <a name="how-to-use-phrase-lists"></a>Hur du använder frasen listor
 I appen personal [enkel enhet självstudien](luis-quickstart-primary-and-secondary-data.md), appen använder en **jobbet** frasen lista över typer av jobb som programmerare, roofer och secretary. Om du anger ett av följande värden som en dator lärt dig enhet LUIS lär sig att känna igen de andra. 
 
-En lista med frasen kanske utbytbara eller icke-utbytbara. En *utbytbara* frasen listan är för värden som är synonymer, och en *ej utbytbara* frasen listan är avsedd för värden som inte är synonymer men fortfarande behöver en ytterligare signal i appen. 
+En lista med frasen kanske utbytbara eller icke-utbytbara. En *utbytbara* frasen listan är för värden som är synonymer, och en *ej utbytbara* frasen listan är avsedd som en app specifika ordförråd lista. När företaget växer listan över appar ordförråd frasen kanske vissa begrepp att ha många formulär (synonymer). Bryt dessa till en annan frasen-lista som är utbytbara. 
+
+|Listtyp|Syfte|
+|--|--|
+|Utbytbara|Synonymer eller ord, när ändrades till ett annat ord. i listan, har samma syfte och entitetextrahering.|
+|Icke-utbytbara|App ordförråd, specifika för din app mer så än Allmänt andra ord på det språket.|
+
+Fras visar inte bara hjälp med entiteten identifiering, men också avsikt klassificering där det är inte utbytbara rimligt som att lägga till utanför ordförråd ord som inte är på engelska.
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+
 ## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Fras Visar hjälp med att identifiera enkla utbytbara enheter
 Utbytbara frasen listor är ett bra sätt att finjustera prestanda för LUIS-appen. Om din app har problem med att förutsäga yttranden till rätt avsikt eller känna igen entiteter kan du tänka på om talade innehålla ovanliga ord eller ord som kan vara tvetydiga i betydelse. Dessa ord är bra kandidater ska ingå i en fras-lista.
 

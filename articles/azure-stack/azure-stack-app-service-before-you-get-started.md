@@ -12,18 +12,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615882"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275677"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du sätter igång med App Service i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Innan du distribuerar Azure App Service i Azure Stack, måste du slutföra de nödvändiga stegen i den här artikeln.
 
@@ -152,6 +152,12 @@ Certifikatet för identitet måste innehålla ett ämne som matchar följande fo
 | Format | Exempel |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
+
+
+### <a name="validate-certificates"></a>Verifiera certifikat
+Innan du distribuerar app service-resursprovider, bör du [certifikatsverifiering som ska användas](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) med hjälp av verktyget Azure Stack-beredskap för installation som är tillgängliga från den [PowerShell-galleriet](https://aka.ms/AzsReadinessChecker). Azure Stack-beredskap för installation verktyget verifierar att de genererade PKI-certifikat är lämplig för distribution av app services. 
+
+Som bästa praxis när du arbetar med någon av nödvändiga [Azure Stack PKI-certifikat](azure-stack-pki-certs.md), du bör planera att lämna tillräckligt med tid för att testa och återutfärda certifikat om det behövs. 
 
 ## <a name="virtual-network"></a>Virtuellt nätverk
 

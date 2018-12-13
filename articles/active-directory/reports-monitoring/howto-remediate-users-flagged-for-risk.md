@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 411ffd9479c3f686495de21b60ef0a811915c260
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e81b87a6cbaddf61492fa1fc41e66950eb7ce1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834578"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191639"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Åtgärda användare som flaggats för risk i Azure Active Directory-portalen
 
@@ -31,7 +31,7 @@ Om ovanliga aktiviteter som kan indikera obehörig åtkomst till vissa av dina a
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Åtkomst till användare som har flaggats för risk
 
-Du kan granska användare som har flaggats för risk med den [användare i farozonen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) i Azure-portalen. Om du inte har Azure AD kan du registrera dig kostnadsfritt på [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
+Du kan granska användare som har flaggats för risk med den [användare i farozonen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) i Azure-portalen. Om du inte har Azure AD kan du registrera dig kostnadsfritt på [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
 
 Från användare som flaggats för risk, kan du utföra följande åtgärder för varje användare:
 

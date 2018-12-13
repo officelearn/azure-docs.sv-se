@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 7f610e7697d0d1317b9fe276cf1c251ca8f749b4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5f6908a80a467e1a8a12d61be2f67cbe70cce8a0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133850"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275649"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systemkrav
 
@@ -41,8 +41,9 @@ Förbereda hårddiskar med verktyget WAImportExport följande **64-bitars operat
 
 Azure Import/Export-tjänsten stöder följande typer av lagringskonton:
 
-- Allmänt syfte v1-lagringskonton (både klassiska eller Azure Resource Manager distributioner), storage-konton för generell användning v2
+- Generell användning v2 storage-konton (rekommenderas för de flesta fall)
 - Blob Storage-konton
+- Allmänt syfte v1-lagringskonton (både klassiska eller Azure Resource Manager distributioner), 
 
 Mer information om lagringskonton finns i [Azure storage-konton översikt](storage-account-overview.md).
 

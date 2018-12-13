@@ -1,5 +1,5 @@
 ---
-title: Text Merge kognitiv sökning färdighet (Azure Search) | Microsoft Docs
+title: Text Merge kognitiv sökning färdigheter – Azure Search
 description: Sammanfoga text från en uppsättning fält i ett konsoliderade fält. Använd den här kognitiva kunskaper i en Azure Search berikande pipeline.
 services: search
 manager: pablocas
@@ -10,19 +10,22 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 5387eeacc78875ac0f38f96a6c83fb3f5791775e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: b29d32d39b4efb7e242a3ae3213512798622d1e9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167628"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314524"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Text Merge kognitiva kunskaper
 
 Den **Text sammanfoga** färdighet konsoliderar text från en samling av fält till ett fält. 
 
 > [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetens körning och extrahering av avbildningen och normalisering är för närvarande erbjuds kostnadsfritt. Vid ett senare tillfälle meddelas priserna för dessa funktioner. 
+> Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. Detta gör att vi börjar debitera för körning av kompetens. På det här datumet måste också börjar vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
+>
+> Körningen av inbyggda kunskaper debiteras med den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser kommer att debiteras enligt priserna för förhandsversionen och beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). Lär dig [mer](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

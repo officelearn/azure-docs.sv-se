@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 6855521475e24b7243a391abdc6e6cf707991159
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457399"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320700"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Hur du etablerar för flera innehavare 
 
 Resursallokeringsprinciper som definieras av etableringstjänsten stöder en mängd olika scenarier för allokering. Det finns två vanliga scenarier:
 
-* **Geoplats / GeoLatency**: när en enhet flyttas mellan platser Nätverksfördröjningen förbättras genom att låta enheten etableras till den IoT-hubben som är närmast varje plats. En grupp med IoT-hubbar som sträcker sig över flera regioner, väljs i det här scenariot för registreringar. Den **kortast svarstid** allokeringsprincip har valts för dessa registreringar. Den här principen gör Device Provisioning-tjänsten att utvärdera enhetens svarstid och fastställa förstås IoT hub från gruppen med IoT-hubbar. 
+* **Geoplats / GeoLatency**: När en enhet flyttas mellan platser, bättre svarstid för nätverk genom att låta enheten etableras till den IoT-hubben som är närmast varje plats. En grupp med IoT-hubbar som sträcker sig över flera regioner, väljs i det här scenariot för registreringar. Den **kortast svarstid** allokeringsprincip har valts för dessa registreringar. Den här principen gör Device Provisioning-tjänsten att utvärdera enhetens svarstid och fastställa förstås IoT hub från gruppen med IoT-hubbar. 
 
-* **Multitenans**: enheter som används i en IoT-lösning kan behöva tilldelas till den specifika IoT-hubb eller en grupp av IoT-hubbar. Lösningen kan kräva att alla enheter för en viss klient kan kommunicera med en viss grupp av IoT-hubbar. I vissa fall kan en klient äger IoT-hubbar och Kräv att enheter som ska tilldelas till sina IoT-hubbar.
+* **Multitenans**: Enheter som används i en IoT-lösning kan behöva tilldelas till den specifika IoT-hubb eller en grupp av IoT-hubbar. Lösningen kan kräva att alla enheter för en viss klient kan kommunicera med en viss grupp av IoT-hubbar. I vissa fall kan en klient äger IoT-hubbar och Kräv att enheter som ska tilldelas till sina IoT-hubbar.
 
 Det är vanligt att kombinera dessa två scenarier. Till exempel tilldelar en multitenant IoT-lösning ofta klient-enheter med hjälp av en grupp med IoT-hubbar som är spridda över regioner. Enheterna klient kan tilldelas till IoT hub i den grupp som har kortast svarstid baserat på geografisk plats.
 
@@ -96,7 +96,7 @@ För enkelhetens skull använder den här artikeln [symmetriska nyckelattesterin
 
     **Typ av attestering**: Välj **symmetrisk nyckel**.
 
-    **Generera nycklar automatiskt**: den här kryssrutan redan bör kontrolleras.
+    **Generera nycklar automatiskt**: Den här kryssrutan bör redan vara markerad.
 
     **Välj hur du vill tilldela enheter till hubs**: Välj **kortast svarstid**.
 
@@ -107,7 +107,7 @@ För enkelhetens skull använder den här artikeln [symmetriska nyckelattesterin
 
     **Prenumeration**: Om du har flera prenumerationer väljer du den prenumeration där du skapade de regionala IoT-hubbarna.
 
-    **IoT hub**: Välj något av de regionala hubbar som du skapade.
+    **IoT hub**: Välj en av de regionala hubbar som du skapade.
 
     **Princip för**: Välj **iothubowner**.
 
@@ -132,9 +132,9 @@ Att rensa enklare, dessa virtuella datorer kommer att läggas till samma resursg
 
     **--name**: Ange ett unikt namn för din **USA, östra** regionala enheten VM. 
 
-    **--administratörens användarnamn**: använda ditt eget användarnamn för administratör.
+    **--administratörens användarnamn**: Använd ditt eget användarnamn för administratör.
 
-    **---administratörslösenord**: använda en egen administratörslösenord.
+    **---administratörslösenord**: Använd din egen administratörslösenord.
 
     ```azurecli-interactive
     az vm create \
@@ -153,9 +153,9 @@ Att rensa enklare, dessa virtuella datorer kommer att läggas till samma resursg
 
     **--name**: Ange ett unikt namn för din **västra USA** regionala enheten VM. 
 
-    **--administratörens användarnamn**: använda ditt eget användarnamn för administratör.
+    **--administratörens användarnamn**: Använd ditt eget användarnamn för administratör.
 
-    **---administratörslösenord**: använda en egen administratörslösenord.
+    **---administratörslösenord**: Använd din egen administratörslösenord.
 
     ```azurecli-interactive
     az vm create \
@@ -220,7 +220,7 @@ I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK 
 1. För båda virtuella datorerna, kör du följande kommando, vilket skapar en version av SDK som är specifika för din utvecklingsplattform för klienten. 
 
     ```bash
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
     När bygget är klart ser de sista utdataraderna ut ungefär som följande utdata:

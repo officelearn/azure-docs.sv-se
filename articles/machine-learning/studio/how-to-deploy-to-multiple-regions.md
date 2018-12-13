@@ -1,10 +1,9 @@
 ---
-title: Distribuera webbtjänst till flera regioner – Azure Machine Learning Studio | Microsoft Docs
+title: Distribuera Studio-webbtjänst till flera regioner – Azure Machine Learning Studio | Microsoft Docs
 description: Steg för att distribuera (kopiera) en ny webbtjänst till andra regioner. Enkelt distribuera en webbtjänst till flera regioner utan att behöva flera prenumerationer eller arbetsytor.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-manager: hjerez
 editor: cgronlun
 ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
 ms.service: machine-learning
@@ -16,15 +15,16 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.custom: seodec18
 ms.author: amlstudiodocs
-ms.openlocfilehash: 21c930a4e9c28f3d3f612a89ce88accd2de2925e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 742f462ebc3bd191a045be2a0213b1d8bc52adc5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092952"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252685"
 ---
-# <a name="azure-machine-learning-studio-deploy-a-web-service-to-multiple-regions"></a>Azure Machine Learning Studio: Distribuera en webbtjänst till flera regioner
-De nya webbtjänsterna i Azure kan du enkelt distribuera en webbtjänst till flera regioner utan att behöva flera prenumerationer eller arbetsytor. 
+# <a name="deploy-an-azure-machine-learning-studio-web-service-to-multiple-regions"></a>Distribuera en Azure Machine Learning Studio-webbtjänst till flera regioner
+
+De nya webbtjänsterna i Azure kan du enkelt distribuera en Azure Machine Learning Studio-webbtjänst till flera regioner utan att behöva flera prenumerationer eller arbetsytor. 
 
 Priserna beror på region, därför måste du definiera ett faktureringsavtal för varje region där du distribuerar webbtjänsten.
 

@@ -1,12 +1,11 @@
 ---
-title: Skapa flera modeller från ett experiment – Azure Machine Learning Studio | Microsoft Docs
+title: Skapa flera modeller från ett Studio-experiment - Azure Machine Learning Studio | Microsoft Docs
 description: Använda PowerShell för att skapa flera Machine Learning-modeller och webbtjänstslutpunkter med samma algoritm men olika utbildning datauppsättningar.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
@@ -16,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: b6e54fb7fe852ca4e12dc9a9e0f63eac2382c5c8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f54f9f9ff4b55ef1e2e68f61b709cef6635dc231
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093034"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250271"
 ---
-# <a name="use-powershell-to-create-models-and-web-service-endpoints-from-one-experiment"></a>Använd PowerShell för att skapa modeller och webbtjänstslutpunkter från ett experiment
+# <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Använd PowerShell för att skapa Studio modeller och slutpunkter för webbtjänster från ett experiment
 
-Här är ett vanligt problem för machine learning: du vill skapa många modeller som har samma arbetsflöde för utbildning och använder samma algoritm. Men du vill att de har olika utbildning datauppsättningar som indata. Den här artikeln visar vi hur du gör detta i skala i Azure Machine Learning Studio med bara ett enda experiment.
+Här är ett vanligt problem för machine learning: Du vill skapa många modeller som har samma arbetsflöde för utbildning och använder samma algoritm. Men du vill att de har olika utbildning datauppsättningar som indata. Den här artikeln visar vi hur du gör detta i skala i Azure Machine Learning Studio med bara ett enda experiment.
 
 Anta exempelvis att du äger en global cykel hyra franchise verksamhet. Du vill skapa en regressionsmodell för att förutsäga hyres-begäran baserat på historiska data. Du har 1 000 hyres-platser över hela världen och du har lagrat en datauppsättning för varje plats. De innehåller viktiga funktioner, till exempel datum, tid, väder och trafik som är specifika för varje plats.
 

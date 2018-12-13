@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: dd030eeefd731ae176e1fe7907d941fff56a9db1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f2d6f956564f01c14edb213f0bc5ae709892c542
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080035"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163320"
 ---
-# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrera QnA Maker och LUIS för att distribuera din kunskapsbas
+# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Använd bot med QnA Maker och LUIS för att distribuera din kunskapsbas
 När kunskapsbasen QnA Maker växer stora, blir det svårt att underhålla den som en enda monolitisk ange och det finns en behöver delas upp i knowledge base i mindre logiska segment.
 
 Det är enkelt att skapa flera kunskapsbaser i QnA Maker, behöver du vissa logik för att dirigera inkommande frågan till rätt kunskapsbas. Du kan göra detta med hjälp av LUIS.

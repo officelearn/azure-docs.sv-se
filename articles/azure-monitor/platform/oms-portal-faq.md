@@ -12,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 61e1a02c3f1c194432750dce8ddf8162a981771d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 108b6cafa185788a66689a4d16bbfba7f30da6c3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002639"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271478"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -109,7 +108,7 @@ Hantera lösningar i den **lösningar** menyn för arbetsytan.
 I OMS-portalen kan du installera lösningar från lösningsgalleriet och bort dem från **inställningar**. I Azure-portalen [installera hanteringslösningar](../insights/solutions.md#install-a-management-solution) från Azure Marketplace. [Ta bort lösningar](../insights/solutions.md#remove-a-management-solution) i listan över installerade lösningar.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Hur jag för att skapa och hantera aviseringar?
-Varningsregler baserat på Log Analytics-frågor hanteras nu i den [unified avisering upplevelse](../../monitoring-and-diagnostics/alert-metric.md). Se [utöka aviseringar från Log Analytics i Azure Alerts](../../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) för information om hur du konfigurerar och använder aviseringar i Azure-portalen.
+Varningsregler baserat på Log Analytics-frågor hanteras nu i den [unified avisering upplevelse](../../azure-monitor/platform/alerts-metric.md). Se [utöka aviseringar från Log Analytics i Azure Alerts](../../azure-monitor/platform/alerts-extend-tool.md) för information om hur du konfigurerar och använder aviseringar i Azure-portalen.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Hur kommer jag åt mina instrumentpaneler?
 Den [min instrumentpanel](dashboards.md) funktionen i Log Analytics är inaktuell. Den här funktionen har tillåtit dig att ha en privat samling av Vydesigner delar och ersätts av den inbyggda funktionen för Azure-instrumentpanelen. Du kan fortsätta att visualisera data i Log Analytics med hjälp av [Vydesigner](view-designer.md) för delade vyer. Du kan även fästa visualiseringar från dessa vyer eller [enskilda frågor](../learn/tutorial-logs-dashboards.md) till Azure-instrumentpaneler.

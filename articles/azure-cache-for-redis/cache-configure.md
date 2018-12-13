@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: d938b8a7551f77f00b7c18421f07972a508f21ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c95c40404bb52f739c407eca3c0d48be5e0a86e6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020232"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262443"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure Cache för Redis
 Det här avsnittet beskrivs konfigurationerna som är tillgängliga för din Azure-Cache för Redis-instanser. Det här avsnittet innehåller också Redis server standardkonfigurationen för Azure Cache för Redis-instanser.
@@ -46,7 +46,7 @@ Du kan visa och konfigurera följande inställningar med hjälp av den **Resursm
 * [Inställningar](#settings)
     * [Åtkomstnycklar](#access-keys)
     * [Avancerade inställningar](#advanced-settings)
-    * [Azure Cache för Redis Advisor](#redis-cache-advisor)
+    * [Azure Cache för Redis Advisor](#azure-cache-for-redis-advisor)
     * [Skalning](#scale)
     * [Redis-klusterstorlek](#cluster-size)
     * [Redis-datapersistens](#redis-data-persistence)
@@ -98,7 +98,7 @@ Den **inställningar** avsnittet kan du få åtkomst till och konfigurera följa
 
 * [Åtkomstnycklar](#access-keys)
 * [Avancerade inställningar](#advanced-settings)
-* [Azure Cache för Redis Advisor](#redis-cache-advisor)
+* [Azure Cache för Redis Advisor](#azure-cache-for-redis-advisor)
 * [Skalning](#scale)
 * [Redis-klusterstorlek](#cluster-size)
 * [Redis-datapersistens](#redis-data-persistence)
@@ -480,7 +480,7 @@ Du kan på ett säkert sätt skicka kommandon till din Azure-Cache för Redis-in
 
 > [!IMPORTANT]
 > - Redis-konsolen fungerar inte med [VNET](cache-how-to-premium-vnet.md). När din cache är en del av ett virtuellt nätverk kan endast klienter i det virtuella nätverket kan komma åt cachen. Eftersom Redis-konsolen körs i din lokala webbläsare, vilket är utanför det virtuella nätverket, kan den inte kan ansluta till ditt cacheminne.
-> - Inte alla Redis-kommandon stöds i Azure Cache för Redis. En lista över Redis-kommandon som är inaktiverade för Azure Cache för Redis, finns i den tidigare [Redis-kommandon som inte stöds i Azure Cache för Redis](#redis-commands-not-supported-in-azure-redis-cache) avsnittet. Mer information om Redis-kommandon finns i [ http://redis.io/commands ](http://redis.io/commands).
+> - Inte alla Redis-kommandon stöds i Azure Cache för Redis. En lista över Redis-kommandon som är inaktiverade för Azure Cache för Redis, finns i den tidigare [Redis-kommandon som inte stöds i Azure Cache för Redis](#redis-commands-not-supported-in-azure-cache-for-redis) avsnittet. Mer information om Redis-kommandon finns i [ http://redis.io/commands ](http://redis.io/commands).
 > 
 > 
 

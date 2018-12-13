@@ -13,17 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 9918c4b022fc2aca4bfc1ddba5649d7f0efe1256
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138797"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317200"
 ---
-<a id="preparemachines"></a>
-
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planera och förbereda distributionen av Service Fabric fristående kluster
-Utför följande steg innan du skapar klustret.
+
+<a id="preparemachines"></a>Utför följande steg innan du skapar klustret.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Planera klusterinfrastrukturen för
 Du kommer att skapa ett Service Fabric-kluster på datorer som du ”äger”, så att du kan avgöra vilka typer av fel som du vill att klustret ska överleva. Till exempel du behöver separata power linjer eller Internet-anslutningar som angetts för dessa datorer? Dessutom kan du överväga att den fysiska säkerheten för dessa datorer. Var finns datorerna och vilka som behöver åtkomst till dem? När du har gjort dessa beslut mappa du logiskt datorerna till olika feldomäner (se nästa steg). Planera för produktionskluster infrastrukturen är mer komplicerat än för testkluster.
@@ -104,7 +103,7 @@ När en Klusteradministratör konfigurerar fristående Service Fabric-kluster, m
    * Har aktiverat tjänsten Remote Registry (remote registry)
    * Har aktiverat delning (SMB)-fil
    * Ha nödvändiga portar öppnas, baserat på klustret configuration portar
-   * Har nödvändiga portarna för Windows-SMB- och Remote Registry-tjänsten: 135, 137, 138, 139 och 445
+   * Ha nödvändiga portarna för Windows-SMB- och Remote Registry-tjänsten: 135, 137, 138, 139 och 445
    * Ha en nätverksanslutning till varandra
 3. Ingen av de kluster nod-datorerna ska vara en domänkontrollant.
 4. Om klustret distribueras är ett säkert kluster kan verifiera den säkerhet som behövs krav är placera och är korrekt konfigurerade mot konfigurationen.

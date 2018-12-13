@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239057"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311005"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
@@ -149,9 +149,7 @@ Azures plattform för databearbetning baseras på datorn virtualisering – vilk
 
 Varje nod har även en särskild rot-dator som kör Värdoperativsystem. En kritisk gräns är isoleringen av rotens virtuella dator från virtuella gästdatorerna och virtuella gästdatorerna från varandra, hanteras av hypervisor-programmet och roten OS. Hypervisor-program/root OS-kopplingen använder Microsofts årtionden av operativsystemets säkerhet genom och nyare learning från Microsofts Hyper-V för stark isolering av virtuella gästdatorer.
 
-Azure-plattformen använder en virtualiserad miljö. Användarinstanser fungerar som fristående virtuella datorer som inte har åtkomst till en fysisk värdserver och denna isolering tvingas med behörighetsnivåer för fysisk processor (ring-0/ring-3).
-
-Ring 0 är den mest privilegierade och 3 är den minst privilegierade. Gästoperativsystemet körs i en mindre privilegierad Ring 1 och program som körs i minst Privilegierade Ring 3. Den här virtualiseringen av fysiska resurser leder till en tydlig uppdelning mellan gästoperativsystem och hypervisor, vilket resulterar i ytterligare säkerhetsuppdelning mellan dessa två.
+Azure-plattformen använder en virtualiserad miljö. Användarinstanser fungerar som fristående virtuella datorer som inte har åtkomst till en fysisk värdserver.
 
 Azure hypervisor-programmet fungerar som en mikrokernel och skickar alla maskinvaruförfrågningar från virtuella gästdatorer till värden för bearbetning med hjälp av ett delat Minnesgränssnitt som kallas VMBus. Detta förhindrar att användare erhåller rååtkomsten läs/skriv/kör till systemet och minskar risken med att dela systemresurser.
 
@@ -187,9 +185,9 @@ Som standard blockeras all trafik när en virtuell dator skapas och sedan konfig
 
 Det finns två typer av regler som är programmerade:
 
--   **Datorn konfiguration eller infrastruktur regler:** som standard all kommunikation blockerad. Det finns undantag så att en virtuell dator att skicka och ta emot DHCP- och DNS-trafik. Virtuella datorer kan även skicka trafik till internet ”offentliga” och skicka trafik till andra virtuella datorer i samma Azure Virtual Network och Aktiveringsservern OS. De virtuella datorerna innehåller för tillåtna utgående mål inte Azure-routerundernät, Azure-hantering och andra Microsoft-egenskaper.
+-   **Dator-konfiguration eller infrastruktur regler:** Som standard blockerad all kommunikation. Det finns undantag så att en virtuell dator att skicka och ta emot DHCP- och DNS-trafik. Virtuella datorer kan även skicka trafik till internet ”offentliga” och skicka trafik till andra virtuella datorer i samma Azure Virtual Network och Aktiveringsservern OS. De virtuella datorerna innehåller för tillåtna utgående mål inte Azure-routerundernät, Azure-hantering och andra Microsoft-egenskaper.
 
--   **Konfigurationsfilen för rollen:** detta definierar den inkommande åtkomstkontrollistor (ACL) baserat på klientens tjänstmodellen.
+-   **Konfigurationsfilen för rollen:** Detta definierar den inkommande åtkomstkontrollistor (ACL) baserat på klientens tjänstmodellen.
 
 ### <a name="vlan-isolation"></a>VLAN-isolering
 Det finns tre VLAN i varje kluster:
@@ -295,7 +293,7 @@ SQL Database är en relationsdatabastjänst i Microsoft Cloud som är baserad p�
 
 [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) databasen är en molnbaserad relationsdatabastjänst byggd på SQL Server-teknik. Det ger en tjänst med mycket tillgänglig, skalbar och flera innehavare av Microsoft i molnet.
 
-Från perspektivet för en SQL Azure erbjuder följande hierarki: varje nivå har en-till-många inneslutning av undernivåer.
+Från ett program innehåller perspektiv SQL Azure följande hierarki: Varje nivå har en-till-många inneslutning av undernivåer.
 
 ![Modell för SQL Azure-program](./media/azure-isolation/azure-isolation-fig10.png)
 
@@ -344,7 +342,7 @@ Azure-distribution har flera lager av isolering av nätverk. Följande diagram v
 
 ![Isolering av nätverk](./media/azure-isolation/azure-isolation-fig13.png)
 
-**Trafik isolering:** A [virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) är gränsen för isolering av trafik på Azure-plattformen. Virtuella datorer (VM) i ett virtuellt nätverk kan inte kommunicera direkt till virtuella datorer i ett annat virtuellt nätverk, även om båda virtuella nätverken har skapats av samma kund. Isolering är en viktig egenskap som ser till kundens virtuella datorer och kommunikation förblir privata inom ett virtuellt nätverk.
+**Trafikisolering:** En [virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) är gränsen för isolering av trafik på Azure-plattformen. Virtuella datorer (VM) i ett virtuellt nätverk kan inte kommunicera direkt till virtuella datorer i ett annat virtuellt nätverk, även om båda virtuella nätverken har skapats av samma kund. Isolering är en viktig egenskap som ser till kundens virtuella datorer och kommunikation förblir privata inom ett virtuellt nätverk.
 
 [Undernät](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) erbjuder ett extra lager av isolering med i virtuella nätverk som baseras på IP-intervall. IP-adresser i det virtuella nätverket, du kan dela upp ett virtuellt nätverk i flera undernät av organisations- och säkerhetsskäl. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverkssäkerhetsgrupp (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) att tillåta eller neka nätverkstrafik till en VM-instans som är baserat på regler som konfigurerats i åtkomstkontrollistan (ACL) för NSG. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
 

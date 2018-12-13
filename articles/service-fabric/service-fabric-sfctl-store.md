@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 2f2da5b38ab39e3636ff0ac09ac2c5515e02b0c1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 034ae29b5fabae15aa2b6b96e7fefaef23c1c5a1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492343"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275235"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Utföra grundläggande nivå filåtgärder på avbildningsarkivet kluster.
@@ -35,18 +35,18 @@ Utföra grundläggande nivå filåtgärder på avbildningsarkivet kluster.
 ## <a name="sfctl-store-delete"></a>sfctl store delete
 Tar bort befintliga bild lagra innehållet.
 
-Tar bort befintliga store innehållet hittas inom den angivna avbildningen lagra relativ sökväg. Detta kan användas för att ta bort överförda programpaket när de har etablerats.
+Tar bort befintliga store innehållet hittas inom den angivna avbildningen lagra relativ sökväg. Det här kommandot kan användas för att ta bort överförda programpaket när de har etablerats.
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --innehåll-path [krävs] | Relativ sökväg till filen eller mappen i avbildningsarkivet från dess rot. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -61,13 +61,13 @@ Returnerar information om avbildningsarkivet innehåll i roten på avbildningsar
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -82,14 +82,14 @@ Returnerar information om store innehållet i på den angivna contentPath. Conte
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --innehåll-path [krävs] | Relativ sökväg till filen eller mappen i avbildningsarkivet från dess rot. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: spelluru
-ms.openlocfilehash: 047c4c37090db77f7a7a692604dd63c5effff9fa
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409769"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312892"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus-köer, -ämnen och -prenumerationer
 
@@ -32,9 +32,9 @@ Med hjälp av köer till mellanliggande mellan meddelandeproducenter och -konsum
 
 ### <a name="create-queues"></a>Skapa köer
 
-Du skapar köer med hjälp av den [Azure-portalen](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), eller [Resource Manager-mallar](service-bus-resource-manager-namespace-queue.md). Du sedan skicka och ta emot meddelanden med en [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) objekt. 
+Du skapar köer med hjälp av den [Azure-portalen](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), eller [Resource Manager-mallar](service-bus-resource-manager-namespace-queue.md). Du sedan skicka och ta emot meddelanden med en [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) objekt.
 
-Läs snabbt hur du skapar en kö, och sedan skicka och ta emot meddelanden till och från kön i den [snabbstarter](service-bus-quickstart-portal.md) för varje metod. En mer detaljerad genomgång om hur du använder köer kan se [Kom igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md). 
+Läs snabbt hur du skapar en kö, och sedan skicka och ta emot meddelanden till och från kön i den [snabbstarter](service-bus-quickstart-portal.md) för varje metod. En mer detaljerad genomgång om hur du använder köer kan se [Kom igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md).
 
 Ett fungerande exempel finns i [BasicSendReceiveUsingQueueClient exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) på GitHub.
 
@@ -56,9 +56,9 @@ Skicka meddelande funktionerna i en kö mappas direkt till ett ämne genom jämf
 
 ### <a name="create-topics-and-subscriptions"></a>Skapa ämnen och prenumerationer
 
-Skapa ett ämne liknar skapar en kö, enligt beskrivningen i föregående avsnitt. Du sedan skickar meddelanden med den [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) klass. Om du vill ta emot meddelanden, skapar du en eller flera prenumerationer till ämnet. Liknar köer, meddelanden tas emot från en prenumeration med hjälp av en [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) objekt i stället för en [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) objekt. Skapa prenumerationsklient, skicka namnet på ämnet, namnet på prenumerationen och (frivilligt) receive-läge som parametrar. 
+Skapa ett ämne liknar skapar en kö, enligt beskrivningen i föregående avsnitt. Du sedan skickar meddelanden med den [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) klass. Om du vill ta emot meddelanden, skapar du en eller flera prenumerationer till ämnet. Liknar köer, meddelanden tas emot från en prenumeration med hjälp av en [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) objekt i stället för en [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) objekt. Skapa prenumerationsklient, skicka namnet på ämnet, namnet på prenumerationen och (frivilligt) receive-läge som parametrar.
 
-För en fullständig fungerar exemplet finns i den [BasicSendReceiveUsingTopicSubscriptionClient exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) på Github.
+För en fullständig fungerar exemplet finns i den [BasicSendReceiveUsingTopicSubscriptionClient exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) på GitHub.
 
 ### <a name="rules-and-actions"></a>Regler och åtgärder
 
@@ -66,7 +66,7 @@ Meddelanden som har specifika egenskaper måste bearbetas på olika sätt i mån
 
 För en fullständig fungerar exemplet finns i den [TopicSubscriptionWithRuleOperationsSample exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) på GitHub.
 
-Mer information om möjliga filtervärden finns i dokumentationen för den [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) och [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) klasser. 
+Mer information om möjliga filtervärden finns i dokumentationen för den [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) och [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) klasser.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -74,6 +74,6 @@ Mer information och exempel på hur du använder Service Bus-meddelanden finns i
 
 * [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
 * [Snabbstart: Skicka och ta emot meddelanden med Azure-portalen och .NET](service-bus-quickstart-portal.md)
-* [Självstudier: Uppdatera lagret med hjälp av Azure-portalen och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-portal.md)
+* [Självstudiekurs: Uppdatera lagret med hjälp av Azure-portalen och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-portal.md)
 
 

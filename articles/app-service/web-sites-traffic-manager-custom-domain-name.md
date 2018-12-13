@@ -1,5 +1,5 @@
 ---
-title: Konfigurera ett anpassat domännamn för en webbapp i Azure App Service med Traffic Manager för belastningsutjämning.
+title: Konfigurera DNS-namn för appar som använder Traffic Manager – Azure App Service
 description: Använd ett anpassat domännamn för en en webbapp i Azure App Service med Traffic Manager för Utjämning av nätverksbelastning.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: b140ccba2b45dbfb1e4413c9fbeb12e9fec6bc8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 2b2efbbccedc2478b30a05fe2cd60c063de2a64d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227186"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309492"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Konfigurera ett anpassat domännamn för en webbapp i Azure App Service med Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]

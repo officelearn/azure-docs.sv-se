@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 07d6b07a583b8a8ce8b490333a87ff659f495e45
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: be379061f738ccee298c9a5aac88d3a95613f214
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866999"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193237"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Skapa Apache Hadoop-kluster med säker överföring storage-konton i Azure HDInsight
 
@@ -23,7 +23,7 @@ Funktionen [Säker överföring krävs](../storage/common/storage-require-secure
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här vägledningen måste du ha:
 
-* **Azure-prenumeration**: Gå till  [azure.microsoft.com/free](https://azure.microsoft.com/free) för att skapa ett kostnadsfritt provkonto för en månad.
+* **Azure-prenumeration**: Om du vill skapa ett kostnadsfritt utvärderingskonto för en månad, bläddra till [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **Ett Azure Storage-konto med säker överföring aktiverat**. Anvisningar finns i [Create a storage account](../storage/common/storage-quickstart-create-account.md) (Skapa ett lagringskonto) och [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Kräva säker överföring).
 * **En blobcontainer för lagringskontot**. 
 
@@ -45,7 +45,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med en [Azure Reso
     - Använd lagringskontots kortnamn.
     - Både lagringskontot och blobcontainern måste skapas i förväg. 
 
-    Anvisningar finns i avsnittet [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). 
+      Anvisningar finns i avsnittet [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). 
 
 Om du använder skriptåtgärder för att skapa egna konfigurationsfiler måste du använda wasbs i följande inställningar:
 

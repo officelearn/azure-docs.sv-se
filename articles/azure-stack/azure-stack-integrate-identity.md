@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300718"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257384"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -131,7 +131,7 @@ Följande information måste anges som indata för automation-parametrar:
 
 |Parameter|Beskrivning|Exempel|
 |---------|---------|---------|
-|CustomAdfsName|Namnet på anspråksprovidern. <cr>Verkar det sätt på landningssidan för AD FS.|Contoso|
+|CustomAdfsName|Namnet på anspråksprovidern.<br>Den visas på så sätt på landningssidan för AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Länk för Federation metadata|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -215,7 +215,7 @@ Använda en dator som kan kommunicera med privilegierad slutpunkt i Azure Stack 
 
 Microsoft tillhandahåller ett skript som konfigurerar den förlitande parten, inklusive omvandling anspråksregler. Med hjälp av skript är valfritt eftersom du kan köra kommandona manuellt.
 
-Du kan ladda ned helper-skriptet från [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) på Github.
+Du kan ladda ned helper-skriptet från [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) på GitHub.
 
 Följ dessa steg om du vill köra kommandon manuellt:
 

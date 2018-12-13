@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: f32dd0fb1ffd1bbd2c58f187b2dbc310a48f65ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ee0d46cd07de4e9b123357bcc4ee9d1e51926f49
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011076"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312986"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -136,10 +136,10 @@ Om du vill distribuera en tjänst för Lagringssynkronisering, går du till den 
 
 I fönstret som öppnas anger du följande information:
 
-- **Namn på**: ett unikt namn (per prenumeration) för Storage Sync-tjänsten.
-- **Prenumeration**: den prenumeration där du vill skapa Storage Sync-tjänsten. Beroende på organisationens Konfigurationsstrategi, kanske du har åtkomst till en eller flera prenumerationer. En Azure-prenumeration är den mest grundläggande behållaren för fakturering för varje tjänst i molnet (till exempel Azure Files).
-- **Resursgrupp**: en resursgrupp är en logisk grupp av Azure-resurser, till exempel ett lagringskonto eller en Lagringssynkroniseringstjänst. Du kan skapa en ny resursgrupp eller Använd en befintlig resursgrupp för Azure File Sync. (Vi rekommenderar att använda resursgrupper som behållare för att isolera resurser logiskt för din organisation, till exempel gruppera HR resurser eller resurser för ett specifikt projekt.)
-- **Plats**: den region där du vill distribuera Azure File Sync. Endast regioner som stöds är tillgängliga i den här listan.
+- **Namn på**: Ett unikt namn (per prenumeration) för tjänsten för synkronisering av lagring.
+- **Prenumeration**: Den prenumeration där du vill skapa Storage Sync-tjänsten. Beroende på organisationens Konfigurationsstrategi, kanske du har åtkomst till en eller flera prenumerationer. En Azure-prenumeration är den mest grundläggande behållaren för fakturering för varje tjänst i molnet (till exempel Azure Files).
+- **Resursgrupp**: En resursgrupp är en logisk grupp av Azure-resurser, till exempel ett lagringskonto eller en Lagringssynkroniseringstjänst. Du kan skapa en ny resursgrupp eller Använd en befintlig resursgrupp för Azure File Sync. (Vi rekommenderar att använda resursgrupper som behållare för att isolera resurser logiskt för din organisation, till exempel gruppera HR resurser eller resurser för ett specifikt projekt.)
+- **Plats**: Den region där du vill distribuera Azure File Sync. Endast regioner som stöds är tillgängliga i den här listan.
 
 När du är klar väljer du **skapa** att distribuera Storage Sync-tjänsten.
 
@@ -201,7 +201,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
 Login-AzureRmStorageSync `
-    –SubscriptionId $subID `
+    -SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
     -Location $region
@@ -223,15 +223,15 @@ När du registrerar Windows Server med en tjänst för synkronisering av lagring
 > Registrera servern använder dina Azure-autentiseringsuppgifter för att skapa en förtroenderelation mellan Storage Sync-tjänsten och Windows Server, men sedan servern skapar och använder sin egen identitet som är giltiga så länge som servern är registrerad och aktuell signatur för delad åtkomst-token (Storage SAS) är giltig. En ny SAS-token kan inte utfärdas till servern när servern är avregistrerade, vilket tar bort serverns möjlighet att komma åt Azure-filresurser, stoppar alla synkronisering.
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-Användargränssnittet för servern registrering ska öppnas automatiskt efter installationen av Azure File Sync-agenten. Om det inte gör det kan du öppna det från dess filplats: C:\Program\Azure\StorageSyncAgent\ServerRegistration.exe. När Användargränssnittet för servern registrering öppnas väljer **inloggning** att börja.
+Användargränssnittet för servern registrering ska öppnas automatiskt efter installationen av Azure File Sync-agenten. Om inte kan öppna du den manuellt från dess filplats: C:\Program\Microsoft Files\Azure\StorageSyncAgent\ServerRegistration.exe. När Användargränssnittet för servern registrering öppnas väljer **inloggning** att börja.
 
 När du loggar in uppmanas du att ange följande information:
 
 ![Skärmbild av användargränssnittet för serverregistrering](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
-- **Azure-prenumeration**: den prenumeration som innehåller Storage Sync-tjänsten (se [distribuera Storage Sync-tjänsten](#deploy-the-storage-sync-service)). 
-- **Resursgrupp**: den resursgrupp som innehåller Storage Sync-tjänsten.
-- **Tjänst för lagringssynkronisering**: namnet på Storage Sync-tjänsten som du vill registrera.
+- **Azure-prenumeration**: Den prenumeration som innehåller Storage Sync-tjänsten (se [distribuera Storage Sync-tjänsten](#deploy-the-storage-sync-service)). 
+- **Resursgrupp**: Den resursgrupp som innehåller Storage Sync-tjänsten.
+- **Tjänst för lagringssynkronisering**: Namnet på Storage Sync-tjänsten som du vill registrera.
 
 När du har valt informationen som krävs, Välj **registrera** att slutföra registreringen för servern. Som en del av registreringsprocessen uppmanas du att logga in en ytterligare inloggning.
 
@@ -243,9 +243,9 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Skapa en synkroniseringsgrupp och en molnslutpunkt
-En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning filer. Slutpunkter inom en synkroniseringsgrupp hålls synkroniserade med varandra. En synkroniseringsgrupp måste innehålla en molnslutpunkt, som representerar en Azure-filresurs och en eller flera serverslutpunkter. En serverslutpunkt representerar en sökväg på registrerad server. En server kan ha serverslutpunkter i flera synkroniseringsgrupper. Du kan skapa så många synkroniseringsgrupper som du behöver på lämpligt sätt beskriva dina önskade sync-topologi.
+En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning filer. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. En synkroniseringsgrupp måste innehålla en molnslutpunkt, som representerar en Azure-filresurs och en eller flera serverslutpunkter. En serverslutpunkt representerar en sökväg på registrerad server. En server kan ha serverslutpunkter i flera synkroniseringsgrupper. Du kan skapa så många synkroniseringsgrupper som du behöver på lämpligt sätt beskriva dina önskade sync-topologi.
 
-En molnslutpunkt finns en pekare till en Azure-filresurs. Alla serverslutpunkter synkroniseras med en slutpunkt, vilket gör molnslutpunkten hubben. Storage-konto för Azure-filresursen måste finnas i samma region som Storage Sync-tjänsten. Kommer att synkroniseras i sin helhet i Azure-filresursen med ett undantag: en särskild mapp jämförbara för dolda ”System Volume Information”-mapp på en NTFS-volym, kommer att tillhandahållas. Den här katalogen kallas ”. SystemShareInformation ”. Den innehåller viktiga synka metadata som inte synkroniseras till andra slutpunkter. Använd inte eller ta bort den!
+En molnslutpunkt finns en pekare till en Azure-filresurs. Alla serverslutpunkter synkroniseras med en slutpunkt, vilket gör molnslutpunkten hubben. Storage-konto för Azure-filresursen måste finnas i samma region som Storage Sync-tjänsten. Att kommer synkroniseras i sin helhet i Azure-filresursen med ett undantag: En särskild mapp jämförbara för dolda ”System Volume Information”-mapp på en NTFS-volym, kommer att tillhandahållas. Den här katalogen kallas ”. SystemShareInformation ”. Den innehåller viktiga synka metadata som inte synkroniseras till andra slutpunkter. Använd inte eller ta bort den!
 
 > [!Important]  
 > Du kan göra ändringar till molnslutpunkt eller serverslutpunkt i synkroniseringsgruppen och ha dina filer synkroniseras till de andra slutpunkterna i synkroniseringsgruppen. Om du gör en ändring till molnslutpunkten (Azure-filresurs) direkt, måste ändringar först identifieras av ett jobb med Azure File Sync ändra identifiering. Ett jobb för identifiering av ändring initieras för en molnslutpunkt bara en gång var 24: e timme. Mer information finns i [Azure Files vanliga frågor och svar](storage-files-faq.md#afs-change-detection).
@@ -257,10 +257,10 @@ Skapa en synkroniseringsgrupp i den [Azure-portalen](https://portal.azure.com/)g
 
 I fönstret som öppnas anger du följande information för att skapa en synkroniseringsgrupp med en molnslutpunkt:
 
-- **Namn på synkroniseringsgrupp**: namnet på synkroniseringsgruppen skapas. Det här namnet måste vara unikt i tjänsten för synkronisering av lagring men kan vara vilket namn som helst som är logiskt för dig.
-- **Prenumeration**: den prenumeration där du har distribuerat Storage Sync-tjänsten i [distribuera Storage Sync-tjänsten](#deploy-the-storage-sync-service).
+- **Namn på synkroniseringsgrupp**: Namnet på synkroniseringsgruppen skapas. Det här namnet måste vara unikt i tjänsten för synkronisering av lagring men kan vara vilket namn som helst som är logiskt för dig.
+- **Prenumeration**: Den prenumeration där du har distribuerat Storage Sync-tjänsten i [distribuera Storage Sync-tjänsten](#deploy-the-storage-sync-service).
 - **Storage-konto**: Om du väljer **Välj lagringskonto**, ett annat fönster visas där du kan välja det lagringskonto som har Azure-filresursen som du vill synkronisera med.
-- **Azure-filresurs**: namnet på Azure-filresursen som du vill synkronisera.
+- **Azure-filresurs**: Namnet på Azure-filresursen som du vill synkronisera.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 Kör följande PowerShell för att skapa synkroniseringsgruppen. Kom ihåg att ersätta `<my-sync-group>` med önskad namnet på synkroniseringsgruppen.
@@ -303,7 +303,7 @@ if ($fileShare -eq $null) {
 New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
-    -StorageAccountResourceId $storageAccount.Id
+    -StorageAccountResourceId $storageAccount.Id `
     -StorageAccountShareName $fileShare.Name
 ```
 
@@ -319,10 +319,10 @@ Om du vill lägga till en serverslutpunkt, gå till den nyligen skapade synkroni
 
 I fönstret **Lägg till serverslutpunkt** anger du följande information för att skapa en serverslutpunkt:
 
-- **Registrerad server**: namnet på servern eller klustret där du vill skapa Serverslutpunkten.
-- **Sökvägen**: The Windows Server-sökvägen till synkroniseras som en del av synkroniseringsgruppen.
-- **Cloud Tiering**: en växel för att aktivera eller inaktivera lagringsnivåer. Med molnet lagringsnivåer, sällan används eller filer kan vara nivåindelad till Azure Files.
-- **Ledigt utrymme på volym**: mängden ledigt utrymme för att reservera på volymen där Serverslutpunkten finns. Till exempel om volymens lediga utrymme är inställt på 50% på en volym som har en enskild server-slutpunkt, är ungefär hälften av data nivåindelad till Azure Files. Oavsett om molnet lagringsnivåer har aktiverats kan din Azure-filresurs har alltid en fullständig kopia av data i synkroniseringsgruppen.
+- **Registrerad server**: Namnet på servern eller klustret där du vill skapa Serverslutpunkten.
+- **Sökvägen**: Windows Server-sökvägen till synkroniseras som en del av synkroniseringsgruppen.
+- **Molnnivå**: En växel för att aktivera eller inaktivera lagringsnivåer. Med molnet lagringsnivåer, sällan används eller filer kan vara nivåindelad till Azure Files.
+- **Ledigt utrymme på volym**: Mängden ledigt utrymme för att reservera på volymen där Serverslutpunkten finns. Till exempel om volymens lediga utrymme är inställt på 50% på en volym som har en enskild server-slutpunkt, är ungefär hälften av data nivåindelad till Azure Files. Oavsett om molnet lagringsnivåer har aktiverats kan din Azure-filresurs har alltid en fullständig kopia av data i synkroniseringsgruppen.
 
 Om du vill lägga till Serverslutpunkten, Välj **skapa**. Dina filer nu synkroniseras i Azure-filresurs- och Windows Server. 
 

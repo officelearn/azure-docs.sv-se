@@ -1,5 +1,5 @@
 ---
-title: Så här skalar du Azure Time Series Insights-miljön | Microsoft Docs
+title: Azure Time Series Insights-skalning – så här skalar du Azure Time Series Insights-miljön | Microsoft Docs
 description: Den här artikeln beskriver hur du skalar Azure Time Series Insights-miljön. Använda Azure-portalen för att lägga till eller ta bort kapacitet inom en prisnivå SKU.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: f80c3ad28c3944bd365100d1d873231869da46f8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 1adb93d935e16bdce23e35e306592a9575967452
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629726"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271869"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Så här skalar du din Time Series Insights-miljö
 

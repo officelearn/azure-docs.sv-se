@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim88
-ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031092"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166599"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Med hjälp av metadata och GenerateAnswer-API
 
@@ -55,15 +55,15 @@ Du kan anropa GenerateAnswer med en HTTP POST-begäran. Exempel som visar hur du
 
 - **Begäranparametrar**: 
     - **Kunskapsbas-ID** (sträng): GUID för kunskapsbasen.
-    - **Slutpunkt för QnAMaker** (sträng): värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration.
+    - **Slutpunkt för QnAMaker** (sträng): Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration.
 - **Begärandehuvuden**
-    - **Content-Type** (sträng): medietyp i texten som skickas till API: et.
-    - **Auktorisering** (sträng): din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
+    - **Content-Type** (sträng): Medietyp i texten som skickas till API: et.
+    - **Auktorisering** (sträng): Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Brödtext i begäran**
-    - **fråga** (sträng): en användare-fråga som ska frågas mot kunskapsbasen.
-    - **översta** (valfritt, heltal): antalet rankad resultat som ska ingå i utdata. Standardvärdet är 1.
-    - **användar-ID** (valfri, sträng): ett unikt ID för att identifiera användaren. Detta ID kommer att läggas till i chattloggarna.
-    - **strictFilters** (valfri, sträng): om anges talar om för QnA Maker att returnera endast de svar som har angivna metadata. Mer information finns nedan.
+    - **fråga** (sträng): En användare fråga ska efterfrågas mot kunskapsbasen.
+    - **översta** (valfritt, heltal): Antal översta resultat ska ingå i utdata. Standardvärdet är 1.
+    - **användar-ID** (valfri, sträng): Ett unikt ID för att identifiera användaren. Detta ID kommer att läggas till i chattloggarna.
+    - **strictFilters** (valfri, sträng): Om anges talar du om QnA Maker att returnera endast de svar som har angivna metadata. Mer information finns nedan.
     ```json
     {
         "question": "qna maker and luis",
@@ -81,14 +81,14 @@ Du kan anropa GenerateAnswer med en HTTP POST-begäran. Exempel som visar hur du
 
 - **Svaret 200** -ett genomfört anrop returnerar resultatet av frågan. Svaret innehåller följande fält:
     - **svar** -svar för användarfråga, sorterade i fallande rangordning poäng.
-        - **poäng**: en rangordning mellan 0 och 100.
-        - **frågor**: frågor som anges av användaren.
-        - **svar**: svaret på frågan.
-        - **källan**: namnet på källan svaret har extraherats, eller sparats i knowledge base.
-        - **metadata**: metadata som associeras med svaret.
-            - namn: namn på Metadata. (string, maximal längd: 100, krävs)
-            - värde: värde. (string, maximal längd: 100, krävs)
-        - **ID**: ett unikt ID för svaret.
+        - **poäng**: En rangordning mellan 0 och 100.
+        - **frågor**: Frågor som anges av användaren.
+        - **Svar**: Svaret på frågan.
+        - **källan**: Namnet på källan svaret har extraherats, eller sparats i knowledge base.
+        - **metadata**: Metadata som associeras med svaret.
+            - Namn: Namn på metadata. (string, maximal längd: 100 krävs)
+            - Värde: Metadata-värde. (string, maximal längd: 100 krävs)
+        - **ID**: Ett unikt ID för svaret.
     ```json
     {
         "answers": [
@@ -167,6 +167,8 @@ Svaret på GenerateAnswer innehåller matchande fråga/svar-uppsättningen motsv
 Den här informationen kan användas för att registrera kontexten för den tidigare konversationen för användning i senare konversationer. 
 
 ## <a name="next-steps"></a>Nästa steg
+
+Publiceringssidan innehåller även information om du vill generera ett svar med [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) och [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
 > [Skapa en kunskapsbas](./create-knowledge-base.md)

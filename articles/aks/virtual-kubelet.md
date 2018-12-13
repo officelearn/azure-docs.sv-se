@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a2fed45e4ec51fac7d4d04e50616a7e3748d71c4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e5d415593a510acb81eac65242010d1841044857
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834408"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162655"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Använda Virtual Kubelet med Azure Kubernetes Service (AKS)
 
@@ -90,7 +90,7 @@ De här argumenten är tillgängliga för den `aks install-connector` kommando.
 | `--connector-name` | Namnet på ACI-Anslutningsappens.| Ja |
 | `--name` `-n` | Namnet på det hanterade klustret. | Ja |
 | `--resource-group` `-g` | Namnet på resursgruppen. | Ja |
-| `--os-type` | Container instances typ av operativsystem. Tillåtna värden: båda, Linux, Windows. Standard: Linux. | Nej |
+| `--os-type` | Container instances typ av operativsystem. Tillåtna värden: Båda, Linux, Windows. Standard: Linux. | Nej |
 | `--aci-resource-group` | Den resursgrupp där du kan skapa grupper för ACI-behållare. | Nej |
 | `--location` `-l` | Platsen som används för att skapa ACI-behållargrupper. | Nej |
 | `--service-principal` | Tjänstens huvudnamn som används för autentisering i Azure API: er. | Nej |
@@ -228,7 +228,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 Möjligt problem med Virtual Kubelet finns det [kända paketberoenden och lösningar][vk-troubleshooting]. För att anmäla problem med Virtual Kubelet [öppna ett GitHub-ärende][vk-issues].
 
-Läs mer om Virtual Kubelet på den [Virtual Kubelet Github-projektet][vk-github].
+Läs mer om Virtual Kubelet på den [Virtual Kubelet GitHub-projektet][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md

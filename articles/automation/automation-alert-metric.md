@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 65de18445f114f468dd42c5a7e7128dd2f63d44c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959842"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185876"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Övervakning av runbooks med måttaviseringar
 
@@ -51,7 +51,7 @@ Gå till ditt Automation-konto i Azure-portalen. Under **övervakning**väljer *
 
 ### <a name="define-the-action-to-take"></a>Definiera åtgärd att vidta
 
-1. Under **3. Definiera åtgärdsgrupp**, klicka på **+ Ny åtgärdsgrupp**. En åtgärdsgrupp är en uppsättning åtgärder som du kan använda i mer än en avisering. Dessa kan inkludera, men inte begränsat till, e-postaviseringar, runbooks, webhooks och många fler. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md)
+1. Under **3. Definiera åtgärdsgrupp**, klicka på **+ Ny åtgärdsgrupp**. En åtgärdsgrupp är en uppsättning åtgärder som du kan använda i mer än en avisering. Dessa kan inkludera, men inte begränsat till, e-postaviseringar, runbooks, webhooks och många fler. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md)
 
 1. I rutan **Åtgärdsgruppnamn** ge ett eget namn och ett kort namn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 

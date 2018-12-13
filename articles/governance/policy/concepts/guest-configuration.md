@@ -1,5 +1,5 @@
 ---
-title: Förstå hur Azure Policy utför granskningar inuti en virtuell dator
+title: Förstå hur du utför granskningar inuti en virtuell dator
 description: Lär dig hur Azure Policy använder gäst-konfiguration för att granska inställningar i en Azure virtuell dator.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 19bc8a58c1ad2115afdfd1d7e59b714ba19cadec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 1ea87dc01048a2747a668db7a5b1f22b37ed9213
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078896"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310070"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -106,7 +106,7 @@ Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus**
 > [!NOTE]
 > För varje gäst-konfigurationsdefinition både den **DeployIfNotExists** och **AuditIfNotExists** principdefinitioner måste finnas.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Inbyggda initiativ med namnet *[förhandsversion]: granska lösenord säkerhetsinställningar i Linux och Windows-datorer* innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Inbyggda initiativ med namnet *[förhandsversion]: Granska säkerhetsinställningarna för lösenord i Linux och Windows-datorer* innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
 
 ## <a name="next-steps"></a>Nästa steg
 

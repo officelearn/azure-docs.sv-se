@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7137d43805065a8f29aa8fcf5307dd5b8947b345
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c45023a462a5c01dfde806d7abbb9714aaf09b85
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101355"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189480"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Spåra experiment och utbildning mått i Azure Machine Learning
 
@@ -60,7 +60,7 @@ Innan du lägger till loggning och skicka ett experiment, måste du ställa in a
                resource_group = <<resource_group>>)
    ```
   
-## <a name="option-1-use-startlogging"></a>Alternativ 1: Använd start_logging
+## <a name="option-1-use-startlogging"></a>Alternativ 1: Använda start_logging
 
 **start_logging** skapar en interaktiv körning för användning i scenarier, till exempel bärbara datorer. Alla mått som är inloggad under sessionen har lagts till den kör posten i experimentet.
 
@@ -122,7 +122,7 @@ I följande exempel träna en enkel modell sklearn upphöjning lokalt i en lokal
 
 Skriptet slutar med ```run.complete()```, som markeras körningen som slutfört.  Den här funktionen används vanligtvis i interaktiva notebook-scenarier.
 
-## <a name="option-2-use-scriptrunconfig"></a>Alternativ 2: Använd ScriptRunConfig
+## <a name="option-2-use-scriptrunconfig"></a>Alternativ 2: Använda ScriptRunConfig
 
 **ScriptRunConfig** är en klass för att konfigurera konfigurationer för skriptet körs. Du kan använda det här alternativet för att lägga till koden för övervakning för att aviseras om slutförande eller för att hämta en visual widget att övervaka.
 
@@ -332,7 +332,7 @@ För klassificering, problem ger Azure Machine Learning automatiskt en felmatris
 
 Exempel 1: En klassificeringsmodellen med dålig noggrannhet ![en klassificeringsmodellen med dålig noggrannhet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
 
-Exempel 2: En klassificeringsmodellen med hög precision (perfekt) ![en klassificering modell med hög precision](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+Exempel 2: En klassificering modell med hög precision (perfekt) ![en klassificering modell med hög precision](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
 
 
 #### <a name="precision-recall-chart"></a>Precisionsåterkallningsdiagram diagram
@@ -343,7 +343,7 @@ Termen Precision representerar den möjligheten för en klassificerare att märk
 
 Exempel 1: En klassificeringsmodellen med låg precision och låg återkallande ![en klassificeringsmodellen med låg precision och låg återkallande](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
 
-Exempel 2: En klassificeringsmodellen med ~ 100% noggrannhet och ~ 100% återkallande (perfekt) ![en klassificering modellen hög precision och återkallande](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+Exempel 2: En klassificering modell med ~ 100% noggrannhet och ~ 100% återkallande (perfekt) ![en klassificering modellen hög precision och återkallande](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
 
 #### <a name="roc"></a>ROC
 
@@ -369,9 +369,9 @@ Ett diagram får utvärderar prestanda för en modell för klassificering av var
 
 Använda ackumulerade vinster diagrammet för att hjälpa dig att välja den klassificering brytfrekvens med hjälp av en procentsats som motsvarar en önskad vinst från modellen. Den här informationen innehåller ett annat sätt att titta på resultaten i den medföljande ökningsdiagrammet.
 
-Exempel 1: En klassificeringsmodellen med minimal vinst ![en klassificering modell med minimal vinst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+Exempel 1: En klassificering modell med minimal vinst ![en klassificering modell med minimal vinst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
 
-Exempel 2: En klassificeringsmodellen med betydande vinst ![en klassificering modell med betydande vinst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+Exempel 2: En klassificering modell med betydande vinst ![en klassificering modell med betydande vinst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
 
 #### <a name="calibration-plot"></a>Kalibreringskurva
 
@@ -381,7 +381,7 @@ En kalibreringskurva används för att visa förtroendet hos en förutsägelsemo
 
 Exempel 1: En mer väl justerat modell ![ mer väl justerat modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
 
-Exempel 2: En överdrivet confident modell ![en överdrivet confident-modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+Exempel 2: En modell för över confident ![en överdrivet confident-modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
 
 ### <a name="regression"></a>Regression
 För varje regressionsmodell du skapar med hjälp av de automatiserade machine learning-funktionerna i Azure Machine Learning kan du se följande diagram: 

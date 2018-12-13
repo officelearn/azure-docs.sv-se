@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625461"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252121"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>På ett säkert sätt spara hemliga programinställningar för ett webbprogram
 
 ## <a name="overview"></a>Översikt
 Den här artikeln beskriver hur du sparar inställningar för hemliga program för Azure-program på ett säkert sätt.
 
-Alla webbservrar traditionellt programkonfiguration inställningarna sparas i konfigurationsfiler, till exempel Web.config. Den här metoden leder till att checka in hemliga inställningar, till exempel molnautentiseringsuppgifter i offentliga källkontrollsystem som Github. Under tiden kan det vara svårt att följa bästa praxis för säkerhet på grund av det arbetet som krävs för att ändra källkoden och konfigurera om inställningar för webbprogramutveckling.
+Alla webbservrar traditionellt programkonfiguration inställningarna sparas i konfigurationsfiler, till exempel Web.config. Den här metoden leder till att checka in hemliga inställningar, till exempel molnautentiseringsuppgifter i offentliga källkontrollsystem som GitHub. Under tiden kan det vara svårt att följa bästa praxis för säkerhet på grund av det arbetet som krävs för att ändra källkoden och konfigurera om inställningar för webbprogramutveckling.
 
 För att säkerställa utvecklingsprocessen är säker, skapas verktyg och ramverk bibliotek för att spara hemliga programinställningar på ett säkert sätt med minimala kodändringar eller inga ändringar i koden källa.
 

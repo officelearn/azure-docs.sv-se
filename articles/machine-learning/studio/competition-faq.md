@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: c423438e5c8088dba5b9d71e8e50a2e9de1371c6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fe4da412aa779e9861446f8dcbb8a807c282c7c6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104973"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268911"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence, tävlingar, vanliga frågor och svar
 **Vad är Cortana Intelligence, tävlingar?**
@@ -70,7 +69,7 @@ Tävlingen plattformen stöder för närvarande inte team deltagande. Varje post
 
 Tävlingarna är kostnadsfria att delta i. Du, men behöver åtkomst till en Azure Machine Learning-arbetsyta för att delta. Du kan skapa en kostnadsfri arbetsyta utan kreditkort genom att logga in med ett giltigt microsoftkonto eller ett Office 365-konto. Om du redan är kund med Azure eller Cortana Intelligence Suite kan du skapa och använda standardarbetsytan under samma Azure-prenumeration. Om du vill köpa en Azure-prenumeration går du till den [prissättning för Azure](https://azure.microsoft.com/pricing) sidan. Observera att standardpriser gäller när du använder en standardarbetsytan för att konstruera experiment. Mer information finns i [information om priser för Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 **Vad är offentliga och privata poäng?**
 

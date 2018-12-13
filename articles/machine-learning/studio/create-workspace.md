@@ -5,7 +5,6 @@ services: machine-learning
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
@@ -13,18 +12,18 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: fc201b91ba3e2e7ba0f880445542333e58ed4a8c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e6835afd66d054a79c422a35839d64ae89031de5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079831"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268265"
 ---
-# <a name="create-and-share-an-azure-machine-learning-workspace"></a>Skapa och dela en Azure Machine Learning-arbetsyta
+# <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Skapa och dela en Azure Machine Learning Studio-arbetsyta
 
 Du måste ha en Machine Learning Studio-arbetsyta om du vill använda Azure Machine Learning Studio. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="to-create-a-workspace"></a>Skapa en arbetsyta
 1. Logga in på [Azure-portalen](https://portal.azure.com/)
@@ -60,7 +59,7 @@ När arbetsytan har distribuerats kan öppna du den i Machine Learning Studio.
     ![Öppna experiment](./media/create-workspace/my-experiments.png)
 
 Information om hur du hanterar din arbetsyta finns i [hantera en Azure Machine Learning-arbetsyta](manage-workspace.md).
-Om du stöter på problem med att skapa din arbetsyta kan se [felsökningsguide: skapa och ansluta till en Machine Learning-arbetsyta](troubleshooting-creating-ml-workspace.md).
+Om du stöter på problem med att skapa din arbetsyta kan se [felsökningsguide för: Skapa och ansluta till en Machine Learning-arbetsyta](troubleshooting-creating-ml-workspace.md).
 
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Dela en Azure Machine Learning-arbetsyta

@@ -1,12 +1,11 @@
 ---
-title: Omtrimma en befintlig förutsägande webbtjänst - Azure Machine Learning Studio | Microsoft Docs
+title: Omtrimma en befintlig förutsägande Studio webbtjänst - Azure Machine Learning Studio | Microsoft Docs
 description: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
@@ -16,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 8da3c5d5c79ce52f1f5176a8b3317ce2a0e0bc5f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d24cfd8dce42ee920c87fa2c3593a860468a6160
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311304"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250560"
 ---
-# <a name="retrain-an-existing-predictive-web-service"></a>Omtrimma en befintlig förutsägande webbtjänst
+# <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Omtrimma en befintlig förutsägande Azure Machine Learning Studio-webbtjänst
+
 Det här dokumentet beskrivs hur omtränings följande scenario:
 
 * Du har ett träningsexperiment och ett förutsägelseexperiment som du har distribuerat som en driftsatt webbtjänst.
@@ -66,7 +66,7 @@ Det här exemplet använder vi C# för att skapa omtränings-program. Du kan ock
 
 Att anropa omtränings-API: erna:
 
-1. Skapa ett C#-konsolprogram i Visual Studio: **New** > **projekt** > **Visual C#** > **Windows Classic Desktop** > **konsolprogram (.NET Framework)**.
+1. Skapa en C# konsolapp i Visual Studio: **Ny** > **projekt** > **Visual C#**   >  **Windows Classic Desktop**  >   **Konsolprogram (.NET Framework)**.
 2. Logga in på Machine Learning Web Services-portalen.
 3. Klicka på den webbtjänst som du arbetar med.
 4. Klicka på **förbrukar**.

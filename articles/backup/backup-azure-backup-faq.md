@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor och svar om Azure Backup
-description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
+description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valv, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261674"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262273"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -235,8 +235,8 @@ Ja. Data krypteras på den lokala datorn med hjälp av AES256. Data skickas via 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Är säkerhetskopierade data i Azure också krypterade?
 
 Ja. Data i Azure är krypterade i vila.
-- För en lokal säkerhetskopiering tillhandahålls kryptering vid återställning med lösenfras som du anger när du säkerhetskopierar till Azure.
-- Data är krypterade-på-reset med Storage Service Encryption (SSE) för virtuella Azure-datorer.
+- För en lokal säkerhetskopiering tillhandahålls kryptering i vila med lösenfras som du anger när du säkerhetskopierar till Azure.
+- Data är krypterade i vila med Storage Service Encryption (SSE) för virtuella Azure-datorer.
 
 Microsoft dekrypterar aldrig dina säkerhetskopierade data.
 

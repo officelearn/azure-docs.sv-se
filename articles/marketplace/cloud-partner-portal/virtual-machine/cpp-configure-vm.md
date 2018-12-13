@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1db8c99b1bd3f9bbb768572ca1f5f7a4e1e0de4
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639964"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183479"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Konfigurera den virtuella Azure-baserade datorn
 
@@ -28,14 +28,14 @@ Den här artikeln beskriver hur du storlek, uppdatera och generalisera en virtue
 
 ## <a name="sizing-the-vhds"></a>Ändra storlek på de virtuella hårddiskarna
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Om du har valt ett av de virtuella datorerna vara förkonfigurerad med ett operativsystem (och eventuellt ytterligare tjänster) och du redan har valt en standard Azure VM-storlek, enligt beskrivningen i [VM SKU: er fliken](./cpp-skus-tab.md).  Detta är den rekommenderade metoden.  Men om du installerar ett operativsystem manuellt, måste du storleken din primära VHD i din avbildning:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Om du har valt ett av de virtuella datorerna vara förkonfigurerad med ett operativsystem (och eventuellt ytterligare tjänster) och du redan har valt en standard Azure VM-storlek, enligt beskrivningen i [VM SKU: er fliken](./cpp-skus-tab.md).  Starta din lösning med en förkonfigurerad OS är den rekommenderade metoden.  Men om du installerar ett operativsystem manuellt, måste du storleken din primära VHD i din avbildning:
 
 - För Windows, operativsystemet VHD: N bör skapas som en 127-128 GB VHD i fast format. 
 - För Linux, den här virtuella Hårddisken ska skapas som en 30-50 GB VHD i fast format.
 
 Om den fysiska storleken är mindre än 127-128 GB bör VHD: N vara begränsad. Windows- och SQL Server Källavbildningen angetts uppfyller redan dessa krav, så ändra inte format eller storleken på den hämtade VHD: N. 
 
-Datadiskar kan vara så stora som 1 TB. När du bestämmer dig diskens storlek, Kom ihåg att kunder inte kan ändra storlek på VHD: er inuti en avbildning vid distributionen. Data disk VHD: er bör skapas som VHD i fast format. De bör också vara begränsad. Datadiskar kan ursprungligen vara tom eller innehålla data.
+Datadiskar kan vara så stora som 1 TB. När du bestämmer dig deras storlek, Kom ihåg att kunder inte kan ändra storlek på VHD: er inuti en avbildning vid distributionen. Data disk VHD: er bör skapas som VHD i fast format. De bör också vara begränsad. Datadiskar kan ursprungligen vara tom eller innehålla data.
 
 
 ## <a name="install-the-most-current-updates"></a>Installera de senaste uppdateringarna
@@ -49,7 +49,7 @@ För Linux-distributioner, uppdateringar ofta hämtas och installeras via ett ko
 
 ## <a name="perform-additional-security-checks"></a>Utföra ytterligare säkerhetskontroller
 
-Du bör behålla en hög säkerhetsnivå för din lösning avbildningar i Azure Marketplace.  I följande artikel finns en checklista av säkerhetskonfigurationer och procedurer för att hjälpa dig i det här målet: [säkerhetsrekommendationer för Azure Marketplace-avbildningar](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Några av de här rekommendationerna är specifika för Linux-baserade avbildningar, men gäller de för alla VM-avbildning. 
+Du bör behålla en hög säkerhetsnivå för din lösning avbildningar i Azure Marketplace.  I följande artikel finns en checklista av säkerhetskonfigurationer och procedurer för att hjälpa dig i det här målet: [Säkerhetsrekommendationer för Azure Marketplace-avbildningar](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Några av de här rekommendationerna är specifika för Linux-baserade avbildningar, men gäller de för alla VM-avbildning. 
 
 
 ## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Utföra anpassad konfiguration och schemalagda aktiviteter
@@ -95,8 +95,8 @@ Följande två steg generalisera en Linux-VM och distribuera om den som en separ
 
 Skapa kopior av virtuell dator används ofta för säkerhetskopiering, testning, anpassade redundans eller belastningsutjämning, att erbjuder olika konfigurationer för en lösning och så vidare. Information om hur du duplicera och ladda ned en primär virtuell Hårddisk för att göra en ohanterad klon finns i:
 
-- Virtuell Linux-dator: [ladda ned en Linux-VHD från Azure](../../../virtual-machines/linux/download-vhd.md)
-- Windows VM: [ladda ned Windows virtuella Hårddisken från Azure](../../../virtual-machines/windows/download-vhd.md)
+- Virtuell Linux-dator: [Hämta en Linux-VHD från Azure](../../../virtual-machines/linux/download-vhd.md)
+- Windows VM: [Ladda ned Windows virtuella Hårddisken från Azure](../../../virtual-machines/windows/download-vhd.md)
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,13 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.component: ''
-ms.openlocfilehash: b40e07743e686f5c9a921fad1e65658fb2f9428d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b68cab9451503ed3634f1086c5711cca1eb6936f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110233"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191282"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Hantera Log Analytics med PowerShell
 Du kan använda den [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) att utföra olika funktioner i Log Analytics från en kommandorad eller som en del av ett skript.  Exempel på de uppgifter du kan utföra med PowerShell:

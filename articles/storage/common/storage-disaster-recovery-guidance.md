@@ -6,15 +6,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39a938d45c8f15c21b44bb5b04b1429fb4733b5a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033931"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323276"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Vad du gör om ett avbrott i Azure Storage inträffar?
 På Microsoft arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga. Ibland tvingar utöver vårt styr hur oss på ett sätt som kan leda till oplanerade driftstopp i en eller flera regioner. För att hjälpa dig att hantera dessa sällsynta förekomster, tillhandahåller vi följande övergripande riktlinjer för Azure Storage-tjänster.
@@ -43,7 +43,7 @@ Om du har valt [Read-access geo-redundant lagring (RA-GRS)](storage-redundancy-g
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Vad som händer om det uppstår redundans lagring
 Om du har valt [Geo-redundant lagring (GRS)](storage-redundancy-grs.md) eller [Read-access geo-redundant lagring (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (rekommenderas), Azure Storage håller dina data varaktiga i två regioner (primär eller sekundär). I båda regionerna underhåller Azure Storage ständigt flera kopior av dina data.
 
-När ett regionalt haveri påverkar den primära regionen, försöker vi först återställa tjänsten i den regionen att ge den bästa kombinationen av RTO och RPO. Beroende på typen av katastrofen och dess påverkan, i vissa sällsynta fall visar vi kanske inte kan återställa den primära regionen. Då ska vi köra en geo-redundansväxling. Replikering av data över flera regioner är en asynkron åtgärd som inbegriper en fördröjning, så det är möjligt att ändringar som ännu inte har replikerats till den sekundära regionen kan gå förlorade.
+När ett regionalt haveri påverkar den primära regionen, försöker vi först återställa tjänsten i den regionen för att ge den bästa kombinationen av RTO och RPO. Beroende på typen av katastrofen och dess påverkan, i vissa sällsynta fall visar vi kanske inte kan återställa den primära regionen. Då ska vi köra en geo-redundansväxling. Replikering av data över flera regioner är en asynkron åtgärd som inbegriper en fördröjning, så det är möjligt att ändringar som ännu inte har replikerats till den sekundära regionen kan gå förlorade.
 
 Ett antal punkter angående lagring geo-redundansväxling upplevelse:
 

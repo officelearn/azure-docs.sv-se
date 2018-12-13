@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 68ca8593dea93faf076ffb5d99ec7bcad210a810
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ee0de5d03de29adddd8f77efbe7491603cc0e4c4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141840"
+ms.locfileid: "53188800"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration som krävs, än installation av en agent.
@@ -363,7 +362,7 @@ Om du får problem med installeras eller köras Tjänstkarta kan i det här avsn
 #### <a name="installer-prompts-for-a-reboot"></a>Installationsprogrammet frågar efter en omstart
 Beroendeagenten *Allmänt* inte kräver en omstart vid installation eller avinstallation. I vissa sällsynta fall kräver dock Windows Server startas om för att fortsätta med en installation. Detta händer när ett beroende, vanligtvis Microsoft Visual C++ Redistributable, kräver en omstart på grund av en låst fil.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>Meddelandet ”Det går inte att installera beroendeagenten: Det gick inte att installera Visual Studio-Runtime-bibliotek (kod = [code_number])” visas
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>Meddelandet ”Det går inte att installera beroendeagenten: Det gick inte att installera Visual Studio-Runtime-bibliotek (kod = [code_number]) ”visas
 
 Agenten Microsoft Dependency bygger på bibliotek för Microsoft Visual Studio-körning. Du får ett meddelande om ett problem har uppstått under installationen av biblioteken. 
 
@@ -375,14 +374,14 @@ I följande tabell visas kodnummer och rekommenderade lösningar.
 
 | Kod | Beskrivning | Lösning |
 |:--|:--|:--|
-| 0x17 | Installationsprogrammet biblioteket kräver en Windows-uppdatering som inte är installerad. | Titta i den senaste biblioteket installer-loggen.<br><br>Om en referens till ”Windows8.1-KB2999226-x64.msu” följt av en rad ”fel 0x80240017: Det gick inte att köra MSU-paketet”, du har inte några krav för att installera KB2999226. Följ anvisningarna i kravavsnittet i [Universal C-körning i Windows](https://support.microsoft.com/kb/2999226). Du kan behöva köra Windows Update och starta om flera gånger för att kunna installera nödvändiga komponenter.<br><br>Kör installationsprogrammet för Microsoft Dependency agenten igen. |
+| 0x17 | Installationsprogrammet biblioteket kräver en Windows-uppdatering som inte är installerad. | Titta i den senaste biblioteket installer-loggen.<br><br>Om en referens till ”Windows8.1-KB2999226-x64.msu” följt av en rad ”fel 0x80240017: Det gick inte att köra MSU-paketet ”, har du inte kraven för att installera KB2999226. Följ anvisningarna i kravavsnittet i [Universal C-körning i Windows](https://support.microsoft.com/kb/2999226). Du kan behöva köra Windows Update och starta om flera gånger för att kunna installera nödvändiga komponenter.<br><br>Kör installationsprogrammet för Microsoft Dependency agenten igen. |
 
 ### <a name="post-installation-issues"></a>Efter installationen problem
 #### <a name="server-doesnt-appear-in-service-map"></a>Servern visas inte i Tjänstkarta
 Om din beroende agentinstallationen har genomförts, men du inte ser din server i lösningen Tjänstkarta:
 * Beroendeagenten installeras? Du kan kontrollera detta genom att markera om du vill se om tjänsten är installerad och körs.<br><br>
 **Windows**: Leta efter tjänsten med namnet ”Microsoft Dependency agent”.<br>
-**Linux**: Sök efter löpande bearbeta ”microsoft-beroende-agent”.
+**Linux**: Leta efter processen ”microsoft-beroende-agent”.
 
 * Är du på den [kostnadsfria prisnivån för Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Det kostnadsfria abonnemanget kan upp till fem unika Tjänstkarta-servrar. Övriga servrar visas inte i Tjänstkartan, även om de tidigare fem inte längre skickar data.
 

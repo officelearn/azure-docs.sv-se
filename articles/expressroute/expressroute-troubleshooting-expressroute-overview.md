@@ -1,103 +1,97 @@
 ---
-title: 'Verifiera anslutningsbarhet: Azure ExpressRoute felsökningsguide för | Microsoft Docs'
-description: Den här sidan innehåller instruktioner för felsökning och verifiera slutpunkt till slutpunkt-anslutningen för en ExpressRoute-krets.
-documentationcenter: na
+title: 'Kontrollera anslutningen – ExpressRoute felsökningsguide: Azure | Microsoft Docs'
+description: Den här sidan innehåller anvisningar för felsökning och verifiera anslutningen från slutpunkt till slutpunkt för en ExpressRoute-krets.
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/26/2017
-ms.author: cherylmc
-ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: rambala
+ms.custom: seodec18
+ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753462"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272821"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
-ExpressRoute som sträcker sig ett lokalt nätverk via en privat anslutning som möjliggörs med hjälp av en provider för anslutning till Microsoft cloud omfattar följande tre separata nätverkszoner:
+Den här artikeln hjälper dig att kontrollera och felsökning av ExpressRoute-anslutningar. ExpressRoute, som utökar ett lokalt nätverk till Microsoft-molnet över en privat anslutning som är från en anslutningsleverantör, omfattar följande tre separata nätverkszoner:
 
 -   Kundens nätverk
--   Providern nätverk
+-   -Providernätverket
 -   Microsoft-Datacenter
 
-Syftet med det här dokumentet är att hjälpa användare att identifiera var (eller även om) ett anslutningsproblem finns och inom vilken zon, vilket för att begära hjälp från rätt team för att lösa problemet. Om Microsoft-supporten krävs för att lösa ett problem, öppna ett supportärende med [Microsoft-supporten][Support].
+Syftet med det här dokumentet är att hjälpa användare att identifiera var (eller även om) ett anslutningsproblem finns och inom vilken zon därmed för att få hjälp från lämpligt team att lösa problemet. Om Microsoft-supporten krävs för att lösa ett problem, öppna ett supportärende med [Microsoft Support][Support].
 
 > [!IMPORTANT]
-> Det här dokumentet är avsett för att diagnostisera och åtgärda problem med enkla. Det är inte avsedd att vara en ersättning för Microsoft-supporten. Öppna ett supportärende med [Microsoft-supporten] [ Support] om det inte går att lösa problemet med hjälp av de riktlinjer som tillhandahålls.
+> Det här dokumentet är avsett för att diagnostisera och åtgärda enkel problem. Det är inte avsedd att ersätta för Microsoft-supporten. Öppna ett supportärende med [Microsoft Support] [ Support] om det inte går att lösa problemet med hjälp av riktlinjerna.
 >
 >
 
 ## <a name="overview"></a>Översikt
-Följande diagram visar logiska anslutningen för en kund nätverk till Microsoft-nätverk via ExpressRoute.
+Följande diagram visar logiska anslutning av en kundens nätverk till Microsoft-nätverk via ExpressRoute.
 [![1]][1]
 
-I föregående diagram visar talen viktiga nätverket punkter. Nätverket punkter refereras ofta via den här artikeln av deras associerade nummer.
+Talen anger viktiga nätverk punkter i föregående diagram. Nätverk-punkter refererar ofta via den här artikeln deras tillhörande nummer.
 
-Beroende på anslutningen ExpressRoute modellen (moln Exchange samordning, Point-to-Point Ethernet-anslutning eller alla-till-alla (IPVPN)) kanske nätverket punkterna 3 och 4 växlar (nivå 2-enheter). Följande är viktiga nätverket punkter visas:
+Beroende på modellen för ExpressRoute-anslutning (Cloud Exchange samplacering, Ethernet-anslutning eller alla-till-alla (IPVPN)) vara nätverk punkterna 3 och 4 växlar (Layer 2-enheter). Viktiga nätverk poäng illustreras är följande:
 
-1.  Kunden beräkning enheten (exempelvis en server eller dator)
+1.  Kunden compute-enhet (till exempel en server eller dator)
 2.  CEs: Klientens gränsroutrar 
-3.  Sämsta (CE inriktad): providern edge routrar/växlar som är riktade mot klientens gränsroutrar. Kallas PE CEs i det här dokumentet.
-4.  Sämsta (MSEE inriktad): providern edge routrar/växlar som är riktade mot MSEEs. Kallas PE MSEEs i det här dokumentet.
-5.  MSEEs: Microsoft Enterprise kant (MSEE) ExpressRoute routrar
+3.  Sämsta (CE riktar sig mot): Providern edge-routrar/växlar som står inför gränsroutrar. Kallas PE CEs i det här dokumentet.
+4.  Sämsta (msee: N riktar sig mot): Providern edge-routrar/växlar som står inför msee. Kallas PE msee i det här dokumentet.
+5.  Msee: Microsoft Enterprise Edge (MSEE) ExpressRoute routrar
 6.  Gateway för virtuellt nätverk (VNet)
-7.  Compute-enhet i Azure VNet
+7.  Compute-enhet på Azure VNet
 
-Om anslutningen modeller molnet Exchange samplacering eller Point-to-Point Ethernet-anslutning används skulle klientens gränsrouter (2) upprätta BGP-peering med MSEEs (5). Nätverket punkterna 3 och 4 skulle fortfarande finns men är något transparent som Lager2-enheter.
+Om anslutningsmodeller samplacering av molnet Exchange eller Ethernet-anslutning används skulle gränsrouter (2) upprättar BGP-peering med msee (5). Nätverket punkterna 3 och 4 skulle fortfarande finns men vara något transparenta som Layer 2-enheter.
 
-Om alla-till-alla (IPVPN) anslutningen modellen används PEs (MSEE inriktad) (4) skulle upprätta BGP-peering med MSEEs (5). Vägar skulle sedan spridas till kunden nätverket via IPVPN service provider nätverk.
+Om alla-till-alla (IPVPN) anslutning modellen används PEs (msee: N riktar sig mot) (4) skulle upprätta BGP-peering med msee (5). Vägar skulle sedan spridas till kundnätverk via IPVPN providernätverket.
 
 >[!NOTE]
->Microsoft kräver ett redundant BGP-sessioner mellan MSEEs (5) och PE-MSEEs (4)-par för ExpressRoute med hög tillgänglighet. Ett redundant par nätverkssökvägar rekommenderas också mellan kundens nätverk och PE CEs. Dock kan en enda CE-enhet (2) vara ansluten till en eller flera PEs (3) i modellen för alla-till-alla (IPVPN)-anslutning.
+>För hög tillgänglighet för ExpressRoute-anslutningar kräver Microsoft ett redundant par med BGP-sessioner mellan msee (5) och PE-msee (4). Ett redundant par med nätverkssökvägar rekommenderas också mellan kundens nätverk och PE CEs. Dock kan en enda CE-enhet (2) vara ansluten till en eller flera PEs (3) i alla-till-alla (IPVPN) anslutning modellen.
 >
 >
 
-Om du vill validera en ExpressRoute-krets beskrivs följande steg (med den nätverkspunkt som anges av tillhörande nummer):
+För att verifiera en ExpressRoute-krets kan beskrivs följande steg (med den nätverkspunkt som anges av tillhörande nummer):
 1. [Validera kretsetablering och tillstånd (5)](#validate-circuit-provisioning-and-state)
 2. [Verifiera minst en ExpressRoute-peering är konfigurerad (5)](#validate-peering-configuration)
-3. [Validera ARP mellan Microsoft och service provider (länk mellan 4 och 5)](#validate-arp-between-microsoft-and-the-service-provider)
-4. [Validera BGP och vägar på MSEE (BGP mellan 4 – 5 och 5 till 6 om ett virtuellt nätverk är ansluten)](#validate-bgp-and-routes-on-the-msee)
-5. [Kontrollera trafik statistik (trafik som passerar genom 5)](#check-the-traffic-statistics)
+3. [Verifiera ARP mellan Microsoft och service provider (länk mellan 4 och 5)](#validate-arp-between-microsoft-and-the-service-provider)
+4. [Verifiera BGP och vägar på msee: N (BGP mellan 4 till 5 och 5 till 6 om ett virtuellt nätverk är ansluten)](#validate-bgp-and-routes-on-the-msee)
+5. [Kontrollera trafik-statistik (trafik som passerar genom 5)](#check-the-traffic-statistics)
 
-Mer verifieringar och kontroller som läggs i framtida, kontrollerar tillbaka varje månad!
+Fler verifieringar och kontroller ska läggas till i framtida, kom tillbaka varje månad!
 
 ## <a name="validate-circuit-provisioning-and-state"></a>Validera kretsetablering och tillstånd
-En ExpressRoute-krets måste skapas och därför en nyckel genereras för kretsetablering oavsett connectivity-modell. Etablera en ExpressRoute-krets upprättar en redundant nivå 2-anslutningar mellan PE-MSEEs (4) och MSEEs (5). Mer information om hur du skapar, ändra, konfigurera och verifiera en ExpressRoute-krets finns i artikeln [skapa och ändra en ExpressRoute-krets][CreateCircuit].
+En ExpressRoute-krets har skapas oavsett connectivity-modell och därför en Tjänstnyckel genereras för kretsetablering. Etablera en ExpressRoute-krets upprättar en redundant Layer 2-anslutningar mellan PE-msee (4) och msee (5). Mer information om hur du skapar, ändrar, etablera och verifiera en ExpressRoute-krets finns i artikeln [skapa och ändra en ExpressRoute-krets][CreateCircuit].
 
 >[!TIP]
->Nyckeln för tjänsten identifierar en ExpressRoute-krets. Den här nyckeln är obligatorisk för de flesta av powershell-kommandon som nämns i det här dokumentet. Dessutom bör du behöver hjälp från Microsoft eller från en ExpressRoute-partner om du vill felsöka problem ExpressRoute ange nyckeln för tjänsten för att lätt identifiera kretsen.
+>En Tjänstnyckel identifierar en ExpressRoute-krets. Den här nyckeln krävs för de flesta av de powershell-kommandon som nämns i det här dokumentet. Dessutom bör du behöver hjälp från Microsoft eller från en ExpressRoute-partner att felsöka ett problem med ExpressRoute, ange tjänst-nyckel för att lätt identifiera kretsen.
 >
 >
 
 ### <a name="verification-via-the-azure-portal"></a>Verifiering via Azure portal
-I Azure-portalen, status för en ExpressRoute-krets kan kontrolleras genom att välja ![2][2] på vänster sidorutan-menyn och sedan välja ExpressRoute-kretsen. Om du markerar en ExpressRoute öppnas krets som anges under ”alla resurser” bladet ExpressRoute-kretsen. I den ![3][3] på bladet ExpressRoute essentials listas som visas i följande skärmbild visar:
+I Azure-portalen, status för en ExpressRoute-krets kan kontrolleras genom att välja ![2][2] på menyn till vänster Sidopanel och sedan välja ExpressRoute-kretsen. Om du väljer en ExpressRoute öppnas krets som visas under ”alla resurser” bladet ExpressRoute-krets. I den ![3][3] på bladet, ExpressRoute essentials visas enligt följande skärmbild:
 
 ![4][4]    
 
-I ExpressRoute-Essentials *krets status* anger kretsstatusen på Microsoft-sida. *Providerstatus* visar om kretsen har *etablerad ej etablerad* på sida-leverantör. 
+I ExpressRoute-Essentials *krets status* anger status för kretsen på Microsoft-sida. *Providerstatus* anger om kretsen har varit *etablerad/inte etablerats* på tjänstleverantör sida. 
 
 För en ExpressRoute-krets ska fungera, den *krets status* måste vara *aktiverad* och *Providerstatus* måste vara *etablerad*.
 
 >[!NOTE]
->Om den *krets status* är inte aktiverad, kontakta [Microsoft-supporten][Support]. Om den *Providerstatus* har inte etablerats kontakta tjänstleverantören.
+>Om den *krets status* är inte aktiverad, kontakta [Microsoft Support][Support]. Om den *Providerstatus* har inte etablerats kontakta tjänstleverantören.
 >
 >
 
 ### <a name="verification-via-powershell"></a>Verifiering via PowerShell
-Om du vill visa en lista med alla ExpressRoute-kretsar i en resursgrupp, använder du följande kommando:
+Om du vill visa alla ExpressRoute-kretsar i en resursgrupp, använder du följande kommando:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->Du kan hämta din resursgruppens namn via Azure. Se föregående avsnitt i det här dokumentet och Observera att resursgruppens namn visas i exemplet skärmbild.
+>Du kan få namn på resursgruppen via Azure. Se underavsnittet tidigare i det här dokumentet och Observera att resursgruppens namn visas i exemplet skärmbild.
 >
 >
 
@@ -105,7 +99,7 @@ Om du vill välja en viss ExpressRoute-krets i en resursgrupp, använder du föl
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
 
-En exempelsvar är:
+En exempelsvaret är:
 
     Name                             : Test-ER-Ckt
     ResourceGroupName                : Test-ER-RG
@@ -130,26 +124,26 @@ En exempelsvar är:
     Peerings                         : []
     Authorizations                   : []
 
-För att bekräfta om en ExpressRoute-krets fungerar, särskilt noga följande fält:
+För att bekräfta om en ExpressRoute-krets fungerar, särskilt uppmärksam på följande fält:
 
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
 
 >[!NOTE]
->Om den *CircuitProvisioningState* är inte aktiverad, kontakta [Microsoft-supporten][Support]. Om den *ServiceProviderProvisioningState* har inte etablerats kontakta tjänstleverantören.
+>Om den *CircuitProvisioningState* är inte aktiverad, kontakta [Microsoft Support][Support]. Om den *Korsanslutningens* har inte etablerats kontakta tjänstleverantören.
 >
 >
 
 ### <a name="verification-via-powershell-classic"></a>Verifiering via PowerShell (klassisk)
-Om du vill visa en lista med alla ExpressRoute-kretsar under en prenumeration, använder du följande kommando:
+Om du vill visa alla ExpressRoute-kretsar för en prenumeration, använder du följande kommando:
 
     Get-AzureDedicatedCircuit
 
-Om du vill välja en viss ExpressRoute-krets, använder du följande kommando:
+För att välja en viss ExpressRoute-krets, använder du följande kommando:
 
     Get-AzureDedicatedCircuit -ServiceKey **************************************
 
-En exempelsvar är:
+En exempelsvaret är:
 
     andwidth                         : 100
     BillingType                      : UnlimitedData
@@ -161,31 +155,31 @@ En exempelsvar är:
     Sku                              : Standard
     Status                           : Enabled
 
-För att bekräfta om en ExpressRoute-krets fungerar, särskilt noga följande fält: ServiceProviderProvisioningState: etablerats Status: aktiverat
+För att bekräfta om en ExpressRoute-krets fungerar, särskilt uppmärksam på följande fält: Korsanslutningens: Etablerade Status: Enabled
 
 >[!NOTE]
->Om den *Status* är inte aktiverad, kontakta [Microsoft-supporten][Support]. Om den *ServiceProviderProvisioningState* har inte etablerats kontakta tjänstleverantören.
+>Om den *Status* är inte aktiverad, kontakta [Microsoft Support][Support]. Om den *Korsanslutningens* har inte etablerats kontakta tjänstleverantören.
 >
 >
 
-## <a name="validate-peering-configuration"></a>Verifiera Peering konfiguration
-När etableringen ExpressRoute-kretsen tjänstleverantör har slutförts kan du skapa en routningskonfiguration via ExpressRoute-kretsen mellan MSEE fso (4) och MSEEs (5). Varje ExpressRoute-kretsen kan ha en, två eller tre routning kontexter aktiverad: privat Azure-peering (trafik till privata virtuella nätverk i Azure), offentlig Azure-peering (trafik till den offentliga IP-adresser i Azure) och Microsoft-peering (trafik till Office 365 och Dynamics 365). Mer information om hur du skapar och ändra konfigurationen för routning finns i artikeln [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].
+## <a name="validate-peering-configuration"></a>Verifiera Peering-konfigurationen
+När tjänstleverantören har slutförts etableringen ExpressRoute-kretsen kan kan en routningskonfiguration skapas via ExpressRoute-krets mellan msee: N-pull-begäranden (4) och msee (5). Varje ExpressRoute-krets kan ha en, två eller tre routning kontexter aktiverat: Azure privat peering (trafik till privata virtuella nätverk i Azure), Azure offentlig peering (trafik till offentliga IP-adresser i Azure) och Microsoft peering (trafik till Office 365 och Dynamics 365). Mer information om hur du skapar och ändra routningskonfiguration finns i artikeln [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Verifiering via Azure portal
 
 >[!NOTE]
->Om nivå 3 tillhandahålls av leverantören och peerkopplingar är tomma på portalen, uppdatera krets konfigurationen med hjälp av uppdateringsknappen på portalen. Den här åtgärden gäller rätt routningskonfiguration kretsen. 
+>Om nivå 3 tillhandahålls av leverantören och peerings är tomma i portalen, uppdaterar du konfigurationen krets med hjälp av uppdateringsknappen på portalen. Den här åtgärden gäller rätt routningskonfiguration på din krets. 
 >
 >
 
-I Azure-portalen, status för en ExpressRoute-krets kan kontrolleras genom att välja ![2][2] på vänster sidorutan-menyn och sedan välja ExpressRoute-kretsen. Att välja en ExpressRoute öppnas krets som anges under ”alla resurser” bladet ExpressRoute-kretsen. I den ![3][3] på bladet ExpressRoute essentials anges som visas i följande skärmbild visar:
+I Azure-portalen, status för en ExpressRoute-krets kan kontrolleras genom att välja ![2][2] på menyn till vänster Sidopanel och sedan välja ExpressRoute-kretsen. Att välja en ExpressRoute skulle krets som visas under ”alla resurser” öppna bladet ExpressRoute-krets. I den ![3][3] på bladet, ExpressRoute essentials anges enligt följande skärmbild:
 
 ![5][5]
 
-I föregående exempel, som noterats Azure är privat peering routning kontext aktiverad, medan Azure offentliga och Microsoft peering routning kontexter inte är aktiverade. En kontext som har aktiverats peering har också primära och sekundära point-to-point (krävs för BGP)-undernät i listan. Den/30-undernät som används för IP-adressen för gränssnittet för MSEEs och PE MSEEs. 
+I föregående exempel, som anges Azure är privat peering routning kontext aktiverad, medan Azure offentlig och Microsoft peering routning kontexter inte har aktiverats. En aktiverades peering kontext skulle också ha primära och sekundära point-to-point (krävs för BGP)-undernät som visas. Den/30-undernät används för IP-adressen för gränssnittet för msee och PE msee. 
 
 >[!NOTE]
->Om en peering inte är aktiverat, kontrollera om de primära och sekundära undernät som tilldelats matchar konfigurationen på PE MSEEs. Om inte, om du vill ändra konfigurationen på MSEE routrar, referera till [skapa och ändra routning för en ExpressRoute-krets][CreatePeering]
+>Om en peer-koppling inte är aktiverad, kan du kontrollera om de primära och sekundära undernäten som tilldelats matchar konfigurationen på PE msee. Om inte, om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets][CreatePeering]
 >
 >
 
@@ -195,7 +189,7 @@ För att få Azure privat peering konfigurationsinformation, använder du följa
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
-En exempelsvar för en har konfigurerats privat peering, är:
+En exempelsvaret för en har konfigurerats privat peering, är:
 
     Name                       : AzurePrivatePeering
     Id                         : /subscriptions/***************************/resourceGroups/Test-ER-RG/providers/***********/expressRouteCircuits/Test-ER-Ckt/peerings/AzurePrivatePeering
@@ -212,19 +206,19 @@ En exempelsvar för en har konfigurerats privat peering, är:
     MicrosoftPeeringConfig     : null
     ProvisioningState          : Succeeded
 
- En kontext som har aktiverats peering skulle ha primära och sekundära adressprefix i listan. Den/30-undernät som används för IP-adressen för gränssnittet för MSEEs och PE MSEEs.
+ En aktiverades peering kontext skulle ha primära och sekundära IP-adressprefixen som visas. Den/30-undernät används för IP-adressen för gränssnittet för msee och PE msee.
 
 För att få Azure offentlig peering konfigurationsinformation, använder du följande kommandon:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
-Använd följande kommandon för att hämta konfigurationsinformation för Microsoft-peering:
+Om du vill hämta konfigurationsinformationen för Microsoft-peering, använder du följande kommandon:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
      Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
-Om en peering inte har konfigurerats, skulle det finnas ett felmeddelande. Ett exempelsvar, när den angivna peering (offentlig Azure-peering i det här exemplet) inte har konfigurerats i kretsen:
+Om en peer-koppling har konfigurerats, skulle det finnas ett felmeddelande. Ett exempelsvar när den angivna peering (offentlig Azure-peering i det här exemplet) inte har konfigurerats i kretsen:
 
     Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
     At line:1 char:1
@@ -236,7 +230,7 @@ Om en peering inte har konfigurerats, skulle det finnas ett felmeddelande. Ett e
 
 <p/>
 >[!NOTE]
->Om en peering inte är aktiverat, kontrollera om de primära och sekundära undernät som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureASN*, och *PeerASN* används på MSEEs och om du värdena som mappar till de som används på den länkade PE-MSEE. Om du väljer MD5-hash ska delad nyckel vara samma på MSEE och PE MSEE. Om du vill ändra konfigurationen på MSEE routrar, referera till [skapa och ändra routning för en ExpressRoute-krets] [CreatePeering].  
+>Om en peer-koppling inte är aktiverad, kan du kontrollera om de primära och sekundära undernäten som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureASN*, och *PeerASN* används på msee och om dessa värden som mappar till de som används på den länkade PE-MSEE. Om du väljer MD5-hash ska den delade nyckeln vara samma på nyckelpar msee: N och PE msee: N. Om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets] [CreatePeering].  
 >
 >
 
@@ -245,7 +239,7 @@ För att få Azure privat peering konfigurationsinformation, använder du följa
 
     Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
-En exempelsvar för en har konfigurerats privat peering är:
+En exempelsvaret för en har konfigurerats privat peering är:
 
     AdvertisedPublicPrefixes       : 
     AdvertisedPublicPrefixesState  : Configured
@@ -260,40 +254,40 @@ En exempelsvar för en har konfigurerats privat peering är:
     State                          : Enabled
     VlanId                         : 100
 
-A, aktiverats peering kontexten skulle ha primära och sekundära peer-undernät i listan. Den/30-undernät som används för IP-adressen för gränssnittet för MSEEs och PE MSEEs.
+En aktiverad, peering kontext skulle ha de primära och sekundära peer-undernät som visas. Den/30-undernät används för IP-adressen för gränssnittet för msee och PE msee.
 
 För att få Azure offentlig peering konfigurationsinformation, använder du följande kommandon:
 
     Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 
-Använd följande kommandon för att hämta konfigurationsinformation för Microsoft-peering:
+Om du vill hämta konfigurationsinformationen för Microsoft-peering, använder du följande kommandon:
 
     Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
 >[!IMPORTANT]
->Om nivå 3 peerkopplingar inställda av tjänstleverantören inställningen ExpressRoute peerkopplingar via portalen eller PowerShell skriver över tjänstinställningar för providern. Återställer providern sida peering-inställningar kräver stöd för tjänstleverantören. Ändra bara ExpressRoute peerkopplingar om det är säkert att tjänstleverantören tillhandahåller nivå 2-tjänster!
+>Om layer 3-peerings har ställts in av tjänsteleverantören, ställa in ExpressRoute-peerkopplingar via portalen eller PowerShell skriver över tjänstinställningar för providern. När du återställer providern sida peering-inställningar kräver stöd för tjänstleverantören. Endast ändra ExpressRoute-peerkopplingar om det är säkert att tjänstleverantören tillhandahåller layer 2-tjänster!
 >
 >
 
 <p/>
 >[!NOTE]
->Om en peering inte är aktiverat, kontrollera om de primära och sekundära peer-undernät som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureAsn*, och *PeerAsn* används på MSEEs och om du värdena som mappar till de som används på den länkade PE-MSEE. Om du vill ändra konfigurationen på MSEE routrar, referera till [skapa och ändra routning för en ExpressRoute-krets] [CreatePeering].
+>Om en peer-koppling inte är aktiverad, kan du kontrollera om de primära och sekundära peer-undernät som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureAsn*, och *PeerAsn* används på msee och om dessa värden som mappar till de som används på den länkade PE-MSEE. Om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets] [CreatePeering].
 >
 >
 
-## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Validera ARP mellan Microsoft och -leverantör
-Det här avsnittet använder PowerShell (klassisk)-kommandon. Om du har använt Azure Resource Manager för PowerShell-kommandon, kan du kontrollera att du har admin-/ medadministratör åtkomst till prenumerationen. Felsöka med Azure Resource Manager kommandon finns i den [komma ARP-tabeller i Resource Manager-distributionsmodellen] [ ARP] dokumentet.
+## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Verifiera ARP mellan Microsoft och tjänstleverantören
+Det här avsnittet använder PowerShell (klassisk)-kommandon. Om du har använt PowerShell Azure Resource Manager-kommandon, kan du kontrollera att du har åtkomst för administratör/medadministratör till prenumerationen. Felsöka med Azure Resource Manager kommandon finns i den [komma ARP-tabeller i distributionsmodellen för Resource Manager] [ ARP] dokumentet.
 
 >[!NOTE]
->Både Azure-portalen och Azure Resource Manager PowerShell-kommandon kan användas för att få ARP. Om det uppstår fel med Azure Resource Manager PowerShell-kommandon, bör klassiska PowerShell-kommandon fungera som klassiska PowerShell kommandon också fungera med Azure Resource Manager ExpressRoute-kretsar.
+>Både Azure-portalen och Azure Resource Managers PowerShell-kommandon kan användas för att få ARP. Om det uppstår fel med Azure Resource Managers PowerShell-kommandon, bör klassiska PowerShell-kommandon fungera som klassisk PowerShell kommandon fungerar också med Azure Resource Manager ExpressRoute-kretsar.
 >
 >
 
-Om du vill hämta ARP-tabell från den primära MSEE routern för privat peering, använder du följande kommando:
+Om du vill hämta ARP-tabell från den primära msee: N-routern för privat peering, använder du följande kommando:
 
     Get-AzureDedicatedCircuitPeeringArpInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
-Ett exempelsvar för kommandot i lyckade scenariot:
+Ett exempel på ett svar för kommandot lyckas scenariot:
 
     ARP Info:
 
@@ -301,56 +295,56 @@ Ett exempelsvar för kommandot i lyckade scenariot:
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-På liknande sätt kan du ARP-tabell från MSEE i den *primära*/*sekundära* sökvägen för *privata*/*offentliga*  / *Microsoft* peerkopplingar.
+På samma sätt du kan kontrollera ARP-tabell från msee: N i den *primära*/*sekundära* sökvägen för *privata*/*offentliga*  / *Microsoft* peerings.
 
-I följande exempel visas svaret i kommandot för en peering inte finns.
+I följande exempel visas svaret i kommandot för en peer-koppling inte finns.
 
     ARP Info:
        
 >[!NOTE]
->Granska följande information om ARP-tabell saknar IP-adresserna för de gränssnitt som mappats till MAC-adresser:
->1. Om den första IP-adressen för /30 undernät som har tilldelats för länken mellan MSEE PR och MSEE används för gränssnittet på MSEE PR. Azure använder alltid den andra IP-adressen för MSEEs.
->2. Kontrollera om kunden (C-tagg) och service (S-tagg) VLAN-taggarna matchar både på MSEE PR och MSEE.
+>Granska följande information om ARP-tabell inte har IP-adresserna för de gränssnitt som mappats till MAC-adresser:
+>1. Om den första IP-adressen för/30 undernät som har tilldelats för länken mellan msee: N-PR och msee: N används på gränssnittet pullförfrågan msee: N. Azure använder alltid den andra IP-adressen för msee.
+>2. Kontrollera om kunden (C-tagg) och VLAN tjänsttaggar (S-tagg) matchar både på nyckelpar msee: N-PR och msee: N.
 >
 >
 
-## <a name="validate-bgp-and-routes-on-the-msee"></a>Validera BGP och vägar på MSEE
-Det här avsnittet använder PowerShell (klassisk)-kommandon. Om du har använt Azure Resource Manager för PowerShell-kommandon, kan du kontrollera att du har admin-/ medadministratör åtkomst till prenumerationen.
+## <a name="validate-bgp-and-routes-on-the-msee"></a>Verifiera BGP och vägar på den msee: N
+Det här avsnittet använder PowerShell (klassisk)-kommandon. Om du har använt PowerShell Azure Resource Manager-kommandon, kan du kontrollera att du har åtkomst för administratör/medadministratör till prenumerationen.
 
 >[!NOTE]
->Både Azure-portalen och Azure Resource Manager PowerShell-kommandon kan användas för att hämta information om BGP. Om det uppstår fel med Azure Resource Manager PowerShell-kommandon, bör klassiska PowerShell-kommandon fungera som klassiska PowerShell kommandon också fungera med Azure Resource Manager ExpressRoute-kretsar.
+>Både Azure-portalen och Azure Resource Managers PowerShell-kommandon kan användas för att hämta information om BGP. Om det uppstår fel med Azure Resource Managers PowerShell-kommandon, bör klassiska PowerShell-kommandon fungera som klassisk PowerShell kommandon fungerar också med Azure Resource Manager ExpressRoute-kretsar.
 >
 >
 
-Om du vill hämta routningstabell (BGP-Grannens) sammanfattning för en viss routning kontext, använder du följande kommando:
+Om du vill hämta routningstabell (BGP-Grannens) för en viss routning kontext, använder du följande kommando:
 
     Get-AzureDedicatedCircuitPeeringRouteTableSummary -AccessType Private -Path Primary -ServiceKey "*********************************"
 
-Ett exempelsvar är:
+Ett exempel på ett svar är:
 
     Route Table Summary:
 
             Neighbor                   V                  AS              UpDown         StatePfxRcd
             10.0.0.1                   4                ####                8w4d                  50
 
-Som det visas i föregående exempel, är kommandot användbar för att fastställa hur länge routning kontexten har etablerats. Den anger också antalet väg prefix annonseras av peering routern.
+I föregående exempel visas är kommandot användbart för att fastställa hur länge routning sammanhanget har upprättats. Den anger också antalet route-prefix som annonseras av peering routern.
 
 >[!NOTE]
->Om den är i tillståndet aktivt eller inaktivt, kontrollerar du om de primära och sekundära peer-undernät som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureAsn*, och *PeerAsn* används på MSEEs och om du värdena som mappar till de som används på den länkade PE-MSEE. Om du väljer MD5-hash ska delad nyckel vara samma på MSEE och PE MSEE. Om du vill ändra konfigurationen på MSEE routrar, referera till [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].
+>Om tillståndet är i aktivt eller inaktivt, kontrollera om de primära och sekundära peer-undernät som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureAsn*, och *PeerAsn* används på msee och om dessa värden som mappar till de som används på den länkade PE-MSEE. Om du väljer MD5-hash ska den delade nyckeln vara samma på nyckelpar msee: N och PE msee: N. Om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].
 >
 >
 
 <p/>
 >[!NOTE]
->Om vissa mål inte kan nås via en viss peering, kontrollera routningstabellen för MSEEs som hör till viss peering-kontexten. Om det finns ett matchande prefix (kan vara NATed IP) i routningstabellen, kontrollera om det finns ACL-brandväggar/NSG på sökvägen och de att trafiken.
+>Om vissa mål inte kan nås via en viss peering, kontrollerar du i routningstabellen för msee: erna som hör till viss peering kontexten. Om ett matchande prefix (kan vara NATed IP) finns i routningstabellen och kontrollera sedan om det finns brandväggar/NSG/ACL: er på sökvägen och om de att trafiken.
 >
 >
 
-Att hämta den fullständiga routningstabellen från MSEE den *primära* sökväg för en viss *privata* routning kontext, använder du följande kommando:
+Att hämta den fullständiga routningstabellen från msee: N den *primära* sökvägen för speciellt *privata* routning kontext, använder du följande kommando:
 
     Get-AzureDedicatedCircuitPeeringRouteTableInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
-Exempel lyckade resultat för kommandot är:
+Ett exempel lyckade resultat för kommandot är:
 
     Route Table Info:
 
@@ -359,14 +353,14 @@ Exempel lyckade resultat för kommandot är:
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-På liknande sätt kan du routningstabellen från MSEE i den *primära*/*sekundära* sökvägen för *privata* /  *Offentliga*/*Microsoft* en peering-kontext.
+På samma sätt du kan kontrollera routningstabellen från msee: N i den *primära*/*sekundära* sökvägen för *privata* /  *Offentliga*/*Microsoft* en peering kontext.
 
-I följande exempel visas svaret i kommandot för en peering inte finns:
+I följande exempel visas svaret i kommandot för en peer-koppling inte finns:
 
     Route Table Info:
 
-## <a name="check-the-traffic-statistics"></a>Kontrollera trafik statistik
-Om du vill få kombinerade primära och sekundära sökväg trafik statistik--använder byte in och ut – för en peering kontext, du följande kommando:
+## <a name="check-the-traffic-statistics"></a>Kontrollera trafik-statistik
+Om du vill hämta kombinerade vägen för primära och sekundära trafik statistik – byte in och ut – för en peering kontext använder du följande kommando:
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
 
@@ -376,7 +370,7 @@ Ett exempel på utdata för kommandot är:
     -------------- --------------- ---------------- -----------------
          240780020       239863857        240565035         239628474
 
-Ett exempel på utdata i kommandot för en obefintlig peering är:
+Ett exempel på utdata i kommandot för en icke-existerande peering är:
 
     Get-AzureDedicatedCircuitStats : ResourceNotFound: Can not find any subinterface for peering type 'Public' for circuit '97f85950-01dd-4d30-a73c-bf683b3a6e5c' .
     At line:1 char:1
@@ -386,7 +380,7 @@ Ett exempel på utdata i kommandot för en obefintlig peering är:
         + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.GetAzureDedicatedCircuitPeeringStatsCommand
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information eller hjälp finns på följande länkar:
+Mer information eller hjälp finns i följande länkar:
 
 - [Microsoft Support][Support]
 - [Skapa och ändra en ExpressRoute-krets][CreateCircuit]
@@ -394,7 +388,7 @@ Mer information eller hjälp finns på följande länkar:
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "logiska Expressroute-anslutning"
-[2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "Ikon för alla resurser"
+[2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "Alla resurser, ikon"
 [3]: ./media/expressroute-troubleshooting-expressroute-overview/portal-overview.png "Översikt över ikonen"
 [4]: ./media/expressroute-troubleshooting-expressroute-overview/portal-circuit-status.png "ExpressRoute Essentials exempel skärmbild"
 [5]: ./media/expressroute-troubleshooting-expressroute-overview/portal-private-peering.png "ExpressRoute Essentials exempel skärmbild"

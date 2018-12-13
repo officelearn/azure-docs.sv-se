@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 20d076e256143683b52cfaa713e25e4d31f0f3d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3e6064b4c202c36e4b63d6e06edfbf3149f6665f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098703"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139880"
 ---
 # <a name="add-intents"></a>Lägg till avsikter 
 
@@ -58,7 +58,7 @@ Exempel yttranden är text-exempel på användarnas frågor eller kommandon. Om 
 
 Ett uttryck i ett intent som kan ha en avsiktlig förutsägelse avvikelse mellan den valda metoden och poäng för förutsägelse. LUIS anger skillnaden med en röd ram runt den **märkta avsikt** på raden i exempel-uttryck. 
 
-![Skärmbild av avsikter detaljsidan med uttryck markerat](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![Skärmbild av avsikter detaljsidan med uttryck förutsägelse avvikelse fel](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 I det övre navigeringsfältet väljer **träna**. Avvikelse för förutsägelse är nu borta.
 
@@ -107,7 +107,7 @@ Följande åtgärder kan utföras på en enskild uttryck från ellips-menyn till
 
 * Redigera: ändra texten i uttryck
 * Ta bort: ta bort uttryck från avsikten. Om du fortfarande vill uttryck, en bättre metod är att flytta den till den **ingen** avsikt. 
-* Lägga till ett mönster: ett mönster kan du ta en vanliga uttryck och markera replaceable ignorable text, vilket minskar behovet av flera uttryck i avsikten. 
+* Lägg till ett mönster: Ett mönster kan du ta en vanliga uttryck och markera replaceable ignorable text, vilket minskar behovet av flera uttryck i avsikten. 
 
 Den **märkta avsikt** kolumn kan du ändra syftet med uttryck.
 

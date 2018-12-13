@@ -1,5 +1,5 @@
 ---
-title: SSH-stöd för Azure App Service i Linux | Microsoft Docs
+title: SSH-stöd för App Service i Linux – Azure | Microsoft Docs
 description: Lär dig mer om hur du använder SSH med Azure App Service i Linux.
 keywords: Azure apptjänst, webbapp, linux, oss
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 4fa5e40b75be933ee62c8ba59449a78ac071dc43
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ff5c18b08a2921efe72a35b9bd982986c1867812
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958187"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251316"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service i Linux
 
@@ -66,7 +67,7 @@ De här stegen visas i Azure App Service-databasen som [ett exempel](https://git
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Lägg till en [ `COPY` instruktionen](https://docs.docker.com/engine/reference/builder/#copy) till Dockerfile att kopiera en [sshd_config](https://man.openbsd.org/sshd_config) filen till den */etc/ssh/* directory. Konfigurationsfilen ska baseras på sshd_config-filen i Azure Apptjänst GitHub-lagringsplatsen [här](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+2. Lägg till en [ `COPY` instruktionen](https://docs.docker.com/engine/reference/builder/#copy) till Dockerfile att kopiera en [sshd_config](https://man.openbsd.org/sshd_config) filen till den */etc/ssh/* directory. Konfigurationsfilen ska baseras på sshd_config-filen i Azure Apptjänst GitHub-lagringsplatsen [här](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > Den *sshd_config* filen måste innehålla följande eller om anslutningen misslyckas: 
@@ -77,13 +78,13 @@ De här stegen visas i Azure App Service-databasen som [ett exempel](https://git
     COPY sshd_config /etc/ssh/
     ```
 
-1. Inkludera port 2222 i den [ `EXPOSE` instruktionen](https://docs.docker.com/engine/reference/builder/#expose) för Dockerfile. Trots att rotlösenordet är känt går det inte att nå port 2222 från internet. Det är en intern endast port tillgänglig endast via behållare inom ett privat virtuellt nätverks nätverksbrygga.
+3. Inkludera port 2222 i den [ `EXPOSE` instruktionen](https://docs.docker.com/engine/reference/builder/#expose) för Dockerfile. Trots att rotlösenordet är känt går det inte att nå port 2222 från internet. Det är en intern endast port tillgänglig endast via behållare inom ett privat virtuellt nätverks nätverksbrygga.
 
     ```docker
     EXPOSE 2222 80
     ```
 
-1. Se till att starta SSH-tjänsten med ett kommandoskript (se exempel på [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
+4. Se till att starta SSH-tjänsten med ett kommandoskript (se exempel på [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash

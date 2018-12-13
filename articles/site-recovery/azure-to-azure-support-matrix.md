@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: 2906f6dff84cdd6a09c05734988ee005a3d65aac
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 67a236f592392744978b7d1d7f7e7d129515a9a0
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994641"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321809"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -42,7 +42,7 @@ Den här artikeln sammanfattas konfigurationer som stöds och komponenter när d
 
 ## <a name="region-support"></a>Regionsstöd
 
-Du kan replikera och återställa virtuella datorer mellan alla två regioner inom samma geografiska kluster.
+Du kan replikera och återställa virtuella datorer mellan alla två regioner inom samma geografiska kluster. Geografisk kluster definieras att hålla datafördröjning och datasuveränitet i åtanke.
 
 **Geografisk kluster** | **Azure-regioner**
 -- | --
@@ -52,11 +52,12 @@ Asien | Södra Indien, centrala Indien, Sydostasien, östra Asien, östra, Japan
 Australien   | Östra Australien, sydöstra Australien, Australien centrala; Australien centrala 2
 Azure Government    | Virginia (USA-förvaltad region), Iowa (USA-förvaltad region), USA-förvaltad region Arizona, US GOV Texas, US DOD, östra, US DOD, centrala
 Tyskland | Tyskland, centrala, Tyskland, nordöstra
-Kina | Östra Kina, norra Kina
+Kina | Kina, östra, Kina, norra, North2 för Kina, östra 2 Kina
 
 >[!NOTE]
 >
-> För regionen södra Brasilien, kan du replikera och redundansväxla till något av följande: södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och USA, norra centrala regioner.
+> För regionen södra Brasilien, kan du replikera och redundansväxla till något av följande: Södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och USA, norra centrala regioner.</br>
+> Det bör noteras att Site Recovery har bara aktiverat södra Brasilien som ska användas som en källregionen från där virtuella datorer kan skyddas. Det kan inte användas som en DR för mål-region för alla Azure-regioner som södra centrala USA. Anledningen svarstid som observerats på grund av geografiska avståndet rekommenderar vi att du väljer alla andra America region än södra Brasilien.  
 
 ## <a name="cache-storage"></a>Cachelagring
 
@@ -126,7 +127,7 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 till 3.16.0-6-amd64 4.9.0-0.bpo.4-amd64 t
 
 **Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.140-94.69-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default till 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default till 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default till 4.4.126-94.22-default |
@@ -135,7 +136,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default 
 
 * Filsystem: ext3 ext4, ReiserFS (Suse Linux Enterprise Server endast), XFS
 * Volymhanterare: LVM2
-* Programvaran MultiPath: enheten Mapper
+* Multipath programvara: Enheten Mapper
 
 
 ## <a name="replicated-machines---compute-settings"></a>Replikerade datorer - inställningarna för beräkning
@@ -178,6 +179,7 @@ Datadisk - standardlagringskonto | Stöds |
 Datadisk - premium storage-konto | Stöds | Om en virtuell dator har diskar som är fördelade på premium- och standardlagringskonton, kan du välja ett annat mållagringskonto för varje disk, så du får samma lagringskonfiguration för i målregionen.
 Hanterad disk - standard | Stöd i Azure-regioner där Azure Site Recovery stöds. |  
 Hanterad disk - premium | Stöd i Azure-regioner där Azure Site Recovery stöds. |
+Standard SSD | Stöds inte |
 Redundans | LRS och GRS stöds.<br/><br/> ZRS stöds inte.
 Frekventa och lågfrekventa lagring | Stöds inte | VM-diskar stöds inte på frekventa och lågfrekventa lagring
 Lagringsutrymmen | Stöds |         
@@ -199,6 +201,18 @@ Storage-konton för generell användning V2 (både frekvent och lågfrekvent niv
 >[!IMPORTANT]
 > Se till att du ser Virtuella disken skalbarhets- och prestandamål för [Linux](../virtual-machines/linux/disk-scalability-targets.md) eller [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuella datorer för att undvika eventuella prestandaproblem. Om du följer standardinställningarna skapar Site Recovery begärda diskar och lagringskonton baserat på käll-konfigurationen. Om du anpassar och välja egna inställningar, kontrollerar du att du följer disk-mål för skalbarhet och prestanda för dina virtuella källdatorer.
 
+## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Azure Site Recovery-gränserna för att replikera Data ändras priser
+Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. Vi ska också Observera att det finns två gränser för hur per disk data churn och per virtuell datordata omsättning.
+Till exempel, om vi tittar på P20 Premium disk i den tabellen, nedan Site Recovery kan hantera 5 MB/s dataomsättningen per disk med med max för fem dessa diskar per virtuell dator på grund av att gränsen på 25 MB/s totala dataomsättningen per virtuell dator.
+
+**Replication Storage Target** (Lagringsmål för replikering) | **Average Source Disk I/O Size** (Genomsnittlig I/O-storlek för källdisk) |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total Source Disk Data Churn Per Day** (Total dataomsättning per dag för källdisk)
+---|---|---|---
+Standard Storage | 8 kB | 2 MB/s | 168 GB per disk
+Premium P10- eller P15-disk | 8 kB  | 2 MB/s | 168 GB per disk
+Premium P10- eller P15-disk | 16 kB | 4 MB/s |  336 GB per disk
+Premium P10- eller P15-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
+Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
+Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |10 MB/s | 842 GB per disk
 ## <a name="replicated-machines---networking"></a>Replikerade datorer - nätverk
 **Konfiguration** | **Support** | **Detaljer**
 --- | --- | ---

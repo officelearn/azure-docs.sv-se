@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: 5d6510c1e069abe1fc295f2fccd9f2c0a9aad5bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837578"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251036"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -148,6 +148,9 @@ Se till att IP-adressen för konfigurationsservern inte ändras när konfigurati
 7. Var kan jag hämta valv registreringsnycklar?
 
     I den **Recovery Services-valv**, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**. Välj i servrar, **ladda ned Registreringsnyckeln** att hämta valvautentiseringsfilen.
+8. Kan jag klona en befintlig Configuration Server och använda det för dirigering av replikering?
+
+    **Inte**, användning av klonade konfigurationsservern komponent stöds inte. 
 
 ## <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 

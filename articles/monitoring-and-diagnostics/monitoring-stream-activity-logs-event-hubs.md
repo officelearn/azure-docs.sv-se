@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8a932ac06b58a8e683e326f082a3a2c038dba66
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011841"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273722"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream Azure-aktivitetsloggen till Event Hubs
 Du kan strömma den [Azure-aktivitetsloggen](monitoring-overview-activity-logs.md) i nära realtid för program genom att antingen:
@@ -24,7 +24,7 @@ Du kan strömma den [Azure-aktivitetsloggen](monitoring-overview-activity-logs.m
 ## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>Vad du kan göra med aktivitetsloggen och Event Hubs
 Här finns två sätt som du kan använda den strömmande kapaciteten för aktivitetsloggen:
 
-* **Stream att loggning och telemetri tredjepartssystem**: över tid, Azure Event Hubs för direktuppspelning och kommer att bli en mekanism för att skicka vidare din aktivitetslogg till tredje parts SIEMs och logga Analyslösningar.
+* **Stream att loggning och telemetri tredjepartssystem**: Framöver kommer blir Azure Event Hubs streaming mekanism för att skicka vidare din aktivitetslogg till tredje parts SIEMs och logga Analyslösningar.
 * **Skapa en anpassad telemetri och loggning**: Om du redan har en specialbyggda telemetri plattform eller funderar på att skapa en mycket skalbar publicerings-/ natur Händelsehubbar kan du flexibelt kan mata in aktivitetsloggen. Mer information finns i [Dan Rosanova video om hur du använder Event Hubs i en global skala telemetri platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Aktivera strömning av aktivitetsloggen
@@ -101,5 +101,5 @@ Schemat för aktivitetsloggen finns i [övervaka prenumeration med Azure-aktivit
 ## <a name="next-steps"></a>Nästa steg
 * [Arkivera aktivitetsloggen till ett lagringskonto](monitoring-archive-activity-log.md)
 * [Läs en översikt över Azure-aktivitetsloggen](monitoring-overview-activity-logs.md)
-* [Konfigurera en avisering baserat på en händelse i aktivitetsloggen](monitor-alerts-unified-log-webhook.md)
+* [Konfigurera en avisering baserat på en händelse i aktivitetsloggen](../azure-monitor/platform/alerts-log-webhook.md)
 

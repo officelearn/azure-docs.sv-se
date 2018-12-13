@@ -1,5 +1,5 @@
 ---
-title: Certifikat och Azure App Service-miljö
+title: Certifikat och App Service Environment - Azure
 description: Förklara många ämnen som rör certifikat på en ASE
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 3d417d560d8a88100f31def27c7db5f9b2493062
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168073"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271903"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certifikat och App Service-miljö 
 
@@ -32,8 +33,8 @@ Om du använder en extern ASE kan nå dina appar just [programnamn]. [asename]. 
 
 Det finns två alternativ för att konfigurera certifikat med din ILB ASE.  Du kan ange ett jokerteckencertifikat standard för ILB ASE eller ställa in certifikat på de enskilda web apps i ase-miljön.  Följande certifikatattribut måste konfigureras korrekt oavsett de val du gör:
 
-- **Ämne:** det här attributet måste anges till *. [ din-root-domain-here] för ett jokerteckencertifikat för ILB ASE. Om du skapar certifikatet för din app ska [programnamn]. [your-root-domain-here]
-- **Alternativt namn för certifikatmottagare:** det här attributet måste innehålla både *. [ din-root-domain-here] och *.scm. [your-root-domain-here] för ILB ASE jokerteckencertifikat. Om du skapar certifikatet för din app ska [programnamn]. [your-root-domain-here] och [programnamn] .scm. [your-root-domain-here].
+- **Ämne:** Det här attributet måste anges till *. [your-root-domain-here] för ett jokerteckencertifikat för ILB ASE. Om du skapar certifikatet för din app ska [programnamn]. [your-root-domain-here]
+- **Alternativt namn för certifikatmottagare:** Det här attributet måste innehålla både *. [your-root-domain-here] och *.scm. [your-root-domain-here] för ILB ASE jokerteckencertifikat. Om du skapar certifikatet för din app ska [programnamn]. [your-root-domain-here] och [programnamn] .scm. [your-root-domain-here].
 
 Du kan skapa en ILB ASE-certifikat som innehåller alla dina enskilda appnamn i SAN för certifikatet istället för att använda en referens som en tredje variant. Problem med den här metoden är att du behöver veta direkt namnen på de appar som du placerar i ASE eller måste du fortsätter att uppdatera ILB ASE-certifikatet.
 

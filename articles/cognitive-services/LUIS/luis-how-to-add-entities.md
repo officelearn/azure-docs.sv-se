@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8a6f0a69f0159a31d9fefcc54a104ebc1ed47ec4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f95d7851241dfd5b077c215e2df893c6ba8ef36c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100352"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139494"
 ---
 # <a name="create-entities-without-utterances"></a>Skapa entiteter utan yttranden
 
@@ -157,13 +157,13 @@ Du kan ha en lista över alla avdelningar tillsammans med eventuella synonymer f
 
 1. Om du vill mer normaliserade objekt lista väljer **rekommenderar** att se alternativ från den [semantiska ordlista](luis-glossary.md#semantic-dictionary).
 
-    ![Skärmbild av Administrationscenter ursprung rollen till platsen entitet](./media/add-entities/hr-list-2.png)
+    ![Skärmbild över att välja det rekommenderas att funktionen att se alternativ](./media/add-entities/hr-list-2.png)
 
 
 1. Markera ett objekt i listan med rekommenderade att lägga till det som ett normaliserat värde eller välja **Lägg till alla** att lägga till alla objekt. 
     Du kan importera värden till en befintlig lista entitet med följande JSON-format:
 
-    ```
+    ```JSON
     [
         {
             "canonicalForm": "Blue",

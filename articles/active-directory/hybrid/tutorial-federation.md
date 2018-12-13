@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Federera en enda AD-skogsmiljö till Azure | Microsoft Docs'
+title: 'Självstudiekurs: Federera en enda AD-skogsmiljö till Azure | Microsoft Docs'
 description: Visar hur du ställer in en hybrid identity-miljö med federation.
 services: active-directory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50868d32b35e77495965b9ee9d0023d23b43fd5a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b813a276c2047a41038408744637b3dd50aff863
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426391"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163522"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Självstudie: Federera en enda AD-skogsmiljö till molnet
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Självstudiekurs: Federera en enskild miljö för AD-skogar till molnet
 
 ![Skapa](media/tutorial-federation/diagram.png)
 
@@ -39,7 +39,7 @@ Följande är förutsättningar som krävs för den här kursen
 >
 >Skript som används för skapa en allmän Active Directory-miljö innan du installerar Azure AD Connect.  De är relevanta för alla självstudier.
 >
-> Kopior av PowerShell-skript som används i den här självstudien finns på Github [här](https://github.com/billmath/tutorial-phs).
+> Kopior av PowerShell-skript som används i den här självstudien finns på GitHub [här](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 Det första som vi behöver göra för att få vår hybrid identity miljö och körs är att skapa en virtuell dator som ska användas som vår lokala Active Directory-server.  
@@ -87,7 +87,7 @@ För att du är klar med att skapa den virtuella datorn kan behöva du slutför 
 5. Klicka på **installera nu**.
 6. Ange licensnyckeln och klicka på **nästa**.
 7. Kontrollera ** jag accepterar licensvillkoren och klicka på **nästa**.
-8. Välj **anpassad: Installera Windows endast (Avancerat)**
+8. Välj **anpassade:  Installera Windows endast (Avancerat)**
 9. Klicka på **Nästa**
 10. När installationen är klar startas den virtuella datorn, logga in och kör Windows uppdaterar för att säkerställa att den virtuella datorn är den mest aktuella.  Installera de senaste uppdateringarna.
 

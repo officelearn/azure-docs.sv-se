@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 6435c866f6cdf5abea3862a718579f3a6e4d7378
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.custom: seodec18
+ms.openlocfilehash: 50e5dfa21cf7a8f7203e7d96640e3cf5215130a6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493072"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191469"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Oracle-lösningar och deras distribution på Microsoft Azure
 Den här artikeln innehåller information som krävs för att kunna distribuera olika Oracle-lösningar på Microsoft Azure. Dessa lösningar är baserade på avbildningar av virtuella datorer har publicerats av Oracle på Azure Marketplace. Om du vill hämta en lista över tillgängliga avbildningar, kör du följande kommando:
@@ -57,7 +58,7 @@ Oracle ger support som kör Oracle DB 12.1 Standard eller Enterprise Edition i A
 Anslutna diskar är beroende av Azure Blob storage-tjänsten. Varje standard disk kan högst teoretisk cirka 500 indata/utdataåtgärder per sekund (IOPS). Vårt erbjudande för premium disk är att föredra för databasarbetsbelastningar med höga prestanda och kan uppnå upp till 5 000 IOps per disk. Medan du kan använda en skiva om som uppfyller dina behov – du kan förbättra effektiva IOPS-prestanda om du använder flera anslutna diskar, sprida databasdata över dem och sedan använda Oracle automatisk Storage Management (ASM). Se [Oracle automatisk lagringsöversikt](http://www.oracle.com/technetwork/database/index-100339.html) mer specifik information för Oracle ASM. Ett exempel på hur du installerar och konfigurera Oracle ASM på en Linux Azure VM - du kan prova den [installera och konfigurera Oracle automatisk lagringshantering](configure-oracle-asm.md) självstudien.
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application kluster (Oracle RAC)
-Oracle RAC är utformad för att minimera fel på en nod i ett lokalt kluster med flera noder konfiguration. Den förlitar sig på två lokala tekniker som inte är inbyggt i hyperskala offentliga molnmiljöer: multicast-nätverk och delad disk. Om din databaslösning kräver Oracle RAC i Azure, måste 3 part programvara för att aktivera dessa tekniker.  En **Microsoft Azure Certified** erbjudande som kallas [FlashGrid nod för Oracle RAC](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-racnode?tab=Overview) är tillgängligt i Azure Marketplace, publicerat av FlashGrid Inc. Mer information om den här lösningen och hur det fungerar i Azure finns i den [FlashGrid lösning sidan](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle RAC är utformad för att minimera fel på en nod i ett lokalt kluster med flera noder konfiguration. Den förlitar sig på två lokala tekniker som inte är inbyggt i hyperskala offentliga molnmiljöer: multicast-nätverk och delad disk. Om din databaslösning kräver Oracle RAC i Azure, måste 3 part programvara för att aktivera dessa tekniker. Mer information om Oracle RAC finns finns i den [FlashGrid lösning sidan](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Överväganden hög tillgänglighet och katastrofåterställning
 När du använder Oracle-databaser i Azure kan ansvarar du för att implementera en hög tillgänglighet och katastrofåterställning lösning för att undvika driftavbrott. 

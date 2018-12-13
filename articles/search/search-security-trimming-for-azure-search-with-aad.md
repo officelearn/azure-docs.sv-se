@@ -1,19 +1,20 @@
 ---
-title: Säkerhetsfilter för trimning Azure sökresultat med hjälp av Active Directory-identiteter | Microsoft Docs
-description: Åtkomstkontroll på Azure Search-innehåll med säkerhetsfilter och Active Directory-identiteter.
-author: revitalbarletz
+title: Säkerhetsfilter att trimma resultat med hjälp av Active Directory identiteter – Azure Search
+description: Åtkomstkontroll på Azure Search-innehåll med säkerhetsfilter och Azure Active Directory (AAD)-identiteter.
+author: brjohnstmsft
 manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
-ms.author: revitalb
-ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: 2d1ac36341ef47ac95317c583005b675f31f1265
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684646"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308836"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Säkerhetsfilter för att trimma Azure-sökresultaten med hjälp av Active Directory-identiteter
 
@@ -164,7 +165,7 @@ private static async Task<List<string>> GetGroupIdsForUser(string userPrincipalN
 }
 ``` 
 
-### <a name="step-2-compose-the-search-request"></a>Steg 2: Skapa sökbegäran
+### <a name="step-2-compose-the-search-request"></a>Steg 2: Compose sökbegäran
 
 Anta att du har användarens gruppmedlemskap och kan du utfärda sökbegäran med filtervärden.
 

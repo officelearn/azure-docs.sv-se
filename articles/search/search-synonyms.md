@@ -1,20 +1,21 @@
 ---
-pageTitle: Synonyms in Azure Search | Microsoft Docs
-description: Använda synonymer för att expandera omfattningen för en sökfråga
-author: mhko
+Title: Synonyms for query expansion over a search index  - Azure Search
+description: Skapa en synonymmappning för att expandera omfattningen för en sökfråga för ett Azure Search-index. Omfånget är breddade med motsvarande termer som du anger en lista.
+author: brjohnstmsft
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
-ms.author: nateko
-ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: ce9eb8ed099a232128ba924da1466917df542fbb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468559"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315677"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonymer i Azure Search
 
@@ -73,7 +74,7 @@ Du kan också använda PUT och ange synonymen kartans namn på URI: N. Om mappni
 
 ##### <a name="apache-solr-synonym-format"></a>Apache Solr synonymen format
 
-Solr format stöder motsvarande och explicit synonymmappningar. Regler för mappning av följa filterspecifikationen för öppen källkod synonymen av Apache Solr, beskrivs i detta dokument: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Nedan visas en Exempelregel för motsvarande synonymer.
+Solr format stöder motsvarande och explicit synonymmappningar. Regler för mappning av uppfylla filterspecifikationen för öppen källkod synonymen av Apache Solr, som beskrivs i det här dokumentet: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Nedan visas en Exempelregel för motsvarande synonymer.
 ```
 USA, United States, United States of America
 ```

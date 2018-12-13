@@ -1,5 +1,5 @@
 ---
-title: Förstå sekvensen för distribution i Azure skisser
+title: Förstå sekvensen distributionsordning
 description: Läs om livscykeln som passerar en skiss och information om varje steg.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: bd12aabf0ca8f82261e6b3c677d7306ee46c4171
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620603"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308625"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå sekvensen för distribution i Azure skisser
 

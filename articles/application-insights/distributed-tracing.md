@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9594ccd0449cf68a63c770cfdee03f255aa2beae
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: aa163d215f4b9c396585dbba63883a3d1beff457
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638383"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164270"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
 
-Ankomsten av moderna molnet och arkitektur för mikrotjänster har gett upphov till enkla, oberoende av varandra distribuerbar tjänster som kan hjälpa dig att minska kostnaderna samtidigt som de ökar tillgängligheten och dataflöde. Men även om dessa förflyttningar har gjort enskilda tjänster som är lättare att förstå hela, de har gjort övergripande system svårare att anledning om och felsöka.
+Ankomsten av moderna molnet och [mikrotjänster](http://azure.com/microservices) arkitekturer har gett upphov till enkla, oberoende av varandra distribuerbar tjänster som kan hjälpa dig att minska kostnaderna samtidigt som de ökar tillgängligheten och dataflöde. Men även om dessa förflyttningar har gjort enskilda tjänster som är lättare att förstå hela, de har gjort övergripande system svårare att anledning om och felsöka.
 
 I monolitisk arkitekturer har vi tagit emot för att felsöka med anropsstackar. Anropsstackar är fantastiska verktyg för att visa flödet av körningen (Method A anropade metoden B, som kallas metoden C), tillsammans med detaljer och parametrar om var och en av dessa anrop. Det här är bra för monoliter bryts eller tjänster som körs på en enda process, men hur vi Felsöka när anropet är för en gräns för processen, inte bara en referens i den lokala stacken? 
 

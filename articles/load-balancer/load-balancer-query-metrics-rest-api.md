@@ -1,21 +1,22 @@
 ---
-title: Hämta Azure Load Balancer mått med REST API | Microsoft Docs
+title: Hämta mått med REST API
+titlesuffix: Azure Load Balancer
 description: 'Använd Azure REST API: er för att samla in hälsa och användning mått för belastningsutjämnaren för ett visst område för tid och datum.'
 services: sql-database
 author: KumudD
 ms.reviewer: routlaw
 manager: jeconnoc
 ms.service: load-balancer
-ms.custom: REST
+ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
-ms.openlocfilehash: 1fac461c3af4ea0a2e1f2257256969c47bc3d134
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 43de0de6fb81d50459ba5b027a8ae1718a89c9a3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094481"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183870"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Få mätvärden för resursutnyttjande belastningsutjämnare med hjälp av REST-API
 

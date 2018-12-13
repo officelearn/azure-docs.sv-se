@@ -1,5 +1,5 @@
 ---
-title: Kör bakgrundsuppgifter med WebJobs i Azure App Service
+title: Kör bakgrundsuppgifter med WebJobs – Azure App Service
 description: Lär dig hur du använder WebJobs för att köra bakgrundsåtgärder i Azure App Service web apps, API-appar eller mobila appar.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
-ms.openlocfilehash: 901cf32557e0a437e938ceb50ecd500c69c8c3be
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 1a43c6061c497c92123865e530208f2cbef09359
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364038"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269608"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrundsuppgifter med WebJobs i Azure App Service
 
@@ -75,15 +76,15 @@ when making changes in one don't forget the other two.
 
     ![WebJob-sidan](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Använd den **lägger till Webbjobb** inställningar som anges i tabellen.
+3. Använd den **lägger till Webbjobb** inställningar som anges i tabellen.
 
    ![Lägg till Webbjobb sida](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Inställning      | Exempelvärde   | Beskrivning  |
+   | Inställning      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
-   | **Namn** | myContinuousWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”. |
-   | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
-   | **Typ** | Kontinuerlig igenkänning | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
+   | **Namn** | myContinuousWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”. |
+   | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
+   | **typ** | Kontinuerlig igenkänning | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **Skalning** | Multi-instans | Endast tillgängligt för kontinuerliga WebJobs. Anger om programmet eller skriptet körs på alla instanser eller bara en instans. Alternativet för att köras på flera instanser gäller inte för den kostnadsfria eller delade [prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Klicka på **OK**.
@@ -113,16 +114,16 @@ when making changes in one don't forget the other two.
 
     ![WebJob-sidan](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Använd den **lägger till Webbjobb** inställningar som anges i tabellen.
+3. Använd den **lägger till Webbjobb** inställningar som anges i tabellen.
 
    ![Lägg till Webbjobb sida](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Inställning      | Exempelvärde   | Beskrivning  |
+   | Inställning      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
-   | **Namn** | myTriggeredWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”.|
-   | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
-   | **Typ** | Utlöst | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
-   | **Utlösare** | Manuell | |
+   | **Namn** | myTriggeredWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”.|
+   | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
+   | **typ** | Utlöst | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
+   | **utlösare** | Manuell | |
 
 4. Klicka på **OK**.
 
@@ -151,17 +152,17 @@ when making changes in one don't forget the other two.
 
    ![WebJob-sidan](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Använd den **lägger till Webbjobb** inställningar som anges i tabellen.
+3. Använd den **lägger till Webbjobb** inställningar som anges i tabellen.
 
    ![Lägg till Webbjobb sida](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Inställning      | Exempelvärde   | Beskrivning  |
+   | Inställning      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
-   | **Namn** | myScheduledWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”. |
-   | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
-   | **Typ** | Utlöst | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
-   | **Utlösare** | Har schemalagts | Aktivera funktionen alltid på för att schemalägga att arbeta på ett tillförlitligt sätt. Always On finns bara i den Basic, Standard och Premium-prisnivåerna.|
-   | **CRON-uttryck** | 0 0/20 * * * * | [CRON-uttryck](#cron-expressions) beskrivs i följande avsnitt. |
+   | **Namn** | myScheduledWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”. |
+   | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
+   | **typ** | Utlöst | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
+   | **utlösare** | Har schemalagts | Aktivera funktionen alltid på för att schemalägga att arbeta på ett tillförlitligt sätt. Always On finns bara i den Basic, Standard och Premium-prisnivåerna.|
+   | **CRON-uttryck** | 0 0/20 * * * * | [CRON-uttryck](#cron-expressions) beskrivs i följande avsnitt. |
 
 4. Klicka på **OK**.
 

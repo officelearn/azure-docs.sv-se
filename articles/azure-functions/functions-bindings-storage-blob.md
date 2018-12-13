@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: b386cf72525c6ef6234d99255ca0eed5ade32066
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b48b60390887ea7356385954a81fa51ded2b1fb8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000488"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270679"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -101,7 +101,7 @@ Mer information om den `BlobTrigger` attributet, se [utlösare - attribut](#trig
 
 ### <a name="trigger---c-script-example"></a>Utlösare – exempel på C#-skript
 
-I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningen. Funktionen skriver en logg när en blob läggs till eller uppdateras i den `samples-workitems` behållare.
+I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [Python-kod](functions-reference-python.md) som använder bindningen. Funktionen skriver en logg när en blob läggs till eller uppdateras i den `samples-workitems` [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 Här är bindningsdata i den *function.json* fil:
 
@@ -320,7 +320,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i den [användning](#trigger---usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. | 
 |**Sökväg** | **BlobPath** |Behållaren för att övervaka.  Kan vara en [blob namnmönstret](#trigger---blob-name-patterns). | 
-|**anslutning** | **anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller den [lagringsanslutningssträng](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -420,7 +420,7 @@ Azure Functions-runtime säkerställer att ingen blob-Utlösarfunktion anropas f
 
 Azure Functions-butiker blob kvitton i en behållare med namnet *webjobs-azure-värdar* i Azure storage-konto för din funktionsapp (definieras av appinställningen `AzureWebJobsStorage`). En blob-inleverans har följande information:
 
-* Utlösta funktionen (”*&lt;funktionsappens namn >*. Funktioner.  *&lt;funktionsnamn >*”, till exempel:” MyFunctionApp.Functions.CopyBlob ”)
+* Utlösta funktionen (”*&lt;funktionsappens namn >*. Funktioner.  *&lt;funktionsnamn >*”, till exempel: ”MyFunctionApp.Functions.CopyBlob”)
 * Behållarens namn
 * Blobtyp (”BlockBlob” eller ”PageBlob”)
 * Blobnamnet

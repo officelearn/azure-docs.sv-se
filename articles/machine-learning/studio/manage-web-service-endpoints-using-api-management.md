@@ -7,7 +7,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 76898d2b55d5187e12b91dbd6c9a85af6a274726
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8f82332b02d2e7bbf937a84de42714392e3fccd6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091721"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258193"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio-webbtjänster som använder API Management
 ## <a name="overview"></a>Översikt
@@ -224,7 +223,7 @@ Klicka på **Ja** att publicera experimentet.
 ![Ja att publicera](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testa webbtjänsten
-En AzureML-webbtjänst består av skalning på Mottagarsidan (begäran/svar-service) och BES (batch execution service) slutpunkter. RSS är för synkron körning. BES är för asynkron jobbkörning. Om du vill testa din webbtjänst med exemplet Python källan nedan, du kan behöva hämta och installera Azure SDK för Python (se: [så här installerar du Python](../../python-how-to-install.md)).
+En AzureML-webbtjänst består av skalning på Mottagarsidan (begäran/svar-service) och BES (batch execution service) slutpunkter. RSS är för synkron körning. BES är för asynkron jobbkörning. Om du vill testa din webbtjänst med exemplet Python källan nedan, du kan behöva hämta och installera Azure SDK för Python (se: [Så här installerar du Python](../../python-how-to-install.md)).
 
 Du måste också den **arbetsytan**, **service**, och **api_key** av experimentet för källan exemplet nedan. Du hittar den arbetsytan och tjänsten genom att klicka på antingen **begäran/svar** eller **batchkörning** för experimentet i instrumentpanelen för webbtjänsten.
 

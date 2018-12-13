@@ -1,6 +1,7 @@
 ---
-title: Ändra storlek på och Beskär miniatyrer för Bing - bildsökning i Bing
-description: Lär dig hur du ändrar storlek på och Beskär miniatyrer som ingår i ett svar från den bildsökning i Bing.
+title: Ändra storlek på och Beskär miniatyrbilder - bildsökning i Bing
+titleSuffix: Azure Cognitive Services
+description: Ändra storlek på och Beskär miniatyrbilder som ingår i svar från den bildsökning i Bing.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: de82cc5554af91294dda3826dfb394cc94dbf3d0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 3bb360cd95dcbfb95464b2b259dcebfce7065256
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296235"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256400"
 ---
-# <a name="resizing-and-cropping-thumbnail-images"></a>Ändra storlek på och beskära miniatyrbilder
+# <a name="resize-and-crop-thumbnail-images"></a>Ändra storlek på och Beskär miniatyrbilder
 
 Vid bearbetning av en sökfråga Bing genererar miniatyr information för alla avbildningar i dess [svar](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Den här informationen kan användas för att visa alla eller en delmängd av returnerade miniatyrbilderna. Om du visar en delmängd, anger du ett alternativ för att visa återstående bilder.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Java SDK: filsystemsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'Java SDK: Filsystemsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Använd Azure Data Lake Storage Gen1 Java SDK till att utföra filsystemsåtgärder på Data Lake Storage Gen1 till exempel skapa mappar osv.
 services: data-lake-store
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: a91593c1bae3002be8b7e423b627f1baf19e86e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: edbaa8fe42c0e6bfda8558e7d9e5cd0ce42bfcc4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129211"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260709"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med hjälp av Java SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [REST-API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
@@ -206,7 +206,7 @@ Följande kodavsnitt tar bort de angivna filerna och mapparna på ett Data Lake 
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 1. För att köra inifrån en IDE, letar du upp och trycker på **Kör**-knappen. För att köra från Maven, använder du [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
-2. För att skapa en fristående jar som du kan köra från kommandoraden, skapar du jaren med alla beroenden inkluderade, med hjälp av [Maven-plugin-paketet](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Pom.xml-filen i [exempelkällkoden på GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) innehåller ett exempel.
+2. För att skapa en fristående jar som du kan köra från kommandoraden, skapar du jaren med alla beroenden inkluderade, med hjälp av [Maven-plugin-paketet](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Pom.XML-filen i den [exempelkällkoden på GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) innehåller ett exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Utforska JavaDoc för Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)

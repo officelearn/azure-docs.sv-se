@@ -4,9 +4,8 @@ description: Lär dig hur du tränar en modell och uppdatera webbtjänsten för 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: e94fa4b6382a4672e5763b382a22fb812991cb03
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308481"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257615"
 ---
-# <a name="retrain-a-classic-web-service"></a>Omtrimma en klassisk webbtjänst
+# <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Omtrimma en klassisk Azure Machine Learning Studio-webbtjänst
 Förutsägande webbtjänsten som du har distribuerat är standardinställningen bedömningsslutpunkten. Standardslutpunkterna hålls synkroniserade med den ursprungliga träningen och bedömning experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten, måste du lägga till en ny slutpunkt för webbtjänsten. 
 
 ## <a name="prerequisites"></a>Förutsättningar

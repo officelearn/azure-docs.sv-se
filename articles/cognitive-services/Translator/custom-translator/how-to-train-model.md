@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 9ec8cbe3d2467714a4b2586db79566aaef30d6d7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 60e0485c28d90050a6ff775db41f8696a09fe033
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627554"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165766"
 ---
 # <a name="train-a-model"></a>Träna en modell
 
@@ -26,21 +26,17 @@ För att träna en modell:
 
 2.  Data-fliken för projektet visas alla relevanta dokumenten för språk-par för projektet. Manuellt välja de dokument som du vill använda för att träna din modell. Du kan välja utbildning, justering och testningen dokument från den här skärmen. Även du bara väljer träningsmängden och har anpassade Translator skapa den justering och testa uppsättningar för dig.
 
-    -  Dokumentnamn: namnet på dokumentet.
+    -  Dokumentnamn: Namnet på dokumentet.
 
-    -  Länkning: Om det här dokumentet är ett parallella eller enspråkig dokument.
+    -  Länkning: Om det här dokumentet är ett parallella eller enspråkig dokument. Enspråkig dokument har för närvarande inte stöd för utbildning.
 
-    - Enspråkig dokument har för närvarande inte stöd för utbildning.
+    -  Typ av standarddokument: Kan vara utbildning, justering, testning eller ordlista.
 
-    -  Dokumenttyp: kan vara utbildning, justering, testning eller ordlista.
+    -  Språk-par: Det här visas käll- och målspråk för projektet.
 
-    -  Språk-par: det här visas käll- och målspråk för projektet.
+    -  Källa meningar: Visar antalet meningar som extraheras från källfilen.
 
-    -  Datakällan meningar: Visar antalet meningar som extraheras från den
-    - källfilen.
-
-    -  Rikta meningar: Visar antalet meningar som extraheras från den
-    - målfilen.
+    -  Target meningar: Visar antalet meningar som extraheras från målfilen.
 
     ![Träna modell](media/how-to/how-to-train-model.png)
 
@@ -67,7 +63,7 @@ Du kan redigera en modell med hjälp av länken Redigera på sidan med modellen.
 
 2.  I dialogrutan-ändring
 
-    1.  Modellera namn (krävs): ge ett beskrivande namn för din modell.
+    1.  Modellnamn (krävs): Ge ett beskrivande namn för din modell.
 
         ![Mer dialogrutan Redigera](media/how-to/how-to-edit-model-dialog.png)
 

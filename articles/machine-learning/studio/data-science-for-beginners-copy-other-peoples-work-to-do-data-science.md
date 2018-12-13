@@ -1,13 +1,12 @@
 ---
 title: Kopiera andras data science exempel – Azure Machine Learning Studio | Microsoft Docs
-description: 'Affärshemlighet för datavetenskap: hämta andra att göra arbetet åt dig. Hämta machine learning-exempel från Azure AI-galleriet.'
+description: 'Affärshemlighet för datavetenskap: Hämta andra att göra arbetet åt dig. Hämta machine learning-exempel från Azure AI-galleriet.'
 keywords: data science exempel, machine learning exempelvis clustering-algoritmen, klustring algoritmen exempel
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: c033cc42fd9f57c18242c6e7a6b301238592c0fe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075021"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260386"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiera andras arbete för att göra datavetenskap
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Datavetenskap för nybörjare-serien
@@ -43,9 +42,9 @@ Titta på alla för att få ut det mesta av serien. [Gå till listan över video
 *Datavetenskap för nybörjare* är en snabbintroduktion i datakunskap med fem korta filmer.
 
 * Video 1: [5 frågor och svar om datavetenskap](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sek.)*
-* Video 2: [är dina data klara för datavetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sek)*
+* Video 2: [Är dina data klara för datavetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sek)*
 * Video 3: [Ställ en fråga som du kan svara på med data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sek)*
-* Video 4: [förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sek)*
+* Video 4: [Förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sek)*
 * Video 5: Kopiera andras arbete för att göra datavetenskap
 
 ## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Avskriften: Kopiera andras arbete för att göra datavetenskap

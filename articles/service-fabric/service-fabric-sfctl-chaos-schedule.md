@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492248"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276459"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Hämta och Schemalägg chaos.
@@ -29,7 +29,7 @@ Hämta och Schemalägg chaos.
 |Kommando|Beskrivning|
 | --- | --- |
 | Hämta | Hämta Chaos-schemat som definierar när och hur du kör Chaos. |
-| Ange | Ställ in Chaos schemat som ska användas av Chaos. |
+| set | Ange det schema som används av Chaos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>Hämta sfctl chaos schema
 Hämta Chaos-schemat som definierar när och hur du kör Chaos.
@@ -38,13 +38,13 @@ Hämtar versionen av Chaos-schema används och Chaos schemat som definierar när
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -53,13 +53,13 @@ Hämtar versionen av Chaos-schema används och Chaos schemat som definierar när
 | --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schema har angivits
-Ställ in Chaos schemat som ska användas av Chaos.
+Ange det schema som används av Chaos.
 
-Schemalägga Chaos för närvarande används av Chaos. Chaos kommer automatiskt att schemalägga körningar baserat på schemat Chaos. Versionen i angivna indata schemat måste matcha versionen av Chaos schemat på servern. Om den version som följde inte matchar versionen på servern, uppdateras inte Chaos-schema. Om den version som följde matchar versionen på servern, Chaos-schemat uppdateras och versionen av Chaos schemat på servern ökas upp med ett och radbryts till 0 efter 2 147 483 647. Om Chaos körs när det här anropet görs att anropet misslyckas.
+Chaos kommer automatiskt att schemalägga körningar baserat på schemat Chaos. Versionen i angivna indata schemat måste matcha versionen av Chaos schemat på servern. Om den version som följde inte matchar versionen på servern, uppdateras inte Chaos-schema. Om den version som följde matchar versionen på servern, Chaos-schemat uppdateras och versionen av Chaos schemat på servern ökas upp med ett och radbryts till 0 efter 2 147 483 647. Om Chaos körs när det här anropet görs att anropet misslyckas.
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --chaos-parametrarna-ordlista | JSON-kodad lista som representerar en mappning av strängen namn för ChaosParameters som ska användas av jobb. |
 | --utc-datum-förfallodatum | Datum och tid när du vill sluta använda schemat för att schemalägga Chaos.  Standard\: 9999-12-31T23\:59\:59.999Z. |
@@ -70,7 +70,7 @@ Schemalägga Chaos för närvarande används av Chaos. Chaos kommer automatiskt 
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -143,6 +143,7 @@ Följande kommando anger ett schema som startar på 2016-01-01 och upphör att g
         ]
     }
     ]
+
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric CLI.

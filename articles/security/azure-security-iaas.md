@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498353"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321468"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure
 
@@ -38,21 +38,21 @@ De bästa metoderna är baserade på en enhälligt av åsikter och de fungerar m
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Skydda virtuella datorer med hjälp av autentisering och åtkomstkontroll
 Det första steget i att skydda dina virtuella datorer är att säkerställa att endast behöriga användare kan ställa in nya virtuella datorer och åtkomst till virtuella datorer.
 
-**Bästa praxis**: åtkomst till kontrollen virtuell dator.   
+**Bästa praxis**: Styra åtkomst till virtuell dator.   
 **Information om**: Använd [Azure principer](../azure-policy/azure-policy-introduction.md) upprätta konventioner för resurser i din organisation och skapa anpassade principer. Använda dessa principer på resurser, till exempel [resursgrupper](../azure-resource-manager/resource-group-overview.md). Virtuella datorer som tillhör en resursgrupp ärver dess principer.
 
 Om din organisation har många prenumerationer, kanske du behöver ett sätt att effektivt hantera åtkomst, principer och efterlevnad för dessa prenumerationer. [Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md) ger en nivå av omfång över prenumerationer. Du organiserar prenumerationer till hanteringsgrupper (behållare) och tillämpa dina styrning villkor för dessa grupper. Alla prenumerationer i en hanteringsgrupp ärver automatiskt villkor som används för gruppen. Hanteringsgrupper tillhandahåller hantering i företagsklass i stor skala oavsett vilken typ av prenumeration du har.
 
-**Bästa praxis**: minska variationer i din installation och distribution av virtuella datorer.   
+**Bästa praxis**: Minska variationer i din installation och distribution av virtuella datorer.   
 **Information om**: Använd [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) mallar att stärka dina distributionsalternativ och gör det enklare att förstå och inventera de virtuella datorerna i din miljö.
 
-**Bästa praxis**: skydda privilegierad åtkomst.   
+**Bästa praxis**: Säker privilegierad åtkomst.   
 **Information om**: Använd en [minsta privilegium metoden](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) och inbyggda Azure-roller så att användarna kan komma åt och konfiguration av virtuella datorer:
 
-- [Virtuell Datordeltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): kan hantera virtuella datorer, men inte virtuella nätverks- eller kontot som de är anslutna.
-- [Klassisk virtuell Datordeltagare](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): kan hantera virtuella datorer som skapas med hjälp av den klassiska distributionsmodellen, men inte virtuella nätverks- eller kontot som de virtuella datorerna är anslutna.
-- [Säkerhetsadministratör](../role-based-access-control/built-in-roles.md#security-admin): I Security Center endast: kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer.
-- [DevTest Labs-användare](../role-based-access-control/built-in-roles.md#devtest-labs-user): kan visa allt och ansluta, starta, starta om och stänga av virtuella datorer.
+- [Virtuell Datordeltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Hantera virtuella datorer, men inte virtuella nätverks- eller kontot som de är anslutna.
+- [Klassisk virtuell Datordeltagare](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Hantera virtuella datorer som skapas med hjälp av den klassiska distributionsmodellen, men inte virtuella nätverks- eller kontot som de virtuella datorerna är anslutna.
+- [Säkerhetsadministratör](../role-based-access-control/built-in-roles.md#security-admin): I Säkerhetscenter: Kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer.
+- [DevTest Labs-användare](../role-based-access-control/built-in-roles.md#devtest-labs-user): Kan visa allt och ansluta, starta, starta om och stänga av virtuella datorer.
 
 Dina prenumerationsadministratörer och coadmins ska kan ändra den här inställningen, vilket gör dem administratörer av alla virtuella datorer i en prenumeration. Var noga med att du litar på alla prenumerationsadministratörer och coadmins ska logga in på någon av dina datorer.
 
@@ -75,17 +75,17 @@ Microsoft Antimalware innehåller funktioner som realtidsskydd, schemalagd genom
 
 Du kan integrera lösningar från Microsoft Antimalware och partner med [Azure Security Center](https://docs.microsoft.com/azure/security-center/) för enkel distribution och inbyggda identifieringar (aviseringar och incidenter).
 
-**Bästa praxis**: installera ett program mot skadlig kod som skydd mot skadlig kod.   
-**Information om**: [installera en lösning för Microsoft-partner eller Microsoft Antimalware](../security-center/security-center-install-endpoint-protection.md)
+**Bästa praxis**: Installera ett program mot skadlig kod som skydd mot skadlig kod.   
+**Information om**: [Installera en lösning för Microsoft-partner eller Microsoft Antimalware](../security-center/security-center-install-endpoint-protection.md)
 
-**Bästa praxis**: integrera dina program mot skadlig kod med Security Center för att övervaka status för skyddet av.   
-**Information om**: [hantera problem med endpoint protection med Security Center](../security-center/security-center-partner-integration.md)
+**Bästa praxis**: Integrera din lösning för program mot skadlig kod med Security Center för att övervaka status för skyddet av.   
+**Information om**: [Hantera problem med endpoint protection med Security Center](../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>Hantera VM-uppdateringar
 Azure virtuella datorer, som alla lokala virtuella datorer är avsedda att hanteras av användare. Azure Skicka inte Windows-uppdateringar till dem. Du behöver hantera dina VM-uppdateringar.
 
-**Bästa praxis**: se till att dina virtuella datorer är aktuell.   
-**Information om**: Använd den [uppdateringshantering](../automation/automation-update-management.md) lösning i Azure Automation för att hantera uppdateringar av operativsystemet för dina Windows- och Linux-datorer som distribueras i Azure, i lokala miljöer eller i andra moln leverantörer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
+**Bästa praxis**: Håll dina virtuella datorer uppdaterade.   
+**Information om**: Använd den [uppdateringshantering](../automation/automation-update-management.md) lösning i Azure Automation för att hantera operativsystem systemuppdateringar för dina Windows- och Linux-datorer som distribueras i Azure, i lokala miljöer eller i andra moln providers. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
 Datorer som hanteras av uppdateringshantering Använd följande konfigurationer för att utföra utvärdering och uppdatera distribueringar:
 
@@ -96,17 +96,17 @@ Datorer som hanteras av uppdateringshantering Använd följande konfigurationer 
 
 Om du använder Windows Update, lämna inställningen för automatisk uppdatering för Windows.
 
-**Bästa praxis**: se till att vid distributionen att avbildningar som du skapat omfattar den senaste runda av Windows-uppdateringar.   
+**Bästa praxis**: Kontrollera att du har inbyggda avbildningar inkluderar den senaste runda av Windows-uppdateringar vid distributionen.   
 **Information om**: Sök efter och installera alla Windows-uppdateringar som ett första steg för varje distribution. Det här måttet är särskilt viktigt att tillämpa när du distribuerar avbildningar som kommer från dig eller dina egna bibliotek. Även om avbildningar från Azure Marketplace uppdateras automatiskt som standard, kan det finnas en fördröjning (upp till några veckor) när du har en offentlig version.
 
-**Bästa praxis**: distribuera regelbundet om dina virtuella datorer om du vill framtvinga en ny version av Operativsystemet.   
-**Information om**: definiera den virtuella datorn med en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) så att du enkelt kan distribuera om den. En mall ger dig en korrigerad och säker virtuell dator när du behöver den.
+**Bästa praxis**: Distribuera med jämna mellanrum om dina virtuella datorer om du vill framtvinga en ny version av Operativsystemet.   
+**Information om**: Definiera den virtuella datorn med en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) så att du enkelt kan distribuera om den. En mall ger dig en korrigerad och säker virtuell dator när du behöver den.
 
-**Bästa praxis**: installera de senaste säkerhetsuppdateringarna.   
-**Information om**: vissa av de första arbetsbelastningarna som kunder flyttar till Azure är labs och externa system. Om virtuella datorer i Azure vara värd för program eller tjänster som måste vara tillgänglig på Internet, vara vaksam om uppdateringar. Korrigera sig utöver operativsystemet. Okorrigerade säkerhetsproblem på partnerprogram kan också leda till problem som kan undvikas om bra uppdateringshantering är på plats.
+**Bästa praxis**: Installera de senaste säkerhetsuppdateringarna.   
+**Information om**: Vissa av de första arbetsbelastningarna som kunder flyttar till Azure är labs och externa system. Om virtuella datorer i Azure vara värd för program eller tjänster som måste vara tillgänglig på Internet, vara vaksam om uppdateringar. Korrigera sig utöver operativsystemet. Okorrigerade säkerhetsproblem på partnerprogram kan också leda till problem som kan undvikas om bra uppdateringshantering är på plats.
 
-**Bästa praxis**: distribuera och testa en lösning för säkerhetskopiering.   
-**Information om**: en säkerhetskopia måste hanteras på samma sätt som du hanterar andra åtgärder. Det här gäller för system som ingår i din produktionsmiljö utöka till molnet.
+**Bästa praxis**: Distribuera och testa en lösning för säkerhetskopiering.   
+**Information om**: En säkerhetskopia måste hanteras på samma sätt som du hanterar andra åtgärder. Det här gäller för system som ingår i din produktionsmiljö utöka till molnet.
 
 Testning och utveckling system måste följa säkerhetskopieringsstrategier som gör det möjligt för återställning som liknar vad användare har blivit vana vid, baserat på deras upplevelse med lokala miljöer. Produktionsarbetsbelastningar flyttade till Azure ska integrera med befintliga säkerhetskopieringslösningar när det är möjligt. Du kan också använda [Azure Backup](../backup/backup-azure-vms-first-look-arm.md) att hjälpa med dina behov för säkerhetskopiering.
 
@@ -137,8 +137,8 @@ Resursen missbruk kan vara ett problem när VM-processer använder fler resurser
 
 Vi rekommenderar att du använder [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) att få insyn i resursens hälsotillstånd. Azure Monitor-funktioner:
 
-- [Diagnostiklogg resursfiler](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): övervakar dina VM-resurser och identifierar potentiella problem som kan påverka datorns prestanda och tillgänglighet.
-- [Azure Diagnostics-tillägg](../monitoring-and-diagnostics/azure-diagnostics.md): innehåller funktioner för övervakning och diagnostik på virtuella Windows-datorer. Du kan aktivera dessa funktioner genom att inkludera tillägget som en del av den [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md).
+- [Diagnostiklogg resursfiler](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): Övervakar dina VM-resurser och identifierar potentiella problem som kan påverka datorns prestanda och tillgänglighet.
+- [Azure Diagnostics-tillägg](../azure-monitor/platform/diagnostics-extension-overview.md): Tillhandahåller funktioner för övervakning och diagnostik på virtuella Windows-datorer. Du kan aktivera dessa funktioner genom att inkludera tillägget som en del av den [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Organisationer som inte övervakar prestanda för virtuella datorer kan inte avgöra om vissa ändringar i prestandamönster är normal eller onormalt. En attack från en extern resurs eller en komprometterad process som körs på den virtuella datorn kan tyda på en virtuell dator som använder fler resurser än normalt.
 
@@ -152,14 +152,14 @@ Nedan följer bästa praxis för att använda Azure Disk Encryption:
 **Bästa praxis**: Aktivera kryptering på virtuella datorer.   
 **Information om**: Azure Disk Encryption genererar och skriver dem till ditt nyckelvalv. Hantera krypteringsnycklar i ditt nyckelvalv kräver Azure AD-autentisering. Skapa ett Azure AD-program för detta ändamål. Du kan använda antingen autentisering med klient-hemlighet för autentisering, eller [klientautentisering certifikatbaserad Azure AD](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
-**Bästa praxis**: använda en krypteringsnyckel nyckel (KEK) för ett extra lager av säkerhet för krypteringsnycklar. Lägg till en KEK till ditt nyckelvalv.   
+**Bästa praxis**: Använda en krypteringsnyckel nyckel (KEK) för ett extra lager av säkerhet för krypteringsnycklar. Lägg till en KEK till ditt nyckelvalv.   
 **Information om**: Använd den [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala maskinvarusäkerhetsmodul (HSM) för hantering av nycklar. Mer information finns i den [dokumentationen för Key Vault](../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault. Att behålla en escrow kopia av den här nyckeln i en lokal ger nyckelhantering HSM ytterligare skydd mot oavsiktlig borttagning av nycklar.
 
-**Bästa praxis**: ta en [ögonblicksbild](../virtual-machines/windows/snapshot-copy-managed-disk.md) och/eller säkerhetskopiera innan diskar krypteras. Säkerhetskopieringar ger ett återställningsalternativ om ett oväntat fel inträffar under krypteringen.   
-**Information om**: virtuella datorer med hanterade diskar kräver en säkerhetskopia innan kryptering sker. När en säkerhetskopia görs, kan du använda den **Set-AzureRmVMDiskEncryptionExtension** cmdlet för att kryptera hanterade diskar genom att ange den *- skipVmBackup* parametern. Mer information om hur du säkerhetskopiera och återställa krypterade virtuella datorer finns i den [Azure Backup](../backup/backup-azure-vms-encryption.md) artikeln.
+**Bästa praxis**: Ta en [ögonblicksbild](../virtual-machines/windows/snapshot-copy-managed-disk.md) och/eller säkerhetskopiera innan diskar krypteras. Säkerhetskopieringar ger ett återställningsalternativ om ett oväntat fel inträffar under krypteringen.   
+**Information om**: Virtuella datorer med hanterade diskar kräver en säkerhetskopia innan kryptering sker. När en säkerhetskopia görs, kan du använda den **Set-AzureRmVMDiskEncryptionExtension** cmdlet för att kryptera hanterade diskar genom att ange den *- skipVmBackup* parametern. Mer information om hur du säkerhetskopiera och återställa krypterade virtuella datorer finns i den [Azure Backup](../backup/backup-azure-vms-encryption.md) artikeln.
 
-**Bästa praxis**: Om du vill se till att kryptering hemligheterna inte går över regionala gränser, Azure Disk Encryption behöver nyckelvalvet och de virtuella datorerna ska finnas i samma region.   
-**Information om**: skapa och använda ett nyckelvalv som är i samma region som den virtuella datorn måste vara krypterade.
+**Bästa praxis**: Om du vill se till att kryptering hemligheterna inte går över regionala gränser, måste Azure Disk Encryption nyckelvalvet och de virtuella datorerna ska finnas i samma region.   
+**Information om**: Skapa och använda ett nyckelvalv som är i samma region som den virtuella datorn måste vara krypterade.
 
 När du använder Azure Disk Encryption kan du uppfylla följande affärsbehov:
 

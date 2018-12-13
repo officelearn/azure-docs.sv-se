@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 7474d76537111ebc9f34bb2632a899b7ceb4e50a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1c90c85f667e18a80c4673a73867ee2d6b3b6294
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643140"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189905"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -180,7 +178,7 @@ För att hämta den här koden från installationspaket för agenten direkt, du 
 
 När installationen av agenten är klar, verifierar den anslutits och rapportering kan utföras på två sätt.  
 
-Från datorn i **Kontrollpanelen**, hitta objektet **Microsoft Monitoring Agent**.  Markera den och på den **Azure Log Analytics** fliken agenten ska visa ett meddelande om: **The Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite.**<br><br> ![MMA-anslutningsstatus till Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+Från datorn i **Kontrollpanelen**, hitta objektet **Microsoft Monitoring Agent**.  Markera den och på den **Azure Log Analytics** fliken agenten ska visa ett meddelande om: **Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite.**<br><br> ![MMA-anslutningsstatus till Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 Du kan också utföra en enkel loggsökning i Azure-portalen.  
 

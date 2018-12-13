@@ -1,5 +1,6 @@
 ---
-title: Skapa och hantera Azure Machine Learning-tjänstens arbetsytor
+title: Skapa och hantera arbetsytor
+titleSuffix: Azure Machine Learning service
 description: Lär dig mer om att skapa, visa och ta bort Azure Machine Learning-tjänstens arbetsytor i Azure-portalen.
 services: machine-learning
 ms.service: machine-learning
@@ -10,20 +11,20 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 647af189319a1fa7b80b10410ad96f3297c18192
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 73a47929fa26ae0729943e17d0f6c9a054f4f6bb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083775"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276714"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Skapa och hantera Azure Machine Learning-tjänstens arbetsytor
 
 I den här artikeln får du skapa, visa och ta bort [ **Azure Machine Learning-tjänstens arbetsytor** ](concept-azure-machine-learning-architecture.md#workspace) i Azure-portalen för [Azure Machine Learning-tjänsten](overview-what-is-azure-ml.md).  Du kan också skapa och ta bort arbetsytor [med hjälp av CLI](reference-azure-machine-learning-cli.md) eller [med Python-koden](https://aka.ms/aml-sdk).
 
-Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
-
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta 
+
+Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -45,7 +46,7 @@ Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har e
 
 1. Välj den arbetsyta som du nyss skapade om du vill visa dess egenskaper.
 
-   ![PNG](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
+   ![Egenskaper för arbetsyta](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Ta bort en arbetsyta
 
@@ -63,4 +64,4 @@ Använd knappen Ta bort överst på arbetsytan som du vill ta bort.
 Följ den kompletta självstudiekursen lär du dig hur du använder en arbetsyta för att skapa, träna och distribuera modeller med Azure Machine Learning-tjänsten.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Träna modeller](tutorial-train-models-with-aml.md)
+> [Självstudiekurs: Skapa modeller](tutorial-train-models-with-aml.md)

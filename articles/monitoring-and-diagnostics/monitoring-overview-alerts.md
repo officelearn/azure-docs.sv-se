@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 9340c5a70ac652f1cf0a8b0cddce8488e0a62eee
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: d86e543da5c7000f0140c1b6e53674a0fd22b0e4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978877"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194138"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -52,7 +52,7 @@ Viktiga punkter för en varningsregel är:
 
 **Allvarlighetsgrad** – allvarlighetsgraden för aviseringen när villkoren som har angetts i regeln uppfylls. Allvarlighetsgrad kan vara mellan 0 och 4.
 
-**Åtgärden** – en specifik åtgärd vidtas när aviseringen utlöses. Mer information finns i [åtgärdsgrupper](monitoring-action-groups.md).
+**Åtgärden** – en specifik åtgärd vidtas när aviseringen utlöses. Mer information finns i [åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Du kan meddela på
 
@@ -122,7 +122,7 @@ Du kan skapa en ny aviseringsregel med följande tre steg:
  
 Förenklad redigering processen kräver inte längre att du enkelt se övervakningen käll- eller signaler som stöds innan du väljer en Azure-resurs. Listan över tillgängliga signaler filtreras automatiskt baserat på vilken resurs som du väljer. Även baserat på vars mål, vägleds du genom definiera logiken varningsregelns automatiskt.  
 
-Du kan lära dig mer om hur du skapar aviseringsregler i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](alert-metric.md).
+Du kan lära dig mer om hur du skapar aviseringsregler i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 Aviseringar är tillgängliga i flera Azure-övervakningstjänster. Information om hur och när du ska använda var och en av dessa tjänster finns i [övervakning av Azure-program och resurser](../azure-monitor/overview.md). I följande tabell innehåller en lista över typerna av Varningsregler som är tillgängliga i Azure. Den visar också vad stöds för närvarande i vilka aviseringar upplevelse.
 
@@ -130,7 +130,7 @@ Tidigare hade Azure Monitor, Application Insights, logganalys och Tjänstehälsa
 
 | **Övervaka källan** | **Signaltyp**  | **Beskrivning** | 
 |-------------|----------------|-------------|
-| Service Health | Aktivitetslogg  | Stöds ej. Se [skapa aviseringar för aktivitetsloggen för tjänstmeddelanden](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Service Health | Aktivitetslogg  | Stöds ej. Se [skapa aviseringar för aktivitetsloggen för tjänstmeddelanden](../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
 | Application Insights | Webbtester för tillgänglighet | Stöds ej. Se [webbtestaviseringar](../application-insights/app-insights-monitor-web-app-availability.md). Tillgänglig för alla webbplatser som är utrustade för att skicka data till Application Insights. Få ett meddelande när tillgänglighet och svarstider på en webbplats som är lägre än förväntningar. |
 
 
@@ -174,13 +174,13 @@ Sidan aviseringsinformation innehåller följande avsnitt.
 
 Azure Monitor-mått och aktivitet loggen avisering funktionen innan juni 2018 kallas ”aviseringar (klassisk)”. 
 
-Mer information finns i [aviseringar klassisk](./monitoring-overview-alerts-classic.md)
+Mer information finns i [aviseringar klassisk](./../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Läs mer om Smart grupper](https://aka.ms/smart-groups)
-- [Lär dig mer om åtgärdsgrupper](monitoring-action-groups.md)
+- [Lär dig mer om åtgärdsgrupper](../azure-monitor/platform/action-groups.md)
 - [Hantera dina aviseringar instanser i Azure](https://aka.ms/managing-alert-instances)
 - [Hantera smarta grupper](https://aka.ms/managing-smart-groups)
 

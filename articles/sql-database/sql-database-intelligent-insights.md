@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e639bd40c877aded1439fe999fcf3f7114b9a727
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890678"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278142"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights med hjälp av AI att övervaka och felsöka databasen prestanda
 
@@ -84,7 +84,7 @@ Mer information om hur du aktiverar loggning för intelligenta insikter och konf
 Azure SQL Analytics-lösningen innehåller grafiskt användargränssnitt, rapportering och aviseringsfunktioner på databasprestanda, tillsammans med smarta insikter diagnostiklogg för data.
 
 > [!TIP]
-> Komma igång snabbt: Det enklaste sättet att få från grunden med hjälp av intelligenta insikter är att använda den tillsammans med Azure SQL Analytics som tillhandahåller ett grafiskt användargränssnitt till prestandaproblem för databasen. Lägg till Azure SQL Analytics-lösningen från marketplace, skapa en arbetsyta i den här lösningen och sedan konfigurera strömning av ”SQLInsights” logga in diagnostik inställningsbladet för en databas till för varje databas som du vill aktivera smarta insikter på den Azure SQL Analytics-arbetsytan.
+> Snabbt komma igång: Det enklaste sättet att få från grunden med hjälp av intelligenta insikter är att använda den tillsammans med Azure SQL Analytics som tillhandahåller ett grafiskt användargränssnitt till prestandaproblem för databasen. Lägg till Azure SQL Analytics-lösningen från marketplace, skapa en arbetsyta i den här lösningen och sedan konfigurera strömning av ”SQLInsights” logga in diagnostik inställningsbladet för en databas till för varje databas som du vill aktivera smarta insikter på den Azure SQL Analytics-arbetsytan.
 >
 
 Före kravet är att ha Azure SQL Analytics läggs till instrumentpanelen i Azure portal från marketplace och för att skapa en arbetsyta i [konfigurera Azure SQL Analytics](../azure-monitor/insights/azure-sql.md#configuration)

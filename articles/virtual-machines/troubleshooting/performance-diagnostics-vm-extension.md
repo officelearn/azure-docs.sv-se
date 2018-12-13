@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a76b22feee84820f3acc963af70ec24669a216d7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251976"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194172"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestanda för Azure Diagnostics VM-tillägg för Windows
 
 Azure prestanda diagnostik VM-tillägget kan samla in diagnostikdata för prestanda från Windows-datorer. Tillägget gör analys och tillhandahåller en rapport över resultat och rekommendationer för att identifiera och lösa prestandaproblem på den virtuella datorn. Det här tillägget installeras ett felsökningsverktyg som kallas [PerfInsights](https://aka.ms/perfinsights).
 
 > [!NOTE]
-    > Om du vill köra diagnostik på din virtuella dator från Azure-portalen för icke-klassiska virtuella datorer rekommenderas att använda den nya upplevelsen. Mer information finns i [Prestandadiagnostik för Azure-datorer](performance-diagnostics.md) 
+> Om du vill köra diagnostik på din virtuella dator från Azure-portalen för icke-klassiska virtuella datorer rekommenderas att använda den nya upplevelsen. Mer information finns i [Prestandadiagnostik för Azure-datorer](performance-diagnostics.md) 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

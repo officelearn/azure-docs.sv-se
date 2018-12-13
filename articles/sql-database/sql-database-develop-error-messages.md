@@ -13,14 +13,14 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251823"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317465"
 ---
-# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: anslutningsfel och andra problem
+# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: Anslutningsfel för databasen och andra problem
 
 Den här artikeln innehåller SQL-felkoder för SQL Database-klientprogram, däribland anslutningsfel för databasen, tillfälligt fel (kallas även för tillfälliga fel), resource styrning fel, kopiera databasproblem, elastisk pool och andra fel. De flesta kategorierna är specifika för Azure SQL Database och gäller inte för Microsoft SQL Server. Se även [system felmeddelanden](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
@@ -37,7 +37,7 @@ Tillfälliga fel fel visas vanligtvis som en av följande felmeddelanden från d
 * Databasen &lt;%{db_name/&gt; på servern &lt;Azure_instance&gt; är inte tillgänglig. Försök med anslutningen senare. Om problemet kvarstår kontaktar du kundsupport och uppger sessions-ID för spårning av &lt;session_id&gt;
 * Databasen &lt;%{db_name/&gt; på servern &lt;Azure_instance&gt; är inte tillgänglig. Försök med anslutningen senare. Om problemet kvarstår kontaktar du kundsupport och uppger sessions-ID för spårning av &lt;session_id&gt;. (Microsoft SQL Server, fel: 40613)
 * En befintlig anslutning avslutades av fjärrvärden.
-* System.Data.Entity.Core.EntityCommandExecutionException: Ett fel uppstod vid körning av kommandot definitionen. Se ursprungsundantag för detaljer. ---> System.Data.SqlClient.SqlException: ett fel uppstod när du får resultat från servern. (providern: Sessionsprovider, fel: 19 - fysiska anslutningen kan inte användas)
+* System.Data.Entity.Core.EntityCommandExecutionException: Ett fel uppstod vid körning av kommandot definitionen. Se ursprungsundantag för detaljer. ---> System.Data.SqlClient.SqlException: Ett fel uppstod när du får resultat från servern. (providern: Session-providern, fel: 19 - fysiska anslutningen kan inte användas)
 * Ett anslutningsförsök till en sekundär databas misslyckades eftersom databasen håller på att omkonfiguration och den är upptagen med att tillämpa nya sidor i mitten av en aktiv transaktion på den primära databasen. 
 
 Kodexempel för omprövning, se:
@@ -94,8 +94,8 @@ Relaterade ämnen:
 
 | Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
-| 10928 |20 |Resurs-ID: %d. %S gränsen för databasen är %d och har uppnåtts. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Resurs-ID: %d. %S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). I annat fall. Försök igen senare.<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Resurs-ID: %d. %S gränsen för databasen är %d och har uppnåtts. Mer information finns i [SQL Database-resursgränser för enkel och delade databaser](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Resurs-ID: %d. %S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Mer information finns i [SQL Database-resursgränser för enkel och delade databaser](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). I annat fall. Försök igen senare.<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |Databasen har nått sin storlekskvot. Partitionera eller ta bort data, släpp index eller Läs om möjliga lösningar i dokumentationen. |
 | 40549 |16 |Sessionen avslutas eftersom du har en tidskrävande transaktion. Försök att göra transaktionen kortare. |
 | 40550 |16 |Sessionen har avslutats eftersom det har fått för många Lås. Försök att läsa eller ändra färre rader i en enda transaktion. |
@@ -109,7 +109,7 @@ Följande fel är relaterade till skapar och använder elastiska pooler:
 | Felkod | Severity | Beskrivning | Korrigerande åtgärd |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Den elastiska poolen har nått sin lagringsgräns. Lagringsanvändningen för den elastiska poolen får inte överskrida (%d) MB. Försök att skriva data till en databas när gränsen för lagring på den elastiska poolen har uppnåtts. |Överväg att öka dtu: er för och/eller att lägga till lagring till den elastiska poolen om möjligt för att öka sin lagringsgräns minska lagring som används av enskilda databaser på den elastiska poolen eller ta bort databaser från den elastiska poolen. |
-| 10929 | 16 |%S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Se [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637) för att få hjälp. I annat fall. Försök igen senare. DTU / vCore-min per databas. DTU / vCore-max per databas. Det totala antalet samtidiga arbetare (begäranden) över alla databaser i den elastiska poolen försökte överskrider gränsen för poolen. |Överväg att öka dtu: er eller vCores för den elastiska poolen om möjligt för att öka gränsen worker eller ta bort databaser från den elastiska poolen. |
+| 10929 | 16 |%S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Se [SQL Database-resursgränser för enkel och delade databaser](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) för att få hjälp. I annat fall. Försök igen senare. DTU / vCore-min per databas. DTU / vCore-max per databas. Det totala antalet samtidiga arbetare (begäranden) över alla databaser i den elastiska poolen försökte överskrider gränsen för poolen. |Överväg att öka dtu: er eller vCores för den elastiska poolen om möjligt för att öka gränsen worker eller ta bort databaser från den elastiska poolen. |
 | 40844 | 16 |Databasen '%ls ”på servern '%ls” är en '%ls ”edition-databas i en elastisk pool och kan inte ha en relation för kontinuerlig kopiering.  |Gäller inte |
 | 40857 | 16 |Elastisk pool hittades inte för servern: '%ls ”, namn på elastisk pool: '%ls”. Angivna elastisk pool finns inte i den angivna servern. | Ange ett giltigt elastisk pool-namn. |
 | 40858 | 16 |Elastisk pool '%ls ”finns redan på servern: '%ls”. Angivna elastisk pool finns redan i den angivna logiska servern. | Ange namn på ny elastisk pool. |
@@ -144,7 +144,7 @@ Följande fel omfattas inte i alla tidigare kategorier.
 | 15006 |16 |(AdministratorLogin) är inte ett giltigt namn eftersom det innehåller ogiltiga tecken. |
 | 18452 |14 |Inloggningen misslyckades. Inloggningen kommer från en icke betrodd domän och kan inte användas med Windows authentication.%.&#x2a;ls (Windows-inloggningar inte stöds i den här versionen av SQL Server.) |
 | 18456 |14 |Inloggningen misslyckades för användaren ”%. &#x2a;ls'.%. &#x2a;ls %. &#x2a;ls (inloggningen misslyckades för användaren ”%.&#x2a; is ”.) |
-| 18470 |14 |Inloggningen misslyckades för användaren (%.&#x2a;ls). Orsak: Kontot är disabled.%.&#x2a;ls |
+| 18470 |14 |Inloggningen misslyckades för användaren (%.&#x2a;ls). Orsak: Kontot är disabled.%. &#x2a;ls |
 | 40014 |16 |Flera databaser kan inte användas i samma transaktion. |
 | 40054 |16 |Tabeller utan grupperat index stöds inte i den här versionen av SQL Server. Skapa ett grupperat index och försök igen. |
 | 40133 |15 |Den här åtgärden stöds inte i den här versionen av SQL Server. |

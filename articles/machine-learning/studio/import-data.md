@@ -5,9 +5,8 @@ keywords: Importera data, dataformat, datatyper, datakällor, utbildningsdata
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 8f6bc6e1e13de879f81e6fc6f1f447d0c2856ced
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2f8c1eb43fddb21a59d4f00fd86b08d3fb3608f4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315264"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269965"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importera dina utbildningsdata till Azure Machine Learning Studio från olika datakällor
 
@@ -39,10 +38,6 @@ Om du vill använda dina egna data i Machine Learning Studio för att utveckla o
 > 
 
 Den här inledande artikeln beskrivs hur du förbereder data för användning i Machine Learning Studio också och beskriver vilka dataformat och datatyper som stöds.
-
-> [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-> 
-> 
 
 ## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Förbereda data för användning i Azure Machine Learning Studio
 Machine Learning Studio är utformad för att arbeta med rektangulär eller tabular data, till exempel textdata som har avgränsade eller strukturerade data från en databas, men i vissa fall icke-rektangulär data kan användas.

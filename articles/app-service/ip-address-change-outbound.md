@@ -1,5 +1,5 @@
 ---
-title: Så här förbereder du för en utgående IP-adressändring - Azure
+title: Förbereda för ändring av utgående IP-adress – Azure App Service
 description: Om din utgående IP-adress ska ändras, lär du dig vad du gör så att din app fortsätter att fungera efter ändringen.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 2355fa5e3e7fd83b5d9f22d87c19f8152659fc97
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.custom: seodec18
+ms.openlocfilehash: f611733400b8bfd18a135fe07f84606f13e59704
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309368"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275728"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Så här förbereder du för en utgående IP-adressändring
 
@@ -23,9 +24,9 @@ Om du har fått ett meddelande som ändrar utgående IP-adresserna för Azure Ap
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Avgöra om du behöver göra något
 
-* Alternativ 1: Om din App Service-app inte använder IP-filtrering, en explicit inkluderingslistan eller särskild hantering av utgående trafik som routning eller brandväggen, ingen åtgärd krävs.
+* Alternativ 1: Om din App Service-app inte använder IP-filtrering, en explicit inkluderingslistan eller särskild hantering av utgående trafik som routning eller brandväggen, krävs ingen åtgärd.
 
-* Alternativ 2: Om appen har särskild hantering för utgående IP-adresser (se exemplen nedan), lägga till nya utgående IP-adresser, oavsett var befintliga visas. Inte ersätta de befintliga IP-adresserna. Du hittar nya utgående IP-adresser genom att följa anvisningarna i nästa avsnitt.
+* Alternativ 2: Om appen har särskild hantering för utgående IP-adresser (se exemplen nedan), lägger du till nya utgående IP-adresser, oavsett var befintliga visas. Inte ersätta de befintliga IP-adresserna. Du hittar nya utgående IP-adresser genom att följa anvisningarna i nästa avsnitt.
 
   Till exempel en utgående IP-adress uttryckligen kan ingå i en brandvägg utanför din app eller en extern betalningstjänsten kan ha en lista med tillåtna som innehåller den utgående IP-adressen för din app. Om din utgående adress har konfigurerats i en lista var som helst utanför din app, som behöver ändras.
 
@@ -39,7 +40,7 @@ Nya utgående IP-adresser visas i portalen innan de träder i kraft. När Azure 
 
 3.  Välj din App Service-app i listan.
 
-4.  Om appen är en funktionsapp, se [funktionen app utgående IP-adresser](../azure-functions/ip-addresses.md#find-outbound-ip-addresses).
+1.  Om appen är en funktionsapp, se [funktionen app utgående IP-adresser](../azure-functions/ip-addresses.md#find-outbound-ip-addresses).
 
 4.  Under den **inställningar** rubrik, klickar du på **egenskaper** i det vänstra navigeringsfönstret och hitta avsnittet märkta **utgående IP-adresser**.
 

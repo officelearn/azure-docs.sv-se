@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 6fe9a95c891ecd560682d02f14485cc9d198a0a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/10/2018
+ms.openlocfilehash: 2d6df569a2b5b813bd832adf5ef2e1d193de9364
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879167"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187576"
 ---
-# <a name="learn-about-automatic-sql-database-backups"></a>Mer information om automatisk SQL Database-säkerhetskopior
+# <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
-SQL Database skapar säkerhetskopior av databasen och använder Azure read-access geo-redundant lagring (RA-GRS) för att tillhandahålla geografisk redundans automatiskt. Dessa säkerhetskopior skapas automatiskt och utan extra kostnad. Du behöver inte göra något för att det ska hända. Säkerhetskopior av databasen är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom de skyddar dina data från oavsiktliga skador eller tas bort. Om din säkerhetsregler kräver att dina säkerhetskopior som är tillgängliga under en längre tid kan konfigurera du principen för långsiktig kvarhållning av säkerhetskopior. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
+SQL Database automatiskt skapar säkerhetskopior sparas mellan 7 och 35 dagar och använder Azure read-access geo-redundant lagring (RA-GRS) för att säkerställa att de bevaras även om Datacenter är inte tillgänglig. Dessa säkerhetskopior skapas automatiskt och utan extra kostnad. Du behöver inte göra något för att det ska hända och du kan [ändra kvarhållningsperiod](#how-to-change-the-pitr-backup-retention-period). Säkerhetskopior av databasen är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom de skyddar dina data från oavsiktliga skador eller tas bort. Om din säkerhetsregler kräver att dina säkerhetskopior som är tillgängliga under en längre tid (upp till 10 år), kan du konfigurera en [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -102,7 +102,7 @@ När du migrerar din databas från en DTU-baserade tjänstnivå med standard PIT
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Så här ändrar du den PITR kvarhållningsperioden
 
-Du kan ändra standard PITR kvarhållningsperioden för säkerhetskopior med hjälp av Azure Portal, PowerShell eller REST API. Godkända värden är: 7, 14, 21, 28 eller 35 dagar. I följande exempel visas hur du ändrar PITR kvarhållning till 28 dagar.
+Du kan ändra standard PITR kvarhållningsperioden för säkerhetskopior med hjälp av Azure Portal, PowerShell eller REST API. Värdena som stöds är: 7, 14, 21, 28 eller 35 dagar. I följande exempel visas hur du ändrar PITR kvarhållning till 28 dagar.
 
 > [!NOTE]
 > Thes APIs påverkar endast PITR kvarhållningsperioden. Om du har konfigurerat LTR för din databas kommer det inte att påverkas. Läs mer om hur du ändrar de LTR kvarhållning perioder [långsiktig kvarhållning](sql-database-long-term-retention.md).

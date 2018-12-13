@@ -2,29 +2,31 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: 80bb07d850628f07ebc37a39da1294399804d8f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b099f5ff7e43f2deeb3b8c41adcb802cd431a65a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164389"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53285954"
 ---
 Azure File Sync-agenten uppdateras regelbundet att lägga till nya funktioner och för att lösa problem. Vi rekommenderar att du konfigurerar Microsoft Update för att hämta uppdateringar för Azure File Sync-agenten när de är tillgängliga.
 
 #### <a name="major-vs-minor-agent-versions"></a>Större eller mindre agentversioner
-* Större agentversioner ofta innehåller nya funktioner och har allt fler som den första delen av versionsnumret. Till exempel: *2.\*.\**
+* Större agentversioner ofta innehåller nya funktioner och har allt fler som den första delen av versionsnumret. Exempel: *2.\*.\**
 * Mindre agentversioner kallas även ”korrigeringar” och släpps oftare än högre versioner. De innehåller ofta felkorrigeringar och förbättringar av mindre men inga nya funktioner. Till exempel:  *\*.3.\**
 
 #### <a name="upgrade-paths"></a>Sökvägar för uppgradering
-Det finns tre godkända och testats sätt att installera uppdateringar för Azure File Sync-agenten. Dessa uppdatera sökvägar arbete för både stora och den lägre versionen.
+Det finns fyra godkända och testats sätt att installera uppdateringar för Azure File Sync-agenten. 
 1. **(Rekommenderas) Konfigurera Microsoft Update för att automatiskt hämta och installera agentuppdateringar.**  
     Vi rekommenderar alltid var Azure File Sync-update för att säkerställa att du har åtkomst till de senaste korrigeringarna för server-agenten. Microsoft Update är den här processen sömlös, genom att automatiskt hämta och installera uppdateringar åt dig.
-2. **Korrigera ett befintligt Azure File Sync-agenten med hjälp av en korrigeringsfil för Microsoft Update eller en körbar .msp. Det senaste uppdateringspaketet för Azure File Sync kan laddas ned från den [Microsoft Update-katalogen](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
+2. **Använd AfsUpdater.exe att hämta och installera agentuppdateringar.**  
+    AfsUpdater.exe finns i installationskatalogen för agenten. Dubbelklicka på den körbara filen för att ladda ned och installera agentuppdateringar. 
+3. **Korrigera ett befintligt Azure File Sync-agenten med hjälp av en korrigeringsfil för Microsoft Update eller en körbar .msp. Det senaste uppdateringspaketet för Azure File Sync kan laddas ned från den [Microsoft Update-katalogen](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Köra en körbar .msp uppgraderar Azure File Sync-installationen med samma metod som används automatiskt av Microsoft Update i den föregående uppgraderingsvägen. Tillämpa en korrigering för Microsoft Update utför en uppgradering på plats av en Azure File Sync-installation.
-3. **Hämta installationsprogrammet för den senaste Azure File Sync-agenten från den [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Installationsprogrammet hämtningen är en Microsoft Installer-paket eller en körbar .msi.**  
-    Uppgradera en befintlig Azure File Sync-agentinstallation, avinstalleras den äldre versionen och installera den senaste versionen från det nedladdade installationsprogrammet. Registrera servern synkroniseringsgrupper och eventuella andra inställningar underhålls av Azure File Sync-installationsprogrammet.
+4. **Hämta installationsprogrammet för den senaste Azure File Sync-agenten från den [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Installationsprogrammet hämtningen är en Microsoft Installer-paket eller en körbar .msi.**  
+    Uppgradera en befintlig installation av Azure File Sync-agenten genom avinstallera den äldre versionen och installera den senaste versionen från det nedladdade installationsprogrammet. Registrera servern synkroniseringsgrupper och eventuella andra inställningar underhålls av Azure File Sync-installationsprogrammet.
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Livscykel och ändra agenthantering garanterar
 Azure File Sync är en molnbaserad tjänst som gör att kontinuerligt med nya funktioner och funktionalitet. Det innebär att en specifik version av Azure File Sync-agenten kan bara användas under en begränsad tid. Följande regler för att garantera att du har tillräckligt med tid och ett meddelande för agenten uppdateringar/uppgraderingar i din process för ändringshantering för att underlätta distributionen:

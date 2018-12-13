@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: f24d273afa47466fe53b93d9c9c22bbcb1fc6959
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 78c04abeea1fdc4771f44d44b973ca0dcd2922ea
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493527"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274997"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Egenskaper för Store och fråga under Service Fabric-namn.
@@ -40,7 +40,7 @@ Tar bort den angivna egenskapen för Service Fabric under ett givet namn. En ege
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – namn-id [krävs] | Service Fabric namnet, utan de ”fabric\:” URI-schema. |
 | --egenskapsnamn [krävs] | Anger namnet på egenskapen som ska hämtas. |
@@ -48,7 +48,7 @@ Tar bort den angivna egenskapen för Service Fabric under ett givet namn. En ege
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -63,7 +63,7 @@ Hämtar den angivna egenskapen för Service Fabric under ett givet namn. Detta r
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – namn-id [krävs] | Service Fabric namnet, utan de ”fabric\:” URI-schema. |
 | --egenskapsnamn [krävs] | Anger namnet på egenskapen som ska hämtas. |
@@ -71,7 +71,7 @@ Hämtar den angivna egenskapen för Service Fabric under ett givet namn. Detta r
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -86,7 +86,7 @@ Ett Service Fabric-namn kan ha en eller flera namngivna egenskaper som lagrar in
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – namn-id [krävs] | Service Fabric namnet, utan de ”fabric\:” URI-schema. |
 | --fortsättningstoken | Fortsättningstoken parameter-token som används för att hämta nästa uppsättning resultat. Ett fortsättningstoken med en icke-tomma värden inkluderas i svaret på API: et när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anropet API: et Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, innehåller ett värde inte i fortsättningstoken. Värdet för den här parametern får inte vara URL-kodas. |
@@ -95,7 +95,7 @@ Ett Service Fabric-namn kan ha en eller flera namngivna egenskaper som lagrar in
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -110,7 +110,7 @@ Skapar eller uppdaterar den angivna egenskapen för Service Fabric under ett giv
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – namn-id [krävs] | Service Fabric namnet, utan de ”fabric\:” URI-schema. |
 | --egenskapsnamn [krävs] | Namnet på egenskapen Service Fabric. |
@@ -120,7 +120,7 @@ Skapar eller uppdaterar den angivna egenskapen för Service Fabric under ett giv
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |

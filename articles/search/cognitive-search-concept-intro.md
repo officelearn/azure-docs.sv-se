@@ -1,6 +1,6 @@
 ---
-title: Kognitiv sökning för extrahering av data, bearbetning av naturligt språk AI i Azure Search | Microsoft Docs
-description: Innehåll extrahering, naturlig språkbearbetning (NLP) och bildbearbetning för att skapa sökbart innehåll i Azure Search indexering med kognitiva kunskaper och AI-algoritmer
+title: Kognitiv sökning för extrahering av data, bearbetning av naturligt språk AI – Azure Search
+description: Innehåll extrahering, naturlig språkbearbetning (NLP) och bildbearbetning för att skapa sökbart innehåll i Azure Search indexering med kognitiva kunskaper och AI-algoritmer.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 5d7f275be1f04658f9901aba9faca83375a9bbf5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec2018
+ms.openlocfilehash: 62d2e7af40d6abf6f316789051dfe78f73208eb3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956201"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315619"
 ---
-# <a name="what-is-cognitive-search"></a>Vad är cognitive search?
+# <a name="what-is-cognitive-search-in-azure-search"></a>Vad är ”cognitive search” i Azure Search?
 
 Kognitiv sökning skapar sökbara information från icke-sökbart innehåll genom att koppla AI-algoritmer till en pipeline för fulltextindexering. AI-integrering är via *kognitiva kunskaper*, berikas källa dokument på väg till ett search-index. 
 
@@ -26,12 +27,14 @@ Kognitiv sökning skapar sökbara information från icke-sökbart innehåll geno
 
 ![Kognitiv sökning diagram med datapipeline](./media/cognitive-search-intro/cogsearch-architecture.png "kognitiv sökning pipeline-översikt")
 
-Kognitiva funktioner i Azure Search bygger på samma AI-algoritmer som används i API: er med Cognitive Services: [med namnet entitet för Talarigenkänning](cognitive-search-skill-named-entity-recognition.md), [Key frasen extrahering API: et](cognitive-search-skill-keyphrases.md), och [OCR API](cognitive-search-skill-ocr.md) är bara några få. 
+Kognitiva funktioner i Azure Search bygger på samma AI-algoritmer som används i API: er med Cognitive Services: [Med namnet entitet för Talarigenkänning](cognitive-search-skill-named-entity-recognition.md), [Key frasen extrahering API: et](cognitive-search-skill-keyphrases.md), och [OCR API](cognitive-search-skill-ocr.md) är bara några få. 
 
 Naturligt språk och bearbetning av avbildning tillämpas under fasen för inmatning av data med resultatet bli en del av ett dokument sammansättning i ett sökbart index i Azure Search. Data hämtas som en Azure datauppsättning och sedan skickas via en pipeline för fulltextindexering med beroende på vilket som [inbyggda kunskaper](cognitive-search-predefined-skills.md) du behöver. Arkitektur kan utökas så att du kan också skapa och koppla om de inbyggda kunskaperna inte är tillräckliga [anpassade funktioner](cognitive-search-create-custom-skill-example.md) att integrera anpassad bearbetning. Exempel kan vara en anpassad entitet modulen eller dokumentet klassificerare som riktar in sig på en specifik domän, till exempel Ekonomi, vetenskapliga publikationer eller medicin.
 
 > [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Körning av kunskapsuppsättning och extrahering och normalisering av bilder erbjuds för närvarande kostnadsfritt. Priserna för dessa funktioner meddelas vid ett senare tillfälle. 
+> Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. Detta gör att vi börjar debitera för körning av kompetens. På det här datumet måste också börjar vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
+>
+> Körningen av inbyggda kunskaper debiteras med den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser kommer att debiteras enligt priserna för förhandsversionen och beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). Lär dig [mer](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="components-of-cognitive-search"></a>Komponenter i kognitiv sökning
 
@@ -45,7 +48,7 @@ I början av pipelinen som du har ostrukturerad text eller textinnehåll (t.ex b
 
 ![Document cracking-fasen](./media/cognitive-search-intro/document-cracking-phase-blowup.png "dokumentknäckning")
 
- Källor som stöds omfattar Azure blob storage, Azure table storage, Azure SQL Database och Azure Cosmos DB. Textbaserat innehåll kan extraheras från följande filtyper: PDF-filer, Word, PowerPoint och CSV-filer. En fullständig lista finns i [stöds format](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
+ Källor som stöds omfattar Azure blob storage, Azure table storage, Azure SQL Database och Azure Cosmos DB. Du kan extrahera information från följande filtyper: PDF-filer, Word, PowerPoint och CSV-filer. En fullständig lista finns i [stöds format](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
 ### <a name="cognitive-skills-and-enrichment-phase"></a>Kognitiva kunskaper och berikande fas
 
@@ -146,5 +149,5 @@ Mer information om specifika frågor eller problem finns i [felsökningstips](co
 ## <a name="next-steps"></a>Nästa steg
 
 + [Dokumentation om cognitive search](cognitive-search-resources-documentation.md)
-+ [Snabbstart: Försök kognitiv sökning i en genomgång av portalen](cognitive-search-quickstart-blob.md)
-+ [: Självstudier kognitiv sökning API: er](cognitive-search-tutorial-blob.md)
++ [Snabbstart: Prova cognitive search i en genomgång av portalen](cognitive-search-quickstart-blob.md)
++ [Självstudiekurs: Lär dig kognitiv sökning API: er](cognitive-search-tutorial-blob.md)

@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: ''
-ms.openlocfilehash: 7227fd68f696e827a076005bcd116e222f23e9b0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: e910a953743e8b43f51add5a1e74b3d612b62ba8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883610"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190075"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg som använder IT Service Management Connector
 
@@ -176,7 +175,7 @@ Informationen nedan visar exempel på data som samlas in av ITSMC:
 
 > Beroende på typ av arbetsobjekt som importeras till Log Analytics, **ServiceDesk_CL** innehåller följande fält:
 
-**Arbetsobjekt:** **incidenter**  
+**Arbetsobjekt:** **Incidenter**  
 ServiceDeskWorkItemType_s="Incident"
 
 **Fält**
@@ -203,7 +202,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Dator
 
 
-**Arbetsobjekt:** **ändringsbegäranden**
+**Arbetsobjekt:** **Tjänstbegäranden**
 
 ServiceDeskWorkItemType_s = ”ändra begäran”
 

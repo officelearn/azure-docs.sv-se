@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: cwatson
-ms.openlocfilehash: 80721fc82a54c62c982298cb8eabb999caaf1dfb
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: fe3cb2d15602407b54ff47763d409c2e77614f0a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583116"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311141"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din faktura för Azure och uppgifter om daglig användning
 
@@ -72,7 +72,7 @@ Om du inte vill få din faktura i e-post, klickar du på **avanmäla dig från e
 
 4. Du kan också visa det dagliga arbetet genom att klicka på faktureringsperioden. 
 
-Läs mer om fakturan [förstå fakturan för Microsoft Azure](billing-understand-your-bill.md). Läs hur du hanterar kostnader, [att undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md).
+Läs mer om fakturan [förstå fakturan för Microsoft Azure](billing-understand-your-bill.md). Läs hur du hanterar dina kostnader, [att undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md).
 
 ### <a name="noinvoice"></a> Varför ser jag en faktura för den senaste faktureringsperioden?
 
@@ -116,13 +116,13 @@ Det kan finnas flera orsaker till att den inte visas:
 
 Är bara kontoadministratören kan komma åt Azure Kontocenter. Andra fakturering administratörer, till exempel en ägare kan få användning informationen med hjälp av den [fakturerings-API: er](billing-usage-rate-card-overview.md).
 
-Läs mer om din dagliga användning i [Förstå fakturan för Microsoft Azure](billing-understand-your-bill.md). Läs hur du hanterar kostnader, [att undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md).
+Läs mer om din dagliga användning i [Förstå fakturan för Microsoft Azure](billing-understand-your-bill.md). Läs hur du hanterar dina kostnader, [att undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md).
 
 ### <a name="download-usage-for-ea-customers"></a>Ladda ned användningsdata för EA-kunder
 
 Om du vill visa och ladda ned användningsdata som EA-kund, måste du vara företagsadministratör, eller Kontoägare eller administratör för avdelning med Visa avgifter principen är aktiverad.
 
-1. Logga in på [Azure Portal]( http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Sök på **Cost Management + fakturering**.
 
     ![Skärmbild som visar Azure portal-sökning](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)

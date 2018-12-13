@@ -1,5 +1,5 @@
 ---
-title: OS- och runtime korrigeringar i Azure App Service | Microsoft Docs
+title: OS- och runtime korrigeringar takt – Azure App Service | Microsoft Docs
 description: Beskriver hur Azure App Service-uppdateringar Operativsystemet och körningar och hur du skaffar uppdaterar meddelanden.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 9855becd7c047788ed310dff4317a5df87cc9b61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.custom: seodec18
+ms.openlocfilehash: a0fdab06606a88fafa803a9a112c05452578cfeb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047636"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252872"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>OS- och runtime korrigeringar i Azure App Service
 
@@ -100,5 +101,5 @@ I följande tabell visas de versioner av Windows och språk-runtime som kör din
 
 ## <a name="more-resources"></a>Fler resurser
 
-[Säkerhetscenter: säkerhet](https://www.microsoft.com/en-us/trustcenter/security)  
+[Säkerhetscenter: Säkerhet](https://www.microsoft.com/en-us/trustcenter/security)  
 [64-bitars ASP.NET Core på Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

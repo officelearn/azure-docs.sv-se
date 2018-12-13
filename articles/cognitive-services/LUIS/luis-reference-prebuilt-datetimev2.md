@@ -11,19 +11,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f59c429906d6cee2b9f4aff6e16ba23e8d28c97b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0e2353107d6554a8ecbbd2e4d9850f8d8b5fda5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105860"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165188"
 ---
-# <a name="datetimev2-entity"></a>DatetimeV2-entitet
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 fördefinierade entitet för en LUIS-app
 
 Den **datetimeV2** fördefinierade entitet extraherar värdena för datum och tid. Dessa värden lösa i ett standardformat för klientprogram kan använda. När ett uttryck har datum och tid som inte är klar, LUIS innehåller _både tidigare och framtida värden_ reaktion slutpunkt. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller datetimeV2 till programmet avsikter. 
 
 ## <a name="types-of-datetimev2"></a>Typer av datetimeV2
-DatetimeV2 hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) Github-lagringsplats
+DatetimeV2 hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub-lagringsplats
 
 ## <a name="example-json"></a>Exempel på JSON 
 I följande exempel JSON-svar finns en `datetimeV2` entitet med en undertyp till `datetime`. Exempel på andra typer av datetimeV2 entiteter finns [undertyper till datetimeV2](#subtypes-of-datetimev2)</a>.

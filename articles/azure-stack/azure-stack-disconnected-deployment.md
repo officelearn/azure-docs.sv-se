@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 5714257fce53fafa148b8ae4d5a3addf3b872c6f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035483"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276262"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Integrerade Azure-frånkopplade distribution planeringsbeslut för Azure Stack-system
 När du har bestämt dig [hur du ska integrera Azure Stack i hybridmolnmiljön](azure-stack-connection-models.md), du kan sedan slutföra din Azure Stack-distributionsbeslut.
 
-Du kan distribuera och använda Azure Stack utan en anslutning till internet. Men med en frånkopplad distribution är du begränsad till en AD FS-Identitetslagret och kapacitetsbaserad faktureringsmodell. 
+Du kan distribuera och använda Azure Stack utan en anslutning till internet. Men med en frånkopplad distribution är du begränsad till en AD FS-Identitetslagret och kapacitetsbaserad faktureringsmodell. Eftersom flera innehavare kräver användning av Azure AD, stöds inte flera innehavare för frånkopplade distributioner. 
 
 Välj det här alternativet om du:
 - Har säkerhets- eller andra begränsningar som kräver att du kan distribuera Azure Stack i en miljö som inte är ansluten till Internet.
@@ -58,7 +58,7 @@ Telemetri|Ej tillgänglig telemetridata för Azure Stack som tillsammans med eve
 
 ## <a name="learn-more"></a>Läs mer
 - Information om användningsfall, inköp, partner och OEM maskinvaruleverantörer finns i den [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) produktsidan.
-- Mer information om plan och geo-tillgänglighet för Azure Stack-integrerade system finns i faktabladet: [Azure Stack: en utökning av Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Information om plan och geo-tillgänglighet för Azure Stack integrerade system finns i dokumentet: [Azure Stack: En utökning av Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Mer information om Microsoft Azure Stack förpackning och priser [ladda ned .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Nästa steg

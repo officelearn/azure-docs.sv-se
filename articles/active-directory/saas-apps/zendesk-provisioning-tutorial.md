@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera Zendesk för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudiekurs: Konfigurera Zendesk för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Zendesk.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 2dc965547511d27ed43a88c1f45b50593b30a937
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347944"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322780"
 ---
-# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zendesk för automatisk användaretablering
+# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Zendesk för automatisk användaretablering
 
 Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Zendesk och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Zendesk. 
 
@@ -77,6 +77,10 @@ Innan du konfigurerar och aktiverar automatisk användaretablering, bör du best
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Viktiga tips för att tilldela användare till Zendesk
 
+*    Zendesk roller fylls automatiskt och dynamiskt i Azure-portalens användargränssnitt idag. Se till att en initial synkronisering är slutfört mot Zendesk att hämta de senaste rollerna i din Zendesk-klient innan du tilldelar Zendesk-roller till användare.
+
+*    Vi rekommenderar att en enda Azure AD-användare har tilldelats Zendesk för att testa din första automatisk användarförsörjning konfiguration. Ytterligare användare och/eller grupper kan tilldelas senare när testerna har lyckats.
+  
 *   Vi rekommenderar att en enda Azure AD-användare är tilldelad till Zendesk att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
 *   När du tilldelar en användare till Zendesk, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
@@ -111,7 +115,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
     *   I den **hemlighet Token** fältet, Fyll hemlig token enligt beskrivningen i steg 6.
 
     *   I den **domän** fältet, fylla i underdomänen för din Zendesk-klient.
-    Exempel: för ett konto med ett klient-URL för https://my-tenant.zendesk.com, din underdomän skulle vara **min klient**.
+    Exempel: Ett konto med ett klient-URL för https://my-tenant.zendesk.com, din underdomän skulle vara **min klient**.
 
 6. Den **hemlighet Token** för ditt Zendesk-konto är baserat i **Admin > API > Inställningar**. 
 

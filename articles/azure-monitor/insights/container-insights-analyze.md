@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 588dcabb35660c860f3d96dd03c82ed95a1d4d5b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 47d597188c761921817bf7e2155548157e0d2eb3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087225"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185434"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare 
 Med Azure Monitor för behållare kan använda du prestandadiagram och hälsostatus för att övervaka arbetsbelastningen för dina Azure Kubernetes Service (AKS) kluster ur två perspektiv, direkt från ett AKS-kluster eller alla AKS-kluster i en prenumeration från Azure Övervaka. Visa Azure Container Instances (ACI) är också möjligt när du övervakar ett specifikt AKS-kluster.
@@ -94,10 +93,10 @@ Standardsidan öppnas när du klickar på **Insights** är **kluster**, och inne
 
 Prestandadiagrammet visar fyra prestandamått:
 
-- **Processoranvändning för noden&nbsp;%**: ett sammansatt perspektiv CPU-belastningen för hela klustret. Du kan filtrera resultaten för tidsintervallet genom att välja **genomsnittlig**, **Min**, **Max**, **50**, **90**, och **95: e** i percentiler Väljaren ovanför diagrammet, antingen separat eller kombinerat. 
-- **Minnesanvändning för noden&nbsp;%**: en aggregerade perspektiv av minnesanvändningen för hela klustret. Du kan filtrera resultaten för tidsintervallet genom att välja **genomsnittlig**, **Min**, **Max**, **50**, **90**, och **95: e** i percentiler Väljaren ovanför diagrammet, antingen separat eller kombinerat. 
-- **Antal noder**: ett antal noder och status från Kubernetes. Status för noderna i klustret som representeras är *alla*, *redo*, och *inte klara* och kan filtreras individuellt eller kombineras i Väljaren ovanför diagrammet. 
-- **Antal för aktiviteter pod**: antal poddar och status från Kubernetes. Statusen för poddarna representeras är *alla*, *väntande*, *kör*, och *okänd* och kan filtreras individuellt eller kombineras i den väljare ovanför diagrammet. 
+- **Nodanvändningen CPU&nbsp;%**: En sammansatt perspektiv CPU-belastningen för hela klustret. Du kan filtrera resultaten för tidsintervallet genom att välja **genomsnittlig**, **Min**, **Max**, **50**, **90**, och **95: e** i percentiler Väljaren ovanför diagrammet, antingen separat eller kombinerat. 
+- **Minnesanvändning för noden&nbsp;%**: En sammansatt perspektiv av minnesanvändningen för hela klustret. Du kan filtrera resultaten för tidsintervallet genom att välja **genomsnittlig**, **Min**, **Max**, **50**, **90**, och **95: e** i percentiler Väljaren ovanför diagrammet, antingen separat eller kombinerat. 
+- **Antal noder**: Ett antal noder och status från Kubernetes. Status för noderna i klustret som representeras är *alla*, *redo*, och *inte klara* och kan filtreras individuellt eller kombineras i Väljaren ovanför diagrammet. 
+- **Antal för aktiviteter pod**: Antal poddar och status från Kubernetes. Statusen för poddarna representeras är *alla*, *väntande*, *kör*, och *okänd* och kan filtreras individuellt eller kombineras i den väljare ovanför diagrammet. 
 
 När du växlar till **noder**, **domänkontrollanter**, och **behållare** fliken automatiskt visas till höger på sidan är egenskapsrutan.  Den visar egenskaperna för objekt som valts, inklusive etiketter som du definierar för att organisera Kubernetes-objekten. Klicka på den **>>** länkar i fönstret till view\hide fönstret.  
 
@@ -275,4 +274,4 @@ Det är ofta bra att skapa frågor som börjar med ett exempel eller två och ä
 | **Välj Visa diagramalternativet**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”memoryRssBytes” &#124; sammanfatta AvgUsedRssMemoryBytes = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Behållare-minne |
 
 ## <a name="alerting"></a>Aviseringar
-Azure Monitor för behållare inkluderar inte en fördefinierad uppsättning aviseringar som du kan kopiera och ändra baserat på dina stödjande processer och procedurer. Under tiden kan ta en titt [skapa aviseringar med Azure Monitor](../../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json) och lär dig hur du skapar en egen uppsättning aviseringar.  
+Azure Monitor för behållare inkluderar inte en fördefinierad uppsättning aviseringar som du kan kopiera och ändra baserat på dina stödjande processer och procedurer. Under tiden kan ta en titt [skapa aviseringar med Azure Monitor](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json) och lär dig hur du skapar en egen uppsättning aviseringar.  

@@ -1,5 +1,5 @@
 ---
-title: Bot medC#
+title: Bot - C# -v3
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 919d48d73a552596c78c3be18e7628ee7700f7e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b4b074de483d4a1ccd4c934a9fa7254e0f656a1b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080222"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133959"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot i C# med Bot Framework 3.x och Azure Web app-robot
 
@@ -37,11 +37,11 @@ Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LU
 
 1. I den [Azure-portalen](https://portal.azure.com)väljer **Skapa ny resurs** på menyn längst upp till vänster.
 
-    ![Skapa ny resurs](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
+    ![Skapa ny resurs i Azure-portalen](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
 2. I sökrutan söker du efter **Web App-robot**. 
 
-    ![Skapa ny resurs](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
+    ![Välj web app-robot som resurstyp](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
 3. I fönstret Web App-robot klickar du på **skapa**.
 

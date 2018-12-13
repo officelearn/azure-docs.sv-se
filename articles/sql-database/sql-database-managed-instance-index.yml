@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7e7d2fed15ba9fbbdddbd19ebfad40b4f9f7c6d0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7f55d0591fbcbb274ab76b5bd17ce77703813cd3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962342"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310043"
 documentType: LandingData
 title: Hanterad Azure SQL Database-instans
 metadata:
@@ -136,6 +136,7 @@ sections:
     - html: Kontrollera att databasen kan migreras med hjälp av <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Asisstant</a> eller <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">databasen experimentering Assistant</a>.
     - html: Ta med dina databaser till Managed Instance med <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">interna återställning</a> eller <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Datamigreringstjänst</a>.
     - html: Flytta SSIS-paketen till <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, tabellmodeller för SSAS att <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, och rapporter för SSRS att <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>.
+    - html: Tillämpa <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">bästa praxis för prestanda för lagring och överväganden för generell användning tjänstnivå</a>.
     - html: Hitta de bästa praxis och rekommendationer för <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">skydda din instans</a>.
     - html: Distribuera dina data med <a href="/azure/sql-database/replication-with-sql-database-managed-instance">Transaktionsreplikering</a>.
 - title: Referens
@@ -148,3 +149,5 @@ sections:
       html: <p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance ">Medel</a></p>
     - title: Vanliga frågor och svar
       html: <p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>
+    - title: Utbildningsmaterial
+      html: <p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Praktiska övningar</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Instruktion som leds labs</a></p>

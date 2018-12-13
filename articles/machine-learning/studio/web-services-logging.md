@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 6da5a3c278c237b6139508ba49652deb3166eb1a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8e9d6d006589e443329059c3f153e7925a88cd1f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091466"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249795"
 ---
-# <a name="enable-logging-for-machine-learning-studio-web-services"></a>Aktivera loggning för Machine Learning Studio-webbtjänster
+# <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Aktivera loggning för Azure Machine Learning Studio-webbtjänster
 Det här dokumentet innehåller information om funktionen loggning för Machine Learning web services. Loggning ger ytterligare information, utöver just en felkod och ett meddelande som kan hjälpa dig att felsöka dina anrop till API: er för Machine Learning.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Så här aktiverar du loggning för en webbtjänst

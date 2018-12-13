@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6acebef4481fc3d22cc7186663ce17e2602cde53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: cbf245b27bc6df9933a4786def42d85f848e09d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073507"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192098"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Få support och utbildning för Azure Machine Learning-tjänsten
 
@@ -37,10 +37,10 @@ Du kan **skicka förfrågningar** för ytterligare material med hjälp av feedba
 
 Kolla in dessa Supportresurser:
 
-+ **Teknisk support**: Gå till [teknisk support för Azure](https://azure.microsoft.com/support/options/) och välj Machine Learning. 
++ **Teknisk support**: Besök [teknisk support för Azure](https://azure.microsoft.com/support/options/) och välj Machine Learning. 
 
 + **Användarforum**: Ställ frågor, besvara frågor, och ansluter till andra användare i den [Azure Machine Learning-tjänsten Supportforum på MSDN](https://aka.ms/aml-forum-service).
 
-+ **Stackspill**: Gå till Azure Machine Learning-communityn på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) märkta med ”Azure-Machine Learning”.
++ **Stackspill**: Besök Azure Machine Learning-communityn på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) märkta med ”Azure-Machine Learning”.
 
 + **Dela produktförslag** och funktioner begäranden i vår [Feedbackkanal för Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning), vilket är också tillgänglig via länken längst ned i varje artikel. 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.date: 11/27/2018
 ms.topic: article
-ms.openlocfilehash: 86474fe612fb93f3a5853f9fea98eb9ab2dd00e5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 770a583ad09ec1aaa8191f5dafb3db61b2386e68
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52337063"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166242"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>Ansluta Azure Kubernetes Service och Azure Database för PostgreSQL
 
@@ -39,7 +39,7 @@ Du kan bekräfta om AKS-klustret har accelererat nätverk:
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
 [Öppna Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) kan du etablera Azure-tjänster direkt från Kubernetes eller Cloud Foundry. Det är en [Open Service Broker API](https://www.openservicebrokerapi.org/) implementering för Azure.
 
-Du kan skapa en Azure Database for PostgreSQL-server och koppla det till AKS-klustret med hjälp av Kubernetes' modersmål med OSBA. Lär dig mer om hur du använder OSBA och Azure Database för PostgreSQL tillsammans på den [OSBA Github-sidan](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
+Du kan skapa en Azure Database for PostgreSQL-server och koppla det till AKS-klustret med hjälp av Kubernetes' modersmål med OSBA. Lär dig mer om hur du använder OSBA och Azure Database för PostgreSQL tillsammans på den [OSBA GitHub-sidan](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
 
 
 ## <a name="connection-pooling"></a>Anslutningspooler

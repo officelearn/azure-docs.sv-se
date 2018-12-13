@@ -1,5 +1,5 @@
 ---
-title: Exempelfråga exempel för Azure Search | Microsoft Docs
+title: Exempelfråga-exempel – Azure Search
 description: Exempelfråga exempel för fulltextsökning, filter, search, geo-sökning, aspektbaserad sökning och andra frågesträngar som används för att fråga en Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 2d9e69a900f6665aa0ee3034cd6f9d7c394e8f0b
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.custom: seodec2018
+ms.openlocfilehash: 9697b88e23fea0cb06ab0c4a6197b5255e7076bf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056751"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316275"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Exempel på enkla syntaxfråga för att skapa frågor i Azure Search
 

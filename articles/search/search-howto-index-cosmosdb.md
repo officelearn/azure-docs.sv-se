@@ -1,6 +1,6 @@
 ---
-title: Indexera en Azure Cosmos DB-datakälla för Azure Search | Microsoft Docs
-description: Den här artikeln visar hur du skapar en Azure Search-indexerare med en Azure Cosmos DB-datakälla.
+title: Index-datakälla för ett Azure Cosmos DB – Azure Search
+description: Crawla en Azure Cosmos DB-datakälla och mata in data i ett sökbart fulltextindex i Azure Search. Indexerare automatisera datainmatning för valda datakällor som Azure Cosmos DB.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec2018
+ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747549"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311821"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ansluta Cosmos DB med Azure Search med indexerare
 
@@ -95,18 +96,18 @@ Gör ett INLÄGG om du vill skapa en datakälla:
 
 Brödtexten i begäran innehåller definitionen av datakällan, vilket bör innehålla följande fält:
 
-* **namn på**: Välj ett valfritt namn som representerar din databas.
-* **typ**: måste vara `documentdb`.
+* **Namn på**: Välj ett namn som representerar din databas.
+* **Typ**: Måste vara `documentdb`.
 * **autentiseringsuppgifter**:
   
-  * **connectionString**: krävs. Ange anslutningsinformationen till din Azure Cosmos DB-databas i följande format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` för MongoDB-samlingar, lägga till **ApiKind = MongoDb** på anslutningssträngen: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  * **connectionString**: Krävs. Ange anslutningsinformationen till din Azure Cosmos DB-databas i följande format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` För MongoDB-samlingar, lägger du till **ApiKind = MongoDb** på anslutningssträngen: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
   Undvik att portnumren i slutpunkts-url. Om du inkluderar portnumret går Azure Search inte att indexera Azure Cosmos DB-databasen.
 * **behållaren**:
   
-  * **namn på**: krävs. Ange id för samlingen databas som ska indexeras.
-  * **fråga**: valfritt. Du kan ange en fråga för att platta ut en godtycklig JSON-dokumentet till ett fast schema som Azure Search kan indexera. Frågor stöds inte för MongoDB-samlingar. 
-* **dataChangeDetectionPolicy**: rekommenderas. Se [indexering ändrats dokument](#DataChangeDetectionPolicy) avsnittet.
-* **dataDeletionDetectionPolicy**: valfritt. Se [indexering bort dokument](#DataDeletionDetectionPolicy) avsnittet.
+  * **Namn på**: Krävs. Ange id för samlingen databas som ska indexeras.
+  * **fråga**: Valfri. Du kan ange en fråga för att platta ut en godtycklig JSON-dokumentet till ett fast schema som Azure Search kan indexera. Frågor stöds inte för MongoDB-samlingar. 
+* **dataChangeDetectionPolicy**: Vi rekommenderar. Se [indexering ändrats dokument](#DataChangeDetectionPolicy) avsnittet.
+* **dataDeletionDetectionPolicy**: Valfri. Se [indexering bort dokument](#DataDeletionDetectionPolicy) avsnittet.
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Med hjälp av frågor för att forma indexerat data
 Du kan ange en SQL-fråga för att platta ut kapslade egenskaper eller matriser, projekt JSON-egenskaper och filtrera data som ska indexeras. 
@@ -187,7 +188,7 @@ Kontrollera att schemat för din målindex är kompatibel med schemat för käll
 | Sträng |Edm.String |
 | Matriser av primitiva typer, till exempel [”a”, ”b”, ”c”] |Collection(Edm.String) |
 | Strängar som ser ut som datum |Edm.DateTimeOffset Edm.String |
-| GeoJSON-objekt, till exempel {”type”: ”Point”, ”coordinates”: [long, lat]} |Edm.GeographyPoint |
+| GeoJSON-objekt, till exempel {”type”: ”Plats”, ”coordinates”: [long, lat]} |Edm.GeographyPoint |
 | Andra JSON-objekt |Gäller inte |
 
 <a name="CreateIndexer"></a>

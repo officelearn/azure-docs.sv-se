@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 7f4e956601ee25549d0a0828c4c3dd0e8d6ff85b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f754242d0cf7ee30572b21a3f4daf6fd2c0f63ff
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840137"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275915"
 ---
 # <a name="validate-azure-stack-system-state"></a>Verifiera Azure Stack-system-tillstånd
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Som Azure Stack-operatör är det viktigt att ha möjlighet att veta hälsotillstånd och status för ditt system på begäran. Verktyget för Azure Stack-validering (**Test-AzureStack**) är en PowerShell-cmdlet som du kan köra en serie tester i systemet för att identifiera fel. Du kommer vanligtvis bli ombedd att köra det här verktyget den [privilegierad slutpunkt (program)](azure-stack-privileged-endpoint.md) när du kontaktar Microsofts kundsupport tjänster (CSS) med ett problem. Med systemomfattande hälsotillstånd och statusinformation till hands, CSS samla in och analysera detaljerade loggar kan fokusera på området där felet uppstod och arbetar med att lösa problemet.
 
@@ -45,7 +45,7 @@ Som tidigare nämnts bör köra verktyget verifiering via detta program. Varje t
    Test-AzureStack
    ```
 
-   Referera till den [parametern överväganden](azure-stack-diagnostic-test.md#parameter-considerations) och [fallet baseras på exempel](azure-stack-diagnostic-test.md#use-cases) avsnitt för mer information.
+   Referera till den [parametern överväganden](azure-stack-diagnostic-test.md#parameter-considerations) och [fallet baseras på exempel](azure-stack-diagnostic-test.md#use-case-examples) avsnitt för mer information.
 
 3. Om någon testar rapporten **MISSLYCKAS**, kör:
 
@@ -121,13 +121,13 @@ Följande scenarier för molnet testas av verktyget verifiering:
 
 - En virtuell dator distribueras som en del av en klient testar för scenariot med molnet. Du kan använda **DoNotDeployTenantVm** att inaktivera det här. 
 
-- Måste du ange den **ServiceAdminCredential** parameter för att köra tester för cloud-scenario som beskrivs i den [fallet baseras på exempel](azure-stack-diagnostic-test.md#use-cases) avsnittet.
+- Måste du ange den **ServiceAdminCredential** parameter för att köra tester för cloud-scenario som beskrivs i den [fallet baseras på exempel](azure-stack-diagnostic-test.md#use-case-examples) avsnittet.
 
-- **BackupSharePath** och **BackupShareCredential** används när du testar inställningar för säkerhetskopiering av infrastruktur, enligt den [fallet baseras på exempel](azure-stack-diagnostic-test.md#use-cases) avsnittet.
+- **BackupSharePath** och **BackupShareCredential** används när du testar inställningar för säkerhetskopiering av infrastruktur, enligt den [fallet baseras på exempel](azure-stack-diagnostic-test.md#use-case-examples) avsnittet.
 
-- Verktyget Verifiering också stöder vanliga PowerShell-parametrar: utförlig, felsökning, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable och OutVariable. Mer information finns i [om gemensamma parametrar](http://go.microsoft.com/fwlink/?LinkID=113216).  
+- Verifiering verktyget stöder också vanliga PowerShell-parametrar: Utförlig, felsökning, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, och OutVariable. Mer information finns i [om gemensamma parametrar](http://go.microsoft.com/fwlink/?LinkID=113216).  
 
-## <a name="use-case-examples"></a>Använd case-exemplen 
+## <a name="use-case-examples"></a>Använd case-exemplen
 
 ### <a name="run-validation-without-cloud-scenarios"></a>Köra verifieringen utan cloud-scenarier
 

@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar för programprestanda för Azure web apps | Microsoft Docs
+title: Programprestanda vanliga frågor och svar – Azure App Service | Microsoft Docs
 description: Få svar på vanliga frågor om tillgänglighet, prestanda och programfel i funktionen Web Apps i Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 00563b93a3601ba6299c479c49375fd252841f79
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 62039d379861e9981eb1bf556a78e85fc64e2478
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748127"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255201"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar för programprestanda för Web Apps i Azure
 
@@ -83,7 +84,7 @@ Tre villkor kan orsaka detta fel:
 * Webbappen har stoppats i portalen.
 * Webbappen har nått resurskvotgränsen som kan gälla för en kostnadsfri eller delad skala service-plan.
 
-Vad som orsakar felet och för att lösa problemet, följer du stegen i [Web Apps: ”fel 403 – den här webbappen har stoppats”](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Vad som orsakar felet och för att lösa problemet, följer du stegen i [Web Apps: ”Fel 403 – den här webbappen har stoppats”](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
 
 ## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Var kan jag läsa mer om kvoter och begränsningar för olika App Service-planer?
 
@@ -166,7 +167,7 @@ WebJobs är utformat för bearbetning i bakgrunden. Du kan göra så mycket bakg
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET Core-program som finns i App Service ibland slutar svara. Hur kan jag åtgärda det här problemet?
 
-Ett känt problem med en tidigare [Kestrel version](https://github.com/aspnet/KestrelHttpServer/issues/1182) kan orsaka en ASP.NET Core 1.0-app som finns i App Service periodvis slutar svara. Du kan också se meddelandet: ”ett fel inträffade i CGI-programmet och servern avslutades processen”.
+Ett känt problem med en tidigare [Kestrel version](https://github.com/aspnet/KestrelHttpServer/issues/1182) kan orsaka en ASP.NET Core 1.0-app som finns i App Service periodvis slutar svara. Du kan också visas följande meddelande: ”Ett fel inträffade i CGI-programmet och servern avslutades processen”.
 
 Det här problemet löses i Kestrel version 1.0.2. Den här versionen ingår i ASP.NET Core 1.0.3 uppdateringen. Lös problemet genom att kontrollera att du uppdaterar din appberoenden för att använda Kestrel 1.0.2. Du kan också använda en av två lösningar som beskrivs i det här blogginlägget [ASP.NET Core 1.0 långsam perf utfärdar i App Service web apps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
 

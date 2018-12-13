@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d281ebe80c6089c559cfaa77f4875a856566092
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9a9fe16f562805f1bfd6f51af063531f34ffdde2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079386"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308506"
 ---
 # <a name="deploy-resources-to-an-azure-subscription"></a>Distribuera resurser till en Azure-prenumeration
 
 Normalt kan distribuera du resurser till en resursgrupp i Azure-prenumerationen. Vissa resurser kan dock distribueras på nivån för din Azure-prenumeration. De här resurserna använda i din prenumeration. [Principer](../azure-policy/azure-policy-introduction.md), [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md), och [Azure Security Center](../security-center/security-center-intro.md) är tjänster som du vill tillämpa på prenumerationsnivå i stället för resursgruppsnivå.
 
-Den här artikeln använder Azure CLI och PowerShell för att distribuera mallarna.
+Den här artikeln använder Azure CLI och PowerShell för att distribuera mallarna. Du kan inte använda portalen för att distribuera mallarna eftersom portalgränssnittet distribuerar till resursgrupp, inte Azure-prenumeration.
 
 ## <a name="name-and-location-for-deployment"></a>Namn och plats för distribution
 

@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: 7f1950afc8e84f0bfeba7d51aa68ee126db38e2e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d7a48dcb56d2bed0e84714087bb9fda3fae65fc1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075140"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273790"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Hur du använder en Azure Machine Learning Studio-webbtjänst
 
@@ -33,7 +32,7 @@ Du hittar mer information om hur du skapar och distribuerar en Machine Learning-
 * Mer information om hur du distribuerar en webbtjänst finns i [distribuera en Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
 * Mer information om Machine Learning finns på den [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Översikt
 Med Azure Machine Learning webbtjänsten kommunicerar ett externt program med en arbetsflödesbaserad poängmodell i Machine Learning i realtid. Ett Machine Learning webbtjänstanrop returnerar förutsägelser till ett externt program. Om du vill göra ett Machine Learning-webbtjänstanrop skickar du en API-nyckel som skapas när du distribuerar en förutsägelse. Machine Learning-webbtjänst baseras på REST, ett populärt arkitekturval för programmeringsprojekt.
@@ -102,13 +101,13 @@ Att ansluta till en Machine Learning-webbtjänster, den **system.NET.http.Format
 
 **Installera Microsoft.AspNet.WebApi.Client NuGet i Visual Studio**
 
-1. Publicera Download datauppsättningen från UCI: vuxna 2 klass datauppsättning webbtjänsten.
+1. Publicera Download datauppsättningen från UCI: Vuxen 2 klass datauppsättning webbtjänsten.
 2. Klicka på **Verktyg** > **NuGet Package Manager** > **Package Manager Console**.
 3. Välj **Install-Package system.NET.http.Formatting**.
 
 **Att köra kodexemplet**
 
-1. Publicera ”exempel 1: hämta datauppsättningen från UCI: vuxen 2 klass datauppsättningen” experiment, en del av de Machine Learning-exemplet.
+1. Publicera ”exempel 1: Hämta datauppsättningen från UCI: Vuxen 2 klass datauppsättning ”experiment, en del av de Machine Learning-exemplet.
 2. Tilldela apiKey med nyckel från en webbtjänst. Se **hämta en nyckel för auktorisering av Azure Machine Learning** ovan.
 3. Tilldela serviceUri med begäran-URI.
 
@@ -204,7 +203,7 @@ Om du vill ansluta till en Machine Learning-webbtjänst, den **urllib2** bibliot
 
 **Att köra kodexemplet**
 
-1. Distribuera ”exempel 1: hämta datauppsättningen från UCI: vuxen 2 klass datauppsättningen” experiment, en del av de Machine Learning-exemplet.
+1. Distribuera ”exempel 1: Hämta datauppsättningen från UCI: Vuxen 2 klass datauppsättning ”experiment, en del av de Machine Learning-exemplet.
 2. Tilldela apiKey med nyckel från en webbtjänst. Se den **hämta en nyckel för auktorisering av Azure Machine Learning** avsnittet i början av den här artikeln.
 3. Tilldela serviceUri med begäran-URI.
 

@@ -4,10 +4,9 @@ description: Lär dig att formulera en sharp data science-fråga i datavetenskap
 keywords: data science problem, data science frågor Formulera frågor, regression frågor, klassificering frågor, sharp fråga
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310845"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250987"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Ställ en fråga som du kan svara på med data
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Datavetenskap för nybörjare-serien
@@ -39,17 +38,17 @@ Titta på alla för att få ut det mesta av serien. [Gå till listan över video
 *Datavetenskap för nybörjare* är en snabbintroduktion i datakunskap med fem korta filmer.
 
 * Video 1: [5 frågor och svar om datavetenskap](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sek.)*
-* Video 2: [är dina data klara för datavetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sek)*
+* Video 2: [Är dina data klara för datavetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sek)*
 * Video 3: Ställ en fråga som du kan svara på med data
-* Video 4: [förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sek)*
-* Video 5: [kopiera andras arbete för att göra datavetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek)*
+* Video 4: [Förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sek)*
+* Video 5: [Kopiera andras arbete för att göra datavetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek)*
 
 ## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Avskriften: Ställ en fråga som du kan svara på med data
 Välkommen till tredje videon i serien ”datavetenskap för nybörjare”.  
 
 I det här objektet får du några tips för utformningen av en fråga som du kan svara på med data.
 
-Du kan få ut mer av den här videon om du först titta på två tidigare videor i den här serien: ”datavetenskap 5 frågor kan besvara” och ”är dina data är klara för datavetenskap”?
+Du kan få ut mer av den här videon om du först titta på två tidigare videor i den här serien: ”5 frågor data science kan besvara” och ”är dina data är klara för datavetenskap”?
 
 ## <a name="ask-a-sharp-question"></a>Ställ en sharp fråga
 Vi har pratat om hur data science är processen för att förutsäga ett svar på en fråga med hjälp av namn (kallas även för kategorier eller etiketter) och siffror. Men det kan vara vilken fråga. Det måste vara en *sharp fråga.*
@@ -62,7 +61,7 @@ Om du vill ställa en vagt fråga som ”vad som händer med Mina lager”?, kan
 
 Men om du skulle ställa en sharp fråga som ”vad mitt lager försäljningspris blir nästa vecka”?, kan inte genie bidra men ger dig en specifik besvara och förutsäga ett försäljningspris.
 
-## <a name="examples-of-your-answer-target-data"></a>Exempel på svaret: målprogram
+## <a name="examples-of-your-answer-target-data"></a>Exempel på svaret: Måldata
 Kontrollera om du har ett exempel på svaret i dina data när du formulera din fråga.
 
 Om våra fråga är ”vad mitt lager försäljningspris blir nästa vecka”? sedan måste vi Kontrollera våra data ingår historiken för aktiekursen.

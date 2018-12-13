@@ -1,5 +1,5 @@
 ---
-title: Distribuera din app till Azure App Service med en ZIP- eller WAR-fil | Microsoft Docs
+title: Distribuera kod med en ZIP- eller WAR-fil – Azure App Service | Microsoft Docs
 description: Lär dig hur du distribuerar din app till Azure App Service med en ZIP-fil (eller en WAR-filen för Java-utvecklare).
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: b628ae0806febb3ffd4edaf71be45841aff38516
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 437f1aa631e058ee62bb3c08d2ad654c3d0666f3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423036"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259094"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuera din app till Azure App Service med en ZIP- eller WAR-fil
 
@@ -116,5 +117,5 @@ Mer avancerade distributionsscenarier för, försök [distribuera till Azure med
 
 ## <a name="more-resources"></a>Fler resurser
 
-* [Kudu: Distribuera en zip-fil](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
+* [Kudu: Distribuera från en zip-fil](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Autentiseringsuppgifter för distribution av Azure App Service](app-service-deploy-ftp.md)

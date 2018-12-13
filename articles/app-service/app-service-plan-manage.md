@@ -1,5 +1,5 @@
 ---
-title: Hantera en App Service-plan i Azure | Microsoft Docs
+title: Hantera App Service-plan – Azure | Microsoft Docs
 description: Lär dig hur du utför olika åtgärder för att hantera en App Service plan.
 keywords: App service, azure app service, skala, app service-plan, ändra, skapa, hantera, management
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 8f8e5f3d184073a73ca30764542dc56e45974120
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166074"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262137"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera en App Service-plan i Azure
 
@@ -35,7 +36,7 @@ Du kan skapa en tom App Service-plan eller du kan skapa en plan som en del av sk
 
 1. I den [Azure-portalen](https://portal.azure.com)väljer **New** > **webb + mobilt**, och välj sedan **Webbapp** eller en annan typ av App Service-app.
 
-1. Välj en befintlig App Service-plan eller skapa en plan för den nya appen.
+2. Välj en befintlig App Service-plan eller skapa en plan för den nya appen.
 
    ![Skapa en app i Azure-portalen.][createWebApp]
 

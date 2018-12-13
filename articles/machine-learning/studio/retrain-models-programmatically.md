@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: da3edf7bc17240dabcb5519317f38bdb468be9f2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099995"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257401"
 ---
-# <a name="retrain-machine-learning-studio-models-programmatically"></a>Träna om Machine Learning Studio-modeller via programmering
+# <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Programmatisk omtrimning av Azure Machine Learning Studio-modeller
 I den här genomgången får du lära dig hur du programmässigt omtrimning av en Azure Machine Learning Studio web service med hjälp av C# och Machine Learning Batch Execution service.
 
 När du har modellkomponenten modellen visar följande genomgångar hur du uppdaterar modellen i din förutsägbar webbtjänst:
@@ -36,14 +35,14 @@ En översikt över omtränings processen, se [träna en Maskininlärningsmodell]
 Om du vill börja med din befintliga nya Azure Resource Manager-baserade webbtjänst finns i [tränar en förutsägbar webbtjänst](retrain-existing-resource-manager-based-web-service.md).
 
 ## <a name="create-a-training-experiment"></a>Skapa ett träningsexperiment
-I det här exemplet ska du använda ”exempel 5: träna, testa, utvärdera för binär klassificering: vuxna datauppsättningen” från Microsoft Azure Machine Learning-exempel. 
+I det här exemplet ska du använda ”exempel 5: Träna, testa, utvärdera för binär klassificering: Vuxet datauppsättning ”från Microsoft Azure Machine Learning-exempel. 
 
 Skapa experimentet:
 
 1. Logga in på Microsoft Azure Machine Learning Studio. 
 2. I nederkant högra hörnet av instrumentpanelen, klickar du på **New**.
 3. Välj exempel 5 från Microsoft-Samples.
-4. Om du vill byta namn på experimentet överst i arbetsytan för experimentet väljer du namnet på experiment ”exempel 5: träna, testa, utvärdera för binär klassificering: vuxna datauppsättningen”.
+4. Om du vill byta namn på experimentet överst i arbetsytan för experimentet väljer du namnet på experiment ”exempel 5: Träna, testa, utvärdera för binär klassificering: Vuxet datauppsättning ”.
 5. Typ av inventering modell.
 6. Längst ned på arbetsytan för experimentet klickar du på **kör**.
 7. Klicka på **konfigurera web service** och välj **Retraining webbtjänsten**. 
@@ -93,7 +92,7 @@ I det här exemplet använder du C# att skapa omtränings-program. Du kan också
 
 Att anropa API: erna Retraining:
 
-1. Skapa ett C#-konsolprogram i Visual Studio: **New** > **projekt** > **Visual C#** > **Windows Classic Desktop** > **konsolprogram (.NET Framework)**.
+1. Skapa en C# konsolapp i Visual Studio: **Ny** > **projekt** > **Visual C#**   >  **Windows Classic Desktop**  >   **Konsolprogram (.NET Framework)**.
 2. Logga in på Machine Learning-webbtjänst-portalen.
 3. Om du arbetar med en klassisk webbtjänst, klickar du på **klassiska webbtjänster**.
    1. Klicka på den webbtjänst som du arbetar med.
@@ -159,7 +158,7 @@ Se följande exempel:
 
 ![Omtränings utdata][6]
 
-Diagram 4: Träna utdata.
+Diagram 4: Omtränings utdata.
 
 ## <a name="evaluate-the-retraining-results"></a>Utvärdera Omtränings resultaten
 När du kör programmet innehåller utdata URL: en och SAS-token behövs för att komma åt utvärderingar.

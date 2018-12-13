@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 2d7b50eadc130900cbd69d579f5ebb2997ad46a0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 4d77f8aad07d2fd4b3e2c4ec42b5b0ec328f779d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872959"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269523"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL database med hjälp av automatiska databassäkerhetskopieringar
 
@@ -64,10 +64,10 @@ För en enskild prenumeration finns vissa begränsningar för antalet samtidiga 
 |Elastisk pool (per pool)|4|200|
 ||||
 
-Det finns inga inbyggda funktioner för att bulk återställning. Den [Azure SQL Database: fullständig serveråterställning](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) skript är ett exempel på ett sätt att utföra den här uppgiften.
+Det finns inga inbyggda funktioner för att bulk återställning. Den [Azure SQL Database: Fullständig återställning av](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) skript är ett exempel på ett sätt att utföra den här uppgiften.
 
 > [!IMPORTANT]
-> Om du vill återställa med hjälp av automatiska säkerhetskopieringar, måste du vara medlem i rollen SQL Server-deltagare i prenumeration eller vara prenumerationsägaren - läsa [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST-API:et. Du kan inte använda Transact-SQL.
+> Om du vill återställa med hjälp av automatiska säkerhetskopieringar, måste du vara medlem i rollen SQL Server-deltagare i prenumeration eller vara prenumerationsägaren - läsa [RBAC: Inbyggda roller](../role-based-access-control/built-in-roles.md). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST-API:et. Du kan inte använda Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
@@ -129,7 +129,7 @@ GEO-återställning är standardalternativet för återställning när databasen
 Point-in-time-återställning på en geo-secondary stöds inte för närvarande. Point-in-time-återställning kan göras endast på en primär databas. Detaljerad information om hur du använder geo-återställning för att återställa från ett avbrott finns i [återställa från ett avbrott](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Återställning från säkerhetskopior är den mest grundläggande haveriberedskapslösningar som är tillgängliga i SQL Database med längsta mål för återställningspunkt (RPO) och uppskattning Recovery tid (ERT). För lösningar med hjälp av små databaser (t.ex. grundläggande tjänstenivå eller mindre storlek klientdatabaser i elastiska pooler), är ofta geo-återställning som en rimlig DR-lösning med en ERT på upp till 12 timmar (vanligtvis mycket mindre). Med hjälp av stora databaser för lösningar och kräver kortare tid, bör du använda [redundans grupper och aktiv geo-replikering](sql-database-geo-replication-overview.md). Aktiv geo-replikering erbjuder en mycket lägre RPO och ERT eftersom den endast kräver du påbörja en växling till en kontinuerligt replikerad sekundär. Mer information om alternativ för affärskontinuitet finns [översikt över affärskontinuitet](sql-database-business-continuity.md).
+> Återställning från säkerhetskopior är den mest grundläggande haveriberedskapslösningar som är tillgängliga i SQL Database med längsta mål för återställningspunkt (RPO) och uppskattning Recovery tid (ERT). För lösningar med hjälp av små databaser (t.ex. grundläggande tjänstenivå eller mindre storlek klientdatabaser i elastiska pooler), är ofta geo-återställning som en rimlig DR-lösning med en ERT på upp till 12 timmar (vanligtvis mycket mindre). Med hjälp av stora databaser för lösningar och kräver kortare tid, bör du använda [aktiv geo-replikering](sql-database-active-geo-replication.md) eller [automatisk redundans grupper](sql-database-auto-failover-group.md). Aktiv geo-replikering erbjuder en mycket lägre RPO och ERT eftersom den endast kräver du påbörja en växling till en kontinuerligt replikerad sekundär. Automatisk redundans grupper aktivera automatisk redundans för en grupp med databaser. Mer information om alternativ för affärskontinuitet finns [översikt över affärskontinuitet](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>GEO-återställning med hjälp av Azure portal
 
@@ -177,4 +177,4 @@ Automatisk säkerhetskopiering skyddar dina databaser från användare och progr
 - En översikt över affärskontinuitet och scenarier finns i [översikt över affärskontinuitet](sql-database-business-continuity.md).
 - Vill veta mer om Azure SQL Database automatiska säkerhetskopior, se [SQL Database automatiska säkerhetskopior](sql-database-automated-backups.md).
 - Läs om långsiktig kvarhållning i [långsiktig kvarhållning](sql-database-long-term-retention.md).
-- Läs om hur du snabbare återställningsalternativ i [redundans grupper och aktiv geo-replikering](sql-database-geo-replication-overview.md).
+- Läs om hur du snabbare återställningsalternativ i [aktiv geo-replikering](sql-database-active-geo-replication.md) eller [automatisk redundans grupper](sql-database-auto-failover-group.md).

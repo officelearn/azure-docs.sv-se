@@ -12,14 +12,14 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7ab1c0f918b5e5b9135e8d1b91f0f97a6c95d05e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9175ed0b4f362a40e1d29a20a8378854b5f4cc81
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685437"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310394"
 ---
-# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudie: Ställa in SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server lokalt
+# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudiekurs: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt
 
 I den här självstudien får du lära dig hur du ställer in Azure SQL Data Sync genom att skapa en hybrid sync-grupp som innehåller både Azure SQL Database och SQL Server-instanser. Ny synkroniseringsgrupp är fullständigt konfigurerad och synkroniserar enligt det schema som du anger.
 
@@ -199,7 +199,7 @@ När nya synkronisera gruppmedlemmarna skapas och distribueras, steg3 **konfigur
 
 ### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Hur ofta kan datasynkronisering synkronisera mina data
 
-Den lägsta frekvensen är var femte minut.
+Minimal varaktigheten mellan utlösa synkronisering är fem minuter.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL Data Sync sker det fullständigt skapa och etablera tabeller
 
@@ -261,18 +261,18 @@ Grattis! Du har skapat en synkroniseringsgrupp som innehåller både en SQL-data
 
 Mer information om SQL Data Sync finns i:
 
--   Översikt – [synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
--   Konfigurera datasynkronisering
+-   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
+-   Konfigurera Data Sync
     - Med PowerShell
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Data synkroniseras Agent - [Data synkroniseras Agent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Övervaka – [övervaka SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)
--   Felsök - [felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+-   Övervakning – [Övervaka SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)
+-   Felsökning – [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 -   Uppdatera synkroniseringsschemat
-    -   Med Transact-SQL - [automatisera replikeringen av schemaändringar i Azure SQL Data Sync](sql-database-update-sync-schema.md)
-    -   Med PowerShell - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/sql-database-sync-update-schema.md)
+    -   Med Transact-SQL – [Automatisera replikeringen av schemaändringar i Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   Med PowerShell – [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/sql-database-sync-update-schema.md)
 
 Mer information om SQL Database finns i:
 

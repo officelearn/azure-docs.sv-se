@@ -1,5 +1,5 @@
 ---
-title: Skriv och Förbered data med Data Prep Python SDK
+title: 'Skriv: Förbered data Python SDK'
 titleSuffix: Azure Machine Learning service
 description: Lär dig mer om hur du skriver data med Azure Machine Learning Data Prep SDK. Du kan skriva ut data när som helst i ett dataflöde och till filer i någon av våra platser som stöds (lokalt filsystem, Azure Blob Storage och Azure Data Lake Storage).
 services: machine-learning
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1278d0c448b041849f477b55d8311f516c3bccf3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18c74a701da77ca06d3084a6f4af64dd4cc32628
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104449"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186029"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Skriva data med hjälp av Azure Machine Learning Data Prep SDK
 

@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e4d96fa558e1122ef9e0fe0b265166757c45e678
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686900"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321058"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarguide för Azure Functions Java
 
@@ -105,7 +105,9 @@ här är den genererade motsvarande `function.json` av den [azure-functions-mave
 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK runtime tillgänglighet och support 
 
-Ladda ned och använda den [Azul Zulu för Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDKs från [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) för lokal utveckling av Java-funktionsappar. JDKs är tillgängliga för Windows, Linux och macOS. [Azure-supporten](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) är tillgängligt med en [kvalificerade supportavtal](https://azure.microsoft.com/support/plans/).
+Ladda ned och använda den [Azul Zulu Enterprise för Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs från [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) för lokal utveckling av Java-funktionsappar. Azure Functions använder Azul Java 8 JDK-körningen när du distribuerar dina funktionsappar till molnet.
+
+[Azure-supporten](https://azure.microsoft.com/en-us/support/) för problem med JDKs och funktionen appar är tillgängliga med en [kvalificerade supportavtal](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Bibliotek från tredje part 
 
@@ -361,11 +363,11 @@ Du måste ha aktiverat filsystemet loggning i Azure Portal eller Azure CLI innan
 
 ## <a name="environment-variables"></a>Miljövariabler
 
-I funktioner, [appinställningar](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), till exempel tjänstanslutning strängar, visas som miljövariabler under körning. Du kan komma åt de här inställningarna med hjälp av, `System.getenv("AzureWebJobsStorage")`
+I funktioner, [appinställningar](https://docs.microsoft.com/azure/azure-functions/functions-app-settings), till exempel tjänstanslutning strängar, visas som miljövariabler under körning. Du kan komma åt de här inställningarna med hjälp av, `System.getenv("AzureWebJobsStorage")`
 
 Exempel:
 
-Lägg till [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) med namnet testAppSetting och värde testAppSettingValue
+Lägg till [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) med namnet testAppSetting och värde testAppSettingValue
 
 ```java
 

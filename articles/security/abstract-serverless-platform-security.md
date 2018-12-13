@@ -1,31 +1,31 @@
 ---
-title: Abstrakt Azure Functions och serverlösa plattform säkerhet
-description: Abstrakt för vitboken Azure Functions och serverlösa plattform säkerhet.
+title: Abstrakt Azure Functions och plattform utan Server-säkerhet
+description: Abstrakt för dokumentet Azure Functions och serverlös Plattformssäkerhet.
 author: TomShinder
 ms.author: TomSh
 ms.date: 06/21/2018
 ms.topic: article
 ms.service: security
-ms.openlocfilehash: 8f5f600b0680b85d760e72b8e177ae247e41ac6b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 87010b3256fb8eef6871d76f80db2999760386b4
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133044"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320752"
 ---
-# <a name="azure-functions-and-serverless-platform-security"></a>Azure Functions och serverlösa plattform säkerhet
+# <a name="azure-functions-and-serverless-platform-security"></a>Azure Functions och plattform utan Server-säkerhet
 ## <a name="abstract"></a>Abstrakt
-De flesta företag behöver mycket resurser och tid för att hantera servrar, som lägger till kostnaden. Om företag kan hantera servrar med färre resurser, kan de fokusera på programutveckling bra.  
+De flesta företag behöver en betydande mängd resurser och tid för att hantera servrar, som lägger till kostnaden. Om företag kan använda färre resurser för att hantera servrar, kan de fokusera på att bygga bra program.  
 
-Serverlösa computing hjälper dig att fungerar precis så eftersom den infrastruktur som du behöver köra och skala appar hanteras. Databearbetning utan server är abstraktionen av servrar, infrastruktur och operativsystem. Serverlösa computing drivs av reaktion på händelser och utlösare som är äger rum i nära realtid – i molnet. 
+Databearbetning utan Server hjälper dig att göra just detta eftersom den infrastruktur som du behöver köra och skala apparna hanteras åt dig. Databearbetning utan server är abstraktionen av servrar, infrastruktur och operativsystem. Databehandling utan Server drivs av reaktionen på händelser och utlösare, som som är alla äger rum i nära realtid – i molnet. 
 
-Som en helt hanterad tjänst är Serverhantering och kapacitetsplanering osynliga för utvecklare. Serverlösa framework hjälper dig att utveckla och distribuera serverlösa program med hjälp av Azure Functions. Det är en kommandoradsgränssnittet (CLI) som erbjuder struktur och automatisering som hjälper dig att skapa avancerade händelsedriven, serverlösa arkitekturer som består av funktioner och händelser. En Azure-funktion är en oberoende distributionsenhet, t.ex. en mikrotjänster. Det är bara kod, distribuerade i molnet som skrivs oftast att utföra en enskild uppgift.
+Som en fullständigt hanterad tjänst är Serverhantering och kapacitetsplanering osynliga för utvecklaren. Serverlös framework kan du utveckla och distribuera program utan server med hjälp av Azure Functions. Det är ett kommandoradsgränssnitt (CLI) som erbjuder struktur och automatisering för att skapa avancerade, händelsedriven, serverlös arkitektur består av funktioner och händelser. En Azure-funktion är en oberoende enhet för distribution, t.ex. en mikrotjänst. Det är bara kod, distribuerade i molnet, som skrivs oftast att utföra ett enskilt jobb.
 
-Trots fördelarna har serverlösa säkerhet sin egen riskfaktorer som handlar om. Serverlösa metoden införa inte nya säkerhetsfrågor, men det krävs att en metod för befintliga säkerhetsfrågor. I det här dokumentet fokuserar på de här säkerhetsfrågor: 
-* Fördelarna med en serverlösa plattform
-* Säkerhetsproblem i serverlösa datoranvändning
-* Kritiska säkerhetsproblem och ändringar i kontexten för Azure
-* Skydda Microsoft-plattformen serverlösa
+Trots fördelar har serverlös säkerhet sin egen riskfaktorer utan. Serverlös metoden introducera inte nya säkerhetsproblem, men den måste det finnas en metod för att befintliga säkerhetsfrågor. Det här dokumentet fokuserar på de här säkerhetsfrågor: 
+* Fördelarna med en plattform utan Server
+* Säkerhetsproblem i databearbetning
+* Viktiga säkerhetsproblem och ändringar i kontexten av Azure
+* Skydda Microsofts plattform utan Server
 
-[I faktabladet](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)
+[Ladda ned dokumentet](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)
 

@@ -11,23 +11,40 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 18c63b9c16ed9e82972a933d2aee5990d2fa84ac
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081582"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273516"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Använda virtuella nätverksslutpunkter med Azure Event Hubs
 
-Integreringen av Event Hubs med [tjänstslutpunkter i virtuella nätverk (VNet)] [ vnet-sep] möjliggör säker åtkomst till funktioner för meddelanden från arbetsbelastningar som till exempel virtuella datorer som är kopplade till virtuella nätverk med nätverkssökvägen för trafik som skyddas i bägge ändar. 
-
-> [!IMPORTANT]
-> Virtuella nätverk stöds i **standard** och **dedikerade** nivåerna för Event Hubs. Det stöds inte på basic-nivå. 
+Integreringen av Event Hubs med [tjänstslutpunkter i virtuella nätverk (VNet)] [ vnet-sep] möjliggör säker åtkomst till funktioner för meddelanden från arbetsbelastningar som till exempel virtuella datorer som är kopplade till virtuella nätverk med nätverkssökvägen för trafik som skyddas i bägge ändar.
 
 När konfigurerad att vara bunden till minst en tjänstslutpunkt för virtuellt nätverk undernät, de respektive Event Hubs-namnområdet inte längre tar emot trafik från var som helst utan behörighet undernät i virtuella nätverk. Ur virtuellt nätverk konfigurerar bindning ett namnområde för Event Hubs till en slutpunkt för ett isolerat nätverk tunnel från det virtuella undernätet till meddelandetjänsten.
 
 Resultatet är en privata och isolerade relation mellan de arbetsbelastningar som är bundna till undernätet och respektive Event Hubs-namnområdet, trots synliga nätverksadressen för den asynkrona service slutpunkt i en offentlig IP-adressintervallet.
+
+>[!WARNING]
+> Implementera integrering av virtuella nätverk kan det förhindra att interagera med Händelsehubbar andra Azure-tjänster.
+>
+> Betrodda Microsoft-tjänster inte stöds när virtuella nätverk som implementeras och görs tillgänglig snart.
+>
+> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan är **inte** uttömmande)-
+> - Azure Monitor
+> - Azure Stream Analytics
+> - Integrering med Azure Event Grid
+> - Azure IoT Hub vägar
+> - Azure IoT Device Explorer
+> - Azure-datautforskaren
+>
+> Den nedan Microsoft services måste vara i ett virtuellt nätverk
+> - Azure Web Apps
+> - Azure Functions
+
+> [!IMPORTANT]
+> Virtuella nätverk stöds i **standard** och **dedikerade** nivåerna för Event Hubs. Det stöds inte på basic-nivå.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade scenarier som använder VNet-integrering 
 
@@ -43,7 +60,7 @@ Det innebär att din säkerhet som är känsliga molnlösningar inte bara tillg�
 
 Bindning för ett namnområde för Event Hubs till ett virtuellt nätverk är en tvåstegsprocess. Du måste först skapa en **tjänstslutpunkt för virtuellt nätverk** på ett undernät för virtuellt nätverk och aktivera den för ”Microsoft.EventHub” som beskrivs i den [endpoint tjänstöversikt] [ vnet-sep]. När du har lagt till tjänsteslutpunkt kan du binda Event Hubs-namnområdet till den med en *virtuell nätverksregel*.
 
-Regel för virtuella nätverk är en namngivna nätverk med Event Hubs-namnområde med ett virtuellt nätverksundernät. När regeln finns har alla arbetsbelastningar som är bunden till undernätet beviljats åtkomst till Event Hubs-namnområdet. Händelsehubbar själva aldrig upprättar utgående anslutningar, behöver inte komma åt och därför aldrig beviljas åtkomst till ditt undernät genom att aktivera den här regeln.
+Regel för virtuella nätverk är ett nätverk med Event Hubs-namnområde med ett virtuellt nätverksundernät. När regeln finns har alla arbetsbelastningar som är bunden till undernätet beviljats åtkomst till Event Hubs-namnområdet. Händelsehubbar själva aldrig upprättar utgående anslutningar, behöver inte komma åt och därför aldrig beviljas åtkomst till ditt undernät genom att aktivera den här regeln.
 
 ### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuella nätverk med Azure Resource Manager-mallar
 
@@ -51,45 +68,120 @@ Följande Resource Manager-mallen gör det möjligt att lägga till en regel fö
 
 Mallparametrar:
 
-* **namespaceName**: Event Hubs-namnområdet.
-* **vnetRuleName**: namn för virtuellt nätverk regeln som ska skapas.
-* **virtualNetworkingSubnetId**: fullständiga Resource Manager-sökvägen för virtuella nätverkets undernät, till exempel `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standardundernät i ett virtuellt nätverk.
+* **namespaceName**: Event Hubs-namnområde.
+* **vnetRuleName**: Namn för virtuellt nätverk regeln som ska skapas.
+* **virtualNetworkingSubnetId**: Fullständiga Resource Manager-sökvägen för virtuella nätverkets undernät; till exempel `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standardundernät i ett virtuellt nätverk.
+
+> [!NOTE]
+> Det finns inga neka regler som är möjligt, Azure Resource Manager-mallen har den standardåtgärd som har angetts till **”Tillåt”** som inte begränsar anslutningar.
+> När du skapar regler för virtuellt nätverk eller brandväggar, vi måste ändra den ***”defaultAction”***
+> 
+> från
+> ```json
+> "defaultAction": "Allow"
+> ```
+> till
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
 
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "vnetRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "virtualNetworkSubnetId":{  
-             "type":"string",
-             "metadata":{  
-                "description":"subnet Azure Resource Manager ID"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "eventhubNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
       },
+      "virtualNetworkName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Rule"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Sub Net"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+      "subNetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'), parameters('subnetName'))]"
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('vnetRuleName'))]",
-            "type":"Microsoft.EventHub/namespaces/VirtualNetworkRules",         
-            "properties": {             
-                "virtualNetworkSubnetId": "[parameters('virtualNetworkSubnetId')]"  
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2017-09-01",
+        "name": "[parameters('virtualNetworkName')]",
+        "location": "[parameters('location')]",
+        "type": "Microsoft.Network/virtualNetworks",
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "10.0.0.0/23"
+            ]
+          },
+          "subnets": [
+            {
+              "name": "[parameters('subnetName')]",
+              "properties": {
+                "addressPrefix": "10.0.0.0/23",
+                "serviceEndpoints": [
+                  {
+                    "service": "Microsoft.EventHub"
+                  }
+                ]
+              }
             }
-        } 
-    ]
-}
+          ]
+        }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": 
+          [
+            {
+              "subnet": {
+                "id": "[variables('subNetId')]"
+              },
+              "ignoreMissingVnetServiceEndpoint": false
+            }
+          ],
+          "ipRules":[<YOUR EXISTING IP RULES>],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Om du vill distribuera mallen genom att följa anvisningarna för [Azure Resource Manager][lnk-deploy].

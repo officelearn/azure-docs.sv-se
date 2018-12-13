@@ -1,6 +1,6 @@
 ---
-title: Azure Search-tjänsten REST API-versionen 2017-11-11-Preview | Microsoft Docs
-description: Azure Search Service REST API-versionen 2017-11-11-Preview innehåller experiment funktioner, till exempel synonymer och moreLikeThis sökningar.
+title: Förhandsversion av REST API för Azure Search 2017-11-11-förhandsversion – Azure Search
+description: Azure Search Service REST API-Version 2017-11-11-förhandsversion innehåller experimentella funktioner, till exempel synonymer och moreLikeThis sökningar.
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -11,50 +11,51 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 06/28/2018
 ms.author: HeidiSteen
-ms.openlocfilehash: b5cb60bf16a4c904c9a6060113eba8b4d3a671ef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: seodec2018
+ms.openlocfilehash: e496e4e2e7e2f66033d090a0534911bff4c53baa
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112610"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310304"
 ---
-# <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure Search-tjänsten REST api-version 2017-11-11-Preview
-Den här artikeln beskriver den `api-version=2017-11-11-Preview` versionen av Azure Search-tjänst, med experiment funktioner som inte ännu allmänt tillgänglig.
+# <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure Search Service REST api-versionen 2017-11-11-förhandsversion
+Den här artikeln beskriver den `api-version=2017-11-11-Preview` versionen av Azure Search service REST API, erbjuder experimentella funktioner som inte ännu är allmänt tillgänglig.
 
 > [!NOTE]
-> Förhandsgranskningsfunktioner finns tillgängliga för testning och experiment med målet att samla in feedback och kan komma att ändras. Vi starkt rekommenderar mot att använda Förhandsgranska API: er i program i produktion.
+> Förhandsversionsfunktioner är tillgängliga för testning och experimentering med målet att samla in feedback och kan komma att ändras. Vi att rekommenderar starkt mot använder förhandsversionen av API: er i produktionsprogram.
 
 
-## <a name="new-in-2017-11-11-preview"></a>I 2017-11-11-Preview
+## <a name="new-in-2017-11-11-preview"></a>Nytt i 2017-11-11-förhandsversion
 
-[**Automatisk komplettering** ](search-autocomplete-tutorial.md) ansluter till den befintliga [förslag API](https://docs.microsoft.com/rest/api/searchservice/suggestions) att lägga till kompletterande typ-ahead inträffar till sökfältet. Automatisk komplettering returnerar kandidat sökord som en användare kan välja som frågesträngen för en efterföljande sökning. Förslag returnerar faktiska dokument som svar på partiella indata: sökresultat direkt och ändra dynamiskt när sökningen termen indata växer och särskilda egenskaper.
+[**Automatisk komplettering** ](search-autocomplete-tutorial.md) ansluter till den befintliga [förslag API](https://docs.microsoft.com/rest/api/searchservice/suggestions) att lägga till kompletterande frågeifyllningsförslag inträffar till sökfältet. Automatisk komplettering returnerar kandidat sökord som en användare kan välja som frågesträngen för en efterföljande sökning. Förslag visar faktiska dokument som svar på partiella indata: sökresultaten är omedelbar och ändras dynamiskt när termen sökinmatning växer och dessutom.
 
-[**Kognitiva Sök**](cognitive-search-concept-intro.md), en ny berikande funktion i Azure Search hittar Latenta information i icke-text källor och omvandla det till fulltext sökbara innehåll i Azure Search odifferentierad text. Följande resurser introduceras eller ändras i förhandsgranskningen REST API. Alla andra REST API: er är samma oavsett om du anropar den allmänt tillgängliga eller förhandsgranskning.
+[**Kognitiv sökning**](cognitive-search-concept-intro.md), en ny funktion för funktioner i Azure Search söker efter latent information i icke-text källor och odifferentierade text, omvandla det till fulltext sökbart innehåll i Azure Search. Följande resurser introducerades eller ändras i förhandsversionen av REST API. Alla andra REST API: er är samma oavsett om du anropar den allmänt tillgängliga eller förhandsversionen.
 
-+ [Kunskaper operations(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/skillset-operations)
++ [Kompetens operations(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/skillset-operations)
 
-+ [Skapa indexerare (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Skapa indexerare (api-version = 2017-11-11-förhandsversion)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 + [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
 
-Alla andra REST API: er är samma oavsett hur du ställer in api-version. Till exempel `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11-Preview` och `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11` (utan `Preview`) är funktionellt likvärdiga.
+Alla andra REST API: er är desamma oavsett hur du ställer in api-versionen. Till exempel `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11-Preview` och `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11` (utan `Preview`) har samma funktioner.
 
-## <a name="other-preview-features"></a>Andra funktioner för förhandsgranskning
+## <a name="other-preview-features"></a>Andra funktioner i förhandsversion
 
-Funktioner som presenterades i tidigare förhandsversioner är fortfarande i förhandsversion. Om du anropar en API med en tidigare förhandsversion api-version, kan du fortsätta att använda den här versionen eller växla till `2017-11-11-Preview` utan ändringar av förväntat beteende.
+Funktioner som vi tillkännagav i tidigare förhandsversioner är fortfarande i offentlig förhandsversion. Om du anropar ett API med en tidigare förhandsversion api-version, kan du fortsätta att använda den här versionen eller växla till `2017-11-11-Preview` utan ändringar i förväntat beteende.
 
-+ [CSV-filer i Azure Blob-indexering](search-howto-index-csv-blobs.md), introducerades i `api-version=2015-02-28-Preview`, förblir en förhandsversion av funktionen. Den här funktionen är en del av Azure Blob-indexering och anropas via en inställning för parametern. Varje rad i en CSV-fil indexeras som ett separat dokument.
++ [CSV-filer i Azure Blob-indexering](search-howto-index-csv-blobs.md), introducerades i `api-version=2015-02-28-Preview`, förblir en förhandsversion av funktionen. Den här funktionen är en del av Azure Blob-indexering och anropas via en parameter-inställning. Varje rad i en CSV-fil indexeras som en separat dokument.
 
-+ [JSON-matriser i Azure Blob-indexering](search-howto-index-json-blobs.md), introducerades i `api-version=2015-02-28-Preview`, förblir en förhandsversion av funktionen. Den här funktionen är en del av Azure Blob-indexering och anropas via en inställning för parametern. där varje element i matrisen indexeras som ett separat dokument.
++ [JSON-matriser i Azure Blob-indexering](search-howto-index-json-blobs.md), introducerades i `api-version=2015-02-28-Preview`, förblir en förhandsversion av funktionen. Den här funktionen är en del av Azure Blob-indexering och anropas via en parameter-inställning. där varje element i matrisen indexeras som en separat dokument.
 
-+ [moreLikeThis Frågeparametern](search-more-like-this.md) hittas dokument som är relevanta för ett visst dokument. Den här funktionen har varit i tidigare förhandsversioner. 
++ [moreLikeThis frågeparameter](search-more-like-this.md) söker efter dokument som är relevanta för ett visst dokument. Den här funktionen har varit i tidigare förhandsversioner. 
 
 
-## <a name="how-to-call-a-preview-api"></a>Hur du anropar en API-förhandsgranskning
+## <a name="how-to-call-a-preview-api"></a>Hur du anropar en förhandsversionen av API
 
-Äldre förhandsversioner fortfarande fungerar utan blir inaktuella över tid. Om koden anropar `api-version=2016-09-01-Preview` eller `api-version=2015-02-28-Preview`, anropen fortfarande är giltiga. Dock uppdateras bara den senaste förhandsversionen med förbättringar. 
+Äldre förhandsversioner är fortfarande fungerar men blir inaktuella över tid. Om din kod anropar `api-version=2016-09-01-Preview` eller `api-version=2015-02-28-Preview`, anropen fortfarande är giltiga. Dock har endast den senaste förhandsversionen uppdaterats med förbättringar. 
 
-Följande exempel illustrerar ett anrop till förhandsversionen API.
+Följande exempel illustrerar ett anrop till förhandsversionen av API-version.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2017-11-11-Preview
 

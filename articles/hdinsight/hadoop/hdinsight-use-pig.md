@@ -1,5 +1,5 @@
 ---
-title: Använda Apache Pig i HDInsight
+title: Använda Apache Pig - Azure HDInsight
 description: Lär dig mer om att använda Pig med Apache Hadoop på HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 4eb4fa201a435df5e2b5016ba9686d76707c0635
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 25a91c6217aac1b2278957c1ff0ed8b7a9b1f6ac
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011638"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166174"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Använda Apache Pig med Apache Hadoop på HDInsight
 
@@ -40,11 +40,11 @@ Pig kan du definiera bearbetning som en serie transformationer som data flödar 
 
 Pig Latin-språk kan du beskriva dataflödet från rådata indata via en eller flera omvandlingar till önskat resultat. Pig Latin program följer detta allmänna mönster:
 
-* **Läs in**: läsa data hanteras från filsystemet
+* **Läs in**: Läsa data hanteras från filsystemet
 
-* **Omvandla**: ändra data
+* **Omvandla**: Ändra data
 
-* **Dumpa eller lagra**: mata ut data till skärmen eller lagra den för bearbetning
+* **Dumpa eller lagra**: Mata ut data till skärmen eller lagra den för bearbetning
 
 ### <a name="user-defined-functions"></a>Användardefinierade funktioner
 

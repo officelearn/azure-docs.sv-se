@@ -4,16 +4,16 @@ description: Lär dig att felsöka problem med hantering av uppdateringar
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7339592833db148acb38ce378fe4cf261977dd72
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092635"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275660"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
@@ -23,7 +23,7 @@ Det finns en agent-felsökare för Hybrid Worker-agenten att fastställa det und
 
 ## <a name="general"></a>Allmänt
 
-### <a name="components-enabled-not-working"></a>Scenario: Komponenterna för ' uppdateringshanteringslösningen ' har aktiverats och nu den här virtuella datorn konfigureras
+### <a name="components-enabled-not-working"></a>Scenario: Komponenter för ' uppdateringshanteringslösningen ' har aktiverats och nu den här virtuella datorn konfigureras
 
 #### <a name="issue"></a>Problem
 
@@ -44,6 +44,35 @@ Det här felet kan orsakas av följande orsaker:
 
 1. Besök, [nätverksplanering](../automation-hybrid-runbook-worker.md#network-planning) att lära dig om vilka adresser och portar måste vara tillgängliga för hantering av uppdateringar ska fungera.
 2. Om med sysprep-avbildningen en klonade avbildningen först och installerar MMA-agenten i efterhand.
+
+### <a name="multi-tenant"></a>Scenario: Felmeddelandet länkade prenumerationen när du skapar en uppdateringsdistribution för datorer i en annan Azure-klient.
+
+#### <a name="issue"></a>Problem
+
+Följande felmeddelande visas vid försök att skapa en uppdateringsdistribution för datorer i en annan Azure-klient:
+
+```
+The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet uppstår när du skapar en distribution som har Azure-datorer i en annan klient som ingår i en uppdateringsdistribution.
+
+#### <a name="resolution"></a>Lösning
+
+Du måste använda följande lösning för att få dem schemalagda. Du kan använda den [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) cmdlet med växeln `-ForUpdate` att skapa ett schema och använda den [New AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) cmdlet och skicka den datorer i den andra klienten till den `-NonAzureComputer` parametern. I följande exempel visar ett exempel på hur du gör detta:
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
 
 ## <a name="windows"></a>Windows
 
@@ -113,7 +142,7 @@ Hybrid Runbook Worker gick inte att generera ett självsignerat certifikat
 
 Kontrollera system-kontot har läsbehörighet till mappen **C:\ProgramData\Microsoft\Crypto\RSA** och försök igen.
 
-### <a name="nologs"></a>Scenario: Uppdateringshantering data visas inte i Log Analytics för en dator
+### <a name="nologs"></a>Scenario: Uppdatera hanteringsdata som inte visas i Log Analytics för en dator
 
 #### <a name="issue"></a>Problem
 

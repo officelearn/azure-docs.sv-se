@@ -6,23 +6,21 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/17/2018
-ms.openlocfilehash: 8103c06e3fec51316e367de903ed84d0023568bc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/11/2018
+ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308162"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322302"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Grafana åtkomst i Azure HDInsight
 
 
 [Grafana](https://grafana.com/) är populära, open source-diagram och instrumentpaneler builder. Grafana är funktion omfattande; inte bara tillåter att användare skapar anpassningsbara och delbart instrumentpaneler, den erbjuder även mallbaserade/skriptade instrumentpaneler, LDAP-integrering, flera datakällor och mer.
 
-Grafana finns för närvarande endast stöd av en klustertypen för interaktiva frågor i Azure HDInsight.
-
+I Azure HDInsight Grafana är för närvarande med klustertyper Hbase och interaktiv fråga.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -65,7 +63,7 @@ I det här avsnittet skapar du ett interaktivt frågekluster i HDInsight med en 
    
     ![HDInsight Linux komma igång resursgrupp](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight klusterresursgrupp")
     
-5. Panelen visas också den standardlagring som associeras med klustret. Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas Storage-konto av standardtyp. HDInsight-kluster och Storage-kontot av standardtyp måste finnas i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster.
+5. Panelen visas också den standardlagring som associeras med klustret. Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas Storage-konto av standardtyp. HDInsight-kluster och dess standardkontot för lagring måste samplaceras i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster.
     
 
 > [!NOTE]
@@ -76,16 +74,22 @@ I det här avsnittet skapar du ett interaktivt frågekluster i HDInsight med en 
 ## <a name="access-the-grafana-dashboard"></a>Få åtkomst till Grafana-instrumentpanel
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
+
 2. Välj **HDInsight-kluster**, och välj sedan klustrets namn som du skapade i det sista avsnittet.
+
 3. Under **snabblänkar**, klickar du på **klusterinstrumentpanel**.
 
     ![HDInsight-kluster instrumentpanelen portal](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "HDInsight-klusterinstrumentpanel på portalen")
 
-4. Från instrumentpanelen klickar du på den **Grafana** panelen.
+4. Från instrumentpanelen klickar du på den **Grafana** panelen. Du kan också bläddra till den `/grafana/` sökvägen till kluster-URL. Till exempel `https://<clustername>.azurehdinsight.net/grafana/`.
+
 5. Ange användarautentiseringsuppgifter för Hadoop-kluster.
-6. Grafana-instrumentpanel ser ut som:
+
+6. Grafana-instrumentpanel visas och ser ut som i följande exempel:
 
     ![HDInsight Grafana-instrumentpanel](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana-instrumentpanel")
+
+   
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar med artikeln kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. 
@@ -137,5 +141,3 @@ Mer information om att skapa eller hantera HDInsight-kluster hittar du i följan
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

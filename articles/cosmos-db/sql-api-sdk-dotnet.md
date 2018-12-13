@@ -9,14 +9,14 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5af80a387a8b07992a82dac39c23082069419b60
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: c7f3b2fc0e5cc75bccbaf075dc2e2a2be8c7801d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865921"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255966"
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: ladda ned och viktig information
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
 > * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -54,6 +54,16 @@ ms.locfileid: "52865921"
 * Ny objektmodell med översta CosmosClient och metoder dela upp på relevanta CosmosDatabases, CosmosContainers och CosmosItems klasser. 
 * Stöd för strömmar. 
 * Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras. 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* Lagt till TransportException, en typ av interna undantag av SDK direkt/TCP-transport diagnostik. När det finns i undantag meddelanden, skriver den här typen ytterligare information för felsökning av anslutningsproblem för klienten.
+
+* Har lagts till nya constuctor överlagring som tar en HttpMessageHandler, en HTTP-hanteraren stack ska användas för att skicka HttpClient-förfrågningar (t.ex. HttpClientHandler).
+
+* Åtgärda fel där huvud med null-värden har inte hanteras korrekt.
+
+* Förbättrad samling cache-verifiering.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -106,7 +116,7 @@ ms.locfileid: "52865921"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* En bugg har åtgärdats som uppnås under vissa konkurrenstillstånd som resulterar i återkommande ”Microsoft.Azure.Documents.NotFoundException: Läs sessionen är inte tillgänglig för inkommande sessionstoken” fel när du använder Session konsekvensnivå.
+* En bugg har åtgärdats som uppnås under vissa konkurrenstillstånd som resulterar i återkommande ”Microsoft.Azure.Documents.NotFoundException: Läs sessionen är inte tillgänglig för inkommande sessionstoken ”fel när du använder Session konsekvensnivå.
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -177,7 +187,7 @@ ms.locfileid: "52865921"
 * Åtgärdar att göra SDK mer robust för automatisk redundans under vissa omständigheter.
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
-* Korrigering för ett problem som ibland medför en WebException: fjärrnamnet kunde inte matchas.
+* Korrigering för ett problem som ibland medför en WebException: Fjärrnamnet kunde inte lösas.
 * Lagt till stöd för att läsa in ett skrivet dokument genom att lägga till nya överlagringar till ReadDocumentAsync API direkt.
 
 ### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1
@@ -230,7 +240,7 @@ ms.locfileid: "52865921"
 * Ett problem som orsakade ett felaktigt partition viktiga huvud när du använder ett anpassat JsonSerializerSettings-objekt för serialisering av data har åtgärdats.
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* Ett problem som orsakade långvariga frågor misslyckas med felet har åtgärdats: auktoriseringstoken är inte giltigt vid aktuell tid.
+* Ett problem som orsakade långvariga frågor misslyckas med felet har åtgärdats: Auktoriseringstoken är inte giltigt vid aktuell tid.
 * Ett problem som har tagit bort den ursprungliga SqlParameterCollection från mellan partition top/sortering efter frågor har åtgärdats.
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
@@ -265,7 +275,7 @@ ms.locfileid: "52865921"
 * Implementerat [partitionerade samlingar](partition-data.md) och [användardefinierade prestandanivåer](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Fast]**  Fråga Azure Cosmos DB-slutpunkt genererar: ' System.Net.Http.HttpRequestException: fel vid kopiering av innehåll till en dataström '.
+* **[Fast]**  Genererar fråga Azure Cosmos DB-slutpunkt: ”System.Net.Http.HttpRequestException: Fel vid kopiering av innehåll till en dataström '.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Utökade LINQ stöd, inklusive nya operatorer för växling, villkorlig uttryck och intervall jämförelse.
@@ -340,6 +350,7 @@ Alla begäranden till Azure Cosmos DB med hjälp av en pensionerad SDK avvisas a
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |07 december 2018 |--- |
 | [2.1.3](#2.1.3) |15 oktober 2018 |--- |
 | [2.1.2](#2.1.2) |04 oktober 2018 |--- |
 | [2.1.1](#2.1.1) |27 september 2018 |--- |

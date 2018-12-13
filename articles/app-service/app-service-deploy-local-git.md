@@ -1,5 +1,5 @@
 ---
-title: Lokal Git-distribution till Azure Apptjänst
+title: Distribuera från lokal Git-lagringsplats – Azure App Service
 description: Lär dig hur du aktiverar lokal Git-distribution till Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: a4c96ea75bae69fa5a1af13e4e8b908759817e95
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 242eb906c95b373b2edd538be5f06756cac1e8c9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959333"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256525"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure Apptjänst
 
@@ -157,23 +158,23 @@ Följande är vanliga fel eller problem när du använder Git för att publicera
 ---
 **Symtom**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
 
-**Orsak**: det här felet kan inträffa om appen inte är igång.
+**Orsak**: Det här felet kan inträffa om appen inte är igång.
 
-**Lösning**: starta appen i Azure-portalen. Git-distribution är inte tillgänglig när Webbappen har stoppats.
+**Lösning**: Starta appen i Azure-portalen. Git-distribution är inte tillgänglig när Webbappen har stoppats.
 
 ---
 **Symtom**: `Couldn't resolve host 'hostname'`
 
-**Orsak**: det här felet kan inträffa om den adressinformation som anges när du skapar i azure remote var felaktig.
+**Orsak**: Det här felet kan inträffa om den adressinformation som anges när du skapar i azure remote var felaktig.
 
 **Lösning**: Använd den `git remote -v` kommando för att lista alla fjärrkontroller, tillsammans med tillhörande URL: en. Kontrollera att URL: en för ”azure” remote är korrekt. Om det behövs kan du ta bort och återskapa den här remote använder rätt Webbadress.
 
 ---
 **Symtom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**Orsak**: det här felet kan inträffa om du inte anger en gren under `git push`, eller om du inte har angetts i `push.default` värde i `.gitconfig`.
+**Orsak**: Det här felet kan inträffa om du inte anger en gren under `git push`, eller om du inte har angetts i `push.default` värde i `.gitconfig`.
 
-**Lösning**: kör `git push` igen och ange huvudgrenen. Exempel:
+**Lösning**: Kör `git push` igen och ange huvudgrenen. Exempel:
 
 ```bash
 git push azure master
@@ -182,9 +183,9 @@ git push azure master
 ---
 **Symtom**: `src refspec [branchname] does not match any.`
 
-**Orsak**: det här felet kan inträffa om du försöker skicka till en gren Master på azure fjärrdatabasen.
+**Orsak**: Det här felet kan inträffa om du försöker skicka till en gren Master på azure fjärrdatabasen.
 
-**Lösning**: kör `git push` igen och ange huvudgrenen. Exempel:
+**Lösning**: Kör `git push` igen och ange huvudgrenen. Exempel:
 
 ```bash
 git push azure master
@@ -193,9 +194,9 @@ git push azure master
 ---
 **Symtom**: `RPC failed; result=22, HTTP code = 5xx.`
 
-**Orsak**: det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.
+**Orsak**: Det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.
 
-**Lösning**: ändra git-konfigurationen på den lokala datorn för att göra postBuffer större
+**Lösning**: Ändra git-konfigurationen på den lokala datorn för att göra postBuffer större
 
 ```bash
 git config --global http.postBuffer 524288000
@@ -204,9 +205,9 @@ git config --global http.postBuffer 524288000
 ---
 **Symtom**: `Error - Changes committed to remote repository but your web app not updated.`
 
-**Orsak**: det här felet kan inträffa om du distribuerar en Node.js-app med en _package.json_ -fil som anger ytterligare moduler som krävs.
+**Orsak**: Det här felet kan inträffa om du distribuerar en Node.js-app med en _package.json_ -fil som anger ytterligare moduler som krävs.
 
-**Lösning**: ytterligare meddelanden med 'npm fel ”! ska loggas innan det här felet och kan ge ytterligare sammanhang om felet. Följande är kända orsaker till felet och motsvarande 'npm fel ”! meddelande:
+**Lösning**: Ytterligare meddelanden med 'npm fel ”! ska loggas innan det här felet och kan ge ytterligare sammanhang om felet. Följande är kända orsaker till felet och motsvarande 'npm fel ”! meddelande:
 
 * **Felaktig package.json-fil**: npm fel! Det gick inte att läsa beroenden.
 * **Ursprunglig modul som inte har en binär distribution för Windows**:
@@ -220,5 +221,5 @@ git config --global http.postBuffer 524288000
 
 * [Projektet Kudu-dokumentation](https://github.com/projectkudu/kudu/wiki)
 * [Kontinuerlig distribution till Azure App Service](app-service-continuous-deployment.md)
-* [Exempel: Skapa Web App och distribuera kod från en lokal Git-lagringsplats (Azure CLI)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
-* [Exempel: Skapa Web App och distribuera kod från en lokal Git-lagringsplats (PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+* [Exempel: Skapa Webbapp och distribuera kod från en lokal Git-lagringsplats (Azure CLI)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+* [Exempel: Skapa Webbapp och distribuera kod från en lokal Git-lagringsplats (PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

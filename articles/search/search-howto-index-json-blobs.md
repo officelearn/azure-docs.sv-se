@@ -1,6 +1,6 @@
 ---
-title: Indexera JSON-blobar med Azure Search blob-indexeraren
-description: Indexera JSON-blobar med Azure Search blob-indexeraren
+title: Indexera JSON-blobar från Azure Blob-indexeraren för fulltextsökning – Azure Search
+description: Crawla Azure JSON-blobar för textinnehåll med Azure Search Blob-indexeraren. Indexerare automatisera datainmatning för valda datakällor som Azure Blob storage.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec2018
+ms.openlocfilehash: 7eb215271a8d5d21403cc7c5a49028bb366e61fd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711080"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312535"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search blob-indexeraren
 Den här artikeln visar hur du konfigurerar ett Azure Search blob-indexeraren för att extrahera strukturerat innehåll från JSON-blobar i Azure Blob storage.
@@ -216,4 +217,4 @@ Om du har funktionsförfrågningar eller idéer om förbättringar kan nå oss p
 + [Indexerare i Azure Search](search-indexer-overview.md)
 + [Indexera Azure Blob Storage med Azure Search](search-howto-index-json-blobs.md)
 + [Indexera CSV-blobar med Azure Search blob-indexeraren](search-howto-index-csv-blobs.md)
-+ [Självstudie: Söka efter halvstrukturerade data från Azure Blob storage ](search-semi-structured-data.md)
++ [Självstudiekurs: Söka efter halvstrukturerade data från Azure Blob storage ](search-semi-structured-data.md)

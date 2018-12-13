@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: a47fb82b1e6d42bdebff8cc4f3cb4c3c87025831
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106251"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140973"
 ---
-# <a name="prebuilt-domain-reference"></a>Fördefinierad domänreferens
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referens för fördefinierade för LUIS-appen
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
 
 [Anpassade domäner](luis-how-to-start-new-app.md), däremot starta utan avsikter och modeller. Du kan lägga till några fördefinierade domän avsikter och entiteter till en anpassad modell.
@@ -116,7 +116,7 @@ Kommunikation domänen innehåller avsikter och entiteter relaterade till e-post
 | TurnForwardingOff| Ringa ett telefonsamtal.|<br/><br/>|
 | Återuppringning| Ringa upp igen eller anropa en siffra igen.|Ring upp igen.<br/>Ring upp igen min senaste anropet.|
 | Avvisa| Avvisa ett inkommande samtal.|Avvisa samtal<br/>Det går inte att besvara nu<br/>Inte tillgänglig just nu och anropar tillbaka senare.|
-| SendEmail| Skicka ett e-postmeddelande. Den här gäller för e-post men inte textmeddelanden.|E-postmeddelande till Mike Waters: Mike att middag förra veckan har splendid.<br/>Skicka ett e-postmeddelande till Bob<br/>|
+| SendEmail| Skicka ett e-postmeddelande. Den här gäller för e-post men inte textmeddelanden.|E-postadress att vatten: Mike att middag förra veckan har splendid.<br/>Skicka ett e-postmeddelande till Bob<br/>|
 | SendMessage| Skicka ett SMS eller ett snabbmeddelande.|Skicka SMS till Chris och Carol|
 | SetSpeedDial| Ange en hastighet dial genväg för en telefonnumret.|Ange kortnummer en för Carol.<br/>Ställ in kortnummer för mom.|
 | ShowNext| Se nästa objekt, till exempel i en lista över textmeddelanden eller e-postmeddelanden.|Visa nästa.<br/>Gå till nästa sida.|
@@ -242,11 +242,12 @@ HomeAutomation domänen innehåller avsikter och entiteter relaterade till att s
 MovieTickets domänen innehåller avsikter och entiteter relaterade till boka biljetter till filmer på en film theater.
 
 ### <a name="examples"></a>Exempel
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|Exempel|
+|--|
+|Boka två biljetter för kapten Omar och två musketörer|
+|Avbryt biljetter|
+|När visar kapten Omar?|
 
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |

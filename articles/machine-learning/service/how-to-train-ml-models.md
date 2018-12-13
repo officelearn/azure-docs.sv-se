@@ -1,5 +1,5 @@
 ---
-title: Utbilda ML-modeller med hjälp av en kostnadsuppskattning-klass
+title: Utbilda ML-modeller med estimators
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du utför en nod och distribuerade utbildning av traditionella machine learning och deep learning-modeller med hjälp av Azure Machine Learning services kostnadsuppskattning-klass
 ms.author: minxia
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e7157b9546d1f9ca40bab35d9e643c38051db04e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0ebb12df835cf1c32e02419989b21684e9884c18
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100760"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184363"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
 Utbildning machine learning-modeller, särskilt djupa neurala nätverk är ofta en tid - och beräkningsintensiva uppgift. När du är klar skriver utbildning-skriptet och körs på en liten delmängd av data på din lokala dator, vill du förmodligen att skala upp din arbetsbelastning.
 
-För att underlätta utbildning, ger Python SDK för Azure Machine Learning en övergripande abstraktion klassen kostnadsuppskattning, vilket gör att användare kan enkelt skapa sina modeller i Azure-ekosystemet. Du kan skapa och använda en `Estimator` objekt att skicka någon kod för utbildning som du vill köra på fjärranslutna beräkningar, oavsett om det är en nod kör eller distribuerade utbildning i ett GPU-kluster. För PyTorch och TensorFlow-jobb, ger Azure Machine Learning också respektive anpassad `PyTorch` och `TensorFlow` estimators att förenkla med hjälp av de här ramverken.
+För att underlätta utbildning, ger Python SDK för Azure Machine Learning en övergripande abstraktion klassen kostnadsuppskattning, vilket gör att användare kan enkelt skapa sina modeller i Azure-ekosystemet. Du kan skapa och använda en [ `Estimator` objektet](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka någon kod för utbildning som du vill köra på fjärranslutna beräkning, oavsett om det är en nod kör eller distribuerade utbildning i ett GPU-kluster. För PyTorch och TensorFlow-jobb, ger Azure Machine Learning också respektive anpassad `PyTorch` och `TensorFlow` estimators att förenkla med hjälp av de här ramverken.
 
 ## <a name="train-with-an-estimator"></a>Träna med en kostnadsuppskattning
 

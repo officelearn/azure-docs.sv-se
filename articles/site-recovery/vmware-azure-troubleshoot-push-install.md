@@ -6,19 +6,20 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 11/27/2018
-ms.openlocfilehash: b3e2beb0245fa790dc60cf742d6ad8938de187f4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/12/2018
+ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832589"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314405"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
-Installationen av mobilitetstjänsten är ett viktigt steg vid aktivering av replikering. Det här steget beror helt på uppfyller kraven och arbeta med konfigurationer som stöds. De vanligaste felen som uppstår under mobilitetstjänsten är på grund av
+Installationen av mobilitetstjänsten är ett viktigt steg vid aktivering av replikering. Det här steget beror helt på uppfyller kraven och arbeta med konfigurationer som stöds. De vanligaste felen som uppstår under mobilitetstjänsten är på grund av:
 
 * Autentiseringsuppgifter/behörighet fel
+* Misslyckad inloggning
 * Anslutningsfel
 * Operativsystem som stöds inte
 * VSS-installationsfel
@@ -28,23 +29,63 @@ När du aktiverar replikering, installera Azure Site Recovery försöker skicka 
 ## <a name="credentials-check-errorid-95107--95108"></a>Autentiseringsuppgifter kontroll (samtalsstatus: 95107 & 95108)
 
 * Kontrollera om det användarkonto som valdes när Aktivera replikering är **giltig, korrekt**.
-* Azure Site Recovery kräver **administratörsbehörighet** att utföra push-installation.
-  * Kontrollera om användarkontot har administrativ åtkomst för Windows, antingen lokalt eller via domänadministratör på källdatorn.
+* Azure Site Recovery kräver **rot** eller användarkonto med **administratörsbehörighet** att utföra push-installation. Annars kommer att blockeras push-installation på källdatorn.
+  * För Windows (**fel 95107**), kontrollera om användarkontot har administratörsbehörighet, antingen lokalt eller via domänadministratör på källdatorn.
   * Om du inte använder ett domänkonto, måste du inaktivera kontroll av åtkomst för fjärranvändare på den lokala datorn.
     * Inaktivera kontroll av åtkomst för fjärranvändare, under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registernyckeln, lägga till ett nytt DWORD-värde: LocalAccountTokenFilterPolicy. Ange värdet till 1. Om du vill köra det här steget kör du följande kommando från Kommandotolken:
 
          `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
-  * Du måste välja root-kontot för installation av mobilitetsagenten för Linux.
+  * För Linux (**fel 95108**), måste du välja root-kontot för installation av mobilitetsagenten. Dessutom bör SFTP-tjänsterna körs. Att aktivera SFTP undersystemet och lösenordsautentisering i sshd_config-filen:
+    1. Logga in som rot.
+    2. Gå till /etc/ssh/sshd_config, leta reda på raden som börjar med PasswordAuthentication.
+    3. Ta bort raden och ändra värdet till Ja.
+    4. Hitta raden som börjar med undersystemet och ta bort raden.
+    5. Starta om tjänsten sshd.
 
 Om du vill ändra autentiseringsuppgifterna för valda användarkonto, följ instruktionerna [här](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="connectivity-check-errorid-95117--97118"></a>**Anslutningskontroll (samtalsstatus: 95117 & 97118)**
+## <a name="insufficient-privileges-failure-errorid-95517"></a>Inte tillräcklig behörighet för fel (samtalsstatus: 95517)
+
+När du valt att installera mobilitetsagenten inte har administratörsbehörighet kommer Configuration server-/ skalbar processerver inte att kunna kopiera mobility Agentprogrammet in på källdatorn. Så beror det här felet på fel om nekad. Kontrollera att användarkontot har administratörsbehörighet.
+
+Om du vill ändra autentiseringsuppgifterna för valda användarkonto, följ instruktionerna [här](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+## <a name="insufficient-privileges-failure-errorid-95518"></a>Inte tillräcklig behörighet för fel (samtalsstatus: 95518)
+
+Om domänen förtroendet relationen upprättas mellan den primära domänen och arbetsstation misslyckas vid försök att logga in på källdatorn mobility agent-installationen att misslyckas med felet id 95518. Kontrollera därför att det användarkonto som används för att installera mobilitetsagenten har administrativ behörighet att logga in via primära domänen för källdatorn.
+
+Om du vill ändra autentiseringsuppgifterna för valda användarkonto, följ instruktionerna [här](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+## <a name="login-failure-errorid-95519"></a>Fel vid inloggning (samtalsstatus: 95519)
+
+Det användarkonto som valts vid aktivering av replikering har inaktiverats. Om du vill aktivera användarkontot finns i artikeln [här](https://aka.ms/enable_login_user) eller kör följande kommando genom att ersätta texten *användarnamn* med det verkliga användarnamnet.
+`net user 'username' /active:yes`
+
+## <a name="login-failure-errorid-95520"></a>Fel vid inloggning (samtalsstatus: 95520)
+
+Arbete med flera misslyckade försök att få åtkomst till en dator låses användarkontot. Felet kan bero på följande:
+
+* Autentiseringsuppgifter som angavs under konfiguration är felaktiga eller
+* Det användarkonto som valts vid aktivering av replikering är fel
+
+Så, ändra autentiseringsuppgifterna valt genom att följa instruktionerna [här](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) och försök igen efter en stund.
+
+## <a name="login-failure-errorid-95521"></a>Fel vid inloggning (samtalsstatus: 95521)
+
+Det här felet uppstår när inloggningsservrar inte finns på källdatorn. Otillgänglig inloggningsservrar leder till fel i inloggningsbegäran och därmed mobilitetsagenten kan inte installeras. Se till att inloggningsservrar är tillgängliga på källdatorn och starta tjänsten Logon för lyckad inloggning. Detaljerade anvisningar finns klickar du på [här](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
+
+## <a name="login-failure-errorid-95522"></a>Fel vid inloggning (samtalsstatus: 95522)
+
+Inloggnings-tjänsten körs inte på källdatorn och orsakas av fel i inloggningsbegäran. Mobilitetsagenten kan därför inte installeras. Lös genom att se till att Logon-tjänsten körs på källdatorn för lyckad inloggning. Om du vill starta tjänsten inloggning, kör kommandot ”net start inloggning” från Kommandotolken eller starta tjänsten ”NetLogon” från Aktivitetshanteraren.
+
+## <a name="connectivity-failure-errorid-95117--97118"></a>**Anslutningsfel (samtalsstatus: 95117 & 97118)**
+
+Konfigurationsservern / processervern skalbar försöker ansluta till den Virtuella installera mobilitetsagenten källdatorn. Det här felet uppstår när källdatorn inte kan nås på grund av problem med nätverksanslutningen. Att lösa,
 
 * Kontrollera att du kan pinga källdatorn från konfigurationsservern. Om du har valt skalbar processerver under Aktivera replikering, kontrollera att du kan pinga källdatorn från processervern.
   * Från kommandoraden för källservern datorn, använda Telnet för att pinga konfigurationsservern / skalbar processerver med https-porten (135) som visas nedan för att se om det finns problem med nätverksanslutningen eller brandväggen port blockerande problem.
 
      `telnet <CS/ scale-out PS IP address> <135>`
-  * Kontrollera status för tjänsten **InMage Scout VX Agent – Sentinel/Outpost**. Starta tjänsten, om den inte körs.
 * Dessutom för **virtuell Linux-dator**,
   * Kontrollera om senaste openssh, openssh-server och openssl paketen har installerats.
   * Kontrollera och se till att Secure Shell (SSH) är aktiverad och körs på port 22.
@@ -57,9 +98,13 @@ Om du vill ändra autentiseringsuppgifterna för valda användarkonto, följ ins
 * Ett anslutningsförsök kan ha misslyckats om det finns inget rätt svar efter en viss tidsperiod, eller etablerade anslutningen eftersom den anslutna värden inte svarade.
 * Det kan vara en anslutning/nätverk/domän problem. Det kan också bero på DNS-namn som löser problemet eller TCP-port överbelastning problem. Kontrollera om det finns några kända problem i din domän.
 
+## <a name="connectivity-failure-errorid-95523"></a>Anslutningsfel (samtalsstatus: 95523)
+
+Det här felet uppstår när nätverk där källdatorn finns hittades inte eller kan ha tagits bort eller är inte längre tillgänglig. Det är det enda sättet att lösa problemet genom att se till att nätverket finns.
+
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Fil- och skrivardelning tjänster kontroll (samtalsstatus: 95105 & 95106)
 
-När du anslutningskontroll, kontrollera om fil- och skrivardelning tjänsten är aktiverad på den virtuella datorn.
+När du anslutningskontroll, kontrollera om fil- och skrivardelning tjänsten är aktiverad på den virtuella datorn. De här inställningarna krävs för att kopiera mobilitetsagenten på källdatorn.
 
 För **windows 2008 R2 och tidigare versioner**,
 
@@ -68,16 +113,16 @@ För **windows 2008 R2 och tidigare versioner**,
   * Leta upp regler fil och skrivardelning (NB-Session-In) och File and Printer Sharing (SMB-In). Högerklicka på regeln för varje regel och klicka sedan på **Aktivera regel**.
 * Aktivera fildelning med en Grupprincip
   * Gå till Start, Skriv gpmc.msc och söka.
-  * I navigeringsfönstret öppnar du följande mappar: lokal datorprincip, Användarkonfiguration, Administrationsmallar, Windows-komponenter och nätverksdelning.
+  * I navigeringsfönstret öppnar du följande mappar: Lokal datorprincip, Användarkonfiguration, administrativa mallar, Windows-komponenter och nätverksdelning.
   * I informationsfönstret dubbelklickar du på **hindra användare från att dela filer i profilen för deras**. Om du vill inaktivera grupprincipinställningen och aktivera användarens möjlighet att dela filer, klickar du på inaktiverad. Klicka på OK för att spara ändringarna. Mer information klickar du på [här](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
 För **senare versioner**, följer du [här](vmware-azure-install-mobility-service.md) att aktivera fil- och skrivardelning.
 
-## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Konfigurationskontroll för Windows Management Instrumentation (WMI)
+## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>Konfigurationskontroll för Windows Management Instrumentation (WMI) (felkod: 95103)
 
-När fil-och skrivare kontrollerar du aktivera WMI-tjänsten via brandväggen.
+När fil-och skrivare kontrollerar du aktivera WMI-tjänsten för privat, offentlig och domän profiler genom brandväggen. De här inställningarna krävs för att slutföra fjärrkörning på källdatorn. Att aktivera,
 
-* I Kontrollpanelen på säkerhet och klicka sedan på Windows-brandväggen.
+* Gå till Kontrollpanelen, klicka på Security och klicka sedan på Windows-brandväggen.
 * Klicka på Ändra inställningar och klickar sedan på fliken undantag.
 * I fönstret undantag väljer du kryssrutan för Windows Management Instrumentation (WMI) att WMI-trafik genom brandväggen. 
 
@@ -93,6 +138,24 @@ Andra felsökning WMI-artiklar hittades i följande artiklar.
 En annan vanligaste orsaken till felet kan bero på operativsystem som inte stöds. Se till att du är på den operativsystem/Kernel-versionen som stöds för installation av mobilitetstjänsten.
 
 Läs om vilka operativsystem som stöds av Azure Site Recovery, vår [matris stöddokument](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Start- och systempartitionerna / volymerna inte finns på samma disk (samtalsstatus: 95309)
+
+Innan du 9.20 version, Start- och systempartitionerna / volymerna på olika diskar har en konfiguration som inte stöds. Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), den här konfigurationen stöds. Använd senaste versionen för det här.
+
+## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Systempartitionen på flera diskar (samtalsstatus: 95313)
+
+Har en konfiguration som inte stöds före 9.20 version rotpartitionen eller volymen utspridd på flera diskar. Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), den här konfigurationen stöds. Använd senaste versionen för det här.
+
+## <a name="lvm-support-from-920-version"></a>LVM stöd från 9.20 version
+
+Före 9.20 version har LVM stöd för data-diskar. / Boot bör finnas på en diskpartition och inte en LVM-volym.
+
+Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), [OS-disken på LVM](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) stöds. Använd senaste versionen för det här.
+
+## <a name="insufficient-space-errorid-95524"></a>Inte tillräckligt med utrymme (samtalsstatus: 95524)
+
+När mobilitetsagenten kopieras på källdatorn, krävs minst 100 MB ledigt utrymme. Därför se till att källdatorn krävs ledigt utrymme och försök igen.
 
 ## <a name="vss-installation-failures"></a>Installera VSS-fel
 

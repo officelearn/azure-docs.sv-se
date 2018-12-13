@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 526c89a83a102c80bf1ddb5a5d950b0367a9cd69
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b929608d64e747d6e768da4ee6627f9e6b09a83a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076381"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270101"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Använda webbtjänstparametrar för Azure Machine Learning Studio
 En Azure Machine Learning-webbtjänst skapas genom att publicera ett experiment som innehåller moduler med konfigurerbara parametrar. I vissa fall kan du ändra beteendet modulen medan webbtjänsten körs. *Web tjänstparametrar* gör att du kan göra detta. 
@@ -30,7 +29,7 @@ Ett vanligt exempel att konfigurera den [importdata] [ reader] modulen så att a
 
 Du kan ange Webbtjänstparametrar och koppla dem till en eller flera parametrar i ditt experiment, och du kan ange om de är obligatoriska eller valfria. Användaren av webbtjänsten kan sedan ange värden för dessa parametrar när de anropar webbtjänsten. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="how-to-set-and-use-web-service-parameters"></a>Hur du ställer och använda Webbtjänstparametrar
 Du kan definiera en Web Service-Parameter genom att klicka på ikonen bredvid parametern för en modul och välja ”Ange som web service parameter”. Detta skapar en ny Web Service Parameter och ansluter den till modulen parametern. Sedan när webbtjänsten används användaren kan ange ett värde för parametrarna för webbtjänsten och det används i parametern modulen.

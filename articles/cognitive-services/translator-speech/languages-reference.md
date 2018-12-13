@@ -10,20 +10,20 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345211"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256408"
 ---
-# <a name="translator-speech-api-languages"></a>API för Talöversättning: språk
+# <a name="translator-speech-api-languages"></a>API för Talöversättning: Språk
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Translator för Talöversättning utökar kontinuerligt listan över språk som stöds av dess tjänster. Använd detta API för att identifiera uppsättningen språk som är för närvarande tillgängliga för användning med Translator Speech-tjänsten.
 
-Kodexempel som demonstrerar användningen av API för att hämta tillgängliga språk är tillgängliga från den [Microsoft Translator Github-webbplatsen](https://github.com/MicrosoftTranslator).
+Kodexempel som demonstrerar användningen av API för att hämta tillgängliga språk är tillgängliga från den [Microsoft Translator GitHub-webbplatsen](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Implementeringsanteckningar
 
@@ -33,9 +33,9 @@ Det finns en bred uppsättning språk att transkribera tal, Översätt den trans
 
 En klient använder de `scope` frågeparameter för att definiera vilka uppsättningar med språk som den är intresserad av.
 
-* **Tal till text:** använda Frågeparametern `scope=speech` att hämta de språk som är tillgängliga att transkribera tal till text.
-* **Textöversättning:** använda Frågeparametern `scope=text` att hämta de språk som är tillgängliga att översätta transkriberade texten.
-* **Text till tal:** använda Frågeparametern `scope=tts` att hämta uppsättning språk och röster som är tillgängliga för att syntetisera översatt text till tal.
+* **Tal till text:** Använd Frågeparametern `scope=speech` att hämta de språk som är tillgängliga att transkribera tal till text.
+* **Textöversättning:** Använd Frågeparametern `scope=text` att hämta de språk som är tillgängliga att översätta transkriberade texten.
+* **Text till tal:**  Använd Frågeparametern `scope=tts` att hämta uppsättning språk och röster som är tillgängliga för att syntetisera översatt text till tal.
 
 En klient kan hämta flera uppsättningar samtidigt genom att ange en kommaavgränsad lista med alternativ. Till exempel `scope=speech,text,tts`.
 
@@ -63,7 +63,7 @@ Det värde som tillhandahölls med varje egenskap är som följer.
 
 Värdet som är associerade med tal till text-egenskapen `speech`, är en dictionary med (nyckel, värde) par. Varje nyckel identifierar ett språk som stöds för tal till text. Nyckeln är identifieraren som klienten skickar till API: et. Värdet kopplat till nyckeln är ett objekt med följande egenskaper:
 
-* `name`: Visar namnet för språket.
+* `name`: Visningsnamn för språket.
 * `language`: Språktaggen för den associerade skrivna språk. Se ”Text-transation” nedan.
 Ett exempel är:
 
@@ -79,7 +79,7 @@ Ett exempel är:
 
 Värdet som är associerade med den `text` egenskapen är också en ordlista där varje nyckel identifierar ett språk som stöds för textöversättning. Värdet kopplat till nyckeln beskrivs språk:
 
-* `name`: Visar namnet för språket.
+* `name`: Visningsnamn för språket.
 * `dir`: Riktningen som är `rtl` för höger-till-vänster-språk eller `ltr` för vänster till höger språk.
 
 Ett exempel är:
@@ -100,8 +100,8 @@ Värdet som är associerade med egenskapen text till tal text till tal, är ocks
 * `gender`: Kön röst (manliga eller kvinnliga).
 * `locale`: Språktaggen för röst med primära språket undertagg och region undertagg.
 * `language`: Språktaggen för den associerade skrivna språk.
-* `languageName`: Visar namnet för språket.
-* `regionName`: Visar namnet på regionen för det här språket.
+* `languageName`: Visningsnamn för språket.
+* `regionName`: Visningsnamnet för regionen för det här språket.
 
 Ett exempel är:
 

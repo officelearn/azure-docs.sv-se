@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6170b69d213470b1f5b7e75c9b102e5e07c09209
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8a1f7e367b3f8f06e33bbcd11f8090c9578c1d30
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682902"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269574"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Vidarebefordra jobbstatus och jobbströmmar från Automation till Log Analytics
 
@@ -138,10 +138,10 @@ En av de viktiga kunden som ber avser möjligheten att skicka ett e-postmeddelan
 Om du vill skapa en aviseringsregel, börja med att skapa en loggsökning för poster för runbook-jobb som ska anropa aviseringen. Klicka på den **avisering** knappen för att skapa och konfigurera varningsregeln.
 
 1. Översikt över Log Analytics-sidan klickar du på **Loggsökning**.
-2. Skapa en sökfråga i loggen för aviseringen genom att skriva följande sökningen i fältet fråga: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` du kan också gruppera efter RunbookName med hjälp av: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Skapa en sökfråga i loggen för aviseringen genom att skriva följande sökningen i fältet fråga: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  Du kan också gruppera efter RunbookName med hjälp av: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Du kan gruppera aviseringarna av prenumeration och Automation-konto om du ställer in loggar från mer än en Automation-konto eller prenumeration till din arbetsyta. Automation-kontonamn finns i fältet Resource i sökningen av JobLogs.
-1. Öppna den **skapa regeln** klickar du på **+ ny Aviseringsregel** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [Loggaviseringar i Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
+1. Öppna den **skapa regeln** klickar du på **+ ny Aviseringsregel** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [Loggaviseringar i Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Hitta alla jobb som har slutförts med fel
 Förutom att Varna vid fel, hittar när en runbook-jobbet har en icke-avslutande fel. I dessa fall PowerShell genererar ett fel uppstod när strömmen, men de icke-avslutande fel orsakar inte jobbet att inaktivera eller misslyckas.    

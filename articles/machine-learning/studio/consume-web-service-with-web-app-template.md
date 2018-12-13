@@ -1,5 +1,5 @@
 ---
-title: Använda webbtjänst med mall för webbappar – Azure Machine Learning Studio | Microsoft Docs
+title: Använda Studio-webbtjänst med mall för webbappar – Azure Machine Learning Studio | Microsoft Docs
 description: Använd en mall för webbappar i Azure Marketplace för att använda en förutsägbar webbtjänst i Azure Machine Learning.
 keywords: webbtjänsten, driftsättning, REST API för machine learning
 services: machine-learning
@@ -7,7 +7,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 3eaf881ea1b8831891588310bfcec5e8fb146978
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6a6da1af937338637cd875abe4e9d539b2e2b6e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078590"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273892"
 ---
-# <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Använda en Azure Machine Learning-webbtjänst med hjälp av en mall för webbappar
+# <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>Använda en Azure Machine Learning Studio-webbtjänst med hjälp av en mall för webbappar
 
 Du kan utveckla en förutsägande modell och distribuera den som en Azure-webbtjänst med hjälp av:
 - Azure Machine Learning Studio.
@@ -36,7 +35,7 @@ Det finns ett antal sätt att använda REST-API och få åtkomst till webbtjäns
 
 Men det snabbaste och enklaste sättet att komma åt din webbtjänst är via web appmallar som är tillgängliga i den [Azure Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="azure-machine-learning-web-app-templates"></a>Azure Machine Learning web app-mallar
 Web appmallar som är tillgängliga på Azure Marketplace kan skapa ett anpassat webbprogram som känner till din webbtjänst indata och önskat resultat. Allt du behöver göra är att ge web appåtkomst till din webbtjänst och dina data och mallen resten.

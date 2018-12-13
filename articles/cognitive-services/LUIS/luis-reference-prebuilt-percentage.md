@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 457de95fb4a16a3a43a0cad902b7fb1469d9db8b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9b9faaae78cd1e3590291aef68db47f57f050f3d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087005"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165698"
 ---
-# <a name="percentage-entity"></a>Entitet för procentandel
+# <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Procentandel fördefinierade entitet för en LUIS-app
 Procentandel siffrorna visas som bråkdelar, `3 1/2`, eller som procentandel, `2%`. Eftersom den här entiteten har redan tränats, behöver du inte att lägga till exempel yttranden som innehåller andel till programmet avsikter. Procentandel entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-percentage"></a>Typer av procent
-Procentandel hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) Github-lagringsplats
+Procentandel hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) GitHub-lagringsplats
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>Lösning för fördefinierade procent entitet
 I följande exempel visas av lösningen på den **builtin.percentage** entitet.

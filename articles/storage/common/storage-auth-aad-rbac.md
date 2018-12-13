@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: ac62800e81cece61e9f51c496ace2868629a49a1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 911b8051530daca57fe26fb22c6dc1be845c6d6d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960251"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321434"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Hantera åtkomstbehörigheter till Azure Blob- och ködata med RBAC (förhandsversion)
 
@@ -29,6 +29,7 @@ Azure Storage stöder både inbyggda och anpassade RBAC-roller. Azure Storage er
 
 - [Storage Blob Data-deltagare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
 - [Storage Blob Data-läsare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+- [Storage Blob Data-ägare (förhandsversion)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
 - [Lagringsködata-deltagare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
 - [Lagringsködata-läsare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
 
@@ -44,7 +45,7 @@ Tilldela en RBAC-roll till en Azure-identitet att ge behörighet till behållare
 
 |Scope|Ägare för BLOB-Data|BLOB Data-deltagare|BLOB-dataläsare|Lagringsködata-deltagare|Lagringsködata-läsare|
 |---|---|---|---|---|---|
-|Prenumerationen-nivå|Läs-/ skrivåtkomst till alla behållare och blobbar i prenumerationen|Läs-/ skrivåtkomst till alla behållare och blobbar i prenumerationen| Läsbehörighet till alla behållare och blobbar i prenumerationen|Läs-/ skrivåtkomst till alla köer i prenumerationen|Läsbehörighet till alla köer i prenumerationen|
+|Prenumerationsnivå|Läs-/ skrivåtkomst till alla behållare och blobbar i prenumerationen|Läs-/ skrivåtkomst till alla behållare och blobbar i prenumerationen| Läsbehörighet till alla behållare och blobbar i prenumerationen|Läs-/ skrivåtkomst till alla köer i prenumerationen|Läsbehörighet till alla köer i prenumerationen|
 |Resursgrupp|Läs-/ skrivåtkomst till alla behållare och blobbar i resursgruppen.|Läs-/ skrivåtkomst till alla behållare och blobbar i resursgruppen.|Läsbehörighet till alla behållare och blobbar i resursgruppen.|Läs-/ skrivåtkomst till alla köer i resursgruppen|Läsbehörighet till alla köer i resursgruppen|
 |Lagringskontonivån|Läs-/ skrivåtkomst till alla behållare och blobbar i lagringskontot|Läs-/ skrivåtkomst till alla behållare och blobbar i lagringskontot|Läsbehörighet till alla behållare och blobbar i lagringskontot|Läs-/ skrivåtkomst till alla köer i lagringskontot|Läsbehörighet till alla köer i lagringskontot|
 |Behållare/kö-nivå|Läs/skrivbehörighet till den angivna behållaren och dess blobbar|Läs/skrivbehörighet till den angivna behållaren och dess blobbar|Läsbehörighet till den angivna behållaren och dess blobbar|Läs/skrivbehörighet till den angivna kön|Läsbehörighet till den angivna kön|

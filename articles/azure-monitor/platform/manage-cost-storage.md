@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 744a0f683f58aed98cea7bdef0b2a36af68ad2f1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1ea99c045d5f1bfaacaefab04322b2d4f1123c84
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097581"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183514"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics
 
@@ -77,20 +76,20 @@ Följande steg beskriver hur du konfigurerar en gräns för att hantera mängden
 5. Dagligt tak är **OFF** som standard – klickar du på **på** att aktivera den och ange sedan datavolymen i GB/dag.<br><br> ![Log Analytics konfigurera datagräns](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-limit-reached"></a>Avisera när gränsen har nåtts
-Medan Vi presenterar en visuell ledtråd i Azure-portalen när tröskeln för ditt data gränsen är uppfyllt, justera det här beteendet inte nödvändigtvis som du hanterar operativa problem som kräver omedelbar uppmärksamhet.  För att få en avisering, kan du skapa en ny aviseringsregel i Azure Monitor.  Mer information finns i [hur du skapar, visa och hantera aviseringar](../../monitoring-and-diagnostics/alert-metric.md).      
+Medan Vi presenterar en visuell ledtråd i Azure-portalen när tröskeln för ditt data gränsen är uppfyllt, justera det här beteendet inte nödvändigtvis som du hanterar operativa problem som kräver omedelbar uppmärksamhet.  För att få en avisering, kan du skapa en ny aviseringsregel i Azure Monitor.  Mer information finns i [hur du skapar, visa och hantera aviseringar](../../azure-monitor/platform/alerts-metric.md).      
 
 Här följer de rekommenderade inställningarna för aviseringen för att komma igång:
 
 * Mål: Välj din Log Analytics-resurs
 * Villkor: 
-   * Signalnamn: anpassad loggsökning
-   * Sökfråga: åtgärden | där detalj har ”se”
-   * Baserat på: antal resultat
-   * Villkor: Är större än
+   * Signalnamn: Anpassade loggsökning
+   * Sökfråga: Åtgärden | där detalj har ”se”
+   * Baserat på: Antal resultat
+   * Villkor: Större än
    * Tröskelvärde: 0
    * Period: 5 (minuter)
    * Frekvens: 5 (minuter)
-* Namn på aviseringsregel: dagliga data nådd
+* Namn på aviseringsregel: Dagliga data nådd
 * Allvarlighetsgrad: Varning (Sev 1)
 
 När aviseringen har definierats och gränsen har nåtts kan en avisering har utlösts och utför svaret som definierats i åtgärdsgruppen. Det kan meddela ditt team via e-post och textmeddelanden eller automatisera åtgärder med webhooks, Automation-runbooks eller [integrera med en extern ITSM-lösning](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
@@ -104,9 +103,9 @@ Följande steg beskriver hur du konfigurerar hur länge log data bevaras av i di
 
 ## <a name="troubleshooting"></a>Felsökning
 **Fråga**: Hur felsöker jag om Log Analytics inte längre att samla in data? 
-**Svar**: Om du på den kostnadsfria prisnivån och skicka fler än 500 MB data under en dag, datainsamling stoppas under resten av dagen. Når den dagliga gränsen är en vanlig orsak som Log Analytics slutar att samla in data eller data verkar sakna.  
+**Svar**:  Om du på den kostnadsfria prisnivån och skicka fler än 500 MB data under en dag, stoppar insamling av data under resten av dagen. Når den dagliga gränsen är en vanlig orsak som Log Analytics slutar att samla in data eller data verkar sakna.  
 Log Analytics skapar en händelse av typen igen när datainsamlingen startar och stoppar.  
-Kör följande fråga i sökningen för att kontrollera om du når den dagliga gränsen och data som saknas: åtgärden | där OperationCategory == 'Datainsamlingsstatus'   
+Kör följande fråga i sökningen för att kontrollera om du når den dagliga gränsen och saknade data: Åtgärden | där OperationCategory == 'Datainsamlingsstatus'   
 När datainsamlingen slutar OperationStatus är en varning. När datainsamlingen startar är OperationStatus slutfört.  
 I följande tabell beskrivs skäl som stoppar insamling av data och en rekommenderad åtgärd för att återuppta insamling av data:  
 
@@ -120,8 +119,8 @@ I följande tabell beskrivs skäl som stoppar insamling av data och en rekommend
 
 Log Analytics använder UTC-tid. Återställningstiden varierar mellan arbetsytor att förhindra alla begränsad överskottsavgift arbetsytor start mata in data på samma gång. Om arbetsytan når den dagliga gränsen, bearbetningen återupptas när återställningstiden som definierats i **dagliga gränsen ställs in på**.<br><br> ![Log Analytics begränsa UTC-tidszonen](media/manage-cost-storage/data-volume-mgmt-limit-utc.png)
 
-**Fråga**: hur kan jag bli meddelad när datainsamlingen slutar? 
-**Svar**: Använd stegen som beskrivs i *skapa dagliga data gräns* avisering du vill meddelas när datainsamlingen slutar och följ stegen använder stegen som beskrivs i Lägg till åtgärder i Varningsregler konfigurera ett e-post, webhook eller runbook åtgärd för regeln. 
+**Fråga**: Hur kan jag bli meddelad när datainsamlingen slutar? 
+**Svar**: Använd stegen som beskrivs i *skapa dagliga data gräns* avisering du vill meddelas när datainsamlingen slutar och följ stegen använder stegen som beskrivs i Lägg till åtgärder i Varningsregler konfigurera en e-post, webhook eller runbook-åtgärd för regeln . 
 
 ## <a name="next-steps"></a>Nästa steg  
 

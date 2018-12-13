@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 53e49099fd3486d51f021528c9354cf32f4952d2
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: abc1e835fa153fc5d061cca5a3eb009931240332
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492797"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276340"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Fråga efter och skicka kommandon till tjänsten infrastruktur.
@@ -38,15 +38,15 @@ För kluster som har en eller flera instanser av tjänsten-infrastruktur konfigu
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --kommandot [krävs] | Texten för kommandot anropas. Innehållet i kommandot är infrastruktur-specifika. |
-| --service-id | Identiteten för infrastruktur-tjänst. <br><br> Det här är det fullständiga namnet på tjänsten infrastruktur utan att URI-schemat 'fabric ”. Den här parametern krävs endast för det kluster som har mer än en instans av infrastruktur-tjänsten körs. |
+| --service-id | Identiteten för infrastruktur-tjänst. <br><br> Det här är det fullständiga namnet på tjänsten infrastruktur utan att den ”fabric\:” URI-schema. Den här parametern krävs endast för det kluster som har mer än en instans av infrastruktur-tjänsten körs. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -61,7 +61,7 @@ För kluster som har en eller flera instanser av tjänsten-infrastruktur konfigu
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --kommandot [krävs] | Texten för kommandot anropas. Innehållet i kommandot är infrastruktur-specifika. |
 | --service-id | Identiteten för infrastruktur-tjänst. <br><br> Det här är det fullständiga namnet på tjänsten infrastruktur utan att den ”fabric\:” URI-schema. Den här parametern krävs endast för det kluster som har mer än en instans av infrastruktur-tjänsten körs. |
@@ -69,7 +69,7 @@ För kluster som har en eller flera instanser av tjänsten-infrastruktur konfigu
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |

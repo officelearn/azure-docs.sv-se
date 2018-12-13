@@ -1,5 +1,6 @@
 ---
-title: Översikt över IPv6 för Azure Load Balancer | Microsoft Docs
+title: Översikt över IPv6 för Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Förstå IPv6-stöd för Azure Load Balancer och belastningsutjämnade virtuella datorer.
 services: load-balancer
 documentationcenter: na
@@ -8,22 +9,23 @@ keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, in
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: kumud
-ms.openlocfilehash: 379407c8d9e5c6a5a0476fd88ea2dda6e7994e0f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 894a56c2e51e8fa8a2d72253563d218416ace4cb
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739336"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161941"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Översikt över IPv6 för Azure Load Balancer
 
 
 >[!NOTE] 
->Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standardbelastningsutjämnaren finns i [översikt över Standard Load Balancer](load-balancer-standard-overview.md).
+>Azure Load Balancer stöder två typer: Basic eller Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standardbelastningsutjämnaren finns i [översikt över Standard Load Balancer](load-balancer-standard-overview.md).
 
 Internetuppkopplad belastningsutjämnare kan distribueras med en IPv6-adress. Förutom IPv4-anslutningen kan följande funktioner:
 

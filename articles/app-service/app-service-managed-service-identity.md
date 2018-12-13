@@ -1,5 +1,5 @@
 ---
-title: Hanterade tjänstidentiteter i App Service och Azure Functions | Microsoft Docs
+title: Hanterade identiteter översikt – Azure App Service | Microsoft Docs
 description: Konceptuell referens och installationsprogrammet guide för hanterade identiteter i Azure App Service och Azure Functions
 services: app-service
 author: mattchenderson
@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 033667500f627a090c6ba6d686224126d217b833
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 40ae45eb401aeb302b2474cd181d29c0ee26c611
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971410"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254368"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Hur du använder hanterade identiteter för App Service och Azure Functions
 
@@ -158,7 +158,7 @@ Där `<TENANTID>` och `<PRINCIPALID>` har ersatts med GUID. Egenskapen tenantId 
 ## <a name="adding-a-user-assigned-identity-preview"></a>Att lägga till en Användartilldelad identitet (förhandsversion)
 
 > [!NOTE] 
-> Användartilldelade identiteter finns för närvarande i förhandsversion. Sovreign moln stöds inte ännu.
+> Användartilldelade identiteter finns för närvarande i förhandsversion. Suveräna moln stöds inte ännu.
 
 Skapa en app med en Användartilldelad identitet kräver att du skapar identitet och sedan lägga till dess resursidentifierare i din appkonfiguration.
 
@@ -299,7 +299,7 @@ En lyckad svar med 200 OK innehåller en JSON-texten med följande egenskaper:
 > |access_token|Den begärda åtkomst-token. Anropa webbtjänsten kan använda denna token för att autentisera till mottagande webbtjänsten.|
 > |expires_on|Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token.|
 > |resurs|App-ID URI för den mottagande webbtjänsten.|
-> |token_type|Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar. Läs mer om ägar-token, [The OAuth 2.0 auktorisering Framework: ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
+> |token_type|Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar. Läs mer om ägar-token, [The OAuth 2.0 auktorisering Framework: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
 Svaret är samma som den [svar för AAD tjänst-till-tjänst begäran om åtkomsttoken](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).

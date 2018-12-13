@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 03e67508aab57a825c851f2cb3d361c0aea63f72
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 566ab8d14ebce04a2cba208dd72efc3782d5ad41
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110194"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256306"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Så här hanterar du i Azure Monitor för behållare agent
 Azure Monitor för behållare använder en behållare version av Log Analytics-agenten för Linux. Efter den första distributionen finns rutinen eller valfria aktiviteter som du kan behöva utföra under dess livscykel. Den här artikeln innehåller information om hur du manuellt uppgradera agenten och inaktivera insamling av miljövariabler från en viss behållare. 
@@ -62,9 +62,9 @@ Statusen bör likna följande exempel där värdet för *omi* och *omsagent* må
     docker-cimprov 1.0.0.31
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Så här inaktiverar du miljön variabelsamlingen i en behållare
-Azure Monitor för behållare som samlar in miljövariabler från behållare som körs i en pod och visar dem i egenskapsrutan i den valda behållaren i den **behållare** vy. Du kan styra detta genom att inaktivera samling för en specifik behållare antingen under distributionen av AKS-klustret eller efter genom att ställa in miljövariabeln *AZMON_COLLECT_ENV*. Den här funktionen är tillgänglig från agentversionen – ciprod11292018 och högre.  
+Azure Monitor för behållare som samlar in miljövariabler från behållare som körs i en pod och visar dem i egenskapsrutan i den valda behållaren i den **behållare** vy. Du kan styra detta genom att inaktivera samling för en specifik behållare antingen under distributionen av AKS-kluster, eller när du har genom att ställa in miljövariabeln *AZMON_COLLECT_ENV*. Den här funktionen är tillgänglig från agentversionen – ciprod11292018 och högre.  
 
-Ställ in variabeln för att inaktivera insamling av miljövariabler för en ny eller befintlig behållare, *AZMON_COLLECT_ENV* med värdet *FALSKT* till ditt Kubernetes-distribution yaml-konfigurationsfilen.   
+Ställ in variabeln för att inaktivera insamling av miljövariabler för en ny eller befintlig behållare, **AZMON_COLLECT_ENV** med värdet **FALSKT** i Kubernetes-distribution yaml konfigurationsfilen.   
 
 ```  
 - name: AZMON_COLLECT_ENV  
@@ -73,9 +73,9 @@ Ställ in variabeln för att inaktivera insamling av miljövariabler för en ny 
 
 Kör följande kommando för att tillämpa ändringen för AKS-behållare: `kubectl apply -f  <path to yaml file>`.
 
-Kontrollera att konfigurationsändringen tog påverkar genom att välja en behållare i den **behållare** i Azure Monitor för behållare och i panelen egenskapen, expanderar **miljövariabler**.  Avsnittet bör visa endast variabeln som skapades tidigare - **AZMON_COLLECT_ENV = FALSE**. För alla andra behållare bör avsnittet miljövariabler lista de miljövariabler som har identifierats.   
+Kontrollera att konfigurationsändringen tog effekt genom att välja en behållare i den **behållare** i Azure Monitor för behållare och i panelen egenskapen, expanderar **miljövariabler**.  Avsnittet bör visa endast variabeln som skapades tidigare - **AZMON_COLLECT_ENV = FALSE**. För alla andra behållare bör avsnittet miljövariabler lista de miljövariabler som har identifierats.   
 
-Om du vill återaktivera identifiering av miljövariabler, tillämpa samma process tidigare och ändra värdet från **FALSKT** till **SANT**, och kör sedan om den `kubectl` kommando för att uppdatera behållaren.  
+Om du vill återaktivera identifiering av miljövariabler, tillämpa samma process tidigare och ändra värdet från **FALSKT** till **SANT**, och kör sedan den `kubectl` kommando för att uppdatera behållaren.  
 
 ```  
 - name: AZMON_COLLECT_ENV  

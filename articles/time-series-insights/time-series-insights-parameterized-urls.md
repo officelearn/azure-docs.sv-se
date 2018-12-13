@@ -1,5 +1,5 @@
 ---
-title: Dela anpassade Azure Time Series Insights-vyer med parametriserade URL:er | Microsoft Docs
+title: 'Azure Time Series insikter URL: er - resursen Azure Time Series Insights anpassade vyer med parametriserade URL: er | Microsoft Docs'
 description: Den här artikeln beskriver hur du utvecklar parametriserade URL:er i Azure Time Series Insights så att du enkelt kan dela en anpassad vy.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 5b43ba4c3f88c678b160e8aec442fa92b4822a3d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628808"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274368"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
@@ -70,7 +71,7 @@ Parametern `timeSeriesDefinitions=<collection of term objects>` anger villkoren 
   - Kolumnnamnet för *mått*.
 - ”predicate”:”<string>”
   - *Where*-sats för filtrering på serversidan.
--  ”useSum”:”true”
+- ”useSum”:”true”
   - Detta är en valfri parameter som anger att summering ska användas för din åtgärd.  Observera att om den valda åtgärden är ”Händelser” väljs antalet som standard.  Om ”Händelser” inte är markerat väljs medelvärdet som standard.  
 
 Parametern multiChartStack = <true/false> aktiverar stapling i diagrammet och parametern multiChartSameScale = <true/false> aktiverar samma y-axelskala över villkoren i en valfri parameter.  

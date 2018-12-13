@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 12/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 3368133dec82d946318a755dc98b068a048b9e83
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243137"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275116"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Framtvinga en namnprincip för Office 365-grupper i Azure Active Directory (förhandsversion)
 
@@ -58,6 +58,7 @@ Vi rekommenderar att du använder attribut som har värden som fylls för alla a
 Ett blockerat ordlistan är en kommaavgränsad lista med fraser blockeras i namn och alias. Inga understräng sökningar utförs. En exakt matchning mellan gruppnamnet och en eller flera av de anpassa blockerade ord krävs för att utlösa ett fel. Understräng sökning utförs inte, så att användarna kan använda vanliga ord som ”Class” även om ”klassnamn' är ett blockerat ord.
 
 Blockerat ord regler:
+
 - Blockerade ord är inte skiftlägeskänsliga.
 - När en användare anger ett blockerat ord som en del av ett gruppnamn, visas ett felmeddelande med det blockerade ordet.
 - Det finns inga teckenbegränsningar på blockerade orden.
@@ -120,7 +121,7 @@ Om du får ett meddelande om åtkomst till en icke-betrodd lagringsplats anger d
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Ange namnprincip och anpassade spärrad ord
 
-1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell.
+1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell. För att funktionen ska fungera korrekt, [GroupName] måste inkluderas i inställningen.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -166,6 +167,27 @@ $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ````
+
+## <a name="remove-the-naming-policy"></a>Ta bort namnprincip
+
+1. Tom grupp namnet prefix och suffix i Azure AD PowerShell.
+  
+  ````
+  $Setting["PrefixSuffixNamingRequirement"] =""
+  ````
+  
+2. Tom anpassade spärrad orden. 
+  
+  ````
+  $Setting["CustomBlockedWordsList"]=""
+  ````
+  
+3. Spara inställningarna.
+  
+  ````
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+  ````
+
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Namngivningspolicy resultat på alla Office 365-appar
 

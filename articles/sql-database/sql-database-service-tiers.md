@@ -11,19 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239091"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164406"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database köpa modeller
 
 Azure SQL Database kan du enkelt köpa helt hanterad PaaS-databasmotor som passar ditt behov av prestanda och kostnader. Beroende på distributionsmodell för Azure SQL Database, kan du välja den inköpsmodellen som passar dina behov:
+- [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) (rekommenderas) som gör det möjligt för dig att välja den exakta mängden lagringskapacitet och compute att du behöver för din arbetsbelastning.
+- [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) där du kan välja paketeras beräknings- och paket belastningsutjämnade för vanliga arbetsbelastningar.
 
-- [Logiska servrar](sql-database-logical-servers.md) i [Azure SQL Database](sql-database-technical-overview.md) finns i två inköpschef modeller för beräkning, lagring och IO-resurser: en [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och en [vCore-baserade inköpsmodell](sql-database-service-tiers-vcore.md). I den här inköpsmodellen kan du välja [enkla databaser](sql-database-single-databases-manage.md) eller [elastiska pooler](sql-database-elastic-pool.md).
+Olika inköpschef modeller är tillgängliga i Azure SQL Database-distributionsmodeller:
+- [Logiska servrar](sql-database-logical-servers.md) i [Azure SQL Database](sql-database-technical-overview.md) erbjuder både [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). I den här inköpsmodellen kan du välja [enkla databaser](sql-database-single-databases-manage.md) eller [elastiska pooler](sql-database-elastic-pool.md).
 - [Hanterade instanser](sql-database-managed-instance.md) i Azure SQL Database endast erbjudandet den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -51,7 +54,7 @@ Den vCore-baserade inköpsmodellen kan du välja beräknings- och lagringsresurs
 
 > [!IMPORTANT]
 > Beräknings-, IOs, data och logglagring debiteras per databas eller elastisk pool. Lagring för säkerhetskopior debiteras per varje databas. Information av avgifter för hanterad instans i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-> **Region begränsningar:** vCore-baserade inköpsmodellen ännu inte finns tillgänglig i följande regioner: västra Europa, Frankrike, centrala, Storbritannien, södra, Storbritannien, västra och Australien, sydöstra Australien.
+> **Region begränsningar:** Den vCore-baserade inköpsmodellen ännu inte finns tillgänglig i följande regioner: Västeuropa, Frankrike, centrala, Storbritannien, södra, Storbritannien, västra och Australien, sydöstra Australien.
 
 Om din databas eller elastisk pool förbrukar mer än 300 DTU-konvertering till vCore minska dina kostnader. Du kan konvertera med hjälp av ditt API föredrar eller med hjälp av Azure-portalen utan avbrott. Dock krävs inte konverteringen. Om den DTU-inköpsmodellen uppfyller dina krav på prestanda och företag, bör du fortsätta använda den. Om du vill konvertera från DTU-modellen till vCore-modellen kan du bör välja beräkningsstorleken med hjälp av följande tumregel: varje 100 dtu: er i Standard-nivån kräver minst 1 vCore i nivån generell användning; varje 125 DTU på premiumnivån kräver minst 1 vCore i nivån affärskritisk.
 

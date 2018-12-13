@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0890ce0342024229b99d92a2eddba5b49cc59595
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1410d61fed2dc98f5fa657541c3863e09b803166
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633945"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321791"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Skala Azure Service Fabric-kluster
 Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster, kan du skala klustret horisontellt (ändra antalet noder) eller lodrätt (ändra resurser noder).  Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret.  När klustret skalas skalas programmen automatiskt samt.
@@ -29,7 +29,7 @@ Varför skala klustret? Programbegäran ändras med tiden.  Du kan behöva öka 
 ## <a name="scaling-in-and-out-or-horizontal-scaling"></a>Skala in och ut eller horisontell skalning
 Ändrar antalet noder i klustret.  När de nya noderna ansluta till klustret, den [Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md) flyttar tjänster till dem som minskar belastningen på de befintliga noderna.  Du kan också minska antalet noder om klustrets resurser inte som används effektivt.  Eftersom noder lämna klustret, tjänster flytta utanför dessa noder och belastningen ökar på övriga noder.  Minska antalet noder i ett kluster som körs i Azure kan du spara pengar, eftersom du betalar för antalet virtuella datorer du användning och inte arbetsbelastningen för dessa virtuella datorer.  
 
-- Fördelar: Oändlig skala, i teorin  Om programmet har utformats för skalbarhet, kan du aktivera Obegränsad tillväxt genom att lägga till fler noder.  Verktygsuppsättningen i miljöer i molnet gör det enkelt att lägga till eller ta bort noder, så att det är enkelt att justera kapacitet och du betalar bara för de resurser du använder.  
+- Fördelar: Oändlig skala, i teorin.  Om programmet har utformats för skalbarhet, kan du aktivera Obegränsad tillväxt genom att lägga till fler noder.  Verktygsuppsättningen i miljöer i molnet gör det enkelt att lägga till eller ta bort noder, så att det är enkelt att justera kapacitet och du betalar bara för de resurser du använder.  
 - Nackdelar: Program måste vara [utformats för skalbarhet](service-fabric-concepts-scalability.md).  Databaser och persistence kan kräva ytterligare arkitektoniska arbete att skala samt.  [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md) i Service Fabric tillståndskänsliga tjänster, men gör det mycket enklare att skala dina programdata.
 
 Virtual machine scale sets är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster är [ställa in som en separat skalningsuppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp skalas sedan in eller ut oberoende av varandra, ha olika portar öppna och ha olika kapacitet. 
@@ -50,7 +50,7 @@ I många fall är [skala ett kluster manuellt eller med regler för automatisk s
 - Skala manuellt måste du logga in och uttryckligen begära skalningsåtgärder. Om skalningsåtgärder krävs ofta eller vid oväntade tidpunkter, kanske inte en bra lösning i den här metoden.
 - När regler för automatisk skalning tar bort en instans från en skalningsuppsättning för virtuell dator kan de inte bort automatiskt kunskaper om noden från det associera Service Fabric-klustret om inte nodtyp har en tillförlitlighet nivå av Silver eller Gold. Eftersom regler för automatisk skalning fungerar i den skala som anger (i stället för på Service Fabric-nivå), regler för automatisk skalning kan ta bort Service Fabric-noder utan att stänga av dem på ett smidigt sätt. Borttagningen oartigt nod lämnar 'ghost-tillstånd för Service Fabric-noden efter efter att skala in operations. En person (eller en tjänst) behöver du regelbundet Rensa borttagna noden tillstånd i Service Fabric-klustret.
 - En nodtyp med en hållbarhetsnivå guld eller Silver rensas automatiskt borttagna noder, så det behövs inga ytterligare Rensa.
-- Även om det finns [många mått](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) stöds av regler för automatisk skalning, det är fortfarande en begränsad uppsättning. Om ditt scenario anrop för att skala baserat på vissa mått som inte omfattas i uppsättningen kan sedan kanske regler för automatisk skalning inte ett bra alternativ.
+- Även om det finns [många mått](../azure-monitor/platform/autoscale-common-metrics.md) stöds av regler för automatisk skalning, det är fortfarande en begränsad uppsättning. Om ditt scenario anrop för att skala baserat på vissa mått som inte omfattas i uppsättningen kan sedan kanske regler för automatisk skalning inte ett bra alternativ.
 
 Hur ska du itu med Service Fabric skalning beror på ditt scenario. Om det är ovanligt att skala, räcker troligen möjligheten att lägga till eller ta bort noder manuellt. Erbjuder kraftfulla alternativ för mer komplicerade scenarier kan regler för automatisk skalning och SDK: er som exponerar möjligheten att skala programmässigt.
 
@@ -66,7 +66,7 @@ Baserat på dessa begränsningar, kan du [implementera mer anpassade modeller f�
 
 ## <a name="scaling-up-and-down-or-vertical-scaling"></a>Skala upp och ner eller vertikal skalning 
 Ändrar resurser (CPU, minne eller lagring) av noder i klustret.
-- Fördelar: Programvara och programarkitektur förblir densamma.
+- Fördelar: Arkitektur för programvara och programmet förblir densamma.
 - Nackdelar: Begränsad skala, eftersom det inte finns en gräns för hur mycket du kan öka resurser på enskilda noder. Driftstopp, eftersom du behöver vidta fysiska eller virtuella datorer offline för att lägga till eller ta bort resurser.
 
 Virtual machine scale sets är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster är [ställa in som en separat skalningsuppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat.  Skala en nodtyp upp eller ned innebär att du ändrar SKU: N för de virtuella datorinstanserna i skalningsuppsättningen. 

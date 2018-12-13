@@ -1,5 +1,5 @@
 ---
-title: Säkerhetskopiera din app i Azure
+title: Säkerhetskopiera program – Azure App Service
 description: Lär dig hur du skapar säkerhetskopior av dina appar i Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 8035a704a76d8f6287addff9c5503eb93f8e04fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 95fc4567248ca8201174494eee2da5922b7d0f0e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227849"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269234"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Funktionen för säkerhetskopiering och återställning i [Azure App Service](app-service-web-overview.md) kan du lätt skapa säkerhetskopior av appar manuellt eller enligt ett schema. Du kan återställa appen till en ögonblicksbild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app. 
@@ -75,7 +76,7 @@ Följande databaslösningar stöds med säkerhetskopieringsfunktionen:
 
 2. I den **Backup** klickar du på **konfigurera**
 ![klickar du på Konfigurera](./media/web-sites-backup/ClickConfigure1.png)
-3. I den **Säkerhetskopieringskonfigurationen** klickar du på **lagring: inte konfigurerat** att konfigurera ett lagringskonto.
+3. I den **Säkerhetskopieringskonfigurationen** klickar du på **lagring: Inte konfigurerad** att konfigurera ett lagringskonto.
    
     ![Välj lagringskonto][ChooseStorageAccount]
 4. Välj ditt mål för säkerhetskopian genom att välja en **Lagringskonto** och **behållare**. Storage-kontot måste tillhöra samma prenumeration som den app du vill säkerhetskopiera. Om du vill kan skapa du ett nytt lagringskonto eller en ny behållare i respektive sidor. När du är klar klickar du på **Välj**.

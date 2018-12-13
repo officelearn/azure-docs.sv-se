@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: cd9b0a117439f603e4820cb2dec2984aa2d68e73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a711b80471da0677c5e2d0dd0ee5e371e5a16f75
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074341"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268657"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Kör batch förutsägelser på stora datauppsättningar med Azure Machine Learning-tjänsten
 
@@ -31,7 +31,7 @@ I följande steg ska du skapa en [maskininlärningspipeline](concept-ml-pipeline
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Du behöver en Azure-prenumeration. Om du inte har en Azure-prenumeration skapar du ett  [kostnadsfritt konto](https://aka.ms/AMLfree)  innan du börjar.
+- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
 
 - Konfigurera din utvecklingsmiljö för att installera Azure Machine Learning-SDK. Mer information finns i [konfigurera en utvecklingsmiljö för Azure Machine Learning](how-to-configure-environment.md).
 

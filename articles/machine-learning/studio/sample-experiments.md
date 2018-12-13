@@ -5,9 +5,8 @@ keywords: machine learning examples, sample experiment, machine learning sample,
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6b2a07b105252ca1fb5eb37c2571601c3eb74179
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306688"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276442"
 ---
-# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Skapa Machine Learning-experiment utifrån exempel i Azure AI-galleriet
+# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Skapa Azure Machine Learning Studio-experiment utifrån exempel i Azure AI-galleriet
 
 Lär dig hur du kommer igång med exempelexperiment från [Azure AI-galleriet](https://gallery.cortanaintelligence.com/) i stället för att skapa maskininlärningsexperiment från grunden. Du kan använda exemplen för att skapa din egen maskininlärningslösning.
 
@@ -32,7 +31,7 @@ I galleriet finns exempelexperiment från Microsoft Azure Machine Learning-teame
 
 Om du vill se hur du använder galleriet kan du titta på den 3 minuter långa videon [Copy other people's work to do data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) (Kopiera andras arbete för datavetenskap) från serien [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) (Datavetenskap för nybörjare).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Sök ett experiment att kopiera i Azure AI-galleriet
 Du kan se vilka experiment som är tillgängliga genom att öppna [Galleriet](https://gallery.cortanaintelligence.com/) och klicka på **Experiment** högst uppe på sidan.
@@ -46,7 +45,7 @@ Bläddra bland alla experiment:
 1. Klicka på **Browse all** längst upp på sidan.
 2. Till vänster, under **Förfina efter** i avsnittet **Kategorier**, väljer du **Experiment** för att visa alla experiment i galleriet.
 3. Du kan hitta experiment som uppfyller kraven på ett par olika sätt:
-   * **Välj filter till vänster.** Om du till exempel vill bläddra igenom experiment som använder en algoritm för PCA-baserad avvikelseidentifiering gör du så här: Under **Kategorier** klickar du på **Experiment**. Under **Använda algoritmer** klickar du sedan på **Visa alla**, och i dialogrutan väljer du **PCA-baserad avvikelseidentifiering**. Du kanske måste bläddra för att se det.<br></br>
+   * **Välj filter till vänster.** Till exempel vill bläddra-experimenten som använder en algoritm för PCA-baserad avvikelseidentifiering: Under **kategorier** klickar du på **Experiment**. Under **Använda algoritmer** klickar du sedan på **Visa alla**, och i dialogrutan väljer du **PCA-baserad avvikelseidentifiering**. Du kanske måste bläddra för att se det.<br></br>
      ![Välj filter](./media/sample-experiments/choose-an-algorithm.png)
    * **Använd sökrutan.** Om du till exempel vill hitta experiment från Microsoft som rör sifferigenkänning som använder en algoritm för stödvektormaskin med två klasser anger du ”digit recognition” i sökrutan. Välj sedan filtren **Experiment**, **Endast Microsoft innehåll** och **Stödvektormaskin med två klasser**:<br></br>
      ![Använd sökrutan](./media/sample-experiments/search-for-experiments.png)

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: cb1392bd70c92ae4f6bfc6707198c3079ad7ecef
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b0dd0c0c0c300b4db94c1ab22205f9e808556f0b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285908"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166835"
 ---
 ## <a name="state-behavior"></a>Statliga beteende
 
-Den [simulering](../articles/iot-accelerators/iot-accelerators-device-simulation-device-schema.md#simulation) delen av schemat för enhetsmodellen definierar det interna tillståndet för en simulerad enhet:
+Den [simulering](../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) delen av schemat för enhetsmodellen definierar det interna tillståndet för en simulerad enhet:
 
 - `InitialState` definierar ursprungliga värden för alla egenskaper för enhetsobjekt för tillstånd.
 - `Script` identifierar en JavaScript-fil som körs på ett schema för att uppdatera enhetens tillstånd.
@@ -143,7 +143,7 @@ Du kan visa den fullständiga [kylaggregat-01-state.js](https://github.com/Azure
 
 ## <a name="method-behavior"></a>Metoden beteende
 
-Den [CloudToDeviceMethods](../articles/iot-accelerators/iot-accelerators-device-simulation-device-schema.md#cloudtodevicemethods) delen av schemat för enhetsmodellen definierar de metoder som en simulerad enhet svarar på.
+Den [CloudToDeviceMethods](../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) delen av schemat för enhetsmodellen definierar de metoder som en simulerad enhet svarar på.
 
 I följande exempel visas listan över metoder som stöds av en simulerad kylaggregat enhet:
 

@@ -1,5 +1,5 @@
 ---
-title: Konfigurera TLS ömsesidig autentisering för webbapp
+title: Konfigurera TLS ömsesidig autentisering – Azure App Service
 description: Lär dig mer om att konfigurera webbappen för att använda autentisering med klientcertifikat på TLS.
 services: app-service
 documentationcenter: ''
@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: 894a77be05de131ab122f18c62d209e9829357f9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.custom: seodec18
+ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056216"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252889"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Konfigurera TLS ömsesidig autentisering för webbapp
 ## <a name="overview"></a>Översikt
 Du kan begränsa åtkomsten till Azure-webbappen genom att aktivera olika typer av autentisering för den. Ett sätt att göra detta är att autentisera med ett klientcertifikat när begäran hålls över TLS/SSL. Den här mekanismen kallas ömsesidig TLS-autentisering eller autentisering och den här artikeln beskriver detaljerat hur du konfigurerar webbappen att använda autentisering med klientcertifikat klientcertifikat.
 
-> **Obs:** om du har åtkomst till webbplatsen via HTTP och HTTPS inte visas inte alla klientcertifikat. Så om programmet kräver klientcertifikat bör du inte tillåta begäranden till ditt program via HTTP.
+> **Obs:** Om du har åtkomst till webbplatsen via HTTP och HTTPS inte får inte alla klientcertifikat. Så om programmet kräver klientcertifikat bör du inte tillåta begäranden till ditt program via HTTP.
 > 
 > 
 
@@ -51,7 +52,7 @@ Se till att ändra värdet för ”plats” till var din webbapp finns till exem
 
 Du kan också använda https://resources.azure.com bilden ska vändas den `clientCertEnabled` egenskap `true`.
 
-> **Obs:** om du kör ARMClient från Powershell, behöver du att undanta den \@ symbol för JSON-fil med en backend skalstreck '.
+> **Obs:** Om du kör ARMClient från Powershell, behöver du att undanta den \@ symbol för JSON-fil med en backend skalstreck '.
 > 
 > 
 

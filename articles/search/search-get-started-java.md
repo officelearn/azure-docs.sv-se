@@ -1,5 +1,5 @@
 ---
-title: Komma igång med Azure Search i Java| Microsoft Docs
+title: Kom igång med Azure Search i Java – Azure Search
 description: Här lär du dig hur du skapar ett värdbaserat sökprogram i molnet med Azure och Java som programmeringsspråk.
 services: search
 author: jj09
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec2018
+ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419307"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316979"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Komma igång med Azure Search i Java
 > [!div class="op_single_selector"]
@@ -46,12 +47,12 @@ I det här programmet bygger och läser programmet **SearchServlet.java** in ind
 Följande lista beskriver de filer som är relevanta för det här exemplet.
 
 * Search.JSP: Tillhandahåller användargränssnittet
-* SearchServlet.java: Tillhandahåller metoder (påminner om en kontrollant i MVC)
+* SearchServlet.java: Tillhandahåller metoder (liknar en kontrollant i MVC)
 * SearchServiceClient.java: Hanterar HTTP-begäranden
 * SearchServiceHelper.java: En hjälparklass som tillhandahåller statiska metoder
 * Document.Java: Tillhandahåller datamodellen
-* Config.Properties: Anger URL:en och API-nyckeln för Search-tjänsten
-* Pom.XML: Ett Maven-beroende
+* Config.Properties: Anger Search-tjänstens URL och api-nyckel
+* pom.XML: Ett Maven-beroende
 
 <a id="sub-2"></a>
 

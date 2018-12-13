@@ -1,5 +1,5 @@
 ---
-title: Med hjälp av de machine learning CLI-tillägg
+title: Machine learning-CLI-tillägg
 titleSuffix: Azure Machine Learning service
 description: Läs mer om Azure Machine Learning CLI-tillägget för Azure CLI. Azure CLI är ett plattformsoberoende kommandoradsverktyg som gör det möjligt att arbeta med resurser i Azure-molnet. Machine Learning-tillägget kan du arbeta med Azure Machine Learning-tjänsten.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e1e94c2301cdbacf2ade037fe04cc8359ed06598
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e16506773e38f1732a55161cdd58ffb7523602d4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078199"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277292"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Använda CLI-tillägg för Azure Machine Learning-tjänsten
 
@@ -42,10 +42,10 @@ CLI är inte en ersättning för Azure Machine Learning-SDK. Det är ett komplet
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-> [!NOTE]
-> Du måste ha en Azure-prenumeration om du vill använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
+* Du måste ha en Azure-prenumeration om du vill använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
+
+* Den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="install-the-extension"></a>Installera tillägget
 

@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: fb7ce154985db97dba2a36b4b0d834cada1605d9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a5150d3f318fce2f66adfa4bdc43ae8aec651223
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101066"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251155"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Lägg till LUIS resultaten till Application Insights med en Bot iC#
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 > [!Tip]
 > Om du inte redan har en prenumeration kan du registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-All kod i den här självstudien är tillgänglig på den [LUIS-Samples github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) och varje rad som är associerade med den här självstudien har kommenterats med `//LUIS Tutorial:`.
+All kod i den här självstudien är tillgänglig på den [LUIS-Samples GitHub-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) och varje rad som är associerade med den här självstudien har kommenterats med `//LUIS Tutorial:`.
 
 ## <a name="review-luis-web-app-bot"></a>Granska LUIS web app-robot
 

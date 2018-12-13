@@ -1,5 +1,5 @@
 ---
-title: 'Felsök Apache Hadoop i HDInsight: visa loggar och tolka felmeddelanden - Azure '
+title: 'Felsök Apache Hadoop: Visa loggar och tolka felmeddelanden - Azure HDInsight'
 description: Läs mer om de felmeddelanden som du kan få när du administrerar HDInsight med hjälp av PowerShell och vad du kan göra för att återställa.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: c997b2644be3798629afce6d826c53b1d9492597
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d52a9411863962528eb0693f735ca0c4ee4c9991
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017022"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166514"
 ---
 # <a name="analyze-hadoop-logs"></a>Analysera Hadoop-loggar
 
@@ -133,102 +133,102 @@ Några av följande felmeddelanden kan också ses i Azure-portalen när den anv�
 
 ### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Beskrivning av**: Ange Azure SQL databasinformation för minst en komponent för att kunna använda anpassade inställningar för metastores för Hive och Oozie.
-* **Minskning**: användaren måste ange ett giltigt SQL Azure-metaarkiv och försöka.  
+* **Minskning**: Användaren måste ange ett giltigt SQL Azure-metaarkiv och försöka.  
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
 * **Beskrivning av**: Det gick inte att skapa kluster i regionen *nameOfYourRegion*. Använder ett giltigt område i HDInsight och försök igen med begäran.
-* **Minskning**: kund bör skapa regionen klustret som för närvarande stöder dem: Sydostasien, Västeuropa, Nordeuropa, USA, östra eller USA, västra.  
+* **Minskning**: Kunden bör skapa regionen klustret som för närvarande stöder dem: Sydostasien, Västeuropa, Nordeuropa, USA, östra eller USA, västra.  
 
 ### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
-* **Beskrivning av**: servern kunde inte hitta den begärda kluster-posten.  
-* **Minskning**: försök igen.
+* **Beskrivning av**: Servern kunde inte hitta den begärda kluster-posten.  
+* **Minskning**: Försök igen.
 
 ### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
-* **Beskrivning av**: kluster-DNS-namnet *yourDnsName* är ogiltig. Kontrollera att namnet börjar och slutar med alfanumeriska och kan bara innehålla '-' specialtecken  
-* **Minskning**: se till att du har använt ett giltigt DNS-namn för ditt kluster som startar och slutar med alfanumeriska och innehåller ingen särskild andra tecken än ett streck '-' och försök sedan igen.
+* **Beskrivning av**: DNS-klusternamnet *yourDnsName* är ogiltig. Kontrollera att namnet börjar och slutar med alfanumeriska och kan bara innehålla '-' specialtecken  
+* **Minskning**: Se till att du har använt ett giltigt DNS-namn för ditt kluster som startar och slutar med alfanumeriska och innehåller ingen särskild andra tecken än ett streck '-' och försök sedan igen.
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
-* **Beskrivning av**: klusternamnet *yourClusterName* är inte tillgänglig. Välj ett annat namn.  
-* **Minskning**: användaren bör ange ett klusternamn som är unikt och inte finns och försök igen. Om du använder portalen, meddelar Användargränssnittet dem om ett klusternamn används redan under Skapa stegen.
+* **Beskrivning av**: Klusternamnet *yourClusterName* är inte tillgänglig. Välj ett annat namn.  
+* **Minskning**: Användaren måste ange ett klusternamn som är unikt och ännu inte finns och försök igen. Om du använder portalen, meddelar Användargränssnittet dem om ett klusternamn används redan under Skapa stegen.
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
-* **Beskrivning av**: kluster-lösenordet är ogiltigt. Lösenordet måste vara minst 10 tecken långt och måste innehålla minst en siffra, en versal bokstav, gemen bokstav och specialtecken utan blanksteg och får inte innehålla användarnamnet som en del av den.  
+* **Beskrivning av**: Klusterlösenordet är ogiltigt. Lösenordet måste vara minst 10 tecken långt och måste innehålla minst en siffra, en versal bokstav, gemen bokstav och specialtecken utan blanksteg och får inte innehålla användarnamnet som en del av den.  
 * **Minskning**: Ange ett giltigt kluster-lösenord och försök igen.
 
 ### <a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
-* **Beskrivning av**: kluster-användarnamnet är ogiltigt. Kontrollera att användarnamnet inte innehålla specialtecken eller blanksteg.  
+* **Beskrivning av**: Kluster-användarnamnet är ogiltigt. Kontrollera att användarnamnet inte innehålla specialtecken eller blanksteg.  
 * **Minskning**: Ange ett giltigt klusternamn och försök igen.
 
 ### <a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord
-* **Beskrivning av**: kluster-DNS-namnet *yourDnsClusterName* är ogiltig. Kontrollera att namnet börjar och slutar med alfanumeriska och kan bara innehålla '-' specialtecken  
-* **Minskning**: Ange ett giltigt användarnamn som DNS-kluster och försök igen.
+* **Beskrivning av**: DNS-klusternamnet *yourDnsClusterName* är ogiltig. Kontrollera att namnet börjar och slutar med alfanumeriska och kan bara innehålla '-' specialtecken  
+* **Minskning**: Ange ett giltigt DNS-klusternamn och försök igen.
 
 ### <a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
-* **Beskrivning av**: behållarnamn i URI: N *yourcontainerURI* och DNS-namnet *yourDnsName* i begäran innehållet måste vara samma.  
-* **Minskning**: se till att din behållare namn och din DNS-namn är samma och försök igen.
+* **Beskrivning av**: Behållarens namn i URI: N *yourcontainerURI* och DNS-namnet *yourDnsName* i begäran innehållet måste vara samma.  
+* **Minskning**: Se till att din behållare namn och din DNS-namn är samma och försök igen.
 
 ### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
-* **Beskrivning av**: Ogiltig klusterkonfigurationen. Det går inte att hitta någon nod datadefinitioner i nodstorlek.  
-* **Minskning**: försök igen.
+* **Beskrivning av**: Ogiltig klusterkonfiguration. Det går inte att hitta någon nod datadefinitioner i nodstorlek.  
+* **Minskning**: Försök igen.
 
 ### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
-* **Beskrivning av**: borttagningen av distributionen misslyckades för klustret  
-* **Minskning**: försöka göra om borttagningen.
+* **Beskrivning av**: Borttagningen av distributionen misslyckades för klustret  
+* **Minskning**: Försöka göra om borttagningen.
 
 ### <a id="DnsMappingNotFound"></a>DnsMappingNotFound
-* **Beskrivning av**: tjänsten konfigurationsfel. Nödvändiga DNS-mappningsinformation hittades inte.  
-* **Minskning**: ta bort klustret och skapa ett nytt kluster.
+* **Beskrivning av**: Konfigurationsfel för tjänsten. Nödvändiga DNS-mappningsinformation hittades inte.  
+* **Minskning**: Ta bort klustret och skapa ett nytt kluster.
 
 ### <a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
-* **Beskrivning av**: duplicera kluster behållare skapas försök. Det finns en post för *nameOfYourContainer* men Etags matchar inte.
+* **Beskrivning av**: Duplicera kluster behållare skapas försök. Det finns en post för *nameOfYourContainer* men Etags matchar inte.
 * **Minskning**: Ange ett unikt namn för behållaren och försök skapa igen.
 
 ### <a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
-* **Beskrivning av**: värdtjänsten *nameOfYourHostedService* innehåller redan ett kluster. En värdbaserad tjänst får inte innehålla flera kluster  
-* **Minskning**: vara värd för klustret i en annan värdbaserad tjänst.
+* **Beskrivning av**: Den värdbaserade tjänsten *nameOfYourHostedService* innehåller redan ett kluster. En värdbaserad tjänst får inte innehålla flera kluster  
+* **Minskning**: Vara värd för klustret i en annan värdbaserad tjänst.
 
 ### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
-* **Beskrivning av**: servern kunde inte uppdatera tillståndet för klusterdistributionen.  
-* **Minskning**: försök igen. Om det händer flera gånger, kontakta CSS.
+* **Beskrivning av**: Servern kunde inte uppdatera tillståndet för klusterdistributionen.  
+* **Minskning**: Försök igen. Om det händer flera gånger, kontakta CSS.
 
 ### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
-* **Beskrivning av**: kluster *yourClusterName* har tagits bort som en del av underhåll. . Återskapa klustret.
-* **Minskning**: återskapa klustret.
+* **Beskrivning av**: Klustret *yourClusterName* har tagits bort som en del av underhåll. . Återskapa klustret.
+* **Minskning**: Återskapa klustret.
 
 ### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
-* **Beskrivning av**: Ogiltig klusterkonfigurationen. Nödvändiga huvudnoden konfigurationen hittades inte i nodstorlekar.
-* **Minskning**: försök igen.
+* **Beskrivning av**: Ogiltig klusterkonfiguration. Nödvändiga huvudnoden konfigurationen hittades inte i nodstorlekar.
+* **Minskning**: Försök igen.
 
 ### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
 * **Beskrivning av**: Det går inte att skapa värdbaserade tjänsten *nameOfYourHostedService*. Gör om begäran.  
-* **Minskning**: gör om begäran.
+* **Minskning**: Gör om begäran.
 
 ### <a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
-* **Beskrivning av**: värdtjänsten *nameOfYourHostedService* har redan en Produktionsdistribution. En värdbaserad tjänst får inte innehålla flera Produktionsdistribution. Försök igen med ett annat klusternamn.
+* **Beskrivning av**: Den värdbaserade tjänsten *nameOfYourHostedService* har redan en Produktionsdistribution. En värdbaserad tjänst får inte innehålla flera Produktionsdistribution. Försök igen med ett annat klusternamn.
 * **Minskning**: Använd ett annat klusternamn och försök begäran.
 
 ### <a id="HostedServiceNotFound"></a>HostedServiceNotFound
-* **Beskrivning av**: värdtjänsten *nameOfYourHostedService* för klustret inte kunde hittas.  
-* **Minskning**: om klustret är i feltillstånd, ta bort den och försök sedan igen.
+* **Beskrivning av**: Den värdbaserade tjänsten *nameOfYourHostedService* för klustret inte kunde hittas.  
+* **Minskning**: Om klustret är i feltillstånd, ta bort den och försök sedan igen.
 
 ### <a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
-* **Beskrivning av**: värdtjänsten *nameOfYourHostedService* har ingen associerad distribution.  
-* **Minskning**: om klustret är i feltillstånd, ta bort den och försök sedan igen.
+* **Beskrivning av**: Den värdbaserade tjänsten *nameOfYourHostedService* har ingen associerad distribution.  
+* **Minskning**: Om klustret är i feltillstånd, ta bort den och försök sedan igen.
 
 ### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
-* **Beskrivning av**: The SubscriptionId *yourSubscriptionId* har inte kärnor kvar för att skapa kluster *yourClusterName*. Krävs: *resourcesRequired*, tillgängliga: *resourcesAvailable*.  
+* **Beskrivning av**: SubscriptionId *yourSubscriptionId* har inte kärnor kvar för att skapa kluster *yourClusterName*. Krävs: *resourcesRequired*, tillgängliga: *resourcesAvailable*.  
 * **Minskning**: Frigör resurser i din prenumeration eller öka resurserna som är tillgängliga i prenumerationen och försök att skapa klustret igen.
 
 ### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
-* **Beskrivning av**: prenumerations-ID *yourSubscriptionId* saknar kvoten för en ny HostedService att skapa kluster *yourClusterName*.  
+* **Beskrivning av**: Prenumerations-ID *yourSubscriptionId* saknar kvoten för en ny HostedService att skapa kluster *yourClusterName*.  
 * **Minskning**: Frigör resurser i din prenumeration eller öka resurserna som är tillgängliga i prenumerationen och försök att skapa klustret igen.
 
 ### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
-* **Beskrivning av**: ett internt fel inträffade på servern. Gör om begäran.  
-* **Minskning**: gör om begäran.
+* **Beskrivning av**: Servern har råkat ut för ett internt fel. Gör om begäran.  
+* **Minskning**: Gör om begäran.
 
 ### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
-* **Beskrivning av**: Azure-lagringsplats *dataRegionName* är inte en giltig plats. Kontrollera att regionen är korrekt och försök igen med begäran.
+* **Beskrivning av**: Azure Storage-plats *dataRegionName* är inte en giltig plats. Kontrollera att regionen är korrekt och försök igen med begäran.
 * **Minskning**: Välj en lagringsplats som har stöd för HDInsight, kontrollera att klustret är samplacerade och försök igen.
 
 ### <a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
@@ -240,51 +240,51 @@ Några av följande felmeddelanden kan också ses i Azure-portalen när den anv�
 * **Minskning**: Ange nodstorleken stöds för huvudnoden och försök igen
 
 ### <a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
-* **Beskrivning av**: prenumerations-ID *yourSubscriptionId* som används har inte tillräcklig behörighet för att köra åtgärden ta bort för klustret *yourClusterName*.  
-* **Minskning**: om klustret är i feltillstånd, släpp den och försök sedan igen.  
+* **Beskrivning av**: Prenumerations-ID *yourSubscriptionId* som används har inte tillräcklig behörighet för att köra åtgärden ta bort för klustret *yourClusterName*.  
+* **Minskning**: Om klustret är i feltillstånd, släpp den och försök sedan igen.  
 
 ### <a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
-* **Beskrivning av**: externa blobnamn på lagringskontobehållaren *yourContainerName* är ogiltig. Kontrollera att namnet börjar med en bokstav och innehåller bara gemena bokstäver, siffror och bindestreck.  
+* **Beskrivning av**: Externa blobnamn på lagringskontobehållaren *yourContainerName* är ogiltig. Kontrollera att namnet börjar med en bokstav och innehåller bara gemena bokstäver, siffror och bindestreck.  
 * **Minskning**: Ange ett giltigt kontonamnet och försök igen.
 
 ### <a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
-* **Beskrivning av**: konfiguration för extern lagringskontot *yourStorageAccountName* måste ha information om hemlig nyckel anges.  
+* **Beskrivning av**: Konfiguration för extern lagringskontot *yourStorageAccountName* måste ha information om hemlig nyckel anges.  
 * **Minskning**: Ange en giltig hemlig nyckel för lagringskontot och försök igen.
 
 ### <a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
-* **Beskrivning av**: versionshuvudet *yourVersionHeader* är inte giltigt format för åååå-mm-dd.  
-* **Minskning**: Ange ett giltigt format för versionshuvudet- och försöka.
+* **Beskrivning av**: Versionshuvudet *yourVersionHeader* är inte giltigt format för åååå-mm-dd.  
+* **Minskning**: Ange ett giltigt format för versionshuvudet- och försök begäran.
 
 ### <a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
-* **Beskrivning av**: Ogiltig klusterkonfigurationen. Hitta mer än en huvudnod konfiguration.  
-* **Minskning**: redigera konfigurationen så att den bara en huvudnoden har angetts.
+* **Beskrivning av**: Ogiltig klusterkonfiguration. Hitta mer än en huvudnod konfiguration.  
+* **Minskning**: Redigera konfigurationen så att den bara en huvudnoden har angetts.
 
 ### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
-* **Beskrivning av**: åtgärden slutfördes inte inom den tilldelade tiden eller den max. antal omförsök som möjligt. Gör om begäran.  
-* **Minskning**: gör om begäran.
+* **Beskrivning av**: Åtgärden kunde inte slutföras inom den tilldelade tiden eller den max. antal omförsök möjligt. Gör om begäran.  
+* **Minskning**: Gör om begäran.
 
 ### <a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
-* **Beskrivning av**: parametern *yourParameterName* får inte vara null eller tomt.  
+* **Beskrivning av**: Parametern *yourParameterName* får inte vara null eller tomt.  
 * **Minskning**: Ange ett giltigt värde för parametern.
 
 ### <a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
-* **Beskrivning av**: en eller flera av kluster skapa begäran om indata är inte giltig. Kontrollera att indatavärdena är korrekta och försök igen med begäran.  
-* **Minskning**: se till att indatavärdena är korrekta och försök igen med begäran.
+* **Beskrivning av**: En eller flera av kluster skapa begäran om indata är inte giltig. Kontrollera att indatavärdena är korrekta och försök igen med begäran.  
+* **Minskning**: Kontrollera att indatavärdena är korrekta och försök igen med begäran.
 
 ### <a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
 * **Beskrivning av**: Region-funktioner som är inte tillgängliga för region *yourRegionName* och prenumerations-ID *yourSubscriptionId*.  
-* **Minskning**: Ange en region som stöder HDInsight-kluster. Regionerna i offentligt stöds är: Sydostasien, Västeuropa, Nordeuropa, USA, östra eller USA, västra.
+* **Minskning**: Ange en region som har stöd för HDInsight-kluster. Regionerna i offentligt stöds är: Sydostasien, Västeuropa, Nordeuropa, USA, östra eller USA, västra.
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
-* **Beskrivning av**: lagringskontot *yourStorageAccountName* är i regionen *currentRegionName*. Det bör vara samma som regionen som klustret *yourClusterRegionName*.  
+* **Beskrivning av**: Storage-konto *yourStorageAccountName* är i regionen *currentRegionName*. Det bör vara samma som regionen som klustret *yourClusterRegionName*.  
 * **Minskning**: Ange ett lagringskonto i samma region som klustret är i eller om dina data finns redan i storage-konto, skapa ett nytt kluster i samma region som det befintliga lagringskontot. Om du använder portalen meddelar Användargränssnittet dem om det här problemet i förväg.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
-* **Beskrivning av**: givet prenumerations-ID *yourSubscriptionId* är inte aktiv.  
-* **Minskning**: återaktivera din prenumeration eller skaffa en giltig prenumeration.
+* **Beskrivning av**: Angivna prenumerations-ID *yourSubscriptionId* är inte aktiv.  
+* **Minskning**: Återaktivera din prenumeration eller skaffa en giltig prenumeration.
 
 ### <a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
-* **Beskrivning av**: prenumerations-ID *yourSubscriptionId* kunde inte hittas.  
+* **Beskrivning av**: Prenumerations-ID *yourSubscriptionId* kunde inte hittas.  
 * **Minskning**: Kontrollera att ditt prenumerations-ID är giltig och försök igen.
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
@@ -308,8 +308,8 @@ Några av följande felmeddelanden kan också ses i Azure-portalen när den anv�
 * **Minskning**: Välj en version som stöds i den region som har angetts och försök igen.
 
 ### <a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
-* **Beskrivning av**: Ogiltig klusterkonfigurationen. Nödvändiga WASB-kontokonfigurationen hittades inte i externa konton.  
-* **Minskning**: Verifiera att kontot finns och är korrekt angavs i konfigurationen och försök igen.
+* **Beskrivning av**: Ogiltig klusterkonfiguration. Nödvändiga WASB-kontokonfigurationen hittades inte i externa konton.  
+* **Minskning**: Kontrollera att kontot finns och är korrekt angavs i konfigurationen och försök igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

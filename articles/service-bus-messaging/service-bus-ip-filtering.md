@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus IP-anslutningsfilter | Microsoft Docs
-description: Så här använder IP-filtrering för blockerar anslutningar från specifika IP-adresser till Azure Service Bus.
+title: Azure Service Bus-brandväggsregler | Microsoft Docs
+description: Hur du använder brandväggsregler för att tillåta anslutningar från specifika IP-adresser till Azure Service Bus.
 services: service-bus
 documentationcenter: ''
 author: clemensv
@@ -10,29 +10,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: c6e9eef762d4a9eb95685d94c61ce10d499bb155
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f8771be9a96ae188a9610a1b19dfd6cbd49ba277
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884811"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270441"
 ---
-# <a name="use-ip-filters"></a>IP-filter
+# <a name="use-firewall-rules"></a>Använd brandväggsregler
 
-För scenarier där Azure Service Bus endast är tillgänglig från vissa välkända platser, den *IP-adressfilter* funktionen kan du konfigurera regler för avvisar eller tar emot trafik som kommer från specifika IPv4-adresser. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
+För scenarier där Azure Service Bus är endast tillgänglig från vissa välkända webbplatser, kan brandväggsregler du konfigurera regler för att acceptera trafik som kommer från specifika IPv4-adresser. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
 
 ## <a name="when-to-use"></a>När du ska använda detta
 
-Det finns två specifika användningsfall där det är bra att blockera Service Bus-slutpunkter för vissa IP-adresser:
-
-- Service Bus ska ta emot trafik från ett angivet intervall med IP-adresser och avvisa allt annat. Exempel: du använder Service Bus med [Azure Express Route] [ express-route] skapa privata anslutningar till din lokala infrastruktur.
-- Du måste avvisa trafik från IP-adresser som har identifierats som misstänkt av Service Bus-administratören.
+Om du vill att installationsprogrammet för Service Bus så att den ska ta emot trafik från ett angivet intervall med IP-adresser och avvisa allt annat, och sedan kan du utnyttja en *brandväggen* att blockera Service Bus-slutpunkter från andra IP-adresser. Exempel: du använder Service Bus med [Azure Express Route] [ express-route] skapa privata anslutningar till din lokala infrastruktur. 
 
 ## <a name="how-filter-rules-are-applied"></a>Hur filterregler tillämpas
 
 IP-filterreglerna tillämpas på namnområdesnivå Service Bus. Därför gäller reglerna för alla anslutningar från klienter som använder alla protokoll som stöds.
 
-Alla anslutningsförsök från en IP-adress som matchar en rejecting IP-regel i Service Bus-namnområdet avvisas som ej behörig. Svaret nämner inte IP-regeln.
+Alla anslutningsförsök från en IP-adress som inte matchar en tillåtna IP-regel i en Service Bus namnrymd avvisas som ej behörig. Svaret nämner inte IP-regeln.
 
 ## <a name="default-setting"></a>Standardinställningen
 
@@ -42,67 +39,107 @@ Som standard den **IP-adressfilter** rutnätet i portal för Service Bus är tom
 
 IP-filterreglerna tillämpas i ordning och den första regeln som matchar IP-adressen anger åtgärden acceptera eller avvisa.
 
-Om du vill acceptera adresserna i intervallet 70.37.104.0/24 och avvisa allt annat, bör den första regeln i rutnätet godkänna adressintervallet 70.37.104.0/24. Nästa regel ska avvisa alla adresser med hjälp av adressintervallet 0.0.0.0/0.
+>[!WARNING]
+> Implementera brandväggsregler kan det förhindra att interagera med Service Bus andra Azure-tjänster.
+>
+> Betrodda Microsoft-tjänster inte stöds när IP-filtrering (brandväggsregler) implementeras och görs tillgänglig snart.
+>
+> Vanliga Azure-scenarier som inte fungerar med IP-filtrering (Observera att listan är **inte** uttömmande)-
+> - Azure Monitor
+> - Azure Stream Analytics
+> - Integrering med Azure Event Grid
+> - Azure IoT Hub vägar
+> - Azure IoT Device Explorer
+> - Azure-datautforskaren
+>
+> Den nedan Microsoft services måste vara i ett virtuellt nätverk
+> - Azure Web Apps
+> - Azure Functions
 
-> [!NOTE]
-> Avvisa IP-adresser kan det förhindra att interagera med Service Bus andra Azure-tjänster (till exempel Azure Stream Analytics, Azure Virtual Machines eller Device Explorer i portalen).
+### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuella nätverk och brandvägg med Azure Resource Manager-mallar
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuella nätverk med Azure Resource Manager-mallar
-
-> ! [VIKTIGT] Virtuella nätverk stöds bara i den **premium** nivån av Service Bus.
+> [!IMPORTANT]
+> Virtuella nätverk stöds bara i den **premium** nivån av Service Bus.
 
 Följande Resource Manager-mallen gör det möjligt att lägga till en regel för virtuella nätverk i en befintlig Service Bus-namnrymd.
 
 Mallparametrar:
 
-- **ipFilterRuleName** måste vara en unik, skiftlägesokänslig, alfanumerisk sträng på högst 128 tecken.
-- **ipFilterAction** är antingen **avvisa** eller **acceptera** som åtgärden som ska användas för IP-filterregeln.
 - **ipMask** är en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. Till exempel i CIDR representerar notation 70.37.104.0/24 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255 med 24 som anger antalet bitar betydande prefixet för intervallet.
 
+> [!NOTE]
+> Det finns inga neka regler som är möjligt, Azure Resource Manager-mallen har den standardåtgärd som har angetts till **”Tillåt”** som inte begränsar anslutningar.
+> När du skapar regler för virtuellt nätverk eller brandväggar, vi måste ändra den ***”defaultAction”***
+> 
+> från
+> ```json
+> "defaultAction": "Allow"
+> ```
+> till
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "ipFilterRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "ipFilterAction":{  
-             "type":"string",
-             "allowedValues": ["Reject", "Accept"],
-             "metadata":{  
-                "description":"IP Filter Action"
-             }
-          },
-          "IpMask":{  
-             "type":"string",
-             "metadata":{  
-                "description":"IP Mask"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "servicebusNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Service Bus namespace"
+        }
       },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('servicebusNamespaceName'), concat('/', 'default'))]",
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.ServiceBus/Namespaces/IPFilterRules",
-            "properties": {
-                "FilterName":"[parameters('ipFilterRuleName')]",
-                "Action":"[parameters('ipFilterAction')]",              
-                "IpMask": "[parameters('IpMask')]"
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('servicebusNamespaceName')]",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
-    ]
-}
+          ],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Om du vill distribuera mallen genom att följa anvisningarna för [Azure Resource Manager][lnk-deploy].

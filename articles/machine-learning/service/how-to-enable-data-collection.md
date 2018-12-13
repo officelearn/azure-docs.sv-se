@@ -1,5 +1,5 @@
 ---
-title: Aktivera datainsamling för modeller i produktion
+title: Samla in data på dina modeller i produktion
 titleSuffix: Azure Machine Learning service
 description: Lär dig mer om att samla in Azure Machine Learning indatamodellen data i Azure Blob storage.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: e6b6a8e1dd1b3746977062341013b92acff132c4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2a4f0f1100064010405c3d0bc599e7add1041074
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100553"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271580"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
@@ -50,7 +50,7 @@ Sökvägen till utdata i blob följande följande syntax:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
+- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
 
 - En Azure Machine Learning-tjänsten arbetsyta, en lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
 
@@ -81,7 +81,7 @@ För att göra det, måste du:
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId* är en valfri parameter, du behöver inte konfigurera den om din modell inte kräver den. Att ha en correlationId hjälper dig för enklare mappning med andra data. (Exempel: LoanNumber, CustomerId, osv.)
+    *CorrelationId* är en valfri parameter, du behöver inte konfigurera den om din modell inte kräver den. Att ha en correlationId hjälper dig för enklare mappning med andra data. (Exempel: LoanNumber, CustomerId osv.)
     
     *Identifieraren* senare används för att skapa mappstrukturen i din Blob, den kan användas för att dela upp ”” rådata jämfört med ”bearbetad”.
 

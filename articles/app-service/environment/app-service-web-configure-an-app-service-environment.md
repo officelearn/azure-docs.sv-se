@@ -1,5 +1,5 @@
 ---
-title: Så här konfigurerar du en App Service Environment version 1
+title: Så här konfigurerar du en App Service Environment version 1 – Azure
 description: Konfiguration, hantering och övervakning av App Service Environment v1
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 60e086197b61d14394cad3d54a7efc4baede1f7b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 85353b68673ea91711e0c3d93e68bec662f406df
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965828"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272141"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Konfigurera en App Service Environment version 1
 
@@ -44,14 +45,14 @@ Värdar i resurspooler (klientdelar och arbetare) är inte direkt tillgänglig f
 Du kan ange resource pool antalet och storleken. I en ASE har fyra storleksalternativ som är märkta med P1 till P4. Mer information om dessa storlekar och deras priser finns i [prissättning för App Service](https://azure.microsoft.com/pricing/details/app-service/).
 Ändra kvantitet eller storlek kallas en skalningsåtgärd.  Endast en skalningsåtgärd kan vara pågår samtidigt.
 
-**Klientdelens ends**: frontend-datorer är HTTP/HTTPS-slutpunkter för dina appar som hålls kvar i din ASE. Du köra inte arbetsbelastningar i frontend-datorer.
+**Klientdelens ends**: Frontend-datorer är HTTP/HTTPS-slutpunkter för dina appar som hålls kvar i din ASE. Du köra inte arbetsbelastningar i frontend-datorer.
 
 * En ASE som börjar med två P2s som är tillräckligt för arbetsbelastningar för utveckling/testning och på låg nivå produktionsarbetsbelastningar. Vi rekommenderar starkt P3s för dig att tung produktionsarbetsbelastningar.
 * För dig som har stor produktionsarbetsbelastningar rekommenderar vi att du har minst fyra P3s att se till att det finns tillräckligt med frontend-datorer som körs när sker schemalagt underhåll. Schemalagt underhållsaktiviteter kommer påverkar en klientdel i taget. Detta minskar den totala tillgängliga frontend kapacitet under underhållsaktiviteter.
 * Klientdelar kan ta upp till en timme att etablera. 
 * För ytterligare skalning finjusteringar, bör du övervaka CPU-procent, minnesprocent och aktiva begäranden mått för adresspoolen på klientsidan. Om procentandelar CPU eller minne är över 70 procent när du kör P3s, lägger du till flera klientdelar. Om värdet för aktiva begäranden beräknar medelvärdet till 15 000 till 20 000 begäranden per klient, bör du också lägga till flera klientdelar. Övergripande mål är att hålla CPU och minne procenttal nedan 70% och aktiva begäranden som beräknar medelvärdet till under 15 000 begäranden per front avslutas när du kör P3s.  
 
-**Arbetare**: arbetarna är där apparna faktiskt körs. När du skalar upp din App Service-planer som använder arbetare i arbetarpoolen associerade.
+**Arbetare**: Arbetarna är där apparna faktiskt körs. När du skalar upp din App Service-planer som använder arbetare i arbetarpoolen associerade.
 
 * Du kan inte direkt lägga till arbetare. De kan ta upp till en timme att etablera.
 * Skala storleken på en beräkningsresurs för en pool tar < 1 timme per uppdateringsdomän. Det finns 20 uppdateringsdomäner i en ase-miljö. Om du skalat beräkningsstorleken för en arbetarpool med 10 instanser, kan det ta upp till 10 timmar att slutföra.
@@ -68,7 +69,7 @@ Om dina appar kräver en större beräkningsstorleken för resursen, kan du dra 
 * Tilldela om din App Service-planer som är värd för appar som behöver en större storlek till den nyligen konfigurerade arbetarpoolen. Det här är en snabb åtgärd som ska vidtas på mindre än en minut att slutföra.  
 * Skala ned första arbetarpoolen om du inte behöver dessa instanser som inte används längre. Den här åtgärden tar några minuter att slutföra.
 
-**Automatisk skalning**: en av de verktyg som kan hjälpa dig att hantera din beräkning resursförbrukning är automatisk skalning. Du kan använda automatisk skalning för klientdelen eller arbetarpooler. Du kan göra sådant som ökar dina instanser av valfri pooltyp på morgonen och minska på kvällen. Eller kanske du kan lägga till instanser när antalet arbetare som är tillgängliga i en arbetspool sjunker under ett visst tröskelvärde.
+**Automatisk skalning**: En av de verktyg som kan hjälpa dig att hantera din beräkning resursförbrukning är automatisk skalning. Du kan använda automatisk skalning för klientdelen eller arbetarpooler. Du kan göra sådant som ökar dina instanser av valfri pooltyp på morgonen och minska på kvällen. Eller kanske du kan lägga till instanser när antalet arbetare som är tillgängliga i en arbetspool sjunker under ett visst tröskelvärde.
 
 Om du vill ange regler för automatisk skalning runt compute resource pool mått och Tänk på den tid som etablering kräver. Mer information om automatisk skalning App Service-miljöer finns i [så här konfigurerar du automatisk skalning i en App Service Environment][ASEAutoscale].
 
@@ -132,13 +133,13 @@ I en ASE är alla App Service-planer dedikerade App Service-planer. Det innebär
 ### <a name="settings"></a>Inställningar
 I bladet ASE finns en **inställningar** avsnitt som innehåller flera viktiga funktioner:
 
-**Inställningar för** > **egenskaper**: den **inställningar** bladet öppnas automatiskt när du skapar din ASE-bladet. Högst upp är **egenskaper**. Det finns ett antal objekt i här som är redundant till det som visas i **Essentials**, men det är mycket användbart är **virtuella IP-adressen**, samt **utgående IP-adresser**.
+**Inställningar för** > **egenskaper**: Den **inställningar** bladet öppnas automatiskt när du skapar din ASE-bladet. Högst upp är **egenskaper**. Det finns ett antal objekt i här som är redundant till det som visas i **Essentials**, men det är mycket användbart är **virtuella IP-adressen**, samt **utgående IP-adresser**.
 
 ![Inställningsbladet och egenskaper][4]
 
-**Inställningar för** > **IP-adresser**: när du skapar en IP-Secure Sockets Layer (SSL)-app i din ASE, behöver du en IP SSL-adress. Din ASE behöver för att skaffa en IP SSL-adresser som den äger som kan allokeras. När en ASE har skapats kan den har en IP SSL-adress för detta ändamål, men du kan lägga till fler. Det finns en avgift för ytterligare IP SSL-adresser, som visas i [prissättning för App Service] [ AppServicePricing] (i avsnittet i SSL-anslutningar). Ytterligare priset är IP SSL-priset.
+**Inställningar för** > **IP-adresser**: När du skapar en IP-Secure Sockets Layer (SSL)-app i din ASE, behöver du en IP SSL-adress. Din ASE behöver för att skaffa en IP SSL-adresser som den äger som kan allokeras. När en ASE har skapats kan den har en IP SSL-adress för detta ändamål, men du kan lägga till fler. Det finns en avgift för ytterligare IP SSL-adresser, som visas i [prissättning för App Service] [ AppServicePricing] (i avsnittet i SSL-anslutningar). Ytterligare priset är IP SSL-priset.
 
-**Inställningar för** > **Pool på klientsidan** / **Arbetarpooler**: var och en av dessa pool resursbladen ger dig möjlighet att se information endast på den resurspoolen i Utöver att tillhandahålla kontroller för att fullständigt skala den resurspoolen.  
+**Inställningar för** > **Klientdelspool** / **Arbetarpooler**: Var och en av dessa pool resursbladen ger dig möjlighet att se information endast om den resurspoolen, förutom att tillhandahålla kontroller för att fullständigt skala den resurspoolen.  
 
 Bladet grundläggande för varje resurspool innehåller ett diagram med mätvärden för den resurspoolen. Precis som med diagram från bladet ASE kan du gå till diagrammet och ställa in aviseringar efter behov. Ställer in en avisering från bladet ASE för en specifik resurspool gör samma sak som att göra det från resurspoolen. Från arbetarpoolen **inställningar** bladet du har åtkomst till alla appar eller App Service-planer som körs i den här arbetarpool.
 

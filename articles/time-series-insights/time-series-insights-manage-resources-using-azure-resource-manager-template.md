@@ -1,5 +1,5 @@
 ---
-title: Hur du hanterar din Azure Time Series Insights-miljö med Azure Resource Manager-mallar | Microsoft Docs
+title: Azure Time Series Insights mall-hantering – hur du hanterar din Azure Time Series Insights-miljö med Azure Resource Manager-mallar | Microsoft Docs
 description: Den här artikeln beskriver hur du hanterar din Azure Time Series Insights-miljö via programmering med Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 3ca9af8c2c504f75322e00fdaaeac9a3e727a820
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 70f82c19bced7618027379fcf9451348ac2591eb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627135"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270628"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights-resurser med Azure Resource Manager-mallar
 
@@ -91,7 +92,7 @@ Om du vill skapa en fil med parametrar, kopiera den [201-timeseriesinsights-milj
    | --- | --- |
    | eventHubNamespaceName | Namnområdet för händelsehubben källa. |
    | eventHubName | Namnet på händelsehubben källa. |
-   | consumerGroupName | Namnet på konsumentgrupp som ska användas av Time Series Insights-tjänsten för att läsa data från händelsehubben. **Obs:** för att undvika resurskonflikter kan den här konsumentgruppen dedikeras till Time Series Insights-tjänst och inte delas med andra läsare. |
+   | consumerGroupName | Namnet på konsumentgrupp som ska användas av Time Series Insights-tjänsten för att läsa data från händelsehubben. **OBS:** För att undvika resurskonflikter kan måste den här konsumentgruppen vara dedikerad till Time Series Insights-tjänsten och inte delas med andra läsare. |
    | EnvironmentName | Namnet på miljön. Namnet får inte innehålla: ' <', ' >', '%', '&', ': ','\\','?', '/' och något kontrolltecken. Alla andra tecken tillåts.|
    | eventSourceName | Namnet på händelsen källa underordnade resursen. Namnet får inte innehålla: ' <', ' >', '%', '&', ': ','\\','?', '/' och något kontrolltecken. Alla andra tecken tillåts. |
 
@@ -99,9 +100,9 @@ Om du vill skapa en fil med parametrar, kopiera den [201-timeseriesinsights-milj
 
    | Parameter | Beskrivning |
    | --- | --- |
-   | existingEventHubResourceId | En valfri resurs-ID för en befintlig Händelsehubb som ska anslutas till Time Series Insights-miljö via händelsekällan. **Obs:** användaren distribuerar mallen måste ha behörighet att utföra åtgärden listnycklar i Event Hub. Om inget värde skickas, skapas en ny händelsehubb av mallen. |
+   | existingEventHubResourceId | En valfri resurs-ID för en befintlig Händelsehubb som ska anslutas till Time Series Insights-miljö via händelsekällan. **OBS:** Du distribuerar mallen måste ha behörighet att utföra åtgärden listnycklar i Event Hub. Om inget värde skickas, skapas en ny händelsehubb av mallen. |
    | environmentDisplayName | Ett valfritt eget namn ska visas i verktyg eller användaren gränssnitt i stället för miljönamn. |
-   | environmentSkuName | Namnet på den SKU: n. Mer information finns i den [prissättning för Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+   | environmentSkuName | Namnet på SKU:n. Mer information finns i den [prissättning för Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
    | environmentSkuCapacity | Enhet kapaciteten för SKU: N. Mer information finns i den [prissättning för Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
    | environmentDataRetentionTime | Minsta timespan miljöns händelser blir tillgängliga för frågor. Värdet måste anges i ISO 8601-format, till exempel ”P30D” för en bevarandeprincip på 30 dagar. |
    | eventSourceDisplayName | Ett valfritt eget namn ska visas i verktyg eller användaren gränssnitt i stället för händelsekällans namn. |
@@ -221,7 +222,7 @@ Att köra en [fullständig](../azure-resource-manager/deployment-modes.md) distr
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-## <a name="verify-the-deployment"></a>Kontrollera distributionen
+## <a name="verify-the-deployment"></a>Verifiera distributionen
 
 Om resurserna som har distribuerats, visas en sammanfattning av distributionen i PowerShell-fönstret:
 

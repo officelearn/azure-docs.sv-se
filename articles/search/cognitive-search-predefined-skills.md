@@ -1,6 +1,6 @@
 ---
-title: Fördefinierade extrahering av data, naturligt språk, bildbearbetning kunskaper (Azure Search) | Microsoft Docs
-description: Extrahering av data, naturligt språk, kognitiva funktioner för bildbearbetning lägga till semantik och struktur till rå innehåll i en Azure Sök-pipeline.
+title: Inbyggda dataextrahering, naturligt språk, bildbearbetning – Azure Search
+description: Extrahering av data, naturligt språk, kognitiva funktioner för bildbearbetning lägga till semantik och struktur till rå innehåll i en Azure Search-pipeline.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,19 +9,22 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: c342eca8f27db713e139c187147abddd80eb854e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734542"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314796"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Fördefinierade kunskaper för innehåll berikande (Azure Search)
 
 I den här artikeln får du lära dig om kognitiva kunskaper som medföljer Azure Search. En *kognitiva kunskaper* är en åtgärd som transformerar innehållet på något sätt. Ofta är det en komponent som extraherar data eller härleder struktur och därför förstärker vår förståelse för indata. Utdata är nästan alltid textbaserade. En *kompetens* är samling färdigheter som definierar berikande pipeline. 
 
 > [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetens körning och extrahering av avbildningen och normalisering är för närvarande erbjuds kostnadsfritt. Vid ett senare tillfälle meddelas priserna för dessa funktioner. 
+> Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. Detta gör att vi börjar debitera för körning av kompetens. På det här datumet måste också börjar vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
+>
+> Körningen av inbyggda kunskaper debiteras med den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser kommer att debiteras enligt priserna för förhandsversionen och beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). Lär dig [mer](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="predefined-skills"></a>Fördefinierade kunskaper
 
@@ -43,4 +46,4 @@ Flera kunskaper är flexibla i vad de använda eller skapa. I allmänhet baseras
 
 + [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
 + [Anpassade egenskapsdefinition gränssnitt](cognitive-search-custom-skill-interface.md)
-+ [Självstudie: Utökad indexering med kognitiva search](cognitive-search-tutorial-blob.md)
++ [Självstudiekurs: Utökad indexering med kognitiva search](cognitive-search-tutorial-blob.md)

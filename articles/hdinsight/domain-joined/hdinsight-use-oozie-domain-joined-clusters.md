@@ -1,22 +1,23 @@
 ---
-title: Apache Hadoop Oozie arbetsflöden i Azure HDInsight-kluster med Enterprise Security Package
-description: Använda Oozie med Hadoop i en Linux-baserade HDInsight Enterprise Security Package. Lär dig hur du definierar ett Oozie-arbetsflöde och skicka en Oozie-jobb.
+title: Säker Apache Oozie-arbetsflöden med Enterprise Security Package - Azure HDInsight
+description: Säker Apache Oozie arbetsflöden med hjälp av Azure HDInsight Enterprise Security Package. Lär dig hur du definierar ett Oozie-arbetsflöde och skicka en Oozie-jobb.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: mamccrea
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 298277b720045c06d78f1c4964de2246dac22f08
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d0bc48e07efeaf8f09f177367da0570cf3c250ec
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633673"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165154"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package
+
 Apache Oozie är ett arbetsflöde och koordination system som hanterar Apache Hadoop-jobb. Oozie är integrerad med Hadoop-stacken och stöder följande jobb:
 - Apache MapReduce
 - Apache Pig
@@ -26,6 +27,7 @@ Apache Oozie är ett arbetsflöde och koordination system som hanterar Apache Ha
 Du kan också använda Oozie för att schemalägga jobb som är specifika för ett system, t.ex. Java-program eller kommandoskript.
 
 ## <a name="prerequisite"></a>Krav
+
 - Ett Azure HDInsight Hadoop-kluster med Enterprise Security Package (ESP). Se [konfigurera HDInsight-kluster med ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
@@ -224,8 +226,11 @@ nano workflow.xml
    För Egenskapsfilen måste finnas lokalt när Oozie jobb som körs.
 
 ## <a name="create-custom-hive-scripts-for-oozie-jobs"></a>Skapa anpassade Hive-skript för Oozie-jobb
+
 Du kan skapa två Hive-skript för Hive-servern 1 och Hive server 2 som visas i följande avsnitt.
+
 ### <a name="hive-server-1-file"></a>Registreringsdatafil för server 1
+
 1.  Skapa och redigera en fil för Hive-serveråtgärder 1:
     ```bash
     nano countrowshive1.hql
@@ -244,6 +249,7 @@ Du kan skapa två Hive-skript för Hive-servern 1 och Hive server 2 som visas i 
     ```
 
 ### <a name="hive-server-2-file"></a>Hive server 2-fil
+
 1.  Skapa och redigera ett fält för Hive server 2 åtgärder:
     ```bash
     nano countrowshive2.hql
@@ -262,11 +268,13 @@ Du kan skapa två Hive-skript för Hive-servern 1 och Hive server 2 som visas i 
     ```
 
 ## <a name="submit-oozie-jobs"></a>Skicka Oozie-jobb
+
 Skicka Oozie-jobb för ESP-kluster är som att skicka Oozie-jobb i icke-ESP-kluster.
 
 Mer information finns i [Använd Oozie med Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="results-from-an-oozie-job-submission"></a>Resultat från en Oozie jobböverföring
+
 Oozie jobb körs för användaren. Så granska både Apache YARN och Apache Ranger loggarna visa jobb som körs som den personifierade användaren. Kommandoradsgränssnittet utdata för ett jobb för Oozie ser ut som följande kod:
 
 
@@ -304,6 +312,7 @@ Oozie jobb körs för användaren. Så granska både Apache YARN och Apache Rang
 Ranger granskningsloggarna för Hive server 2 åtgärder visar Oozie körning av åtgärden för användaren. Vyerna Ranger och YARN är bara synliga för kluster-administratör.
 
 ## <a name="configure-user-authorization-in-oozie"></a>Konfigurera användarautentisering i Oozie
+
 Oozie ensamt har en konfiguration för auktorisering av användare som kan blockera användare från att stoppa eller ta bort andra användares jobb. Om du vill aktivera den här konfigurationen, ange den `oozie.service.AuthorizationService.security.enabled` till `true`. 
 
 Mer information finns i [Oozie Installation och konfiguration](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
@@ -311,6 +320,7 @@ Mer information finns i [Oozie Installation och konfiguration](https://oozie.apa
 För komponenter som Hive-servern där Ranger plugin-programmet inte är tillgänglig eller så stöds 1 är endast coarse-grained HDFS auktorisering möjligt. Detaljerade auktorisering är bara tillgänglig via Ranger plugin-program.
 
 ## <a name="get-the-oozie-web-ui"></a>Hämta Oozie-webbgränssnittet
+
 Oozie webbgränssnittet ger en webbaserad översikt över statusen för Oozie-jobb i klustret. För att få åtkomst till webbgränssnittet, gör du följande i ESP-kluster:
 
 1. Lägg till en [kantnoden](../hdinsight-apps-use-edge-node.md) och aktivera [SSH Kerberos-autentisering](../hdinsight-hadoop-linux-use-ssh-unix.md).

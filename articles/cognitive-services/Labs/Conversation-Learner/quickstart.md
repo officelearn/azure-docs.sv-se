@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bc0cf0900ec9f87c75091b3bf219d92e0859aa1f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282147"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166140"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Skapa en Konversationsdeltagare modell med hjälp av Node.js
 
@@ -164,11 +164,11 @@ Här används i standardkonfigurationen som låter dig köra din robot lokalt oc
 
 - Märk dina frågor [Stack Overflow](https://stackoverflow.com) med ”microsoft cognitive”
 - Begär en funktion på vår [User Voice-sidan](https://aka.ms/conversation-learner-uservoice)
-- Skapa ett problem på vår [github-lagringsplatsen](https://github.com/Microsoft/ConversationLearner-Samples)
+- Skapa ett problem på vår [GitHub-lagringsplatsen](https://github.com/Microsoft/ConversationLearner-Samples)
 
 ## <a name="contributing"></a>Bidra
 
-Det här projektet använder sig av [Microsofts uppförandekod för öppen källkod](https://opensource.microsoft.com/codeofconduct/). Mer information finns i den [kod för vanliga frågor om uppförandekod](https://opensource.microsoft.com/codeofconduct/faq/) eller kontakta [ opencode@microsoft.com ](mailto:opencode@microsoft.com) har ytterligare frågor eller kommentarer.
+Det här projektet använder sig av [Microsofts uppförandekod för öppen källkod](https://opensource.microsoft.com/codeofconduct/). Läs [Vanliga frågor och svar om uppförandekoden](https://opensource.microsoft.com/codeofconduct/faq/) eller kontakta [opencode@microsoft.com](mailto:opencode@microsoft.com) om du har några andra frågor eller kommentarer.
 
 ## <a name="source-repositories"></a>Lagringsplatser för källkod
 

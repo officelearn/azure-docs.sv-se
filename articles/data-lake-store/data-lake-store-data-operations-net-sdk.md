@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391495"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163249"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [REST-API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 >
@@ -146,7 +146,7 @@ Följande kodavsnitt returnerar egenskaperna som är associerade med en fil elle
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-Definitionen av metoden `PrintDirectoryEntry` är tillgänglig som en del av exemplet [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
+Definitionen av den `PrintDirectoryEntry` metod är tillgänglig som en del av exemplet [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
 ## <a name="rename-a-file"></a>Byt namn på en fil
 Följande fragment byter namn på en befintlig fil i ett Data Lake Storage Gen1-konto.
@@ -164,7 +164,7 @@ Följande kodfragment räknar upp kataloger i ett Data Lake Storage Gen1-konto
         PrintDirectoryEntry(entry);
     }
 
-Definitionen av metoden `PrintDirectoryEntry` är tillgänglig som en del av exemplet [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
+Definitionen av den `PrintDirectoryEntry` metod är tillgänglig som en del av exemplet [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="delete-directories-recursively"></a>Ta bort kataloger rekursivt
 Följande kodfragment tar bort en katalog och alla dess underkataloger rekursivt.
@@ -172,10 +172,10 @@ Följande kodfragment tar bort en katalog och alla dess underkataloger rekursivt
     // Delete a directory and all its subdirectories and files
     client.DeleteRecursive("/Test");
 
-## <a name="samples"></a>Prover
+## <a name="samples"></a>Exempel
 Här följer några exempel på hur du använder Data Lake Storage Gen1 Filesystem SDK.
-* [Grundläggande exempel på Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [Avancerade exempel på Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [Grundläggande exempel på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Avancerade exempel på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Se också
 * [Kontohanteringsåtgärder i Data Lake Storage Gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md)

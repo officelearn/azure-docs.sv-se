@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: 0e316bf06cc6e2915adca5e7961083e6668bbfc1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.date: 12/11/2018
+ms.openlocfilehash: 644a3a2fe6bce6ccc99b0c1c99ea07b129676653
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889131"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320854"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database för MySQL prisnivåer
 
-Du kan skapa en Azure Database for MySQL-server i en av tre olika tjänstnivåer: Basic, generell användning och Minnesoptimerad. Prisnivåerna åtskiljs av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå för MySQL. En server kan ha en eller flera databaser.
+Du kan skapa en Azure Database for MySQL-servern på något av tre olika tjänstnivåer: Basic, generell användning och Minnesoptimerad. Prisnivåerna åtskiljs av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå för MySQL. En server kan ha en eller flera databaser.
 
 |    | **Basic** | **Generell användning** | **Optimerat minne** |
 |:---|:----------|:--------------------|:---------------------|
@@ -42,6 +42,9 @@ När du har skapat en server, antalet virtuella kärnor, skapande av maskinvara 
 ## <a name="compute-generations-and-vcores"></a>Beräkningsgenereringar och virtuella kärnor
 
 Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU som den underliggande maskinvaran. För närvarande kan du välja mellan två beräkningsgenereringar Gen 4 och 5 för Gen. Gen 4 logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer. Gen 5 logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3 GHz-processorer. Gen 4 och 5 Gen finns i följande regioner (”X” anger tillgängliga).
+
+> [!IMPORTANT]
+> Från och 12 December 2018 kommer nya kunder inte att kunna etablera compute generation 4 servrar i södra Brasilien, centrala Kanada, Östra Kanada, östra Asien, östra USA 2, centrala Indien, västra Indien, västra Japan, norra centrala USA, västra USA. Tidigare skapade compute generation 4 servrar kommer att migreras till beräknings-generation 5 med början den 1 februari 2019 i dessa regioner.
 
 | **Azure-region** | **Generation 4** | **5: e generationen** |
 |:---|:----------:|:--------------------:|

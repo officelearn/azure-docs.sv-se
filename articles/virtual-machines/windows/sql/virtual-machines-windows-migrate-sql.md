@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: jroth
-ms.openlocfilehash: 0677faa90c73ffe4c0c1c48600c2f1ef2d05eb50
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 298a8597ae111550dfbd44d1e7bd9efb212f08af
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628791"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323225"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrera en SQL Server-databas till SQL Server i en Azure VM
 
@@ -36,7 +36,7 @@ De första migreringen metoderna är:
 * Koppla bort och kopiera sedan filerna för data och loggfiler till Azure blob storage och anslut sedan till SQL Server i Azure VM från URL
 * Konvertera en lokal fysisk dator till Hyper-V virtuell Hårddisk, överföra till Azure Blob storage och sedan distribuera som ny virtuell dator med överfört VHD
 * Skicka hårddisken med hjälp av Windows-tjänsten Import/Export
-* Om du har en AlwaysOn-distribution på plats, använder den [guiden för Lägg till Azure-replik](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) för att skapa en replik i Azure och sedan redundans, pekar du användare till Azure database-instans
+* Om du har en AlwaysOn Availability Group-distribution på plats, använder den [guiden för Lägg till Azure-replik](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) för att skapa en replik i Azure och sedan redundans, pekar du användare till Azure database-instans
 * Använda SQL Server [Transaktionsreplikering](https://msdn.microsoft.com/library/ms151176.aspx) för att konfigurera Azure SQL Server-instansen som en prenumerant och inaktivera replikering, pekar du användare till Azure database-instans
 
 > [!TIP]

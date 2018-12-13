@@ -2,7 +2,7 @@
 title: Vad är platsvillkor som i Azure Active Directory villkorlig åtkomst? | Microsoft Docs
 description: Lär dig hur du använder platsvillkoret för att styra åtkomsten till dina molnappar baserat på användarens nätverksplats.
 services: active-directory
-keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eeb12500a5ddfb95317b3d20b41acf12e3978bad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 80818a7264b35b703be217f07127ab7883da339a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626530"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271597"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory? 
 
@@ -58,7 +58,7 @@ En namngiven plats har följande komponenter:
 
 - **Namn på** – visningsnamnet för en namngiven plats.
 
-- **IP-intervall** -en eller flera IP-adressintervall i CIDR-format.
+- **IP-intervall** - minst en IPv4-adressintervall i CIDR-format. Om du anger en Ipv6-adress ringsaviseringskvot stöds inte.
 
 - **Markera som betrodd plats** – en flagga som du kan ange för en namngiven plats att ange en betrodd plats. Betrodda platser är oftast nätverksområden som kontrolleras av IT-avdelningen. Förutom villkorlig åtkomst, betrodda namngivna platser används också av Azure Identity Protection och Azure AD-säkerhetsrapporter för att minska [falska positiva identifieringar](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
@@ -123,7 +123,7 @@ Det här alternativet gäller för:
 
 Med det här alternativet kan du välja en eller flera namngivna platser. En användare måste ansluta från någon av de valda platserna för en princip med den här inställningen ska gälla. När du klickar på **Välj** den namngivna nätverk val av kontroll som visar en lista över namngivna nätverk öppnas. I listan visas också om en nätverksplats nedan har markerats som betrodda. Namngiven plats kallas **MFA tillförlitliga IP-adresser** används för att ta med IP-inställningar som kan konfigureras på sidan Inställningar för multi-Factor authentication-tjänsten.
 
-## <a name="what-you-should-know"></a>Vad du bör känna till
+## <a name="what-you-should-know"></a>Det här bör du känna till
 
 ### <a name="when-is-a-location-evaluated"></a>När utvärderas en plats?
 
@@ -168,4 +168,4 @@ API och PowerShell stöds inte ännu för namngivna platser eller för principer
 
 - Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
 
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
+- Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md). 

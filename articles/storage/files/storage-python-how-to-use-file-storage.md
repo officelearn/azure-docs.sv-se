@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: a376e4f5d8d74731f30da47a696656e79ae55ac7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4082352c8c9814b8e6533d3f64b18450a6cf416d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245689"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165580"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Utveckla för Azure Files med Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -49,7 +49,7 @@ pip install azure-storage-file
 > 
 > 
 
-Alternativa installationsmetoder, finns det [Azure Storage SDK för Python på Github](https://github.com/Azure/azure-storage-python/).
+Alternativa installationsmetoder, finns det [Azure Storage SDK för Python på GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Konfigurera programmet att använda Azure Files
 Lägg till följande längst upp i valfri Python-källfilen som du vill komma åt Azure Storage via programmering.

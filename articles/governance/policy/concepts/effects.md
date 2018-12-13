@@ -1,5 +1,5 @@
 ---
-title: Förstå effekterna av Azure Policy
+title: Förstå hur effekterna fungerar
 description: Azure principdefinitionen har olika effekter som bestämmer hur kompatibilitet hanteras och rapporteras.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 2bed2f52f29d5c97ab576fae73498b60fb7ecc30
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079808"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310852"
 ---
 # <a name="understand-policy-effects"></a>Förstå Policy-effekter
 
@@ -120,7 +120,7 @@ Nekandeeffekt har inte några ytterligare egenskaper för användning i den **se
 
 ### <a name="deny-example"></a>Neka exempel
 
-Exempel: Med nekandeeffekt.
+Exempel: Med hjälp av nekandeeffekt.
 
 ```json
 "then": {
@@ -265,7 +265,7 @@ Den **information** egenskapen för DeployIfNotExists effekterna har alla subege
 
 ### <a name="deployifnotexists-example"></a>DeployIfNotExists-exempel
 
-Exempel: Utvärderar SQL Server-databaser för att avgöra om transparentDataEncryption är aktiverad. Annars kan du sedan en distribution så att den körs.
+Exempel: Utvärderar SQL Server-databaser för att avgöra om transparentDataEncryption är aktiverad. Annars kan du sedan en distribution för att aktivera körs.
 
 ```json
 "if": {

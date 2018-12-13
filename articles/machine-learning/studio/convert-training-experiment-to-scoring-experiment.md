@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: c08d098c5df968d15ff236121dc641dd53b27157
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ef54281b91147060e9c00bcc6e45e0db0fb8933a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102188"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273110"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Hur du förbereder din modell för distribution i Azure Machine Learning Studio
 
@@ -29,11 +28,11 @@ Azure Machine Learning Studio ger dig de verktyg du behöver för att utveckla e
 
 Om du vill göra detta måste du använder Studio för att skapa ett experiment - kallas en *träningsexperiment* – där du träna, poäng och redigera din modell. När du är nöjd kan du få din modell redo att distribuera genom att konvertera din träningsexperiment till ett *förutsägelseexperiment* som har konfigurerats poäng användardata.
 
-Du kan se ett exempel på hur [genomgång: utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Du kan se ett exempel på hur det [genomgång: Utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
 Den här artikeln tar en djupdykning i hur ett träningsexperiment konverteras till ett förutsägelseexperiment och hur den förutsägelseexperiment distribueras. Genom att förstå dessa uppgifter kan du lära dig hur du konfigurerar din distribuerade modell för att göra det mer effektivt.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Översikt 
 

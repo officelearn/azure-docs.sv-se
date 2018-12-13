@@ -2,19 +2,19 @@
 title: Kapacitetsplanering för kluster i Azure HDInsight
 description: Så här anger du ett HDInsight-kluster för kapacitet och prestanda.
 services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/22/2017
-ms.author: maxluk
-ms.openlocfilehash: b8b562e1f783a9da7621b29fbf6d5bd1ff6ca5ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.date: 12/04/2018
+ms.author: hrasheed
+ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013517"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193866"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -32,7 +32,7 @@ De viktiga frågorna för kapacitetsplanering är:
 
 Azure-regionen anger där klustret fysiskt har etablerats. För att minimera svarstiden för läsningar och skrivningar, ska klustret vara nära dina data.
 
-HDInsight är tillgängligt i många Azure-regioner. Den närmaste regionen finns i den *HDInsight Linux* posten under *Data och analys* i [Azure-produkter tillgängliga efter Region](https://azure.microsoft.com/regions/services/).
+HDInsight är tillgängligt i många Azure-regioner. Den närmaste regionen finns i den *HDInsight* posten under *Analytics* i [tillgängliga produkter efter Region](https://azure.microsoft.com/regions/services/).
 
 ## <a name="choose-storage-location-and-size"></a>Välj lagringsplats och storlek
 
@@ -57,7 +57,7 @@ Ett kluster kan komma åt en kombination av olika lagringskonton. Vanliga exempe
 * När du vill göra data har du redan överfört till en blob-behållare som är tillgängliga för klustret.
 * När du vill att isolera olika delar av lagring på grund av säkerhet eller för att förenkla administrationen.
 
-För ett kluster med noder 48 rekommenderar vi 4 till 8 storage-konton. Även om det kan redan finnas tillräckligt med totalt lagringsutrymme, tillhandahåller varje lagringskonto ytterligare nätverkets bandbredd för compute-noder. När du har flera lagringskonton kan du använda ett slumpmässigt namn för varje lagringskonto, utan ett prefix. Syftet med slumpmässiga naming minskar risken för storage flaskhalsar (begränsningen) eller läge för vanliga fel för alla konton. Använd bara en behållare per lagringskonto för bättre prestanda.
+För ett kluster med 48 noder rekommenderar vi 4 till 8 storage-konton. Även om det kan redan finnas tillräckligt med totalt lagringsutrymme, tillhandahåller varje lagringskonto ytterligare nätverkets bandbredd för compute-noder. När du har flera lagringskonton kan du använda ett slumpmässigt namn för varje lagringskonto, utan ett prefix. Syftet med slumpmässiga naming minskar risken för storage flaskhalsar (begränsningen) eller läge för vanliga fel för alla konton. Använd bara en behållare per lagringskonto för bättre prestanda.
 
 ## <a name="choose-a-cluster-type"></a>Välj en typ av kluster
 
@@ -71,11 +71,11 @@ Du kan benchmark klusterkapacitet och öka storleken som anges för att faststä
 
 VM-storlek och typ bestäms av CPU-belastningen ström, RAM-storleken och svarstid för nätverk:
 
-* Processor: VM-storleken avgör hur många kärnor. Fler kärnor, desto större grad av parallell beräkning varje nod kan uppnå. Vissa typer av virtuella datorer har också snabbare kärnor.
+* PROCESSOR: VM-storleken avgör hur många kärnor. Fler kärnor, desto större grad av parallell beräkning varje nod kan uppnå. Vissa typer av virtuella datorer har också snabbare kärnor.
 
-* RAM-minne: VM-storleken avgör också mängden RAM-minne tillgängligt på den virtuella datorn. Ha tillräckligt med minne för att passa informationen för arbetsbelastningar som lagrar data i minnet för bearbetning i stället för att läsa från disken, se till att dina arbetarnoder.
+* RAM-MINNE: VM-storleken avgör också mängden RAM-minne tillgängligt på den virtuella datorn. Ha tillräckligt med minne för att passa informationen för arbetsbelastningar som lagrar data i minnet för bearbetning i stället för att läsa från disken, se till att dina arbetarnoder.
 
-* Nätverk: För de flesta klustertyper data som bearbetas av klustret är inte på den lokala disken, men i en extern storage-tjänst, till exempel Data Lake Store eller Azure Storage. Överväg att nätverkets bandbredd och dataflödet mellan noden VM och storage-tjänsten. Nätverkets bandbredd tillgänglig för en virtuell dator ökar vanligtvis med större storlekar. Mer information finns i [Virtuella datorer översikt](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Nätverk: För de flesta klustertyper av är data som bearbetas av klustret inte på den lokala disken, men i en extern storage-tjänst, till exempel Data Lake Store eller Azure Storage. Överväg att nätverkets bandbredd och dataflödet mellan noden VM och storage-tjänsten. Nätverkets bandbredd tillgänglig för en virtuell dator ökar vanligtvis med större storlekar. Mer information finns i [Virtuella datorer översikt](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Välj skala för kluster
 
@@ -95,19 +95,39 @@ Du debiteras för ett kluster livslängd. Om det finns endast specifika tidpunkt
 
 ### <a name="isolate-cluster-job-errors"></a>Isolera kluster jobbfel
 
-Ibland fel kan inträffa på grund av parallell körning av flera kartan och minska komponenter i ett kluster med flera noder. För att isolera problemet, försök distribuerade testning genom att köra samtidiga expandera sedan den här metoden för att köra flera jobb samtidigt på kluster som innehåller fler än en nod i flera jobb på en nod i klustret. Du kan skapa ett HDInsight-kluster med en nod i Azure med den *avancerade* alternativet.
+Ibland fel kan inträffa på grund av parallell körning av flera maps och minska komponenter i ett kluster med flera noder. För att isolera problemet, försök distribuerade testning genom att köra samtidiga expandera sedan den här metoden för att köra flera jobb samtidigt på kluster som innehåller fler än en nod i flera jobb på en nod i klustret. Du kan skapa ett HDInsight-kluster med en nod i Azure med den *avancerade* alternativet.
 
 Du kan också installera en nod-utvecklingsmiljö på den lokala datorn och testa lösningen där. Hortonworks innehåller en enda nod lokal utvecklingsmiljö för Hadoop-baserade lösningar som är användbara för inledande funktionstest av, utveckling och testning. Mer information finns i [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
 
-För att identifiera problemet på ett lokalt kluster för en nod kan du kör misslyckade jobb och justera indata eller använda mindre datauppsättningar. Hur du kör dessa jobb beror på vilken plattform och typ av program.
+För att identifiera problemet på ett lokalt kluster för en nod kan du köra misslyckade jobb och justera indata eller använda mindre datauppsättningar. Hur du kör dessa jobb beror på vilken plattform och typ av program.
 
 ## <a name="quotas"></a>Kvoter
 
-När du har fastställt din målklustret VM-storlek, skala och typ, kan du kontrollera aktuella kvotgränserna av kapacitet för din prenumeration. När du når en kvotgräns kan kanske du inte att distribuera nya kluster eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. De vanligaste gränsen har nåtts är kvoten CPU-kärnor som finns på prenumeration, region och nivåer för VM-serie. Din prenumeration kan till exempel ha en 200 core total gräns, med en 30 kärngräns i din region och en kärngräns för 30 på VM-instanser. Du kan [kontakta supporten för att öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+När du har fastställt din målklustret VM-storlek, skala och typ, kan du kontrollera aktuella kvotgränserna av kapacitet för din prenumeration. När du når en kvotgräns kan kanske du inte att distribuera nya kluster eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. Endast kvotgränsen är kvoten CPU-kärnor som finns på regionsnivån för varje prenumeration. Din prenumeration kan exempelvis ha 30 kärngräns i regionen östra USA. Om du vill öka kvoten gör du följande:
+
+1. Gå till Azure Portal
+1. Klicka på **hjälp och Support** längst ned till vänster på sidan.
+1. Klicka på **ny supportbegäran**.
+1. På den **ny supportbegäran** sidan under **grunderna** väljer du följande alternativ:
+    - **Typ av problem**: **Begränsningar för tjänsten och -prenumeration (kvoter)**
+    - **Prenumeration**: den prenumeration som du vill ändra
+    - **Typ av kvot**: **HDInsight**
+    
+    ![Skapa en supportbegäran om att öka kärnkvoten för HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+
+1. Klicka på **Nästa**.
+1. På den **information** , ange en beskrivning av problemet, Välj problemets allvarlighetsgrad och välj önskad kontaktmetod.
+1. Klicka på **nästa: Granska + skapa**.
+1. På den **granska + skapa** fliken **skapa**.
+
+> [!Note]
+> Om du vill öka kärnkvoten för HDInsight i ett privat område [begära en lista över tillåtna](https://aka.ms/canaryintwhitelist).
+
+Du kan [kontakta supporten för att öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 Men det finns vissa fast kvotgränser, till exempel en enskild Azure-prenumeration kan ha högst 10 000 kärnor. Mer information om dessa begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera kluster i HDInsight med Apache Hadoop, Spark, Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md): Lär dig att installera och konfigurera kluster i HDInsight med Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML-tjänster eller Storm.
-* [Övervaka klusterprestanda](hdinsight-key-scenarios-to-monitor.md): Lär dig mer om viktiga scenarier för att övervaka ditt HDInsight-kluster som kan påverka din klustrets kapacitet.
+* [Konfigurera kluster i HDInsight med Apache Hadoop, Spark, Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md): Lär dig mer om att installera och konfigurera kluster i HDInsight med Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML-tjänster eller Storm.
+* [Övervaka klusterprestanda](hdinsight-key-scenarios-to-monitor.md): Läs mer om viktiga scenarier för att övervaka ditt HDInsight-kluster som kan påverka din klustrets kapacitet.

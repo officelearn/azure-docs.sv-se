@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6aa13096b61fc1bf44d370b3d7dcc01a0df74e8d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258467"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321349"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
 Innan du överför en Windows-dator (VM) från en lokal plats till Microsoft Azure, måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder **endast 1 virtuella datorer i generation** som är i VHD-format och har en fast storlek disk. Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 VM från VHDX filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorer i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -283,7 +283,7 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    Om databasen är skadad, se [WMI: databasen skadas eller inte](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
+    Om databasen är skadad, se [WMI: Databasen skadas eller inte](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
 5. Se till att alla andra program inte använder port 3389. Den här porten används för RDP-tjänst i Azure. Du kan köra **netstat - anob** vill se vilka portar som i används på den virtuella datorn:
 
@@ -377,7 +377,7 @@ Mer information om hur du skapar en virtuell dator från en särskild disk finns
 - [Skapa en virtuell dator från en särskild disk](create-vm-specialized.md)
 - [Skapa en virtuell dator från en specialiserad virtuell hårddisk](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Om du vill skapa en generaliserad avbildning måste du köra sysprep. Mer information om Sysprep finns i [så här använder du Sysprep: en introduktion](https://technet.microsoft.com/library/bb457073.aspx). 
+Om du vill skapa en generaliserad avbildning måste du köra sysprep. Mer information om Sysprep finns i [så här använder du Sysprep: En introduktion](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Inte alla roll eller program som är installerad på en Windows-baserad dator stöder tack vare generaliseringen. Så innan du kör den här proceduren finns i följande artikel för att se till att rollen för den datorn stöds av sysprep. Mer information [Sysprep-stöd för serverroller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -409,7 +409,7 @@ Följande inställningar påverkar inte ladda upp VHD. Men rekommenderar vi star
 *  När den virtuella datorn har skapats i Azure, rekommenderar vi att du anger växlingsfilen för ”Temporala” enheten att förbättra prestanda. Du kan ställa in detta på följande sätt:
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile" -Type MultiString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
     ```
 Om det finns någon datadisk som är kopplad till den virtuella datorn, är Temporal enhet enhetsbeteckning vanligtvis ”d”. Den här beteckning kan vara olika, beroende på antalet enheter som är tillgängliga och de inställningar som du gör.
 

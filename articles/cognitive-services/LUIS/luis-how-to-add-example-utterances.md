@@ -1,7 +1,7 @@
 ---
 title: Lägga till exempelyttranden
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Lär dig hur du lägger till yttranden i Språkförståelse (LUIS) program.
+description: Exempel yttranden är text-exempel på användarnas frågor eller kommandon. Om du vill hålla Språkförståelse (LUIS), som du behöver lägga till exempel yttranden till en avsikt.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: ada1d7e922bdd47cfc9fe8139ad83adfa45ed073
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 33c941f84952faca1961bb65687b4098b837a2fd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085526"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139183"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Lägga till en entitet till exempel yttranden 
 
@@ -90,7 +90,7 @@ Medarbetarnamn, John Smith, är en fördefinierade [personName](luis-reference-p
 
 1. Ange sammansatta enhetens namn i den nedrullningsbara listan.
 
-    ![Skärmbild av hur du anger entitetsnamn](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
+    ![Skärmbild av ange sammansatta enhetens namn i den nedrullningsbara listan](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     När du omsluter entiteterna korrekt är en grön linje under hela frasen.
 
@@ -118,7 +118,7 @@ I uttryck `Move John Smith from Seattle to Cairo`, Seattle är ursprungsplatsen 
 
 1. Ordet i uttryck etiketterades med den överordnade hierarkiska entiteten. Du måste tilldela ordet till en underordnad entitet. Gå tillbaka till uttryck på sidan med avsikt. Markera ord, och sedan välja entitetsnamn som du skapade från den nedrullningsbara listan och följ på menyn till höger för att välja rätt underordnad entitet.
 
-    ![Skärmbild av avsikter detaljsidan med ToLocation entitet markerat](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+    ![Skärmbild av avsikter informationssidan där du måste tilldela ordet till en underordnad entitet](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Namn på underordnade entiteter måste vara unikt inom alla entiteter i samma app. Två olika hierarkiska entiteter får inte innehålla underordnade entiteter med samma namn. 
@@ -135,7 +135,7 @@ Välj de ord som är understruket i rött i uttryck.
 
 Rutan entiteten visar den **status för enheter** med ett rött utropstecken om det finns en diskrepans förutsägelse. Om du vill se status för enheter med information om skillnaden mellan taggade och förväntade entiteter **status för enheter** Välj ett objekt till höger.
 
-![Skärmbild av entiteten status förutsägelse avvikelse](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Skärmbild över att välja rätt objekt för att åtgärda förutsägelse avvikelse](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 Röd-rad visas på någon av följande tidpunkter:
 

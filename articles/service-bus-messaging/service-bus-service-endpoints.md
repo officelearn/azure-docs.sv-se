@@ -1,35 +1,53 @@
 ---
 title: Tjänstslutpunkter i virtuella nätverk och regler för Azure Service Bus | Microsoft Docs
 description: Lägg till en slutpunkt för Microsoft.ServiceBus till ett virtuellt nätverk.
-services: event-hubs
+services: service-bus
 documentationcenter: ''
 author: clemensv
 manager: timlt
-ms.service: event-hubs
+ms.service: service-bus
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 05930dfce64378d792213ccaefa3d15057bd5dfd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3e1bdcc9340cc6cf997bebcdf1567bf676521ea5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405017"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276136"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Använda virtuella nätverksslutpunkter med Azure Service Bus
 
-Integreringen av Service Bus med [tjänstslutpunkter i virtuella nätverk (VNet)] [ vnet-sep] möjliggör säker åtkomst till funktioner för meddelanden från arbetsbelastningar som virtuella datorer som är kopplade till virtuella nätverk , sökväg för trafik i nätverket som skyddas i bägge ändar. 
+Integreringen av Service Bus med [tjänstslutpunkter i virtuella nätverk (VNet)] [ vnet-sep] möjliggör säker åtkomst till funktioner för meddelanden från arbetsbelastningar som virtuella datorer som är kopplade till virtuella nätverk , sökväg för trafik i nätverket som skyddas i bägge ändar.
 
 När konfigurerad att vara bunden till minst en tjänstslutpunkt för virtuellt nätverk undernät, respektive Service Bus-namnområdet ska inte längre att ta emot trafik från var som helst utan behörighet virtuella nätverk. Ur virtuellt nätverk konfigurerar bindning av en Service Bus-namnområdet till en tjänstslutpunkt ett isolerat nätverk tunnel från det virtuella undernätet till meddelandetjänsten.
 
 Resultatet är en privata och isolerade relation mellan de arbetsbelastningar som är bundna till undernätet och respektive Service Bus-namnområdet, trots synliga nätverksadressen för den asynkrona service slutpunkt i en offentlig IP-adressintervallet.
 
+>[!WARNING]
+> Implementera integrering av virtuella nätverk kan det förhindra att interagera med Service Bus andra Azure-tjänster.
+>
+> Betrodda Microsoft-tjänster inte stöds när virtuella nätverk som implementeras och görs tillgänglig snart.
+>
+> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan är **inte** uttömmande)-
+> - Azure Monitor
+> - Azure Stream Analytics
+> - Integrering med Azure Event Grid
+> - Azure IoT Hub vägar
+> - Azure IoT Device Explorer
+> - Azure-datautforskaren
+>
+> Den nedan Microsoft services måste vara i ett virtuellt nätverk
+> - Azure Web Apps
+> - Azure Functions
+
+> [!IMPORTANT]
+> Virtuella nätverk stöds bara i [premiumnivån](service-bus-premium-messaging.md) Service Bus-namnområden.
+
 ## <a name="enable-service-endpoints-with-service-bus"></a>Aktivera Tjänsteslutpunkter med Service Bus
 
-Virtuella nätverk stöds bara i [premiumnivån](service-bus-premium-messaging.md) Service Bus-namnområden. 
-
-Ett viktigt övervägande när du använder VNet-tjänstslutpunkter med Service Bus är att du inte aktiverar de här slutpunkterna i program som blandar Standard och Premium-nivån Service Bus-namnområden. Slutpunkten är begränsad till Premium-nivån namnområden eftersom Standard-nivån inte har stöd för virtuella nätverk. Det virtuella nätverket blockerar trafik till Standard-namnområdet. 
+Ett viktigt övervägande när du använder VNet-tjänstslutpunkter med Service Bus är att du inte aktiverar de här slutpunkterna i program som blandar Standard och Premium-nivån Service Bus-namnområden. Slutpunkten är begränsad till Premium-nivån namnområden eftersom Standard-nivån inte har stöd för virtuella nätverk. Det virtuella nätverket blockerar trafik till Standard-namnområdet.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade scenarier som använder VNet-integrering 
 
@@ -45,7 +63,7 @@ Det innebär att din säkerhet som är känsliga molnlösningar inte bara tillg�
 
 Bindning av en Service Bus-namnområde till ett virtuellt nätverk är en tvåstegsprocess. Du måste först skapa en **tjänstslutpunkt för virtuellt nätverk** på ett undernät för virtuellt nätverk och aktivera den för ”Microsoft.ServiceBus” som beskrivs i den [endpoint tjänstöversikt] [ vnet-sep]. När du har lagt till tjänsteslutpunkt kan du binda Service Bus-namnrymden till den med en *virtuell nätverksregel*.
 
-Regel för virtuella nätverk är en namngivna nätverk med Service Bus-namnområde med ett virtuellt nätverksundernät. När regeln finns har alla arbetsbelastningar som är bunden till undernätet beviljats åtkomst till Service Bus-namnområdet. Service Bus själva aldrig upprättar utgående anslutningar, behöver inte komma åt och därför beviljas aldrig åtkomst till ditt undernät genom att aktivera den här regeln.
+Regel för virtuella nätverk är ett nätverk med Service Bus-namnområde med ett virtuellt nätverksundernät. När regeln finns har alla arbetsbelastningar som är bunden till undernätet beviljats åtkomst till Service Bus-namnområdet. Service Bus själva aldrig upprättar utgående anslutningar, behöver inte komma åt och därför beviljas aldrig åtkomst till ditt undernät genom att aktivera den här regeln.
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuella nätverk med Azure Resource Manager-mallar
 
@@ -54,46 +72,120 @@ Följande Resource Manager-mallen gör det möjligt att lägga till en regel fö
 Mallparametrar:
 
 * **namespaceName**: Service Bus-namnområde.
-* **vnetRuleName**: namn för virtuellt nätverk regeln som ska skapas.
-* **virtualNetworkingSubnetId**: fullständiga Resource Manager-sökvägen för virtuella nätverkets undernät, till exempel `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standardundernät i ett virtuellt nätverk.
+* **virtualNetworkingSubnetId**: Fullständiga Resource Manager-sökvägen för virtuella nätverkets undernät; till exempel `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standardundernät i ett virtuellt nätverk.
+
+> [!NOTE]
+> Det finns inga neka regler som är möjligt, Azure Resource Manager-mallen har den standardåtgärd som har angetts till **”Tillåt”** som inte begränsar anslutningar.
+> När du skapar regler för virtuellt nätverk eller brandväggar, vi måste ändra den ***”defaultAction”***
+> 
+> från
+> ```json
+> "defaultAction": "Allow"
+> ```
+> till
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
 
 Mall:
 
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "vnetRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "virtualNetworkSubnetId":{  
-             "type":"string",
-             "metadata":{  
-                "description":"subnet Azure Resource Manager ID"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "servicebusNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Service Bus namespace"
+        }
       },
+      "virtualNetworkName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Rule"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Sub Net"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('servicebusNamespaceName'), concat('/', 'default'))]",
+      "subNetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'), parameters('subnetName'))]"
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('vnetRuleName'))]",
-            "type":"Microsoft.ServiceBus/namespaces/VirtualNetworkRules",           
-            "properties": {             
-                "virtualNetworkSubnetId": "[parameters('virtualNetworkSubnetId')]"  
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('servicebusNamespaceName')]",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2017-09-01",
+        "name": "[parameters('virtualNetworkName')]",
+        "location": "[parameters('location')]",
+        "type": "Microsoft.Network/virtualNetworks",
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "10.0.0.0/23"
+            ]
+          },
+          "subnets": [
+            {
+              "name": "[parameters('subnetName')]",
+              "properties": {
+                "addressPrefix": "10.0.0.0/23",
+                "serviceEndpoints": [
+                  {
+                    "service": "Microsoft.ServiceBus"
+                  }
+                ]
+              }
             }
-        } 
-    ]
-}
+          ]
+        }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": 
+          [
+            {
+              "subnet": {
+                "id": "[variables('subNetId')]"
+              },
+              "ignoreMissingVnetServiceEndpoint": false
+            }
+          ],
+          "ipRules":[<YOUR EXISTING IP RULES>],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Om du vill distribuera mallen genom att följa anvisningarna för [Azure Resource Manager][lnk-deploy].

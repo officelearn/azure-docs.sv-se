@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: f0f43826c50679cb3de88aef466795cbb9e9e76f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: e02492b3e80f71b4ae92066e5e4a2baf26818621
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139500"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316173"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Remote Monitoring solution accelerator översikt
 
@@ -24,6 +24,11 @@ Den här artikeln vägleder dig igenom några av de viktigaste elementen i lösn
 * Felsöka problem i lösningen.
 * Planera hur lösningen kan anpassas för att uppfylla dina behov.
 * Utforma en egen IoT-lösning som använder Azure-tjänster.
+
+Remote Monitoring solution accelerator kod finns på GitHub:
+
+* [NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
 ## <a name="logical-architecture"></a>Logisk arkitektur
 
@@ -36,7 +41,7 @@ Följande diagram illustrerar de logiska komponenterna i den lösningsaccelerato
 Molnarkitektur har utvecklats eftersom publicerades första Lösningsacceleratorer. [Mikrotjänster](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) har utsågs till en beprövad metod att uppnå skalbarhet och flexibilitet utan att offra utvecklingshastigheten. Flera Microsoft-tjänster använder den här arkitekturmönster internt med bra tillförlitlighet och skalbarhet resultat. Uppdaterade Lösningsacceleratorer placerar dessa erfarenheter i praktiken så att du kan också dra nytta av dem.
 
 > [!TIP]
-> Läs mer om arkitekturer för mikrotjänster i [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-programarkitektur) och [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Mikrotjänster: En programrevolution som drivs av molnet).
+> Läs mer om arkitekturer för mikrotjänster i [.NET-programarkitektur](https://www.microsoft.com/net/learn/architecture) och [Mikrotjänster: En application revolution som drivs i molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## <a name="device-connectivity"></a>Enhetsanslutning
 

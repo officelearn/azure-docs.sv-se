@@ -10,39 +10,39 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2017
+ms.date: 02/22/2017
 ms.author: cwatson
-ms.openlocfilehash: be74714667c2fed57a797a972ddcd7949cae5933
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 434f717d9590eff39df161a74931477bdf71bb67
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274678"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309574"
 ---
-# <a name="troubleshoot-enterprise-cost-views"></a>Felsöka enterprise kostnad vyer 
+# <a name="troubleshoot-enterprise-cost-views"></a>Felsöka enterprise kostnad vyer
 
-Det finns flera inställningar som kan orsaka användare i registreringen inte att kunna visa kostnader i enterprise-registreringar.  De här inställningarna hanteras av registreringsadministratören för eller av partnern om registreringen inte har köpt direkt med Microsoft.  Den här artikeln hjälper dig att förstå vilka inställningar som används och hur de påverkar registreringen. De här inställningarna är oberoende av den [Azure RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
-
+Det finns flera inställningar som kan orsaka användare inom registreringen kan inte se kostnaderna i enterprise-registreringar.  De här inställningarna hanteras av registreringsadministratören. Eller, om registrering inte är köpt direkt via Microsoft inställningarna hanteras av partnern.  Den här artikeln hjälper dig att förstå vilka inställningar som används och hur de påverkar registreringen. De här inställningarna är oberoende av rollerna Azure rollbaserad åtkomstkontroll (RBAC).
 
 ## <a name="enabling-access-to-costs"></a>Aktivera åtkomst till kostnader
 
-Är du ser ett meddelande obehörig, eller *”kostnaden vyer är inaktiverade i din registrering”.* När du letar efter kostnadsinformation? ![obehörig](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Är du ser ett meddelande obehörig, eller *”kostnaden vyer är inaktiverade i din registrering”.* När du letar efter kostnadsinformation?
+![Skärmbild som visar ”obehörig” i aktuell kostnad fältet för prenumerationen.](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 Det kan bero på något av följande orsaker:
 
-1. Du har köpt Azure via ett enterprise-partner och partnern inte har släppt priser ännu. Om du vill frigöra priser, kontakta din partner om du vill uppdatera inställningen i den [Enterprise portal](https://ea.azure.com).
-2. Du kan också om du är en direkta EA-kund, finns det några av möjligheterna:
-    * Du är en kontoinnehavare och din registrering-administratör har inaktiverat de ”AO visa debiteringar” ställa in.  
-    * Du är administratör avdelning och din registrering-administratör har inaktiverat de ”DA visa debiteringar” ställa in.
-    * Kontakta din administratör för registreringen för att få åtkomst. Registrering-administratören kan besöka den [Enterprise portal](https://ea.azure.com/manage/enrollment) och uppdatera inställningen som visas här:
+1. Du har köpt Azure via ett enterprise-partner och partnern släppa inte priser ännu. Kontakta din partner för att uppdatera priser ställa in inom den [Enterprise portal](https://ea.azure.com).
+2. Om du är en direkta EA-kund, finns det några av möjligheterna:
+    * Är du Kontoägare och administratören registrering har inaktiverats i **AO visa debiteringar** inställningen.  
+    * Du är en avdelning-administratör och administratören registrering har inaktiverats i **DA visa debiteringar** inställningen.
+    * Kontakta din administratör för registreringen för att få åtkomst. Registrering-administratörer kan uppdatera inställningarna i den [Enterprise portal](https://ea.azure.com/manage/enrollment).
 
-![Enterprise portalinställningar](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
+      ![Skärmbild som visar Enterprise Portal inställningarna för Visa debiteringar.](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
 
+## <a name="asset-is-unavailable"></a>Tillgången är inte tillgänglig
 
-## <a name="asset-is-unavailable"></a>Tillgången är inte tillgänglig? 
 Om du får ett felmeddelande ”den här tillgången är inte tillgänglig” när försöker få åtkomst till en prenumerations- eller -grupp och sedan du har inte rätt roll att visa det här objektet.  
 
-![tillgången kan inte hittas](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+![Skärmbild som visar ”tillgången är inte tillgänglig” visas.](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
-Kontakta administrera prenumerations- eller grupper som ska få åtkomst.  
-* För prenumerationer, referera till [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) dokumentet om du behöver hjälp där rollen krävs.
+Fråga Azure prenumerations- eller grupp administratören för åtkomst. Mer information finns i [hantera åtkomst med RBAC och Azure portal](../role-based-access-control/role-assignments-portal.md).

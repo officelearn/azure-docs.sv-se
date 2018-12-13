@@ -1,6 +1,6 @@
 ---
-title: Indexera Azure Blob Storage med Azure Search
-description: Lär dig hur du indexera Azure Blob Storage och extrahera text från dokument med Azure Search
+title: Indexera Azure Blob storage-innehåll för fulltextsökning – Azure Search
+description: Lär dig mer om att indexera Azure Blob Storage och extrahera text från dokument med Azure Search.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: d2706d4b10303cb62066f0381f9a69b553c05cb4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406980"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317482"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search att indexera dokument (till exempel PDF: er och Microsoft Office-dokument och flera andra vanliga format) lagras i Azure Blob storage. Först förklarar den grunderna för att installera och konfigurera en blob-indexeraren. Sedan den erbjuder en djupare förklaring av beteenden och scenarier som du kan stöta på.
@@ -69,8 +70,8 @@ Mer information om API: et för skapa datakällan finns i [skapa Datasource](htt
 Du kan ange autentiseringsuppgifterna för blob-behållaren i något av följande sätt:
 
 - **Fullständig åtkomst lagringskontots anslutningssträng**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Du kan hämta anslutningssträngen från Azure portal genom att gå till bladet för storage-konto > Inställningar > nycklar (för klassiska lagringskonton) eller inställningar > åtkomstnycklar (för Azure Resource Manager-lagringskonton).
-- **Signatur för delad åtkomst av Storage-konto** (SAS) anslutningssträng: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` Signaturen bör ha i listan och läsbehörighet på behållare och objekt (BLOB-objekt i det här fallet).
--  **Signatur för delad åtkomst**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` Signaturen bör ha i listan och läsbehörighet till behållaren.
+- **Signatur för delad åtkomst av Storage-konto** (SAS) anslutningssträng: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS bör ha i listan och läsbehörighet på behållare och objekt (BLOB-objekt i det här fallet).
+-  **Signatur för delad åtkomst**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS bör ha i listan och läsbehörighet till behållaren.
 
 Mer information om storage delade åtkomstsignaturer, se [med signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -128,7 +129,7 @@ Beroende på den [indexerarkonfiguration](#PartsOfBlobToIndex), blob-indexeraren
 * Det faktiska innehållet i dokumentet extraheras till ett strängfält som heter `content`.
 
 > [!NOTE]
-> Azure Search begränsar hur mycket text extraheras beroende på prisnivå: 32 000 tecken nivån kostnadsfritt 64,000 för Basic och 4 miljoner för nivåerna Standard, Standard S2 och Standard S3. En varning ingår i indexeraren statussvar för trunkerade dokument.  
+> Azure Search begränsar hur mycket text som extraheras beroende på prisnivå: 32000 tecken datanivå kostnadsfritt 64,000 för Basic och 4 miljoner för nivåerna Standard, Standard S2 och Standard S3. En varning ingår i indexeraren statussvar för trunkerade dokument.  
 
 * Användardefinierade extraheras på blob, om sådana finns, metadataegenskaper ordagrant.
 * Standard blob metadataegenskaper extraheras till följande fält:
@@ -333,7 +334,7 @@ Indexera BLOB-objekt kan vara en tidskrävande process. I fall där du har miljo
 
 Du kanske vill ”Assemblera” dokument från flera källor i ditt index. Du kanske exempelvis vill sammanfoga text från BLOB-objekt med andra metadata som lagras i Cosmos DB. Du kan även använda push-meddelandet indexering API tillsammans med olika indexerare för att bygga upp söka efter dokument från flera delar. 
 
-För detta ska fungera måste alla indexerare och andra komponenter komma överens om dokumentnyckeln. En detaljerad genomgång finns i den här externa artikeln: [kombinera dokument med andra data i Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+För detta ska fungera måste alla indexerare och andra komponenter komma överens om dokumentnyckeln. En detaljerad genomgång finns i den här externa artikeln: [Kombinera dokument med andra data i Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexering oformaterad text 
@@ -374,7 +375,7 @@ I följande tabell sammanfattas som bearbetas för respektive format och beskriv
 | MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrahera text, inklusive bifogade filer |
 | ZIP (application/zip) |`metadata_content_type` |Extrahera text från alla dokument i arkivet |
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Remsans XML-kod och extrahera text |
-| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extrahera text<br/>Obs: Om du vill extrahera flera dokumentfält från en JSON-blob finns i [indexera JSON-blobbar](search-howto-index-json-blobs.md) information |
+| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extrahera text<br/>OBS! Om du vill extrahera flera dokumentfält från en JSON-blob finns i [indexera JSON-blobbar](search-howto-index-json-blobs.md) information |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extrahera text, inklusive bifogade filer |
 | RTF (application/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Extrahera text|
 | Oformaterad text (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Extrahera text|

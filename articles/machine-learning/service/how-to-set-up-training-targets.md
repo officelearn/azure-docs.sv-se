@@ -1,7 +1,7 @@
 ---
-title: Skapa och använda beräkningsmål för modellträning
+title: Beräkningsmål för modellträning
 titleSuffix: Azure Machine Learning service
-description: Lär dig mer om att välja och konfigurera utbildning miljöer (beräkningsmål) används för att träna dina maskininlärningsmodeller. Azure Machine Learning-tjänsten kan du enkelt växla miljöer för utbildning. Starta utbildning lokalt och om du vill skala ut kan växla till en molnbaserad beräkningsmål.
+description: Konfigurera utbildning-miljöer (beräkningsmål) för machine learning-modellen. Du kan enkelt växla miljöer för utbildning. Starta utbildning lokalt och om du vill skala ut kan växla till en molnbaserad beräkningsmål. Databricks
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -12,12 +12,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1a6533c1ec25eb8500f67cb98494463d7daf752b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c91cc8dabc1fcf4918e64c18e5d5975dc7720c30
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080103"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316003"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
 
@@ -27,11 +27,11 @@ Beräkningsmål är en resurs där dina utbildningsskript körs eller är värd 
 
 Det finns tre olika kategorier av beräkningsmål som har stöd för Azure Machine Learning:
 
-* __Lokala__: den lokala datorn eller en molnbaserad VM som du använder som en utvecklings-/ experimentmiljön. 
+* __Lokala__: Den lokala datorn eller en molnbaserad VM som du använder som en utvecklings-/ experimentmiljön. 
 
-* __Hanterade beräkning__: beräkning av Azure Machine Learning är en beräkning som erbjuder som hanteras av Azure Machine Learning-tjänsten. Det kan du enkelt skapa en eller flera node beräkning för utbildning, testa och batch inferensjobb.
+* __Hanterade beräkning__: Beräkning av Azure Machine Learning är en beräkning som hanteras av Azure Machine Learning-tjänsten. Det kan du enkelt skapa en eller flera node beräkning för utbildning, testa och batch inferensjobb.
 
-* __Ansluten beräkning__: du kan också ta med din egen Azure-molnet beräkning och koppla den till Azure Machine Learning. Läs mer nedan på stöds beräkningstyper och hur de används.
+* __Ansluten beräkning__: Du kan också ta med din egen Azure-molnet beräkning och koppla den till Azure Machine Learning. Läs mer nedan på stöds beräkningstyper och hur de används.
 
 
 ## <a name="supported-compute-targets"></a>Stöds beräkningsmål
@@ -43,7 +43,7 @@ Azure Machine Learning-tjänsten har olika stöd för olika beräkningsmål. En 
 |[Lokal dator](#local)| Kanske | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning-beräkning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Fjärransluten virtuell dator](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
 |[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
@@ -170,7 +170,7 @@ En beständig Azure beräkning av Machine Learning kan återanvändas i flera jo
 Om du vill skapa en beständig beräkning av Azure Machine Learning-resurs som du anger den `vm_size` och `max_nodes` parametrar. Azure Machine Learning använder smarta standardvärden för resten av parametrarna.  Beräkningen är till exempel ange att automatiskt skala ned till noll noder när de inte används och att skapa dedikerade virtuella datorer att köra dina jobb efter behov. 
 
 * **vm_size**: VM-serie med noder som skapats av beräkning av Azure Machine Learning.
-* **max_nodes**: maximalt antal noder för automatisk skalning i när du kör ett jobb på beräkning av Azure Machine Learning.
+* **max_nodes**: Högsta antalet noder för automatisk skalning i när du kör ett jobb på beräkning av Azure Machine Learning.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -198,12 +198,12 @@ Du kan också konfigurera flera avancerade egenskaper när du skapar beräkning 
 
 Förutom `vm_size` och `max_nodes`, du kan använda följande egenskaper:
 
-* **min_nodes**: minst noder (standard 0 noder) att skala ned medan köra ett jobb på beräkning av Azure Machine Learning.
+* **min_nodes**: Lägsta antal noder (standard 0 noder) att skala ned medan köra ett jobb på beräkning av Azure Machine Learning.
 * **vm_priority**: Välj mellan ”dedikerad” (standard) och ”lowpriority” virtuella datorer när du skapar beräkning av Azure Machine Learning. Virtuella datorer med låg prioritet använda Azures överflödig kapacitet och är därför billigare men riskerar din körning som återtas.
-* **idle_seconds_before_scaledown**: inaktivitetstid (standard 120 sekunder) för att vänta efter körning är klart innan du automatisk skalning till min_nodes.
-* **vnet_resourcegroup_name**: resursgruppen för den __befintliga__ virtuellt nätverk. Beräkning av Azure Machine Learning har skapats i det här virtuella nätverket.
-* **vnet_name**: namnet på virtuella nätverk. Det virtuella nätverket måste vara i samma region som din Azure Machine Learning-arbetsyta.
-* **subnet_name**: namnet på undernätet i det virtuella nätverket. Azure beräkning av Machine Learning-resurser kommer att tilldelas IP-adresser från det här intervallet i undernätet.
+* **idle_seconds_before_scaledown**: Inaktiv tid (som standard 120 sekunder) att vänta efter körning är klart innan du automatisk skalning till min_nodes.
+* **vnet_resourcegroup_name**: Resursgruppen för den __befintliga__ virtuellt nätverk. Beräkning av Azure Machine Learning har skapats i det här virtuella nätverket.
+* **vnet_name**: Namn på virtuellt nätverk. Det virtuella nätverket måste vara i samma region som din Azure Machine Learning-arbetsyta.
+* **subnet_name**: Namnet på undernätet i det virtuella nätverket. Azure beräkning av Machine Learning-resurser kommer att tilldelas IP-adresser från det här intervallet i undernätet.
 
 > [!TIP]
 > När du skapar en beständig beräkning av Azure Machine Learning-resurs har också möjlighet att uppdatera dess egenskaper, till exempel min_nodes eller max_nodes. Du bara anropa den `update()` funktionen för den.
@@ -312,9 +312,9 @@ Azure Databricks är en Apache Spark-baserad miljö i Azure-molnet. Det kan anv�
 
 Om du vill koppla Azure Databricks som beräkningsmål, måste du använder Azure Machine Learning SDK och ange följande information:
 
-* __Beräkningsnamn__: namnet som du vill tilldela till den här beräkningsresursen.
-* __Databricks Arbetsytenamn__: namnet på Azure Databricks-arbetsytan.
-* __Åtkomsttoken__: den åtkomst-token som används för att autentisera till Azure Databricks. Generera en åtkomsttoken genom att se den [autentisering](https://docs.azuredatabricks.net/api/latest/authentication.html) dokumentet.
+* __Beräkningsnamn__: Namnet som du vill tilldela till den här beräkningsresursen.
+* __Databricks Arbetsytenamn__: Namnet på Azure Databricks-arbetsytan.
+* __Åtkomsttoken__: Den åtkomst-token som används för att autentisera till Azure Databricks. Generera en åtkomsttoken genom att se den [autentisering](https://docs.azuredatabricks.net/api/latest/authentication.html) dokumentet.
 
 Följande kod visar hur du ansluter Azure Databricks som beräkningsmål:
 
@@ -357,9 +357,9 @@ Azure Data Lake Analytics är en analysplattform med stordata i Azure-molnet. De
 
 Om du vill koppla Data Lake Analytics som beräkningsmål du använder Azure Machine Learning SDK och ange följande information:
 
-* __Beräkningsnamn__: namnet som du vill tilldela till den här beräkningsresursen.
-* __Resursgrupp__: den resursgrupp som innehåller Data Lake Analytics-kontot.
-* __Kontonamn__: The Data Lake Analytics-kontonamn.
+* __Beräkningsnamn__: Namnet som du vill tilldela till den här beräkningsresursen.
+* __Resursgrupp__: Den resursgrupp som innehåller Data Lake Analytics-kontot.
+* __Kontonamn__: Namnet på Data Lake Analytics-kontot.
 
 Följande kod visar hur du kopplar Data Lake Analytics som beräkningsmål:
 
@@ -571,6 +571,6 @@ Referera till anteckningsböcker på följande platser:
 ## <a name="next-steps"></a>Nästa steg
 
 * [Azure Machine Learning SDK-referens](https://aka.ms/aml-sdk)
-* [Självstudie: Träna en modell](tutorial-train-models-with-aml.md)
+* [Självstudiekurs: Träna en modell](tutorial-train-models-with-aml.md)
 * [Var du vill distribuera modeller](how-to-deploy-and-where.md)
 * [Skapa machine learning pipelines med Azure Machine Learning-tjänsten](concept-ml-pipelines.md)

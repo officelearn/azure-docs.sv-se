@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 4461ac71ba5f9ab5901c5d7b72c15c0c165621e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103973"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255609"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Lägga till LUIS resultaten till Application Insights och Azure functions
 Den här självstudien lägger till LUIS begäranden och svar information till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 > [!Tip]
 > Om du inte redan har en prenumeration kan du registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-All kod i den här självstudien är tillgänglig på den [LUIS-Samples github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) och varje rad som är associerade med den här självstudien har kommenterats med `//APPINSIGHT:`. 
+All kod i den här självstudien är tillgänglig på den [LUIS-Samples GitHub-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) och varje rad som är associerade med den här självstudien har kommenterats med `//APPINSIGHT:`. 
 
 ## <a name="web-app-bot-with-luis"></a>Web app-robot med LUIS
 Den här självstudien förutsätter att du har kod som ser ut som följande eller att du har slutfört den [andra självstudiekursen](luis-nodejs-tutorial-build-bot-framework-sample.md): 

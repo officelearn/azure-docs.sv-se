@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 20a486a048fe6287544a9fec35a95c88f6194a66
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093190"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135006"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Hur du lägger till mönster för att förbättra förutsägelsefunktionen
 När en LUIS-app tar emot endpoint yttranden, använda den [konceptet](luis-concept-patterns.md) av mönster förbättra prognosens noggrannhet för yttranden som avslöjar ett mönster i ordföljden och word valet. Mönster Använd [entiteter](luis-concept-entity-types.md) och deras roller för att extrahera data med hjälp av specifika mönstret syntax. 
@@ -96,7 +96,7 @@ För att tilldela flera mönster i en annan typ av avsikt, markerar du kryssruta
 
 2. Den **ta bort mönster** bekräftelsedialogruta visas. Välj **Ok** att slutföra borttagningen.
 
-    ![Skärmbild av att ta bort flera mönster](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Skärmbild av att ta bort flera mönster bekräftelserutan](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## <a name="filter-pattern-list-by-entity"></a>Filtrera enheter efter entitet
 
@@ -117,7 +117,7 @@ När filtret tillämpas avsikt namnet visas ovanför verktygsfältet.
 ## <a name="remove-entity-or-intent-filter"></a>Ta bort entitet eller avsiktlig filter
 När filtreras mönsterlistan, enheten eller avsiktlig namn visas ovanför verktygsfältet. Välj namnet om du vill ta bort filtret.
 
-![Skärmbild av filtrerade mönster av enhet](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Skärmbild av att ta bort entiteten från filter](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 Filtret tas bort och visa alla mönster. 
 

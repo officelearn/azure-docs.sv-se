@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: cb3584101dea4dc8d8d888632175415480a6a1b3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b37626fe899bf7ee49bd71021631e21dc36b3963
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581536"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315629"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Kontrollera användningen av kostnadsfria tjänster ingår kostnadsfritt Azure-konto 
 
-Du debiteras inte för tjänster som ingår utan kostnad med kostnadsfria Azure-konto, såvida inte du överskrider begränsningarna i dessa tjänster. För att fortsätta vara med gränserna, kan du antingen använda Azure portal eller i din användningsfil att övervaka och spåra användningen av kostnadsfria tjänster. 
+Du debiteras inte för tjänster som ingår utan kostnad med kostnadsfria Azure-konto, såvida du överskrider begränsningarna i dessa tjänster. För att fortsätta vara med gränserna, kan du antingen använda Azure portal eller i din användningsfil att övervaka och spåra användningen av kostnadsfria tjänster. 
 
 ## <a name="check-usage-on-the-azure-portal"></a>Kontrollera syntax på Azure portal
 
-1.  Logga in på [Azure-portalen]( http://portal.azure.com).
+1.  Logga in på [Azure Portal](https://portal.azure.com).
 
 2.  Vänstra området, Välj **alla tjänster**.
 
@@ -51,20 +51,19 @@ Du debiteras inte för tjänster som ingår utan kostnad med kostnadsfria Azure-
 
     Tabellen innehåller följande kolumner:
 
-* **Mätarnamn:** identifierar måttenhet för den mätning som används. Läs om tjänsten för mätningsmappning i [förstå kostnadsfria tjänsten för mätningsmappning](billing-understand-free-service-meter-mapping.md). 
-* **Användningsgränsen:** innevarande månadens användning och gränsen för mätaren. Du kan också använda informationen i statusfältet.
-* **Status:** användning status för mätaren. Baserat på ditt användningsmönster, kan du ha en av dessa lagar.
-  * **Inte är i användning:** du inte har använt mätaren eller användningen för mätaren inte har nått faktureringssystemet.
-  * **Överskrids den \<datum >:** du har överskridit gränsen för mätaren för \<datum >.
-  * **Sannolikt inte kommer att överskridas:** du är sannolikt inte kommer att överskrida gränsen för mätaren.
-  * **Överstigs den \<datum >:** troligen kommer att överskrida gränsen för mätaren på \<datum >.
-
+* **Mätarnamn:** Anger måttenhet för den mätning som används. Läs om tjänsten för mätningsmappning i [förstå kostnadsfria tjänsten för mätningsmappning](billing-understand-free-service-meter-mapping.md).
+* **Användningsgränsen:** Aktuell månad användning och gränsen för mätaren. Du kan också använda informationen i statusfältet.
+* **Status:** Status för användning av. Baserat på ditt användningsmönster, kan du ha en av dessa lagar.
+  * **Inte är i användning:** Du inte har använt mätaren eller användningen för mätaren inte har nått faktureringssystemet.
+  * **Överskrids den \<datum >:** Du har överskridit gränsen för mätaren för \<datum >.
+  * **Kommer sannolikt inte överstiga:** Är du sannolikt inte kommer att överskrida gränsen för mätaren.
+  * **Överstigs den \<datum >:** Du kommer förmodligen att överskrider gränsen för mätaren för \<datum >.
 
 ## <a name="check-usage-through-the-usage-file"></a>Kontrollera syntax igenom användningsfilen
 
-Din användningsfil ger detaljerad information om din Azure-prenumeration. Du kan hämta din per månad och dag användningsfil från Azure Kontocenter. Läs hur du hämtar användningsfilen och förstå den åtkomst som krävs i [hämta faktura och användning](billing-download-azure-invoice-daily-usage-date.md). Läs om kolumner i användningsfilen i [Förstå villkoren på din användning](billing-understand-your-usage.md). 
+Din användningsfil ger detaljerad information om din Azure-prenumeration. Du kan hämta din per månad och dag användningsfil från Azure Kontocenter. Läs hur du hämtar användningsfilen och förstå den åtkomst som krävs i [hämta faktura och användning](billing-download-azure-invoice-daily-usage-date.md). Läs om kolumner i användningsfilen i [Förstå villkoren på din användning](billing-understand-your-usage.md).
 
-Användningsfilen innehåller användningsinformation för både kostnadsfria och kostnadsbelagda tjänster. Kostnadsfri tjänst taxor skulle ha **kostnadsfri** tillägg i slutet av mätningsnamn. Du hittar kostnadsfria taxor, öppna filen i excel och filter i **underkategori för kolumnen** för celler som innehåller text **– kostnadsfritt** (Använd Textfilter &rarr; filtret innehåller) &nbsp;
+Användningsfilen har användningsinformation för både kostnadsfria och kostnadsbelagda tjänster. Kostnadsfri tjänst taxor skulle ha **kostnadsfri** tillägg i slutet av mätningsnamn. Du hittar kostnadsfria taxor, öppna filen i excel och filter i **underkategori för kolumnen** för celler som har texten **– kostnadsfritt** (Använd Textfilter &rarr; filtret innehåller) &nbsp;
 
 ![Skärmbild som visar användningen av kostnadsfria tjänster](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 

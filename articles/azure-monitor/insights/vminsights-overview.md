@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2018
 ms.author: magoedte
-ms.openlocfilehash: c7d2004da52d83ceda62dc31583797d9a218ef48
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 69aa2cbcaa6861b1d5c5c71769be2fb8046d9ea5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085459"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188527"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Vad är Azure Monitor för virtuella datorer (förhandsversion)?
 
@@ -27,7 +26,7 @@ Azure Monitor för virtuella datorer övervakar dina Azure-datorer (VM) och VM-s
 
 Som en lösning för har Azure Monitor för virtuella datorer stöd för övervakning av prestanda och programberoenden för virtuella datorer som hanteras lokalt eller i en annan molnleverantör. Tre huvudfunktioner ger djupgående insikter:
 
-* **Logiska komponenterna i Azure virtuella datorer som kör Windows och Linux**: mäts mot förkonfigurerade health-villkor, och de varnar dig när det utvärderade villkoret uppfylls.  
+* **Logiska komponenterna i Azure virtuella datorer som kör Windows och Linux**: Mäts mot förkonfigurerade health-villkor, och de varnar dig när det utvärderade villkoret uppfylls.  
 
 * **Fördefinierade, trender prestandadiagram**: Visa core prestandamått från gästoperativsystemet för virtuell dator.
 
@@ -46,8 +45,8 @@ Integrering med Log Analytics ger kraftfulla aggregering och filtrering och den 
 
 Du kan visa dessa data i en enda virtuell dator från den virtuella datorn direkt eller du kan använda Azure Monitor för att leverera en sammansatt vy av dina virtuella datorer. Den här vyn är baserad på varje funktion perspektiv:
 
-* **Hälsotillstånd**: de virtuella datorer som är relaterade till en resursgrupp.
-* **Kartan** och **prestanda**: de virtuella datorer är konfigurerade att rapportera till en viss Log Analytics-arbetsyta.
+* **Hälsotillstånd**: De virtuella datorerna är relaterade till en resursgrupp.
+* **Kartan** och **prestanda**: De virtuella datorerna konfigureras att rapportera till en viss Log Analytics-arbetsyta.
 
 ![Virtuell dator insikter perspektiv i Azure portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 1508ccc151aaafd7e0c0b46345c4dcb1a5b7b03c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b6d3cbd56182b8dba3738f38798efa378c6b49d0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083673"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254834"
 ---
 # <a name="use-azure-machine-learning-services-in-a-notebook"></a>Använda Azure Machine Learning Services på en bärbar dator
 
@@ -28,7 +28,7 @@ Azure-datorer är förkonfigurerad med nödvändiga miljö att arbeta med [Azure
 
 1. Logga in på [Azure anteckningsböcker](https://notebooks.azure.com/).
 1. Välj **Mina projekt** att gå till instrumentpanelen för projekt.
-1. Välj den **överför GitHub-lagringsplatsen** (på uppåt-pilen) knappen Öppna den **överför Github-lagringsplatsen** popup-fönstret.
+1. Välj den **överför GitHub-lagringsplatsen** (på uppåt-pilen) knappen Öppna den **överför GitHub-lagringsplatsen** popup-fönstret.
 1. I popup-fönstret anger du `Azure/MachineLearningNotebooks` i **GitHub-lagringsplatsen**, ange ett namn för projektet i **projektnamn** som ”Azure ML-tjänster”, ange en identifierare i **projekt-ID**avmarkerar **offentliga** om du vill välja **Import**.
 
     ![Importera Azure Machine Learning Notebook exemplet till ditt konto för bärbara datorer](media/azureml-import-project.png)
@@ -50,6 +50,6 @@ Dokumentation för Azure Machine Learning Services innehåller en mängd andra r
 - [Snabbstart: Använda Python för att komma igång med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
 - [Självstudie #1: Träna en modell för klassificering av avbildning med Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
 - [Självstudie #2: Distribuera en avbildning klassificeringsmodellen i Azure Container Instance (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
-- [Självstudie: Träna en modell för klassificering med automatiserade machine learning i Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
+- [Självstudiekurs: Träna en modell för klassificering med automatiserade machine learning i Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 Även finns i dokumentationen för den [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

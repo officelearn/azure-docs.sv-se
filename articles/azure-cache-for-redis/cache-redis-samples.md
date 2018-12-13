@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: 8d31e8909a6c06fc324fef95907f0617a6723236
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ea509d3804053f060ad551b6eff945b70cec8796
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020010"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261066"
 ---
-# <a name="azure-cache-for-redis-samples"></a>Azure Cache för Redis-exempel
+# <a name="azure-cache-for-redis-samples"></a>Exempel för Azure Cache for Redis
 Det här avsnittet innehåller en lista över Azure Cache för Redis-exempel som täcker scenarier, till exempel ansluta till en cache, läsa och skrivdata till och från ett cacheminne och använda ASP.NET Azure Cache för Redis-leverantörer. Vissa av exemplen är nedladdningsbara projekt och vissa stegvis vägledning och inkludera kodfragment men Länka inte till ett nedladdningsbart projekt.
 
 ## <a name="hello-world-samples"></a>Hello world-exempel
@@ -40,7 +40,7 @@ Det här exemplet visas hur du:
 * Använd Redis implementerar taggning
 * Arbeta med Redis-kluster
 
-Mer information finns i den [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) dokumentation på github och för flera Användningsscenarier finns i den [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) enhetstester.
+Mer information finns i den [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) dokumentation på GitHub och för flera Användningsscenarier finns i den [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) enhetstester.
 
 [Hur du använder Azure Cache för Redis med Python](cache-python-get-started.md) visar hur du kommer igång med Azure Cache för Redis med hjälp av Python och [redis-py](https://github.com/andymccurdy/redis-py) klienten.
 

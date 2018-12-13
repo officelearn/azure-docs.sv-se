@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 0d728d81a29c5520938c8553c026727c0f94cc43
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 12/10/2018
+ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957011"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272872"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
@@ -85,7 +85,91 @@ Om du har fastställt att du har ett körs minnesrelaterade prestandaproblem, ä
 > [!IMPORTANT]
 > En uppsättning en T-SQL-frågor med dessa DMV: er för att felsöka problem med CPU, finns i [identifiera CPU prestandaproblem](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
+### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>Felsöka frågor med parametern-känsliga fråga körningsproblem för plan
+
+Känsliga plan (PSP) parameterproblemet refererar till ett scenario där Frågeoptimeringen genererar en frågeplan för körning som är optimalt endast för en specifik parametervärdet (eller uppsättning värden) och cachelagrad plan sedan är icke-optimala för parametervärden som används i efterföljande körningar. Icke-optimala planer kan sedan resultera i prestandaproblem för frågan och övergripande arbetsbelastningen dataflöde försämring.
+
+Det finns flera sätt för att åtgärda problem med associerade kompromisser och nackdelar:
+
+- Använd den [kompilera om](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset vid varje Frågekörningen. Den här lösningen handlar nödvändig affärer kompileringstid och ökade CPU få bättre kvalitet på planen. Med hjälp av den `RECOMPILE` alternativet ofta inte är möjligt för arbetsbelastningar som kräver ett högt dataflöde.
+- Använd den [ALTERNATIVET (OPTIMERA för...) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset åsidosätta faktiska parametervärdet med en typisk parametervärde som producerar en tillräckligt bra plan för de flesta parametern värdet möjligheter.   Det här alternativet kräver en god förståelse för optimal parametervärden och associerade plan egenskaper.
+- Använd [ALTERNATIVET (OPTIMERA för okänd)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset åsidosätta faktiska parametervärdet i utbyte mot med densitet vektor medelvärdet. Ett annat sätt att göra detta är genom att samla in de inkommande parametervärdena till lokala variabler och sedan använda de lokala variablerna i predikat istället för att använda parametrarna själva. Den genomsnittliga tätheten måste vara *tillräckligt bra* med denna viss snabbkorrigering.
+- Inaktivera parametern kontroll helt och hållet med hjälp av den [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset.
+- Använd den [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset att förhindra kompilerar i cachen. Denna lösning förutsätter att den *tillräckligt bra* vanliga planen är det i cacheminnet redan. Du kan också inaktivera automatiska uppdateringar ska statistik för att minska risken för bra planen tas bort och en ny felaktiga plan kompilerats.
+- Framtvinga planen genom att uttryckligen använda [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset (genom att ange, genom att ange en specifik plan med hjälp av Query Store eller genom att aktivera [automatisk justering](sql-database-automatic-tuning.md).
+- Ersätt den enda proceduren med en kapslad uppsättning procedurer som du kan använda varje utifrån villkorslogik och associerade parametrarnas värden.
+- Skapa dynamiska sträng körning alternativ till en Procedurdefinition av statiska.
+
+Det finns ytterligare information om hur du löser dessa typer av problem i:
+
+- Detta [lukta en parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) blogginlägget
+- Detta [parametern kontroll problem och lösningar](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) blogginlägget
+- Detta [Elefant och mus parametern kontroll](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blogginlägget
+- Detta [dynamisk sql jämfört med planen kvalitet för frågor med parametrar](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blogginlägget
+
+### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Felsöka kompilera aktiviteten på grund av felaktig parameterisering
+
+När en fråga har litteraler, databasmotorn väljer att automatiskt Parameterisera instruktionen eller en användare kan uttryckligen Parameterisera den för att minska antalet kompileras. Ett stort antal kompileras av en fråga med samma mönster men olika literalvärden kan leda till hög processoranvändning. På samma sätt, om du endast delvis Parameterisera en fråga som fortsätter att ha litteraler, database engine inte Parameterisera den ytterligare.  Nedan visas ett exempel på en fråga med delvis parametrar:
+
+```sql
+select * from t1 join t2 on t1.c1=t2.c1
+where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+```
+
+I föregående exempel `t1.c1` tar `@p1` men `t2.c2` fortsätter ta GUID som literal. I det här fallet, om du ändrar värdet för `c2`, frågan kommer att behandlas som en annan fråga och en ny kompilering sker. För att minska kompileringar i föregående exempel är lösningen att också Parameterisera GUID.
+
+Följande fråga visar antal frågor med fråge-hash för att avgöra om en fråga är korrekt som innehåller parametrar eller inte:
+
+```sql
+   SELECT  TOP 10  
+      q.query_hash
+      , count (distinct p.query_id ) AS number_of_distinct_query_ids
+      , min(qt.query_sql_text) AS sampled_query_text
+   FROM sys.query_store_query_text AS qt
+      JOIN sys.query_store_query AS q
+         ON qt.query_text_id = q.query_text_id
+      JOIN sys.query_store_plan AS p 
+         ON q.query_id = p.query_id
+      JOIN sys.query_store_runtime_stats AS rs 
+         ON rs.plan_id = p.plan_id
+      JOIN sys.query_store_runtime_stats_interval AS rsi
+         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+   WHERE
+      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+      AND query_parameterization_type_desc IN ('User', 'None')
+   GROUP BY q.query_hash
+   ORDER BY count (distinct p.query_id) DESC
+```
+
+### <a name="resolve-problem-queries-or-provide-more-resources"></a>Lösa problem med frågor eller ange fler resurser
+
 När du har identifierat problemet kan du justera problemet frågor eller uppgradera beräkningsstorleken eller tjänstnivån ökar du kapaciteten för din Azure SQL database att absorbera CPU-kraven. Information om att skala resurser för enskilda databaser finns i [skala resurser för enkel databas i Azure SQL Database](sql-database-single-database-scale.md) och skala resurser för elastiska pooler finns i [skala resurser för elastisk pool i Azure SQL Databasen](sql-database-elastic-pool-scale.md). Information om att skala en hanterad instans finns i [på instansnivå resursbegränsningar](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+
+### <a name="determine-if-running-issues-due-to-increase-workload-volume"></a>Avgöra om kör problem som orsakas av öka arbetsbelastningen volym
+
+En ökning av programtrafik och arbetsbelastning kan redovisa ökade CPU-användning, men du måste vara noga med att korrekt diagnostisera problemet. Besvara de här frågorna för att avgöra om verkligen är en CPU-ökning på grund av arbetsbelastning volymförändringar i ett scenario med hög CPU:
+
+1. Är frågor från programmet orsaken till hög CPU-problemet?
+2. För de främsta CPU förbrukar frågor (som kan identifieras):
+
+   - Avgör om det fanns flera körningsplaner som är associerade med samma fråga. I så, fall ta reda på varför.
+   - Anger om så går tidsgränsen har konsekventa och om ökat antal körningar för frågor med samma Körningsplan. Om Ja, finns det troligen prestandaproblem på grund av arbetsbelastningen ökar.
+
+Sammanfattningsvis om körningen frågeplan kunde inte utföras annorlunda men processoranvändningen ökar tillsammans med antal körningar, är det förmodligen ett arbetsbelastningen ökar minnesrelaterade prestandaproblem.
+
+Det är inte alltid lätt att ingå arbetsbelastning volymen har ändrats som driver en CPU-problem.   Faktorer att tänka på: 
+
+- **Resursanvändning som har ändrats**
+
+  Tänk dig ett scenario där CPU ökat till 80% under en längre tid.  CPU-belastning som enbart innebär inte att arbetsbelastningen volymen har ändrats.  Fråga Körningsplan upprepningar och distribution av dataändringar kan också bidra till mer Resursanvändning även om programmet körs exakt samma arbetsbelastning.
+
+- **Ny fråga visas**
+
+   Ett program kan driva en ny uppsättning frågor vid olika tidpunkter.
+
+- **Antal begäranden ökar eller minskar**
+
+   Det här scenariot är det mest uppenbara måttet på arbetsbelastningen. Antalet frågor som motsvarar inte alltid mer resursutnyttjande. Det här måttet är dock fortfarande en betydande signal förutsatt att andra faktorer är oförändrade.
 
 ## <a name="waiting-related-performance-issues"></a>Väntetiden minnesrelaterade prestandaproblem
 
@@ -94,6 +178,13 @@ När du är säker på att du inte får en hög CPU, körs minnesrelaterade pres
 - Den [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) innehåller vänta statistik per fråga över tid. I Query Store kombineras vänta typer i vänta kategorier. Mappningen av vänta kategorier för att vänta typer finns i [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) returnerar information om den väntar påträffades av trådar som körs under åtgärden. Du kan använda den här aggregerade vyn för att diagnostisera prestandaproblem med Azure SQL Database och med specifika frågor och -batchar.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) returnerar information om kön vänta på uppgifter som väntar på några resurser.
+
+I scenarier med hög CPU återspeglar Query Store och vänta statistik alltid inte CPU-användning av dessa två skäl:
+
+- Hög CPU-användning frågor kan fortfarande köras och frågorna är inte klar
+- Hög CPU konsumerande frågorna kördes när ett fel uppstod
+
+Query Store och vänta statistik spårning dynamiska hanteringsvyer bara visa resultat för har slutfört och en timeout uppstod i frågor och visar inte data för att köra uttryck för närvarande (tills den är klar).  Den dynamiska hanteringsvyn [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) kan du spåra för närvarande kör frågor och associerade worker-tid.
 
 I det föregående diagrammet visas är den vanligaste väntar:
 

@@ -1,5 +1,5 @@
 ---
-title: Använd Visual Studio Code för att träna och distribuera modeller
+title: Träna och distribuera modeller från VS Code
 titleSuffix: Azure Machine Learning service
 description: Läs mer om Azure Machine Learning för Visual Studio Code och hur du startar utbildning och distribuera machine learning och deep learning-modeller i Azure Machine Learning-tjänsten med hjälp av Visual Studio Code.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 62c3dd051f9f4c06d8d5b5cd08422b34cf565f2f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0910cce92c410a68dce6e2c44d29e72e594cd153
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100676"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271716"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Använd Visual Studio Code för att träna och distribuera machine learning-modeller
 
@@ -27,11 +27,11 @@ Och du kan distribuera dessa modeller för dina behov för testning och produkti
 
 ## <a name="prerequisites"></a>Förutsättningar
 
++ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
+
 + Har den [Azure Machine Learning för VS Code](how-to-vscode-tools.md) tillägget ställa in.
 
 + Har den [Azure Machine Learning-SDK för Python installerat](how-to-vscode-tools.md) med VS Code.
-
-+ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
 
 ## <a name="create-and-manage-compute-targets"></a>Skapa och hantera beräkningsmål
 
@@ -55,7 +55,7 @@ Det här tillägget har stöd för flera olika remote beräkningsmål för Azure
 
 6. När du är klar konfigurerar din beräkningsmål, klickar du på **skicka** längst ned till höger.
 
-Här är ett exempel för Azure Machine Learning Compute (AMLCompute): [ ![skapa AML Compute i VS Code](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
+Här är ett exempel för Azure Machine Learning Compute (AMLCompute): [![Skapa AML-beräkning i VS Code](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
 
 ### <a name="use-remote-computes-for-experiments-in-vs-code"></a>Använd remote beräkningarna för experiment i VS Code
 
@@ -185,6 +185,6 @@ Webbtjänsten har nu distribuerats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-En genomgång av utbildning med Machine Learning utanför VS Code läser [självstudie: skapa modeller med Azure Machine Learning](tutorial-train-models-with-aml.md).
+En genomgång av utbildning med Machine Learning utanför VS Code läser [självstudien: Träna modeller med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 En genomgång av redigering, köra och felsöka kod lokalt, finns i den [Python Hello World-självstudier](https://code.visualstudio.com/docs/python/python-tutorial)

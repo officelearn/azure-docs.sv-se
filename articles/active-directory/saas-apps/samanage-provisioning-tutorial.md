@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera Samanage för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudiekurs: Konfigurera Samanage för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Samanage.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634514"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322438"
 ---
-# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Samanage för automatisk användaretablering
+# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Samanage för automatisk användaretablering
 
 Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Samanage och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Samanage.
 
@@ -76,7 +76,9 @@ Innan du konfigurerar och aktiverar automatisk användaretablering, bör du best
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Viktiga tips för att tilldela användare till Samanage
 
-*   Vi rekommenderar att en enda Azure AD-användare har tilldelats Samanage att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+*    Samanage roller fylls automatiskt och dynamiskt i Azure-portalens användargränssnitt idag. Se till att en initial synkronisering är slutfört mot Samanage att hämta de senaste rollerna i Samanage klienten innan du tilldelar Samanage roller till användare.
+
+*    Vi rekommenderar att en enda Azure AD-användare har tilldelats Samanage att testa din första automatisk användarförsörjning konfiguration. Ytterligare användare och/eller grupper kan tilldelas senare när testerna har lyckats.
 
 *   När du tilldelar en användare till Samanage, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
 

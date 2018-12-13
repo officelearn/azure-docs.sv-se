@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 0098d532f09ca2fa7ef4434add90729a15809ac5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087464"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164389"
 ---
 # <a name="troubleshoot-input-connections"></a>Felsök inkommande anslutningar
 
@@ -47,7 +48,7 @@ Du kan vidta följande steg för att analysera de inkommande händelserna i deta
 
 2. Indatainformation panelen visar en lista över varningar med information om olika problemen. Varningsmeddelandet exemplet nedan innehåller partition, förskjutning och sekvensnummer där det finns felaktiga JSON-data. 
 
-   ![Varningsmeddelande med förskjutning](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   ![Stream Analytics varningsmeddelandet visas med förskjutning](media/stream-analytics-malformed-events/warning-message-with-offset.png)
    
 3. Om du vill söka efter JSON-data med felaktigt format, kör du CheckMalformedEvents.cs kod i den [GitHub-lagringsplats med exempel](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Den här koden läsningar partitions-ID, förskjutning och skriver ut de data som finns i förskjutningen. 
 
@@ -101,7 +102,7 @@ WITH-satsen anger en tillfällig namngivna resultatuppsättning som kan referera
 
 Till exempel i stället för den här frågan:
 
-```
+```SQL
 SELECT foo 
 INTO output1
 FROM inputEventHub
@@ -114,7 +115,7 @@ FROM inputEventHub
 
 Använd den här frågan:
 
-```
+```SQL
 WITH data AS (
    SELECT * FROM inputEventHub
 )

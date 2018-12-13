@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ed57cb458cc1f71c5d6fd2475c54cc712257dd84
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5baa392d098b0b0e40986bc426c88785db025a29
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084880"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255303"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Installera paket från inom en anteckningsbok
 
@@ -40,13 +40,13 @@ Om utdata från kommandot indikerar att kravet uppfylls redan och anteckningsbö
 
 ## <a name="r"></a>R
 
-Paket i R kan installeras från CRAN eller Github med hjälp av den `install.packages` funktion i en kodcell:
+Paket i R kan installeras från CRAN eller GitHub med hjälp av den `install.packages` funktion i en kodcell:
 
 ```r
 install.packages("package_name")
 ```
 
-Du kan också installera förhandsversioner och andra paket som utveckling från Github med hjälp av devtools-bibliotek:
+Du kan också installera förhandsversioner och andra paket som utveckling från GitHub med hjälp av devtools-bibliotek:
 
 ```r
 options(unzip = 'internal')
@@ -73,5 +73,5 @@ Paket.Package
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Så här: presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
+- [Hur: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Hur: Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)

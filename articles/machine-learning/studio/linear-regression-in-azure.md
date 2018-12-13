@@ -5,9 +5,8 @@ metakeywords: ''
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311066"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276687"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Använda linjär regression i Azure Machine Learning Studio
 > *Kate Baroni* och *Ben Boatman* är enterprise lösningsarkitekter i Microsoft Data Insights Center sökfunktion. I den här artikeln beskrivs de upplevelsen migrera en befintlig regression analysis suite till en molnbaserad lösning som använder Azure Machine Learning. 
@@ -31,7 +30,7 @@ ms.locfileid: "52311066"
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="goal"></a>Mål
 Vår projektet startades med två mål i åtanke: 
@@ -73,8 +72,8 @@ Först Excel-datamodellen tydligt – bättre än Machine Learning Studio-modell
 När vi körde våra processen och resultat av utvecklare och datavetare på Machine Learning-teamet tillhandahålla de snabbt några användbara tips. 
 
 * När du använder den [linjär Regression] [ linear-regression] modul i Machine Learning Studio finns två metoder:
-  * Online toning Lutningsmetoden: Kanske passar bättre för större skala problem
-  * Vanlig minsta kvadrat: Det här är den metod som de flesta tänker på när de hör linjär regression. Vanlig minsta kvadrat kan vara mer föredra för små datauppsättningar.
+  * Online brantaste Lutningsmetoden: Är mer lämpligt för större skala problem
+  * Vanlig minsta kvadrat: Detta är den metod som de flesta tänker på när de hör linjär regression. Vanlig minsta kvadrat kan vara mer föredra för små datauppsättningar.
 * Överväg att justera parametern L2 Regularisering vikt för att förbättra prestanda. Den är inställd på 0,001 som standard, men för vårt liten datamängd vi ställa in det på 0,005 att förbättra prestanda. 
 
 ### <a name="mystery-solved"></a>Ta mysteriet löst!
@@ -86,8 +85,8 @@ När vi tillämpade rekommendationerna uppnått vi samma baslinje-prestanda i Ma
 | Learner |Excel -> Data Analysis -> Regression |Linjär Regression. |Linjär Regression |
 | Learner alternativ |Gäller inte |Standardvärden |vanlig minsta kvadrat<br />L2 = 0,005 |
 | Datauppsättning |26 raderna, 3 funktioner, 1 etikett. Alla numeriska. |Samma |Samma |
-| Dela: träna |Excel tränats på först 18 rader, testas och de senaste 8 raderna. |Samma |Samma |
-| Dela: Test |Excel-regressionsformeln som tillämpas på de senaste 8 raderna |Samma |Samma |
+| Dela: Träna |Excel tränats på först 18 rader, testas och de senaste 8 raderna. |Samma |Samma |
+| Dela: Testa |Excel-regressionsformeln som tillämpas på de senaste 8 raderna |Samma |Samma |
 | **Prestanda** | | | |
 | Justera R-ruta |0.96 |Gäller inte | |
 | Bestämningskoefficient |Gäller inte |0.78 |0.952049 |
@@ -145,7 +144,7 @@ Här är några resurser som hjälper dig att arbeta med regression:
 
 * Regression i Excel. Om du aldrig har försökt regression i Excel, gör du enklare med hjälp av den här självstudien: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * Regression jämfört med prognoser Tyler Chessman skrev en bloggartikel som förklarar hur du time series prognoser i Excel, som innehåller en bra nybörjare beskrivning av linjär regression. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Vanlig minst linjär Regression: Fel, problem och fallgropar. En introduktion och en beskrivning av Regression: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Vanlig minst Squares linjär Regression: Fel, problem och fallgropar. En introduktion och en beskrivning av Regression: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

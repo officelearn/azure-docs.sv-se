@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: e94af6e50c923d975c6ce71cca94479354891e0d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 77e78e6052e1477696eafa84a3e1c913593ec87e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097785"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268843"
 ---
-# <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: beroende spårning
+# <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: Beroendespårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som kallas via HTTP, eller en databas eller ett filsystem. [Application Insights](app-insights-overview.md) mäter hur länge ditt program väntar beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
 
 Beroendeövervakare för out-of the box rapporterar för närvarande anrop till dessa typer av beroenden:
@@ -208,8 +208,9 @@ Se tabellen nedan och se till att du har valt rätt konfiguration för att aktiv
 | Plattform | Installera |
 | --- | --- |
 | IIS-Server |Antingen [installera Status Monitor på servern](app-insights-monitor-performance-live-website-now.md). Eller [uppgradera programmet till .NET framework 4.6 eller senare](https://go.microsoft.com/fwlink/?LinkId=528259) och installera den [Application Insights SDK](app-insights-asp-net.md) i din app. |
+| IIS Express |Använd IIS-servern i stället. |
 | Azure-webbapp |I din Kontrollpanelen för webbappar, [öppnar du bladet Application Insights i din Kontrollpanelen för webbappar](app-insights-azure-web-apps.md) och välj Installera om du tillfrågas. |
-| Azure Cloud Service |[Använd startåtgärd](app-insights-cloudservices.md) eller [installera .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure Cloud Service |[Använd startåtgärd](app-insights-cloudservices.md) eller [installera .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
 ## <a name="video"></a>Video
 

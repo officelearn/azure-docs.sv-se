@@ -10,25 +10,23 @@ ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 8f2bf9707d28744707c39a507108120e948dde7f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866686"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193883"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Referensguide för Vydesigner visualisering delar i Log Analytics
 Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika visualiseringar från Log Analytics-arbetsytan med hjälp av Vydesigner i Azure Log Analytics. Den här artikeln är en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
 
 Mer information om Vydesigner finns:
 
-* [Visa Designer](view-designer.md): innehåller en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
-* [Panelen referens](view-designer-tiles.md): innehåller en referens till inställningarna för varje panel som är tillgängliga i din anpassade vyer.
+* [Visa Designer](view-designer.md): Översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
+* [Panelen referens](view-designer-tiles.md): Innehåller en referens till inställningarna för varje panel som är tillgängliga i din anpassade vyer.
 
 
 Tillgängliga typer av Vydesigner paneler beskrivs i följande tabell:
@@ -182,7 +180,7 @@ Rubriken visas resultatet av två loggfrågor med tiden då stående stapeldiagr
 | Teckenförklaring |Den text som visas under bildtext för den första serien. |
 | Färg |Färgen som ska användas för kolumnerna i serien. |
 | Söka i data |Frågan ska köras under den första serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
-| Åtgärd |Åtgärd att utföra på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Sum: Summan av värdena från alla poster.</li><li>Genomsnittlig: Medelvärdet av värdena från alla poster.</li><li>Senaste exempel: värdet från det sista intervallet som ingår i diagrammet.</li><li>Exempel på först: värdet från det första intervallet som ingår i diagrammet.</li><li>Antal: Antal alla poster som returneras av frågan.</li></ul> |
+| Åtgärd |Åtgärd att utföra på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Sum: Summan av värdena från alla poster.</li><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Senaste exempel: Värde från det sista intervallet som ingår i diagrammet.</li><li>Det första exemplet: Värde från det första intervallet som ingår i diagrammet.</li><li>Antal: Antalet poster som returneras av frågan.</li></ul> |
 | **Lista** | |
 | Söka i data |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
@@ -238,7 +236,7 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid o
 | **Linjediagram** |**> Bildtext** |
 | Bildtextrubrik |Den text som visas ovanför bildtextvärdet. |
 | Seriens namn |Egenskapsvärdet för serien för värde för pratbubbla. Om inga serier anges, används alla poster från frågan. |
-| Åtgärd |Åtgärd att utföra på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Genomsnittlig: Medelvärdet av värdena från alla poster.</li><li>Antal: Antal alla poster som returneras av frågan.</li><li>Senaste exempel: värdet från det sista intervallet som ingår i diagrammet.</li><li>Max: Det maximala värdet mellan intervall som ingår i diagrammet.</li><li>Min: Det minsta värdet mellan intervall som ingår i diagrammet.</li><li>Sum: Summan av värdena från alla poster.</li></ul> |
+| Åtgärd |Åtgärd att utföra på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet poster som returneras av frågan.</li><li>Senaste exempel: Värde från det sista intervallet som ingår i diagrammet.</li><li>Max: Det maximala värdet mellan intervall som ingår i diagrammet.</li><li>Min: Det minsta värdet mellan intervall som ingår i diagrammet.</li><li>Sum: Summan av värdena från alla poster.</li></ul> |
 | **Linjediagram** |**> Y-axeln** |
 | Använda logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheter för värden som returneras av frågan. Den här informationen används för att visa diagrammet etiketter som beskriver värdetyperna och du kan också konvertera värdena. Den *enhet* typen anger kategorin för enheten och definierar de tillgängliga *aktuella enheten* skriver värden. Om du väljer ett värde i *konvertera till*, de numeriska värdena konverteras från den *aktuella enheten* skriver till den *konvertera till* typen. |
@@ -344,7 +342,7 @@ I följande tabell beskrivs inställningarna för miniatyrdiagram:
 | Inställning | Beskrivning |
 |:--- |:--- |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. |
-| Åtgärd |Om miniatyrdiagram är aktiverade, är åtgärden som ska utföras på varje egenskap i listan för att beräkna värdena för miniatyrdiagrammet.<ul><li>Senaste exempel: det sista värdet för serien över ett tidsintervall.</li><li>Max: Det maximala värdet för seriens över ett tidsintervall.</li><li>Min: Det minsta värdet för seriens över ett tidsintervall.</li><li>Sum: Summan av värdena för serien över ett tidsintervall.</li><li>Sammanfattning: Använder samma `measure` kommandot eftersom frågan i rubriken.</li></ul> |
+| Åtgärd |Om miniatyrdiagram är aktiverade, är åtgärden som ska utföras på varje egenskap i listan för att beräkna värdena för miniatyrdiagrammet.<ul><li>Senaste exempel: Det sista värdet för serien över ett tidsintervall.</li><li>Max: Det maximala värdet för seriens över ett tidsintervall.</li><li>Min: Det minsta värdet för seriens över ett tidsintervall.</li><li>Sum: Summan av värdena för serie över ett tidsintervall.</li><li>Sammanfattning: Använder samma `measure` kommandot eftersom frågan i rubriken.</li></ul> |
 
 ### <a name="thresholds"></a>Tröskelvärden
 Du kan visa en färgad ikon bredvid varje objekt i en lista med hjälp av tröskelvärden. Tröskelvärden ger dig en snabb visuell indikering för objekt som överskrider ett visst värde eller faller inom ett visst intervall. Du kan till exempel visa en grön ikon för artiklar med ett giltigt värde, gult om värdet är inom ett intervall som indikerar en varning och rött om det överskrider ett felvärde.

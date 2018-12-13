@@ -1,6 +1,6 @@
 ---
-title: Betygsätt begränsande för SMS, e-postmeddelanden, Azure App push-meddelanden och webhooks
-description: Förstå hur Azure begränsar antalet möjliga SMS, e-post, Azure App push eller webhook meddelanden från en grupp.
+title: Hastighetsbegränsning för SMS, e-postmeddelanden, Azure App push-meddelanden och webhooks
+description: Förstå hur Azure begränsar antalet möjliga SMS, e-post, Azure App push eller webhook-meddelande från en åtgärdsgrupp.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 1acea47638c75971bad62f28dcd7e96823d84c1d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 7ac5890769809e3f6f8afe320922facc04195042
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262964"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166021"
 ---
-# <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Betygsätt begränsande för röst, SMS, e-postmeddelanden, Azure App push-meddelanden och webhook inlägg
-Hastighetsbegränsning är en upphävande av meddelanden som uppstår när för många skickas till ett visst telefonnummer, e-postadress eller enhet. Hastighetsbegränsning säkerställer att aviseringar är hanterbara och rekommenderade åtgärder.
+# <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Hastighetsbegränsning för röst, SMS, e-postmeddelanden, Azure App push-meddelanden och webhook inlägg
+Hastighetsbegränsning är en upphävande av meddelanden som uppstår när för många skickas till en viss telefonnummer, e-postadress eller enhet. Hastighetsbegränsning säkerställer att aviseringar är hanterbara och rekommenderade åtgärder.
 
-Hastigheten med vilken gränsen tröskelvärden är:
+Tröskelvärden för hastighet gränsen är:
 
- - **SMS**: fler än 1 SMS var femte minut.
- - **Röst**: fler än 1 röst anropa var femte minut.
- - **E-post**: fler än 100 e-postmeddelanden på en timme.
+ - **SMS**: Mer än 1 SMS var femte minut.
+ - **Röst**: Mer än 1 röstsamtal var femte minut.
+ - **e-post**: Mer än 100 e-postmeddelanden på en timme.
  
- Andra åtgärder är inte begränsad hastighet.
+ Andra åtgärder är inte begränsats.
 
-## <a name="rate-limit-rules"></a>Hastigheten med vilken gränsen regler
-- Ett visst telefonnummer eller e-post är begränsad när den tar emot fler meddelanden än tröskelvärdet tillåter hastighet.
-- Ett telefonnummer eller e-post kan vara en del av åtgärdsgrupper mellan många prenumerationer. Hastighetsbegränsning gäller över alla prenumerationer. Det gäller så snart tröskelvärdet har uppnåtts, även om meddelanden skickas från flera prenumerationer.
-- När en e-postadress är begränsad hastighet, skickas ett meddelande med ytterligare kommunicera i hastighetsbegränsning. E-tillstånd när den hastighetsbegränsning upphör att gälla.
+## <a name="rate-limit-rules"></a>Priset gränsen regler
+- Ett visst telefonnummer eller e-postmeddelandet begränsas när den får fler meddelanden än tröskelvärdet tillåter.
+- Ett telefonnummer eller e-post kan inte ingå i åtgärdsgrupper för många prenumerationer. Hastighetsbegränsning gäller för alla prenumerationer. Det gäller när tröskelvärdet har uppnåtts, även om meddelanden skickas från flera prenumerationer.
+- När en e-postadress är hastighet som är begränsad, skickas ett meddelande om ytterligare kommunicerar den hastighetsbegränsning. E-tillstånd när den hastighetsbegränsning upphör att gälla.
 
 ## <a name="next-steps"></a>Nästa steg ##
-* Lär dig mer om [SMS Varna beteende](monitoring-sms-alert-behavior.md).
-* Hämta en [översikt över aktivitet loggen aviseringar](monitoring-overview-alerts.md), och lära dig hur du tar emot aviseringar.  
-* Lär dig hur du [konfigurera aviseringar när ett meddelande om tjänstens hälsa är bokförd](monitoring-activity-log-alerts-on-service-notifications.md).
+* Läs mer om [SMS Avisera beteende](monitoring-sms-alert-behavior.md).
+* Hämta en [översikt över aktivitetsloggaviseringar](monitoring-overview-alerts.md), och lär dig hur du får aviseringar.  
+* Lär dig hur du [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../azure-monitor/platform/alerts-activity-log-service-notifications.md).

@@ -1,5 +1,5 @@
 ---
-title: Översikt över nätverksarkitekturen i App Service-miljöer
+title: Översikt över nätverksarkitekturen i App Service - miljöer i Azure
 description: Översikt över arkitekturen i nätverket topologi ofApp Service-miljöer.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 8b6e251e4fd1b5786af0adc0f9477c08374266f2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 0d7d4af46e54ad89e0d084cb15af13e56115e996
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957733"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274181"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Översikt över nätverksarkitekturen i App Service-miljöer
 ## <a name="introduction"></a>Introduktion

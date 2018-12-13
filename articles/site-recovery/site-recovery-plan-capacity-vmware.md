@@ -4,15 +4,15 @@ description: Använd den här artikeln att planera kapacitet och skala när du k
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: nisoneji
-ms.openlocfilehash: 2d418282120ee24a5b5492c18593165fba2c6c12
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: f724837e8cce733680b98a5df5690e6a8dfbf6ee
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839423"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258856"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware-haveriberedskap till Azure
 
@@ -26,7 +26,7 @@ Samla in information om replikeringsmiljön genom att köra den [Azure Site Reco
 
 **Komponent** | **Detaljer** |
 --- | --- | ---
-**Replikering** | **Maximal dagliga förändringstakten:** en skyddad dator kan bara använda en processerver och en enda processerver kan hantera en daglig ändringen Betygsätt upp till 2 TB. 2 TB är därför de maximala daglig dataändringshastighet som stöds för en skyddad dator.<br/><br/> **Maximalt dataflöde:** en replikerad dator kan höra till ett lagringskonto i Azure. Ett standardlagringskonto kan hantera upp till 20 000 begäranden per sekund och vi rekommenderar att du behåller antal indata/utdataåtgärder per sekund (IOPS) över en källdator till 20 000. Till exempel om du har en källdator med 5 diskar och varje disk genererar 120 IOPS (8K storlek) på källdatorn, blir sedan i Azure per disk-IOPS-gränsen på 500. (Antal lagringskonton som krävs är lika med total källdatorn IOPS, dividerat med 20 000.)
+**Replikering** | **Maximal dagliga förändringstakten:** En skyddad dator kan bara använda en processerver och en enda processerver kan hantera en daglig ändringen Betygsätt upp till 2 TB. 2 TB är därför de maximala daglig dataändringshastighet som stöds för en skyddad dator.<br/><br/> **Maximalt dataflöde:** En replikerad dator kan höra till ett lagringskonto i Azure. Ett standardlagringskonto kan hantera upp till 20 000 begäranden per sekund och vi rekommenderar att du behåller antal indata/utdataåtgärder per sekund (IOPS) över en källdator till 20 000. Till exempel om du har en källdator med 5 diskar och varje disk genererar 120 IOPS (8K storlek) på källdatorn, blir sedan i Azure per disk-IOPS-gränsen på 500. (Antal lagringskonton som krävs är lika med total källdatorn IOPS, dividerat med 20 000.)
 **Konfigurationsserver** | Konfigurationsservern bör kunna hantera dagliga ändra frekvensen kapaciteten i alla arbetsbelastningar som körs på skyddade datorer och måste tillräckligt mycket bandbredd för att kontinuerligt replikera data till Azure Storage.<br/><br/> Ett bra tips är att leta upp konfigurationsservern på samma nätverk och LAN-segment som de datorer som du vill skydda. Det kan finnas på ett annat nätverk, men datorer som du vill skydda måste ha 3 nätverk skiktsynlighet till den.<br/><br/> Storleksrekommendationer för konfigurationsservern sammanfattas i tabellen i avsnittet nedan.
 **Processervern** | Den första processervern installeras som standard på konfigurationsservern. Du kan distribuera ytterligare processervrar för att skala din miljö. <br/><br/> Processervern tar emot replikeringsdata från skyddade datorer och optimerar dem med cachelagring, komprimering och kryptering. Sedan skickar den data till Azure. Process server-datorn ha tillräckligt med resurser för att utföra dessa uppgifter.<br/><br/> Processervern använder ett diskbaserad cacheminne. Använd en separat cachedisk 600 GB eller mer för att hantera dataändringar som lagras i händelse av en flaskhalsar i nätverket eller avbrott.
 
@@ -74,14 +74,14 @@ Hur där du skalar dina servrar beror på dina inställningar för en modell med
 
 När du har använt den [planeringsverktyget](site-recovery-deployment-planner.md) för att beräkna den bandbredd som du behöver för replikering (inledande replikering och sedan delta), kan du styra mängden bandbredd som används för replikering med hjälp av ett par alternativ:
 
-* **Begränsa bandbredden**: VMware-trafik som replikeras till Azure går genom en särskild process. Du kan begränsa bandbredden på de datorer som körs som processervrar.
-* **Påverka bandbredd**: du kan påverka den bandbredd som används för replikering med hjälp av några registernycklar:
+* **Begränsa bandbredden**: VMware-trafik som replikeras till Azure går igenom en särskild processerver. Du kan begränsa bandbredden på de datorer som körs som processervrar.
+* **Påverka bandbredd**: Du kan påverka den bandbredd som används för replikering med hjälp av några registernycklar:
   * Den **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** registervärdet anger antalet trådar som används för att överföra data (inledande replikering eller delta) för en disk. Ett högre värde ökar nätverksbandbredden som används för replikering.
   * Den **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** anger antalet trådar som används för dataöverföring vid återställning efter fel.
 
 ### <a name="throttle-bandwidth"></a>Begränsa bandbredden
 
-1. Öppna snapin-modulen för Azure Backup MMC på den datorn som fungerar som processervern. Som standard en genväg för säkerhetskopiering är tillgänglig på skrivbordet eller i följande mapp: C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+1. Öppna snapin-modulen för Azure Backup MMC på den datorn som fungerar som processervern. Som standard är en genväg till Backup på skrivbordet eller i följande mapp: C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
 2. Klicka på **Ändra egenskaper** i snapin-modulen.
 
     ![Skärmbild av Azure Backup MMC snapin-alternativet för att ändra egenskaper](./media/site-recovery-vmware-to-azure/throttle1.png)

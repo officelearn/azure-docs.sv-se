@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: bryanla
-ms.openlocfilehash: eba4499a71efc84a142e8839861e33c7d7db5461
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f119e4a5b5c5f97848c588636a3a707428abbd5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011900"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082534"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Vägledning för Azure Key Vault-begränsning
 
@@ -42,7 +42,7 @@ Följande är **bästa praxis** för begränsning av din app:
 
 När du implementerar felhantering för din app kan du använda HTTP-felkod 429 för att identifiera behovet av begränsning på klientsidan. Om begäran misslyckas igen med en HTTP 429-felkod kan påträffar du fortfarande en gräns för Azure-tjänsten. Fortsätta att använda rekommenderade klientsidan begränsning metod, försöka igen tills den lyckas.
 
-Implementera kod som utför exponentiell backoff. Till exempel i den här [självstudien](tutorial-net-create-vault-azure-web-app.md) visar vi hur du gör exponentiell backoff
+Kod som implementerar en exponentiell backoff visas nedan. 
 ```
      public async Task OnGetAsync()
      {
@@ -51,7 +51,6 @@ Implementera kod som utför exponentiell backoff. Till exempel i den här [själ
          bool retry = false;
          try
          {
-             /* The below 4 lines of code shows you how to use AppAuthentication library to fetch secrets from your Key Vault*/
              AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
              KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
              var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")

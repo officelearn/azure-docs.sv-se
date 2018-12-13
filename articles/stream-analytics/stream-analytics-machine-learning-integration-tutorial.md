@@ -2,19 +2,19 @@
 title: Azure Stream Analytics-integrering med Azure Machine Learning
 description: Den här artikeln beskriver hur du snabbt konfigurera ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning, med hjälp av en användardefinierad funktion.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/16/2018
-ms.openlocfilehash: 2169c3a41991b0b49a4324c16ea079f5943fad0b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d90439e498e8812551d9e2994165f1714d3bdaab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685760"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093343"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning
 Den här artikeln beskriver hur du snabbt konfigurera ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning. Du kan använda en Machine Learning sentiment analysmodell från Cortana Intelligence Gallery att analysera textdata och avgöra sentimentresultatet i realtid. Med Cortana Intelligence Suite kan du utföra den här uppgiften utan att oroa krångla för att skapa en sentiment analysmodell.
@@ -28,7 +28,7 @@ Du kan använda vad du lär dig från den här artikeln att scenarier som följa
 
 I ett verkligt scenario skulle du få data direkt från en Twitter-dataström. För att förenkla självstudien skrivs den så att Streaming Analytics-jobbet hämtar tweets från en CSV-fil i Azure Blob storage. Du kan skapa egna CSV-fil eller använda en exempel-CSV-fil som du ser i följande bild:
 
-![exemplet tweets i en CSV-fil](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
+![Exemplet tweets som visas i en CSV-fil](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
 Streaming Analytics-jobbet som du skapar tillämpar analysmodell sentiment som en användardefinierad funktion (UDF) på text exempeldata från blob store. Utdata (resultat av attitydanalys) skrivs till samma blob store i en annan CSV-fil. 
 
@@ -58,15 +58,15 @@ För det här steget ska använda du valfri CSV-fil, till exempel det som är ti
 
 3. Ange en befintlig resursgrupp och ange en plats. För plats rekommenderar vi att alla resurser som skapats i den här självstudien använder samma plats.
 
-    ![Ange information om lagringskonto](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
+    ![Ange information om lagringskonto](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
 4. Välj lagringskontot i Azure-portalen. I bladet storage-konto klickar du på **behållare** och klicka sedan på  **+ &nbsp;behållare** att skapa blob-lagring.
 
-    ![Skapa blob-behållare](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
+    ![Skapa blob storage-behållare för indata](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
 5. Ange ett namn för behållaren (`azuresamldemoblob` i det här exemplet) och kontrollera att **åtkomsttyp** är inställd på **Blob**. Klicka på **OK** när du är klar.
 
-    ![Ange information om blob-behållare](./media/stream-analytics-machine-learning-integration-tutorial/create-sa3.png)
+    ![Ange information om blob-behållare](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
 6. I den **behållare** bladet välj ny behållare, vilket öppnar bladet för den behållaren.
 
@@ -123,7 +123,7 @@ Du kan nu skapa ett Stream Analytics-jobb som läser exempel tweets från CSV-fi
 
 3. Namnge jobbet `azure-sa-ml-demo`, ange en prenumeration, ange en befintlig resursgrupp eller skapa en ny och välj en plats för jobbet.
 
-   ![Ange inställningar för nytt Stream Analytics-jobb](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
+   ![Ange inställningar för nytt Stream Analytics-jobb](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-job-1.png)
    
 
 ### <a name="configure-the-job-input"></a>Konfigurera jobbindata
@@ -143,7 +143,7 @@ Jobbet hämtar indata från CSV-filen som du tidigare laddade upp till blob stor
    |**Behållare**  | Markera den behållare som du skapade tidigare (`azuresamldemoblob`)        |
    |**Händelseserialiseringsformat**  |  Välj **CSV**       |
 
-   ![Inställningar för nya jobbindata](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
+   ![Inställningar för nya Stream Analytics-jobbindata](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
 4. Klicka på **Spara**.
 
@@ -163,7 +163,7 @@ Jobbet skickar resultaten till samma blob storage där den hämtar indata.
    |**Behållare**  | Markera den behållare som du skapade tidigare (`azuresamldemoblob`)        |
    |**Händelseserialiseringsformat**  |  Välj **CSV**       |
 
-   ![Inställningar för nya jobbutdata](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
+   ![Inställningar för nya Stream Analytics-jobbutdata](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
 4. Klicka på **Spara**.   
 
@@ -185,7 +185,7 @@ I det här avsnittet av självstudiekursen definierar du en funktion i Stream An
    | **URL**| Klistra in URL för webbtjänsten.|
    |**Nyckel** | Klistra in API-nyckeln. |
   
-   ![Inställningar för att lägga till en Machine Learning-funktionen i Stream Analytics-jobb](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Inställningar för att lägga till Machine Learning-funktionen i Stream Analytics-jobb](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
 4. Klicka på **Spara**.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ef689aec58624495a61f5fde2a8050fb7400f56e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: e86499fea76b8223b161d6cff3bb1231398f63a6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888859"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093531"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
@@ -45,7 +45,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | **Ansluten källa** | **Support** | **Beskrivning** |
 | --- | --- | --- |
 | [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
-| [Linux-agenter](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in DNS-information från direkt Linux-agenter. |
+| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in DNS-information från direkt Linux-agenter. |
 | [System Center Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
 | [Azure Storage-konto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Azure storage används inte av lösningen. |
 

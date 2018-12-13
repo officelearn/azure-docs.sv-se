@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 0cb82cfcecbb719b357cda46bf969acf6c6cefe7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 98828589832d69ada11205e471314a153a566766
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015304"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080273"
 ---
 # <a name="configure-containers"></a>Konfigurera containrar
 
@@ -84,7 +84,7 @@ Den `Eula` inställningen visar att du har godkänt licensen för behållaren. D
 |--|------|-----------|-------------|
 |Ja| `Eula` | Sträng | Godkännande av licensen<br><br>Exempel:<br>`Eula=accept` |
 
-Cognitive Services-behållare är licensierad under ditt avtal som reglerar användningen av Azure. Om du inte har en befintlig avtal som reglerar användningen av Azure, accepterar du att ditt avtal som reglerar användningen av Azure är Microsoft Online-prenumerationsavtalet (som införlivar villkoren för Online Services). För förhandsversioner också samtycker du till den kompletterande användningsvillkor för förhandsversioner av Microsoft Azure. Med hjälp av behållaren godkänner du dessa villkor.
+Cognitive Services-behållare är licensierad under [ditt avtal](https://go.microsoft.com/fwlink/?linkid=2018657) reglerar din användning av Azure. Om du inte har en befintlig avtal som reglerar användningen av Azure kan du godkänner att ditt avtal som reglerar användningen av Azure är den [prenumerationsavtalet för Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755), som införlivar den [villkoren för Online Services ](https://go.microsoft.com/fwlink/?linkid=2018760). För förhandsversioner godkänner du även den [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Med hjälp av behållaren godkänner du dessa villkor.
 
 ## <a name="fluentd-settings"></a>Fluentd-inställningar
 

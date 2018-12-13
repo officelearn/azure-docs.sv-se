@@ -1,22 +1,24 @@
 ---
-title: Skapa en offentlig Load Balancer Standard med zonindelad offentlig IP-adress klientdel med hjälp av Azure portal | Microsoft Docs
+title: Skapa en Standardbelastningsutjämnare med zonindelad frontend IP-adress – Azure-portalen
+titlesuffix: Azure Load Balancer
 description: Lär dig hur du skapar en offentlig Load Balancer Standard med zonindelad offentlig IP-adress klientdel med Azure portal
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: cc3d1e9f2d87da1ed7014674877212ea0be81bca
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e109504fe8657436d73870cc022ed4bc81c559f5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416774"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095344"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-public-ip-address-frontend-using-azure-portal"></a>Skapa en offentlig Load Balancer Standard med zonindelad offentlig IP-adress klientdel med hjälp av Azure portal
 

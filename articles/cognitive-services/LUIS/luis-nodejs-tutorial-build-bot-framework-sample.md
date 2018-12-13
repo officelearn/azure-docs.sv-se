@@ -1,25 +1,26 @@
 ---
-title: LUIS-Bot med Node.js – Web app-robot - Bot Framework SDK 3.0
+title: LUIS-Bot med Node.js
 titleSuffix: Azure Cognitive Services
 description: Skapa en robot som är integrerad med en LUIS-App med Bot Framework.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0bd191da3f2625bc202ee66100e7dac25d9d65de
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: 7229155b9fbfb93babd45c746d0f36fbab812013
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042337"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093411"
 ---
-# <a name="luis-bot-in-nodejs"></a>LUIS-bot i Node.js
+# <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot i Node.js med Bot Framework 3.x och Azure Web app-robot
 
-Genom att använda Node.js, skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning. Roboten har byggts med Bot Framework 3.x och Azure Web app-robot.
+Använd Node.js och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning. Roboten har byggts med Bot Framework 3.x och Azure Web app-robot.
 
 ## <a name="prerequisite"></a>Krav
 
@@ -27,7 +28,7 @@ Innan du skapar roboten följer du stegen i [skapa en app](./luis-get-started-cr
 
 Roboten besvarar avsikter från HomeAutomation domänen som finns i LUIS-app. För var och en av dessa avsikter ger LUIS-app ett intent som mappar till den. Roboten visar en dialogruta som hanterar avsikten som identifierar LUIS.
 
-| Avsikt | Exempel-uttryck | Bot-funktioner |
+| Avsikt | Exempel på yttrande | Bot-funktioner |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Tända lampan. | Roboten anropar den `TurnOnDialog` när den `HomeAutomation.TurnOn` har identifierats. Den här dialogrutan är där du vill anropa en IoT-tjänst för att aktivera en enhet och meddela användaren som enheten har slagits på. |
 | HomeAutomation.TurnOff | Inaktivera sovrum lamporna. | Roboten anropar den `TurnOffDialog` när den `HomeAutomation.TurnOff` har identifierats. Den här dialogrutan där du vill anropa en IoT-tjänst för att stänga av en enhet och meddela användaren som enheten har inaktiverats. |
@@ -78,7 +79,7 @@ Installera NPM-paket med följande steg:
 
 5. Ett nytt webbläsarfönster öppnas. Ange följande kommando i konsolen:
 
-    ```
+    ```console
     cd site\wwwroot && npm install
     ```
 
@@ -115,7 +116,7 @@ Gå till andra webbläsarfönstret om det är fortfarande öppna eller i det fö
 
 Öppna i kodredigeraren `app.js`. Det innehåller följande kod:
 
-```javascript
+```nodejs
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
@@ -206,7 +207,7 @@ Befintliga avsikter i app.js ignoreras. Du kan lämna dem.
 
 Kopiera följande kod och lägga till den i `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOn',
     (session) => {
         session.send('You reached the TurnOn intent. You said \'%s\'.', session.message.text);
@@ -223,7 +224,7 @@ Den [matchar] [ matches] alternativet på den [triggerAction] [ triggerAction] k
 
 Kopiera följande kod och lägga till den i `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOff',
     (session) => {
         session.send('You reached the TurnOff intent. You said \'%s\'.', session.message.text);

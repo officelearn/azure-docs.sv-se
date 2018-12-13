@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ed29fb99025dbc69b9dae6a996f444954a7d88d1
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 81d4fc3032b7b69bb438d28e97b62f483e36018b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123427"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078080"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Kopiera data från Impala med hjälp av Azure Data Factory (förhandsversion)
 
@@ -87,7 +87,12 @@ Följande egenskaper stöds för Impala länkad tjänst.
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Impala-datauppsättningen.
 
-Om du vill kopiera data från Impala, ange typegenskapen på datauppsättningen till **ImpalaObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Om du vill kopiera data från Impala, ange typegenskapen på datauppsättningen till **ImpalaObject**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **ImpalaObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -99,7 +104,8 @@ Om du vill kopiera data från Impala, ange typegenskapen på datauppsättningen 
         "linkedServiceName": {
             "referenceName": "<Impala linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -115,7 +121,7 @@ Om du vill kopiera data från Impala, ange typ av datakälla i kopieringsaktivit
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **ImpalaSource**. | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

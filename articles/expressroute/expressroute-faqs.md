@@ -1,18 +1,19 @@
 ---
-title: Vanliga frågor och svar för Azure ExpressRoute | Microsoft Docs
+title: Vanliga frågor och svar – Azure ExpressRoute | Microsoft Docs
 description: ExpressRoute vanliga frågor och svar innehåller information om stöd för Azure-tjänster, kostnad, Data och anslutningar, serviceavtal, leverantörer och platser, bandbredd och ytterligare teknisk information.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/28/2018
-ms.author: jaredro;cherylmc
-ms.openlocfilehash: 728e5b9b4934372e060374aeb273843d695c4ba8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.author: jaredro
+ms.custom: seodec18
+ms.openlocfilehash: 0621c2d1632dead41463810b9e71ebf0404a8cbe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972464"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077757"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Konvertera text till tal, .NET Core - Speech Service'
+title: 'Snabbstart: Konvertera text till tal, .NET Core - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att omvandla text till tal med REST-API för text till tal. Exempeltext som ingår i den här guiden är strukturerad som tal syntes Markup Language (SSML). På så sätt kan du välja rösten och språket för tal-svaret.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: erhopf
-ms.openlocfilehash: 4f424e73fbe1f05155e7f051d90dd72d57405adf
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641588"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089878"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Snabbstart: Konvertera text till tal med .NET Core
 
@@ -28,8 +28,8 @@ Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.
 För den här snabbstarten krävs:
 
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), eller valfri textredigerare
-* En Azure-prenumeration-nyckel för Speech-tjänsten
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
+* En Azure-prenumerationsnyckel för Speech Service
 
 ## <a name="create-a-net-core-project"></a>Skapa ett .NET Core-projekt
 
@@ -40,7 +40,7 @@ dotnet new console -o tts-sample
 cd tts-sample
 ```
 
-Det första kommandot gör två saker. Den skapar ett nytt .NET-konsolprogram och skapar en katalog med namnet `tts-sample`. Det andra kommandot ändrar till katalogen för ditt projekt.
+Det första kommandot gör två saker. Det skapar ett nytt .NET-konsolprogram och en katalog med namnet `tts-sample`. Det andra kommandot ändrar till katalogen för ditt projekt.
 
 ## <a name="select-the-c-language-version"></a>Välj den C# språkversion
 
@@ -56,9 +56,9 @@ Den här snabbstarten kräver C# 7.1 eller senare. Det finns ett antal sätt att
 
 Se till att spara dina ändringar.
 
-## <a name="add-required-namespaces-to-your-project"></a>Lägg till nödvändiga namnområden i projektet
+## <a name="add-required-namespaces-to-your-project"></a>Lägg till nödvändiga namnrymder i projektet
 
-Den `dotnet new console` kommando som du körde tidigare skapat ett nytt projekt, inklusive `Program.cs`. Den här filen är ska du ange din programkod. Öppna `Program.cs`, och Ersätt de befintliga instruktionerna. De här uttrycken se till att du har åtkomst till alla typer som krävs för att skapa och köra exempelappen.
+Kommandot `dotnet new console` som du körde tidigare skapade ett nytt projekt, inklusive `Program.cs`. Den här filen är där du lägger programkoden. Öppna `Program.cs` och ersätt de befintliga using-instruktionerna. De här instruktionerna ser till att du har åtkomst till alla typer som krävs för att skapa och köra exempelappen.
 
 ```csharp
 using System;
@@ -193,7 +193,6 @@ using (var client = new HttpClient())
         // Update your resource name
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
-        request.Headers.Add("Connection", "Keep-Alive");
         // Create a request
         Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request).ConfigureAwait(false))
@@ -218,7 +217,7 @@ using (var client = new HttpClient())
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
-Det var allt, är du redo att köra din app för text till tal. Från kommandoraden (eller terminalsession), gå till projektkatalogen och kör:
+Det var allt, är du redo att köra din app för text till tal. Från kommandoraden (eller en terminalsession) går du till projektkatalogen och kör:
 
 ```console
 dotnet run
@@ -237,4 +236,5 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 
 ## <a name="see-also"></a>Se också
 
-* [Självstudie: Känna igen tal avsikter](how-to-recognize-intents-from-speech-csharp.md)
+* [Skapa anpassade rösttyper](how-to-customize-voice-font.md)
+* [Post voice-exempel för att skapa en anpassad röst](record-custom-voice-samples.md)

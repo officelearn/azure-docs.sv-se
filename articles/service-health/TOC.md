@@ -5,7 +5,7 @@
 ## [Vad är Service Health?](service-health-overview.md)
 ## [Vad är Resource Health?](resource-health-overview.md)
 # Gör så här för att
-## [Konfigurera aviseringar för Service Health-händelser](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+## [Konfigurera aviseringar för Service Health-händelser](../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ### [Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure Portal](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [Konfigurera aviseringar om hälsotillståndet för tjänsten med en webhook](service-health-alert-webhook-guide.md)
 ### [Konfigurera med ServiceNow](service-health-alert-webhook-servicenow.md)

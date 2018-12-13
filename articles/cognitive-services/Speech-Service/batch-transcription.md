@@ -1,32 +1,36 @@
 ---
-title: Använda Azure Batch-avskrift API
+title: Hur du använder Batch avskrift – Speech Services
 titlesuffix: Azure Cognitive Services
-description: Exempel för att skriva av stora mängder ljudinnehåll.
+description: Batch avskrift är perfekt om du vill att transkribera ett stort antal ljud i lagring, till exempel Azure Blobs. Med hjälp av dedikerad REST-API kan du pekar på ljudfiler med signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: b4e7c11a6077104e874d67b75f5d00e8f481f739
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495594"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086937"
 ---
 # <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
 
-Batch avskrift är perfekt om du har stora mängder ljud i lagring. Med hjälp av dedikerad REST-API, kan du pekar på ljudfiler genom en signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
+Batch avskrift är perfekt om du vill att transkribera ett stort antal ljud i lagring, till exempel Azure Blobs. Med hjälp av dedikerad REST-API kan du pekar på ljudfiler med signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
+
+>[!NOTE]
+> En standard-prenumerationen (S0) för Speech Services krävs för att använda batch avskrift. Kostnadsfria prenumerationsnycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
 
 ## <a name="the-batch-transcription-api"></a>Batch-avskrift API
 
 API: et för Batch avskrift erbjuder asynkron tal till text-avskrift, tillsammans med ytterligare funktioner. Det är en REST-API som exponerar metoder för att:
 
 1. Skapar batch-bearbetning av begäranden
-1. Frågestatus 
+1. Frågestatus
 1. Ladda ned avskrifter
 
 > [!NOTE]
@@ -75,7 +79,7 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 
 ## <a name="authorization-token"></a>Autentiseringstoken
 
-Som med alla funktioner i Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com) genom att följa våra [startguide](get-started.md). Om du planerar att hämta avskrifter från våra basmodeller, är skapar en nyckel allt du behöver göra. 
+Som med alla funktioner i Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com) genom att följa våra [startguide](get-started.md). Om du planerar att hämta avskrifter från våra basmodeller, är skapar en nyckel allt du behöver göra.
 
 Om du planerar att anpassa och använda en anpassad modell, lägger du till prenumerationsnyckeln till portal för anpassat tal genom att göra följande:
 
@@ -106,19 +110,19 @@ Anpassa följande exempelkod med en prenumerationsnyckel och en API-nyckel. Den 
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-         
+
             return new CrisClient(client);
         }
 ```
 
-När du har fått en token, anger du SAS-URI som pekar på filen som kräver avskrift. Resten av koden upprepas status och visar resultatet. Först ska ställa du in nyckel, region, modeller ska användas och SA, enligt följande kodavsnitt. Nu ska du skapa en instans av klienten och POST-begäran. 
+När du har fått en token, anger du SAS-URI som pekar på filen som kräver avskrift. Resten av koden upprepas status och visar resultatet. Först ska ställa du in nyckel, region, modeller ska användas och SA, enligt följande kodavsnitt. Nu ska du skapa en instans av klienten och POST-begäran.
 
 ```cs
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
-    
-            // SAS URI 
+
+            // SAS URI
             private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
@@ -127,14 +131,14 @@ När du har fått en token, anger du SAS-URI som pekar på filen som kräver avs
 
             // Creating a Batch Transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
-            
+
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
 ```
 
 Nu när du har gjort begäran, kan du fråga och ladda ned avskrift-resultat som visas i följande kodavsnitt:
 
 ```cs
-  
+
             // get all transcriptions for the user
             transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
@@ -152,9 +156,9 @@ Nu när du har gjort begäran, kan du fråga och ladda ned avskrift-resultat som
                             // not created from here, continue
                             continue;
                         }
-                            
+
                         completed++;
-                            
+
                         // if the transcription was successful, check the results
                         if (transcription.Status == "Succeeded")
                         {
@@ -166,7 +170,7 @@ Nu när du har gjort begäran, kan du fråga och ladda ned avskrift-resultat som
                             Console.WriteLine("Transcription succeeded. Results: ");
                             Console.WriteLine(results);
                         }
-                    
+
                     break;
                     case "Running":
                     running++;
@@ -174,7 +178,7 @@ Nu när du har gjort begäran, kan du fråga och ladda ned avskrift-resultat som
                     case "NotStarted":
                     notStarted++;
                     break;
-                    
+
                     }
                 }
             }
@@ -188,7 +192,7 @@ Fullständig information om föregående anrop finns i vår [swagger-dokument](h
 
 Anteckna asynkron konfigurationen för att skicka ljud och ta emot avskrift status. Klienten som du skapar är en .NET-HTTP-klient. Det finns en `PostTranscriptions` metod för att skicka ljud Filinformation och en `GetTranscriptions` metod för att ta emot resultaten. `PostTranscriptions` Returnerar en referens och `GetTranscriptions` används för att skapa en referens för att hämta status för avskrift.
 
-Aktuella exempelkoden Ange inte en anpassad modell. Tjänsten använder baslinjemodeller för att skriva av den filen eller filerna. Om du vill ange modeller, kan du skicka på samma metod som modell-ID för akustiska och språkmodellen. 
+Aktuella exempelkoden Ange inte en anpassad modell. Tjänsten använder baslinjemodeller för att skriva av den filen eller filerna. Om du vill ange modeller, kan du skicka på samma metod som modell-ID för akustiska och språkmodellen.
 
 Om du inte vill använda baslinjen, skicka modell-ID: N för språk- och språkdata-modeller.
 

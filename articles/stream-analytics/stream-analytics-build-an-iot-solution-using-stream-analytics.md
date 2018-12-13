@@ -2,19 +2,19 @@
 title: Skapa en IoT-lösning med hjälp av Azure Stream Analytics
 description: Kom igång-självstudiekurs för Stream Analytics IoT-lösning på ett vaktkur-scenario
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/21/2018
-ms.openlocfilehash: e70a1210d44e5bfec914006afaf18eff772cac47
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: MT
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 230318dc8e352a3adc970b13f20fa992954e3b15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978799"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091102"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Skapa en IoT-lösning med Stream Analytics
 
@@ -36,7 +36,7 @@ Du behöver följande förutsättningar för att kunna slutföra den här lösni
 ## <a name="scenario-introduction-hello-toll"></a>Scenariot introduktion: ”Hello, avgift”!
 En avgift station är ett vanligt fenomen. Du får dem på många motorvägar, bryggor och tunnlar över hela världen. Varje station avgift har flera avgift kabiner. Vid manuell kabiner stop om du vill betala avgift för att en attendant. Vid automatisk kabiner genomsöker en sensor ovanpå varje visade ett RFID-kort som fästs på vindrutan din fordonets som du skickar avgift monter. Det är enkelt att visualisera passage genom dessa avgift stationer som en händelseström som intressanta åtgärder kan utföras.
 
-![Bild av bilar på avgift kabiner](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+! [Bild av bilar på avgift kabiner] (media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
 
 ## <a name="incoming-data"></a>Inkommande data
 Den här lösningen fungerar med två dataströmmar. Sensorer som installerats i ingångs- och avsluta avgift stationer producerar första dataströmmen. Den andra är en statisk lookup-datauppsättning som innehåller vehicle registreringsdata.
@@ -44,7 +44,7 @@ Den här lösningen fungerar med två dataströmmar. Sensorer som installerats i
 ### <a name="entry-data-stream"></a>Post-dataström
 Dataströmmen posten innehåller information om bilar då de anträder avgift stationer. Avsluta Datahändelser är live strömmat till en Event Hub-kön från en Webbapp som ingår i exempelappen.
 
-| TollID | EntryTime | LicensePlate | Status | Kontrollera | Modell | VehicleType | VehicleWeight | Avgift | Tagga |
+| TollID | EntryTime | LicensePlate | Status | Skapa | Modell | VehicleType | VehicleWeight | Avgift | Tagga |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -61,7 +61,7 @@ Här är en kort beskrivning av kolumnerna:
 | EntryTime |Datum och tid för inmatning av vehicle till avgift monter i UTC |
 | LicensePlate |Licens lj antalet fordonets |
 | Status |Ett tillstånd i USA |
-| Kontrollera |Tillverkaren av bil |
+| Skapa |Tillverkaren av bil |
 | Modell |Modellnumret för bilen |
 | VehicleType |Antingen 1 för fordon eller 2 för nyttofordon |
 | WeightType |Vehicle vikt i ton; 0 för fordon |
@@ -310,7 +310,7 @@ Att skala upp det direktuppspelade jobbet till fler enheter för strömning:
 ## <a name="monitor-the-job"></a>Övervaka jobbet
 Den **ÖVERVAKAREN** området innehåller statistik om det pågående jobbet. Första gången konfiguration krävs för att använda lagringskontot i samma region (namnet avgift som resten av det här dokumentet).   
 
-![Skärmbild av Övervakare](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Azure Stream Analytics-jobb och övervakning](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 Du kan komma åt **aktivitetsloggar** från instrumentpanelen för jobbet **inställningar** samt området.
 

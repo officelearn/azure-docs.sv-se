@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: 01d353d3f1b59fecbb1894d08c6404f441422593
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fadefe09f9f744fabe0f0f3f3cb519b3abb50b41
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872908"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098891"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "52872908"
 > * [BulkExecutor – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor – Java](sql-api-sdk-bulk-executor-java.md)
 
-SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhandahålla asynkrona åtgärder med stöd för den [Netty biblioteket](http://netty.io/). Ett befintligt [SQL API Java SDK](sql-api-sdk-java.md) har inte stöd för asynkrona åtgärder. 
+SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhandahålla asynkrona åtgärder med stöd för den [Netty biblioteket](https://netty.io/). Ett befintligt [SQL API Java SDK](sql-api-sdk-java.md) har inte stöd för asynkrona åtgärder. 
 
 <table>
 
@@ -113,7 +113,7 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 * Fast Java header-filer för generering av rätt java-dokument
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA-SDK med stöd för slutpunkt till slutpunkt för icke-blockerande i/o med hjälp av den [Netty biblioteket](http://netty.io/) i gateway-läge. 
+* GA-SDK med stöd för slutpunkt till slutpunkt för icke-blockerande i/o med hjälp av den [Netty biblioteket](https://netty.io/) i gateway-läge. 
 
 ## <a name="release-and-retirement-dates"></a>Versionen och dras tillbaka datum
 Microsoft meddelar meddelande minst **12 månader** förväg dra tillbaka en SDK för att utjämna övergången till en nyare/stöds version.

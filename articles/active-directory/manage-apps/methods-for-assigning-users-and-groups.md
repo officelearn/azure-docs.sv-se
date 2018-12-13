@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: c4aa311018603b32e854d3d3423d342350e6520d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d99209af9b1b6697419a046812928e75fed70321
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044492"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076962"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Tilldela användare och grupper till ett program i Azure Active Directory
 Den här artikeln visar hur du tilldelar användare eller grupper till ett program i Azure Active Directory (AD Azure). Användare måste först tilldelas till ett program innan en administratör kan ge dem åtkomst för att göra följande:
@@ -57,7 +57,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 5.  Klicka på **alla program** att visa en lista över alla dina program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
 6.  Välj det program som du vill tilldela en användare i listan.
 
@@ -95,7 +95,7 @@ Följ stegen nedan om du vill tilldela en eller flera grupper till ett program d
 
 5.  Klicka på **alla program** att visa en lista över alla dina program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
 6.  Välj det program som du vill tilldela en användare i listan.
 

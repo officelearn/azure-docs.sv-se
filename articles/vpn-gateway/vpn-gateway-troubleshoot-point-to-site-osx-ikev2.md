@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: c370808d06f31f9d79c99ca0f20f613d9e335d60
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0c058cb6547d67469d3138dc331b6181c07e6e65
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339060"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087532"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Felsöka punkt-till-plats-VPN-anslutningar från VPN för Mac OS X-klienter
 
@@ -36,13 +36,13 @@ Den här artikeln hjälper dig att felsöka problem med punkt-till-plats-anslutn
 ## <a name="VPNClient"></a> Felsöka certifikatbaserad autentisering
 1. Kontrollera inställningarna för VPN-klienten. Gå till den **nätverksinställningen** genom att trycka på Kommando + Skift och skriv sedan ”VPN” för att kontrollera inställningarna för VPN-klienten. I listan klickar du på VPN-posten som behöver undersökas.
 
-  ![IKEv2 certifikatbaserad autentisering](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
+   ![IKEv2 certifikatbaserad autentisering](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
 2. Kontrollera att den **serveradress** är fullständig FQDN och inkluderar cloudapp.net.
 3. Den **fjärr-ID för** ska vara samma som serveradress (Gateway FQDN).
 4. Den **lokala ID: T** bör vara samma som den **ämne** för klientcertifikatet.
 5. Klicka på **autentiseringsinställningar** att öppna inställningssidan för autentisering.
 
-  ![Autentiseringsinställningar](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![Autentiseringsinställningar](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. Kontrollera att **certifikat** väljs i listrutan.
 7. Klicka på den **Välj** knappen och kontrollera att rätt certifikat har valts. Klicka på **OK** spara några ändringar.
 
@@ -50,13 +50,13 @@ Den här artikeln hjälper dig att felsöka problem med punkt-till-plats-anslutn
 
 1. Kontrollera inställningarna för VPN-klienten. Gå till den **nätverksinställningen** genom att trycka på Kommando + Skift och skriv sedan ”VPN” för att kontrollera inställningarna för VPN-klienten. I listan klickar du på VPN-posten som behöver undersökas.
 
-  ![IKEv2-användarnamnet](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
+   ![IKEv2-användarnamnet](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
 2. Kontrollera att den **serveradress** är fullständig FQDN och inkluderar cloudapp.net.
 3. Den **fjärr-ID för** ska vara samma som serveradress (Gateway FQDN).
 4. Den **lokala ID: T** kan vara tom.
 5. Klicka på den **autentisering på** knappen och kontrollera att ”användarnamn” har valts i listrutan.
 
-  ![Autentiseringsinställningar](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
+   ![Autentiseringsinställningar](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
 6. Kontrollera att rätt autentiseringsuppgifter har angetts.
 
 ## <a name="additional"></a>Ytterligare steg
@@ -66,7 +66,7 @@ Om du försöker de föregående stegen och allt är korrekt konfigurerad, kan d
 1. Filtrera på *isakmp* och titta på den **IKE_SA** paket. Du bör kunna titta på informationen för SA-förslag under den **nyttolast: säkerhetsassociation**. 
 2. Kontrollera att klienten och servern har en gemensam uppsättning.
 
-  ![paket](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
+   ![paket](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
 3. Om det finns inga svar från servern på nätverksspår, kontrollerar du att du har aktiverat IKEv2-protokoll på sidan Azure Gateway-konfiguration på webbplatsen Azure-portalen.
 

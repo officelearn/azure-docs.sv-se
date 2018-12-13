@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5cff0041eb478bcaf007a455a47e56db9b6121bc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 8e77e7db5ccaa9861c8e90e2b7038c3f5e0d3e46
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002585"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076091"
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
@@ -239,6 +239,6 @@ Den nya dataplanen visas på menyfliken i OMS-portalen längst upp på webbsidan
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md) samla in data från datorer i ditt datacenter eller andra moln.
-* Om du vill konfigurera datainsamling från virtuella Azure-datorer läser du [Samla in data om Azure Virtual Machines](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
+* Om du vill konfigurera datainsamling från virtuella Azure-datorer läser du [Samla in data om Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
 * [Lägg till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md) för att lägga till funktioner och samla in data.
 

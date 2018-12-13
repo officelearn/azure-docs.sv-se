@@ -1,6 +1,6 @@
 ---
-title: Så här tilldelar du directory-roller till användare med Azure Active Directory | Microsoft Docs
-description: Lär dig mer om att tilldela directory-roller till användare med Azure Active Directory.
+title: Tilldela directory roller till användare – Azure Active Directory | Microsoft Docs
+description: Anvisningar om hur du tilldelar rollerna Administratör och icke-administratör för användare med Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: b73df5ec0381e83c54c8cd9f8c0335448def0c6d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: e8646893d6dd57fd3f743f450f438cd962f02b36
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733050"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095128"
 ---
-# <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Så här: tilldela roller och administratörer till användare med Azure Active Directory
+# <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Tilldela användare med Azure Active Directory rollerna Administratör och icke-administratör
 Om en användare i din organisation behöver behörighet att hantera resurser i Azure Active Directory (AD Azure), måste du tilldela användaren en lämplig roll i Azure AD, beroende på vilka åtgärder som användaren behöver behörighet att utföra.
 
 Mer information om tillgängliga roller finns i [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Mer information om att lägga till användare finns i [lägga till nya användare till Azure Active Directory](add-users-azure-active-directory.md).
@@ -29,7 +30,7 @@ Ett vanligt sätt att tilldela en användare med Azure AD-roller finns på den *
 Du kan också tilldela roller med hjälp av Privileged Identity Management (PIM). Mer information om hur du använder PIM finns [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 ### <a name="to-assign-a-role-to-a-user"></a>Tilldela en roll till en användare
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Globalt administratörskonto för katalogen.
 
 2. Välj **Azure Active Directory**väljer **användare**, och sök sedan efter och välj den användare som kom rolltilldelningen. Till exempel _Alain Charon_.
 

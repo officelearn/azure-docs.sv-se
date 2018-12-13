@@ -1,21 +1,22 @@
 ---
-title: Batch testa LUIS-appen – Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Batch-testning
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Använda batch testning för att arbeta kontinuerligt för ditt program för att förfina och förbättra dess språkförståelse.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: diberry
-ms.openlocfilehash: 44abadc653c4679f37152e6592c882475b139bdd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: eed4bc7eb50ddf21566354907f680a1a657f2aac
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333912"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090745"
 ---
 # <a name="batch-testing-in-luis"></a>Batch testa i LUIS
 

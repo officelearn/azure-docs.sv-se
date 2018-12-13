@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge-säkerhetshanteraren | Microsoft Docs
+title: Lär dig hur säkerhetshanteraren skyddar enheter, software – Azure IoT Edge | Microsoft Docs
 description: Hanterar den IoT Edge-enhet security effekten av åtgärder och integriteten för säkerhetstjänster.
 services: iot-edge
 keywords: säkerhet, säker element, enklaven, TEE, IoT Edge
@@ -9,12 +9,13 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6231f50134f7dcfd29e8754841847beb69570204
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: eda572c0f4abedd59c912dcf1de2cf3c6e226b5c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567697"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091932"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge-säkerhetshanteraren
 
@@ -33,7 +34,7 @@ Ansvaret för IoT Edge-säkerhetshanteraren omfattar (men inte begränsat till):
 * Gatekeepern enhet maskinvara förtroenderoten via notarie-tjänster.
 * Övervakar du integriteten hos IoT Edge-åtgärder vid körning.
 
-IoT Edge-säkerhetshanteraren består av tre huvudkomponenter:
+IoT Edge-säkerhetshanteraren omfattar tre komponenter:
 
 * Daemon för IoT Edge-säkerhet.
 * Maskinvara security modulen plattform abstraction Layer (HSM PAL).

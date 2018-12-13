@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8c3210a560c079f66cd21dbb30be4a4b823a6502
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415839"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078216"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Kopiera data från Marketo med Azure Data Factory (förhandsversion)
 
@@ -79,7 +79,12 @@ Följande egenskaper har stöd för Marketo länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Marketo-datauppsättningen.
 
-För att kopiera data från Marketo, ange typegenskapen på datauppsättningen till **MarketoObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+För att kopiera data från Marketo, ange typegenskapen på datauppsättningen till **MarketoObject**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **MarketoObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -91,7 +96,8 @@ För att kopiera data från Marketo, ange typegenskapen på datauppsättningen t
         "linkedServiceName": {
             "referenceName": "<Marketo linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -100,14 +106,14 @@ För att kopiera data från Marketo, ange typegenskapen på datauppsättningen t
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Marketo-källa.
 
-### <a name="marketosource-as-source"></a>MarketoSource som källa
+### <a name="marketo-as-source"></a>Marketo som källa
 
 För att kopiera data från Marketo, ange typ av datakälla i kopieringsaktiviteten till **MarketoSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MarketoSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Activitiy_Types"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Activitiy_Types"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

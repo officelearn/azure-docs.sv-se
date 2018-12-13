@@ -1,5 +1,6 @@
 ---
-title: Skapa en Azure-belastningsutjämnare med hjälp av REST API | Microsoft Docs
+title: Skapa en Azure Load Balancer med REST API
+titlesuffix: Azure Load Balancer
 description: Lär dig hur du skapar en Azure-belastningsutjämnare med hjälp av REST API.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
-ms.openlocfilehash: 2f5d3584a429ce35e6905b14bb412c3782fb0185
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416927"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079729"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Skapa en Azure belastningsutjämnare med hjälp av REST API
 

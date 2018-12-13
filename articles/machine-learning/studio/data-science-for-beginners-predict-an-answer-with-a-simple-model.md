@@ -1,11 +1,11 @@
 ---
-title: Förutsäga ett svar med en enkel regressionsmodell – Azure Machine Learning Studio | Microsoft Docs
+title: Förutsäga svar med regressionsmodeller – Azure Machine Learning Studio | Microsoft Docs
 description: Så här skapar du en enkel regressionsmodell för att förutsäga ett pris i datavetenskap för nybörjare video 4. Innehåller en linjär regression med måldata.
 keywords: Skapa en modell, enkel modell, priset förutsägelse, enkel regression-modellen
 services: machine-learning
 documentationcenter: na
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2862310623b2725cbeeaa4f5972a89ffcef44ff6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 155b853ef46c54fbb6e230573b860189bacc0d64
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309784"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092942"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Förutsäga ett svar med en enkel modell
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Datavetenskap för nybörjare-serien

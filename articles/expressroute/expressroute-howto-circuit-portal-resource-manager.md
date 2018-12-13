@@ -1,26 +1,19 @@
 ---
-title: 'Skapa och ändra en ExpressRoute-krets: Azure-portalen | Microsoft Docs'
-description: Den här artikeln beskriver hur du skapar, etablera, verifiera, uppdatera, ta bort och Avetablerar en ExpressRoute-krets.
-documentationcenter: na
+title: 'Skapa och ändra en ExpressRoute-krets - portal: Azure | Microsoft Docs'
+description: Skapa, etablera, verifiera, uppdatera, ta bort och Avetablerar en ExpressRoute-krets.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/20/2017
+ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 94d7b743bdec0d22254144d5316e0d94f5660a55
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235334"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091535"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Skapa och ändra en ExpressRoute-krets
 > [!div class="op_single_selector"]
@@ -31,7 +24,7 @@ ms.locfileid: "51235334"
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
 
-Den här artikeln beskriver hur du skapar en Azure ExpressRoute-krets med hjälp av Azure portal och distributionsmodellen Azure Resource Manager. Följande steg visar också hur du kontrollerar statusen för kretsen, uppdatera, eller ta bort och ta bort etableringen av den.
+Den här artikeln hjälper dig att skapa en ExpressRoute-krets med hjälp av Azure portal och distributionsmodellen Azure Resource Manager. Du kan också kontrollera status, uppdatera, ta bort eller avetablera en krets.
 
 
 ## <a name="before-you-begin"></a>Innan du börjar

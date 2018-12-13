@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: adaeb3087fca57a4a868f4525d588e014ff36fcf
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 028a06a7fb627fd69bdd2f0a2084bbdef11eaed4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335835"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077253"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Förstå Linux-agenten kontrollera resultaten i hantering av uppdateringar
 
@@ -54,7 +54,7 @@ OS-kontroll verifierar om Hybrid Runbook Worker kör något av följande operati
 
 ### <a name="oms-agent"></a>OMS-agenten
 
-Den här kontroller säkerställer att OMS-agenten för Linux är installerad. Anvisningar för hur du installerar den finns i [installera agenten för Linux](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+Den här kontroller säkerställer att OMS-agenten för Linux är installerad. Anvisningar för hur du installerar den finns i [installera agenten för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
 ### <a name="oms-agent-status"></a>Status för OMS-Agent

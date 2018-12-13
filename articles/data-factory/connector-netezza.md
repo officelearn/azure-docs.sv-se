@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1b7499990a049f276bf1af9e31b639ea4944d8f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 8e2b65f83395c9e8991338864d2037d0572dd269
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167582"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078014"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Kopiera data från Netezza med hjälp av Azure Data Factory 
 
@@ -80,7 +80,12 @@ Det här avsnittet innehåller en lista över egenskaper som har stöd för Nete
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar](concepts-datasets-linked-services.md). 
 
-Om du vill kopiera data från Netezza, ange den **typ** egenskapen på datauppsättningen till **NetezzaTable**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Om du vill kopiera data från Netezza, ange den **typ** egenskapen på datauppsättningen till **NetezzaTable**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **NetezzaTable** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -92,7 +97,8 @@ Om du vill kopiera data från Netezza, ange den **typ** egenskapen på dataupps�
         "linkedServiceName": {
             "referenceName": "<Netezza linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -110,7 +116,7 @@ Om du vill kopiera data från Netezza, ange den **källa** typ i Kopieringsaktiv
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **NetezzaSource**. | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"` | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"` | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

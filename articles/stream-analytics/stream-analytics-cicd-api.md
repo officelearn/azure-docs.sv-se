@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 57ba02049d6008d8b68a5a5d217d4e28cc55dcb4
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 727c1ce79fbd20252f7455f95ad00a6c44d67c65
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892617"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090524"
 ---
 # <a name="implement-cicd-for-stream-analytics-using-apis"></a>Implementera CI/CD för Stream Analytics med hjälp av API: er
 
@@ -58,7 +58,7 @@ Skapa Stream Analytics-jobb genom att anropa PUT-metoden med hjälp av Stream An
 
 |Metod|URL för begäran|
 |------|-----------|
-|PUT|https://management.azure.com/subscriptions/{**prenumerations-id**} /resourcegroups/ {**Resursgruppsnamn-**} / providers/Microsoft.StreamAnalytics/streamingjobs/ {**jobbnamn**}? api-version = 2017-04-01-preview|
+|PLACERA|https://management.azure.com/subscriptions/{**prenumerations-id**} /resourcegroups/ {**Resursgruppsnamn-**} / providers/Microsoft.StreamAnalytics/streamingjobs/ {**jobbnamn**}? api-version = 2017-04-01-preview|
  
 Exempel på kommando med hjälp av **curl**:
 
@@ -253,7 +253,7 @@ Exempel på distribution Manifest:
 } 
 ```
 
-Efter konfigurationen av manifestet distribution avser [distribuera Azure IoT Edge-moduler med Azure CLI](/iot-edge/how-to-deploy-modules-cli) för distribution.
+Efter konfigurationen av manifestet distribution avser [distribuera Azure IoT Edge-moduler med Azure CLI](/iot-edge/how-to-deploy-modules-cli.md) för distribution.
 
 
 ## <a name="next-steps"></a>Nästa steg 

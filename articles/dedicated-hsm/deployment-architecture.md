@@ -1,24 +1,25 @@
 ---
-title: Azure dedikerad HSM-distributionsarkitektur | Microsoft Docs
-description: Azure dedikerade HSM tillhandahåller funktioner för lagring av nycklar i Azure som uppfyller FIPS 140-2 Level 3-certifiering
+title: Distributionsarkitektur – Azure dedikerad HSM | Microsoft Docs
+description: Grundläggande designaspekter när du använder Azure dedikerad HSM som en del av en programarkitektur
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 8481f444464135a24d42612f334ac6096cba7b21
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 913be9d1ee6ce92d71f5f0c7eda46a618483ce8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319416"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078301"
 ---
-# <a name="deployment-architecture"></a>Distributionsarkitektur för
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure dedikerad HSM-distribution-arkitektur
 
 Azure dedikerad HSM tillhandahåller lagring av kryptografiska nycklar i Azure. Den uppfyller stränga säkerhetskrav. Kunderna kommer ha nytta av Azure dedikerad HSM om de:
 

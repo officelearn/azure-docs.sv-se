@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 78e432bf526ad270ae8543ad1be40727ed560d4b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f155ee7dbea697c72bbd53b933a7410faa828b6c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367907"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089929"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiera data från Phoenix med Azure Data Factory 
 
@@ -85,7 +85,12 @@ Följande egenskaper har stöd för Phoenix länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Phoenix-datauppsättningen.
 
-Om du vill kopiera data från Phoenix, ange typegenskapen på datauppsättningen till **PhoenixObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Om du vill kopiera data från Phoenix, ange typegenskapen på datauppsättningen till **PhoenixObject**. Följande egenskaper stöds:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **PhoenixObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -97,7 +102,8 @@ Om du vill kopiera data från Phoenix, ange typegenskapen på datauppsättningen
         "linkedServiceName": {
             "referenceName": "<Phoenix linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -106,14 +112,14 @@ Om du vill kopiera data från Phoenix, ange typegenskapen på datauppsättningen
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Phoenix källa.
 
-### <a name="phoenixsource-as-source"></a>PhoenixSource som källa
+### <a name="phoenix-as-source"></a>Phoenix som källa
 
 Om du vill kopiera data från Phoenix, ange typ av datakälla i kopieringsaktiviteten till **PhoenixSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **PhoenixSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

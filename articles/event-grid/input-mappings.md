@@ -6,20 +6,20 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: ce9df1d45de82c759883dc90d50c28551bf62cdf
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: de509ab4fa3eb4dcc647877ed6d6ee0f114fb6f4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287312"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090286"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mappa eget fält till Event Grid-schema
 
 Om dina händelsedata inte matchar den förväntade [Event Grid-schemat](event-schema.md), du kan fortfarande använda Event Grid på vägen händelse till prenumeranter. Den här artikeln beskriver hur du mappar ditt schema i Event Grid-schemat.
 
-## <a name="install-preview-feature"></a>Installera funktionen för förhandsgranskning
+## <a name="install-preview-feature"></a>Installera förhandsversionsfunktionen
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -103,7 +103,7 @@ I nästa exempel används inmatningsschemat för händelsen:
 az eventgrid event-subscription create \
   --source-resource-id $topicid \
   --name eventsub2 \
-  --event-delivery-schema inputeventschema \
+  --event-delivery-schema custominputschema \
   --endpoint <endpoint_URL>
 ```
 

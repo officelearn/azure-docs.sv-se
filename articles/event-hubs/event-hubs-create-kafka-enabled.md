@@ -1,6 +1,6 @@
 ---
-title: Skapa Apache Kafka aktiverat Azure Event Hubs | Microsoft Docs
-description: Skapa en Kafka aktiverat Event Hubs-namnområde med Azure portal
+title: Skapa Apache Kafka aktiverade event hub - Azure Event Hubs | Microsoft Docs
+description: Den här artikeln innehåller en genomgång för att skapa en Apache Kafka aktiverat Event Hubs-namnområde med hjälp av Azure-portalen.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: b72f6b190aad436398629c67f271020ffd0a8da9
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf78ac6bce23b739ed661929f6fe90eddc9b4d94
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822083"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090789"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Skapa Apache Kafka aktiverat händelsehubbar
 

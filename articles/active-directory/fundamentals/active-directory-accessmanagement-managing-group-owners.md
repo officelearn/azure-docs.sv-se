@@ -1,6 +1,6 @@
 ---
-title: Lägga till eller ta bort gruppägare i Azure Active Directory | Microsoft Docs
-description: Lär dig mer om att lägga till eller ta bort gruppägare med Azure Active Directory.
+title: Lägg till eller ta bort gruppägare - Azure Active Directory | Microsoft Docs
+description: Instruktioner om hur du lägger till eller ta bort gruppen ägare med hjälp av Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
-ms.custom: it-pro
-ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139728"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087158"
 ---
-# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Så här: lägga till eller ta bort gruppägare i Azure Active Directory
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Lägg till eller ta bort gruppägare i Azure Active Directory
 Azure Active Directory (Azure AD)-grupper ägs och hanteras av gruppägare. Gruppägare har tilldelats till hantera en grupp och dess medlemmar av en resursägare (administratör). Gruppägare behöver inte vara medlemmar i gruppen. När en gruppägare har tilldelats kan en resursägare lägga till eller ta bort ägare.
 
 I vissa fall kan du som administratör kan besluta att inte tilldela en gruppägare. I det här fallet kan du bli gruppägare. Ägare kan även tilldela andra ägare till gruppen, såvida inte har begränsats detta i gruppinställningar.

@@ -1,5 +1,6 @@
 ---
-title: Utgående regler i Azure Load Balancer | Microsoft Docs
+title: Utgående regler i Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Använd utgående regler för att definiera adressöversättningar för utgående nätverkstrafik
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 34a80a180d4c08027e4c975d4f7955966eec7307
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086376"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185026"
 ---
 # <a name="load-balancer-outbound-rules"></a>Utgående regler för belastningsutjämnare
 
@@ -191,14 +193,14 @@ När du använder en intern Standard Load Balancer, är utgående NAT inte tillg
    1. Inaktivera utgående SNAT på regeln för belastningsutjämning.
    2. Konfigurera en utgående regel på samma belastningsutjämnare.
    3. Återanvända serverdelspoolen som redan används av dina virtuella datorer.
-   4. Ange ”protokoll”: ”alla” som en del av regel för utgående trafik.
+   4. Ange ”protokoll”: ”Alla” som en del av regel för utgående trafik.
 
 - Ingen utgående NAT tillhandahålls när endast inkommande NAT-regler används.
 
    1. Placera virtuella datorer i en serverdelspool.
    2. Definiera en eller flera frontend IP-konfigurationer med offentliga IP-adresser eller offentliga IP-prefix.
    3. Konfigurera en utgående regel på samma belastningsutjämnare.
-   4. Ange ”protokoll”: ”alla” som en del av utgående regel
+   4. Ange ”protokoll”: ”Alla” som en del av utgående regel
 
 ## <a name="limitations"></a>Begränsningar
 

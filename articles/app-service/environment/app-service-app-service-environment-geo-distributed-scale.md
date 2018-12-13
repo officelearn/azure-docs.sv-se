@@ -1,5 +1,5 @@
 ---
-title: Geodistribuerad skalning med App Service Environment
+title: GEO-distribuerad skala med App Service Environment - Azure
 description: Lär dig att vågrätt skala appar med hjälp av geo-replikering med Traffic Manager och App Service-miljöer.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.openlocfilehash: bc85139dfa3589baf6505fac2269f8755dcaddc8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.custom: seodec18
+ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213256"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273875"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Geodistribuerad skalning med App Service Environment
 ## <a name="overview"></a>Översikt
@@ -42,18 +43,18 @@ Resten av det här avsnittet beskriver steg som ingår med att konfigurera en di
 ## <a name="planning-the-topology"></a>Planera topologin
 Innan du bygga ut en distribuerad app-fotavtryck hjälper det för att ha några delar informationen förbereds i förväg.
 
-* **Anpassad domän för appen:** vad är det anpassade domännamnet som kunder använder för att få åtkomst till appen?  Exempelappen det anpassade domännamnet är *www.scalableasedemo.com*
-* **Traffic Manager-domän:** ett domännamn måste väljas när du skapar en [Azure Traffic Manager-profil][AzureTrafficManagerProfile].  Det här namnet kommer att kombineras med den *trafficmanager.net* suffix för att registrera en post för domänen som hanteras av Traffic Manager.  Valt namnet är för exempelappen, *skalbar ase demo*.  Därför är det fullständiga domännamnet som hanteras av Traffic Manager *skalbar ase demo.trafficmanager.net*.
-* **Strategi för att skala app-fotavtryck:** kommer fotavtryck för programmet att distribueras på flera App Service-miljöer i en enda region?  Flera regioner?  Ett-blanda med båda metoderna?  Beslutet bör baseras på förväntningar som kundtrafiken kommer kommer från, samt hur väl resten av en app stöd för backend-infrastruktur kan skala.  Till exempel med ett 100% tillståndslösa program, kan en app massivt skalas med hjälp av en kombination av flera App Service-miljöer per Azure-region, multiplicerat med App Service-miljöer som distribueras över flera Azure-regioner.  Kunder med 15 + offentliga Azure-regioner kan välja mellan, kan verkligen skapa ett världsomspännande storskaliga program-fotavtryck.  För exempelapp som används för den här artikeln, har tre App Service-miljöer skapats i en enda Azure-region (södra centrala USA).
-* **Namnkonvention för App Service-miljöer:** varje App Service Environment krävs ett unikt namn.  Utöver en eller två App Service-miljöer är det bra att ha en namngivningskonvention för att identifiera varje App Service Environment.  En enkel namngivningskonvention för exempelappen har använts.  Namnen på de tre App Service-miljöer är *fe1ase*, *fe2ase*, och *fe3ase*.
-* **Namnkonventionen för apparna:** eftersom flera instanser av appen ska distribueras, ett namn krävs för varje instans av den distribuerade appen.  En mindre kända men mindre praktisk funktion i App Service-miljöer är att samma appnamn kan användas i flera App Service-miljöer.  Eftersom varje App Service Environment har ett unikt domänsuffix, kan utvecklare du återanvända exakt samma appnamn i varje miljö.  Utvecklare kan till exempel ha appar som namnges enligt följande: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*osv.  För exempelappen om varje app-instansen har också ett unikt namn.  App-instansnamn som används är *webfrontend1*, *webfrontend2*, och *webfrontend3*.
+* **Anpassad domän för appen:**  Vad är det anpassade domännamnet som kunder använder för att få åtkomst till appen?  Exempelappen det anpassade domännamnet är *www.scalableasedemo.com*
+* **Traffic Manager-domän:**  Ett domännamn måste väljas när du skapar en [Azure Traffic Manager-profil][AzureTrafficManagerProfile].  Det här namnet kommer att kombineras med den *trafficmanager.net* suffix för att registrera en post för domänen som hanteras av Traffic Manager.  Valt namnet är för exempelappen, *skalbar ase demo*.  Därför är det fullständiga domännamnet som hanteras av Traffic Manager *skalbar ase demo.trafficmanager.net*.
+* **Strategi för att skala app-fotavtryck:**  Program-fotavtryck distribueras över flera App Service-miljöer i en enda region?  Flera regioner?  Ett-blanda med båda metoderna?  Beslutet bör baseras på förväntningar som kundtrafiken kommer kommer från, samt hur väl resten av en app stöd för backend-infrastruktur kan skala.  Till exempel med ett 100% tillståndslösa program, kan en app massivt skalas med hjälp av en kombination av flera App Service-miljöer per Azure-region, multiplicerat med App Service-miljöer som distribueras över flera Azure-regioner.  Kunder med 15 + offentliga Azure-regioner kan välja mellan, kan verkligen skapa ett världsomspännande storskaliga program-fotavtryck.  För exempelapp som används för den här artikeln, har tre App Service-miljöer skapats i en enda Azure-region (södra centrala USA).
+* **Namngivningskonventionen för App Service-miljöer:**  Varje App Service-miljö kräver ett unikt namn.  Utöver en eller två App Service-miljöer är det bra att ha en namngivningskonvention för att identifiera varje App Service Environment.  En enkel namngivningskonvention för exempelappen har använts.  Namnen på de tre App Service-miljöer är *fe1ase*, *fe2ase*, och *fe3ase*.
+* **Namngivningskonvention för appar:**  Eftersom flera instanser av appen ska distribueras, krävs ett namn för varje instans av den distribuerade appen.  En mindre kända men mindre praktisk funktion i App Service-miljöer är att samma appnamn kan användas i flera App Service-miljöer.  Eftersom varje App Service Environment har ett unikt domänsuffix, kan utvecklare du återanvända exakt samma appnamn i varje miljö.  Utvecklare kan till exempel ha appar som namnges enligt följande: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*osv.  För exempelappen om varje app-instansen har också ett unikt namn.  App-instansnamn som används är *webfrontend1*, *webfrontend2*, och *webfrontend3*.
 
 ## <a name="setting-up-the-traffic-manager-profile"></a>Konfigurera Traffic Manager-profilen
 När flera instanser av en app distribueras på flera App Service-miljöer, kan instanser för enskilda appar registreras med Traffic Manager.  Exempelappen en Traffic Manager profilen krävs för *skalbar ase demo.trafficmanager.net* som kan dirigera kunderna till någon av följande distribuerade appen instanser:
 
-* **webfrontend1.fe1ase.p.azurewebsites.NET:** en instans av exempelappen som distribuerats på den första App Service Environment.
-* **webfrontend2.fe2ase.p.azurewebsites.NET:** en instans av exempelappen distribueras på andra App Service Environment.
-* **webfrontend3.fe3ase.p.azurewebsites.NET:** en instans av exempelappen som distribuerats på tredje App Service Environment.
+* **webfrontend1.fe1ase.p.azurewebsites.NET:**  En instans av exempelappen som distribuerats på den första App Service Environment.
+* **webfrontend2.fe2ase.p.azurewebsites.NET:**  En instans av exempelappen distribueras på andra App Service Environment.
+* **webfrontend3.fe3ase.p.azurewebsites.NET:**  En instans av exempelappen som distribuerats på tredje App Service Environment.
 
 Det enklaste sättet att registrera flera Azure App Service-slutpunkter kan alla som körs i den **samma** Azure-region, är med Powershell [support för Azure Resource Manager Traffic Manager] [ ARMTrafficManager].  
 

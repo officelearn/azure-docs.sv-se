@@ -9,16 +9,15 @@ editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 1e819f819561c5fac722ca6954a10d80a482b5cd
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: cc2fe3c71a3da58a00a3b3c65e709f2e371872e8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889369"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185213"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -51,14 +50,14 @@ Samla in följande information innan du påbörjar den här proceduren.
 
 Från din Log Analytics-arbetsyta:
 
-- Namn på arbetsyta: arbetsytan där Office 365-data kommer att samlas in.
-- Resursgruppens namn: den resursgrupp som innehåller arbetsytan.
-- Azure-prenumerations-ID: den prenumeration som innehåller arbetsytan.
+- Arbetsytans namn: Arbetsytan där Office 365-data kommer att samlas in.
+- Resursgruppsnamn: Den resursgrupp som innehåller arbetsytan.
+- Azure-prenumerations-ID: Den prenumeration som innehåller arbetsytan.
 
 Från din Office 365-prenumeration:
 
 - Användarnamn: E-postadress ett administrativt konto.
-- Klient-ID: Ett unikt ID för Office 365-prenumeration.
+- Klientorganisations-ID: Unikt ID för Office 365-prenumeration.
 - Klient-ID: 16 tecken lång sträng som representerar Office 365-klienten.
 - Klienthemlighet: Krypterad sträng som krävs för autentisering.
 

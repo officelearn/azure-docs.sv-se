@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 5f6f3f61b5f7a06ac4056499edfb811780838cdc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bd3bcd575e8e0f60d5d8f9640aa7b0ed4935249e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441885"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273229"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Konfigurera service health-aviseringar med PagerDuty
 
@@ -38,7 +38,7 @@ Den här artikeln visar hur du ställer in Azure service health meddelanden via 
 
     a. **Integrationstyp**: Microsoft Azure
 
-    b. **Namn på Integration**: \<namn\>
+    b. **Namn på Integration**: \<Namn\>
 
     ![”Integreringen Settings” i PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
@@ -50,7 +50,7 @@ Den här artikeln visar hur du ställer in Azure service health meddelanden via 
 
 ## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Skapa en avisering med PagerDuty i Azure-portalen
 ### <a name="for-a-new-action-group"></a>För en ny åtgärdsgrupp:
-1. Följ steg 1 till och med 8 i [skapa en avisering på en avisering om tjänstens hälsa för en ny åtgärdsgrupp med hjälp av Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+1. Följ steg 1 till och med 8 i [skapa en avisering på en avisering om tjänstens hälsa för en ny åtgärdsgrupp med hjälp av Azure portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 1. Definiera i listan över **åtgärder**:
 
@@ -58,7 +58,7 @@ Den här artikeln visar hur du ställer in Azure service health meddelanden via 
 
     b. **Information:** PagerDuty **integrering URL** du sparat tidigare.
 
-    c. **Namn:** Webhook's, alias eller identifierare.
+    c. **Namn:** Webhooks namn, alias eller identifierare.
 
 1. Välj **spara** när du är klar för att skapa aviseringen.
 
@@ -75,12 +75,12 @@ Den här artikeln visar hur du ställer in Azure service health meddelanden via 
 
     b. **Information:** PagerDuty **integrering URL** du sparat tidigare.
 
-    c. **Namn:** Webhook's, alias eller identifierare.
+    c. **Namn:** Webhooks namn, alias eller identifierare.
 
 1. Välj **spara** när du är klar för att uppdatera åtgärdsgruppen.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa webhook-integrering via en HTTP POST-begäran
-1. Skapa service health-nyttolasten som du vill skicka. Du hittar ett exempel service health webhook-nyttolasten på [Webhooks för Azure-aktivitetsloggar loggaviseringar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Skapa service health-nyttolasten som du vill skicka. Du hittar ett exempel service health webhook-nyttolasten på [Webhooks för Azure-aktivitetsloggar loggaviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Skapa en HTTP POST-begäran enligt följande:
 
@@ -97,6 +97,6 @@ Den här artikeln visar hur du ställer in Azure service health meddelanden via 
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system](service-health-alert-webhook-guide.md).
-- Granska den [avisering webhook för aktivitetslogg](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Granska den [avisering webhook för aktivitetslogg](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Lär dig mer om [service health meddelanden](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Läs mer om [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Läs mer om [åtgärdsgrupper](../azure-monitor/platform/action-groups.md).

@@ -1,7 +1,7 @@
 ---
-title: Hur du bläddrar igenom de tillgängliga avbildningarna - bildsökning i Bing
+title: Bläddra igenom de avbildningar som returneras av den bildsökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om att bläddra igenom alla avbildningar som kan returnera Bing.
+description: Gå till olika sidor i bilder som returneras av den bildsökning i Bing.
 services: cognitive-services
 author: swhite-msft
 manager: cgonlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec2018
+ms.openlocfilehash: 69829066e543e5ab3badc4d1d3f77ff3c1d16ffd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739374"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259757"
 ---
-# <a name="paging-results"></a>Växla resultat
+# <a name="page-through-the-images-results"></a>Bläddrar igenom resultaten avbildningar
 
 När du anropar API: et för avbildning Search returnerar Bing en lista med resultat. Listan är en delmängd av det totala antalet resultat som är relevanta för frågan. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) fält.  
 

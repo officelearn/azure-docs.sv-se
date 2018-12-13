@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ded3c89774c39b5edee02b9e3c6807ce75ff16a4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566201"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193917"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple säkerhet och dataskydd
 
@@ -55,7 +55,7 @@ Endast behörighet StorSimple enheter tillåts att ansluta till StorSimple Devic
 
 ![nyckel för tjänstregistrering](./media/storsimple-security/ServiceRegistrationKey.png)
 
-Läs hur hämta en tjänstregistreringsnyckel, gå till [steg 2: hämta tjänstregistreringsnyckeln](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
+Läs hur hämta en tjänstregistreringsnyckel, gå till [steg 2: Hämta tjänstregistreringsnyckeln](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
 Tjänstregistreringsnyckeln är en lång nyckel som innehåller 100 tecken. Du kan kopiera nyckeln och spara den i en textfil på en säker plats så att du kan använda den för att auktorisera ytterligare enheter efter behov. Om nyckeln för tjänstregistrering förloras när du har registrerat din första enhet måste skapa du en ny nyckel från StorSimple Device Manager-tjänsten. Detta påverkar inte användningen av befintliga enheter.
 
@@ -210,10 +210,10 @@ StorSimple använder följande krypteringsalgoritmer för att skydda data som la
 StorSimple Device Manager för serien för både fysiska och virtuella samlar in personlig information i följande viktiga instanser:
 
 - Avisera användarinställningar där e-postadressen för användare är konfigurerade. Den här informationen kan visas och bort av administratören. Detta gäller både för enheter i StorSimple 8000-serien och StorSimple Virtual Array.
- * Om du vill visa och avmarkerar du inställningarna för StorSimple 8000-serien, följer du stegen i [visa och hantera aviseringar för StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Om du vill visa och avmarkerar du inställningarna för StorSimple Virtual Array, följer du stegen i [visa och hantera aviseringar för StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+  * Om du vill visa och avmarkerar du inställningarna för StorSimple 8000-serien, följer du stegen i [visa och hantera aviseringar för StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+  * Om du vill visa och avmarkerar du inställningarna för StorSimple Virtual Array, följer du stegen i [visa och hantera aviseringar för StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
 - Användare som har åtkomst till data som finns på filresurser. En lista över användare som har åtkomst till resursdata visas och kan visas. Den här listan är också tas bort när filresurser tas bort. Detta gäller endast för StorSimple Virtual Array.
- * Visa listan över användare som kan komma åt eller att ta bort en resurs, följer du stegen i [hantera resurser på StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
+  * Visa listan över användare som kan komma åt eller att ta bort en resurs, följer du stegen i [hantera resurser på StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
 
 Mer information finns i Microsofts sekretesspolicy på [Säkerhetscenter](https://www.microsoft.com/trustcenter).
 
@@ -221,65 +221,65 @@ Mer information finns i Microsofts sekretesspolicy på [Säkerhetscenter](https:
 
 Följande är några frågor och svar om säkerhet och Microsoft Azure StorSimple.
 
-**F:** min tjänst har komprometterats. Vad bör vara nästa steg om jag?
+**F:** Min tjänst är skadad. Vad bör vara nästa steg om jag?
 
-**S:** omedelbart bör du ändra krypteringsnyckeln för tjänstdata och storage-kontonycklar för storage-kontot som används för lagringsnivåer data. Mer information går du till:
+**S:** Du bör ändra krypteringsnyckeln för tjänstdata och storage-kontonycklar för storage-kontot som används för lagringsnivåer data direkt. Mer information går du till:
 
 * [Ändra krypteringsnyckeln för tjänstdata](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Rotation av storage-konton](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
-**F:** jag har en ny StorSimple-enhet som frågar efter nyckeln för tjänstregistrering. Hur hämtar jag det?
+**F:** Jag har en ny StorSimple-enhet som frågar efter nyckeln för tjänstregistrering. Hur hämtar jag det?
 
-**S:** den här nyckeln skapades när du först skapade StorSimple Device Manager-tjänsten. När du använder StorSimple Device Manager-tjänsten för att ansluta till enheten kan använda du sidan Snabbstart för att visa eller återskapa tjänstregistreringsnyckeln. Generera en ny nyckel för tjänstregistrering påverkar inte befintliga registrerade enheter. Mer information går du till:
+**S:** Den här nyckeln skapades när du först skapade StorSimple Device Manager-tjänsten. När du använder StorSimple Device Manager-tjänsten för att ansluta till enheten kan använda du sidan Snabbstart för att visa eller återskapa tjänstregistreringsnyckeln. Generera en ny nyckel för tjänstregistrering påverkar inte befintliga registrerade enheter. Mer information går du till:
 
 * [Visa eller återskapa tjänstregistreringsnyckeln](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
 
-**F:** försvann min krypteringsnyckeln för tjänstdata. Vad gör jag nu?
+**F:** Min krypteringsnyckeln för tjänstdata gick förlorad. Vad gör jag nu?
 
-**S:** kontakta Microsoft Support. De kan logga in på en supportsession på enheten och hjälp med att du hämtar nyckeln (förutsatt att minst en enhet är online). Omedelbart efter att du har fått krypteringsnyckeln för tjänstdata, bör du ändra det för att säkerställa att den nya nyckeln är bara du känner till. Mer information går du till:
+**S:** Kontakta Microsoft-supporten. De kan logga in på en supportsession på enheten och hjälp med att du hämtar nyckeln (förutsatt att minst en enhet är online). Omedelbart efter att du har fått krypteringsnyckeln för tjänstdata, bör du ändra det för att säkerställa att den nya nyckeln är bara du känner till. Mer information går du till:
 
 * [Ändra krypteringsnyckeln för tjänstdata](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**F:** jag behörighet en enhet för en service encryption key dataändring, men startade inte viktiga ändringprocessen. Vad ska jag göra?
+**F:**  Jag behörighet en enhet för en service encryption key dataändring, men startade inte viktiga ändringprocessen. Vad ska jag göra?
 
-**S:** om tidsgränsen har gått ut, måste du auktorisera enheten för tjänsten data encryption key ändringen och startar processen igen.
+**S:** Om tidsgränsen har gått ut, behöver du auktorisera enheten för tjänsten data encryption key ändringen och startar processen igen.
 
-**F:** jag ändrade krypteringsnyckeln för tjänstdata, men jag gick inte att uppdatera andra enheter inom fyra timmar. Måste jag börja om igen?
+**F:**  Jag ändrade krypteringsnyckeln för tjänstdata, men jag gick inte att uppdatera andra enheter inom fyra timmar. Måste jag börja om igen?
 
 **S:** 4 timmars tidsperioden är endast för initiering av ändringen. När du startar uppdateringen på behöriga StorSimple-enheten går är auktoriseringen giltig tills alla enheter är uppdaterade.
 
-**F:** våra StorSimple-administratören har lämnat företaget. Vad ska jag göra?
+**F:** Våra StorSimple-administratören har lämnat företaget. Vad ska jag göra?
 
-**S:** ändra och återställa lösenord som tillåter åtkomst till StorSimple-enheten och ändra datakryptering service nyckeln så att den nya informationen inte känner till auktoriserad personal. Mer information går du till:
+**S:** Ändra och återställa lösenord som tillåter åtkomst till StorSimple-enheten och ändra tjänstdatakrypteringsnyckel för att säkerställa att den nya informationen inte är känd till obehöriga personer. Mer information går du till:
 
 * [Använda StorSimple Device Manager-tjänsten för att ändra din storsimple-lösenord](storsimple-8000-change-passwords.md)
 * [Ändra krypteringsnyckeln för tjänstdata](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Konfigurera CHAP för din StorSimple-enhet](storsimple-8000-configure-chap.md)
 
-**F:** jag vill ange lösenordet för StorSimple Snapshot Manager till en värd som ansluter till StorSimple-enheten, men lösenordet är inte tillgänglig. Vad kan jag göra?
+**F:** Jag vill ange lösenordet för StorSimple Snapshot Manager till en värd som ansluter till StorSimple-enheten, men lösenordet är inte tillgänglig. Vad kan jag göra?
 
-**S:** om du har glömt lösenordet, bör du skapa en ny. Sedan måste du informera alla befintliga användare att lösenordet har ändrats och att de ska uppdatera sina klienter att använda det nya lösenordet. Mer information går du till:
+**S:** Om du har glömt lösenordet kan skapa du en ny. Sedan måste du informera alla befintliga användare att lösenordet har ändrats och att de ska uppdatera sina klienter att använda det nya lösenordet. Mer information går du till:
 
 * [Ändra lösenordet för StorSimple Snapshot Manager](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)
 * [Autentisera en enhet](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**F:** certifikatet för fjärråtkomst till Windows PowerShell för StorSimple har ändrats på enheten. Hur uppdaterar jag mina fjärråtkomstklienter?
+**F:** Certifikatet för fjärråtkomst till Windows PowerShell för StorSimple har ändrats på enheten. Hur uppdaterar jag mina fjärråtkomstklienter?
 
-**S:** du kan hämta det nya certifikatet från StorSimple Device Manager-tjänsten och sedan tillhandahålla den installeras i certifikatarkivet för fjärråtkomstklienter. Mer information går du till:
+**S:** Du kan hämta det nya certifikatet från StorSimple Device Manager-tjänsten och sedan tillhandahålla den installeras i certifikatarkivet för fjärråtkomstklienter. Mer information går du till:
 
 * [Import-Certificate-cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
-**F:** är Mina data skyddas om StorSimple Device Manager-tjänsten komprometteras?
+**F:** Är Mina data skyddade om StorSimple Device Manager service komprometteras?
 
-**S:** Service configuration data krypteras alltid med din offentliga nyckel när du visar den i en webbläsare. Eftersom tjänsten inte har åtkomst till den privata nyckeln kan tjänsten inte ser några data. Om StorSimple Device Manager-tjänsten komprometteras så påverkas inte, eftersom det inte finns några nycklar som lagras i StorSimple Device Manager-tjänsten.
+**S:** Konfigurationsdata för tjänsten krypteras alltid med din offentliga nyckel när du visar den i en webbläsare. Eftersom tjänsten inte har åtkomst till den privata nyckeln kan tjänsten inte ser några data. Om StorSimple Device Manager-tjänsten komprometteras så påverkas inte, eftersom det inte finns några nycklar som lagras i StorSimple Device Manager-tjänsten.
 
-**F:** om någon får åtkomst till data-krypteringscertifikat kommer Mina data komprometteras?
+**F:** Om någon får åtkomst till data-krypteringscertifikat kommer Mina data komprometteras?
 
 **S:** Microsoft Azure lagrar kundens datakrypteringsnyckeln (.pfx-fil) i krypterat format. Eftersom .pfx-filen är krypterad och StorSimple-tjänsten har inte tjänstdatakrypteringsnyckel att dekryptera .pfx-filen, utsätter helt enkelt få åtkomst till PFX-filen inte hemligheter.
 
-**F:** vad händer om en myndighetsenhet frågar Microsoft om Mina data?
+**F:** Vad händer om en myndighetsenhet frågar Microsoft om Mina data?
 
-**S:** eftersom alla data krypteras på tjänsten och den privata nyckeln förvaras med enheten, myndighetsenhet be kunden för data.
+**S:** Eftersom alla data krypteras på tjänsten och den privata nyckeln förvaras med enheten, måste myndighetsenhet be kunden för data.
 
 
 

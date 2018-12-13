@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4e4d01371733a2292c69174e4cb135e995e5e935
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242644"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189106"
 ---
 # <a name="create-content-keys-with-rest"></a>Skapa nycklar med REST
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Media Services kan du leverera krypterade tillgångar. En **ContentKey** ger sä
 
 När du skapar en ny tillgång (till exempel innan du [ladda upp filer](media-services-rest-upload-files.md)), kan du ange följande alternativ för kryptering: **StorageEncrypted**, **CommonEncryptionProtected**, eller **EnvelopeEncryptionProtected**. 
 
-När du levererar tillgångar till dina klienter kan du [konfigurera för tillgångar ska vara dynamiskt krypterad](media-services-rest-configure-asset-delivery-policy.md) med någon av följande två krypteringar: **DynamicEnvelopeEncryption** eller  **DynamicCommonEncryption**.
+När du levererar tillgångar till dina klienter kan du [konfigurera för tillgångar ska vara dynamiskt krypterad](media-services-rest-configure-asset-delivery-policy.md) med någon av följande två krypteringar: **DynamicEnvelopeEncryption** eller **DynamicCommonEncryption**.
 
 Krypterade tillgångar måste associeras med **ContentKey**s. Den här artikeln beskriver hur du skapar en innehållsnyckel.
 
@@ -71,9 +71,9 @@ Nedan följer allmänna steg för att generera nycklar som du associerar med res
 
 Den här artikeln visar hur du skapar en AES-nyckel, kryptera nyckeln och beräkna kontrollsumman inte. 
 
->[!NOTE]
-
->Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 

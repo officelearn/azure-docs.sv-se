@@ -1,5 +1,5 @@
 ---
-title: Konfigurera mellanlagringsmiljöer för webbappar i Azure App Service | Microsoft Docs
+title: Konfigurera mellanlagringsmiljöer för webbappar – Azure App Service | Microsoft Docs
 description: Lär dig hur du använder mellanlagrad publicering för web apps i Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c6e28554f86a6a7de5d50027ceb552e15856bc96
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 17bc8fe2e5ccd9888777e11f3ca98e6afefb56b7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970866"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277394"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -124,8 +125,8 @@ När du använder den **växla med förhandsgranskning** alternativet (se [växl
 - Behåller målplatsen har inte ändrats så att befintliga arbetsbelastningen på platsen (t.ex produktion) inte påverkas.
 - Gäller konfigurationselement för destinationsplatsen till källplatsen, inklusive fack-specifika anslutningssträngar och appinställningar.
 - Startar om arbetsprocesser på käll-platsen med hjälp av dessa tidigare nämnda konfigurationselement.
-- När du har slutfört växlingen: flyttar plap warmed upp källplatsen till målplatsen. Målplatsen flyttas till käll-fack som i en manuell växling.
-- När du avbryter växlingen: återställer konfigurationselement för källplatsen till källplatsen.
+- När du har slutfört växlingen: Flyttar plap warmed upp källplatsen till målplatsen. Målplatsen flyttas till käll-fack som i en manuell växling.
+- När du avbryter växlingen: Återställer konfigurationselement för källplatsen till källplatsen.
 
 Du kan förhandsgranska exakt hur appen kommer att fungera med den destinationsplatsen konfiguration. När du har slutfört verifiering kan slutföra du växling i ett separat steg. Det här steget har vidare fördelen som källplatsen redan värmas upp med önskad konfiguration och klienter att uppleva inte något avbrott.  
 

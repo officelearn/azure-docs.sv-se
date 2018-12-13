@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b28830ac2634ad2238d834238de83c9184bcd6f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2fd2fd42f41c4f9575ebabd7722ca3e1b6e8c686
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47010399"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194580"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Aktivera Azure Ultra SSD: er
 
@@ -84,6 +84,6 @@ När den virtuella datorn har etablerats kan du partitionera och formatera datad
 - Ultra SSD stöder justera disk Prestandaattribut (IOPS och dataflöde) vid körning utan kopplar bort disken från den virtuella datorn. När storleksändringen en disk prestanda har utfärdats på en disk, kan det ta upp till en timme för att ändringen ska börja gälla faktiskt.
 - Växande diskkapaciteten kräver en virtuell dator ska frigöras.
 
-# <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Om du vill testa den nya disktypen och inte har registrerat dig för förhandsversionen ännu, [begära åtkomst via den här undersökningen](https://aka.ms/UltraSSDPreviewSignUp).

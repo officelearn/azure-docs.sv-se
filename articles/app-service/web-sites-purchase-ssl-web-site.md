@@ -1,5 +1,5 @@
 ---
-title: Köp och konfigurera ett SSL-certifikat för Azure App Service | Microsoft Docs
+title: Köp och konfigurera ett SSL-certifikat från Azure - App Service | Microsoft Docs
 description: Lär dig hur du köper en App Service-certifikat och bind den till App Service-appen
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 67d27587e8a5f85eb339efb83e661c061b621ed1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959843"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268724"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
@@ -158,4 +159,4 @@ Om du vill manuellt förnya certifikatet i stället, klickar du på **förnya ma
 * [Använda HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Kräv TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Använda ett SSL-certifikat i programkoden i Azure App Service](app-service-web-ssl-cert-load.md)
-* [Vanliga frågor och svar: App Service-certifikat](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [VANLIGA FRÅGOR OCH SVAR: App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

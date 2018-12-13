@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585850"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326461"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -137,9 +137,9 @@ Nej, när den nya disken skapas det är en fullständig fristående kopia av blo
 
 För hanterade diskar du kan inte byta namn på dem. Du kan dock byta namn på en ohanterad disk så länge den inte är för närvarande ansluten till en virtuell Hårddisk eller virtuell dator.
 
-**Kan jag använda GBT partitionering på en Disk i Azure?**
+**Kan jag använda GPT partitionering på en Disk i Azure?**
 
-GBT partitionering kan användas på datadiskar, inte OS-diskar. OS-diskar måste använda partitionstypen MBR.
+GPT partitionering kan användas på datadiskar, inte OS-diskar. OS-diskar måste använda partitionstypen MBR.
 
 ## <a name="standard-ssd-disks"></a>Standard SSD-diskar
 
@@ -188,6 +188,10 @@ Standard SSD-diskar är Nej, endast tillgängliga som Managed Disks.
 Standard SSD-enheter har Nej, inte instans VM SLA. Använd Premium SSD-diskar för enskild instans VM SLA.
 
 ## <a name="migrate-to-managed-disks"></a>Migrera till Managed Disks
+
+** Finns det någon effekt av migrering på Managed Disks prestanda?
+
+Migrering innebär att flödet av Disk från en lagringsplats till en annan. Detta är orkestreras via bakgrund kopia av data som kan ta flera timmar att slutföra, vanligtvis mindre än 24 timmar beroende på mängden data på diskarna. Under den tiden kan ditt program högre än vanligt lässvarstid uppleva eftersom vissa läsning kan hämta omdirigeras till den ursprungliga platsen och kan ta längre tid att slutföra. Det finns ingen inverkan på skrivfördröjningen under denna period.  
 
 **Vilka ändringar krävs i en befintlig Azure Backup service configuration före och efter migrering till Managed Disks?**
 
@@ -262,7 +266,7 @@ Ja
 
 Nej. Men om du exporterar en virtuell Hårddisk till ett krypterat lagringskonto från ett krypterat managed disk eller ögonblicksbild och det är krypterat. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Premium-diskar: hanterade och ohanterade
+## <a name="premium-disks-managed-and-unmanaged"></a>Premium-diskar: Hanterade och ohanterade
 
 **Om en virtuell dator använder en serie med storlek som har stöd för Premium SSD-diskar, till exempel en DSv2 kan jag koppla premium och standard datadiskar?** 
 
@@ -292,7 +296,7 @@ Lokal SSD är tillfälligt lagringsutrymme som ingår i en hanterad diskar i vir
 
 Det finns inga Nackdelen med att användningen av TRIMNING på Azure-diskar på antingen premium eller standard-diskar.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nya diskstorlekar: hanterade och ohanterade
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nya diskstorlekar: Hanterade och ohanterade
 
 **Vad är den största Managed diskstorlek som stöds för operativsystem och datadiskar?**
 
@@ -312,10 +316,10 @@ Du behöver inte uppgradera din befintliga Azure-verktyg för att skapa, koppla 
 
 |Azure-verktyg      | Versioner som stöds                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Versionsnumret 4.1.0: juni 2017-versionen eller senare|
-|Azure CLI v1     | Versionsnumret 0.10.13: maj 2017-versionen eller senare|
-|Azure CLI v2     | Versionsnumret 2.0.12: versionen för juli 2017 eller senare|
-|AzCopy           | Versionsnumret 6.1.0: juni 2017-versionen eller senare|
+|Azure PowerShell | Versionsnummer 4.1.0: Juni 2017-versionen eller senare|
+|Azure CLI v1     | Versionsnummer 0.10.13: Maj 2017-versionen eller senare|
+|Azure CLI v2     | Versionsnummer 2.0.12: Versionen för juli 2017 eller senare|
+|AzCopy           | Versionsnummer 6.1.0: Juni 2017-versionen eller senare|
 
 **Stöds P4 och P6 diskstorlekar för ohanterade diskar och sidblobar?**
 
@@ -339,7 +343,7 @@ Den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tj
 
 **Vad är den rekommenderade VM-storlekar för stora diskar (> 4TiB) för Standard SSD och HDD-Standard-diskar för att uppnå optimerade disk-IOPS och bandbredd?**
 
-Att uppnå diskgenomflöde i Standard SSD och HDD-Standard storlekar för stora diskar (> 4TB) utöver 500 IOPS och 60 MiB/s, bör du använda en av de följande storlekarna optimerade prestanda: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien, Fs-serien Fsv2-serien, M-serien GS-serien, NCv2-serien, NCv3-serien eller virtuella datorer i Ls-serien.
+Att uppnå diskgenomflöde i Standard SSD och HDD-Standard storlekar för stora diskar (> 4TB) utöver 500 IOPS och 60 MiB/s, bör du använda en av de följande storlekarna optimerade prestanda: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien, Fs-serien, Fsv2-serien, M-serien GS-serien, NCv2-serien, NCv3-serien och virtuella datorer i Ls-serien.
 
 **Vilka regioner är de hanterade diskar som är större än 4 TiB stöds i?**
 

@@ -1,5 +1,5 @@
 ---
-title: Utforska data med hjälp av Azure Time Series Insights explorer | Microsoft Docs
+title: Azure Time Series Insights explorer-datagranskning - utforska data med hjälp av Azure Time Series Insights explorer | Microsoft Docs
 description: Den här artikeln beskriver hur du använder Azure Time Series Insights-Utforskaren i webbläsaren för att snabbt se en global vy över dina stordata och verifiera din IoT-miljö.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364243"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273144"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 Den här artikeln handlar om de olika funktioner och alternativ som är tillgängliga i Time Series Insights explorer webbapp. Du kan använda Time Series Insights explorer i webbläsaren för att skapa visualiseringar av data.
@@ -55,21 +56,21 @@ Inom några minuter för att ansluta din händelsekälla till Time Series Insigh
 
 5. Nu visas ett diagram som visar en uppräkning av alla händelser under det valda tidsintervallet.  Här har du ett antal kontroller:
 
-    **Villkor redigeraren Panel**: området termen är där du fråga din miljö.  Det hittas på vänster sida av skärmen, aktiverar 
-      - **Måttet**: detta nedrullningsbar listruta visar alla numeriska kolumner (Double-värden)
-      - **Delning av**: den här nedrullningsbara visar kategoriska kolumner (strängar)
+    **Villkor redigeraren Panel**:  Termen utrymmet är där du fråga din miljö.  Det hittas på vänster sida av skärmen, aktiverar 
+      - **Måttet**:  Den här nedrullningsbara menyn visar alla numeriska kolumner (Double-värden)
+      - **Dela efter**: Den här nedrullningsbara visar kategoriska kolumner (strängar)
       - Du kan aktivera stegvis interpolering, visa lägsta och högsta och justera y-axeln från Kontrollpanelen nästa för att mäta.  Du kan dessutom justera om data som visas är ett antal, genomsnitt eller summan av data.
       - Du kan lägga till upp till fem villkoren för att visa på samma x-axeln.  Använd den **kopiera ned** knappen för att lägga till ytterligare en term eller på den **Lägg till** knappen för att lägga till ett nytt villkor.
      
         ![Redigeraren termpanel](media/time-series-insights-explorer/explorer2.png)
 
-      - **Predikatet**: predikatet kan du snabbt filtrera händelser med hjälp av uppsättningen operander som anges nedan. Om du gör en sökning genom att välja/att klicka på predikat som automatiskt uppdateras baserat på sökningen.      Operandtyperna som stöds är:
+      - **Predikatet**:  Predikatet kan du snabbt filtrera händelser med hjälp av uppsättningen operander som anges nedan. Om du gör en sökning genom att välja/att klicka på predikat som automatiskt uppdateras baserat på sökningen.      Operandtyperna som stöds är:
 
          |Åtgärd  |Typer som stöds  |Anteckningar  |
          |---------|---------|---------|
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | Sträng, Bool, Double, DateTime, TimeSpan, NULL        |         |
-         |INDIEN     | Sträng, Bool, Double, DateTime, TimeSpan, NULL        |  Alla operander bör vara av samma typ eller vara konstanten NULL.        |
+         |IN     | Sträng, Bool, Double, DateTime, TimeSpan, NULL        |  Alla operander bör vara av samma typ eller vara konstanten NULL.        |
          |HAR     | Sträng        |  Endast konstant stränglitteraler tillåts på höger sida. Tom sträng och NULL är inte tillåtna.       |
 
       - **Exempel på frågor**
@@ -102,7 +103,7 @@ Inom några minuter för att ansluta din händelsekälla till Time Series Insigh
 
    ![Termisk karta](media/time-series-insights-explorer/explorer6.png)
 
-12. **Händelser**: när du väljer att utforska händelser när du väljer eller högerklicka ovanför panelen Händelser är tillgänglig.  Här kan du se alla dina rådata händelser och exportera händelser som JSON- eller CSV-filer. Observera att Time Series Insights lagrar alla rådata.
+12. **Händelser**:  När du väljer utforska händelser när du väljer eller högerklicka ovanför panelen Händelser är tillgänglig.  Här kan du se alla dina rådata händelser och exportera händelser som JSON- eller CSV-filer. Observera att Time Series Insights lagrar alla rådata.
 
    ![Händelser](media/time-series-insights-explorer/explorer7.png)
 
@@ -110,7 +111,7 @@ Inom några minuter för att ansluta din händelsekälla till Time Series Insigh
 
    - **Mönster**: den här funktionen proaktivt mest statistiskt signifikanta mönster i en region för valda data. Detta frigör du slipper att titta på händelser för att förstå vilka mönster garanterar mest tid och energi. Dessutom kan Time Series Insights du hoppa direkt till dessa statistiskt signifikanta mönster för att fortsätta utföra en analys. Den här funktionen är också bra för utvärdering undersökningar dina historiska data. 
 
-   - **Kolumnstatistik**: kolumnstatistik ger diagram och tabeller som dela upp data från varje kolumn i den markerade dataserien över det valda tidsintervallet.  
+   - **Kolumnstatistik**:  Kolumnstatistik ger diagram och tabeller som dela upp data från varje kolumn i den markerade dataserien över det valda tidsintervallet.  
  
       ![STATISTIK](media/time-series-insights-explorer/explorer8.png) 
 

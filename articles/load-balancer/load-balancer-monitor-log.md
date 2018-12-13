@@ -1,5 +1,6 @@
 ---
-title: Övervaka åtgärder, händelser och prestandaräknare för offentlig grundläggande belastningsutjämnare | Microsoft Docs
+title: Övervaka åtgärder, händelser och prestandaräknare för offentlig grundläggande belastningsutjämnare
+titlesuffix: Azure Load Balancer
 description: Lär dig hur du aktiverar händelser och avsökning hälsotillstånd status loggning för offentlig grundläggande belastningsutjämnare
 services: load-balancer
 documentationcenter: na
@@ -7,27 +8,28 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: e8d38aaff2e7f20a3935608bcf4d610828d2b84f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261510"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164134"
 ---
 # <a name="log-analytics-for-public-basic-load-balancer"></a>Log analytics för offentlig grundläggande belastningsutjämnare
 
 >[!IMPORTANT] 
->Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standardbelastningsutjämnaren finns i [översikt över Standard Load Balancer](load-balancer-standard-overview.md) som visar telemetri via flerdimensionella mått i Azure Monitor.
+>Azure Load Balancer stöder två typer: Basic eller Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standardbelastningsutjämnaren finns i [översikt över Standard Load Balancer](load-balancer-standard-overview.md) som visar telemetri via flerdimensionella mått i Azure Monitor.
 
 Du kan använda olika typer av loggar i Azure för att hantera och felsöka grundläggande belastningsutjämnare. Några av de här loggarna kan nås via portalen. Alla loggar kan extraheras från Azure blob storage och visas i olika verktyg som Excel och Power BI. Du kan lära dig mer om de olika typerna av loggar i listan nedan.
 
-* **Granskningsloggar:** du kan använda [Azure-granskningsloggarna](../monitoring-and-diagnostics/insights-debugging-with-events.md) (kallades tidigare Driftloggar) att visa alla åtgärder som skickas till dina Azure-prenumerationer och deras status. Granskningsloggarna är aktiverade som standard och kan ses i Azure-portalen.
-* **Avisera händelseloggar:** du kan använda den här loggfilen för att visa aviseringar som genererats av belastningsutjämnaren. Status för belastningsutjämnaren som samlas in var femte minut. Den här loggfilen skrivs endast om en load balancer varning avisering har genererats.
-* **Hälsoavsökningsloggar:** du kan använda den här loggfilen för att visa problem som identifieras av din hälsoavsökning, till exempel hur många instanser i din serverdelspool som inte tar emot begäranden från belastningsutjämnaren på grund av hälsokontrollfel. Den här loggfilen skrivs till när det finns en ändring i avsökningen hälsostatus.
+* **Granskningsloggar:** Du kan använda [Azure-granskningsloggarna](../monitoring-and-diagnostics/insights-debugging-with-events.md) (kallades tidigare Driftloggar) att visa alla åtgärder som skickas till dina Azure-prenumerationer och deras status. Granskningsloggarna är aktiverade som standard och kan ses i Azure-portalen.
+* **Händelseloggar för avisering:** Du kan använda den här loggfilen för att visa aviseringar som genererats av belastningsutjämnaren. Status för belastningsutjämnaren som samlas in var femte minut. Den här loggfilen skrivs endast om en load balancer varning avisering har genererats.
+* **Hälsoavsökningsloggar:** Du kan använda den här loggfilen för att visa problem som identifieras av din hälsoavsökning, till exempel hur många instanser i din serverdelspool som inte tar emot begäranden från belastningsutjämnaren på grund av hälsokontrollfel. Den här loggfilen skrivs till när det finns en ändring i avsökningen hälsostatus.
 
 > [!IMPORTANT]
 > Logganalys för närvarande fungerar endast för offentlig grundläggande belastningsutjämnare. Loggar är bara tillgängliga för resurser som distribueras i Resource Manager-distributionsmodellen. Du kan inte använda loggar för resurser i den klassiska distributionsmodellen. Mer information om distributionsmodellerna finns i [förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -131,8 +133,8 @@ JSON-utdata som visas i egenskapsfältet grundläggande information för avsökn
 
 Du kan visa och analysera granskningsdata med hjälp av någon av följande metoder:
 
-* **Azure-verktyg:** hämta information från granskningsloggar via Azure PowerShell, Azure-kommandoradsgränssnitt (CLI), Azure REST-API eller Azure preview portal. Stegvisa instruktioner för varje metod finns beskrivna i den [granskningsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md) artikeln.
-* **Powerbi:** om du inte redan har en [Power BI](https://powerbi.microsoft.com/pricing) konto, du kan prova kostnadsfritt. Med hjälp av den [Azure-granskningsloggarna innehållspaket för Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), du kan analysera dina data med förkonfigurerade instrumentpaneler och du kan anpassa vyer så att den passar dina behov.
+* **Azure-verktyg:** Hämta information från granskningsloggar via Azure PowerShell, Azure-kommandoradsgränssnitt (CLI), Azure REST-API eller Azure preview portal. Stegvisa instruktioner för varje metod finns beskrivna i den [granskningsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md) artikeln.
+* **Powerbi:** Om du inte redan har en [Power BI](https://powerbi.microsoft.com/pricing) konto, du kan prova kostnadsfritt. Med hjälp av den [Azure-granskningsloggarna innehållspaket för Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), du kan analysera dina data med förkonfigurerade instrumentpaneler och du kan anpassa vyer så att den passar dina behov.
 
 ## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visa och analysera hälsoavsökning och händelseloggen
 

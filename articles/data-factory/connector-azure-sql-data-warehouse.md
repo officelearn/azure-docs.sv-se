@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c45167255ec91030f07e550de223a7ebed93168
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0971122ee7b9cde0664ee661454a8b7824f4b7d5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345767"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093919"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -404,7 +404,7 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
 
    1. `fileName` inte innehåller jokertecken-filtret.
    2. `rowDelimiter` måste vara **\n**.
-   3. `nullValue` anges antingen till **tom sträng** (””) eller till vänster som standard och `treatEmptyAsNull` inte är inställt på FALSKT.
+   3. `nullValue` anges antingen till **tom sträng** (””) eller till vänster som standard och `treatEmptyAsNull` är lämnas som standard eller angetts till true.
    4. `encodingName` anges till **utf-8**, vilket är standardvärdet.
    5. `escapeChar`, `quoteChar` och `skipLineCount` inte anges. Stöd för PolyBase hoppa över rubrikraden, vilket kan konfigureras som `firstRowAsHeader` i ADF.
    6. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.

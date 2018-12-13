@@ -1,23 +1,24 @@
 ---
-title: Begrepp för konvertering i LUIS - Språkförståelse
-titleSuffix: Azure Cognitive Services
+title: Datakonvertering
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Lär dig hur du kan ändra yttranden innan förutsägelser i Språkförståelse (LUIS)
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9324f7b4f7bed844f16d17b8960878892be4b165
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: dc9040661eee4cafc655deb2436130f1abcfcfd5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638400"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094805"
 ---
-# <a name="data-conversion-concepts-in-luis"></a>Begrepp för konvertering i LUIS
+# <a name="convert-data-format-of-utterances"></a>Konvertera dataformatet för yttranden
 LUIS använder Cognitive Services tal-tjänsten för att konvertera yttranden från talat yttranden till text yttranden innan förutsägelse. 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>Tal till avsikt konvertering begrepp

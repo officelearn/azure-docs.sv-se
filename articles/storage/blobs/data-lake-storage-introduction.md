@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a273d0bd4d064cb1c6ac4d3951af8a493e303f51
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0b3c4a4c21bc9b124a98b1f204f85e6e78ff233e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015899"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099570"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introduktion till Azure Data Lake Storage Gen2 förhandsversion
 
@@ -57,16 +57,16 @@ Dessutom funktioner som den [hierarkiskt namnområde](data-lake-storage-namespac
 
 ### <a name="one-service-multiple-concepts"></a>En tjänst, flera koncept
 
-Data Lake Storage Gen2 är en ytterligare funktion för analys av stordata, bygger på Azure Blob Storage. Det finns många fördelar i att utnyttja befintliga Plattformskomponenter av BLOB-och skapa och driva datasjöar för analys, det leda till flera begrepp som beskriver de samma, delade sakerna.
+Data Lake Storage Gen2 är en ytterligare funktion för analys av stordata, bygger på Azure Blob storage. Det finns många fördelar i att utnyttja befintliga Plattformskomponenter av BLOB-och skapa och driva datasjöar för analys, det leda till flera begrepp som beskriver de samma, delade sakerna.
 
 Följande är de motsvarande entiteterna som beskrivs av olika begrepp. Om inget annat anges dessa entiteter är direkt synonyma:
 
 | Begrepp                                | Översta nivån organisation | Lägre nivå organisation                                            | Databehållare |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
-| Blobbar – lagring för generell användning objekt | Container              | Virtuell katalog (SDK endast – ger inte atomiska manipulering) | Blob           |
+| Blobbar – lagring för generell användning objekt | Container              | Virtuell katalog (SDK endast – inte ger atomiska manipulering) | Blob           |
 | ADLS Gen2 – Storage Analytics          | Filsystem             | Katalog                                                           | Fil           |
 
-## <a name="open-source-platforms-that-work-with-data-lake-storage-gen2"></a>Öppen källkod-plattformar som fungerar med Data Lake Storage Gen2
+## <a name="supported-open-source-platforms"></a>Öppen källkod-plattformar som stöds
 
 Data Lake Storage Gen2 har stöd för flera plattformar för öppen källkod. Dessa plattformar visas i följande tabell.
 
@@ -77,9 +77,9 @@ Data Lake Storage Gen2 har stöd för flera plattformar för öppen källkod. De
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 + | [Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 | [Hadoop](https://hadoop.apache.org/) | 2.7 + | [Apache Hadoop släpper Arkiv](https://hadoop.apache.org/release.html) |
-| [Cloudera](https://www.cloudera.com/) | 6.1 + | [Claudera Enterprise 6.x viktig information](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
+| [Cloudera](https://www.cloudera.com/) | 6.1 + | [Cloudera Enterprise 6.x viktig information](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2 + | [Databricks Runtime-versioner](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[HortenWorks](https://hortonworks.com/)| 2.6 + | [HortenWorks dokumentation](https://docs.hortonworks.com/) |
+|[Hortonworks](https://hortonworks.com/)| 2.6 + | [Hortonworks-dokumentation](https://docs.hortonworks.com/) |
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -87,5 +87,5 @@ I följande artiklar beskriver några av de huvudsakliga begrepp för Data Lake 
 
 -   [Hierarkiskt namnområde](data-lake-storage-namespace.md)
 -   [Skapa ett lagringskonto](data-lake-storage-quickstart-create-account.md)
--   [Skapa ett HDInsight-kluster med Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
--   [Använda ett Azure Data Lake Storage Gen2-konto i Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)
+-   [Skapa ett HDInsight-kluster med Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
+-   [Använd ett Data Lake Storage Gen2-konto i Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)

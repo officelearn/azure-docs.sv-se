@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: ce434369ad7ede7f82f5af4395e096526759932a
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: ce84d1ba16ec75525740a2b799fd78c35474cda9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892500"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096645"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -40,7 +40,7 @@ Azure SQL Analytics är ett moln endast övervakning lösning stödjande strömn
 | [Azure Diagnostics](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **Ja** | Azure mått och loggfiler data skickas till Log Analytics direkt av Azure. |
 | [Azure Storage-konto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Log Analytics läsa inte data från ett lagringskonto. |
 | [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Nej | Direkta Windows-agenter används inte av lösningen. |
-| [Linux-agenter](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nej | Direct Linux-agenter används inte av lösningen. |
+| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej | Direct Linux-agenter används inte av lösningen. |
 | [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Nej | En direktanslutning från Operations Manager-agenten till Log Analytics används inte av lösningen. |
 
 ## <a name="configuration"></a>Konfiguration

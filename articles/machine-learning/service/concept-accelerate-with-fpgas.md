@@ -1,5 +1,6 @@
 ---
-title: Vad är en FPGA och Project Brainwave? – Azure Machine Learning-tjänsten
+title: Vad är en FPGA och Project Brainwave?
+titleSuffix: Azure Machine Learning service
 description: Lär dig att påskynda modeller och djupa neurala nätverk med FPGA på Azure. Den här artikeln innehåller en introduktion till fältet-programmable gate matriser (FPGA) och hur Azure Machine Learning-tjänsten tillhandahåller i realtid artificiell intelligens (AI) när du distribuerar din modell till en Azure-FPGA.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
-ms.openlocfilehash: c40837baf66b39d98da17c244f462f356d2b1f26
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: b55d641f9a72fc2f757a7687b1b6214a98c92507
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864357"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094006"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>Vad är FPGA och Project Brainwave?
 

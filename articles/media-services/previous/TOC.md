@@ -126,13 +126,13 @@
 ### [Hantera långvariga åtgärder](media-services-dotnet-long-operations.md)
 ### [Specifikation för live-inmatning av fragmenterad MP4](media-services-fmp4-live-ingest-overview.md)
 
-## [Klippinnehåll](media-services-azure-media-clipper-overview.md)
-### [Komma igång](media-services-azure-media-clipper-getting-started.md)
-### [Läsa in videor](media-services-azure-media-clipper-load-assets.md)
-### [Konfigurera kortkommandon](media-services-azure-media-clipper-keyboard-shortcuts.md)
-### [Konfigurera lokalisering](media-services-azure-media-clipper-localization.md)
-### [Skicka urklippningsjobb](media-services-azure-media-clipper-submit-job.md)
-### [Azure Portal](media-services-azure-media-clipper-portal.md)
+<!-- ## [Clip content](media-services-azure-media-clipper-overview.md)
+### [Getting started](media-services-azure-media-clipper-getting-started.md)
+### [Load videos](media-services-azure-media-clipper-load-assets.md)
+### [Configure keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Configure localization](media-services-azure-media-clipper-localization.md)
+### [Submit clipping jobs](media-services-azure-media-clipper-submit-job.md)
+### [Azure portal](media-services-azure-media-clipper-portal.md) -->
 
 ## [Skydda innehåll](media-services-content-protection-overview.md)
 ### [Lagringskryptering](media-services-rest-storage-encryption.md)

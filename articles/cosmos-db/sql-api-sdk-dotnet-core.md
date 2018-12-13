@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73876d950a34317365c9fceb865a3c473a75780a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bcd8fe040cb4d36bc98700816d6a7ebe711f13f5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874353"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093459"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -211,7 +211,7 @@ Förhandsversion av Azure Cosmos DB .NET Core SDK har funktionsparitet med den s
 * [Partitionerade samlingar](partition-data.md). 
 * [Databaskonton och geo-replikering](distribute-data-globally.md).
 
-Om du har frågor som rör detta SDK kan skicka till [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), eller rapportera problemet i den [github-lagringsplatsen](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Om du har frågor som rör detta SDK kan skicka till [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), eller rapportera problemet i den [github-lagringsplatsen](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## <a name="release--retirement-dates"></a>Fri & Släpp dras tillbaka datum
 

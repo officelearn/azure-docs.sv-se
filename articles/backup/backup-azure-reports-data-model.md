@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b1531e23d0e5fd34eff59868055ccd855b423e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444311"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877141"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Datamodell för Azure Backup-rapporter
 Den här artikeln beskriver Power BI-datamodell som används för att skapa Azure Backup-rapporter. Med den här datamodellen kan du filtrera befintliga rapporter baserat på relevanta fälten och mer är dock skapa egna rapporter med hjälp av tabeller och fält i modellen. 
@@ -33,7 +33,7 @@ Den här tabellen innehåller grundläggande fält och aggregeringar över olika
 | #AlertsCreatedInPeriod |Heltal |Antal aviseringar skapade i den valda tidsperioden |
 | % ActiveAlertsCreatedInPeriod |Procent |Procentandelen aktiva aviseringar under vald tidsperiod |
 | % CriticalAlertsCreatedInPeriod |Procent |Procentandel av kritiska aviseringar under vald tidsperiod |
-| AlertOccurenceDate |Date |Datum då aviseringen skapades |
+| AlertOccurrenceDate |Date |Datum då aviseringen skapades |
 | AlertSeverity |Text |Aviseringens exempelvis kritisk allvarlighetsgrad |
 | AlertStatus |Text |Status för aviseringen till exempel aktiv |
 | AlertType |Text |Typ av genererade aviseringen till exempel säkerhetskopiering |

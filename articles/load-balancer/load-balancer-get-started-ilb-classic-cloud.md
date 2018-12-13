@@ -1,5 +1,6 @@
 ---
-title: Skapa en intern lastbalanserare för Azure Cloud Services | Microsoft Docs
+title: Skapa en intern belastningsutjämnare för Azure Cloud Services – klassisk distribution
+titlesuffix: Azure Load Balancer
 description: Lär dig hur du skapar en intern lastbalanserare med hjälp av PowerShell i den klassiska distributionsmodellen
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: genlin
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: fb543e705c613ee1e69564e391080cf5f8357ba5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 361322ded68f7c8305c4f976847d4bcb82f7e595
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417386"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093674"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Komma igång med att skapa en intern lastbalanserare (klassisk) för molntjänster
 

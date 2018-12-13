@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: c21d78d1e0660b97c44130539ab3b5c71b8d6f6b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: b2eff49f94dfcd67cb9741055520d990429051cd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843044"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098567"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
 Lär dig mer om att välja den lämpligaste enkla inloggning metoden när du konfigurerar program i Azure Active Directory (AD Azure). 
@@ -61,7 +61,6 @@ SAML-baserad enkel inloggning stöds för program som använder någon av dessa 
 
 - SAML 2.0
 - WS-Federation
-- OpenID connect
 
 För att konfigurera ett program för SAML-baserad enkel inloggning, se [konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-portal.md). Dessutom har många program [programspecifika självstudier](../saas-apps/tutorial-list.md) som guida dig genom att konfigurera SAML-baserad enkel inloggning för specifika program. 
 

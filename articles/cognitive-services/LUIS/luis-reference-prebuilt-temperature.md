@@ -1,21 +1,22 @@
 ---
-title: LUIS fördefinierade temperatur entitetsreferenser – Azure | Microsoft Docs
+title: Temperatur fördefinierade entitet
 titleSuffix: Azure
 description: Den här artikeln innehåller temperatur fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 2716600346e65f2ca0b97e56cc156fdfb10ff3a4
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: MT
+ms.openlocfilehash: 51ae734a62de79d765ef1adc46b59fb98a5ca7e8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52440966"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089198"
 ---
 # <a name="temperature-entity"></a>Entitet för temperatur
 Temperatur extraherar en mängd olika typer av temperatur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller temperatur till programmet. Temperatur entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
@@ -26,7 +27,7 @@ Temperatur hanteras från den [identifierare fulltext](https://github.com/Micros
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>Lösning för fördefinierade temperatur entitet
 I följande exempel visas av lösningen på den **builtin.temperature** entitet.
 
-```JSON
+```json
 {
   "query": "set the temperature to 30 degrees",
   "topScoringIntent": {

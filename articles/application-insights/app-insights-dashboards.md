@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 904727c09fec1cd9cf1093f2681ba170c84f4fab
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4e6f50614520639901dcd4a6edbefe22f1226bde
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723116"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875390"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigering och instrumentpaneler i Application Insights-portalen
 När du har [ställa in Application Insights i projektet](app-insights-overview.md), telemetridata om appens prestanda och användning visas i Application Insights-resurs i ditt projekt i den [Azure-portalen](https://portal.azure.com).
@@ -62,7 +62,7 @@ Diagrammet uppdateras automatiskt med en frekvens som är beroende av diagrammet
 * Tidsintervall över 24 timmar: (tidsintervall) / 60.
 
 ### <a name="pin-any-query-in-analytics"></a>Fästa en fråga i Analytics
-Du kan också [fästa Analytics](../log-analytics/query-language/get-started-analytics-portal.md) diagram till en [delade](#share-dashboards-with-your-team) instrumentpanelen. På så sätt kan du lägga till diagram av en godtyckligt fråga tillsammans med mått som standard. 
+Du kan också [fästa Analytics](../azure-monitor/log-query/get-started-portal.md) diagram till en [delade](#share-dashboards-with-your-team) instrumentpanelen. På så sätt kan du lägga till diagram av en godtyckligt fråga tillsammans med mått som standard. 
 
 Resultat räknas automatiskt varje timme. Klicka på Uppdatera-ikonen i diagrammet för att beräkna om omedelbart. (Uppdatera webbläsaren inte beräkna om.)
 

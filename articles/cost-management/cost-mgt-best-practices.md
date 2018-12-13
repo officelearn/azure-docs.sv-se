@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 99e42f404fe103f406c4b3835f8c455bc2b91e07
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: 77a5b455e3ef86484119983af24b6461a2fba229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017696"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074495"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimera din molninvestering med Azure Cost Management
 
@@ -64,7 +64,7 @@ Fungera för att minska dina utgifter. Få ut det mesta av den baserat på resul
 
 Alla i din organisation måste delta i livscykeln för hantering av kostnaden. De behöver för att hålla som ingår med jämna mellanrum att optimera kostnaderna. Att rigorösa om den här iterativ process och göra det en grundlärosats i ansvarig molnet styrning i din organisation.
 
-![Viktiga principer](./media/cost-mgt-best-practices/principles.png)
+![Principer för viktiga diagram som visar synlighet, ansvarighet och optimering](./media/cost-mgt-best-practices/principles.png)
 
 ## <a name="plan-with-cost-in-mind"></a>Planera kostnad i åtanke
 

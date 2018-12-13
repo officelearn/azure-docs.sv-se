@@ -1,6 +1,6 @@
 ---
-title: Använd Azure IoT Edge-enheter som gatewayer | Microsoft Docs
-description: Använd Azure IoT Edge för att skapa en transparent täckande eller proxy gateway-enhet som skickar data från flera underordnade enheter till molnet eller bearbetar den lokalt.
+title: Gateways för underordnade enheter – Azure IoT Edge | Microsoft Docs
+description: Använd Azure IoT Edge för att skapa en transparent, täckande eller proxy gateway-enhet som skickar data från flera underordnade enheter till molnet eller bearbetar den lokalt.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 11/01/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 53f0f1e77f8879807b2fb93b86d825e3bd044f41
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 6e54d28d494a58966ea5312492dc79ced4c50a8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567221"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092289"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Hur en IoT Edge-enhet kan användas som en gateway
 
@@ -26,7 +27,7 @@ Det finns tre mönster för att använda en IoT Edge-enhet som en gateway: trans
 * **Protokollet translation** – även känt som ett mönster för ogenomskinlig gateway, enheter som inte stöder MQTT-, AMQP- eller HTTP kan använda en gateway-enhet för att skicka data till IoT Hub för deras räkning. Gatewayen kan tolka protokollet som används av efterföljande enheter; Det är den enda enhet som har identitet i IoT Hub. All information som ser ut som den kommer från en enhet, gatewayen. Efterföljande enheter måste bädda in ytterligare identifieringsinformation i meddelandena om molnprogram vill analysera data på varje enhet. Dessutom primitiver för IoT Hub som twins och metoder är bara tillgängliga för gateway-enheten inte underordnade enheter.
 * **Identitet translation** -enheter som inte kan ansluta till IoT Hub kan ansluta till en gateway-enhet i stället. Gatewayen tillhandahåller IoT Hub identitets- och protokollet översättning för de underordnade enheterna. Gatewayen är tillräckligt smarta för att förstå det protokoll som används av underordnade enheter, ge dem identitet och översätta primitiver för IoT Hub. Efterföljande enheter visas i IoT Hub som förstklassig enheter med twins och metoder. En användare kan interagera med enheter i IoT Hub och stöder inte mellanliggande gateway-enheten.
 
-![Diagram över gateway-mönster](./media/iot-edge-as-gateway/edge-as-gateway.png)
+![Diagram - Transparent, protokoll och identitet gateway mönster](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
 ## <a name="use-cases"></a>Användningsfall
 Alla gateway-mönster ger följande fördelar:

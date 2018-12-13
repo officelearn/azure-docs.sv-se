@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f7bd4bc74e63e3b4dd25a7185ce3641712538f1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6a62c30235fdd262f0df5937b6a829382d2b45ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284395"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866295"
 ---
 # <a name="available-skus-for-hli"></a>Tillgängliga SKU: er för HLI
 
@@ -52,7 +52,7 @@ I många fall har dessa kundspecifika serverkonfigurationer mer minne än de ser
 
 | SKU|Processor | Minne | Storage | Tillgänglighet |
 | ---| --- | --- | --- | --- |
-| S96 | SAP HANA på Azure S96<br /> – 2 x Intel® Xeon®-Processor E7-8890 v4<br /> 48 processorkärnor och 96 CPU-trådar |  768 TB |  3 TB | Tillgängligt |
+| S96 | SAP HANA på Azure S96<br /> – 2 x Intel® Xeon®-Processor E7-8890 v4<br /> 48 processorkärnor och 96 CPU-trådar |  768 GB |  3 TB | Tillgängligt |
 
 
 | Ursprungliga SKU som kan vara <br /> utökade i minnet | Processor | Minne | Storage | Tillgänglighet |

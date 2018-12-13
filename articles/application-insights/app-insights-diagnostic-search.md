@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bff5c5cfd022134c1d86883a267528717969c59
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c595695f3643522d36b53091656c3655f83a9345
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721688"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877844"
 ---
 # <a name="using-search-in-application-insights"></a>Använda sökning i Application Insights
 Search är en funktion i [Application Insights](app-insights-overview.md) att du använder för att hitta och utforska enskilda telemetri-objekt, till exempel sidvisningar, undantag, eller webb-begäranden. Och du kan visa loggspårningar och händelser som du har kodat.
 
-(För mer komplexa frågor över dina data använder [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
+(För mer komplexa frågor över dina data använder [Analytics](../azure-monitor/log-query/get-started-portal.md).)
 
 ## <a name="where-do-you-see-search"></a>Där ser du Search?
 
@@ -101,7 +101,7 @@ Hitta alla objekt med samma egenskapsvärde:
 ## <a name="search-the-data"></a>Söka efter data
 
 > [!NOTE]
-> Om du vill skriva mer komplexa frågor, öppna [ **Analytics** ](../log-analytics/query-language/get-started-analytics-portal.md) högst upp på bladet Search.
+> Om du vill skriva mer komplexa frågor, öppna [ **Analytics** ](../azure-monitor/log-query/get-started-portal.md) högst upp på bladet Search.
 > 
 
 Du kan söka efter termer i egenskapen-värden. Detta är särskilt användbart om du har skrivit [anpassade händelser](app-insights-api-custom-events-metrics.md) med egenskapsvärden. 
@@ -163,7 +163,7 @@ Vi loggas inte att skicka data automatiskt, men du kan använda [TrackTrace elle
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Nästa steg
-* [Skriva komplexa frågor i Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Skriva komplexa frågor i Analytics](../azure-monitor/log-query/get-started-portal.md)
 * [Skicka loggar och anpassad telemetri till Application Insights](app-insights-asp-net-trace-logs.md)
 * [Konfigurera tillgänglighet och svarstider tester](app-insights-monitor-web-app-availability.md)
 * [Felsökning](app-insights-troubleshoot-faq.md)

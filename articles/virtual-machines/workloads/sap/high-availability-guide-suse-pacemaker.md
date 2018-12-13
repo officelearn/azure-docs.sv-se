@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 34a72bb38c87902648ad92261a70d6545f10d0fa
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723694"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076363"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -436,7 +436,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Lägg till följande fetstil innehåll i filen om värdena inte är det eller en annan. Se till att ändra token till 30000 att tillåta minne bevarande underhåll. Mer information finns i [i den här artikeln för Linux] [ virtual-machines-linux-maintenance] eller [Windows][virtual-machines-windows-maintenance].
+   Lägg till följande fetstil innehåll i filen om värdena inte är det eller en annan. Se till att ändra token till 30000 att tillåta minne bevarande underhåll. Mer information finns i [i den här artikeln för Linux] [ virtual-machines-linux-maintenance] eller [Windows][virtual-machines-windows-maintenance]. Se också till att ta bort parametern-mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -449,6 +449,8 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
         [...] 
      }
      <b>transport:      udpu</b>
+     # remove parameter mcastaddr
+     <b># mcastaddr: IP</b>
    } 
    <b>nodelist {
      node {

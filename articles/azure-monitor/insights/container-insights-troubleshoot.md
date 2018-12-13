@@ -1,5 +1,5 @@
 ---
-title: Hur du felsöker Azure Monitor för behållare (förhandsversion) | Microsoft Docs
+title: Hur du felsöker Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskrivs hur du kan felsöka och lösa problem med Azure Monitor för behållare.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: magoedte
-ms.openlocfilehash: f5b08efda80eefad736386cd74ec1d40f05a6f3a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 4957665391dab5a88941fa84c03152e33718de3b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994829"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095269"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers-preview"></a>Felsökning Azure Monitor för behållare (förhandsgranskning)
+# <a name="troubleshooting-azure-monitor-for-containers"></a>Felsökning Azure Monitor för behållare
 
 När du konfigurerar övervakning av ditt Azure Kubernetes Service (AKS)-kluster med Azure Monitor för behållare kan du kan stöta på ett problem som förhindrar insamling av data eller rapporterar status. Den här artikeln beskriver några vanliga problem och felsökning.
 

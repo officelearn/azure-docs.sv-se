@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: e301afaa2fed2b00599fbdde8178203965280c0d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: MT
+ms.openlocfilehash: e2b68982a855b56d97983460f248ef3040d03d79
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365011"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876769"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningar om du vill minska svarstiden i Azure Time Series Insights
 När mängden inkommande data överskrider konfigurationen för din miljö kan uppstår du fördröjning eller begränsning i Azure Time Series Insights.
@@ -56,9 +56,9 @@ Därifrån kan konfigurera du aviseringar med hjälp av följande mått:
 |**Ingående erhöll ett felaktigt meddelande**     | Antal felaktiga meddelanden läsa från alla Händelsehubbar i Azure eller Azure IoT Hub händelsekällor.      |
 |**Ingående fått meddelanden**   | Antal meddelanden att läsa från alla Event Hubs eller IoT-hubbar händelsekällor.        |
 |**Ingående lagras byte**     | Total storlek på händelser som lagras och tillgängliga för frågor. Storlek beräknas endast på egenskapens värde.        |
-|**Ingående lagrade händelser**     |   Antal Flat händelser lagras där tillgängliga för frågor.      |
-|**Tidsförskjutningen för Ingress mottaget meddelande**    |  Skillnad i sekunder från det att meddelandet är i kö i käll- och den tid som bearbetas i ingående.      |
-|**Ingående emot Meddelandeantalet fördröjning**    |  Skillnaden mellan sekvensnumret för den sista köas meddelandet datakällan i partitionen och sekvens antal meddelande som bearbetas i ingående.      |
+|**Ingående lagrade händelser**     |   Antal Flat händelser lagras där tillgängliga för frågor.      |
+|**Tidsförskjutningen för Ingress mottaget meddelande**    |  Skillnad i sekunder från det att meddelandet är i kö i käll- och den tid som bearbetas i ingående.      |
+|**Ingående emot Meddelandeantalet fördröjning**    |  Skillnaden mellan sekvensnumret för den sista köas meddelandet datakällan i partitionen och sekvens antal meddelande som bearbetas i ingående.      |
 
 
 ![Svarstid](media/environment-mitigate-latency/latency.png)

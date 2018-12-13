@@ -1,21 +1,22 @@
 ---
-title: Fras listor för att förbättra identifieringen av entiteten
-titleSuffix: Azure Cognitive Services
+title: Fraslistor
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Använd Språkförståelse (LUIS) att lägga till appfunktioner som kan förbättra identifiering eller förutsägelser av avsikter och entiteter som kategorier och mönster
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
-ms.translationtype: MT
+ms.openlocfilehash: 905970c3ab449f139710cf974111618f16da141a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580969"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086648"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Använd frasen visar att boost signaler med ordlistan
 

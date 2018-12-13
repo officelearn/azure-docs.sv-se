@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory – vanliga frågor och svar | Microsoft Docs
-description: Läs vanliga frågor och svar om Azure och Azure Active Directory, lösenordshantering och programåtkomst.
+title: Vanliga frågor (FAQ) – Azure Active Directory | Microsoft Docs
+description: Vanliga frågor och svar om Azure och Azure Active Directory, lösenordshantering och programåtkomst.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: a3571ff24c36b7f2129f60348414d4d178ef30d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621759"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084102"
 ---
-# <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
+# <a name="frequently-asked-questions-about-azure-active-directory"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
 
 Mer information finns i [Vad är Azure Active Directory?](active-directory-whatis.md).

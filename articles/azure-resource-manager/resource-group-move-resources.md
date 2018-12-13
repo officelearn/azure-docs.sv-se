@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 27b41655d9a6c9000d9bc3cf98bf3246bb108104
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: d16f05c208e737f7c0095fc95c4272fe216f7a34
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015559"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094941"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -215,6 +215,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Portalen instrumentpaneler
 * Powerbi – både Power BI Embedded och Power BI-Arbetsytesamling
 * Offentliga IP - Se [offentliga IP-begränsningar](#pip-limitations)
+* Recovery Services-valv – du måste vara registrerade i en privat förhandsgranskning. Se [begränsningar för Recovery Services](#recovery-services-limitations).
 * Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
 * Scheduler
 * Search
@@ -259,7 +260,6 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Microsoft Genomics
 * NetApp
 * Offentliga IP - Se [offentliga IP-begränsningar](#pip-limitations)
-* Recovery Services-valv – även inte flytta resurserna beräkning, nätverk och lagring som är associerade med Recovery Services-valvet, se [begränsningar för Recovery Services](#recovery-services-limitations).
 * SAP HANA på Azure
 * Säkerhet
 * Site Recovery
@@ -446,6 +446,8 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
 
 ## <a name="recovery-services-limitations"></a>Recovery Services-begränsningar
 
+Om du vill flytta ett Recovery Services-valv, måste du registrera i privat förhandsgranskning. Om du vill testa den genom att skriva till AskAzureBackupTeam@microsoft.com.
+
 Flytta är inte aktiverad för lagring, nätverk och beräkning av de resurser som används för att konfigurera haveriberedskap med Azure Site Recovery.
 
 Anta exempelvis att du har konfigurerat replikeringen av dina lokala datorer till ett lagringskonto (Storage1) och vill att den skyddade datorn för att få fram efter en redundansväxling till Azure som en virtuell dator (VM1) kopplade till ett virtuellt nätverk (Network1). Du kan inte flytta någon av dessa Azure-resurser – Storage1 VM1 och Network1 - mellan resursgrupper i samma prenumeration eller mellan prenumerationer.
@@ -453,7 +455,10 @@ Anta exempelvis att du har konfigurerat replikeringen av dina lokala datorer til
 Att flytta en virtuell dator som har registrerats i **Azure backup** mellan resursgrupper:
  1. Tillfälligt stoppa säkerhetskopiering och behåller säkerhetskopierade data
  2. Flytta den virtuella datorn till målresursgruppen
- 3. Skydda den igen under samma/nytt valv som användare kan återställa från tillgängliga återställningspunkter som skapats före flyttåtgärden.
+ 3. Skydda den igen under samma/nytt valv
+
+Användare kan återställa från tillgängliga återställningspunkter som skapats före flyttåtgärden.
+
 Om användaren flyttar den säkerhetskopierade virtuella datorn för prenumerationer, är steg 1 och steg 2 desamma. I steg 3, användare som behöver skydda den virtuella datorn under ett nytt valv finns / skapas i målprenumerationen. Recovery Services-valv stöder inte över prenumerationer säkerhetskopieringar.
 
 ## <a name="hdinsight-limitations"></a>HDInsight-begränsningar

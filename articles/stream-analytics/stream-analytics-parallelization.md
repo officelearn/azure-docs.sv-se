@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 83fbebc07be3a61d7fd54953f842a320a537a7ac
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985020"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091051"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Utnyttja frågeparallellisering i Azure Stream Analytics
 Den här artikeln visar hur du drar nytta av parallellisering i Azure Stream Analytics. Du lär dig hur du skalar Stream Analytics-jobb genom att konfigurera inkommande partitioner och justera frågedefinitionen analytics.
@@ -51,7 +51,7 @@ Power BI, SQL och SQL-informationslager utdata stöd inte för partitionering. M
 Mer information om partitioner finns i följande artiklar:
 
 * [Översikt över Event Hubs-funktioner](../event-hubs/event-hubs-features.md#partitions)
-* [Datapartitionering](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
+* [Datapartitionering](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Embarrassingly parallella jobb
@@ -80,9 +80,11 @@ I följande avsnitt beskrivs några exempelscenarier som är embarrassingly para
 
 Fråga:
 
+```SQL
     SELECT TollBoothId
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
+```
 
 Den här frågan är ett enkelt filter. Därför behöver vi inte bekymra dig om att partitionera indata som skickas till händelsehubben. Observera att frågan innehåller **PARTITION av PartitionId**, så att den uppfyller krav #2 från tidigare. För utdata, vi måste konfigurera event hub-utdata i jobbet har partition nyckeluppsättning till **PartitionId**. En senaste kontrollen är att se till att antalet inkommande partitioner är lika med antalet partitioner som utdata.
 
@@ -93,9 +95,11 @@ Den här frågan är ett enkelt filter. Därför behöver vi inte bekymra dig om
 
 Fråga:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Den här frågan har en gruppering. Därför måste de händelser som grupperas tillsammans skickas till samma partition i Händelsehubben. Eftersom vi i det här exemplet Gruppera efter TollBoothID, ska vi se till att TollBoothID används som partitionsnyckel när händelser skickas till Event Hub. Sedan i ASA, använder vi **PARTITION av PartitionId** att ärva från den här partitionsschema och aktivera fullständig parallellisering. Eftersom utdatan är blob-lagring, behöver vi inte bekymra dig om hur du konfigurerar ett partitionsnyckelvärde, enligt krav #4.
 
@@ -121,6 +125,7 @@ Power BI-utdata stöd inte för närvarande för partitionering. Det här scenar
 
 Fråga:
 
+```SQL
     WITH Step1 AS (
     SELECT COUNT(*) AS Count, TollBoothId, PartitionId
     FROM Input1 Partition By PartitionId
@@ -130,6 +135,7 @@ Fråga:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1 Partition By TollBoothId
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Som du kan se det andra steget använder **TollBoothId** som partitionsnyckel. Det här steget är inte detsamma som det första steget och därför måste vi ska utföra en shuffle. 
 
@@ -143,6 +149,7 @@ En fråga kan ha en eller flera steg. Varje steg finns en underfråga som defini
 
 Fråga:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -151,6 +158,7 @@ Fråga:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute,3), TollBoothId
+```
 
 Den här frågan har två steg.
 
@@ -182,20 +190,25 @@ Du kan se några **exempel** i tabellen nedan.
 
 Följande fråga beräknar antalet bilar inom en tre tvåminutersperiod går igenom en avgift station som har tre tollbooths. Den här frågan kan skalas upp till sex su: er.
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Om du vill använda flera SUs för frågan, måste både den inkommande dataströmmen och frågan partitioneras. Eftersom data stream partitionen har angetts till 3, kan följande ändrade frågan skalas upp till 18 SUs:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 När en fråga är partitionerad inkommande händelser bearbetas och aggregeras i en separat partitionsgrupper. Utdata-händelser genereras även för grupper. Partitionering kan orsaka vissa oväntade resultat när den **GROUP BY** fältet är inte Partitionsnyckeln i den inkommande dataströmmen. Till exempel den **TollBoothId** fält i den föregående frågan är inte Partitionsnyckeln för **indata1**. Resultatet är att data från vaktkur nr 1 kan spridas i flera partitioner.
 
 Var och en av de **indata1** partitionerna bearbetas separat av Stream Analytics. Därmed skapas flera poster med antalet bil för samma vaktkur i samma utlösare för rullande fönster. Om inkommande Partitionsnyckeln inte kan ändras, kan det här problemet åtgärdas genom att lägga till ett icke-partition steg aggregerade värden över partitioner, som i följande exempel:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -205,6 +218,7 @@ Var och en av de **indata1** partitionerna bearbetas separat av Stream Analytics
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Den här frågan kan skalas till 24 SUs.
 

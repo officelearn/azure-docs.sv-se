@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: b78332933c7c406cd938091b578786467a73248f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 741288bd1a927b12705b3b31c5a1c60d6b94db5b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141789"
+ms.locfileid: "53194257"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Distribuera Azure Monitor för förhandsgranskning av virtuella datorer
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer. Tjänsten övervakar operativsystemet hälsotillståndet för dina Azure-datorer (VM) och VM-skalningsuppsättningar och de virtuella datorerna i din miljö. Den här övervakning innefattar identifierings- och mappningen av programberoenden som kan finnas på dem. 
@@ -157,7 +156,7 @@ I Azure Monitor för virtuella datorer kartan funktionen hämtar data från Micr
 
 Oavsett om du aktiverar Azure Monitor för virtuella datorer för en virtuell Azure-dator eller du använda metoden i skala distributionen kan behöva du använda agent-tillägget för Azure VM beroende för att installera agenten som en del av upplevelsen. 
 
-I en hybridmiljö kan du hämta och installera beroendeagenten på något av två sätt: manuellt eller genom att använda en automatisk distributionsmetod för virtuella datorer som är värd för platser utanför Azure. 
+I en hybridmiljö kan du hämta och installera beroendeagenten på något av två sätt: Manuellt eller genom att använda en automatisk distributionsmetod för virtuella datorer som finns utanför Azure. 
 
 I följande tabell beskrivs de anslutna källor som har stöd för funktionen kartan i en hybridmiljö.
 
@@ -332,19 +331,19 @@ Principdefinitionerna visas i följande tabell:
 
 |Namn |Beskrivning |Typ |  
 |-----|------------|-----|  
-|[Förhandsversion]: aktivera Azure Monitor för virtuella datorer |Aktivera Azure Monitor för virtuella datorer (VM) i definitionsområdet (hanteringsgruppen, prenumeration eller resursgrupp). Tar Log Analytics-arbetsyta som en parameter. |Initiativ |  
-|[Förhandsversion]: granska beroende Agentdistribution – VM Image (OS) inte finns i listan |Rapporterar virtuella datorer som icke-kompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |  
-|[Förhandsversion]: Agentdistribution för granskning Log Analytics – VM Image (OS) inte finns i listan |Rapporterar virtuella datorer som icke-kompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |  
-|[Förhandsversion]: distribuera Beroendeagenten för virtuella Linux-datorer |Distribuera Beroendeagenten för virtuella Linux-datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |  
-|[Förhandsversion]: distribuera Beroendeagenten för virtuella Windows-datorer |Distribuera beroende Agent för Windows virtuella datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |  
-|[Förhandsversion]: distribuerar Log Analytics-agenten för Linux-datorer |Distribuera Log Analytics-agenten för Linux-datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |  
-|[Förhandsversion]: distribuerar Log Analytics-agenten för Windows-datorer |Distribuera Log Analytics-agenten för Windows virtuella datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: Aktivera Azure Monitor för virtuella datorer |Aktivera Azure Monitor för virtuella datorer (VM) i definitionsområdet (hanteringsgruppen, prenumeration eller resursgrupp). Tar Log Analytics-arbetsyta som en parameter. |Initiativ |  
+|[Förhandsversion]: Granska beroende Agentdistribution – VM Image (OS) inte finns i listan |Rapporterar virtuella datorer som icke-kompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: Granska Agentdistribution för Log Analytics – VM Image (OS) inte finns i listan |Rapporterar virtuella datorer som icke-kompatibel om VM-avbildning (OS) har inte definierats i listan och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: Distribuera Beroendeagenten för virtuella Linux-datorer |Distribuera Beroendeagenten för virtuella Linux-datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: Distribuera Beroendeagenten för virtuella Windows-datorer |Distribuera beroende Agent för Windows virtuella datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: Distribuera Log Analytics-agenten för Linux-datorer |Distribuera Log Analytics-agenten för Linux-datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: Distribuera Log Analytics-agenten för Windows-datorer |Distribuera Log Analytics-agenten för Windows virtuella datorer om VM-avbildning (OS) har definierats i listan och agenten är inte installerad. |Princip |  
 
 Fristående princip (ingår inte i initiativet) som beskrivs här: 
 
 |Namn |Beskrivning |Typ |  
 |-----|------------|-----|  
-|[Förhandsversion]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel |Rapporter för virtuella datorer som inkompatibla om de inte loggar till Log Analytics-arbetsytan som angetts i principen/initiativ tilldelningen. |Princip |
+|[Förhandsversion]: Granska Log Analytics-arbetsyta för VM - matchningsfel för rapport |Rapporter för virtuella datorer som inkompatibla om de inte loggar till Log Analytics-arbetsytan som angetts i principen/initiativ tilldelningen. |Princip |
 
 #### <a name="assign-the-azure-monitor-initiative"></a>Tilldela Azure Monitor-initiativ
 Du kan använda den här första versionen för att skapa principtilldelningen endast i Azure-portalen. Information om hur du utför de här stegen finns i [skapa en principtilldelning från Azure portal](../../governance/policy/assign-policy-portal.md). 
@@ -362,7 +361,7 @@ Du kan använda den här första versionen för att skapa principtilldelningen e
 1. I den **Log Analytics-arbetsyta** nedrullningsbara lista för regionen som stöds, Välj en arbetsyta.
 
     >[!NOTE]
-    >Om arbetsytan som är utanför omfattningen för tilldelningen, bevilja *Log Analytics Contributor* behörigheter till principtilldelningen huvudnamn-ID. Om du inte gör det, kan du se ett distributionsfel som: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` för att bevilja åtkomst, granska [manuellt konfigurera den hanterade identitet](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
+    >Om arbetsytan som är utanför omfattningen för tilldelningen, bevilja *Log Analytics Contributor* behörigheter till principtilldelningen huvudnamn-ID. Om du inte gör det, kan du se ett distributionsfel som: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` Om du vill bevilja åtkomst, granska [manuellt konfigurera den hanterade identitet](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
     >  
     Den **hanterade identiteter** kryssrutan är markerad, eftersom initiativet tilldelas innehåller en princip med de *deployIfNotExists* effekt. 
 1. I den **hantera identitet plats** listrutan väljer du rätt region. 
@@ -387,8 +386,8 @@ Baserat på resultatet av de principer som ingår i initiativet, rapporteras vir
 * VM-avbildning (OS) är inte identifieras i principdefinitionen. 
    Villkor för distributionen omfattar endast virtuella datorer som distribueras från välkända Azure VM-avbildningar. I dokumentationen om du vill se om VM-operativsystem stöds. Om det inte stöds, duplicera i princip för programdistribution och uppdatera eller ändra det så att avbildningen som är kompatibla. 
   
-    - [Förhandsversion]: granska beroende Agentdistribution – VM Image (OS) inte finns i listan  
-    - [Förhandsversion]: Agentdistribution för granskning Log Analytics – VM Image (OS) inte finns i listan
+    - [Förhandsversion]: Granska beroende Agentdistribution – VM Image (OS) inte finns i listan  
+    - [Förhandsversion]: Granska Agentdistribution för Log Analytics – VM Image (OS) inte finns i listan
 
 * Virtuella datorer logga inte in på den angivna Log Analytics-arbetsytan.  
     Det är möjligt att vissa virtuella datorer i området initiativ loggar in på en Log Analytics-arbetsyta än den som anges i principtilldelningen. Den här principen är ett verktyg för att identifiera vilka virtuella datorer rapporterar till en icke-kompatibla arbetsyta. 

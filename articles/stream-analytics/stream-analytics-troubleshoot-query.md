@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: c437f350e394dc8c264903508a2a5a66fa8225a7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346971"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161992"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Felsöka Azure Stream Analytics-frågor
 
@@ -47,47 +48,47 @@ I realtidsbearbetning av data, kan det vara användbart att att känna till hur 
 
 Följande exempelfråga i Azure Stream Analytics-jobb har en strömindata, två inmatningar av referensdata och utdata till Azure Table Storage. Frågan kopplar ihop data från event hub och två referens BLOB-och hämta information om namn och kategori:
 
-![SELECT INTO exempelfråga](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
+![Stream Analytics SELECT INTO exempelfråga](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
 Observera att jobbet körs, men inga händelser genereras i utdata. På den **övervakning** panel som visas här kan du kan se att indata ger data, men du vet inte vilka steg i den **ansluta** orsakade alla händelser tas bort.
 
-![Panelen övervakning](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
+![Övervakning av Stream Analytics-panel](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
 I så fall kan du lägga till några extra SELECT INTO-instruktioner för att ”logga” mellanliggande kopplingsresultatet och de data som läses från angivna indata.
 
 I det här exemplet har vi lagt till två nya ”tillfälliga matar ut”. De kan vara valfri mottagare som du vill. Här använder vi Azure Storage som ett exempel:
 
-![Att lägga till extra SELECT INTO-instruktioner](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
+![Att lägga till extra SELECT INTO-instruktioner i Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 
 Du kan sedan skriva om frågan så här:
 
-![Ny SELECT INTO-frågan](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
+![Ny väljer i Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
 
 Nu starta jobbet igen och låt den körs under ett par minuter. Sedan fråga temp1 och temp2 med Visual Studio Cloud Explorer för att skapa följande tabeller:
 
 **temp1 tabell**
-![SELECT INTO temp1 tabell](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+![SELECT INTO temp1 tabell Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
 **temp2 tabell**
-![SELECT INTO temp2 tabell](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+![SELECT INTO temp2 tabell Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Som du kan se både temp1 och temp2 har data och namnkolumnen fylls korrekt i temp2. Men eftersom det fortfarande finns inga data i utdata, är något fel:
 
-![SELECT INTO output1 tabell utan data](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
+![SELECT INTO output1 tabell med inga data Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
 
 Av provtagning data, kan du vara nästan säker på att problemet är med andra KOPPLINGEN. Du kan hämta referensdata från blob och ta en titt:
 
-![SELECT INTO ref-tabell](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
+![SELECT INTO ref tabell Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
 
 Som du ser formatet för GUID i dessa referensdata skiljer sig från formatet för den [kolumnen i temp2 från]. Det är därför data inte kommer fram output1 som förväntat.
 
 Du kan åtgärda dataformatet, ladda upp den för att referera till blob och försök igen:
 
-![SELECT INTO temporär tabell](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
+![SELECT INTO temporära tabellen Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
 
 Den här tiden kan data i utdata formateras och fylls i som förväntat.
 
-![SELECT INTO slutliga tabell](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
+![SELECT INTO slutliga tabellen Stream Analytics-fråga](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
 ## <a name="get-help"></a>Få hjälp
 

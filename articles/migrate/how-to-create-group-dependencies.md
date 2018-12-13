@@ -4,14 +4,14 @@ description: Beskriver hur du förfina en utvärdering med beroendemappning för
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 3b75e8607c85f79bb64c57c2154115c41ebe8366
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835530"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255269"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupper med beroendemappning för grupp
 
@@ -24,6 +24,9 @@ Den här artikeln beskriver hur du förfina grupper genom att visualisera beroen
 
 ## <a name="prepare-for-dependency-visualization"></a>Förbereda för visualisering av beroenden
 Azure Migrate använder Tjänstkarta-lösningen i Log Analytics för att aktivera beroendevisualisering av datorer.
+
+> [!NOTE]
+> Beroendevisualiseringsfunktionen är inte tillgänglig i Azure Government.
 
 ### <a name="associate-a-log-analytics-workspace"></a>Associera en Log Analytics-arbetsyta
 Om du vill använda visualisering av beroenden, måste du koppla en Log Analytics-arbetsyta, ny eller befintlig, med ett Azure Migrate-projekt. Du kan bara skapa eller koppla en arbetsyta i samma prenumeration där migration-projekt skapas.

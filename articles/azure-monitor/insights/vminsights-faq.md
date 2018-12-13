@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/08/2018
 ms.author: magoedte
-ms.openlocfilehash: f5865cf72f413db49e70a08305de54aff955607b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a97a7be0eaa8438a4df27b610106ec6ab9f60d30
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075241"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184400"
 ---
 # <a name="azure-monitor-for-vms-preview-faq"></a>Azure Monitor för virtuella datorer (förhandsversion) vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Monitor för virtuella datorer. Om du har ytterligare frågor om lösningen går du till den [Azure-Diskussionsforumet](https://feedback.azure.com/forums/34192--general-feedback) och ställa frågor. När frågor tillfrågas ofta vi lägga till dem i den här artikeln så att de kan hittas snabbt och enkelt.
@@ -67,7 +66,7 @@ I Azure Monitor för virtuella datorer kartan funktionen är baserad på Tjänst
 * Övervakade virtuella datorer är nu i gruppnoden klienten och ringen diagrammet visar förhållandet mellan övervakade till oövervakade virtuella datorer. Du kan också filtrera listan med datorer när gruppen har expanderats.
 * Övervakade virtuella datorer finns nu i servernoder port grupp och ringdiagrammet visar förhållandet mellan övervakade till oövervakade datorer. Du kan också filtrera listan med datorer när gruppen har expanderats.
 * Formatmallen kartan har uppdaterats för att vara mer konsekvent med Programkartan från Azure Application Insights.
-* Panelerna på klientsidan har uppdaterats, men ännu inte har en fullständig uppsättning integreringar som hade stöd i Tjänstkarta: uppdateringshantering, ändringsspårning, säkerhet och support. 
+* Panelerna på klientsidan har uppdaterats, men ännu har inte en fullständig uppsättning integreringar som hade stöd i Tjänstkarta: Uppdateringshantering, ändringsspårning, säkerhet och support. 
 * Alternativet för att välja grupper och datorer för att mappa har uppdaterats. Det stöder nu prenumerationer, resursgrupper, skalningsuppsättningar för virtuella Azure-datorer och molntjänster.
 * Du kan inte skapa nya Service Map datorgrupper i Azure Monitor för virtuella datorer kartan funktion. 
 

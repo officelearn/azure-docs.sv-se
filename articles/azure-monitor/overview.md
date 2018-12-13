@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: ccdee1963d3d37966f6784e7a7421c500d6a8a51
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2d1f96359512a3c2135909ebf69ec9ec3b801d61
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994220"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190568"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -48,11 +48,11 @@ Frågespråket i Log Analytics passar enkla loggfrågor men innehåller även av
 ## <a name="what-data-does-azure-monitor-collect"></a>Vilka data samlar Azure Monitor?
 Azure Monitor kan samla in data från olika källor. Du kan se övervakningsdata för dina program i nivåer som sträcker sig från ditt program, alla operativsystem och tjänster som den förlitar sig på, till själva plattformen. Azure Monitor samlar in data från var och en av följande nivåer:
 
-- **Programmet övervakningsdata**: Data om prestanda och funktioner i kod som du har skrivit, oavsett dess plattform.
-- **Gäst-OS övervakningsdata**: Data om operativsystemet där programmet körs. Detta kan köras i Azure, en annan molnet eller lokalt. 
-- **Azure-resurs övervakningsdata**: Data om användningen av en Azure-resurs.
+- **Data för programövervakning**: Data om prestanda och funktioner i koden som du har skrivit, oavsett dess plattform.
+- **Gäst-OS övervakningsdata**: Information om operativsystemet där programmet körs. Detta kan köras i Azure, en annan molnet eller lokalt. 
+- **Azure-resurs övervakningsdata**: Information om driften av en Azure-resurs.
 - **Azure-prenumeration övervakningsdata**: Data om driften och hanteringen av en Azure-prenumeration, samt data om klientens hälsotillstånd och driften av Azure själva. 
-- **Azure-klient övervakningsdata**: Data om användningen av Azure på klientnivå-tjänster, till exempel Azure Active Directory.
+- **Azure-klient övervakningsdata**: Information om driften av Azure på klientnivå-tjänster, till exempel Azure Active Directory.
 
 När du skapar en Azure-prenumeration och börja lägga till resurser, till exempel virtuella datorer och webbappar, startar Azure Monitor insamling av data.  [Aktivitetsloggar](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) registrera när resurser skapas eller ändras. [Mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md) talar om hur resursen fungerar och de resurser som den förbrukar. 
 
@@ -96,7 +96,7 @@ Förutom att du kan analysera övervakningsdata interaktivt, kunna en effektiv l
 ### <a name="alerts"></a>Aviseringar
 [Aviseringar i Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) informera dig om kritiska tillstånd och potentiellt försöker vidta åtgärder. Varningsregler baserat på mått ger nära nog realtid aviseringar baserat på numeriska värden, medan regler baserat på loggar tillåter komplex logik för data från flera källor.
 
-Aviseringsregler i Azure Monitor Använd [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md), som innehåller en unik uppsättning mottagare och åtgärder som kan delas mellan flera regler. Baserat på dina krav, kan åtgärdsgrupper utföra åtgärder, t ex med webhookar ha aviseringar starta externa åtgärder eller för att integrera med dina ITSM-verktyg.
+Aviseringsregler i Azure Monitor Använd [åtgärdsgrupper](../azure-monitor/platform/action-groups.md), som innehåller en unik uppsättning mottagare och åtgärder som kan delas mellan flera regler. Baserat på dina krav, kan åtgärdsgrupper utföra åtgärder, t ex med webhookar ha aviseringar starta externa åtgärder eller för att integrera med dina ITSM-verktyg.
 
 ![Aviseringar](media/overview/alerts.png)
 

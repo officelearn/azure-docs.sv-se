@@ -4,14 +4,14 @@ description: Vanliga frågor och svar om Azure Migrate adresser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: snehaa
-ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256383"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257802"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -40,15 +40,20 @@ Azure Migrate är en utvärdering av tjänst som hjälper dig att identifiera di
 
 Azure Migrate är ett verktyg för migreringsplanering och Distributionshanteraren för Azure Site Recovery är en katastrofåterställning (DR) kapacitetsplaneringsverktyget.
 
-**Migrering från VMware till Azure**: Om du planerar att migrera dina lokala arbetsbelastningar till Azure, använda Azure Migrate för planering av migreringsaktiviteter. Azure Migrate utvärderar lokala arbetsbelastningar och tillhandahåller vägledning, insikter och mekanismer för att hjälpa dig att migrera till Azure. Du kan använda tjänster som Azure Site Recovery och Azure Database Migration Service för att migrera datorerna till Azure när du är klar med din migreringsplan.
+**Migrering från VMware till Azure**: Om du planerar att migrera dina lokala arbetsbelastningar till Azure, kan du använda Azure Migrate för för planering av migreringsaktiviteter. Azure Migrate utvärderar lokala arbetsbelastningar och tillhandahåller vägledning, insikter och mekanismer för att hjälpa dig att migrera till Azure. Du kan använda tjänster som Azure Site Recovery och Azure Database Migration Service för att migrera datorerna till Azure när du är klar med din migreringsplan.
 
 **Migrering från Hyper-V till Azure**: Azure Migrate stöder för närvarande endast utvärdering av virtuella VMware-datorer för migrering till Azure. Stöd för Hyper-V är våra planer för Azure Migrate. Under tiden kan använda du Site Recovery Deployment Planner. När Hyper-V-stöd är aktiverat i Azure Migrate kan använda du Azure Migrate för att planera migrering av Hyper-V-arbetsbelastningar.
 
-**Haveriberedskap från VMware/Hyper-V till Azure**: Om du vill göra katastrofåterställning (DR) på Azure med hjälp av Azure Site Recovery (Site Recovery) använda Site Recovery Deployment Planner för DR planera. Distributionshanteraren för site Recovery har en djupgående, ASR-specifika bedömning av din lokala miljö. Den innehåller rekommendationer som krävs av Site Recovery för lyckade DR-åtgärder, till exempel replikering, redundans för dina virtuella datorer.  
+**Haveriberedskap från VMware/Hyper-V till Azure**: Om du vill göra katastrofåterställning (DR) på Azure med hjälp av Azure Site Recovery (Site Recovery), kan du använda Site Recovery Deployment Planner för DR planera. Distributionshanteraren för site Recovery har en djupgående, ASR-specifika bedömning av din lokala miljö. Den innehåller rekommendationer som krävs av Site Recovery för lyckade DR-åtgärder, till exempel replikering, redundans för dina virtuella datorer.  
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Vilka Azure-regioner stöds av Azure Migrate?
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Vilka geografiska Azure-områden som stöds av Azure Migrate?
 
-Azure Migrate stöder för närvarande USA, östra och USA, västra centrala som migrering projekt platser. Trots att du kan bara skapa migreringsprojekt i västra centrala USA och östra USA, du kan fortfarande utvärdera dina datorer för [flera målplatser](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Projektplatsen används bara för att lagra de identifierade data.
+Azure Migrate stöder för närvarande USA och Azure Government som projektet geografiska områden. Trots att du kan bara skapa migreringsprojekt i dessa geografiska områden, du kan fortfarande utvärdera dina datorer för [flera målplatser](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Projekt-geografi används endast för att lagra de identifierade metadata.
+
+**Geografi** | **Lagringsplats för metadata**
+--- | ---
+Unites tillstånd | USA, västra centrala eller USA, östra
+Azure Government | Virginia (USA-förvaltad region)
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hur ansluter en lokal plats till Azure Migrate?
 
@@ -137,9 +142,12 @@ Du kan identifiera 1500 virtuella datorer i en enda migreringsprojekt. Om du har
 Azure Migrate stöder för närvarande inte kostnadsuppskattning för [erbjudande för Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). Lösningen är att ange att betala per användning erbjudandet och manuellt ange procentvärdet (gäller för prenumerationen) i fältet ”Rabatt” i egenskaperna för utvärdering.
 
   ![Rabatt](./media/resources-faq/discount.png)
-  
+
 
 ## <a name="dependency-visualization"></a>Visualisering av beroenden
+
+> [!NOTE]
+> Beroendevisualiseringsfunktionen är inte tillgänglig i Azure Government.
 
 ### <a name="what-is-dependency-visualization"></a>Vad är beroendevisualisering?
 
@@ -151,7 +159,7 @@ Nej. Mer information om priser för Azure Migrate finns [här](https://azure.mic
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>Måste jag installera något för visualisering av beroenden?
 
-Om du vill använda visualisering av beroenden som du behöver hämta och installera agenter på varje lokal dator som du vill utvärdera. 
+Om du vill använda visualisering av beroenden som du behöver hämta och installera agenter på varje lokal dator som du vill utvärdera.
 
 - [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) måste installeras på varje dator.
 - Den [beroendeagenten](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) måste installeras på varje dator.

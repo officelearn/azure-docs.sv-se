@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 12/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 057df4260da267254cb764e58fdac749bee3b842
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5a1f0c0ee8a9f6ef6871e19e7722e09f4e96ba7f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106761"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53142078"
 ---
-# <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en edge-machine learning-lösning med Azure och Azure Stack
+# <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Självstudiekurs: Skapa en edge-machine learning-lösning med Azure och Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Lär dig hur du skapar en edge-machine learning-lösning med Azure och Azure Stack.
 
@@ -135,13 +135,13 @@ Tidigare erfarenhet av Azure och Azure Stack är obligatoriskt. Mer information 
 
  -  **Värdbaserade VSTS Linux skapa Agentpoolen.** Snabbt bygga, testa och distribuera program med hjälp av en Microsoft hanteras och underhållas värd för agenten. Mer information om värdbaserade VSTS build agenter finns i [värdbaserade agenter](https://docs.microsoft.com/vsts/build-release/concepts/agents/hosted?view=vsts) dokumentation.
 
-## <a name="step-1-create-a-storage-account"></a>Steg 1: Skapa ett lagringskonto
+## <a name="step-1-create-a-storage-account"></a>Steg 1: skapar ett lagringskonto
 
 Skapa ett lagringskonto och en behållare för rensa data som ska finnas.
 
 1.  Logga in på den [ *Azure-portalen*](https://portal.azure.com/).
 
-2.  I Azure-portalen, expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **alla tjänster**. Rulla ned till **Storage** och välj **lagringskonton**. I den ** Lagringskonton ** fönstret Välj **Lägg till**.
+2.  I Azure-portalen, expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **alla tjänster**. Rulla ned till **Storage** och välj **lagringskonton**. I den **Lagringskonton** fönstret Välj **Lägg till**.
 
 3.  Ange ett namn för lagringskontot.
 
@@ -150,7 +150,7 @@ Skapa ett lagringskonto och en behållare för rensa data som ska finnas.
 
 4.  Ange distributionsmodellen som ska användas: **Resource Manager**.
 
-5.  Välj typ av lagringskonto: **generell användning V1**, anger du prestandanivån: **Standard**.
+5.  Välj typ av lagringskonto: **Generell användning V1**, anger du prestandanivån: **Standard**.
 
 6.  Välj replikeringsalternativ för lagringskontot: **GRS**.
 
@@ -162,7 +162,7 @@ Skapa ett lagringskonto och en behållare för rensa data som ska finnas.
 
 10. Skapa lagringskontot genom att välja **Skapa**.
 
-    ![Alternativ text](/media/azure-stack-solution-machine-learning/image1.png)
+    ![Alternativ text](media/azure-stack-solution-machine-learning/image1.png)
 
 11.  Välj nyligen skapade lagringskontot.
 
@@ -194,8 +194,8 @@ Skapa en Ubuntu Data Science Virtual Machine (DSVM) i Azure-portalen.
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image6.png)
 
-> ! [Viktigt]  
-> **Välj** lösenord ** som den*autentiseringstyp*.
+> [!Important]  
+> Välj **lösenord** som den **autentiseringstyp**.
 
 Placera den nya DSVM i samma resursgrupp som det nyligen skapade lagringskontot. Alla objekt i Edge-ML distribueras i Azure i den här resursgruppen.
 
@@ -209,7 +209,8 @@ Placera den nya DSVM i samma resursgrupp som det nyligen skapade lagringskontot.
 
     d.  För den **Diagnostiklagringskonto**, Välj det lagringskonto som skapades tidigare.
 
-    e.  Obs: Med AAD aktiverats och konfigurerats för Azure-prenumeration, hanterade identiteter för Azure-resurser kan aktiveras också.
+    > [!Note]  
+    > Hanterade identiteter för Azure-resurser kan aktiveras även med AAD aktiverats och konfigurerats för Azure-prenumeration.
 
 2.  Välj **OK**.
 
@@ -312,7 +313,8 @@ Använd Azure-portalen för att etablera Azure Machine Learning-konton:
 
 Azure Machine Learning Workbench är tillgänglig för Windows eller macOS. Visa en lista med [plattformar som stöds](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation).
 
-**Varning:** installationen kan ta cirka en timme att slutföra.
+> [!Warning]  
+> Installationen kan ta cirka en timme att slutföra.
 
 1.  Ladda ned och starta det senaste installationsprogrammet för Workbench.
 
@@ -321,7 +323,7 @@ Azure Machine Learning Workbench är tillgänglig för Windows eller macOS. Visa
 
 1.  Följ den på skärmen instruktioner i installationsprogrammet för att slutföras.
 
-    ** Installationen kan ta upp till 30 minuter att slutföra. **
+    **Installationen kan ta upp till 30 minuter att slutföra.**
     
     `Windows: C:\\Users\\<user>\\AppData\\Local\\AmlWorkbench`
     
@@ -885,7 +887,7 @@ I föregående del av självstudien kördes skriptet **iris_sklearn.py** i Machi
 
 4.  Granska filen **iris_sklearn.py** och se efter var pickle-filen genererades. Använd CTRL + F för att öppna dialogrutan **Sök** och leta efter ordet **pickle** i Python-koden.
 
-Det här kodfragmentet visar hur pickle-utdatafilen skapades. Pickle-utdatafilen heter **model.pkl** på disken.
+    Det här kodfragmentet visar hur pickle-utdatafilen skapades. Pickle-utdatafilen heter **model.pkl** på disken.
 
     ```Python
         print("Export the model to model.pkl")
@@ -923,7 +925,7 @@ Om du vill distribuera webbtjänsten tillsammans med modellfilen krävs bedömni
 
     Det här skriptet skapar en JSON-fil i den **utdata** avsnittet, som fångar det indataschema som behövs i modellen.
 
-1.  Notera fönstret **Jobb** till höger om fönstret **Project Dashboard** (Instrumentpanel för projekt). Vänta tills det senaste ** score_iris.py** jobbet visar gröna **slutförd** status. Välj hyperlänken **score_iris.py** för den senaste jobbkörningen så att du ser körningsdetaljerna för körningen.
+1.  Notera fönstret **Jobb** till höger om fönstret **Project Dashboard** (Instrumentpanel för projekt). Vänta tills det senaste jobbet **score_iris.py** visar den gröna statusen **Slutfört**. Välj hyperlänken **score_iris.py** för den senaste jobbkörningen så att du ser körningsdetaljerna för körningen.
 
 2.  I avsnittet **Utdata** på sidan **Körningsegenskaper** väljer du den nya filen **service_schema.json**. Markera kryssrutan bredvid namnet på filen och välj sedan **Ladda ned**. Spara filen i rotmappen för projektet.
 
@@ -958,17 +960,17 @@ Distribuera och använda Azure Container Registry.
 
 Skapa ett Azure-containerregister med kommandot **az acr create**. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. Resursgruppen är samma.
 
-    ```CLI
-        az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
-    ```
+```CLI
+    az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
+```
 
 ### <a name="container-registry-login"></a>Logga in på containerregistret
 
 Använd kommandot **az acr login** och logga in på ACR-instansen. Ange det unika namn du angav för containerregistret när det skapades.
 
-    ```CLI
-        az acr login --name <acrName>
-    ```
+```CLI
+    az acr login --name <acrName>
+```
 
 Kommandot returnerar en ' inloggningen har slutförts meddelande när det har slutförts.
 
@@ -978,11 +980,11 @@ Använd *lokalt läge* distribution för att köra i Docker-behållare på den l
 
 Docker-motorn måste köras lokalt när du ska utföra följande steg och operationalisera modellen. Använd den `-h` flaggan i slutet av varje kommando för att visa motsvarande hjälpmeddelande.
 
-    > [!Note]  
-    > If Docker engine is not locally available, proceed by creating a cluster in Azure for deployment and keep the cluster for re-use, or delete it after the tutorial to avoid ongoing charges.
+> [!Note]  
+> Om Docker-motorn inte är tillgänglig lokalt, gå vidare genom att skapa ett kluster i Azure för distribution och behålla klustret för återanvändning eller ta bort den efter självstudien att undvika löpande kostnader.
 
-    > [!Note]  
-    > Web services deployed locally do not appear in Azure Portal's list of services. They will be running in Docker on the local machine.
+> [!Note]  
+> Webbtjänster som distribuerats lokalt visas inte i Azure Portals lista över tjänster. De körs i Docker på den lokala datorn.
 
 1.  Öppna kommandoradsgränssnittet (CLI). Välj på **Öppna kommandotolken** i menyn **Arkiv** i Machine Learning Workbench.
 
@@ -1017,7 +1019,7 @@ Docker-motorn måste köras lokalt när du ska utföra följande steg och operat
     az provider show -n Microsoft.ContainerRegistry
     ```
 
-    Den tredje utdataraden visar **"registrationState": "Registering"**. Vänta en stund och upprepa den **visa** tills utdata visar **”registrationState”: ”Registered.**
+    Den tredje raden utdataraden visar **”registrationState”: ”Registering”**. Vänta en stund och upprepa den **visa** tills utdata visar **”registrationState”: ”Registrerad.**
 
 1.  Skapa miljön. Kör det här steget en gång per miljö.
 
@@ -1218,9 +1220,9 @@ Ge tjänstens huvudnamn åtkomst till prenumerationen så att den kan skapa resu
 
     ![Distribuera lösningsmall](media/azure-stack-solution-machine-learning/image59.png)
 
-10\. Välj **grunderna** i den skapa Kubernetes-kluster.
+10. Välj **grunderna** i den skapa Kubernetes-kluster.
 
-    ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
+    ![Distribuera lösningsmall](media/azure-stack-solution-machine-learning/image60.png)
 
 11. Ange den **Linux VM-administratörsanvändarnamn**. Användarnamn för Linux-datorer som ingår i Kubernetes-klustret och DVM.
 
@@ -1261,7 +1263,7 @@ Kör följande kommandon för att installera kubectl i WSL-miljö i WSL miljön 
 
 ```PowerShell  
 Install-script -name install-kubectl -scope CurrentUser -force
-Install-kubectl.ps1 -downloadlocation “C:\Users\<Current User>\Documents\Kube
+Install-kubectl.ps1 -downloadlocation "C:\Users\<Current User>\Documents\Kube"
 ```
 
 ### <a name="install-kubectl-on-the-windows-subsystem-for-linux-environment"></a>Installera kubectl i Windows-undersystem för Linux-miljö
@@ -1301,7 +1303,7 @@ Till exempel när du kör ett Kubernetes-kluster på en lokal bärbar dator, ett
 Om kubectl-klusterinformation returnerar svaret url, men klustret är fortfarande inte komma åt, Sök efter korrekt konfiguration med hjälp av:
 
 ```Bash  
-> kubectl cluster-info dump
+    kubectl cluster-info dump
 ```
 
 ### <a name="enable-shell-autocompletion"></a>Aktivera shell kommandofönstret Slutför automatiskt
@@ -1349,7 +1351,7 @@ När den lokala JSON-filen hämtas i en ny WSL-session använder du följande ko
     kubectl proxy
     kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
     kubectl proxy
-    set KUBECONFIG=”/mnt/c/users/<current user>/documents/Kube/kubeconfig.json”
+    set KUBECONFIG="/mnt/c/users/<current user>/documents/Kube/kubeconfig.json"
     kubectl.exe config view
 ```
 
@@ -1408,7 +1410,7 @@ Spara den **iris_deployment.yaml** fil (i /*mnt/c/användare/<current user>/doku
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image67.png)
 
 Kontrollera status för distributionen:
 
@@ -1416,7 +1418,7 @@ Kontrollera status för distributionen:
 Kubectl get deployments
 ```
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
+![Alternativ text](media/azure-stack-solution-machine-learning/image68.png)
 
 Distributionen kan ta lite tid.
 
@@ -1553,7 +1555,7 @@ Som en del av konfigurationen av slutpunkten, VSTS kräver den **klient-ID** som
 
 Ge tjänstens huvudnamn behörighet att distribuera resurser i Azure Stack-prenumeration
 
-Tilldela programmet till en roll för att komma åt resurser i prenumerationen. Bestäm vilken roll representerar rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Tilldela programmet till en roll för att komma åt resurser i prenumerationen. Bestäm vilken roll representerar rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: Inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Lägga till ett program till rollen Läsare för en resursgrupp kan det läsa resursgruppen och alla resurser som den innehåller.
 
@@ -1824,11 +1826,11 @@ Framgång ser ut ungefär så här:
 
 1.  Under Kubernetes Service-anslutning, väljer du den **+ ny** och välj**Kubernetes**i listan. Du kan använda den här slutpunkten för att ansluta den**VSTS**och**Azure Container Service (AKS)**.
 
-2.  **Anslutningsnamn**: Ange anslutningsnamn.
+2.  **Anslutningsnamn**: Ange anslutningens namn.
 
 3.  **Serveradress**: Ange container service-adress i formathttp: / / {API-serveradress}
 
-4.  **Kubeconfig**: Om du vill få Kubeconfig, kör du följande kommandon för Azure i en kommandotolk med administratörsbehörigheter så startas.
+4.  **Kubeconfig**: För att få värdet Kubeconfig, kör du följande kommandon för Azure i en kommandotolk med administratörsbehörigheter så startas.
 
     > [!Important]  
     > Använd det här CLI-fönstret för att slutföra de nästkommande stegen.
@@ -1914,7 +1916,7 @@ När kubernetes Användargränssnittet körs, bläddra till distributionen vid [
 
     ```Bash  
     git add .
-    git commit -m “Added Service YAML” 
+    git commit -m "Added Service YAML" 
     git push
     ```
 
@@ -1959,9 +1961,8 @@ När kubernetes Användargränssnittet körs, bläddra till distributionen vid [
 1.  Ange Kubernates Service-anslutning till Azure Stack-anslutning som skapades tidigare och välj sedan den **använda konfigurationsfiler** kryssrutan om du vill lägga till en konfigurationsfil. Bläddra till filen iris_service.yaml i länkade artefakter.
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image135.png)
-
-
-    ![Alternativ text](media/azure-stack-solution-machine-learning/image136.png)
+    <!-- -->
+    ![alternativ text](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  Spara versionsdefinitionen.
 
@@ -2013,7 +2014,7 @@ Ett verifieringsmeddelande som liknar den nedan visas:
 
 En funktionsapp måste värd för körning av varje funktion. En funktionsapp kan funktionen gruppering som en logisk enhet för enklare hantering, distribution och dela resurser.
 
-1.  Användarportalen för Azure Stack, väljer du den **+ ny** knapp hittades i det övre vänstra hörnet, väljer sedan**webb + mobilt** >**Funktionsapp**.
+1.  Användarportalen för Azure Stack, väljer du den **+ ny** knapp hittades i det övre vänstra hörnet, väljer sedan **webb + mobilt** >**Funktionsapp**.
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image141.png)
 
@@ -2021,13 +2022,13 @@ En funktionsapp måste värd för körning av varje funktion. En funktionsapp ka
 
     ![Definiera nya funktionsappinställningar](media/azure-stack-solution-machine-learning/image142.png)
 
-1.  Välj**skapa**att etablera och distribuera funktionsappen.
+1.  Välj **skapa**att etablera och distribuera funktionsappen.
 
-2.  Välj meddelandeikonen i det övre högra hörnet i portalen och titta efter den**distributionen lyckades** meddelande.
+2.  Välj meddelandeikonen i det övre högra hörnet av portalen och titta efter meddelandet **Distribueringen lyckades**.
 
     ![Definiera nya funktionsappinställningar](media/azure-stack-solution-machine-learning/image143.png)
 
-1.  Välj**gå till resurs** att visa den nya funktionsappen.
+1.  Välj **gå till resurs** att visa den nya funktionsappen.
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image144.png)
 
@@ -2103,13 +2104,13 @@ Skapa ett Azure Stack-lagringskonto och Storage-kö för data.
 
 6.  Välj **lokala** för platsen för lagringskontot.
 
-7.  Välj**skapa**att skapa lagringskontot.
+7.  Välj **skapa**att skapa lagringskontot.
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  Välj nyligen skapade lagringskontot.
 
-2.  Välj på**köer**.
+2.  Välj på **köer**.
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image157.png)
 
@@ -2129,7 +2130,7 @@ Skapa ett Azure Stack-lagringskonto och Storage-kö för data.
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image161.png)
 
-1.  Ange namnet på lagringskontot i den **namn** fält, lägga till i slutet; _qos
+1.  Ange namnet på lagringskontot i den **namn** fält, lägga till i slutet `_STORAGE`.
 
 På så sätt kan appen ska veta att det här är en slutpunkt för lagring-konto.
 
@@ -2229,7 +2230,7 @@ På så sätt kan appen ska veta att det här är en slutpunkt för lagring-kont
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image178.png)
 
-1.  Kontrollera Azure som värd lagringskontot för att se data har tolkats upp till molnet från Azure: framgång ser ut ungefär som den nedan.
+1.  Kontrollera Azure som värd Storage-konto om du vill se data har tolkats upp till molnet från Azure: Framgång ser ut ungefär som den nedan.
 
     ![Alternativ text](media/azure-stack-solution-machine-learning/image179.png)
 

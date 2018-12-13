@@ -1,5 +1,5 @@
 ---
-title: Konfigurera PHP i Azure App Service Web Apps
+title: Konfigurera PHP - körning i Azure App Service
 description: Lär dig hur du konfigurerar standard PHP-installation eller Lägg till en anpassad PHP-installation för Web Apps i Azure App Service.
 services: app-service
 documentationcenter: php
@@ -13,12 +13,13 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: f9e863146b78fa510ea6f5b6eb9b3aa0fc4ce926
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: d5ad7b392029ae33ee7666b80edfe5b4b7555b41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965794"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273210"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Konfigurera PHP i Azure App Service Web Apps
 
@@ -28,7 +29,7 @@ Den här guiden visar hur du konfigurerar den inbyggda PHP-körningen för Web A
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-built-in-php-version"></a>Så här: ändra den inbyggda PHP-versionen
+## <a name="how-to-change-the-built-in-php-version"></a>Anvisningar: Ändra den inbyggda PHP-versionen
 
 Som standard är PHP 5.6 installerat och direkt tillgänglig för användning när du skapar en App Service-webbapp. Det bästa sättet att se tillgängliga versionen revision, standardkonfigurationen och aktiverade tilläggen är att distribuera ett skript som anropar den [phpinfo()] funktion.
 
@@ -39,10 +40,10 @@ PHP 7.0 och PHP 7.2-versioner är också tillgängligt, men inte aktiverad som s
 1. Bläddra till din webbapp i den [Azure-portalen](https://portal.azure.com) och klicka på den **inställningar** knappen.
 
     ![Inställningarna för webbappen][settings-button]
-1. Från den **inställningar** bladet väljer **programinställningar** och välj den nya versionen av PHP.
+2. Från den **inställningar** bladet väljer **programinställningar** och välj den nya versionen av PHP.
 
     ![Programinställningar][application-settings]
-1. Klicka på den **spara** längst upp på den **Webbappinställningar** bladet.
+3. Klicka på den **spara** längst upp på den **Webbappinställningar** bladet.
 
     ![Spara konfigurationsinställningarna][save-button]
 
@@ -78,7 +79,7 @@ Om du vill använda Azure-kommandoradsgränssnittet, måste du [installera Azure
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>Så här: ändra de inbyggda PHP-konfigurationerna
+## <a name="how-to-change-the-built-in-php-configurations"></a>Anvisningar: Ändra de inbyggda PHP-konfigurationerna
 
 Du kan ändra några av konfigurationsalternativen genom att följa de här stegen för alla inbyggda PHP-körning. (Läs om hur php.ini-direktiv [lista över php.ini-direktiv].)
 
@@ -109,7 +110,7 @@ Som ett alternativ till att använda en `.user.ini` -fil som du kan använda den
         wincache.maxfilesize=512
 1. Om du vill läsa in ändringarna, startar du om din Webbapp.
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Så här: aktivera tillägg i standardkörning för PHP
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Anvisningar: Aktivera tillägg i standardkörning för PHP
 
 Enligt vad som anges i föregående avsnitt, det bästa sättet att se PHP-standardversionen, standardkonfigurationen och aktiverade tilläggen är att distribuera ett skript som anropar [phpinfo()]. För att aktivera ytterligare tillägg genom att följa dessa steg:
 
@@ -144,7 +145,7 @@ Enligt vad som anges i föregående avsnitt, det bästa sättet att se PHP-stand
 
 Zend-tillägg stöds även med hjälp av en **PHP_ZENDEXTENSIONS** nyckel. Om du vill aktivera flera tillägg måste innehålla en kommaavgränsad lista över `.dll` filer för app inställningens värde.
 
-## <a name="how-to-use-a-custom-php-runtime"></a>Så här: använda en anpassad PHP-körning
+## <a name="how-to-use-a-custom-php-runtime"></a>Anvisningar: Använda en anpassad PHP-körning
 
 App Service Web Apps kan använda en PHP-körning som du anger för att köra PHP-skript i stället för standardkörning för PHP. Runtime som du anger kan konfigureras med en `php.ini` -fil som du även ange. Att använda en anpassad PHP-körning med Web Apps, följa dessa steg.
 
@@ -165,7 +166,7 @@ App Service Web Apps kan använda en PHP-körning som du anger för att köra PH
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>Så här: aktivera Composer-automatisering i Azure
+## <a name="how-to-enable-composer-automation-in-azure"></a>Anvisningar: Aktivera Composer-automatisering i Azure
 
 Som standard göra App Service inte något med composer.json, om du har en i PHP-projekt. Om du använder [Git-distribution](app-service-deploy-local-git.md), du kan aktivera composer.json bearbetas under `git push` genom att aktivera tillägget Composer.
 

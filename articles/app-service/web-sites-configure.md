@@ -1,5 +1,5 @@
 ---
-title: Konfigurera webbappar i Azure App Service
+title: Konfigurera webbappar – Azure App Service
 description: Så här konfigurerar du en webbapp i Azure App Services
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 60675d7d40dbab863677ea120c25986cff61a308
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960149"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269438"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurera webbappar i Azure App Service
 
@@ -164,7 +165,7 @@ Om du vill visa dina distributionsplatser, klickar du på **alla inställningar*
 ### <a name="monitoring"></a>Övervakning
 Du kan testa tillgängligheten för HTTP eller HTTPS-slutpunkter, från upp till tre platser för geo-distribuerad i Basic eller Standard-läge. Det går inte att en övervakningstestet om HTTP-svarskoden är ett fel (4xx eller 5xx) eller svaret tar mer än 30 sekunder. En slutpunkt anses vara tillgänglig om övervakningstesten lyckas från de angivna platserna. 
 
-Mer information finns i [så här: övervaka status för web-slutpunkt].
+Mer information finns i [Hur: Övervaka status för web-slutpunkt].
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service]. Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
@@ -184,7 +185,7 @@ Mer information finns i [så här: övervaka status för web-slutpunkt].
 [Konfigurera ett anpassat domännamn i Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Distribuera till Mellanlagringsmiljöer för Webbappar i Azure App Service]: ./web-sites-staged-publishing.md
 [Aktivera HTTPS för en app i Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[Så här: övervaka status för web-slutpunkt]: https://go.microsoft.com/fwLink/?LinkID=279906
+[Hur: Övervaka status för web-slutpunkt]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Grundläggande övervakning för Web Apps i Azure App Service]: ./web-sites-monitor.md
 [Pipeline-läge]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Skala en webbapp i Azure App Service]: ./web-sites-scale.md

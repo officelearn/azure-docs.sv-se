@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 4fd896e3b26ae66621ba49d1bb8a5d86c0dd63ee
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963274"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278632"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uppgradera din befintliga .NET Azure-Mobiltjänst till App Service
 App Service Mobile är ett nytt sätt att bygga mobilappar med Microsoft Azure. Mer information finns i [vad är Mobile Apps?].
@@ -68,7 +68,7 @@ Uppgradera det första steget är att skapa Mobile App-resurs som ska vara värd
 
 Skapa sedan instansen för andra programmet genom att följa den [.NET-serverdel skapa instruktioner](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). När du uppmanas att välja du väljer App Service-Plan eller ”värdplan” plan programmets migrerade.
 
-Du kommer förmodligen vill använda samma databas och Notification Hub som du gjorde i mobiltjänster. Du kan kopiera dessa värden genom att öppna [Azure Portal] och navigera till det ursprungliga programmet, klickar **inställningar** > **programinställningar**. Under **anslutningssträngar**, kopiera `MS_NotificationHubConnectionString` och `MS_TableConnectionString`. Navigera till den nya uppgradera platsen och klistra in dem i skriver över alla befintliga värden. Upprepa proceduren för alla andra programinställningar behoven för dina appar. Om du inte använder en migrerad tjänst, kan du läsa anslutningssträngar och app-inställningar från den **konfigurera** fliken för mobiltjänster-avsnitt av den [Klassisk Azure-portal].
+Du kommer förmodligen vill använda samma databas och Notification Hub som du gjorde i mobiltjänster. Du kan kopiera dessa värden genom att öppna [Azure Portal] och navigera till det ursprungliga programmet, klickar **inställningar** > **programinställningar**. Under **anslutningssträngar**, kopiera `MS_NotificationHubConnectionString` och `MS_TableConnectionString`. Navigera till den nya uppgradera platsen och klistra in dem i skriver över alla befintliga värden. Upprepa proceduren för alla andra programinställningar behoven för dina appar.
 
 Skapa en kopia av ASP.NET-projekt för ditt program och publicera den till den nya platsen. Använd en kopia av ditt klientprogram som uppdateras med den nya URL: en, verifiera att allt fungerar som förväntat.
 
@@ -280,7 +280,6 @@ När du har den nya klientversionen som är redo, prova mot projektet uppgradera
 <!-- URLs. -->
 
 [Azure Portal]: https://portal.azure.com/
-[Klassisk Azure-portal]: https://manage.windowsazure.com/
 [Vad är Mobile Apps?]: app-service-mobile-value-prop.md
 [SDK för Mobile App-servern]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md

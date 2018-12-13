@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: ae2697c96435ec18ae7645520d438c41837f036f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 9370cdfc75995f36101804d2a9f7dc9cf275243c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016869"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186318"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa informationstexter för Azure Media Services sammanfatta ändringar från tidigare versioner och kända problem.
@@ -86,7 +86,7 @@ Startar den 12 maj 2018 livekanaler kommer inte längre stöd för RTP/MPEG-2-tr
     * Förbättringar av H.264-avkodare som används i Standard-kodare eliminera vissa sällsynta artefakter. 
 
 #### <a name="media-analytics"></a>Medieanalys
-Allmän tillgänglighet för Azure Media Redactor: den här medieprocessor utför maskering genom att göra dem suddiga ansikten för valda individer och är perfekt för användning i offentliga säkerhet samt nyhetsmediescenarier. 
+Allmän tillgänglighet för Azure Media Redactor: Den här medieprocessor utför maskering av suddiga ansikten för valda individer och är perfekt för användning i offentliga säkerhet samt nyhetsmediescenarier. 
 
 En översikt över den här nya processor finns i [det här blogginlägget](https://azure.microsoft.com/blog/azure-media-redactor/). Information om inställningar för och dokumentation finns i [redigera ansikten med Azure Media Analytics](media-services-face-redaction.md).
 
@@ -158,7 +158,7 @@ Vissa klienter kan stöta på ett problem för upprepningar tagg i manifestet Sm
 Du kan nu använda Media Services för att dynamiskt kryptera din HTTP Live Streaming (HLS) innehåll med Apple FairPlay. Du kan också använda av Media Services licensleveranstjänst för att leverera FairPlay-licenser till klienter. Mer information finns i ”använda Azure Media Services för att strömma HLS-innehåll som skyddats med Apple FairPlay”.
 
 ## <a id="feb_changes16"></a>Februari 2016-versionen
-Den senaste versionen av Media Services SDK för .NET (3.5.3) innehåller en buggfix för Google Widevine-relaterade. Det gick inte att återanvända AssetDeliveryPolicy för flera resurser som är krypterat med Widevine. Som en del av den här felkorrigering, följande egenskap har lagts till i SDK: N: WidevineBaseLicenseAcquisitionUrl.
+Den senaste versionen av Media Services SDK för .NET (3.5.3) innehåller en buggfix för Google Widevine-relaterade. Det gick inte att återanvända AssetDeliveryPolicy för flera resurser som är krypterat med Widevine. Som en del av den här felkorrigering, har följande egenskap lagts till SDK: WidevineBaseLicenseAcquisitionUrl.
 
     Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
         new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
@@ -184,9 +184,9 @@ Azure SDK-teamet publicerat en ny version av den [Azure SDK för PHP](http://git
 Mer information finns i:
 
 * Följande [kodexempel](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) hjälper dig att snabbt komma igång:
-  * **vodworkflow_aes.php**: den här PHP-filen visar hur du använder dynamisk kryptering för AES-128 och nyckelleveranstjänst. Den är baserad på .NET-exempel som beskrivs i [dynamisk användning AES-128-kryptering och nyckelleveranstjänst](media-services-protect-with-aes128.md).
-  * **vodworkflow_aes.php**: den här PHP-filen visar hur du använder dynamisk PlayReady-kryptering och av licensleveranstjänst. Den är baserad på .NET-exempel som beskrivs i [använda PlayReady och/eller Widevine dynamic common kryptering](media-services-protect-with-playready-widevine.md).
-  * **scale_encoding_units.php**: den här PHP-filen visar hur du skalar encoding-reserverade enheter.
+  * **vodworkflow_aes.php**: Den här PHP-filen visar hur du använder dynamisk kryptering för AES-128 och nyckelleveranstjänst. Den är baserad på .NET-exempel som beskrivs i [dynamisk användning AES-128-kryptering och nyckelleveranstjänst](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes.php**: Den här PHP-filen visar hur du använder dynamisk PlayReady-kryptering och av licensleveranstjänst. Den är baserad på .NET-exempel som beskrivs i [använda PlayReady och/eller Widevine dynamic common kryptering](media-services-protect-with-playready-widevine.md).
+  * **scale_encoding_units.php**: Den här PHP-filen visar hur du skalar encoding-reserverade enheter.
 
 ## <a id="nov_changes_15"></a>November 2015-versionen
  Media Services erbjuder nu Widevine licensleveranstjänst i molnet. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Se även [den här självstudien](media-services-protect-with-playready-widevine.md) och [GitHub-lagringsplatsen](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
@@ -194,10 +194,10 @@ Mer information finns i:
 Widevines licensleveranstjänster som tillhandahålls av Media Services finns i förhandsversion. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Versionen för oktober 2015
-Media Services är nu live i följande datacenter: södra Brasilien, västra Indien, södra Indien och centrala Indien. Du kan nu använda Azure portal för att [skapa Media Service-konton](media-services-portal-create-account.md) och utföra olika uppgifter som beskrivs i den [Media Services-webbsidan](https://azure.microsoft.com/documentation/services/media-services/). Live Encoding aktiverat inte i dessa datacenter. Dessutom inte alla typer av kodningsreserverade enheter finns i dessa datacenter.
+Media Services är nu live i följande datacenter: Södra Brasilien, västra Indien, södra och Indien, centrala. Du kan nu använda Azure portal för att [skapa Media Service-konton](media-services-portal-create-account.md) och utföra olika uppgifter som beskrivs i den [Media Services-webbsidan](https://azure.microsoft.com/documentation/services/media-services/). Live Encoding aktiverat inte i dessa datacenter. Dessutom inte alla typer av kodningsreserverade enheter finns i dessa datacenter.
 
-* Södra Brasilien: Endast Standard- och Basic kodningsreserverade enheter som är tillgängliga.
-* Indien, västra, Indien, södra Indien och centrala Indien: endast grundläggande kodningsreserverade enheter som är tillgängliga.
+* Södra Brasilien:                                          Endast Standard och Basic kodningsreserverade enheter är tillgängliga.
+* Indien, västra, Indien, södra och Indien, centrala Indien:             Basic encoding-reserverade enheter är bara tillgängliga.
 
 ## <a id="september_changes_15"></a>Utgåvan från september 2015
 Media Services erbjuder nu möjlighet att skydda både video på begäran och direktsända strömmar med Widevine modulära DRM-teknik. Du kan använda följande leverans services partner för att leverera Widevine-licenser:
@@ -374,8 +374,8 @@ När du koda en tillgång, skapas en utdatatillgången när kodningsjobbet är k
 ## <a id="july_changes_14"></a>Version juli 2014
 Följande felkorrigeringar har gjorts för Azure Media Services Packager och Encryptor:
 
-* När en live-arkivet tillgång överförs till HLS, bara ljud spelar: det här problemet åtgärdades och nu både ljud och video kan spela upp.
-* När en tillgång är paketerad till HLS och AES 128-bitars kryptering för kuvert paketerade strömmar inte spela på Android-enheter: den här buggen åtgärdades och paketerade dataströmmen spelar på Android-enheter som har stöd för HLS.
+* När en live-arkivet tillgång överförs till HLS, spelar bara ljud: Det här problemet åtgärdades och nu både ljud och video kan spela upp.
+* När en tillgång är paketerad till HLS och AES 128-bitars kryptering för kuvert spela paketerade strömmar inte på Android-enheter: Den här buggen åtgärdades och paketerade dataströmmen spelar på Android-enheter som har stöd för HLS.
 
 ## <a id="may_changes_14"></a>Maj 2014-versionen
 ### <a id="may_14_changes"></a>Allmän Media Services-uppdateringar
@@ -476,7 +476,7 @@ Följande ändringar ingår i juni 2013 Media Services SDK-versioner. Senaste Me
     * StorageAccount-egenskapen
     * StorageAccountName egenskap
   
-    Mer information finns i [hantera Media Services-tillgångar över flera lagringskonton](https://msdn.microsoft.com/library/azure/dn271889.aspx).
+      Mer information finns i [hantera Media Services-tillgångar över flera lagringskonton](https://msdn.microsoft.com/library/azure/dn271889.aspx).
 * Meddelande-relaterade API: er. Från och med version 2.2.0.0 kan lyssna du på Azure Queue storage-meddelanden. Mer information finns i [hantera medietjänster jobb meddelanden](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions egenskap
@@ -494,13 +494,13 @@ Följande ändringar ingår i juni 2013 Media Services SDK-versioner. Senaste Me
 
 Korrigeringar för problem som hittas i November 2012 SDK:
 
-* IAsset.Locators.Count: Det här antalet är nu rapporteras korrekt på den nya IAsset gränssnitt efter alla positionerare tas bort.
+* IAsset.Locators.Count: Det här antalet rapporteras nu korrekt på den nya IAsset gränssnitt efter alla positionerare tas bort.
 * IAssetFile.ContentFileSize: Det här värdet har nu konfigurerats korrekt efter en överföring av IAssetFile.Upload(filepath).
 * IAssetFile.ContentFileSize: Den här egenskapen kan nu ställas in när du skapar en resursfil. Det var tidigare skrivskyddat.
 * IAssetFile.Upload(filepath): Ett problem har åtgärdats där den här metoden för synkron upload har utlöser följande fel när flera filer har överförts till tillgången. Felet ”Det gick inte att autentisera begäran-Server. Kontrollera att värdet för auktoriseringsrubriken har formaterats korrekt inklusive signaturen ”.
 * IAssetFile.UploadAsync: Ett problem har åtgärdats som begränsad samtidiga överföringen av filer till fem filer.
 * IAssetFile.UploadProgressChanged: Den här händelsen tillhandahålls nu av SDK.
-* IAssetFile.DownloadAsync (sträng, BlobTransferClient, ILocator, CancellationToken): den här metoden överlagring tillhandahålls nu.
+* IAssetFile.DownloadAsync (sträng, BlobTransferClient, ILocator, CancellationToken): Den här metoden överlagring tillhandahålls nu.
 * IAssetFile.DownloadAsync: Ett problem har åtgärdats som begränsad samtidiga hämtning av filer till fem filer.
 * IAssetFile.Delete(): Ett problem har åtgärdats där anropande delete kan generera ett undantag om ingen fil har överförts för IAssetFile.
 * Jobb: Ett problem har åtgärdats där länkning en ”MP4 Smooth strömmar uppgiften” med ”PlayReady-skydd uppgiften” med hjälp av en jobbmall för inte har skapat några uppgifter alls.
@@ -522,9 +522,9 @@ De ändringar som nämns i det här avsnittet har uppdateringar som ingår i Nov
     * IAssetFile ersätter FileInfo och fungerar annorlunda. Initiera objektet IAssetFiles, följt av en uppladdning antingen genom att använda Media Services SDK eller Storage SDK för att använda den. Du kan använda följande IAssetFile.Upload överlagringar:
   
         * IAssetFile.Upload(filePath): Den här synkron metod blockerar tråden och rekommenderas endast när du överför en fil.
-        * IAssetFile.UploadAsync (filePath, blobTransferClient, positionerare, cancellationToken): den här asynkrona metoden är den prioriterade överföringsmekanism. 
+        * IAssetFile.UploadAsync (filePath, blobTransferClient, positionerare, cancellationToken): Den här asynkrona metoden är den prioriterade överföringsmekanism. 
     
-            Känt fel: Om du använder token annullering överföringen har avbrutits. Uppgifterna kan ha många annullering tillstånd. Du måste korrekt fånga upp och hantera undantag.
+            Känt fel: Om du använder token annullering har överföringen avbrutits. Uppgifterna kan ha många annullering tillstånd. Du måste korrekt fånga upp och hantera undantag.
 * Positionerare
   
     * Ursprung-specifika versioner har tagits bort. SAS-specifika-kontext. Locators.CreateSasLocator (tillgången, accessPolicy) markeras inaktuella eller tagits bort av allmänt tillgängliga. Se avsnittet ”positionerare” under ”nya funktioner” för uppdaterade beteendet.

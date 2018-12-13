@@ -1,5 +1,5 @@
 ---
-title: Konfigurera HBase-kluster-replikering i Azure-nätverk
+title: Konfigurera HBase-kluster-replikering i Azure-nätverk – Azure HDInsight
 description: Lär dig hur du ställer in HBase-replikering från en HDInsight-version till en annan för Utjämning av nätverksbelastning, hög tillgänglighet, noll stilleståndstid vid migrering och uppdateringar och katastrofåterställning.
 services: hdinsight,virtual-network
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584187"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163844"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera replikering för Apache HBase-kluster i Azure-nätverk
 
@@ -263,10 +263,10 @@ Skapa en [Apache HBase](http://hbase.apache.org/) kluster i var och en av de tv�
 - **Resursgruppens namn**: Använd samma resursgruppnamn som du skapade de virtuella nätverken.
 - **Typ av kluster**: HBase
 - **Version**: HBase 1.1.2 (HDI 3.6)
-- **Plats**: använda samma plats som det virtuella nätverket.  Som standard är vnet1 *västra USA*, och vnet2 är *USA, östra*.
-- **Storage**: skapa ett nytt lagringskonto för klustret.
+- **Plats**: Använd samma plats som det virtuella nätverket.  Som standard är vnet1 *västra USA*, och vnet2 är *USA, östra*.
+- **Storage**: Skapa ett nytt lagringskonto för klustret.
 - **Virtuellt nätverk** (från avancerade inställningar på portalen): Välj vnet1 som du skapade i föregående procedur.
-- **Undernät**: standardnamnet som används i mallen är **subnet1**.
+- **Undernät**: Standardnamnet som används i mallen är **subnet1**.
 
 För att säkerställa miljön är rätt konfigurerad, måste du kunna pinga den huvudnoden FQDN mellan två kluster.
 
@@ -274,7 +274,7 @@ För att säkerställa miljön är rätt konfigurerad, måste du kunna pinga den
 
 När du replikerar ett kluster måste du ange de tabeller som du vill replikera. I det här avsnittet ska läsa du in data i källklustret. I nästa avsnitt aktiverar du replikering mellan två kluster.
 
-Skapa en **kontakter** tabellen och infoga data i tabellen, följ instruktionerna på [självstudier för Apache HBase: komma igång med Apache HBase i HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Skapa en **kontakter** tabellen och infoga data i tabellen, följ instruktionerna på [Apache HBase-självstudien: Komma igång med Apache HBase i HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
@@ -288,10 +288,10 @@ Följande steg beskriver hur du anropar åtgärdsskriptet skriptet från Azure-p
 4. Längst ned på sidan Välj **Skicka ny**.
 5. Välj eller ange följande information:
 
-  1. **Namnet**: Ange **Aktivera replikering**.
+  1. **Namn på**: Ange **Aktivera replikering**.
   2. **Bash-Webbadress för skript**: Ange **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **HEAD**: se till att det här alternativet väljs. Ta bort andra nodtyper.
-  4. **Parametrar**: exempelparametrarna i följande aktiverar replikering för alla befintliga tabeller och sedan kopiera alla data från källklustret till målklustret:
+  3.  **HEAD**: Se till att det här alternativet väljs. Ta bort andra nodtyper.
+  4. **Parametrar**: Följande exempel parametrar Aktivera replikering för alla befintliga tabeller och sedan kopiera alla data från källklustret till målklustret:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     

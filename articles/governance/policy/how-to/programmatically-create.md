@@ -4,16 +4,16 @@ description: Den här artikeln beskriver hur du programmässigt kan skapa och ha
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: MT
+ms.openlocfilehash: 881dc5c66f9b408d28a43fa16cff987a79a896a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242644"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084914"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 
@@ -29,7 +29,7 @@ Innan du börjar måste du kontrollera att följande krav är uppfyllda:
 
 1. Uppdatera din AzureRM PowerShell-modul till den senaste versionen. Mer information om den senaste versionen finns i [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Registrera resursprovidern Policy Insights med Azure PowerShell för att säkerställa att din prenumeration fungerar med resursprovidern. När du ska registrera en resursleverantör måste du ha behörighet att utföra registeringsåtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
+1. Registrera resursprovidern Policy Insights med Azure PowerShell för att verifiera att din prenumeration fungerar med resursprovidern. Om du vill registrera en resursleverantör måste du ha behörighet att köra registeringsåtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
 
    ```azurepowershell-interactive
    Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'

@@ -1,5 +1,5 @@
 ---
-title: 'Speech Service REST API: er – Speech Service'
+title: 'Speech Services REST API: er – Speech Services'
 titleSuffix: Azure Cognitive Services
 description: 'Lär dig hur du använder tal till text och text till tal REST API: erna. I den här artikeln får du lära dig om auktorisering, alternativ frågan, hur du strukturerar en begäran och får ett svar.'
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 5a3c160fcb550fc4f0c92145733aa993b95bd112
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584867"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089352"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API: er
 
@@ -30,7 +31,7 @@ Förstå innan du använder REST-API: er:
 
 Varje begäran antingen tal till text eller text till tal REST-API: et kräver ingen auktoriseringsrubrik. Den här tabellen visar vilka rubriker stöds för varje tjänst:
 
-| Stöds auktorisering rubriker | Tal-till-text | Text-till-tal |
+| Stöds auktorisering rubriker | Tal-till-text | Text till tal |
 |------------------------|----------------|----------------|
 | OCP-Apim-Subscription-Key | Ja | Nej |
 | Auktorisering: ägar | Ja | Ja |

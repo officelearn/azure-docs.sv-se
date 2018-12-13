@@ -3,7 +3,7 @@ title: Med elastic database-klientbibliotek med Entity Framework | Microsoft Doc
 description: Använd Elastic Database-klientbiblioteket och Entity Framework för att koda databaser
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 030ec9db16f90430a544ca8715a4e1dea02e2c62
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261935"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873248"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database-klientbibliotek med Entity Framework
 Det här dokumentet visar de ändringar i ett Entity Framework-program som behövs för att integrera med den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md). Fokus ligger på att skriva [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md) och [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) med Entity Framework **Code First** metod. Den [Code först – ny databas](https://msdn.microsoft.com/data/jj193542.aspx) självstudien för EF fungerar som exemplet som körs i hela dokumentet. Exempelkoden som åtföljer det här dokumentet är en del av verktygen för elastiska databaser uppsättning exempel i Visual Studio-kodexempel.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 38ed7a7fff08003563147d6b8eb9bbc33fb32bc9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 4e7bcfbbec7be7320328df9ed2fa34ba7f7dbfc6
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836159"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888400"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Data samling information om lösningar i Azure
 Den här artikeln innehåller en lista över [hanteringslösningar](solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det innehåller även information om deras metod och frekvensen för insamling av data till Log Analytics.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. 
@@ -31,10 +31,10 @@ Följande tabell listar de [hanteringslösningar](solutions.md) i Azure som till
 Förklaringar av kolumnerna är följande:
 
 - **Microsoft övervakningsagent** -Agent som används i Windows och Linux för att köra Management pack från SCOM och hanteringslösningar från Azure. I den här konfigurationen är agenten ansluten direkt till Log Analytics inte är ansluten till en Operations Manager-hanteringsgrupp. 
-- **Operations Manager** -identiska agenten som Microsoft monitoring agent. I den här konfigurationen har [är ansluten till en Operations Manager-hanteringsgrupp](../../log-analytics/log-analytics-om-agents.md) som är ansluten till Log Analytics. 
+- **Operations Manager** -identiska agenten som Microsoft monitoring agent. I den här konfigurationen har [är ansluten till en Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) som är ansluten till Log Analytics. 
 -  **Azure Storage** -lösningen samlar in data från ett Azure storage-konto. 
 - **Operations Manager som krävs?** – En ansluten hanteringsgrupp för Operations Manager krävs för insamling av hanteringslösningen. 
-- **Operations Manager agent-data skickas via hanteringsgruppen** – om agenten [är ansluten till en SCOM-hanteringsgrupp](../../log-analytics/log-analytics-om-agents.md), och sedan data skickas till Log Analytics från hanteringsservern. I det här fallet behöver agenten inte att ansluta direkt till Log Analytics. Om den här rutan inte är markerat, sedan skickas data från agenten direkt till Log Analytics även om agenten är ansluten till en SCOM-hanteringsgrupp. Den måste kunna kommunicera med Log Analytics genom den [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
+- **Operations Manager agent-data skickas via hanteringsgruppen** – om agenten [är ansluten till en SCOM-hanteringsgrupp](../../azure-monitor/platform/om-agents.md), och sedan data skickas till Log Analytics från hanteringsservern. I det här fallet behöver agenten inte att ansluta direkt till Log Analytics. Om den här rutan inte är markerat, sedan skickas data från agenten direkt till Log Analytics även om agenten är ansluten till en SCOM-hanteringsgrupp. Den måste kunna kommunicera med Log Analytics genom den [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
 - **Insamlingsfrekvens** – anger hur ofta att data har samlats in av hanteringslösningen. 
 
 
@@ -54,12 +54,12 @@ Förklaringar av kolumnerna är följande:
 | [Azure Application Gateway Analytics](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | på meddelandet |
 | **Lösning för hantering** | **Plattform** | **Microsoft övervakningsagent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager som krävs?** | **Operations Manager agent-data skickas via hanteringsgruppen** | **Insamlingsfrekvens** |
 | [Azure Network Security Group Analytics (inaktuell)](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | på meddelandet |
-| [Azure SQL-analys (förhandsversion)](../../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minut |
+| [Azure SQL-analys (förhandsversion)](../../azure-monitor/insights/azure-sql.md) | Windows | | | | | | 1 minut |
 | [Säkerhetskopiering](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | på meddelandet |
 | [Kapacitet och prestanda (förhandsgranskning)](../../azure-monitor/insights/capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |anländer |
 | [Spårning av ändringar](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |varje timme |
 | [Spårning av ändringar](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |varje timme |
-| [Containrar](../../log-analytics/log-analytics-containers.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 3 minuter |
+| [Containrar](../../azure-monitor/insights/containers.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 3 minuter |
 | [Key Vault-analys](../../azure-monitor/insights/azure-key-vault.md) |Windows | | | | | |på meddelandet |
 | [Utvärdering av skadlig kod](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |varje timme |
 | [Övervakning av nätverksprestanda](../../azure-monitor/insights/network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP-handskakningar var femte sekund, data skickas var 3: e minut |

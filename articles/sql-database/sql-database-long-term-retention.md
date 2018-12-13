@@ -3,7 +3,7 @@ title: Store Azure SQL Database-säkerhetskopior i upp till 10 år | Microsoft D
 description: Lär dig hur Azure SQL Database stöder lagring fullständiga databassäkerhetskopieringar för upp till 10 år.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: 7fe34423e706054daf84eaa8baf45fe201a661c9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 7225c90d0d85b2a7fe53f9d2d3b13f68a45d0471
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026185"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868216"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Store Azure SQL Database-säkerhetskopior i upp till 10 år
 
 Många program har föreskrifter, efterlevnad och andra affärsrelaterade syften som kräver att du behåller säkerhetskopior av databasen efter de 7-35 dagar som tillhandahålls av Azure SQL Database [automatiska säkerhetskopieringar](sql-database-automated-backups.md). Med hjälp av funktionen för långsiktig kvarhållning av säkerhetskopior (LTR), kan du lagra angiven SQL database fullständiga säkerhetskopieringar i [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob-lagring för upp till 10 år. Du kan sedan återställa alla säkerhetskopiering som en ny databas.
 
 > [!NOTE]
-> LTR kan aktiveras på de databaser som finns i Azure SQL Database logiska servrar. Det är inte ännu tillgängliga för databaser som finns i hanterade instanser.
+> LTR kan aktiveras på de databaser som finns i Azure SQL Database logiska servrar. Det är inte ännu tillgängliga för databaser som finns i hanterade instanser. Du kan använda SQL Agent-jobb för att schemalägga [endast kopiering databassäkerhetskopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) som ett alternativ till LTR utöver 35 dagar.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Hur fungerar SQL-databas med långsiktig kvarhållning

@@ -1,23 +1,23 @@
 ---
 title: Hantera Cloudyn budgetar i Azure | Microsoft Docs
-description: Den här artikeln hjälper dig att skapa och hantera budgetar i Cloudyn.
+description: Den här artikeln hjälper dig att snabbt skapa budgetar och börja hantera dem i Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: ef2ccd1d1fb5583d1356969ca759e5fb58a81936
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 44062670283a15f678da45e13a831e73a7738c39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997559"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075496"
 ---
-# <a name="manage-budgets"></a>Hantera budgetar
+# <a name="manage-azure-budgets-with-cloudyn"></a>Hantera Azure budgetar med Cloudyn
 
 Inställningen upp budgetar och budget-baserade aviseringar bidra till att förbättra din cloud styrning och ansvar. Den här artikeln hjälper dig att snabbt skapa budgetar och börja hantera dem i Cloudyn.
 
@@ -40,7 +40,7 @@ Skapa en budget och tilldela den till en entitet:
 3. I året, väljer du det året där du vill skapa budgeten.
 4. Ange ett Budgetvärde för varje månad. När du är klar klickar du på **spara**.
 I det här exemplet anges månatliga budgeten för juni 2018 till $135,000. Den totala budgeten för året är $1,615,000.00.
-![Skapa en budget](./media/manage-budgets/set-budget.png)
+![Skapa en budget-sida där du kan ange en budget för varje månad](./media/manage-budgets/set-budget.png)
 
 
 Importera en fil för årlig budget:
@@ -64,11 +64,11 @@ I det här exemplet antar vi att det aktuella datumet infaller den 22 juni. Kost
 
 Ett annat sätt att visa rapporten är att titta på ackumulerade kostnaden vs din budget. Se ackumulerade kostnaderna under **Visa/dölj fält**väljer **ackumulerade kostnaden** och **Total Budget**. Här är ett exempel som visar den ackumulerade kostnaden sedan i början av året.
 
-![Ackumulerade budget](./media/manage-budgets/accumulated-budget.png)
+![Exempel ackumulerade kostnaden och total budget visas i Cost vs. Rapport med budget över tid](./media/manage-budgets/accumulated-budget.png)
 
 Någon gång kanske i framtiden den ackumulerade kostnaden överskrider din budget. Du kan se att enklare om du ändrar diagramvy till den _rad_ typen.
 
-![Budget visas i linjediagram](./media/manage-budgets/budget-line.png)
+![Budget visas i ett linjediagram i kostnaden av månader rapporten](./media/manage-budgets/budget-line.png)
 
 ## <a name="create-budget-alerts-for-a-filter"></a>Skapa budget aviseringar för ett filter
 
@@ -81,7 +81,7 @@ Nu ska vi titta på ett exempel.
 
 I Cost vs. Budget över tid rapporten, klickar du på **åtgärder** och välj sedan **Schemalägg rapport**. Välj ett tröskelvärde för mått på fliken tröskelvärdet. Till exempel **kostnadsbudget procent jämfört med**. Välj en typ av avisering och ange ett procentvärde av budgeten. Om du vill bli informerad bara en gång, väljer **antalet på varandra följande aviseringar** och skriv sedan _1_. Klicka på **Spara**.
 
-![Budgetavisering](./media/manage-budgets/budget-alert.png)
+![Skapa en budgetavisering om på Spara eller schema rapporten](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

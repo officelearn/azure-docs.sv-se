@@ -1,5 +1,5 @@
 ---
-title: Licensavtal för tal Devices SDK
+title: Licensavtal för tal Devices SDK - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Licensavtal för tal Devices SDK.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b1605337a810c635bfa40cd05e2f9b15d2e5a7e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466128"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078522"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Licensavtal för tal Devices SDK
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>LICENSVILLKOR FÖR PROGRAMVARA FRÅN MICROSOFT<br>TAL ENHETER SOFTWARE DEVELOPMENT KIT (SDK) 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>LICENSVILLKOR FÖR PROGRAMVARA FRÅN MICROSOFT<br>TAL ENHETER SOFTWARE DEVELOPMENT KIT (SDK)
 
 > OM DU BOR (ELLER HAR ETT FÖRETAG MED DIN HUVUDNAMN ETABLERAD I) USA, LÄS AVSNITTET ”BINDANDE SKILJEFÖRFARANDE OCH FRISKRIVNING FRÅN GRUPPTALAN” NEDAN. DEN PÅVERKAR HUR TVISTER SKA LÖSAS.
 
@@ -57,7 +58,7 @@ f) du måste använda programvaran endast i kombination med Microsoft Azure Cogn
 
 **5\. FEEDBACK.** Om du ger feedback om programvaran till Microsoft så ger du Microsoft, utan kostnad, rätten att använda, dela och kommersialisera din feedback på valfritt sätt och oavsett ändamål. Du lämnar inte feedback som omfattas av en licens som kräver att Microsoft licensierar sin programvara eller dokumentation till tredje man, eftersom Microsoft inkluderar din feedback på dem. Dessa rättigheter överlever detta avtal.
 
-**6\. PERIOD.** Detta avtal börjar gälla på ditt godkännande och kan avslutas av dig eller Microsoft när som helst. 
+**6\. PERIOD.** Detta avtal börjar gälla på ditt godkännande och kan avslutas av dig eller Microsoft när som helst.
 
 **7\. UPPSÄGNING.** Utan att det påverkar andra rättigheter, kan Microsoft säga upp detta avtal om du inte uppfyller något av dess villkor eller villkor. I dessa fall måste du förstöra alla exemplar av programvaran och alla dess komponenter.
 

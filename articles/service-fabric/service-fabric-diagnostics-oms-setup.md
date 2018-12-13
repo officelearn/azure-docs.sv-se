@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 2cdc9f780e0d9ddb6e688e53208e5597b000aa56
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 00fc04afd26da2ef5741eec308835bb8c897c26b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632780"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077349"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Konfigurera Log Analytics för ett kluster
 
@@ -123,7 +123,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 När du är klar följer du anvisningarna i föregående avsnitt för att ansluta Log Analytics till lämplig storage-kontot.
 
-Du kan också lägga till andra lösningar eller göra andra ändringar Log Analytics-arbetsytan med hjälp av PowerShell. Mer information finns i [hantera Log Analytics med hjälp av PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
+Du kan också lägga till andra lösningar eller göra andra ändringar Log Analytics-arbetsytan med hjälp av PowerShell. Mer information finns i [hantera Log Analytics med hjälp av PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera Log Analytics-agenten](service-fabric-diagnostics-oms-agent.md) till noderna kan samla in prestandaräknare och samla in loggar för dina behållare och docker-stats

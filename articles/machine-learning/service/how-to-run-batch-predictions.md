@@ -1,6 +1,5 @@
 ---
-title: Kör batch förutsägelser på stora mängder data
-titleSuffix: Azure Machine Learning service
+title: Kör batch förutsägelser på stora datauppsättningar med Azure Machine Learning-tjänsten
 description: Lär dig mer om att göra förutsägelser för batch asynkront på stora mängder data med hjälp av Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
-ms.custom: seodec18
-ms.openlocfilehash: cd9b0a117439f603e4820cb2dec2984aa2d68e73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1007e3f151a27fad5390404b0241dcb361168fd3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074341"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52882935"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Kör batch förutsägelser på stora datauppsättningar med Azure Machine Learning-tjänsten
 

@@ -1,11 +1,12 @@
 ---
-title: Data vetenskap virtuella data införandet verktyg - Azure | Microsoft Docs
-description: Data vetenskap virtuella data införandet verktyg
-keywords: datavetenskap verktyg, datavetenskap virtuell dator, verktyg för datavetenskap, datavetenskap för linux
+title: Data Science Virtual Machine verktyg för datainhämtning – Azure | Microsoft Docs
+description: Läs om verktyg för datainhämtning och verktyg som redan är installerat på den virtuella datorn för datavetenskap.
+keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,40 +16,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 7aeb0476fffb8c9e5cf2b0b5d89a2a387bd6364a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 75f068a857be33337348958fbc472f37f6d84e12
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411353"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075866"
 ---
-# <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data vetenskap virtuella data införandet verktyg
+# <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data Science Virtual Machine verktyg för datainhämtning
 
-En av de första tekniska stegen i en datavetenskap eller AI-projekt är att identifiera datauppsättningarna som ska användas och sätta dem i din miljö för analytics. Den virtuella datorn på vetenskap (DSVM) tillhandahåller verktyg och bibliotek hämta data från olika källor i en analysdata lagring lokalt på DSVM eller i en dataplattform i molnet eller lokalt. 
+En av de första tekniska stegen i en datavetenskap eller AI-projekt är att identifiera datauppsättningarna som ska användas och anpassa dem till din analytics-miljö. Den virtuella datorn på datavetenskap (DSVM) erbjuder verktyg och bibliotek att importera data från olika källor till en analysdata storage lokalt på DSVM eller i en plattform för företagsdata i molnet eller lokalt. 
 
-Här följer vissa data movement verktyg som vi har samlat på DSVM. 
+Här är några verktyg för flytt av data som har vi lagt till på DSVM. 
 
 ## <a name="adlcopy"></a>AdlCopy
 
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Ett verktyg för att kopiera data från Azure storage BLOB till Azure Data Lake Store. Det kan också kopiera data mellan två Azure Data Lake Store-konton.      |
-| Stöds DSVM versioner      | Windows      |
-| Vanliga användningsområden      | Importera flera blobbar från Azure-lagring till Azure Data Lake Store.      |
-|  Hur du använder / kör den?    |   Öppna en kommandotolk, Skriv `adlcopy` kan få hjälp.    |
-| Länkar till exempel      | [Använda AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
-| Relaterade verktyg på DSVM      | AzCopy, Azure kommandoraden     |
+| Stöds DSVM-versioner      | Windows      |
+| Vanliga användningsområden      | Importera flera blobbar från Azure storage till Azure Data Lake Store.      |
+|  Hur du använder / köra den?    |   Öppna en kommandotolk, Skriv `adlcopy` att få hjälp.    |
+| Innehåller länkar till exempel      | [Använda AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Relaterade verktyg på DSVM      | AzCopy, Azure-kommandorad     |
 
-## <a name="azure-command-line"></a>Azure kommandoraden
+## <a name="azure-command-line"></a>Azure-kommandorad
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Ett hanteringsverktyg för Azure. Den innehåller också kommandot verb för att flytta data från Azure data plattformar, som Azure storage-blobbar, lagring av Azure Data Lake     |
-| Stöds DSVM versioner      | Windows, Linux     |
-| Vanliga användningsområden      | Import, export av data till och från Azure storage, Azure Data Lake Store      |
-|  Hur du använder / kör den?    |   Öppna en kommandotolk, Skriv `az` kan få hjälp.    |
-| Länkar till exempel      | [Använda Azure CLI](https://docs.microsoft.com/cli/azure)     |
-| Relaterade verktyg på DSVM      | AzCopy AdlCopy      |
+| Vad är det?   | Ett hanteringsverktyg för Azure. Den innehåller också kommandot verb för att flytta data från Azure-Dataplattformar som Azure storage BLOB, Azure Data Lake Storage     |
+| Stöds DSVM-versioner      | Windows, Linux     |
+| Vanliga användningsområden      | Importera, exportera data till och från Azure storage, Azure Data Lake Store      |
+|  Hur du använder / köra den?    |   Öppna en kommandotolk, Skriv `az` att få hjälp.    |
+| Innehåller länkar till exempel      | [Använda Azure CLI](https://docs.microsoft.com/cli/azure)     |
+| Relaterade verktyg på DSVM      | AzCopy, AdlCopy      |
 
 
 ## <a name="azcopy"></a>AzCopy
@@ -56,10 +57,10 @@ Här följer vissa data movement verktyg som vi har samlat på DSVM.
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Ett verktyg för att kopiera data till och från lokala filer, Azure storage-blobbar, filer och tabeller.      |
-| Stöds DSVM versioner      | Windows      |
-| Vanliga användningsområden      | Kopiera filer till blob storage, kopierar blobar mellan konton.      |
-|  Hur du använder / kör den?    |   Öppna en kommandotolk, Skriv `azcopy` kan få hjälp.    |
-| Länkar till exempel      | [AzCopy i Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
+| Stöds DSVM-versioner      | Windows      |
+| Vanliga användningsområden      | Kopiera filer till blob storage, kopiera blobar mellan konton.      |
+|  Hur du använder / köra den?    |   Öppna en kommandotolk, Skriv `azcopy` att få hjälp.    |
+| Innehåller länkar till exempel      | [AzCopy i Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | Relaterade verktyg på DSVM      | AdlCopy     |
 
 
@@ -67,44 +68,44 @@ Här följer vissa data movement verktyg som vi har samlat på DSVM.
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Verktyg för att importera data från olika källor, inklusive JSON-filer, CSV-filer, SQL, MongoDB, Azure Table storage, Amazon DynamoDB och Azure SQL DB-API Cosmos-samlingar i Azure Cosmos DB.      |
-| Stöds DSVM versioner      | Windows      |
-| Vanliga användningsområden      | Importera filer från en virtuell dator till CosmosDB, importera data från Azure-tabellagring till CosmosDB eller importera data från en SQL Server-databas till CosmosDB.     |
-|  Hur du använder / kör den?    |   För att använda kommandoraden version, öppna en kommandotolk, Skriv `dt`. Att använda GUI-verktyg, öppna Kommandotolken, Skriv `dtui`.    |
-| Länkar till exempel      | [CosmosDB importera Data](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
-| Relaterade verktyg på DSVM      | AzCopy AdlCopy      |
+| Vad är det?   | Verktyg för att importera data från olika källor, inklusive JSON-filer, CSV-filer, SQL, MongoDB, Azure Table storage, Amazon DynamoDB och Azure Cosmos DB SQL API-samlingar till Azure Cosmos DB.      |
+| Stöds DSVM-versioner      | Windows      |
+| Vanliga användningsområden      | Importera filer från en virtuell dator till CosmosDB, importera data från Azure table storage till CosmosDB eller importera data från en SQL Server-databas till CosmosDB.     |
+|  Hur du använder / köra den?    |   För att använda kommandoraden version, öppna en kommandotolk, skriv sedan `dt`. Att använda GUI-verktyget, öppna en kommandotolk, Skriv `dtui`.    |
+| Innehåller länkar till exempel      | [CosmosDB importera Data](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
+| Relaterade verktyg på DSVM      | AzCopy, AdlCopy      |
 
 
 ## <a name="bcp"></a>bcp
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | SQL Server för att kopiera data mellan SQL Server och en datafil.      |
-| Stöds DSVM versioner      | Windows      |
-| Vanliga användningsområden      | Importera en CSV-fil i en SQL Server-tabell, exportera en tabell i SQL Server till en fil.      |
-|  Hur du använder / kör den?    |   Öppna en kommandotolk, Skriv `bcp` kan få hjälp.    |
-| Länkar till exempel      | [Bulk Copy-verktyget](https://docs.microsoft.com/sql/tools/bcp-utility)      |
+| Vad är det?   | SQL Server-verktyg för att kopiera data mellan SQL Server och en datafil.      |
+| Stöds DSVM-versioner      | Windows      |
+| Vanliga användningsområden      | Importera en CSV-fil i en SQL Server-tabell, exportera en SQL Server-tabell till en fil.      |
+|  Hur du använder / köra den?    |   Öppna en kommandotolk, Skriv `bcp` att få hjälp.    |
+| Innehåller länkar till exempel      | [Bulk Copy-verktyget](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Relaterade verktyg på DSVM      | SQL Server, sqlcmd      |
 
-## <a name="blobfuse"></a>blobfuse
+## <a name="blobfuse"></a>Blobfuse
 
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Ett verktyg för att montera en Azure blob-behållare i Linux-filsystem.      |
-| Stöds DSVM versioner      | Linux      |
-| Vanliga användningsområden      | Läsning och skrivning till blobbar i en behållare      |
-|  Hur du använder / kör den?    |   Kör _blobfuse_ i en terminal.    |
-| Länkar till exempel      | [blobfuse på GitHub](https://github.com/Azure/azure-storage-fuse)      |
-| Relaterade verktyg på DSVM      | Azure kommandoraden      |
+| Stöds DSVM-versioner      | Linux      |
+| Vanliga användningsområden      | Läsning och skrivning till blobarna i en behållare      |
+|  Hur du använder / köra den?    |   Kör _blobfuse_ i en terminal.    |
+| Innehåller länkar till exempel      | [blobfuse på GitHub](https://github.com/Azure/azure-storage-fuse)      |
+| Relaterade verktyg på DSVM      | Azure-kommandorad      |
 
 
 ## <a name="microsoft-data-management-gateway"></a>Microsoft Data Management Gateway
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Ett verktyg för att ansluta lokalt datakällor molntjänster för användning.      |
-| Stöds DSVM versioner      | Windows      |
-| Vanliga användningsområden      | Ansluter en virtuell dator till en lokal datakälla.      |
-|  Hur du använder / kör den?    |   Starta ”Microsoft Data Management Gateway” från Start-menyn.    |
-| Länkar till exempel      | [Gateway för datahantering](https://msdn.microsoft.com/library/dn879362.aspx)      |
+| Vad är det?   | Ett verktyg för att ansluta lokala datakällor molnbaserade tjänster för konsumtion.      |
+| Stöds DSVM-versioner      | Windows      |
+| Vanliga användningsområden      | Ansluta en virtuell dator till en lokal datakälla.      |
+|  Hur du använder / köra den?    |   Starta ”Microsoft Data Management Gateway” från Start-menyn.    |
+| Innehåller länkar till exempel      | [Gateway för datahantering](https://msdn.microsoft.com/library/dn879362.aspx)      |
 | Relaterade verktyg på DSVM      | AzCopy, AdlCopy, bcp    |

@@ -1,5 +1,5 @@
 ---
-title: Skapa CI/CD-pipeline för IoT Edge med Azure DevOps-projekt (förhandsversion) | Microsoft Docs
+title: CI/CD-pipeline med Azure DevOps-projekt – Azure IoT Edge | Microsoft Docs
 description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Det hjälper dig att starta en Azure IoT Edge-app väljer med några enkla steg.
 author: shizn
 manager: ''
@@ -8,12 +8,13 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a394951de833ee8c01bb4a385c5ebb126ebd3534
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: ebb7e515f9d9205f364d50b3d686c68a2988f86a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883363"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074222"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps-projekt (förhandsgranskning)
 
@@ -35,15 +36,15 @@ DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azur
 
 1. Azure IoT Edge-moduler kan skrivas [ C# ](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) och [Java](tutorial-java-module.md). Välj det språk du föredrar att starta ett nytt program. På motsvarande sätt kan du välja **.NET**, **Node.js**, **Python**, **C**, eller **Java**, och klicka sedan på **Nästa**.
 
-    ![Välj ett språk](./media/how-to-devops-project/select-language.png)
+    ![Välj språk för att skapa ett nytt program](./media/how-to-devops-project/select-language.png)
 
 2. Välj **enkla IoT (förhandsversion)**, och klicka sedan på **nästa**.
 
-    ![Välj IoT](media/how-to-devops-project/select-iot.png)
+    ![Välj enkla IoT-ramverk](media/how-to-devops-project/select-iot.png)
 
 3. Välj **IoT Edge**, och klicka sedan på **nästa**.
 
-    ![Välj IoT Edge](media/how-to-devops-project/select-iot-edge.png)
+    ![Välj IoT Edge-tjänst](media/how-to-devops-project/select-iot-edge.png)
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Konfigurera Azure DevOps och en Azure-prenumeration
 
@@ -53,11 +54,11 @@ DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azur
 
     b. Välj din Azure-prenumeration och plats, välj ett namn för programmet och välj sedan **Klar**.  
 
-    ![Välj devops](media/how-to-devops-project/select-devops.png)
+    ![Namnge och skapa program](media/how-to-devops-project/select-devops.png)
 
 1. Efter några minuter visas DevOps Projects-instrumentpanelen i Azure-portalen. Ett exempel på IoT Edge-programmet har ställts in på en lagringsplats i din organisation med Azure DevOps, en version körs och programmet distribueras till IoT Edge-enhet. Den här instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och ditt program i Azure.
 
-    ![DevOps-portalen](./media/how-to-devops-project/devops-portal.png)
+    ![Visa programmet i DevOps-portalen](./media/how-to-devops-project/devops-portal.png)
 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Genomför ändringar i koden och kör CI/CD
@@ -69,19 +70,19 @@ Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
 
 1. Om du vill visa webbadressen för den klonade lagringsplatsen väljer du **Klona** längst upp till höger i webbläsaren. Du kan klona Git-lagringsplatsen i VS Code eller andra föredragna verktyg. I nästa steg du använda webbläsaren för att göra och commit kod ändrar direkt till huvudgrenen.
 
-    ![Klona](media/how-to-devops-project/clone.png)
+    ![Klona git-lagringsplats](media/how-to-devops-project/clone.png)
 
 1. Till vänster i webbläsaren går du till den **modules/FilterModule/module.json** fil.
 
 1. Välj **redigera**, och sedan ändrar till `"version"` under den `"tag"`. Du kan till exempel uppdatera den till `"version": "${BUILD_BUILDID}"` att använda [Azure DevOps Skapa variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) som en del av din Azure IoT Edge-modulen bildtagg.
 
-    ![Redigera](media/how-to-devops-project/update-module-json.png)
+    ![Redigera version för att godkänna build variabler](media/how-to-devops-project/update-module-json.png)
 
 1. Välj **Checka in** och spara sedan ändringarna.
 
 1. I webbläsaren går du till instrumentpanelen för Azure DevOps-projektet.  Du bör nu se att en version håller på att skapas. De ändringar du utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
 
-    ![Pågår](media/how-to-devops-project/ci-cd-in-progress.png)
+    ![Visa status för pågående](media/how-to-devops-project/ci-cd-in-progress.png)
 
 ## <a name="examine-the-cicd-pipeline"></a>Granska CI/CD-pipelinen
 
@@ -92,11 +93,11 @@ Länken öppnar en webbläsarflik och Azure DevOps-bygg-pipelinen för det nya p
 
 1. Välj **Redigera**.
 
-    ![Redigera](media/how-to-devops-project/click-edit-button.png)
+    ![Redigera build pipeline](media/how-to-devops-project/click-edit-button.png)
 
 1. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen. Versionen utför olika uppgifter, till exempel hämtar källor från Git-lagringsplats, att skapa IoT Edge modulen bilder, push-överföra IoT Edge-moduler och publicera utdata som används som används för distributioner. Om du vill veta mer om Azure IoT Edge-uppgifter för CI, kan du besöka [konfigurera Azure Pipelines för kontinuerlig integrering](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-integration).
 
-    ![CI-uppgifter](media/how-to-devops-project/ci.png)
+    ![Kontinuerlig integrering i uppgiftsvyn](media/how-to-devops-project/ci.png)
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
@@ -111,7 +112,7 @@ I fönsterrutan **Historik** ser du en spårningslogg över de senaste ändringa
 
 1. Välj **versionen** under **Pipelines**. DevOps-projekt skapas en pipeline för versionen för att hantera distributioner till Azure IoT Edge.
 
-    ![Releasepipeline](media/how-to-devops-project/release-pipeline.png)
+    ![Visa releasepipeline](media/how-to-devops-project/release-pipeline.png)
 
 1. Välj **Redigera**. Versionspipelinen innehåller en pipeline som definierar versionsprocessen.  
 
@@ -122,7 +123,7 @@ Den här versionspipelinen har en aktiverad CD-utlösare som kör en distributio
 
 1. Till vänster väljer du **Uppgifter**. Uppgifter är de aktiviteter som distributionsprocessen utför. En uppgift har skapats för att distribuera dina modulen avbildningar till Azure IoT Edge i det här exemplet. Om du vill veta mer om Azure IoT Edge-uppgifter för CD, kan du besöka [konfigurera Azure Pipelines för kontinuerlig distribution](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-deployment).
 
-    ![CD](media/how-to-devops-project/dev-release.png)
+    ![Visa kontinuerlig distribution aktiviteter](media/how-to-devops-project/dev-release.png)
 
 1. Till höger väljer du alternativet för att **visa versioner**. Den här vyn visar en historik över versioner.
 

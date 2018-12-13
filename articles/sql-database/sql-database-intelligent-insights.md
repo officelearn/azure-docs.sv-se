@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: MT
+ms.openlocfilehash: e639bd40c877aded1439fe999fcf3f7114b9a727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976196"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890678"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights med hjälp av AI att övervaka och felsöka databasen prestanda
 
@@ -87,7 +87,7 @@ Azure SQL Analytics-lösningen innehåller grafiskt användargränssnitt, rappor
 > Komma igång snabbt: Det enklaste sättet att få från grunden med hjälp av intelligenta insikter är att använda den tillsammans med Azure SQL Analytics som tillhandahåller ett grafiskt användargränssnitt till prestandaproblem för databasen. Lägg till Azure SQL Analytics-lösningen från marketplace, skapa en arbetsyta i den här lösningen och sedan konfigurera strömning av ”SQLInsights” logga in diagnostik inställningsbladet för en databas till för varje databas som du vill aktivera smarta insikter på den Azure SQL Analytics-arbetsytan.
 >
 
-Före kravet är att ha Azure SQL Analytics läggs till instrumentpanelen i Azure portal från marketplace och för att skapa en arbetsyta i [konfigurera Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md#configuration)
+Före kravet är att ha Azure SQL Analytics läggs till instrumentpanelen i Azure portal från marketplace och för att skapa en arbetsyta i [konfigurera Azure SQL Analytics](../azure-monitor/insights/azure-sql.md#configuration)
 
 Konfigurera smarta insikter loggdata strömmas till Azure SQL Analytics-arbetsytan som du har skapat i föregående steg, för att använda smarta insikter med Azure SQL Analytics, se [Azure SQL Database-mått och diagnostik loggning](sql-database-metrics-diag-logging.md).
 
@@ -179,5 +179,5 @@ Om någon av de övervakade kritiska undantag mellan de absoluta tröskelvärden
 
 - Lär dig hur du [Felsöka prestandaproblem för SQL-databas med intelligenta insikter](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Använd den [diagnostikloggen för Intelligent Insights SQL Database prestanda](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Lär dig hur du [övervaka SQL-databas med hjälp av SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+- Lär dig hur du [övervaka SQL-databas med hjälp av SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - Lär dig hur du [samla in och använda loggdata från resurserna i Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

@@ -1,21 +1,20 @@
 ---
-title: Använda tjänsten Azure Storage Table eller Azure Cosmos DB Table-API:et från PHP | Microsoft Docs
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
+title: Använda tjänsten Azure Storage Table eller Azure Cosmos DB Table-API:et från PHP
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Table-API:et för Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 7ca8e786a8284fd958948e313b79e34a6f502120
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 14cb684b0cc3e93992c6ed78c53e8794214c85a8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919449"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879739"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Använda tjänsten Azure Storage Table eller Azure Cosmos DB Table-API:et från PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -284,8 +283,7 @@ foreach($entities as $entity){
 
 ## <a name="retrieve-a-subset-of-entities-in-a-partition"></a>Hämta en deluppsättning entiteter i en partition
 Samma mönster som används i föregående exempel kan användas för att hämta en deluppsättning entiteter i en partition. Hur stor deluppsättning som hämtas beror på vilket filter du använder (mer information finns i [Querying Tables and Entities
-][filters] (Köra frågor mot tabeller och entiteter
-)). Följande exempel visar hur du använder ett filter som hämtar alla entiteter med en specifik `Location` och ett `DueDate` som är mindre än det angivna datumet.
+][filters] (Köra frågor mot tabeller och entiteter)). Följande exempel visar hur du använder ett filter som hämtar alla entiteter med en specifik `Location` och ett `DueDate` som är mindre än det angivna datumet.
 
 ```php
 require_once 'vendor/autoload.php';

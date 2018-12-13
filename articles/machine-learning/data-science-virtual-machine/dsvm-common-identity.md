@@ -1,11 +1,12 @@
 ---
 title: Konfigurera en gemensam identitet för den virtuella datorn för datavetenskap – Azure | Microsoft Docs
-description: Ställ in en gemensam identitet i en enterprise-teamet DSVM miljöer.
+description: Lär dig mer om att skapa vanliga användarkonton som kan användas i flera virtuella datorer för datavetenskap. Du kan använda Azure Active Directory eller en lokal Active Directory för att autentisera användare till den virtuella datorn för datavetenskap.
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys, tdsp
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be7c63d3879c7ed89cd97eaecd6d59b6b5aadd4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436309"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075479"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Konfigurera en gemensam identitet på den virtuella datorn för datavetenskap
 

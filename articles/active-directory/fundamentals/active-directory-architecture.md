@@ -1,6 +1,6 @@
 ---
-title: Vad är Azure Active Directory-arkitekturen? | Microsoft Docs
-description: Lär dig vad en Azure Active Directory-klient är och hur du hanterar Azure via Azure Active Directory.
+title: Översikt över arkitekturen - Azure Active Directory | Microsoft Docs
+description: Lär dig vad en Azure Active Directory-klient är och hur du hanterar Azure med hjälp av Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: 62ade1318b670b4eecf1be1a9255fe497d094a1a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733227"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076125"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Vad är Azure Active Directory-arkitekturen?
-Med Azure AD (Active Directory Azure) kan du på ett säkert sätt hantera åtkomsten till Azure-tjänster och -resurser för dina användare. En komplett uppsättning identitetshanteringsfunktioner ingår i Azure AD. Information om funktionerna i Azure AD finns i [Vad är Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
+Med Azure AD (Active Directory Azure) kan du på ett säkert sätt hantera åtkomsten till Azure-tjänster och -resurser för dina användare. En komplett uppsättning identitetshanteringsfunktioner ingår i Azure AD. Information om funktionerna i Azure AD finns i [Vad är Azure Active Directory?](active-directory-whatis.md)
 
-Med Azure AD kan du skapa och hantera användare och grupper och aktivera behörigheter för att tillåta och neka åtkomst till företagsresurser. Information om identitetshantering finns i [The fundamentals of Azure identity management](https://docs.microsoft.com/azure/active-directory/fundamentals-identity) (Grunderna om Azure-identitetshantering).
+Med Azure AD kan du skapa och hantera användare och grupper och aktivera behörigheter för att tillåta och neka åtkomst till företagsresurser. Information om identitetshantering finns i [The fundamentals of Azure identity management](active-directory-whatis.md) (Grunderna om Azure-identitetshantering).
 
 ## <a name="azure-ad-architecture"></a>Azure AD-arkitekturen
 Azure Active Directorys geografiskt distribuerade arkitektur kombinerar omfattande övervakning, automatisk omdirigering, redundans och funktioner, vilket ger en företagsomfattande tillgänglighet och prestanda för kunder.

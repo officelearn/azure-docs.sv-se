@@ -6,17 +6,18 @@ author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.author: mialdrid
-ms.openlocfilehash: e9acf05562d5fb443e0340e18bc6bc259d3e8f52
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.author: mialdridm
+ms.custom: seodec18
+ms.openlocfilehash: 095d637eac5478c65ca3f15cc845518a94aa5149
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868658"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080341"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute-kretsar och peering
 
-ExpressRoute-kretsar kan du ansluta din lokala infrastruktur till Microsoft via en anslutningsleverantör. Den här artikeln hjälper dig att förstå ExpressRoute-kretsar och routning domäner/peering. Följande bild visar en logisk representation av anslutningen mellan ditt WAN-nätverk och Microsoft.
+ExpressRoute-kretsar ansluter din lokala infrastruktur till Microsoft via en anslutningsleverantör. Den här artikeln hjälper dig att förstå ExpressRoute-kretsar och routning domäner/peering. Följande bild visar en logisk representation av anslutningen mellan ditt WAN-nätverk och Microsoft.
 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 

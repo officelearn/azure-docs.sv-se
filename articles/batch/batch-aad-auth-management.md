@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: a52dbdad3842760c447e22f4274ab944750840e7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b2ab2ad1c31337e006b613ad7f17b4ad22495893
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816794"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870428"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autentisera lösningar för Batch med Active Directory
 
@@ -28,7 +28,7 @@ Program som anropar Azure Batch Management-tjänsten autentisera med [Azure Acti
 
 Batch Management .NET-biblioteket visar typer för att arbeta med Batch-konton, nycklar, program och programpaket. Batch Management .NET-biblioteket är en Azure resource provider-klient och används tillsammans med [Azure Resource Manager] [ resman_overview] att hantera dessa resurser programmässigt. Azure AD som krävs för att autentisera begäranden som görs via alla Azure resource provider postklienter, inklusive Batch Management .NET-biblioteket och via [Azure Resource Manager][resman_overview].
 
-I den här artikeln förklarar vi med Azure AD för att autentisera från program som använder Batch Management .NET-biblioteket. Vi visar hur du använder Azure AD för att autentisera en administratör för prenumerationen eller delad administratör, med integrerad autentisering. Vi använder den [AccountManagment] [ acct_mgmt_sample] exempelprojektet, finns på GitHub för att gå igenom med hjälp av Azure AD med Batch Management .NET-biblioteket.
+I den här artikeln förklarar vi med Azure AD för att autentisera från program som använder Batch Management .NET-biblioteket. Vi visar hur du använder Azure AD för att autentisera en administratör för prenumerationen eller delad administratör, med integrerad autentisering. Vi använder den [AccountManagement] [ acct_mgmt_sample] exempelprojektet, finns på GitHub för att gå igenom med hjälp av Azure AD med Batch Management .NET-biblioteket.
 
 Mer information om hur du använder Batch Management .NET-biblioteket och AccountManagement exemplet finns [hantera Batch-konton och kvoter med Batch Management-klientbiblioteket för .NET](batch-management-dotnet.md).
 

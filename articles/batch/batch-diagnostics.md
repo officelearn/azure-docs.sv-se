@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 379e5503900621381bbc27c6604cc8208cfdb80e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822763"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076465"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
@@ -53,11 +53,17 @@ Visa alla mått för Batch-konto:
 
 Hämta mätvärden via programmering genom att använda API: er för Azure Monitor. Se exempelvis [hämta Azure Monitor-mått med .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
+## <a name="batch-metric-reliability"></a>Batch mått tillförlitlighet
+
+Mått är avsedda att användas för trender och dataanalys. Metrisk leverans garanteras inte och kan komma ut ordning, förlust av data och/eller duplicering. Du bör inte använda enkel händelser till varning eller utlösare. Se den [Batch måttaviseringar](#batch-metric-alerts) mer information om hur du anger tröskelvärden för aviseringar.
+
+Fortfarande kan sammanställning av mått som genererats under de senaste 3 minuterna. Under det här tidsintervallet kan du underreported mått värdena.
+
 ## <a name="batch-metric-alerts"></a>Måttaviseringar för batch
 
-Alternativt kan du konfigurera nära realtid *måttaviseringar* som utlöser när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar. Aviseringen genererar en [meddelande](../monitoring-and-diagnostics/insights-alerts-portal.md) du väljer när aviseringen är ”aktiverad” (när tröskelvärdet skärs och aviseringstillståndet uppfylls), samt när det är ”löst” (när tröskelvärdet skärs igen och villkoret är ingen längre uppfyllt). 
+Alternativt kan du konfigurera nära realtid *måttaviseringar* som utlöser när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar. Aviseringen genererar en [meddelande](../monitoring-and-diagnostics/insights-alerts-portal.md) du väljer när aviseringen är ”aktiverad” (när tröskelvärdet skärs och aviseringstillståndet uppfylls), samt när det är ”löst” (när tröskelvärdet skärs igen och villkoret är ingen längre uppfyllt). Aviseringar baserat på enskild datapunkter rekommenderas inte eftersom mått är föremål för out-ordning, förlust av data och/eller duplicering. Avisering bör se användning av tröskelvärden för att kompensera för de här inkonsekvenserna.
 
-Du kan till exempel vill konfigurera en metrisk varning när med låg prioritet core beräkningen faller på en viss nivå så att du kan justera sammansättning av dina pooler.
+Du kan till exempel vill konfigurera en metrisk varning när med låg prioritet core beräkningen faller på en viss nivå så att du kan justera sammansättning av dina pooler. Det rekommenderas att ställa in en period av minst 10 minuter där aviseringar Utlös om antal för genomsnittlig med låg prioritet kärnor hamnar under tröskelvärdet för hela perioden. Det rekommenderas inte att Avisera om en 1-5-minutersperiod som kan fortfarande sammanställning av mått.
 
 Konfigurera en metrisk varning i portalen:
 

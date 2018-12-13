@@ -17,19 +17,19 @@ ms.date: 12/01/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1eea38a5a360d8ab12aa4ff6dac7161828ec1c72
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2d0530e2d7b97c4b3fda84f796de1a0e2857e2ac
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52683004"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872007"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>v2.0 protokoll – OAuth 2.0 och OpenID Connect
 
 V2.0-slutpunkten kan använda Azure Active Directory (Azure AD) för identitets-as-a-service med branschens standardprotokoll, OpenID Connect och OAuth 2.0. Tjänsten är standardkompatibla, kan det finnas skillnader mellan två implementeringar av dessa protokoll. Information om här är praktiskt om du väljer att skriva din kod genom att skicka och hantering av HTTP-begäranden direkt eller använda en open source-bibliotek från tredje part i stället för att använda någon av våra [bibliotek med öppen källkod](reference-v2-libraries.md).
 
 > [!NOTE]
-> Inte alla Azure Azure AD-scenarier och funktioner stöds av v2.0-slutpunkten. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
+> Inte alla Azure AD-scenarier och -funktioner stöds av v2.0-slutpunkten. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Grunderna
 

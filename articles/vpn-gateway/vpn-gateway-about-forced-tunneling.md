@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 71a8077f2423dd170d08d540edd307c08ed886cc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165526"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073830"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Konfigurera framtvingad tunneling med den klassiska distributionsmodellen
 
@@ -110,32 +110,35 @@ Stegen kommer DefaultSiteHQ som standard plats-anslutning för Tvingad tunneltra
 
 1. Skapa en routningstabell. Använd följande cmdlet för att skapa din routningstabell.
 
-  ```powershell
-  New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
-  ```
+   ```powershell
+   New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+   ```
+
 2. Lägg till en standardväg till i routningstabellen. 
 
-  I följande exempel läggs en standardväg till i routningstabellen som skapade i steg 1. Observera att den enda vägen som stöds är målprefix för ”0.0.0.0/0” till ”VPNGateway” NextHop.
+   I följande exempel läggs en standardväg till i routningstabellen som skapade i steg 1. Observera att den enda vägen som stöds är målprefix för ”0.0.0.0/0” till ”VPNGateway” NextHop.
 
-  ```powershell
-  Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
-  ```
+   ```powershell
+   Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+   ```
+
 3. Associera routningstabellen för undernäten. 
 
-  När en routningstabell har skapats och lagts till en väg, Använd följande exempel för att lägga till eller associera routningstabellen till ett VNet-undernät. I exemplet lägger till i routningstabellen ”MyRouteTable” Midtier och Backend-undernät i VNet MultiTier-VNet.
+   När en routningstabell har skapats och lagts till en väg, Använd följande exempel för att lägga till eller associera routningstabellen till ett VNet-undernät. I exemplet lägger till i routningstabellen ”MyRouteTable” Midtier och Backend-undernät i VNet MultiTier-VNet.
 
-  ```powershell
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
-  ```
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+   ```
+
 4. Tilldela en standardplats för Tvingad tunneltrafik. 
 
-  I det föregående steget, exempelskript för cmdleten skapat routningstabellen och tillhörande routningstabellen till två VNet-undernät. Återstående steg är att välja en lokal plats bland flera plats-anslutningar för det virtuella nätverket som standardwebbplatsen eller tunnel.
+   I det föregående steget, exempelskript för cmdleten skapat routningstabellen och tillhörande routningstabellen till två VNet-undernät. Återstående steg är att välja en lokal plats bland flera plats-anslutningar för det virtuella nätverket som standardwebbplatsen eller tunnel.
 
-  ```powershell
-  $DefaultSite = @("DefaultSiteHQ")
-  Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
-  ```
+   ```powershell
+   $DefaultSite = @("DefaultSiteHQ")
+   Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
+   ```
 
 ## <a name="additional-powershell-cmdlets"></a>Ytterligare PowerShell-cmdletar
 ### <a name="to-delete-a-route-table"></a>Att ta bort en routningstabell

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 4845fdbbfa4dfabf53b1f7e747668cf7f5108eb7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4f4c52bd217bf67206fe1208c1d5402216bd8178
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232716"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879459"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso-migrering: Rehost en lokala Linux-app på virtuella Azure-datorer
 
@@ -145,7 +145,7 @@ Contoso behöver några Azure-komponenter för Site Recovery:
     - Lagringskontot måste finnas i samma region som Recovery Services-valvet.
     - De använder ett konto för generell användning med standardlagring och LRS-replikering.
 
-    ![Site Recovery-lagring](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
+      ![Site Recovery-lagring](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
 
 2. De skapar ett valv (ContosoMigrationVault) med nätverks- och storage-kontot på plats, och placera den i den **ContosoFailoverRG** resursgrupp i den primära regionen östra USA 2.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 15b7dce5af984e4eb719024368479df1b5c8320a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010968"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075360"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Etablera dataflöde för Azure Cosmos-behållare och databaser
 
@@ -21,7 +21,7 @@ Azure Cosmos DB kan du konfigurera dataflöde på två Precision - **Azure Cosmo
 
 ## <a name="setting-throughput-on-a-container"></a>Inställningen dataflödet i en behållare  
 
-Dataflödet som tillhandahållits för en Azure Cosmos-behållare enbart för behållaren. Behållaren tar emot det etablerade dataflödet som hela tiden. Dataflöde i en behållare har inget serviceavtal med ekonomisk uppbackning av serviceavtal. För att konfigurera dataflödet för en behållare, se [hur du etablera dataflöde för en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
+Dataflödet som tillhandahållits i ett Azure Cosmos-behållare enbart för behållaren. Behållaren tar emot det etablerade dataflödet som hela tiden. Dataflöde i en behållare har inget serviceavtal med ekonomisk uppbackning av serviceavtal. För att konfigurera dataflödet för en behållare, se [hur du etablera dataflöde för en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
 
 Ange dataflöde för en behållare är det vanliga alternativet. Medan du kan Elastiskt skala dataflöde för en behållare genom att etablera valfritt antal dataflöde (ru: er), kan du selektivt ange genomströmning för logiska partitioner. När de arbetsbelastningar som körs på en logisk partition förbrukar mer än det dataflöde som tilldelades till den specifika logisk partitionen, får din verksamhet rate-limited. När hastighetsbegränsande uppstår kan du antingen öka genomflödet för hela behållaren eller försök igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
@@ -33,9 +33,9 @@ Etablerat en Azure Cosmos-behållaren dataflöde är jämnt fördelade för alla
 
 ## <a name="setting-throughput-on-a-database"></a>Inställningen dataflöde på en databas
 
-När du etablerar dataflöde på en Azure Cosmos-databas kan delas dataflödet mellan alla behållare i databasen, såvida inte du har angett ett dataflöde på specifika behållare. Dela databasen dataflödet mellan dess behållare är detsamma som värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, naturligt ger inte förutsägbar prestanda på en specifik behållare. För att konfigurera dataflöde på en databas, se [så här konfigurerar du etablerat dataflöde på en Azure Cosmos-databas](how-to-provision-database-throughput.md).
+När du etablerar dataflöde i en Azure Cosmos-databas kan delas dataflödet mellan alla behållare i databasen, såvida inte du har angett ett dataflöde på specifika behållare. Dela databasen dataflödet mellan dess behållare är detsamma som värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, naturligt ger inte förutsägbar prestanda på en specifik behållare. För att konfigurera dataflöde på en databas, se [så här konfigurerar du etablerat dataflöde på en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 
-Inställningen dataflöde på en Azure Cosmos-databas garanterar att du får det etablerade dataflödet som hela tiden. Eftersom alla behållare på databas-resursen det etablerade dataflödet tillhandahåller Azure Cosmos DB alla förutsägbart dataflöde garantier för en viss behållare i databasen. Del av vilket dataflöde som kan ta emot en viss behållare är beroende av:
+Inställningen dataflöde i en Azure Cosmos-databas garanterar att du får det etablerade dataflödet som hela tiden. Eftersom alla behållare på databas-resursen det etablerade dataflödet tillhandahåller Azure Cosmos DB alla förutsägbart dataflöde garantier för en viss behållare i databasen. Del av vilket dataflöde som kan ta emot en viss behållare är beroende av:
 
 * Antal behållare
 * Valet av partitionsnycklar för olika behållare och
@@ -57,7 +57,7 @@ Flera logiska partitioner som delar dataflödet som tillhandahållits till en da
 
 Du kan kombinera de två modellerna, tillåts etablera dataflöde på både databasen och behållaren. I följande exempel visar hur du etablera dataflöde för en Azure Cosmos-databas och en behållare:
 
-* Du kan skapa en Azure Cosmos-databas med namnet ”Z” med etablerat dataflöde på ”K” ru: er. 
+* Du kan skapa ett Azure Cosmos-databas med namnet ”Z” med etablerat dataflöde på ”K” ru: er. 
 * Därefter skapar fem behållare med namnet A, B, C, D och E i databasen.
 * Du kan uttryckligen konfigurera ”P” ru: er för etablerat dataflöde för behållaren ”B”.
 * Dataflödet ”K” ru: er delas mellan de fyra behållarna – A, C, D och E. Den exakta mängden dataflöde tillgängliga till A, C, D eller E varierar och det finns inget serviceavtal för dataflöden i varje behållare.
@@ -67,7 +67,7 @@ Du kan kombinera de två modellerna, tillåts etablera dataflöde på både data
 
 |**Kvot**  |**Dataflödet som etablerats på en databas**  |**Dataflödet som etableras i en behållare**|
 |---------|---------|---------|
-|Minsta ru: er |400 |400|
+|Minsta ru: er |400 (varje ytterligare behållare kräver minst 100 RU/s efter de första fyra behållarna.) |400|
 |Minsta ru: er per behållare|100|400|
 |Minsta ru: er som krävs för att använda 1 GB lagringsutrymme|40|40|
 |Maximal ru: er|Obegränsade för databasen|Obegränsade behållare|

@@ -1,23 +1,23 @@
 ---
 title: Använda Cloudyn-rapporter i Azure | Microsoft Docs
-description: Den här artikeln beskriver hur du använder olika rapporter i Cloudyn-portalen.
+description: Den här artikeln beskriver syftet med Cloudyn-rapporter som ingår i Cloudyn-portalen när du använder dem effektivt.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: c3f1fec21ab2c71f75677e814a6e19e1e540dddb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994737"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075888"
 ---
-# <a name="use-cloudyn-reports"></a>Använd Cloudyn-rapporter
+# <a name="reports-available-in-the-cloudyn-portal"></a>Rapporter som är tillgängliga i Cloudyn-portalen
 
 Den här artikeln beskriver syftet med Cloudyn-rapporter som ingår i Cloudyn-portalen. Här beskrivs också hur du effektivt kan använda rapporterna. De flesta rapporter är intuitivt och har ett enhetligt utseende. De flesta av de åtgärder som du kan göra i en rapport, kan du också göra i andra rapporter. En översikt om hur du använder Cloudyn-rapporter, inklusive hur du anpassar och spara eller för att schemalägga rapporter finns i [förstå kostnadsrapporterna](understanding-cost-reports.md).
 
@@ -59,7 +59,7 @@ Instrumentpaneler i Cloudy ger en översikt över rapporter. Instrumentpaneler b
 
 ## <a name="budget-information-in-reports"></a>Budgetinformation i rapporter
 
-Många Cloudyn-rapporter visar budgetinformation när du har skapat en manuellt. Så att rapporter inte visar budgetinformation förrän du har skapat en budget. Mer information finns i [Budget inställningar](#budget-settings).
+Många Cloudyn-rapporter visar budgetinformation när du har skapat en manuellt. Så att rapporter inte visar budgetinformation förrän du har skapat en budget. Mer information finns i [Budget hanteringsinställningar](#budget-management-settings).
 
 ## <a name="reports-and-reporting-features"></a>Rapporter och rapporteringsfunktioner
 
@@ -261,7 +261,7 @@ Azure-resurser över tid rapporten visar en sammanfattning av alla resurser som 
 Instans Explorer rapporten används för att visa olika mått för tillgångar för dina virtuella datorer. Du kan gå till specifika instanser om du vill visa information som:
 - -Instans som körs intervall
 - Livscykel i den valda perioden
-- Processoranvändning
+- CPU-användning
 - Indata för nätverk
 - Utgående trafik
 - Aktiva diskar

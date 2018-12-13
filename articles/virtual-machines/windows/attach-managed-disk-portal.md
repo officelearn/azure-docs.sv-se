@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 854f457e6731f69c64bf2036840d9e1c18a1cbf2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093909"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075098"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Ansluta en hanterad datadisk till en virtuell Windows-dator med hjälp av Azure portal
 
@@ -52,30 +52,6 @@ Den här artikeln visar hur du ansluter en ny hanterad datadisk till en Windows-
 8. I den **formatera ny disk** , kontrollerar du inställningarna och välj sedan **starta**.
 9. Meddelar dig om att formatera diskarna raderar alla data visas en varning. Välj **OK**.
 10. När formateringen är klar, väljer **OK**.
-
-## <a name="use-trim-with-standard-storage"></a>Använd Rensa med standardlagring
-
-Om du använder standard-lagring (HDD), bör du aktivera den **TRIMMA** kommando. Den **TRIMMA** kommandot tar bort oanvända block på disken så att du faktureras bara för lagring som du faktiskt använder. Med hjälp av **TRIMMA**, du kan spara på kostnaderna om du skapar stora filer och därefter tar bort dem. 
-
-Kontrollera den **TRIMMA** , öppna en kommandotolk på den virtuella Windows-datorn och ange följande kommando:
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-Om kommandot returnerar 0, **TRIMMA** har aktiverats korrekt. Annars, om den returnerar 1, kör följande kommando för att aktivera **TRIMMA**:
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-När du har tagit bort data från disken, du kan kontrollera att den **TRIMMA** operations tömning korrekt genom att köra defragmenterar med **TRIMMA**:
-
-```
-defrag.exe <volume:> -l
-```
-
-Du kan också formatera volymen för att säkerställa att hela volymen beskärs.
 
 ## <a name="next-steps"></a>Nästa steg
 

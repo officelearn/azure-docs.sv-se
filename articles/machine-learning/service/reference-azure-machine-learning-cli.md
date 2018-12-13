@@ -1,5 +1,6 @@
 ---
-title: Hur du använder Azure Machine Learning CLI-tillägg
+title: Med hjälp av de machine learning CLI-tillägg
+titleSuffix: Azure Machine Learning service
 description: Läs mer om Azure Machine Learning CLI-tillägget för Azure CLI. Azure CLI är ett plattformsoberoende kommandoradsverktyg som gör det möjligt att arbeta med resurser i Azure-molnet. Machine Learning-tillägget kan du arbeta med Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
@@ -8,15 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 09/24/2018
-ms.openlocfilehash: 13d09471191deed670db97a9f18e15bc9577dd1a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: e1e94c2301cdbacf2ade037fe04cc8359ed06598
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713426"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078199"
 ---
-# <a name="use-the-azure-machine-learning-cli-extension"></a>Använd Azure Machine Learning CLI-tillägget
+# <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Använda CLI-tillägg för Azure Machine Learning-tjänsten
 
 Azure Machine Learning CLI är ett tillägg till den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ett plattformsoberoende kommandoradsgränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med Azure Machine Learning-tjänsten från kommandoraden. Det kan du skapa skript som automatiserar dina arbetsflöden för maskininlärning. Du kan till exempel skapa skript som utför följande åtgärder:
 
@@ -50,7 +52,7 @@ CLI är inte en ersättning för Azure Machine Learning-SDK. Det är ett komplet
 Om du vill installera tillägget Machine Learning CLI använder du följande kommando:
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.2-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 När du uppmanas, väljer `y` att installera tillägget.
@@ -79,22 +81,33 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
 
 + Skapa en arbetsyta för Azure Machine Learning-tjänsten:
 
-   ```azurecli-interactive
-   az ml workspace create -n myworkspace -g myresourcegroup
-   ```
+    ```azurecli-interactive
+    az ml workspace create -n myworkspace -g myresourcegroup
+    ```
 
 + Ange en standardarbetsyta:
 
-   ```azurecli-interactive
-   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-   ```
+    ```azurecli-interactive
+    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+    ```
 
-+ Skapa en DSVM (data science VM). Du kan också skapa BatchAI kluster för distribuerad utbildning eller AKS-kluster för distribution.
++ Skapa en hanterad beräkningsmål för distribuerade utbildning:
 
+    ```azurecli-interactive
+    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
+    ```
 
-  ```azurecli-interactive
-  az ml computetarget setup dsvm -n mydsvm
-  ```
+* Uppdatera hanterade beräkningsmål:
+
+    ```azurecli-interactive
+    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
+    ```
+
+* Koppla en ohanterad beräkningsmål för utbildning eller distribution:
+
+    ```azurecli-interactive
+    az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
+    ```
 
 ## <a name="experiments"></a>Experiment
 

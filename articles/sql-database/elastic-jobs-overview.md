@@ -3,7 +3,7 @@ title: Azure SQL Elastic Database-jobb | Microsoft Docs
 description: Använd Elastic Database-jobb för att köra Transact-SQL.skript (T-SQL) över en uppsättning av en eller flera Azure SQL-databaser
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: a029697c2fdd3c9bd3b3da2c2b5a1420d0dd0a8c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 9df51626a1bd36b0ea171c89c67a5c1ca79d60e6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054735"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873708"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Hantera grupper av databaser med Elastic Database-jobb
 

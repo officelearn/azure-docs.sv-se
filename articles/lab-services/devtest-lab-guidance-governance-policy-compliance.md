@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 016daa7ed57650a42b224df4e4173c7593893eb7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8165efaa10eb31410f00dfa9bfffb2c02d7396ae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251170"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872345"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Styrning i Azure DevTest Labs infrastruktur - företagets principer och efterlevnad
 Den här artikeln innehåller råd om reglerar företagets principer och efterlevnad för Azure DevTest Labs-infrastruktur. 
@@ -42,10 +42,10 @@ Bör en organisation planerar för en enda lagringsplats eller tillåta flera da
 ### <a name="answer"></a>Svar
 Som en del av din organisations övergripande styrnings- och hanteringsstrategi för konfiguration rekommenderar vi att du använder en centraliserad databas. När du använder flera databaser, kan de bli silor av ohanterade programvara över tiden. Flera team kan använda artefakter från den här lagringsplatsen för sina projekt med en central databas. Den tillämpar standardisering, säkerhet, enkel hantering och eliminerar dubbelarbete. Som en del av centralisering rekommenderas följande metoder för hantering av långsiktig och hållbarhet:
 
-- Associera Visual Studio Team Services med samma Azure Active Directory-klient som använder Azure-prenumerationen för autentisering och auktorisering.
+- Associera Azure-databaser med samma Azure Active Directory-klient som använder Azure-prenumerationen för autentisering och auktorisering.
 - Skapa en grupp med namnet **alla DevTest Labs utvecklare** i Azure Active Directory som hanteras centralt. Alla utvecklare som bidrar till artefakt utveckling ska placeras i den här gruppen.
-- Samma Azure Active Directory-grupp kan användas för att ge åtkomst till Visual Studio Team Services-databasen och till labbet.
-- I Visual Studio Team Services, branchning eller förgreningen ska användas till en separat en i utveckling från den primära produktion-lagringsplatsen. Innehåll läggs endast till mastergrenen med en pull-begäran när du har rätt Kodgranskning. När koden granskaren godkänner ändringen, sammanfogar chefsutvecklare som ansvarar för underhåll av huvudgrenen, den uppdaterade koden. 
+- Samma Azure Active Directory-grupp kan användas för att ge åtkomst till lagringsplatsen Azure-databaser och till labbet.
+- I Azure-lagringsplatser, branchning eller förgreningen ska användas till en separat en i utveckling från den primära produktion-lagringsplatsen. Innehåll läggs endast till mastergrenen med en pull-begäran när du har rätt Kodgranskning. När koden granskaren godkänner ändringen, sammanfogar chefsutvecklare som ansvarar för underhåll av huvudgrenen, den uppdaterade koden. 
 
 ## <a name="corporate-security-policies"></a>Företagets säkerhetsprinciper
 

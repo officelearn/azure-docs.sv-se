@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: ef9c096989eeb37159d0deb705e7870afe2eff8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 70641084d2213b50803800a64000611d139facec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975404"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075785"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Hantera åtkomst till resurser med Azure Stack Role-Based Access Control
 
@@ -91,9 +91,9 @@ Följande steg beskriver hur du konfigurerar behörigheter för en användare.
 1. Logga in med ett konto som har ägarbehörighet för den resurs du vill hantera.
 2. Välj **Resursgrupper** i det vänstra navigeringsfönstret.
 3. Välj namnet på resursgruppen som du vill ange behörigheter för.
-4. I navigeringsfönstret resource group välja **åtkomstkontroll (IAM)**. Den **åtkomstkontroll** vyn visar de objekt som har åtkomst till resursgruppen. Du kan filtrera resultaten och använda en menyraden för att lägga till eller ta bort behörigheter.
-5. På den **åtkomstkontroll** menyn stapeln, Välj **+ Lägg till**.
-6. På **Lägg till behörigheter**:
+4. I navigeringsfönstret resource group välja **åtkomstkontroll (IAM)**. Den **rolltilldelningar** vyn visar de objekt som har åtkomst till resursgruppen. Du kan filtrera och gruppera resultatet.
+5. På den **åtkomstkontroll** menyn stapeln, Välj **Lägg till rolltilldelning**.
+6. På **Lägg till rolltilldelning** fönstret:
 
    * Välj den roll som du vill tilldela från den **rollen** listrutan.
    * Välj den resurs som du vill tilldela från den **tilldela åtkomst till** listrutan.

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 55d0d029e8b22833b61ec3232e0027644296ced7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: secdec18
+ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001716"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075649"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
@@ -64,12 +64,12 @@ En företagsadministratör har åtkomst till faktureringskonto (Enterprise Agree
 1. Logga in på EA-portalen på [ https://ea.azure.com ](https://ea.azure.com) med ett enterprise-administratörskonto.
 2. Välj **hantera** i den vänstra rutan.
 3. På den **registrering** väljer du en registreringen som du vill hantera.  
-    ![EA-portalen](./media/assign-access-acm-data/ea-portal.png)
+    ![Välj din registrering i EA-portalen](./media/assign-access-acm-data/ea-portal.png)
 4. Klicka på **+ Lägg till administratör**.
 5. Välj autentiseringstyp och ange användarens e-postadress i rutan Lägg till administratör.
 6. Om användaren ska ha skrivskyddad åtkomst till data för kostnader och användning, under **skrivskyddad**väljer **Ja**.  Annars väljer **nr**.
 7. Klicka på **Lägg till** att skapa kontot.  
-    ![Lägg till administratör box](./media/assign-access-acm-data/add-admin.png)
+    ![exempel-informationen som visas i rutan Lägg till administratör](./media/assign-access-acm-data/add-admin.png)
 
 Det kan ta upp till 30 minuter innan den nya användaren kan komma åt data i Cost Management.
 
@@ -85,7 +85,7 @@ Det kan ta upp till 30 minuter innan den nya användaren kan komma åt data i Co
 6. Om användaren ska ha skrivskyddad åtkomst till data för kostnader och användning, under **skrivskyddad**väljer **Ja**.  Annars väljer **nr**.
 7. Välj de avdelningar som du vill bevilja avdelning administrativ behörighet till.
 8. Klicka på **Lägg till** att skapa kontot.  
-    ![Lägg till administratör rutan för avdelning](./media/assign-access-acm-data/add-depart-admin.png)
+    ![Ange nödvändig information i rutan Lägg till avdelningen administratör](./media/assign-access-acm-data/add-depart-admin.png)
 
 ## <a name="assign-enrollment-account-scope-access"></a>Tilldela registreringsåtkomst konto omfång
 
@@ -99,7 +99,7 @@ Det kan ta upp till 30 minuter innan den nya användaren kan komma åt data i Co
 6. Välj autentiseringstyp och ange namnet på kontot.
 7. Skriv användarens e-postadress och du kan också ange kostnadsstället.
 8. Klicka på **Lägg till** att skapa kontot.  
-    ![Lägg till konto box](./media/assign-access-acm-data/add-account.png)
+    ![Ange nödvändig information i rutan Lägg till konto för ett konto för enhetsregistreringshanterare](./media/assign-access-acm-data/add-account.png)
 
 När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsregistreringshanterare i Enterprise portal och kan skapa prenumerationer. Användaren kan komma åt data om kostnader och användning för prenumerationer som de skapar.
 
@@ -107,7 +107,7 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 
 Åtkomst till en grupp hanteringsomfång kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter för en hanteringsgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra hanteringsgruppen. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
 
-1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _hanteringsgrupper_och välj sedan **hanteringsgrupper**.
 3. Välj hanteringsgruppen i hierarkin.
 4. Bredvid namnet på hanteringsgruppen, klickar du på **information**.
@@ -117,13 +117,13 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 8. Under **tilldela åtkomst till**väljer **Azure AD-användare, grupp eller program**.
 9. Tilldela åtkomst genom att söka efter och välj sedan användaren.
 10. Klicka på **Spara**.  
-    ![Lägg till behörigheter](./media/assign-access-acm-data/add-permissions.png)
+    ![exempelinformation i rutan Lägg till behörigheter för en hanteringsgrupp](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Tilldela omfång prenumerationsåtkomst
 
 Åtkomst till en prenumeration kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en prenumeration på Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra prenumerationen. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
 
-1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _prenumerationer_och välj sedan **prenumerationer**.
 3. Välj din prenumeration.
 4. Välj **åtkomstkontroll (IAM)** i den vänstra rutan.
@@ -137,7 +137,7 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 
 Åtkomst till en resursgrupp kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en resursgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra resursgruppen. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
 
-1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _resursgrupper_och välj sedan **resursgrupper**.
 3. Välj din resursgrupp.
 4. Välj **åtkomstkontroll (IAM)** i den vänstra rutan.

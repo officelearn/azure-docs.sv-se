@@ -3,7 +3,7 @@ title: Azure SQL database-mått och diagnostikloggning | Microsoft Docs
 description: Läs mer om hur du konfigurerar Azure SQL Database för att lagra Resursanvändning, anslutningar och statistik för körning av frågan.
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.openlocfilehash: 19117803783047d8ddd9740c799b4cb81fd74c2c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426007"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890916"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning 
 
@@ -291,7 +291,7 @@ Läs om hur du [aktivera diagnostikinställningar när resursen skapas med hjäl
 
 Azure SQL Analytics är ett moln som övervakningslösning för övervakning av prestanda för Azure SQL-databaser, elastiska pooler och instanser som hanteras i stor skala och över flera prenumerationer via ett fönster för alla. Den samlar in och visar viktiga mått för Azure SQL Database-prestanda med inbyggd intelligens för prestandafelsökning av.
 
-![Översikt över Azure SQL Analytics](../log-analytics/media/log-analytics-azure-sql/azure-sql-sol-overview.png)
+![Översikt över Azure SQL Analytics](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
 SQL Database mått och diagnostik för loggar kan strömmas till Azure SQL Analytics med hjälp av inbyggt **skicka till Log Analytics** alternativ i inställningsbladet diagnostik i portalen. Du kan också aktivera Log Analytics med hjälp av en diagnostikinställning via PowerShell-cmdletar, Azure CLI eller REST-API i Azure Monitor.
 
@@ -327,7 +327,7 @@ Om du använder elastiska pooler eller hanterade instanser, du måste också kon
 
 ### <a name="use-the-sql-analytics-solution"></a>Använd SQL Analytics-lösningen
 
-SQL Analytics är en hierarkisk instrumentpanel där du kan navigera i hierarkin för SQL Database-resurser. Läs hur du använder SQL Analytics-lösningen i [övervaka SQL-databasen med hjälp av SQL Analytics-lösningen](../log-analytics/log-analytics-azure-sql.md).
+SQL Analytics är en hierarkisk instrumentpanel där du kan navigera i hierarkin för SQL Database-resurser. Läs hur du använder SQL Analytics-lösningen i [övervaka SQL-databasen med hjälp av SQL Analytics-lösningen](../azure-monitor/insights/azure-sql.md).
 
 ## <a name="stream-into-event-hubs"></a>Strömma till Event Hubs
 

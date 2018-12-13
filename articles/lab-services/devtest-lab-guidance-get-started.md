@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1d00dbe23fbd724893ba2b964fc54a3ea9066dcb
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251133"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876544"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Kom igång med Azure DevTest Labs
 När du vill utforska DevTest Labs, det finns två allmänna framåt – Proof of Concept vs skala distributionen. 
@@ -51,7 +51,7 @@ Skapa och hantera miljöer för testning i ett företag kan kräva mycket anstr�
 
 - Testare kan testa den senaste versionen av sitt program genom att snabbt etablera Windows och Linux-miljöer med återanvändningsbara mallar och artefakter.
 - Testare kan skala upp sina belastningstester genom att etablera flera testagenter
-- Administratörer kan ansluta labbet till VSTS för att aktivera DevOps-scenarier
+- Administratörer kan ansluta labbet till Azure DevOps för att aktivera DevOps-scenarier
 - Administratörer kan styra kostnaderna genom att säkerställa att:
     - Testare kan inte hämta flera virtuella datorer än de behöver
     - Virtuella datorer är avstängda när inte är i användning

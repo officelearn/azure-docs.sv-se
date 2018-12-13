@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 453101b1f5368dba9aa9dbfc89f5b893d42a0542
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: MT
+ms.openlocfilehash: 280df7ff80e637539f85c5d7ddafbb564b8fe562
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684595"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879568"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Skapa en datapipeline med Data Collector API
 
-Den [Log Analytics Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) kan du importera anpassade data till Log Analytics. De enda kraven är att data att JSON-formaterade och dela upp till 30 MB eller mindre segment. Det här är en helt flexibla mekanism som kan anslutas till på många sätt: från data som skickas direkt från ditt program, till oneoff adhoc överför. Den här artikeln beskriver vissa startpunkter för ett vanligt scenario: behovet av att ladda upp data som lagras i filer på basis av regelbundna, automatiserade. Medan pipelinen visas här kan inte de flesta högpresterande eller annars optimerade, som den är avsedd att fungera som en startpunkt för att skapa en pipeline för produktion på egen hand.
+Den [Log Analytics Data Collector API](../../azure-monitor/platform/data-collector-api.md) kan du importera anpassade data till Log Analytics. De enda kraven är att data att JSON-formaterade och dela upp till 30 MB eller mindre segment. Det här är en helt flexibla mekanism som kan anslutas till på många sätt: från data som skickas direkt från ditt program, till oneoff adhoc överför. Den här artikeln beskriver vissa startpunkter för ett vanligt scenario: behovet av att ladda upp data som lagras i filer på basis av regelbundna, automatiserade. Medan pipelinen visas här kan inte de flesta högpresterande eller annars optimerade, som den är avsedd att fungera som en startpunkt för att skapa en pipeline för produktion på egen hand.
 
 ## <a name="example-problem"></a>Exempel-problem
 Under resten av den här artikeln ska vi granska data om sidvisningar i Application Insights. I vår hypotetiska scenario som vi vill att korrelera geografisk information som samlas in som standard av Application Insights SDK till anpassade data som innehåller befolkningen i alla länder i världen, med målet att identifiera där ska vi ägna mest pengar. 
@@ -173,4 +173,4 @@ Den här artikeln visas en fungerande prototyp, logiken bakom som kan tillämpas
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om den [Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.
+Läs mer om den [Data Collector API](../../azure-monitor/platform/data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.

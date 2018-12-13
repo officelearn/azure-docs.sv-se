@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a3d079483ecf4ea8cf9a4c6bda050bfe8befcfd0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 51a48576b56413e0e779a49829a6eccaa0266a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241692"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076115"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Kopiera data från QuickBooks Online med Azure Data Factory (förhandsversion)
 
@@ -89,8 +89,12 @@ Följande egenskaper har stöd för QuickBooks länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av QuickBooks datauppsättning.
 
-Kopiera data från QuickBooks Online genom att ange typegenskapen på datauppsättningen till **QuickBooksObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Kopiera data från QuickBooks Online genom att ange typegenskapen på datauppsättningen till **QuickBooksObject**. Följande egenskaper stöds:
 
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **QuickBooksObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 **Exempel**
 
 ```json
@@ -101,7 +105,8 @@ Kopiera data från QuickBooks Online genom att ange typegenskapen på datauppsä
         "linkedServiceName": {
             "referenceName": "<QuickBooks linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -110,14 +115,14 @@ Kopiera data från QuickBooks Online genom att ange typegenskapen på datauppsä
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av QuickBooks källa.
 
-### <a name="quickbookssource-as-source"></a>QuickBooksSource som källa
+### <a name="quickbooks-as-source"></a>QuickBooks som källa
 
 För att kopiera data från QuickBooks Online, ange typ av datakälla i kopieringsaktiviteten till **QuickBooksSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **QuickBooksSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 

@@ -9,52 +9,69 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 611cd0878e88d2e1c0a988f73b57e391c5a8551d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975915"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077128"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub arbetsyta och projekt till anpassad Translator
 
-Du kan migrera dina [Microsoft Translator Hub](https://hub.microsofttranslator.com/) arbetsyta och projekt till anpassad Translator. Migreringen börjar från hubben.
+Du kan enkelt migrera dina [Microsoft Translator Hub](https://hub.microsofttranslator.com/) arbetsyta och projekt till anpassad Translator. Migrering initieras från Microsoft Hub genom att välja en arbetsyta eller -projektet och sedan att välja en arbetsyta i anpassade Translator och sedan välja de kurser som du vill överföra.  När migreringen har startat överförs inställningar för valda utbildning med alla relevanta dokumenten.  Distribuerade modeller tränas och kan vara autodeployed när åtgärden har slutförts.
 
-
-De här objekten migreras under processen:
-
-1.  Definitioner för projektet.
-
-2.  Definitionen för utbildning används för att skapa en ny modell-definition på anpassade Translator.
-
-3.  Parallella program och enspråkig-filer som används i utbildningar kommer att migreras som nya dokument i anpassade Translator.
-
-4.  Automatiskt skapade system test och justera data exporteras och skapat som nya dokument i anpassade Translator.
-
-För alla distribuerade utbildningar alla anpassade Translator tränar utan kostnad. Du distribuerar dem manuellt.
+Dessa åtgärder utföras manuellt under migreringen:
+* Alla dokument och definitioner av projektet att namnen på överförs med hjälp av ”hub_” som prefix till.  Automatiskt genererade test och justera data får namnet hub_systemtune_<modelid> eller hub_systemtest_<modelid>.  
+* Alla kurser som fanns i distribuerat läge när migreringen sker kommer automatiskt tränas med dokument för Hub-utbildning.  Den här kursen kommer inte att debiteras till din prenumeration.  Om automatisk distribution har valts för migrering, kommer den tränade modellen att distribueras vid slutförandet. Vanliga som är värd för avgifter kommer att tillämpas.  
+* Alla migrerade utbildningar som inte är i distribuerat läge placeras i den migrerade utkast.   Du har möjlighet att träna en modell med de migrerade definitionen i det här tillståndet, men vanliga utbildning avgifter tillkommer.
+* När som helst BLEU poängen som har migrerats från hubben utbildning kan hittas på sidan TrainingDetails i modellen i ”Bleu poäng i MT-hubb” rubrik.
 
 >[!Note]
 >För en utbildning ska lyckas, kräver anpassade Translator minst 10 000 extraherade meningar. För mindre antal extraherade meningar än den [föreslagna minst](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), anpassade Translator kan inte genomföra en utbildningar.
 
-För alla lyckade utbildningar som inte har distribuerats, kommer de att migreras som utkast i anpassade Translator.
+## <a name="enable-account-migration"></a>Aktivera kontomigrering 
 
-## <a name="find-custom-translator-workspace-id"></a>Hitta anpassade Translator arbetsyte-Id
+För att kunna använda Migreringsverktyget måste ha din hubb kontomigrering har aktiverats.  Detta gör att e- [ custommt@microsoft.com ](mailto:custommt@microsoft.com) med en lista över alla liveid konton som du vill ha aktiverat. Dessa konton bör vara e-postadresser som du loggar in med.
 
-Att migrera [Microsoft Translator Hub](https://hub.microsofttranslator.com/) arbetsytan som du behöver mål arbetsyte-Id i anpassade Translator. Målarbetsyta i anpassade Translator är där alla Hub arbetsytor och projekt ska migreras till.
+## <a name="find-custom-translator-workspace-id"></a>Hitta anpassade Translator arbetsyte-ID
 
-Du hittar ditt mål för arbetsyte-Id på inställningssidan för anpassad Translator: 
+Att migrera [Microsoft Translator Hub](https://hub.microsofttranslator.com/) arbetsytan behöver du mål arbetsyte-ID i anpassade Translator. Målarbetsyta i anpassade Translator är där alla Hub arbetsytor och projekt ska migreras till.
+
+Du hittar ditt mål för arbetsyte-ID på inställningssidan för anpassad Translator: 
 
 1.  Gå till sidan ”inställningen” i anpassade Translator-portalen.
 
-2.  Du hittar arbetsyte-Id i grundläggande Information.
+2.  Du hittar arbetsyte-ID i grundläggande Information.
 
     ![Så här hittar du mål arbetsyte-ID](media/how-to/how-to-find-destination-ws-id.png)
 
-3. Håll ditt mål för arbetsyte-Id för att referera under migreringsprocessen.
+3. Håll ditt mål för arbetsyte-ID för att referera under migreringsprocessen.
 
-## <a name="migrate-workspace"></a>Migrera arbetsyta
+## <a name="migrate-a-project"></a>Migrera ett projekt
 
-När du migrerar din fullständiga Hub-arbetsyta till anpassad translator, migreras dina projekt, dokument och utbildningar till anpassad translator. Före migreringen måste du välja om du vill migrera endast distribuerade utbildningar eller om du vill flytta alla dina lyckad utbildningar.
+Om du vill migrera dina projekt selektivt gör Microsoft Translator Hub som möjligt.
+
+Att migrera ett projekt:
+
+1.  Logga in till Microsoft Translator-hubb.
+
+2.  Gå till sidan ”projekt”.
+
+3.  Klicka på ”migrera”-länk till lämpligt projekt.
+
+    ![Hur du migrerar från hubben](media/how-to/how-to-migrate-from-hub.png)
+
+4.  När du trycker på migrera länken visas ett formulär så att du kan:
+   * Ange den arbetsyta som du vill överföra till på anpassade Translator
+   * Ange om du vill att överföra alla utbildningar med lyckade utbildningar eller bara distribuerade utbildningar. Som standard överförs alla lyckade utbildningar.
+   * Ange om du vill att din utbildning automatiskt om en utbildning har slutförts. Som standard utbildning inte automatisk distribuerats när åtgärden har slutförts.
+
+
+5.  Klicka på ”Skicka begäran”.
+
+## <a name="migrate-a-workspace"></a>Migrera en arbetsyta
+
+Förutom att du migrerar ett enda projekt, kan du också migrera alla projekt med lyckade utbildningar i en arbetsyta.  Detta innebär att varje projekt i arbetsytan som ska utvärderas som om länken migrera har tryckts ned.  Den här funktionen är lämplig för användare med flera projekt som vill migrera dem alla till anpassad Translator med samma inställningar.  Migrering av arbetsyta kan initieras från inställningssidan för Translator-hubben.
 
 Att migrera en arbetsyta:
 
@@ -78,31 +95,7 @@ Att migrera en arbetsyta:
 
 5.  Klicka på Skicka begäran.
 
-## <a name="migrate-project"></a>Migrera projekt
 
-Om du vill migrera dina projekt selektivt gör Microsoft Translator Hub som möjligt.
-
-Att migrera ett projekt:
-
-1.  Logga in till Microsoft Translator-hubb.
-
-2.  Gå till sidan ”projekt”.
-
-3.  Klicka på ”migrera”-länk till lämpligt projekt.
-
-    ![Hur du migrerar från hubben](media/how-to/how-to-migrate-from-hub.png)
-
-4.  På nästa sida väljer du något av dessa två alternativ:
-
-    a.  Distribuerat utbildningar endast: det här alternativet kommer att migrera dina distribuerade system och relaterade dokument. 
-
-    b.  Alla lyckade utbildningar: Det här alternativet kommer att migrera alla lyckade utbildningar och relaterade dokument.
-
-    c.  Ange ditt mål för arbetsyte-ID i anpassade Translator.
-
-    ![Hur du migrerar från hubben](media/how-to/how-to-migrate-from-hub-screen.png)
-
-5.  Klicka på ”Skicka begäran”.
 
 ## <a name="migration-history"></a>Migreringshistoriken
 
@@ -132,8 +125,13 @@ Migrering historiksidan visar följande information som sammanfattning för varj
 
 Om du vill ha mer detaljerad migreringsrapport om ditt projekt, utbildningar och dokument, har du alternativet Exportera information som CSV.
 
->[!Note]
->Migrering stöds bara för språkpar där NMT språk finns. Kontrollera listan över för närvarande [NMT språk som stöds](https://www.microsoft.com/translator/business/languages/). Data kommer att flyttas från hubben till anpassad Translator för språkpar där NMT språk inte finns, men utbildningar kan inte utföras på dessa språkpar.
+## <a name="implementation-notes"></a>Implementeringsanteckningar
+* Migrera ett projekt från hubben till anpassad Translator har inte någon inverkan på din hubb utbildningar eller projekt. Vi ta inte bort projekt eller dokument från Hub under migreringen och vi ta bort inte modeller.
+* Du får endast att migrera en gång per projekt.  Om du vill upprepa en migrering i ett projekt kan du kontakta oss.
+* För närvarande anpassad Translator stöder 36 språk översätta från och till engelska och vi arbetar hårt för att lägga till ytterligare språk.  Hub kräver inte basmodeller och därför har stöd för flera tusen språk.  Du kan migrera ett nyckelpar med språket stöds inte, men vi kommer endast utför migrering av dokument och projektet definitioner.  Vi kommer inte att kunna skapa den nya modellen.  Dessutom är kommer dessa dokument och projekt att visas som inaktiva för att indikera att de inte kan användas just nu. Om du lägger till stöd för dessa projekt och/eller dokument, blir de aktiva och trainable.
+* Anpassade Translator stöder för närvarande inte enspråkig träningsdata.  Du kan migrera enspråkig dokument som par språket stöds inte, men de visas som inaktiva tills enspråkig stöds.  
+* Anpassade Translator kräver 10 k parallella meningar för att träna.  Microsoft Hub kan utbilda i en mindre uppsättning data.  Om ett utbildnings migreras som inte uppfyller det här kravet, kommer den tränas.
+
 
 ## <a name="custom-translator-versus-hub"></a>Anpassade Translator jämfört med Hub
 
@@ -141,7 +139,7 @@ Den här tabellen jämförs funktionerna mellan Microsoft Translator Hub och anp
 
 |   | Hub | Custom Translator |
 |:-----|:----:|:----:|
-|Anpassning av funktionsstatus   | Allmän tillgänglighet  | Förhandsversion |
+|Anpassning av funktionsstatus   | Allmän tillgänglighet  | Allmän tillgänglighet |
 | API för textöversättning version  | V2    | V3  |
 | SMT anpassning | Ja   | Nej |
 | NMT anpassning | Nej    | Ja |

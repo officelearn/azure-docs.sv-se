@@ -1,6 +1,6 @@
 ---
-title: Lägga till eller ta bort medlemmar med hjälp av Azure Active Directory | Microsoft Docs
-description: Lär dig mer om att lägga till eller ta bort användare och enheter från en grupp med Azure Active Directory.
+title: Lägga till eller ta bort medlemmar – Azure Active Directory | Microsoft Docs
+description: Anvisningar om hur du lägger till eller ta bort medlemmar från en grupp med Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,21 +10,21 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 7c1a83d83dcbf247550c66602a6f53d4ef0d7930
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42b80b53ca7c860143f1de1005a609b3e921e650
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733372"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076173"
 ---
-# <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>Så här: lägga till eller ta bort medlemmar med hjälp av Azure Active Directory
+# <a name="add-or-remove-group-members-using-azure-active-directory"></a>Lägga till eller ta bort medlemmar med hjälp av Azure Active Directory
 Med Azure Active Directory kan fortsätta du att lägga till och ta bort medlemmar.
 
 ## <a name="to-add-group-members"></a>Att lägga till medlemmar i gruppen
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som Global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett Globalt administratörskonto för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **grupper**.
 
@@ -32,7 +32,7 @@ Med Azure Active Directory kan fortsätta du att lägga till och ta bort medlemm
 
     ![Grupper – alla gruppsidan gruppnamn markerat](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-4. Från den **MDM princip – västra översikt** väljer **medlemmar** från den **hantera** området.
+4. På **översiktssidan för MDM policy – West** väljer du **Medlemmar** i området **Hantera**.
 
     ![Princip för MDM – västra översiktssidan med medlemmar alternativet markerat](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
@@ -56,10 +56,10 @@ Med Azure Active Directory kan fortsätta du att lägga till och ta bort medlemm
 
 - [Visa dina grupper och medlemmar](active-directory-groups-view-azure-portal.md)
 
-- [Redigera din gruppinställningar](active-directory-groups-settings-azure-portal.md)
+- [Redigera dina gruppinställningar](active-directory-groups-settings-azure-portal.md)
 
-- [Hantera åtkomst till resurser med hjälp av grupper](active-directory-manage-groups.md)
+- [Hantera åtkomst till resurser med grupper](active-directory-manage-groups.md)
 
 - [Hantera dynamiska regler för användare i en grupp](../users-groups-roles/groups-create-rule.md)
 
-- [Koppla eller lägga till en Azure-prenumeration i Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Associera eller lägg till en Azure-prenumeration till Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: 078f6bcd7aa48f2a63118e6dfb625d9b2c69fbb3
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248031"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879396"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Plattformsstödet för Azure IoT SDK: er
 
@@ -20,7 +20,7 @@ Den [Azure IoT SDK: er](iot-hub-devguide-sdks.md) är en uppsättning bibliotek 
 
 Microsoft stöder en mängd olika operativsystem/plattformar/ramverk och kan utökas med hjälp av Azure IoT C SDK. Vissa stöds officiellt av teamet grupperade i nivåer som representerar supportnivå de kan förvänta sig. *Plattformar som stöds helt* innebär att Microsoft:
 
-    * Kontinuerligt bygger och kör slutpunkt till slutpunkt-testerna mot huvud- och LTS stöds-versioner.
+    * Kontinuerligt bygger och kör slutpunkt till slutpunkt-testerna mot huvud- och LTS stöds-versioner.  För att ge testtäckning mellan olika versioner, testar vi Allmänt mot den senaste LTS och mest populära versionen.  Andra versioner av samma plattform kanske stöds via version plattformskompatibilitet.
     * Här installationer eller paket.
     * Har fullständigt stöd för plattformar på GitHub.
 
@@ -31,7 +31,6 @@ Dessutom kan en lista med partner har porteras vår C SDK in fler plattformar oc
 * Windows CE 2013 (inaktualisera i oktober 2018)
 * .NET standard 1.3 med .NET Core 2.1 och .NET Framework 4.7
 * Xamarin iOS, Android, UWP
-* Android med Java
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
 
@@ -83,6 +82,7 @@ Det finns flera plattformar som stöds.
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| Android API 28 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>Plattformar som stöds av partner
 

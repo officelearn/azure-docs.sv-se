@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 40256f0bdd9f4c15fe48c825bda0e11bb10f9da6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 369423f762dc977db7da0432ec217906d1e7ef1c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47003927"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53318305"
 ---
 ### <a name="application-gateways"></a>Programgateways
 
 |  |  |
 |---------|---------|
-| [Tillåtna SKU:er för programgateway](../articles/governance/policy/samples/allowed-app-gate-sku.md) | Kräver att programgatewayer använder en godkänd SKU. Du anger en matris med godkända SKU:er. |
+| [Tillåtna SKU:er för programgateway](../articles/governance/policy/samples/allowed-app-gateway-sku.md) | Kräver att programgatewayer använder en godkänd SKU. Du anger en matris med godkända SKU:er. |

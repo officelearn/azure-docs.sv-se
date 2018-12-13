@@ -58,6 +58,7 @@ items:
   - name: Skala
     href: concepts-scale.md
   - name: Bästa praxis
+    href: best-practices.md
     items:
     - name: För klusteroperatörer
       items:
@@ -73,6 +74,8 @@ items:
         href: operator-best-practices-cluster-security.md
       - name: Hantering av containeravbildning
         href: operator-best-practices-container-image-management.md
+      - name: Nätverk
+        href: operator-best-practices-network.md
       - name: Storage
         href: operator-best-practices-storage.md
       - name: Affärskontinuitet och haveriberedskap
@@ -287,9 +290,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: VANLIGA FRÅGOR OCH SVAR
     href: faq.md
-ms.openlocfilehash: f6d6dba523032b19774974358da82b7117663e9c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7c4742945a5017dd2b20142114456567e9407ed0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075802"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260743"

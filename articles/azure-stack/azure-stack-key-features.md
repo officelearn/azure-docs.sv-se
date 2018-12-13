@@ -12,38 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 21a6eeb4b0a83574be4c5c996e43d9867c3249d0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959034"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185740"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Huvudfunktioner och koncept i Azure Stack
 Om du inte har använt Microsoft Azure Stack kan dessa villkor och funktionsbeskrivning vara användbart.
 
 ## <a name="personas"></a>Profiler
-Det finns två varianter av användare för Microsoft Azure Stack molnoperator (provider) och klienttrafik (konsument).
+Det finns två varianter av användare för Microsoft Azure Stack, operatorn och användaren.
 
-* En **molnoperator** kan konfigurera Azure Stack och hantera erbjudanden, planer, tjänster, kvoter och priser för att tillhandahålla resurser för sina klienter.  Molnoperatörer också hantera kapacitet och svara på aviseringarna.  
-* En **klient** (kallas även för en användare) använder tjänster som erbjuder molnadministratören. Klienter kan etablera, övervaka och hantera tjänster som de som prenumererar på, t.ex Web Apps, lagring och virtuella datorer.
+* Ett Azure Stack **operatorn** kan konfigurera Azure Stack genom att hantera erbjudanden, planer, tjänster, kvoter och priser för att tillhandahålla resurser till deras klientorganisationer användare. Operatörer kan du också hantera kapacitet och svara på aviseringar.  
+* Ett Azure Stack **användaren** (kallas även en klient) använder tjänster som erbjuder operatorn. Användare kan etablera, övervaka och hantera tjänster som de som prenumererar på, t.ex web apps, lagring och virtuella datorer.
 
 ## <a name="portal"></a>Portalen
-De huvudsakliga sätt att interagera med Microsoft Azure Stack är administratörsportal, användarportalen och PowerShell.
+De huvudsakliga sätt att interagera med Microsoft Azure Stack är administrationsportalen, användarportalen och PowerShell.
 
-Azure Stack-portaler backas var och en av separata instanser av Azure Resource Manager.  En molnoperator använder administratörsportalen att hantera Azure Stack och för att exempelvis skapa klient erbjudanden.  Användarportalen (kallas även klientportalen) tillhandahåller en Självbetjäning för användning av molnresurser, t.ex. virtuella datorer, lagringskonton och Web Apps. Mer information finns i [med hjälp av Azure Stack administratörs- och portaler](azure-stack-manage-portals.md).
+Azure Stack-portaler backas var och en av separata instanser av Azure Resource Manager. En operatör använder administrationsportalen att hantera Azure Stack och för att exempelvis skapa klient erbjudanden. Användarportalen (kallas även klientportalen) tillhandahåller en Självbetjäning för användning av molnresurser, t.ex. virtuella datorer, lagringskonton och web apps. Mer information finns i [med hjälp av Azure Stack administratörs- och portaler](azure-stack-manage-portals.md).
 
 ## <a name="identity"></a>Identitet 
-Azure Stack använder Azure Active Directory (AAD) eller Active Directory Federation Services (AD FS) som en identitetsleverantör.  
+Azure Stack använder Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som en identitetsleverantör.  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory är Microsofts molnbaserade, flera innehavare identitetsprovider.  De flesta hybridscenarier använda Azure Active Directory som Identitetslagret.
+Azure AD är Microsofts molnbaserade, flera innehavare identitetsprovider. De flesta hybridscenarier använda Azure AD som Identitetslagret.
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federation Services
-Du kan välja att använda Active Directory Federation Services (AD FS) för frånkopplade distributioner av Azure Stack.  Azure Stack, resursprovidrar och andra program fungerar ungefär på samma sätt med AD FS som de gör med Azure Active Directory. Azure Stack innehåller en egen instans av AD FS och Active Directory och ett Active Directory Graph API. Azure Stack Development Kit har stöd för följande AD FS-scenarier:
+Du kan välja att använda Active Directory Federation Services (AD FS) för frånkopplade distributioner av Azure Stack. Azure Stack-resursprovidrar och andra program fungerar ungefär på samma sätt med AD FS som de gör med Azure AD. Azure Stack innehåller en egen Active Directory-instans och en Active Directory Graph API. Azure Stack Development Kit har stöd för följande AD FS-scenarier:
 
 - Logga in på distributionen med hjälp av AD FS.
 - Skapa en virtuell dator med hemligheter i Key Vault
@@ -93,9 +93,9 @@ För administratören skapas en standard Providerprenumeration under distributio
 Med Azure Resource Manager kan arbeta du med dina resurser i infrastrukturen i en mallbaserade, deklarativa modell.   Det är ett gränssnitt som du kan använda för att distribuera och hantera dina lösningskomponenter. Fullständig information och riktlinjer finns i den [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Resursgrupper
-Resursgrupper är samlingar av resurser, tjänster och program – och varje resurs har en typ, till exempel virtuella datorer, virtuella nätverk, offentlig IP-adresser, lagringskonton och webbplatser. Varje resurs måste vara i en resursgrupp och så resursgrupper logiskt att organisera resurser, till exempel av arbetsbelastning eller plats.  I Microsoft Azure Stack hanteras resurser, till exempel planer och erbjudanden också i resursgrupper.
+Resursgrupper är samlingar av resurser, tjänster och program – och varje resurs har en typ, till exempel virtuella datorer, virtuella nätverk, offentlig IP-adresser, lagringskonton och webbplatser. Varje resurs måste vara i en resursgrupp och så resursgrupper logiskt att organisera resurser, till exempel av arbetsbelastning eller plats. I Azure Stack hanteras resurser, till exempel planer och erbjudanden också i resursgrupper.
 
-Till skillnad från [Azure](../azure-resource-manager/resource-group-move-resources.md), du kan inte flytta resurser mellan resursgrupper. När du visar egenskaperna för en resurs eller resursgrupp i Azure Stack-administratörsportalen, i *flytta* knappen är nedtonad och inte tillgänglig. 
+Till skillnad från [Azure](../azure-resource-manager/resource-group-move-resources.md), du kan inte flytta Azure Stack-resurser mellan resursgrupper. När du visar egenskaperna för en resurs eller resursgrupp i Azure Stack-administrationsportalen, den *flytta* knappen är nedtonad och inte tillgänglig. Dessutom kan användningen av den **ändra resursgrupp** eller **ändra prenumerationen** åtgärder från resursgruppen eller resursen objektegenskaper stöds inte heller. Alla försökta flytta misslyckas.
  
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 Med Azure Resource Manager kan du skapa en mall (i JSON-format) som definierar distributionen och konfigurationen av ditt program. Den här mallen kallas för en Azure Resource Manager-mall och tillhandahåller en deklarativ metod för att definiera distributionen. Genom att använda en mall kan du distribuera ditt program flera gånger under applivscykeln och vara säker på att dina resurser distribueras konsekvent.
@@ -103,7 +103,7 @@ Med Azure Resource Manager kan du skapa en mall (i JSON-format) som definierar d
 ## <a name="resource-providers-rps"></a>Resursproviders (RPs)
 Resursproviders är webbtjänster som utgör grunden för alla Azure-baserade IaaS och PaaS-tjänster. Azure Resource Manager är beroende av olika RPs att ge åtkomst till tjänster.
 
-Det finns fyra grundläggande RPs: nätverk, lagring, beräkning och KeyVault. Var och en av dessa RPs hjälper dig att konfigurera och kontrollera dess respektive resurser. Administratörer kan också lägga till nya anpassade resursprovidrar.
+Det finns fyra grundläggande RPs: Nätverk, lagring, beräkning och KeyVault. Var och en av dessa RPs hjälper dig att konfigurera och kontrollera dess respektive resurser. Administratörer kan också lägga till nya anpassade resursprovidrar.
 
 ### <a name="compute-rp"></a>Compute RP
 Compute Resource Provider (CRP: N) gör att Azure Stack-klienter kan skapa sina egna virtuella datorer. CRP: N innehåller möjligheten att skapa virtuella datorer samt virtuella datorer, tillägg. Tjänsten VM-tillägget ger IaaS-funktioner för Windows och Linux-datorer.  Exempelvis kan du använda CRP: N att etablera en Linux-dator och kör Bash-skript under distributionen för att konfigurera den virtuella datorn.
@@ -150,7 +150,7 @@ VM-skalningsuppsättningar, en tillgänglighetsuppsättning skapas internt med e
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
 Du kan använda RBAC för att ge systemåtkomst till behöriga användare, grupper och tjänster genom att tilldela dem roller på en prenumeration, resursgrupp eller enskild resurs. Varje roll definierar den åtkomstnivå som en användare, grupp eller tjänst har över Microsoft Azure Stack-resurser.
 
-RBAC i Azure har tre grundläggande roller som gäller för alla typer av resurser: ägare, deltagare och läsare. Ägare har fullständig åtkomst till alla resurser inklusive rätten att delegera åtkomst till andra. Deltagare kan skapa och hantera alla typer av Azure-resurser, men det går inte att bevilja åtkomst till andra. Läsare kan bara visa befintliga Azure-resurser. Resten av RBAC-roller i Azure kan hanteringen av specifika Azure-resurser. Exempelvis kan rollen virtuell Datordeltagare kan skapandet och hanteringen av virtuella datorer, men tillåter inte hantering av det virtuella nätverket eller undernätet som den virtuella datorn ansluter till.
+RBAC i Azure har tre grundläggande roller som gäller för alla typer av resurser: Ägare, deltagare och läsare. Ägare har fullständig åtkomst till alla resurser inklusive rätten att delegera åtkomst till andra. Deltagare kan skapa och hantera alla typer av Azure-resurser, men det går inte att bevilja åtkomst till andra. Läsare kan bara visa befintliga Azure-resurser. Resten av RBAC-roller i Azure kan hanteringen av specifika Azure-resurser. Exempelvis kan rollen virtuell Datordeltagare kan skapandet och hanteringen av virtuella datorer, men tillåter inte hantering av det virtuella nätverket eller undernätet som den virtuella datorn ansluter till.
 
 ## <a name="usage-data"></a>Användningsdata
 Microsoft Azure Stack samlar in och sammanställer användningsdata över alla resursproviders och skickar den till Azure för bearbetning av Azure commerce. Användningsdata som samlas in på Azure Stack kan ses via ett REST-API. Det finns en Azure-konsekventa klient-API som Provider och delegerad Provider API: er att hämta användningsdata för alla klient-prenumerationer. Dessa data kan användas för att integrera med ett externt verktyg eller en tjänst för fakturerings- eller återbetalning. När användning har behandlats av Azure commerce, kan det visas i på Azures faktureringsportal.

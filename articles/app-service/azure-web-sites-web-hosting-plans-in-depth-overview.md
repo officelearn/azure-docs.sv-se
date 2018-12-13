@@ -1,7 +1,7 @@
 ---
-title: Översikt av Azure App Service-plan | Microsoft Docs
-description: Lär dig hur App Service-planer för Azure App Service och hur de får din hanteringsupplevelse.
-keywords: App service, azure app service, skala, skalbar, skalbarhet, apptjänstplan, kostnad för app service
+title: App Service-plan översikt – Azure | Microsoft Docs
+description: Lär dig hur App Service-planer för Azure App Service och hur de kan hjälpa din hanteringsmiljö.
+keywords: App service, azure app service, skala, skalbar, skalbarhet, app service-plan, app service-kostnad
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -15,109 +15,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 268844eae8dc06937529e79d52515cad2f6da3f4
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.custom: seodec18
+ms.openlocfilehash: 9cab3a8d9fd85d19cc2cc11874085d41d2441a07
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862367"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253943"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt av Azure App Service-plan
 
-I App Service är en app som körs i en _programtjänstplanen_. En apptjänstplan definierar en uppsättning beräkningsresurser för ett webbprogram ska köras. Dessa beräkna resurser kan jämföras med den [ _servergruppen_ ](https://wikipedia.org/wiki/Server_farm) i konventionella webbhotell. En eller flera appar kan konfigureras för att köras på samma dataresurser (eller i samma programtjänstplan).
+I App Service körs en app i en _App Service-plan_. En App Service-plan definierar en uppsättning beräkningsresurser som en webbapp ska köra. Dessa beräkningsalternativ resurser kan jämföras med den [ _servergruppen_ ](https://wikipedia.org/wiki/Server_farm) i konventionella webbvärdtjänster. En eller flera appar kan konfigureras för att köras på samma datorresurser (eller i samma App Service-plan).
 
-När du skapar en apptjänstplan i en viss region (till exempel västra Europa) skapas en uppsättning beräkningsresurser för planen i den regionen. De appar du lägga till i den här programtjänstplanen som körs på de beräkningsresurser som definierats av din programtjänstplan. Varje App Service-plan definierar:
+När du skapar en App Service plan inom en viss region (till exempel Europa, västra), skapas en uppsättning beräkningsresurser för den här planen i den regionen. Alla appar som du placerar i App Service-planen körs på de beräkningsresurser som definieras av App Service-planen. Varje App Service-plan definierar:
 
-- Region (västra USA, östra USA osv.)
-- Antal VM-instanser
-- Storleken på VM-instanser (Small, Medium, Large)
-- Prisnivå (ledigt, delade, Basic, Standard, Premium, PremiumV2, isolerad, förbrukning)
+- Region (USA, västra, USA, östra osv.)
+- Antalet Virtuella datorinstanser
+- Storleken på VM-instanser (liten, medel, stor)
+- Prisnivå (kostnadsfri, delad, Basic, Standard, Premium, PremiumV2, isolerad, förbrukning)
 
-Den _prisnivån_ av en App Service plan avgör vilken App Service-funktioner som du får och hur mycket du betala för planen. Det finns några kategorier av prisnivåer:
+Den _prisnivån_ för en App Service plan avgör vilka App Service-funktioner som du får och hur mycket du betala för abonnemanget. Det finns ett antal kategorier prisnivåer:
 
-- **Delade beräkning**: **lediga** och **delade**, två grundläggande nivåer, kör en app på samma Azure-VM som andra Apptjänst-appar, inklusive appar från andra kunder. Dessa nivåer tilldela CPU kvoter till varje app som körs i delade resurser och resurser kan inte skalas ut.
-- **Dedikerad beräkning**: den **grundläggande**, **Standard**, **Premium**, och **PremiumV2** nivåer köra appar på dedikerade Azure Virtuella datorer. Endast appar i samma programtjänstplanen delar samma beräkningsresurser. Ju högre nivån mer VM-instanser är tillgängliga för skalbar.
-- **Isolerade**: det här skiktet körs dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk, vilket ger nätverksisolering ovanpå beräkning isolering till dina appar. Det ger högsta skalbar funktionerna.
-- **Förbrukning**: det här skiktet är bara tillgänglig för [fungerar appar](../azure-functions/functions-overview.md). Skalningen av funktioner dynamiskt beroende på arbetsbelastningen. Mer information finns i [Azure Functions värd planer jämförelse](../azure-functions/functions-scale.md).
+- **Delade compute**: **Kostnadsfria** och **delad**, två grundläggande nivåer, kör en app på samma Azure-VM som andra App Service-appar, inklusive appar från andra kunder. Dessa nivåer allokera CPU kvoter till varje app som körs på delade resurser och resurserna som inte skala ut.
+- **Dedikerad beräkning**: Den **grundläggande**, **Standard**, **Premium**, och **PremiumV2** nivåer köra appar på dedikerade virtuella Azure-datorer. Endast appar i samma App Service-plan delar samma beräkningsresurser. Ju högre nivå, flera VM-instanser är tillgängliga för skalbar.
+- **Isolerade**: Den här nivån körs dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk, vilket ger isolering av nätverk ovanpå beräkning isolering till dina appar. Det ger högsta skalbarhetsfunktionerna.
+- **Förbrukning**: Den här nivån är endast tillgänglig för [funktionsappar](../azure-functions/functions-overview.md). Skalningen av funktionerna dynamiskt beroende på arbetsbelastningen. Mer information finns i [Azure Functions jämförelse av värdplaner](../azure-functions/functions-scale.md).
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Varje nivå innehåller också en delmängd av App Service-funktioner. Dessa funktioner inkluderar anpassade domäner och SSL-certifikat, autoskalning, distributionsplatser, säkerhetskopiering, Traffic Manager-integrering med mera. Ju högre nivån fler funktioner är tillgängliga. Om du vill veta vilka funktioner som stöds i varje prisnivå [information för App Service-plan](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Varje nivå innehåller också en delmängd av App Service-funktioner. Dessa funktioner inkluderar anpassade domäner och SSL-certifikat, automatisk skalning, distributionsplatser, säkerhetskopieringar, Traffic Manager-integrering med mera. Ju högre nivå, fler funktioner är tillgängliga. Om du vill veta vilka funktioner som stöds i varje prisnivå [information om App Service-plan](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> Den nya **PremiumV2** prisnivån ger [Dv2-serien VMs](../virtual-machines/windows/sizes-general.md#dv2-series) med snabba processorer, SSD-lagringen och dubbla kärnor till minne jämfört med **Standard** nivå. **PremiumV2** också stöd för ökad skala via ökad instanser samtidigt som de avancerade funktioner som finns i Standard-plan. Alla funktioner som är tillgängliga i den befintliga **Premium** nivå ingår i **PremiumV2**.
+> Den nya **PremiumV2** prisnivån ger [dv2-datorer](../virtual-machines/windows/sizes-general.md#dv2-series) med snabbare processorer, SSD-lagring och dubbel minne-till-kärna-kvot jämfört med **Standard** nivå. **PremiumV2** stöder också högre skala tack vare ökad instansantal samtidigt som alla avancerade funktioner som ingår i standardprenumerationen. Alla funktioner som är tillgängliga i den befintliga **Premium** nivå som ingår i **PremiumV2**.
 >
-> Precis som andra dedikerade nivåer, tre storlekar på VM är tillgängliga för det här skiktet:
+> Precis som andra dedikerade nivåer, tre storlekar som är tillgängliga för den här nivån:
 >
-> - Liten (en processorkärna, 3.5 GiB minne) 
+> - Liten (en CPU-kärna, 3,5 GiB minne) 
 > - Medel (två CPU-kärnor, 7 GiB minne) 
-> - Stor (fyra CPU-kärnor, 14 GiB minne)  
+> - Stor (fyra CPU-kärnor, 14 GiB minne)  
 >
-> För **PremiumV2** information om priser finns [priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/).
+> För **PremiumV2** prisinformationen hittar du i [priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/).
 >
-> Du kommer igång med den nya **PremiumV2** prisnivån, se [konfigurera PremiumV2 nivån för Apptjänst](app-service-configure-premium-tier.md).
+> Du kommer igång med den nya **PremiumV2** prisnivå, se [konfigurera PremiumV2-nivå för App Service](app-service-configure-premium-tier.md).
 
-## <a name="how-does-my-app-run-and-scale"></a>Hur min app körs och skala?
+## <a name="how-does-my-app-run-and-scale"></a>Hur sker min app köra och skala?
 
-I den **lediga** och **delade** nivåer, en app som tar emot CPU: e minut på en delad VM-instans och det går inte att skala ut. En app körs på andra nivåer och skalas enligt följande.
+I den **kostnadsfri** och **delad** nivåer, en app tar emot CPU-minuter på en delad VM-instans och det går inte att skala ut. I andra nivåer, en app körs och skalar på följande sätt.
 
-När du skapar en app i App Service placeras den i en apptjänstplan. När appen körs körs den på alla VM-instanser som konfigurerats i App Service-plan. Om flera appar finns i samma App Service-plan måste delar alla samma VM-instanser. Om du har flera distributionsplatser för en app kan köra alla distributionsplatser också på samma VM-instanser. Om du aktiverar diagnostikloggar, säkerhetskopiera eller kör WebJobs använda de också CPU-cykler och minne på dessa VM-instanser.
+När du skapar en app i App Service kan placeras den i en App Service plan. När appen körs som den körs på alla VM-instanser som konfigurerats i App Service-planen. Om flera appar finns i samma App Service-planen måste delar alla samma VM-instanser. Om du har flera distributionsplatser för en app kan alla distributionsplatser också att köra på samma VM-instanser. Om du aktiverar diagnostikloggar, säkerhetskopiera eller köra WebJobs använda de också CPU-cykler och minne på dessa VM-instanser.
 
-På så sätt är programtjänstplanen skalningsenhet för Apptjänst-appar. Om planen har konfigurerats för att köra fem VM-instanser, köra alla appar i planen på alla fem instanser. Om planen har konfigurerats för autoskalning, och sedan alla appar i planen skalas ut tillsammans baserat på inställningarna för Autoskala.
+På så sätt kan är skalningsenhet för App Service-appar i App Service-planen. Om planen som är konfigurerad för att köra fem VM-instanser, kör alla appar i planen på alla fem instanser. Om planen som är konfigurerad för automatisk skalning, och sedan alla appar i planen skalas ut tillsammans baserat på inställningarna för automatisk skalning.
 
 Information om att skala ut en app finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 <a name="cost"></a>
 
-## <a name="how-much-does-my-app-service-plan-cost"></a>Hur mycket kostar App Service-plan?
+## <a name="how-much-does-my-app-service-plan-cost"></a>Hur mycket kostar min App Service-plan?
 
-Det här avsnittet beskrivs hur Apptjänst-appar debiteras. Mer detaljerad, regionspecifika prisinformation finns [priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/).
+Det här avsnittet beskrivs hur App Service-appar faktureras. Mer detaljerad, regionspecifika prisinformation finns i [priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/).
 
-Undantag för **lediga** nivå, en apptjänstplan bedriver timkostnaden beräkningsresurser som används.
+Undantag för **kostnadsfri** nivå, en App Service plan bedriver timme beräkningsresurser som används.
 
-- I den **delade** nivån varje app som tar emot en kvot på CPU minuter så _varje app_ debiteras timvis för CPU-kvoten.
-- I den dedicerade compute-nivåer (**grundläggande**, **Standard**, **Premium**, **PremiumV2**), i App Service-plan definierar antal VM instanser apparna skalas till, så _varje VM-instans_ i App Service-plan har timkostnaden. Dessa VM-instanser debiteras samma oavsett hur många appar körs på dem. Om du vill undvika oväntade debiteringar finns [rensa en apptjänstplan](app-service-plan-manage.md#delete).
-- I den **isolerad** nivån Apptjänst-miljön definierar antalet isolerade arbetare som kör dina appar och _varje worker_ debiteras per timme. Det är dessutom ett grundläggande timkostnaden för körning Apptjänstmiljö sig själv. 
-- (Endast azure-funktioner) Den **förbrukning** nivå dynamiskt allokerar VM-instanser för att underhålla en funktionsapp arbetsbelastning och dynamiskt debiteras per sekund av Azure. Mer information finns i [priser för Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+- I den **delad** nivå, varje app som tar emot en kvot på CPU-minuter så _varje app_ debiteras per timme för CPU-kvot.
+- I den särskilda compute nivåer (**grundläggande**, **Standard**, **Premium**, **PremiumV2**), App Service-planen definierar antalet virtuella datorer instanser som apparna som skalas till, så _varje virtuell datorinstans_ i App Service plan har timme. Dessa VM-instanser debiteras samma oavsett hur många appar körs på dem. Du kan undvika oväntade kostnader, se [rensa en App Service plan](app-service-plan-manage.md#delete).
+- I den **isolerad** nivå, App Service Environment definierar antalet isolerad arbetare som kör dina appar och _varje worker_ debiteras per timme. Det finns dessutom en timvis grundavgift för löpande App Service Environment själva. 
+- (Endast azure Functions) Den **förbrukning** nivån dynamiskt allokerar VM-instanser för att underhålla en funktionsapp arbetsbelastning och dynamiskt debiteras per sekund av Azure. Mer information finns i [priser för Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-Du debiteras inte hämta för att använda Apptjänst-funktioner som är tillgängliga för dig (konfigurera anpassade domäner, SSL-certifikat, distributionsplatser, säkerhetskopior osv.). Undantagen är:
+Du debiteras inte för att använda App Service-funktioner som är tillgängliga för dig (konfigurera anpassade domäner, SSL-certifikat, distributionsplatser, säkerhetskopior osv.). Undantagen är:
 
-- App Service domäner - betalar du när du köper en i Azure och när du förnyar det varje år.
-- Apptjänstcertifikat - betalar du när du köper en i Azure och när du förnyar det varje år.
-- IP-baserade SSL-anslutningar - där har timkostnaden för varje IP-baserade SSL-anslutning, men vissa **Standard** tjänstnivån eller senare får du en IP-baserade SSL-anslutning kostnadsfritt. SNI-baserade SSL-anslutningar är kostnadsfri.
+- App Service-domäner - betalar du när du köper en i Azure och när du förnyar det varje år.
+- App Service-certifikat – du betalar när du köper en i Azure och när du förnyar det varje år.
+- IP-baserad SSL-anslutningar – där är en timavgift för varje IP-baserad SSL-anslutning, men vissa **Standard** nivå eller senare får du en IP-baserad SSL anslutning utan kostnad. SNI-baserad SSL-anslutningar är kostnadsfria.
 
 > [!NOTE]
-> Om du integrerar Apptjänst med en annan Azure-tjänst som du kan behöva överväga avgifter från dessa andra tjänster. Om du använder Azure Traffic Manager för att skala ditt program geografiskt, Azure Traffic Manager även avgifter baserat på förbrukningen. Om du vill beräkna dina kostnader för globala tjänster i Azure finns [priser Kalkylatorn](https://azure.microsoft.com/pricing/calculator/). 
+> Om du integrerar App Service med en annan Azure-tjänst kan du behöva överväga avgifter från följande tjänster. Om du använder Azure Traffic Manager att skala din app geografiskt, Azure Traffic Manager även avgifter baserat på din användning. Om du vill beräkna dina kostnader för cross-tjänster i Azure måste du se [prisberäkning](https://azure.microsoft.com/pricing/calculator/). 
 >
 >
 
-## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>Vad händer om min app måste flera funktioner eller funktioner?
+## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>Vad händer om min app behöver fler funktioner eller funktioner?
 
-App Service-plan kan skalas upp och ned när som helst. Det är så enkelt som att ändra prisnivå för planen. Du kan välja en lägre prisnivå först och skala upp senare när du behöver fler funktioner i Apptjänst.
+App Service-planen kan skalas upp eller ned när som helst. Det är lika enkelt som att ändra prisnivån för planen. Du kan välja en lägre prisnivå först och skala upp senare när du behöver fler App Service-funktioner.
 
-Du kan till exempel starta testa ditt webbprogram i en **lediga** Apptjänst planera och betalar ingenting. När du vill lägga till din [anpassade DNS-namnet](app-service-web-tutorial-custom-domain.md) till webb-app bara skala din plan upp till **delade** nivå. Senare, när du vill lägga till en [anpassade SSL-certifikat](app-service-web-tutorial-custom-ssl.md), skala upp till din plan **grundläggande** nivå. När du vill ha [mellanlagringsmiljöer](web-sites-staged-publishing.md), skala upp till **Standard** nivå. När du behöver flera kärnor, minne eller lagring, kan du skala upp till en större VM-storlek i samma nivå.
+Du kan till exempel börja testa din webbapp i en **kostnadsfri** App Service plan och betala ingenting. När du vill lägga till din [anpassat DNS-namn](app-service-web-tutorial-custom-domain.md) till web-app bara skala din plan upp till **delad** nivå. Senare, när du vill lägga till en [anpassat SSL-certifikat](app-service-web-tutorial-custom-ssl.md), skala din plan upp till **grundläggande** nivå. När du vill ha [mellanlagringsmiljöer](web-sites-staged-publishing.md), skala upp till **Standard** nivå. När du behöver fler kärnor, minne eller lagring kan du skala upp till en större VM-storlek i samma nivå.
 
-Samma fungerar i tvärtom. När du anser att du inte längre behöver funktioner eller funktioner i en högre nivå, du kan skala till en lägre nivå, som sparar pengar.
+Samma fungerar i tvärtom. När du känner du inte längre behöver funktioner eller funktioner i en högre nivå, du kan skala till en lägre nivå, vilket sparar du pengar.
 
-Information om att skala upp programtjänstplanen finns [skala upp en app i Azure](web-sites-scale.md).
+Information om att skala upp App Service-planen finns i [skala upp en app i Azure](web-sites-scale.md).
 
-Om din app finns i samma App Service-plan med andra appar, kanske du vill förbättra appens prestanda genom att isolera beräkningsresurserna. Du kan göra det genom att flytta appen till en separat App Service-plan. Mer information finns i [flytta en app till en annan programtjänstplan](app-service-plan-manage.md#move).
+Om din app är i samma App Service-planen med andra appar kan du förbättra appens prestanda genom att isolera beräkningsresurserna. Du kan göra det genom att flytta appen till en separat App Service-plan. Mer information finns i [flytta en app till en annan App Service-plan](app-service-plan-manage.md#move).
 
-## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Ska jag lägga till en app i en ny plan eller en befintlig plan?
+## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Ska jag placera en app i en ny plan eller en befintlig plan?
 
-Eftersom du betala för dataresurser din programtjänstplan allokerar (se [hur mycket kostar min App Service-plan?](#cost)), potentiellt kan du spara pengar genom att lägga till flera appar till en App Service-plan. Du kan fortsätta att lägga till appar i en befintlig plan så länge planen har tillräckligt med resurser för att hantera belastningen. Tänk dock på att appar i samma App Service-plan som alla har samma beräkningsresurser. Om du vill avgöra om den nya appen har nödvändiga resurser, måste du förstå kapaciteten hos befintlig programtjänstplan och den förväntade belastningen för den nya appen. Överbelastning App Service-plan kan orsaka driftstopp för dina nya och befintliga appar.
+Eftersom du betalar för beräkningsresurser App Service-planen allokerar (se [hur mycket kostar min App Service-plan?](#cost)), potentiellt kan du spara pengar genom att placera flera appar i en App Service-plan. Du kan fortsätta att lägga till appar i en befintlig plan så länge planen som har tillräckligt med resurser för att hantera belastningen. Tänk dock på att appar i samma App Service-planen som alla har samma beräkningsresurser. För att avgöra om den nya appen har resurserna som krävs, måste du förstå kapacitet för befintliga App Service-planen och den förväntade belastningen för den nya appen. Överbelastning en App Service plan kan eventuellt medföra driftstopp för dina nya och befintliga appar.
 
-Isolera din app till en ny App Service-plan när:
+Isolera din app till en ny App Service-planen när:
 
 - Appen är resurskrävande.
 - Du vill skala appen oberoende av de andra apparna den befintliga planen.
 - Appen måste resurs i en annan geografisk region.
 
-Det här sättet du tilldela en ny uppsättning resurser för din app och få större kontroll över dina appar.
+På så sätt som du kan tilldela en ny uppsättning resurser för din app och få större kontroll över dina appar.
 
-## <a name="manage-an-app-service-plan"></a>Hantera en apptjänstplan
+## <a name="manage-an-app-service-plan"></a>Hantera en App Service-plan
 
 > [!div class="nextstepaction"]
-> [Hantera en apptjänstplan](app-service-plan-manage.md)
+> [Hantera en App Service-plan](app-service-plan-manage.md)

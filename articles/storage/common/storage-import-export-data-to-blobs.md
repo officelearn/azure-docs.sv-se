@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 023df222ee2e9ca6af1398dd70767938e61c90b7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ea81cb52b8492e429903de15a9ff0156c91abae2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824121"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309594"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 
@@ -30,7 +30,7 @@ Innan du skapar ett importjobb för att överföra data till Azure Blob Storage 
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
 - Har ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems). 
 - Aktivera BitLocker på Windows-system. Se [hur du aktiverar BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Ladda ned WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) på Windows-system. Packa upp i standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
+- [Ladda ned WAImportExport version 1](https://aka.ms/waiev1) på Windows-system. Packa upp i standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
 - Ha ett FedEx/DHL-konto.  
     - Kontot måste vara giltig, bör ha saldo och måste ha returfrakt funktioner.
     - Generera en spårningsnummer för export-jobbet.
@@ -39,7 +39,7 @@ Innan du skapar ett importjobb för att överföra data till Azure Blob Storage 
         - [Skapa ett konto för FedEX](https://www.fedex.com/en-us/create-account.html), eller 
         - [Skapa ett konto för DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-prepare-the-drives"></a>Steg 1: Förbered enheterna
+## <a name="step-1-prepare-the-drives"></a>Steg 1: Förbereda enheterna
 
 Det här steget genererar en journalfil. Journalfilen lagrar grundläggande information, till exempel serienumret för enheten och krypteringsnyckeln lagringskontouppgifter. 
 
@@ -129,7 +129,7 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
     ![Skapa importjobb – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives"></a>Steg 3: Skicka enheterna 
+## <a name="step-3-ship-the-drives"></a>Steg 3: Leverera enheterna 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
@@ -138,7 +138,7 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Steg 5: Kontrollera ladda upp data till Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Steg 5: Kontrollera datauppladdning till Azure
 
 Spåra jobbet kan slutföras. När jobbet har slutförts, kan du kontrollera att dina data har överförts till Azure. Ta bort lokalt data endast när du har kontrollerat att överföringen har slutförts.
 

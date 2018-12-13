@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 225cb3d2f78f41bdb17763d13644c1d95bc62710
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c565ccf7ac04e2a3ba86e2fa256a05a9649d2de4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014709"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166157"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
 
@@ -90,7 +90,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
     * **Namn på**: Hive
     * **Exempel-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Extra klassökvägen**: Använd knappen Lägg till att lägga till i alla jar-filer som hämtats tidigare
+    * **Extra klassen sökväg**: Använd knappen Lägg till att lägga till i alla jar-filer som hämtats tidigare
     * **Klassnamn**: org.apache.hive.jdbc.HiveDriver
 
    ![Lägg till drivrutin dialogrutan](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
@@ -111,9 +111,9 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
         Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.
 
-    * **Användarnamnet**: kluster konto inloggningsnamnet för ditt HDInsight-kluster. Standardvärdet är `admin`.
+    * **Användarnamnet**: Klustret konto inloggningsnamnet för ditt HDInsight-kluster. Standardvärdet är `admin`.
 
-    * **Lösenord**: lösenordet för kontot för klusterinloggning.
+    * **lösenord**: Lösenordet för kontot för klusterinloggning.
 
  ![Lägg till alias dialogrutan](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
@@ -140,7 +140,7 @@ Ett exempel på hur du använder en Java-klient för att fråga Hive på HDInsig
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Ett oväntat fel uppstod vid försök att öppna en SQL-anslutning
 
-**Symptom**: när du ansluter till ett HDInsight-kluster som är version 3.3 eller senare, kan du få ett felmeddelande som ett oväntat fel uppstod. Stackspårning för det här felet börjar med följande rader:
+**Symptom**: När du ansluter till ett HDInsight-kluster som är version 3.3 eller senare, kan du få felmeddelanden som ett oväntat fel uppstod. Stackspårning för det här felet börjar med följande rader:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -148,9 +148,9 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**Orsak**: det här felet beror på en äldre version commons codec.jar fil som ingår i SQuirreL.
+**Orsak**: Det här felet beror på en äldre version commons codec.jar fil som ingår i SQuirreL.
 
-**Lösning**: åtgärda felet genom att använda följande steg:
+**Lösning**: Om du vill åtgärda det här felet, använder du följande steg:
 
 1. Ladda ned commons-codec jar-filen från ditt HDInsight-kluster.
 

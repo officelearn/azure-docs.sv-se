@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb81f62bcea43c3c30abff6b5f76e3a89347813
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8b6edcb70bca480ebe0d53c061c6461745f189e8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985404"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321297"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Element i B2B-samarbete e-postinbjudan - Azure Active Directory
 
@@ -26,11 +26,11 @@ Postinbjudningar är en kritisk komponent för att ge partner ombord som använd
 ## <a name="explaining-the-email"></a>Förklarar e-postmeddelandet
 Nu ska vi titta på några få av e-postmeddelandet så att du vet hur du bäst för att använda deras funktioner.
 
-### <a name="subject"></a>Ämne
-Ämnet för e-postmeddelandet följer följande mönster: du är inbjuden till den &lt;tenantname&gt; organisation
+### <a name="subject"></a>Subjekt
+Ämnet för e-postmeddelandet följer följande mönster: Du är inbjuden till den &lt;tenantname&gt; organisation
 
 ### <a name="from-address"></a>Från adress
-Vi använder ett LinkedIn-liknande mönster för från-adressen.  Du bör vara tydlig som avsändaren är och från företagets vilket också förtydliga att e-postmeddelandet kommer från en Microsoft e-postadress. Formatet är: &lt;visningsnamnet för inbjudaren&gt; från &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
+Vi använder ett LinkedIn-liknande mönster för från-adressen.  Du bör vara tydlig som avsändaren är och från företagets vilket också förtydliga att e-postmeddelandet kommer från en Microsoft e-postadress. Formatet är: &lt;Visningsnamnet för inbjudaren&gt; från &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
 
 ### <a name="reply-to"></a>Svara
 Svara till e-postmeddelandet är inställd på inbjudaren e-postmeddelande när det är tillgängligt, så att svara på e-postmeddelandet skickar ett e-postmeddelande till avsändaren.
@@ -40,7 +40,7 @@ E-postmeddelanden för inbjudan från din klient användning företagsanpassning
 
 ### <a name="call-to-action"></a>Anrop till åtgärd
 Din uppmaning till består av två delar: förklarar varför mottagaren har tagit emot e-postmeddelandet och vad mottagaren har ombetts att göra om den.
-- Avsnittet ”Varför” kan lösas med hjälp av följande mönster: du har blivit inbjuden att använda program i den &lt;tenantname&gt; organisation
+- Avsnittet ”Varför” kan lösas med hjälp av följande mönster: Du har blivit inbjuden att använda program i den &lt;tenantname&gt; organisation
 
 - Och den ”vad du ska ange att göra” avsnittet indikeras av förekomst av den **börjar** knappen. När mottagaren har lagts till utan att behöva inbjudningar, visas den här knappen inte.
 
@@ -52,7 +52,7 @@ Om du ännu inte har konfigurerat din profilbild visas en ikon med den inbjudare
   ![Visa den inbjudaren initialer](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Innehåll
-Texten innehåller meddelandet som avsändaren composes eller skickas via inbjudan API. Det är ett textområde så att den inte bearbetar HTML-taggar av säkerhetsskäl.
+Texten innehåller meddelandet att avsändaren composes när [bjuda in en gästanvändare till den katalog, en grupp eller en app](add-users-administrator.md) eller [med hjälp av inbjudan API](customize-invitation-api.md). Det är ett textområde så att den inte bearbetar HTML-taggar av säkerhetsskäl.
 
 ### <a name="footer-section"></a>Sidfotsavsnittet
 Sidfoten innehåller Microsoft företagets varumärke och gör att mottagaren kan veta om e-postmeddelandet har skickats från ett oövervakat alias. Specialfall:

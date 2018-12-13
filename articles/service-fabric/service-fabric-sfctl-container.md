@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 27108d27ee27346e4cba44e6778faff56df70a36
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 455b2a70568566bff5b1ea4c185568a1758f7db3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495136"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274912"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Kör behållaren relaterade kommandon på en klusternod.
@@ -28,22 +28,22 @@ Kör behållaren relaterade kommandon på en klusternod.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| anropa api | Anropa behållare REST API. |
-| loggar | Hämta behållarloggarna. |
+| anropa api | Anropa behållare API i en behållare som distribueras på en Service Fabric-nod för det givna code-paketet. |
+| loggar | Hämtar behållarloggarna för behållare som har distribuerats på en Service Fabric-nod för det givna code-paketet. |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl behållaren anropa API: er
-Anropa behållare REST API.
+Anropa behållare API i en behållare som distribueras på en Service Fabric-nod för det givna code-paketet.
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
-| – program-id [krävs] | Programidentitet. |
-| --code-package-instans-id [krävs] | Koda paketet instans-ID, som kan hämtas efter ”service code-package-list”. |
-| --code-package-name [krävs] | Kod paketnamn. |
+| – program-id [krävs] | Identiteten för programmet. <br><br> Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
+| --code-package-instans-id [krävs] | ID som unikt identifierar en kod paket-instans som distribuerats på en service fabric-noden. <br><br> Kan hämtas efter ”service code-package-list”. |
+| --code-package-name [krävs] | Namnet på kodpaketet som anges i tjänstmanifestet registrerad som en del av en typ av program i ett Service Fabric-kluster. |
 | --container-api-uri-sökväg [krävs] | Behållaren REST API-URI-sökväg, Använd {id} i stället för behållar-namn/id. |
 | --Nodnamnet [krävs] | Namnet på noden. |
-| --manifest-tjänstnamnet [krävs] | Namn på manifest. |
+| --manifest-tjänstnamnet [krävs] | Namnet på ett tjänstmanifest som registrerats som en del av en typ av program i ett Service Fabric-kluster. |
 | ---api-behållaren | HTTP-begärandetexten för REST API-behållare. |
 | --container-api-content-type | Innehållstyp för REST API-behållare som standard ”application/json”. |
 | --container-api-http-verb | HTTP-verb för REST API-behållare som standard GET. |
@@ -51,7 +51,7 @@ Anropa behållare REST API.
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -60,23 +60,23 @@ Anropa behållare REST API.
 | --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
 
 ## <a name="sfctl-container-logs"></a>sfctl behållarloggar
-Hämta behållarloggarna.
+Hämtar behållarloggarna för behållare som har distribuerats på en Service Fabric-nod för det givna code-paketet.
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
-| – program-id [krävs] | Programidentitet. |
+| – program-id [krävs] | Identiteten för programmet. <br><br> Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --code-package-instans-id [krävs] | Koda paketet instans-ID, som kan hämtas efter ”service code-package-list”. |
-| --code-package-name [krävs] | Kod paketnamn. |
+| --code-package-name [krävs] | Namnet på kodpaketet som anges i tjänstmanifestet registrerad som en del av en typ av program i ett Service Fabric-kluster. |
 | --Nodnamnet [krävs] | Namnet på noden. |
-| --manifest-tjänstnamnet [krävs] | Namn på manifest. |
-| --pilslut | Returnera endast log rader i från slutet av loggarna. Ange som ett heltal eller alla för att mata ut alla rader i loggen. Som standard för alla. |
+| --manifest-tjänstnamnet [krävs] | Namnet på ett tjänstmanifest som registrerats som en del av en typ av program i ett Service Fabric-kluster. |
+| --pilslut | Antal rader som ska visas från slutet av loggarna. Standardvärdet är 100. ”alla” för att visa de fullständiga loggarna. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |

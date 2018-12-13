@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: de29c24556522abeaff8d942edc027c7444c3ed3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbdacd6947c897d3b137b427c3e4c316869fa401
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965046"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193203"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-mått och aviseringar
 Azure DNS är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Den här artikeln beskriver mått och aviseringar för Azure DNS-tjänsten.
@@ -44,14 +44,14 @@ Den *fråga volym* mått i Azure DNS visar mängden DNS-frågor (query-trafik) s
 
 ![Fråga volym](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 
-*Bild: Azure DNS-fråga volym mått*
+*Bild: Azure DNS-fråga volym-mått*
 
 ### <a name="record-set-count"></a>Antal för uppsättningen av poster
 Den *ange postantal* måttet visar antalet postuppsättningar i Azure DNS för DNS-zonen. Alla postuppsättningar som definierats i din zon räknas. Måttenheten är antalet och aggregeringen är Maximum för alla postuppsättningar. Om du vill visa det här måttet, Välj **mått (förhandsgranskning)** explorer erfarenhet från den **övervakaren** fliken i Azure-portalen. Välj DNS-zonen från den **Resource** listrutan, väljer den **ange postantal** mått och välj sedan **Max** som den **aggregering** . Mer information om Metrics Explorer upplevelse och diagram, se [Azure Monitor Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md). 
 
 ![Antal för uppsättningen av poster](./media/dns-alerts-metrics/dns-metrics-record-set-count.png)
 
-*Bild: Azure DNS-post ange antal mått*
+*Bild: Ange antal för DNS-poster för Azure-mått*
 
 
 ### <a name="record-set-capacity-utilization"></a>Kapacitetsutnyttjande för uppsättningen av poster
@@ -59,10 +59,10 @@ Den *post ange Kapacitetsanvändning* mått i Azure DNS visar procentuella andel
 
 ![Antal för uppsättningen av poster](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
-*Bild: Azure DNS-post anger Kapacitetsanvändning mått*
+*Bild: Azure ange Kapacitetsanvändning för DNS-post-mått*
 
 ## <a name="alerts-in-azure-dns"></a>Aviseringar i Azure DNS
-Azure Monitor innehåller möjligheten att aviseringen mot tillgängliga måttvärden. DNS-mått är tillgängliga i den nya upplevelsen för konfiguration av varning. Som beskrivs i detalj i de [dokumentation aviseringar i Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), välja DNS-zon som resursen, välja mått signaltyp och konfigurera aviseringslogiken och andra parametrar som **Period**och **frekvens**. Du kan definiera ytterligare en [åtgärdsgrupp](../monitoring-and-diagnostics/monitoring-action-groups.md) för när aviseringen villkor är uppfyllt, där aviseringen levereras via de valda åtgärderna. Mer information om hur du konfigurerar aviseringar för Azure Monitor-mått finns i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Azure Monitor innehåller möjligheten att aviseringen mot tillgängliga måttvärden. DNS-mått är tillgängliga i den nya upplevelsen för konfiguration av varning. Som beskrivs i detalj i de [dokumentation aviseringar i Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), välja DNS-zon som resursen, välja mått signaltyp och konfigurera aviseringslogiken och andra parametrar som **Period**och **frekvens**. Du kan definiera ytterligare en [åtgärdsgrupp](../azure-monitor/platform/action-groups.md) för när aviseringen villkor är uppfyllt, där aviseringen levereras via de valda åtgärderna. Mer information om hur du konfigurerar aviseringar för Azure Monitor-mått finns i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Azure DNS](dns-overview.md).

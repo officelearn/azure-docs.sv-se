@@ -1,12 +1,11 @@
 ---
 title: 'Steg 5: Distribuera webbtjänst - Azure Machine Learning Studio | Microsoft Docs'
-description: 'Steg 5 i utveckla en förutsägelselösning genomgång: distribuera ett förutsägelseexperiment i Machine Learning Studio som en webbtjänst.'
+description: 'Steg 5 i utveckla en förutsägelselösning genomgång: Distribuera ett förutsägbart experiment i Machine Learning Studio som en webbtjänst.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: b0da85625ab938ea050ec6ae7bb1d66b095370b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ab23636aa0480532606268efedcc76ea1ddd339a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077145"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253739"
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Genomgång steg 5: Distribuera Azure Machine Learning Studio-webbtjänst
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Genomgång steg 5: Distribuera webbtjänsten Azure Machine Learning Studio
 Detta är det femte steget av den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Skapa en Machine Learning-arbetsyta](walkthrough-1-create-ml-workspace.md)
@@ -205,7 +204,7 @@ När du har distribuerat din webbtjänst om klassisk eller nya kan du hantera de
 4. Klicka på den **instrumentpanel**
 
 - - -
-**Nästa: [få åtkomst till webbtjänsten](walkthrough-6-access-web-service.md)**
+**Nästa: [Få åtkomst till webbtjänsten](walkthrough-6-access-web-service.md)**
 
 [3]: ./media/walkthrough-5-publish-web-service/publish3.png
 [3a]: ./media/walkthrough-5-publish-web-service/publish3a.png

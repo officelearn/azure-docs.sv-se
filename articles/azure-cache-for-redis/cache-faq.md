@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 3af59bd3b19744983a44157e108430620fae3532
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 311a576381927536386f5852336c3713fca5c3bf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020221"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260760"
 ---
-# <a name="azure-cache-for-redis-faq"></a>Azure Cache för Redis vanliga frågor och svar
+# <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Läs svaren på vanliga frågor, mönster och metodtips för Azure Cache för Redis.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
@@ -35,30 +35,30 @@ Om din fråga inte visas kan för oss berätta och vi hjälper dig att hitta nå
 ## <a name="azure-cache-for-redis-basics"></a>Azure Cache för Redis-grunderna
 Frågor och svar i det här avsnittet beskriver några av grunderna i Azure Cache för Redis.
 
-* [Vad är Azure Cache för Redis?](#what-is-azure-redis-cache)
-* [Hur kan jag komma igång med Azure Cache för Redis?](#how-can-i-get-started-with-azure-redis-cache)
+* [Vad är Azure Cache för Redis?](#what-is-azure-cache-for-redis)
+* [Hur kan jag komma igång med Azure Cache för Redis?](#how-can-i-get-started-with-azure-cache-for-redis)
 
 Följande vanliga frågor och svar täcker grundläggande begrepp och frågor om Azure Cache för Redis och besvaras i de andra vanliga frågor och svar-avsnitt.
 
-* [Vilka Azure-Cache för Redis-erbjudande och vilken storlek ska jag använda?](#what-redis-cache-offering-and-size-should-i-use)
-* [Vilka Azure-Cache för Redis-klienter kan jag använda?](#what-redis-cache-clients-can-i-use)
-* [Finns det en lokal emulator för Azure Cache för Redis?](#is-there-a-local-emulator-for-azure-redis-cache)
+* [Vilka Azure-Cache för Redis-erbjudande och vilken storlek ska jag använda?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
+* [Vilka Azure-Cache för Redis-klienter kan jag använda?](#what-azure-cache-for-redis-clients-can-i-use)
+* [Finns det en lokal emulator för Azure Cache för Redis?](#is-there-a-local-emulator-for-azure-cache-for-redis)
 * [Hur övervakar jag hälsotillstånd och prestanda för mitt cacheminne?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 
 ## <a name="planning-faqs"></a>Planera vanliga frågor och svar
-* [Vilka Azure-Cache för Redis-erbjudande och vilken storlek ska jag använda?](#what-redis-cache-offering-and-size-should-i-use)
-* [Azure Cache för Redis-prestanda](#azure-redis-cache-performance)
+* [Vilka Azure-Cache för Redis-erbjudande och vilken storlek ska jag använda?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
+* [Azure Cache för Redis-prestanda](#azure-cache-for-redis-performance)
 * [I vilken region bör jag hitta mitt cacheminne?](#in-what-region-should-i-locate-my-cache)
-* [Hur debiteras jag för Azure Cache för Redis?](#how-am-i-billed-for-azure-redis-cache)
-* [Kan jag använda Azure Cache för Redis med Azure Government-molnet, Azure Kina-molnet eller Microsoft Azure Tyskland?](#can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
+* [Hur debiteras jag för Azure Cache för Redis?](#how-am-i-billed-for-azure-cache-for-redis)
+* [Kan jag använda Azure Cache för Redis med Azure Government-molnet, Azure Kina-molnet eller Microsoft Azure Tyskland?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
 ## <a name="development-faqs"></a>Utveckling av vanliga frågor och svar
 * [Vad gör konfigurationsalternativ för StackExchange.Redis?](#what-do-the-stackexchangeredis-configuration-options-do)
-* [Vilka Azure-Cache för Redis-klienter kan jag använda?](#what-redis-cache-clients-can-i-use)
-* [Finns det en lokal emulator för Azure Cache för Redis?](#is-there-a-local-emulator-for-azure-redis-cache)
+* [Vilka Azure-Cache för Redis-klienter kan jag använda?](#what-azure-cache-for-redis-clients-can-i-use)
+* [Finns det en lokal emulator för Azure Cache för Redis?](#is-there-a-local-emulator-for-azure-cache-for-redis)
 * [Hur kan jag köra Redis-kommandon?](#how-can-i-run-redis-commands)
-* [Varför har inte en biblioteksreferens för MSDN-klass som några av de andra Azure-tjänsterna i Azure Cache för Redis?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
-* [Kan jag använda Azure Cache för Redis som en PHP-sessionscache?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+* [Varför har inte en biblioteksreferens för MSDN-klass som några av de andra Azure-tjänsterna i Azure Cache för Redis?](#why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
+* [Kan jag använda Azure Cache för Redis som en PHP-sessionscache?](#can-i-use-azure-cache-for-redis-as-a-php-session-cache)
 * [Vad är Redis-databaser?](#what-are-redis-databases)
 
 ## <a name="security-faqs"></a>Vanliga frågor om Security
@@ -104,18 +104,18 @@ Varje Azure-Cache för Redis-erbjudandet innehåller olika nivåer av **storlek*
 
 Här följer överväganden för att välja en Cache-erbjudande.
 
-* **Minne**: nivåerna Basic och Standard har 250 MB – 53 GB. Premium-nivån erbjuder upp till 530 GB. Mer information finns i [Azure Cache Redis priser](https://azure.microsoft.com/pricing/details/cache/).
-* **Nätverksprestanda**: Om du har en arbetsbelastning som kräver hög genomströmning på Premium-nivån ger högre bandbredd jämfört med Standard- eller Basic. Inom varje nivå har större storlek cacheminnen också mer bandbredd på grund av den underliggande virtuella datorn som är värd för cachen. Se den [följande tabell](#cache-performance) för mer information.
-* **Dataflöde**: The Premium-nivån erbjuder maximal tillgängliga genomströmning. Om cache-server eller klient når bandbreddsgränserna, får du timeout-fel på klientsidan. Mer information finns i följande tabell.
+* **Minne**: Nivåerna Basic och Standard erbjuder 250 MB – 53 GB. Premium-nivån erbjuder upp till 530 GB. Mer information finns i [Azure Cache Redis priser](https://azure.microsoft.com/pricing/details/cache/).
+* **Nätverksprestanda**: Om du har en arbetsbelastning som kräver hög genomströmning erbjuder på Premium-nivån mer bandbredd jämfört med Standard eller Basic. Inom varje nivå har större storlek cacheminnen också mer bandbredd på grund av den underliggande virtuella datorn som är värd för cachen. Se den [följande tabell](#cache-performance) för mer information.
+* **Dataflöde**: Premium-nivån erbjuder det högsta tillgängliga dataflödet. Om cache-server eller klient når bandbreddsgränserna, får du timeout-fel på klientsidan. Mer information finns i följande tabell.
 * **Hög tillgänglighet/SLA**: Azure Cache för Redis garanterar att en Standard/Premium-cache är tillgänglig minst 99,9% av tiden. Mer information om serviceavtal finns [Azure Cache Redis priser](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). SERVICEAVTALET täcker endast anslutningen mellan cachens slutpunkter. Serviceavtalet täcker inte skydd mot dataförlust. Vi rekommenderar att du använder Redis-datapersistensfunktionen på Premium-nivån för att öka skyddet mot dataförlust.
-* **Redis-Datapersistens**: The Premium-nivån kan du spara Cachedata i ett Azure Storage-konto. Alla data lagras i en Basic-och Standard-cache, endast i minnet. Om det finns kan underliggande infrastruktur problem det vara potentiell dataförlust. Vi rekommenderar att du använder Redis-datapersistensfunktionen på Premium-nivån för att öka skyddet mot dataförlust. Azure Cache för Redis erbjuder RDB och AOF (kommer snart) alternativ i Redis persistence. Mer information finns i [så här konfigurerar du persistence för Premium Azure Cache för Redis](cache-how-to-premium-persistence.md).
-* **Redis-kluster**: att skapa cacheminnen större än 53 GB och Fragmentera data över flera Redis-noder, du kan använda Redis-klustring, som är tillgängligt på Premium-nivån. Varje nod består av en primär/replik cache-par för hög tillgänglighet. Mer information finns i [så här konfigurerar du klustring för Premium Azure Cache för Redis](cache-how-to-premium-clustering.md).
-* **Förbättrad säkerhet och nätverk isolering**: Azure Virtual Network (VNET)-distributionen tillhandahåller förbättrad säkerhet och isolering för din Azure-Cache för Redis, samt undernät, åtkomstkontrollprinciper och andra funktioner för att ytterligare begränsa åtkomst. Mer information finns i [så här konfigurerar du Virtual Network-stöd för Premium Azure Cache för Redis](cache-how-to-premium-vnet.md).
-* **Konfigurera Redis**: nivåerna Standard och Premium, kan du konfigurera Redis för Keyspace-meddelanden.
-* **Högsta antal klientanslutningar**: The Premium-nivån erbjuder det maximala antalet klienter som kan ansluta till Redis med ett högre antal anslutningar för större storlekar cacheminnen. Klustring ökar inte antalet anslutningar som är tillgängliga för en klustrad cache. Mer information finns i [Azure Cache Redis priser](https://azure.microsoft.com/pricing/details/cache/).
-* **Dedikerade kärnor för Redis Server**: Premium-nivån alla cache-storlekar har en dedikerad kärna för Redis. På Basic-och Standard-nivåerna och C1 storlek och ovan har en dedikerad kärna för Redis-servern.
+* **Redis-Datapersistens**: Premium-nivån kan du spara Cachedata i ett Azure Storage-konto. Alla data lagras i en Basic-och Standard-cache, endast i minnet. Om det finns kan underliggande infrastruktur problem det vara potentiell dataförlust. Vi rekommenderar att du använder Redis-datapersistensfunktionen på Premium-nivån för att öka skyddet mot dataförlust. Azure Cache för Redis erbjuder RDB och AOF (kommer snart) alternativ i Redis persistence. Mer information finns i [så här konfigurerar du persistence för Premium Azure Cache för Redis](cache-how-to-premium-persistence.md).
+* **Redis-kluster**: För att skapa cacheminnen större än 53 GB och Fragmentera data över flera Redis-noder, kan du använda Redis-klustring, som är tillgängligt på Premium-nivån. Varje nod består av en primär/replik cache-par för hög tillgänglighet. Mer information finns i [så här konfigurerar du klustring för Premium Azure Cache för Redis](cache-how-to-premium-clustering.md).
+* **Förbättrad säkerhet och nätverk isolering**: Azure Virtual Network (VNET)-distributionen tillhandahåller förbättrad säkerhet och isolering för din Azure-Cache för Redis, samt undernät, åtkomstkontrollprinciper och andra funktioner för att ytterligare begränsa åtkomsten. Mer information finns i [så här konfigurerar du Virtual Network-stöd för Premium Azure Cache för Redis](cache-how-to-premium-vnet.md).
+* **Konfigurera Redis**: Du kan konfigurera Redis för Keyspace-meddelanden i både Standard och Premium-nivåerna.
+* **Högsta antal klientanslutningar**: Premium-nivån erbjuder det maximala antalet klienter som kan ansluta till Redis med ett högre antal anslutningar för större storlekar cacheminnen. Klustring ökar inte antalet anslutningar som är tillgängliga för en klustrad cache. Mer information finns i [Azure Cache Redis priser](https://azure.microsoft.com/pricing/details/cache/).
+* **Dedikerade kärnor för Redis-servern**: Alla cache-storlekar ha Premium-nivån är en dedikerad kärna för Redis. På Basic-och Standard-nivåerna och C1 storlek och ovan har en dedikerad kärna för Redis-servern.
 * **Redis är single-threaded** så att ha fler än två kärnor inte ge extra förmån över har bara två kärnor, men större storlekar för Virtuella datorer har vanligtvis mer bandbredd än mindre. Om cache-server eller klient når bandbreddsgränserna kan få du timeout-fel på klientsidan.
-* **Prestandaförbättringar**: cacheminnen på Premium-nivån har distribuerats på maskinvara som har snabbare processorer, vilket ger bättre prestanda jämfört med Basic eller Standard-nivån. Premium-nivån cacheminnen har högre dataflöde och kortare svarstider.
+* **Prestandaförbättringar**: Cacheminnen på Premium-nivån har distribuerats på maskinvara som har snabbare processorer, vilket ger bättre prestanda jämfört med Basic eller Standard-nivån. Premium-nivån cacheminnen har högre dataflöde och kortare svarstider.
 
 <a name="cache-performance"></a>
 
@@ -349,7 +349,7 @@ Följande kommandon ger ett exempel på hur du använder redis-benchmark.exe. K�
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50`
 * Testa Pipelined GET-begäranden med en nyttolast på 1 kB.
-  Obs: Köra UPPSÄTTNINGEN testa visas ovan först för att fylla cachen
+  OBS! Kör SET-test som visas ovan först för att fylla cachen
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50`
 

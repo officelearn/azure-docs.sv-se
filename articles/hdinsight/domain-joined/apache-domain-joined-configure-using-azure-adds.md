@@ -1,5 +1,5 @@
 ---
-title: Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure AD-DS
+title: Enterprise Security Package-konfiguration med hjälp av Azure Active Directory Domain Services - Azure HDInsight
 description: Lär dig mer om att installera och konfigurera ett Enterprise-säkerhetspaketet för HDInsight-kluster med hjälp av Azure Active Directory Domain Services.
 services: hdinsight
 ms.service: hdinsight
@@ -7,13 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/9/2018
-ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 10/09/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5e5b8320459561ac2dbbf72a812e29e837e08cd6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684757"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166667"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
 
@@ -97,11 +98,11 @@ När du har aktiverat ESP upptäckte vanliga felkonfigureringar relaterade till 
 
 När du skapar ett HDInsight-kluster med ESP måste du ange följande parametrar:
 
-- **Kluster-administratörsanvändare**: Välj en administratör för ditt kluster från din synkroniserad Azure AD DS-. Det här domänkontot måste redan vara synkroniserad och är tillgängliga i Azure AD DS.
+- **Kluster-administratörsanvändare**: Välj en administratör för ditt kluster från din synkroniserad Azure AD DS. Det här domänkontot måste redan vara synkroniserad och är tillgängliga i Azure AD DS.
 
-- **Kluster åtkomstgrupper**: vars användare som du vill synkronisera och har åtkomst till klustret ska vara tillgängliga i Azure AD DS-säkerhetsgrupper. Till exempel HiveUsers grupp. Mer information finns i [skapar en grupp och Lägg till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+- **Kluster åtkomstgrupper**: Säkerhetsgrupper vars användare som du vill synkronisera och har åtkomst till klustret ska vara tillgängliga i Azure AD DS. Till exempel HiveUsers grupp. Mer information finns i [skapar en grupp och Lägg till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-- **LDAPS-URL**: ett exempel är ldaps://contoso.com:636.
+- **LDAPS-URL: EN**: Ett exempel är ldaps://contoso.com:636.
 
 Följande skärmbild visar en lyckad konfiguration i Azure portal:
 

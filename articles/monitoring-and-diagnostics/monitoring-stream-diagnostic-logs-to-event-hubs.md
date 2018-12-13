@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: d178041a420c49480c6043869f139eb3a09c91fd
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b7c2c28ab049f0cce26f306736ec938955156ebb
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959281"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322592"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream, Azure-diagnostikloggar till en händelsehubb
 **[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för program med hjälp av alternativet inbyggda ”exportera till Event Hubs” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i en diagnostikinställning via Azure PowerShell-cmdletar eller Azure CLI.
@@ -44,14 +44,14 @@ Här är några sätt som du kan använda den strömmande kapaciteten för diagn
 Du kan aktivera strömning av diagnostikloggar programmässigt, via portalen, eller med hjälp av den [Azure Monitor REST API: er](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Oavsett hur du skapar en diagnostikinställning där du anger ett namnområde för Event Hubs och loggkategorier och mått som du vill skicka namnområdet. En händelsehubb skapas i namnområdet för varje loggkategori som du aktiverar. En diagnostik **loggkategori** är en typ av logg som en resurs kan samla in.
 
 > [!WARNING]
-> Aktivera och strömma diagnostikloggar från beräkningsresurser (till exempel virtuella datorer eller Service Fabric) [kräver en annan uppsättning steg](azure-diagnostics-streaming-event-hubs.md).
+> Aktivera och strömma diagnostikloggar från beräkningsresurser (till exempel virtuella datorer eller Service Fabric) [kräver en annan uppsättning steg](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 Event Hubs namnområde inte har finnas i samma prenumeration som resursen loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till både prenumerationer och båda prenumerationerna är en del av samma AAD-klient.
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
+> *Till exempel*: ”Inkommande meddelanden'-mått i en Händelsehubb kan utforskas och läggas till på en per kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 >
 
@@ -191,7 +191,7 @@ Du kan visa en lista över alla resursprovidrar som har stöd för direktuppspel
 
 ## <a name="stream-data-from-compute-resources"></a>Stream-data från beräkningsresurser
 
-Du kan också strömma diagnostikloggar från Compute-resurser med hjälp av Windows Azure Diagnostics-agenten. [Se den här artikeln](azure-diagnostics-streaming-event-hubs.md) för hur du konfigurerar som.
+Du kan också strömma diagnostikloggar från Compute-resurser med hjälp av Windows Azure Diagnostics-agenten. [Se den här artikeln](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md) för hur du konfigurerar som.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 07fe8a0d48d59da89ad76f1648b75332d23005a2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1cb12bdc362955da907fb5a5ed64c2a1a43fdc32
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074091"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140871"
 ---
-# <a name="email-entity"></a>Entitet för e-post
+# <a name="email-prebuilt-entity-for-a-luis-app"></a>E-fördefinierade entitet för en LUIS-app
 Extrahering av e-post innehåller hela e-postadressen från ett uttryck. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller e-postmeddelande till programmet avsikter. E-entitet stöds i `en-us` kultur endast. 
 
 ## <a name="resolution-for-prebuilt-email"></a>Lösning för fördefinierade e-post

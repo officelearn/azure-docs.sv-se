@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: da6cc943c310b627626b3d2081ffa88ef3185013
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bcfb3a52793ba0daca980564d5d2248629b5caf4
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727842"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323020"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systemprestandaräknare i Application Insights
 Windows innehåller en mängd olika [prestandaräknare](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , till exempel processor användandet, minne, disk och nätverksanvändning. Du kan också definiera egna. [Application Insights](app-insights-overview.md) kan visa dessa prestandaräknare om ditt program körs under IIS på en lokal värd eller virtuell dator som du har administrativ åtkomst. Diagrammen visar resurserna som är tillgängliga för ditt liveprogram och hjälper dig för att identifiera obalanserad belastning mellan server-instanser.
@@ -26,7 +26,7 @@ Prestandaräknare visas i bladet för servrar, som innehåller en tabell som seg
 
 ![Prestandaräknare som rapporteras i Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Prestandaräknare är inte tillgängliga för Azure Web Apps. Men du kan [skicka Azure Diagnostics-data till Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
+(Prestandaräknare är inte tillgängliga för Azure Web Apps. Men du kan [skicka Azure Diagnostics-data till Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).)
 
 ## <a name="view-counters"></a>Visa räknare
 Servrar bladet visar en standarduppsättning av prestandaräknare. 

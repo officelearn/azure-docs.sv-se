@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2018
+ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: 89ceb6134d19354831a76f814d2ee55053252f62
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d3e0fd510968abed55e0e3fea2a8689027713a2b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083588"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310410"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
@@ -186,7 +186,7 @@ Utöver Load Balancers hälsoavsökningar använda följande åtgärder den här
 - Gör det möjligt för VM-agenten till att kommunicera med plattformen att signalera att den är i tillståndet ”klar”
 - Möjliggör kommunikation med den virtuella DNS-servern att tillhandahålla filtrerade namnmatchning för kunder som inte definierar anpassade DNS-servrar.  Den här filtreringen garanterar att kunderna endast kan matcha värdnamnen för deras distribution.
 
-För Belastningsutjämnarens hälsoavsökning att markera din instans, du **måste** tillåter denna IP-adress i alla Azure [säkerhetsgrupper](../virtual-network/security-overview.md) och lokala Brandväggsprinciper.
+För Belastningsutjämnarens hälsoavsökning att markera din instans, du **måste** tillåter denna IP-adress i alla Azure [säkerhetsgrupper](../virtual-network/security-overview.md) och lokala Brandväggsprinciper.  Som standard varje grupp innehåller de [tjänsttaggen](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer att tillåta trafik för avsökning av hälsotillstånd.
 
 Om du inte tillåter den här IP-adressen i din Brandväggsprinciper, misslyckas hälsoavsökningen eftersom det inte går att nå din instans.  I sin tur markerar belastningsutjämnare ned din instans på grund av uteblivna för avsökning.  Detta kan orsaka belastningsutjämnade tjänsten misslyckas. 
 

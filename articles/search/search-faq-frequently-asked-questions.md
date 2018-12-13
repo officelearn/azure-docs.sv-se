@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor (och svar FAQ) om Azure Search | Microsoft Docs
-description: Få svar på vanliga frågor om Microsoft Azure Search-tjänst
+title: Vanliga frågor och svar (FAQ) – Azure Search
+description: Få svar på vanliga frågor om Microsoft Azure Search-tjänst, en söktjänst i molnet på Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 1491fdb0f208100619e569f9a74d5e697a0065a6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.custom: seodec2018
+ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841685"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312824"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search – vanliga frågor (och svar FAQ)
 

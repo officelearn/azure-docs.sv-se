@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e5943dde86b96dc0f95df0620212daf9a972fccf
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: bc3ab808234ee0759abea0520ea0336489fc60d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882863"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309611"
 documentType: LandingData
 title: Azure SQL Database - databas
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 12/01/2018
   ms.author: jovanpop-msft
 abstract:
-  description: Azure SQL Database är en relationsdatabas-som-en-tjänst (DBaaS) som bygger på den senaste stabila versionen av Microsoft SQL Server Database-motorn. SQL Database är en högpresterande, tillförlitlig och säker databas som du kan använda för att skapa datadrivna program och webbplatser i valfritt programmeringsspråk, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.
+  description: Azure SQL Database är en relationsdatabas-som-en-tjänst (DBaaS) som bygger på den senaste stabila versionen av Microsoft SQL Server Database-motorn. SQL Database är en högpresterande, enkel att använda, pålitlig och säker databas som du kan använda för att skapa nya program, webbplatser och mikrotjänster i vilket språk du föredrar, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.
   aside:
     image:
       alt: 
@@ -68,6 +68,17 @@ sections:
       html: <p>Skydda din databas med Azure AD-autentisering, virtuella nätverk, brandväggar och Always Encrypted-anslutningar. Identifiera hot och sårbarheter med inbyggd säkerhet.</p>
       image:
         src: media/index/i_security.svg
+- title: Nya och förhandsversionsfunktioner
+  items:
+  - type: paragraph
+    text: 'Vi kan förbättra SQL-databas med nya funktioner kontinuerligt och vi vill gärna höra dina synpunkter om följande nya funktioner:'
+  - type: list
+    style: unordered
+    items:
+    - html: (Förhandsversion) <a href="sql-database-service-tier-hyperscale">Hyperskala</a> nivå som stöder upp till 100 TB-databaser och flera läsbara repliker.
+    - html: (Förhandsversion) Ny SQL Server-2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">Intelligent frågebearbetning</a> funktioner som <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">tabellvariabeln uppskjutna kompilering</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">batchläge för rowstore tabeller</a>, och <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json"> skalära UDF inlining</a>.
+    - html: (Förhandsversion) Nya funktioner för Transact-SQL-språk, till exempel <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT aggregering</a> och <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">BULK IMPORT från Azure Blob storage</a>.
+    - html: (Förhandsversion) Ny SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">skapa</a> och återskapa grupperade COLUMNSTORE-index-åtgärder.
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph

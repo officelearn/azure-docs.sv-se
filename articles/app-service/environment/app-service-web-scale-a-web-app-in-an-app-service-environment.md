@@ -1,5 +1,5 @@
 ---
-title: Så här skalar du en App i App Service Environment
+title: Så här skalar du en App i App Service Environment - Azure
 description: Skala en app i App Service Environment
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: 3b2f93c9763805377ed534d59b1025a5aa1a32e8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: c94e7f761dcbc7e05965e359d7f9a864335c9c6b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955538"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269353"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Skala appar i en App Service Environment
 Det finns vanligtvis tre saker du kan skala i Azure App Service:
@@ -39,7 +40,7 @@ Med avseende på worker storlekar, kan ASE-administratör tilldela storleken på
 
 ![][1]
 
-Du kan skala upp ASP utöver antalet tillgängliga beräkningsresurser i arbetarpoolen som ASP finns i.  Om du behöver beräkningsresurser i den arbetarpoolen måste du hämta din ASE-administratör att lägga till dem.  Information om omkonfigurera din ASE finns information här: [så här konfigurerar du en App Service environment][HowtoConfigureASE].  Du kanske också vill dra nytta av ASE-funktionerna för automatisk skalning att lägga till kapacitet baserat på schema eller mått.  För att få mer information om hur du konfigurerar automatisk skalning för ASE-miljön själva i [så här konfigurerar du automatisk skalning för en App Service Environment][ASEAutoscale].
+Du kan skala upp ASP utöver antalet tillgängliga beräkningsresurser i arbetarpoolen som ASP finns i.  Om du behöver beräkningsresurser i den arbetarpoolen måste du hämta din ASE-administratör att lägga till dem.  Information om omkonfigurera finns din ASE information här: [Så här konfigurerar du en App Service environment][HowtoConfigureASE].  Du kanske också vill dra nytta av ASE-funktionerna för automatisk skalning att lägga till kapacitet baserat på schema eller mått.  För att få mer information om hur du konfigurerar automatisk skalning för ASE-miljön själva i [så här konfigurerar du automatisk skalning för en App Service Environment][ASEAutoscale].
 
 Du kan skapa flera app service-planer med hjälp av beräkningsresurser från olika arbetarpooler eller du kan använda samma arbetarpoolen.  Till exempel om du har (10) tillgängliga beräkningsresurser i Worker Pool 1, kan du skapa en app service-plan med (6) beräkningsresurser och en andra app service-plan som använder (4) beräkningsresurs.
 

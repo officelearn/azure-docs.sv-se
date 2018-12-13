@@ -1,5 +1,5 @@
 ---
-title: Etablera och distribuera mikrotjänster förutsägbart i Azure
+title: Etablera och distribuera mikrotjänster förutsägbart – Azure App Service
 description: Lär dig hur du distribuerar ett program som består av mikrotjänster i Azure App Service som en enhet och på ett förutsägbart sätt med hjälp av JSON-resursgruppsmallar och PowerShell-skript.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: c4071da60ed1311d8dd75d6a369c48cf711778cb
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: aa7cf765a523f319850528b29316e254ebcabc13
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243222"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256595"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
 Den här kursen visar hur du etablerar och distribuera ett program som består av [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) i [Azure App Service](https://azure.microsoft.com/services/app-service/) som en enhet och på ett förutsägbart sätt med hjälp av JSON-resursgruppsmallar och PowerShell-skript. 
@@ -161,7 +162,7 @@ Anslutningssträngar för också definieras som en kapslad resurs.
 I den `properties` element för `config/connectionstrings`, varje anslutningssträngen också definieras som ett namn: värde-par med det specifika formatet för `"<name>" : {"value": "…", "type": "…"}`. För den `type` element, möjliga värden är `MySql`, `SQLServer`, `SQLAzure`, och `Custom`.
 
 > [!TIP]
-> En slutgiltig lista över strängtyper anslutning kör du följande kommando i Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+> En slutgiltig lista över strängtyper anslutning kör du följande kommando i Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.commands.Utilities.websites.Services.WebEntities.DatabaseType")
 > 
 > 
 

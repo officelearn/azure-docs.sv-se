@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: fb23c136a24e0c09705061b8893b532a21c1df74
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 684bba0c2f0c6fbaf05ce25ce543da413f1b71e2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081807"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141228"
 ---
-# <a name="keyphrase-entity"></a>Entitet för keyPhrase
+# <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>keyPhrase fördefinierade entitet för en LUIS-app
 keyPhrase extraherar massor av nyckelfraser från ett uttryck. Du behöver inte lägga till exempel yttranden som innehåller keyPhrase till programmet. keyPhrase entitet stöds i [många kulturer](luis-language-support.md#languages-supported) som en del av den [textanalys](../text-analytics/overview.md) funktioner. 
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Lösning för fördefinierade keyPhrase entitet

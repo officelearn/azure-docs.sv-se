@@ -1,6 +1,6 @@
 ---
-title: Index i Azure Search| Microsoft Docs
-description: Läs mer om indexkoncepten i Azure Search och hur indexen används.
+title: Definition av index och begrepp – Azure Search
+description: Introduktion till indexkoncepten i Azure Search och hur indexen används.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: cc2c56d4463203aa2561e820540acdfff651d80a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: e1ff28434dab4e63e10d6b14eb671260650d4ada
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793410"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317074"
 ---
 # <a name="indexes-in-azure-search"></a>Index i Azure Search
 > [!div class="op_single_selector"]

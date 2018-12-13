@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5b90519120e64a905073eec6b73e4ced64fe4f64
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: bfb2df377030f14893b3e124e6112ef6c2994afd
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496049"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321194"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter notebook i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -64,12 +64,10 @@ Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDIn
 
 1. På startsidan i [Azure-portalen](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.   
 
-2. Spark-klusterbladet, klickar du på **skriptåtgärder** i den vänstra rutan. Använd skripttypen ”anpassad” och ange ett eget namn för skriptåtgärden. Kör skriptet på den **huvud- och worker noder** och lämna parametrar fältet tomt. Bash-skript kan refereras från: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh finns i dokumentationen på [hur du använder anpassade skriptåtgärder](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. Spark-klusterbladet, klickar du på **skriptåtgärder** i den vänstra rutan. Använd skripttypen ”anpassad” och ange ett eget namn för skriptåtgärden. Kör skriptet på den **huvud- och worker noder** och lämna parametrar fältet tomt. Bash-skript kan refereras från: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh Gå till dokumentationen på [hur du använder anpassade skriptåtgärder](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
-   > Det finns två python installationer i klustret. Spark använder Anaconda python-installationen finns på `/usr/bin/anaconda/bin`. Referera till den installationen i dina anpassade åtgärder via `/usr/bin/anaconda/bin/pip` och `/usr/bin/anaconda/bin/conda`.
-   > 
-   > 
+   > Det finns två python installationer i klustret. Spark använder Anaconda python-installationen finns på `/usr/bin/anaconda/bin` och får som standard i Python 2.7-miljön. Om du vill använda Python 3.x och installera paket i kerneln PySpark3 använder sökvägen till den `conda` körbara för den miljön och Använd den `-n` parametern för att ange miljön. Till exempel kommandot `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, installerar den `ggplot` paketet i Python 3.5 miljö med hjälp av den `conda-forge` kanal.
 
 3. Öppna en PySpark Jupyter-anteckningsbok
 
@@ -93,12 +91,12 @@ Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDIn
     ![TensorFlow kodkörning](./media/apache-spark-python-package-installation/execution.png "köra TensorFlow-kod")
 
 ## <a name="seealso"></a>Se även
-* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

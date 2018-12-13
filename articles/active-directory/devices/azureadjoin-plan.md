@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309370"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310383"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Så här: Planera implementeringen Azure AD join
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Anvisningar: Planera implementeringen av Azure AD-anslutningen
 
 
 Azure AD-anslutning kan du ansluta enheter direkt till Azure AD utan att behöva ansluta till den lokala Active Directory samtidigt som användarna produktiva och skyddade. Azure AD join är färdiga för företag för begränsade distributioner och i skala.   
@@ -91,9 +91,9 @@ Dessa scenarier måste inte du konfigurera en federationsserver för autentiseri
 
 En federerad miljö bör ha en identitetsprovider som har stöd för såväl WS-Trust WS-Fed protokoll:
 
-- **WS-Fed:** detta protokoll krävs för att ansluta en enhet till Azure AD.
+- **WS-Fed:** Det här protokollet krävs för att ansluta till en enhet till Azure AD.
 
-- **WS-Trust:** detta protokoll krävs för att logga in på en domänansluten Azure AD-enhet. 
+- **WS-Trust:** Det här protokollet krävs för att logga in på en domänansluten Azure AD-enhet. 
 
 Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD join internt. Från och med Windows 10 1809 kan dina användare kan logga in på en domänansluten Azure AD-enhet med en SAML-baserad identitetsprovider via [web logga in på Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). För närvarande är webbinloggning en funktion som skrivskyddade.
 
@@ -102,7 +102,7 @@ Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD jo
 
 Du kan inte använda smartkort eller certifikatbaserad autentisering för att ansluta enheter till Azure AD. Smartkort kan dock användas för att logga in på Azure AD-anslutna enheter om du har konfigurerat ADFS.
 
-**Rekommendation:** implementera Windows Hello för företag för stark, lösenord utan autentisering till Windows 10-enheter.
+**Rekommendation:** Implementera Windows Hello för företag för stark, lösenord utan autentisering till Windows 10-enheter.
 
 
 ### <a name="user-configuration"></a>Användarkonfiguration
@@ -127,7 +127,7 @@ Azure AD-anslutning:
 
 - Gäller inte för tidigare versioner av Windows eller andra operativsystem. Om du har Windows 7/8.1-enheter, måste du uppgradera till Windows 10 för att distribuera Azure AD-anslutning.
  
-**Rekommendation:** alltid använda den senaste versionen av Windows 10 för att dra nytta av uppdaterade funktioner.
+**Rekommendation:** Använd alltid den senaste versionen av Windows 10 för att dra nytta av uppdaterade funktioner.
 
 
 ### <a name="management-platform"></a>Plattform för hantering
@@ -185,13 +185,13 @@ Om ditt program är anpassade bygger och/eller lokala, du måste lägga till dem
 
 Om du använder AD FS, se [kontrollera och hantera enkel inloggning med AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Rekommendation:** värd i molnet (till exempel Azure) och integrera med Azure AD för en bättre upplevelse.
+**Rekommendation:** Överväg att värd i molnet (till exempel Azure) och integrera med Azure AD för en bättre upplevelse.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Lokala program som förlitar sig på äldre protokoll
 
 Användare få SSO från Azure AD-anslutna enheter om enheten har åtkomst till en domänkontrollant. 
 
-**Rekommendation:** distribuera [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) att möjliggöra säker åtkomst för dessa program.
+**Rekommendation:** Distribuera [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) att möjliggöra säker åtkomst för dessa program.
 
 
 ### <a name="on-premises-network-shares"></a>Lokala nätverksresurser
@@ -213,7 +213,7 @@ Azure AD-anslutna enheter stöder inte lokala program som förlitar sig på dato
 
 ### <a name="remote-desktop-services"></a>Fjärrskrivbordstjänster
 
-Anslutning till fjärrskrivbord till en Azure AD-anslutna enheter kräver värddatorn ska vara antingen Azure AD-ansluten eller Hybrid Azure AD-anslutna. Fjärrskrivbord från en frånkopplas eller icke-Windows-enhet stöds inte. Mer information finns i [Anslut till fjärranslutna Azure AD-domänansluten dator](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
+Anslutning till fjärrskrivbord till en Azure AD-anslutna enheter kräver värddatorn ska vara antingen Azure AD-ansluten eller Hybrid Azure AD-anslutna. Fjärrskrivbord från en frånkopplas eller icke-Windows-enhet stöds inte. Mer information finns i [Anslut till fjärranslutna Azure AD-domänansluten dator](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Förstå dina alternativ för etablering
@@ -310,9 +310,9 @@ Välj **vissa** eller **alla** utifrån omfattningen för din distribution.
 
 Baserat på ditt omfång kan händer något av följande: 
 
-- **Användaren är i MDM omfång**: Om du har en Azure AD Premium-prenumeration, MDM-registrering sker automatiskt tillsammans med Azure AD-anslutning. Alla begränsade användare måste ha en lämplig licens för din MDM. Om det inte går att MDM-registrering i det här scenariot kan kommer Azure AD join också att återställas.
+- **Användaren är i MDM omfång**: Om du har en Azure AD Premium-prenumeration, automatisk MDM-registrering tillsammans med Azure AD-anslutning. Alla begränsade användare måste ha en lämplig licens för din MDM. Om det inte går att MDM-registrering i det här scenariot kan kommer Azure AD join också att återställas.
     
-- **Användaren finns inte i MDM omfång**: om användarna inte i MDM-omfattning, Azure AD-anslutning har slutförts utan någon MDM-registrering. Detta resulterar i en ohanterad enhet.
+- **Användaren finns inte i MDM omfång**: Om användarna inte i MDM-omfattning, Azure AD-anslutning har slutförts utan någon MDM-registrering. Detta resulterar i en ohanterad enhet.
 
 
 ### <a name="mdm-urls"></a>MDM-URL: er
@@ -340,7 +340,7 @@ MAM gäller inte för Azure AD-anslutning.
 
 Om du vill aktivera tillståndsväxling till Azure AD så att användarna kan synkronisera sina inställningar på enheter, se [aktivera Enterprise tillstånd centrala i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
 
-**Rekommendationen**: aktivera den här inställningen även för hybrid Azure AD-anslutna enheter.
+**Rekommendationen**: Aktivera den här inställningen även för hybrid Azure AD-anslutna enheter.
 
 
 ## <a name="configure-conditional-access"></a>Konfigurera villkorlig åtkomst

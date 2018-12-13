@@ -12,18 +12,18 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb9332832f46dc5c39bf932ce91cd3d3f3d7354f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470667"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269625"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database logiska servrar och deras hantering
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Vad är en logisk Azure SQL-server
 
-En logisk server som fungerar som en central administrativ plats för flera enskilt eller [med](sql-database-elastic-pool.md) databaser, [inloggningar](sql-database-manage-logins.md), [brandväggsregler](sql-database-firewall-configure.md), [granskning regler](sql-database-auditing.md), [hot principer](sql-database-threat-detection.md), och [redundansgrupper](sql-database-geo-replication-overview.md). En logisk server kan vara i en annan region än dess resursgrupp. Den logiska servern måste finnas innan du kan skapa Azure SQL-databasen. Alla databaser på en server skapas inom samma region som den logiska servern.
+En logisk server som fungerar som en central administrativ plats för flera enskilt eller [med](sql-database-elastic-pool.md) databaser, [inloggningar](sql-database-manage-logins.md), [brandväggsregler](sql-database-firewall-configure.md), [granskning regler](sql-database-auditing.md), [hot principer](sql-database-threat-detection.md), och [redundansgrupper](sql-database-auto-failover-group.md) en logisk server kan finnas i en annan region än dess resursgrupp. Den logiska servern måste finnas innan du kan skapa Azure SQL-databasen. Alla databaser på en server skapas inom samma region som den logiska servern.
 
 En logisk server är en logisk konstruktion som skiljer sig från en SQL Server-instans som du kanske är bekant med lokala över hela världen. Mer specifikt ger SQL Database-tjänsten inga garantier avseende platsen för databaserna i förhållande till deras logiska servrar och exponerar inga funktioner eller åtkomst på instansnivå. En server i en SQL Database Managed Instance är däremot liknar en SQL Server-instans som du kanske är bekant med lokala över hela världen.
 
@@ -162,7 +162,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL server, d
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Tar bort brandväggsregel på databasnivå inställningen från Azure SQL Database eller SQL Data Warehouse. |
 
 > [!TIP]
-> En Snabbstart med hjälp av SQL Server Management Studio på Microsoft Windows, se [Azure SQL Database: Använd SQL Server Management Studio för att ansluta och fråga efter data](sql-database-connect-query-ssms.md). En Snabbstart med hjälp av Visual Studio Code på macOS, Linux eller Windows, se [Azure SQL Database: Använd Visual Studio Code för att ansluta och fråga efter data](sql-database-connect-query-vscode.md).
+> En Snabbstart med hjälp av SQL Server Management Studio på Microsoft Windows, se [Azure SQL Database: Använda SQL Server Management Studio för att ansluta och fråga data](sql-database-connect-query-ssms.md). En Snabbstart med hjälp av Visual Studio Code på macOS, Linux eller Windows, se [Azure SQL Database: Använd Visual Studio Code för att ansluta och fråga efter data](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Hantera Azure SQL-servrar, databaser och brandväggar med hjälp av REST-API
 

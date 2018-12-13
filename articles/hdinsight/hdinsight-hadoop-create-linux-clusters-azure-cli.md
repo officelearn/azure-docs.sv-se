@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 03d51cfb03de071f63578717a65eeda4b119bf0d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497846"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191588"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Skapa HDInsight-kluster med den klassiska Azure-CLI
 
@@ -80,7 +80,7 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell eller 
     * Ersätt `groupname` med resursgruppens namn.
     * Ersätt `storagename` med namnet på lagringskontot.
 
-     I de data som returneras, spara den `key` för `key1`.
+      I de data som returneras, spara den `key` för `key1`.
 
 6. Skapa ett HDInsight-kluster.
 
@@ -90,8 +90,8 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell eller 
 
     * Ersätt `Hadoop` med den typ av kluster som du vill skapa. Till exempel `Hadoop`, `HBase`, `Kafka`, `Spark`, eller `Storm`.
 
-     > [!IMPORTANT]
-     > HDInsight kluster finns olika typer, vilket motsvarar arbetsbelastning eller teknik som klustret är anpassad till. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer, till exempel Storm och HBase i ett kluster.
+      > [!IMPORTANT]
+      > HDInsight kluster finns olika typer, vilket motsvarar arbetsbelastning eller teknik som klustret är anpassad till. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer, till exempel Storm och HBase i ett kluster.
 
     * Ersätt `location` med samma plats som används i föregående steg.
 
@@ -105,12 +105,12 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell eller 
 
     * Ersätt `sshuser` och `sshuserpassword` med användarnamnet och lösenordet som du vill använda vid åtkomst till klustret med SSH
 
-    > [!IMPORTANT]
-    > Det här exemplet skapar ett kluster med två arbetarnoder. Du kan också ändra antalet arbetarnoder när klustret har skapats genom att utföra skalningsåtgärder. Om du tänker använda mer än 32 arbetsnoder, måste du välja en head nodstorlek med minst 8 kärnor och 14 GB RAM-minne. Du kan ange huvudnoden storlek med hjälp av den `--headNodeSize` parametern när klustret skapas.
-    >
-    > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
-
-    Det kan ta flera minuter innan klustret skapas ska slutföras. Normalt cirka 15.
+      > [!IMPORTANT]
+      > Det här exemplet skapar ett kluster med två arbetarnoder. Du kan också ändra antalet arbetarnoder när klustret har skapats genom att utföra skalningsåtgärder. Om du tänker använda mer än 32 arbetsnoder, måste du välja en head nodstorlek med minst 8 kärnor och 14 GB RAM-minne. Du kan ange huvudnoden storlek med hjälp av den `--headNodeSize` parametern när klustret skapas.
+      >
+      > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
+      
+      Det kan ta flera minuter innan klustret skapas ska slutföras. Normalt cirka 15.
 
 ## <a name="troubleshoot"></a>Felsöka
 

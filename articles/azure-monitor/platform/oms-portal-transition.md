@@ -12,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: a1189f621b3d4c8846b374cd8369c69daef2fa31
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 6e85d19460d0b1c02ddd6666cf1e441e44e7a03d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002735"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276782"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen som flyttar till Azure
 
@@ -80,7 +79,7 @@ Du är inte längre att kunna skapa nya arbetsytor med OMS-portalen. Följ riktl
 > [!NOTE]
 > Aviseringar har nu utökats helt i Azure-portalen för det offentliga molnet. Befintliga Varningsregler kan ses i OMS-portalen, men de kan bara hanteras i Azure-portalen. I oktober 2018 startar utökning av aviseringar i Azure-portalen för Azure government-molnet.
 
-Aviseringar har [utökats till Azure-portalen](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). När processen är klar hanteringsåtgärder på aviseringar endast att vara tillgänglig i Azure portal. Befintliga aviseringar fortsätter att listas i OMS-portalen. Om du använder aviseringar programmässigt med hjälp av Log Analytics avisering REST API eller Log Analytics-avisering resursmall måste du använda åtgärdsgrupper istället för åtgärder i API-anrop, Azure Resource Manager-mallar och PowerShell-kommandon.
+Aviseringar har [utökats till Azure-portalen](../../azure-monitor/platform/alerts-extend.md). När processen är klar hanteringsåtgärder på aviseringar endast att vara tillgänglig i Azure portal. Befintliga aviseringar fortsätter att listas i OMS-portalen. Om du använder aviseringar programmässigt med hjälp av Log Analytics avisering REST API eller Log Analytics-avisering resursmall måste du använda åtgärdsgrupper istället för åtgärder i API-anrop, Azure Resource Manager-mallar och PowerShell-kommandon.
 
 ### <a name="alert-management-solution"></a>Lösning för aviseringshantering
 I stället för den [lösning för aviseringshantering](../../azure-monitor/platform/alert-management-solution.md), du kan använda [Azure Monitor unified aviseringar gränssnittet](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) att visualisera och hantera dina aviseringar. Den här nya upplevelsen aggregerar aviseringar från flera källor på Azure inklusive aviseringar från Log Analytics. Du kan se distributioner av dina aviseringar, dra nytta av automatisk gruppering av relaterade aviseringar via smart grupper och visa aviseringar över flera prenumerationer när de omfattande filtren har använts. Alla dessa funktioner är tillgängliga i förhandsversionen från och med 4 juni 2018. Lösning för aviseringshantering blir inte tillgänglig i Azure-portalen. 
@@ -88,7 +87,7 @@ I stället för den [lösning för aviseringshantering](../../azure-monitor/plat
 Data som samlas in av lösning för aviseringshantering (poster med en typ av avisering) fortsätter att vara i Log Analytics som lösningen är installerad för arbetsytan. Från och med augusti 2018, kommer strömning av aviseringar från enhetlig aviseringar i arbetsytor att aktiveras, ersätter den här funktionen. Vissa ändringar av entitetsschemat förväntas och meddelas vid ett senare tillfälle.
 
 ## <a name="oms-mobile-app"></a>OMS-Mobilappen
-OMS-mobilappen kommer att sunsetted tillsammans med OMS-portalen. I stället för OMS-mobilappen, för att komma åt information om din IT-infrastruktur, instrumentpaneler och sparade frågor du kan komma åt Azure-portalen direkt från din webbläsare i din mobila enhet. Om du vill få aviseringar, bör du konfigurera [Azure-åtgärdsgrupper](../../monitoring-and-diagnostics/monitoring-action-groups.md) att ta emot meddelanden i form av SMS- eller en röstsamtal
+OMS-mobilappen kommer att sunsetted tillsammans med OMS-portalen. I stället för OMS-mobilappen, för att komma åt information om din IT-infrastruktur, instrumentpaneler och sparade frågor du kan komma åt Azure-portalen direkt från din webbläsare i din mobila enhet. Om du vill få aviseringar, bör du konfigurera [Azure-åtgärdsgrupper](../../azure-monitor/platform/action-groups.md) att ta emot meddelanden i form av SMS- eller en röstsamtal
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights-anslutningsprogram och lösning
 [Application Insights-anslutningsprogram](../../azure-monitor/platform/app-insights-connector.md) gör det möjligt att ta med Application Insights-data i Log Analytics-arbetsytan. Den här datadeduplicering krävdes för att tillhandahålla synlighet mellan infrastruktur-och programdata.

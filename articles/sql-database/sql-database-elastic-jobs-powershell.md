@@ -5,19 +5,19 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: ''
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 36b03794f4b55af3de89f96ecee02f5542f40f01
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972107"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278465"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Skapa och hantera SQL Database elastiska jobb med PowerShell (förhandsversion)
 
@@ -31,7 +31,7 @@ PowerShell-APIs för **elastiska databasjobb** (i förhandsversion), kan du defi
 * En Azure-prenumeration. En kostnadsfri utvärderingsversion, se [kostnadsfri utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/).
 * En uppsättning databaser som har skapats med verktyg för elastiska databaser. Se [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
-* **Elastic Database-jobb** PowerShell-paketet: se [installera Elastic Database-jobb](sql-database-elastic-jobs-service-installation.md)
+* **Elastic Database-jobb** PowerShell-paketet: Se [installera Elastic Database-jobb](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Välj din Azure-prenumeration
 Välj prenumerationen som du behöver ditt prenumerations-Id (**- SubscriptionId**) eller prenumerationsnamn (**- SubscriptionName**). Om du har flera prenumerationer kan du köra den **Get-AzureRmSubscription** cmdlet och kopiera ange den önskade prenumerationsinformationen från resultatet. När du har din prenumerationsinformation, kör du följande cmdlet för att ange den här prenumerationen som standard, nämligen målet för att skapa och hantera jobb:
@@ -193,8 +193,8 @@ Jobbet körs Transact-SQL (T-SQL)-skript eller program för DACPACs för en grup
 
 Det finns två typer av grupper som du kan skapa: 
 
-* [Fragmentkartan](sql-database-elastic-scale-shard-map-management.md) grupp: när ett jobb skickas för att rikta en skärvkarta, jobbet frågar fragmentkartan för att fastställa den aktuella uppsättningen shards och skapar sedan underordnat jobb för varje fragment i fragmentkartan.
-* Samlingsgruppen för anpassade: en anpassad definierad uppsättning databaser. När ett jobb riktar sig mot en anpassad samling, skapar den underordnade jobb för varje databas för närvarande i anpassade samlingen.
+* [Fragmentkartan](sql-database-elastic-scale-shard-map-management.md) grupp: När ett jobb skickas för att rikta en skärvkarta, jobbet frågar fragmentkartan för att fastställa den aktuella uppsättningen shards och skapar sedan underordnat jobb för varje fragment i fragmentkartan.
+* Samlingsgruppen för anpassade: En anpassad definierad uppsättning databaser. När ett jobb riktar sig mot en anpassad samling, skapar den underordnade jobb för varje databas för närvarande i anpassade samlingen.
 
 ## <a name="to-set-the-elastic-database-jobs-connection"></a>Om du vill ange Elastic Database-jobb anslutning
 En anslutning måste vara inställt för jobben *kontrolldatabas* innan du börjar använda jobb API: er. Kör denna cmdlet utlöser ett fönster för autentiseringsuppgifter att visas som begär användarnamn och lösenord som skapas när du installerar Elastic Database-jobb. Alla exempel som är tillgängliga i det här avsnittet förutsätter att det här första steget redan har utförts.
@@ -417,17 +417,17 @@ För närvarande tillåter körningsprinciper för att definiera:
 * Namn: Identifierare för körningsprincipen.
 * Tidsgräns för jobb: Total tid innan ett jobb avbryts av Elastic Database-jobb.
 * Inledande återförsöksintervallet: Intervall ska gå innan nytt försök görs.
-* Maximalt återförsöksintervall: Tak för återförsöksintervall att använda.
-* Gör om intervallet Backoff koefficienten: Koefficienten som används för att beräkna nästa intervall mellan försök.  Följande formel används: (inledande återförsöksintervallet) * Math.pow ((intervall Backoff koefficienten) (antal nya försök) – 2). 
+* Maximalt antal försök intervall: Tak för återförsöksintervall att använda.
+* Gör om intervallet Backoff koefficienten: Koefficienten som används för att beräkna nästa intervall mellan försök.  Följande formel används: (Inledande återförsöksintervallet) * Math.pow ((intervall Backoff koefficienten) (antal återförsök) – 2). 
 * Maximalt antal försök: Det maximala antalet återförsök försöker utföra i ett jobb.
 
 RemoteSigned använder följande värden:
 
 * Namn: RemoteSigned
 * Tidsgräns för jobb: 1 vecka
-* Inledande återförsöksintervallet: 100 millisekunder
-* Maximalt återförsöksintervall: 30 minuter
-* Försök intervall koefficienten: 2
+* Inledande återförsöksintervallet:  100 millisekunder
+* Maximalt antal försök intervall: 30 minuter
+* Gör om intervall koefficienten: 2
 * Maximalt antal försök: 2 147 483 647
 
 Skapa önskade körningsprincipen:
@@ -459,8 +459,8 @@ Elastic Database-jobb har stöd för begäranden om annullering av jobb.  Om ela
 
 Det finns två olika sätt att Elastic Database-jobb kan utföra en uppsägning:
 
-1. Avbryt som för närvarande kör uppgifter: om ett avbrott identifieras när en aktivitet körs för närvarande en uppsägning görs inom den körs för närvarande aspekten av uppgiften.  Till exempel: om det finns en tidskrävande fråga som för närvarande utförs när en uppsägning görs, blir det ett försök att avbryta frågan.
-2. Avbryter omförsök: om ett avbrott har identifierats av kontroll tråd innan en aktivitet startas för körning, kontroll tråden ska undvika att starta uppgiften och deklarera begäran som har avbrutits.
+1. Avbryt som för närvarande kör uppgifter: Om ett avbrott identifieras när en aktivitet körs för närvarande görs en uppsägning inom den körs för närvarande aspekten av uppgiften.  Exempel: Om det finns en tidskrävande fråga som för närvarande utförs när en uppsägning görs, kommer det finnas ett försök att avbryta frågan.
+2. Avbryter omförsök: Om ett avbrott identifieras av kontroll tråden innan en aktivitet startas för körning, kontroll tråden undvika att starta uppgiften och deklarera begäran som har avbrutits.
 
 Om ett jobb avbrott har begärts för ett överordnat jobb, kan på avbrottsbegäran användas för det överordnade jobbet och alla dess underordnade jobb.
 

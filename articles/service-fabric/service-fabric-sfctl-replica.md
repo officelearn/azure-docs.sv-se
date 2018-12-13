@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 6c16cd95fce7d3f367f0ded73c3635d8cefea7a0
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0000e5d8bfa7da6ebe1b6702649e56262c9d9cab
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493995"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277377"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Hantera replikerna som hör till tjänstpartitioner.
@@ -30,7 +30,7 @@ Hantera replikerna som hör till tjänstpartitioner.
 | --- | --- |
 | distribuerat | Hämtar information om repliken som distribuerats på en Service Fabric-nod. |
 | distribuerat lista | Hämtar listan över kopior som distribueras på en Service Fabric-nod. |
-| hälsotillstånd | Hämtar hälsotillståndet för en Service Fabric tillståndskänslig tjänst målreplik eller tillståndslös tjänst. |
+| hälsa | Hämtar hälsotillståndet för en Service Fabric tillståndskänslig tjänst målreplik eller tillståndslös tjänst. |
 | info | Hämtar information om en replik av en Service Fabric-partition. |
 | lista | Hämtar information om repliker för en partition för Service Fabric-tjänsten. |
 | ta bort | Tar bort en replik för tjänsten som körs på en nod. |
@@ -44,7 +44,7 @@ Hämtar information om repliken som distribuerats på en Service Fabric-nod. Inf
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Nodnamnet [krävs] | Namnet på noden. |
 | --partitions-id [krävs] | Identiteten för partitionen. |
@@ -53,7 +53,7 @@ Hämtar information om repliken som distribuerats på en Service Fabric-nod. Inf
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -68,7 +68,7 @@ Hämtar listan som innehåller information om kopior som distribueras på en Ser
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-id [krävs] | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --Nodnamnet [krävs] | Namnet på noden. |
@@ -78,7 +78,7 @@ Hämtar listan som innehåller information om kopior som distribueras på en Ser
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -93,7 +93,7 @@ Hämtar hälsotillståndet för en Service Fabric-replik. Använd EventsHealthSt
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --partitions-id [krävs] | Identiteten för partitionen. |
 | --replik-id [krävs] | Identifierare för repliken. |
@@ -102,7 +102,7 @@ Hämtar hälsotillståndet för en Service Fabric-replik. Använd EventsHealthSt
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -117,7 +117,7 @@ Svaret innehåller ID: T, roll, status, hälsotillstånd, nodnamnet, drifttid oc
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --partitions-id [krävs] | Identiteten för partitionen. |
 | --replik-id [krävs] | Identifierare för repliken. |
@@ -125,7 +125,7 @@ Svaret innehåller ID: T, roll, status, hälsotillstånd, nodnamnet, drifttid oc
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -140,7 +140,7 @@ GetReplicas slutpunkten returnerar information om replikerna för den angivna pa
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --partitions-id [krävs] | Identiteten för partitionen. |
 | --fortsättningstoken | Fortsättningstoken parameter-token som används för att hämta nästa uppsättning resultat. Ett fortsättningstoken med en icke-tomma värden inkluderas i svaret på API: et när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anropet API: et Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, innehåller ett värde inte i fortsättningstoken. Värdet för den här parametern får inte vara URL-kodas. |
@@ -148,7 +148,7 @@ GetReplicas slutpunkten returnerar information om replikerna för den angivna pa
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -163,7 +163,7 @@ Detta API simulerar ett fel för Service Fabric-replik genom att ta bort en repl
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Nodnamnet [krävs] | Namnet på noden. |
 | --partitions-id [krävs] | Identiteten för partitionen. |
@@ -173,7 +173,7 @@ Detta API simulerar ett fel för Service Fabric-replik genom att ta bort en repl
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -184,17 +184,17 @@ Detta API simulerar ett fel för Service Fabric-replik genom att ta bort en repl
 ## <a name="sfctl-replica-report-health"></a>sfctl replica report-health
 Skickar en hälsorapport på Service Fabric-replik.
 
-Rapporterar hälsotillståndet för den angivna Service Fabric-repliken. Rapporten måste innehålla information om orsaken hälsorapport och egenskapen som har rapporterats. Rapporten skickas till en Service Fabric gateway repliken som vidarebefordrar till health store. Rapporten kan accepteras av gatewayen, men avvisats av health store efter extra valideringen. Health store kan till exempel avvisa rapporten på grund av en ogiltig parameter, t.ex. ett sekvensnummer som är inaktuella. Kontrollera att rapporten ska visas i avsnittet händelser för att se om rapporten har tillämpats i health store.
+Rapporterar hälsotillståndet för den angivna Service Fabric-repliken. Rapporten måste innehålla information om orsaken hälsorapport och egenskapen som har rapporterats. Rapporten skickas till en Service Fabric gateway repliken som vidarebefordrar till health store. Rapporten kan accepteras av gatewayen, men avvisats av health store efter extra valideringen. Health store kan till exempel avvisa rapporten på grund av en ogiltig parameter, t.ex. ett sekvensnummer som är inaktuella. Om du vill se om rapporten har tillämpats i health store, få kör repliken hälso- och kontrollera att rapporten visas i avsnittet HealthEvents.
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --health-egenskapen [krävs] | Egenskapen för hälsoinformation. <br><br> En entitet kan ha rapporter om hälsotillstånd för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkningen för att tillåta rapport flexibiliteten att kategorisera tillstånd-villkor som utlöser rapporten. En rapport med SourceId ”LocalWatchdog” kan till exempel övervaka status för tillgängliga disken på en nod, så att den kan rapportera ”AvailableDisk”-egenskap på noden. Samma rapport kan övervaka nod-anslutningen så att den kan rapportera en egenskap ”anslutning” på samma nod. Dessa rapporter behandlas i health store, som separata health-händelser för den angivna noden. Tillsammans med målentiteten identifierar egenskapen hälsoinformation. |
 | --hälsotillståndet [krävs] | Möjliga värden omfattar\: ”ogiltig”, ”Ok”, ”varning”, ”fel”, ”okänd”. |
 | --partitions-id [krävs] | Identiteten för partitionen. |
 | --replik-id [krävs] | Identiteten för partitionen. |
-| --käll-id [krävs] | Källnamn som identifierar/klientsystemet/watchdog-komponenten som genererat hälsoinformation. |
+| --käll-id [krävs] | Källnamn som identifierar/klientsystemet/watchdog-komponenten som genererade hälsoinformation. |
 | – Beskrivning | Beskrivning av hälsoinformation. <br><br> Den motsvarar fritext som används för att lägga till mänskliga läsbar information om rapporten. Den maximala stränglängden för beskrivningen är 4 096 tecken. Om strängen inte trunkeras den automatiskt. När trunkeras, de sista tecknen i beskrivningen innehåller en markör ”[trunkerat]” och totala storleken på målsträngen är 4 096 tecken. Förekomst av markören anger för användare att trunkering inträffade. Observera att när trunkeras, beskrivningen har mindre än 4 096 tecken från den ursprungliga strängen. |
 | --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälsorapport skickas till en Service Fabric gateway programmet, som vidarebefordrar till health store. Om Immediate anges till SANT, skickas rapporten direkt från HTTP-Gateway till health store, oavsett inställningarna i fabric-klient som använder HTTP-Gateway-program. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tidpunkten och andra villkor misslyckas skicka rapporten fortfarande, till exempel om HTTP-Gateway är stängd eller meddelandet når inte gatewayen. Om Immediate är inställd på false, skickas rapporten baserat på klientinställningarna hälsotillstånd från HTTP-Gateway. Det kan därför batchhanteras enligt HealthReportSendInterval-konfigurationen. Det här är den rekommenderade inställningen eftersom den tillåter hälsotillstånd klienten att optimera reporting meddelanden hälsoarkivet, samt för bearbetning av hälsotillstånd. Som standard skickas rapporter inte omedelbart. |
 | – ta bort när-har upphört | Värde som anger om rapporten tas bort från health store när den upphör att gälla. <br><br> Om värdet är true, rapporten tas bort från health store när den upphör att gälla. Om värdet är FALSKT, rapporten behandlas som ett fel när den har upphört att gälla. Värdet för den här egenskapen är false som standard. När klienterna rapporterar regelbundet, ska de ange RemoveWhenExpired FALSKT (standard). På så sätt kan är personen har problem (t.ex. deadlock) och kan inte rapportera entiteten utvärderas vid fel när hälsorapporten upphör att gälla. Detta flaggar entiteten som ett felaktigt hälsotillstånd. |
@@ -205,7 +205,7 @@ Rapporterar hälsotillståndet för den angivna Service Fabric-repliken. Rapport
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -220,7 +220,7 @@ Startar om en tjänst replik av en bestående tjänst som körs på en nod. Varn
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Nodnamnet [krävs] | Namnet på noden. |
 | --partitions-id [krävs] | Identiteten för partitionen. |
@@ -229,7 +229,7 @@ Startar om en tjänst replik av en bestående tjänst som körs på en nod. Varn
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |

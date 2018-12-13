@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 410e9df588ad4aba52d1d69349f5df67fa1826a3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 013b63d0eb2cc69893dcb4075c1ca26a31ef2474
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100947"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277989"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera fjärrskrivbordsgateway infrastruktur med Network Policy Server (NPS)-tillägget och Azure AD
 
@@ -24,6 +24,9 @@ Den här artikeln innehåller information för att integrera din infrastruktur f
 Nätverksprincipserver (NPS)-tillägget för Azure kan kunderna att skydda Remote Authentication Dial-In User Service (RADIUS) klientautentisering med hjälp av Azure är Microsofts molnbaserade [Multi-Factor Authentication (MFA)](multi-factor-authentication.md). Den här lösningen tillhandahåller tvåstegsverifiering för att lägga till ett andra säkerhetslager till användarinloggningar och transaktioner.
 
 Den här artikeln innehåller stegvisa instruktioner för att integrera NPS-infrastruktur med Azure MFA med NPS-tillägget för Azure. På så sätt kan säker verifiering för användare som försöker logga in på en fjärrskrivbordsgateway.
+
+> [!NOTE]
+> Den här artikeln bör inte användas tillsammans med MFA Server-distributioner endast Azure MFA (molnbaserade).
 
 Nätverksprinciper och Access Services (NPS) gör att organisationer kan du göra följande:
 
@@ -68,10 +71,10 @@ Det här avsnittet beskriver förutsättningarna som krävs innan du integrera A
 
 ### <a name="remote-desktop-services-rds-infrastructure"></a>Remote Desktop Services (RDS)-infrastruktur
 
-Du måste ha en fungerande Remote Desktop Services (RDS)-infrastruktur på plats. Om du inte gör det så du kan snabbt skapa den här infrastrukturen i Azure med hjälp av följande Snabbstart mall: [skapa fjärransluten Desktop Sessionssamling distribution](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
+Du måste ha en fungerande Remote Desktop Services (RDS)-infrastruktur på plats. Om du inte gör det, kan du snabbt skapa den här infrastrukturen i Azure med hjälp av följande Snabbstart mall: [Skapa Sessionssamling för Remote Desktop distribution](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
 
 Om du vill skapa en lokal RDS infrastruktur snabbt i testsyfte manuellt följer du stegen för att distribuera en. 
-**Läs mer**: [distribuera RDS med Azure Snabbstart](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) och [grundläggande RDS infrastrukturdistribution](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
+**Läs mer**: [Distribuera RDS med Azure Snabbstart](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) och [grundläggande RDS infrastrukturdistribution](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
 ### <a name="azure-mfa-license"></a>Azure MFA-licens
 
@@ -83,7 +86,7 @@ NPS-tillägget kräver Windows Server 2008 R2 SP1 eller senare med NPS-rolltjän
 
 ### <a name="network-policy-and-access-services-nps-role"></a>Nätverksprinciper och Access Services (NPS)-rollen
 
-NPS-rolltjänsten tillhandahåller RADIUS-servern och klienten funktioner samt Nätverksåtkomstpolicy-tjänsten för hälsotillstånd. Den här rollen måste installeras på minst två datorer i infrastrukturen: The Remote Desktop Gateway och en annan medlemsserver eller domänkontrollant. Rollen är redan finns på datorn som konfigurerats som server för fjärrskrivbordsgateway som standard.  Du måste sedan även installera NPS-rollen på minst på en annan dator, till exempel en domänkontrollant eller medlemsserver.
+NPS-rolltjänsten tillhandahåller RADIUS-servern och klienten funktioner samt Nätverksåtkomstpolicy-tjänsten för hälsotillstånd. Den här rollen måste installeras på minst två datorer i din infrastruktur: Fjärrskrivbordsgateway och en annan medlemsserver eller domänkontrollant. Rollen är redan finns på datorn som konfigurerats som server för fjärrskrivbordsgateway som standard.  Du måste sedan även installera NPS-rollen på minst på en annan dator, till exempel en domänkontrollant eller medlemsserver.
 
 Information om hur du installerar NPS-rollen självbetjäning i Windows Server 2012 eller äldre, se [installera en NAP-hälsoprincipserver](https://technet.microsoft.com/library/dd296890.aspx). En beskrivning av bästa praxis för NPS, inklusive rekommendationen för att installera NPS på en domänkontrollant finns i [Metodtips för NPS](https://technet.microsoft.com/library/cc771746).
 

@@ -4,9 +4,8 @@ description: Identifiera och åtgärda vanliga problem uppstod när du träna mo
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307210"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252787"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Felsöka omtrimning av en klassisk Azure Machine Learning Studio-webbtjänst
 ## <a name="retraining-overview"></a>Omtränings översikt
@@ -41,16 +40,16 @@ Du kan sedan använda exemplet C# kod från API-hjälpsidan för utbildning-webb
 
 Alla delar är på plats är de viktigaste stegen som du måste vidta för att träna modellen på följande sätt:
 
-1. Anropa webbtjänsten utbildning: anropet är att BES Batch Execution Service (), inte på begäran (RRS-Response Service). Du kan använda exemplet C# kod på API-hjälpsidan för att anropa. 
-2. Hitta värdena för den *BaseLocation*, *RelativeLocation*, och *SasBlobToken*: dessa värden returneras i utdata från anrop till webbtjänsten utbildning. 
+1. Anropa webbtjänsten utbildning:  Anropet är att BES Batch Execution Service (), inte på begäran (RRS-Response Service). Du kan använda exemplet C# kod på API-hjälpsidan för att anropa. 
+2. Hitta värdena för den *BaseLocation*, *RelativeLocation*, och *SasBlobToken*: Dessa värden returneras i utdata från anrop till webbtjänsten utbildning. 
    ![Visar utdata i omtränings-exemplet och BaseLocation och RelativeLocation SasBlobToken värdena.][image6]
-3. Uppdatera från bedömning av webbtjänsten har lagts till slutpunkten med den nya tränade modellen: med exempelkoden som anges i träna om Machine Learning-modeller via programmering, uppdatera den nya slutpunkten som du lade till bedömningsmodell med den nyligen tränade modellen från den Webbtjänst för utbildning.
+3. Uppdatera har lagts till slutpunkten från bedömning av webbtjänsten med den nya tränade modellen: Med exempelkoden som anges i träna om Machine Learning-modeller via programmering, uppdatera den nya slutpunkten som du lade till bedömningsmodell med den nyligen tränade modellen från webbtjänsten utbildning.
 
 ## <a name="common-obstacles"></a>Vanliga hinder
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Kontrollera om du har rätt KORRIGERA URL
 KORRIGERA URL: en du använder måste vara det som är associerade med den nya bedömnings slutpunkten som du lade till bedömning av webbtjänsten. Det finns ett antal sätt att hämta PATCH-URL:
 
-**Alternativ 1: programmässigt**
+**Alternativ 1: Programmässigt**
 
 Hämta rätt KORRIGERA URL:
 
@@ -80,8 +79,8 @@ PATCH-hjälpsidan innehåller KORRIGERA URL: en måste du använda och visar exe
 ![Patch-URL.][image5]
 
 ### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Kontrollera att du uppdaterar rätt bedömnings slutpunkt
-* Inte korrigera web Utbildningstjänsten: patch-åtgärden måste utföras på bedömning av webbtjänsten.
-* Korrigera inte standardslutpunkten Webbtjänstmetoder: patch-åtgärden måste utföras på den nya bedömnings webbtjänstslutpunkt som du har lagt till.
+* Inte att korrigera utbildning-webbtjänsten: Patch-åtgärden måste utföras på bedömning av webbtjänsten.
+* Inte att korrigera standardslutpunkten Webbtjänstmetoder: Patch-åtgärden måste utföras på den nya bedömnings webbtjänstslutpunkt som du har lagt till.
 
 Du kan kontrollera vilka webbtjänsten slutpunkten är på genom att gå till Web Services-portalen. 
 

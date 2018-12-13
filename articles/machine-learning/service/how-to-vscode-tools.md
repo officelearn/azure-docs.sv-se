@@ -1,5 +1,6 @@
 ---
-title: Kom igång med Azure Machine Learning för Visual Studio Code
+title: Använd Visual Studio Code med
+titleSuffix: Azure Machine Learning service
 description: Lär dig hur du installerar Azure Machine Learning för Visual Studio Code och skapa ett enkelt experiment i Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c5d7d3c10b9c8c191144e1e396d28fc53f813623
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012682"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269605"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Kom igång med Azure Machine Learning för Visual Studio Code
 
@@ -24,11 +25,13 @@ Använd Azure Machine Learning-tillägg i Visual Studio code för att använda A
 
 ## <a name="prerequisite"></a>Krav
 
+
++ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
+
 + Visual Studio Code måste installeras. VS Code är en enkel men kraftfull källkodsredigerare som körs på skrivbordet. Den innehåller inbyggt stöd för Python med mera.  [Lär dig att installera VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
 + [Installera Python 3.5 eller högre](https://www.anaconda.com/download/).
 
-+ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
 
 ## <a name="install-the-azure-machine-learning-for-vs-code-extension"></a>Installera Azure Machine Learning för VS Code-tillägg
 
@@ -40,7 +43,7 @@ Vi måste omvandla VS Code till en Python IDE för att fungera med Azure Machine
 
 1. Starta VS Code.
 
-1. I en webbläsare, besök: [Azure Machine Learning för Visual Studio Code (förhandsversion)](https://aka.ms/vscodetoolsforai) tillägg
+1. Gå till i en webbläsare: [Azure Machine Learning för Visual Studio Code (förhandsversion)](https://aka.ms/vscodetoolsforai) tillägg
 
 1. I den webbsidan klickar du på **installera**. 
 

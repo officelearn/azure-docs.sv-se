@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 504bb56a7cb3b9582d5c8d2ab1e770d55b8ca9e5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ccccad1cb510c4988092467c723e117a47456aaf
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961628"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277513"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -145,7 +145,7 @@ Heartbeat
 
 Du kan granska följande information för att verifiera agentanslutning med Log Analytics på en Windows-dator:
 
-1. På Kontrollpanelen, öppna **Microsoft Monitoring Agent**. På den **Azure Log Analytics** fliken agenten visas följande meddelande: **The Microsoft Monitoring Agent har anslutits till Log Analytics**.
+1. På Kontrollpanelen, öppna **Microsoft Monitoring Agent**. På den **Azure Log Analytics** fliken agenten visas följande meddelande: **Microsoft Monitoring Agent har anslutits till Log Analytics**.
 2. Öppna Windows-händelseloggen. Gå till **program- och tjänstloggar\operations Manager** och Sök efter händelse-ID 3000 och 5002 för händelse-ID från källan **tjänstanslutning**. Dessa händelser anger att datorn har registrerats med Log Analytics-arbetsytan och tar emot konfigurationen.
 
 Om agenten inte kan kommunicera med Log Analytics och agenten är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver, kontrollerar du att den brandväggen eller proxyservern har konfigurerats korrekt. Läs hur du kontrollerar att den brandväggen eller proxyservern har konfigurerats korrekt i [nätverkskonfiguration för Windows-agenten](../azure-monitor/platform/agent-windows.md) eller [nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
@@ -219,6 +219,21 @@ Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemau
 | Starta om kontroll| Anger hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
 Distributioner av uppdateringar kan även skapas programmässigt. Läs hur du skapar en distribution med REST API i [programvarukonfigurationer för Update - skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också en exempel-runbook som kan användas för att skapa en distribution av varje vecka. Läs mer om denna runbook i [skapa en veckovis uppdateringsdistribution för en eller flera virtuella datorer i en resursgrupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+
+### <a name="multi-tenant"></a>Distribution av flera klienter
+
+Om du har datorer i en annan Azure-klient som rapporterar till hantering av uppdateringar som du behöver för att korrigera måste du använda följande lösning för att få dem schemalagda. Du kan använda den [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) cmdlet med växeln `-ForUpdate` att skapa ett schema och använda den [New AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) cmdlet och skicka den datorer i den andra klienten till den `-NonAzureComputer` parametern. I följande exempel visar ett exempel på hur du gör detta:
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
 
 ## <a name="view-missing-updates"></a>Visa uppdateringar som saknas
 
@@ -310,7 +325,7 @@ Det rekommenderas att använda de adresser som anges när du definierar undantag
 
 Förutom den information som tillhandahålls i Azure-portalen, kan du göra sökningar mot loggarna. På sidorna för lösningen väljer **Log Analytics**. Den **Loggsökning** öppnas fönstret.
 
-Du kan också lära dig hur anpassa frågor eller använda dem från olika klienter och mer genom att besöka: [Log Analytics Sök API-dokumentationen](
+Du kan också lära dig att anpassa frågorna eller använda dem från olika klienter och mer genom att besöka:  [Log Analytics Sök API-dokumentation](
 https://dev.loganalytics.io/).
 
 ### <a name="sample-queries"></a>Exempelfrågor

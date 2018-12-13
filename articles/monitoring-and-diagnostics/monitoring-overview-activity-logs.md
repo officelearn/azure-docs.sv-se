@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: d75df381f1afc17d291fe0a477078acb3435019c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 46b00e102cbf5e981ac7036de65232e869dc9651
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958142"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272716"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -21,7 +21,7 @@ Den **Azure-aktivitetsloggen** är en prenumerationslogg som ger insikt i hände
 
 ![Aktivitet loggar eller andra typer av loggar ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
-Bild 1: Aktivitetsloggar vs andra typer av loggar
+Bild 1: Aktivitet loggar eller andra typer av loggar
 
 Aktivitetsloggen skiljer sig från [diagnostikloggar](monitoring-overview-of-diagnostic-logs.md). Aktivitetsloggar ger information om åtgärder på en resurs från utsidan (”kontrollplanet”). Diagnostikloggar genereras av en resurs och ange information om hur den här resursen (”dataplanet”).
 
@@ -33,14 +33,14 @@ Aktivitetsloggen skiljer sig från [diagnostikloggar](monitoring-overview-of-dia
 Du kan hämta händelser från din aktivitetslogg med Azure portal, CLI, PowerShell-cmdletar och REST-API för Azure Monitor.
 
 > [!NOTE]
-> [Nyare aviseringar](monitoring-overview-alerts.md) ger en förbättrad upplevelse när du skapar och hanterar aktivitet logga Varningsregler.  [Läs mer](alert-activity-log.md).
+> [Nyare aviseringar](monitoring-overview-alerts.md) ger en förbättrad upplevelse när du skapar och hanterar aktivitet logga Varningsregler.  [Läs mer](../azure-monitor/platform/alerts-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>Kategorier i aktivitetsloggen
 Aktivitetsloggen innehåller flera kategorier av data. Mer information om scheman av dessa kategorier [finns i den här artikeln](monitoring-activity-log-schema.md). Exempel på dessa är:
 * **Administrativa** – den här kategorin innehåller en post för alla skapa, uppdatera och ta bort åtgärden åtgärder som utförs via Resource Manager. Exempel på typer av händelser som visas i den här kategorin är ”Skapa virtuell dator” och ”ta bort nätverkssäkerhetsgruppen” varje åtgärd som en användare eller program med hjälp av Resource Manager är utformat som en åtgärd på en viss resurstyp. Om åtgärdstypen är skriva, ta bort eller åtgärden, registreras poster i start- och lyckas eller misslyckas av åtgärden i den administrativa kategorin. Den administrativa kategorin omfattar även ändringar av rollbaserad åtkomstkontroll i en prenumeration.
-* **Tjänstehälsa** – den här kategorin innehåller en post för alla service health incidenter som har inträffat i Azure. Ett exempel på typen av händelse som du ser i den här kategorin är ”SQL Azure i östra USA har drabbats av driftstopp”. Service health-händelser levereras i fem sorterna: åtgärd krävs, Assisted-återställning, Incident, underhåll, Information eller säkerhet, och visas bara om du har en resurs i den prenumeration som skulle påverkas av händelsen.
-* **Resource Health** – den här kategorin innehåller en post för eventuella resource health-händelser som har inträffat för dina Azure-resurser. Ett exempel på typen av händelse som du ser i den här kategorin är ”virtuell dator hälsostatus ändrats till inte tillgänglig”. Resource health-händelser kan representera en av fyra health-status: tillgänglig, är inte tillgänglig, Degraderad och okänd. Dessutom kan resurshälsotillståndshändelser kategoriseras som användaren startat eller plattform initieras.
+* **Tjänstehälsa** – den här kategorin innehåller en post för alla service health incidenter som har inträffat i Azure. Ett exempel på typen av händelse som du ser i den här kategorin är ”SQL Azure i östra USA har drabbats av driftstopp”. Service health-händelser levereras i fem sorterna: Åtgärd som krävs, Assisted-återställning, Incident, underhåll, Information eller säkerhet, och visas bara om du har en resurs i den prenumeration som skulle påverkas av händelsen.
+* **Resource Health** – den här kategorin innehåller en post för eventuella resource health-händelser som har inträffat för dina Azure-resurser. Ett exempel på typen av händelse som du ser i den här kategorin är ”virtuell dator hälsostatus ändrats till inte tillgänglig”. Resource health-händelser kan representera en av fyra health-status: Tillgängliga otillgänglig, degraderat och okänd. Dessutom kan resurshälsotillståndshändelser kategoriseras som användaren startat eller plattform initieras.
 * **Aviseringen** – den här kategorin innehåller en post för alla Azure-aviseringar-aktiveringar. Ett exempel på typen av händelse som du ser i den här kategorin är ”processor på myVM har varit över 80 under de senaste 5 minuterna”. En mängd olika Azure-system har en datastyrd begrepp – du kan definiera en regel av något slag och få ett meddelande när villkoren matchar regeln. Varje gång en stöds Azure aviseringstyp ”aktiverar,' eller villkoren uppfylls för att generera ett meddelande, en post med aktiveringen skickas också till den här kategorin för aktivitetsloggen.
 * **Automatisk skalning** – den här kategorin innehåller en post för alla händelser relaterade till driften av motorn för automatisk skalning baserat på alla inställningarna för automatisk skalning som du har definierat i din prenumeration. Ett exempel på typen av händelse som du ser i den här kategorin är ”autoskalning uppåt åtgärden misslyckades”. Med automatisk skalning kan du automatiskt skala ut eller skala antalet instanser i en resurstyp som stöds som är baserade på tid på dagen och/eller belastningen (mått) data med hjälp av en autoskalningsinställning. När villkoren uppfylls att skala upp eller ned, start- och lyckade eller misslyckade händelser registreras i den här kategorin.
 * **Rekommendationen** – den här kategorin innehåller rekommendationshändelser från Azure Advisor.
@@ -57,7 +57,7 @@ Här följer några av de saker som du kan göra med aktivitetsloggen:
 
 
 * Fråga efter och visa den på den **Azure-portalen**.
-* [Skapa en avisering i en händelse i aktivitetsloggen.](monitoring-activity-log-alerts.md)
+* [Skapa en avisering i en händelse i aktivitetsloggen.](../azure-monitor/platform/activity-log-alerts.md)
 * [Stream den till en **Händelsehubb** ](monitoring-stream-activity-logs-event-hubs.md) för inmatning av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
 * Analysera dem i Power BI med hjälp av den [ **Power BI-Innehållspaketet**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Spara den till en **Lagringskonto** för arkivering eller manuell granskning](monitoring-archive-activity-log.md). Du kan ange kvarhållning tid (i dagar) med den **Loggprofil**.

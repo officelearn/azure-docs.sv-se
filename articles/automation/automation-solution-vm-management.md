@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 086bddb34017d41e3e7efe86531e3c849ccd80ab
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5f5c86a90325c9a6dcd521a97cb899b88b55198d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679944"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194274"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
-Starta/stoppa virtuella datorer under kontorstid lösning startar och stoppar Azure virtuella datorer med hjälp av användardefinierade scheman, ger insikter via Azure Log Analytics och skickar valfri e-postmeddelanden med hjälp av [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md). Den stöder både Azure Resource Manager och klassiska virtuella datorer i de flesta fall.
+Starta/stoppa virtuella datorer under kontorstid lösning startar och stoppar Azure virtuella datorer med hjälp av användardefinierade scheman, ger insikter via Azure Log Analytics och skickar valfri e-postmeddelanden med hjälp av [åtgärdsgrupper](../azure-monitor/platform/action-groups.md). Den stöder både Azure Resource Manager och klassiska virtuella datorer i de flesta fall.
 
 Den här lösningen ger en decentraliserad prisvärda automatiseringsalternativet för användare som vill optimera kostnaderna för virtuella datorer. Med den här lösningen kan du:
 
@@ -79,7 +79,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
    - Ange den **rikta ResourceGroup namn**. Dessa värden är Resursgruppsnamn som innehåller virtuella datorer som hanteras av den här lösningen. Du kan ange flera namn och skilja dem åt med semikolon (värden inte är skiftlägeskänsliga). Användning av jokertecken stöds om du vill inkludera virtuella datorer i alla resursgrupper i prenumerationen. Det här värdet lagras i den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** variabler.
    - Ange den **VM uteslutningslista (sträng)**. Det här värdet är namnet på en eller flera virtuella datorer från målresursgruppen. Du kan ange flera namn och skilja dem åt med semikolon (värden inte är skiftlägeskänsliga). Användning av jokertecken stöds. Det här värdet lagras i den **External_ExcludeVMNames** variabeln.
    - Välj en **schema**. Det här värdet är ett återkommande datum och tid för att starta och stoppa virtuella datorer i target-resursgrupper. Som standard konfigureras schemat i 30 minuter från nu. Det går inte att välja en annan region. Om du vill konfigurera schemat för din specifika tidszon när du har konfigurerat lösningen, se [ändra schemat för start och avstängning](#modify-the-startup-and-shutdown-schedules).
-   - Att ta emot **e-postmeddelanden** från en åtgärdsgrupp godkänner du standardvärdet för **Ja** och ange en giltig e-postadress. Om du väljer **nr** men besluta vid ett senare tillfälle att du vill ta emot e-postmeddelanden, kan du uppdatera den [åtgärdsgrupp](../monitoring-and-diagnostics/monitoring-action-groups.md) som skapas med giltiga e-postadresser avgränsade med kommatecken. Du måste också aktivera följande regler för avisering:
+   - Att ta emot **e-postmeddelanden** från en åtgärdsgrupp godkänner du standardvärdet för **Ja** och ange en giltig e-postadress. Om du väljer **nr** men besluta vid ett senare tillfälle att du vill ta emot e-postmeddelanden, kan du uppdatera den [åtgärdsgrupp](../azure-monitor/platform/action-groups.md) som skapas med giltiga e-postadresser avgränsade med kommatecken. Du måste också aktivera följande regler för avisering:
 
      - AutoStop_VM_Child
      - Scheduled_StartStop_Parent
@@ -101,7 +101,7 @@ Det här scenariot är standardkonfigurationen för första gången du distribue
 > [!NOTE]
 > Tidszonen är din aktuella tidszon när du anger parametern schema time. Men är den lagrad i UTC-format i Azure Automation. Du behöver inte göra några tidszonskonverteringen som hanteras under distributionen.
 
-Du kan styra vilka virtuella datorer finns i omfattningen genom att konfigurera följande variabler: **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, och **External_ ExcludeVMNames**.
+Du styra vilka virtuella datorer finns i omfattningen genom att konfigurera följande variabler: **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, och **External_ExcludeVMNames**.
 
 Du kan aktivera inriktning på åtgärd mot en prenumeration och resursgrupp eller riktar in sig på en viss lista med virtuella datorer, men inte båda.
 
@@ -191,7 +191,7 @@ Alla överordnade runbooks är den _WhatIf_ parametern. När värdet **SANT**, _
 |Bootstrap_Main | inga | Används en gång för att ställa in startkonfigurationer, till exempel webhookURI, som normalt inte nås från Azure Resource Manager. Denna runbook tas bort automatiskt vid distributionen.|
 |ScheduledStartStop_Child | VMName <br> Åtgärd: Starta eller stoppa <br> ResourceGroupName | Anropa från den överordnade runbooken. Kör en starta eller stoppa åtgärd för schemalagda Stopp.|
 |ScheduledStartStop_Parent | Åtgärd: Starta eller stoppa <br>VMList <br> WhatIf: SANT eller FALSKT | Den här inställningen påverkar alla virtuella datorer i prenumerationen. Redigera den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** ska bara köras på dessa mål resursgrupper. Du kan också utesluta specifika virtuella datorer genom att uppdatera den **External_ExcludeVMNames** variabeln.<br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel _vm1, vm2 vm3_.<br> _WhatIf_ verifierar runbook-logik utan att köra.|
-|SequencedStartStop_Parent | Åtgärd: Starta eller stoppa <br> WhatIf: SANT eller FALSKT<br>VMList| Skapa taggar med namnet **sequencestart** och **sequencestop** på varje virtuell dator som du vill att aktivitetssekvensen Starta/Stoppa aktiviteten. Dessa taggnamn är skiftlägeskänsliga. Taggens värde ska vara ett positivt heltal (1, 2, 3) som motsvarar den ordning som du vill starta eller stoppa. <br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel _vm1, vm2 vm3_. <br> _WhatIf_ verifierar runbook-logik utan att köra. <br> **Obs**: virtuella datorer måste vara inom resursgrupper som har definierats som External_Start_ResourceGroupNames och External_Stop_ResourceGroupNames External_ExcludeVMNames i Azure Automation-variabler. De måste ha lämpliga taggar för åtgärder ska börja gälla.|
+|SequencedStartStop_Parent | Åtgärd: Starta eller stoppa <br> WhatIf: SANT eller FALSKT<br>VMList| Skapa taggar med namnet **sequencestart** och **sequencestop** på varje virtuell dator som du vill att aktivitetssekvensen Starta/Stoppa aktiviteten. Dessa taggnamn är skiftlägeskänsliga. Taggens värde ska vara ett positivt heltal (1, 2, 3) som motsvarar den ordning som du vill starta eller stoppa. <br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel _vm1, vm2 vm3_. <br> _WhatIf_ verifierar runbook-logik utan att köra. <br> **Obs**: Virtuella datorer måste vara inom resursgrupper som har definierats som External_Start_ResourceGroupNames och External_Stop_ResourceGroupNames External_ExcludeVMNames i Azure Automation-variabler. De måste ha lämpliga taggar för åtgärder ska börja gälla.|
 
 ### <a name="variables"></a>Variabler
 
@@ -309,7 +309,7 @@ På den **StartStop_VM_Notification** klickar du på **redigera information** un
 
 ![Automation uppdateringshantering lösning sidan](media/automation-solution-vm-management/change-email.png)
 
-Alternativt kan du lägga till fler åtgärder för åtgärdsgruppen vill veta mer om åtgärdsgrupper, se [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md)
+Alternativt kan du lägga till fler åtgärder för åtgärdsgruppen vill veta mer om åtgärdsgrupper, se [åtgärdsgrupper](../azure-monitor/platform/action-groups.md)
 
 Följande är ett exempel e-postmeddelande som skickas när lösningen stängs av virtuella datorer.
 

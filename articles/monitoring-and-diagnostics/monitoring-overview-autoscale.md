@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: 8491f3f61746374b67e174ca5efff2fbf2fe5fbe
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2583c64d8a60e31958d2aeb895bbce8fadcb5840
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281905"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323174"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över automatisk skalning i Microsoft Azure Virtual Machines, Cloud Services och Web Apps
 Den här artikeln beskriver vilka Microsoft Azure automatisk skalning är, dess fördelar, och hur du kommer igång med hjälp av den.  
@@ -38,7 +38,7 @@ Följande förklaring gäller för de olika delarna i diagrammet ovan.
 
 ## <a name="resource-metrics"></a>Resursmått
 Resurser genererar mått, de här måtten bearbetas senare av regler. Mått komma via olika metoder.
-VM-skalningsuppsättningar använder dessa data från Azure-diagnostik agenter telemetri för webbappar och molntjänster som kommer direkt från Azure-infrastrukturen. Vissa vanliga statistiken omfattar processoranvändning, minnesanvändning, antalet trådar, kölängden och diskanvändning. En lista över vilka telemetridata som du kan använda finns i [vanliga mått för autoskalning](insights-autoscale-common-metrics.md).
+VM-skalningsuppsättningar använder dessa data från Azure-diagnostik agenter telemetri för webbappar och molntjänster som kommer direkt från Azure-infrastrukturen. Vissa vanliga statistiken omfattar processoranvändning, minnesanvändning, antalet trådar, kölängden och diskanvändning. En lista över vilka telemetridata som du kan använda finns i [vanliga mått för autoskalning](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ## <a name="custom-metrics"></a>Anpassade mått
 Du kan även använda dina egna anpassade mått som kan avger dina program. Om du har konfigurerat din programmen för att skicka mått till Application Insights kan du använda dessa mått för att fatta beslut på om du vill skala eller inte.
@@ -83,7 +83,7 @@ En fullständig lista över konfigurerbara fält och beskrivningar finns i den [
 
 Kodexempel, se
 
-* [Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md)  
 * [REST-API för automatisk skalning](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Vågrät eller lodrät skalning
@@ -98,7 +98,7 @@ Du kan ställa in automatisk skalning via
 
 * [Azure Portal](monitoring-autoscale-get-started.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
-* [Plattformsoberoende kommandoradsgränssnitt (CLI):](insights-cli-samples.md#autoscale)
+* [Plattformsoberoende kommandoradsgränssnitt (CLI):](../azure-monitor/platform/cli-samples.md#autoscale)
 * [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Tjänster som stöds för autoskalning
@@ -106,17 +106,17 @@ Du kan ställa in automatisk skalning via
 | --- | --- |
 | Web Apps |[Skalning av Webbappar](monitoring-autoscale-get-started.md) |
 | Cloud Services |[Skala en molntjänst](../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Virtuella datorer: klassisk |[Skala Tillgänglighetsuppsättningar för klassiska virtuella datorer](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtuella datorer: Skalningsuppsättningar Windows |[Skala VM scale anger i Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
-| Virtuella datorer: Skalningsuppsättningar för Linux |[Skala VM scale anger i Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Virtuella datorer: Windows-exempel |[Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Virtuella datorer: Klassisk |[Skala Tillgänglighetsuppsättningar för klassiska virtuella datorer](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Virtuella datorer: Windows-Skalningsuppsättningar |[Skala VM scale anger i Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Virtuella datorer: Linux-Skalningsuppsättningar |[Skala VM scale anger i Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
+| Virtuella datorer: Windows-exempel |[Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | API Management-tjänst|[Skala automatiskt en Azure API Management-instans](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om automatisk skalning, Använd Autoscale Walkthroughs som angavs tidigare eller finns i följande resurser:
 
-* [Azure Monitor autoscale vanliga mått](insights-autoscale-common-metrics.md)
-* [Metodtips för automatisk skalning i Azure Monitor](insights-autoscale-best-practices.md)
-* [Använda automatisk skalning åtgärder för att skicka e-post och webhook varningsmeddelanden](insights-autoscale-to-webhook-email.md)
+* [Azure Monitor autoscale vanliga mått](../azure-monitor/platform/autoscale-common-metrics.md)
+* [Metodtips för automatisk skalning i Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
+* [Använda automatisk skalning åtgärder för att skicka e-post och webhook varningsmeddelanden](../azure-monitor/platform/autoscale-webhook-email.md)
 * [REST-API för automatisk skalning](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Felsökning VM Scale Sets automatisk skalning](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)

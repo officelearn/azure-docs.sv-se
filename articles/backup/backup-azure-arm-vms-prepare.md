@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422804"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255082"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Förbereda säkerhetskopiering av virtuella Azure-datorer
 
@@ -39,7 +39,7 @@ Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetsko
     > [!NOTE]
     > Andra bring-your-own-Linux-distributioner kan fungera, så länge som den Virtuella datoragenten är tillgänglig på den virtuella datorn och har stöd för Python finns. Dessa distributioner stöds dock inte.
     >
- * **Windows Server**, **Windows-klienten**: versioner som är äldre än Windows Server 2008 R2 eller Windows 7, stöds inte.
+ * **Windows Server**, **Windows-klienten**:  Versioner som är äldre än Windows Server 2008 R2 eller Windows 7, stöds inte.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Begränsningar när du säkerhetskopierar och återställer en virtuell dator
@@ -177,14 +177,14 @@ För att säkerhetskopieringstillägget ska fungera, Azure [VM-agenten](../virtu
 
 Den här informationen för situationer där du är *inte* med hjälp av en virtuell dator skapas från Azure Marketplace. **Exempelvis kan migrerat du en virtuell dator från ett lokalt datacenter. I sådana fall måste VM-agenten installeras för att skydda den virtuella datorn.**
 
-**Obs**: när du har installerat VM-agenten måste du också använda Azure PowerShell för att uppdatera egenskapen ProvisionGuestAgent så att Azure vet att den virtuella datorn har agenten installerad.
+**Obs**: När du har installerat VM-agenten måste du också använda Azure PowerShell för att uppdatera egenskapen ProvisionGuestAgent så att Azure vet att den virtuella datorn har agenten installerad.
 
 Om du har problem med säkerhetskopiering av Virtuella Azure kan du använda följande tabell för att kontrollera att Azure VM-agenten är korrekt installerad på den virtuella datorn. Tabellen innehåller ytterligare information om VM-agenten för Windows och Linux-datorer.
 
 | **Åtgärd** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installera VM-agenten |Ladda ned och installera [agentens MSI-fil](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. |<li> Installera senast [linuxagenten](../virtual-machines/extensions/agent-linux.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar agenten från din lagringsplats för distribution. Vi **rekommenderar inte** installera Linux VM-agenten direkt från github.  |
-| Uppdatera VM-agenten |Det är enkelt att uppdatera VM-agenten. Du installerar bara om [binärfilerna för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |Följ anvisningarna för hur du [uppdaterar VM-agenten för Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vi rekommenderar att du uppdaterar agenten från din lagringsplats för distribution. Vi **rekommenderar inte** uppdatering Linux VM-agenten direkt från github.<br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |
+| Installera VM-agenten |Ladda ned och installera [agentens MSI-fil](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. |<li> Installera senast [linuxagenten](../virtual-machines/extensions/agent-linux.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar agenten från din lagringsplats för distribution. Vi **rekommenderar inte** installera Linux VM-agenten direkt från GitHub.  |
+| Uppdatera VM-agenten |Det är enkelt att uppdatera VM-agenten. Du installerar bara om [binärfilerna för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |Följ anvisningarna för hur du [uppdaterar VM-agenten för Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vi rekommenderar att du uppdaterar agenten från din lagringsplats för distribution. Vi **rekommenderar inte** uppdatering Linux VM-agenten direkt från GitHub.<br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |
 | Bekräfta installationen av VM-agenten |<li>Gå till mappen *C:\WindowsAzure\Packages* på den virtuella datorn i Azure. <li>Du bör hitta filen WaAppAgent.exe.<li> Högerklicka på filen, gå till **Egenskaper** och välj fliken **Information**. Fältet Produktversion ska vara 2.6.1198.718 eller högre. |Gäller inte |
 
 ### <a name="backup-extension"></a>Säkerhetskopieringstillägg
@@ -283,7 +283,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Steg 2: Tillåta inkommande anslutningar på proxyservern
+#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Steg 2: Tillåt inkommande anslutningar på proxyservern
 1. Öppna Windows-brandväggen på proxyservern. Det enklaste sättet att få åtkomst till brandväggen är att söka efter **Windows-brandväggen med avancerad säkerhet**.
 1. I den **Windows-brandväggen med avancerad säkerhet** dialogrutan högerklickar du på **regler för inkommande trafik** och välj **ny regel**.
 1. I guiden Ny inkommande regel, på den **regeltyp** väljer den **anpassade** och välja **nästa**.
@@ -295,7 +295,7 @@ HttpProxy.Port=<proxy port>
 
 Acceptera standardinställningarna för resten av guiden tills du kommer till slutet. Sedan ge regeln ett namn.
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Steg 3: Lägga till en undantagsregel i NSG
+#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Steg 3: Lägg till en undantagsregel i NSG
 Följande kommando lägger till ett undantag i NSG. Det här undantaget kan TCP-trafik från alla portar på 10.0.0.5 till en Internetadress på port 80 (HTTP) eller 443 (HTTPS). Om du behöver en viss port på internet, måste du lägga till den porten till ```-DestinationPortRange```.
 
 Ange följande kommando i en Azure PowerShell-kommandotolk:

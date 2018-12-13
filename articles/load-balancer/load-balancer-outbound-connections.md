@@ -1,22 +1,24 @@
 ---
-title: Utgående anslutningar i Azure | Microsoft Docs
+title: Utgående anslutningar i Azure
+titlesuffix: Azure Load Balancer
 description: Den här artikeln förklarar hur Azure kan virtuella datorer kommunicera med offentliga internet-tjänster.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: fdcc039eb71eaeea03aaae856a6d031d4c528669
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687579"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190976"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -54,7 +56,7 @@ En offentlig IP-adress som tilldelats till en virtuell dator är en 1:1-relation
 
 Om ditt program initierar många utgående flöden och du får använda SNAT portöverbelastning kan vara bra att tilldela en [ILPIP minimera SNAT begränsningar](#assignilpip). Granska [hantera SNAT överbelastning](#snatexhaust) i sin helhet.
 
-### <a name="lb"></a>Scenario 2: Belastningsutjämnad virtuell dator utan en offentlig IP på instansnivå adress
+### <a name="lb"></a>Scenario 2: Belastningsutjämnad virtuell dator utan en offentlig IP på instansnivå-adress
 
 Den virtuella datorn är en del av en offentlig Load Balancer-backend-adresspool i det här scenariot. Den virtuella datorn har inte en offentlig IP-adress som tilldelats. Load Balancer-resursen måste konfigureras med en regel för belastningsutjämnaren för att skapa en länk mellan den offentliga IP-klientdelen till backend-poolen.
 

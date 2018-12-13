@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976867"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317533"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -41,7 +41,7 @@ Med Batch-tjänsten definierar du Azure-beräkningsresurser att köra dina progr
 * [Grunderna i Batch](../../batch/batch-technical-overview.md)
 * [Funktionsöversikt för batch](../../batch/batch-api-basics.md)
 
-Du kan också mer information om Batch finns [Batch documentatnion](https://docs.microsoft.com/en-us/azure/batch/).
+Du kan också mer information om Batch finns [Batch documentatnion](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Varför Azure Data Factory?
 Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Du kan använda Data Factory för att skapa hanterade datapipelines som flyttar data från lokala och molnbaserade datalager till ett centraliserat datalager. Ett exempel är Azure Blob storage. Du kan använda Data Factory för att bearbeta/omvandla data med hjälp av tjänster som Azure HDInsight och Azure Machine Learning. Du kan även schemalägga datapipelines för att köra på ett schemalagt sätt (till exempel varje timme, varje dag, och varje vecka). Du kan övervaka och hantera pipelines blixtsnabbt och identifiera problem och vidta åtgärder.
@@ -51,7 +51,7 @@ Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automa
 * [Introduktion till Data Factory](data-factory-introduction.md)
 * [Skapa din första datapipeline](data-factory-build-your-first-pipeline.md)   
 
-Du kan också mer information om Data Factory finns [Data Factory-dokumentation](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
+Du kan också mer information om Data Factory finns [Data Factory-dokumentation](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory och Batch tillsammans
 Data Factory innehåller inbyggda aktiviteter. Exempelvis används kopieringsaktiviteten för att kopiera/flytta data från ett källdatalager till ett måldatalager. Hive-aktivitet används för att bearbeta data med hjälp av Hadoop-kluster (HDInsight) på Azure. En lista över transformeringsaktiviteter som stöds finns i [datatransformeringsaktiviteter](data-factory-data-transformation-activities.md).
@@ -84,7 +84,7 @@ Följande lista innehåller de grundläggande stegen för processen. Lösningen 
 ## <a name="implementation-of-the-sample-solution"></a>Implementering av exempellösningen
 Exempellösningen är avsiktligt enkelt. Det är utformat för att visa dig hur du använder Data Factory och Batch tillsammans att processen datauppsättningar. Lösningen räknar antalet förekomster av söktermen ”Microsoft” i inkommande filer som är ordnade i en tidsserie. Antal till utdatafilerna matar sedan ut.
 
-**Tid:** om du är bekant med grunderna för Azure Data Factory och Batch och har följande förutsättningar, den här lösningen tar en till två timmar att slutföra.
+**Tid:** Om du är bekant med grunderna för Azure Data Factory och Batch och har följande förutsättningar, tar den här lösningen en till två timmar att slutföra.
 
 ### <a name="prerequisites"></a>Förutsättningar
 #### <a name="azure-subscription"></a>Azure-prenumeration
@@ -155,7 +155,7 @@ Installera Visual Studio 2012 eller senare för att skapa den anpassade Batch-ak
 ### <a name="create-the-custom-activity"></a>Skapa den anpassade aktiviteten
 Anpassad aktivitet för data factory är hjärtat i den här exempellösningen. Exempellösningen använder Batch för att köra den anpassade aktiviteten. Information om hur du utvecklar anpassade aktiviteter och använda dem i data factory-pipelines finns i [Använd anpassade aktiviteter i en data factory-pipeline](data-factory-use-custom-activities.md).
 
-Om du vill skapa en anpassad .NET-aktivitet som du kan använda i en data factory-pipeline, skapar du en .NET-klassbiblioteksprojektet med en klass som implementerar IDotNetActivity-gränssnittet. Det här gränssnittet har bara en av metoderna: köra. Här är signaturen för metoden:
+Om du vill skapa en anpassad .NET-aktivitet som du kan använda i en data factory-pipeline, skapar du en .NET-klassbiblioteksprojektet med en klass som implementerar IDotNetActivity-gränssnittet. Det här gränssnittet har bara en av metoderna: Köra. Här är signaturen för metoden:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -175,7 +175,7 @@ Metoden har några viktiga komponenter som du behöver för att förstå:
   * **loggaren**. Du kan använda loggaren skriva debug kommentarer som yta som ”användare”-loggen för pipelinen.
 * Metoden returnerar en ordlista som kan användas för att länka anpassade aktiviteter tillsammans i framtiden. Den här funktionen är inte implementerats ännu, så här kommer bara returnerar en tom ordlista från metoden.
 
-#### <a name="procedure-create-the-custom-activity"></a>Metod: Skapa den anpassade aktiviteten
+#### <a name="procedure-create-the-custom-activity"></a>Proceduren: Skapa den anpassade aktiviteten
 1. Skapa en .NET-klassbiblioteksprojektet i Visual Studio.
 
    a. Starta Visual Studio 2012/2013/2015.
@@ -932,9 +932,9 @@ Du kan utöka det här exemplet vill veta mer om Data Factory och Batch-funktion
 
 1. Lägg till följande undermappar i `inputfolder`: 2015-11-16-05, 2015-11-16-06 201-11-16-07-2011-11-16-08 och 2015-11-16-09. Placera indatafilerna i dessa mappar. Ändra sluttid för pipelinen från `2015-11-16T05:00:00Z` till `2015-11-16T10:00:00Z`. I den **Diagram** dubbelklickar du på **InputDataset** och bekräfta att indatasektorerna är klara. Dubbelklicka på **OutputDataset** att se status för utdatasegment. Om de finns i den **redo** tillstånd, kontrollera Utdatamappen för utdatafilerna.
 
-1. Öka eller minska den **samtidighet** inställningen för att förstå hur den påverkar prestandan för din lösning, särskilt bearbetningen som utförs på Batch. Mer information om den **samtidighet** inställningen finns i ”steg 4: skapa och köra en pipeline med en anpassad aktivitet”.
+1. Öka eller minska den **samtidighet** inställningen för att förstå hur den påverkar prestandan för din lösning, särskilt bearbetningen som utförs på Batch. Mer information om den **samtidighet** inställningen finns i ”steg 4: Skapa och köra en pipeline med en anpassad aktivitet ”.
 
-1. Skapa en pool med högre/lägre **maximalt uppgifter per virtuell dator**. Uppdatera länkade batchtjänsten i data factory-lösning för att använda den nya poolen som du skapade. Mer information om den **maximalt uppgifter per virtuell dator** inställningen finns i ”steg 4: skapa och köra en pipeline med en anpassad aktivitet”.
+1. Skapa en pool med högre/lägre **maximalt uppgifter per virtuell dator**. Uppdatera länkade batchtjänsten i data factory-lösning för att använda den nya poolen som du skapade. Mer information om den **maximalt uppgifter per virtuell dator** inställningen finns i ”steg 4: Skapa och köra en pipeline med en anpassad aktivitet ”.
 
 1. Skapa en Batch-pool med den **Autoskala** funktionen. Automatiskt skalning av compute-noder i en Batch-pool är att dynamiskt justera av processorkraft som används av ditt program. 
 
@@ -956,13 +956,13 @@ Du kan utöka det här exemplet vill veta mer om Data Factory och Batch-funktion
 
 1. I exempellösningen är den **kör** metoden anropar den **Calculate** metod som bearbetar ett indata-segment för att skapa en utdatasektor. Du kan skriva en egen metod för att bearbeta indata och Ersätt den **Calculate** anrop den **kör** metoden med ett anrop till metoden.
 
-### <a name="next-steps-consume-the-data"></a>Nästa steg: använder data
+### <a name="next-steps-consume-the-data"></a>Nästa steg: Använda data
 När du bearbetar data kan du använda den med online-verktyg, till exempel Power BI. Här följer länkar som hjälper dig att förstå Power BI och hur du använder den i Azure:
 
 * [Utforska en datauppsättning i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Kom igång med Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 * [Uppdatera data i Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Azure och Power BI: översikt](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure och Powerbi: Grundläggande översikt](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Referenser
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

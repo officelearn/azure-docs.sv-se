@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494290"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165816"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark-strömning (DStream) exempel med Apache Kafka på HDInsight
 
@@ -55,19 +55,19 @@ Du kan skapa ett Azure-nätverk, Kafka och Spark-kluster manuellt, men det är e
    
     ![Anpassade HDInsight-distribution](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
-    * **Resursgrupp**: skapa en grupp eller välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
+    * **Resursgrupp**: Skapa en grupp eller välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
 
     * **Plats**: Välj en plats geografiskt nära dig.
 
-    * **Basera klusternamnet**: det här värdet används som det grundläggande namnet för Spark och Kafka-kluster. Till exempel innebär **hdistreaming** skapar ett Spark-kluster med namnet __spark-hdistreaming__ och ett Kafka-kluster med namnet **kafka hdistreaming**.
+    * **Basera klusternamnet**: Det här värdet används som huvudnamnet för Spark och Kafka-kluster. Till exempel innebär **hdistreaming** skapar ett Spark-kluster med namnet __spark-hdistreaming__ och ett Kafka-kluster med namnet **kafka hdistreaming**.
 
-    * **Kluster-användarnamnet för inloggningen**: administratörsanvändarnamn för Spark och Kafka-kluster.
+    * **Kluster-användarnamnet för inloggningen**: Administratörsanvändarnamn för Spark och Kafka-kluster.
 
-    * **Kluster inloggningslösenordet**: ett administratörslösenord för Spark och Kafka-kluster.
+    * **Kluster inloggningslösenordet**: Administratörslösenord för Spark och Kafka-kluster.
 
     * **SSH-användarnamn**: SSH-användaren skapar för Spark och Kafka-kluster.
 
-    * **SSH-lösenord**: lösenordet för SSH-användare för Spark och Kafka-kluster.
+    * **SSH lösenord**: Lösenordet för SSH-användare för Spark och Kafka-kluster.
 
 3. Granska **villkoren** och välj sedan **Jag godkänner villkoren ovan**.
 

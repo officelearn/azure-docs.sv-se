@@ -1,5 +1,5 @@
 ---
-title: Avancerad användning av autentisering och auktorisering i Azure App Service | Microsoft Docs
+title: Avancerad användning av autentisering och auktorisering – Azure App Service | Microsoft Docs
 description: Visar hur du anpassar autentisering och auktorisering i App Service och hämta användar- och annan token.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 67d08379d98873fa88ef20b5cc8c87163c067e3a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685335"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310461"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -26,8 +27,8 @@ Den här artikeln visar hur du anpassar inbyggt [autentisering och auktorisering
 
 Om du vill komma igång snabbt, finns i följande Självstudier:
 
-* [Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)
+* [Självstudiekurs: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Självstudiekurs: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)
 * [Så här konfigurerar du din app för att använda Azure Active Directory-inloggning](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Så här konfigurerar du din app för att använda Facebook-inloggning](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Så här konfigurerar du din app för att använda Google-inloggning](app-service-mobile-how-to-configure-google-authentication.md)
@@ -179,10 +180,10 @@ Skicka en HTTP från klientkoden (till exempel en mobilapp eller JavaScript i we
 
 När din provider åtkomst-token upphör att gälla måste autentiseras användaren. Du kan undvika giltighetstid för token genom att göra en `GET` anrop till den `/.auth/refresh` slutpunkten för ditt program. När den anropas, uppdaterar App Service automatiskt åtkomsttoken i arkivet token för autentiserade användare. Efterföljande begäranden om token genom din Appkod hämta uppdateras token. Men för tokenuppdatering ska fungera, av tokenarkiv måste innehålla [uppdateringstoken](https://auth0.com/learn/refresh-tokens/) för din provider. Sättet att få uppdaterings-tokens dokumenteras av varje provider, men i följande lista är en kort sammanfattning:
 
-- **Google**: lägga till en `access_type=offline` frågesträngparametern till din `/.auth/login/google` API-anrop. Om du använder SDK för Mobile Apps, du kan lägga till parametern till en av de `LogicAsync` överlagringar (se [Google uppdatera token](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook**: ger inte uppdateringstoken. Långlivade token går ut inom 60 dagar (se [Facebook förfallodatum och tillägg av åtkomsttoken](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter-**: åtkomsttoken inte upphör att gälla (se [Twitter OAuth vanliga frågor och svar](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
-- **Account**: när [konfigurera autentiseringsinställningar för Microsoft-konto](app-service-mobile-how-to-configure-microsoft-authentication.md)väljer den `wl.offline_access` omfång.
+- **Google**: Lägg till en `access_type=offline` frågesträngparametern till din `/.auth/login/google` API-anrop. Om du använder SDK för Mobile Apps, du kan lägga till parametern till en av de `LogicAsync` överlagringar (se [Google uppdatera token](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: Ger inte uppdateringstoken. Långlivade token går ut inom 60 dagar (se [Facebook förfallodatum och tillägg av åtkomsttoken](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
+- **Twitter-**: Åtkomsttoken inte upphör att gälla (se [Twitter OAuth vanliga frågor och svar](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Microsoft-konto**: När [konfigurera autentiseringsinställningar för Microsoft-konto](app-service-mobile-how-to-configure-microsoft-authentication.md)väljer den `wl.offline_access` omfång.
 - **Azure Active Directory**: I [ https://resources.azure.com ](https://resources.azure.com), gör följande:
     1. Längst ned på sidan Välj **Läs/Skriv**.
     1. I den vänstra webbläsaren, navigerar du till **prenumerationer** > **_\<prenumeration\_namn_**   >  **resourceGroups** > _**\<resource\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser** > _**\<app \_namn >**_ > **config** > **authsettings**. 
@@ -242,5 +243,5 @@ Klicka på **redigera**, ändra egenskapen följande och klickar sedan på **pla
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt (Windows)](app-service-web-tutorial-auth-aad.md)
-> [självstudie: autentisera och auktorisera användare slutpunkt till slutpunkt (Linux)](containers/tutorial-auth-aad.md)
+> [Självstudiekurs: Autentisera och auktorisera användare slutpunkt till slutpunkt (Windows)](app-service-web-tutorial-auth-aad.md)
+> [självstudien: Autentisera och auktorisera användare slutpunkt till slutpunkt (Linux)](containers/tutorial-auth-aad.md)

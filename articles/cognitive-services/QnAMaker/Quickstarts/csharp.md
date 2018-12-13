@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: f304bff7d9f26357c802c2530a5881038a916eb7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e2bddb6ab2d7aeb801569102fa3387838f6c3104
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101039"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258108"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>Hur du använder den QnA Maker REST-APIC# 
 <a name="HOLTop"></a>
@@ -38,7 +38,7 @@ Den här artikeln visar hur du använder den [Microsoft QnA Maker API](../Overvi
 - [Hämta den aktuella uppsättningen med ordvariationer.](#GetAlterations)
 - [Ersätta den aktuella uppsättningen med ordvariationer.](#PutAlterations)
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 

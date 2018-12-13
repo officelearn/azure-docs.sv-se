@@ -1,19 +1,20 @@
 ---
-title: Förstå Azure Resource Graph-frågespråk
+title: Förstå frågespråket
 description: Beskriver hur frågespråk för Azure Resource Graph fungerar.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 09bcedc5250755f06ba23b84a0ae90b4d43a23db
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 62f61bfea3896fd3828253f5ec16cc38fe3ca007
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086173"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316686"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå Azure Resource Graph-frågespråk
 
@@ -51,6 +52,7 @@ Här är listan över funktioner som stöds i resursen Graph:
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [toString)](/azure/kusto/query/tostringfunction)
+- [ZIP()](/azure/kusto/query/zipfunction)
 
 ## <a name="next-steps"></a>Nästa steg
 

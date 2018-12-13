@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: 2ef08831706a018422ea3700c8eb63bd6f95c469
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834975"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253688"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Skala för återställning efter fel med ytterligare processervrar
 
@@ -23,6 +23,9 @@ Som standard när du replikerar virtuella VMware-datorer eller fysiska servrar t
 ### <a name="capacity-planning"></a>Kapacitetsplanering
 
 Kontrollera att du har utfört [kapacitetsplanering](site-recovery-plan-capacity-vmware.md) för VMware-replikering. Detta hjälper dig att identifiera hur och när du ska distribuera ytterligare processervrar.
+
+>[!NOTE]
+Användning av klonade Process Server komponent stöds inte. Följ stegen nedan för varje PS-utskalning.
 
 ### <a name="sizing-requirements"></a>Storlekskraven 
 

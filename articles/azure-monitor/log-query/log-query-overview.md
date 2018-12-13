@@ -12,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 2c1949fe991b599e9b002caf4c98c305a3791977
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 26030764544189ae7b075711f0405bf5c0b4ab8f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000868"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193832"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analysera Log Analytics-data i Azure Monitor
 
@@ -31,7 +30,7 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics-arbetsyta som 
 
 ## <a name="log-queries"></a>Loggfrågor
 
-Du behöver en loggfråga för att hämta alla data från Log Analytics.  Om du är [analysera data i portalen](../../azure-monitor/log-query/portals.md), [konfigurera en varningsregel](../../monitoring-and-diagnostics/alert-metric.md) för att aviseras om ett visst villkor eller hämta data med hjälp av den [Log Analytics API](https://dev.loganalytics.io/), du använder en fråga för att ange de data du vill.  Den här artikeln beskriver hur du använder loggfrågor i Log Analytics och innehåller begrepp som du bör känna till innan du skapar en.
+Du behöver en loggfråga för att hämta alla data från Log Analytics.  Om du är [analysera data i portalen](../../azure-monitor/log-query/portals.md), [konfigurera en varningsregel](../../azure-monitor/platform/alerts-metric.md) för att aviseras om ett visst villkor eller hämta data med hjälp av den [Log Analytics API](https://dev.loganalytics.io/), du använder en fråga för att ange de data du vill.  Den här artikeln beskriver hur du använder loggfrågor i Log Analytics och innehåller begrepp som du bör känna till innan du skapar en.
 
 
 

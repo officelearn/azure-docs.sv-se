@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 2511a608a74a04314b5fd56a55f4ae93ca0e2978
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 48b0085e52c1752c0b5ecc89ce229a5a82f74345
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017482"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310444"
 ---
 # <a name="api-management-caching-policies"></a>API Management cachelagringsprinciperna
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -80,7 +80,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Exempel med hjälp av principuttryck  
- Det här exemplet visar hur du konfigurerar API Management svar lagringstiden som matchar svar cachelagring av backend-tjänsten som anges av tjänsten säkerhetskopierade `Cache-Control` direktiv. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 25:25.  
+ Det här exemplet visar hur du konfigurerar API Management svar lagringstiden som matchar svar cachelagring av backend-tjänsten som anges av tjänsten säkerhetskopierade `Cache-Control` direktiv. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: Fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 25:25.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -118,14 +118,14 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 | cache-inställningar               | Välj mellan följande värden för attributet:<br />- `internal` du använder inbyggda API Management-cache<br />- `external` du använder externa cache enligt beskrivningen i [använder en extern Azure Cache för Redis i Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` använda externa cachen om konfigurerat eller interna cacheminnet annars. | Nej       | `prefer-external` |
 | underordnad-cachelagring-type        | Det här attributet måste anges till något av följande värden.<br /><br /> -Ingen - underordnade cachelagring är inte tillåtet.<br />-privat – underordnad privat cachelagring är tillåtet.<br />-offentliga - privata och delade underordnade cachelagring är tillåtet.                                                                                                          | Nej       | inga              |
 | måste revalidate                | När underordnade cachelagring är aktiverat det här attributet aktiverar eller inaktiverar det `must-revalidate` cache-control-direktivet i gateway-svar.                                                                                                                                                                                                                      | Nej       | true              |
-| variera med utvecklare              | Ange `true` till cache svar per utvecklarnyckeln.                                                                                                                                                                                                                                                                                                         | Ja      |                   |
-| variera-av-developer-groups       | Ange `true` till cache svar per användarroll.                                                                                                                                                                                                                                                                                                             | Ja      |                   |  
+| variera med utvecklare              | Ange `true` till cache svar per [prenumerationsnyckel](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | Ja      |                   |
+| variera-av-developer-groups       | Ange `true` till cache svar per [användargrupp](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Ja      |                   |  
 
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande  
--   **Princip-scope:** API, åtgärden, produkt  
+-   **Princip för omfång:** API: et, åtgärden, produkt  
   
 ##  <a name="StoreToCache"></a> Store till cache  
  Den `cache-store` princip cachelagrar svar enligt de angivna cache-inställningarna. Den här principen kan tillämpas i fall där svarsinnehåll är statiskt under en viss tidsperiod. Cachelagring av svar minskar bandbredden och bearbetningskrav används på serverdelen web server och driftmiljön svarstiden uppfattas av API-kunderna.  
@@ -159,7 +159,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Exempel med hjälp av principuttryck  
- Det här exemplet visar hur du konfigurerar API Management svar lagringstiden som matchar svar cachelagring av backend-tjänsten som anges av tjänsten säkerhetskopierade `Cache-Control` direktiv. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 25:25.  
+ Det här exemplet visar hur du konfigurerar API Management svar lagringstiden som matchar svar cachelagring av backend-tjänsten som anges av tjänsten säkerhetskopierade `Cache-Control` direktiv. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: Fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 25:25.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -197,7 +197,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** utgående    
--   **Princip-scope:** API, åtgärden, produkt  
+-   **Princip för omfång:** API: et, åtgärden, produkt  
   
 ##  <a name="GetFromCacheByKey"></a> Hämta värdet från cachen  
  Använd den `cache-lookup-value` princip för att utföra cache-sökning av nyckeln och returnera ett cachelagrade värde. Nyckeln kan ha en godtycklig sträng-värde och anges vanligtvis med en principuttryck.  

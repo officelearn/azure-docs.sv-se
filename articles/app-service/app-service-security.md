@@ -1,5 +1,5 @@
 ---
-title: Säkerhet i Azure App Service och Azure Functions | Microsoft Docs
+title: Översikt över säkerhet – Azure App Service | Microsoft Docs
 description: Läs mer om hur Apptjänst hjälper att säkra din app och hur du kan ytterligare låsa appen från hot.
 keywords: Azure apptjänst, webbapp, mobilapp, api-app, funktionsapp, säkerhet, säker och skyddad, efterlevnad, kompatibla, certifikat, certifikat, https, ftps tls, förtroende, kryptering, kryptera, krypterad ip-begränsning, autentisering, auktorisering, authn, autho, msi, hanterad tjänstidentitet, hanterad identitet, hemligheter, hemlighet, korrigering, uppdatering, korrigeringar, version, isolering, isolering av nätverk, ddos, mitm
 services: app-service
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18
+ms.openlocfilehash: 7c2297fa5f7ebaae1c54794ebbbd37e25d3931ca
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857507"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251478"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Säkerhet i Azure App Service och Azure Functions
 

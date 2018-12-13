@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 4df7975d4d52e00cce7b57c6f207eb6cb9ea3be3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847906"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310529"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Konfigurera haveriberedskap för en distribution av flera nivåer Citrix XenApp och XenDesktop
 
@@ -131,16 +131,16 @@ En återställning planera grupper tillsammans virtuella datorer med liknande kr
 1. Lägg till XenApp komponenten virtuella datorer i Recovery Plan.
 2. Klicka på Återställningsplaner -> + Återställningsplanen. Ange en intuitiv namn för återställningsplanen.
 3. För virtuella VMware-datorer: Välj källa som VMware processervern, mål som Microsoft Azure och distributionsmodell som Resource Manager och klicka på Välj objekt.
-4. För Hyper-V-datorer: Välj källa som VMM-servern, rikta som Microsoft Azure och som Resource Manager-distributionsmodellen och klicka på Välj objekt och välj sedan XenApp distributionen virtuella datorer.
+4. För Hyper-V-datorer: Välj källa som VMM-servern, mål som Microsoft Azure och som Resource Manager-distributionsmodellen och klicka på Välj objekt och välj sedan XenApp distributionen virtuella datorer.
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>Lägga till virtuella datorer i grupper för växling vid fel
 
 Återställningsplaner kan anpassas för att lägga till redundansgrupper för specifika startordningen, skript och manuella åtgärder. Följande grupper måste läggas till i återställningsplanen.
 
 1. Redundans Group1: AD DNS
-2. Redundans Grupp2: SQL Server-datorer
+2. Redundans Grupp2: Virtuella SQL Server-datorer
 2. Redundans Group3: VDA Master bild VM
-3. Failover Group4: Delivery Controller och StoreFront server-datorer
+3. Redundans grupp4: Domänkontrollant och StoreFront server-datorer
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Lägga till skript i en återställningsplan
@@ -150,15 +150,16 @@ Skript kan köras före eller efter en viss grupp i en återställningsplan. Man
 Anpassade återställningsplanen ser ut som den nedan:
 
 1. Redundans Group1: AD DNS
-2. Redundans Grupp2: SQL Server-datorer
+2. Redundans Grupp2: Virtuella SQL Server-datorer
 3. Redundans Group3: VDA Master bild VM
 
    >[!NOTE]     
    >Steg 4, 6 och 7 som innehåller instruktioner för manuell eller skript som kan användas för endast en lokal XenApp > miljö med MCS/PVS kataloger.
 
-4. Grupp 3 manuell eller skript åtgärd: Stäng VDA VM The Master VDA Virtuella huvuddatorn vid redundansväxling till Azure kommer att finnas i ett fungerande tillstånd. Om du vill skapa den nya MCS kataloger med Azure som är värd för master VDA VM måste vara stoppad (de allokerade) tillstånd. Stäng av den virtuella datorn från Azure-portalen.
+4. Grupp 3 manuell eller skript åtgärd: Stänga av master VDA VM.
+Master VDA VM vid redundansväxling till Azure kommer att körs. Om du vill skapa den nya MCS kataloger med Azure som är värd för master VDA VM måste vara stoppad (de allokerade) tillstånd. Stäng av den virtuella datorn från Azure-portalen.
 
-5. Failover Group4: Delivery Controller och StoreFront server-datorer
+5. Redundans grupp4: Domänkontrollant och StoreFront server-datorer
 6. Group3 manuell eller skript åtgärd 1:
 
     ***Lägg till Azure RM-värd-anslutning***

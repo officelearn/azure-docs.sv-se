@@ -4,21 +4,20 @@ description: Utskrivbara machine learning-algoritmfacit hjälper dig att välja 
 keywords: algoritmfacit, facit, machine learning-algoritm
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 307a2d442fc8cf82630b111b6ea73e180c740c64
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 7ddc3a9829dc05ac1c1df450091789e4cad2b2f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307427"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274521"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-algoritmfacit för Azure Machine Learning Studio
 
@@ -26,9 +25,9 @@ Den **Azure Machine Learning-algoritm facit blad** hjälper dig att välja rätt
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) har ett stort bibliotek med algoritmer från den ***regression***, ***klassificering***, ***klustring***, och  ***avvikelseidentifiering*** familjer. Varje är utformad för att åtgärda en annan typ av problem med machine learning.
 
-## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Hämtning: Machine learning-algoritmfacit
+## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Ladda ned: Machine learning-algoritmfacit
 
-**Ladda ned här facit: [Machine Learning-algoritm facit blad (11 x 17 tum)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+**Hämta facit här: [Machine Learning-Algoritmfacit (11 x 17 tum)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
 ![Machine learning-algoritmfacit: Lär dig hur du väljer en Machine Learning-algoritm.][cheat-sheet]
 
@@ -43,7 +42,7 @@ Ladda ned och skriva Machine Learning Studio algoritmen facit ut i tabloidformat
 
 * Förslag erbjuds i den här algoritmfacit är ungefärliga regler för USB. Vissa kan böjda och vissa kan ha brutits flagrantly. Detta är avsett att föreslå en startpunkt. Inte rädd för att köra en jämförelse konkurrensen mellan flera algoritmer för dina data. Det är bara ingen ersättning för att förstå principerna för varje algoritm och förstå system som genererats av dina data.
 
-* Varje maskininlärningsalgoritmen har sin egen style eller *induktiv bias*. Flera algoritmer kan vara lämpligt för ett specifikt program och en algoritm kan vara ett bättre alternativ än andra. Men det går inte alltid på förhand känna till som passar bäst. I sådana fall visas flera algoritmer tillsammans i facit. En lämplig strategi är att prova en algoritm och om resultatet inte är ännu tillfredsställande, kan du prova de andra. Här är ett exempel från den [Azure AI-galleriet](http://gallery.azure.ai/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [jämföra flera klassificerare: enhetsbokstaven för](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+* Varje maskininlärningsalgoritmen har sin egen style eller *induktiv bias*. Flera algoritmer kan vara lämpligt för ett specifikt program och en algoritm kan vara ett bättre alternativ än andra. Men det går inte alltid på förhand känna till som passar bäst. I sådana fall visas flera algoritmer tillsammans i facit. En lämplig strategi är att prova en algoritm och om resultatet inte är ännu tillfredsställande, kan du prova de andra. Här är ett exempel från den [Azure AI-galleriet](http://gallery.azure.ai/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [Jämför flera klassificerare: Enhetsbokstaven för](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 * Det finns tre huvudkategorier av machine learning: **övervakad inlärning**, **oövervakad inlärning**, och **förstärkande inlärning**.
 
@@ -73,7 +72,7 @@ Ladda ned och skriva Machine Learning Studio algoritmen facit ut i tabloidformat
 
 * Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <!-- Module References -->
 [a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list

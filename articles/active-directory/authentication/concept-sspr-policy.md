@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321741"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191000"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver lösenordsprinciper och krav på komplexitet som är
 
 Med en princip för två gate **administratörer inte har möjlighet att använda säkerhetsfrågor**.
 
-En två-gate-princip kräver två typer av autentiseringsdata, till exempel en e-postadress *och* ett telefonnummer. En två-gate-princip tillämpas under följande omständigheter:
+Två gate-principen kräver två typer av autentiseringsdata, till exempel en **e-postadress**, **autentiseringsapp**, eller en **telefonnummer**. En två-gate-princip tillämpas under följande omständigheter:
 
 * Alla följande Azure-administratörsroller som påverkas:
   * Supportavdelningsadministratör
@@ -80,7 +80,7 @@ I följande tabell beskrivs de tillgängliga lösenordsprincip som kan tillämpa
 | --- | --- |
 | Tecken som tillåts |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | Tecken som tillåts inte |<ul><li>Unicode-tecken.</li><li>Blanksteg.</li><li> Starka lösenord</li></ul> |
-| Begränsningar för lösenord |<ul><li>Minst 8 tecken och högst 16 tecken.</li><li>Starka lösenord: kräver tre av fyra av följande:<ul><li>Gemener.</li><li>Versaler.</li><li>Siffror (0-9).</li><li>Symboler (se föregående begränsningar för lösenord).</li></ul></li></ul> |
+| Begränsningar för lösenord |<ul><li>Minst 8 tecken och högst 16 tecken.</li><li>Starka lösenord: Kräver tre av fyra av följande:<ul><li>Gemener.</li><li>Versaler.</li><li>Siffror (0-9).</li><li>Symboler (se föregående begränsningar för lösenord).</li></ul></li></ul> |
 | Lösenordet upphör att gälla varaktighet |<ul><li>Standardvärde: **90** dagar.</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet från Azure Active Directory-modulen för Windows PowerShell.</li></ul> |
 | Förfallodatum lösenordsmeddelande |<ul><li>Standardvärde: **14** dagar (tills lösenordet upphör att gälla).</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Lösenordet förfaller |<ul><li>Standardvärde: **FALSKT** dagar (anger att lösenordet förfaller är aktiverad).</li><li>Värdet kan konfigureras för enskilda användarkonton med hjälp av den `Set-MsolUser` cmdlet.</li></ul> |

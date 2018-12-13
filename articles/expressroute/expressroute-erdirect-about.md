@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 2310f007697cf1acbdbc907d4562853a2717eb5d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2f984eb8cb09e5d65c4a366b827f695c739003f3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097132"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163835"
 ---
 # <a name="about-expressroute-direct-preview"></a>Dirigera om ExpressRoute (förhandsversion)
 
-ExpressRoute Direct ger dig den möjligheten att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. ExpressRoute Direct innehåller dubbla 100 Gbit/s-anslutningar som har stöd för aktiv/aktiv-anslutningar i stor skala.
+ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. ExpressRoute Direct innehåller dubbla 100 Gbit/s-anslutningar som har stöd för aktiv/aktiv-anslutningar i stor skala.
 
 Viktiga funktioner som tillhandahåller ExpressRoute Direct inkludera, men inte begränsat till:
 
 * Stora datainmatningar till tjänster som Storage och Cosmos DB
-* Fysisk isolering för branscher som regleras och kräver särskilda och isoleras anslutning som: Bank, myndigheter och detaljhandel
+* Fysisk isolering för branscher som regleras och kräver dedikerade och isolerad anslutning som: Bank och Government detaljhandel
 * Detaljerad kontroll över kretsfördelning utifrån affärsenheter
 
 > [!IMPORTANT]

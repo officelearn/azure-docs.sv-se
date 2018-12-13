@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7819ed3e18092e8b7bdf52225e7025b4b6d8146a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: c0f384dafc4ba30eb3e735ee17ae051245378135
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981890"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254997"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Inlösning av inbjudan Azure Active Directory B2B-samarbete
 
@@ -26,7 +26,7 @@ Du kan bjuda in gästanvändare rätt att komma åt delade appar för att samarb
 
 ## <a name="redemption-through-a-direct-link"></a>Inlösen via en direktlänk
 
-En gästinbjudare kan bjuda in gästanvändare genom att skicka ut en direktlänk till en delad app. Inlösen upplevelsen är lika enkelt som att logga in på den app som har delats med dem för gästanvändaren. De kan klicka på en länk till appen, granska och Godkänn sekretesspolicyn och sedan få smidig åtkomst till appen. I de flesta fall behöver gästanvändare längre klickar du på en inlösen URL i en e-postinbjudan.
+En gästinbjudare kan bjuda in gästanvändare genom att skicka en [direktlänk till en delad app](../manage-apps/end-user-experiences.md#direct-sign-on-links). Inlösen upplevelsen är lika enkelt som att logga in på den app som har delats med dem för gästanvändaren. De kan klicka på en länk till appen, granska och Godkänn sekretesspolicyn och sedan få smidig åtkomst till appen. I de flesta fall behöver gästanvändare längre klickar du på en inlösen URL i en e-postinbjudan.
 
 Om du har bjudit in gästanvändare via användargränssnittet eller väljer att skicka e-postinbjudan som en del av PowerShell inbjudan upplevelse, får inbjudna användaren fortfarande ett e-postinbjudan. Det här meddelandet är användbart i följande specialfall:
 
@@ -51,7 +51,7 @@ När alla gästanvändare loggar in till resurser i en partnerorganisation för 
 
 ![Skärmbild som visar användarinställningar i åtkomstpanelen](media/redemption-experience/ConsentScreen.png) 
 
-Information om hur du som en Innehavaradministratör kan länka till din organisations sekretesspolicy finns [instruktioner: Lägg till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement).
+Information om hur du som en Innehavaradministratör kan länka till din organisations sekretesspolicy finns [anvisningar: Lägg till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 1e52f199847b9e03eb31da71f1f0577df92d2b51
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230418"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162995"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Använda Queue Storage från Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -47,9 +47,9 @@ pip install azure-storage-queue
 > 
 > 
 
-Alternativa installationsmetoder, finns det [Azure Storage SDK för Python på Github](https://github.com/Azure/azure-storage-python/).
+Alternativa installationsmetoder, finns det [Azure Storage SDK för Python på GitHub](https://github.com/Azure/azure-storage-python/).
 
-## <a name="how-to-create-a-queue"></a>Så här: Skapa en kö
+## <a name="how-to-create-a-queue"></a>Hur: Skapa en kö
 Den **QueueService** objekt kan du arbeta med köer. Följande kod skapar en **QueueService** objekt. Lägg till följande längst upp i valfri Python-fil som du vill komma åt Azure Storage via programmering:
 
 ```python
@@ -64,14 +64,14 @@ queue_service = QueueService(account_name='myaccount', account_key='mykey')
 queue_service.create_queue('taskqueue')
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Så här: Infoga ett meddelande i en kö
+## <a name="how-to-insert-a-message-into-a-queue"></a>Hur: Infoga ett meddelande i en kö
 Om du vill infoga ett meddelande i en kö, använda den **placera\_meddelande** metod för att skapa ett nytt meddelande och lägga till den i kön.
 
 ```python
 queue_service.put_message('taskqueue', u'Hello World')
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Så här: En titt på nästa meddelande
+## <a name="how-to-peek-at-the-next-message"></a>Hur: En titt på nästa meddelande
 Du kan kika på meddelandet först i en kö utan att ta bort det från kön genom att anropa den **peek\_meddelanden** metod. Som standard **peek\_meddelanden** peeks på ett enda meddelande.
 
 ```python
@@ -80,7 +80,7 @@ for message in messages:
     print(message.content)
 ```
 
-## <a name="how-to-dequeue-messages"></a>Så här: Ta bort från kön meddelanden
+## <a name="how-to-dequeue-messages"></a>Hur: Ut meddelanden ur kön
 Koden tar bort ett meddelande från en kö i två steg. När du anropar **hämta\_meddelanden**, du får nästa meddelande i en kö som standard. Ett meddelande som returneras från **hämta\_meddelanden** blir osynligt för andra kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. Om du vill slutföra borttagningen av meddelandet från kön, måste du även anropa **ta bort\_meddelande**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att när din kod inte kan bearbeta ett meddelande på grund av maskin- eller programvarufel, kan en annan instans av koden hämta samma meddelande och försök igen. Koden anropar **ta bort\_meddelande** direkt efter att meddelandet har bearbetats.
 
 ```python
@@ -100,7 +100,7 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)        
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Så här: Ändra innehållet i ett meddelande i kön
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Hur: Ändra innehållet i ett meddelande i kön
 Du kan ändra innehållet i ett meddelande direkt i kön. Om meddelandet representerar en arbetsuppgift kan du använda den här funktionen för att uppdatera arbetsuppgiftens status. Koden nedan används den **uppdatera\_meddelande** metod för att uppdatera ett meddelande. Synlighet timeout-värdet har angetts till 0, vilket innebär att ett meddelande som visas omedelbart och innehållet uppdateras.
 
 ```python
@@ -109,7 +109,7 @@ for message in messages:
     queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Så här: Hämta kölängden
+## <a name="how-to-get-the-queue-length"></a>Hur: Hämta kölängden
 Du kan hämta en uppskattning av antalet meddelanden i en kö. Den **hämta\_kö\_metadata** metoden ber kötjänsten att returnera metadata om kön och **approximate_message_count**. Resultatet är ungefärliga eftersom meddelanden kan läggas till eller tas bort efter kötjänsten svarar på din begäran.
 
 ```python
@@ -117,7 +117,7 @@ metadata = queue_service.get_queue_metadata('taskqueue')
 count = metadata.approximate_message_count
 ```
 
-## <a name="how-to-delete-a-queue"></a>Så här: Ta bort en kö
+## <a name="how-to-delete-a-queue"></a>Hur: Ta bort en kö
 Ta bort en kö och alla meddelanden som finns i den genom att anropa den **ta bort\_kö** metod.
 
 ```python

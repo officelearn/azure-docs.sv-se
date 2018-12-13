@@ -1,5 +1,5 @@
 ---
-title: Använda Azure App Service environment
+title: Använda App Service - miljö i Azure
 description: Skapa, publicera och skala appar i Azure App Service environment
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 5f2959183e1741c8e37db92ede249d83bb3d53a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964704"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274725"
 ---
 # <a name="use-an-app-service-environment"></a>Använda en App Service environment #
 
@@ -26,10 +27,10 @@ ms.locfileid: "52964704"
 
 Azure App Service Environment är en distribution av Azure App Service i ett undernät i kundens Azure-nätverk. Det består av:
 
-- **Klientdelens ends**: frontend-datorer är där HTTP/HTTPS avslutas i en App Service environment (ASE).
-- **Arbetare**: arbetarna är de resurser som är värdar för dina appar.
-- **Databasen**: databasen innehåller information som definierar miljön.
-- **Storage**: lagringen används som värd för apparna som publicerats av kunden.
+- **Klientdelens ends**: Frontend-datorer är där HTTP/HTTPS avslutas i en App Service environment (ASE).
+- **Arbetare**: Arbetare är de resurser som är värdar för dina appar.
+- **Databasen**: Databasen innehåller information som definierar miljön.
+- **Storage**: Lagringen används som värd för apparna som publicerats av kunden.
 
 > [!NOTE]
 > Det finns två versioner av App Service Environment: ASEv1 och ASEv2. Du måste hantera resurserna innan du kan använda dem i ASEv1. Information om hur du konfigurerar och hanterar ASEv1 finns [konfigurera en App Service environment v1][ConfigureASEv1]. Resten av den här artikeln fokuserar på ASEv2.
@@ -51,7 +52,7 @@ Skapa en webbapp i en ASE:
 
 1. Välj **skapa en resurs** > **webb + mobilt** > **Webbapp**.
 
-1. Ange ett namn för webbappen. Om du redan har valt en App Service-plan i en ASE visar domännamnet för appen domännamnet för ASE.
+2. Ange ett namn för webbappen. Om du redan har valt en App Service-plan i en ASE visar domännamnet för appen domännamnet för ASE.
 
     ![Val av nätverksnamn för Web app][1]
 
@@ -70,7 +71,7 @@ Skapa en webbapp i en ASE:
 
     b. Ange namn för din App Service-plan.
 
-    c. Välj din ASE i den **plats** listrutan. Som är värd för en Linux-app i en ASE är endast aktiverad i 6 regioner för tillfället: **västra USA, östra USA, Västeuropa, Nordeuropa, östra, Asien, sydöstra.** 
+    c. Välj din ASE i den **plats** listrutan. Som är värd för en Linux-app i en ASE är endast aktiverad i 6 regioner för tillfället: **Västra USA, östra USA, västra Europa, Norra Europa, östra Asien, sydöstra.** 
 
     d. Välj en **isolerad** prisnivå. Välj **Välj**.
 

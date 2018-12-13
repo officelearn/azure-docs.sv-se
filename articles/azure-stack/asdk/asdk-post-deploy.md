@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e099240d3f8670032ff2d6c0fad295c5f14f6e70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cfc191830ddadbbe3258fc1b61fcd4bcc45fdd8c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969370"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186760"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Publicera konfigurationsuppgifter för ASDK installation
 
-Efter [installerar Azure Stack Development Kit (ASDK)](asdk-install.md), behöver du ändra en vissa rekommenderade konfiguration efter installationen.
+Efter [installerar Azure Stack Development Kit (ASDK)](asdk-install.md), behöver du ändra en vissa rekommenderade konfiguration efter installationen när du är inloggad som AzureStack\AzureStackAdmin på värddatorn ASDK. 
 
 ## <a name="install-azure-stack-powershell"></a>Installera Azure Stack PowerShell
 

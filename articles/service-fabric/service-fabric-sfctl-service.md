@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 84c2faaf137e19d78e7e17527feb50baebf8041b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dbe234b3c6aaeed90f0b95e5118c1ff2f9e2bb24
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494582"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276884"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Skapa, ta bort och hantera tjänsten, tjänsttyper och paket.
@@ -36,7 +36,7 @@ Skapa, ta bort och hantera tjänsten, tjänsttyper och paket.
 | distribuerat-type-list | Hämtar listan som innehåller information om tjänsttyper från program som har distribuerats på en nod i ett Service Fabric-kluster. |
 | beskrivning | Hämtar en beskrivning av en befintlig Service Fabric-tjänst. |
 | Hämta behållarloggar | Hämtar behållarloggarna för behållare som distribueras på en Service Fabric-nod. |
-| hälsotillstånd | Hämtar hälsotillståndet för den angivna Service Fabric-tjänsten. |
+| hälsa | Hämtar hälsotillståndet för den angivna Service Fabric-tjänsten. |
 | info | Hämtar information om den tjänst som hör till Service Fabric-program. |
 | lista | Hämtar information om alla tjänster som hör till programmet som anges av program-ID. |
 | Manifest | Hämtar manifestet som beskriver en typ av tjänst. |
@@ -57,14 +57,14 @@ Hämtar namnet på programmet för den angivna tjänsten. Ett 404 FABRIC_E_SERVI
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --service-id [krävs] | Identiteten för tjänsten. Detta ID är vanligtvis det fullständiga namnet på tjänsten utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om namnet på tjänsten är till exempel ”fabric\:/myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp\~app1\~svc1” i 6.0 + och ”myapp/app1/svc1” i tidigare versioner. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -79,7 +79,7 @@ Hämtar listan över kodpaket som distribuerats på en Service Fabric-nod för d
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-id [krävs] | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --Nodnamnet [krävs] | Namnet på noden. |
@@ -89,7 +89,7 @@ Hämtar listan över kodpaket som distribuerats på en Service Fabric-nod för d
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -102,7 +102,7 @@ Skapar den angivna Service Fabric-tjänsten.
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | [krävs] – app-id | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den '\~' tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1 ', programidentiteten skulle vara” myapp\~app1' i 6.0 + och ”myapp/app1' i tidigare versioner. |
 | --name [krävs] | Namnet på tjänsten. Det bör vara en underordnad till program-id. Fullständiga namnet, inklusive den `fabric\:` URI. Till exempel tjänsten `fabric\:/A/B` är underordnad programmet `fabric\:/A`. |
@@ -114,7 +114,7 @@ Skapar den angivna Service Fabric-tjänsten.
 | --dns-name | DNS-namnet på tjänsten som ska skapas. Service Fabric DNS system-tjänsten måste aktiveras för den här inställningen. |
 | – antal instanser | Instansantalet. Detta gäller för tillståndslösa tjänster. |
 | – int-schema | Anger tjänsten bör partitioneras enhetligt över flera olika osignerade heltal. |
-| – int-schema-count | Antalet partitioner i viktiga heltalsintervall att skapa, om du använder en enhetlig heltal partitionsschema. |
+| – int-schema-count | Antalet partitioner i viktiga heltalsintervall att skapa, om du använder ett partitionsschema uniform heltal. |
 | – int-schema-hög | Slutet av viktiga heltalsintervall om du använder en enhetlig heltal partitionsschema. |
 | – int och schema-låg | Början på viktiga heltalsintervall om du använder en enhetlig heltal partitionsschema. |
 | – Läs in mått | JSON-kodad lista över mått som används när Utjämning av nätverksbelastning services mellan noder. |
@@ -136,7 +136,7 @@ Skapar den angivna Service Fabric-tjänsten.
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -151,7 +151,7 @@ En tjänst måste skapas innan den kan tas bort. Som standard försöker Service
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --service-id [krävs] | Identiteten för tjänsten. Detta ID är vanligtvis det fullständiga namnet på tjänsten utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om namnet på tjänsten är till exempel ”fabric\:/myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp\~app1\~svc1” i 6.0 + och ”myapp/app1/svc1” i tidigare versioner. |
 | – force-ta bort | Ta bort en Service Fabric-program eller tjänst kernelpaketet utan att gå igenom de avslutning. Den här parametern kan användas för att kernelpaketet ta bort ett program eller tjänst för vilka borttagning är avbryts på grund av problem i den kod som förhindrar korrekt slutet av repliker. |
@@ -159,7 +159,7 @@ En tjänst måste skapas innan den kan tas bort. Som standard försöker Service
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -174,7 +174,7 @@ Hämtar listan som innehåller information om en specifik tjänsttyp från progr
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-id [krävs] | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --Nodnamnet [krävs] | Namnet på noden. |
@@ -184,7 +184,7 @@ Hämtar listan som innehåller information om en specifik tjänsttyp från progr
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -199,7 +199,7 @@ Hämtar listan som innehåller information om tjänsttyper från program som har
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-id [krävs] | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --Nodnamnet [krävs] | Namnet på noden. |
@@ -208,7 +208,7 @@ Hämtar listan som innehåller information om tjänsttyper från program som har
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -223,14 +223,14 @@ Hämtar en beskrivning av en befintlig Service Fabric-tjänst. En tjänst måste
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --service-id [krävs] | Identiteten för tjänsten. Detta ID är vanligtvis det fullständiga namnet på tjänsten utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om namnet på tjänsten är till exempel ”fabric\:/myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp\~app1\~svc1” i 6.0 + och ”myapp/app1/svc1” i tidigare versioner. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -245,7 +245,7 @@ Hämtar behållarloggarna för behållare som har distribuerats på en Service F
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-id [krävs] | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --code-package-name [krävs] | Namnet på kodpaketet som anges i tjänstmanifestet registrerad som en del av en typ av program i ett Service Fabric-kluster. |
@@ -257,7 +257,7 @@ Hämtar behållarloggarna för behållare som har distribuerats på en Service F
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -272,7 +272,7 @@ Hämtar hälsoinformation om den angivna tjänsten. Använd EventsHealthStateFil
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --service-id [krävs] | Identiteten för tjänsten. Detta ID är vanligtvis det fullständiga namnet på tjänsten utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om namnet på tjänsten är till exempel ”fabric\:/myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp\~app1\~svc1” i 6.0 + och ”myapp/app1/svc1” i tidigare versioner. |
 | --events-health-state-filter | Tillåter filtrering objektsamlingen HealthEvent returnerade baseras på hälsotillståndet. De möjliga värdena för den här parametern innehåller heltalsvärdet för något av följande hälsotillstånd. Händelser som matchar filtret returneras. Alla händelser som används för att analysera sammanställda hälsotillståndet. Om inte anges returneras alla poster. Värdena är uppräkning med flaggan så värdet kan vara en kombination av dessa värden som hämtats med hjälp av en Bitvis ”OR”-operator. Till exempel om det angivna värdet är 6 returneras alla händelser med HealthState värdet OK (2) och varning (4).  <br> -Standard - standardvärde. Matchar alla HealthState. Värdet är noll.  <br> -Ingen - Filter som inte matchar något värde för HealthState. Använda så att inga resultat returneras på en viss samling av tillstånd. Värdet är 1.  <br> -Filtrera ok - att matchningar indata med HealthState värde Ok. Värdet är 2.  <br> -Varning - Filter som matchar med HealthState indatavärdet varning. Värdet är 4.  <br> -Fel Filter som matchar indata med HealthState värdet fel. Värdet är 8.  <br> -Alla - Filter som matchar indata med ett HealthState-värde. Värdet är 65535. |
@@ -282,7 +282,7 @@ Hämtar hälsoinformation om den angivna tjänsten. Använd EventsHealthStateFil
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -297,7 +297,7 @@ Returnerar information om den angivna tjänsten som hör till det angivna Servic
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-id [krävs] | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --service-id [krävs] | Identiteten för tjänsten. Detta ID är vanligtvis det fullständiga namnet på tjänsten utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om namnet på tjänsten är till exempel ”fabric\:/myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp\~app1\~svc1” i 6.0 + och ”myapp/app1/svc1” i tidigare versioner. |
@@ -305,7 +305,7 @@ Returnerar information om den angivna tjänsten som hör till det angivna Servic
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -320,7 +320,7 @@ Returnerar information om alla tjänster som hör till programmet som anges av p
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-id [krävs] | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --fortsättningstoken | Fortsättningstoken parameter-token som används för att hämta nästa uppsättning resultat. Ett fortsättningstoken med en icke-tomma värden inkluderas i svaret på API: et när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anropet API: et Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, innehåller ett värde inte i fortsättningstoken. Värdet för den här parametern får inte vara URL-kodas. |
@@ -329,7 +329,7 @@ Returnerar information om alla tjänster som hör till programmet som anges av p
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -344,7 +344,7 @@ Hämtar manifestet som beskriver en typ av tjänst. Svaret innehåller tjänstma
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-typnamn [krävs] | Namnet på vilken typ av program. |
 | –--version av programtyp [krävs] | Versionen av programtypen. |
@@ -353,7 +353,7 @@ Hämtar manifestet som beskriver en typ av tjänst. Svaret innehåller tjänstma
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -366,7 +366,7 @@ Laddar ned paket som är associerade med angivna tjänstmanifestet till image ca
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --app-typnamn [krävs] | Namnet på programmanifestet för motsvarande begärda tjänstmanifestet. |
 | --app-typ-version [krävs] | Versionen av manifestet för motsvarande begärda tjänstmanifestet. |
@@ -377,7 +377,7 @@ Laddar ned paket som är associerade med angivna tjänstmanifestet till image ca
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -392,7 +392,7 @@ Hämtar information om hälsotillståndet i ett abonnemang för ett visst progra
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-id [krävs] | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --Nodnamnet [krävs] | Namnet på noden. |
@@ -402,7 +402,7 @@ Hämtar information om hälsotillståndet i ett abonnemang för ett visst progra
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -417,7 +417,7 @@ Returnerar information om tjänstpaket som distribuerats på en Service Fabric-n
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-id [krävs] | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --Nodnamnet [krävs] | Namnet på noden. |
@@ -426,7 +426,7 @@ Returnerar information om tjänstpaket som distribuerats på en Service Fabric-n
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -441,7 +441,7 @@ Returnerar information om tjänstpaket som distribuerats på en Service Fabric-n
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-id [krävs] | Identiteten för programmet. Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
 | --Nodnamnet [krävs] | Namnet på noden. |
@@ -449,7 +449,7 @@ Returnerar information om tjänstpaket som distribuerats på en Service Fabric-n
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -464,14 +464,14 @@ Anger att den ska försöka återställa den angivna tjänsten som för närvara
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --service-id [krävs] | Identiteten för tjänsten. Detta ID är vanligtvis det fullständiga namnet på tjänsten utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om namnet på tjänsten är till exempel ”fabric\:/myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp\~app1\~svc1” i 6.0 + och ”myapp/app1/svc1” i tidigare versioner. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -486,12 +486,12 @@ Rapporterar hälsotillståndet för den angivna Service Fabric-tjänsten. Rappor
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --health-egenskapen [krävs] | Egenskapen för hälsoinformation. <br><br> En entitet kan ha rapporter om hälsotillstånd för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkningen för att tillåta rapport flexibiliteten att kategorisera tillstånd-villkor som utlöser rapporten. En rapport med SourceId ”LocalWatchdog” kan till exempel övervaka status för tillgängliga disken på en nod, så att den kan rapportera ”AvailableDisk”-egenskap på noden. Samma rapport kan övervaka nod-anslutningen så att den kan rapportera en egenskap ”anslutning” på samma nod. Dessa rapporter behandlas i health store, som separata health-händelser för den angivna noden. Tillsammans med målentiteten identifierar egenskapen hälsoinformation. |
 | --hälsotillståndet [krävs] | Möjliga värden omfattar\: ”ogiltig”, ”Ok”, ”varning”, ”fel”, ”okänd”. |
 | --service-id [krävs] | Identiteten för tjänsten. <br><br> Detta är vanligtvis det fullständiga namnet på tjänsten utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den '\~' tecken. Om namnet på tjänsten är till exempel ”fabric\:/myapp/app1/svc1', tjänstidentiteten skulle vara” myapp\~app1\~svc1' i 6.0 + och ”myapp/app1/svc1' i tidigare versioner. |
-| --käll-id [krävs] | Källnamn som identifierar/klientsystemet/watchdog-komponenten som genererat hälsoinformation. |
+| --käll-id [krävs] | Källnamn som identifierar/klientsystemet/watchdog-komponenten som genererade hälsoinformation. |
 | – Beskrivning | Beskrivning av hälsoinformation. <br><br> Den motsvarar fritext som används för att lägga till mänskliga läsbar information om rapporten. Den maximala stränglängden för beskrivningen är 4 096 tecken. Om strängen inte trunkeras den automatiskt. När trunkeras, de sista tecknen i beskrivningen innehåller en markör ”[trunkerat]” och totala storleken på målsträngen är 4 096 tecken. Förekomst av markören anger för användare att trunkering inträffade. Observera att när trunkeras, beskrivningen har mindre än 4 096 tecken från den ursprungliga strängen. |
 | --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälsorapport skickas till en Service Fabric gateway programmet, som vidarebefordrar till health store. Om Immediate anges till SANT, skickas rapporten direkt från HTTP-Gateway till health store, oavsett inställningarna i fabric-klient som använder HTTP-Gateway-program. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tidpunkten och andra villkor misslyckas skicka rapporten fortfarande, till exempel om HTTP-Gateway är stängd eller meddelandet når inte gatewayen. Om Immediate är inställd på false, skickas rapporten baserat på klientinställningarna hälsotillstånd från HTTP-Gateway. Det kan därför batchhanteras enligt HealthReportSendInterval-konfigurationen. Det här är den rekommenderade inställningen eftersom den tillåter hälsotillstånd klienten att optimera reporting meddelanden hälsoarkivet, samt för bearbetning av hälsotillstånd. Som standard skickas rapporter inte omedelbart. |
 | – ta bort när-har upphört | Värde som anger om rapporten tas bort från health store när den upphör att gälla. <br><br> Om värdet är true, rapporten tas bort från health store när den upphör att gälla. Om värdet är FALSKT, rapporten behandlas som ett fel när den har upphört att gälla. Värdet för den här egenskapen är false som standard. När klienterna rapporterar regelbundet, ska de ange RemoveWhenExpired FALSKT (standard). På så sätt kan är personen har problem (t.ex. deadlock) och kan inte rapportera entiteten utvärderas vid fel när hälsorapporten upphör att gälla. Detta flaggar entiteten som ett felaktigt hälsotillstånd. |
@@ -501,7 +501,7 @@ Rapporterar hälsotillståndet för den angivna Service Fabric-tjänsten. Rappor
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -516,17 +516,17 @@ Lösa en partition med Service Fabric-tjänsten för att få slutpunkter av tjä
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --service-id [krävs] | Identiteten för tjänsten. Detta ID är vanligtvis det fullständiga namnet på tjänsten utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om namnet på tjänsten är till exempel ”fabric\:/myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp\~app1\~svc1” i 6.0 + och ”myapp/app1/svc1” i tidigare versioner. |
 | --partition-key-type | Nyckeltypen för partitionen. Den här parametern krävs om partitionsschema för tjänsten är Int64Range eller namn. Möjliga värden följande. -Ingen (1) – anger att parametern PartitionKeyValue inte har angetts. Det här är giltig för partitioner med partitioneringsschema som Singleton. Detta är standardvärdet. Värdet är 1. -Int64Range (2) – anger att parametern PartitionKeyValue är en int64 partitionsnyckel. Det här är giltig för partitioner med partitioneringsschema som Int64Range. Värdet är 2. -Namn (3) – anger att parametern PartitionKeyValue är ett namn på partitionen. Det här är giltig för partitioner med partitioneringsschema som namn. Värdet är 3. |
-| --partition-key-value | Partitionsnyckel. Detta krävs om partitionsschema för tjänsten är Int64Range eller namn. |
+| --partition-key-value | Partitionsnyckel. Detta krävs om partitionsschema för tjänsten är Int64Range eller namn. Detta är inte partitions-ID, men i stället antingen heltalet nyckeln värde eller namnet på partitions-ID. Till exempel om tjänsten använder intervallet partitioner från 0 till 10, skulle och PartitionKeyValue vara ett heltal i intervallet. Fråga tjänstbeskrivning för att se området eller namn. |
 | --previous-rsp-version | Värdet i fältet Version av ett svar som mottogs tidigare. Detta krävs om användaren känner att det resultat som har hämtat tidigare är inaktuella. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -541,7 +541,7 @@ Hämtar listan som innehåller information om typer av tjänster som stöds av e
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | – program-typnamn [krävs] | Namnet på vilken typ av program. |
 | –--version av programtyp [krävs] | Versionen av programtypen. |
@@ -549,7 +549,7 @@ Hämtar listan som innehåller information om typer av tjänster som stöds av e
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -562,7 +562,7 @@ Uppdaterar den angivna tjänsten med hjälp av en viss uppdatering beskrivning.
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --service-id [krävs] | Identiteten för tjänsten. Detta är vanligtvis det fullständiga namnet på tjänsten utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om namnet på tjänsten är till exempel ”fabric\:/myapp/app1/svc1', tjänstidentiteten skulle vara” myapp\~app1\~svc1' i 6.0 + och ”myapp/app1/svc1' i tidigare versioner. |
 | --begränsningar | Placeringen som en sträng. Placeringsbegränsningar är booleska uttryck på nodegenskaper och tillåter för att begränsa en tjänst till specifika noder baserat på kraven på tjänster. Till exempel för att placera en tjänst på noder där NodeType är blå anger du följande\: ”NodeColor == blå”. |
@@ -584,7 +584,7 @@ Uppdaterar den angivna tjänsten med hjälp av en viss uppdatering beskrivning.
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |

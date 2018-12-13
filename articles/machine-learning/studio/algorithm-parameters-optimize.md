@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -16,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: b0494a9da422b7c0effc14ff4188d3a5b20b8e9d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 57561c9841297b7ea2991bda1e94065a854597cd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081939"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269421"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Välj parametrar för att optimera algoritmerna i Azure Machine Learning Studio
 
 Det här avsnittet beskriver hur du väljer rätt finjustering för en algoritm i Azure Machine Learning. De flesta maskininlärningsalgoritmer har parametrar för att konfigurera. När du tränar en modell, måste du ange värden för dessa parametrar. Effekt av den tränade modellen beror på Modellparametrar som du väljer. Processen att hitta den optimala uppsättningen parametrar som kallas *modellera val av*.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Det finns olika sätt att modellera val. Korsvalidering är en av de mest använda metoderna för vald modell i machine learning, och det är standardmekanismen för modellen val i Azure Machine Learning. Eftersom Azure Machine Learning har stöd för både R och Python, kan du alltid implementera sina egna mekanismer för val av modellen genom att använda R eller Python.
 
 Det finns fyra steg håller på att hitta den bästa parameteruppsättningen:
 
-1. **Definiera parametern utrymme**: Algorithm, börja med att bestämma de exakta parametervärden som du vill överväga.
+1. **Definiera parametern utrymme**: Algoritmen, först bestämma de exakta parametervärden som du vill överväga.
 2. **Ange inställningar för korsvalidering**: Bestäm hur du väljer korsvalidering vikningar för datauppsättningen.
 3. **Definiera måttet**: Bestäm vilka mått som ska använda för att avgöra den bästa uppsättningen parametrar, till exempel noggrannhet, rot medelvärdet cirkels fel, precision, återkallande eller f-poäng.
-4. **Träna, utvärdera och jämföra**: för varje unik kombination av parametervärdena som utförs av korsvalidering och baserat på fel-mått som du definierar. Du kan välja modellen med bäst prestanda efter utvärderingen och jämförelse.
+4. **Träna, utvärdera och jämföra**: För varje unik kombination av parametervärdena som utförs av korsvalidering och baserat på fel-mått som du definierar. Du kan välja modellen med bäst prestanda efter utvärderingen och jämförelse.
 
 Följande bild illustrerar visar hur du kan göra detta i Azure Machine Learning.
 
 ![Hitta den bästa parameteruppsättningen](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>Definiera parametern-utrymme
-Du kan definiera parameteruppsättning modellen initieringen steget. Fönstret parametrar av algoritmexempel som alla har två lägen för trainer: *enda Parameter* och *intervallet för parametern*. Välj parametern intervallet läge. Du kan ange flera värden för varje parameter i intervallet för parametern-läge. Du kan ange kommaseparerade värden i textrutan.
+Du kan definiera parameteruppsättning modellen initieringen steget. Fönstret parametrar med alla maskininlärningsalgoritmer har två trainer lägen: *Enkel parametern* och *intervallet för parametern*. Välj parametern intervallet läge. Du kan ange flera värden för varje parameter i intervallet för parametern-läge. Du kan ange kommaseparerade värden i textrutan.
 
 ![Tvåklassförhöjt beslutsträd, enskild parameter](./media/algorithm-parameters-optimize/fig2.png)
 

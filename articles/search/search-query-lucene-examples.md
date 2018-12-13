@@ -1,5 +1,5 @@
 ---
-title: Exempel på Lucene-syntaxfråga för Azure Search | Microsoft Docs
+title: Exempel på Lucene-syntaxfråga – Azure Search
 description: Lucene-frågesyntax för fuzzy-sökning, närhetssökning, termförstärkning, sökning med reguljära uttryck och jokertecken i en Azure Search-tjänst.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: b5a3e2eac218ba2aa6958ffc56bd59f5b513cf48
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 0ce230bc6a926229ed383c828f83aafd60117471
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054770"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317168"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Exempel på Lucene-syntaxfråga för att skapa avancerade frågor i Azure Search
 När frågor för Azure Search, du kan ersätta standard [enklare frågeparsern](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) med mer omfattande [frågeparser (Lucene) i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) formulera specialiserade och avancerad fråga definitioner. 
@@ -129,7 +130,7 @@ Per [Lucene dokumentation](https://lucene.apache.org/core/4_10_2/queryparser/org
 > Fuzzy frågor är inte [analyseras](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Frågetyper med ofullständiga villkor (prefix fråga, jokerteckenfråga, regex-fråga, fuzzy-fråga) läggs till direkt i trädet fråga kringgår analysis-steg. Endast transformeringen utförs på ofullständig sökord platsargumentet.
 >
 
-## <a name="example-4-proximity-search"></a>Exempel 4: Närhetssökning
+## <a name="example-4-proximity-search"></a>Exempel 4: närhetssökning
 Närhet sökningar används för att hitta villkor som är nära varandra i ett dokument. Infoga en tilde ”~” tecken i slutet av en fras följt av antalet ord som skapar närhet gränsen. Till exempel hotell flygplats ”” ~ 5 hittar villkoren hotell och flygplats inom 5 ord från varandra i ett dokument.
 
 I den här frågan för jobb med termen ”senior analytiker” där den avgränsas med mer än ett ord:
@@ -145,7 +146,7 @@ Prova igen tar du bort ord mellan termen ”senior analytiker”. Observera att 
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~0
 ```
 
-## <a name="example-5-term-boosting"></a>Exempel 5: Termförstärkning
+## <a name="example-5-term-boosting"></a>Exempel 5: termförstärkning
 Termförstärkning avser rangordning ett dokument som är högre om den innehåller förbättrat termen, i förhållande till dokument som inte innehåller termen. Om du vill öka en term använder du cirkumflex ”^”, symbol med en faktor boost (ett tal) i slutet av perioden som du söker. 
 
 I den här frågan ”före” Sök efter jobb med termen *datorn analytiker* och Observera att det finns inga resultat med båda orden *datorn* och *analytiker*, ännu  *datorn* jobben är högst upp på resultaten.
@@ -187,7 +188,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 > Regex-frågor är inte [analyseras](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Endast transformeringen utförs på ofullständig sökord platsargumentet.
 >
 
-## <a name="example-7-wildcard-search"></a>Exempel 7: Sökning med jokertecken
+## <a name="example-7-wildcard-search"></a>Exempel 7: sökning med jokertecken
 Du kan använda allmänt erkända syntax för flera (\*) eller enstaka (?) tecken jokertecken. Observera den frågeparser (Lucene) stöder användning av dessa symboler med en enda term och inte en fras.
 
 Sök efter jobb som innehåller prefixet ”prog' som skulle inkludera rubriker för företag med villkor programming programmerare i den i den här frågan. Du kan inte använda en * eller? symbol som det första tecknet i en sökning.

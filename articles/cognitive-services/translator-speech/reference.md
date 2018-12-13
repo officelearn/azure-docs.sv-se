@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c7e14e2c2d6d38055304610c805a6bede10a6828
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679298"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259434"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -34,9 +34,9 @@ Translator Speech API utnyttjar WebSocket-protokoll för att tillhandahålla en 
 
 Använda prenumerationsnyckeln för att autentisera. Translator Speech API stöder två lägen för autentisering:
 
-* **Med hjälp av en åtkomsttoken:** i ditt program, hämta en åtkomsttoken från token-tjänsten. Använd din prenumerationsnyckel för Translator Speech API för att hämta en åtkomsttoken från Azure Cognitive Services Autentiseringstjänsten. Åtkomsttoken är giltig i 10 minuter. Skaffa en ny åtkomsttoken var tionde minut och fortsätt att använda samma åtkomst-token för upprepade begäranden inom dessa 10 minuter.
+* **Med hjälp av en åtkomst-token:** Hämta en åtkomsttoken från tjänsten token i ditt program. Använd din prenumerationsnyckel för Translator Speech API för att hämta en åtkomsttoken från Azure Cognitive Services Autentiseringstjänsten. Åtkomsttoken är giltig i 10 minuter. Skaffa en ny åtkomsttoken var tionde minut och fortsätt att använda samma åtkomst-token för upprepade begäranden inom dessa 10 minuter.
 
-* **Med hjälp av en prenumerationsnyckel direkt:** i ditt program skickar din prenumerationsnyckel som ett värde i `Ocp-Apim-Subscription-Key` rubrik.
+* **Med hjälp av en prenumerationsnyckel direkt:** I ditt program skickar din prenumerationsnyckel som ett värde i `Ocp-Apim-Subscription-Key` rubrik.
 
 Hantera din prenumerationsnyckel och åtkomst-token som hemligheter som ska vara dold från vyn.
 
@@ -49,7 +49,7 @@ Hantera din prenumerationsnyckel och åtkomst-token som hemligheter som ska vara
 ## <a name="5-process-the-results"></a>5. Bearbeta resultaten
 **Bearbeta resultaten strömmas tillbaka från tjänsten.** Formatet för ofullständiga resultat, slutliga resultaten och text till tal ljud segment beskrivs i dokumentationen för den `/speech/translate` åtgärden nedan.
 
-Kodexempel som demonstrerar användningen av Translator Speech API är tillgängliga från den [Microsoft Translator Github-webbplatsen](https://github.com/MicrosoftTranslator).
+Kodexempel som demonstrerar användningen av Translator Speech API är tillgängliga från den [Microsoft Translator GitHub-webbplatsen](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Implementeringsanteckningar
 
@@ -96,12 +96,12 @@ Translator Speech API returnerar avskriften och översättning av ljudströmmen 
 En slutlig tal igenkänningsresultatet genereras i slutet av ett uttryck. Resultatet skickas till klienten med hjälp av ett WebSocket-meddelande av typen Text från tjänsten. Meddelandeinnehåll är JSON-serialisering för ett objekt med följande egenskaper:
 
 * `type`: Strängkonstant att identifiera vilken typ av resultat. Värdet är slutgiltiga för slutliga resultaten.
-* `id`: Sträng identifierare som tilldelats att igenkänningsresultatet.
+* `id`: Strängidentifierare som tilldelats att igenkänningsresultatet.
 * `recognition`: Tolkade texten i en källspråket. Texten kan vara en tom sträng när det gäller ett falskt erkännande.
 * `translation`: Tolkade texten översättas på språket som mål.
-* `audioTimeOffset`: Tidsförskjutningen i början av taligenkänning i Tick (1 skalstreck = 100 nanosekunder). Förskjutningen är i förhållande till början av strömning.
+* `audioTimeOffset`: Förskjutning i början av taligenkänning i Tick (1 skalstreck = 100 nanosekunder). Förskjutningen är i förhållande till början av strömning.
 * `audioTimeSize`: Varaktighet i Tick (100 nanosekunder) erkännande.
-* `audioStreamPosition`: Byteförskjutning i början av erkännande. Förskjutningen är i förhållande till början av strömmen.
+* `audioStreamPosition`: Byte-förskjutningen i början av erkännande. Förskjutningen är i förhållande till början av strömmen.
 * `audioSizeBytes`: Storlek i byte för erkännande.
 
 Observera att placeringen av taligenkänning i ljudströmmen inte ingår i resultaten som standard. Den `TimingInfo` funktionen måste väljas av klienten (se `features` parametern).
@@ -127,12 +127,12 @@ Partiell eller mellanliggande tal igenkänningsresultat strömmas inte till klie
 En partiell resultatet skickas till klienten med hjälp av ett WebSocket-meddelande av typen Text från tjänsten. Meddelandeinnehåll är JSON-serialisering för ett objekt med följande egenskaper:
 
 * `type`: Strängkonstant att identifiera vilken typ av resultat. Värdet är delvis för ofullständiga resultat.
-* `id`: Sträng identifierare som tilldelats att igenkänningsresultatet.
+* `id`: Strängidentifierare som tilldelats att igenkänningsresultatet.
 * `recognition`: Tolkade texten i en källspråket.
 * `translation`: Tolkade texten översättas på språket som mål.
-* `audioTimeOffset`: Tidsförskjutningen i början av taligenkänning i Tick (1 skalstreck = 100 nanosekunder). Förskjutningen är i förhållande till början av strömning.
+* `audioTimeOffset`: Förskjutning i början av taligenkänning i Tick (1 skalstreck = 100 nanosekunder). Förskjutningen är i förhållande till början av strömning.
 * `audioTimeSize`: Varaktighet i Tick (100 nanosekunder) erkännande.
-* `audioStreamPosition`: Byteförskjutning i början av erkännande. Förskjutningen är i förhållande till början av strömmen.
+* `audioStreamPosition`: Byte-förskjutningen i början av erkännande. Förskjutningen är i förhållande till början av strömmen.
 * `audioSizeBytes`: Storlek i byte för erkännande.
 
 Observera att placeringen av taligenkänning i ljudströmmen inte ingår i resultaten som standard. Funktionen TimingInfo måste väljas av klienten (se funktioner parametern).
@@ -152,7 +152,7 @@ Ett exempel slutresultat är följande:
 }
 ```
 
-### <a name="text-to-speech"></a>Text-till-tal
+### <a name="text-to-speech"></a>Text till tal
 När funktionen text till tal är aktiverad (se `features` parametern nedan), ett slutresultat följs av ljudet från talat översatt text. Ljuddata chunked och skickas från tjänsten till klienten som en sekvens av Websocket-meddelanden av typen Binary. En klient kan identifiera slutet på strömmen genom att kontrollera FIN-bitars för varje meddelande. Det sista binära meddelandet har dess FIN bit inställd på en till slutet av dataströmmen. Formatet på dataströmmen är beroende av värdet för den `format` parametern.
 
 ### <a name="closing-the-connection"></a>Stänga anslutningen
@@ -160,7 +160,7 @@ När ett klientprogram har slutförts strömning av ljud och har tagit emot de s
 
 * `1003 - Invalid Message Type`: Servern avslutar anslutningen eftersom den inte kan acceptera den datatyp som togs emot. Detta händer ofta när inkommande ljud inte börjar med rätt rubrik.
 * `1000 - Normal closure`: Anslutningen har stängts när begäran har uppfyllts. Servern stänger anslutningen: när inga ljud tas emot från klienten under en längre tid. När tystnad strömmas under en längre tid. När en session når maximal varaktighet tillåtna (cirka 90 minuter).
-* `1001 - Endpoint Unavailable`: Anger att servern blir otillgänglig. Klientprogrammet kan försöka att återansluta med en gräns för antalet återförsök.
+* `1001 - Endpoint Unavailable`: Indikerar att servern blir otillgänglig. Klientprogrammet kan försöka att återansluta med en gräns för antalet återförsök.
 * `1011 - Internal Server Error`: Anslutningen kommer att stängas av servern på grund av ett fel på servern.
 
 ### <a name="parameters"></a>Parametrar
@@ -174,7 +174,7 @@ När ett klientprogram har slutförts strömning av ljud och har tagit emot de s
 |Röst|(tom)|Identifierar vilka röst för text till tal återgivningen av den översatta texten. Värdet är en röst-identifierare från text till tal-omfång i svaret från språk-API: et. Om en röst inte har angetts systemet kommer automatiskt väljer du en när text till tal-funktionen är aktiverad.|DocumentDB|sträng|
 |Format|(tom)|Anger formatet för text till tal ljudström som returnerats av tjänsten. De tillgängliga alternativen är:<ul><li>`audio/wav`: Ljudström i Wave. Klienten bör använda WAV-huvudet kan tolka ljudformatet. WAV-ljud för text till tal är 16-bitars, enskild kanal PCM med en samplingsfrekvensen av 24 eller 16kHz.</li><li>`audio/mp3`: MP3 ljudström.</li></ul>Standardvärdet är `audio/wav`.|DocumentDB|sträng|
 |ProfanityAction    |(tom)    |Anger hur tjänsten ska hantera profanities som identifieras i tal. Giltiga åtgärder är:<ul><li>`NoAction`: Profanities lämnas skick.</li><li>`Marked`: Profanities ersätts med en markör. Se `ProfanityMarker` parametern.</li><li>`Deleted`: Profanities tas bort. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a .".`</li></ul>Standardvärdet är markerat.|DocumentDB|sträng|
-|ProfanityMarker|(tom)    |Anger hur identifierade profanities hanteras när `ProfanityAction` är inställd på `Marked`. Giltiga alternativ är:<ul><li>`Asterisk`: Profanities ersätts med strängen `***`. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a ***.".`</li><li>`Tag`: Svordomar omges av svordomar XML-kod. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a <profanity>jackass</profanity>."`.</li></ul>Standardvärdet är `Asterisk`.|DocumentDB|sträng|
+|ProfanityMarker|(tom)    |Anger hur identifierade profanities hanteras när `ProfanityAction` är inställd på `Marked`. Giltiga alternativ är:<ul><li>`Asterisk`: Profanities ersätts med strängen `***`. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a ***.".`</li><li>`Tag`: Svordomar omges av ett olämpligt språk XML-kod. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a <profanity>jackass</profanity>."`.</li></ul>Standardvärdet är `Asterisk`.|DocumentDB|sträng|
 |Auktorisering|(tom)  |Anger värdet för klientens ägartoken. Använd prefixet `Bearer` följt av värdet för den `access_token` värdet som returneras av token authentication-tjänsten.|sidhuvud   |sträng|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om de `Authorization` huvud har inte angetts.|sidhuvud|sträng|
 |access_token|(tom)   |Alternativa sätt att skicka en giltig OAuth-åtkomsttoken. Ägartoken tillhandahålls vanligtvis med rubriken `Authorization`. Vissa websocket-bibliotek tillåter inte klientkod för att ange huvuden. I detta fall är klienten kan använda den `access_token` frågeparameter för att skicka en giltig token. När du använder en åtkomsttoken för autentisering, om `Authorization` huvud har inte angetts, sedan `access_token` måste anges. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern. Klienter ska bara använda en metod för att skicka token.|DocumentDB|sträng|

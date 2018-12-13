@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 ms.author: rolyon
-ms.openlocfilehash: 85f15c67207128914ef0d0d1051a54a33d757e72
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 448ef296af3ceaffffa1a4a69060916afd9abdc4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106285"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185689"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
@@ -130,7 +130,7 @@ När du har skapat ditt dokument för användningsvillkor använder du följande
     >[!IMPORTANT]
     >Kontrollerna för principer för villkorlig åtkomst (inklusive användningsvillkoren) stöder inte tvingande för tjänstkonton.  Vi rekommenderar att du exkluderar alla tjänstkonton från principen för villkorlig åtkomst.
 
-     Anpassade villkorliga åtkomstprinciper möjliggör detaljerade användningsvillkor för ett specifikt molnprogram eller grupp med användare.  Mer information finns i [Snabbstart: Kräv användningsvillkor godkännas före åtkomst till molnappar](../conditional-access/require-tou.md).
+     Anpassade villkorliga åtkomstprinciper möjliggör detaljerade användningsvillkor för ett specifikt molnprogram eller grupp med användare.  Mer information finns i [snabbstarten: Kräv användningsvillkor godkännas före åtkomst till molnappar](../conditional-access/require-tou.md).
 
 1. Klicka på **Skapa**.
 
@@ -227,7 +227,7 @@ Du kan redigera vissa detaljer för användningsvillkor, men du kan inte ändra 
 
 1. Klicka på **spara** att spara dina ändringar.
 
-    När du sparar ändringarna har användarna måste godkänna de nya villkoren.
+    När du har sparat ändringarna kan användare inte måste godkänna dessa ändringar.
 
 ## <a name="add-a-terms-of-use-language"></a>Lägga till användningsvillkor Använd språk
 Följande procedur beskriver hur du lägger till användningsvillkor Använd språk.
@@ -334,41 +334,41 @@ Du kan konfigurera en princip för villkorlig åtkomst för Microsoft Intune-reg
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**F: Hur ser jag om/när en användare har godkänt användningsvillkoren?**</br>
-S: på villkoren i Använd bladet, klickar du på numret under **godkända**. Du kan också visa eller söka efter accept-aktiviteten i Azure AD granskningsloggar. Mer information finns i [Visa rapport över vem som har godkänts och nekats](#view-who-has-accepted-and-declined) och [öppna Azure AD-granskningsloggar](#view-azure-ad-audit-logs).
+**F: Hur ser jag om / när en användare har godkänt användningsvillkor?**</br>
+S: Om villkoren för användning bladet, klickar du på numret under **godkända**. Du kan också visa eller söka efter accept-aktiviteten i Azure AD granskningsloggar. Mer information finns i [Visa rapport över vem som har godkänts och nekats](#view-who-has-accepted-and-declined) och [öppna Azure AD-granskningsloggar](#view-azure-ad-audit-logs).
 
-**F: Hur länge lagras informationen?**</br>
-S: användare räknas av villkoren i rapporten för användning och som accepterat/avvisade lagras för resten av användningsvillkoren. Azure AD-granskningen loggar lagras i 30 dagar.
+**F: Hur länge är information som lagras?**</br>
+S: Användaren räknar av villkoren i rapporten för användning och som accepterat/avvisade lagras för resten av användningsvillkoren. Azure AD-granskningen loggar lagras i 30 dagar.
 
-**F: Varför visas ett annat antal medgivanden i villkoren för användning rapporten jämfört med Azure AD som granskningsloggar?**</br>
-S: användningsvillkoren Använd rapporten sparas livslängden för de användningsvillkoren när Azure AD-granskningen loggar lagras i 30 dagar. Dessutom visar villkoren i Använd rapporten endast användare aktuella medgivande tillstånd. Till exempel om en användare nekar och sedan accepterar villkoren i Använd rapporten visas bara den användaren Godkänn. Om du vill se historiken kan du använda Azure AD granskningsloggar.
+**F: Varför ser jag ett annat antal medgivanden i villkoren för användning rapporten jämfört med Azure AD som granskningsloggar?**</br>
+S: Använd rapporten villkoren lagras under livslängden för de användningsvillkoren när Azure AD-granskningen loggar lagras i 30 dagar. Dessutom visar villkoren i Använd rapporten endast användare aktuella medgivande tillstånd. Till exempel om en användare nekar och sedan accepterar villkoren i Använd rapporten visas bara den användaren Godkänn. Om du vill se historiken kan du använda Azure AD granskningsloggar.
 
-**F: om jag redigera information för användningsvillkor behöver användarna godkänna igen?**</br>
-S: Ja, om en administratör redigerar detaljerna för användningsvillkor, användarna måste godkänna de nya villkoren krävs.
+**F: Om jag redigera information för användningsvillkor behöver användarna godkänna igen?**</br>
+S: Nej, om en administratör redigerar detaljerna för användningsvillkor (namn, visningsnamn, kräva att användarna expanderar eller Lägg till ett språk), inte kräver att användarna måste godkänna de nya villkoren.
 
-**F: kan jag uppdatera ett befintligt dokument med användningsvillkor?**</br>
-S: för närvarande kan uppdatera du inte ett befintligt dokument med användningsvillkor. För att ändra dokument med ett användningsvillkor, behöver du skapar en ny för användning instans.
+**F: Kan jag uppdatera ett befintligt dokument med användningsvillkor?**</br>
+S: För närvarande kan uppdatera du inte ett befintligt dokument med användningsvillkor. För att ändra dokument med ett användningsvillkor, behöver du skapar en ny för användning instans.
 
-**F: om hyperlänkar finns i PDF-dokument med användningsvillkor, kommer användare kunna klickar du på dem?**</br>
+**F: Om hyperlänkar finns i PDF-dokument med användningsvillkor, kommer användare kunna klickar du på dem?**</br>
 S: PDF-filen renderas som standard som JPEG, så att inte klickbara hyperlänkar. Användare har möjlighet att välja **har du problem med att visa? Klicka här**, vilket visas med PDF-filen internt där hyperlänkar stöds.
 
 **F: Kan användningsvillkor ha stöd för flera språk?**</br>
-S: Ja. Det finns för närvarande 108 olika språk som en administratör kan konfigurera för ett enskilt användningsvillkor.
+S: Ja. Det finns för närvarande 108 olika språk som en administratör kan konfigurera för ett enskilt användningsvillkor. En administratör kan ladda upp flera PDF-dokument och tagga dessa dokument med ett motsvarande språk (upp till 108). När slutanvändare loggar in kan vi titta på sina webbläsare språkinställning och visa matchande dokumentet. Om det finns ingen matchning, så visas standarddokument, vilket är det första dokumentet som har överförts.
 
-**F: När tillämpas användningsvillkoren?**</br>
-S: Användningsvillkoren tillämpas under inloggningen.
+**F: När är användningsvillkoren?**</br>
+S: Användningsvillkoren tillämpas under inloggningen går.
 
-**F: Vilka program kan jag rikta användningsvillkor mot?**</br>
+**F: Vilka program kan jag rikta användningsvillkor till?**</br>
 S: Du kan skapa en princip för villkorlig åtkomst för företagsprogram som använder modern autentisering.  Mer information finns i [enterprise applications](./../manage-apps/view-applications-portal.md) (företagsprogram).
 
 **F: Kan jag lägga till flera användningsvillkor till en viss användare eller app?**</br>
-S: Ja, genom att skapa flera principer för villkorlig åtkomst för dessa grupper eller program. Om en användare som ingår i omfånget för flera användningsvillkor godkänner de ett användningsvillkor i taget.
+S: Ja, genom att skapa flera principer för villkorlig åtkomst som dessa grupper eller program. Om en användare som ingår i omfånget för flera användningsvillkor godkänner de ett användningsvillkor i taget.
  
 **F: Vad händer om en användare nekar användningsvillkoren?**</br>
-S: Användare blockeras från åtkomst till programmet. Användaren behöver logga in igen och acceptera villkoren för att få åtkomst.
+S: Användaren är blockerad från att få åtkomst till programmet. Användaren behöver logga in igen och acceptera villkoren för att få åtkomst.
  
-**F: är det möjligt att unaccept användningsvillkoren som godkändes tidigare?**</br>
-S: du kan [granska tidigare godkända användningsvillkor](#how-users-can-review-their-terms-of-use), men det finns för närvarande inte ett sätt att unaccept.
+**F: Är det möjligt att unaccept användningsvillkoren som godkändes tidigare?**</br>
+S: Du kan [granska tidigare godkända användningsvillkor](#how-users-can-review-their-terms-of-use), men det finns för närvarande inte ett sätt att unaccept.
 
 **F: Vad händer om jag använder också Intune villkoren?**</br>
 S: Om du har konfigurerat båda Azure AD-användningsvillkor och [Intune villkor](/intune/terms-and-conditions-create), användaren uppmanas att godkänna båda. Mer information finns i den [välja rätt villkor lösning för din organisation blogginlägget](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).

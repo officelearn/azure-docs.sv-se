@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 82a3ce9f899e94a1cc737f2ca2dc1dc79688a224
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42058482"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270142"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Meddelanden för planerat underhåll för VM-skalningsuppsättningar
 
@@ -101,11 +101,11 @@ Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-po
 2. I den vänstra menyn väljer du **övervakaren**. 
 3. I den **övervaka – aviseringar (klassisk)** väljer **+ Lägg till aktivitetsloggavisering**.
 4. På den **Lägg till aktivitetsloggavisering** väljer eller anger den begärda informationen. I **kriterier**, måste du ange följande värden:
-   - **Händelsekategori**: Välj **Tjänstehälsa**.
+   - **Händelsekategori**: Välj **Tjänsthälsan**.
    - **Tjänster**: Välj **Virtual Machine Scale Sets och virtuella datorer**.
    - **Typ**: Välj **planerat underhåll**. 
     
-Mer information om hur du konfigurerar aviseringar för aktivitetsloggen finns [skapa aktivitetsloggsaviseringar](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Mer information om hur du konfigurerar aviseringar för aktivitetsloggen finns [skapa aktivitetsloggsaviseringar](../azure-monitor/platform/activity-log-alerts.md)
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Starta Underhåll på VM-skalningsuppsättning från portalen
@@ -179,40 +179,40 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **F: Varför behöver du starta om Mina virtuella datorer nu?**
 
-**S:** även om de flesta uppdateringar och uppgraderingar till Azure-plattformen inte påverkar VM-tillgänglighet, i vissa fall kan vi det går inte att undvika att starta om virtuella datorer i Azure. Vi har ackumulerat flera ändringar som kräver att vi startar om våra servrar som leder till omstart av virtuell dator.
+**S:** Även om de flesta uppdateringar och uppgraderingar till Azure-plattformen inte påverkar VM-tillgänglighet, i vissa fall kan inte går att vi undvika att starta om virtuella datorer i Azure. Vi har ackumulerat flera ändringar som kräver att vi startar om våra servrar som leder till omstart av virtuell dator.
 
-**F: om jag följer rekommendationer för hög tillgänglighet med hjälp av en tillgänglighetsuppsättning ange, är jag säker?**
+**F: Om jag följer rekommendationer för hög tillgänglighet med hjälp av en tillgänglighetsuppsättning ange, är jag säker?**
 
-**S:** virtuella datorer som distribueras i en tillgänglighetsuppsättning ange eller i VM-skalningsuppsättningar använder uppdateringsdomäner. När underhåll utförs följer domänbegränsningar update Azure och starta om inte virtuella datorer från en annan uppdateringsdomän (inom samma tillgänglighetsuppsättning). Azure också väntar minst 30 minuter innan du flyttar till nästa grupp av virtuella datorer. 
+**S:** Virtuella datorer som distribueras i en tillgänglighetsuppsättning ange eller i VM-skalningsuppsättningar använder uppdateringsdomäner. När underhåll utförs följer domänbegränsningar update Azure och starta om inte virtuella datorer från en annan uppdateringsdomän (inom samma tillgänglighetsuppsättning). Azure också väntar minst 30 minuter innan du flyttar till nästa grupp av virtuella datorer. 
 
 Mer information om hög tillgänglighet finns i [regioner och tillgänglighet för virtuella datorer i Azure](../virtual-machines/windows/regions-and-availability.md).
 
-**F: hur kan jag bli meddelad om planerat underhåll?**
+**F: Hur kan jag bli meddelad om planerat underhåll?**
 
-**S:** en planerade underhållet senare startar genom att ange ett schema till en eller flera Azure-regioner. Strax efter ett e-postmeddelande skickas till prenumerationsägarna (en e-post per prenumeration). Du kan lägga till kanaler och mottagare för det här meddelandet med hjälp av aviseringar för aktivitetsloggen. Om du distribuerar en virtuell dator till en region där planerat underhåll har redan schemalagts kan får du inte meddelandet. Kontrollera i stället Underhåll tillståndet för den virtuella datorn.
+**S:** En planerade underhållet senare startar genom att ange ett schema till en eller flera Azure-regioner. Strax efter ett e-postmeddelande skickas till prenumerationsägarna (en e-post per prenumeration). Du kan lägga till kanaler och mottagare för det här meddelandet med hjälp av aviseringar för aktivitetsloggen. Om du distribuerar en virtuell dator till en region där planerat underhåll har redan schemalagts kan får du inte meddelandet. Kontrollera i stället Underhåll tillståndet för den virtuella datorn.
 
 **F: Jag får ingen indikation på planerat underhåll i portalen, PowerShell eller CLI. Vad är fel?**
 
-**S:** Information som rör planerat underhåll är tillgänglig under en planerade underhållet senare endast för de virtuella datorerna som påverkas av planerat underhåll. Om du inte ser data underhållet kan redan vara klar (eller inte startats) eller den virtuella datorn kan redan finnas på en uppdaterad server.
+**S:** Information relaterad till planerat underhåll är tillgänglig under en planerade underhållet senare endast för de virtuella datorerna som påverkas av planerat underhåll. Om du inte ser data underhållet kan redan vara klar (eller inte startats) eller den virtuella datorn kan redan finnas på en uppdaterad server.
 
-**F: finns det ett sätt att veta exakt när den virtuella datorn kommer att påverkas?**
+**F: Finns det ett sätt att veta exakt när den virtuella datorn kommer att påverkas?**
 
-**S:** när vi ställer in schemat definierar vi ett tidsfönster på flera dagar. Den exakta sekvenseringen av servrar (och virtuella datorer) under den här perioden är okänd. Om du vill veta den exakta tidpunkt som dina virtuella datorer kommer att uppdateras, kan du använda [schemalagda händelser](../virtual-machines/windows/scheduled-events.md). När du använder schemalagda händelser kan du fråga från den virtuella datorn och få ett meddelande för 15 minuter innan en omstart av virtuell dator.
+**S:** När vi ställer in schemat definierar vi ett tidsfönster på flera dagar. Den exakta sekvenseringen av servrar (och virtuella datorer) under den här perioden är okänd. Om du vill veta den exakta tidpunkt som dina virtuella datorer kommer att uppdateras, kan du använda [schemalagda händelser](../virtual-machines/windows/scheduled-events.md). När du använder schemalagda händelser kan du fråga från den virtuella datorn och få ett meddelande för 15 minuter innan en omstart av virtuell dator.
 
-**F: hur lång tid tar det att datorn startas om min virtuella dator?**
+**F: Hur lång tid tar det att datorn startas om min virtuella dator?**
 
-**S:** beroende på storleken på din virtuella dator, omstart kan ta upp till flera minuter under självbetjäning underhållsfönstret. Omstarten tar normalt ungefär 25 minuter under omstarter initierades av Azure i det schemalagda underhållsfönstret. Om du använder Cloud Services (Web/Worker-rollen), VM-skalningsuppsättningar, eller tillgänglighetsuppsättningar, ges 30 minuter mellan varje grupp med virtuella datorer (uppdateringsdomän) under underhållsperioden. 
+**S:**  Beroende på storleken på den virtuella datorn kan omstart ta upp till flera minuter under självbetjäning underhållsfönstret. Omstarten tar normalt ungefär 25 minuter under omstarter initierades av Azure i det schemalagda underhållsfönstret. Om du använder Cloud Services (Web/Worker-rollen), VM-skalningsuppsättningar, eller tillgänglighetsuppsättningar, ges 30 minuter mellan varje grupp med virtuella datorer (uppdateringsdomän) under underhållsperioden. 
 
 **F: Jag ser inte någon underhållsinformation på Mina virtuella datorer. Vad som gick fel?**
 
-**S:** det finns flera orsaker till varför du inte kan se all underhållsinformation på dina virtuella datorer:
+**S:** Det finns flera orsaker till varför du inte kan se all underhållsinformation på dina virtuella datorer:
    - Du använder en prenumeration som markerats som *Microsoft Internal*.
    - Dina virtuella datorer inte är schemalagda för underhåll. Det kan vara att underhållet avslutades, avbröts eller har ändrats så att dina virtuella datorer påverkas inte längre av den.
    - Du behöver inte den **Underhåll** kolumnen som lagts till i VM-listvyn. Även om vi lagt till den här kolumnen till standardvyn, om du konfigurerar vyn om du vill se kolumner som inte är standard, måste du manuellt lägga till den **Underhåll** kolumnen till VM-listvyn.
 
-**F: min virtuella dator är schemalagd för underhåll en andra gång. Varför?**
+**F: Den virtuella datorn är schemalagd för underhåll en andra gång. Varför?**
 
-**S:** i flera användningsfall, den virtuella datorn är schemalagd för underhåll när du har redan slutfört din underhåll och omdistribueras:
+**S:** I flera Användningsscenarier, är den virtuella datorn schemalagd för underhåll när du har redan slutfört din underhåll och omdistribueras:
    - Vi har avbrutit underhållet och startas om den med en annan nyttolast. Det kan vara att vi har upptäckt en felaktig nyttolast och vi behöver att distribuera en ytterligare nyttolast.
    - Din virtuella dator *tjänst har åtgärdats* till en annan nod på grund av ett maskinvarufel.
    - Du har valt för att stoppa (frigöra) och starta om den virtuella datorn.

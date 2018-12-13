@@ -1,5 +1,5 @@
 ---
-title: Hur du lägger till en referensdatauppsättning i miljön för Azure Time Series Insights
+title: Azure Time Series Insights-referensdata – hur du lägger till en referensdatauppsättning i miljön för Azure Time Series Insights | Microsoft Docs
 description: Den här artikeln beskriver hur du lägger till en referensdatauppsättning för att utöka data i Azure Time Series Insights-miljö.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: de5f4735e7dde7a3e631d14c83d42ccb9fd5c9db
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364745"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273846"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referensdatauppsättning för miljön för Time Series Insights med hjälp av Azure portal
 
@@ -59,9 +60,9 @@ Referensdata är inte ansluten retroaktivt. Det innebär att endast nuvarande oc
    - Klistra in data i textredigeraren. Välj **parsa referensdata** knappen.
    - Välj **Välj fil** för att lägga till data från en lokal textfil. 
 
-   Till exempel klistra in CSV-data: ![klistras in CSV-data](media/add-reference-data-set/csv_data_pasted.png)
+   Till exempel klistra in CSV-data: ![Inklistrade CSV-data](media/add-reference-data-set/csv_data_pasted.png)
 
-   Till exempel klistra in JSON-matris-data: ![klistra in JSON-data](media/add-reference-data-set/json_data_pasted.png)
+   Till exempel klistra in JSON-matris-data: ![Klistra in JSON-data](media/add-reference-data-set/json_data_pasted.png)
 
    Om det finns ett fel vid parsning av datavärdena, felet visas i rött längst ned på sidan, till exempel `CSV parsing error, no rows extracted`.
 

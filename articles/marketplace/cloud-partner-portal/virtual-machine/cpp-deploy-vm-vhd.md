@@ -3,7 +3,7 @@ title: 'Distribuera en virtuell dator från dina VHD: er för Azure Marketplace 
 description: Beskriver hur du registrerar en virtuell dator från en Azure-distribuerade virtuella Hårddisken.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 06ef4247d3cd7f87d763feb3f61cb8101d17a2e4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 9157ce7f8f16bc60a6d5c16fa992a5402cf2d7ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877124"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190738"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina VHD: er
 
-Den här artikeln beskrivs hur du registrerar en virtuell dator (VM) från en Azure-distribuerade virtuella hårddisk (VHD).  Visas en lista med de verktyg som krävs och hur du använder dem för att skapa en VM-avbildning för användaren och sedan distribuera den till Azure med hjälp av antingen den [Microsoft Azure-portalen](https://ms.portal.azure.com/) eller PowerShell-skript. 
+Det här avsnittet beskrivs hur du distribuerar en virtuell dator (VM) från en Azure-distribuerade virtuella hårddisk (VHD).  Den visar de verktyg som krävs och hur du använder dem för att skapa en VM-avbildning för användaren och sedan distribuera den till Azure med hjälp av PowerShell-skript.
 
 När du har laddat upp dina virtuella hårddiskar (VHD) – generaliserad operativsystemet VHD och noll eller fler disk virtuella hårddiskar – till Azure storage-kontot, kan du registrera dem som en avbildning för användaren. Du kan sedan testa avbildningen. Du kan inte direkt distribuera den virtuella datorn genom att tillhandahålla VHD-URL eftersom operativsystemet VHD är generaliserad.
 
@@ -33,48 +33,23 @@ Mer information om VM-avbildningar finns i följande blogginlägg:
 - [Bild-dator med PowerShell, hur du'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 
-## <a name="set-up-the-necessary-tools"></a>Konfigurera nödvändiga verktyg
+## <a name="prerequisite-install-the-necessary-tools"></a>Förutsättning: Installera nödvändiga verktyg
 
 Om du inte redan har gjort det installerar du Azure PowerShell och Azure CLI, med hjälp av följande anvisningar:
-
-<!-- TD: Change the following URLs (in this entire topic) to relative paths.-->
 
 - [Installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 - [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## <a name="create-a-user-vm-image"></a>Skapa en virtuell datoravbildning för användare
+## <a name="deployment-steps"></a>Distributionssteg
 
-Därefter skapar du en ohanterad avbildning från en generaliserad virtuell Hårddisk.
+Du vill använda följande steg för att skapa och distribuera en VM-avbildning för användaren:
 
-#### <a name="capture-the-vm-image"></a>Skapa VM-avbildning
+1. Skapa VM-användaravbildning, vilket innebär att samla in och generalisera avbildningen. 
+2. Skapa certifikat och lagra dem i en ny Azure Key Vault. Ett certifikat krävs för att upprätta en säker WinRM-anslutning till den virtuella datorn.  En Azure Resource Manager-mall och Azure PowerShell-skript tillhandahålls. 
+3. Distribuera den virtuella datorn från en användaravbildning av virtuell dator med hjälp av den angivna mallen och skript.
 
-Följ instruktionerna i följande artikel om hur du fångar den virtuella datorn som motsvarar ditt åtkomst-metoden:
-
--  PowerShell: [hur du skapar en ohanterad VM-avbildning från en Azure-dator](../../../virtual-machines/windows/capture-image-resource.md)
--  Azure CLI: [så här skapar du en avbildning av en virtuell dator eller virtuell Hårddisk](../../../virtual-machines/linux/capture-image.md)
--  API: [Virtual Machines – samla in](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
-
-### <a name="generalize-the-vm-image"></a>Generalisera avbildningen
-
-Eftersom du har genererat användaravbildningen från en tidigare generaliserad virtuell Hårddisk, måste det också vara generaliserat.  Välj igen, i följande artikel som motsvarar ditt åtkomstmekanism.  (Du kanske har redan generaliserats hårddisken när du har hämtat.)
-
--  PowerShell: [generalisera den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  Azure CLI: [steg 2: skapa VM-avbildning](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API: [generalisera virtuella datorer -](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
-
-
-## <a name="deploy-a-vm-from-a-user-vm-image"></a>Distribuera en virtuell dator från en användaravbildning för virtuell dator
-
-Sedan distribuerar du en virtuell dator från en användaravbildning av virtuell dator med Azure portal eller PowerShell.
-
-<!-- TD: Recapture following hilited images and replace with red-box. -->
-
-### <a name="deploy-a-vm-from-azure-portal"></a>Distribuera en virtuell dator från Azure-portalen
-
-Du kan använda följande process för att distribuera ditt användar-VM i Azure Portal.
-
-1.  Logga in på [Azure-portalen](https://portal.azure.com).
+När den virtuella datorn har distribuerats kan du är redo att [certifiera din avbildning](./cpp-certify-vm.md).
 
 2.  Klicka på **New** och Sök efter **Malldistributionen**och välj sedan **skapa din egen mall i redigeraren**.  <br/>
   ![Skapa mall för distribution av virtuell Hårddisk i Azure-portalen](./media/publishvm_021.png)
@@ -124,4 +99,5 @@ Använd följande cmdlets för att distribuera en stor virtuell dator från den 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När den virtuella datorn har distribuerats kan du är redo att [konfigurera den virtuella datorn](./cpp-configure-vm.md).
+Därefter [skapa en virtuell datoravbildning för användaren](cpp-create-user-image.md) för din lösning.
+

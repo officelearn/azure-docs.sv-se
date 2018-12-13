@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: d579a9b628ac515877c1977f700940547e96f0c0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 378516066e3b4a3436a2952616ea877d9a49d5d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726618"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255320"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Hur du använder mikrometer med Azure Application Insights Java SDK
 Mikrometer övervakning mått programmått för JVM-baserade program kod och hjälper dig att exportera data till dina favorit övervakningssystem. Den här artikeln får du lära dig att använda mikrometer med Application Insights för både Spring Boot och Spring Boot-program.
@@ -228,7 +228,7 @@ Steg:
 
 Läs mer om mätvärden i [mikrometer dokumentation](https://micrometer.io/docs/).
 
-Andra exempelkoden om hur du skapar olika typer av mått finns i[officiella mikrometer Github-lagringsplatsen](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Andra exempelkoden om hur du skapar olika typer av mått finns i[officiella mikrometer GitHub-lagringsplatsen](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 ## <a name="how-to-bind-additional-metrics-collection"></a>Hur du binder ytterligare mått samling
 
@@ -242,7 +242,7 @@ Skapa en böna av respektive måttkategorin. Anta exempelvis att vi behöver Gua
         Return new GuavaCacheMetrics();
     }
 ```
-Det finns flera mått som inte är aktiverade som standard, men kan vara kopplat på sättet som ovan. En fullständig lista finns i [officiella mikrometer Github-lagringsplatsen](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
+Det finns flera mått som inte är aktiverade som standard, men kan vara kopplat på sättet som ovan. En fullständig lista finns i [officiella mikrometer GitHub-lagringsplatsen](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
 
 ### <a name="non-spring-apps"></a>Icke-Spring-appar
 Lägg till följande bindningskod i konfigurationsfilen:

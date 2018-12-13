@@ -1,5 +1,5 @@
 ---
-title: Aktivera diagnostikloggning för webbappar i Azure App Service
+title: Aktivera diagnostikloggning för webbappar – Azure App Service
 description: Lär dig hur du aktiverar diagnostikloggning och lägger till instrumentering i programmet, samt hur du kommer åt den information som loggas av Azure.
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.custom: seodec18
+ms.openlocfilehash: 90f82dcdf60a3a7182f77b3fe028366e079bc2ec
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636976"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273807"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för webbappar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -63,6 +64,11 @@ När du aktiverar **programdiagnostik**, du också välja den **nivå**. Den hä
 
 För **programloggning**, du kan aktivera system filalternativet tillfälligt för felsökning. Det här alternativet inaktiverar automatiskt i 12 timmar. Du kan också aktivera alternativet blob för att välja en blobbehållare loggfiler ska skrivas i.
 
+> [!NOTE]
+> För närvarande endast .NET programloggarna kan skrivas till blob storage. Java, PHP, Node.js, Python programloggar bara kan sparas i filsystemet (utan kodändringar loggfiler ska skrivas till extern lagring).
+>
+>
+
 För **webbserverloggning**, kan du välja **storage** eller **filsystem**. Att välja **storage** kan du välja ett lagringskonto och en blob-behållare som loggarna skrivs till. 
 
 Om du sparar loggar på filsystemet kan filerna nås via FTP eller hämtat som ett Zip-arkiv med hjälp av Azure CLI.
@@ -85,7 +91,7 @@ Valfri kombination av file system eller blob storage kan aktiveras på samma gå
 > Information som lagras i **blob-lagring** kan bara användas med ett storage-klienten eller ett program som kan arbeta direkt med dessa lagringssystem. Till exempel Visual Studio 2013 innehåller en lagringsutforskare som kan användas för att utforska blob-lagring och HDInsight kan komma åt data som lagras i blob storage. Du kan också skriva ett program som ansluter till Azure Storage med hjälp av en av de [Azure SDK: er](https://azure.microsoft.com/downloads/).
 >
 
-## <a name="download"></a> Så här: ladda ned loggar
+## <a name="download"></a> Hur: Hämtningsloggar
 Diagnostisk information som lagras i web app-filsystem kan nås direkt med FTP. Det kan också hämtas som en Zip-arkiv med Azure CLI.
 
 Katalogstrukturen som loggar lagras i är följande:
@@ -114,7 +120,7 @@ Det här kommandot sparar loggar för en webbapp med namnet webappname om du til
 >
 >
 
-## <a name="how-to-view-logs-in-application-insights"></a>Så här: visa loggar i Application Insights
+## <a name="how-to-view-logs-in-application-insights"></a>Anvisningar: Visa loggar i Application Insights
 Visual Studio Application Insights innehåller verktyg för att filtrera och söka i loggar och för att korrelera loggarna med begäranden och andra händelser.
 
 1. Lägg till Application Insights SDK till ditt projekt i Visual Studio.
@@ -126,7 +132,7 @@ Visual Studio Application Insights innehåller verktyg för att filtrera och sö
 
 [Mer information om prestandaspårning med Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="streamlogs"></a> Så här: Stream loggar
+## <a name="streamlogs"></a> Hur: Strömningsloggar
 När du utvecklar ett program, kan det ofta vara användbart att visa loggningsinformation i nära realtid. Du kan strömma loggningsinformation till utvecklingsmiljön med Azure CLI.
 
 > [!NOTE]
@@ -157,7 +163,7 @@ För att filtrera specifika loggtyper, till exempel HTTP, använder den **--sök
 >
 >
 
-## <a name="understandlogs"></a> Så här: Förstå diagnostikloggar
+## <a name="understandlogs"></a> Hur: Förstå diagnostikloggar
 ### <a name="application-diagnostics-logs"></a>Program-diagnostikloggar
 Programdiagnostik lagrar information i ett visst format för .NET-program, beroende på om du vill lagra loggarna till file system- eller blob storage. 
 

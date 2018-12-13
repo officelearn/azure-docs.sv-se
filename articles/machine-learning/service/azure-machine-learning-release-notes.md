@@ -1,5 +1,5 @@
 ---
-title: Nyheter
+title: Vad är nytt i version?
 titleSuffix: Azure Machine Learning service
 description: Läs mer om de senaste uppdateringarna för Azure Machine Learning-tjänsten.
 services: machine-learning
@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea9f8e07b627b7f3554e390063d61ef984f30dad
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 73f4aeb77124c21a07771ab080b88a56231e50da
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105146"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185723"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner. 
 
-## <a name="2018-12-04-general-availability"></a>2018-12-04: allmänt tillgängliga
+## <a name="2018-12-04-general-availability"></a>2018-12-04: Allmän tillgänglighet
 
 Azure Machine Learning-tjänsten är nu allmänt tillgänglig.
 
@@ -235,9 +235,9 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (offentlig förhandsversion uppdatera)
 
-En ny, helt uppdaterade versionen av Azure Machine Learning: Läs mer om den här versionen: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+En ny, helt uppdaterad version av Azure Machine Learning: Läs mer om den här versionen: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>Tidigare anteckningar: september 2017 – Jun 2018
+## <a name="older-notes-sept-2017---jun-2018"></a>Äldre kommentarer: September 2017 – Jun 2018
 ### <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
 
 Med den här versionen av Azure Machine Learning kan du:
@@ -542,7 +542,7 @@ Nedan visas en lista med detaljerade uppdateringar under varje komponent i Azure
 - Jupyter server nu avslutas korrekt när användaren loggar ut från appen.
 
 ##### <a name="azure-portal"></a>Azure Portal
-- Konto för experimentering och modellhantering konto kan nu skapas i två nya Azure-regioner: västra Europa och Asien, sydöstra.
+- Konto för experimentering och modellhantering konto kan nu skapas i två nya Azure-regioner: Västeuropa och Sydostasien.
 - Modellen konto plan för labb för utveckling och nu finns bara när det är den första som skapas i prenumerationen. 
 - Hjälplänk i Azure-portalen uppdateras för att peka mot korrekt dokumentationssidan.
 - Beskrivningsfältet tas bort från informationssidan för Docker-avbildningen eftersom den inte är tillämplig.

@@ -1,5 +1,5 @@
 ---
-title: Fullständig text search (Lucene)-motor arkitektur i Azure Search | Microsoft Docs
+title: Fulltext-motor (Lucene) sökarkitekturen – Azure Search
 description: Förklaring av Lucene fråga uppgiftshantering och hämtning begrepp för fulltextsökning, som är relaterade till Azure Search.
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036878"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315823"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hur Fullständig textsökning fungerar i Azure Search
 
@@ -95,7 +96,7 @@ Frågeparsern omstrukturerar underfrågor i en *fråga trädet* (en interna stru
 
  ![Boolesk fråga searchmode alla][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>Stöds Parser: enkelt och fullständig Lucene 
+### <a name="supported-parsers-simple-and-full-lucene"></a>Stöds Parser: Enkel och fullständig Lucene 
 
  Azure Search visar två olika frågespråk `simple` (standard) och `full`. Genom att ange den `queryType` parameter med din begäran du berätta frågeparsern vilka frågespråk du väljer så att den vet hur du tolkar operatorer och syntax. Den [enkel frågespråk](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) är intuitivt och robust, ofta lämpligt att tolka indata från användaren som – utan bearbetning på klientsidan. Det stöder frågeoperatorer som är välbekanta från sökmotorer. Den [frågespråk för fullständig Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), som du får genom att ange `queryType=full`, utökar standardspråk för enkel fråga genom att lägga till stöd för flera operatorer och frågetyper som jokertecken, fuzzy, regex och fältbegränsade frågor. Till exempel skulle ett reguljärt uttryck som skickas i enkla frågesyntaxen tolkas som en frågesträng och inte ett uttryck. Exempelbegärande i den här artikeln använder det fullständiga Lucene-frågespråket.
 
@@ -189,7 +190,7 @@ Lexikal analys gäller enbart för frågetyper som kräver fullständiga villkor
 
 <a name="stage3"></a>
 
-## <a name="stage-3-document-retrieval"></a>Steg 3: Dokumentet hämtning 
+## <a name="stage-3-document-retrieval"></a>Steg 3: Hämta dokument 
 
 Hämta dokument refererar till att söka efter dokument med matchande termer i indexet. Det här skedet har förstått bäst igenom ett exempel. Låt oss börja med ett hotell index som har följande enkla schema: 
 
@@ -314,7 +315,7 @@ Vid körning av fråga körs enskilda frågor mot de sökbara fälten oberoende 
 
 På hela är dokument som matchar för frågan i fråga 1, 2, 3. 
 
-## <a name="stage-4-scoring"></a>Steg 4: bedömning  
+## <a name="stage-4-scoring"></a>Steg 4: Bedömning  
 
 Alla dokument i ett sökresultat tilldelas relevansgradering. Funktionen för relevans poängen är att högre de dokument som bäst svar på en fråga för användaren som uttryckt genom sökfrågan. Poängen beräknas utifrån statistiska egenskaper för termer som matchas. Kärnan i bedömnings formeln är [TF/IDF (termen frekvens inverterade dokumentet frekvens)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). I frågor som innehåller sällsynta och vanliga termer, främjar TF/IDF resultat med sällsynta termen. Till exempel i ett hypotetiskt index med alla Wikipedia-artiklar från dokument som matchar frågan *ordförande*, dokument som matchar på *president* anses vara mer relevant än dokument matcha mot *den*.
 

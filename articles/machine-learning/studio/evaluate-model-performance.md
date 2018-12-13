@@ -4,9 +4,8 @@ description: Den här artikeln visar hur du utvärderar prestanda för en modell
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -16,25 +15,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: de013f8deb5e64077aad96bd34d64135f981166d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 501a9834e598fc8b1c11a86ef0ae9db1c19a66a7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311509"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269948"
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Så här utvärderar du modellens prestanda i Azure Machine Learning
+# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Så här utvärderar du modellens prestanda i Azure Machine Learning Studio
+
 Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften. Tre vanliga scenarier för övervakad inlärning visas: 
 
 * Regression
 * Binär klassificering 
 * multiklass-baserad klassificering
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Utvärdera prestanda i en modell är en av de grundläggande stegen i data science process. Den visar hur lyckade bedömnings (förutsägelser) för en datauppsättning har av en trained model. 
 
-Azure Machine Learning har stöd för utvärdering av modellen via två av dess huvudsakliga machine learning-moduler: [utvärdera modell] [ evaluate-model] och [Kontrollera modellen] [ cross-validate-model]. Dessa moduler kan du se hur modellen presterar när det gäller ett antal mått som är vanliga i machine learning och statistik.
+Azure Machine Learning har stöd för utvärdering av modellen via två av dess huvudsakliga machine learning-moduler: [Utvärdera modellen] [ evaluate-model] och [Kontrollera modellen][cross-validate-model]. Dessa moduler kan du se hur modellen presterar när det gäller ett antal mått som är vanliga i machine learning och statistik.
 
 ## <a name="evaluation-vs-cross-validation"></a>Jämfört med utvärdering Korsvalidering
 Utvärdering och mellan verifiering är standard sätt att mäta prestanda i din modell. De båda generera utvärderingsmått som du kan kontrollera eller jämföra med de andra modeller.
@@ -64,7 +64,7 @@ Ansluta portarna som visas nedan i figur 1 och ange kolumnen etikett i den [Trä
 Figur 1. Utvärderar en regressionsmodell.
 
 ### <a name="inspecting-the-evaluation-results"></a>Kontrollera utvärderingsresultaten
-När du har kört experimentet som du kan klicka på utdataporten för den [utvärdera modell] [ evaluate-model] modul och välj *visualisera* att se utvärderingsresultaten. Utvärderingsmått som är tillgängliga för regressionsmodeller är: *innebära absoluta fel*, *rot innebära absoluta fel*, *relativa absoluta fel*,  *Relativ cirkels fel*, och *Bestämningskoefficient*.
+När du har kört experimentet som du kan klicka på utdataporten för den [utvärdera modell] [ evaluate-model] modul och välj *visualisera* att se utvärderingsresultaten. Utvärderingsmått som är tillgängliga för regressionsmodeller är: *Medelabsolutfel*, *rot absoluta fel*, *relativa absoluta fel*, *relativt cirkels fel*, och *koefficienten för Bestämning*.
 
 Termen ”error” här representerar skillnaden mellan det förväntade och värdet true. Det absoluta värdet eller kvadraten av denna skillnad beräknas vanligtvis att samla in den totala storleken på fel i alla instanser som skillnaden mellan det förväntade och SANT värdet kan vara negativt i vissa fall. Felmått mäta förutsägande prestanda i en regressionsmodell när det gäller medelvärdet skillnader mellan dess förutsägelser från värdet true. Nedre felvärdena gör modellen är bättre att göra förutsägelser. Ett övergripande fel mått noll innebär att modellen passar data perfekt.
 
@@ -106,7 +106,7 @@ Ansluta portarna som visas nedan i figur 5 och ange kolumnen etikett i den [Trä
 Figur 5. Utvärderar en binär Klassificeringsmodell.
 
 ### <a name="inspecting-the-evaluation-results"></a>Kontrollera utvärderingsresultaten
-När du har kört experimentet som du kan klicka på utdataporten för den [utvärdera modell] [ evaluate-model] modul och välj *visualisera* att se utvärderingsresultaten (bild 7). Utvärderingsmått som är tillgängliga för binär klassificering modeller är: *Precision*, *Precision*, *återkalla*, *F1 poäng*, och  *AUC*. Dessutom kan modulen matar ut en felmatris som visar antalet positiva, false negativ, falska positiva identifieringar och SANT negativ samt *ROC*, *Precision/återkallande*, och  *Flytta* kurvor.
+När du har kört experimentet som du kan klicka på utdataporten för den [utvärdera modell] [ evaluate-model] modul och välj *visualisera* att se utvärderingsresultaten (bild 7). Utvärderingsmått som är tillgängliga för binär klassificering modeller är: *Precision*, *Precision*, *återkalla*, *F1 poäng*, och *AUC*. Dessutom kan modulen matar ut en felmatris som visar antalet positiva, false negativ, falska positiva identifieringar och SANT negativ samt *ROC*, *Precision/återkallande*, och  *Flytta* kurvor.
 
 Precision är helt enkelt den korrekt klassificerade instanser. Det är vanligtvis den första mått som du tittar på när du utvärderar en klassificerare. Men när testdata är obalanserade (där de flesta av de hör till någon av klasserna) eller om du är intresserad av mer precision inte prestanda på någon av klasserna verkligen avbilda effektiviteten i en klassificerare. Anta att du testar på vissa data där 99% av instanserna motsvarar personer som du betalar, desto mindre än eller lika med 50K per år intäkter på klassificering för scenariot. Det är möjligt att uppnå en 0.99 noggrannhet genom att förutsäga klassen ”< = 50K” för alla instanser. Klassificeraren visas i det här fallet att utföra en övergripande bra, men i verkligheten kan det går inte att klassificera någon av high-income personer (1-%) korrekt.
 
@@ -116,7 +116,7 @@ Därför är det bra att beräkna ytterligare mått som samlar in mer specifika 
 
 Figur 6. Binär klassificering Felmatris.
 
-Går tillbaka till klassificeringsproblem intäkter, vill vi skulle ställa flera utvärderingsfrågor som hjälper oss att förstå prestanda för klassificerarna används. En mycket naturliga frågan är ”: från personer som modellen förutse till att tjäna > 50 K (TP + FP), hur många har klassificerats korrekt (TP)”? Den här frågan besvaras genom att titta på den **Precision** av modellen, vilket är den positiva identifieringar som klassificerats korrekt: TP/(TP+FP). En annan vanlig fråga är ”utanför alla hög tjäna anställda med inkomst > 50 k (TP + FN), hur många klassificeraren klassificera korrekt (TP)”. Hittar du faktiskt den **återkalla**, eller true positiva identifieringar: TP/(TP+FN) för klassificerarna. Du kanske märker att det finns en uppenbar säkerhetsaspekten precision och återkallande. Till exempel får en relativt belastningsutjämnade datauppsättning, skulle en klassificerare som beräknar huvudsakligen positivt instanser, finns en hög återkallande, men en i stället Låg precision som många av instanserna i negativt skulle klassificeras vilket resulterar i ett stort antal falska positiva identifieringar. Om du vill se ett diagram över hur de här två måtten varierar, kan du klicka på den **PRECISION/återkallande** kurvan i utvärderingssidan resultatet utdata (övre vänstra del av bild 7).
+Går tillbaka till klassificeringsproblem intäkter, vill vi skulle ställa flera utvärderingsfrågor som hjälper oss att förstå prestanda för klassificerarna används. Det är en mycket naturlig fråga: ' Från personer som modellen förutse till att tjäna > 50 K (TP + FP), hur många har klassificerats korrekt (TP) ”? Den här frågan besvaras genom att titta på den **Precision** av modellen, vilket är den positiva identifieringar som klassificeras på korrekt sätt: TP/(TP+FP). En annan vanlig fråga är ”utanför alla hög tjäna anställda med inkomst > 50 k (TP + FN), hur många klassificeraren klassificera korrekt (TP)”. Hittar du faktiskt den **återkalla**, eller true positiva identifieringar: TP/(TP+FN) för klassificerarna. Du kanske märker att det finns en uppenbar säkerhetsaspekten precision och återkallande. Till exempel får en relativt belastningsutjämnade datauppsättning, skulle en klassificerare som beräknar huvudsakligen positivt instanser, finns en hög återkallande, men en i stället Låg precision som många av instanserna i negativt skulle klassificeras vilket resulterar i ett stort antal falska positiva identifieringar. Om du vill se ett diagram över hur de här två måtten varierar, kan du klicka på den **PRECISION/återkallande** kurvan i utvärderingssidan resultatet utdata (övre vänstra del av bild 7).
 
 ![Utvärderingsresultat av binär klassificering](./media/evaluate-model-performance/7.png)
 

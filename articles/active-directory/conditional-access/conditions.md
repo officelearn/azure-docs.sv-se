@@ -17,16 +17,16 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: eb7d5dc2d38d814625e904d1270446f5f1671624
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056461"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321109"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory villkorlig åtkomst? 
 
-Du kan styra hur behöriga användare åtkomst till dina appar i molnet med hjälp av [villkorlig åtkomst i Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). I en princip för villkorlig åtkomst definierar du svaret (”sedan gör du”) att orsaken för att utlösa principen (”när detta sker”). 
+Du kan styra hur användare kommer åt dina appar i molnet med hjälp av [villkorlig åtkomst i Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). I en princip för villkorlig åtkomst definierar du svaret (”sedan gör du”) att orsaken för att utlösa principen (”när detta sker”). 
 
 ![Orsak och svar](./media/conditions/10.png)
 
@@ -50,7 +50,7 @@ När du väljer **alla användare**, din princip har tillämpats för alla anvä
 
 När du **Välj användare och grupper**, du kan ange följande alternativ:
 
-* **Alla gästanvändare** riktar sig mot en princip till B2B-gästanvändare. Det här tillståndet matchar ett användarkonto som har den **userType** attributet inställt på **gäst**. Du kan använda den här inställningen när en princip måste tillämpas när kontot skapas i ett flöde för inbjudan i Azure AD.
+* **Alla gästanvändare** riktar sig mot en princip till B2B-gästanvändare. Det här tillståndet matchar ett användarkonto som har den **userType** attributet inställt på **gäst**. Använd den här inställningen när en princip måste tillämpas när kontot skapas i ett flöde för inbjudan i Azure AD.
 
 * **Katalogroller** riktar sig mot en princip baserat på en användares rolltilldelning. Det här villkoret har stöd för katalogroller som **Global administratör** eller **lösenordsadministratör**.
 
@@ -82,7 +82,7 @@ Du kan utesluta specifika appar från en princip. De här apparna är dock fortf
 
 ## <a name="sign-in-risk"></a>Inloggningsrisk
 
-En inloggningsrisk är en indikator för sannolikheten (hög, medel eller låg) som en inloggningsförsök inte har gjorts av är tillförlitligt ägare för ett användarkonto. Azure AD beräknar inloggningsrisk nivå under en användare användarens inloggning. Du kan använda den beräknade inloggning risknivån som villkor i en princip för villkorlig åtkomst.
+En inloggningsrisk är en indikator för sannolikheten (hög, medel eller låg) som en inloggning inte har gjorts av är tillförlitligt ägare för ett användarkonto. Azure AD beräknar inloggningsrisk nivå under en användare användarens inloggning. Du kan använda den beräknade inloggning risknivån som villkor i en princip för villkorlig åtkomst.
 
 ![Risknivåer för inloggning](./media/conditions/22.png)
 
@@ -93,7 +93,7 @@ Vanliga användningsområden för det här villkoret är principer som har följ
 - Blockera användare med hög risk. Det här skyddet förhindrar potentiellt icke oskadliga användare från att komma åt dina appar i molnet. 
 - Kräv multifaktorautentisering för användare med en medelstor inloggningsrisk. Du kan ange ytterligare säker på att inloggningen är klar med är tillförlitligt ägare för ett konto genom att framtvinga multifaktorautentisering.
 
-Mer information finns i avsnittet om [riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+Mer information finns i [blockera åtkomst när en session risk identifieras](app-sign-in-risk.md).  
 
 ## <a name="device-platforms"></a>Enhetsplattformar
 
@@ -111,13 +111,12 @@ Ett vanligt användningsfall för det här villkoret är en princip som begräns
 
 ## <a name="device-state"></a>Enhetens tillstånd
 
-Enhetstillståndsvillkor utesluter hybrid Azure AD-anslutna enheter och enheter som har markerats som kompatibel från en princip för villkorlig åtkomst. Det här villkoret är användbart när en princip för endast ska tillämpas på en ohanterad enhet att tillhandahålla ytterligare sessionssäkerhet. Endast tillämpa exempelvis sessionskontroll för Microsoft Cloud App Security när en enhet är hanterad. 
+Enhetstillståndsvillkor utesluter hybrid Azure AD-anslutna enheter och enheter som har markerats som kompatibel från en princip för villkorlig åtkomst. 
 
 
 ![Konfigurera enhetens tillstånd](./media/conditions/112.png)
 
-Om du vill blockera åtkomst för ohanterade enheter kan implementera [enhetsbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
+Det här villkoret är användbart när en princip för endast ska tillämpas på en ohanterad enhet att tillhandahålla ytterligare sessionssäkerhet. Endast tillämpa exempelvis sessionskontroll för Microsoft Cloud App Security när en enhet är hanterad. 
 
 ## <a name="locations"></a>Platser
 
@@ -136,98 +135,67 @@ Mer information finns i [vad är platsvillkoret för villkorlig åtkomst i Azure
 
 ## <a name="client-apps"></a>Klientappar
 
-Med hjälp av klient apps villkor, kan du tillämpa en princip för olika typer av program. Exempel är webbplatser, tjänster, mobilappar och program. 
+Som standard gäller principer för villkorlig åtkomst för följande appar:
+
+- [Webbläsarbaserade appar](technical-reference.md#supported-browsers) – webbläsarbaserade appar innehåller webbplatser som använder SAML, WS-Federation och OpenID Connect web SSO-protokoll. Detta gäller även för en webbplats eller webbapp-tjänst som har registrerats som en konfidentiell OAuth-klient. Till exempel Office 365 SharePoint-webbplats. 
+
+- [Mobilappar och skrivbordsappar som använder modern autentisering](technical-reference.md#supported-mobile-applications-and-desktop-clients) -de här apparna inkluderar Office-program och phone-appar. 
 
 
+Dessutom kan du ange en principen på specifika klientappar som inte använder modern autentisering, till exempel:
 
-Ett program har klassificerats enligt följande:
+- Klientappar som använder Microsoft Exchange ActiveSync-protokollet. När en princip block med Exchange ActiveSync, får berörda användare ett enda karantän e-postmeddelande med information om varför de blockeras. Om det behövs, innehåller e-postmeddelandet anvisningar för att registrera sina enheter med Intune.
 
-- En webbplats eller tjänst om det använder web SSO-protokoll, SAML, WS-Fed eller OpenID Connect för en konfidentiell klient.
+- Andra klienter. De här apparna inkluderar klienter som använder grundläggande autentisering med e-postprotokoll som IMAP-, MAPI-, POP-, SMTP- och äldre Office-program som inte använder modern autentisering. Mer information finns i [hur modern autentisering fungerar för Office 2013 och Office 2016 klientappar](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
-- Mobilapp eller skrivbordsprogram om mobilappen OpenID Connect används för en intern klient.
+![Klientappar](./media/conditions/41.png)
 
-En lista över klientappar som du kan använda i din princip för villkorlig åtkomst finns i [klient apps villkor](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#client-apps-condition) i den tekniska referensen för Azure Active Directory villkorlig åtkomst.
+Vanliga användningsområden för det här villkoret är principer med följande krav:
 
-Vanliga användningsområden för det här villkoret är principer med de följande skydd: 
+- **[Kräv en hanterad enhet](require-managed-devices.md)**  för mobila och skrivbordsprogram som laddar ned data till en enhet. Tillåt webbläsaråtkomst från alla enheter på samma gång. Det här scenariot förhindrar sparar och synkroniserar dokument till en ohanterad enhet. Med den här metoden kan du minska sannolikheten för förlust av data om enheten tappas bort eller blir stulen.
 
-- Kräver en [kompatibel enhet](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) för mobila och skrivbordsprogram som laddar ned stora mängder data till enheten. Tillåt webbläsaråtkomst från alla enheter på samma gång.
+- **[Kräv en hanterad enhet](require-managed-devices.md)**  med ActiveSync för att få åtkomst till Exchange Online.
+
+- **[Blockera äldre autentisering](block-legacy-authentication.md)**  till Azure AD (andra klienter)
 
 - Blockera åtkomst från webbprogram men tillåta åtkomst från mobila och skrivbordsprogram.
 
-Du kan använda det här villkoret till web SSO och moderna autentiseringsprotokoll. Du kan också tillämpa den på e-postprogram som använder Microsoft Exchange ActiveSync. Exempel är de interna e-postappar på de flesta smartphones. 
 
-Du kan bara välja klient apps villkoret om Microsoft Office 365 Exchange Online är den enda molnapp som du har valt.
 
-![Molnappar](./media/conditions/32.png)
+### <a name="exchange-activesync-clients"></a>Exchange ActiveSync-klienter
 
-Att välja **Exchange ActiveSync** som en klient apps villkor stöds endast om du inte har andra villkor som konfigurerats i en princip. Du kan dock begränsa omfånget för det här tillståndet gäller endast för plattformar som stöds.
+Du kan bara välja **Exchange ActiveSync-klienter** om:
 
+
+- Microsoft Office 365 Exchange Online är den enda molnapp som du har valt.
+
+    ![Molnappar](./media/conditions/32.png)
+
+- Du har inte andra villkor som konfigurerats i en princip. Men du kan begränsa omfånget för det här tillståndet gäller endast för [plattformar som stöds](technical-reference.md#device-platform-condition).
  
-![Tillämpa bara principen på plattformar som stöds](./media/conditions/33.png)
-
-Problemet endast gäller för plattformar som stöds är lika med alla enhetsplattformar i en [enheten plattform villkor](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
-![Konfigurera enhetsplattformar](./media/conditions/34.png)
+    ![Tillämpa bara principen på plattformar som stöds](./media/conditions/33.png)
 
 
- Mer information finns i dessa artiklar:
+När åtkomst har blockerats eftersom en [hanterad enhet](require-managed-devices.md) är krävs, de berörda användarna får en enda e-post som hjälper dem att använda Intune. 
+
+Om det krävs en godkänd app måste få riktlinjer för att installera och använda Outlook-klienten för mobila användare som påverkas.
+
+I andra fall, till exempel blockeras om MFA krävs, de berörda användarna, eftersom klienter som använder grundläggande autentisering inte stöder MFA.
+
+Du kan bara använda den här inställningen till användare och grupper. Det stöder inte gäster eller roller. Om ett villkor för gäst eller roll är konfigurerad, blockeras alla användare eftersom villkorlig åtkomst inte kan fastställa om principen ska tillämpas på användaren eller inte.
+
+
+ Mer information finns i:
 
 - [Konfigurera SharePoint Online och Exchange Online för villkorlig åtkomst i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
 - [Azure Active Directory appbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
 
-### <a name="legacy-authentication"></a>Äldre autentisering  
-
-Villkorlig åtkomst används nu för äldre Microsoft Office-klienter som inte stöder modern autentisering. Det gäller även för klienter som använder e-postprotokoll som POP, IMAP och SMTP. Genom att använda äldre autentisering kan du konfigurera principer som **blockera åtkomst från andra klienter**.
-
-
-![Konfigurera klientapparna](./media/conditions/160.png)  
-
-
-#### <a name="known-issues"></a>Kända problem
-
-- Konfigurera en princip för **andra klienter** blockerar för hela organisationen från vissa klienter som SPConnect. Det här blocket inträffar eftersom äldre klienter autentiseras på oväntade sätt. Problemet gäller inte för viktiga Office-program som de äldre Office-klienterna. 
-
-- Det kan ta upp till 24 timmar innan principen ska träda i kraft. 
-
-
-#### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-
-**F:** blockerar den här autentiseringen Microsoft Exchange Web Services?
-
-Det beror på autentiseringsprotokollet som använder Exchange Web Services. Om Exchange Web Services-programmet använder modern autentisering kan det omfattas av den **mobilappar och skrivbordsklienter** klientappen. Grundläggande autentisering omfattas av den **andra klienter** klientappen.
-
-
-**F:** vilka kontroller kan jag använda för **andra klienter**?
-
-En kontroll kan konfigureras för **andra klienter**. Slutanvändarens upplevelse kommer dock att blockeras åtkomsten för alla fall. **Andra klienter** stöder inte kontroller som MFA och kompatibel enhet domänanslutning. 
- 
-**F:** vilka villkor kan jag använda för **andra klienter**?
-
-Alla villkor kan konfigureras för **andra klienter**.
-
-**F:** tillåter Exchange ActiveSync stöder alla villkor och kontroller?
-
-Nej. I följande lista sammanfattas stöd för Exchange ActiveSync: 
-
-- Exchange ActiveSync stöder bara användar- och meddelanderegler. Det stöder inte gäster eller roller. Om ett villkor för gäst eller roll är konfigurerad, blockeras alla användare. Exchange ActiveSync blockerar alla användare eftersom den inte kan fastställa om principen ska tillämpas på användaren eller inte.
-
-- Exchange ActiveSync fungerar endast med Microsoft Exchange Online som molnappen. 
-
-- Exchange ActiveSync stöder inte alla villkor utom klientappen själva. 
-
-- Exchange ActiveSync kan konfigureras med en kontroll. Alla kontroller utom enhetsefterlevnad leda till ett block.
-
-**F:** principerna gäller alla klientappar som standard framöver?
-
-Nej. Det finns ingen ändring i princip standardbeteendet. Principerna fortsätta att tillämpas på webbläsare och mobilappar och skrivbordsklienter som standard.
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill ta reda på hur du konfigurerar en princip för villkorlig åtkomst kan se [Snabbstart: kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+- Om du vill ta reda på hur du konfigurerar en princip för villkorlig åtkomst kan se [snabbstarten: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
 
 - För att konfigurera principer för villkorlig åtkomst för din miljö, se den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
 

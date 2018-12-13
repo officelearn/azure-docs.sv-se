@@ -2,8 +2,8 @@
 title: Azure Machine Learning Model Management installation och konfiguration | Microsoft Docs
 description: Det här dokumentet beskriver de steg och koncept som ingår i att installera och konfigurera modellhantering i Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d10f61e6276b1ce0a0237e3cf2e35a68edf4a0cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968721"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257588"
 ---
 # <a name="model-management-setup"></a>Installation av hantering av modellen
 
@@ -91,7 +91,7 @@ Om du vill börja, måste du konfigurera din distributionsmiljö. Miljö-install
 
 När du har slutfört miljö-installationen:
 - Du uppmanas att logga in på Azure. För att logga in, använder du en webbläsare för att öppna sidan https://aka.ms/devicelogin och ange koden som tillhandahålls för att autentisera.
-- Under autentiseringsprocessen uppmanas du för ett konto för att autentisera med. Viktigt: Välj ett konto som har en giltig Azure-prenumeration och tillräcklig behörighet för att skapa resurser i kontot. - när du är klar logga in din prenumerationsinformation visas och du får frågan om du vill fortsätta med den valda kontot.
+- Under autentiseringsprocessen uppmanas du för ett konto för att autentisera med. Viktigt: Välj ett konto som har en giltig Azure-prenumeration och tillräcklig behörighet för att skapa resurser i kontot. - när du är klar logga in din prenumerationsinformation visas och du får frågan om du vill fortsätta med det valda kontot .
 
 ### <a name="environment-setup"></a>Konfigurera miljön
 Om du vill starta installationsprocessen, måste du registrera providern miljö genom att ange följande kommando:
@@ -114,7 +114,7 @@ Installationskommandot lokal miljö skapar följande resurser i din prenumeratio
 - En resursgrupp (om det inte anges)
 - Ett lagringskonto
 - Ett Azure Container Registry (ACR)
-- Application Insights
+- Application insights
 
 När installationen är klar ställer du in miljön som ska användas med följande kommando:
 
@@ -136,7 +136,7 @@ Kommandot cluster miljö installationen skapar följande resurser i din prenumer
 - Ett lagringskonto
 - Ett Azure Container Registry (ACR)
 - En Kubernetes-distribution på ett Azure Container Service (ACS)-kluster
-- Application Insights
+- Application insights
 
 Resursgruppen, lagringskontot och ACR skapas snabbt. ACS-distributionen kan ta upp till 20 minuter. 
 

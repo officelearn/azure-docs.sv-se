@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242831"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270407"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om SQL-databas
 
@@ -196,9 +196,9 @@ Exempel:
 > [!NOTE]
 > Under en begränsad period är säkerhetskopiering och I/O kostnadsfria.
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Hur fungerar användningen av aktiv geo-replikering i en elastisk pool som visas på fakturan
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>Hur användningen av aktiv geo-replikering eller automatisk redundans grupper i en elastisk pool visas på fakturan
 
-Till skillnad från enskilda databaser, med hjälp av [aktiv geo-replikering](sql-database-geo-replication-overview.md) med elastiska databaser inte har en direkt inverkan för fakturering.  Du debiteras bara för de resurser som har etablerats för var och en av pooler (primär och sekundär pool)
+Till skillnad från enskilda databaser, med hjälp av [aktiv geo-replikering](sql-database-active-geo-replication.md) eller [automatisk redundans grupper](sql-database-auto-failover-group.md) med elastiska databaser inte har en direkt inverkan för fakturering. Du debiteras bara för de resurser som har etablerats för var och en av pooler (primär och sekundär pool)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Hur påverkar användningen av granskningsfunktionen fakturan
 
@@ -217,7 +217,7 @@ Se [hantera databaser och inloggningar](sql-database-manage-logins.md).
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Hur kan jag vara säker på att endast auktoriserade IP-adresser får tillgång till en server
 
-Se [så här: konfigurera brandväggsinställningar på SQL Database](sql-database-configure-firewall-settings.md).
+Se [så här: Konfigurera brandväggsinställningar på SQL Database](sql-database-configure-firewall-settings.md).
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>Vad är en förväntad replikeringsfördröjning vid geo-replikering av en databas mellan två regioner inom samma geografiska område Azure
 

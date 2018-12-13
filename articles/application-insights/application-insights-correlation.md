@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: da9ec327edc27e2f37f76704d6b5481869621049
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09db1c7a7d348d866cd131e66102044a37c010a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997483"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310342"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -31,7 +31,7 @@ Application Insights definierar en [datamodellen](application-insights-data-mode
 
 Distribuerad logisk åtgärd består vanligtvis av en uppsättning mindre operations - begäranden som bearbetas av en av komponenterna. Dessa åtgärder definieras av [begär telemetri](application-insights-data-model-request-telemetry.md). Varje begärandetelemetri har sin egen `id` som identifierar det unikt globalt. Och all telemetri - spårningar, undantag och annat som är associerade med den här begäran bör ange den `operation_parentId` till värdet för begäran `id`.
 
-Varje utgående åtgärd som http-anrop till en annan komponent som representeras av [beroendetelemetri](application-insights-data-model-dependency-telemetry.md). Beroendetelemetri definierar också sin egen `id` som är globalt unikt. Begärandetelemetri initieras av det här beroendeanropet använder den som `operation_parentId`.
+Varje utgående åtgärd (till exempel ett http-anrop till en annan komponent) representeras av [beroendetelemetri](application-insights-data-model-dependency-telemetry.md). Beroendetelemetri definierar också sin egen `id` som är globalt unikt. Begärandetelemetri initieras av det här beroendeanropet använder den som `operation_parentId`.
 
 Du kan skapa vy över distribuerade logiska importförloppet med hjälp av `operation_Id`, `operation_parentId`, och `request.id` med `dependency.id`. Dessa fält kan du också definiera orsakssamband ordningen för telemetri-anrop.
 

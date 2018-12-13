@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6e186f25cc69791d939d93d24a37cadb1113353
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f10a3c02e98db5777b5231aec04951a7ed1ad9ad
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105050"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310690"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Tillägg för Azure Disk Encryption 
 
@@ -132,6 +132,20 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
  -  [Inaktivera kryptering på en som kör Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Inaktivera kryptering tillåts endast på datavolymer för virtuella Linux-datorer.  
 
+### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Kryptera eller dekryptera VM-skalningsuppsättningar
+
+- [Aktivera diskkryptering på en som kör Linux VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [Aktivera diskkryptering på en aktiv Windows VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [Distribuera en virtuell dator skala ange av virtuella Linux-datorer med en jumpbox och aktiverar kryptering på Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [Distribuera en virtuell dator skala ange av Windows virtuella datorer med en jumpbox och aktiverar kryptering på Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [Inaktivera diskkryptering på en som kör Linux VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [Inaktivera diskkryptering på en aktiv Windows VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Kryptera eller dekryptera virtuella datorer med en Azure AD-app (tidigare version) 
  
 - [Aktivera diskkryptering på befintliga eller som kör Windows virtuella IaaS-datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
@@ -162,17 +176,7 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 
 - [Aktivera diskkryptering på en Windows virtuell dator som körs med hjälp av en Azure AD Klientcertifikatets tumavtryck](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
-- [Aktivera diskkryptering på en som kör Linux VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
-- [Aktivera diskkryptering på en aktiv Windows VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-
- - [Distribuera en virtuell dator skala ange av virtuella Linux-datorer med en jumpbox och aktiverar kryptering på Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-
- - [Distribuera en virtuell dator skala ange av Windows virtuella datorer med en jumpbox och aktiverar kryptering på Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-
-- [Inaktivera diskkryptering på en som kör Linux VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
-
-- [Inaktivera diskkryptering på en aktiv Windows VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> Förbered en förkrypterade Windows virtuell Hårddisk
 Avsnitten som följer är nödvändiga för att förbereda en förkrypterade Windows virtuell Hårddisk för distribution som en krypterad virtuell Hårddisk i Azure IaaS. Använd informationen för att förbereda och starta en ny Windows VM (VHD) på Azure Site Recovery eller Azure. Mer information om hur du förbereder och ladda upp en virtuell Hårddisk finns i [överföra en generaliserad virtuell Hårddisk och använda den för att skapa nya virtuella datorer i Azure](../virtual-machines/windows/upload-generalized-managed.md).

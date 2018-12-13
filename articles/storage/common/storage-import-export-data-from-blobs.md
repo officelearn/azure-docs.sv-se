@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: faf8852df8b50c43affe32ede0f1e96d0bb80d3d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 25ea4f41ac1fa36c7f9b6f64bc7c4eede4702f38
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821250"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315187"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att exportera data från Azure Blob storage
 Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att exportera stora mängder data på ett säkert sätt från Azure Blob storage. Tjänsten kräver att du kan leverera tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagringskonto till enheterna och sedan levereras enheter tillbaka.
@@ -99,7 +99,7 @@ Utför följande steg för att skapa ett exportjobb i Azure-portalen.
 
     - Klicka på **OK** för att skapa för export-jobbet.
 
-## <a name="step-2-ship-the-drives"></a>Steg 2: Skicka enheterna
+## <a name="step-2-ship-the-drives"></a>Steg 2: Leverera enheterna
 
 Om du inte vet hur många enheter som du behöver gå till den [kontrollera antalet enheter](#check-the-number-of-drives). Om du vet hur många enheter kan fortsätta att skicka enheterna.
 
@@ -127,7 +127,7 @@ Exporten har slutförts. Du kan ta bort jobbet just nu, eller så kan automatisk
 
 Detta *valfritt* steg hjälper till att du bestämmer hur många enheter som krävs för export-jobbet. Utför det här steget på ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Ladda ned WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) på Windows-system. 
+1. [Ladda ned WAImportExport version 1](https://aka.ms/waiev1) på Windows-system. 
 2. Packa upp i standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
 3. Öppna ett fönster med PowerShell eller Kommandotolken med administratörsbehörighet. Om du vill ändra katalogen till mappen uppzippade, kör du följande kommando:
     

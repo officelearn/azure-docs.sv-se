@@ -4,9 +4,9 @@ description: En detaljerad genomgång av hur du skapar en förutsägelseanalys f
 keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
+ms.author: garye
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: edbcd1ae128969bb10436afb1dc800c42e69f8c9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: fce8f03adfad348c9daddf3c2a225d6df29552d7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089827"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252534"
 ---
-# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Genomgång: Utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning Studio
+# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Steg-för-steg-beskrivning: Utveckla förutsägelseanalys för kreditriskbedömning i Azure Machine Learning Studio
 
 I den här genomgången ska vi titta närmare på hur du utvecklar en lösning för förutsägelseanalys i Machine Learning Studio. Vi ska skapa en enkel modell i Machine Learning Studio som vi sedan distribuerar som en Azure Machine Learning-webbtjänst, där modellen kan göra förutsägelser med nya data. 
 
 I den här genomgången förutsätter vi att du har använt Machine Learning Studio åtminstone någon gång och att du är någorlunda insatt i vad maskininlärning är. Men vi förväntar oss inte att du är en expert.
 
-Om du aldrig har använt **Azure Machine Learning Studio** innan kanske du vill börja med självstudierna, [Skapa ditt första dataexperiment i Azure Machine Learning Studio](create-experiment.md). Den självstudiekursen vänder sig till nybörjare och vägleder dig genom Machine Learning Studio. Vi går vi igenom grunderna och förklarar hur du drar och släpper moduler i ett experiment, hur du kopplar ihop dem och hur du kör experimentet. Vi avslutar med att titta på resultatet. Ett annat verktyg som hjälper dig att komma igång är ett diagram med en översikt över funktionerna i Machine Learning Studio. Du kan hämta och skriva ut det här: [Översiktsdiagram över funktionerna i Azure Machine Learning Studio ](studio-overview-diagram.md).
+Om du aldrig har använt **Azure Machine Learning Studio** innan kanske du vill börja med självstudierna, [Skapa ditt första dataexperiment i Azure Machine Learning Studio](create-experiment.md). Den självstudiekursen vänder sig till nybörjare och vägleder dig genom Machine Learning Studio. Vi går vi igenom grunderna och förklarar hur du drar och släpper moduler i ett experiment, hur du kopplar ihop dem och hur du kör experimentet. Vi avslutar med att titta på resultatet. Ett annat verktyg som hjälper dig att komma igång är ett diagram med en översikt över funktionerna i Machine Learning Studio. Du kan hämta och skriva ut det här: [Översiktsdiagram över funktionerna i Azure Machine Learning Studio i](studio-overview-diagram.md).
  
 Om du inte har erfarenhet av maskininlärning finns det en bra videoserie som vi rekommenderar. Den heter [Datavetenskap för nybörjare](data-science-for-beginners-the-5-questions-data-science-answers.md) och är en bra introduktion som med enkelt språk förklarar vad maskininlärning är.
 
@@ -58,4 +58,4 @@ Vi skapar lösningen för kreditriskbedömning genom att följa dessa steg:
 > [!TIP] 
 > Du hittar en fungerande kopia av experimentet som vi skapar i den här genomgången i [Azure AI-galleriet](https://gallery.cortanaintelligence.com). Gå till **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Genomgång –kreditriskbedömning) och klicka på **Öppna i Studio** för att ladda ned en kopia av experimentet till din Machine Learning Studio-arbetsyta.
 > 
-> Den här genomgången baseras på en förenklad version av exempelexperimentet [Binary Classification: Credit risk prediction](https://go.microsoft.com/fwlink/?LinkID=525270) (Binär klassificering: kreditriskbedömning), som också finns i [galleriet](http://gallery.cortanaintelligence.com/).
+> Den här genomgången är baserad på en förenklad version av exempelexperimentet [binär klassificering: Kreditriskförutsägelse](https://go.microsoft.com/fwlink/?LinkID=525270), som också finns i den [galleriet](http://gallery.cortanaintelligence.com/).

@@ -1,5 +1,5 @@
 ---
-title: Skapa en extern Azure App Service-miljö
+title: Skapa extern App Service environment - Azure
 description: Beskriver hur du skapar en App Service-miljö när du skapar en app eller en fristående
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 6df708c97750c89c850c993d0e1a43ded01934a2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 98d534e20b8e4c6bf6bcc3f483f59b796dc85073
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959976"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274494"
 ---
 # <a name="create-an-external-app-service-environment"></a>Skapa extern App Service environment #
 
@@ -64,27 +65,27 @@ Skapa en ASE när du skapar en App Service plan:
 
     ![Skapa en webbapp][1]
 
-1. Välj din prenumeration. Appen och ASE skapas i samma abonnemang.
+2. Välj din prenumeration. Appen och ASE skapas i samma abonnemang.
 
-1. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i den [översikt över Azure Resource Manager][ARMOverview].
+3. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i den [översikt över Azure Resource Manager][ARMOverview].
 
-1. Välj ditt operativsystem (Windows, Linux eller Docker). 
+4. Välj ditt operativsystem (Windows, Linux eller Docker). 
 
-1. Välj App Service-planen och välj sedan **Skapa ny**. Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
+5. Välj App Service-planen och välj sedan **Skapa ny**. Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
 
     ![Ny App Service-plan][2]
 
-1. I den **plats** listrutan, Välj den region där du vill skapa ASE. Om du väljer en befintlig ASE är inte en ny ASE skapas. App Service-planen har skapats i ASE som du har valt. 
+6. I den **plats** listrutan, Välj den region där du vill skapa ASE. Om du väljer en befintlig ASE är inte en ny ASE skapas. App Service-planen har skapats i ASE som du har valt. 
 
-1. Välj **prisnivå**, och välj ett av de **isolerad** priser för SKU: er. Om du väljer en **isolerad** SKU-kort och en plats som inte är en ASE, en ny ASE har skapats på den platsen. För att starta processen för att skapa en Apptjänstmiljö markerar **Välj**. Den **isolerad** SKU är endast tillgängliga i tillsammans med en ase-miljö. Du också kan inte använda andra priser SKU i en ASE än **isolerad**. 
+7. Välj **prisnivå**, och välj ett av de **isolerad** priser för SKU: er. Om du väljer en **isolerad** SKU-kort och en plats som inte är en ASE, en ny ASE har skapats på den platsen. För att starta processen för att skapa en Apptjänstmiljö markerar **Välj**. Den **isolerad** SKU är endast tillgängliga i tillsammans med en ase-miljö. Du också kan inte använda andra priser SKU i en ASE än **isolerad**. 
 
     ![Val av prisnivå][3]
 
-1. Ange namn för din ASE. Det här namnet används i adresserbara namnet för dina appar. Om namnet på ASE är _appsvcenvdemo_, domännamnet är *. appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.appsvcenvdemo.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen med det namnet.
+8. Ange namn för din ASE. Det här namnet används i adresserbara namnet för dina appar. Om namnet på ASE är _appsvcenvdemo_, domännamnet är *. appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.appsvcenvdemo.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen med det namnet.
 
     ![Ny App Service-planens namn][4]
 
-1. Ange din Azure information för virtuella nätverk. Välj antingen **skapa en ny** eller **Välj befintlig**. Möjlighet att välja ett befintligt VNet är endast tillgängligt om du har ett virtuellt nätverk i den valda regionen. Om du väljer **Skapa ny**, ange ett namn för det virtuella nätverket. Ett nytt Resource Manager-VNet med samma namn skapas. Den använder adressutrymmet `192.168.250.0/23` i den valda regionen. Om du väljer **Välj befintligt**, måste du:
+9. Ange din Azure information för virtuella nätverk. Välj antingen **skapa en ny** eller **Välj befintlig**. Möjlighet att välja ett befintligt VNet är endast tillgängligt om du har ett virtuellt nätverk i den valda regionen. Om du väljer **Skapa ny**, ange ett namn för det virtuella nätverket. Ett nytt Resource Manager-VNet med samma namn skapas. Den använder adressutrymmet `192.168.250.0/23` i den valda regionen. Om du väljer **Välj befintligt**, måste du:
 
     a. Välj Adressblock för virtuellt nätverk om du har fler än en.
 
@@ -94,7 +95,7 @@ Skapa en ASE när du skapar en App Service plan:
 
     d. Välj IP-adressintervall för undernätet.
 
-1. Välj **skapa** att skapa ASE. Den här processen skapar även App Service-planen och appen. ASE, App Service-plan och app är allt under samma prenumeration och även i samma resursgrupp. Om din ASE behöver en separat resursgrupp, eller om du behöver en ILB ASE, följer du stegen för att skapa en Apptjänstmiljö ensamt.
+10. Välj **skapa** att skapa ASE. Den här processen skapar även App Service-planen och appen. ASE, App Service-plan och app är allt under samma prenumeration och även i samma resursgrupp. Om din ASE behöver en separat resursgrupp, eller om du behöver en ILB ASE, följer du stegen för att skapa en Apptjänstmiljö ensamt.
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Skapa en ase-miljö och en Linux-webbapp med en anpassad dockeravbildning tillsammans
 

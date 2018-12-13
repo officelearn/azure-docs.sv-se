@@ -1,5 +1,5 @@
 ---
-title: Utforska dina Azure-resurser med resursgrafer
+title: Utforska dina Azure-resurser
 description: Lär dig att använda Resource Graph-frågespråk för att utforska dina resurser och Upptäck hur de är anslutna.
 services: resource-graph
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: bcd25b95d1369ef98662384945123126ebbbd70f
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: fe3c06973a053b3f71ee7952647493ab920ea80e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086904"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309300"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Utforska dina Azure-resurser med resursgrafer
 

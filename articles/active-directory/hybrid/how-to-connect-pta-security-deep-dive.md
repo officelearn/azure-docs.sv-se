@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284888"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185077"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-direktautentisering djupgående om säkerhet
 
@@ -49,11 +49,11 @@ Dessa är viktiga säkerhetsaspekter i den här funktionen:
 ## <a name="components-involved"></a>Komponenter som ingår
 
 Allmän information om Azure AD fungerar, tjänst- och data finns i den [Säkerhetscenter](https://azure.microsoft.com/support/trust-center/). Följande komponenter ingår när du använder direktautentisering för att logga in användare:
-- **Azure AD-STS**: en tillståndslös säkerhetstokentjänst (STS) som bearbetar inloggningsförfrågningar och utfärdar säkerhetstoken till användarnas webbläsare, klienter eller tjänster som krävs.
-- **Azure Service Bus**: tillhandahåller molnbaserad kommunikation med företagsmeddelandetjänster och reläer kommunikation som hjälper dig att ansluta dina lokala lösningar till molnet.
-- **Azure AD Connect-Autentiseringsagenten**: en lokal-komponent som lyssnar efter och svarar på begäranden för verifiering av lösenord.
-- **Azure SQL Database**: innehåller information om klientens Autentiseringsagenter, inklusive deras metadata och krypteringsnycklar.
-- **Active Directory**: den lokala Active Directory, där dina användarkonton och deras lösenord lagras.
+- **Azure AD-STS**: En tillståndslös säkerhetstokentjänst (STS) som bearbetar inloggningsförfrågningar och utfärdar säkerhetstoken till användarnas webbläsare, klienter eller tjänster som krävs.
+- **Azure Service Bus**: Ger molnbaserad kommunikation med företagsmeddelandetjänster och reläer kommunikation som hjälper dig att ansluta dina lokala lösningar till molnet.
+- **Azure AD Connect-Autentiseringsagenten**: En komponent i den lokala som lyssnar efter och svarar på begäranden för verifiering av lösenord.
+- **Azure SQL Database**: Innehåller information om klientens Autentiseringsagenter, inklusive deras metadata och krypteringsnycklar.
+- **Active Directory**: En lokal Active Directory, där dina användarkonton och deras lösenord lagras.
 
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>Installation och registrering av den Autentiseringsagenter
 
@@ -97,8 +97,8 @@ Autentisering-agenter använder du följande steg för att registrera sig med Az
 5. Azure AD sedan loggar och skickar en digital identitetscertifikat tillbaka till agenten autentisering.
     - Rot-CA i Azure AD används för att signera certifikatet. 
 
-     >[!NOTE]
-     > Denna Certifikatutfärdare är _inte_ i betrodda rotcertifikatutfärdare för Windows.
+      > [!NOTE]
+      > Denna Certifikatutfärdare är _inte_ i betrodda rotcertifikatutfärdare för Windows.
     - CA: N används endast av funktionen direktautentisering. CA: N används bara för att signera CSRs under registreringen av autentisering.
     -  Ingen av de andra tjänsterna i Azure AD använda denna Certifikatutfärdare.
     - Certifikatets ämne (unikt namn eller Uppringningsrummer) är inställd på din klient-ID. Den här DN är ett GUID som unikt identifierar din klient. Den här DN scope certifikat för användning endast med din klient.
@@ -207,11 +207,11 @@ Att automatiskt uppdatera en autentiseringsagent:
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs mer om vilka scenarier som stöds och vilka som inte är.
-- [Snabbstart](how-to-connect-pta-quick-start.md): komma igång på Azure AD-direktautentisering.
+- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs om vilka scenarier som stöds och vilka som inte är.
+- [Snabbstart](how-to-connect-pta-quick-start.md): Kom igång på Azure AD-direktautentisering.
 - [Migrera från AD FS till direktautentisering](https://aka.ms/adfstoptadpdownload) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
-- [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): konfigurera funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
-- [Så här fungerar det](how-to-connect-pta-how-it-works.md): Lär dig grunderna för hur Azure AD-direktautentisering fungerar.
-- [Vanliga frågor och svar](how-to-connect-pta-faq.md): få svar på vanliga frågor och svar.
-- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig att lösa vanliga problem med funktionen direktautentisering.
-- [Azure AD sömlös SSO](how-to-connect-sso.md): Mer information om den här tilläggsfunktionen.
+- [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Konfigurera funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
+- [Så här fungerar det](how-to-connect-pta-how-it-works.md): Lär dig grunderna i hur fungerar Azure AD-direktautentisering.
+- [Vanliga frågor och svar](how-to-connect-pta-faq.md): Få svar på vanliga frågor och svar.
+- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen direktautentisering.
+- [Azure AD sömlös SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.

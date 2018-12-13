@@ -1,5 +1,5 @@
 ---
-title: Konfigurera automatisk machine learning-experiment
+title: Skapa automatiserade ML-experiment
 titleSuffix: Azure Machine Learning service
 description: Automatiserad machine learning hämtar en algoritm för dig och genererar en modell som är klar för distribution. Läs om de alternativ som du kan använda för att konfigurera automatiserade maskininlärningsexperiment.
 author: nacharya1
@@ -11,22 +11,22 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e1dd0cf995d7d9c263e49735decc5573107b1add
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f5237ab2b6970772e1f08264bb44223640c33a37
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140174"
+ms.locfileid: "53187270"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Konfigurera automatisk machine learning-experiment
 
 Automatiserad machine learning hämtar en algoritm och hyperparametrar för dig och genererar en modell som är klar för distribution. Det finns flera alternativ som du kan använda för att konfigurera automatiserade maskininlärningsexperiment. I den här guiden lär du dig hur du definierar olika konfigurationsinställningar.
 
-Exempel på en automatiserad maskininlärningsexperiment finns [självstudie: tränar en modell för klassificering med automatiserade machine learning](tutorial-auto-train-models.md) eller [träna modeller med automatiserade maskininlärning i molnet](how-to-auto-train-remote.md).
+Exempel på en automatiserad maskininlärningsexperiment finns [självstudien: Träna en modell för klassificering med automatiserade machine learning](tutorial-auto-train-models.md) eller [träna modeller med automatiserade maskininlärning i molnet](how-to-auto-train-remote.md).
 
 Konfigurationsalternativ är tillgängliga i automatiserade machine learning:
 
-* Väljer du typen av experimentet: klassificering, Regression eller prognostisering
+* Välj din typ av experiment: Klassificering, Regression eller prognoser
 * Datakällan, format och hämta data
 * Välj compute-mål: lokal eller fjärransluten
 * Automatiserad machine learning-experiment-inställningar
@@ -219,7 +219,7 @@ Egenskap  |  Beskrivning | Standardvärde
 `iteration_timeout_minutes` |   Begränsar mängden tid (minuter) som en viss iteration tar. Om en iteration överskrider angiven mängd, den iterationen hämtar har avbrutits. Om den inte anges kommer iterationen fortsätter att köras tills den är klar. |   Ingen
 `n_cross_validations`   |Antalet delningar i korsverifieringar| Ingen
 `validation_size`   |Storleken på verifiering som procent av alla utbildning exemplet.|  Ingen
-`preprocess` | SANT/FALSKT <br/>True aktiverar experimentera om du vill utföra Förbearbeta på indata. Följande är en delmängd av Förbearbeta<li>Data saknas: Imputes saknas data-numeriska med Average, Text med de flesta förekomsten </li><li>Kategoriska värden: Om-datatypen är numeriska datatyper och antalet unika värden är mindre än 5 procent, konverterar till en hot-kodning </li><li>Etc. fullständig lista finns [GitHub-lagringsplatsen](https://aka.ms/aml-notebooks)</li><br/>Obs: om data som är gles du inte använda Förbearbeta = true |  False | 
+`preprocess` | SANT/FALSKT <br/>True aktiverar experimentera om du vill utföra Förbearbeta på indata. Följande är en delmängd av Förbearbeta<li>Data som saknas: Imputes saknas data-numeriska med Average, Text med de flesta förekomsten </li><li>Kategoriska värden: Om-datatypen är numeriska datatyper och antalet unika värden är mindre än 5 procent, konverterar till en hot-kodning </li><li>Etc. fullständig lista finns [GitHub-lagringsplatsen](https://aka.ms/aml-notebooks)</li><br/>Obs: om data som är gles du inte använda Förbearbeta = true |  False | 
 `blacklist_models`  | Automatiserad machine learning-experiment har många olika algoritmer som försök. Konfigurera för att undanta vissa algoritmer från experimentet. Användbart om du är medveten om att algoritm(er) inte fungerar bra för din datauppsättning. Exkludera algoritmer kan spara beräkningsresurser och utbildning.<br/>Tillåtna värden för klassificering<br/><li>LogisticRegression</li><li>DESCENT</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Tillåtna värden för Regression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tillåtna värden för prognostisering<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Ingen
 `whitelist_models`  | Automatiserad machine learning-experiment har många olika algoritmer som försök. Konfigurera om du vill inkludera vissa algoritmer för experimentet. Användbart om du är medveten om att algoritm(er) fungerar bra för din datauppsättning. <br/>Tillåtna värden för klassificering<br/><li>LogisticRegression</li><li>DESCENT</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Tillåtna värden för Regression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tillåtna värden för prognostisering<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Ingen
 `verbosity` |Styr loggningsnivå med information som är den mest utförliga och kritiska som minsta möjliga. Utförlighetsnivå tar samma värden som definierats i python-paketet för loggning. Tillåtna värden är:<br/><li>logging.INFO</li><li>loggning. VARNING</li><li>loggning. FEL</li><li>loggning. KRITISKA</li>  | logging.INFO</li> 
@@ -244,8 +244,8 @@ Om du använder `preprocess=True`, följande data Förbearbeta stegen utförs au
     *   Sedan imputera saknade värden med medelvärdet av värdena i kolumnen för numeriska funktioner.
     *   Sedan imputera saknade värden med vanligast förekommande värdet för kategoriska funktioner.
 1.  Generera ytterligare funktioner
-    * För DateTime-funktioner: år, månad, dag, dag i vecka, dag på år, kvartal, vecka på året, timme, minut, sekund.
-    * För Text-funktioner: termen frekvens baserat på ordet unigram, bi-g och tre-gram, antal vectorizer.
+    * För DateTime-funktioner: År, månad, dag, dag i vecka, dag på år, kvartal, vecka på året, timme, minut, sekund.
+    * För Text-funktioner: Termen frekvensen baserat på ordet unigram, bi-g och tre-gram, antal vectorizer.
 1.  Transformeringar och kodningar
     * Numeriska funktioner med mycket få unika värden som omvandlas till kategoriska funktioner.
     * Beroende på Kardinaliteten för kategoriska funktioner, utföra etikett kodning eller (hash) en frekvent kodning.

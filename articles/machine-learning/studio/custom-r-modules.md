@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -16,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 5cddc767b4652df6753cc57eb7305b46ec45e19d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2bdc8b7b28bee37ae88e466874d2b3d22dcd7556
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098649"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277938"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio
 
 Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning Studio. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa. Det illustrerar hur du skapar filer som definierar en modul och hur du registrerar modulen för distribution i en Machine Learning-arbetsyta. Element och attribut som används i definitionen för anpassad modul sedan beskrivs i detalj. Hur du använder extra funktioner och filer och flera utdata diskuteras också. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="what-is-a-custom-r-module"></a>Vad är en anpassad R-modul?
 En **anpassad modul** är en användardefinierad modul som kan överföras till din arbetsyta och köras som en del av ett Azure Machine Learning-experiment. En **anpassad R-modul** är en anpassad modul som utför en användardefinierad R-funktion. **R** är ett programmeringsspråk för statistiska beräkningar och grafik som används av statistiker och dataexperter för att implementera algoritmer. R är för närvarande det enda språk som stöds i anpassade moduler, men stöd för ytterligare språk är schemalagd för framtida versioner.
@@ -96,7 +95,7 @@ Att exponera det `CustomAddRows` funktion som en Azure Machine Learning-modul, e
     </Module>
 
 
-Det är viktigt att Observera att värdet för den **id** attribut för den **indata** och **Arg** element i XML-filen måste matcha parametern funktionsnamnen av R-kod i den CustomAddRows.R filen exakt: (*dataset1*, *dataset2*, och *växling* i det här exemplet). På samma sätt kan värdet för den **entryPoint** attributet för den **språk** elementet måste matcha namnet på funktionen i R-skriptet exakt: (*CustomAddRows* i det här exemplet) . 
+Det är viktigt att Observera att värdet för den **id** attribut för den **indata** och **Arg** element i XML-filen måste matcha parametern funktionsnamnen av R-kod i den CustomAddRows.R filen exakt: (*dataset1*, *dataset2*, och *växling* i det här exemplet). På samma sätt kan värdet för den **entryPoint** attributet för den **språk** elementet måste matcha namnet på funktionen i R-skriptet exakt: (*CustomAddRows* i det här exemplet). 
 
 Däremot den **id** attributet för den **utdata** element motsvarar inte alla variabler i R-skriptet. När mer än en utdata krävs bara returnera en lista från R-funktion med resultat som placeras *i samma ordning* som **utdata** element har deklarerats i XML-filen.
 
@@ -150,7 +149,7 @@ Varje indatakort och utdataporten kan ha en valfri **beskrivning** underordnat e
 ### <a name="input-elements"></a>Inmatningselement
 Inkommande portar kan du skicka data till din R-funktion och en arbetsyta. Den **datatyper** som stöds för inkommande portar är följande: 
 
-**DataTable:** den här typen skickas till din R-funktion som en data.frame. I själva verket alla typer (till exempel CSV-filer eller ARFF filer) som stöds av Machine Learning och som är kompatibla med **DataTable** konverteras till en data.frame automatiskt. 
+**DataTable:** Den här typen skickas till din R-funktion som en data.frame. I själva verket alla typer (till exempel CSV-filer eller ARFF filer) som stöds av Machine Learning och som är kompatibla med **DataTable** konverteras till en data.frame automatiskt. 
 
         <Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
             <Description>Input Dataset 1</Description>
@@ -159,7 +158,7 @@ Inkommande portar kan du skicka data till din R-funktion och en arbetsyta. Den *
 Den **id** attribut som hör till var **DataTable** indataporten måste ha ett unikt värde och det här värdet måste matcha dess motsvarande med namnet parameter i din R-funktion.
 Valfritt **DataTable** portar som inte skickas som indata i ett experiment har värdet **NULL** skickades till funktionen för R och valfritt zip portar ignoreras om indata inte är ansluten. Den **isOptional** attributet är valfritt för både den **DataTable** och **Zip** typer och är *FALSKT* som standard.
 
-**ZIP:** anpassade moduler kan acceptera en zip-fil som indata. Denna indata är packat upp i arbetskatalogen R på din funktion
+**ZIP:** Anpassade moduler kan acceptera en zip-fil som indata. Denna indata är packat upp i arbetskatalogen R på din funktion
 
         <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
             <Description>Zip files to be extracted to the R working directory.</Description>
@@ -177,7 +176,7 @@ För anpassade R-moduler saknar id för en Zip-port matchar alla parametrar för
 * Värdet för den **isOptional** attributet för den **indata** elementet är inte obligatoriskt (och är *FALSKT* som standard om inget värde anges); men om detta anges måste det vara *SANT* eller *FALSKT*.
 
 ### <a name="output-elements"></a>Utdata-element
-**Standard utgångsportar:** utgångsportar som är mappade till returvärden från din R-funktion som kan sedan användas av efterföljande moduler. *DataTable* är endast standardutdata porttyp som stöds för närvarande. (Stöd för *Learners* och *omvandlar* är kommande.) En *DataTable* utdata har definierats som:
+**Standardutdata portar:** Utgångsportar som mappas till returvärden från din R-funktion som kan sedan användas av efterföljande moduler. *DataTable* är endast standardutdata porttyp som stöds för närvarande. (Stöd för *Learners* och *omvandlar* är kommande.) En *DataTable* utdata har definierats som:
 
     <Output id="dataset" name="Dataset" type="DataTable">
         <Description>Combined dataset</Description>
@@ -215,7 +214,7 @@ Och returnerar listan över objekt i en lista i rätt ordning i ”CustomAddRows
     return (list(dataset, dataset1, dataset2)) 
     } 
 
-**Visualisering utdata:** du kan också ange en utgångsport från typen *visualisering*, som visar utdata från R-grafik enhets- och konsolen utdata. Den här porten är inte en del av R-funktionsutdata och stör inte ordningen på de andra port utdatatyper. Lägg till en port för visualisering i anpassade moduler genom att lägga till en **utdata** element med ett värde av *visualisering* för dess **typ** attribut:
+**Visualisering utdata:** Du kan också ange en utgångsport från typen *visualisering*, som visar utdata från R-grafik enhets- och konsolen utdata. Den här porten är inte en del av R-funktionsutdata och stör inte ordningen på de andra port utdatatyper. Lägg till en port för visualisering i anpassade moduler genom att lägga till en **utdata** element med ett värde av *visualisering* för dess **typ** attribut:
 
     <Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -372,6 +371,6 @@ Körningsmiljö för R-skriptet använder samma version av R som den **kör R-sk
 
 **Begränsningar av körningsmiljö** omfattar:
 
-* Icke-permanent filsystem: filerna som skrivits när modulen anpassade körs är inte beständiga mellan flera körningar av samma modul.
+* Icke-permanent filsystem: Filerna som skrivits när modulen anpassade körs är inte beständiga mellan flera körningar av samma modul.
 * Ingen nätverksåtkomst
 

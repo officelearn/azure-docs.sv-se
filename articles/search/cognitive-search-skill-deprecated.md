@@ -1,5 +1,5 @@
 ---
-title: Föråldrad kognitiva kunskaper (Azure Search) | Microsoft Docs
+title: Föråldrad kognitiva funktioner – Azure Search
 description: Den här sidan innehåller en lista över kognitiv sökning färdigheter som betraktas som inaktuella och stöds inte inom en snar framtid.
 services: search
 manager: pablocas
@@ -10,20 +10,21 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 6bd364ea9923b1c8cdd7c96fc29cb91dff88ec95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450040"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311736"
 ---
-#    <a name="deprecated-cognitive-seach-skills"></a>Föråldrad kognitiva Sök kunskaper
+#    <a name="deprecated-cognitive-search-skills"></a>Föråldrad kognitiv sökning kunskaper
 
 Det här dokumentet beskriver kognitiva kunskaper som betraktas som inaktuella. Använd följande guide för innehållet:
 
-* Färdighetsnamn på: Namnet på den färdighet upphör att gälla, det mappas till den @odata.type attribut.
-* Senaste tillgängliga api-version: den senaste versionen av Azure search offentliga API: N via vilken kompetens som innehåller motsvarande inaktuell färdighet kan skapas/uppdateras.
-* Support upphör: den sista dagen efter vilka motsvarande färdighet anses vara stöds inte. Skapat kompetens bör fortfarande att fungera, men användare rekommenderas för att migrera från en föråldrad färdighet.
+* Kunskapsnamn på: Namnet på den färdighet upphör att gälla, det mappas till den @odata.type attribut.
+* Senaste tillgängliga api-version: Den senaste versionen av Azure Sök offentliga API: N via vilken kompetens som innehåller motsvarande föråldrad färdighet kan vara skapats/uppdaterats.
+* Support upphör: Den sista dagen efter vilka motsvarande färdighet anses vara stöds inte. Skapat kompetens bör fortfarande att fungera, men användare rekommenderas för att migrera från en föråldrad färdighet.
 * Rekommendationer: Migreringsvägen fram emot att använda en färdighet som stöds. Användare bör följa rekommendationerna för att fortsätta att få support.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -42,7 +43,7 @@ Använd [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-en
 
 Att migrera till den [entitet erkännande färdighet](cognitive-search-skill-entity-recognition.md), måste du utföra en eller flera av följande ändringar till din kompetens-definition. Du kan uppdatera en färdighet definition med hjälp av den [uppdatera kompetens API](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Obs_: förtroendepoäng som ett koncept för närvarande stöds inte. Det kommer att stödjas inom en snar framtid. Den `minimumPrecision` parametern finns på den `EntityRecognitionSkill` för framtida användning och för bakåtkompatibilitet kompatibilitet.
+_Obs_: Förtroendepoäng som ett begrepp som stöds för närvarande inte. Det kommer att stödjas inom en snar framtid. Den `minimumPrecision` parametern finns på den `EntityRecognitionSkill` för framtida användning och för bakåtkompatibilitet kompatibilitet.
 
 1. *(Krävs)*  Ändra den `@odata.type` från `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` till `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

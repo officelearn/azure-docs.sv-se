@@ -2,8 +2,8 @@
 title: Azure Machine Learning-modellhantering web service-förbrukning | Microsoft Docs
 description: Det här dokumentet beskriver de steg och koncept som ingår i förbrukar distribueras med modellhantering i Azure Machine Learning-webbtjänster.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbd36e5389208b21704f1749beee016e30cc4ec5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950643"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253858"
 ---
 # <a name="consuming-web-services"></a>Konsumera webbtjänster
 
@@ -60,7 +60,7 @@ Om du vill hämta nyckel för web, använder du följande kommando:
 ```
 az ml service keys realtime -i <web service id>
 ```
-När du skapar HTTP-begäran kan du använda nyckeln i auktoriseringsrubriken: ”Authorization” ”: ägar <key>”
+När du skapar HTTP-begäran kan du använda nyckeln i auktoriseringsrubriken: ”Authorization”: ”Ägar <key>”
 
 ## <a name="get-the-service-swagger-description"></a>Hämta tjänstbeskrivning för Swagger
 Om service API-schemat, tjänstslutpunkten skulle exponera en Swagger-dokument på ```http://<ip>/api/v1/service/<service name>/swagger.json```. Swagger-dokument kan användas för att automatiskt generera tjänstklienten och utforska förväntade indata och annan information om tjänsten.

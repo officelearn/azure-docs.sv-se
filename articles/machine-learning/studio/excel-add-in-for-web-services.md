@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 2/1/2018
-ms.openlocfilehash: 7e84db390d3a193be5ac1755837e5f9333bebbc9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 02/01/2018
+ms.openlocfilehash: e836323ad452b86d89eee62936b574b2cc9d0337
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097207"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269506"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-tillägget för Azure Machine Learning Studio-webbtjänster
 Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva någon kod.
@@ -41,7 +41,7 @@ Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva n�
    
     ![Förutsäga avsnittet][02]
 
-Distribuera en webbtjänst eller Använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [genomgång steg 5: distribuera webbtjänsten Azure Machine Learning](walkthrough-5-publish-web-service.md).
+Distribuera en webbtjänst eller Använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [genomgång steg 5: Distribuera webbtjänsten Azure Machine Learning](walkthrough-5-publish-web-service.md).
 
 Hämta API-nyckel för webbtjänsten. Om du utför beror denna åtgärd på om du har publicerat en klassiska Machine Learning-webbtjänst för en ny Machine Learning-webbtjänst.
 
@@ -69,7 +69,7 @@ Hämta API-nyckel för webbtjänsten. Om du utför beror denna åtgärd på om d
 
 ## <a name="steps-to-add-a-new-web-service"></a>Hur du lägger till en ny webbtjänst
 
-1. Distribuera en webbtjänst eller Använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [genomgång steg 5: distribuera webbtjänsten Azure Machine Learning](walkthrough-5-publish-web-service.md).
+1. Distribuera en webbtjänst eller Använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [genomgång steg 5: Distribuera webbtjänsten Azure Machine Learning](walkthrough-5-publish-web-service.md).
 2. Klicka på **förbrukar**.
 3. Leta efter den **grundläggande förbrukning info** avsnittet. Kopiera och spara den **primärnyckel** och **Request-Response** URL: en.
 4. I Excel, går du till den **webbtjänster** avsnittet (om du är i den **Predict** klickar du på bakåtpilen för att gå till listan för web services).

@@ -1,5 +1,5 @@
 ---
-title: Distribuera din app till Azure App Service med FTP/S | Microsoft Docs
+title: Distribuera innehåll med FTP/S - Azure App Service | Microsoft Docs
 description: Lär dig mer om att distribuera din app till Azure App Service med FTP eller FTPS.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 1e3dbe04652be479a327ed9494299f89ef13492a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: f48dc4d91fd5fafda88f518c27c79e151e5b1ebe
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679400"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260080"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
 
@@ -46,8 +47,8 @@ Vi rekommenderar att du använder **App autentiseringsuppgifter** att distribuer
 ## <a name="deploy-files-to-azure"></a>Distribuera filer till Azure
 
 1. Från FTP-klienten (till exempel [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), eller [WinSCP](https://winscp.net/index.php)), Använd den information du samlade in för att ansluta till din app.
-3. Kopiera filerna med respektive katalogstruktur till den [ **/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) i Azure (eller **/site/wwwroot/App_Data/jobb/** katalogen för WebJobs).
-4. Gå till appens URL för att verifiera appen körs korrekt. 
+2. Kopiera filerna med respektive katalogstruktur till den [ **/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) i Azure (eller **/site/wwwroot/App_Data/jobb/** katalogen för WebJobs).
+3. Gå till appens URL för att verifiera appen körs korrekt. 
 
 > [!NOTE] 
 > Till skillnad från [Git-baserade distributioner](app-service-deploy-local-git.md), FTP-distribution stöder inte följande distribution automatiseringar: 

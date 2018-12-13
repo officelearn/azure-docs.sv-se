@@ -12,19 +12,19 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: b472baf77cc8f253337aa0780321a6e7dd3fecac
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056700"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163981"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Video indexeras och kommenterade för flera innehavare SaaS-app med Azure SQL Database
 
 Den här artikeln är ett kommenterade index i tid platserna för en 81 minuter lång video om SaaS innehavare modeller eller mönster. Den här artikeln kan du hoppa bakåt eller framåt i videon till vilken del intresserar dig. Videon förklarar större designalternativen för en databas för flera innehavare program på Azure SQL Database. Videon innehåller demonstrationer, genomgångar av hanteringskod och ibland detalj underrättat genom upplevelse än vad som kan vara i dokumentationen för skriftliga.
 
 Videon förstärks information i vår skriftliga dokumentation som finns på: 
-- *Konceptuell:* [SaaS med flera klientorganisationer databasen innehavare mönster][saas-concept-design-patterns-563e]
+- *Konceptuell:* [Flera innehavare SaaS innehavare mönster][saas-concept-design-patterns-563e]
 - *Självstudier:* [Wingtip biljetter SaaS-program][saas-how-welcome-wingtip-app-679t]
 
 Videon och artiklarna beskriver många faser för att skapa ett program med flera innehavare för Azure SQL Database i molnet. Särskilda funktioner i Azure SQL Database gör det enklare att utveckla och implementera appar för flera klienter som är både enklare att hantera och på ett tillförlitligt sätt har bättre prestanda.
@@ -63,8 +63,8 @@ Följande rubriker finns länkar till sina motsvarande kommenterade avsnitten se
 - [17. Canonical hybrid delade SaaS-appen, 0:47:33](#anchor-image-wtip-min04733)
 - [18. Exempelapp för Wingtip SaaS, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Scenarier och mönster utforskat i självstudier 0:49:10](#anchor-image-wtip-min04910)
-- [20. Demonstration av självstudier och Github-lagringsplats 0:50:18](#anchor-image-wtip-min05018)
-- [21. Github-lagringsplatsen Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
+- [20. Demonstration av självstudier och GitHub-lagringsplats 0:50:18](#anchor-image-wtip-min05018)
+- [21. GitHub-lagringsplatsen Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. Utforska mönster, 0:56:20](#anchor-image-wtip-min05620)
 - [23. Etablera klienter och registrering, 0:57:44](#anchor-image-wtip-min05744)
 - [24. Etablera klienter och program-anslutning 0:58:58](#anchor-image-wtip-min05858)
@@ -94,11 +94,11 @@ Att klicka på en skärmbild avbildning tar dig till den exakta tid och platsen 
 &nbsp; <a name="anchor-image-wtip-min00001"/>
 #### <a name="1-start-welcome-slide-00001"></a>1. *(Start)*  Välkommen bilden 0:00:01
 
-*Learning från MYOB: designmönster för SaaS-program på Azure SQL Database - BRK3120*
+*Learning från MYOB: Designmönster för SaaS-program på Azure SQL Database - BRK3120*
 
 [![Välkommen till bild][image-wtip-min00003-brk3120-whole-welcome]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1)
 
-- Rubrik: Learning från MYOB: designmönster för SaaS-program på Azure SQL Database
+- Rubrik: Learning från MYOB: Designmönster för SaaS-program på Azure SQL Database
 - Bill.Gibson@microsoft.com
 - Principal Program Manager, Azure SQL-databas
 - Microsoft Ignite-sessionen BRK3120, Orlando, FL USA, oktober 11/2017
@@ -121,7 +121,7 @@ Att klicka på en skärmbild avbildning tar dig till den exakta tid och platsen 
 
 &nbsp; <a name="anchor-image-wtip-min00505"/>
 #### <a name="4-multi-tenant-web-app-00500"></a>4. Webbapp med flera innehavare, 0:05:00
-[![Wingtip SaaS-app: webbapp för flera innehavare][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
+[![Wingtip SaaS-app: Webbapp för flera innehavare][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
 
 
 &nbsp; <a name="anchor-image-wtip-min00555"/>
@@ -199,13 +199,13 @@ Att klicka på en skärmbild avbildning tar dig till den exakta tid och platsen 
 
 
 &nbsp; <a name="anchor-image-wtip-min05018"/>
-#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Demonstration av självstudier och Github-lagringsplats 0:50:12
-[![Demo-självstudier och Github-lagringsplatsen][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
+#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Demonstration av självstudier och GitHub-lagringsplats 0:50:12
+[![Demo-självstudier och GitHub-lagringsplatsen][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
 &nbsp; <a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Github-lagringsplatsen Microsoft/WingtipSaaS, 0:50:32
-[![Github-lagringsplatsen Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. GitHub-lagringsplatsen Microsoft/WingtipSaaS, 0:50:32
+[![GitHub-lagringsplatsen Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
 &nbsp; <a name="anchor-image-wtip-min05620"/>
@@ -294,14 +294,14 @@ Att klicka på en skärmbild avbildning tar dig till den exakta tid och platsen 
 
 - [Blogginlägget 22 maj 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Konceptuell:* [SaaS med flera klientorganisationer databasen innehavare mönster][saas-concept-design-patterns-563e]
+- *Konceptuell:* [Flera innehavare SaaS innehavare mönster][saas-concept-design-patterns-563e]
 
 - *Självstudier:* [Wingtip biljetter SaaS-program][saas-how-welcome-wingtip-app-679t]
 
-- Github-lagringsplatser för varianter av Wingtip biljetter SaaS innehavare programmet:
-    - [Github-lagringsplatsen för - fristående programmodell][github-wingtip-standaloneapp].
-    - [Github-lagringsplatsen för - DB Per klient modellen][github-wingtip-dbpertenant].
-    - [Github-lagringsplatsen för - modellen för flera innehavare DB][github-wingtip-multitenantdb].
+- GitHub-lagringsplatser för varianter av Wingtip biljetter SaaS innehavare programmet:
+    - [GitHub-lagringsplatsen för - fristående programmodell][github-wingtip-standaloneapp].
+    - [GitHub-lagringsplatsen för - DB Per klient modellen][github-wingtip-dbpertenant].
+    - [GitHub-lagringsplatsen för - modellen för flera innehavare DB][github-wingtip-multitenantdb].
 
 
 
@@ -322,7 +322,7 @@ Att klicka på en skärmbild avbildning tar dig till den exakta tid och platsen 
 
 [image-wtip-min00417-agenda]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00417-agenda-app-management-models-patterns.png "Agenda."
 
-[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Wingtip SaaS-app: webbapp för flera innehavare"
+[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Wingtip SaaS-app: Webbapp för flera innehavare"
 
 [image-wtip-min00555-app-web-form]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00555-app-form-contoso-concert-hall-night-opera.png "App-webbformulär i praktiken"
 
@@ -354,9 +354,9 @@ Att klicka på en skärmbild avbildning tar dig till den exakta tid och platsen 
 
 [image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "Scenarier och mönster utforskat i självstudier"
 
-[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demonstration av självstudier och Github-lagringsplatsen"
+[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demonstration av självstudier och GitHub-lagringsplatsen"
 
-[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Github-lagringsplatsen Microsoft/WingtipSaaS"
+[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "GitHub-lagringsplatsen Microsoft/WingtipSaaS"
 
 [image-wtip-min05620-exploring-patterns]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05620-exploring-patterns-tutorials.png "Utforska mönster"
 

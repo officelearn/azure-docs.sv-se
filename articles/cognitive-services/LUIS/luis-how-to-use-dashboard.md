@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: fa5560c008270635d0d93b8004e017c810c9c27a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6f6de278e802b83623413b0bf70e556d083818c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074426"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140616"
 ---
-# <a name="application-dashboard"></a>Instrumentpanel för program
+# <a name="model-and-usage-statistics-in-the-dashboard"></a>Modell- och användningsdata statistik på instrumentpanelen
 Appinstrumentpanelen kan du övervaka din app på en snabb titt. Den **instrumentpanelen** visas när du öppnar en app genom att klicka på namnet på programmet på **Mina appar** sedan väljer **instrumentpanelen** från övre panelen. 
 
 > [!CAUTION]
@@ -71,7 +71,7 @@ Den **avsikt analys på detaljnivå** visar en uppdelning av avsikter utifrån t
 
 Kontrollera om en analys på detaljnivå baseras på märkta yttranden eller slutpunkten träffar:
 
-1. Klicka på **ytterligare inställningar** ![knappen ytterligare inställningar](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) att få åtkomst till listan som i följande bild:
+1. Klicka på **ytterligare inställningar** ![ytterligare inställningar för att åtkomstlista](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) att få åtkomst till listan som i följande bild:
 
     ![Avsiktshantering analys på detaljnivå lista](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
 2. Välj ett värde i listan och klicka sedan på bakåtpilen ![Bakåtpil](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet.
@@ -83,7 +83,7 @@ Instrumentpanelen visar en uppdelning av enheter baserat på märkta yttranden e
 
 Kontrollera om en analys på detaljnivå baseras på märkta yttranden eller slutpunkten träffar:
 
-1. Klicka på **ytterligare inställningar** ![knappen ytterligare inställningar](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) att få åtkomst till listan som i följande bild:
+1. Klicka på **ytterligare inställningar** ![ytterligare inställningar för att hämta lista](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) att få åtkomst till listan som i följande bild:
 
     ![Uppdelning Entitetslista](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
 2. Välj ett värde i listan och klicka sedan på bakåtpilen ![Bakåtpil](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet i enlighet med detta.

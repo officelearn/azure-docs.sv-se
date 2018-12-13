@@ -1,5 +1,5 @@
 ---
-title: Så här förbereder du för en IP SSL-adressändring - Azure
+title: Förbereda för SSL IP-adress ändras – Azure App Service
 description: Om din SSL IP-adress ska ändras, lär du dig vad du gör så att din app fortsätter att fungera efter ändringen.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: e8558b4c3c7dafca8d4fff7e2aae0597a66c031d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576550"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270798"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Så här förbereder du för en ändring för SSL IP-adress
 
@@ -31,7 +32,7 @@ Om du har fått ett meddelande om att SSL-IP-adressen för din Azure App Service
 
 4.  Under den **inställningar** rubrik, klickar du på **SSL-inställningar** i det vänstra navigeringsfönstret.
 
-5. Välj namn värdpost i avsnittet SSL-bindningar. I redigeraren som öppnas, Välj **SNI SSL** på den **SSL-typ** nedrullningsbara menyn och klicka på **Lägg till bindning för**. När du ser ett meddelande för åtgärden, har den befintliga IP-adressen släppts.
+1. Välj namn värdpost i avsnittet SSL-bindningar. I redigeraren som öppnas, Välj **SNI SSL** på den **SSL-typ** nedrullningsbara menyn och klicka på **Lägg till bindning för**. När du ser ett meddelande för åtgärden, har den befintliga IP-adressen släppts.
 
 6.  I den **SSL-bindningar** igen väljer du samma värd-namnpost med certifikatet. I redigeringsprogrammet som öppnas väljer du den här gången **IP-baserad SSL** på den **SSL-typ** nedrullningsbara menyn och klicka på **Lägg till bindning för**. När du ser ett meddelande för åtgärden, har du skaffat en ny IP-adress.
 

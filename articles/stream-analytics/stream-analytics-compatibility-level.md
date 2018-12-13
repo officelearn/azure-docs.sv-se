@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 37d57b0dc381f0ed2edf1f3debb76e5b54eae157
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093836"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187321"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivån för Azure Stream Analytics-jobb
  
@@ -38,34 +38,34 @@ Följande viktiga ändringar har introducerats i kompatibilitetsnivå 1.1:
 
 * **Service Bus XML-format**  
 
-  * **tidigare versioner:** Azure Stream Analytics används DataContractSerializer, så att innehållet i meddelandet ingår XML-taggar. Exempel:
+  * **Tidigare versioner:** Azure Stream Analytics används DataContractSerializer, så att innehållet i meddelandet ingår XML-taggar. Exempel:
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ ”SensorId”: ”1”, ”temperatur”: 64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ ”SensorId”: ”1”, ”temperatur”: 64\}\u0001 
 
-  * **aktuell version:** meddelandeinnehållet innehåller stream direkt med ingen ytterligare taggar. Exempel:
+  * **aktuell version:** Meddelandeinnehåll innehåller stream direkt med ingen ytterligare taggar. Exempel:
   
-   {”SensorId”: ”1”, ”temperatur”: 64} 
+    {”SensorId”: ”1”, ”temperatur”: 64} 
  
 * **Bevara skiftlägeskänslighet för fältnamn**  
 
-  * **tidigare versioner:** fältnamn ändrades till gemener när bearbetas av Azure Stream Analytics-motorn. 
+  * **Tidigare versioner:** Fältnamn ändrades till gemener när bearbetas av Azure Stream Analytics-motorn. 
 
   * **aktuell version:** skiftlägeskänslighet bevaras för fältnamn när de bearbetas av Azure Stream Analytics-motorn. 
 
-  > [!NOTE] 
-  > Bevara skiftlägeskänslighet är ännu inte tillgängligt för Stream Analytics-jobb med hjälp av Edge-miljö. Därför kan konverteras alla fältnamn till gemener om ditt jobb finns i Microsoft Edge. 
+    > [!NOTE] 
+    > Bevara skiftlägeskänslighet är ännu inte tillgängligt för Stream Analytics-jobb med hjälp av Edge-miljö. Därför kan konverteras alla fältnamn till gemener om ditt jobb finns i Microsoft Edge. 
 
 * **FloatNaNDeserializationDisabled**  
 
-  * **tidigare versioner:** CREATE TABLE-kommando inte att filtrera händelser med NaN (inte ett tal. Till exempel oändligt, -Infinity) i en kolumn för FLYTTAL anger eftersom de inte uppfyller det dokumenterade intervallet för dessa siffror.
+  * **Tidigare versioner:** CREATE TABLE-kommando inte att filtrera händelser med NaN (inte ett tal. Till exempel oändligt, -Infinity) i en kolumn för FLYTTAL anger eftersom de inte uppfyller det dokumenterade intervallet för dessa siffror.
 
-  * **aktuell version:** CREATE TABLE kan du ange ett starkt schema. Stream Analytics-motorn validerar att informationen som överensstämmer med det här schemat. Med den här modellen kan kommandot Filtrera händelser med NaN-värden. 
+  * **aktuell version:** Skapa tabell kan du ange ett starkt schema. Stream Analytics-motorn validerar att informationen som överensstämmer med det här schemat. Med den här modellen kan kommandot Filtrera händelser med NaN-värden. 
 
 * **Inaktivera automatisk upcast för datetime-strängar i JSON.**  
 
-  * **tidigare versioner:** JSON-parsern skulle automatiskt ”uppåt” sträng värden med datum / / tidszonsinformation för DateTime anger och sedan konvertera den till UTC. Detta resulterade i att förlora Tidszonsinformationen.
+  * **Tidigare versioner:** JSON-parsern skulle automatiskt ”uppåt” strängvärden med datum / / tidszonsinformation för DateTime-typ och sedan konvertera den till UTC. Detta resulterade i att förlora Tidszonsinformationen.
 
-  * **aktuell version:** det finns inga fler automatiskt ”uppåt” av strängvärden med datum / / tidszonsinformation för DateTime-typen. Därför kan sparas informationen om tidszonen. 
+  * **aktuell version:** Det finns inga fler automatiskt ”uppåt” av strängvärden med datum / / tidszonsinformation för DateTime-typen. Därför kan sparas informationen om tidszonen. 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Felsöka Azure Stream Analytics-indata](stream-analytics-troubleshoot-input.md)

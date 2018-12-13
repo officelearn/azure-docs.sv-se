@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 34011144d4f960413e78f13c999dfddf6d2660bf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: c4a289d1aeefc35f07e7598adf3780620b11f0da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743291"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252209"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Konfigurera listan över anpassade förbjudna lösenord
 
@@ -36,7 +36,7 @@ Konfigurera listan över anpassade förbjudna lösenord kräver en Azure Active 
    * Lista med anpassade förbjudna lösenord kan innehålla upp till 1000 orden.
    * Lista med anpassade förbjudna lösenord inte är skiftlägeskänslig.
    * Lista med anpassade förbjudna lösenord tar hänsyn till vanliga tecken ersättningen.
-      * Exempel: ”o” och ”0” eller ”a” och ”@”
+      * Exempel: ”o” och ”0” eller ”a” och ”\@”
    * Minsta stränglängd är fyra tecken och Max är 16 tecken.
 1. När du har lagt till alla strängar, klickar du på **spara**.
 

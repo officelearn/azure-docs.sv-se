@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 230318dc8e352a3adc970b13f20fa992954e3b15
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091102"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317397"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Skapa en IoT-lösning med Stream Analytics
 
@@ -33,7 +33,7 @@ När du har slutfört den här lösningen, kan du:
 Du behöver följande förutsättningar för att kunna slutföra den här lösningen:
 * En [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Scenariot introduktion: ”Hello, avgift”!
+## <a name="scenario-introduction-hello-toll"></a>Introduktion för scenariot: ”Hello, avgift”!
 En avgift station är ett vanligt fenomen. Du får dem på många motorvägar, bryggor och tunnlar över hela världen. Varje station avgift har flera avgift kabiner. Vid manuell kabiner stop om du vill betala avgift för att en attendant. Vid automatisk kabiner genomsöker en sensor ovanpå varje visade ett RFID-kort som fästs på vindrutan din fordonets som du skickar avgift monter. Det är enkelt att visualisera passage genom dessa avgift stationer som en händelseström som intressanta åtgärder kan utföras.
 
 ! [Bild av bilar på avgift kabiner] (media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
@@ -113,8 +113,8 @@ För att slutföra den här lösningen, behöver du ett Microsoft Azure-prenumer
 
 Var noga med att följa stegen i avsnittet ”Rensa upp din Azure-konto” i slutet av den här artikeln så att du använder din Azure-kredit på bästa sätt.
 
-## <a name="deploy-the-sample"></a>Distribuera exemplet 
-Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsammans med några få klick. Definitionen för lösningen finns i github-lagringsplats på [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+## <a name="deploy-the-sample"></a>Distribuera exemplet
+Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsammans med några få klick. Definitionen för lösningen finns i GitHub-lagringsplats på [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Distribuera TollApp mallen i Azure portal
 1. Distribuera TollApp miljön till Azure genom att använda den här länken till [distribuera TollApp Azure-mall](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -123,11 +123,11 @@ Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsamman
 
 3. Välj den prenumeration där de olika resurserna faktureras.
 
-4. Ange en ny resursgrupp med ett unikt namn, till exempel `MyTollBooth`. 
+4. Ange en ny resursgrupp med ett unikt namn, till exempel `MyTollBooth`.
 
 5. Välj en Azure-plats.
 
-6. Ange en **intervall** som ett antal sekunder. Det här värdet används i exempelwebbappen för hur ofta du vill skicka data till Event Hub. 
+6. Ange en **intervall** som ett antal sekunder. Det här värdet används i exempelwebbappen för hur ofta du vill skicka data till Event Hub.
 
 7. **Kontrollera** att godkänna de allmänna villkoren.
 
@@ -149,7 +149,7 @@ Det finns flera resurser som enkelt kan distribueras i en resursgrupp tillsamman
    - En Azure-Händelsehubb
    - Två Webbappar
 
-## <a name="examine-the-sample-tollapp-job"></a>Granska TollApp exempeljobb 
+## <a name="examine-the-sample-tollapp-job"></a>Granska TollApp exempeljobb
 1. Från och med resursgruppen i föregående avsnitt, Välj det direktuppspelade Stream Analytics-jobbet börjar med namnet **tollapp** (namn innehåller slumpmässiga tecken för unikhet).
 
 2. På den **översikt** sidan för projektet, Observera de **fråga** visas frågesyntaxen.
@@ -195,7 +195,7 @@ Följ dessa steg för att starta direktuppspelningsjobbet:
 
 6. Välj varje id att granska JSON-dokumentet. Lägg märke till varje tollid windowend tid och antalet bilar från fönstret.
 
-7. Efter en ytterligare tre minuter en annan uppsättning fyra dokument som är tillgänglig, ett dokument per tollid. 
+7. Efter en ytterligare tre minuter en annan uppsättning fyra dokument som är tillgänglig, ett dokument per tollid.
 
 
 ## <a name="report-total-time-for-each-car"></a>Rapporten total tid för varje bil
@@ -229,9 +229,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 7. På den **startjobb** väljer **nu**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Granska den totala tiden i utdata
-Upprepa stegen i föregående avsnitt för att granska CosmosDB-utdata från det direktuppspelade jobbet. Granska de senaste JSON-dokument. 
+Upprepa stegen i föregående avsnitt för att granska CosmosDB-utdata från det direktuppspelade jobbet. Granska de senaste JSON-dokument.
 
-Det här dokumentet visar exempelvis en exemplet bil med en viss licens skylt entrytime och avsluta tid och fältet DATEDIFF beräknade durationinminutes som visar avgift monter tidslängd som två minuter: 
+Det här dokumentet visar exempelvis en exemplet bil med en viss licens skylt entrytime och avsluta tid och fältet DATEDIFF beräknade durationinminutes som visar avgift monter tidslängd som två minuter:
 ```JSON
 {
     "tollid": 4,
@@ -249,7 +249,7 @@ Det här dokumentet visar exempelvis en exemplet bil med en viss licens skylt en
 ```
 
 ## <a name="report-vehicles-with-expired-registration"></a>Rapporten fordon med utgångna registrering
-Azure Stream Analytics kan använda statisk ögonblicksbilder av referensdata för att ansluta med temporala dataströmmar. Använd följande exempel-fråga för att demonstrera den här funktionen. Registrering-indata är en statisk blob json-fil som visar förfallodatum för licens-taggar. Genom att koppla på licens lj jämförs referensdata varje fordon som passerar genom avgift båda. 
+Azure Stream Analytics kan använda statisk ögonblicksbilder av referensdata för att ansluta med temporala dataströmmar. Använd följande exempel-fråga för att demonstrera den här funktionen. Registrering-indata är en statisk blob json-fil som visar förfallodatum för licens-taggar. Genom att koppla på licens lj jämförs referensdata varje fordon som passerar genom avgift båda.
 
 Om ett nyttofordon är registrerat med avgift företaget, kan det passera avgift monter utan att ha stoppats för granskning. Använd uppslagstabell registrering för att identifiera alla nyttofordon som har upphört att gälla registreringar.
 
@@ -264,7 +264,7 @@ WHERE Registration.Expired = '1'
 
 1. Upprepa stegen i föregående avsnitt för att uppdatera TollApp streaming job frågesyntax.
 
-2. Upprepa stegen i föregående avsnitt för att granska CosmosDB-utdata från det direktuppspelade jobbet. 
+2. Upprepa stegen i föregående avsnitt för att granska CosmosDB-utdata från det direktuppspelade jobbet.
 
 Exempel på utdata:
 ```json
@@ -289,26 +289,26 @@ Om du vill skala ut frågan till partitioner, redigerar du frågesyntaxen till f
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
-FROM EntryStream 
-TIMESTAMP BY EntryTime 
+FROM EntryStream
+TIMESTAMP BY EntryTime
 PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
 Att skala upp det direktuppspelade jobbet till fler enheter för strömning:
 
-1. **Stoppa** det aktuella jobbet. 
+1. **Stoppa** det aktuella jobbet.
 
 2. Uppdatera frågesyntaxen i den **< > fråga** sidan och spara ändringarna.
 
 3. Under rubriken konfigurera på direktuppspelningsjobbet Välj **skala**.
-   
+
 4. Dra den **enheter för strömning** skjutreglaget från 1 till 6. Enheter för strömning anger hur mycket datorkraft som jobbet kan ta emot. Välj **Spara**.
 
-5. **Starta** det direktuppspelade jobbet att demonstrera ytterligare skalning. Azure Stream Analytics distribuerar arbete mellan flera beräkningsresurser och få bättre genomströmning partitionering arbetet över resurser med hjälp av kolumnen anges i PARTITION BY-satsen. 
+5. **Starta** det direktuppspelade jobbet att demonstrera ytterligare skalning. Azure Stream Analytics distribuerar arbete mellan flera beräkningsresurser och få bättre genomströmning partitionering arbetet över resurser med hjälp av kolumnen anges i PARTITION BY-satsen.
 
 ## <a name="monitor-the-job"></a>Övervaka jobbet
-Den **ÖVERVAKAREN** området innehåller statistik om det pågående jobbet. Första gången konfiguration krävs för att använda lagringskontot i samma region (namnet avgift som resten av det här dokumentet).   
+Den **ÖVERVAKAREN** området innehåller statistik om det pågående jobbet. Första gången konfiguration krävs för att använda lagringskontot i samma region (namnet avgift som resten av det här dokumentet).
 
 ![Azure Stream Analytics-jobb och övervakning](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 

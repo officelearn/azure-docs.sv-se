@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93c2808dc244a86f7a58aa65d649e9c3e8c17f7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109979"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251716"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för dataanalys
 
@@ -24,10 +24,10 @@ Den här artikeln beskriver hur du operationaliserar dina datapipelines för rep
 
 I följande scenario är indata en platt fil som innehåller en batch med flygning data i en månad. Den här flygning data omfattar information som flygplatsen original och beskrivning, miles leds, avgång och ankomst gånger och så vidare. Målet med denna pipeline är att sammanfatta dagliga flygbolag prestanda, där varje flygbolag har en rad för varje dag med de genomsnittliga avgång och ankomst fördröjningar i minuter och totala miles leds den dagen.
 
-| ÅR | MÅNAD | DAY_OF_MONTH | OPERATÖR |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
+| YEAR | MONTH | DAY_OF_MONTH | OPERATÖR |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2017 | 1 | 3 | AA | 10.142229 | 7.862926 | 2644539 |
-| 2017 | 1 | 3 | PRECIS SOM | 9.435449 | 5.482143 | 572289 |
+| 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
 Exempel-pipeline väntar tills en ny tidsperiod flygning data tas emot och lagrar den detaljerade flyginformation i Hive data warehouse för långsiktig analyser. Pipelinen skapar även en mycket mindre datauppsättning som sammanfattar bara den dagliga datavolymen flygning. Den här dagliga flygning sammanfattningsdata skickas till en SQL-databas och tillhandahåller rapporter, till exempel för en webbplats.
@@ -156,7 +156,7 @@ Om du vill använda Oozie Web Console för att visa status för dina coordinator
 
 ### <a name="configure-hive"></a>Konfigurera Hive
 
-1. Hämta en CSV-exempelfil som innehåller data som rör sig i en månad. Ladda ned en ZIP-fil `2017-01-FlightData.zip` från den [HDInsight Github-lagringsplatsen](https://github.com/hdinsight/hdinsight-dev-guide) och packa upp den till CSV-filen `2017-01-FlightData.csv`. 
+1. Hämta en CSV-exempelfil som innehåller data som rör sig i en månad. Ladda ned en ZIP-fil `2017-01-FlightData.zip` från den [HDInsight GitHub-lagringsplatsen](https://github.com/hdinsight/hdinsight-dev-guide) och packa upp den till CSV-filen `2017-01-FlightData.csv`. 
 
 2. Kopiera den här CSV-filen upp till Azure Storage-konto som är kopplat till ditt HDInsight-kluster och placera den i den `/example/data/flights` mapp.
 
@@ -553,7 +553,7 @@ Som du ser är majoriteten av koordinatorn bara skicka konfigurationsinformation
 
     En koordinator ansvarar för schemaläggning av åtgärder inom den `start` och `end` datumintervall, enligt det intervall som anges av den `frequency` attribut. Varje schemalagd åtgärd körs i sin tur arbetsflödet som konfigurerats. I coordinator definitionen ovan konfigureras koordinatorn för att köra åtgärder från den 1 januari 2017 till den 5 januari 2017. Frekvensen är inställd på 1 dag av den [Oozie Uttrycksspråk](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frekvens uttryck `${coord:days(1)}`. Detta resulterar i koordinatorn schemaläggning av en åtgärd (och därför arbetsflödet) en gång per dag. Åtgärden kommer att schemaläggas att köras utan fördröjning för datumintervall som är tidigare, som i följande exempel. Början av det datum som en åtgärd är schemalagd att köras kallas den *nominell tid*. Till exempel för att bearbeta data för den 1 januari 2017 koordinatorn schemalägger åtgärden med en nominell 2017-01-01T00:00:00 GMT.
 
-* Punkt 2: inom det angivna datumintervallet av arbetsflödet, den `dataset` elementet anger var att leta efter i HDFS data för ett visst datumintervall och konfigurerar hur Oozie anger om aktuella data är tillgängliga för bearbetning.
+* Punkt 2: Inom det angivna datumintervallet av arbetsflödet, den `dataset` elementet anger var att leta efter i HDFS data för ett visst datumintervall och konfigurerar hur Oozie anger om aktuella data är tillgängliga för bearbetning.
 
     ```
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -582,7 +582,7 @@ De tre föregående punkterna kombineras för att ge en situation där koordinat
 
 * Punkt 2: Oozie söker efter data som är tillgängliga i `sourceDataFolder/2017-01-FlightData.csv`.
 
-* Punkt 3: Om Oozie upptäcks filen kan det schemalägger en instans av arbetsflödet som bearbetar data för 2017-01-01. Oozie sedan vidare bearbetning för 2017-01-02. Den här utvärderingsversionen upprepas fram till men inte inklusive 05-01-2017.
+* Punkt 3: När Oozie hittar filen, schemalägger en instans av arbetsflödet som bearbetar data för 2017-01-01. Oozie sedan vidare bearbetning för 2017-01-02. Den här utvärderingsversionen upprepas fram till men inte inklusive 05-01-2017.
 
 Som med arbetsflöden, konfigurationen av en koordinator har definierats i en `job.properties` -fil som har en överordnad uppsättning av inställningarna som används av arbetsflödet.
 

@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 60d19f6d598c6090e0dc00c61817a0f8aed35003
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889505"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273943"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
 
@@ -109,7 +109,7 @@ Du kan optimera eller ta bort frågor som rör lagerarbetare med högsta minnesa
 
 Du kan också minska arbetsbelastningen genom att optimera eller fördelat över flera databaser. Eller du kan distribuera arbetsbelastningen mellan flera databaser. Om lösningarna inte är möjligt kan du överväga att öka prisnivån för prenumerationen för SQL-databas att öka mängden minnesresurser som är tillgängliga i databasen.
 
-Ytterligare förslag om felsökning finns i [minne ger stensättningar: mystiska SQL Server minne konsumenten med många namn](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Ytterligare förslag om felsökning finns i [minne ger stensättningar: Mystiska SQL Server minne konsumenten med många namn](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Låsning
 
@@ -227,7 +227,7 @@ Det här mönstret flashminnet prestanda anger prestandavillkor databasen där e
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen visar tempDB konkurrens information. Du kan använda informationen som startpunkt för felsökning. Det finns två saker som du kan välja för att lösa den här typen av konkurrens och öka genomflödet av den övergripande arbetsbelastningen: du kan sluta använda de temporära tabellerna. Du kan också använda minnesoptimerade tabeller. 
+Diagnostikloggen visar tempDB konkurrens information. Du kan använda informationen som startpunkt för felsökning. Det finns två saker som du kan välja för att lösa den här typen av konkurrens och öka genomflödet av den övergripande arbetsbelastningen: Du kan sluta använda de temporära tabellerna. Du kan också använda minnesoptimerade tabeller. 
 
 Mer information finns i [introduktion till minnesoptimerade tabeller](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 

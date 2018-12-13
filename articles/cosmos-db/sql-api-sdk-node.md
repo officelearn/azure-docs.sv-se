@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5616ee6f6b855cb366f24c79c73d12a03b69b2ac
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 9a859c2a8feeaf60be56404367f126bbd252771b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865666"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164865"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL-API: viktig information och resurser
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
 > * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -106,8 +106,8 @@ ms.locfileid: "52865666"
 ### <a name="1.12.1"/>1.12.1</a>
 * Ett fel har åtgärdats i executeStoredProcedure där dokument som är inblandade hade särskilda Unicode-tecken (LS, PS).
 * Ett fel vid hantering av dokument med Unicode-tecken i Partitionsnyckeln har åtgärdats.
-* Fast stöd för att skapa samlingar med namn på mediet. Github-ärende #114.
-* Fast stöd för auktoriseringstoken för behörighet. Github-ärende #178.
+* Fast stöd för att skapa samlingar med namn på mediet. GitHub-ärende #114.
+* Fast stöd för auktoriseringstoken för behörighet. GitHub-ärende #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * Lagt till stöd för en ny [konsekvensnivå](consistency-levels.md) kallas ConsistentPrefix.
@@ -119,8 +119,8 @@ ms.locfileid: "52865666"
 * Lägga till alternativet för att styra graden av parallellitet för mellan partition frågor.
 * Lägga till alternativet för att inaktivera verifiering av SSL när du kör mot Azure Cosmos DB-emulatorn.
 * Sänkte lägsta dataflöde på partitionerade samlingar från 10,100 RU/s till 2500 RU/s.
-* Bugg i fortsättningen token för enskilda partitionssamlingar. Github-ärende #107.
-* Bugg executeStoredProcedure vid hantering av 0 som enda param. Github-ärende #155.
+* Bugg i fortsättningen token för enskilda partitionssamlingar. GitHub-ärende #107.
+* Bugg executeStoredProcedure vid hantering av 0 som enda param. GitHub-ärende #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Fast Användaragent-rubriken för att inkludera den SDK-versionen.
@@ -152,10 +152,10 @@ ms.locfileid: "52865666"
 * Bugg har åtgärdats RangePartitionResolver.resolveForRead där det inte returnerade länkar på grund av en felaktig concat resultat.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Fast hashPartitionResolver resolveForRead(): när inga partitionsnyckel som angetts utlöser undantag, istället för att returnera en lista över alla registrerade länkar.
+* Fast hashPartitionResolver resolveForRead(): När inga partitionsnyckel som angetts utlöser undantag, istället för att returnera en lista över alla registrerade länkar.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Åtgärdar problemet [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -dedikerade HTTPS-agenten: undvika att ändra globala agenten för Azure Cosmos DB. Använda en dedikerad agent för alla de lib-begäranden.
+* Åtgärdar problemet [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -dedikerade HTTPS-agenten: Undvik att ändra globala agenten för Azure Cosmos DB. Använda en dedikerad agent för alla de lib-begäranden.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Åtgärdar problemet [#81](https://github.com/Azure/azure-documentdb-node/issues/81) – korrekt hantera bindestreck i media-ID: n.

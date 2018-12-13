@@ -1,5 +1,5 @@
 ---
-title: Ansluta säkert till Serverdelsresurser från en App Service Environment
+title: Anslut säkert till sluta resurser från App Service environment - Azure
 description: Läs mer om hur du ansluter på ett säkert sätt till serverdelsresurser från en App Service Environment.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 4fccfbb4cbc1b0db0c032d95ad66b497520aa619
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960948"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315867"
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Ansluta säkert till Serverdelsresurser från en App Service Environment
+# <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Anslut säkert till sluta resurser från en App Service environment
 ## <a name="overview"></a>Översikt
 Eftersom en App Service Environment skapas alltid i **antingen** ett Azure Resource Manager-nätverk **eller** en klassisk distributionsmodell [virtuellt nätverk] [ virtualnetwork], utgående anslutningar från en App Service-miljö till andra backend-resurser kan flöda exklusivt över det virtuella nätverket.  Med en ny ändring som gjorts i juni 2016 kan ase-miljöer också distribueras till virtuella nätverk som använder offentliga adressintervall eller RFC1918 adressutrymmen (d.v.s. privata adresser).  
 

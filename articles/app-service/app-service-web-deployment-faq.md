@@ -1,5 +1,5 @@
 ---
-title: Distribution av vanliga frågor och svar för Azure web apps | Microsoft Docs
+title: Distribution av vanliga frågor och svar – Azure Apptjänst | Microsoft Docs
 description: Få svar på vanliga frågor om distributionen för funktionen Web Apps i Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748450"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262120"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Distribution av vanliga frågor och svar för Web Apps i Azure
 
@@ -39,7 +40,7 @@ Mer information finns i [distribuera din app till App Service](app-service-deplo
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Jag får ett felmeddelande när jag försöker distribuera från Visual Studio. Hur löser jag det?
 
-Om du ser följande meddelande du kanske använder en äldre version av SDK ”: ett fel uppstod vid distribution för resursen” YourResourceName ”i resursgruppen” YourResourceGroup ”: MissingRegistrationForLocation: prenumerationen har inte registrerats för den Resurstyp komponenter om du på plats ”USA, centrala”. Registrera den här leverantören för att få tillgång till den här platsen ”. 
+Om du ser följande meddelande, kan du använda en äldre version av SDK: N: ”Ett fel uppstod vid distribution för resursen” YourResourceName ”i resursgruppen” YourResourceGroup ”: MissingRegistrationForLocation: Prenumerationen har inte registrerats för resurstypen ”komponenter' på plats” USA, centrala ”. Registrera den här leverantören för att få tillgång till den här platsen ”. 
 
 Lös felet genom att uppgradera till den [senaste SDK: N](https://azure.microsoft.com/downloads/). Om du ser det här meddelandet och du har den senaste SDK kan skicka en supportförfrågan.
 

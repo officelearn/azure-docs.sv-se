@@ -11,13 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 63f9417a65fbe3141907dc7d7d64da06eec7e93f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 441064d6cbb5b3b2fae77caef3125c8db3467553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882845"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187457"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatisera processer för Log Analytics med anslutningsappen för Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiserade arbetsflöden med hundratals åtgärder för en mängd olika tjänster. Utdata från en åtgärd kan användas som indata till en annan så att du kan skapa integrering mellan olika tjänster.  Azure Log Analytics-anslutningsappen för Microsoft Flow kan du skapa arbetsflöden som innehåller data som hämtats av loggsökningar i Log Analytics.
@@ -43,7 +42,7 @@ Självstudie i den här artikeln visar hur du skapar ett flöde som automatiskt 
 2. Sök efter **Log Analytics**.
 3. Klicka på **Azure Log Analytics – Kör fråga och visualisera resultat**.<br><br>![Log Analytics kör frågefönster](media/flow-tutorial/flow02.png)
 
-## <a name="step-4-configure-the-log-analytics-action"></a>Steg 4: Konfigurera Log Analytics-åtgärden
+## <a name="step-4-configure-the-log-analytics-action"></a>Steg 4: Konfigurera Log Analytics-åtgärd
 
 1. Ange information för din arbetsyta inklusive prenumerations-ID, resursgrupp, och namnet på arbetsytan.
 2. Lägg till följande Log Analytics-fråga för att den **fråga** fönster.  Detta är endast en exempelfråga och du kan ersätta med alla andra som returnerar data.

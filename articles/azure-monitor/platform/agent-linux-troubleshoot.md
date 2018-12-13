@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 8da42ee6db4b9ec76fa97e94a77076ed347e2952
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1f772e1a3e5b3e121b968d358166e9018c80d573
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080682"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192703"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Så här felsöker du problem med Log Analytics-agenten för Linux 
 
@@ -155,7 +153,7 @@ Ta bort kommentarerna i följande avsnitt nedan utdata-plugin-programmet genom a
 </match>
 ```
 
-## <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>Problem: Det gick inte att ansluta via proxy till Log Analytics
+## <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>Ärende: Det går inte att ansluta via proxy till Log Analytics
 
 ### <a name="probable-causes"></a>Troliga orsaker
 * Proxyn som anges under publiceringen var felaktig
@@ -175,7 +173,7 @@ Ta bort kommentarerna i följande avsnitt nedan utdata-plugin-programmet genom a
     |*.blob.core.windows.net | Port 443| Inkommande och utgående |  
     |*.azure-automation.net | Port 443| Inkommande och utgående | 
 
-## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problem: Du får ett 403-fel vid försök att publicera
+## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Ärende: Du får ett 403-fel vid försök att publicera
 
 ### <a name="probable-causes"></a>Troliga orsaker
 * Datum och tid stämmer på Linux-Server 
@@ -187,10 +185,10 @@ Ta bort kommentarerna i följande avsnitt nedan utdata-plugin-programmet genom a
 2. Kontrollera att du har installerat den senaste versionen av Log Analytics-agenten för Linux.  Den senaste versionen nu meddelar dig om tidsförskjutningsintervallet som orsakar onboarding felet.
 3. Reonboard med rätt arbetsyte-ID och Arbetsytenyckel följa installationsinstruktionerna tidigare i den här artikeln.
 
-## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problem: Du ser ett 500 och 404-fel i loggfilen direkt efter integreringen
+## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Ärende: Du ser ett 500 och 404-fel i loggfilen direkt efter integreringen
 Det här är ett känt problem som uppstår vid första överföring av Linux-data till Log Analytics-arbetsytan. Detta påverkar inte data som skickas eller service-upplevelse.
 
-## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problem: Du inte ser några data i Azure portal
+## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Ärende: Du ser inte några data i Azure portal
 
 ### <a name="probable-causes"></a>Troliga orsaker
 
@@ -208,7 +206,7 @@ Det här är ett känt problem som uppstår vid första överföring av Linux-da
     >Det här problemet löses i agenten version 1.1.0-28 och senare.
 
 
-## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Problem: Du ser inte vidarebefordrade Syslog-meddelanden 
+## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Ärende: Du ser inte vidarebefordrade Syslog-meddelanden 
 
 ### <a name="probable-causes"></a>Troliga orsaker
 * Konfigurationen tillämpas på Linux-servern tillåter inte insamling av skickade anläggningar och/eller loggningsnivåer
@@ -222,7 +220,7 @@ Det här är ett känt problem som uppstår vid första överföring av Linux-da
 * Simulera en Syslog-meddelande till Log Analytics med hjälp av `logger` kommando
   * `logger -p local0.err "This is my test message"`
 
-## <a name="issue-you-are-receiving-errno-address-already-in-use-in-omsagent-log-file"></a>Problem: Du får Errno adress redan används i omsagent loggfil
+## <a name="issue-you-are-receiving-errno-address-already-in-use-in-omsagent-log-file"></a>Ärende: Du får Errno adress redan används i omsagent loggfil
 Om du ser `[error]: unexpected error error_class=Errno::EADDRINUSE error=#<Errno::EADDRINUSE: Address already in use - bind(2) for "127.0.0.1" port 25224>` i omsagent.log.
 
 ### <a name="probable-causes"></a>Troliga orsaker
@@ -243,7 +241,7 @@ Det här felet indikerar att Linux-diagnostiktillägget (LAD) installeras sida v
 3. Starta om omsagent `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 4. Starta om syslog-tjänsten.
 
-## <a name="issue-you-are-unable-to-uninstall-omsagent-using-purge-option"></a>Problem: Du kan inte avinstallera omsagent alternativet Rensa
+## <a name="issue-you-are-unable-to-uninstall-omsagent-using-purge-option"></a>Ärende: Du kan inte avinstallera omsagent alternativet Rensa
 
 ### <a name="probable-causes"></a>Troliga orsaker
 
@@ -254,7 +252,7 @@ Det här felet indikerar att Linux-diagnostiktillägget (LAD) installeras sida v
 1. Avinstallera Linux-Diagnostiktillägget (LAD).
 2. Ta bort Linux-Diagnostiktillägget filer från datorn om de finns på följande plats: `/var/lib/waagent/Microsoft.Azure.Diagnostics.LinuxDiagnostic-<version>/` och `/var/opt/microsoft/omsagent/LAD/`.
 
-## <a name="issue-you-cannot-see-data-any-nagios-data"></a>Problem: Du kan inte se data Nagios data 
+## <a name="issue-you-cannot-see-data-any-nagios-data"></a>Ärende: Du kan inte se data Nagios data 
 
 ### <a name="probable-causes"></a>Troliga orsaker
 * Omsagent användaren har inte behörighet att läsa från Nagios-loggfil
@@ -277,7 +275,7 @@ Det här felet indikerar att Linux-diagnostiktillägget (LAD) installeras sida v
     </filter>
     ```
 
-## <a name="issue-you-are-not-seeing-any-linux-data"></a>Problem: Du inte ser några data i Linux 
+## <a name="issue-you-are-not-seeing-any-linux-data"></a>Ärende: Du ser inte några data i Linux 
 
 ### <a name="probable-causes"></a>Troliga orsaker
 * Kom igång med Log Analytics-tjänsten misslyckades
@@ -295,7 +293,7 @@ Det här felet indikerar att Linux-diagnostiktillägget (LAD) installeras sida v
 5. I vissa Azure distributionssystem startar omid OMI server daemon inte efter att den virtuella datorn startas om. Detta leder inte se granskning eller ChangeTracking UpdateManagement lösning-relaterade data. Lösningen är att manuellt starta omi-servern genom att köra `sudo /opt/omi/bin/service_control restart`.
 6. Efter OMI paketet manuellt till en nyare version, måste den startas om manuellt för Log Analytics-agenten ska fortsätta att fungera. Det här steget är obligatoriskt för vissa distributioner där OMI-servern inte startar automatiskt när den har uppgraderats. Kör `sudo /opt/omi/bin/service_control restart` att starta om OMI.
 7. Om du ser DSC-resurs *gick inte att hitta klassen* fel i omsconfig.log, kör `sudo /opt/omi/bin/service_control restart`.
-8. I vissa fall när Log Analytics-agenten för Linux inte kan kommunicera med Log Analytics-tjänsten data på agenten har säkerhetskopierats till den fullständiga buffertstorleken: 50 MB. Agenten ska startas genom att köra följande kommando `/opt/microsoft/omsagent/bin/service_control restart`.
+8. I vissa fall när Log Analytics-agenten för Linux inte kan kommunicera med Log Analytics-tjänsten har data på agenten säkerhetskopierats till den fullständiga buffertstorleken: 50 MB. Agenten ska startas genom att köra följande kommando `/opt/microsoft/omsagent/bin/service_control restart`.
 
     >[!NOTE]
     >Det här problemet löses i agenten version 1.1.0-28 eller senare
@@ -347,7 +345,7 @@ Det här felet indikerar att Linux-diagnostiktillägget (LAD) installeras sida v
     sudo service crond start
     ```
 
-## <a name="issue-when-configuring-collection-from-the-portal-for-syslog-or-linux-performance-counters-the-settings-are-not-applied"></a>Problem: När du konfigurerar samlingen från portalen för Syslog- eller Linux-prestandaräknare, gäller inte inställningarna
+## <a name="issue-when-configuring-collection-from-the-portal-for-syslog-or-linux-performance-counters-the-settings-are-not-applied"></a>Ärende: När du konfigurerar samlingen från portalen för Syslog- eller Linux-prestandaräknare, inställningarna gäller inte
 
 ### <a name="probable-causes"></a>Troliga orsaker
 * Log Analytics-agenten för Linux har inte hämtas den senaste konfigurationen
@@ -361,7 +359,7 @@ Det här felet indikerar att Linux-diagnostiktillägget (LAD) installeras sida v
 
   2. Kontrollera att den `omsconfig` agenten kan kommunicera med Log Analytics-tjänsten genom att köra följande kommando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`. Det här kommandot returnerar konfigurationen agenten tar emot från tjänsten, inklusive Syslog-inställningar, prestandaräknare för Linux och anpassade loggar. Om kommandot misslyckas kör du följande kommando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. Detta kommando tvingar fram omsconfig agenten att kommunicera med Log Analytics-tjänsten och hämta den senaste konfigurationen.
 
-## <a name="issue-you-are-not-seeing-any-custom-log-data"></a>Problem: Du ser inte alla anpassade loggdata 
+## <a name="issue-you-are-not-seeing-any-custom-log-data"></a>Ärende: Du ser inte alla anpassade loggdata 
 
 ### <a name="probable-causes"></a>Troliga orsaker
 * Det gick inte att tjänsten Log Analytics.
@@ -380,14 +378,14 @@ Det här felet indikerar att Linux-diagnostiktillägget (LAD) installeras sida v
 
 2. Kontrollera att den `omsconfig` agenten kan kommunicera med Log Analytics-tjänsten genom att köra följande kommando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Det här kommandot returnerar konfigurationen agenten tar emot från tjänsten, inklusive Syslog-inställningar, prestandaräknare för Linux och anpassade loggar. Om kommandot misslyckas kör du följande kommando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Detta kommando tvingar fram omsconfig agenten att kommunicera med Log Analytics-tjänsten och hämta den senaste konfigurationen.
 
-**Bakgrund:** i stället för Log Analytics-agenten för Linux körs som en privilegierad användare - `root`, agenten körs som den `omsagent` användaren. I de flesta fall måste explicit behörighet beviljas till den här användaren för att vissa filer som ska läsas. Att bevilja behörighet till `omsagent` användare, kör följande kommandon:
+**Bakgrund:** I stället för Log Analytics-agenten för Linux körs som en privilegierad användare - `root`, agenten körs som den `omsagent` användaren. I de flesta fall måste explicit behörighet beviljas till den här användaren för att vissa filer som ska läsas. Att bevilja behörighet till `omsagent` användare, kör följande kommandon:
 
 1. Lägg till den `omsagent` användare till specifika grupp `sudo usermod -a -G <GROUPNAME> <USERNAME>`
 2. Bevilja universal läsbehörighet till den nödvändiga filen `sudo chmod -R ugo+rx <FILE DIRECTORY>`
 
 Det finns ett känt problem med ett konkurrenstillstånd med Log Analytics-agenten för Linux tidigare version än 1.1.0-217. När du har uppdaterat till den senaste agenten, kör du följande kommando för att hämta den senaste versionen av plugin-programmet utdata `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 
-## <a name="issue-you-are-trying-to-reonboard-to-a-new-workspace"></a>Problem: Du försöker att reonboard till en ny arbetsyta
+## <a name="issue-you-are-trying-to-reonboard-to-a-new-workspace"></a>Ärende: Du försöker reonboard till en ny arbetsyta
 När du försöker reonboard en agent till en ny arbetsyta, måste konfigurationen för logganalys-agenten rensas innan reonboarding. Om du vill rensa gammal konfiguration från agenten kan köra shell-paket med `--purge`
 
 ```
@@ -415,7 +413,7 @@ Utför följande steg för att åtgärda problemet.
 * Vänta några minuter och Etableringsstatus ändras till **etablering lyckades**.
 
 
-## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Problem: Uppgradera Log Analytics-agenten på begäran
+## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Ärende: Den Log Analytics-agenten uppgraderingen på begäran
 
 ### <a name="probable-causes"></a>Troliga orsaker
 

@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 831e5bff412f80f2140f6fd1b935a57bd412ccba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582758"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188137"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart för
+# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Distribuera Azure AD-direktautentisering
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD)-direktautentisering kan användarna att logga 
 
 Följ dessa instruktioner för att distribuera direktautentisering på din klient:
 
-## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera krav
+## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera förutsättningarna
 
 Se till att följande krav är uppfyllda.
 
@@ -58,13 +58,13 @@ Se till att följande krav är uppfyllda.
 4. Om det finns en brandvägg mellan dina servrar och Azure AD måste du konfigurera följande objekt:
    - Se till att Autentiseringsagenter kan göra *utgående* begäranden till Azure AD via följande portar:
 
-    | Portnummer | Hur den används |
-    | --- | --- |
-    | **80** | Hämtar listor över återkallade certifikat (CRL) vid verifiering av SSL-certifikatet |
-    | **443** | Hanterar all utgående kommunikation med tjänsten |
-    | **8080** (valfritt) | Autentiseringsagenter rapportera status för var tionde minut över port 8080, om port 443 är inte tillgänglig. Den här statusen visas på Azure AD-portalen. Port 8080 är _inte_ används för användarinloggningar. |
-
-    Om din brandvägg tillämpar regler enligt ursprungliga användarna, kan du öppna dessa portar för trafik från Windows-tjänster som körs som en nätverkstjänst.
+     | Portnummer | Hur den används |
+     | --- | --- |
+     | **80** | Hämtar listor över återkallade certifikat (CRL) vid verifiering av SSL-certifikatet |
+     | **443** | Hanterar all utgående kommunikation med tjänsten |
+     | **8080** (valfritt) | Autentiseringsagenter rapportera status för var tionde minut över port 8080, om port 443 är inte tillgänglig. Den här statusen visas på Azure AD-portalen. Port 8080 är _inte_ används för användarinloggningar. |
+     
+     Om din brandvägg tillämpar regler enligt ursprungliga användarna, kan du öppna dessa portar för trafik från Windows-tjänster som körs som en nätverkstjänst.
    - Om din brandvägg eller proxyserver kan DNS-lista över tillåtna, lista över tillåtna anslutningar till  **\*. msappproxy.net** och  **\*. servicebus.windows.net**. Om den inte tillåter åtkomst till den [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka.
    - Din Autentiseringsagenter behöver åtkomst till **login.windows.net** och **login.microsoftonline.com** för inledande registrering. Öppna din brandvägg för dessa URL: er samt.
    - Certifikatsverifiering, avblockera i följande webbadresser: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, och  **www.microsoft.com:80**. Eftersom dessa URL: er används för certifikatsverifiering med andra Microsoft-produkter som du kan redan ha dessa URL: er avblockerad.
@@ -99,7 +99,7 @@ Följ dessa instruktioner för att kontrollera att du har aktiverat direktautent
 
 ![Azure Active Directory Administrationscenter: Azure AD Connect-fönstret](./media/how-to-connect-pta-quick-start/pta7.png)
 
-![Azure Active Directory Administrationscenter: direktautentisering fönstret](./media/how-to-connect-pta-quick-start/pta8.png)
+![Azure Active Directory Administrationscenter: Direkt-autentisering-fönstret](./media/how-to-connect-pta-quick-start/pta8.png)
 
 I det här skedet kan användare från de hanterade domänerna i din klient logga in med hjälp av direktautentisering. Användare från federerade domäner fortsätter dock att logga in med hjälp av AD FS eller en annan federationsleverantör som du tidigare har konfigurerat. Om du konverterar en domän från federerad som hanteras, börjar alla användare från domänen automatiskt loggar in med hjälp av direktautentisering. Funktionen direktautentisering påverkar inte molnexklusiva användare.
 
@@ -117,9 +117,9 @@ Följ dessa instruktioner för att hämta programvaran för autentiseringsagent:
 3. Välj **Azure AD Connect**väljer **direktautentisering**, och välj sedan **ladda ned Agent**.
 4. Välj den **acceptera villkoren och hämta** knappen.
 
-![Azure Active Directory Administrationscenter: knappen ladda ned Agent för autentisering](./media/how-to-connect-pta-quick-start/pta9.png)
+![Azure Active Directory Administrationscenter: Autentiseringsagent knappen ladda ned](./media/how-to-connect-pta-quick-start/pta9.png)
 
-![Azure Active Directory Administrationscenter: ladda ned Agent-fönstret](./media/how-to-connect-pta-quick-start/pta10.png)
+![Azure Active Directory Administrationscenter: Ladda ned agenten fönstret](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
 >Du kan också direkt [ladda ned programvaran Autentiseringsagenten](https://aka.ms/getauthagent). Granska och Godkänn den Autentiseringsagenten [användningsvillkoren](https://aka.ms/authagenteula) _innan_ installerar den.
@@ -144,10 +144,10 @@ Dessutom kan du skapa och köra ett distributionsskript för obevakad. Detta är
 ## <a name="next-steps"></a>Nästa steg
 - [Migrera från AD FS till direktautentisering](https://aka.ms/adfstoptadp) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
-- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs mer om vilka scenarier som stöds med den direktautentisering och vilka som inte är.
+- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs om vilka scenarier som stöds med den direktautentisering och vilka som inte är.
 - [Teknisk djupdykning](how-to-connect-pta-how-it-works.md): Förstå hur funktionen direktautentisering fungerar.
-- [Vanliga frågor och svar](how-to-connect-pta-faq.md): få svar på vanliga frågor och svar.
-- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig att lösa vanliga problem med funktionen direktautentisering.
-- [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): få teknisk information om funktionen direktautentisering.
-- [Azure AD sömlös SSO](how-to-connect-sso.md): Mer information om den här tilläggsfunktionen.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): använda Azure Active Directory-forumet till filen nya funktionbegäran.
+- [Vanliga frågor och svar](how-to-connect-pta-faq.md): Få svar på vanliga frågor och svar.
+- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen direktautentisering.
+- [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): Få teknisk information om funktionen direktautentisering.
+- [Azure AD sömlös SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet till filen nya funktionbegäran.

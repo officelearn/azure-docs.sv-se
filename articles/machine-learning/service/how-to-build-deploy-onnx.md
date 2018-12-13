@@ -11,14 +11,14 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5fc0e00d9c4404a1c6a757c354a9c7116dfeffa7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8da2309a16c07440158c1de324eea1fa05b1c98b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094023"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189079"
 ---
-# <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX och Azure Machine Learning: skapa och distribuera samverkande AI-modeller
+# <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX och Azure Machine Learning: Skapa och distribuera samverkande AI-modeller
 
 Den [öppna Neural Network Exchange](https://onnx.ai) (ONNX)-formatet är en öppen standard för att representera machine learning-modeller. ONNX stöds av en [community med partner](https://onnx.ai/supported-tools), inklusive Microsoft, som skapar kompatibelt ramverk och verktyg. Microsoft strävar efter att öppna och samverkande AI så att datatekniker och utvecklare kan:
 

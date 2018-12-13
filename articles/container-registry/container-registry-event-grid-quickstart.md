@@ -7,14 +7,15 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: 60248da2bbdac751845a40720f8967203c562b4a
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 48fd64908a5cb2488d58f3c078e0ccb17419352f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085758"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260257"
 ---
-# <a name="quickstart-send-container-registry-events-to-event-grid"></a>Snabbstart: Skicka container registerhändelser till Event Grid
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Snabbstart: Skicka händelser från privata behållarregister till Event Grid
 
 Azure Event Grid är en fullständigt hanterad tjänst för händelsedirigering som ger enhetlig förbrukning med en Publicera-prenumerera modellen. I den här snabbstarten använder du Azure CLI för att skapa ett behållarregister, prenumerera på händelser i registret och sedan distribuera en exempelwebbapp för att ta emot händelser. Slutligen kan du utlösa behållaravbildning `push` och `delete` händelser och visa händelsenyttolast i exempelprogrammet.
 
@@ -212,7 +213,7 @@ Grattis! Om du ser den `ImagePushed` och `ImageDeleted` händelser, registret sk
 
 När du är klar med de resurser som du skapade i den här snabbstarten kan du ta bort dem med följande Azure CLI-kommando. När du tar bort en resursgrupp tas tas alla resurser den innehåller bort permanent.
 
-**VARNING**: den här åtgärden kan inte ångras. Var noga med att du inte längre behöver någon av resurserna i gruppen innan du kör kommandot.
+**VARNING**: Den här åtgärden kan inte ångras. Var noga med att du inte längre behöver någon av resurserna i gruppen innan du kör kommandot.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

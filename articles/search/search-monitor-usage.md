@@ -1,5 +1,5 @@
 ---
-title: Övervaka användning och statistik i en Azure Search-tjänst | Microsoft Docs
+title: Övervaka användning och statistik för en search-tjänst – Azure Search
 description: Spåra resursstorlek för förbrukning och index för Azure Search, en värdbaserad molnsöktjänst på Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 274513c7e8ad1ca9ed0452f6237eec4ebb38e9cd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.custom: seodec2018
+ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134870"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314167"
 ---
-# <a name="monitoring-an-azure-search-service"></a>Övervaka en Azure Search-tjänst
+# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Övervaka en Azure Search-tjänst i Azure-portalen
 
 Azure Search erbjuder olika resurser för att spåra användning och prestanda för search-tjänsterna. Den ger dig tillgång till mått, loggar, indexstatistiken och utökade övervakningsfunktioner på Power BI. Den här artikeln beskrivs hur du aktiverar de olika strategierna för övervakning och hur du tolkar resultatet.
 
@@ -26,9 +27,9 @@ Mått ger dig en insyn i din söktjänst realtid och är tillgängliga för varj
 
 Azure Search samlar in data till tre olika mått:
 
-* Svarstid för sökningar: tid search-tjänst som behövs för att bearbeta sökfrågor, aggregerade per minut.
-* Sökfrågor per sekund (QPS): antalet search frågor som tagits emot per sekund, aggregerade per minut.
-* Begränsade frågar procentandel: procentandelen sökfrågor som har begränsats samman per minut.
+* Svarstid för sökning: Tid search-tjänst som behövs för att bearbeta sökfrågor, aggregerade per minut.
+* Sökfrågor per sekund (QPS): Sök efter antalet frågor som tagits emot per sekund, aggregerade per minut.
+* Begränsade sökfrågor i procent: Procentandel sökfrågor som har begränsats samman per minut.
 
 ![Skärmbild av Indexlagring aktivitet][1]
 
@@ -71,7 +72,7 @@ Du kan exportera åtgärdsloggar för din tjänst och rådata för de mått som 
 ### <a name="enabling-monitoring"></a>Aktivera övervakning
 Öppna Azure Search-tjänsten i den [Azure-portalen](http://portal.azure.com) under alternativet Aktivera övervakning.
 
-Välj de data som du vill exportera: loggar, mått eller båda. Du kan kopiera den till ett lagringskonto, skickar den till en event hub eller exportera den till Log Analytics.
+Välj de data som du vill exportera: Loggar, mått eller båda. Du kan kopiera den till ett lagringskonto, skickar den till en event hub eller exportera den till Log Analytics.
 
 ![Så här aktiverar du övervakning i portalen][3]
 
@@ -99,7 +100,7 @@ Varje blob har poster på den åtgärd som utfördes under en och samma timme.
 | operationName |sträng |”Query.Search” |Åtgärdens namn |
 | operationVersion |sträng |"2015-02-28" |Api-versionen som används |
 | category |sträng |”OperationLogs” |konstant |
-| resultType |sträng |”Lyckades” |Möjliga värden: lyckad eller misslyckad |
+| resultType |sträng |”Lyckades” |Möjliga värden: Lyckad eller misslyckad |
 | resultSignature |int |200 |Resultatkod för HTTP |
 | . durationMS |int |50 |Varaktighet i millisekunder |
 | properties |objekt |Se följande tabell |Objekt som innehåller åtgärden-specifika data |

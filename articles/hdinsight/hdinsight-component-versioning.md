@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: b1a63862444969bbb7058841fb755e147dcf6909
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 878d9e635d82e52d8a47d47a135ba865f140c9e9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015848"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321894"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -28,7 +28,7 @@ Azure HDInsight har stöd för flera Hadoop-klusterversioner som kan distribuera
 
 Komponent-versioner som är associerade med HDInsight-klusterversioner som listas i följande tabell: 
 
-> [!NOTE]
+> [!NOTE]  
 > Standardversionen för HDInsight-tjänsten kan ändras utan föregående meddelande. Om du har ett beroende som version, ange HDInsight version när du skapar ditt kluster med .NET SDK med Azure PowerShell och Azure klassiskt CLI.
 
 | Komponent | HDInsight 4.0 (förhandsversion) | HDInsight 3.6 (standard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
@@ -60,9 +60,7 @@ Komponent-versioner som är associerade med HDInsight-klusterversioner som lista
 
 Hadoop-ekosystemet komponenten versioner som är associerade med HDInsight-kluster-versioner kan ändra med uppdateringar till HDInsight. Att kontrollera Hadoop-komponenter och kontrollera vilka versioner som används för ett kluster, kan du använda Ambari REST API. Den **GetComponentInformation** kommandot hämtar information om tjänstens komponenter. Mer information finns i [Apache Ambari dokumentation][ambari-docs].
 
-Ett annat sätt att kontrollera vilken komponentversion är att logga in i ett kluster med hjälp av fjärrskrivbord och granska innehållet i katalogen C:\apps\dist\ för Windows-kluster.
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux är det enda operativsystem som används på HDInsight version 3.4 och senare. Mer information finns i [Windows-avveckling på HDInsight](#hdinsight-windows-retirement).
 
 ### <a name="release-notes"></a>Viktig information
@@ -84,7 +82,7 @@ I följande tabell visas de versioner av HDInsight som är tillgängliga i Azure
 
 *&ast; Stöd för HDInsight 3.5 utökades endast för Spark klustertyper*
 
-> [!NOTE]
+> [!NOTE]  
 > När du har stöd för en version har upphört att gälla, kanske den inte tillgänglig via Microsoft Azure-portalen. Dock klusterversioner fortsätta att vara tillgängliga med den `Version` parameter i Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) kommando- och .NET SDK tills versionen slutdatum.
 >
 
@@ -104,7 +102,7 @@ I följande tabell visas de versioner av HDInsight som är **inte** tillgänglig
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Den 28 oktober 2013 |12 maj 2014 |Den 31 maj 2015 |Ja |Nej |
 | HDInsight 1.6 |HDP 1.1 | |Den 28 oktober 2013 |26 april 2014 |Den 31 maj 2015 |Nej |Nej |
 
-> [!NOTE]
+> [!NOTE]  
 > Högtillgängliga kluster med två huvudnoder distribueras som standard för HDInsight version 2.1 och senare. De är inte tillgängligt för kluster för HDInsight-version 1.6.
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Enterprise-säkerhetspaketet för HDInsight
@@ -198,7 +196,7 @@ Serviceavtal (SLA) har definierats som en _support fönstret_. Fönstret support
 
 Den _datumet för tillbakadragandet_ avser det datum då klusterversionen inte kan skapas på HDInsight. Från och med 31 juli 2017, du kan inte ändra storlek på ett HDInsight-kluster efter dess slutdatum. 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight Windows-kluster (även versionerna 2.1, 3.0, 3.1, 3.2 eller 3.3) körs på Azure Guest OS-familj version 4, vilket använder 64-bitars version av Windows Server 2012 R2. Azure Guest OS-familj version 4 stöder .NET Framework version 4.0, 4.5, 4.5.1 och 4.5.2.
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Hortonworks viktig information som är associerade med HDInsight-versioner
@@ -222,41 +220,36 @@ Avsnittet innehåller länkar till viktig information för Hortonworks Data Plat
 
 
 
-
-
-
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Noden konfigurationen och den virtuella datorn standardstorlekar för kluster
-I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HDInsight-kluster.
+I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HDInsight-kluster.  Det här diagrammet är nödvändigt att förstå storlekarna som ska användas när du skapar PowerShell eller Azure CLI-skript för att distribuera HDInsight-kluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Om du behöver mer än 32 arbetarnoder i ett kluster, måste du välja en head nodstorlek med minst 8 kärnor och 14 GB RAM-minne.
-> 
-> 
 
 * Alla regioner utom södra Brasilien och västra Japan:
 
-  | Klustertyp | Hadoop | HBase | Interaktiv fråga | Storm | Spark | ML-Server |
+  | Klustertyp | Hadoop | HBase | Interaktiv fråga | Storm | Spark  | ML-Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Huvud: standardstorleken för virtuella datorer |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
-  | Huvud: rekommenderade storlekar för Virtuella datorer |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A4 v2, A8 v2, A2m v2 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Worker: standardstorleken för virtuella datorer |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Worker: rekommenderade storlekar för Virtuella datorer |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Huvud: standardstorleken för virtuella datorer |D3 v2 |D3 v2 | D13,<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | Huvud: rekommenderade storlekar för Virtuella datorer |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |A4 v2<br/> A8 v2<br/> A2m v2 |D12 v2<br/> D13 v2<br/> D14 v2 |D12 v2<br/> D13 v2<br/> D14 v2 |
+  | Worker: standardstorleken för virtuella datorer |D3 v2 |D3 v2  | D13,<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | Worker: rekommenderade storlekar för Virtuella datorer |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |D3 v2<br/> D4 v2<br/> D12 v2 |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |
   | ZooKeeper: standardstorleken för virtuella datorer | |A4 v2 | |A2 v2 | | |
-  | ZooKeeper: rekommenderade storlekar för Virtuella datorer | |A4 v2, A8 v2, A2m v2 | | A2 v2, A4 v2, A8 v2 | | |
-  | Edge: standardstorleken för virtuella datorer | | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Edge: Rekommenderad storlek för virtuell dator | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: rekommenderade storlekar för Virtuella datorer | |A4 v2<br/> A8 v2<br/> A2m v2 | | A2 v2<br/> A4 v2<br/> A8 v2 | | |
+  | Edge: standardstorleken för virtuella datorer | | | | | |D4 v2 |
+  | Edge: Rekommenderad storlek för virtuell dator | | | | | |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |
 * Södra Brasilien och västra Japan endast (ingen v2-storlekar):
 
   | Klustertyp | Hadoop | HBase | Interaktiv fråga |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Huvud: standardstorleken för virtuella datorer |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | Huvud: rekommenderade storlekar för Virtuella datorer |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Worker: standardstorleken för virtuella datorer |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Worker: rekommenderade storlekar för Virtuella datorer |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D13, D12 D14 |Windows: D12, D13, D14; Linux: D4, D13, D12 D14 |
+  | Huvud: standardstorleken för virtuella datorer |D3 |D3  | D13,<br/> D14 |A3 |D12 |D12 |
+  | Huvud: rekommenderade storlekar för Virtuella datorer |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
+  | Worker: standardstorleken för virtuella datorer |D3 |D3  | D13,<br/> D14 |D3 |D4 |D4 |
+  | Worker: rekommenderade storlekar för Virtuella datorer |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: standardstorleken för virtuella datorer | |A2 | | A2 | | |
-  | ZooKeeper: rekommenderade storlekar för Virtuella datorer | |A2, A3, A4 | |A2, A3, A4 | | |
-  | Edge: standard VM-storlekar | | | | | |Windows: D12; Linux: D4 |
-  | Edge: rekommenderade storlekar för Virtuella datorer | | | | | |Windows: D12, D13, D14; Linux: D4, D13, D12 D14 |
+  | ZooKeeper: rekommenderade storlekar för Virtuella datorer | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
+  | Edge: standard VM-storlekar | | | | | |D4 |
+  | Edge: rekommenderade storlekar för Virtuella datorer | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - HEAD kallas *Nimbus* för Storm typ av kluster.

@@ -1,6 +1,6 @@
 ---
-title: Begränsa åtkomst med IP-filter - Azure Event Hubs | Microsoft Docs
-description: Använd IP-filtrering för blockerar anslutningar från specifika IP-adresser till Azure Event Hubs.
+title: Azure Event Hubs-brandväggsregler | Microsoft Docs
+description: Använd brandväggsregler för att tillåta anslutningar från specifika IP-adresser till Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
 author: spelluru
@@ -11,28 +11,26 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: d21bf32ce804d2c8f6177eb7f789474bc41c9733
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087515"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268282"
 ---
-# <a name="restrict-access-to-azure-event-hubs-using-ip-filters"></a>Begränsa åtkomsten till Azure Event Hubs med IP-filter
-För scenarier där Azure Event Hubs måste vara endast tillgängliga från vissa välkända platser, den *IP-adressfilter* funktionen kan du konfigurera regler för avvisar eller tar emot trafik som kommer från specifika IPv4-adresser. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
+# <a name="use-firewall-rules"></a>Använd brandväggsregler
+
+För scenarier där Azure Event Hubs måste vara endast tillgängliga från vissa välkända platser, kan brandväggsregler du konfigurera regler för att acceptera trafik som kommer från specifika IPv4-adresser. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
 
 ## <a name="when-to-use"></a>När du ska använda detta
 
-Två viktiga användningsfall där det är bra att blockera Event Hubs för vissa IP-adresser är följande:
-
-- Händelsehubbar ska ta emot trafik från ett angivet intervall med IP-adresser och avvisa allt annat. Exempel: du använder Event Hubs med [Azure Express Route] [ express-route] skapa privata anslutningar till din lokala infrastruktur. 
-- Du måste avvisa trafik från IP-adresser som har identifierats som misstänkt av Event Hubs-administratör.
+Om du vill konfigurera Event Hubs-namnområdet, till exempel som det ska ta emot trafik från bara angivna intervall med IP-adresser och avvisa allt annat så kan du utnyttja en *brandväggsregel* att blockera Event Hub-slutpunkter från andra IP-adresser. Exempel: du använder Event Hubs med [Azure Express Route] [ express-route] skapa privata anslutningar till din lokala infrastruktur.
 
 ## <a name="how-filter-rules-are-applied"></a>Hur filterregler tillämpas
 
 IP-filterreglerna tillämpas på namnområdesnivå Event Hubs. Därför gäller reglerna för alla anslutningar från klienter som använder alla protokoll som stöds.
 
-Alla anslutningsförsök från en IP-adress som matchar en rejecting IP-regel i Event Hubs-namnområdet avvisas som ej behörig. Svaret nämner inte IP-regeln.
+Alla anslutningsförsök från en IP-adress som inte matchar en tillåtna IP-regel i Händelsehubbar namnområde avvisas som ej behörig. Svaret nämner inte IP-regeln.
 
 ## <a name="default-setting"></a>Standardinställningen
 
@@ -42,68 +40,107 @@ Som standard den **IP-adressfilter** rutnätet i portalen för Event Hubs är to
 
 IP-filterreglerna tillämpas i ordning och den första regeln som matchar IP-adressen anger åtgärden acceptera eller avvisa.
 
-Om du vill acceptera adresserna i intervallet 70.37.104.0/24 och avvisa allt annat, bör den första regeln i rutnätet godkänna adressintervallet 70.37.104.0/24. Nästa regel ska avvisa alla adresser med hjälp av adressintervallet 0.0.0.0/0.
+>[!WARNING]
+> Implementera brandväggar kan det förhindra att interagera med Händelsehubbar andra Azure-tjänster.
+>
+> Betrodda Microsoft-tjänster inte stöds när IP-filtrering (brandväggar) implementeras och görs tillgänglig snart.
+>
+> Vanliga Azure-scenarier som inte fungerar med IP-filtrering (Observera att listan är **inte** uttömmande)-
+> - Azure Monitor
+> - Azure Stream Analytics
+> - Integrering med Azure Event Grid
+> - Azure IoT Hub vägar
+> - Azure IoT Device Explorer
+> - Azure-datautforskaren
+>
+> Den nedan Microsoft services måste vara i ett virtuellt nätverk
+> - Azure Web Apps
+> - Azure Functions
 
-> [!NOTE]
-> Avvisa IP-adresser kan det förhindra att interagera med Händelsehubbar andra Azure-tjänster (till exempel Azure Stream Analytics, Azure Virtual Machines eller Device Explorer i portalen).
-
-### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>Skapa en IP-filterregeln med Azure Resource Manager-mallar
+### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Skapa en brandväggsregel med Azure Resource Manager-mallar
 
 > [!IMPORTANT]
-> Virtuella nätverk stöds i **standard** och **dedikerade** nivåerna för Event Hubs. Det stöds inte på basic-nivå. 
+> Brandväggsregler stöds i **standard** och **dedikerade** nivåerna för Event Hubs. Det stöds inte på basic-nivå.
 
 Följande Resource Manager-mallen gör det möjligt att lägga till en IP-filterregeln i en befintlig Event Hubs-namnområdet.
 
 Mallparametrar:
 
-- **ipFilterRuleName** måste vara en unik, skiftlägesokänslig, alfanumerisk sträng högst 128 tecken.
-- **ipFilterAction** är antingen **avvisa** eller **acceptera** som åtgärden som ska användas för IP-filterregeln.
 - **ipMask** är en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. Till exempel i CIDR representerar notation 70.37.104.0/24 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255 med 24 som anger antalet bitar betydande prefixet för intervallet.
 
+> [!NOTE]
+> Det finns inga neka regler som är möjligt, Azure Resource Manager-mallen har den standardåtgärd som har angetts till **”Tillåt”** som inte begränsar anslutningar.
+> När du skapar regler för virtuellt nätverk eller brandväggar, vi måste ändra den ***”defaultAction”***
+> 
+> från
+> ```json
+> "defaultAction": "Allow"
+> ```
+> till
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "ipFilterRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "ipFilterAction":{  
-             "type":"string",
-             "allowedValues": ["Reject", "Accept"],
-             "metadata":{  
-                "description":"IP Filter Action"
-             }
-          },
-          "IpMask":{  
-             "type":"string",
-             "metadata":{  
-                "description":"IP Mask"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "eventhubNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
       },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.EventHub/Namespaces/IPFilterRules",
-            "properties": {
-                "FilterName":"[parameters('ipFilterRuleName')]",
-                "Action":"[parameters('ipFilterAction')]",              
-                "IpMask": "[parameters('IpMask')]"
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
-    ]
-}
+          ],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Om du vill distribuera mallen genom att följa anvisningarna för [Azure Resource Manager][lnk-deploy].

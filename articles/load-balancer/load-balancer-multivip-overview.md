@@ -1,22 +1,24 @@
 ---
-title: Flera klienter för Azure Load Balancer | Microsoft Docs
+title: Flera klienter för Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Översikt över flera klienter på Azure-belastningsutjämnare
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: d435d2c491cf17356e96f7bbb05b1e22c8e04aca
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219366"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163437"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera klienter för Azure Load Balancer
 
@@ -46,7 +48,7 @@ Azure Load Balancer kan du blanda både regeltyper på samma belastningsutjämni
 
 Vi utforska vidare dessa scenarier genom att börja med standardbeteendet.
 
-## <a name="rule-type-1-no-backend-port-reuse"></a>Regeltyp #1: ingen återanvändning för backend-port
+## <a name="rule-type-1-no-backend-port-reuse"></a>Regeltyp #1: Inga återanvändning för backend-port
 
 ![Flera frontend-bild med gröna och lila klientdel](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: f9f26f14944986bc673a3b7529adb055ad16d058
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6a22a3dabf1aa71e0d092c4145523da9b0121c8c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003069"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322217"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Aktivera Azure-diagnostik i Azure Cloud Services
 Se [översikt över Azure-diagnostik](../azure-diagnostics.md) för en bakgrund på Azure-diagnostik.
@@ -38,8 +38,8 @@ Den här artikeln förutsätter att du har en Azure-prenumeration och använder 
 5. I den **Configuration** fliken avmarkerar **aktivera diagnostik** att inaktivera diagnostik 1.0 (Azure SDK 2.4 och tidigare versioner).
 6. Skapa en lösning för att kontrollera att du har inga fel.
 
-### <a name="step-2-instrument-your-code"></a>Steg 2: Instrumentera koden
-Ersätt innehållet i WorkerRole.cs med följande kod. Klass SampleEventSourceWriter, som ärvts från den [EventSource klass][EventSource Class], implementerar fyra loggningsmetoder: **SendEnums**, **MessageMethod** , **SetOther** och **HighFreq**. Den första parametern för den **WriteEvent** metoden definierar ID för händelsen respektive. Metoden Kör implementerar en oändlig loop som anropar var och en av loggningsmetoder som implementerats i den **SampleEventSourceWriter** klassen var tionde sekund.
+### <a name="step-2-instrument-your-code"></a>Steg 2: Instrumentera din kod
+Ersätt innehållet i WorkerRole.cs med följande kod. Klass SampleEventSourceWriter, som ärvts från den [EventSource klass][EventSource Class], implementerar fyra loggningsmetoder: **SendEnums**, **MessageMethod**, **SetOther** och **HighFreq**. Den första parametern för den **WriteEvent** metoden definierar ID för händelsen respektive. Metoden Kör implementerar en oändlig loop som anropar var och en av loggningsmetoder som implementerats i den **SampleEventSourceWriter** klassen var tionde sekund.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -122,7 +122,7 @@ namespace WorkerRole1
 ```
 
 
-### <a name="step-3-deploy-your-worker-role"></a>Steg 3: Distribuera Worker-roll
+### <a name="step-3-deploy-your-worker-role"></a>Steg 3: Distribuera din Arbetsroll
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -171,7 +171,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Steg 5: Installera diagnostik på din Arbetsroll
-PowerShell-cmdlets för att hantera diagnostik för en web- eller worker-roll är: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension och ta bort AzureServiceDiagnosticsExtension.
+PowerShell-cmdletar för att hantera diagnostik för en web- eller worker-roll är: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension och ta bort AzureServiceDiagnosticsExtension.
 
 1. Öppna Azure PowerShell.
 2. Kör skriptet för att installera diagnostik på worker-roll (Ersätt *StorageAccountKey* med lagringskontots åtkomstnyckel för lagringskontot wadexample och *config_path* med sökvägen till  *WadExample.xml* fil):
@@ -197,7 +197,7 @@ Konfigurationsfilen diagnostik definierar värden som används för att initiera
 Om du har problem med att se [felsökning av Azure Diagnostics](../azure-diagnostics-troubleshooting.md) hjälp med vanliga problem.
 
 ## <a name="next-steps"></a>Nästa steg
-[Visa en lista över relaterade Azure VM-diagnostik artiklar](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) felsökning om du vill ändra de data som du kan samla in, eller Läs mer om diagnostik i allmänhet.
+[Visa en lista över relaterade Azure VM-diagnostik artiklar](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) felsökning om du vill ändra de data som du kan samla in, eller Läs mer om diagnostik i allmänhet.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

@@ -12,14 +12,14 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: b559607f741c25f668100a33b9ba8e65f0acd40a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 328dd39c3ff82666c327bc5d1d106a019fb2247b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841309"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275830"
 ---
-# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database jämfört med SQL Server
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQLServer
 
 Azure SQL-databas delar en gemensam kodbas med SQL Server. Funktioner i SQL Server som stöds av Azure SQL Database beror på vilken typ av Azure SQL-databas som du skapar. Med Azure SQL Database kan du antingen skapa en databas som en del av en [hanterad instans](sql-database-managed-instance.md) eller så kan du skapa en databas som är en del av logisk server och du kan också placeras i en elastisk pool.
 
@@ -34,6 +34,8 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 
 | **SQL-funktionen** | **Stöds i databasen/logisk Azure SQL-Server** | **Stöds i Azure SQL-databas/hanterad instans** |
 | --- | --- | --- |
+| [Aktiv geo-replikering](sql-database-active-geo-replication.md) | Ja – generell användning och affärskritisk tjänstnivåer endast| Nej |
+| [Automatisk redundans grupper](sql-database-auto-failover-group.md) | Ja – generell användning och affärskritisk tjänstnivåer endast| Ja (förhandsversion)|
 | [Alltid krypterad](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Ja – Se [certifikatarkiv](sql-database-always-encrypted.md) och [Key vault](sql-database-always-encrypted-azure-key-vault.md) | Ja – Se [certifikatarkiv](sql-database-always-encrypted.md) och [Key vault](sql-database-always-encrypted-azure-key-vault.md) |
 | [Always On-Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
 | [Ansluta en databas](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Nej | Nej |
@@ -86,7 +88,6 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Fulltextsökning](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Orddelare från tredje part stöds inte |Orddelare från tredje part stöds inte |
 | [Funktioner](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta – se enskilda funktioner | Ja – Se [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [GEO-återställning](sql-database-recovery-using-backups.md#geo-restore) | Ja – generell användning och affärskritisk tjänstnivåer endast | Nej, du kan återställa COPY_ONLY fullständiga säkerhetskopieringar som utföras med jämna mellanrum – se [säkerhetskopiera skillnader](sql-database-managed-instance-transact-sql-information.md#backup) och [återställa skillnader](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
-| [Geo-replikering](sql-database-geo-replication-overview.md) | Ja – generell användning och affärskritisk tjänstnivåer endast| Ja |
 | [Bearbeta diagram](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
 | [Minnesintern optimering](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja – [Premium och affärskritisk nivåer](sql-database-in-memory.md) | Ja – [företag affärskritisk nivå](sql-database-managed-instance.md) |
 | [Stöd för JSON-data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Ja](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Ja](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |

@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en utvecklingsmiljö
+title: Konfigurera Python-miljön
 titleSuffix: Azure Machine Learning service
 description: 'Lär dig mer om att konfigurera en utvecklingsmiljö när du arbetar med Azure Machine Learning-tjänsten. I det här dokumentet lär du dig hur du använder Conda-miljöer, skapa konfigurationsfiler och konfigurera Jupyter Notebooks, Azure anteckningsböcker, IDE: er, kod redigerare och den virtuella datorn för datavetenskap.'
 services: machine-learning
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6e2222d56ea37983b1efafedaac8e01058cb44fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 59f847dc38cddfd9185cfd169cf1ef34c744f8f7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098057"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192642"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -25,11 +25,11 @@ I det här dokumentet lär du dig hur du konfigurerar en utvecklingsmiljö med A
 
 Det här dokumentet fokuserar på följande specifika miljöer och verktyg:
 
-* [Azure anteckningsböcker](#aznotebooks): tjänst med en Jupyter-anteckningsböcker i Azure-molnet. Det är __den enklaste__ sättet att komma igång, eftersom SDK: N för Azure Machine Learning är redan installerad.
-* [Den virtuella datorn för datavetenskap](#dsvm): A __förkonfigurerade utvecklings-/ experimentmiljön__ i Azure-molnet som är __avsedd för data science fungerar__ och kan distribueras till antingen CPU endast VM-instanser eller GPU-baserade instanser. Python 3, Conda, Jupyter-anteckningsböcker och SDK: N för Azure Machine Learning har redan installerats. Den virtuella datorn som levereras med populära ML / deep learning ramverk, verktyg och redigerare för utveckling av ML-lösningar. Det beror förmodligen på __de mest fullständiga__ utvecklingsmiljö för ML på Azure-plattformen.
-* [Jupyter Notebooks](#jupyter): Om du redan använder Jupyter Notebooks, SDK: N har vissa tillägg som du bör installera.
-* [Visual Studio Code](#vscode): Om du använder Visual Studio Code, det finns vissa användbara tillägg som du kan installera.
-* [Azure Databricks](#aml-databricks): en analysplattform med populära data baserat på Apache Spark. Lär dig hur du hämtar Azure Machine Learning-SDK till ditt kluster så att du kan distribuera modeller.
+* [Azure anteckningsböcker](#aznotebooks): En Jupyter notebook-tjänst som finns i Azure-molnet. Det är __den enklaste__ sättet att komma igång, eftersom SDK: N för Azure Machine Learning är redan installerad.
+* [Den virtuella datorn för datavetenskap](#dsvm): En __förkonfigurerade utvecklings-/ experimentmiljön__ i Azure-molnet som är __avsedd för data science fungerar__ och kan distribueras till antingen CPU endast instanser av virtuella datorer eller GPU-baserade instanser. Python 3, Conda, Jupyter-anteckningsböcker och SDK: N för Azure Machine Learning har redan installerats. Den virtuella datorn som levereras med populära ML / deep learning ramverk, verktyg och redigerare för utveckling av ML-lösningar. Det beror förmodligen på __de mest fullständiga__ utvecklingsmiljö för ML på Azure-plattformen.
+* [Jupyter-anteckningsböcker](#jupyter): Om du redan använder Jupyter-anteckningsböcker, har vissa tillägg som du bör installera SDK: N.
+* [Visual Studio Code](#vscode): Om du använder Visual Studio Code, finns det vissa användbara tillägg som du kan installera.
+* [Azure Databricks](#aml-databricks): En populära analysplattform som bygger på Apache Spark. Lär dig hur du hämtar Azure Machine Learning-SDK till ditt kluster så att du kan distribuera modeller.
 
 Om du redan har en Python 3-miljö eller bara vill ha de grundläggande stegen för att installera SDK: N, se den [lokal dator](#local) avsnittet.
 

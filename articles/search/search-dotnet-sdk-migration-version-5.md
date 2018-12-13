@@ -1,6 +1,6 @@
 ---
-title: Uppgradera till Azure Search .NET SDK version 5 | Microsoft Docs
-description: Uppgradera till Azure Search .NET SDK version 5
+title: Uppgradera till Azure Search .NET SDK version 5 – Azure Search
+description: Migrera kod till Azure Search .NET SDK version 5 från äldre versioner. Läs mer om nyheterna och vilka kodändringar krävs.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: brjohnst
-ms.openlocfilehash: b08507d7685ce87a4c176385f750a72d6ae51ba3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec2018
+ms.openlocfilehash: 743ac433418386281acc58ad1deef06ee75e38d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091148"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316888"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Uppgradera till Azure Search .NET SDK version 5
 Om du använder version 4.0-förhandsversion eller äldre av den [Azure Search .NET SDK](https://aka.ms/search-sdk), den här artikeln hjälper dig att uppgradera programmet att använda version 5.

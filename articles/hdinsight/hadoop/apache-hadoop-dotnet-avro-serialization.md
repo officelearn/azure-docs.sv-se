@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 9727a990548977e0b07710d879881669161c7a4c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015270"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259995"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Serialisera data i Apache Hadoop med Microsoft Avro Library
 
 >[!NOTE]
->Avro SDK stöds inte längre av Microsoft. Biblioteket är communityn för öppen källkod som stöds. Källor för biblioteket finns i [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
+>Avro SDK stöds inte längre av Microsoft. Biblioteket är communityn för öppen källkod som stöds. Källor för biblioteket finns i [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
 
 Det här avsnittet visar hur du använder den [Microsoft Avro Library](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) att serialisera objekt och andra datastrukturer till byteströmmar för att bevara dem i minnet, en databas eller en fil. Den visar även hur du deserialisera dem om du vill återställa de ursprungliga objekten.
 
@@ -53,7 +53,7 @@ Följande krävs innan du installerar biblioteket:
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 eller senare)
 
 > [!Note]
-> Microsoft Avro Library är inte längre tillgänglig som ett NuGet-paket. Om du vill använda Avro-bibliotek klona den [Microsoft.Hadoop.Avro Github-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) och kompilera koden på din dator.
+> Microsoft Avro Library är inte längre tillgänglig som ett NuGet-paket. Om du vill använda Avro-bibliotek klona den [Microsoft.Hadoop.Avro GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) och kompilera koden på din dator.
 
 ## <a name="compile-schemas-using-avro-library"></a>Kompilera scheman med Avro-bibliotek
 Microsoft Avro Library innehåller en kod generation verktyg som gör att skapa C#-typer som automatiskt baserat på den tidigare definierade JSON-scheman. Verktyget code generation distribueras inte som en binär körbar fil, men de är lätta att bygga via följande procedur:
@@ -69,7 +69,7 @@ Du kan skapa C# klasser från JSON-schema-exempelfilen medföljer källkoden fö
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
 
-Detta ska skapa två C#-filer i den aktuella katalogen: SensorData.cs och Location.cs.
+Detta ska skapa två C# filer i den aktuella katalogen: SensorData.cs och Location.cs.
 
 Information om den logik som verktyget code generation använder vid konvertering av JSON-schemat för C#-typer finns i filen GenerationVerification.feature finns i C:\SDK\src\Microsoft.Hadoop.Avro.Tools\Doc.
 

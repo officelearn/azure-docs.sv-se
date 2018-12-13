@@ -4,15 +4,15 @@ description: Den här artikeln sammanfattas vanliga frågor när du konfigurerar
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 83216091c950593b16f158ea3d8df5a194ecee02
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.author: mayg
+ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869831"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256526"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -27,8 +27,8 @@ Granska [priserna för Azure Site Recovery](https://azure.microsoft.com/pricing/
 Data replikeras till Azure-lagring under replikering, och du behöver inte betala några VM-ändringar. När du kör en redundansväxling till Azure skapar Site Recovery automatiskt Azure IaaS-datorer. Efter det du faktureras för de beräkningsresurser som du använder i Azure.
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>Vad kan jag göra med VMware till Azure replikering?
-- **Haveriberedskap**: du kan ställa in fullständig haveriberedskap. I det här scenariot kan replikera du lokala virtuella VMware-datorer till Azure storage. Sedan, om den lokala infrastrukturen inte är tillgänglig kan du växla över till Azure. När du redundansväxlar, skapas virtuella Azure-datorer med hjälp av replikerade data. Du kan komma åt appar och arbetsbelastningar på Azure Virtual Machines tills ditt datacenter på plats är tillgänglig igen. Sedan kan du växla tillbaka från Azure till din lokala plats.
-- **Migrering**: du kan använda Site Recovery för att migrera lokala virtuella VMware-datorer till Azure. I det här scenariot replikera du lokala virtuella VMware-datorer till Azure storage. Sedan kan växla du över från den lokala till Azure. Efter redundansväxlingen är dina appar och arbetsbelastningar tillgängliga och körs på virtuella Azure-datorer.
+- **Haveriberedskap**: Du kan ställa in fullständig haveriberedskap. I det här scenariot kan replikera du lokala virtuella VMware-datorer till Azure storage. Sedan, om den lokala infrastrukturen inte är tillgänglig kan du växla över till Azure. När du redundansväxlar, skapas virtuella Azure-datorer med hjälp av replikerade data. Du kan komma åt appar och arbetsbelastningar på Azure Virtual Machines tills ditt datacenter på plats är tillgänglig igen. Sedan kan du växla tillbaka från Azure till din lokala plats.
+- **Migrering**: Du kan använda Site Recovery för att migrera lokala virtuella VMware-datorer till Azure. I det här scenariot replikera du lokala virtuella VMware-datorer till Azure storage. Sedan kan växla du över från den lokala till Azure. Efter redundansväxlingen är dina appar och arbetsbelastningar tillgängliga och körs på virtuella Azure-datorer.
 
 
 
@@ -146,11 +146,14 @@ Ja. Hämta MySQL och placera den i den **C:\Temp\ASRSetup** mapp. Installera den
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan jag undvika att överföra MySQL men låta Site Recovery installerar den?
 Ja. Ladda ned MySQL-installationsprogrammet och placera den i den **C:\Temp\ASRSetup** mapp.  När du ställer in konfigurationsservern VM acceptera villkoren och klicka på **ladda ned och installera**, installationsprogram som du har lagt till för att installera MySQL används.
  
-### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>CanL jag använder configuration server VM för något annat?
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Kan jag använda konfigurationsservern VM för något annat?
 Nej, bör du endast använda den virtuella datorn för konfigurationsservern. 
 
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Kan jag klona en konfigurationsserver och använda det för dirigering?
+Nej, bör du konfigurera en ny konfigurationsserver för att undvika problem med registreringen.
+
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Kan jag ändra det valv som är registrerade på konfigurationsservern?
-Nej. När ett valv har registrerats med konfigurationsservern kan inte ändras.
+Nej. När ett valv har registrerats med konfigurationsservern kan inte ändras. Granska [i den här artikeln](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) omregistrering anvisningar.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Jag kan använda samma konfigurationsservern för haveriberedskap för både virtuella VMware-datorer och fysiska servrar
 Ja, men Observera att den fysiska datorn kan vara endast att växlas tillbaka till en VMware-VM.

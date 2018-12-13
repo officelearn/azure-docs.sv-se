@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: fa19cdbb6c51248b5361ba747829c4f9e617ce6a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865394"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251121"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Lägga till lagringsutrymme på Azure Backup Server
 
-Azure Backup Server V2 och senare levereras med System Center 2016 Data Protection Manager Modern Backup Storage. Modern Backup Storage ger lagringsbesparingar på 50 procent, säkerhetskopieringar som är tre gånger snabbare och effektivare lagring. Den erbjuder även arbetsbelastningsmedveten lagring.
+Azure Backup Server V2 och senare har stöd för Modern Backup Storage som ger lagringsbesparingar på 50 procent, säkerhetskopieringar som är tre gånger snabbare och effektivare lagring. Den erbjuder även arbetsbelastningsmedveten lagring.
 
 > [!NOTE]
 > Om du vill använda Modern Backup Storage måste du köra Backup Server V2 eller V3 på Windows Server 2016 eller V3 på Windows Server 2019.
@@ -75,7 +75,7 @@ Du kan välja de volymer som prioritera lagrar av särskilda typer av arbetsbela
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Du kan konfigurera arbetsbelastningsmedveten lagring med hjälp av PowerShell-cmdlet Update-DPMDiskStorage, som uppdaterar egenskaperna för en volym i lagringspoolen på en server med Data Protection Manager.
+Du kan konfigurera arbetsbelastningsmedveten lagring med hjälp av PowerShell-cmdlet Update-DPMDiskStorage, som uppdaterar egenskaperna för en volym i lagringspoolen på en Azure Backup Server. 
 
 Syntax:
 

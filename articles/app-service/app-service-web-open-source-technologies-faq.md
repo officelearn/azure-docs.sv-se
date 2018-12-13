@@ -1,5 +1,5 @@
 ---
-title: Tekniker med öppen källkod frågor och svar om Azure-webbappar | Microsoft Docs
+title: Tekniker med öppen källkod vanliga frågor och svar - Azure App Service | Microsoft Docs
 description: Få svar på vanliga frågor och svar om tekniker för öppen källkod i funktionen Web Apps i Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 19168f965f2a98a1dc3f94ae0b029449865a9582
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ac80cd5ee1c530736666338e8bc3763b110c688c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971362"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255541"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tekniker med öppen källkod frågor och svar om Web Apps i Azure
 
@@ -113,7 +114,7 @@ Information om hur du installerar Django finns i [distribuera en Django-app till
 
 För Azure Marketplace och anpassade distributioner:
 
-* Mapplatsen: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
+* Plats för mappen: D:\home\site\wwwroot\bin\apache-Tomcat-8.0.33\logs
 * Filer av intresse:
     * catalina. *åååå-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
@@ -124,7 +125,7 @@ För Azure Marketplace och anpassade distributioner:
 
 För portalen **appinställningar** distributioner:
 
-* Mapplatsen: D:\home\LogFiles
+* Plats för mappen: D:\home\LogFiles
 * Filer av intresse:
     * catalina. *åååå-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
@@ -189,7 +190,7 @@ Om du nyligen har migrerat till Azure, kan WordPress omdirigera till den gamla W
 
 WordPress-representant + är ett Webbplatstillägg för Azure som du kan använda för att uppdatera omdirigerings-URL direkt i databasen. Läs mer om hur du använder WordPress-representant + [WordPress verktyg och MySQL-migrering med WordPress-representant +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
 
-Om du föredrar att manuellt uppdatera omdirigeringen URL med hjälp av SQL-frågor eller PHPMyAdmin, se [WordPress: omdirigering till fel URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
+Om du föredrar att manuellt uppdatera omdirigeringen URL med hjälp av SQL-frågor eller PHPMyAdmin, se [WordPress: Omdirigera till fel URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Hur jag för att ändra lösenordet för WordPress?
 
@@ -204,7 +205,7 @@ Om du märker att du har utelåst från WordPress när du har nyligen har instal
 Du har flera alternativ för att migrera MySQL-databas som är ansluten till din WordPress-webbplats:
 
 * Utvecklare: Använd den [Kommandotolken eller PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Icke-utvecklare: Använda [WordPress-representant +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* Icke-utvecklare: Använd [WordPress-representant +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Hur jag gör WordPress säkrare?
 

@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 0176cc5688f7210d5e444b094b360bb1e7df1e7c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d4701143a24fdf89b1c61744a9661fffdbb61ed3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136434"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278057"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i Log Analytics med REST API
 Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Log Analytics.  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
@@ -102,7 +100,7 @@ Alla åtgärder har egenskaper i följande tabell.  Olika typer av aviseringar h
 ### <a name="retrieving-actions"></a>Hämta åtgärder
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Använda Get-metoden för att hämta alla åtgärder för ett schema.
 
@@ -125,7 +123,7 @@ Format för förfrågan för att skapa en ny åtgärd varierar åtgärdstyp så 
 ### <a name="deleting-actions"></a>Ta bort åtgärder
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Använda Delete-metoden med åtgärds-ID för att ta bort en åtgärd.
 
@@ -146,7 +144,7 @@ Ett schema måste ha en Aviseringsåtgärd.  Aviseringsåtgärder har en eller f
 | Webhook-åtgärder | Skicka data från aviseringar, till önskade tjänsten som JSON |Inte krävs, om aviseringar har utökats till Azure|
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../azure-monitor/platform/alerts-extend.md).
 
 #### <a name="thresholds"></a>Tröskel
 En Aviseringsåtgärd bör ha ett och endast ett tröskelvärde.  När resultatet av en sparad sökning matchar tröskelvärdet i en åtgärd som är associerade med sökningen, körs alla andra processer i åtgärden.  En åtgärd kan också innehålla endast ett tröskelvärde så att den kan användas med åtgärder från andra typer som inte innehåller tröskelvärden.
@@ -249,7 +247,7 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en allvarli
 #### <a name="action-groups"></a>Åtgärdsgrupper
 Alla aviseringar i Azure, använda åtgärdsgrupp som standardmekanism för att hantera åtgärder. Med åtgärdsgrupp kan du ange dina åtgärder en gång och sedan associerar åtgärdsgrupp att flera aviseringar – i Azure. Utan att behöva flera gånger deklarera samma åtgärder om och om igen. Åtgärdsgrupper stöd för flera åtgärder – inklusive e-post, SMS, röstsamtal, ITSM-anslutningen, Automation-Runbook, Webhook URI med mera. 
 
-För användare som har utökat sin aviseringar i Azure – bör ett schema nu ha åtgärdsgrupp information skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. Information om e-post, Webhook-URL: er, Runbook Automation-information och andra åtgärder måste vara definierade i sida en åtgärdsgrupp innan du kan skapa en avisering; går att skapa [åtgärdsgrupp från Azure Monitor](../../monitoring-and-diagnostics/monitoring-action-groups.md) i portalen eller Använd [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+För användare som har utökat sin aviseringar i Azure – bör ett schema nu ha åtgärdsgrupp information skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. Information om e-post, Webhook-URL: er, Runbook Automation-information och andra åtgärder måste vara definierade i sida en åtgärdsgrupp innan du kan skapa en avisering; går att skapa [åtgärdsgrupp från Azure Monitor](../../azure-monitor/platform/action-groups.md) i portalen eller Använd [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Ange det unika Azure Resource Manager-ID för åtgärdsgruppen i varningsdefinitionen för att lägga till associationen mellan åtgärdsgrupp till en avisering. En exempel-bilden finns nedan:
 
@@ -285,7 +283,7 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en åtgärd
 Följ standardmall och format för meddelanden av standardåtgärder. Men användaren kan anpassa vissa åtgärder, även om de styrs av åtgärdsgrupper. För närvarande är det möjligt för e-postmeddelandets ämne och Webhook-nyttolasten med anpassning.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Anpassa e-postämne för åtgärdsgrupp
-Ämne för aviseringar är som standard: avisering om <AlertName> för <WorkspaceName>. Men detta kan anpassas, så att du kan vissa specifika ord eller taggar – så att du kan enkelt använda filterregler i din inkorg. Anpassa e-huvudet information behöver skicka tillsammans med ActionGroup information, som i exemplet nedan.
+Som standard är e-postämnet för aviseringar Varningsavisering <AlertName> för <WorkspaceName>. Men detta kan anpassas, så att du kan vissa specifika ord eller taggar – så att du kan enkelt använda filterregler i din inkorg. Anpassa e-huvudet information behöver skicka tillsammans med ActionGroup information, som i exemplet nedan.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
@@ -317,7 +315,7 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en åtgärd
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 ##### <a name="customize-webhook-payload-for-action-group"></a>Anpassa Webhook-nyttolasten för åtgärdsgrupp
-Webhooken som skickas via åtgärdsgrupp för log analytics har en fast struktur som standard. Men en kan anpassa JSON-nyttolasten med hjälp av specifika variabler som stöds för att uppfylla kraven för webhook-slutpunkt. Mer information finns i [Webhook-åtgärd för loggaviseringsregler](../../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md). 
+Webhooken som skickas via åtgärdsgrupp för log analytics har en fast struktur som standard. Men en kan anpassa JSON-nyttolasten med hjälp av specifika variabler som stöds för att uppfylla kraven för webhook-slutpunkt. Mer information finns i [Webhook-åtgärd för loggaviseringsregler](../../azure-monitor/platform/alerts-log-webhook.md). 
 
 Anpassa webhook information måste du skicka tillsammans med ActionGroup information och ska tillämpas på alla Webhook URI som anges i åtgärdsgruppen; som i exemplet nedan.
 
@@ -355,7 +353,7 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en åtgärd
 E-postaviseringar skicka e-post till en eller flera mottagare.  De kan innehålla egenskaperna i följande tabell.
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Åtgärder som e-postavisering styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../azure-monitor/platform/alerts-extend.md). Åtgärder som e-postavisering styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Egenskap  | Beskrivning |
@@ -399,7 +397,7 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en e postå
 Reparationer startar en runbook i Azure Automation som försöker åtgärda problemet som identifierats av aviseringen.  Du måste skapa en webhook för den runbook som används i en Reparationsåtgärd och anger sedan URI: N i egenskapen WebhookUri.  När du skapar den här åtgärden med hjälp av Azure-portalen skapas automatiskt en ny webhook för runbooken.
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder som att åtgärder med hjälp av runbook i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder som att åtgärder med hjälp av runbook i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Reparationer innehålla egenskaper i följande tabell.
 
@@ -458,7 +456,7 @@ Följande är ett komplett exempel att skapa en ny e-postavisering.  Detta skapa
 Webhook-åtgärder kan du starta en process genom att anropa en URL och att du kan också tillhandahålla en nyttolast som ska skickas.  De liknar åtgärder förutom de är avsedda för webhooks som kan anropa processer än Azure Automation-runbooks.  Användaren kan även ange ytterligare alternativ för att tillhandahålla en nyttolast som ska levereras till fjärr-processen.
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder som att Webhook i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder som att Webhook i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Webhook-åtgärder har inte ett tröskelvärde men i stället ska läggas till ett schema som har en Aviseringsåtgärd med ett tröskelvärde.  
@@ -512,5 +510,5 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en webhook-
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd den [REST API för att utföra sökningar i loggen](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics.
-* Lär dig mer om [loggaviseringar i azure-aviseringar](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
+* Lär dig mer om [loggaviseringar i azure-aviseringar](../../azure-monitor/platform/alerts-unified-log.md)
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3d096a2b62dec0eb1ef2bb68099aef2353f29d68
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c7d38538b3876ae91c0ae3794e14ab11f08993c6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084166"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162893"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Aktiva Directory Role-Based Access Control (förhandsversion)
 
@@ -34,7 +34,7 @@ Den första offentliga förhandsversionen kan du bara lägga till Azure AD-konto
 
 I följande avsnitt beskrivs de steg som krävs för att skapa och kör ett exempelprogram som frågar efter en interaktiv Azure AD-användare att logga in, hur du ger Händelsehubbar åtkomst till det aktuella användarkontot och hur du använder den identiteten för att få åtkomst till Event Hubs. 
 
-Den här introduktionen beskriver ett enkelt konsolprogram i [kod som finns på Github](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+Den här introduktionen beskriver ett enkelt konsolprogram i [kod som finns på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
 
 ### <a name="create-an-active-directory-user-account"></a>Skapa ett Active Directory-användarkonto
 
@@ -44,7 +44,7 @@ Om du vill skapa ett särskilt konto för det här scenariot [gör så här](../
 
 ### <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
-Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md) i någon av de Azure-regioner som har stöd för förhandsversionen av Event Hubs för RBAC: **östra USA**, **USA, Öst 2**, eller **Europa, västra** . 
+Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md) i någon av de Azure-regioner som har stöd för förhandsversionen av Event Hubs för RBAC: **USA, Öst**, **USA, Öst 2**, eller **Västeuropa**. 
 
 När namnområdet har skapats går du till dess **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till rolltilldelning** att lägga till Azure AD-användarkontot i rollen ägare. Om du använder ett eget användarkonto och du skapade namnområdet, är du redan rollen ägare. Om du vill lägga till ett annat konto för rollen, Sök efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**. Användarkontot har nu tillgång till Event Hubs-namnområdet och till händelsehubben du skapade tidigare.
  
@@ -60,10 +60,10 @@ Detaljerad registrering stegen beskrivs i [den här självstudien](../active-dir
 
 Innan du kan köra det här exemplet redigera filen App.config och, beroende på ditt scenario, ange följande värden:
 
-- `tenantId`: Ställ in på **TenantId** värde.
-- `clientId`: Ställ in på **ApplicationId** värde. 
+- `tenantId`: Ange **TenantId** värde.
+- `clientId`: Ange **ApplicationId** värde. 
 - `clientSecret`: Om du vill logga in med klienthemligheten, kan du skapa det i Azure AD. Kan också använda en webbapp eller API: et i stället för en inbyggd app. Lägg även till appen under **åtkomstkontroll (IAM)** i namnområdet som du skapade tidigare.
-- `eventHubNamespaceFQDN`: Ställ in på nya Event Hubs-namnområdet; fullständigt kvalificerat DNS-namn till exempel `example.servicebus.windows.net`.
+- `eventHubNamespaceFQDN`: Ange fullständigt kvalificerade DNS-namnet på nyligen skapade Event Hubs-namnområdet; till exempel `example.servicebus.windows.net`.
 - `eventHubName`: Ange namnet på den händelsehubb som du skapade.
 - Omdirigerings-URI som du angav i din app i föregående steg.
  

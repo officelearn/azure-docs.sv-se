@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 208e021dd9025ffff92ed46749346cfb53d0b080
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002603"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166616"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor och svar Network Performance Monitor-lösningen
 
@@ -161,17 +161,8 @@ Detta kan inträffa om av värdens brandvägg eller mellanliggande brandvägg (n
 Eftersom nätverkssökvägar mellan A till B kan skilja sig från nätverkssökvägar mellan B till A, kan olika värden för förlust och fördröjning observeras.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Varför är min ExpressRoute-kretsar och peering-anslutningarna inte identifieras?
-Detta kan inträffa om din krets och peering-anslutningar är fördelade på flera prenumerationer. NPM identifierar bara de ExpressRoute privat peering-anslutningar som de virtuella nätverken är anslutna till ExpressRoute finns i samma prenumeration som den är kopplad till NPM-arbetsytan. Dessutom NPM identifierar dessa Microsoft peering-anslutningar i som anslutna ExpressRoute-kretsen är i samma prenumeration som den är kopplad till NPM-arbetsytan. Detta kan vara tydliggjorde från i exemplet nedan:
+NPM identifieras nu ExpressRoute-kretsar och peering-anslutningar i alla prenumerationer som användaren har åtkomst till. Välj alla prenumerationer där resurserna i Express Route kopplas och aktivera övervakning för varje identifierad resurs. NPM letar efter anslutningsobjekt när identifiering av en privat peering, så kontrollera om ett virtuellt nätverk är associerat med din peering.
 
- Om du har 2 virtuella nätverk - VNET A i prenumeration A och VNET B i prenumeration B vilket, ansluten till en ExpressRoute i prenumerationen C. Dessutom finns det ett annat VNET - VNET C i prenumerationen C. ER har också MS peering i prenumerationen C. 
-
-Sedan,
-
-* Om NPM-arbetsytan är länkad med prenumeration A, kommer sedan du att kunna övervaka anslutning via ER att VNET A endast.
-* Om NPM-arbetsytan är länkad med prenumeration B, kommer sedan du att kunna övervaka endast anslutning via ER VNET B.
-* Om NPM-arbetsytan är länkad med C-prenumeration, kommer sedan du att kunna övervaka anslutning via ER VNET C, samt MS-peering.
-
-Stöd för prenumerationer kommer snart att vara tillgängliga. Därefter kommer du att kunna övervaka alla dina privata ExpressRoute och Microsoft peering-anslutningar i olika prenumerationer från en arbetsyta.
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>Funktionen för ER övervakaren har en diagnostikmeddelande ”trafiken passerar inte genom alla kretsar”. Vad betyder det?
 
 Det kan finnas ett scenario där det finns en felfri anslutning mellan lokala platser och Azure-noder men trafiken inte ska via ExpressRoute-krets som har konfigurerats för att övervakas av NPM. 

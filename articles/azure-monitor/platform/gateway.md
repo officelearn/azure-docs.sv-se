@@ -10,17 +10,15 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 5294d5919b6d4d80c61e183866409123a9edbb60
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082671"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194240"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Ansluta datorer utan Internetåtkomst med Log Analytics-gateway
 Det här dokumentet beskriver hur du konfigurerar kommunikationen med Azure Automation och Log Analytics med Log Analytics-gateway när det är direkt ansluten eller Operations Manager övervakade datorer har inte Internetåtkomst.  Log Analytics-gateway, som är en vanlig HTTP-proxy som har stöd för HTTP-tunnel med hjälp av kommandot HTTP ansluta, kan samla in data och skicka den till Azure Automation och Log Analytics för deras räkning.  
@@ -89,8 +87,8 @@ Följande tabell visar det tillåtna antalet agenter som kommunicerar med en gat
 
 |Gateway |Ungefärligt antal agenter som stöds|  
 |--------|----------------------------------|  
-|-CPU: Intel XEON v3 CPU E5 2660 \@ 2,6 GHz 2 kärnor<br> -Minne: 4 GB<br> -Nätverksbandbredd: 1 Gbit/s| 600|  
-|-CPU: Intel XEON v3 CPU E5 2660 \@ 2,6 GHz 4 kärnor<br> -Minne: 8 GB<br> -Nätverksbandbredd: 1 Gbit/s| 1000|  
+|-CPU: Intel XEON CPU E5 2660 v3 \@ 2,6 GHz 2 kärnor<br> -Minne: 4 GB<br> -Nätverkets bandbredd: 1 Gbit/s| 600|  
+|-CPU: Intel XEON CPU E5 2660 v3 \@ 2,6 GHz 4 kärnor<br> -Minne: 8 GB<br> -Nätverkets bandbredd: 1 Gbit/s| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Ladda ned Log Analytics-gatewayen
 
@@ -136,7 +134,7 @@ Om du vill lära dig att utforma och distribuera en Windows Server 2016 nätverk
 1. Logga in på den Windows-server som är medlem i NLB-kluster med ett administratörskonto.  
 1. Öppna Hanteraren för Utjämning av nätverksbelastning i Serverhanteraren, klicka på **verktyg**, och klicka sedan på **hanteraren för Utjämning av nätverksbelastning**.
 1. Högerklicka på klustrets IP-adress för att ansluta en Log Analytics gateway-servern med Microsoft Monitoring Agent installerad, och klicka sedan på **Lägg till värddator till klustret**.<br><br> ![Nätverket läsa in belastningsutjämning Manager – Lägg till värd i klustret](./media/gateway/nlb02.png)<br> 
-1. Ange IP-adressen för gateway-servern som du vill ansluta till.<br><br> ![Utjämning av nätverksbelastning – Lägg till värd i klustret: ansluta](./media/gateway/nlb03.png) 
+1. Ange IP-adressen för gateway-servern som du vill ansluta till.<br><br> ![Nätverket läsa in belastningsutjämning Manager – Lägg till värd i klustret: Anslut](./media/gateway/nlb03.png) 
     
 ## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Konfigurera Log Analytics-agenten och Operations Manager-hanteringsgrupp
 Följande avsnitt innehåller anvisningar om hur du konfigurerar direktanslutna Log Analytics-agenter, en Operations Manager-hanteringsgrupp eller Azure Automation Hybrid Runbook Worker med Log Analytics-gatewayen att kommunicera med Azure Automation eller loggfil Analytics.  
@@ -183,7 +181,7 @@ För stora och komplexa miljöer vill du kanske bara specifika servrar (eller gr
 1. Öppna Operations Manager-konsolen och välj den **redigering** arbetsyta.  
 1. I arbetsytan redigering väljer **regler** och klicka på den **omfång** i Operations Manager-verktygsfältet. Om den här knappen inte är tillgänglig, kontrollera att du har ett objekt och inte en mapp markerad i övervakningsfönstret. Den **omfång för Hanteringspaketobjekt** dialogrutan visar en lista över vanliga riktade klasser, grupper eller objekt. 
 1. Typ **Hälsotjänsten** i den **leta efter** fältet och markera den i listan.  Klicka på **OK**.  
-1. Sök efter regeln **Advisor Proxy inställningen regeln** och klicka på i verktygsfältet för driftkonsolen, **åsidosätter** och peka sedan på **åsidosätta Rule\For ett specifikt objekt i klassen: tjänsten för hälsotillstånd**  och välja ett specifikt objekt i listan.  Du kan också skapa en anpassad grupp som innehåller hälsotillstånd objektet av de servrar som du vill tillämpa den här åsidosättningen och sedan använda åsidosättningen för gruppen.
+1. Sök efter regeln **Advisor Proxy inställningen regeln** och klicka på i verktygsfältet för driftkonsolen, **åsidosätter** och peka sedan på **åsidosätta Rule\For ett specifikt objekt i klassen: Tjänsten för hälsotillstånd** och välja ett specifikt objekt i listan.  Du kan också skapa en anpassad grupp som innehåller hälsotillstånd objektet av de servrar som du vill tillämpa den här åsidosättningen och sedan använda åsidosättningen för gruppen.
 1. I den **egenskaper för åsidosättning** dialogrutan, klicka för att markera kryssrutan i den **åsidosätta** kolumnen bredvid den **WebProxyAddress** parametern.  I den **åsidosättningsvärde** fältet, anger du Webbadressen till Log Analytics gateway server säkerställer att du börjar med den `http://` prefix.  
 
     >[!NOTE]
@@ -256,7 +254,7 @@ Med hjälp av cmdlet: ar kan du utföra uppgifter som behövs för att uppdatera
 1. Om inget fel inträffade i föregående steg, modulen har importerats och cmdletarna som kan användas. Typ `Get-Module OMSGateway`
 1. När du gör ändringar med hjälp av cmdletar, kontrollerar du att starta om gatewaytjänsten.
 
-Om du får ett felmeddelande i steg 3 importerades inte modulen. Felet kan inträffa när PowerShell är det går inte att hitta modulen. Du hittar i gatewayens installationssökväg: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
+Om du får ett felmeddelande i steg 3 importerades inte modulen. Felet kan inträffa när PowerShell är det går inte att hitta modulen. Du hittar den i gatewayens installationssökväg: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
 | **Cmdlet:** | **Parametrar** | **Beskrivning** | **Exempel** |
 | --- | --- | --- | --- |  

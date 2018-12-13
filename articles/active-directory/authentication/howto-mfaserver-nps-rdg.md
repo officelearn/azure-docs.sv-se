@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 99ed74a9664fbeeb65d90e51d0afcd97dd0b0ca0
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 67c9cc5b46b7567674b3d0bf99bd85ab321c6bd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346507"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277181"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS
 
@@ -30,6 +30,9 @@ Installera Azure Multi-Factor Authentication Server på en separat server, som s
 - En domänansluten Azure MFA-server. Om du inte redan har installerat en sådan följer du anvisningarna i [Komma igång med Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md).
 - En befintlig konfigurerat NPS-servern.
 - En fjärrskrivbordsgateway som autentiserar med Network Policy Services.
+
+> [!NOTE]
+> Den här artikeln bör användas tillsammans med MFA Server-distributioner, inte Azure MFA (molnbaserade).
 
 ## <a name="configure-the-remote-desktop-gateway"></a>Konfigurera Fjärrskrivbordsgateway
 Konfigurera Fjärrskrivbordsgateway så att RADIUS-autentisering skickas till en Azure Multi-Factor Authentication-server. 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 393b90395698c18fdbd4fc8ba4d8bc79bd6287be
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 15a528bfdc1f23c932d1206dbca4b05af8bd58ba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495182"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186709"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Så här hämtar du Azure Multi-Factor Authentication
 
@@ -87,17 +87,17 @@ När du använder en Azure Multi-Factor Authentication-Provider, finns det två 
 
 1. **Per aktiverad användare** – för företag som vill aktivera tvåstegsverifiering för ett fast antal anställda som regelbundet behöver autentisering. Fakturering per användare baseras på antalet användare som har aktiverats för MFA i Azure AD-klienten och Azure MFA-servern. Om användarna är aktiverade för MFA i både Azure AD och Azure MFA Server och är aktiverad för synkronisering av domänen (Azure AD Connect) och sedan vi räknar större uppsättning användare. Om inte är aktiverad för synkronisering av domänen, så vi räknar summan av alla användare som har aktiverats för MFA i Azure AD och Azure MFA Server. Fakturering beräknas och har rapporterats till handelssystem dagligen.
 
-  > [!NOTE]
-  > Fakturering – exempel 1: du har 5 000 användare som har aktiverats för MFA idag. MFA-systemet dividerar det numret med 31 och rapporter 161.29 användare för den dagen. Du aktiverar morgon 15 fler användare, så att systemet MFA rapporterar 161.77 användare för den dagen. I slutet av faktureringsperioden lägger det totala antalet användare som faktureras mot din Azure-prenumeration upp till runt 5 000.
-  >
-  > Fakturering exempel 2: du har en blandning av användare med licenser och användare utan, så att du har en per användare Azure MFA-Provider till utgör skillnaden. Det finns 4 500 Enterprise Mobility + Security-licenser på din klient, men 5 000 användare som har aktiverats för MFA. Din Azure-prenumeration faktureras för 500 användare, beräknas och rapporteras per dag som 16.13 användare.
-  >
+   > [!NOTE]
+   > Fakturering – exempel 1: Du har 5 000 användare som har aktiverats för MFA idag. MFA-systemet dividerar det numret med 31 och rapporter 161.29 användare för den dagen. Du aktiverar morgon 15 fler användare, så att systemet MFA rapporterar 161.77 användare för den dagen. I slutet av faktureringsperioden lägger det totala antalet användare som faktureras mot din Azure-prenumeration upp till runt 5 000.
+   >
+   > Fakturering exempel 2: Du har en blandning av användare med licenser och användare utan, så att du har en per användare Azure MFA-Provider till utgör skillnaden. Det finns 4 500 Enterprise Mobility + Security-licenser på din klient, men 5 000 användare som har aktiverats för MFA. Din Azure-prenumeration faktureras för 500 användare, beräknas och rapporteras per dag som 16.13 användare.
+   >
 
 1. **Per autentisering** – för företag som vill aktivera tvåstegsverifiering för en stor grupp med användare som behöver sällan autentisering. Fakturering baseras på antalet begäranden om tvåstegsverifiering, oavsett om dessa verifiering lyckas eller nekas. Den här Faktureringsmetoden visas på ditt kontoutdrag för Azure-användning i packs om 10 autentiseringar och rapporteras per dag.
 
-  > [!NOTE]
-  > Fakturering exempel 3: idag, Azure MFA-tjänsten har tagit emot 3,105 begäranden om tvåstegsverifiering. Din Azure-prenumeration faktureras efter 310.5 autentisering hanteringspaket.
-  >
+   > [!NOTE]
+   > Fakturering exempel 3: Idag, Azure MFA-tjänsten tog emot 3,105 begäranden om tvåstegsverifiering. Din Azure-prenumeration faktureras efter 310.5 autentisering hanteringspaket.
+   >
 
 Det är viktigt att Observera att du kan ha licenser, men får betala för förbrukning-baserad konfiguration. Om du har konfigurerat en per autentisering Azure MFA-Provider, debiteras du för varje förfrågningar om tvåstegsverifiering, även de som görs av användare som har licenser. Om du ställer in en per användare Azure MFA-Provider på en domän som inte är länkad till din Azure AD-klient, debiteras du per aktiverad användare även om användarna har licenser på Azure AD.
 

@@ -1,21 +1,22 @@
 ---
-title: Sök efter svar - API för webbsökning i Bing
+title: Webbsökning i Bing struktur och svaret svarstyper
 titleSuffix: Azure Cognitive Services
-description: Läs mer om typer av svar och svar från av Bing Web Search API.
+description: Läs mer om svar typer och används av Bing Web Search API-svar.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
-ms.author: erhopf
-ms.openlocfilehash: f3a4c8bb024aa5e92365b72b8cc2180cc6f4d6d4
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.custom: seodec2018
+ms.openlocfilehash: 1d47d8e35a1be28b5610961c1b1c7b5d1492e871
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123784"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250509"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Webbsökning i Bing struktur och svaret svarstyper  
 
@@ -128,7 +129,7 @@ Nedan visas ett exempel på hur Närliggande sökningar i Bing.com.
 
 ## <a name="videos-answer"></a>Svara på videor
 
-Den [videor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) svaret innehåller en lista med videor som Bing trodde var relevanta för frågan. Varje [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) i listan innehåller URL: en för videon, dess varaktighet, dess storlek och dess Kodningsformatet. Video-objekt omfattar även URL: en för en miniatyrbild för videon och den miniatyrbilden dimensioner.
+Den [videor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) svaret innehåller en lista med videor som Bing trodde var relevanta för frågan. Varje [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) i listan innehåller URL: en för videon, dess varaktighet, dess storlek och dess Kodningsformatet. Videoobjektet innehåller även webbadressen till en miniatyrbild av videon och miniatyrbildens mått.
 
 ```json
 {
@@ -166,13 +167,13 @@ Beroende på användarens enhet kan visas du vanligtvis en delmängd av videor m
 ![List of video thumbnails](./media/cognitive-services-bing-web-api/bing-web-video-thumbnails.PNG)
 -->
 
-När användaren för muspekaren över miniatyrbilden kan du använda `motionThumbnailUrl` att spela upp en miniatyrbild av videon. Glöm inte att attributet rörelse miniatyren när du visar den.
+När användaren för muspekaren över miniatyrbilden kan du använda `motionThumbnailUrl` att spela upp en miniatyrbild av videon. Se till att du tillskriver ursprunget när du visar en video.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![Motion thumbnail of a video](./media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
 -->
 
-Om användaren klickar på miniatyrbilden följer videon Visningsalternativ:
+Om användaren klickar på miniatyrbilden finns följande visningsalternativ för videon:
 
 - Använd `hostPageUrl` att titta på videon på webbplatsen värden (till exempel YouTube)
 - Använd `webSearchUrl` att visa videon i webbläsaren för Bing-video
@@ -182,7 +183,7 @@ Mer information om video svar och videor finns [Video API för webbsökning](../
 
 ## <a name="news-answer"></a>Nyheter svar
 
-Den [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) svaret innehåller en lista över artiklar som Bing trodde var relevanta för frågan. Varje [nyhetsartikel](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) i listan innehåller artikels namn, beskrivning och URL: en till artikeln på värdens webbplats. Om den här artikeln innehåller en bild, innehåller objektet en miniatyr för avbildningen.
+Den [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) svaret innehåller en lista över artiklar som Bing trodde var relevanta för frågan. Varje [nyhetsartikel](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) i listan innehåller artikels namn, beskrivning och webbadressen till artikeln på värdens webbplats. Om artikeln innehåller en bild innehåller objektet även en miniatyr för bilden.
 
 ```json
 {
@@ -205,7 +206,7 @@ Den [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-ap
 }, ...
 ```
 
-Beroende på användarens enhet kan du välja att visa en delmängd av nyhetsartiklar med ett alternativ för användare att hitta de återstående artiklarna. Använd `name` och `url` att skapa en hyperlänk som tar användaren till nyhetsartikeln på värdens plats. Om artikeln innehåller en bild, ser du en avbildning klickbara med hjälp av `url`. Se till att använda `provider` till attributet i artikeln.
+Beroende på användarens enhet kan du välja att visa en delmängd av nyhetsartiklar med ett alternativ för användare att hitta de återstående artiklarna. Använd `name` och `url` till att skapa en hyperlänk som tar användaren till nyhetsartikeln på värdens webbplats. Om artikeln innehåller en bild, ser du en avbildning klickbara med hjälp av `url`. Se till att du tillskriver artikeln med `provider`.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display articles in a search results page.

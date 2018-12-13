@@ -12,42 +12,41 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: e067f158acfc830cc6a82b7d5555528103714017
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 0fe24c22c42c826db28b6cee460936597b8de83c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872569"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269258"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>Självstudie: Implementera en geodistribuerad databas
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Självstudiekurs: Implementera en geo-distribuerad databas
 
-I den här självstudiekursen konfigurerar du en Azure SQL-databas och ett program för redundansväxling till en fjärregion och testar sedan din redundansplan. Lär dig att: 
+I den här självstudiekursen konfigurerar du en Azure SQL-databas och ett program för redundansväxling till en fjärregion och testar sedan din redundansplan. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa databasanvändare och ge dem behörigheter
-> * Skapa en brandväggsregel på databasnivå
-> * Skapa en [redundansgrupp för geo-replikering](sql-database-geo-replication-overview.md)
-> * Skapa och kompilera ett Java-program för att fråga en Azure SQL-databas
-> * Utföra ett programåterställningstest
+> - Skapa databasanvändare och ge dem behörigheter
+> - Skapa en brandväggsregel på databasnivå
+> - Skapa en [redundansgrupp](sql-database-auto-failover-group.md)
+> - Skapa och kompilera ett Java-program för att fråga en Azure SQL-databas
+> - Utföra ett programåterställningstest
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
-
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
-- Du måste ha installerat senaste versionen av [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). 
+- Du måste ha installerat senaste versionen av [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
 - Du måste ha installerat en Azure SQL-databas. I den här självstudiekursen används exempeldatabasen AdventureWorksLT med namnet **mySampleDatabase** från någon av dessa snabbstarter:
 
-   - [Skapa DB – Portal](sql-database-get-started-portal.md)
-   - [Skapa DB – CLI](sql-database-cli-samples.md)
-   - [Skapa DB – PowerShell](sql-database-powershell-samples.md)
+  - [Skapa DB – Portal](sql-database-get-started-portal.md)
+  - [Skapa DB – CLI](sql-database-cli-samples.md)
+  - [Skapa DB – PowerShell](sql-database-powershell-samples.md)
 
 - Identifiera en metod för att köra SQL-skript mot din databas. Du kan använda något av följande frågeverktyg:
-   - Frågeredigeraren i [Azure Portal](https://portal.azure.com). Mer information om hur du använder frågeredigeraren i Azure Portal finns i [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database) (Anslut och fråga med frågeredigeraren).
-   - Den senaste versionen av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), som är en integrerad miljö för att hantera all SQL-infrastruktur från SQL Server till SQL Database för Microsoft Windows.
-   - Den senaste versionen av [Visual Studio Code](https://code.visualstudio.com/docs), som är en grafisk kodredigerare för Linux, macOS och Windows som stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. Mer information om hur du använder det här verktyget med Azure SQL Database finns i [Connect and query with VS Code](sql-database-connect-query-vscode.md) (Anslut och fråga med VS Code). 
+  - Frågeredigeraren i [Azure Portal](https://portal.azure.com). Mer information om hur du använder frågeredigeraren i Azure Portal finns i [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database) (Anslut och fråga med frågeredigeraren).
+  - Den senaste versionen av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), som är en integrerad miljö för att hantera all SQL-infrastruktur från SQL Server till SQL Database för Microsoft Windows.
+  - Den senaste versionen av [Visual Studio Code](https://code.visualstudio.com/docs), som är en grafisk kodredigerare för Linux, macOS och Windows som stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. Mer information om hur du använder det här verktyget med Azure SQL Database finns i [Connect and query with VS Code](sql-database-connect-query-vscode.md) (Anslut och fråga med VS Code).
 
 ## <a name="create-database-users-and-grant-permissions"></a>Skapa databasanvändare och ge dem behörigheter
 
@@ -59,12 +58,12 @@ Anslut till din databas och skapa användarkonton med hjälp av något av följa
 
 Dessa användarkonton replikeras automatiskt till den sekundära servern (och hålls synkroniserade). Om du vill använda SQL Server Management Studio eller Visual Studio Code kan du behöva konfigurera en brandväggsregel om du ansluter från en klient på en IP-adress som du ännu inte har konfigurerat en brandvägg för. Detaljerade anvisningar finns i [Skapa en brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md).
 
-- I ett frågefönster skriver du följande fråga för att skapa två användarkonton i databasen. Det här skriptet ger **db_owner**-behörighet till **app_admin**-kontot och ger **SELECT**- och **UPDATE**-behörighet till **app_user**-kontot. 
+- I ett frågefönster skriver du följande fråga för att skapa två användarkonton i databasen. Det här skriptet ger **db_owner**-behörighet till **app_admin**-kontot och ger **SELECT**- och **UPDATE**-behörighet till **app_user**-kontot.
 
    ```sql
    CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
    --Add SQL user to db_owner role
-   ALTER ROLE db_owner ADD MEMBER app_admin; 
+   ALTER ROLE db_owner ADD MEMBER app_admin;
    --Create additional SQL user
    CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
    --grant permission to SalesLT schema
@@ -82,9 +81,9 @@ Skapa en [brandväggsregel på databasnivå](https://docs.microsoft.com/sql/rela
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```
 
-## <a name="create-an-active-geo-replication-auto-failover-group"></a>Skapa en redundansgrupp för aktiv geo-replikering 
+## <a name="create-a-failover-group"></a>Skapa en redundansgrupp
 
-Med Azure PowerShell skapar du en [redundansgrupp för aktiv geo-replikering](sql-database-geo-replication-overview.md) mellan din befintliga Azure SQL-server och den nya tomma Azure SQL-servern i en Azure-region. Lägg sedan till din exempeldatabas i redundansgruppen.
+Med hjälp av Azure PowerShell skapar en [redundansgrupper](sql-database-auto-failover-group.md) mellan din befintliga Azure SQL-server och den nya tomma Azure SQL-server i en Azure-region och Lägg sedan till din exempeldatabas i redundansgruppen.
 
 > [!IMPORTANT]
 > Dessa cmdletar kräver Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
@@ -111,7 +110,7 @@ Med Azure PowerShell skapar du en [redundansgrupp för aktiv geo-replikering](sq
       -ServerName $mydrservername `
       -Location $mydrlocation `
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-   $mydrserver   
+   $mydrserver
    ```
 
 3. Skapa en redundansgrupp mellan de två servrarna.
@@ -124,7 +123,7 @@ Med Azure PowerShell skapar du en [redundansgrupp för aktiv geo-replikering](sq
       –FailoverGroupName $myfailovergroupname `
       –FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
-   $myfailovergroup   
+   $myfailovergroup
    ```
 
 4. Lägg till din databas i redundansgruppen.
@@ -138,15 +137,16 @@ Med Azure PowerShell skapar du en [redundansgrupp för aktiv geo-replikering](sq
       -ResourceGroupName $myresourcegroupname ` `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname
-   $myfailovergroup   
+   $myfailovergroup
    ```
 
 ## <a name="install-java-software"></a>Installera Java-program
 
-Stegen i det här avsnittet förutsätter att du är bekant med att utveckla med Java och att du är nybörjare när det gäller att arbeta med Azure SQL Database. 
+Stegen i det här avsnittet förutsätter att du är bekant med att utveckla med Java och att du är nybörjare när det gäller att arbeta med Azure SQL Database.
 
-### <a name="mac-os"></a>**Mac OS**
-Öppna terminalen och navigera till den katalog där du vill skapa Java-projektet. Installera **brew** och **Maven** genom att ange följande kommandon: 
+### <a name="mac-os"></a>Mac OS
+
+Öppna terminalen och navigera till den katalog där du vill skapa Java-projektet. Installera **brew** och **Maven** genom att ange följande kommandon:
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -156,7 +156,8 @@ brew install maven
 
 Om du vill ha detaljerad information om hur du installerar och konfigurerar Java- och Maven-miljön går du till [Skapa en app med SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), väljer **Java**, väljer **MacOS** och följer de detaljerade anvisningarna om hur du konfigurerar Java och Maven i steg 1.2 och 1.3.
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
+
 Öppna terminalen och navigera till den katalog där du vill skapa Java-projektet. Installera **Maven** genom att ange följande kommandon:
 
 ```bash
@@ -165,15 +166,18 @@ sudo apt-get install maven
 
 Om du vill ha detaljerad information om hur du installerar och konfigurerar Java- och Maven-miljön går du till [Skapa en app med SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), väljer **Java**, väljer **Ubuntu** och följer de detaljerade anvisningarna om hur du konfigurerar Java och Maven i steg 1.2, 1.3 och 1.4.
 
-### <a name="windows"></a>**Windows**
+### <a name="windows"></a>Windows
+
 Installera [Maven](https://maven.apache.org/download.cgi) med det officiella installationsprogrammet. Använd Maven för att hantera beroenden, skapa, testa och köra Java-projekt. Om du vill ha detaljerad information om hur du installerar och konfigurerar Java- och Maven-miljön går du till [Skapa en app med SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), väljer **Java**, väljer Windows och följer de detaljerade anvisningarna om hur du konfigurerar Java och Maven i steg 1.2 och 1.3.
 
 ## <a name="create-sqldbsample-project"></a>Skapa SqlDbSample-projekt
 
-1. Skapa ett Maven-projekt i kommandokonsolen (till exempel Bash). 
+1. Skapa ett Maven-projekt i kommandokonsolen (till exempel Bash).
+
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
+
 2. Skriv **Y** och tryck på **Retur**.
 3. Ändra kataloger till det nyskapade projektet.
 
@@ -181,9 +185,9 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
    cd SqlDbSamples
    ```
 
-4. Öppna pom.xml-filen i din projektmapp med hjälp av en redigerare. 
+4. Öppna pom.xml-filen i din projektmapp med hjälp av en redigerare.
 
-5. Lägg till Microsoft JDBC-drivrutinen för SQL Server-beroendet i Maven-projektet genom att öppna valfri textredigerare och kopiera och klistra in följande rader i pom.xml-filen. Skriv inte över de befintliga förifyllda värdena i filen. JDBC-beroendet måste klistras in i det större ”dependencies”-avsnittet (beroenden).   
+5. Lägg till Microsoft JDBC-drivrutinen för SQL Server-beroendet i Maven-projektet genom att öppna valfri textredigerare och kopiera och klistra in följande rader i pom.xml-filen. Skriv inte över de befintliga förifyllda värdena i filen. JDBC-beroendet måste klistras in i det större ”dependencies”-avsnittet (beroenden).
 
    ```xml
    <dependency>
@@ -193,7 +197,7 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
    </dependency>
    ```
 
-6. Ange den version av Java som projektet ska kompileras mot genom att lägga till följande ”properties”-avsnitt (egenskaper) i pom.xml-filen efter ”dependencies”-avsnittet (beroenden). 
+6. Ange den version av Java som projektet ska kompileras mot genom att lägga till följande ”properties”-avsnitt (egenskaper) i pom.xml-filen efter ”dependencies”-avsnittet (beroenden).
 
    ```xml
    <properties>
@@ -201,7 +205,8 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
      <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
    ```
-7. Lägg till följande ”build”-avsnitt (version) i pom.xml-filen efter ”properties”-avsnittet (egenskaper) för att stödja manifestfiler i jar-filer.       
+
+7. Lägg till följande ”build”-avsnitt (version) i pom.xml-filen efter ”properties”-avsnittet (egenskaper) för att stödja manifestfiler i jar-filer.
 
    ```xml
    <build>
@@ -221,6 +226,7 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
      </plugins>
    </build>
    ```
+
 8. Spara och stäng filen pom.xml.
 9. Öppna App.java-filen (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) och ersätt innehållet med följande innehåll. Ersätt namnet på redundansgruppen med namnet på din redundansgrupp. Om du har ändrat värdena för databasnamn, användare eller lösenord ändrar du även dessa värden.
 
@@ -251,7 +257,7 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
          System.out.println("#######################################");
          System.out.println("## GEO DISTRIBUTED DATABASE TUTORIAL ##");
          System.out.println("#######################################");
-         System.out.println(""); 
+         System.out.println("");
 
          int highWaterMark = getHighWaterMarkId();
 
@@ -272,7 +278,7 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
       // Insert data into the product table with a unique product name that we can use to find the product again later
       String sql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
-      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
               PreparedStatement pstmt = connection.prepareStatement(sql)) {
          pstmt.setString(1, "BrandNewProduct" + id);
          pstmt.setInt(2, 200989 + id + 10000);
@@ -290,7 +296,7 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
       // Query the data that was previously inserted into the primary database from the geo replicated database
       String sql = "SELECT Name, Color, ListPrice FROM SalesLT.Product WHERE Name = ?";
 
-      try (Connection connection = DriverManager.getConnection(READ_ONLY_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_ONLY_URL);
               PreparedStatement pstmt = connection.prepareStatement(sql)) {
          pstmt.setString(1, "BrandNewProduct" + id);
          try (ResultSet resultSet = pstmt.executeQuery()) {
@@ -302,11 +308,10 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
    }
 
    private static int getHighWaterMarkId() {
-      // Query the high water mark id that is stored in the table to be able to make unique inserts 
+      // Query the high water mark id that is stored in the table to be able to make unique inserts
       String sql = "SELECT MAX(ProductId) FROM SalesLT.Product";
       int result = 1;
-        
-      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
               Statement stmt = connection.createStatement();
               ResultSet resultSet = stmt.executeQuery(sql)) {
          if (resultSet.next()) {
@@ -319,7 +324,8 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
       }
    }
    ```
-6. Spara och stäng filen App.java.
+
+10. Spara och stäng filen App.java.
 
 ## <a name="compile-and-run-the-sqldbsample-project"></a>Kompilera och köra projektet SqlDbSample
 
@@ -328,11 +334,12 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
    ```bash
    mvn package
    ```
+
 2. När det är klart kör du följande kommando för att köra programmet (det körs i ungefär 1 timme om du inte stoppar det manuellt):
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-   
+
    #######################################
    ## GEO DISTRIBUTED DATABASE TUTORIAL ##
    #######################################
@@ -344,7 +351,7 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
 
 ## <a name="perform-disaster-recovery-drill"></a>Utföra ett programåterställningstest
 
-1. Anropa manuell redundans för redundansgruppen. 
+1. Anropa manuell redundans för redundansgruppen.
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
@@ -353,7 +360,7 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. Se programresultaten under redundansväxlingen. Vissa infogningar misslyckas medan DNS-cachen uppdateras.     
+2. Se programresultaten under redundansväxlingen. Vissa infogningar misslyckas medan DNS-cachen uppdateras.
 
 3. Ta reda på vilken roll din haveriberedskapsserver utför.
 
@@ -370,7 +377,7 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. Se programresultaten under redundansväxlingen. Vissa infogningar misslyckas medan DNS-cachen uppdateras.     
+5. Se programresultaten under redundansväxlingen. Vissa infogningar misslyckas medan DNS-cachen uppdateras.
 
 6. Ta reda på vilken roll din haveriberedskapsserver utför.
 
@@ -384,17 +391,16 @@ Installera [Maven](https://maven.apache.org/download.cgi) med det officiella ins
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen har du lärt dig att konfigurera en Azure SQL-databas och ett program för redundansväxling till en fjärregion och sedan testa din redundansplan.  Du har lärt dig att: 
+I den här självstudiekursen har du lärt dig att konfigurera en Azure SQL-databas och ett program för redundansväxling till en fjärregion och sedan testa din redundansplan.  Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa databasanvändare och ge dem behörigheter
-> * Skapa en brandväggsregel på databasnivå
-> * Skapa en redundansgrupp för geo-replikering
-> * Skapa och kompilera ett Java-program för att fråga en Azure SQL-databas
-> * Utföra ett programåterställningstest
+> - Skapa databasanvändare och ge dem behörigheter
+> - Skapa en brandväggsregel på databasnivå
+> - Skapa en redundansgrupp för geo-replikering
+> - Skapa och kompilera ett Java-program för att fråga en Azure SQL-databas
+> - Utföra ett programåterställningstest
 
 Gå vidare till nästa självstudie för att migrera SQL Server till Azure SQL Database Managed Instance med DMS.
 
 > [!div class="nextstepaction"]
 >[Migrera SQL Server till Azure SQL Database Managed Instance med DMS](../dms/tutorial-sql-server-to-managed-instance.md)
-

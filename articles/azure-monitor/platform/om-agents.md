@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 1988f5790b719acf4e5dad1a378139c8d74b56f9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 133e617cd6bac1155ba22276887cf0790221e9de
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995334"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186981"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Anslut Operations Manager till Log Analytics
 Att underhålla din investering i [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) och använder utökade funktioner med Log Analytics, du kan integrera Operations Manager med Log Analytics-arbetsytan. På så sätt kan du utnyttja möjligheterna i Log Analytics samtidigt som du använder Operations Manager till att:
@@ -103,7 +102,7 @@ När du har slutfört följande steg för att integrera med Log Analytics, kan d
 1. Välj arbetsytan **Administration** i Operations Manager-konsolen.
 1. Expandera noden Operations Management Suite och klicka på **Anslutning**.
 1. Klicka på länken för att **registrera till Operations Management Suite**.
-1. På sidan **Guiden Operations Management Suite Onboarding: Autentisering** anger du e-postadress eller telefonnummer och lösenordet för administratörskontot som är kopplat till din OMS-prenumeration och klickar på **Logga in**.
+1. På den **guiden Operations Management Suite Onboarding: Autentisering** sidan, anger du e-postadress eller telefonnummer och lösenordet för administratörskontot som är associerad med OMS-prenumerationen och på **logga in**.
 
    >[!NOTE]
    >OMS kallas nu för Log Analytics.
@@ -114,8 +113,8 @@ När du har slutfört följande steg för att integrera med Log Analytics, kan d
    > Operations Manager stöder bara en Log Analytics-arbetsyta i taget. Anslutningen och de datorer som registrerades till Log Analytics med den förra arbetsytan tas bort från Log Analytics.
    > 
    > 
-1. På sidan **Guiden Operations Management Suite Onboarding: Sammanfattning** bekräftar du dina inställningar och om de är korrekta klickar du på **Skapa**.
-1. På sidan **Guiden Operations Management Suite Onboarding: Slutför** klickar du på **Stäng**.
+1. På den **guiden Operations Management Suite Onboarding: Sammanfattning** , bekräfta dina inställningar och om de är korrekta, klickar du på **skapa**.
+1. På den **guiden Operations Management Suite Onboarding: Slutför** klickar du på **Stäng**.
 
 ### <a name="add-agent-managed-computers"></a>Lägg till datorer som hanteras med agent
 När du har konfigurerat integrering med Log Analytics-arbetsytan, den bara upprättar en anslutning till tjänsten, inga data har samlats in från agenter som rapporterar till hanteringsgruppen. Detta sker inte fram när du har konfigurerat vilka specifika agenthanterade datorer samla in data för Log Analytics. Du kan antingen välja datorobjekt individuellt eller välja en grupp som innehåller Windows-datorobjekt. Du kan inte välja en grupp som innehåller instanser av en annan klass, till exempel logiska diskar eller SQL-databaser.
@@ -133,7 +132,7 @@ Utför följande steg om en intern proxyserver mellan hanteringsgruppen och Log 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 1. Expandera Operations Management Suite och klicka sedan på **Anslutningar**.
 1. I vyn OMS-anslutning klickar du på **Konfigurera proxyserver**.
-1. På sidan med **guiden Operations Management Suite: Proxyserver** väljer du alternativet för att **använda en proxyserver för att få åtkomst till Operational Management Suite** och anger sedan webbadressen med portnumret, till exempel http://corpproxy:80 och klickar på **Slutför**.
+1. På **guiden Operations Management Suite: Proxyserver** väljer **använder en proxyserver för att få åtkomst till Operations Management Suite**, och ange sedan Webbadressen med portnumret, till exempel http://corpproxy:80 och klicka sedan på **Slutför** .
 
 Om proxyservern kräver autentisering, utför du följande steg för att konfigurera autentiseringsuppgifter och inställningar som måste spridas till hanterade datorer som rapporterar till Log Analytics i hanteringsgruppen.
 
@@ -171,7 +170,7 @@ Om du vill fortsätta efter din befintliga Ändra kontroll process för att styr
 1. Följ den **guiden för Log Analytics Onboarding** och ange den e-postadress eller telefonnummer tal och lösenordet för administratörskontot som är associerad med den nya Log Analytics-arbetsytan.
    
    > [!NOTE]
-   > På sidan **Guiden Operations Management Suite Onboarding: Välj arbetsyta** visas den befintliga arbetsytan som används.
+   > Den **guiden Operations Management Suite Onboarding: Välj arbetsyta** visar den befintliga arbetsytan som används.
    > 
    > 
 

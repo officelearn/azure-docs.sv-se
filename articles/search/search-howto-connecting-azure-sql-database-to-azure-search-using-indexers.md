@@ -1,6 +1,6 @@
 ---
-title: Ansluta Azure SQL-databas till Azure Search med indexerare | Microsoft Docs
-description: Lär dig hur du hämtar data från Azure SQL Database till ett Azure Search-index med hjälp av indexerare.
+title: Anslut och indexera Azure SQL Database-innehåll med hjälp av indexerare – Azure Search
+description: Lär dig mer om att uppdatera data i Azure SQL Database med hjälp av indexerare för fulltextsökning i Azure Search. Den här artikeln beskriver anslutningar, indexerarkonfiguration och datainmatning.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,14 +9,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245655"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313402"
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ansluta Azure SQL Database till Azure Search med indexerare
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ansluta till och indexera Azure SQL Database-innehåll med hjälp av Azure Search-indexerare
 
 Innan du kan fråga efter en [Azure Search-index](search-what-is-an-index.md), måste du fylla den med dina data. Om dessa data finns i en Azure SQL-databas och en **Azure Search-indexeraren för Azure SQL Database** (eller **Azure SQL-indexeraren** för kort) kan automatisera indexeringsprocessen, vilket innebär att mindre kod att skriva och mindre infrastruktur intresserar dig.
 
@@ -34,7 +35,7 @@ En **indexeraren** är en resurs som ansluter en enskild datakälla med en rikta
 * Uppdatera ett index med ändringar i datakällan enligt ett schema.
 * Kör på begäran för att uppdatera ett index efter behov.
 
-En enda indexerare kan bara använda en tabell eller vy, men du kan skapa flera indexerare om du vill fylla i flera search-index. Mer information om begrepp finns i [Indexeru: typiskt arbetsflöde](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
+En enda indexerare kan bara använda en tabell eller vy, men du kan skapa flera indexerare om du vill fylla i flera search-index. Mer information om begrepp finns i [Indexeru: Typiskt arbetsflöde](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
 
 Du kan ställa in och konfigurera en Azure SQL-indexeraren med:
 
@@ -314,31 +315,31 @@ De här inställningarna används i den `parameters.configuration` objekt i att 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-**F: kan jag använda Azure SQL-indexeraren med SQL-databaser som körs på virtuella IaaS-datorer i Azure?**
+**F: Kan jag använda Azure SQL-indexeraren med SQL-databaser som körs på virtuella IaaS-datorer i Azure?**
 
 Ja. Du måste dock tillåta söktjänsten att ansluta till databasen. Mer information finns i [konfigurera en anslutning från en Azure Search-indexerare till SQL Server på en Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
-**F: kan jag använda Azure SQL-indexeraren med SQL-databaser som körs lokalt?**
+**F: Kan jag använda Azure SQL-indexeraren med SQL-databaser som körs lokalt?**
 
 Inte direkt. Vi rekommenderar att du eller inte stöder en direktanslutning enligt detta så kräver du att öppna dina databaser till Internet-trafik. Kunder har lyckades med det här scenariot med brygga tekniker som Azure Data Factory. Mer information finns i [skicka data till ett Azure Search-index med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
-**F: kan jag använda Azure SQL-indexeraren med databaser än SQL Server som körs i IaaS på Azure?**
+**F: Kan jag använda Azure SQL-indexeraren med databaser än SQL Server som körs i IaaS på Azure?**
 
 Nej. Vi stöder inte det här scenariot eftersom vi inte har testat indexerare med databaser än SQL Server.  
 
-**F: kan jag skapa flera indexerare som körs enligt ett schema?**
+**F: Kan jag skapa flera indexerare som körs enligt ett schema?**
 
 Ja. Men kan bara en indexerare köras på en nod i taget. Om du behöver flera indexerare som körs samtidigt kan du överväga att skala upp din söktjänst till mer än en sökenheten.
 
-**F: kan köra en indexerare påverkar arbetsbelastningens fråga?**
+**F: Påverkar arbetsbelastningens frågan när du kör en indexerare?**
 
 Ja. Indexeraren körs på en av noderna i din söktjänst och den noden resurser delas mellan indexering och betjänar fråga trafik och andra API-begäranden. Om du kör beräkningsintensiva indexerings- och belastningar och stöter på en hög andel 503-fel eller ökade svarstider, bör du [proportionellt söktjänsten](search-capacity-planning.md).
 
-**F: kan jag använda en sekundär replik i en [redundanskluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) som en datakälla?**
+**F: Kan jag använda en sekundär replik i en [redundanskluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) som en datakälla?**
 
 Det beror på. Du kan använda en sekundär replik för fullständig indexering för en tabell eller vy. 
 
-Azure Search har stöd för två ändra principer för inkrementell indexering: SQL integrerade ändra spårning och hög vattenmärke.
+Azure Search stöder två ändra principer för inkrementell indexering: SQL-integrerad ändringsspårning och vattenmärke.
 
 SQL database stöder inte integrerad ändringsspårning på skrivskyddade repliker. Därför måste du använda vattenmärke för principen. 
 
@@ -348,7 +349,7 @@ Om du försöker använda rowversion på en skrivskyddad replik visas följande 
 
     "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
-**F: kan jag använda en alternativ, icke-rowversion kolumn för vattenmärke för ändringsspårning**
+**F: Kan jag använda en alternativ, icke-rowversion kolumn för vattenmärke för ändringsspårning?**
 
 Det rekommenderas inte. Endast **rowversion** möjliggör tillförlitlig datasynkronisering. Beroende på programlogiken, det kan dock vara säkra om:
 

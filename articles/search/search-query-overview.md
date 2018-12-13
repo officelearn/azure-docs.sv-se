@@ -1,5 +1,5 @@
 ---
-title: Fråga typer och sammansättning i Azure Search | Microsoft Docs
+title: Frågetyper och sammansättning – Azure Search
 description: Grunderna för att skapa en sökfråga i Azure Search, med parametrar för att filtrera, markera och sortera resultaten.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: a1dad30148da9f6b322c75fd40dc01098c4d6b63
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 03ec588b1627b82a01021a9b71958e9d66aab0ce
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42057624"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315595"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Frågetyper och sammansättning i Azure Search
 
@@ -102,7 +103,7 @@ queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$
 
 Azure Search har stöd för ett brett utbud av frågetyper. 
 
-| Typ av fråga | Användning | Mer information och exempel |
+| Frågetyp | Användning | Mer information och exempel |
 |------------|--------|-------------------------------|
 | Fri form textsökning | Sökparameter och antingen parser| Fulltextsökning söker igenom en eller flera termer i alla *sökbara* fält i ditt index och fungerar på samma sätt som du förväntar dig en sökmotor som Google eller Bing fungerar. Exemplet i inledningen är fulltextsökning.<br/><br/>Fulltextsökning genomgår textanalys med analysverktyget från Lucene (som standard) till gemena alla villkor, ta bort stoppord som ”och”. Du kan åsidosätta standardinställningen med [icke-engelska analysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support#analyzer-list) eller [specialiserade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) som ändrar textanalys. Ett exempel är [nyckelordet](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar allt i ett fält som en enskild token. Detta är användbart för data som postnummer, ID: n och vissa produktnamn. | 
 | Filtrerade sökning | [OData-filteruttryck](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) och antingen parser | Filterfrågor utvärderar ett booleskt uttryck över alla *filtrerbara* fält i ett index. Till skillnad från sökning matchar en filterfråga det exakta innehållet i ett fält, inklusive skiftlägeskänslighet på strängfält. En annan skillnaden är att filterfrågor uttrycks i OData-syntax. <br/>[Uttryck-filter, exempel](search-query-simple-examples.md#example-3-filter-queries) |

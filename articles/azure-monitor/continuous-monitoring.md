@@ -9,16 +9,15 @@ documentationcenter: azure-monitor
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 368cef4ef86e29ea4fe55560e44644e332455b93
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 88a4c6dbe9311a054c6ed93df0005d32e6d21672
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962672"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271801"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -50,7 +49,7 @@ Program är bara lika tillförlitlig som den underliggande infrastrukturen. Med 
 
 [Infrastruktur som kod](/devops/learn/what-is-infrastructure-as-code) är hantering av infrastrukturen i en beskrivande modell, med samma versionshantering som DevOps-team för källkoden. Den lägger till tillförlitlighet och skalbarhet för din miljö och gör att du kan använda liknande processer som används för att hantera dina program.
 
--  Använd [Resource Manager-mallar](../azure-monitor/platform/template-workspace-configuration.md) att aktivera övervakning och konfigurera aviseringar via ett stort antal resurser.
+-  Använd [Resource Manager-mallar](platform/template-workspace-configuration.md) att aktivera övervakning och konfigurera aviseringar via ett stort antal resurser.
 - Använd [Azure Policy](../governance/policy/overview.md) till tillämpar olika regler på resurserna. Detta säkerställer att resurserna följer företagets standarder och serviceavtal. 
 
 
@@ -65,15 +64,15 @@ Kontinuerlig integrering / kontinuerlig distribution kan du automatiskt vill int
 
 - Använd [Azure Pipelines](/azure/devops/pipelines) kan implementera kontinuerlig distribution och automatisera hela processen från kodbekräftelse till produktion baserat på dina CI/CD-tester.
 - Använd [kvalitet Gates](/devops/pipelines/release/approvals/gates) att integrera övervakning i din före eller efter distributionen. Detta säkerställer att du uppfyller health/prestandarelaterade nyckeltal (KPI: er) som dina program flyttar från utveckling till produktion och eventuella skillnader i infrastruktursmiljö eller skalning inte negativt påverka din KPI: er.
-- [Underhålla separata övervakning instanser](../application-insights/app-insights-separate-resources.md) mellan dina olika distributionsmiljöer som utveckling, testning, Kanarieöarna och Prod. Detta säkerställer att insamlade data är relevanta för associerade program och infrastruktur. Om du behöver att korrelera data mellan miljöer kan du använda [flera resource diagrammen i Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) eller skapa [mellan resurser frågor i Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md).
+- [Underhålla separata övervakning instanser](../application-insights/app-insights-separate-resources.md) mellan dina olika distributionsmiljöer som utveckling, testning, Kanarieöarna och Prod. Detta säkerställer att insamlade data är relevanta för associerade program och infrastruktur. Om du behöver att korrelera data mellan miljöer kan du använda [flera resource diagrammen i Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) eller skapa [mellan resurser frågor i Log Analytics](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Skapa användbara aviseringar med åtgärder
 En viktig aspekt av övervakning proaktivt meddela administratörer om eventuella aktuella och förväntade problem. 
 
-- Skapa [aviseringar i Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) baserat på loggar och mått för att identifiera förutsägbara fel tillstånd. Du bör ha ett mål för att göra alla aviseringar användbara vilket innebär att de motsvarar faktiska kritiska tillstånd och försöka minska falska positiva identifieringar. Använd [dynamiska tröskelvärden](../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md) att automatiskt beräkna baslinjer på måttdata i stället för att definiera din egen statiska tröskelvärden. 
-- Definiera åtgärder så att du använder det mest effektiva sättet att meddela dina administratörer. Tillgängliga [åtgärder för meddelande](../monitoring-and-diagnostics/monitoring-action-groups.md#create-an-action-group-by-using-the-azure-portal) är SMS, e-postmeddelanden, push-meddelanden eller röstsamtal.
-- Använd mer avancerade åtgärder för att [ansluta till ITSM-verktyg](../log-analytics/log-analytics-itsmc-overview.md) eller andra aviseringshantering system via [webhooks](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+- Skapa [aviseringar i Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) baserat på loggar och mått för att identifiera förutsägbara fel tillstånd. Du bör ha ett mål för att göra alla aviseringar användbara vilket innebär att de motsvarar faktiska kritiska tillstånd och försöka minska falska positiva identifieringar. Använd [dynamiska tröskelvärden](platform/alerts-dynamic-thresholds.md) att automatiskt beräkna baslinjer på måttdata i stället för att definiera din egen statiska tröskelvärden. 
+- Definiera åtgärder så att du använder det mest effektiva sättet att meddela dina administratörer. Tillgängliga [åtgärder för meddelande](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) är SMS, e-postmeddelanden, push-meddelanden eller röstsamtal.
+- Använd mer avancerade åtgärder för att [ansluta till ITSM-verktyg](platform/itsmc-overview.md) eller andra aviseringshantering system via [webhooks](platform/activity-log-alerts-webhook.md).
 - Åtgärda situationer som identifierats i aviseringar samt med [Azure Automation-runbooks](../automation/automation-webhooks.md) eller [Logikappar](/connectors/custom-connectors/create-webhook-trigger) som kan startas från en avisering med webhookar. 
 - Använd [autoskalning](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) att dynamiskt öka och minska dina beräkningsresurser utifrån insamlade mätvärdena.
 

@@ -1,6 +1,6 @@
 ---
-title: Importera data i Azure Search| Microsoft Docs
-description: Lär dig hur du laddar upp data till ett index i Azure Search.
+title: Importera data för datainläsning till ett search-index – Azure Search
+description: Fyll i och ladda upp data till ett index i Azure Search från externa datakällor.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249786"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314864"
 ---
-# <a name="indexing-in-azure-search"></a>Indexering i Azure Search
+# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexering externa data för frågor i Azure Search
 > [!div class="op_single_selector"]
 > * [Översikt](search-what-is-data-import.md)
 > * [NET](search-import-data-dotnet.md)
@@ -23,7 +24,7 @@ ms.locfileid: "51249786"
 > 
 > 
 
-I Azure Search körs frågor på det innehåll som lästs in i ett [sökindex](search-what-is-an-index.md). Den här artikeln går igenom två grundläggande sätt att läsa in innehåll i ett index: *skicka data (push)* till indexet programmatiskt, eller peka en [Azure Search-indexerare](search-indexer-overview.md) mot en datakälla som stöds för att *hämta in data (pull)*.
+I Azure Search körs frågorna innehåll som lästs in i och sparas i en [sökindex](search-what-is-an-index.md). Den här artikeln går igenom två grundläggande sätt för att fylla ett index: *push* dina data till indexet programmässigt, eller peka en [Azure Search-indexerare](search-indexer-overview.md) på en datakälla som stöds till  *pull* i data.
 
 ## <a name="pushing-data-to-an-index"></a>Skicka data till ett index
 Push-modellen, som används för att programmatiskt skicka data till Azure Search, är den mest flexibla metoden. För det första finns det inga begränsningar på vilken typ av datakälla som får användas. En datauppsättning som består av JSON-dokument kan skickas till ett Azure Search-index, förutsatt att alla dokument i datauppsättningen har fält som mappar till fälten som anges i indexschemat. För det andra finns det inga begränsningar på körningsfrekvensen. Du kan skicka ändringar till ett index så ofta du vill. För program som har mycket låga fördröjningskrav (t.ex. om det är viktigt att sökåtgärder är synkroniserade med dynamiska inventeringsdatabaser) är push-modellen ditt enda alternativ.

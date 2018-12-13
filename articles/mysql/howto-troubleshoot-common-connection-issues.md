@@ -10,12 +10,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: cf447ddef0639c35efeb0f396a61ae7bc5fe9781
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 901c8f0c903a7e26e82d89209ea4b0ec69057d23
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890593"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165424"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Felsöka problem med anslutningen till Azure Database för MySQL
 
@@ -49,9 +49,9 @@ Tillfälligt fel uppstår när underhåll utförs, systemet påträffar ett fel 
 
 Om programmet misslyckas med ett beständigt sätt att ansluta till Azure Database for MySQL, indikerar vanligtvis ett problem med något av följande:
 
-* Brandväggskonfiguration: Azure Database för MySQL-server eller på klientsidan brandvägg blockerar anslutningar.
-* Nätverksomkonfigurering på klientsidan: en ny IP-adress eller en proxyserver har lagts till.
-* Användarfel: till exempel du kanske skrev du fel anslutningsparametrar, som servernamnet i anslutningssträngen eller en saknad *@servername* suffix i användarnamnet.
+* Brandväggskonfiguration för servern: Se till att Azure Database for MySQL-serverbrandväggen är konfigurerad för att tillåta anslutningar från din klient, inklusive proxyservrar och gateways.
+* Klienten brandväggskonfiguration: Brandväggen på klienten måste tillåta anslutningar till din databasserver. IP-adresser och portar på den server som du kan inte till måste tillåtas samt programnamn, till exempel MySQL i vissa brandväggar.
+* Användarfel: Du kan ha skrivit fel anslutningsparametrar, som servernamnet i anslutningssträngen eller en saknad *@servername* suffix i användarnamnet.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa beständiga anslutningsproblem
 

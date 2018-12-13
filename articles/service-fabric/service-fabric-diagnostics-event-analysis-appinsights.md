@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291053"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322797"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelseanalys och visualisering med Application Insights
 
@@ -54,7 +54,7 @@ Om du vill fortsätta för att utforska funktionerna i Application Insights-port
 >[!NOTE]
 >Detta gäller endast Windows-kluster för tillfället.
 
-Det finns två huvudsakliga sätt att skicka data från WAD till Azure Application Insights som uppnås genom att lägga till en Application Insights-sink WAD-konfigurationen som beskrivs i [i den här artikeln](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Det finns två huvudsakliga sätt att skicka data från WAD till Azure Application Insights som uppnås genom att lägga till en Application Insights-sink WAD-konfigurationen som beskrivs i [i den här artikeln](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Lägg till en Application Insights-Instrumenteringsnyckel när du skapar ett kluster i Azure-portalen
 
@@ -88,7 +88,7 @@ Lägg till en ”mottagare” genom att inkludera följande två ändringar i de
 
 Både de föregående kodfragment, användes namnet ”applicationInsights” för att beskriva mottagaren. Detta är inte ett krav och som namnet på mottagaren ingår i ”mottagare”, kan du ange namn till valfri sträng.
 
-För närvarande loggar från klustret visas som **spårningar** i Application Insights Loggvisaren. Eftersom de flesta av spårningen av plattformen är på nivån ”information” kan du överväga att ändra konfigurationen för mottagare för att skicka bara loggfiler av typen ”kritiskt” eller ”Error”. Detta kan göras genom att lägga till ”kanaler” till dina mottagare som visas i [i den här artikeln](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+För närvarande loggar från klustret visas som **spårningar** i Application Insights Loggvisaren. Eftersom de flesta av spårningen av plattformen är på nivån ”information” kan du överväga att ändra konfigurationen för mottagare för att skicka bara loggfiler av typen ”kritiskt” eller ”Error”. Detta kan göras genom att lägga till ”kanaler” till dina mottagare som visas i [i den här artikeln](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Om du använder en felaktig Application Insights-nyckel i portalen eller i Resource Manager-mallen, kommer du behöva manuellt ändra nyckeln och uppdatera klustret / distribuera om den.

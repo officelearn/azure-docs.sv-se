@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: fecc694e5520444be06dab82191b6454fb4ee8f5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2d881b9dbc20dbbf95491d023b859a20815091d3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354044"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311209"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportera en Azure SQL-databas till en BACPAC-fil
 
@@ -25,7 +25,7 @@ När du vill exportera en databas för arkivering eller för att flytta till en 
 
 > [!IMPORTANT]
 > Azure SQL Database automatisk Export drogs tillbaka den 1 mars 2017. Du kan använda [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md
-) eller [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) att regelbundet Arkivera SQL-databaser med hjälp av PowerShell enligt ett schema som du önskar. Ladda ned ett exempel på [exempel på PowerShell-skript](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) från Github.
+) eller [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) att regelbundet Arkivera SQL-databaser med hjälp av PowerShell enligt ett schema som du önskar. Ladda ned ett exempel på [exempel på PowerShell-skript](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) från GitHub.
 >
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Att tänka på när du exporterar en Azure SQL database
@@ -39,11 +39,11 @@ När du vill exportera en databas för arkivering eller för att flytta till en 
   - Använd en [grupperat index](https://msdn.microsoft.com/library/ms190457.aspx) med icke-null-värden på alla stora tabeller. Utan grupperade index, kan en export misslyckas om det tar längre tid än 6 – 12 timmar. Det beror på att exporttjänsten måste utföra en tabellgenomsökning att exportera hela tabellen. Ett bra sätt att bestämma om dina tabeller är optimerade för export är att köra **DBCC SHOW_STATISTICS** och se till att den *RANGE_HI_KEY* inte är null och dess värde har bra distribution. Mer information finns i [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
 > [!NOTE]
-> BACPACs är inte avsedda att användas för säkerhetskopiering och återställning. Azure SQL Database skapar automatiskt säkerhetskopior för varje användardatabas. Mer information finns i [översikt över affärskontinuitet](sql-database-business-continuity.md) och [SQL Database-säkerhetskopior](sql-database-automated-backups.md).  
+> BACPACs är inte avsedda att användas för säkerhetskopiering och återställning. Azure SQL Database skapar automatiskt säkerhetskopior för varje användardatabas. Mer information finns i [översikt över affärskontinuitet](sql-database-business-continuity.md) och [SQL Database-säkerhetskopior](sql-database-automated-backups.md).
 
 ## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Exportera till en BACPAC-fil med hjälp av Azure portal
 
-Så här exporterar du en databas med den [Azure-portalen](https://portal.azure.com), öppna sidan för din databas och klickar på **exportera** i verktygsfältet. Anger du BACPAC-filnamnet, ger Azure storage-konto och behållare för export och ange autentiseringsuppgifter för att ansluta till källdatabasen.  
+Så här exporterar du en databas med den [Azure-portalen](https://portal.azure.com), öppna sidan för din databas och klickar på **exportera** i verktygsfältet. Anger du BACPAC-filnamnet, ger Azure storage-konto och behållare för export och ange autentiseringsuppgifter för att ansluta till källdatabasen.
 
 ![databasexport](./media/sql-database-export/database-export.png)
 
@@ -72,13 +72,13 @@ De senaste versionerna av SQL Server Management Studio tillhandahåller även en
 
 Använd den [New AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet för att skicka en begäran om export till Azure SQL Database-tjänsten. Exportåtgärden kan ta lite tid att slutföra beroende på databasens storlek.
 
- ```powershell
- $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
-   -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
-   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
- ```
+```powershell
+$exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+  -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+  -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
+```
 
-Du kan kontrollera status för exportbegäran om genom att använda den [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Kör detta omedelbart efter att begäran vanligtvis returnerar **Status: pågår**. När du ser **Status: lyckades** exporten har slutförts.
+Du kan kontrollera status för exportbegäran om genom att använda den [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Kör detta omedelbart efter att begäran vanligtvis returnerar **Status: InProgress**. När du ser **Status: Lyckades** exporten har slutförts.
 
 ```powershell
 $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

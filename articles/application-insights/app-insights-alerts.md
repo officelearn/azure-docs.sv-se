@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ac91632656e83fc4262f28240525c8fb106b99ec
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 4400430e012dee7caceba62637db1bf626d02b61
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679142"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277354"
 ---
 # <a name="set-alerts-in-application-insights"></a>Ställa in aviseringar i Application Insights
 [Azure Application Insights] [ start] kan varna dig om ändringar i mått för prestanda och användning i din webbapp. 
@@ -43,7 +43,7 @@ Vi fokuserar på måttaviseringar i den här artikeln.
 * Var noga med att tänka på de enheter där du uppmanas att ange ett tröskelvärde.
 * Om du markerar kryssrutan ”e-postägare...” skickas aviseringar via e-post till alla som har åtkomst till den här resursgruppen. Om du vill expandera den här uppsättningen med personer, lägga till dem i den [resursgrupp eller prenumeration](app-insights-resources-roles-access-control.md) (inte på resursen).
 * Om du anger ”ytterligare e-postmeddelanden” skickas aviseringar till de enskilda användare eller grupper (om du markerade kryssrutan ”Skicka e-ägare...”). 
-* Ange en [webhook adress](../monitoring-and-diagnostics/insights-webhooks-alerts.md) om du har ställt in en webbapp som svarar på aviseringar. Det kallas för både när aviseringen aktiveras och när det är löst. (Men Observera att för närvarande, frågeparametrar skickas inte som webhook-egenskaper.)
+* Ange en [webhook adress](../azure-monitor/platform/alerts-webhooks.md) om du har ställt in en webbapp som svarar på aviseringar. Det kallas för både när aviseringen aktiveras och när det är löst. (Men Observera att för närvarande, frågeparametrar skickas inte som webhook-egenskaper.)
 * Du kan inaktivera eller aktivera aviseringen: Se knappar längst upp på bladet.
 
 *Knappen Lägg till avisering visas inte.* 
@@ -51,7 +51,7 @@ Vi fokuserar på måttaviseringar i den här artikeln.
 * Använder du ett organisationskonto? Du kan ställa in aviseringar om du har ägare eller deltagare som har åtkomst till den här programresursen. Ta en titt på åtkomstkontroll-bladet. [Lär dig mer om åtkomstkontroll][roles].
 
 > [!NOTE]
-> Du ser att det finns redan en avisering uppsättning på aviseringsbladet: [proaktiv diagnostik](app-insights-proactive-failure-diagnostics.md). Automatisk avisering övervakar ett visst mått, begäran Felfrekvens. Såvida du inte vill inaktivera proaktiv avisering, behöver du inte ställa in dina egna avisering på fel hastighet på begäran. 
+> På aviseringsbladet se du att det finns redan en avisering uppsättning: [Proaktiv diagnostik](app-insights-proactive-failure-diagnostics.md). Automatisk avisering övervakar ett visst mått, begäran Felfrekvens. Såvida du inte vill inaktivera proaktiv avisering, behöver du inte ställa in dina egna avisering på fel hastighet på begäran. 
 > 
 > 
 
@@ -69,7 +69,7 @@ Historiken över tillståndsändringar är i aktivitetsloggen:
 ![På bladet översikt klickar du på inställningar, granskningsloggar](./media/app-insights-alerts/09-alerts.png)
 
 ## <a name="how-alerts-work"></a>Så fungerar aviseringar
-* En avisering har tre tillstånd: ”aldrig aktiverats”, ”aktiverad” och ”matcha”. Aktiverad innebär att du villkoret var SANT, när den senast utvärderades.
+* En avisering har tre lägen: ”Aldrig aktiverats”, ”aktiverad” och ”löst”. Aktiverad innebär att du villkoret var SANT, när den senast utvärderades.
 * En avisering genereras när status ändras i en avisering. (Om aviseringstillståndet var redan sant när du har skapat aviseringen, du kan inte få ett meddelande tills villkoret sjunker till FALSKT.)
 * Varje meddelande genererar ett e-postmeddelande om du har markerat kryssrutan e-postmeddelanden eller tillhandahålls av e-postadresser. Du kan också titta på listan meddelanden.
 * En avisering utvärderas varje gång som ett mått tas emot, men i övrigt inte.
@@ -93,7 +93,7 @@ Glöm inte att [hastighet för proaktiv feldiagnostik](app-insights-proactive-fa
 
 ## <a name="automation"></a>Automation
 * [Använd PowerShell för att automatisera konfigurationen av aviseringar](app-insights-powershell-alerts.md)
-* [Använda webhooks för att automatisera svarar på aviseringar](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Använda webhooks för att automatisera svarar på aviseringar](../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="video"></a>Video
 

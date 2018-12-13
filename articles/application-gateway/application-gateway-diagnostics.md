@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d8c652d75b01b3a13ef06475190ad81980f31e44
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427173"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270373"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway
 
@@ -25,7 +25,7 @@ Med Azure Application Gateway kan övervaka du resurser på följande sätt:
 
 * [Backend-hälsotillstånd](#back-end-health): Application Gateway ger möjlighet att övervaka hälsotillståndet för servrarna i backend-adresspooler via Azure-portalen och genom PowerShell. Du kan också hitta hälsotillståndet för backend-adresspooler via prestanda diagnostikloggar.
 
-* [Loggar](#diagnostic-logging): loggar Tillåt för prestanda, åtkomst och andra data sparas eller konsumeras från en resurs för övervakning.
+* [Loggar](#diagnostic-logging): Loggar kan prestanda, åtkomst och andra data sparas eller konsumeras från en resurs för övervakning.
 
 * [Mått](#metrics): Application Gateway har för närvarande sju mått för att visa prestandaräknare.
 
@@ -97,19 +97,19 @@ Följande kodavsnitt visar ett exempel på svaret:
 
 Du kan använda olika typer av loggar i Azure för att hantera och felsöka programgatewayer. Du kan komma åt vissa av de här loggarna via portalen. Alla loggar kan extraheras från Azure Blob storage och visas i olika verktyg, till exempel [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel och Power BI. Du kan läsa mer om de olika typerna av loggar i listan nedan:
 
-* **Aktivitetsloggen**: du kan använda [Azure-aktivitetsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare känt som driftloggar och granskningsloggar) att visa alla åtgärder som skickas till din Azure-prenumeration och deras status. Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
-* **Åtkomstlogg**: du kan använda den här loggfilen för att visa mönster i databasåtkomst Application Gateway och analysera viktiga information, inklusive anroparens IP, begärd URL, svarsfördröjning, returkod och byte in och ut. En åtkomstlogg samlas in var 300 sekund. Den här loggfilen innehåller en post per instans av Application Gateway. Application Gateway-instans kan identifieras av egenskapen instanceId.
-* **Prestandaloggen**: du kan använda den här loggfilen för att visa hur Application Gateway-instanser utför. Den här loggfilen innehåller prestandainformation om för varje instans, inklusive totalt antal begäranden som hanteras, genomflöde i byte, totalt antal begäranden hanteras, antalet misslyckade förfrågningar och antal felfria och defekta backend-instanser. En prestandalogg som samlas in var 60: e sekund.
-* **Brandväggslogg**: du kan använda den här loggfilen för att visa förfrågningar som loggas via identifiering eller förhindra läget för en Programgateway med brandväggen för webbaserade program.
+* **Aktivitetsloggen**: Du kan använda [Azure-aktivitetsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare känt som driftloggar och granskningsloggar) att visa alla åtgärder som skickas till din Azure-prenumeration och deras status. Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
+* **Åtkomstlogg**: Du kan använda den här loggfilen för att visa mönster i databasåtkomst Application Gateway och analysera viktiga information, inklusive anroparens IP, begärd URL, svarsfördröjning, returkod och byte in och ut. En åtkomstlogg samlas in var 300 sekund. Den här loggfilen innehåller en post per instans av Application Gateway. Application Gateway-instans kan identifieras av egenskapen instanceId.
+* **Prestandaloggen**: Du kan använda den här loggfilen för att visa hur Application Gateway-instanser utför. Den här loggfilen innehåller prestandainformation om för varje instans, inklusive totalt antal begäranden som hanteras, genomflöde i byte, totalt antal begäranden hanteras, antalet misslyckade förfrågningar och antal felfria och defekta backend-instanser. En prestandalogg som samlas in var 60: e sekund.
+* **Brandväggslogg**: Du kan använda den här loggfilen för att visa förfrågningar som loggas via identifiering eller förhindra läget för en Programgateway med brandväggen för webbaserade program.
 
 > [!NOTE]
 > Loggarna är endast tillgänglig för resurser som har distribuerats i Azure Resource Manager-distributionsmodellen. Du kan inte använda loggar för resurser i den klassiska distributionsmodellen. En bättre förståelse av de två modellerna, finns i den [förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md) artikeln.
 
 Du har tre alternativ för att lagra dina loggar:
 
-* **Storage-konto**: Storage-konton passar bäst när loggarna ska lagras en längre tid och granskas vid behov.
-* **Händelsehubbar**: Händelsehubbar är ett bra alternativ vid integrering med andra verktyg för säkerhetsinformation och händelsehantering (SEIM), när du vill få aviseringar om dina resurser.
-* **Log Analytics**: Log Analytics passar bäst till allmän realtidsövervakning av ditt program eller när du vill leta efter trender.
+* **Storage-konto**: Storage-konton är bäst för loggar när loggar lagras under en längre period och granskat när det behövs.
+* **Händelsehubbar**: Händelsehubbar är ett bra alternativ för att integrera med andra säkerhet och händelsehantering (SEIM) hanteringsverktyg för att få meddelanden om dina resurser.
+* **Log Analytics**: Log Analytics passar bäst för allmän realtidsövervakning av ditt program eller leta efter trender.
 
 ### <a name="enable-logging-through-powershell"></a>Aktivera loggning med PowerShell
 
@@ -174,7 +174,7 @@ Azure genererar aktivitetsloggen som standard. Loggarna bevaras i 90 dagar i ark
 |clientPort     | Ursprungliga port för begäran.       |
 |HttpMethod     | HTTP-metod som används i begäran.       |
 |requestUri     | URI för fick begäran.        |
-|RequestQuery     | **Server-dirigerat**: backend-pool-instans som har skickats begäran.</br>**X-AzureApplicationGateway-LOG-ID**: Korrelations-ID som användes för begäran. Det kan användas för att felsöka problem med trafik på backend servrarna. </br>**SERVERSTATUS**: HTTP-svarskoden som Application Gateway har fått från backend-servern.       |
+|RequestQuery     | **Server-dirigerat**: Backend-poolen-instans som har skickats begäran.</br>**X-AzureApplicationGateway-LOG-ID**: Korrelations-ID som användes för begäran. Det kan användas för att felsöka problem med trafik på backend servrarna. </br>**SERVERSTATUS**: HTTP-svarskoden som Application Gateway har fått från backend-servern.       |
 |UserAgent     | Användaragent från HTTP-frågehuvudet.        |
 |httpStatus     | HTTP-statuskoden som returneras till klienten från Programgatewayen.       |
 |httpVersion     | HTTP-version för begäran.        |
@@ -298,8 +298,8 @@ Brandväggsloggen skapas endast om du har aktiverat det för varje application g
 
 Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 
-* **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure-CLI:t, Azure REST-API:t eller Azure Portal. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [Azure Activity Logs-innehållspaketet för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
+* **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure CLI, Azure REST-API eller Azure-portalen. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Power BI**: Om du inte redan har en [Power BI](https://powerbi.microsoft.com/pricing) konto, du kan prova kostnadsfritt. Med [Azure Activity Logs-innehållspaketet för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visa och analysera åtkomst, prestanda och loggar från brandväggen
 
@@ -357,7 +357,7 @@ I följande exempel visar hur du skapar en varningsregel som skickar ett e-postm
 
 2. På den **Lägg till regel** bladet fylla i namn, villkor, så meddelar avsnitt och klickar på **OK**.
 
-   * I den **villkor** Väljaren, Välj något av fyra värden: **är större än**, **är större än eller lika med**, **mindre än**, eller **Mindre än eller lika med**.
+   * I den **villkor** Väljaren, Välj något av fyra värden: **Större än**, **är större än eller lika med**, **mindre än**, eller **mindre än eller lika med**.
 
    * I den **Period** Väljaren, välja en viss från fem minuter till sex timmar.
 
@@ -375,7 +375,7 @@ En lista över aviseringar visas när du har skapat en metrisk varning. Den inne
 
 Läs mer om aviseringar i [Varningsaviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-Om du vill veta mer om webhooks och hur du kan använda dem med aviseringar, besök [konfigurera en webhook i en Azure metrisk varning](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Om du vill veta mer om webhooks och hur du kan använda dem med aviseringar, besök [konfigurera en webhook i en Azure metrisk varning](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

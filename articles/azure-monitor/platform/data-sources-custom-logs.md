@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 03c561001999245b55e6e76b02f8916d0b2d619f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 167f0fd9e06e731a6a2fef15d762d8815f5d4f9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963240"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189990"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i Log Analytics
 Datakälla för anpassade loggar i Log Analytics kan du samla in händelser från textfiler på både Windows och Linux-datorer. Många program logga information till textfiler i stället för standardtjänster loggning, till exempel Windows händelselogg eller Syslog. När samlats in, kan du parsa data till enskilda fält i dina frågor eller extrahera data vid insamling av enskilda fält.

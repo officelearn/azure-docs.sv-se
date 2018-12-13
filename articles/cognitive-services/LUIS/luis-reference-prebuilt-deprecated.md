@@ -11,19 +11,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 2fcd5a784801c3591d76b4c4569a7dda9472686e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7b294b9c528d0b7a93a3e287b37124a26d0851dd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103990"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138066"
 ---
-# <a name="deprecated-entities"></a>Inaktuella entiteter
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Föråldrad förskapade entiteter i en LUIS-app
 Följande fördefinierade entiteter är föråldrade och går inte att lägga till nya LUIS-appar.
 
-* **Datetime**: befintliga LUIS-appar som använder **datetime** ska migreras till **datetimeV2**, även om entiteten datetime fortsätter att fungera i befintliga appar som använder den.
-* **Geografi**: befintliga LUIS-appar som använder **geografi** stöds till December 2018.
-* **Uppslagsverk**: befintliga LUIS-appar som använder **uppslagsverk** stöds till December 2018.
+* **Datetime**: Befintliga LUIS-appar som använder **datetime** ska migreras till **datetimeV2**, även om entiteten datetime fortsätter att fungera i befintliga appar som använder den.
+* **Geografi**: Befintliga LUIS-appar som använder **geografi** stöds till December 2018.
+* **Uppslagsverk**: Befintliga LUIS-appar som använder **uppslagsverk** stöds till December 2018.
 
 ## <a name="geography-culture"></a>Geografi kultur
 **Geografi** är endast tillgängligt i den `en-us` nationella inställningar.
@@ -43,7 +43,7 @@ Fördefinierade entitet   |   Exempel på yttrande   |   JSON
 **Uppslagsverk** är endast tillgängligt i den `en-US` nationella inställningar.
 
 #### <a name="encyclopedia-subtypes"></a>Uppslagsverk undertyper
-Uppslagsverk inbyggda entitet innehåller fler än 100 underordnade typer i följande tabell: dessutom uppslagsverk entiteter ofta mappar till flera typer. Till exempel frågan Ronald Reagan ger: 
+Uppslagsverk inbyggda entitet innehåller fler än 100 underordnade typer i följande tabell: Uppslagsverk entiteter mappar dessutom ofta flera typer. Till exempel frågan Ronald Reagan ger: 
 
 ```json
 {

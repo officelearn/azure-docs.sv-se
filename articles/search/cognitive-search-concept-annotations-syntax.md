@@ -1,5 +1,5 @@
 ---
-title: Referera till en anteckning i indata och utdata i en pipeline för kognitiv sökning i Azure Search | Microsoft Docs
+title: Referens för indata och utdata i cognitive Sök pipelines – Azure Search
 description: Förklarar anteckning syntaxen och hur du refererar till en anteckning i indata och utdata för en kompetens i en pipeline för kognitiv sökning i Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801955"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315840"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Hur du refererar till kommentarer i en kognitiv sökning-kompetens
 
@@ -33,7 +34,7 @@ Innan du granska syntaxen kan vi gå tillbaka till några viktiga begrepp för a
 | Berikande kontext | Kontexten där berikande äger rum, enligt vilken elementet berikats. Berikande kontexten är som standard på den `"/document"` nivå, begränsad till enskilda dokument. När en färdighet körs utdata på kompetensen blir [egenskaperna för kontexten definierade](#example-2).|
 
 <a name="example-1"></a>
-## <a name="example-1-simple-annotation-reference"></a>Exempel 1: Enkel anteckningsreferens
+## <a name="example-1-simple-annotation-reference"></a>Exempel 1: Anteckningsreferens för enkel
 
 Anta att du har en mängd olika filer som innehåller referenser till namn på personer som du vill extrahera med igenkänning av namngivna entiteter i Azure Blob storage. I färdighet definitionen nedan, `"/document/content"` textrepresentation av hela dokumentet och ”personer” är en extrahering av fullständiga namnen för enheter som identifierats som personer.
 
@@ -93,7 +94,7 @@ När anteckningar är matriser eller samlingar med strängar, kanske du vill rik
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Exempel 3: Hänvisar till medlemmar i en matris
+## <a name="example-3-reference-members-within-an-array"></a>Exempel 3: För referensmedlemmar i en matris
 
 Ibland behöver att gruppera alla anteckningar av en viss typ att skicka dem till en viss kunskap. Överväg en hypotetisk anpassade färdighet som identifierar de vanligaste efternamnet från alla efternamn som extraheras i exempel 2. För att ge bara efternamn med anpassade kompetensen, ange kontext som `"/document"` och indata som `"/document/people/*/lastname"`.
 

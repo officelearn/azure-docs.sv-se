@@ -1,5 +1,5 @@
 ---
-title: Integrera en app med Azure-nätverk
+title: Integrera app med Azure virtuellt nätverk – Azure App Service
 description: Visar hur du ansluter en app i Azure App Service till en ny eller befintlig Azure-nätverk
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
-ms.openlocfilehash: e086c187129799e499c7ac057b1755a35f1f2327
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971155"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273365"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver funktionen Azure App Service-integrering för virtuellt nätverk och visar hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure-nätverk] [ VNETOverview] (Vnet) gör att du kan placera många av dina Azure-resurser i ett icke-internet-dirigerbara nätverk. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med hjälp av VPN-tekniker. 
@@ -30,7 +31,7 @@ Azure App Service har två typer.
 
 Det här dokumentet går igenom funktionen VNet-integrering som är avsedd för användning i App Service med flera innehavare.  Om appen är i [App Service Environment][ASEintro], och sedan den redan är i ett virtuellt nätverk och kräver inte användning av funktionen VNet-integrering för att nå resurser i samma virtuella nätverk.
 
-VNet-integrering ger dina webbprogram åtkomst till resurser i det virtuella nätverket men bevilja inte privat åtkomst till din webbapp från det virtuella nätverket. Åtkomst till privata webbplatsen refererar till att appen endast kan nås från ett privat nätverk som från inom en Azure-nätverk. Privat plats åtkomsten är endast tillgänglig med en ASE som konfigurerats med en intern belastningsutjämnaren (ILB). Mer information om hur du använder en ILB ASE som börjar med den här artikeln: [skapa och använda en ILB ASE][ILBASE]. 
+VNet-integrering ger dina webbprogram åtkomst till resurser i det virtuella nätverket men bevilja inte privat åtkomst till din webbapp från det virtuella nätverket. Åtkomst till privata webbplatsen refererar till att appen endast kan nås från ett privat nätverk som från inom en Azure-nätverk. Privat plats åtkomsten är endast tillgänglig med en ASE som konfigurerats med en intern belastningsutjämnaren (ILB). Mer information om hur du använder en ILB ASE, börjar du med den här artikeln: [Skapa och använda en ILB ASE][ILBASE]. 
 
 VNet-integrering används ofta för att aktivera åtkomst från appar till en databaser och webbtjänster som körs i ditt virtuella nätverk. Med VNet-integrering behöver du inte Exponerar en offentlig slutpunkt för program på den virtuella datorn men kan använda privata adresser för andra program än internet-dirigerbara i stället. 
 
@@ -161,7 +162,7 @@ Det finns tre relaterade avgifter för användning av funktionen för VNet-integ
 * Kostnader för överföring av data
 * Kostnader för VPN-Gateway.
 
-Dina appar måste vara i en Standard, Premium eller PremiumV2 App Service-Plan. Du kan få mer information om dessa kostnader här: [priser för Apptjänst][ASPricing]. 
+Dina appar måste vara i en Standard, Premium eller PremiumV2 App Service-Plan. Du kan se mer information på dessa kostnader här: [Prissättning för App Service][ASPricing]. 
 
 Det finns en kostnad för datatrafik, även om det virtuella nätverket är i samma datacenter. Dessa ändringar är beskrivs i [Data Transfer prisinformation om][DataPricing]. 
 

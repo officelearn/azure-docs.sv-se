@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494364"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275490"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Hantera fristående Service Fabric-kluster.
@@ -39,14 +39,14 @@ Klusterkonfigurationen innehåller egenskaper för klustret som innehåller olik
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --configuration-api-versionen [krävs] | API-versionen av fristående json klusterkonfigurationen. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -61,24 +61,24 @@ Verifiera Uppgraderingsparametrar för angiven konfiguration och börja uppgrade
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
-| --kluster-config [krävs] | Klusterkonfigurationen som ska kopplas till klustret. |
+| --kluster-config [krävs] | Klusterkonfigurationen. |
 | --programmet hälsoprinciper | JSON-kodad ordlista med par med programtypnamn och Maxprocent defekta innan du höjer fel. |
 | --förändrade defekta noder | Högsta tillåtna procentandel förändrade hälsotillstånd försämring under uppgraderingen. Tillåtna värden är heltalsvärden från noll till 100. |
-| --hälsotillstånd – Kontrollera-försök | Hur lång tid mellan försöken att utföra en kontrollerar om programmet eller klustret inte är felfri.  Standard\: PT0H0M0S. |
-| --hälsotillstånd – Kontrollera-stabil | Hur lång tid att programmet eller klustret måste vara felfritt.  Standard\: PT0H0M0S. |
+| --hälsotillstånd – Kontrollera-försök | Hur lång tid mellan försök att utföra hälsokontroller om programmet eller klustret inte är felfri.  Standard\: PT0H0M0S. |
+| --hälsotillstånd – Kontrollera-stabil | Hur lång tid att programmet eller klustret måste vara felfria innan uppgraderingen fortsätter du med nästa uppgraderingsdomän.  Standard\: PT0H0M0S. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
 | --hälsotillstånd – Kontrollera-vänta | Hur lång tid att vänta efter att du har slutfört en uppgraderingsdomän innan du startar hälsotillståndet kontrollerar processen.  Standard\: PT0H0M0S. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 | --felaktiga program | Högsta tillåtna procentandel program som är felaktiga under uppgraderingen. Tillåtna värden är heltalsvärden från noll till 100. |
 | --defekta noder | Högsta tillåtna procentandel av defekta noder under uppgraderingen. Tillåtna värden är heltalsvärden från noll till 100. |
 | --upgrade-domain-delta-unhealthy-nodes | Högsta tillåtna procentandel uppgraderingsdomän delta hälsotillstånd försämring under uppgraderingen. Tillåtna värden är heltalsvärden från noll till 100. |
-| --uppgraderingen domäntidsgräns | Tidsgränsen för uppgraderingsdomänen.  Standard\: PT0H0M0S. |
-| --Tidsgräns för uppgradering | Tidsgränsen för uppgradering.  Standard\: PT0H0M0S. |
+| --uppgraderingen domäntidsgräns | Hur lång tid varje domän har slutförts innan FailureAction körs.  Standard\: PT0H0M0S. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --Tidsgräns för uppgradering | Hur lång tid övergripande uppgraderingen har slutförts innan FailureAction körs.  Standard\: PT0H0M0S. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -88,7 +88,12 @@ Verifiera Uppgraderingsparametrar för angiven konfiguration och börja uppgrade
 
 ### <a name="examples"></a>Exempel
 
-Starta en konfiguration update sfctl sa-cluster config-uppgradering av klustret--kluster-config <YOUR CLUSTER CONFIG> --programmet hälsoprinciper ”{” fabric: / System ”: {” ConsiderWarningAsError ”: true}}”
+Starta en uppdatering för konfiguration av kluster
+
+```
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+```
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster uppgraderingen-status
 Konfigurationsstatusen kluster uppgradering av en fristående Service Fabric-kluster.
@@ -97,13 +102,13 @@ Klusterkonfigurationen uppgradera information om Erhåll status för ett fristå
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |

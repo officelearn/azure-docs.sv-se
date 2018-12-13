@@ -1,12 +1,11 @@
 ---
-title: Belastningsutjämna zonredundant virtuella datorer med Azure CLI | Microsoft Docs
+title: Belastningsutjämna zonredundant virtuella datorer med Azure CLI
+titlesuffix: Azure Load Balancer
 description: Lär dig hur du skapar en offentlig Load Balancer Standard med zonen redundant klientdel med Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: dc8a0228c9b2a0c2ab54bc14dc911698593ba691
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948544"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250815"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Belastningsutjämna virtuella datorer mellan alla tillgänglighetszoner med Azure CLI
 

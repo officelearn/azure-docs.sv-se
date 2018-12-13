@@ -1,6 +1,6 @@
 ---
-title: Konfigurera principerna för tillgångsleverans med hjälp av Media Services REST API | Microsoft Docs
-description: Det här avsnittet visar hur du konfigurerar olika principerna för tillgångsleverans med hjälp av Media Services REST API.
+title: Konfigurera tillgångsleveransprinciper med hjälp av Media Services REST API | Microsoft Docs
+description: Det här avsnittet visar hur du konfigurerar olika tillgångsleveransprinciper med hjälp av Media Services REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d6f18363cceaf279d92ada77f52d39b7f1d12f65
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dea12d7188b716b4a832a33bb173201e68dbe20f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790449"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189752"
 ---
-# <a name="configuring-asset-delivery-policies"></a>Konfigurera principerna för tillgångsleverans
+# <a name="configuring-asset-delivery-policies"></a>Konfigurera tillgångsleveransprinciper
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Om du planerar att leverera dynamiskt krypterade tillgångar ett av stegen i Media Services innehållsleverans arbetsflödet konfigurera leveransprinciperna för tillgångar. Anger tillgångsleveransprincip Media Services hur du vill använda för din tillgång som ska levereras: till vilka streaming-protokollet bör din tillgång dynamiskt paketeras (till exempel MPEG DASH, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera dynamiskt din tillgång och hur (envelope eller vanliga kryptering).
+Om du planerar att leverera dynamiskt krypterade tillgångar ett av stegen i arbetsflödet för Media Services-leverans av innehåll konfigurera leveransprinciperna för tillgångar. Talar tillgångsleveransprincip om Media Services för hur du vill för tillgången som ska levereras: i vilket strömningsprotokoll bör din tillgång dynamiskt paketeras (till exempel, MPEG DASH, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera dynamiskt din tillgång och hur (kuvert eller gemensam kryptering).
 
-Det här avsnittet beskriver varför och hur du skapar och konfigurerar principerna för tillgångsleverans.
+Det här avsnittet beskrivs varför och hur du skapar och konfigurerar principerna för tillgångsleverans.
 
->[!NOTE]
->När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
+> [!NOTE]
+> När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
 >
->Dessutom måste din tillgång för att kunna använda dynamisk paketering och dynamisk kryptering innehåller en uppsättning MP4s med anpassningsbar bithastighet eller Smooth Streaming-filer.
+> Om du vill kunna använda dynamisk paketering och dynamisk kryptering måste dessutom din tillgång innehålla en uppsättning MP4s med anpassningsbar bithastighet eller Smooth Streaming-filer.
 
-Du kan tillämpa olika principer för samma tillgång. Du kan till exempel tillämpa PlayReady-kryptering till kryptering för Smooth Streaming- och AES Envelope MPEG DASH och HLS. Alla protokoll som inte har definierats i en leveransprincip (exempelvis kan du lägga till en enskild princip som endast anger HLS som protokoll) kommer att blockeras från strömning. Ett undantag till detta är om du inte har definierat någon tillgångsleveransprincip alls. Därefter tillåts alla protokoll fritt.
+Du kan tillämpa olika principer för samma tillgång. Du kan till exempel tillämpa PlayReady-kryptering för att kryptering för Smooth Streaming och AES Envelope för MPEG-DASH och HLS. Alla protokoll som inte har definierats i en leveransprincip (exempelvis kan du lägga till en enskild princip som endast anger HLS som protokoll) kommer att blockeras från strömning. Ett undantag till detta är om du inte har definierat någon tillgångsleveransprincip alls. Därefter tillåts alla protokoll fritt.
 
-Om du vill leverera en krypterad tillgång lagring måste du konfigurera den tillgångsleveransprincip. Innan din tillgång kan strömmas strömmande server tar du bort krypteringen lagring och strömmar ditt innehåll med hjälp av angivna leveransprincipen. Till exempel för att leverera din tillgång som krypterats med Advanced Encryption Standard (AES) kuvert krypteringsnyckeln anger du principtypen **DynamicEnvelopeEncryption**. Om du vill ta bort lagringskryptering och strömma tillgången i klartext, anger du principtypen **NoDynamicEncryption**. Exempel som visar hur du konfigurerar dessa principtyper följer.
+Om du vill att leverera en krypterad tillgång för lagring, måste du konfigurera den tillgångsleveransprincip. Innan du kan strömma din tillgång, kommer servern för strömning tar bort lagringskryptering och strömmar ditt innehåll med den angivna principen. Till exempel för att leverera din tillgång som krypterats med Advanced Encryption Standard (AES) kuvert krypteringsnyckeln, anger du principtypen **DynamicEnvelopeEncryption**. Om du vill ta bort lagringskryptering och strömma tillgången i klartext, anger du principtypen **NoDynamicEncryption**. Exempel som visar hur du konfigurerar dessa principtyper följer.
 
-Beroende på hur du konfigurerar tillgångsleveransprincip du skulle kunna dynamiskt paketera dynamiskt kryptera och strömma följande protokoll för dataströmmar: Smooth Streaming, HLS, MPEG DASH-dataströmmar.
+Beroende på hur du konfigurerar tillgångsleveransprincip skulle du kunna dynamiskt paketera dynamiskt kryptera och strömma följande strömningsprotokoll: Smooth Streaming, HLS, MPEG DASH-strömmar.
 
-I följande lista visas format för att du använder att dataströmmen Smooth, HLS, DASH.
+I följande lista visas format som du använder till stream Smooth, HLS, DASH.
 
 Smooth Streaming:
 
@@ -47,34 +47,34 @@ Smooth Streaming:
 
 HLS:
 
-{strömmande slutpunkten namn media services-konto name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{strömmande slutpunkt namn-name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-{strömmande slutpunkten namn media services-konto name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+{strömmande slutpunkt namn-name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 
 Anvisningar för hur du publicerar en tillgång och skapar en strömnings-URL finns i [Skapa en strömnings-URL](media-services-deliver-streaming-content.md).
 
 ## <a name="considerations"></a>Överväganden
-* Du kan inte ta bort en AssetDeliveryPolicy som är associerade med en tillgång, medan det finns en (streaming) positionerare för tillgången. Det rekommenderas att ta bort principen från tillgången innan du tar bort principen.
-* En strömningslokaliserare kan inte skapas på en krypterad tillgång lagring när någon tillgångsleveransprincip anges.  Om tillgången är lagringskrypterad, kan systemet du skapa en positionerare och strömma tillgången i klartext utan en tillgångsleveransprincip.
-* Du kan ha flera principerna för tillgångsleverans som är associerade med en enda resurs, men du kan bara ange ett sätt att hantera en viss AssetDeliveryProtocol.  Vilket innebär att om du försöker länka två leveransprinciperna som anger protokollet AssetDeliveryProtocol.SmoothStreaming som leder till ett fel eftersom systemet inte vet vilken du vill att det ska tillämpas när en klient gör en begäran om Smooth Streaming.
-* Om du har en tillgång med en befintlig strömningslokaliserare kan inte länka en ny princip till tillgången, Avlänka en befintlig princip från tillgången eller uppdatera en leveransprincip som är kopplade till tillgången.  Du måste först ta bort strömningspositioneraren, justera principerna och sedan återskapa strömningspositioneraren.  Du kan använda samma locatorId när du återskapa strömningslokaliseraren men du bör se till att den orsakar problem för klienter eftersom innehållet kan cachelagras av ursprung eller en underordnad CDN.
+* Du kan inte ta bort en AssetDeliveryPolicy som är associerade med en tillgång, även om det finns en (streaming) OnDemand-positionerare för tillgången. Rekommendationen är att ta bort principen från tillgången innan du tar bort principen.
+* Att går inte skapa en strömningslokaliserare på en krypterad lagring tillgång när någon tillgångsleveransprincip anges.  Om tillgången är inte krypterad lagring, kan systemet du skapa en positionerare och strömma tillgången i klartext utan en tillgångsleveransprincip.
+* Du kan ha flera tillgångsleveransprinciper som är associerade med en enda resurs, men du kan bara ange ett sätt att hantera en viss AssetDeliveryProtocol.  Vilket innebär att om du försöker länka två leveransprinciper som anger det AssetDeliveryProtocol.SmoothStreaming protokoll som resulterar i ett fel eftersom systemet inte vet vilket du vill att det ska tillämpas när en klient gör en begäran om Smooth Streaming.
+* Om du har en tillgång med en befintlig strömningslokaliserare det går inte att länka en ny princip till tillgången, ta bort länk till en befintlig princip från tillgången eller uppdaterar en leveransprincip som är associerade med tillgången.  Du måste först ta bort strömningslokaliseraren, justera principerna och sedan återskapa strömningslokaliseraren.  Du kan använda samma locatorId när du återskapa strömningslokaliseraren men bör du kontrollera den orsakar problem för klienter eftersom innehåll cachelagras av ursprunget eller en underordnad CDN.
 
->[!NOTE]
-
->Vid åtkomst till entiteter i Media Services måste du ange specifika namn på huvudfält och värden i HTTP-begäranden. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
-Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="clear-asset-delivery-policy"></a>Rensa tillgångsleveransprincip
 ### <a id="create_asset_delivery_policy"></a>Skapa tillgångsleveransprincip
-Följande HTTP-begäran skapar en tillgångsleveransprincip som anger att inte använda dynamisk kryptering och för att leverera dataströmmen i något av följande protokoll: MPEG DASH, HLS och Smooth Streaming-protokoll. 
+Följande HTTP-begäran skapar en tillgångsleveransprincip som anger att inte använda dynamisk kryptering och leverera strömmen i någon av följande protokoll:  MPEG DASH, HLS och Smooth Streaming-protokoll. 
 
-Information om vilka värden du kan ange när du skapar en AssetDeliveryPolicy finns i [typer som används när du definierar AssetDeliveryPolicy](#types) avsnitt.   
+Information om vilka värden som du kan ange när du skapar en AssetDeliveryPolicy finns i den [används när du definierar AssetDeliveryPolicy](#types) avsnittet.   
 
 Begäran:
 
@@ -145,12 +145,12 @@ Svar:
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption tillgångsleveransprincip
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Skapa innehållsnyckeln av typen EnvelopeEncryption och länka det till tillgången
-När du anger DynamicEnvelopeEncryption leveransprincip måste se till att länka din tillgång till en innehållsnyckel av typen EnvelopeEncryption. Mer information finns: [att skapa en innehållsnyckel](media-services-rest-create-contentkey.md)).
+När du anger DynamicEnvelopeEncryption leveransprincip måste se till att länka din tillgång till en innehållsnyckel av typen EnvelopeEncryption. Mer information finns i: [Skapa en innehållsnyckel](media-services-rest-create-contentkey.md)).
 
 ### <a id="get_delivery_url"></a>Hämta URL för leverans
-Hämta leverans URL för den angivna leveransmetoden för innehållsnyckeln skapade i föregående steg. En klient använder returnerade URL: en för att begära en AES-nyckel eller en PlayReady-licenser för att spela upp det skyddade innehållet.
+Hämta delivery-URL för den angivna leveransmetoden för innehållsnyckeln skapade i föregående steg. En klient använder returnerade URL: en för att begära en AES-nyckel eller en PlayReady-licens för att spela upp det skyddade innehållet.
 
-Ange vilken typ av URL: en för att hämta i brödtexten för HTTP-begäran. Om du skyddar ditt innehåll med PlayReady Media Services PlayReady licens förvärv URL-begäran med 1 för keyDeliveryType: {”keyDeliveryType”: 1}. Om du skyddar ditt innehåll med kuvert kryptering URL-begäran en nyckel förvärv genom att ange 2 för keyDeliveryType: {”keyDeliveryType”: 2}.
+Ange vilken typ av URL: en för att hämta i brödtexten i HTTP-begäran. Om du skyddar ditt innehåll med PlayReady, Media Services PlayReady-licens förvärv URL för begäran med 1 för keyDeliveryType: {”keyDeliveryType”: 1}. Om du skyddar ditt innehåll med kuvert-kryptering kan begära en URL för viktiga anskaffning genom att ange 2 för keyDeliveryType: {”keyDeliveryType”: 2}.
 
 Begäran:
 
@@ -186,9 +186,9 @@ Svar:
 
 
 ### <a name="create-asset-delivery-policy"></a>Skapa tillgångsleveransprincip
-Följande HTTP-begäran skapas i **AssetDeliveryPolicy** som är konfigurerad för att använda dynamiska kryptering (**DynamicEnvelopeEncryption**) till den **HLS** protokollet (i det här exemplet andra protokoll kommer att blockeras från strömning). 
+Följande HTTP-begäran skapar den **AssetDeliveryPolicy** som är konfigurerad för att använda dynamiska kryptering (**DynamicEnvelopeEncryption**) till den **HLS** protokollet (i det här exemplet andra protokoll kommer att blockeras från strömning). 
 
-Information om vilka värden du kan ange när du skapar en AssetDeliveryPolicy finns i [typer som används när du definierar AssetDeliveryPolicy](#types) avsnitt.   
+Information om vilka värden som du kan ange när du skapar en AssetDeliveryPolicy finns i den [används när du definierar AssetDeliveryPolicy](#types) avsnittet.   
 
 Begäran:
 
@@ -231,15 +231,15 @@ Se [länk tillgång med tillgångsleveransprincip](#link_asset_with_asset_delive
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption tillgångsleveransprincip
 ### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>Skapa innehållsnyckeln av typen CommonEncryption och länka det till tillgången
-När du anger DynamicCommonEncryption leveransprincip måste se till att länka din tillgång till en innehållsnyckel av typen CommonEncryption. Mer information finns: [att skapa en innehållsnyckel](media-services-rest-create-contentkey.md)).
+När du anger DynamicCommonEncryption leveransprincip måste se till att länka din tillgång till en innehållsnyckel av typen CommonEncryption. Mer information finns i: [Skapa en innehållsnyckel](media-services-rest-create-contentkey.md)).
 
 ### <a name="get-delivery-url"></a>Hämta URL för leverans
-Hämta leverans URL för PlayReady leveransmetod för innehållsnyckeln skapade i föregående steg. En klient använder returnerade URL: en för att begära en PlayReady-licens för att spela upp skyddat innehåll. Mer information finns i [Hämta leverans URL](#get_delivery_url).
+Hämta URL: en för leverans för PlayReady leveransmetod för innehållsnyckeln skapade i föregående steg. En klient använder returnerade URL: en för att begära en PlayReady-licens för att spela upp det skyddade innehållet. Mer information finns i [hämta URL för leverans](#get_delivery_url).
 
 ### <a name="create-asset-delivery-policy"></a>Skapa tillgångsleveransprincip
-Följande HTTP-begäran skapas i **AssetDeliveryPolicy** som är konfigurerad för att använda dynamisk vanliga kryptering (**DynamicCommonEncryption**) till den **Smooth Streaming**protocol (i det här exemplet andra protokoll kommer att blockeras från strömning). 
+Följande HTTP-begäran skapar den **AssetDeliveryPolicy** som är konfigurerad för att använda dynamiska gemensam kryptering (**DynamicCommonEncryption**) till den **Smooth Streaming**protocol (i det här exemplet andra protokoll kommer att blockeras från strömning). 
 
-Information om vilka värden du kan ange när du skapar en AssetDeliveryPolicy finns i [typer som används när du definierar AssetDeliveryPolicy](#types) avsnitt.   
+Information om vilka värden som du kan ange när du skapar en AssetDeliveryPolicy finns i den [används när du definierar AssetDeliveryPolicy](#types) avsnittet.   
 
 Begäran:
 
@@ -258,25 +258,25 @@ Begäran:
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-Om du vill skydda innehåll med Widevine DRM uppdatera AssetDeliveryConfiguration värden om du vill använda WidevineLicenseAcquisitionUrl (som har värdet 7) och ange Webbadressen till en licensleveranstjänst. Du kan använda följande AMS-partner som hjälper dig att leverera Widevine-licenser: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Om du vill skydda ditt innehåll med Widevine DRM uppdatera värdena för din AssetDeliveryConfiguration för att använda WidevineLicenseAcquisitionUrl (som har värdet av 7) och ange Webbadressen till en licensleveranstjänst. Du kan använda följande AMS-partner för att leverera Widevine-licenser: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 Exempel: 
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
 > [!NOTE]
-> Vid kryptering med Widevine, skulle du bara att kunna leverera med bindestreck. Se till att ange STRECK (2) i protokollet för tillgångsleverans.
+> När du krypterar med Widevine, skulle du bara att kunna leverera med bindestreck. Se till att ange DASH (2) i protokollet tillgångsleverans.
 > 
 > 
 
 ### <a name="link-asset-with-asset-delivery-policy"></a>Länken tillgång med tillgångsleveransprincip
 Se [länk tillgång med tillgångsleveransprincip](#link_asset_with_asset_delivery_policy)
 
-## <a id="types"></a>Typer som används när du definierar AssetDeliveryPolicy
+## <a id="types"></a>Används när du definierar AssetDeliveryPolicy
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 
-Följande enum beskrivs värden som du kan ange för protokollet för tillgångsleverans.
+Följande enum beskriver värden som du kan ange för protokollet tillgångsleverans.
 
     [Flags]
     public enum AssetDeliveryProtocol
@@ -311,7 +311,7 @@ Följande enum beskrivs värden som du kan ange för protokollet för tillgångs
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
 
-Följande enum beskriver värden som du kan ange för tillgångstyp leverans princip.  
+Följande enum beskriver värden som du kan ange för typen av tillgången leverans.  
 
     public enum AssetDeliveryPolicyType
     {
@@ -344,7 +344,7 @@ Följande enum beskriver värden som du kan ange för tillgångstyp leverans pri
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
 
-Följande enum beskrivs värden som du kan använda för att konfigurera leveransmetod för innehållsnyckeln till klienten.
+Följande enum beskriver värden som du kan använda för att konfigurera leveransmetod för innehållsnyckeln till klienten.
     
     public enum ContentKeyDeliveryType
     {
@@ -377,7 +377,7 @@ Följande enum beskrivs värden som du kan använda för att konfigurera leveran
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
 
-Följande enum beskrivs värden som du kan ange för att konfigurera nycklar som används för att få specifik konfiguration för en tillgångsleveransprincip.
+Följande enum beskriver värden som du kan ange för att konfigurera nycklar som används för att få specifik konfiguration för en tillgångsleveransprincip.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {

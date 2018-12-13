@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 11/28/2018
-ms.openlocfilehash: 54deae9fcf9fdc786aa917bae518a2177a7acaff
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: baba85aeb800dd8effe3be295b2149179604b41d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500449"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164848"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Ansluta Azure Kubernetes Service och Azure Database for MySQL
 
@@ -39,7 +39,7 @@ Du kan bekräfta om AKS-klustret har accelererat nätverk:
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
 [Öppna Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) kan du etablera Azure-tjänster direkt från Kubernetes eller Cloud Foundry. Det är en [Open Service Broker API](https://www.openservicebrokerapi.org/) implementering för Azure.
 
-Du kan skapa en Azure Database for MySQL-server och koppla det till AKS-klustret med hjälp av Kubernetes' modersmål med OSBA. Lär dig mer om hur du använder OSBA och Azure Database för MySQL tillsammans på den [OSBA Github-sidan](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
+Du kan skapa en Azure Database for MySQL-server och koppla det till AKS-klustret med hjälp av Kubernetes' modersmål med OSBA. Lär dig mer om hur du använder OSBA och Azure Database för MySQL tillsammans på den [OSBA GitHub-sidan](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
 
 
 

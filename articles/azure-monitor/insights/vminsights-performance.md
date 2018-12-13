@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: cfee8295fc344b1210010a463612fe7d10de280d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 419160ea8a91672d9c948c57b9c3ffd70180ab66
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682919"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187729"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Hur du diagrammet prestanda med Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer innehåller en uppsättning prestandadiagram som är inriktade på flera nyckeltal (KPI: er) för att bestämma hur bra en virtuell dator fungerar. Diagrammen visar Resursanvändning under en viss tid så att du kan identifiera flaskhalsar, avvikelser, eller växla till ett perspektiv som lista varje dator om du vill visa resursanvändningen baserat på mått som har valts. Det finns ett stort antal element att överväga när du hanterar prestanda, fokuserar Azure Monitor för virtuella datorer på operativsystemet så som detta visas via processor, minne, nätverkskort och diskar. Prestanda kompletterar hälsotillstånd övervakningsfunktionen och hjälper till att exponera problem som indikerar ett möjligt system komponentfel, support justering och optimering för att uppnå effektivitet eller stöd för kapacitetsplanering.  
@@ -106,7 +105,7 @@ Följande kapacitet användning diagrammen tillhandahålls:
 ## <a name="alerting-and-alert-management"></a>Hantering av varningar och aviseringar 
 Prestandamått aktiverad som en del av Azure Monitor för virtuella datorer inkluderar inte förkonfigurerade Varningsregler. Det finns [hälsovarningar](vminsights-health.md#alerting-and-alert-management) motsvarar prestandaproblem som upptäckts på din Azure-dator, till exempel hög processoranvändning, lågt minne, diskens i/o, ont om ledigt diskutrymme osv., dessa hälsovarningar tillämpas endast på alla virtuella datorer ansluten till samma Log Analytics-arbetsytan aktiverad för Azure Monitor för virtuella datorer. 
 
-Vi kan endast samla in och lagra en delmängd av prestandamått som du behöver i Log Analytics-arbetsytan. Om din övervakningsstrategi kräver analys eller aviseringar som innehåller andra prestandamått för att effektivt utvärdera kapacitet eller hälsotillståndet för den virtuella datorn eller om du behöver flexibiliteten att ange egna avisering kriterier eller logik, kan du Konfigurera [insamling av dessa prestandaräknare](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) i Log Analytics och definiera [loggaviseringar](../../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json). Med Log Analytics kan du utföra komplexa analyser med andra datatyper och ange längre kvarhållning för att stödja trendanalys, mått å andra sidan, är enkel och kan stödja scenarier i nästan realtid. De samlas in av den [Azure-diagnostikagenten](../../virtual-machines/windows/monitor.md) och lagras i Azure Monitor metrics store, så att du kan skapa aviseringar med kortare svarstider och till en lägre kostnad.
+Vi kan endast samla in och lagra en delmängd av prestandamått som du behöver i Log Analytics-arbetsytan. Om din övervakningsstrategi kräver analys eller aviseringar som innehåller andra prestandamått för att effektivt utvärdera kapacitet eller hälsotillståndet för den virtuella datorn eller om du behöver flexibiliteten att ange egna avisering kriterier eller logik, kan du Konfigurera [insamling av dessa prestandaräknare](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) i Log Analytics och definiera [loggaviseringar](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json). Med Log Analytics kan du utföra komplexa analyser med andra datatyper och ange längre kvarhållning för att stödja trendanalys, mått å andra sidan, är enkel och kan stödja scenarier i nästan realtid. De samlas in av den [Azure-diagnostikagenten](../../virtual-machines/windows/monitor.md) och lagras i Azure Monitor metrics store, så att du kan skapa aviseringar med kortare svarstider och till en lägre kostnad.
 
 Granska en översikt över [uppsättning mått och loggar med Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/azure-monitor/toc.json) att ytterligare förstå viktiga skillnader och annat att tänka på innan du konfigurerar insamling av dessa ytterligare mått och Varningsregler.  
 

@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bcb448296313eedebb8f8389b320c5da5f1a80dd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ef86c9ee00fdd4673774640d33eec93e2ead876d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311789"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193103"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Användarsekretess och Azure Active Directory-direktautentisering
 
@@ -72,7 +72,7 @@ Om du vill visa relaterade till Autentiseringsagenten för direktautentisering, 
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Ta bort autentiseringsagent spårningsloggfilerna
 
-Du bör regelbundet kontrollera innehållet i **%ProgramData%\Microsoft\Azure AD ansluta autentisering Agent\Trace\**  och ta bort innehållet i den här mappen varje 48 timmar. 
+Du bör regelbundet kontrollera innehållet i <strong>%ProgramData%\Microsoft\Azure AD ansluta autentisering Agent\Trace\</ strong > och ta bort innehållet i den här mappen varje 48 timmar. 
 
 >[!IMPORTANT]
 >Om autentiseringsagent-tjänsten körs, kommer det inte att ta bort den aktuella loggfilen i mappen. Stoppa tjänsten innan du försöker igen. Om du vill undvika användaren inloggningar, du bör redan ha konfigurerat direktautentisering för [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).

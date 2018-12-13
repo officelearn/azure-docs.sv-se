@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5726444033d8da14c213918f409ddf5875e026b9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634276"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322763"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Översikt över Azure övervakningsagenter 
 Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av data från virtuella datorer som kör Microsoft Windows och Linux som ligger i Azure, ditt datacenter eller andra molnleverantörer. Det finns tre typer av agenter som kan övervaka en virtuell dator:
@@ -31,7 +30,7 @@ Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av d
 Den här artikeln beskrivs skillnaderna mellan dem och deras funktioner för dig att avgöra vilken som stöder dina IT service management eller allmänt Övervakningskrav.  
 
 ## <a name="azure-diagnostic-extension"></a>Azure-diagnostiktillägget
-Den [Azure-diagnostiktillägget](../../monitoring-and-diagnostics/azure-diagnostics.md) (vanligtvis kallad tillägget Windows Azure diagnostisk SÄKERHETSSPECIFIKA eller Linux Azure diagnostisk (LAD)) som har angetts för Azure Cloud Services eftersom det blev allmänt tillgänglig 2010. är en agent som ger enkel uppsättning diagnostikdata från en Azure-beräkningsresurs som en virtuell dator och spara dem till Azure storage. När i lagring som, du har valt att visa med någon av flera tillgängliga verktyg, till exempel [Server Explorer i Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) och [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+Den [Azure-diagnostiktillägget](../../azure-monitor/platform/diagnostics-extension-overview.md) (vanligtvis kallad tillägget Windows Azure diagnostisk SÄKERHETSSPECIFIKA eller Linux Azure diagnostisk (LAD)) som har angetts för Azure Cloud Services eftersom det blev allmänt tillgänglig 2010. är en agent som ger enkel uppsättning diagnostikdata från en Azure-beräkningsresurs som en virtuell dator och spara dem till Azure storage. När i lagring som, du har valt att visa med någon av flera tillgängliga verktyg, till exempel [Server Explorer i Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) och [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Du kan välja att samla in:
 
@@ -46,7 +45,7 @@ Azure Diagnostics-agenten ska användas när du vill:
 
 * Arkivera loggar och mått till Azure storage
 * Integrera övervakningsdata med verktyg från tredje part. Dessa verktyg använder en mängd olika sätt, bland annat frågor till storage-konto, vidarebefordras till [Händelsehubbar](../../event-hubs/event-hubs-about.md), eller skicka en fråga med den [Azure Monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
-* Ladda upp data till Azure Monitor för att skapa diagram med mätvärden i Azure-portalen eller skapa nära realtid [måttaviseringar](../../monitoring-and-diagnostics/alert-metric-overview.md). 
+* Ladda upp data till Azure Monitor för att skapa diagram med mätvärden i Azure-portalen eller skapa nära realtid [måttaviseringar](../../azure-monitor/platform/alerts-metric-overview.md). 
 * Skala VM scale sets och klassiska molntjänster baserat på OS gästmått.
 * Undersöka startproblem med de Virtuella med [Startdiagnostik](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Förstå hur dina program fungerar och proaktivt identifierar problem påverkar dem med [Application Insights](../../azure-monitor/overview.md).

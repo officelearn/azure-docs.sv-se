@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: ca844c89b657bc3286f3472af3acbf937ef1e20f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891069"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315782"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
@@ -61,7 +61,7 @@ Grundläggande arkitekturen består av följande komponenter:
 
 -   **[Granska hälsa.](https://aka.ms/healthreviewpaper)** Lösningen har granskat av Coalfire systems, Inc. Hälsotillstånd efterlevnad (HIPAA och HITRUST) och vägledning för implementering ger en granskare\'s genomgång av lösningen och överväganden för omvandling av modell som en produktionsklar-distribution.
 
-# <a name="architectural-diagram"></a>Arkitekturdiagram
+## <a name="architectural-diagram"></a>Arkitekturdiagram
 
 
 ![](images/ra2.png)
@@ -76,11 +76,11 @@ Skissen definierar två roller för administrativa användare (operatörer) och 
 
 Webbplatsadministratören ansvarar för kundens Azure-prenumeration. De styr den övergripande distributionen, men ha inte åtkomst till patientjournaler.
 
--   Standard rolltilldelningar: [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+-   Standard-rolltilldelningar: [Ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
--   Anpassade rolltilldelningar: ej tillämpligt
+-   Anpassade rolltilldelningar: Gäller inte
 
--   Omfattning: prenumerationen
+-   Omfång: Prenumeration
 
 ### <a name="database-analyst"></a>Databasen analytiker
 
@@ -89,7 +89,7 @@ De har ingen åtkomst till patientjournaler.
 
 -   Inbyggda rolltilldelningar: [SQL DB-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [SQL Server-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
--   Anpassade rolltilldelningar: ej tillämpligt
+-   Anpassade rolltilldelningar: Gäller inte
 
 -   Omfång: ResourceGroup
 
@@ -100,7 +100,7 @@ Data Science fungerar Azure Machine Learning Studio. De kan importera, exportera
 
 -   Inbyggda rolltilldelningar: [Lagringskontodeltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
--   Anpassade rolltilldelningar: ej tillämpligt
+-   Anpassade rolltilldelningar: Gäller inte
 
 -   Omfång: ResourceGroup
 
@@ -109,7 +109,7 @@ Data Science fungerar Azure Machine Learning Studio. De kan importera, exportera
 
 Cmio: N är mellan informatics/teknik och sjukvårdspersonalen inom organisationen. Ansvarsområdet ingår normalt med analytics för att avgöra om resurser allokeras på rätt sätt i organisationen.
 
--   Inbyggda rolltilldelningar: ingen
+-   Inbyggda rolltilldelningar: Ingen
 
 ### <a name="care-line-manager"></a>Care Line Manager
 
@@ -117,9 +117,9 @@ Cmio: N är mellan informatics/teknik och sjukvårdspersonalen inom organisation
 Care line manager är direkt inblandad i patientvården.
 I den här rollen ingår att övervaka statusen för enskilda patienter och se till att det finns personal för patienternas olika vårdbehov. Care line manager ansvarar för att lägga till och uppdatera patientjournaler.
 
--   Inbyggda rolltilldelningar: ingen
+-   Inbyggda rolltilldelningar: Ingen
 
--   Anpassade rolltilldelningar: har behörighet att köra HealthcareDemo.ps1 för att göra båda Patient-åtkomst och utskrivning.
+-   Anpassade rolltilldelningar: Har behörighet att köra HealthcareDemo.ps1 för att göra båda Patient-åtkomst och utskrivning.
 
 -   Omfång: ResourceGroup
 
@@ -128,11 +128,11 @@ I den här rollen ingår att övervaka statusen för enskilda patienter och se t
 
 Granskaren utvärderar lösningen för kompatibilitet. De har ingen direkt åtkomst till nätverket.
 
--   Inbyggda rolltilldelningar: [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
+-   Inbyggda rolltilldelningar: [Läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
--   Anpassade rolltilldelningar: ej tillämpligt
+-   Anpassade rolltilldelningar: Gäller inte
 
--   Omfattning: prenumerationen
+-   Omfång: Prenumeration
 
 ## <a name="example-use-case"></a>Exempel användningsfall
 
@@ -184,7 +184,7 @@ Som personen som direkt ansvarar för att hantera inskrivning och utsläpp på C
 Han är en certifierade granskare som har erfarenhet granskning för ISO, SOC och HiTrust. Han har anlitat för att granska Contosoclincs nätverk. Han kan granska kundens ansvar matrisen medföljer lösningen för att säkerställa att skissen och LOS lösningen kan användas för lagrar, bearbetar och visa känslig personlig information.
 
 
-# <a name="design-configuration"></a>Design-konfiguration
+## <a name="design-configuration"></a>Design-konfiguration
 
 
 Det här avsnittet beskrivs de standardinställningar och säkerhetsåtgärder som är inbyggda i skissen som beskrivs för att:
@@ -267,8 +267,8 @@ Azure-funktionen har dessutom utformats för att läsa och skydda avsedda känsl
 
 **2. Åtkomst av nya patienter**
 
-När du använder demo-skriptet. . \\HealthcareDemo.ps1 med den **BulkPatientadmission** växla som beskrivs i **distribuera och köra demon** körs följande process-pipelinen: ![](images/securetransact.png) 
- **1. Azure-funktion** utlöses och funktionen begäranden för en [ägartoken](/rest/api/) från Azure Active directory.
+När du använder demo-skriptet. . \\HealthcareDemo.ps1 med den **BulkPatientadmission** växla som beskrivs i **distribuera och köra demon** följande process-pipelinen körs: ![](images/securetransact.png)
+**1. Azure-funktion** utlöses och funktionen begäranden för en [ägartoken](/rest/api/) från Azure Active directory.
 
 **2. Key Vault** begärda för en hemlighet som är kopplad till begärd token.
 

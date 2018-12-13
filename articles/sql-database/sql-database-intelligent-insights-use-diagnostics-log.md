@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 2809dd45042e41c8337ecddccc76ec4e16d7cb8b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: a0eac4344f1294ad2eddd4e05520c1f030a0c4d7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887703"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278227"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använda diagnostikloggen för Intelligent Insights Azure SQL Database-prestanda
 
@@ -100,7 +100,7 @@ Effekten (inverkan) egenskapen beskriver hur mycket ett identifierade beteende b
 
 ### <a name="impacted-queries"></a>Frågor som påverkas
 
-Nästa avsnitt av Intelligent Insights loggen innehåller information om specifika frågor som har påverkats av de identifierade prestandaproblem. Den här informationen anges som en matris med objekt som är inbäddade i egenskapen impact_s. Hur egenskapen påverkan består av entiteter och mått. Entiteter som refererar till en viss fråga (typ: fråga). Unikt fråge-hash anges under egenskapen value (värde). Dessutom är alla frågor uppges följt av ett mått och ett värde som indikerar ett identifierade prestandaproblem.
+Nästa avsnitt av Intelligent Insights loggen innehåller information om specifika frågor som har påverkats av de identifierade prestandaproblem. Den här informationen anges som en matris med objekt som är inbäddade i egenskapen impact_s. Hur egenskapen påverkan består av entiteter och mått. Entiteter som refererar till en viss fråga (typ: Fråga). Unikt fråge-hash anges under egenskapen value (värde). Dessutom är alla frågor uppges följt av ett mått och ett värde som indikerar ett identifierade prestandaproblem.
 
 I exemplet nedan log fråga med hash-0x9102EXZ4 har identifierats som har en ökad varaktighet för körning (mått: DurationIncreaseSeconds). Värdet för 110 sekunder anger att den här specifika frågan tog längre 110 sekunder för att utföra. Eftersom flera frågor kan identifieras, kan i det här avsnittet för speciell logg innehålla flera poster i frågan.
 

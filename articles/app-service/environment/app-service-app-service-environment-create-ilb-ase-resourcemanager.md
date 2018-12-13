@@ -1,5 +1,5 @@
 ---
-title: Så här skapar du en ILB ASE med hjälp av Azure Resource Manager-mallar | Microsoft Docs
+title: Skapa ILB ASE med hjälp av Azure Resource Manager-mallar – App Service | Microsoft Docs
 description: Lär dig mer om att skapa en intern belastningsutjämnare i Apptjänstmiljö med hjälp av Azure Resource Manager-mallar.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
-ms.openlocfilehash: a136234c6645e7f88fc16a5f7a5d84580906c0f7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: d9d94a7ece4b3758792cc0df8e013d14ac40c027
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964857"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276374"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Skapa en ILB ASE med hjälp av Azure Resource Manager-mallar
 
@@ -41,9 +42,9 @@ En exempelmall för Azure Resource Manager och dess associerade parametrar-fil f
 
 De flesta av parametrarna i den *azuredeploy.parameters.json* fil är gemensamma för att skapa både ILB ase, samt ase som är bunden till en offentlig VIP.  Listan nedan out-parametrar Observera särskilt, eller som är unika, när du skapar en ILB ASE:
 
-* *interalLoadBalancingMode*: I de flesta fall ange detta till 3, vilket innebär att både HTTP/HTTPS-trafik på portarna 80/443 och kontrolldata/channel-portar har lyssnat på via FTP-tjänsten på ASE, kommer att bindas till en ILB allokerade virtuella nätverk som är interna adress.  Om den här egenskapen anges i stället för 2, relaterade FTP-tjänsten för portar (både kontroll- och kanaler) kommer att bindas till ILB-adress, medan HTTP/HTTPS-trafik är kvar på den offentliga VIP.
-* *dnsSuffix*: den här parametern definierar standard-rotdomän som ska tilldelas till ASE.  I den offentliga variationen av Azure App Service standard rotdomänen för alla webbappar är *azurewebsites.net*.  Men eftersom en ILB ASE är interna för en kundens virtuella nätverk är det inte meningsfullt att använda tjänsten offentlig standard rotdomänen.  I stället bör en ILB ASE ha en standard-rotdomän som passar för användning i ett företags internt virtuellt nätverk.  Ett hypotetiskt Contoso Corporation kan till exempel använda en standard-rotdomänen för *intern contoso.com* för appar som är avsedda att vara bara matchas och tillgänglig i Contosos virtuellt nätverk. 
-* *ipSslAddressCount*: den här parametern är som standard automatiskt till ett värde av 0 i den *azuredeploy.json* filen eftersom ILB ase har endast en ILB-adress.  Det finns inga explicita IP SSL-adresser för en ILB ASE, och därför IP SSL-adresspool för en ILB ASE måste anges till noll, annars uppstår ett fel som etablering. 
+* *interalLoadBalancingMode*:  I de flesta fall uppsättningen binds detta till 3, vilket innebär att både HTTP/HTTPS-trafik på portarna 80/443 och kontrolldata/kanalen portar lyssnat på via FTP-tjänsten på ASE, till en ILB allokerad intern adress för virtuellt nätverk.  Om den här egenskapen anges i stället för 2, relaterade FTP-tjänsten för portar (både kontroll- och kanaler) kommer att bindas till ILB-adress, medan HTTP/HTTPS-trafik är kvar på den offentliga VIP.
+* *dnsSuffix*:  Den här parametern definierar standard-rotdomän som ska tilldelas till ASE.  I den offentliga variationen av Azure App Service standard rotdomänen för alla webbappar är *azurewebsites.net*.  Men eftersom en ILB ASE är interna för en kundens virtuella nätverk är det inte meningsfullt att använda tjänsten offentlig standard rotdomänen.  I stället bör en ILB ASE ha en standard-rotdomän som passar för användning i ett företags internt virtuellt nätverk.  Ett hypotetiskt Contoso Corporation kan till exempel använda en standard-rotdomänen för *intern contoso.com* för appar som är avsedda att vara bara matchas och tillgänglig i Contosos virtuellt nätverk. 
+* *ipSslAddressCount*:  Den här parametern är som standard automatiskt till ett värde av 0 i den *azuredeploy.json* filen eftersom ILB ase har endast en ILB-adress.  Det finns inga explicita IP SSL-adresser för en ILB ASE, och därför IP SSL-adresspool för en ILB ASE måste anges till noll, annars uppstår ett fel som etablering. 
 
 När den *azuredeploy.parameters.json* fil har fyllts i för en ILB ASE, ILB ASE kan skapas med hjälp av följande Powershell-kodavsnitt.  Ändra filen sökvägar till matchar där mallfilerna för Azure Resource Manager-finns på din dator.  Kom ihåg att ange dina egna värden för Azure Resource Manager distributionsnamn och resursgruppens namn.
 
@@ -59,8 +60,8 @@ När ILB ASE har skapats ska ett SSL-certifikat associeras med ASE som ”standa
 
 Det finns en mängd olika sätt att skaffa ett giltigt SSL-certifikat, inklusive interna CA: er, köpa ett certifikat från en extern utfärdare och använder ett självsignerat certifikat.  Följande certifikatattribut måste konfigureras korrekt oavsett källan för SSL-certifikat:
 
-* *Ämne*: det här attributet måste anges till **.your-root-domain-here.com*
-* *Alternativt namn för certifikatmottagare*: det här attributet måste innehålla både **.your-root-domain-here.com*, och **.SCM.Your-root-domain-here.com*.  Orsaken till den andra posten är att SSL-anslutningar till SCM/Kudo-sajten för varje app görs med en adress i formatet *your-app-name.scm.your-root-domain-here.com*.
+* *Ämne*:  Det här attributet måste anges till **.your-root-domain-here.com*
+* *Alternativt namn för certifikatmottagare*:  Det här attributet måste innehålla både **.your-root-domain-here.com*, och **.SCM.Your-root-domain-here.com*.  Orsaken till den andra posten är att SSL-anslutningar till SCM/Kudo-sajten för varje app görs med en adress i formatet *your-app-name.scm.your-root-domain-here.com*.
 
 Med ett giltigt SSL-certifikat i hand behövs två ytterligare förberedande steg.  SSL-certifikatet måste vara konverteras/sparas som en .pfx-fil.  Kom ihåg att .pfx-filen måste innehålla alla mellanliggande och rotcertifikat och måste även vara skyddad med ett lösenord.
 
@@ -84,12 +85,12 @@ När SSL-certifikatet har har genererats och konverteras till en base64-kodad st
 
 Parametrarna i den *azuredeploy.parameters.json* filen finns nedan:
 
-* *appServiceEnvironmentName*: namnet på den ILB ASE som håller på att konfigureras.
-* *existingAseLocation*: textsträng som innehåller Azure-regionen där ILB ASE har distribuerats.  Till exempel: ”USA, södra centrala”.
-* *pfxBlobString*: den Base 64-kodad sträng som innehåller PFX-filen.  Med kodfragmentet som visades tidigare kan du kopiera den sträng som finns i ”exportedcert.pfx.b64” och klistra in den som värde för den *pfxBlobString* attribut.
-* *lösenord*: lösenordet som används för att skydda den .pfx-fil.
-* *certificateThumbprint*: certifikatets tumavtryck.  Om du hämtar värdet från Powershell (t.ex. *$certificate. Tumavtrycket* från tidigare kodfragmentet), kan du använda värdet som – är.  Men om du kopierar värdet från dialogrutan för Windows-certifikat, Kom ihåg att ta bort extra blanksteg.  Den *certificateThumbprint* bör likna: AF3143EB61D43F6727842115BB7F17BBCECAECAE
-* *certificateName*: ett eget strängidentifierare en egen används för att identitet certifikatet.  Namnet används som en del av den unika identifieraren för Azure Resource Manager för den *Microsoft.Web/certificates* entitet som representerar SSL-certifikatet.  Namnet **måste** sluta med följande suffix: \_yourASENameHere_InternalLoadBalancingASE.  Den här suffixet används av portalen som indikator på att certifikatet används för att skydda en Apptjänstmiljö aktiverad ASE.
+* *appServiceEnvironmentName*:  Namnet på den ILB ASE som håller på att konfigureras.
+* *existingAseLocation*:  Textsträng som innehåller Azure-regionen där ILB ASE har distribuerats.  Exempel:  ”Södra centrala USA”.
+* *pfxBlobString*:  Det Base 64-kodad sträng som innehåller PFX-filen.  Med kodfragmentet som visades tidigare kan du kopiera den sträng som finns i ”exportedcert.pfx.b64” och klistra in den som värde för den *pfxBlobString* attribut.
+* *lösenord*:  Lösenordet som används för att skydda den .pfx-fil.
+* *certificateThumbprint*:  Certifikatets tumavtryck.  Om du hämtar värdet från Powershell (t.ex. *$certificate. Tumavtrycket* från tidigare kodfragmentet), kan du använda värdet som – är.  Men om du kopierar värdet från dialogrutan för Windows-certifikat, Kom ihåg att ta bort extra blanksteg.  Den *certificateThumbprint* bör se ut ungefär som:  AF3143EB61D43F6727842115BB7F17BBCECAECAE
+* *certificateName*:  Ett eget strängidentifierare egen välja som en identitet certifikatet.  Namnet används som en del av den unika identifieraren för Azure Resource Manager för den *Microsoft.Web/certificates* entitet som representerar SSL-certifikatet.  Namnet **måste** sluta med följande suffix: \_yourASENameHere_InternalLoadBalancingASE.  Den här suffixet används av portalen som indikator på att certifikatet används för att skydda en Apptjänstmiljö aktiverad ASE.
 
 Ett förkortat exempel på *azuredeploy.parameters.json* visas nedan:
 

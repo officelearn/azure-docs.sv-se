@@ -10,17 +10,15 @@ ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 7a8f2fc0d8b9f023e20cf8c4d4939aa3094a13e8
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890185"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184126"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Övervaka status för Active Directory-replikering med Log Analytics
 
@@ -119,13 +117,13 @@ Du kan också klicka på **exportera** att exportera resultaten till Excel. Expo
 ![exporterade AD status replikeringsfel i Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>AD-replikeringsstatus vanliga frågor och svar
-**F: hur ofta är AD status replikeringsdata uppdateras?**
-S: informationen uppdateras var femte dag.
+**F: Hur ofta är AD status replikeringsdata uppdateras?**
+S: Informationen uppdateras var femte dag.
 
-**F: finns det ett sätt att konfigurera hur ofta data ska uppdateras?**
-S: inte just nu.
+**F: Finns det ett sätt att konfigurera hur ofta data ska uppdateras?**
+S: Inte just nu.
 
-**F: Jag behöver lägga till alla domänkontrollanter i min Log Analytics-arbetsyta om du vill se replikeringsstatusen?**
+**F: Behöver jag Lägg till alla domänkontrollanter i Min arbetsyta för Log Analytics för att visa replikeringsstatus?**
 S: Nej, endast en enda domänkontrollant måste läggas till. Om du har flera domänkontrollanter i Log Analytics-arbetsytan skickas data från alla till Log Analytics.
 
 **F: Jag vill inte att lägga till alla domänkontrollanter i Min arbetsyta för Log Analytics. Kan jag fortfarande använda AD-replikeringsstatus-lösningen?**
@@ -134,17 +132,17 @@ S: Ja. Du kan ange värdet för en registernyckel för att aktivera den. Se [att
 **F: Vad är namnet på processen som gör datainsamlingen?**
 S: AdvisorAssessment.exe
 
-**F: hur lång tid tar det för de data som samlas in?**
-S: data collection tiden beror på storleken på Active Directory-miljö, men det tar normalt mindre än 15 minuter.
+**F: Hur lång tid tar det för de data som samlas in?**
+S: Tid för insamling av data beror på storleken på Active Directory-miljö, men tar normalt mindre än 15 minuter.
 
-**F: vilken typ av data som samlas in?**
-S: replikering information som samlas in via LDAP.
+**F: Vilken typ av data som samlas in?**
+S: Replikeringsinformation som samlas in via LDAP.
 
-**F: finns det ett sätt att konfigurera när data har samlats in?**
-S: inte just nu.
+**F: Finns det ett sätt att konfigurera när data har samlats in?**
+S: Inte just nu.
 
-**F: vilka behörigheter behöver jag att samla in data?**
-S: normala användarbehörigheter till Active Directory är tillräckliga.
+**F: Vilka behörigheter behöver jag att samla in data?**
+S: Normal användarbehörigheter till Active Directory är tillräckliga.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Felsöka problem med insamling
 För att samla in data, kräver AD-replikeringsstatus-lösningspaket minst en domänkontrollant som är anslutna till Log Analytics-arbetsytan. Tills du ansluter en domänkontrollant, visas ett meddelande som anger att **data samlas fortfarande**.

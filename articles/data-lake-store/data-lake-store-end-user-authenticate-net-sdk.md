@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955719"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261542"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -104,7 +104,7 @@ I följande kodfragment används standardvärden för klient-ID och omdirigering
 
 Några saker du behöver veta om föregående fragment:
 
-* I föregående kodfragment används en hjälpfunktioner `GetTokenCache` och `GetCreds_User_Popup`. Koden för dessa hjälpfunktioner finns [här på Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* I föregående kodfragment används en hjälpfunktioner `GetTokenCache` och `GetCreds_User_Popup`. Koden för dessa hjälpfunktioner finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
 * Som hjälper dig att slutföra kursen snabbare, används i kodfragment ett internt program klient-ID som är tillgängligt som standard för alla Azure-prenumerationer. Så kan du **använder detta utdrag i befintligt skick i ditt program**.
 * Men om du vill använda en egen Azure AD-domän och ett eget programklient-ID måste du skapa ett eget Azure AD-program och sedan använda Azure AD-domänens ID, klient-ID och omdirigerings-URI för det program som du skapade. Se [skapa ett Active Directory-program för slutanvändarautentisering med Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) anvisningar.
 

@@ -7,14 +7,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 30be44b91dbfba0c292c55670e920052d2c8ae3d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f18af40c67195ee2e1e74c04c0834eea06fb14d1
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092872"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191962"
 ---
-# <a name="contoso-migration-overview"></a>Contoso-migrering: översikt
+# <a name="contoso-migration-overview"></a>Contoso-migrering: Översikt
 
 
 Den här artikeln visar hur fiktiva organisationen Contoso migrerar infrastruktur på plats till den [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) molnet. 
@@ -50,13 +50,13 @@ Artiklarna i serien sammanfattas i tabellen nedan.
 
 **Artikel** | **Detaljer** | **Status**
 --- | --- | ---
-Artikel 1: översikt | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Den här artikeln
+Artikel 1: Översikt | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Den här artikeln
 [Artikel 2: Distribuera Azure-infrastrukturen](contoso-migration-infrastructure.md) | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om i serien. | Tillgängligt
 [Artikel 3: Utvärdera lokala resurser för migrering till Azure](contoso-migration-assessment.md)  | Contoso kör en utvärdering av dess lokal SmartHotel360-app som körs på VMware. Contoso utvärderar app virtuella datorer med hjälp av Azure Migrate-tjänsten och app-SQL Server-databasen med hjälp av Data Migration Assistant. | Tillgängligt
 [Artikel 4: Ange ny värd för en app på en virtuell Azure-dator och SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso körs en lift and shift-migrering till Azure för dess lokal SmartHotel360-app. Contoso migrerar app frontend virtuell dator med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migrerar app-databasen till en Azure SQL Database Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt   
 [Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Contoso migrerar dess SmartHotel360 app virtuella datorer till virtuella Azure-datorer med hjälp av Site Recovery-tjänsten. | Tillgängliga [artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Contoso migrerar dess SmartHotel360 app virtuella datorer till Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
-[Artikel 6: Ange ny värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrerar SmartHotel360-app. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen. Database Migration Service används för att migrera app-databas till SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängliga [artikel 7: Appvärd Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso Slutför en lift and shift-migrering av dess osTicket app i Linux på Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
-[Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar dess osTicket Linux-app till virtuella Azure-datorer med hjälp av Site Recovery. Den migrerar app-databas till Azure Database för MySQL med MySQL Workbench. | Tillgängligt
+[Artikel 6: Ange ny värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrerar SmartHotel360-app. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen. Database Migration Service används för att migrera app-databas till SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängliga [artikel 7: Ange ny värd för en app för Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso Slutför en lift and shift-migrering av dess osTicket app i Linux på Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
+[Artikel 8: Ange ny värd för en app för Linux på Azure virtuella datorer och Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar dess osTicket Linux-app till virtuella Azure-datorer med hjälp av Site Recovery. Den migrerar app-databas till Azure Database för MySQL med MySQL Workbench. | Tillgängligt
 [Artikel 9: Omstrukturera en app i en Azure webbapp och Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migrerar dess SmartHotel360-app till en Azure webbapp och migrerar app-databasen till en Azure SQL Server-instans med Database Migration Assistant. | Tillgängligt    
 [Artikel 10: Omstrukturera en Linux-app i en Azure-webbapp och en Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrerar dess osTicket Linux-app till en Azure-webbapp på flera Azure-regioner med Azure Traffic Manager, integrerad med GitHub för kontinuerlig leverans. Contoso migrerar app-databasen till en Azure Database for MySQL-instans. | Tillgängligt
 [Artikel 11: Omstrukturera Team Foundation Server på Azure DevOps-tjänsterna](contoso-migration-tfs-vsts.md) | Contoso migrerar dess lokal Team Foundation Server-distribution till Azure DevOps-tjänsterna i Azure. | Tillgängligt
@@ -76,8 +76,8 @@ I den här artikeln Contoso ställer in alla infrastrukturelement som den behöv
 
 I artiklar använder två demoappar - SmartHotel360 och osTicket.
 
-- **SmartHotel360**: den här appen har utvecklats av Microsoft som ett prov-app som du kan använda när du arbetar med Azure. Den tillhandahålls med öppen källkod och du kan hämta den från [GitHub](https://github.com/Microsoft/SmartHotel360). Det är en ASP.NET-app som är anslutna till en SQL Server-databas. Appen är för närvarande på två virtuella VMware-datorer som kör Windows Server 2008 R2 och SQL Server 2008 R2. Appen virtuella datorer är hanteras lokalt och hanteras av vCenter-servern.
-- **osTicket**: en öppen källkod helpdesk biljetter app som körs på Linux. Du kan ladda ned det från [GitHub](https://github.com/osTicket/osTicket). Aktuella appen är på två virtuella VMware-datorer som kör Ubuntu 16.04 LTS, med hjälp av Apache 2, PHP 7.0 och MySQL 5.7
+- **SmartHotel360**: Den här appen har utvecklats av Microsoft som ett prov-app som du kan använda när du arbetar med Azure. Den tillhandahålls med öppen källkod och du kan hämta den från [GitHub](https://github.com/Microsoft/SmartHotel360). Det är en ASP.NET-app som är anslutna till en SQL Server-databas. Appen är för närvarande på två virtuella VMware-datorer som kör Windows Server 2008 R2 och SQL Server 2008 R2. Appen virtuella datorer är hanteras lokalt och hanteras av vCenter-servern.
+- **osTicket**: En helpdesk med öppen källkod, biljetter app som körs på Linux. Du kan ladda ned det från [GitHub](https://github.com/osTicket/osTicket). Appen är för närvarande på två virtuella VMware-datorer som kör Ubuntu 16.04 LTS, med hjälp av Apache 2, PHP 7.0 och MySQL 5.7
     
 
 ## <a name="next-steps"></a>Nästa steg

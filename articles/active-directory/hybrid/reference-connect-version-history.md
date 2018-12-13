@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 12/11/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 816992fa05613bc8904cfaf4b34345a02c9b3ba2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5e13f21971c7babaeaebc9714fe2a040229eebb2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728301"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278686"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -37,11 +37,23 @@ Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppd
 
 Ladda ned | [Hämta Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="12690"></a>1.2.69.0
+
+### <a name="release-status"></a>Versionsstatus
+12/11/2018: Lanserats för nedladdning
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+Den här snabbkorrigeringen bygger tillåter att användaren väljer en måldomänen inom den angivna skogen för RegisteredDevices-behållaren när du aktiverar tillbakaskrivning av enhet.  I tidigare versioner som innehåller de nya funktionerna i Enhetsalternativ (1.1.819.0 – 1.2.68.0), plats för RegisteredDevices-behållaren var begränsade till skogsroten och tillåter inte underordnade domäner.  Den här begränsningen endast diskenhet själva på nya distributioner – uppgraderingar på plats har påverkas inte.  
+
+Om alla buildversionen med de uppdaterade Enhetsalternativ-funktionerna har distribuerats till en ny server och tillbakaskrivning av enhet har aktiverats, behöver du ange platsen för behållaren manuellt om du inte vill att det i skogens rot.  Om du vill göra detta måste du inaktivera tillbakaskrivning av enhet och återaktivera det som gör att du anger du behållarens plats på sidan ”skog för tillbakaskrivning av”.
+
+
+
 ## <a name="12680"></a>1.2.68.0
 
 ### <a name="release-status"></a>Versionsstatus 
 
-11/30/2018: lanserats för nedladdning
+11/30/2018:  Lanserats för nedladdning
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
 
@@ -53,7 +65,7 @@ Den här snabbkorrigeringen bygger åtgärdar en konflikt där ett autentisering
 
 ### <a name="release-status"></a>Versionsstatus 
 
-11/19/2018: lanserats för nedladdning
+11/19/2018:  Lanserats för nedladdning
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
 
@@ -103,7 +115,7 @@ Azure AD Connect uppgradera misslyckas om SQL alltid på tillgänglighet har kon
 
 ### <a name="release-status"></a>Versionsstatus
 
-8/21/2018: publicerat om hämtning och automatisk uppgradering. 
+8/21/2018: Publicerat om hämtning och automatisk uppgradering. 
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
@@ -114,7 +126,7 @@ Azure AD Connect uppgradera misslyckas om SQL alltid på tillgänglighet har kon
 - När du växlar användare logga in till Hashsynkronisering för lösenord eller direktautentisering i aktiviteten ”ändra användarinloggning” är kryssrutan sömlös enkel inloggning aktiverat som standard.
 - Stöd har lagts till för Windows Server Essentials 2019
 - Azure AD Connect Health-agenten har uppdaterats till den senaste versionen 3.1.7.0
-- Vid en uppgradering om installationsprogrammet identifierar ändringar av Synkroniseringsregler standard ombeds administratören med en varning innan du skriver över de ändrade reglerna. Detta gör att användarna att vidta åtgärder och återuppta senare. Gamla beteendet: Om det fanns ingen ändrade out-of-box-regel sedan manuell uppgradering skriver över dessa regler utan att ge alla varningar för användaren och synkroniseringsschemaläggaren inaktiverades utan att meddela användaren. Nya beteendet: Användaren uppmanas med varning innan du skriver över de ändrade out-of-box Synkroniseringsregler. Användaren har möjlighet att uppgraderingen och återupptas senare efter att vidta korrigerande åtgärder.
+- Vid en uppgradering om installationsprogrammet identifierar ändringar av Synkroniseringsregler standard ombeds administratören med en varning innan du skriver över de ändrade reglerna. Detta gör att användarna att vidta åtgärder och återuppta senare. Gamla beteende: Om det uppstod några ändrade out-of-box-regeln sedan manuell uppgradering skriver över dessa regler utan att ge alla varningar för användaren och synkroniseringsschemaläggaren inaktiverades utan att meddela användaren. Nya beteendet: Användaren uppmanas med varning innan du skriver över de ändrade out-of-box Synkroniseringsregler. Användaren har möjlighet att uppgraderingen och återupptas senare efter att vidta korrigerande åtgärder.
 - Ge en bättre hantering av FIPS-kompatibilitetsproblem, vilket ger ett felmeddelande för genereringen av hashvärden för MD5 i en FIPS-kompatibel miljö och en länk till dokumentationen som tillhandahåller en lösning för det här problemet.
 - Användargränssnittet uppdatera för att förbättra federation uppgifter i guiden, som nu finns under en separat sub-grupp för federation. 
 - Alla ytterligare uppgifter för federation är nu grupperade under en enda undermeny för enkel användning.
@@ -142,7 +154,7 @@ Azure AD Connect uppgradera misslyckas om SQL alltid på tillgänglighet har kon
 
 ### <a name="release-status"></a>Versionsstatus
 
-5/14/2018: släpps för automatisk uppgradering och nedladdning.
+5/14/2018: Publicerat för automatisk uppgradering och nedladdning.
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
@@ -153,8 +165,8 @@ Nya funktioner och förbättringar
 - Konfiguration för tillbakaskrivning av enhet hanteras nu endast i den Azure AD Connect-guiden.
 - En ny PowerShell-modul kallas ADSyncTools.psm1 har lagts till som kan användas för att felsöka anslutningsproblem med SQL och olika andra verktyg för felsökning. Läs mer om modulen ADSyncTools [här](tshoot-connect-tshoot-sql-connectivity.md). 
 - En ny ytterligare uppgift ”konfigurera Enhetsalternativ” har lagts till. Du kan använda för att konfigurera följande två åtgärder: 
-    -   **Hybrid Azure AD-anslutning**: om din miljö har en lokal AD-fotavtryck och du även vill utnyttja funktionerna i Azure Active Directory, du kan implementera hybrid Azure AD-anslutna enheter. Det är enheter som är anslutna både till din lokala Active Directory och din Azure Active Directory.
-    -   **Tillbakaskrivning av enhet**: tillbakaskrivning av enhet som används för att aktivera villkorlig åtkomst baserat på enheter till AD FS (2012 R2 eller senare) skyddade enheter
+    -   **Hybrid Azure AD-anslutning**: Om din miljö har ett lokalt AD-fotavtryck och du vill dra nytta av funktionerna i Azure Active Directory kan du implementera Hybrid Azure AD-anslutna enheter. Det är enheter som är anslutna både till din lokala Active Directory och din Azure Active Directory.
+    -   **Tillbakaskrivning av enhet**: Tillbakaskrivning av enhet som används för att aktivera villkorlig åtkomst baserat på enheter till AD FS (2012 R2 eller senare) skyddade enheter
 
    >[!NOTE] 
    > - Möjlighet att aktivera tillbakaskrivning av enheter från anpassa synkroniseringsalternativ nedtonade. 
@@ -168,28 +180,28 @@ Nya funktioner och förbättringar
 - Synkronisera Regelbearbetning: utgående anslutning till Synkroniseringsregler utan delta villkor ska vara ej tillämpade om överordnad synkronisering regeln inte längre är tillämplig
 - Flera hjälpmedel korrigeringar har tillämpats på Synchronization Service Manager-UI och Regelredigeraren synkronisering
 - Azure AD Connect-guiden: Fel vid skapande av AD-anslutningskontot när Azure AD Connect finns i en arbetsgrupp
-- Azure AD Connect-guiden: På den Azure AD-inloggningssida visas kryssrutan verifiering när det finns någon matchning av datatyp i AD-domäner och domäner för Azure AD-verifierad
+- Azure AD Connect-guiden: Visa verifiering kryssrutan på Azure AD-inloggningssidan när det finns någon matchning av datatyp i AD-domäner och domäner för Azure AD-verifierad
 - Automatisk Klientuppgradering PowerShell åtgärda ska ställas in automatiskt uppgraderingstillståndet korrekt i vissa fall när försök gjordes att automatiskt uppgradera.
-- Azure AD Connect-guiden: Uppdatera telemetri för att samla in information som tidigare saknas
+- Azure AD Connect-guiden: Uppdaterade telemetri för att samla in information som tidigare saknas
 - Azure AD Connect-guiden: Följande ändringar har gjorts när du använder den **ändra användarinloggning** uppgift att växla från AD FS till direktautentisering:
     - Autentiseringsagenten för direktautentisering är installerad på Azure AD Connect-servern och direktautentisering-funktionen är aktiverad, innan det konvertera domänerna från federerad som hanteras.
     - Användare konverteras inte längre från federerad som hanteras. Endast domäner konverteras.
 - Azure AD Connect-guiden: AD FS med flera domän Regex är inte korrekt när användare UPN har ' specialtecken Regex uppdatering som stöder specialtecken
 - Azure AD Connect-guiden: Ta bort falska ”konfigurera källfästpunktattribut”-meddelande när ingen ändring 
-- Azure AD Connect-guiden: AD FS stöd för scenariot med dubbla federation
-- Azure AD Connect-guiden: AD FS anspråk uppdateras inte för har lagts till domänen vid konvertering av en hanterad domän till federerad
+- Azure AD Connect-guiden: AD FS stöd för dubbel Federationsscenario
+- Azure AD Connect-guiden: AD FS anspråk har inte uppdaterats för har lagts till domänen vid konvertering av en hanterad domän till federerad
 - Azure AD Connect-guiden: Under identifieringen av installerade paket vi hitta inaktuella Dirsync/Azure AD-synkronisering/Azure AD Connect relaterade produkter. Vi kommer nu att försöka avinstallera inaktuella produkter.
-- Azure AD Connect-guiden: Rätt fel meddelande mappning när installationen av genomströmning autentiseringsagent misslyckas
-- Azure AD Connect-guiden: Bort ”konfigurationsbehållare” från domänen OU-filtrering sidan
+- Azure AD Connect-guiden: Åtgärda fel meddelande mappning vid installationen av genomströmning autentiseringsagent misslyckas
+- Azure AD Connect-guiden: Borttagna ”Configuration”-behållaren från domänen OU-filtrering sidan
 - Installera Synkroniseringsmotorn: ta bort onödiga äldre logik som ibland inte från Synkroniseringsmotorn installera msi
-- Azure AD Connect-guiden: Hjälptext åtgärda popup-fönstret på sidan för valfria funktioner för synkronisering av lösenords-Hash
-- Synkronisera motorn för körning: åtgärda scenariot där en CS-objekt har en importerade delete och Synkroniseringsregler försöker etablera om objektet.
-- Synkronisera motorn för körning: lägga till hjälp länk för Online anslutning felsökningsguide i händelseloggen för ett importfel
-- Synkronisera motorn för körning: minskad minnesanvändning av Sync Scheduler vid uppräkning av kopplingar
+- Azure AD Connect-guiden: Åtgärda Hjälptext för popup-fönstret på sidan för valfria funktioner för lösenordets Hash-synkronisering
+- Synkronisera motorn för körning: Åtgärda scenariot där en CS-objekt har en importerade delete och Synkroniseringsregler försöker etablera om objektet.
+- Synkronisera motorn för körning: Lägg till hjälplänk för Online anslutning felsökningsguide i händelseloggen för ett importfel
+- Synkronisera motorn för körning: Minskad minnesanvändning av Sync Scheduler vid uppräkning av kopplingar
 - Azure AD Connect-guiden: Åtgärda ett problem som löser en anpassad synkroniseringstjänstkontot som har inga AD läsprivilegier
 - Azure AD Connect-guiden: Förbättra loggning av domän och Organisationsenhet filtrering val
-- Azure AD Connect-guiden: Lägg till AD FS standard anspråk till federationsförtroende som skapats för MFA-scenariot
-- Azure AD Connect-guiden: Distribuera AD FS-WAP: lägga till servern inte kan använda nya certifikat
+- Azure AD Connect-guiden: AD FS lägga till standard anspråk federationsförtroende som skapats för MFA-scenariot
+- Azure AD Connect-guiden: AD FS distribuera WAP: Att lägga till servern inte kan använda nya certifikat
 - Azure AD Connect-guiden: DSSO undantag när onPremCredentials inte initierats för en domän 
 - Företrädesvis flödar AD-attribut för unikt namn från Active användarobjektet.
 - Fast ett rent kosmetiskt programfel har prioriteten för den första regeln för OOB-synkronisering har angetts till 99 i stället för 100
@@ -197,7 +209,7 @@ Nya funktioner och förbättringar
 
 
 ## <a name="117510"></a>1.1.751.0
-Status för 4/12/2018: lanserats för nedladdning enbart
+Status för 4/12/2018: Publicerat för nedladdning
 
 >[!NOTE]
 >Den här versionen är en snabbkorrigering för Azure AD Connect
@@ -212,12 +224,12 @@ Korrigera ett problem har instansen för Azure-automatisk identifiering för Kin
 Det uppstod ett problem i konfigurationen omprövningslogiken som skulle resultera i en ArgumentException om ”ett objekt med samma nyckel har redan lagts till”.  Detta innebär att alla försök åtgärder att misslyckas.
 
 ## <a name="117500"></a>1.1.750.0
-Status 3/22/2018: släpps för automatiska uppgraderingar och nedladdning.
+Status 3/22/2018: Publicerat för automatiska uppgraderingar och nedladdning.
 >[!NOTE]
 >När uppgraderingen till den nya versionen utlöses automatiskt en fullständig synkronisering och fullständig import för Azure AD-anslutningsappen och en fullständig synkronisering för AD-koppling. Kontrollera att du har vidtagit nödvändiga åtgärder för att stödja detta eller håll om hur du uppgraderar förrän du har hittat en lämplig tidpunkt att göra det eftersom det kan ta en stund, beroende på storleken på din Azure AD Connect-miljö.
 
 >[!NOTE]
->”AutoUpgrade funktioner har felaktigt inaktiverats för vissa klienter som distribueras versioner senare än 1.1.524.0. För att säkerställa att din Azure AD Connect-instans är fortfarande berättigade till AutoUpgrade, kör du följande PowerShell-cmdlet: ”Set-ADSyncAutoUpgrade - AutoupGradeState aktiverad”
+>”AutoUpgrade funktioner har felaktigt inaktiverats för vissa klienter som distribueras versioner senare än 1.1.524.0. För att säkerställa att din Azure AD Connect-instans är fortfarande berättigade till AutoUpgrade, kör du följande PowerShell-cmdlet: ”Set-ADSyncAutoUpgrade - AutoupGradeState aktiverat”
 
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
@@ -227,7 +239,7 @@ Status 3/22/2018: släpps för automatiska uppgraderingar och nedladdning.
 * Ändra den **användarinloggning** sidan alternativet ”Lösenordssynkronisering” till ”Lösenordshashsynkronisering”.  Azure AD Connect synkroniserar lösenords-hash, inte lösenord, så att det överensstämmer med vad faktiskt inträffar.  Mer information finns i [implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](how-to-connect-password-hash-synchronization.md)
 
 ## <a name="117490"></a>1.1.749.0
-Status: Frigöras för att välja kunder
+Status: Publicerat för att välja kunder
 
 >[!NOTE]
 >När uppgraderingen till den nya versionen utlöses automatiskt en fullständig synkronisering och fullständig import för Azure AD-anslutningsappen och en fullständig synkronisering för AD-koppling. Eftersom det kan ta en stund, beroende på storleken på din Azure AD Connect-miljö, se till att du har vidtagit nödvändiga åtgärder för att stödja detta eller håll om hur du uppgraderar förrän du har hittat en lämplig tidpunkt att göra detta.
@@ -289,7 +301,7 @@ Verktyget kräver inte en lösenordsändring. Den finns under ”Felsök synkron
 
 
 ## <a name="116540"></a>1.1.654.0
-Status: 12: e December 2017
+Status: Den 12: e december 2017
 
 >[!NOTE]
 >Den här versionen är en rekommenderad relaterade snabbkorrigering för Azure AD Connect
@@ -410,7 +422,7 @@ Status: Oktober 19-2017
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
 >[!NOTE]
-> Obs: Synkroniseringstjänsten har ett WMI-gränssnitt som du kan utveckla din egen anpassade scheduler. Det här gränssnittet är nu inaktuellt och kommer att tas bort från framtida versioner av Azure AD Connect levererats efter den 30 juni 2018. Kunder som vill anpassa synkroniseringsschema ska använda den [inbyggda scheduler (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Obs! Synkroniseringstjänsten har ett WMI-gränssnitt som du kan utveckla din egen anpassade scheduler. Det här gränssnittet är nu inaktuellt och kommer att tas bort från framtida versioner av Azure AD Connect levererats efter den 30 juni 2018. Kunder som vill anpassa synkroniseringsschema ska använda den [inbyggda scheduler (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Åtgärdade problem
 * När Azure AD Connect-guiden skapar AD Connector-kontot som krävs för att synkronisera ändringar från lokala Active Directory kan tilldelar den korrekt inte kontot behörighet att läsa PublicFolder objekt. Det här problemet påverkar både snabbinstallationen och anpassad installation. Den här ändringen åtgärdar problemet.
@@ -479,7 +491,7 @@ Status: September 05 2017
 
 
 ## <a name="115610"></a>1.1.561.0
-Status: Juli 23 2017
+Status: 23 juli-2017
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
@@ -501,7 +513,7 @@ Status: Juli 23 2017
 
 * Ett problem har åtgärdats där den [domän- och OU-filtrering skärmen](how-to-connect-install-custom.md#domain-and-ou-filtering) i Azure AD Connect guiden visar *synkronisera alla domäner och organisationsenheter* alternativ som markerats, även om OU-baserad filtrering är aktiverat.
 
-*   Ett problem har åtgärdats som orsakade den [konfigurera katalogpartitioner skärmen](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) i hanteraren för synkroniseringstjänsten att returnera ett fel om de *uppdatera* klickar på knappen. Felmeddelandet är *”ett fel inträffade under uppdateringen domäner: Det går inte att typkonvertera objekt av typen System.Collections.ArrayList om du skriver” Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject ”.* Felet uppstår när nya AD-domänen har lagts till en befintlig AD-skog och du försöker uppdatera Azure AD Connect med uppdatera-knappen.
+*   Ett problem har åtgärdats som orsakade den [konfigurera katalogpartitioner skärmen](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) i hanteraren för synkroniseringstjänsten att returnera ett fel om de *uppdatera* klickar på knappen. Felmeddelandet är *”ett fel inträffade under uppdateringen domäner: Det går inte att skicka objekt av typen System.Collections.ArrayList om du anger ”Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject”.* Felet uppstår när nya AD-domänen har lagts till en befintlig AD-skog och du försöker uppdatera Azure AD Connect med uppdatera-knappen.
 
 #### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
@@ -516,10 +528,10 @@ Status: Juli 23 2017
   * Du har aktiverat funktionen för tillbakaskrivning av användare.
   
   >[!NOTE]
-  >Scope-expansion av funktionen för automatisk uppgradering påverkar kunder med Azure AD Connect version 1.1.105.0 och efter. Om du inte vill att din Azure AD Connect-server som ska uppgraderas automatiskt, måste du köra följande cmdlet på din Azure AD Connect-server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Mer information om aktivering/inaktivering automatisk uppgradering finns i artikeln [Azure AD Connect: automatisk uppgradering](how-to-connect-install-automatic-upgrade.md).
+  >Scope-expansion av funktionen för automatisk uppgradering påverkar kunder med Azure AD Connect version 1.1.105.0 och efter. Om du inte vill att din Azure AD Connect-server som ska uppgraderas automatiskt, måste du köra följande cmdlet på din Azure AD Connect-server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Mer information om aktivering/inaktivering automatisk uppgradering finns i artikeln [Azure AD Connect: Automatisk uppgradering](how-to-connect-install-automatic-upgrade.md).
 
 ## <a name="115580"></a>1.1.558.0
-Status: Släpps inte. Ändringar i den här versionen ingår i versionen 1.1.561.0.
+Status: Kommer inte att släppas. Ändringar i den här versionen ingår i versionen 1.1.561.0.
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
@@ -529,7 +541,7 @@ Status: Släpps inte. Ändringar i den här versionen ingår i versionen 1.1.561
 
 * Ett problem har åtgärdats där den [domän- och OU-filtrering skärmen](how-to-connect-install-custom.md#domain-and-ou-filtering) i Azure AD Connect guiden visar *synkronisera alla domäner och organisationsenheter* alternativ som markerats, även om OU-baserad filtrering är aktiverat.
 
-*   Ett problem har åtgärdats som orsakade den [konfigurera katalogpartitioner skärmen](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) i hanteraren för synkroniseringstjänsten att returnera ett fel om de *uppdatera* klickar på knappen. Felmeddelandet är *”ett fel inträffade under uppdateringen domäner: Det går inte att typkonvertera objekt av typen System.Collections.ArrayList om du skriver” Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject ”.* Felet uppstår när nya AD-domänen har lagts till en befintlig AD-skog och du försöker uppdatera Azure AD Connect med uppdatera-knappen.
+*   Ett problem har åtgärdats som orsakade den [konfigurera katalogpartitioner skärmen](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) i hanteraren för synkroniseringstjänsten att returnera ett fel om de *uppdatera* klickar på knappen. Felmeddelandet är *”ett fel inträffade under uppdateringen domäner: Det går inte att skicka objekt av typen System.Collections.ArrayList om du anger ”Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject”.* Felet uppstår när nya AD-domänen har lagts till en befintlig AD-skog och du försöker uppdatera Azure AD Connect med uppdatera-knappen.
 
 #### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
@@ -544,7 +556,7 @@ Status: Släpps inte. Ändringar i den här versionen ingår i versionen 1.1.561
   * Du har aktiverat funktionen för tillbakaskrivning av användare.
   
   >[!NOTE]
-  >Scope-expansion av funktionen för automatisk uppgradering påverkar kunder med Azure AD Connect version 1.1.105.0 och efter. Om du inte vill att din Azure AD Connect-server som ska uppgraderas automatiskt, måste du köra följande cmdlet på din Azure AD Connect-server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Mer information om aktivering/inaktivering automatisk uppgradering finns i artikeln [Azure AD Connect: automatisk uppgradering](how-to-connect-install-automatic-upgrade.md).
+  >Scope-expansion av funktionen för automatisk uppgradering påverkar kunder med Azure AD Connect version 1.1.105.0 och efter. Om du inte vill att din Azure AD Connect-server som ska uppgraderas automatiskt, måste du köra följande cmdlet på din Azure AD Connect-server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Mer information om aktivering/inaktivering automatisk uppgradering finns i artikeln [Azure AD Connect: Automatisk uppgradering](how-to-connect-install-automatic-upgrade.md).
 
 ## <a name="115570"></a>1.1.557.0
 Status: Juli 2017
@@ -558,7 +570,7 @@ Status: Juli 2017
 * Ett problem har åtgärdats med cmdleten initiera ADSyncDomainJoinedComputerSync som orsakade den verifierade domänen som konfigurerats på det befintliga objektet ändras även om det fortfarande är en giltig domän punkt för anslutning av tjänsten. Det här problemet inträffar när Azure AD-klienten har mer än en verifierade domäner som kan användas för att konfigurera tjänstanslutningspunkten.
 
 #### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
-* Tillbakaskrivning av lösenord är nu tillgängligt som förhandsversion med Microsoft Azure Government-molnet och Microsoft Cloud Tyskland. Mer information om Azure AD Connect-stöd för olika tjänstinstanser i artikeln [Azure AD Connect: tänka på för instanser](reference-connect-instances.md).
+* Tillbakaskrivning av lösenord är nu tillgängligt som förhandsversion med Microsoft Azure Government-molnet och Microsoft Cloud Tyskland. Mer information om Azure AD Connect-stöd för olika tjänstinstanser i artikeln [Azure AD Connect: Att tänka på för instanser](reference-connect-instances.md).
 
 * Initiera ADSyncDomainJoinedComputerSync cmdleten har nu en ny valfri parameter med namnet AzureADDomain. Den här parametern kan du ange vilket verifierad domän som ska användas för att konfigurera tjänstanslutningspunkten.
 
@@ -660,7 +672,7 @@ CBool(
 * Följande schemaändringar har införts för att kunder kan skapa anpassade Synkroniseringsregler för att flöda sAMAccountName, domainNetBios och domainFQDN för grupp-objekt, samt distinguishedName för objekt:
 
   * Följande attribut har lagts till MV-schemat:
-    * Grupp: AccountName
+    * Grupp: Kontonamn
     * Grupp: domainNetBios
     * Grupp: domainFQDN
     * Person: distinguishedName
@@ -707,7 +719,7 @@ Utgiven: Maj 2017
 Azure AD Connect-synkronisering
 
 * Ett problem som orsakar automatisk uppgradering av ska ske på Azure AD Connect-servern, även om kunden har inaktiverat funktionen med hjälp av cmdleten Set-ADSyncAutoUpgrade har åtgärdats. Med denna snabbkorrigering automatisk uppgradering av processen på servern söker fortfarande efter uppgraderingen med jämna mellanrum, men det nedladdade installationsprogrammet godkänner automatisk uppgradering av konfigurationen.
-* Under uppgradering på plats för DirSync skapar Azure AD Connect ett Azure AD-tjänstkonto som ska användas av Azure AD-anslutningsappen för att synkronisera med Azure AD. När kontot har skapats, autentiserar Azure AD Connect med Azure AD med hjälp av kontot. Ibland autentisering misslyckas på grund av tillfälliga problem, vilket i sin tur gör att DirSync uppgradering att misslyckas med fel *”ett fel har uppstått aktiviteten slutfördes konfigurera AAD Sync: AADSTS50034: Om du vill logga in på det här programmet, måste kontot vara lägga till katalogen xxx.onmicrosoft.com ”.* Förbättrad återhämtning av DirSync-uppgradering, Azure AD Connect nu autentisering försöker med steget igen.
+* Under uppgradering på plats för DirSync skapar Azure AD Connect ett Azure AD-tjänstkonto som ska användas av Azure AD-anslutningsappen för att synkronisera med Azure AD. När kontot har skapats, autentiserar Azure AD Connect med Azure AD med hjälp av kontot. Ibland autentisering misslyckas på grund av tillfälliga problem, vilket i sin tur gör att DirSync uppgradering att misslyckas med fel *”ett fel har uppstått aktiviteten slutfördes konfigurera AAD Sync: AADSTS50034: Om du vill logga in på det här programmet, måste kontot läggas till katalogen xxx.onmicrosoft.com ”.* Förbättrad återhämtning av DirSync-uppgradering, Azure AD Connect nu autentisering försöker med steget igen.
 * Det uppstod ett problem med build 443 som gör att DirSync uppgradering ska lyckas men skapas inte körning av profiler krävs för katalogsynkronisering. Återställning logic ingår i den här versionen av Azure AD Connect. När kunden uppgraderas till den här versionen, identifierar saknas körningsprofiler Azure AD Connect och de skapas.
 * Ett problem som orsakar processen för synkronisering av lösenord inte kunde starta med händelse-ID 6900 och felet har åtgärdats *”ett objekt med samma nyckel har redan lagts”*. Det här problemet uppstår om du uppdaterar OU filtrering konfiguration för att inkludera AD-konfigurationens partition. För att åtgärda problemet, synkroniserar processen för Lösenordssynkronisering nu lösenordsändringar från AD-domänpartitioner. Icke-domänpartitioner, till exempel konfigurationspartitionen hoppas över.
 * Under snabbinstallationen, Azure AD Connect skapar en lokal AD DS-konto som används av AD-koppling för att kommunicera med lokala AD. Tidigare kontot har skapats med flaggan PASSWD_NOTREQD inställd på user Account Control-attribut och ett slumpmässigt lösenord har angetts för kontot. Nu tar Azure AD Connect anges uttryckligen bort flaggan PASSWD_NOTREQD när lösenordet har ställts in på kontot.
@@ -716,7 +728,7 @@ Azure AD Connect-synkronisering
 * Om du vill konfigurera OU-filtrering, kan du antingen använda Azure AD Connect-guiden eller hanteraren för synkroniseringstjänsten. Tidigare, om du använder Azure AD Connect-guiden för att konfigurera OU-filtrering, nya organisationsenheter som skapats efteråt ingår för katalogsynkronisering. Om du inte vill att nya organisationsenheter som ska tas med, måste du konfigurera OU-filtrering med hjälp av hanteraren för synkroniseringstjänsten. Du kan nu få samma beteende med hjälp av Azure AD Connect-guiden.
 * Ett problem som orsakar lagrade procedurer som krävs av Azure AD Connect som ska skapas under schemat för installation-administratör kan i stället för under dbo-schemat har åtgärdats.
 * Ett problem som orsakar attributet spårnings-ID som returneras av Azure AD för att utelämna i AAD Connect serverns händelselogg har åtgärdats. Problemet uppstår om Azure AD Connect tar emot ett meddelande om omdirigering från Azure AD och Azure AD Connect kan inte ansluta till den tillhandahållna slutpunkten. TrackingId används av Support-tekniker för att korrelera med sida tjänstloggar under felsökningen.
-* När Azure AD Connect får LargeObject-fel från Azure AD, Azure AD Connect genererar en händelse med händelse-ID 6941 och meddelandet *”objektet är för stor. Begränsa antalet attributvärden för det här objektet ”.* På samma gång, genererar Azure AD Connect även en vilseledande händelse med händelse-ID 6900 och meddelandet *”Microsoft.Online.Coexistence.ProvisionRetryException: Det går inte att kommunicera med Windows Azure Active Directory-tjänst”.* För att minimera missförstånden genererar Azure AD Connect inte längre det senare fallet när LargeObject-fel som tas emot.
+* När Azure AD Connect får LargeObject-fel från Azure AD, Azure AD Connect genererar en händelse med händelse-ID 6941 och meddelandet *”objektet är för stor. Begränsa antalet attributvärden för det här objektet ”.* På samma gång, genererar Azure AD Connect även en vilseledande händelse med händelse-ID 6900 och meddelandet *”Microsoft.Online.Coexistence.ProvisionRetryException: Det går inte att kommunicera med tjänsten Windows Azure Active Directory ”.* För att minimera missförstånden genererar Azure AD Connect inte längre det senare fallet när LargeObject-fel som tas emot.
 * Ett problem som gör att Hanteraren för synkroniseringstjänsten inte svarar när du försöker uppdatera konfigurationen för allmän LDAP connector har åtgärdats.
 
 **Nya funktioner/förbättringar:**
@@ -729,12 +741,12 @@ Azure AD Connect-synkronisering
   * Lagt till **preferredDataLocation** metaversumschema och AAD-koppling schemat. Kunder som vill uppdatera antingen attribut i Azure AD kan implementera av anpassade Synkroniseringsregler för att göra detta. 
   * Lagt till **userType** metaversumschema och AAD-koppling schemat. Kunder som vill uppdatera antingen attribut i Azure AD kan implementera av anpassade Synkroniseringsregler för att göra detta.
 
-* Azure AD Connect nu automatiskt kan du använda ConsistencyGuid attribut som källfästpunktsattribut för lokal AD-objekt. Ytterligare, Azure AD Connect fyller ConsistencyGuid attributet med värdet för attributet objectGuid om den är tom. Den här funktionen gäller för ny distribution. Om du vill veta mer om den här funktionen, läser du avsnittet [Azure AD Connect: Designbegreppen – med ms-DS-ConsistencyGuid som sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
+* Azure AD Connect nu automatiskt kan du använda ConsistencyGuid attribut som källfästpunktsattribut för lokal AD-objekt. Ytterligare, Azure AD Connect fyller ConsistencyGuid attributet med värdet för attributet objectGuid om den är tom. Den här funktionen gäller för ny distribution. Om du vill veta mer om den här funktionen, läser du avsnittet [Azure AD Connect: Designbegrepp – med ms-DS-ConsistencyGuid som sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 * Nya felsökningsvyer cmdlet har Invoke-ADSyncDiagnostics lagts till för att diagnosticera synkronisering av Lösenordshash-relaterade problem. Information om cmdleten finns i artikeln [felsöka lösenordshashsynkronisering med Azure AD Connect-synkronisering](tshoot-connect-password-hash-synchronization.md).
 * Azure AD Connect nu stöder synkronisering brevlåda offentlig mapp objekt från en lokal AD till Azure AD. Du kan aktivera funktionen med hjälp av Azure AD Connect-guiden under valfria funktioner. Om du vill veta mer om den här funktionen finns i artikeln [Office 365 Directory baserad Edge Blocking stöd för lokala mappar e-post aktiverad offentliga](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect kräver en AD DS-konto synkroniseras från lokala AD. Tidigare, om du har installerat Azure AD Connect med Express-läge kan du ange autentiseringsuppgifterna för ett Enterprise-administratör-konto och Azure AD Connect skapar AD DS-konto krävs. Men för en anpassad installation och att lägga till skogar i en befintlig distribution kan tvungen du att i stället ange AD DS-kontot. Nu kan möjlighet du också att ange autentiseringsuppgifterna för ett Enterprise-administratör-konto under en anpassad installation och låta Azure AD Connect skapa AD DS-kontot som krävs.
 * Azure AD Connect har nu stöd för SQL AOA. Innan du installerar Azure AD Connect måste du aktivera SQL AOA. Under installationen identifierar Azure AD Connect om den angivna SQL-instansen är aktiverat för SQL AOA eller inte. Om SQL AOA är aktiverad, räknat Azure AD Connect ytterligare ut om SQL AOA har konfigurerats för att använda synkron replikering eller asynkron replikering. När du konfigurerar tillgänglighetsgruppens lyssnare, rekommenderas att du ställer in egenskapen RegisterAllProvidersIP till 0. Denna rekommendation beror på att Azure AD Connect för närvarande använder SQL Native Client för att ansluta till SQL och SQL Native Client stöder inte användning av egenskapen MultiSubNetFailover.
-* Om du använder LocalDB som databas för din Azure AD Connect-servern och har nått storleksgränsen 10 GB, startar inte längre synkroniseringstjänsten. Tidigare var behöver du utföra ShrinkDatabase åtgärden på en LocalDB att frigöra tillräckligt med utrymme för DB att starta synkroniseringstjänsten. Då och du kan använda hanteraren för synkroniseringstjänsten för att ta bort körningshistorik för att frigöra mer DB-utrymme. Du kan nu använda Start-ADSyncPurgeRunHistory cmdlet att rensa köra historikdata från LocalDB frigöra DB-utrymme. Dessutom denna cmdlet har stöd för en offline-läge (genom att ange parametern - offline) som kan användas när synkroniseringstjänsten inte körs. Obs: Offline-läge kan endast användas om synkroniseringstjänsten körs inte och den databas som används är LocalDB.
+* Om du använder LocalDB som databas för din Azure AD Connect-servern och har nått storleksgränsen 10 GB, startar inte längre synkroniseringstjänsten. Tidigare var behöver du utföra ShrinkDatabase åtgärden på en LocalDB att frigöra tillräckligt med utrymme för DB att starta synkroniseringstjänsten. Då och du kan använda hanteraren för synkroniseringstjänsten för att ta bort körningshistorik för att frigöra mer DB-utrymme. Du kan nu använda Start-ADSyncPurgeRunHistory cmdlet att rensa köra historikdata från LocalDB frigöra DB-utrymme. Dessutom denna cmdlet har stöd för en offline-läge (genom att ange parametern - offline) som kan användas när synkroniseringstjänsten inte körs. Obs! Offline-läge kan endast användas om synkroniseringstjänsten körs inte och den databas som används är LocalDB.
 * Om du vill minska mängden lagringsutrymme som krävs, Azure AD komprimerar Connect nu synkronisering felinformation innan du lagrar dem i LocalDB/SQL-databaser. När du uppgraderar från en äldre version av Azure AD Connect till den här versionen, utför Azure AD Connect ett enstaka komprimering på befintliga sync-felinformation.
 * Tidigare, när du har uppdaterat OU-filtrering konfigurationen, måste du manuellt köra fullständig import för att säkerställa att befintliga objekt är korrekt inkluderad/exkluderad från katalogsynkronisering. Nu kan Azure AD Connect automatiskt utlöser fullständig import vid nästa synkronisering migreringscykel. Ytterligare, fullständig import tillämpas endast på de AD-anslutningsappar som påverkas av uppdateringen. Obs: den här förbättringen gäller för OU-filtrering uppdateringar som görs med hjälp av guiden Azure AD Connect. Den gäller inte för OU-filtrering uppdatering som gjorts med hjälp av hanteraren för synkroniseringstjänsten.
 * Tidigare gruppbaserad filtrering har stöd för användare, grupper och kontakta endast objekt. Gruppbaserad filtrering stöder nu även datorobjekt.

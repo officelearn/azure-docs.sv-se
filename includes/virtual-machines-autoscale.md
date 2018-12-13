@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7bafc30bbf8661f7054e49c36af420507f37c989
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227277"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326532"
 ---
-Du kan enkelt [skala automatiskt](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) din [virtuella datorer (VM)](../articles/virtual-machines/windows/overview.md) när du använder [VM-skalningsuppsättningar](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) och [funktionen för automatisk skalning i Azure Övervaka](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Dina virtuella datorer måste vara medlemmar i en skalningsuppsättning kan skalas automatiskt. Den här artikeln innehåller information som hjälper dig att bättre förstå hur du skalar dina virtuella datorer både lodrätt och vågrätt med hjälp av automatisk och manuell metoder.
+Du kan enkelt [skala automatiskt](../articles/azure-monitor/platform/autoscale-best-practices.md) din [virtuella datorer (VM)](../articles/virtual-machines/windows/overview.md) när du använder [VM-skalningsuppsättningar](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) och [funktionen för automatisk skalning i Azure Övervaka](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Dina virtuella datorer måste vara medlemmar i en skalningsuppsättning kan skalas automatiskt. Den här artikeln innehåller information som hjälper dig att bättre förstå hur du skalar dina virtuella datorer både lodrätt och vågrätt med hjälp av automatisk och manuell metoder.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Vågrät eller lodrät skalning
 
@@ -35,7 +35,7 @@ Du kan aktivera automatisk skalning när du skapar en skalningsuppsättning med 
  
 ### <a name="metrics"></a>Mått
 
-Funktionen automatisk skalning i Azure Monitor kan du skala antalet virtuella datorer som körs eller ned baserat på [mått](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Som standard erbjuder virtuella datorer värdnivå basmått för disk-, nätverks- och CPU-användning. När du konfigurerar insamling av diagnostikdata med hjälp av det diagnostiska tillägget blir prestandaräknare för ytterligare gäst-OS tillgängliga för disk, CPU och minne.
+Funktionen automatisk skalning i Azure Monitor kan du skala antalet virtuella datorer som körs eller ned baserat på [mått](../articles/azure-monitor/platform/autoscale-common-metrics.md). Som standard erbjuder virtuella datorer värdnivå basmått för disk-, nätverks- och CPU-användning. När du konfigurerar insamling av diagnostikdata med hjälp av det diagnostiska tillägget blir prestandaräknare för ytterligare gäst-OS tillgängliga för disk, CPU och minne.
 
 ![Metrisk kriterier](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -49,7 +49,7 @@ Om programmet behöver för att skala baserat på mått som inte är tillgängli
  
 ### <a name="notifications"></a>Meddelanden
 
-Du kan [konfigurera utlösare](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) så att specifika URL: er anropas eller e-postmeddelanden skickas baserat på reglerna för automatisk skalning som du skapar. Webhooks kan du dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade meddelanden.
+Du kan [konfigurera utlösare](../articles/azure-monitor/platform/autoscale-webhook-email.md) så att specifika URL: er anropas eller e-postmeddelanden skickas baserat på reglerna för automatisk skalning som du skapar. Webhooks kan du dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade meddelanden.
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>Skala virtuella datorer i en skalningsuppsättning
 

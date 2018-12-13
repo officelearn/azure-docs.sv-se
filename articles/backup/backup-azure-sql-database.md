@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: f6271e8de6be0bcfab7ade4c9e90a69482e7905e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: d38fc727ed7e9e3c47d2fcb9af7894f8a2a7c7a7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878218"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262341"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Säkerhetskopiera SQL Server-databaser till Azure
 
@@ -117,8 +117,8 @@ Om dessa villkor finns i din miljö, fortsätter du till [Konfigurera säkerhets
 
 SQL-dator ha anslutning till Azure offentliga IP-adresser för alla åtgärder. SQL VM-åtgärder (till exempel databasidentifiering, säkerhetskopieringar, schemalägga säkerhetskopieringar, återställa återställningspunkter och så vidare) misslyckas utan anslutning till offentliga IP-adresser. Använd något av följande alternativ för att tillhandahålla ett tydligt sätt för säkerhetskopieringstrafik:
 
-- Lista över tillåtna Azure datacenter IP-intervall: godkänna Azure datacenter IP-adressintervall, använda den [Download Center-sidan för information om IP-intervall och instruktioner](https://www.microsoft.com/download/details.aspx?id=41653).
-- Distribuera en HTTP-proxyserver kan dirigera trafik: när du säkerhetskopierar en SQL-databas på en virtuell dator tillägget på den virtuella datorn använder HTTPS-API: er för att skicka kommandon för hantering av Azure Backup och data till Azure Storage. Säkerhetskopieringstillägget använder också Azure Active Directory (Azure AD) för autentisering. Dirigera säkerhetskopieringstillägget trafik för dessa tre tjänster via HTTP-proxy. Tillägget är den enda komponenten som är konfigurerad för åtkomst till det offentliga internet.
+- Listan över godkända Azure-datacenter IP-intervall: Godkänna Azure datacenter IP-adressintervall, använda den [Download Center-sidan för information om IP-intervall och instruktioner](https://www.microsoft.com/download/details.aspx?id=41653).
+- Distribuera en HTTP-proxyserver för att dirigera trafik: När du säkerhetskopierar en SQL-databas på en virtuell dator använder tillägget på den virtuella datorn HTTPS-API: er för att skicka kommandon för hantering av Azure Backup och data till Azure Storage. Säkerhetskopieringstillägget använder också Azure Active Directory (Azure AD) för autentisering. Dirigera säkerhetskopieringstillägget trafik för dessa tre tjänster via HTTP-proxy. Tillägget är den enda komponenten som är konfigurerad för åtkomst till det offentliga internet.
 
 Rätt balans mellan alternativen är hanterbarhet, detaljerad kontroll och kostnad.
 
@@ -149,7 +149,7 @@ Konfigurera behörigheter:
 
     ![Välj SQL Server i virtuell Azure-dator för säkerhetskopiering](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Den **säkerhetskopieringsmål** menyn visas två steg: **identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**. Den **identifiera databaser i virtuella datorer** steg starta en sökning efter Azure-datorer.
+    Den **säkerhetskopieringsmål** menyn visas två steg: **Identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**. Den **identifiera databaser i virtuella datorer** steg starta en sökning efter Azure-datorer.
 
     ![Gå igenom stegen för två säkerhetskopieringsmål](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -231,7 +231,7 @@ Azure Backup identifierar alla databaser på en SQL Server-instans. Du kan skydd
 
     ![Välj SQL Server i virtuell Azure-dator för säkerhetskopiering](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Den **säkerhetskopieringsmål** menyn visas två steg: **identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**.
+    Den **säkerhetskopieringsmål** menyn visas två steg: **Identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**.
 
     ![Gå igenom stegen för två säkerhetskopieringsmål](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -279,7 +279,7 @@ Konfigurera skydd för en SQL-databas:
 
     ![Välj SQL Server i virtuell Azure-dator för säkerhetskopiering](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Den **säkerhetskopieringsmål** menyn visas två steg: **identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**.
+    Den **säkerhetskopieringsmål** menyn visas två steg: **Identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**.
 
     Om du har slutfört stegen i den här artikeln i ordning, har du hittat oskyddade virtuella datorer och det här valvet har registrerats med en virtuell dator. Nu är du redo att konfigurera skydd för SQL-databaser.
 
@@ -345,9 +345,9 @@ Konfigurera skydd för en SQL-databas:
 
 En princip för säkerhetskopiering definierar en matris över när säkerhetskopior tas och hur länge de är kvar. Använda Azure Backup för att schemalägga tre typer av säkerhetskopiering för SQL-databaser:
 
-* Fullständig säkerhetskopiering: en fullständig säkerhetskopia säkerhetskopierar hela databasen. En fullständig säkerhetskopia innehåller alla data i en specifik databas eller en uppsättning filgrupper eller tillräckligt många loggar att återställa dessa data och filer. Du kan endast utlösa en fullständig säkerhetskopiering per dag. Du kan välja att ta en fullständig säkerhetskopiering med dagliga och veckovisa intervall.
-* Differentiell säkerhetskopiering: en differentiell säkerhetskopiering baseras på den senaste, föregående fullständig säkerhetskopieringen. En differentiell säkerhetskopiering fångar endast de data som ändrats sedan den fullständiga säkerhetskopian. Du kan endast utlösa en differentiell säkerhetskopiering per dag. Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopiering på samma dag.
-* Säkerhetskopiering av transaktionsloggen: en loggsäkerhetskopiering gör det möjligt för point-in-time-återställning upp till en specifik sekund. Du kan högst, konfigurera transaktionell loggsäkerhetskopior var 15: e minut.
+* Fullständig säkerhetskopiering: En fullständig säkerhetskopia säkerhetskopierar hela databasen. En fullständig säkerhetskopia innehåller alla data i en specifik databas eller en uppsättning filgrupper eller tillräckligt många loggar att återställa dessa data och filer. Du kan endast utlösa en fullständig säkerhetskopiering per dag. Du kan välja att ta en fullständig säkerhetskopiering med dagliga och veckovisa intervall.
+* Differentiell säkerhetskopiering: En differentiell säkerhetskopiering baseras på den senaste, föregående fullständig säkerhetskopieringen. En differentiell säkerhetskopiering fångar endast de data som ändrats sedan den fullständiga säkerhetskopian. Du kan endast utlösa en differentiell säkerhetskopiering per dag. Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopiering på samma dag.
+* Säkerhetskopiering av transaktionsloggen: En säkerhetskopiering av loggen kan point-in-time-återställning upp till en specifik sekund. Du kan högst, konfigurera transaktionell loggsäkerhetskopior var 15: e minut.
 
 Principens Skapad Recovery Services-valvet nivå. Flera valv kan använda samma säkerhetskopieringsprincip, men du måste använda principen för säkerhetskopiering för varje valv. När du skapar en princip för säkerhetskopiering, används den dagliga fullständiga säkerhetskopian som standard. Du kan lägga till en differentiell säkerhetskopiering, men endast om du konfigurerar fullständiga säkerhetskopieringar ska göras varje vecka. Följande procedur beskriver hur du skapar en princip för säkerhetskopiering för en SQL Server-instans i Azure-datorer.
 
@@ -455,8 +455,8 @@ Du kan också välja en fullständig eller Differentiell säkerhetskopia att åt
     ![Välj Återställ databasen](./media/backup-azure-sql-database/restore-db-button.png)
 
     När den **återställa** menyn öppnas den **återställa konfigurationen** menyn öppnas också. Den **återställa konfigurationen** menyn är det första steget för att konfigurera återställningen. Använd den här menyn för att välja var du vill återställa data. Alternativen är:
-    - **Alternativ plats**: återställa databasen till en annan plats och behålla den ursprungliga källdatabasen.
-    - **Åsidosätt databas**: återställa data till samma SQL Server-instans som den ursprungliga källan. Effekten av det här alternativet är att skriva över den ursprungliga databasen.
+    - **Alternativ plats**: Återställa databasen till en annan plats och behålla den ursprungliga källdatabasen.
+    - **Åsidosätt databas**: Återställa data till samma SQL Server-instans som den ursprungliga källan. Effekten av det här alternativet är att skriva över den ursprungliga databasen.
 
     > [!Important]
     > Om den valda databasen tillhör en Always On-tillgänglighetsgrupp, tillåter inte SQL Server att databasen kan skrivas över. I det här fallet bara den **alternativ plats** är aktiverat.
@@ -798,19 +798,15 @@ Följande avsnitt innehåller ytterligare information om säkerhetskopiering fö
 ### <a name="can-i-throttle-the-speed-of-the-sql-server-backup-policy"></a>Kan jag begränsa hastigheten på SQL Server-principen för säkerhetskopiering?
 
 Ja. Du kan begränsa den hastighet som principen för säkerhetskopiering körs för att minimera effekten på en SQL Server-instans.
-
 Ändra inställningen:
-
-1. Öppna på SQL Server-instansen i mappen c:\Program\Microsoft Files\Azure arbetsbelastning Backup\bin den **TaskThrottlerSettings.json** fil.
-
-2. I filen TaskThrottlerSettings.json ändrar den **DefaultBackupTasksThreshold** till ett lägre värde (till exempel 5).
+1. På SQL Server-instansen i den *c:\Program\Microsoft Files\Azure arbetsbelastning Backup\bin mappen*, skapa den **ExtensionSettingsOverrides.json** fil.
+2. I den **ExtensionSettingsOverrides.json** filen, ändra den **DefaultBackupTasksThreshold** till ett lägre värde (till exempel 5) <br>
+  ` {"DefaultBackupTasksThreshold": 5}`
 
 3. Spara ändringarna. Stäng filen.
-
-4. Öppna på SQL Server-instansen **Aktivitetshanteraren**. Starta om den **tjänsten för Azure Backup-arbetsbelastning Coordinator**.
+4. Öppna på SQL Server-instansen **Aktivitetshanteraren**. Starta om den **AzureWLBackupCoordinatorSvc** service.
 
 ### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Kan jag köra en fullständig säkerhetskopiering från en sekundär replik?
-
 Nej. Den här funktionen stöds inte.
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>Skapar lyckad säkerhetskopieringsjobb aviseringar?

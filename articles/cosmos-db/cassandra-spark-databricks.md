@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: e1d8f41c55ffd453507804b005d10620665b512c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f1588cac61d0cef821dc15019683f67c2962f049
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222043"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255388"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Åtkomst till Cassandra-API för Azure Cosmos DB-data från Azure Databricks
 
@@ -44,7 +44,7 @@ Den här artikeln innehåller information om hur du workwith Azure Cosmos DB Cas
   spark.cassandra.auth.password YOUR_COSMOSDB_KEY
   ```
 
-## <a name="add-the-required-dependencies"></a>Lägg till de nödvändiga beroendena
+## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
 
 * **Cassandra Spark-anslutningsappen:** – om du vill integrera Azure Cosmos DB Cassandra API med Spark, Cassandra anslutningen ska kopplas till Azure Databricks-klustret. Att koppla klustret:
 
@@ -52,9 +52,9 @@ Den här artikeln innehåller information om hur du workwith Azure Cosmos DB Cas
 
 * **Azure Cosmos DB Cassandra API-specifika bibliotek:** – en anpassad anslutningsfabrik krävs för att konfigurera återförsöksprincipen från Cassandra Spark-anslutningen till Azure Cosmos DB Cassandra-API. Lägg till den `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [maven-koordinater](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) att bifoga i biblioteket i klustret.
 
-## <a name="sample-notebooks"></a>Exempelanteckningsböcker
+## <a name="sample-notebooks"></a>Exempel på notebook-filer
 
-En lista med Azure Databricks [exempel anteckningsböcker](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) är tillgängliga i Github-lagringsplatsen för hämtning. De här exemplen finns information om hur du ansluter till Azure Cosmos DB Cassandra-API från Spark och utför olika CRUD-åtgärder på data. Du kan också [importera alla anteckningsböcker](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) till din Databricks-klustret arbetsyta och köra den. 
+En lista med Azure Databricks [exempel anteckningsböcker](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) är tillgängliga i GitHub-lagringsplatsen för hämtning. De här exemplen finns information om hur du ansluter till Azure Cosmos DB Cassandra-API från Spark och utför olika CRUD-åtgärder på data. Du kan också [importera alla anteckningsböcker](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) till din Databricks-klustret arbetsyta och köra den. 
 
 ## <a name="accessing-azure-cosmos-db-cassandra-api-from-spark-scala-programs"></a>Åtkomst till Azure Cosmos DB Cassandra-API från Spark Scala-program
 
@@ -67,4 +67,4 @@ Nedan följer länkar som hjälper dig att komma igång med att skapa Spark Scal
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med [skapa en Cassandra API-konto, databas och en tabell](create-cassandra-api-account-java.md) med hjälp av ett Java-program.
+Kom igång med att [skapa ett konto, en databas och en tabell för Cassandra-API:et](create-cassandra-api-account-java.md) med hjälp av ett Java-program.

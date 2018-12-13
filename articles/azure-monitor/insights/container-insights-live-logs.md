@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 3b20197fc27c5c8833d8358943c494266da83fb7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: da11bb0669bf6bde2c65b2a7a0badaa1ae35abda
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109947"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189139"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Visa behållarens loggar realtid med Azure Monitor för behållare (förhandsgranskning)
 Den här funktionen, som finns för närvarande i förhandsversion, tillhandahåller en vy i realtid i Azure Kubernetes Service (AKS)-behållarloggarna (stdout/stderr) utan att behöva köra kubectl-kommandon. När du väljer det här alternativet kan nya rutan visas nedan datatabell för behållare prestanda på den **behållare** vy och visar live loggning som genererats av motorn för behållaren för bättre hjälp vid felsökning av problem i realtid.  

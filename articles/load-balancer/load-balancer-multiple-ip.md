@@ -1,5 +1,6 @@
 ---
-title: Belastningsutjämning på flera IP-konfigurationer i Azure | Microsoft Docs
+title: Belastningsutjämning på flera IP-konfigurationer i Azure
+titlesuffix: Azure Load Balancer
 description: Belastningsutjämning mellan primära och sekundära IP-konfigurationer.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0f092c471a7908eabe481adc8c722993818840b8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e6aff89fe45220e1642a91e6a2d31a9da422fdea
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219519"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163539"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Belastningsutjämning på flera IP-konfigurationer med hjälp av Azure-portalen
 
@@ -128,7 +130,7 @@ Konfigurera IP-adresspoolen på klientsidan belastningsutjämnaren för varje we
 
 När-adresspoolen på klientsidan har konfigurerats kan IP-adresser visas under belastningsutjämnaren **Frontend-IP-konfiguration** inställningar. 
     
-### <a name="step-4-configure-the-back-end-pool"></a>Steg 4: Konfigurera backend poolen
+### <a name="step-4-configure-the-back-end-pool"></a>Steg 4: Konfigurera backend-pool
 
 Konfigurera backend-adresspoolen belastningsutjämnaren för varje webbplats (contoso.com och fabrikam.com):
         
@@ -166,7 +168,7 @@ Konfigurera en hälsoavsökning för belastningsutjämnaren:
 
 4. Skriv ett namn för hälsoavsökningen (till exempel **HTTP**). Välj **OK**.
 
-### <a name="step-6-configure-load-balancing-rules"></a>Steg 6: Konfigurera regler för belastningsutjämning
+### <a name="step-6-configure-load-balancing-rules"></a>Steg 6: Konfigurera belastningsutjämningsregler
 
 Konfigurera regler för belastningsutjämning för varje webbplats (contoso.com och fabrikam.com):
     

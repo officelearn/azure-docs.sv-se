@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 68c838481120dea7635ac5ea76859a8088d732fb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957358"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186505"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Service Map, du kan visa dina servrar på det sätt som du tänker på dem: sammankopplat system som levererar viktiga tjänster. Service Map ser du anslutningarna mellan servrar, processer, svarstid för inkommande och utgående anslutningar, och portar i alla TCP-anslutna arkitekturer utan konfiguration måste installera en agent.
@@ -44,7 +43,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 Du kommer åt Service Map i Azure portal från Log Analytics-arbetsytan och välja alternativet **lösningar** i den vänstra rutan.<br><br> ![Välj alternativet för lösningar i arbetsytan](./media/service-map/select-solution-from-workspace.png).<br> I listan med lösningar, Välj **ServiceMap(workspaceName)** och i Tjänstkarta-lösningen översikt över sidan klickar du på på panelen Tjänstkarta sammanfattning.<br><br> ![Tjänstkarta sammanfattningspanel](./media/service-map/service-map-summary-tile.png).
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Användningsfall: gör IT bearbetar beroende medveten
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Användningsfall: Kontrollera IT bearbetar beroende medveten
 
 ### <a name="discovery"></a>Identifiering
 Tjänstkarta skapar automatiskt en gemensam referens karta över beroenden mellan dina servrar, processer och tjänster från tredje part. Den identifierar och mappar alla TCP-beroenden, identifiera överraskning anslutningar, fjärrsystem du lita på från tredje part och beroenden till traditionella mörk delar av nätverket, till exempel Active Directory. Service Map identifierar misslyckade anslutningar som de hanterade systemen försöker göra, vilket hjälper dig att identifiera potentiella server felaktig konfiguration, avbrott i tjänsten och nätverksproblem.
@@ -286,8 +285,8 @@ En post skapas per timme för varje unika datornamn och processen, förutom de p
 
 Det finns internt genererade egenskaper som du kan använda för att identifiera unika processer och datorer:
 
-- Dator: Använda *ResourceId* eller *ResourceName_s* att unikt identifiera en dator inom en Log Analytics-arbetsyta.
-- Förlopp: Använda *ResourceId* att unikt identifiera en process i Log Analytics-arbetsytan. *ResourceName_s* är unikt inom kontexten för datorn där processen körs (MachineResourceName_s) 
+- Dator: Använd *ResourceId* eller *ResourceName_s* att unikt identifiera en dator inom en Log Analytics-arbetsyta.
+- Processen: Använd *ResourceId* att unikt identifiera en process i Log Analytics-arbetsytan. *ResourceName_s* är unikt inom kontexten för datorn där processen körs (MachineResourceName_s) 
 
 Eftersom flera poster kan finnas för en angiven process och datorer i ett specifikt tidsintervall kan frågor returnera fler än en post för samma dator eller process. Om du vill inkludera endast den senaste posten, lägger du till ”| dedupliceringen ResourceId ”i frågan.
 

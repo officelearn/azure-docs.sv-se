@@ -8,22 +8,21 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828716"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187219"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta-integrering med System Center Operations Manager
   > [!NOTE]
-  > Den här funktionen är i offentlig förhandsversion.
+  > Den här funktionen är en allmänt tillgänglig förhandsversion.
   > 
   
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Tjänstkarta kan du visa dina servrar på sätt som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration krävs förutom installationen av en agent. Mer information finns i den [Tjänstkarta dokumentation]( service-map.md).
@@ -77,7 +76,7 @@ Om du vill konfigurera Service Map integration, gör du följande:
 
     ![Gruppen för Operations Manager-konfiguration](media/service-map-scom/scom-config-group.png)
 
-6. Valfritt: Välj resurspoolen för hanteringsservern att kommunicera med Log Analytics och klicka sedan på **lägger du till arbetsytan**.
+6. Valfritt: Välj resurspool Management-servern kan kommunicera med Log Analytics och klickar sedan på **lägger du till arbetsytan**.
 
     ![Operations Manager Configuration resurspoolen](media/service-map-scom/scom-config-pool.png)
 
@@ -102,7 +101,7 @@ Mappen Tjänstkarta har fyra noder:
 
     ![Diagram för Operations Manager-distribuerade program](media/service-map-scom/scom-group-dad.png)
 
-* **Servern beroende vyer**: Visar en lista över alla servrar som synkroniseras från Tjänstkarta. Du kan klicka på valfri server om du vill visa dess diagram över distribuerade program.
+* **Servern beroende vyer**: Visar alla servrar som synkroniseras från Tjänstkarta. Du kan klicka på valfri server om du vill visa dess diagram över distribuerade program.
 
     ![Diagram för Operations Manager-distribuerade program](media/service-map-scom/scom-dad.png)
 
@@ -121,10 +120,10 @@ En regel _Microsoft.SystemCenter.ServiceMapImport.Rule_, har skapats för att re
 
 ![Egenskapsfönstret åsidosättningar i Operations Manager](media/service-map-scom/scom-overrides.png)
 
-* **Aktiverad**: aktivera eller inaktivera automatiska uppdateringar. 
-* **IntervalMinutes**: Återställ tiden mellan uppdateringar. Standardintervallet är en timme. Om du vill synkronisera server maps oftare, ändrar du värdet.
-* **TimeoutSeconds**: återställa hur lång tid innan tidsgränsen uppnås för begäran. 
-* **TimeWindowMinutes**: återställa tidsperioden för att köra frågor mot data. Standardvärdet är 60 minuter-fönstret. Det maximala värdet som tillåts av Service Map är 60 minuter.
+* **Aktiverad**: Aktivera eller inaktivera automatiska uppdateringar. 
+* **IntervalMinutes**: Återställa tiden mellan uppdateringar. Standardintervallet är en timme. Om du vill synkronisera server maps oftare, ändrar du värdet.
+* **TimeoutSeconds**: Återställa hur lång tid innan tidsgränsen uppnås för begäran. 
+* **TimeWindowMinutes**: Återställa tidsperioden för att köra frågor mot data. Standardvärdet är 60 minuter-fönstret. Det maximala värdet som tillåts av Service Map är 60 minuter.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 

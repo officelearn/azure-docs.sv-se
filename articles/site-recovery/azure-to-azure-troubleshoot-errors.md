@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: a524c773b0f4f6d3dc14830d4c3200512f8b287c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 84462b98e1006cadf34adecf948efd39ad4f69d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140922"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313980"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -24,7 +24,7 @@ Prenumerationen måste vara aktiverat för att skapa virtuella Azure-datorer i m
 
 **Felkod** | **Möjliga orsaker** | **Rekommendationen**
 --- | --- | ---
-150097<br></br>**Meddelandet**: Det gick inte att aktivera replikering för den virtuella datorn VmName. | -Ditt prenumerations-ID kanske inte är aktiverat för att skapa virtuella datorer på målplatsen för regionen.</br></br>-Ditt prenumerations-ID kanske inte är aktiverat eller har inte tillräcklig kvot för att skapa specifika VM-storlekar på målplatsen för regionen.</br></br>– En lämplig VM-storlek som matchar källan VM NIC antalet (2) är inte att hitta målet för prenumerations-ID på målplatsen för regionen.| Kontakta [Azure faktureringshjälp](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) att skapa virtuella datorer med storlekarna som krävs på målplatsen för din prenumeration. När den är aktiverad, försök igen.
+150097<br></br>**Meddelandet**: Att det gick inte aktivera replikering för den virtuella datorn VmName. | -Ditt prenumerations-ID kanske inte är aktiverat för att skapa virtuella datorer på målplatsen för regionen.</br></br>-Ditt prenumerations-ID kanske inte är aktiverat eller har inte tillräcklig kvot för att skapa specifika VM-storlekar på målplatsen för regionen.</br></br>– En lämplig VM-storlek som matchar källan VM NIC antalet (2) är inte att hitta målet för prenumerations-ID på målplatsen för regionen.| Kontakta [Azure faktureringshjälp](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) att skapa virtuella datorer med storlekarna som krävs på målplatsen för din prenumeration. När den är aktiverad, försök igen.
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 Du kan kontakta [Azure faktureringshjälp](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) att aktivera din prenumeration för att skapa virtuella datorer av nödvändiga storlekar på målplatsen.
@@ -37,7 +37,7 @@ Om alla de senaste betrodda rotcertifikaten inte finns på den virtuella datorn,
 
 **Felkod** | **Möjlig orsak** | **Rekommendationer**
 --- | --- | ---
-151066<br></br>**Meddelandet**: Site Recovery-konfigurationen misslyckades. | De begärda betrodda rotcertifikaten för auktorisering och autentisering inte finns på datorn. | – Se till att det finns betrodda rotcertifikat på datorn för en virtuell dator som kör operativsystemet Windows. Mer information finns i [konfigurera betrodda rotcertifikat och otillåtna certifikat](https://technet.microsoft.com/library/dn265983.aspx).<br></br>– För en virtuell dator som kör Linux-operativsystem, följer du anvisningarna för betrodda rotcertifikat som publicerats av distributören Linux operativsystemets version.
+151066<br></br>**Meddelandet**: Det gick inte att konfigurera site Recovery. | De begärda betrodda rotcertifikaten för auktorisering och autentisering inte finns på datorn. | – Se till att det finns betrodda rotcertifikat på datorn för en virtuell dator som kör operativsystemet Windows. Mer information finns i [konfigurera betrodda rotcertifikat och otillåtna certifikat](https://technet.microsoft.com/library/dn265983.aspx).<br></br>– För en virtuell dator som kör Linux-operativsystem, följer du anvisningarna för betrodda rotcertifikat som publicerats av distributören Linux operativsystemets version.
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 **Windows**
@@ -160,7 +160,7 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
     ![COM-fel](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
  
 
-### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Site Recovery-konfigurationen misslyckades (151196)
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Konfiguration av site Recovery misslyckades (151196)
 - **Möjlig orsak** </br>
   - Att går inte ansluta till Office 365-autentisering och identitet IP4-slutpunkter.
 
@@ -170,7 +170,7 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
         - Om nya adresser läggs till Azure Active Directory (AAD) i framtiden, måste du skapa nya NSG-regler.
 
 
-### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Site Recovery-konfigurationen misslyckades (151197)
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguration av site Recovery misslyckades (151197)
 - **Möjlig orsak** </br>
   - Att går inte ansluta till Azure Site Recovery-Tjänsteslutpunkter.
 
@@ -188,11 +188,12 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
    2.  Om du föredrar att ställa in proxy endast för ASR-Mobilitetstjänsten kan ange du proxyinformationen i ProxyInfo.conf som finns på:</br>
        - ``/usr/local/InMage/config/`` på ***Linux***
        - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` på ***Windows***
-   3.   ProxyInfo.conf ska ha rätt proxyinställningar har följande INI-format. </br>
+   3.   ProxyInfo.conf ska ha rätt proxyinställningar har följande INI-format.</br>
                    *[proxy]*</br>
                    *Adress =http://1.2.3.4*</br>
                    *Port = 567*</br>
    4. ASR mobilitetstjänstagenten stöder endast ***oautentiserade proxyservrar***.
+ 
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](site-recovery-azure-to-azure-networking-guidance.md).
@@ -203,7 +204,7 @@ En ny disk som är ansluten till den virtuella datorn måste initieras.
 
 **Felkod** | **Möjliga orsaker** | **Rekommendationer**
 --- | --- | ---
-150039<br></br>**Meddelandet**: Azure-datadisk (DiskName) (DiskURI) med logiska enhetsnummer (LUN) (LUNValue) inte har kopplats till en disk som rapporterades från den virtuella datorn har samma LUN-värde. | – En ny datadisk har anslutits till den virtuella datorn men den har inte initierats.</br></br>-Datadisken i den virtuella datorn rapporterar felaktigt det LUN-värde som disken anslöts med till den virtuella datorn.| Kontrollera att datadiskarna har initierats och försök sedan igen.</br></br>För Windows: [Anslut och initiera en ny disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>För Linux: [initiera en ny datadisk i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+150039<br></br>**Meddelandet**: Azure-datadisk (DiskName) (DiskURI) med logiska enhetsnummer (LUN) (LUNValue) har inte kopplats till en disk som rapporterades från den virtuella datorn har samma LUN-värde. | – En ny datadisk har anslutits till den virtuella datorn men den har inte initierats.</br></br>-Datadisken i den virtuella datorn rapporterar felaktigt det LUN-värde som disken anslöts med till den virtuella datorn.| Kontrollera att datadiskarna har initierats och försök sedan igen.</br></br>För Windows: [Anslut och initiera en ny disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>För Linux: [Initiera en ny datadisk i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 Kontrollera att datadiskarna har initierats och försök sedan igen:
@@ -216,10 +217,10 @@ Kontakta supporten om problemet kvarstår.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Det går inte att se Azure VM väljas i ”Aktivera replikering”
 
- **Orsak 1: Resursgrupp och virtuella källdatorn finns på olika platser** <br>
+ **Orsak 1:  Resursgruppens namn och det virtuella källdatorn finns på olika platser** <br>
 Azure Site Recovery ut för närvarande källresursgruppen för region och virtuella datorer ska finnas på samma plats. Om detta inte är fallet skulle sedan du inte att hitta den virtuella datorn vid tidpunkten för skyddet.
 
-**Orsak 2: Resursgrupp ingår inte i vald prenumeration** <br>
+**Orsak 2: Resursgrupp ingår inte i den valda prenumerationen** <br>
 Du kanske inte att hitta resursgruppen vid tidpunkten för skydd om det inte är en del av den givna prenumerationen. Kontrollera att resursgruppen tillhör prenumerationen som används.
 
  **Orsak 3: Inaktuell konfiguration** <br>
@@ -233,9 +234,9 @@ Om du inte ser den virtuella datorn som du vill aktivera för replikering, kan d
 Du kan använda [ta bort inaktuella ASR-konfigurationsskript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) och ta bort den inaktuella konfigurationen för Site Recovery på Azure-VM. Du bör kunna se den virtuella datorn när du tar bort den inaktuella konfigurationen.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Det går inte att välja virtuell dator för skydd 
- **Orsak 1: virtuell dator har vissa tillägg som installeras i tillståndet misslyckad eller svarar inte** <br>
+ **Orsak 1:  Virtuell dator har vissa tillägg som installeras i tillståndet misslyckad eller svarar inte** <br>
  Gå till virtuella datorer > inställningen > tillägg och kontrollera om det finns några tillägg i ett felaktigt tillstånd. Avinstallera tillägget misslyckades och försök sedan skydda den virtuella datorn.<br>
- **Orsak 2: [Virtuella datorns Etableringsstatus är inte giltig](#vms-provisioning-state-is-not-valid-error-code-150019)**
+ **Orsak 2:  [Virtuella datorns Etableringsstatus är inte giltig](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Virtuella datorns Etableringsstatus är inte giltigt (felkod 150019)
 

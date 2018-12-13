@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256943"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270016"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL Database-tjänsten
 
@@ -60,7 +60,7 @@ Med SQL Database, alla databaser vara isolerade från varandra och portabla, var
 
 SQL Database har en [DTU-baserad inköpsmodell](sql-database-service-tiers-dtu.md) och en [vCore-baserad inköpsmodell](sql-database-service-tiers-vcore.md).
 
-- Den DTU-baserade inköpsmodellen erbjuder en blandning av beräknings-, minnes- och IO-resurser i tre tjänstnivåer (för lätta till tunga databasarbetsbelastningar): Basic, Standard och Premium. Compute-storlekar inom varje nivå med en blandning av dessa resurser, där du kan lägga till ytterligare lagringsresurser.
+- DTU-baserade inköpsmodellen erbjuder en kombination av beräkning, minne och IO-resurser i tre tjänstnivåer för att stödja lätta till tunga arbetsbelastningar: Basic, Standard och Premium. Compute-storlekar inom varje nivå med en blandning av dessa resurser, där du kan lägga till ytterligare lagringsresurser.
 - Med den vCore-baserade inköpsmodellen kan du välja antal virtuella kärnor, hur mycket minne och hur mycket och snabbt lagringsutrymme du vill ha.
 
 Du kan skapa din första app på en liten, enkel databas till en låg kostnad per månad på nivån generell användning tjänsten och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst på kritiska tjänstnivån företag att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
@@ -94,8 +94,8 @@ Men hur kan man jämföra den relativa prestandan för enskilda databaser och el
 Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metrics-diag-logging.md) för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
 
 - **Azure Storage**: För arkivering av stora mängder telemetri till ett lågt pris
-- **Azure Event Hub**: För integrering av telemetri i SQL-databasen med anpassad övervakningslösning eller heta pipelines
-- **Azure Log Analytics**: För en inbyggd övervakningslösning med rapporter, aviseringar och problemlösningsfunktioner.
+- **Azure-Händelsehubb**: För att integrera telemetri för SQL-databas med din anpassade övervakningslösning eller med heta pipelines
+- **Azure Log Analytics**: För inbyggd övervakningslösning med rapporter, aviseringar och problemlösningsfunktioner.
 
     ![Arkitektur](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -109,10 +109,10 @@ Azures branschledande serviceavtal [(SLA)](https://azure.microsoft.com/support/l
 - **[Point-in-time-återställningar](sql-database-recovery-using-backups.md)**:
 
   SQL-databas har stöd för återställning till valfri punkt inom kvarhållningsperioden för automatiska säkerhetskopior.
-- **[Aktiv geo-replikering](sql-database-geo-replication-overview.md)**:
+- **[Aktiv geo-replikering](sql-database-active-geo-replication.md)**:
 
   SQL-databas kan du konfigurera upp till fyra läsbara sekundära databaser i antingen de samma eller globalt distribuerade Azure-datacenter.  Till exempel om du har ett SaaS-program med en katalog-databas som har ett stort antal samtidiga skrivskyddade transaktioner, använder aktiv geo-replikering för att aktivera global skrivskyddsskala och tar bort flaskhalsar på primärorsaken som beror på skrivskyddade arbetsbelastningar.
-- **[Redundansgrupper](sql-database-geo-replication-overview.md)**:
+- **[Automatisk redundans grupper](sql-database-auto-failover-group.md)**:
 
   SQL Database kan du aktivera hög tillgänglighet och belastningsutjämning på global nivå, inklusive transparent geo-replikering och redundans för stora mängder databaser och elastiska pooler. Redundansgrupper och aktiv geo-replikering kan du skapa globalt distribuerade SaaS-program med minimala administrationsomkostnader, vilket lämnar all komplex övervakning, rutt, och felstyrning till SQL-databasen.
 - **[Zonredundanta databaser](sql-database-high-availability.md)**:
@@ -135,8 +135,8 @@ Idag förlitar sig många av våra samarbetspartners som använder [SaaS appar f
 
 Det finns två automatiska justeringsaspekter som är [tillgängliga i SQL Database](sql-database-automatic-tuning.md):
 
-- **Automatisk indexhantering**: Identifierar index som bör läggas till i din databas och index som ska tas bort.
-- **Plan för automatisk korrigering**: Identifierar problematiska planer och åtgärdar prestandaproblem i SQL-planen (kommer snart, finns redan i SQL Server 2017).
+- **Automatisk indexhantering**: Identifierar index som ska läggas till i din databas och index som ska tas bort.
+- **Plan för automatisk korrigering**: Identifierar problematiska planer och åtgärdar prestandaproblem i SQL planen (kommer snart, redan finns i SQL Server 2017).
 
 ### <a name="adaptive-query-processing"></a>Anpassningsbar frågebearbetning
 
@@ -198,10 +198,10 @@ Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Tala med teknikteamet för SQL Server
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ställ frågor om databasadministration
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling
-- [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ställ tekniska frågor
-- [Feedback](https://aka.ms/sqlfeedback): Rapportera fel och kom med förslag
-- [Reddit](https://www.reddit.com/r/SQLServer/): Diskutera SQL Server
+- [Stackspill](http://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling
+- [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ställa tekniska frågor
+- [Feedback](https://aka.ms/sqlfeedback): Rapportera buggar och förslag
+- [Reddit](https://www.reddit.com/r/SQLServer/): Diskutera SQLServer
 
 ## <a name="next-steps"></a>Nästa steg
 

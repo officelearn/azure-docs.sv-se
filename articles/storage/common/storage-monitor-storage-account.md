@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc03a5f43ef65ec8feaccb82fc3d31debbc6e7b9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f7b73fa4d1f596e0221c2cec3c6c7417ceb767a4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523384"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275702"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagringskonto i Azure portal
 
@@ -98,7 +98,7 @@ Du kan skapa varningar som meddelar dig när tröskelvärdet har uppnåtts för 
 3. Ange en **namn** och **beskrivning** för din nya aviseringsregeln.
 4. Välj den **mått** för vilket du vill lägga till en avisering en avisering **villkor**, och en **tröskelvärdet**. Tröskelvärde för enheten skriver ändras beroende på mått som du har valt. Till exempel ”antal” är enhetstypen av för *ContainerCount*, medan enheten för den *PercentNetworkError* mått är en procentandel.
 5. Välj den **Period**. Mått som når eller överskrider tröskelvärdet inom utlösa en avisering.
-6. (Valfritt) Konfigurera **e-post** och **Webhook** meddelanden. Läs mer på webhooks [konfigurera en webhook i en Azure metrisk varning](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Om du inte konfigurerar e-post eller webhook-meddelande visas aviseringar endast i Azure-portalen.
+6. (Valfritt) Konfigurera **e-post** och **Webhook** meddelanden. Läs mer på webhooks [konfigurera en webhook i en Azure metrisk varning](../../azure-monitor/platform/alerts-webhooks.md). Om du inte konfigurerar e-post eller webhook-meddelande visas aviseringar endast i Azure-portalen.
 
 ![”Lägg till en varningsregel” bladet i Azure portal](./media/storage-monitor-storage-account/add-alert-rule.png)
 

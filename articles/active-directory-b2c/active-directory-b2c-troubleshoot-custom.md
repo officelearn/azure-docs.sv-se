@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e4b33552c4b070164b55a84f1d8586422aced2f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c733c148994b06e6d7cd13ee98e1a8157f26010a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446681"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163185"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Samla in loggar
 
@@ -91,7 +91,7 @@ Exempel:
 1. Öppna en ny flik i Application Insights.
 1. Här är en lista med frågor som du kan använda för att se loggar
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |---------------------|--------------------|
 spårningar | Se alla loggar som genereras av Azure AD B2C |
 spårningar \| där timestamp > ago(1d) | Se alla loggar som genereras av Azure AD B2C för den sista dagen
@@ -108,7 +108,7 @@ Versionen av visningsprogrammet som läser händelser från Application Insights
 >[!NOTE]
 >För närvarande detaljerad aktivitetsloggar som beskrivs här är utformade **endast** att underlätta utvecklingen av anpassade principer. Använd inte utvecklingsläge i produktion.  Loggar samla in alla anspråk som skickas till och från identitetsleverantör man under utvecklingen.  Om används i produktion, ansvara utvecklaren för personligt identifierbar information (privat identifierbar Information) som samlas in i loggen för App Insights som de äger.  De här detaljerade loggar samlas endast när principen placeras på **UTVECKLINGSLÄGE**.
 
-[Github-lagringsplatsen för stöds inte anpassade princip exempel och relaterade verktyg](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
+[GitHub-lagringsplatsen för stöds inte anpassade princip exempel och relaterade verktyg](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 

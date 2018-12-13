@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 5df31c4b2e82ef47c8b94d9aac498cce31f6f243
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847192"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255099"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Felsök fel när du växlar en virtuell dator till Azure
 
@@ -28,7 +28,7 @@ Du får något av följande fel när du gör redundans för en virtuell dator ti
 
 Det gick inte att skapa en redundansväxlade virtuella datorn i Azure site Recovery. Det kan inträffa på grund av något av följande orsaker:
 
-* Det finns inte tillräckligt många tillgängliga för att skapa den virtuella datorn: du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](http://aka.ms/getazuresupport) att öka kvoten.
+* Det finns inte tillräckligt många tillgängliga för att skapa den virtuella datorn: Du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](http://aka.ms/getazuresupport) att öka kvoten.
 
 * Du försöker att redundansväxling för virtuella datorer av olika storlekar i samma tillgänglighetsuppsättning. Se till att du väljer samma storleksfamilj för alla virtuella datorer i samma tillgänglighetsuppsättning. Ändra storlek genom att gå till inställningarna för beräkning och nätverk för den virtuella datorn och försök att redundansväxla.
 
@@ -113,9 +113,6 @@ Om den **Connect** knappen på den redundansväxlade virtuella datorn i Azure ä
 När du startar upp en virtuell Windows-dator efter redundans om en oväntad avstängning visas på den återställda virtuella datorn, anger en VM-avstängning inte hämtades i den återställningspunkt som används för redundans. Detta händer när du återställer till en tidpunkt när den virtuella datorn inte hade varit helt stängs av.
 
 Detta är vanligtvis inte en orsaka problem och kan vanligtvis ignoreras vid oplanerade redundanser. När det gäller en planerad redundans, kontrollera att den virtuella datorn är korrekt avstängd innan du redundansväxlar och ger tillräckligt med tid för väntande replikering data lokalt som ska skickas till Azure. Använd sedan den **senaste** alternativet på den [redundans skärmen](site-recovery-failover.md#run-a-failover) så att alla data som väntar på Azure har bearbetats i en återställningspunkt, som sedan används för VM-redundans.
-
-## <a name="retaining-drive-letter-after-failover"></a>Behåller enhetsbeteckningen efter redundans
-Om du vill behålla enhetsbeteckning på virtuella datorer efter en redundansväxling kan du ställa in den **SAN-princip** för de virtuella datorn lokalt till **OnlineAll**. [Läs mer](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 ## <a name="next-steps"></a>Nästa steg
 - Felsöka [RDP-anslutning till Windows-VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240434"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185587"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -35,7 +35,7 @@ Tillstånd säkerhetsövervakning och rekommendationer är tillgängliga för vi
 Det här avsnittet ser du vilka plattformar som Azure Security Center-agenten kan köra och varifrån den kan samla in data.
 
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plattformar som stöds för Windows-datorer och virtuella datorer
-Operativsystem som stöds Windows:
+Följande Windows-operativsystem som stöds:
 
 * Windows Server 2008
 * Windows Server 2008 R2
@@ -45,16 +45,16 @@ Operativsystem som stöds Windows:
 
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plattformar som stöds för Linux-datorer och virtuella datorer
-Operativsystem som stöds Linux:
+Följande Linux-operativsystem som stöds:
 
-* Versioner för Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS
-* Debian versioner 6, 7, 8, 9
-* CentOS version 5, 6, 7
-* Red Hat Enterprise Linux (RHEL) version 5, 6, 7
-* SUSE Linux Enterprise Server (SLES) versioner 11, 12
-* Oracle Linux-versioner 5, 6, 7
-* Amazon Linux 2012.09 till 2017
-* Openssl 1.1.0 stöds bara på x86_64 plattformar (64-bitars)
+* Version för Ubuntu 12.04 LTS, 14.04 LTS och 16.04 LTS.
+* Debian version 6, 7, 8 och 9.
+* CentOS 5, 6 och 7.
+* Red Hat Enterprise Linux (RHEL) version 5, 6 och 7.
+* SUSE Linux Enterprise Server (SLES) version 11 och 12.
+* Oracle Linux-versioner 5, 6 och 7.
+* Amazon Linux 2012.09 till 2017.
+* OpenSSL 1.1.0 stöds bara på 64-bitars x86_64 plattformar.
 
 > [!NOTE]
 > Beteendeanalys för virtuell dator är ännu inte tillgängliga för Linux-operativsystem.
@@ -62,7 +62,7 @@ Operativsystem som stöds Linux:
 >
 
 ## <a name="vms-and-cloud-services"></a>Virtuella datorer och molntjänster
-Virtuella datorer som körs i en molntjänst stöds också. Endast molntjänster web och worker-roller som körs i produktionsmiljön fack övervakas. Läs mer om Molntjänsten i [översikt över Cloud Services](../cloud-services/cloud-services-choose-me.md).
+Virtuella datorer som körs i en molntjänst stöds också. Endast cloud services webb- och worker-roller som körs i produktionsplatser övervakas. Mer information om molntjänster finns [översikt av Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
 
 ## <a name="supported-iaas-features"></a>IaaS-funktioner som stöds
@@ -78,21 +78,21 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast molntjänster
 |Windows Defender ATP-integrering *|✔ (på versioner som stöds)|✔|X|X|
 |Saknade uppdateringar|✔|✔|✔|✔|
 |Säkerhetskonfigurationer|✔|✔|✔|✔|
-|Mot skadlig kod|✔|✔|X|X|
+|Program mot skadlig kod|✔|✔|X|X|
 |JIT VM-åtkomst|✔|X|✔|X|
 |Anpassningsbara programkontroller|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Diskkryptering|✔|X|✔|X|
 |Tredjeparts-distribution|✔|X|✔|X|
 |NSG:er|✔|X|✔|X|
-|Filess hotidentifiering|✔|✔|X|X|
+|Fileless hotidentifiering|✔|✔|X|X|
 |Nätverkskarta|✔|X|✔|X|
 |Anpassningsbar nätverkskontroller|✔|X|✔|X|
 
 \* Dessa funktioner stöds för närvarande i offentlig förhandsversion.
 
 
-## <a name="supported-paas-features"></a>PaaS-funktioner som stöds
+## <a name="supported-paas-features"></a>PaaS-funktioner som stöds 
 
 
 |Tjänst|Rekommendationer|Hotidentifiering|
@@ -100,20 +100,20 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast molntjänster
 |SQL|✔| ✔|
 |PostGreSQL *|✔| ✔|
 |MySQL *|✔| ✔|
-|BLOB storage-konton *|✔| ✔|
+|Azure Blob storage-konton *|✔| ✔|
 |App Services|✔| ✔|
-|Molntjänster|✔| X|
-|Virtuella nätverk|✔| Ej tillämpligt|
+|Cloud Services|✔| X|
+|VNets|✔| Ej tillämpligt|
 |Undernät|✔| Ej tillämpligt|
 |Nätverkskort|✔| ✔|
 |NSG:er|✔| Ej tillämpligt|
 |Prenumeration|✔| ✔|
 
-\* Dessa funktioner stöds för närvarande i offentlig förhandsversion.
+\* Dessa funktioner stöds för närvarande i offentlig förhandsversion. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Security Center planerings- och bruksanvisning](security-center-planning-and-operations-guide.md) – Lär dig hur du planerar och designaspekter att införa Azure Security Center
-- [Säkerhetsaviseringar per typ i Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) – Lär dig mer om beteendeanalys av virtuell dator och kraschanalys dump minne i Security Center
-- [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten
-- [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – hittar du blogginlägg om Azure-säkerhet och regelefterlevnad
+- Lär dig hur du [planera och vad designöverväganden för att börja använda Azure Security Center](security-center-planning-and-operations-guide.md).
+- Läs mer om [beteendeanalys av virtuell dator och krascher dumpa minnesanalyser i Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Hitta [vanliga frågor om hur du använder Azure Security Center](security-center-faq.md).
+- Hitta [blogginlägg om Azure-säkerhet och efterlevnad](https://blogs.msdn.com/b/azuresecurity/).

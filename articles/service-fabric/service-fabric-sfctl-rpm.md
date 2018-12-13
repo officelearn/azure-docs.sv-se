@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 57a9f0516175b459723a3dcdb2e3766f0fa039c1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: a8ac3899b6ae80668c4472f24b508ba6ba7e2644
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495432"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275320"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Fråga efter och skicka kommandon till reparera manager-tjänsten.
@@ -39,14 +39,14 @@ Detta API stöder Service Fabric-plattform. Det är inte avsedd att användas di
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --uppgift-id [krävs] | ID för reparationsuppgiften. |
 | --version | Det aktuella versionsnumret för reparationsuppgiften. Om inte är noll, sedan lyckas begäran endast om det här värdet matchar den faktiska aktuella versionen av reparationsuppgiften. Om noll, utförs ingen kontroll av version. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -61,14 +61,14 @@ Detta API stöder Service Fabric-plattform. Det är inte avsedd att användas di
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --uppgift-id [krävs] | ID för slutförda reparationsuppgiften som ska tas bort. |
 | --version | Det aktuella versionsnumret för reparationsuppgiften. Om inte är noll, sedan lyckas begäran endast om det här värdet matchar den faktiska aktuella versionen av reparationsuppgiften. Om noll, utförs ingen kontroll av version. |
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
@@ -83,7 +83,7 @@ Detta API stöder Service Fabric-plattform. Det är inte avsedd att användas di
 
 ### <a name="arguments"></a>Argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --executor-filter | Namnet på repair-executor vars anspråk uppgifter ska tas med i listan. |
 | --tillstånd-filter | Ett logiskt eller av följande värden som anger vilken uppgift tillstånd ska inkluderas i resultatlistan. <br> 1 – skapa <br>2 – ägs  <br>4 – Förbereda  <br>8 - godkänd  <br>16 - körning  <br>32 - återställning  <br>64 - har slutförts |
@@ -91,7 +91,7 @@ Detta API stöder Service Fabric-plattform. Det är inte avsedd att användas di
 
 ### <a name="global-arguments"></a>Global argument
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 | --- | --- |
 | --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |

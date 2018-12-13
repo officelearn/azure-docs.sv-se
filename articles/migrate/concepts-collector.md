@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 5a542ae23bf500125fd08338b2efd30dd42d9a8d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840919"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255983"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -32,23 +32,23 @@ Insamlingsprogrammet anslutna kontinuerligt till Azure Migrate-projektet och kon
 - Den här modellen inte är beroende statistikinställningarna för vCenter-servern att samla in prestandadata.
 - Du kan stoppa kontinuerlig profilering vid när som helst från insamlaren.
 
-**Direkt:** med kontinuerlig discovery-installation, när identifieringen har slutförts (det tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du startar identifieringen, om du letar efter direkt, du bör välja storlekskriteriet i utvärderingen som *som lokalt*. För prestandabaserade utvärderingar, är det bäst att vänta minst en dag efter att starta identifiering för att hämta storleksrekommendationer för tillförlitliga.
+**Direkt:** Med kontinuerlig discovery-installation, när identifieringen har slutförts (det tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *som lokalt* om du behöver omedelbar tillfredsställelse. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
 
 Installationen endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
-- Tillägg av objekt (virtuella datorer, kärnor osv.): Om du vill återspegla dessa ändringar i Azure-portalen kan du stoppa identifieringen från installationen och sedan börja om igen. Då uppdateras ändringarna i Azure Migrate-projektet.
+- Tillägg av objekt (virtuella datorer, diskar, kärnor osv.): För att återspegla dessa ändringar i Azure-portalen, kan du stoppar identifieringen av programmet och sedan starta det igen. Då uppdateras ändringarna i Azure Migrate-projektet.
 
-- Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
+- Borttagning av virtuella datorer: Borttagning av virtuella datorer återspeglas inte på grund av det sätt som är utformad för installationen, även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
 
 > [!NOTE]
-> Identifiering av enstaka installationen är nu föråldrad eftersom den här metoden förlitade sig tidigare på vCenter-serverns statistikinställningarna för prestanda datatillgänglighet och samlas in genomsnittlig prestandaräknare som resulterade i under storleksändringar av virtuella datorer för migrering till Azure.
+> Installationen för engångsidentifiering är nu inaktuell eftersom den här metoden förlitade sig på vCenter Servers statistikinställningarna för tillgänglighet av prestandadatapunkt och samlade in räknare för genomsnittlig prestanda, vilket resulterade i för små VM-storlekar för migrering till Azure.
 
 ## <a name="deploying-the-collector"></a>Distribuera insamlaren
 
 Du distribuerar insamlingsprogrammet med hjälp av en OVF-mall:
 
 - Du kan hämta OVF-mall från ett Azure Migrate-projekt i Azure-portalen. Du kan importera den nedladdade filen till vCenter-servern för att ställa in insamlingsprogrammet VM.
-- Från OVF ställer VMware in en virtuell dator med 4 kärnor, 8 GB RAM-minne och en disk på 80 GB. Operativsystemet är Windows Server 2012 R2 (64-bitars).
+- Från OVF ställer VMware in en virtuell dator med 8 kärnor, 16 GB RAM-minne och en disk på 80 GB. Operativsystemet är Windows Server 2016 (64-bitars).
 - När du kör insamlaren, kör ett antal kontroller av förutsättningar för att se till att insamlaren kan ansluta till Azure Migrate.
 
 - [Läs mer](tutorial-assessment-vmware.md#create-the-collector-vm) om hur du skapar insamlaren.
@@ -58,21 +58,25 @@ Du distribuerar insamlingsprogrammet med hjälp av en OVF-mall:
 
 Insamlaren måste klara några nödvändiga kontroller för att säkerställa att den kan ansluta till Azure Migrate-tjänsten via internet och ladda upp identifierade data.
 
-- **Kontrollera Internetanslutningen**: The insamlaren kan ansluta till internet, direkt eller via en proxyserver.
+- **Verifiera Azure-molnet**: Insamlaren behöver veta Azure-molnet som du planerar att migrera.
+    - Välj Azure Government om du planerar att migrera till Azure Government-molnet.
+    - Välj Azure Global om du planerar att migrera till kommersiella Azure-molnet.
+    - Baserat på molnet som anges här kan skickar installationen identifierade metadata till respektive slutpunkter.
+- **Kontrollera Internetanslutningen**: Insamlaren kan ansluta till internet, direkt eller via en proxyserver.
     - Kravkontrollen verifierar anslutningen till [URL: er med obligatoriska och valfria](#connect-to-urls).
     - Om du har en direkt anslutning till internet kan krävs ingen specifik åtgärd, förutom att se till att insamlaren kan nå URL: er som krävs.
     - Om du ansluter via en proxyserver, notera den [krav nedan](#connect-via-a-proxy).
-- **Kontrollera tidssynkronisering**: The insamlaren ska synkroniseras med internet-tidsservern så autentiseras begäranden till tjänsten.
+- **Kontrollera tidssynkronisering**: Insamlaren ska synkroniseras med internet-tidsservern så autentiseras begäranden till tjänsten.
     - Portal.azure.com URL: en ska vara kan nås från insamlaren så att tiden kan valideras.
     - Om datorn har inte synkroniserats, måste du ändra clock-tid på den insamlaren virtuella datorn så att den matchar den aktuella tiden. För att göra det här öppnar du en kommandotolk för administratör på den virtuella datorn kör **w32tm /tz** att kontrollera den aktuella tidszonen. Kör **w32tm/resync** att synkronisera tiden.
-- **Kontrollera collector-tjänsten körs**: The Azure Migrate Collector-tjänsten måste köras på VM-insamlaren.
+- **Kontrollera collector-tjänsten körs**:  Azure Migrate Collector-tjänsten ska köras på VM-insamlaren.
     - Den här tjänsten startas automatiskt när datorn startas.
     - Om tjänsten inte körs startar du den från Kontrollpanelen.
     - Collector-tjänsten ansluter till vCenter-servern, samlar in den virtuella datorn metadata och prestandadata och skickar dem till Azure Migrate-tjänsten.
 - **Kontrollera VMware PowerCLI 6.5 installerades**: VMware PowerCLI 6.5 PowerShell-modulen måste installeras på den virtuella datorn i insamlaren, så att den kan kommunicera med vCenter-servern.
     - Om insamlaren kan komma åt de URL: er som krävs för att installera modulen, är det installera automatiskt under distributionen av Logginsamlaren.
     - Om insamlaren inte kan installera modulen under distributionen, måste du [installera det manuellt](#install-vwware-powercli-module-manually).
-- **Kontrollera anslutningen till vCenter Server**: The insamlaren måste kunna vCenter-servern och fråga för virtuella datorer, metadata och prestandaräknare. [Verifiera förutsättningar](#connect-to-vcenter-server) för att ansluta.
+- **Kontrollera anslutningen till vCenter Server**: Insamlaren måste kunna vCenter-servern och fråga för virtuella datorer, metadata och prestandaräknare. [Verifiera förutsättningar](#connect-to-vcenter-server) för att ansluta.
 
 
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Ansluta till internet via en proxyserver
@@ -107,7 +111,8 @@ Anslutningskontrollen verifieras genom att ansluta till en lista över webbadres
 
 **URL** | **Detaljer**  | **Kontrollen av förutsättningar**
 --- | --- | ---
-*.portal.azure.com | Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
+*.portal.azure.com | Gäller för Azure-Global. Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
+*. portal.azure.us | Gäller endast för Azure Government. Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Används för att hämta PowerShell-modulen vCenter PowerCLI. | Åtkomst till URL: er som är valfritt.<br/><br/> Kravkontrollen misslyckas inte.<br/><br/> Installation av automatiska modulen på VM-insamlaren misslyckas. Du måste installera modulen manuellt.
 
 

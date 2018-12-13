@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect-synkronisering: ändra Azure AD Connect Sync-tjänstkonto | Microsoft Docs'
+title: 'Azure AD Connect-synkronisering:  Ändra Azure AD Connect Sync-tjänstkonto | Microsoft Docs'
 description: Det här avsnittet dokumentet beskriver krypteringsnyckeln och hur du lämna den när lösenordet har ändrats.
 services: active-directory
 keywords: Azure AD sync-tjänstkontot, lösenord
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a0cdaa54d0da58a02cbe9fcda36cbaff6b1fab4a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747260"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184907"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Ändra Azure AD Connect sync tjänstkontolösenord
 Om du ändrar Azure AD Connect sync tjänstkontolösenord kan synkroniseringstjänsten inte kan starta korrekt förrän du har avbrutit krypteringsnyckeln och initierats om Azure AD Connect sync tjänstkontolösenord. 
@@ -39,12 +39,12 @@ Först måste du ändra lösenordet under Windows Service Control Manager.  Till
 
 
 - Om du försöker starta synkroniseringstjänsten i Windows Service Control Manager du får felet ”**Windows kunde inte starta tjänsten Microsoft Azure AD Sync på lokal dator**”. **Fel 1069: Tjänsten kunde inte startas på grund av ett inloggningsfel.** "
-- Under Windows Loggboken, systemhändelseloggen innehåller ett fel med **händelse-ID 7038** och meddelandet ”**ADSync-tjänsten kunde inte logga in precis som med aktuellt konfigurerat lösenord på grund av följande fel: användaren namn eller lösenordet är felaktigt.** "
+- Under Windows Loggboken, systemhändelseloggen innehåller ett fel med **händelse-ID 7038** och meddelandet ”**ADSync-tjänsten kunde inte logga in precis som med aktuellt konfigurerat lösenord på grund av följande fel: Användarnamnet eller lösenordet är felaktigt.** "
 
 Dessutom vissa villkor, kan om lösenordet uppdateras, synkroniseringstjänsten inte längre hämta krypteringsnyckeln via DPAPI. Synkroniseringstjänsten kan inte dekryptera de lösenord som krävs för att synkronisera till och från lokala AD och Azure AD utan krypteringsnyckeln.
 Du ser fel som:
 
-- Under Windows Service Control Manager om du försöker starta synkroniseringstjänsten och det går inte att hämta krypteringsnyckeln misslyckas med felet ”**Windows kunde inte starta Microsoft Azure AD Sync på den lokala datorn.** Granska systemhändelseloggen för mer information. **Om detta är en icke-Microsoft-tjänst Kontakta leverantören för tjänsten och tjänstspecifika felkoden \*\*-21451857952**\*\*.”
+- Under Windows Service Control Manager om du försöker starta synkroniseringstjänsten och det går inte att hämta krypteringsnyckeln misslyckas med felet ”<strong>Windows kunde inte starta Microsoft Azure AD Sync på lokal dator. Granska systemhändelseloggen för mer information. Om det är en icke-Microsoft-tjänst kan kontakta leverantören för tjänsten och referera till tjänstspecifik felkod-21451857952</strong>”.
 - Under Windows Loggboken, programmets händelselogg innehåller ett fel med **händelse-ID 6028** och felmeddelande *”**server-krypteringsnyckeln kan inte nås.**”*
 
 För att säkerställa att du inte får de här felen, följer du procedurerna i [avbryts krypteringsnyckeln Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) när du ändrar lösenordet.

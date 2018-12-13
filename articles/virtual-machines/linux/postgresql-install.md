@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: zarhoads
-ms.openlocfilehash: dc7bb0eab9004b9c818a4a7cbbf6102f01b24f45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e794c191737f14fb06351e345f70edb9f7cddb7c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465239"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322064"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installera och konfigurera PostgreSQL på Azure
 PostgreSQL är en avancerad databas för öppen källkod liknar Oracle och DB2. Den innehåller företagsklara funktioner, till exempel fullständig ACID efterlevnad, tillförlitlig transaktionsbearbetning och flera versioner samtidighetskontroll. Det stöder även standarder som ANSI SQL och SQL/MED (inklusive externa data omslutningar för Oracle, MySQL, MongoDB och många andra). Det är mycket utökningsbart med stöd för över 12 procedurmässig språk, GIN och GiST index, stöd för spatialdata och flera NoSQL-liknande funktioner för JSON eller nyckel-värde-baserade program.
@@ -76,7 +76,7 @@ Ansluta till Linux-dator som du skapade via PuTTY. Om detta är första gången 
 ## <a name="configure-postgresql"></a>Konfigurera PostgreSQL
 1. (Valfritt) Skapa en symbolisk länk för att förkorta PostgreSQL-referens för att inte inkludera versionsnumret:
    
-        # ln -s /opt/pgsql9.3.5 /opt/pgsql
+        # ln -s /opt/postgresql-9.3.5 /opt/pgsql
 2. Skapa en katalog för databasen:
    
         # mkdir -p /opt/pgsql_data
@@ -119,6 +119,7 @@ Ansluta till Linux-dator som du skapade via PuTTY. Om detta är första gången 
 7. Du kan också kontrollera PostgreSQL-version:
    
         $ psql -V
+
 8. Initiera databasen:
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W

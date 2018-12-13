@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: fe854c6a33a950f9f937118b6048d547f1a2fe37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 63eb5f39d5ac8ba6c92a2b500766bc538959595c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245774"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274198"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrera Azure aviseringar för av hanteringshändelser till aktivitetsloggsaviseringar
 
@@ -92,18 +92,18 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 
 Varje avisering avgränsas med en streckad linje och informationen innehåller resurs-ID för aviseringen och den specifika regeln som övervakas.
 
-Den här funktionen har övergått till [Azure Monitor Aktivitetsloggaviseringar](monitoring-activity-log-alerts.md). Dessa nya aviseringar kan du ange ett villkor för aktivitetslogghändelserna och får en avisering när en ny händelse matchar villkoret. De erbjuder även flera förbättringar från aviseringar för av hanteringshändelser:
-* Du kan återanvända gruppen med meddelandemottagare (”åtgärder”) mellan många aviseringar med hjälp av [åtgärdsgrupper](monitoring-action-groups.md), vilket minskar komplexiteten med att ändra vem som ska få en avisering.
+Den här funktionen har övergått till [Azure Monitor Aktivitetsloggaviseringar](../azure-monitor/platform/activity-log-alerts.md). Dessa nya aviseringar kan du ange ett villkor för aktivitetslogghändelserna och får en avisering när en ny händelse matchar villkoret. De erbjuder även flera förbättringar från aviseringar för av hanteringshändelser:
+* Du kan återanvända gruppen med meddelandemottagare (”åtgärder”) mellan många aviseringar med hjälp av [åtgärdsgrupper](../azure-monitor/platform/action-groups.md), vilket minskar komplexiteten med att ändra vem som ska få en avisering.
 * Du kan ta emot ett meddelande direkt på din telefon med SMS med åtgärdsgrupper.
-* Du kan [skapa aviseringar för aktivitetsloggar med Resource Manager-mallar](alert-activity-log.md).
+* Du kan [skapa aviseringar för aktivitetsloggar med Resource Manager-mallar](../azure-monitor/platform/alerts-activity-log.md).
 * Du kan skapa villkor med större flexibilitet och komplexiteten för att uppfylla dina specifika behov.
 * Meddelanden levereras snabbare.
  
 ## <a name="how-to-migrate"></a>Så här migrerar du
  
 Om du vill skapa en ny aktivitet Log avisering, kan du antingen:
-* Följ [vår guide om hur du skapar en avisering i Azure portal](monitoring-activity-log-alerts.md)
-* Lär dig hur du [skapar en avisering med en Resource Manager-mall](alert-activity-log.md)
+* Följ [vår guide om hur du skapar en avisering i Azure portal](../azure-monitor/platform/activity-log-alerts.md)
+* Lär dig hur du [skapar en avisering med en Resource Manager-mall](../azure-monitor/platform/alerts-activity-log.md)
  
 Aviseringar för av hanteringshändelser som du tidigare har skapat flyttas inte automatiskt till Aktivitetsloggaviseringar. Du behöver använda föregående PowerShell-skriptet för att visa aviseringar för av hanteringshändelser att du har konfigurerat och manuellt återskapa dem som Aktivitetsloggaviseringar. Detta måste göras före 1 oktober efter aviseringar för av hanteringshändelser kommer inte längre att visas i din Azure-prenumeration. Andra typer av Azure-aviseringar, inklusive Azure Monitor måttaviseringar, Application Insights-aviseringar och Log Analytics-aviseringar påverkas inte av den här ändringen. Om du har några frågor kan du publicera i kommentarerna nedan.
 
@@ -111,8 +111,8 @@ Aviseringar för av hanteringshändelser som du tidigare har skapat flyttas inte
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [aktivitetsloggen](monitoring-overview-activity-logs.md)
-* Konfigurera [Aktivitetsloggaviseringar via Azure-portalen](monitoring-activity-log-alerts.md)
-* Konfigurera [Aktivitetsloggaviseringar via Resource Manager](alert-activity-log.md)
-* Granska den [avisering webhook för aktivitetslogg](monitoring-activity-log-alerts-webhook.md)
+* Konfigurera [Aktivitetsloggaviseringar via Azure-portalen](../azure-monitor/platform/activity-log-alerts.md)
+* Konfigurera [Aktivitetsloggaviseringar via Resource Manager](../azure-monitor/platform/alerts-activity-log.md)
+* Granska den [avisering webhook för aktivitetslogg](../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Läs mer om [tjänstmeddelanden](monitoring-service-notifications.md)
-* Läs mer om [åtgärdsgrupper](monitoring-action-groups.md)
+* Läs mer om [åtgärdsgrupper](../azure-monitor/platform/action-groups.md)

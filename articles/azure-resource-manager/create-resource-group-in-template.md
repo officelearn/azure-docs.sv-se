@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 87f81c6b6568cd63eaf10840043511669d634062
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: b92790161ae9ad9b56400429677ab0fdd6d552e9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079339"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316241"
 ---
 # <a name="create-resource-groups-in-azure-resource-manager-templates"></a>Skapa resursgrupper i Azure Resource Manager-mallar
 
@@ -24,7 +24,7 @@ Om du vill skapa en resursgrupp i en Azure Resource Manager-mall definierar en *
 
 Du kan också distribuera resurser till resursgruppen i samma mall.
 
-Den här artikeln använder Azure CLI och PowerShell för att distribuera mallarna.
+Den här artikeln använder Azure CLI och PowerShell för att distribuera mallarna. Du kan inte använda portalen för att distribuera mallarna eftersom portalgränssnittet distribuerar till resursgrupp, inte Azure-prenumeration.
 
 ## <a name="create-empty-resource-group"></a>Skapa tom resursgrupp
 

@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 2965f9fcedba55536ef25469975679bffe27b4e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 88d2633a107f36c7c0eab8803a3b6ea10e067506
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102664"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166548"
 ---
-# <a name="age-entity"></a>Entitet för ålder
+# <a name="age-prebuilt-entity-for-a-luis-app"></a>Ålder fördefinierade entitet för en LUIS-app
 Entiteten fördefinierade ålder samlar in värdet för ålder både numeriskt och när det gäller dagar, veckor, månader och år. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller ålder till programmet avsikter. Ålder-entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-age"></a>Typer av ålder
-Ålder hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) Github-lagringsplats
+Ålder hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) GitHub-lagringsplats
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Lösning för fördefinierade ålder entitet
 I följande exempel visas av lösningen på den **builtin.age** entitet.

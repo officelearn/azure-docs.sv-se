@@ -7,34 +7,33 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: 2261b8fa496beaf2a14c9b949047b6a5cbc6ea32
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292500"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253212"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
-Den här artikeln visar hur du laddar upp en video med Azure Video Indexer. Video Indexer-API:t innehåller två alternativ för uppladdning: 
+När du laddar upp videor med Video Indexer API, har du två alternativ för uppladdning: 
 
 * ladda upp videon från en URL (rekommenderas),
 * skicka videofilen som en bytematris i begärandetexten,
 * Använd befintliga Azure Media Services-tillgångar genom att tillhandahålla [tillgångs-id](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (stöds i endast betalda konton).
 
-Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)-API:t för att ladda upp och indexera videor baserat på en URL. Kodexemplet i artikeln innehåller den kommenterade koden som visar hur du laddar upp bytematrisen.  
+Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)-API:t för att ladda upp och indexera videor baserat på en URL. Kodexemplet i artikeln innehåller den kommenterade koden som visar hur du laddar upp bytematrisen. <br/>Artikeln beskriver också några av de parametrar du kan ange i API:t för att ändra API:ts process och utdata.
 
-Artikeln beskriver också några av de parametrar du kan ange i API:t för att ändra API:ts process och utdata.
-
-> [!Note]
-> När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). <br/>Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
+När din video har laddats upp, kodar Video Indexer kan du kan också videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
 
 ## <a name="uploading-considerations"></a>Att tänka på gällande uppladdning
     
 - När du laddar upp videon baserat på URL:en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
-- Alternativet för bytematris är begränsat till 2 GB och tidsgränsen uppnås efter 30 min
+- Överföringsstorlek med URL: er är begränsad till 10GB
+- Överföringsstorlek med alternativet byte-matrisen är begränsat till 2GB 
+- Alternativet byte-matris på grund av timeout efter 30 min
 - URL:en som anges i parametern `videoURL` måste kodas
 
 > [!Tip]
@@ -91,7 +90,7 @@ Priset beror på det valda indexeringsalternativet.
 
 ### <a name="priority"></a>prioritet
 
-Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg**, **Normal** (standard), och **Hög**.
+Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg**, **Normal** (standard), och **hög**.
 
 **Prioritet**-parametern stöds endast för betalda konton.
 

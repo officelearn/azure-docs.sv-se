@@ -3,22 +3,21 @@ title: Exportera och ta bort dina data från Machine Learning Studio – Azure |
 description: 'I produkten data som lagras av Azure Machine Learning Studio är tillgängliga för export eller tas bort via Azure-portalen och även via autentiserade REST API: er. Dessa data kan nås via Azure sekretess-portalen. Den här artikeln visar hur du gör.'
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 04b26dc9ad9f4b7a4feb03039d92854385d75465
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e69883022937ccb4ad0f83f144afef0b5b1e0e56
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262384"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276272"
 ---
-# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>Exportera och ta bort i produkten användardata från Machine Learning Studio
+# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportera och ta bort i produkten användardata från Azure Machine Learning Studio
 
 Du kan ta bort eller export-produktdata som lagras av Azure Machine Learning Studio med hjälp av Azure portal, gränssnittet Studio, PowerShell, och autentiserade REST API: er. Den här artikeln visar hur du gör. 
 
@@ -33,8 +32,8 @@ Dessa data kan nås via sekretess för Azure-portalen.
 Användardata består av information om användare som har behörighet att komma åt arbetsytor och telemetri poster i användarinteraktioner med tjänsten för den här tjänsten.
 
 Det finns två typer av användardata i Machine Learning Studio:
-- **Personligt kontodata:** konto-ID och e-postadresser som är associerad med ett konto.
-- **Kundinformation:** som användes för att analysera Data.
+- **Personligt kontodata:** Account ID: N och e-postadresser som är associerad med ett konto.
+- **Kundinformation:** Data som du laddade upp för att analysera.
 
 ## <a name="studio-account-types-and-how-data-is-stored"></a>Studio-kontotyper och hur data lagras
 
@@ -65,7 +64,7 @@ Användare kan ta bort tillgångar i en arbetsyta genom att markera dem och seda
 ### <a name="delete-an-entire-workspace"></a>Ta bort en hel arbetsyta
 
 Användare kan också ta bort hela arbetsytan:
-- Betald arbetsyta: ta bort via Azure portal.
+- Betalda arbetsyta: Ta bort via Azure portal.
 - Kostnadsfri arbetsyta: Använd knappen Ta bort i den **inställningar** fönstret.
 
 ![Ta bort en kostnadsfri arbetsyta i Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)

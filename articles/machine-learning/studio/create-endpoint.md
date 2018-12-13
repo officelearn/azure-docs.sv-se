@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: ac4eb79d3b1505472113189a9e2b234212755244
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077111"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275898"
 ---
-# <a name="creating-endpoints-for-deployed-web-services"></a>Skapa slutpunkter för distribuerade webbtjänster
+# <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Skapa slutpunkter för distribuerade Azure Machine Learning Studio-webbtjänster
 > [!NOTE]
 >  Det här avsnittet beskrivs tekniker som kan användas till en **klassiska** Machine Learning-webbtjänster.
 > 
@@ -33,7 +32,7 @@ När du skapar webbtjänster som du säljer framåt till dina kunder kan behöva
 
 För att åstadkomma detta kan Azure Machine Learning Studio du skapa flera slutpunkter för en distribuerad webbtjänst. Varje slutpunkt i webbtjänsten är oberoende av varandra åtgärdas, begränsas och hanteras. Varje slutpunkt är en unik URL och auktoriseringsnyckeln som du kan distribuera till dina kunder.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="adding-endpoints-to-a-web-service"></a>Lägga till slutpunkter till en webbtjänst
 Det finns två sätt att lägga till en slutpunkt i en webbtjänst.

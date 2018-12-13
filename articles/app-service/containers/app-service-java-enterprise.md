@@ -1,5 +1,5 @@
 ---
-title: Java Enterprise support för Azure App Service i Linux | Microsoft Docs
+title: Java Enterprise support på Linux – Azure App Service | Microsoft Docs
 description: Utvecklarens guide till att distribuera Java Enterprise-appar med Wildfly med Azure App Service i Linux.
 keywords: Azure apptjänst, webbapp, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: b632ef49f49768c86b7a7ce2efc601f036532a29
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: e473326e9f337bfb2fd1202bc3b76e468dd6015e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017594"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315085"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java företagens guide för App Service på Linux
 
@@ -81,7 +82,7 @@ Följ samma process som beskrivs ovan i avsnittet Installera moduler och beroend
 2. Följ stegen disposition i ”moduler och beroenden” kan skapa och överföra din XML-modulen descriptor JBoss CLI-skript, startskript och JDBC .jar-beroendet.
 
 
-Mer information om hur du konfigurerar Wildfly med [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://dev.mysql.com/doc/connector-j/5.1/connector-j-usagenotes-jboss.html), och [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) är tillgänglig. Du kan använda dessa anpassade anvisningar tillsammans med den generaliserade metoden ovan för att lägga till definitioner av datakällor i din server.
+Mer information om hur du konfigurerar Wildfly med [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), och [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) är tillgänglig. Du kan använda dessa anpassade anvisningar tillsammans med den generaliserade metoden ovan för att lägga till definitioner av datakällor i din server.
 
 ## <a name="messaging-providers"></a>Leverantörer av meddelanden
 

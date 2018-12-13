@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Hybrid Azure Active Directory-anslutningsenheter | Microsoft Docs
-description: Lär dig att konfigurera Hybrid Azure Active Directory-anslutningsenheter.
+description: Lär dig att konfigurera anslutna Azure Active Directory-hybridenheter.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e273568a04ec2a3758684025acf8034b8e788627
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871361"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274572"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hur du planerar din hybrid Azure Active Directory join-implementering
 
@@ -112,7 +112,6 @@ Om din organisation kräver Internetåtkomst via en autentiserad proxyserver fö
 
 Hybrid Azure AD-anslutning är en process för att automatiskt registrera dina lokala domänanslutna enheter med Azure AD. Det finns fall där du inte vill att alla dina enheter att registrera automatiskt. Om det här gäller för dig, se [hur du styr hybrid Azure AD-anslutning av dina enheter](hybrid-azuread-join-control.md).
 
-
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Läs om hur du styr hybrid Azure AD-anslutning av dina enheter
 
 Hybrid Azure AD-anslutning är en process för att automatiskt registrera dina lokala domänanslutna enheter med Azure AD. Det finns fall där du inte vill att alla dina enheter att registrera automatiskt. Det här är för exempel SANT under den inledande distributionen för att kontrollera att allt fungerar som förväntat.
@@ -134,7 +133,7 @@ Om din miljö har hanterade domäner, stöder hybrid Azure AD-anslutning:
 
 - Lösenordets Hash-synkronisering (PHS)
 
-Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för konfiguration av Hybrid Azure AD-anslutning. Med guiden kan du förenkla konfigurationsprocessen avsevärt. Mer information finns i:
+Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för att konfigurera Hybrid Azure AD-koppling. Med guiden kan du förenkla konfigurationsprocessen avsevärt. Mer information finns i:
 
 - [Konfigurera Azure Active Directory Join-hybrid för federerade domäner](hybrid-azuread-join-federated-domains.md)
 
@@ -145,7 +144,22 @@ Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för 
  Om du installerar den nödvändiga versionen av Azure AD Connect inte är ett alternativ för dig, se [hur du manuellt konfigurera enhetsregistrering](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Stöd för alternativ inloggnings-Id i Hybrid Azure AD-anslutning
 
+Windows 10 Hybrid Azure AD-anslutning har begränsat stöd för [alternativa inloggnings-ID: N](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) baserat på vilken typ av alternativa inloggnings-id, [autentiseringsmetod](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), typ och version av Windows 10. Det finns två typ av alternativa inloggnings-ID som kan finnas i din miljö.
+
+ - Dirigerbara alternativa inloggnings-id: En dirigerbara alternativa inloggnings-id har en giltig verifierad domän som har registrerats hos en domänregistrator. Till exempel om den primära domänen är contoso.com contoso.org och contoso.co.uk är giltiga domän som ägs av Contoso och [verifierats i Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ 
+ - Icke-dirigerbara alternativa inloggnings-id: En icke-dirigerbara alternativa inloggnings-id har inte en verifierad domän. Det gäller endast inom din organisations privata nätverk. Till exempel om den primära domänen är contoso.com contoso.local är inte en verifierbar domän i internet men används i Contoso-nätverket.
+ 
+Tabellen nedan innehåller information om stöd för något av dessa alternativ inloggnings-ID: n i Windows 10-Hybrid Azure AD-anslutning
+
+|Typ av alternativa inloggnings-id|Domäntyp|Windows 10-version|Beskrivning|
+|-----|-----|-----|-----|
+|Dirigerbara|Federerad |Från version 1703|Allmänt tillgänglig|
+|Dirigerbara|Hanterad|Från version 1709|För tillfället i privat förhandsvisning. Azure AD SSPR stöds inte |
+|Icke-dirigerbara|Federerad|Från version 1803|Allmänt tillgänglig|
+|Icke-dirigerbara|Hanterad|Stöds inte||
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Använd ett överfört SSL-certifikat i programkoden i Azure App Service | Microsoft Docs
+title: Använd SSL-klientcertifikat i programkod – Azure App Service | Microsoft Docs
 description: ''
 services: app-service\web
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
-ms.openlocfilehash: 87c9cd5955dda1a379733e5ad48d58f8361f0e6b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.custom: seodec18
+ms.openlocfilehash: 8041d86e21f464e1dee4fba543be7d2c54c10367
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051484"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254334"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Använda ett SSL-certifikat i programkoden i Azure App Service
 
@@ -55,7 +56,7 @@ Lägg till en app som heter `WEBSITE_LOAD_CERTIFICATES` och ange värdet till tu
 
 ![Konfigurera app-inställning](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 
-När du är klar klickar du på **spara**.
+När det är klart klickar du på **Spara**.
 
 Det konfigurerade certifikatet är nu redo att användas av din kod.
 

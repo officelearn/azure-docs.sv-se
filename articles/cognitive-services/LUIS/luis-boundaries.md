@@ -8,17 +8,17 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6f2f69fc746da049e8e48f870fc0e03ffd8ee1a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 716c6b67676bb3421fd5dbd0274ed41c7705c676
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078947"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133527"
 ---
-# <a name="luis-boundaries"></a>LUIS gränser
+# <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för LUIS-modell och nycklar
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
 
 
@@ -32,7 +32,7 @@ LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundari
 | Explicit lista | 50 per program|
 | **[Hierarkisk](./luis-concept-entity-types.md) |100 med upp till 10 underordnade |
 | [Avsikter][intents]|500 per program<br>[Dispatch-baserade](https://aka.ms/dispatch-tool) programmet har motsvarande 500 dispatch-källor|
-| [Lista över entiteter](./luis-concept-entity-types.md) | Överordnad: 50, underordnad: 20 000 objekt. Kanoniskt namn är * maximalt antal tecken som standard. Synonymen värden har ingen begränsning av lösenordslängd. |
+| [Lista över entiteter](./luis-concept-entity-types.md) | Överordnad: 50, underordnade: 20 000 objekt. Kanoniskt namn är * maximalt antal tecken som standard. Synonymen värden har ingen begränsning av lösenordslängd. |
 | [Mönster](luis-concept-patterns.md)|500 mönster per program.<br>Maximal längd på mönstret är 400 tecken.<br>3 Pattern.any entiteter per mönster<br>Högst 2 kapslade valfritt texter i mönstret|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per program, 3 pattern.any entiteter per mönster |
 | [Fras lista][phrase-list]|10 fras listor, 5 000 poster per|

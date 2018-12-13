@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: MT
+ms.openlocfilehash: ca844c89b657bc3286f3472af3acbf937ef1e20f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407562"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891069"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
@@ -345,8 +345,8 @@ Lösningen har stöd för Azure Event Grid, en enskild tjänst för att hantera 
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [Loggning är aktiverat](/azure/machine-learning/studio/web-services-logging) för Machine Learning Studio-webbtjänster.
-- med hjälp av [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench kräver utvecklingen av experiment, som gör möjligheten att förutsäga till en uppsättning av lösningen. [Integrera workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) kan hjälpa till att effektivisera hantering av experiment.
+- [Loggning är aktiverat](/azure/machine-learning/studio/web-services-logging) för Machine Learning Studio-webbtjänster.
+- Med hjälp av [Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio) kräver utvecklingen av experiment som ger möjlighet att förutsäga till en uppsättning av lösningen.
 
 ## <a name="security"></a>SÄKERHET
 

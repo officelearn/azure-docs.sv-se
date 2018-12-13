@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fa2c34168423796a82f274db1b60b45ac10b5501
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979139"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888672"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric-nät terminologi
 
@@ -32,7 +32,7 @@ Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utv
 
 **Programmet**: nät till ett Service Fabric-program är Faktureringsenhet distribution, versionshantering och livslängden för en nät-programmet. Livscykeln för varje programinstans kan hanteras oberoende av varandra.  Program består av en eller flera kodpaket och inställningar. Ett program har definierats med hjälp av Azure Resource Model (RM)-schemat.  Services beskrivs som egenskaper för programresurs i en RM-mall.  Nätverk och volymer som används av programmet refereras av programmet.  När du skapar ett program, modelleras program, tjänster, nätverk och volymer med Service Fabric-Resursmodell.
 
-**Tjänsten**: en tjänst i ett program som representerar en mikrotjänst och utför en fullständig och fristående funktion. Varje tjänst består av en eller flera, kodpaket som beskriver allt som behövs för att köra den behållaravbildning som är associerade med kodpaketet.  Antal tjänster i ett program kan skalas upp och ned.
+**Tjänsten**: en tjänst i ett program som representerar en mikrotjänst och utför en fullständig och fristående funktion. Varje tjänst består av en eller flera, kodpaket som beskriver allt som behövs för att köra den behållaravbildning som är associerade med kodpaketet.  Antalet repliker för tjänsten i ett program kan skalas in och ut.
 
 **Kodpaketet**: kodpaket beskriva allt som behövs för att köra den behållaravbildning som är associerade med kodpaketet, inklusive följande:
 

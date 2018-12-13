@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: b310c06f508395635976009005dd2c4db2917abc
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218754"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868352"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zonredundant lagring (ZRS): Azure Storage-program med hög tillgänglighet
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -81,7 +81,7 @@ Du kan begära Direktmigrering via den [Support för Azure-portalen](https://ms.
     - **Problemtyp**: Välj **datamigrering**.
     - **Kategori**: Välj **migrera till ZRS inom en region**.
     - **Rubrik**: Ange en beskrivande rubrik, till exempel **ZRS konto migrering**.
-    - **Information om**: skriver du ytterligare information i den **information** box, till exempel jag skulle vilja migrera till ZRS från [LRS, GRS] i regionen ___. 
+    - **Information om**: skriver du ytterligare information i den **information** box, till exempel jag skulle vilja migrera till ZRS från [LRS, GRS] i den \_ \_ region. 
 5. Välj **Nästa**.
 6. Kontrollera att kontaktinformationen är korrekt på den **kontaktinformation** bladet.
 7. Välj **Skapa**.

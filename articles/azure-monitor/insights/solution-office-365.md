@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 80a5b49d27ffc2b75cc9a1092a4d9f17e09bef24
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 1e819f819561c5fac722ca6954a10d80a482b5cd
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848875"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889369"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -41,7 +41,7 @@ Följande krävs innan den här lösningen som den installeras och konfigureras.
  
 
 ## <a name="management-packs"></a>Hanteringspaket
-Den här lösningen installerar inte alla hanteringspaket i [anslutna hanteringsgrupper](../../log-analytics/log-analytics-om-agents.md).
+Den här lösningen installerar inte alla hanteringspaket i [anslutna hanteringsgrupper](../../azure-monitor/platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Installera och konfigurera
 Starta genom att lägga till den [Office 365-lösningen till din prenumeration](solutions.md#install-a-management-solution). När den har lagts till, måste du utföra konfigurationsstegen i det här avsnittet för att ge åtkomst till din Office 365-prenumeration.

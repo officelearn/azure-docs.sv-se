@@ -1,7 +1,7 @@
 ---
 title: Vanliga frågor och svar – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Lista över vanliga frågor och svar för QnA Maker-tjänsten
+description: Currated lista över vanliga frågor för QnA Maker-tjänsten hjälper dig att använda tjänsten snabbare och bättre resultat.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,14 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 28153e71ba6f2336398517454a81cfce39b93956
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: 529c130f5694856f99f5d49e5b2f3628a4c3818f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496345"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075003"
 ---
-# <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+# <a name="frequently-asked-questions-for-qna-maker"></a>Vanliga frågor om QnA Maker
+
+Currated lista över vanliga frågor för QnA Maker-tjänsten hjälper dig att använda tjänsten snabbare och bättre resultat.
 
 ## <a name="manage-the-knowledge-base"></a>Hantera kunskapsbasen
 

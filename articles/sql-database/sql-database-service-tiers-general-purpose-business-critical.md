@@ -11,15 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 11/30/2018
+ms.openlocfilehash: 7de4415dd332254c595b6687dfb9d8db01c42362
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351750"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871724"
 ---
-# <a name="general-purpose-and-business-critical-service-tiers"></a>Allmänt syfte och affärskritisk-tjänstnivåer
+# <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-tjänstnivåer
+
+Azure SQL Database är baserad på SQL Server Database Engine-arkitektur som justeras för molnmiljön för att säkerställa 99,99% tillgänglighet även i fall av infrastrukturfel. Det finns tre arkitekturmodeller som används i Azure SQL Database:
+- [Generella](sql-database-service-tier-general-purpose.md) utformad för de flesta av de allmänna arbetsbelastningarna.
+- [Alternativet affärskritisk](sql-database-service-tier-business-critical.md) utformad för arbetsbelastningar med låg latens med en läsbar replik som helst.
+- [Hyperskala](sql-database-service-tier-hyperscale.md) utformat för mycket stora databaser (upp till 100 TB) med flera läsbara repliker.
 
 Den här artikeln beskrivs överväganden för lagring och säkerhetskopiering för generell användning och affärskritisk-tjänstnivåer i den vCore-baserade inköpsmodellen.
 

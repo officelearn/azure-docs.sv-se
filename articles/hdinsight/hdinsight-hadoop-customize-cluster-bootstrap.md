@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: bfa36cfeda514be0941481b0e4ed5ab9b3669b54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2da89e674b967287150b2e8f3a98fc25df2af81e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238105"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878275"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med Bootstrap
 
@@ -50,7 +50,7 @@ Information om hur du installerar ytterligare komponenter på HDInsight-kluster 
 * [Anpassa HDInsight-kluster med skriptåtgärd (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## <a name="use-azure-powershell"></a>Använda Azure PowerShell
-Följande PowerShell-kod anpassar en Hive-konfiguration:
+Följande PowerShell-kod anpassar en [Apache Hive](https://hive.apache.org/) konfiguration:
 
 ```powershell
 # hive-site.xml configuration
@@ -128,11 +128,11 @@ Du kan använda bootstrap i Resource Manager-mall:
 ![HDInsight Hadoop anpassar kluster bootstrap Azure Resource Manager-mall](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Se också
-* [Skapa Hadoop-kluster i HDInsight] [ hdinsight-provision-cluster] innehåller instruktioner om hur du skapar ett HDInsight-kluster med hjälp av andra anpassade alternativ.
+* [Skapa Apache Hadoop-kluster i HDInsight] [ hdinsight-provision-cluster] innehåller instruktioner om hur du skapar ett HDInsight-kluster med hjälp av andra anpassade alternativ.
 * [Utveckla skriptåtgärder skript för HDInsight][hdinsight-write-script]
-* [Installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]
-* [Installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md).
-* [Installera och använda Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md).
+* [Installera och använda Apache Spark på HDInsight-kluster][hdinsight-install-spark]
+* [Installera och använda Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md).
+* [Installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md

@@ -3,7 +3,7 @@ title: Komma igång med elastic database-jobb | Microsoft Docs
 description: Använd elastic database-jobb för att köra T-SQL-skript som sträcker sig över flera databaser.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,27 +12,27 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241369"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863541"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Komma igång med Elastic Database-jobb
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 Elastic Database-jobb (förhandsversion) för Azure SQL Database kan du tillförlitligt köra T-SQL-skript som sträcker sig över flera databaser samtidigt som du försöker igen och ge garantier för slutlig slutförande automatiskt. Mer information om funktionen för Elastic Database-jobb finns i [elastiska jobb](sql-database-elastic-jobs-overview.md).
 
 Den här artikeln utökar exemplet finns i [komma igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md). När du är klar kan du se hur du skapar och hanterar jobb som hanterar en grupp med relaterade databaser. Du behöver inte använda verktyg för elastisk skalning för att kunna dra nytta av fördelarna med elastiska jobb.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 Ladda ned och kör den [komma igång med Elastic Database-verktyg exempel](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Skapa en shard kartan manager med hjälp av exempelappen
+
 Här skapa du en skärvkarta manager tillsammans med flera shards, följt av inmatningen av data i shards. Om du redan har shards som konfigurerats med shardade data i dem kan du hoppa över följande steg och flytta till nästa avsnitt.
 
 1. Skapa och köra den **komma igång med elastiska Databasverktyg** exempelprogrammet. Följ stegen tills steg 7 i avsnittet [ladda ned och kör exempelappen](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). I slutet av steg 7 Se följande kommandotolk:
@@ -48,8 +48,9 @@ Här skapa du en skärvkarta manager tillsammans med flera shards, följt av inm
 
 Här vi vanligtvis skulle skapa en skärvkarta mål med hjälp av den **New AzureSqlJobTarget** cmdlet. Databasen måste anges som ett mål för databasen och sedan specifika fragmentkartan har angetts som mål. I stället det dags att räkna upp alla databaser på servern och lägga till databaserna till den nya anpassa samlingen med undantag för master-databasen.
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Skapar en anpassad samling och lägger till alla databaser på servern till målet för anpassad insamling med undantag för master.
-   ```
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Skapar en anpassad samling och lägger till alla databaser på servern till målet för anpassad insamling med undantag för master
+
+   ```Powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -301,23 +302,25 @@ Uppdatera önskade körningsprincipen att uppdatera:
    ```
 
 ## <a name="cancel-a-job"></a>Avbryta ett jobb
+
 Elastic Database-jobb har stöd för begäranden för annullering av jobb.  Om elastiska Databasjobb upptäcker en avbrottsbegäran för ett jobb som körs, försöker stoppa jobbet.
 
 Det finns två olika sätt att Elastic Database-jobb kan utföra en uppsägning:
 
 1. Avbryta pågående aktiviteter: om ett avbrott identifieras när en aktivitet körs för närvarande en uppsägning prövas inom körs för närvarande aspekt av aktiviteten.  Till exempel: om det finns en tidskrävande fråga som för närvarande utförs när en uppsägning görs, det är ett försök att avbryta frågan.
-2. Annullerad omförsök: Om ett avbrott identifieras av kontroll tråden innan en aktivitet startas för körning, kontroll tråden undviker starta uppgiften och deklarera begäran som har avbrutits.
+2. Annullerad omförsök: Om ett avbrott har identifierats av kontroll tråd innan en aktivitet startas för körning, kontroll-tråd undviker starta uppgiften och försäkrar begäran som har avbrutits.
 
 Om ett jobb avbrott har begärts för ett överordnat jobb, är på avbrottsbegäran användas för det överordnade jobbet och alla dess underordnade jobb.
 
 För att skicka en begäran om annullering, använda den **Stop-AzureSqlJobExecution** cmdleten och ange den **JobExecutionId** parametern.
 
-   ```
+   ```Powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Ta bort ett jobb efter namn och jobbets historik
+
 Elastic Database-jobb har stöd för asynkrona borttagning av jobb. Ett jobb kan markeras för borttagning och systemet tar bort jobbet och alla dess jobbhistorik när alla jobbkörningar har slutfört för projektet. Systemet avbryts inte active jobbkörningar automatiskt.  
 
 Stoppa AzureSqlJobExecution måste i stället anropas om du vill avbryta active jobbkörningar.

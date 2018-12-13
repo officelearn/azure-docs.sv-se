@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 12/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9aa3811eb03d38a4c6ab8203512f3e6699098122
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: MT
+ms.openlocfilehash: 3cc4db387c33388d5692fa25ac26f2b6399cd185
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883643"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879850"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Belastningsutjämnare med TCP-återställning på inaktiv (offentlig förhandsversion)
 
@@ -76,7 +76,17 @@ Den här parametern är giltiga för närvarande i följande regioner.  Paramete
 | Region |
 |---|
 | Sydostasien |
+| Södra Brasilien |
+| Centrala Kanada |
 | Västeuropa |
+| Centrala Indien |
+| Västra Indien |
+| Västra Japan |
+| Sydkorea, centrala |
+| Sydkorea, södra |
+| Storbritannien, norra |
+| Storbritannien, södra 2 |
+| USA, Östra |
 | USA, östra 2 |
 | USA, Norra |
 | USA, Västra |

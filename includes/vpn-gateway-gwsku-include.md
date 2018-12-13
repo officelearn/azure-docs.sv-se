@@ -29,7 +29,7 @@ Den nya VPN-gatewayen SKU: er förenklar funktionsuppsättningarna gateway:
 
 | **SKU**| **Funktioner**|
 | ---    | ---         |
-|**Grundläggande** (*)   | **Ruttbaserad VPN**: 10 tunnlar för S2S-anslutningar, ingen RADIUS-autentisering för P2S, ingen IKEv2 för P2S<br>**Principbaserad VPN**: (IKEv1): 1 S2S-anslutning tunnel; ingen P2S|
+|**Grundläggande** (\*\*)   | **Ruttbaserad VPN**: 10 tunnlar för S2S-anslutningar, ingen RADIUS-autentisering för P2S, ingen IKEv2 för P2S<br>**Principbaserad VPN**: (IKEv1): 1 S2S-anslutning tunnel; ingen P2S|
 | **VpnGw1, VpnGw2 och VpnGw3** | **Ruttbaserad VPN**: upp till 30 tunnlar (*), P2S, BGP, aktiv-aktiv, anpassade IPsec/IKE-principer, ExpressRoute/VPN samexistens |
 |        |             |
 
@@ -44,7 +44,7 @@ På grund av skillnader i serviceavtal och funktioner rekommenderar vi följande
 | **Arbetsbelastning**                       | **SKU: er**               |
 | ---                                | ---                    |
 | **Produktion, kritiska arbetsbelastningar** | VpnGw1 VpnGw2, VpnGw3 |
-| **Utv-test eller konceptbevis**   | Basic (*)                 |
+| **Utv-test eller konceptbevis**   | Basic (\*\*)                 |
 |                                    |                        |
 
 (\*\*) Basic SKU anses vara en äldre SKU och har funktionsbegränsningar. Kontrollera att funktionen som du behöver stöds innan du använder en grundläggande SKU.

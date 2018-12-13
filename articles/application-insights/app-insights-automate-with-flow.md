@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: c53016c6e8760f2fef15c73f460886c46ac8a58c
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b5d64f374152cc537825bd49210c116deec87533
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679213"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870596"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Application Insights processer med anslutningsappen för Microsoft Flow
 
@@ -124,7 +124,7 @@ När flödet körs postmeddelande de mottagare som du har angett i listan över 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om hur du skapar [analysfrågor](../log-analytics/query-language/get-started-queries.md).
+- Läs mer om hur du skapar [analysfrågor](../azure-monitor/log-query/get-started-queries.md).
 - Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 997fdf2e9d5ead836d8e3db89a17aa0321889244
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a2ac309afc6b25f7fdb4667b767ead59cae3b696
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726877"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877328"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
@@ -211,7 +211,7 @@ server.on("listening", () => {
 ## <a name="next-steps"></a>Nästa steg
 
 * [Övervaka din telemetri i portalen](app-insights-dashboards.md)
-* [Skriv Analytics-frågor via din telemetri](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Skriv Analytics-frågor via din telemetri](../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->
 

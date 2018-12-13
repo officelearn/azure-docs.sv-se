@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: cynthn
-ms.openlocfilehash: b9cce5658b705e9d3255d2662b2a0157a2e548c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fdd0c82f64b55c801ef04f1d533ed91683a07f9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409039"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867077"
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Ansluta till och logga in på en virtuell Azure-dator som kör Windows
 Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP) från ett Windows-skrivbord. Du ansluter till den virtuella datorn och sedan du loggar in.
@@ -54,6 +54,21 @@ Om du vill ansluta till en virtuell Windows-dator från en Mac-dator, behöver d
    > 
    > 
 
+## <a name="connect-to-the-virtual-machine-using-powershell"></a>Ansluta till den virtuella datorn med hjälp av PowerShell
+
+Om du använder PowerShell och har installerat AzureRM-modulen kan du också ansluta med hjälp av den `Get-AzureRmRemoteDesktopFile` cmdlet, enligt nedan.
+
+Det här exemplet startas omedelbart RDP-anslutning, som tar dig igenom liknande frågor som ovan.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+```
+
+Du kan också spara RDP-filen för framtida användning.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Om du har svårt att ansluta, se [felsöka fjärrskrivbordsanslutningar](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

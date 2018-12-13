@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5ef7ddc068fea7703dad67b80b96c292bfd26943
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279747"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870715"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
@@ -111,7 +111,7 @@ Följande diagram illustrerar när skriptåtgärd körs när du skapar:
 Skriptet körs medan HDInsight konfigureras. Skriptet körs parallellt på alla angivna noder i klustret och körs med rotprivilegier på noderna.
 
 > [!NOTE]
-> Du kan utföra åtgärder som att stoppa och starta tjänster, inklusive Hadoop-relaterade tjänster. Om du stoppar tjänster måste du kontrollera att tjänsten Ambari och andra Hadoop-relaterade tjänster som körs innan skriptet har slutförts. Dessa tjänster används för att avgöra har hälsotillstånd och status för klustret medan det skapas.
+> Du kan utföra åtgärder som att stoppa och starta tjänster, inklusive Apache Hadoop-relaterade tjänster. Om du stoppar tjänster måste du kontrollera att tjänsten Ambari och andra Hadoop-relaterade tjänster som körs innan skriptet har slutförts. Dessa tjänster används för att avgöra har hälsotillstånd och status för klustret medan det skapas.
 
 
 När du skapar klustret kan du använda flera skriptåtgärder på samma gång. Dessa skript anropas i den ordning som de har angetts.
@@ -168,7 +168,7 @@ Det här avsnittet innehåller exempel på olika sätt du kan använda skriptåt
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Använda en skriptåtgärd när klustret skapas från Azure portal
 
-1. Börja skapa ett kluster, enligt beskrivningen i [skapa Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md). När du skapar klustret du anländer till en __klustersammanfattning__ sidan. Från den __klustersammanfattning__ väljer den __redigera__ länka för __avancerade inställningar__.
+1. Börja skapa ett kluster, enligt beskrivningen i [skapa Apache Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md). När du skapar klustret du anländer till en __klustersammanfattning__ sidan. Från den __klustersammanfattning__ väljer den __redigera__ länka för __avancerade inställningar__.
 
     ![Länken avancerade inställningar](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -402,11 +402,11 @@ Ett exempel på hur du använder .NET SDK för att hämta skript historik från 
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Stöd för öppen källkod-programvara som används i HDInsight-kluster
 
-Microsoft Azure HDInsight-tjänsten använder ett ekosystem med öppen källkod-tekniker som skapats på rätt sätt runt Hadoop. Microsoft Azure tillhandahåller en allmän supportnivå för tekniker med öppen källkod. Mer information finns i den **supportens omfattning** delen av den [stöd för vanliga frågor och svar för Azure-webbplats](https://azure.microsoft.com/support/faq/). Tjänsten HDInsight ger en extra nivå av stöd för inbyggda komponenterna.
+Microsoft Azure HDInsight-tjänsten använder ett ekosystem med öppen källkod-tekniker som skapats på rätt sätt runt Apache Hadoop. Microsoft Azure tillhandahåller en allmän supportnivå för tekniker med öppen källkod. Mer information finns i den **supportens omfattning** delen av den [stöd för vanliga frågor och svar för Azure-webbplats](https://azure.microsoft.com/support/faq/). Tjänsten HDInsight ger en extra nivå av stöd för inbyggda komponenterna.
 
 Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDInsight-tjänsten:
 
-* **Inbyggda komponenterna** -komponenterna är förinstallerade på HDInsight-kluster och tillhandahåller huvudfunktionerna i klustret. Till exempel YARN ResourceManager, Hive-frågespråket (HiveQL) och Mahout-biblioteket som hör till den här kategorin. En fullständig lista över komponenter i serverkluster finns i [Nyheter i Hadoop-klusterversionerna från HDInsight](hdinsight-component-versioning.md).
+* **Inbyggda komponenterna** -komponenterna är förinstallerade på HDInsight-kluster och tillhandahåller huvudfunktionerna i klustret. Till exempel [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager, Hive-frågespråket ([HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)), och [Apache Mahout](https://mahout.apache.org/) bibliotek som tillhör den här kategorin. En fullständig lista över komponenter i serverkluster finns i [Nyheter i Hadoop-klusterversionerna från HDInsight](hdinsight-component-versioning.md).
 * **Anpassade komponenter** -du, som en användare i klustret, kan installera eller använda i din arbetsbelastning någon komponent som är tillgänglig i diskussionsgruppen eller skapats av dig.
 
 > [!WARNING]
@@ -426,7 +426,7 @@ Tjänsten HDInsight finns flera sätt att använda anpassade komponenter. Samma 
 
 Du kan använda Ambari-webbgränssnittet för att visa information som loggas av skriptåtgärder. Om skriptet misslyckas när klustret skapas finns också loggarna standardkontot för lagring som är associerade med klustret. Det här avsnittet innehåller information om hur du hämtar loggarna med båda alternativen.
 
-### <a name="using-the-ambari-web-ui"></a>Med hjälp av Ambari-webbgränssnittet
+### <a name="using-the-apache-ambari-web-ui"></a>Med Apache Ambari-webbgränssnittet
 
 1. Öppna webbläsaren och navigera till https://CLUSTERNAME.azurehdinsight.net. Ersätt CLUSTERNAME med namnet på ditt HDInsight-kluster.
 
@@ -513,8 +513,8 @@ Det finns två undantag:
 ## <a name="next-steps"></a>Nästa steg
 
 * [Utveckla script åtgärd-skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md)
-* [Installera och använda Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md)
+* [Installera och använda Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md)
+* [Installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md)
 * [Lägga till ytterligare lagringsutrymme till ett HDInsight-kluster](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Steg när klustret skapas"

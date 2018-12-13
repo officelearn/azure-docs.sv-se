@@ -14,18 +14,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: ambapat
-ms.openlocfilehash: 23f02f87b75cd41d1a56a388e4526be6d9a2e119
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 67f24bbccdd2dcf5cca09e09557d7ebebd0a5c2d
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682748"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891086"
 ---
 # <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
 Azure Key Vault är en molnbaserad tjänst som skyddar krypteringsnycklar och hemligheter (till exempel certifikat, anslutningssträngar och lösenord). Eftersom dessa data är känsliga och verksamhetskritiska, måste du skydda åtkomsten till dina nyckelvalv, auktoriserade så att endast program och användare. Den här artikeln innehåller en översikt över åtkomstmodellen för Nyckelvalvet. Den förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomst.
 
 ## <a name="overview"></a>Översikt
-Du styr åtkomst till ett nyckelvalv via två separata gränssnitt: den *Hanteringsplanet* och *dataplanet*. En anropare (en användare eller ett program) måste ha korrekt autentisering och auktorisering för att komma åt ett nyckelvalv för båda planen. Autentisering etablerar identiteten hos anroparen, medan auktoriseringen avgör vilka åtgärder anroparen kan utföra.
+Åtkomst till ett nyckelvalv styrs via två separata gränssnitt: hanteringplanet och dataplanet. 
+**Hanteringsplanet** behandlar hantera valvet, till exempel – skapa ett valv, uppdatera ett valv, ta bort ett valv. 
+**Dataplanet** behandlar hemligheter i ett valv som är att skapa, uppdatera, ta bort och läsa en hemlighet i valvet. För båda planen krävs korrekt autentisering och auktorisering innan en anropare (en användare eller ett program) kan få åtkomst till nyckelvalvet. Autentisering etablerar identiteten hos anroparen, medan auktoriseringen avgör vilka åtgärder som anroparen får utföra.
+
+Både hanteringsplanet och dataplanet använder sig av Azure Active Directory för autentisering. För auktorisering använder sig hanteringsplanet av rollbaserad åtkomstkontroll (RBAC) medan dataplanet använder sig av nyckelvalvets åtkomstprincip.
+
+Här är en kort översikt över de ämnen som täcks:
+
+[Autentisering med hjälp av Azure Active Directory](#authentication-using-azure-active-directory) – Det här avsnittet beskriver hur en anropare autentiserar sig med Azure Active Directory för att få åtkomst till ett nyckelvalv via hanteringsplanet och dataplanet. 
 
 För autentisering använder båda planen Azure Active Directory (AD Azure). För auktorisering använder Hanteringsplanet rollbaserad åtkomstkontroll (RBAC) medan dataplanet använder åtkomstprincip för Nyckelvalvet.
 

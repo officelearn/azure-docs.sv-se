@@ -196,7 +196,7 @@ items:
       - name: Använda Azure-portalen
         href: virtual-machine-scale-sets-autoscale-portal.md
       - name: Avancerad automatisk skalning
-        href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
+        href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
     - name: Program i skalningsuppsättningar
       href: virtual-machine-scale-sets-deploy-app.md
     - name: Använda datadiskar med skalningsuppsättningar
@@ -272,9 +272,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: 2b6b47ca021bca978f1a2fca7d9404d11e86024e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cac22fb318ff0695c928b1f24cad1886c2c3d4c5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042283"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323311"

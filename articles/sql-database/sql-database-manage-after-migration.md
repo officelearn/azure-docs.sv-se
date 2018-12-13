@@ -3,7 +3,7 @@ title: Hantera efter migrering – Azure SQL Database | Microsoft Docs
 description: Lär dig mer om att hantera din databas efter migrering till Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e4f70521fbd081f7e26f56f4175656cca61887d1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870986"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890712"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -209,7 +209,7 @@ I det här diagrammet kan du också konfigurera aviseringar efter resurs. Dessa 
 
    ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-- **Azure SQL-analys (förhandsversion) i Log Analytics**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) kan du samla in och visualisera viktiga Azure SQL Azure-prestandamått, stöd för upp till 150 000 SQL-databaser och 5 000 elastiska SQL-pooler per arbetsyta. Du kan använda den för att övervaka och ta emot meddelanden. Du kan övervaka SQL-databas och elastisk pool mått över flera Azure-prenumerationer och elastiska pooler och kan användas för att identifiera problem på varje lager i en programstack.
+- **Azure SQL-analys (förhandsversion) i Log Analytics**: [Azure Log Analytics](../azure-monitor/insights/azure-sql.md) kan du samla in och visualisera viktiga Azure SQL Azure-prestandamått, stöd för upp till 150 000 SQL-databaser och 5 000 elastiska SQL-pooler per arbetsyta. Du kan använda den för att övervaka och ta emot meddelanden. Du kan övervaka SQL-databas och elastisk pool mått över flera Azure-prenumerationer och elastiska pooler och kan användas för att identifiera problem på varje lager i en programstack.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Jag märker prestandaproblem: hur min SQL Database felsökning metod skiljer sig från SQL Server?
 En större del av felsökningsmetoder som du skulle använda för att diagnostisera fråga och prestandaproblem i databasen förblir desamma. När du har alla samma SQL Server Driver motor för molnet. Plattformen, Azure SQL DB har dock inbyggda 'intelligence ”. Det kan du felsöka och diagnostisera prestandaproblem ännu enklare. Det kan också utföra några av dessa åtgärder för din räkning och i vissa fall, åtgärda dem - proaktivt automatiskt. 

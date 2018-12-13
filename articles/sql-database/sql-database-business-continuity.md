@@ -4,7 +4,7 @@ description: Lär dig hur Azure SQL Database stöder databasåterställning och 
 keywords: affärskontinuitet, molnaffärskontinuitet, databashaveriberedskap, databasåterställning
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 9dab136795094350abe29e7d779a22ec1c94ef70
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: MT
+ms.openlocfilehash: c391df27b8ee0d5ceadcd388fffcafe0f756ec40
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986676"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866184"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -28,7 +28,7 @@ Azure SQL Database är en implementering av den senaste stabila SQL Server Datab
 - Angripare är klar att ta bort data eller ta bort en databas.
 - Jordbävning orsakade ett strömavbrott och tillfälligt inaktiverad datacenter.
 
-Dessa fall kan inte styras av Azure SQL Database, så du behöver du använda funktionerna för affärskontinuitet i SQL-databas som hjälper dig att återställa dina data och hålla igång dina program.
+Dessa fall kan inte styras av Azure SQL Database, så skulle du behöva använda funktionerna för affärskontinuitet i SQL-databas som hjälper dig att återställa dina data och hålla igång dina program.
 
 Den här översikten beskriver de funktioner som Azure SQL Database tillhandahåller för affärskontinuitet och haveriberedskap. Läs mer om alternativ, rekommendationer och självstudier för att återställa avbrottshändelser som kan leda till dataförlust eller göra databasen och programmet otillgängliga. Lär dig vad du ska göra när en användare eller ett program fel påverkar dataintegriteten, uppstår ett avbrott i en Azure-region eller ditt program kräver underhåll.
 

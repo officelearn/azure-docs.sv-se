@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 18041c95405614768845399f92efac229db53b20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ff8f5c51f17375208fdb32e521bfc85ee3f0c77
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250738"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880224"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso-migrering: Appvärd på virtuella datorer i Azure och SQL Server AlwaysOn Availability Group på plats
 
@@ -186,7 +186,7 @@ Contoso-administratörer konfigurera klustret enligt följande:
     - De placerar på datorer i produktionsnätverket för USA, ÖSTRA 2 primär region (**VNET-PROD-EUS2**), i databas-undernät (**PROD-DB-EUS2**).
     - De skapar en ny tillgänglighetsuppsättning: **SQLAOGAVSET**, med två feldomäner och fem uppdateringsdomäner.
 
-    ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
+      ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
 
 4. I **SQL Server-inställningar**, SQL-anslutning till det virtuella nätverket (privat) att begränsa på standardporten 1433. För autentisering de använder samma autentiseringsuppgifter som de använder på plats (**contosoadmin**).
 
@@ -235,11 +235,11 @@ Innan du skapar klustret, ta en ögonblicksbild av OS-disken på varje dator i C
 
 ![ögonblicksbild](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
 
-2. Sedan kan de köra ett skript som de har lägger ihop för att skapa Windows-redundanskluster.
+1. Sedan kan de köra ett skript som de har lägger ihop för att skapa Windows-redundanskluster.
 
     ![Skapa kluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster1.png)
 
-3. När de har skapat klustret kan kontrollera de att de virtuella datorerna visas som klusternoder.
+2. När de har skapat klustret kan kontrollera de att de virtuella datorerna visas som klusternoder.
 
      ![Skapa kluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster2.png)
 
@@ -351,7 +351,7 @@ Contoso administratörer konfigurera dessa enligt följande:
     - De använder ett allmänt konto med standardlagring och LRS-replikering.
     - Kontot måste vara i samma region som valvet.
 
-    ![Site Recovery-lagring](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
+      ![Site Recovery-lagring](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
 
 3. Med nätverks- och storage-kontot på plats, de nu skapa ett Recovery Services-valv (**ContosoMigrationVault**), och placera den i den **ContosoFailoverRG** resursgrupp i den primära regionen östra USA 2 .
 
@@ -403,15 +403,15 @@ Contoso vill kunna ansluta till virtuella Azure-datorer efter redundansväxling.
 
 1. För åtkomst via internet de:
 
- - Aktiverar du RDP på den lokala virtuella datorn före redundans
- - Se till att TCP och UDP-regler lagts till för den **offentliga** profil.
- - Kontrollera att RDP tillåts i **Windows-brandväggen** > **tillåtna appar** för alla profiler.
+   - Aktiverar du RDP på den lokala virtuella datorn före redundans
+   - Se till att TCP och UDP-regler lagts till för den **offentliga** profil.
+   - Kontrollera att RDP tillåts i **Windows-brandväggen** > **tillåtna appar** för alla profiler.
  
 2. För åtkomst via plats-till-plats-VPN, de:
 
- - Aktiverar du RDP på den lokala datorn.
- - Tillåt RDP i den **Windows-brandväggen** -> **tillåtna appar och funktioner**, för **domän och privat** nätverk.
- - Ange operativsystemets SAN-princip på den lokala virtuella datorn till **OnlineAll**.
+   - Aktiverar du RDP på den lokala datorn.
+   - Tillåt RDP i den **Windows-brandväggen** -> **tillåtna appar och funktioner**, för **domän och privat** nätverk.
+   - Ange operativsystemets SAN-princip på den lokala virtuella datorn till **OnlineAll**.
 
 Dessutom när de kör en redundans måste de du kontrollera följande:
 

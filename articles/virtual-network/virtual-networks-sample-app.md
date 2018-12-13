@@ -1,5 +1,5 @@
 ---
-title: Azure-exempelprogram för användning med DMZs | Microsoft Docs
+title: Exempel på Azure-program för användning med DMZ-miljöer | Microsoft Docs
 description: Distribuera det här enkla webbprogrammet när du har skapat ett perimeternätverk för att testa scenarier för flödet av trafik
 services: virtual-network
 documentationcenter: na
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 8506238e41c5d9dac8d76d729d4919b30a0528b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ccdb8254551d0009a71cc047b8399a539edb8e2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23883798"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866859"
 ---
-# <a name="sample-application-for-use-with-dmzs"></a>Exempelprogram för användning med DMZs
-[Gå tillbaka till gränsen bästa praxis säkerhetssidan][HOME]
+# <a name="sample-application-for-use-with-dmzs"></a>Exempelprogram för användning med DMZ-miljöer
+[Gå tillbaka till gränsen bästa praxis sidan][HOME]
 
-Dessa PowerShell-skript kan köras lokalt på IIS01 och AppVM01 att installera och konfigurera en enkel webbapp som visar en HTML-sida från servern IIS01 med innehåll från backend-AppVM01 server.
+Dessa PowerShell-skript kan köras lokalt på IIS01 och AppVM01 att installera och konfigurera en enkel webbapp som visar en HTML-sida från servern IIS01 med innehåll från backend-AppVM01 servern.
 
-Det här programmet innehåller en enkel testmiljö för många DMZ exempel och hur ändringar på slutpunkter, NSG: er, UDR och brandväggen kan påverka trafikflöden.
+Det här programmet innehåller en enkel testmiljö för många av de exempel som DMZ och hur ändringar på slutpunkter, NSG, UDR och brandväggen kan påverka trafikflöden.
 
 ## <a name="firewall-rule-to-allow-icmp"></a>Brandväggsregel för att tillåta ICMP
-Den här enkla PowerShell-instruktionen kan köras på alla Windows-VM att tillåta ICMP (Ping)-trafik. Uppdateringen brandväggen kan enklare testa och felsöka genom att tillåta ping-protokollet passera windows-brandväggen (för de flesta Linux-distributioner ICMP är aktiverat som standard).
+Den här enkla PowerShell-instruktionen kan köras på alla Windows virtuella datorer för att tillåta ICMP (Ping)-trafik. Uppdateringen brandvägg tillåter för enklare testning och felsökning genom att låta ping-protokollet att gå igenom windows-brandväggen (för de flesta Linux-distributioner ICMP är aktiverad som standard).
 
 ```PowerShell
 # Turn On ICMPv4
@@ -37,18 +37,18 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
 ```
 
-Om du använder följande skript, är det här tillägget för brandväggen regeln den första satsen.
+Om du använder följande skript, är den här brandväggen regeln lägga den första instruktionen.
 
-## <a name="iis01---web-application-installation-script"></a>IIS01 - Web application installationsskript
+## <a name="iis01---web-application-installation-script"></a>IIS01 - skript för Web application installation
 Det här skriptet kommer att:
 
-1. Öppna IMCPv4 (Ping) i windows-brandväggen för lokal server för enklare testning
+1. Öppna IMCPv4 (Ping) på lokal server windows-brandväggen för enklare testning
 2. Installera IIS och .net Framework 4.5
 3. Skapa en ASP.NET-webbsida och en Web.config-fil
-4. Ändra standardprogrampoolen lättare åtkomst till filen
-5. Ange den anonyma användaren till ditt administratörskonto och lösenord
+4. Ändra standardprogrampoolen för att underlätta filåtkomst
+5. Ange anonym användare till ditt administratörskonto och lösenord
 
-Detta PowerShell-skript ska köras lokalt medan RDP hade till IIS01.
+Det här PowerShell-skriptet ska köras lokalt medan RDP hade till IIS01.
 
 ```PowerShell
 # IIS Server Post Build Config Script
@@ -132,8 +132,8 @@ Detta PowerShell-skript ska köras lokalt medan RDP hade till IIS01.
     $MainPage | Out-File -FilePath "C:\inetpub\wwwroot\Home.aspx" -Encoding ascii
     $WebConfig | Out-File -FilePath "C:\inetpub\wwwroot\Web.config" -Encoding ascii
 
-# Set App Pool to Clasic Pipeline to remote file access will work easier
-    Write-Host "Updaing IIS Settings" -ForegroundColor Cyan
+# Set App Pool to Classic Pipeline to remote file access will work easier
+    Write-Host "Updating IIS Settings" -ForegroundColor Cyan
     c:\windows\system32\inetsrv\appcmd.exe set app "Default Web Site/" /applicationPool:".NET v4.5 Classic"
     c:\windows\system32\inetsrv\appcmd.exe set config "Default Web Site/" /section:system.webServer/security/authentication/anonymousAuthentication /userName:$theAdmin /password:$thePassword /commit:apphost
 
@@ -142,25 +142,25 @@ Detta PowerShell-skript ska köras lokalt medan RDP hade till IIS01.
     Restart-Service -Name W3SVC
 
     Write-Host
-    Write-Host "Web App Creation Successfull!" -ForegroundColor Green
+    Write-Host "Web App Creation Successful!" -ForegroundColor Green
     Write-Host
 ```
 
 ## <a name="appvm01---file-server-installation-script"></a>AppVM01 - skript för installation
-Det här skriptet konfigurerar serverdelen för detta enkla program. Det här skriptet kommer att:
+Det här skriptet ställer in backend-server för den här enkla programmet. Det här skriptet kommer att:
 
 1. Öppna IMCPv4 (Ping) i brandväggen för enklare testning
 2. Skapa en katalog för webbplatsen
-3. Skapa en textfil för att via fjärranslutning åtkomst av webbsidan
-4. Ange behörighet för katalogen och filen att anonym åtkomst ska tillåtas
-5. Inaktivera Förbättrad säkerhetskonfiguration i Internet Explorer så att surfa lättare från den här servern 
+3. Skapa en textfil för att vara via en fjärranslutning åtkomst av webbsidan
+4. Ange behörigheter för katalogen och filen att anonym åtkomst ska tillåtas
+5. Inaktivera Förbättrad säkerhet i Internet Explorer så att enklare surfning från den här servern 
 
 > [!IMPORTANT]
-> **Bästa praxis**: aldrig inaktivera Förbättrad säkerhetskonfiguration i Internet Explorer på en produktionsserver plus är vanligtvis en felaktig idé att surfa på Internet från en produktionsserver. Dessutom är öppnandet av filresurser för anonym åtkomst en felaktig idé, men klart här för enkelhetens skull.
+> **Bästa praxis**: inaktivera Förbättrad säkerhetskonfiguration aldrig på en produktionsserver plus är vanligtvis en felaktig idé att surfa på Internet från servrar i produktionsmiljö. Öppnar upp filresurser för anonym åtkomst är också en felaktig idé, men klar här för enkelhetens skull.
 > 
 > 
 
-Detta PowerShell-skript ska köras lokalt medan RDP hade till AppVM01. PowerShell krävs för att köra som administratör för att kontrollera har körts.
+Det här PowerShell-skriptet ska köras lokalt medan RDP hade till AppVM01. PowerShell krävs för att köras som administratör för att se till att åtgärden har körts.
 
 ```PowerShell
 # AppVM01 Server Post Build Config Script
@@ -189,17 +189,17 @@ Detta PowerShell-skript ska köras lokalt medan RDP hade till AppVM01. PowerShel
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0
 
     Write-Host
-    Write-Host "File Server Set up Successfull!" -ForegroundColor Green
+    Write-Host "File Server Set up Successful!" -ForegroundColor Green
     Write-Host
 ```
 
-## <a name="dns01---dns-server-installation-script"></a>DNS01 - installationsskript för DNS-server
-Det finns inget skript som ingår i det här exempelprogrammet för att ställa in DNS-servern. Testning av brandväggsregler, NSG eller UDR måste inkludera DNS-trafik, måste DNS01-servern konfigureras manuellt. Nätverkskonfigurationen XML-filen och Resource Manager-mall för både exempel innehåller DNS01 som den primära DNS-servern och den offentliga DNS-servern nivå 3 som säkerhetskopiering DNS-server som värd. Nivå 3-DNS-servern skulle den faktiska DNS-server som används för icke-lokala trafik och med DNS01 inte installera några lokala nätverk DNS skulle uppstå.
+## <a name="dns01---dns-server-installation-script"></a>DNS01 - installationsskriptet för DNS-server
+Det finns inga skript som ingår i det här exempelprogrammet för att ställa in DNS-servern. Om testning av brandväggsregler, NSG och UDR måste innehålla DNS-trafik, måste DNS01-servern konfigureras manuellt. Xml-filen nätverkskonfiguration och Resource Manager-mall för båda exemplen innehåller DNS01 som den primära DNS-servern och den offentliga DNS-server med nivå 3 som säkerhetskopiering DNS-server. Nivå 3 DNS-servern skulle den faktiska DNS-servern som används för icke-lokala trafik och med DNS01 inte konfigurera något lokala nätverk som DNS skulle inträffa.
 
 ## <a name="next-steps"></a>Nästa steg
-* Kör skriptet IIS01 på en IIS-server
-* Kör skript för filserver på AppVM01
-* Bläddra till den offentliga IP-adress på IIS01 att verifiera din build
+* Köra skriptet IIS01 på en IIS-server
+* Kör skriptet för filserver på AppVM01
+* Bläddra till den offentliga IP-adresser på IIS01 att verifiera din version
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md

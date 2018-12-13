@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d04684e7d4eed1b997ec803dc9ccc1dcc079bde0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 80d5d667b4edee579afed4a9eaa88996663497f4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959384"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879790"
 ---
 # <a name="manage-smart-groups"></a>Hantera smarta grupper
 [Smart grupper](https://aka.ms/smart-groups) använder maskininlärningsalgoritmer grupp tillsammans aviseringar på grundval av delad förekomsten eller likheter, så att användaren kan nu hantera smarta grupper i stället för att hantera varje avisering enskilt. Den här artikeln visar dig hur du använder smart grupper i Azure Monitor.

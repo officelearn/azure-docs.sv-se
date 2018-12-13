@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: f0a119bb7a2e18b04caa52319e4908fa5f6241dc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 45d5cee92ce75c2e13f602d1ea6540698ea8abf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000334"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078369"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Ansluta ett Google Cloud Platform-konto
 
@@ -30,7 +30,7 @@ Du startar genom att samla in information om ditt projekt.
 
 1. Logga in på Google Cloud Platform-konsolen i [ https://console.cloud.google.com ](https://console.cloud.google.com).
 2. Granska informationen som du vill att publicera till Cloudyn och anteckna den **projektnamn** och **projekt-ID**. Spara informationen till hands för senare steg.  
-    ![Google Cloud Platform-konsolen](./media/connect-google-account/gcp-console01.png)
+    ![Projektnamn och projekt-ID som visas i konsolen Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
 3. Om fakturering inte är aktiverat och länka till ditt projekt, skapa ett faktureringskonto. Mer information finns i [skapa en ny faktureringskonto](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account).
 
 ## <a name="enable-storage-bucket-billing-export"></a>Aktivera storage bucket fakturering export
@@ -41,7 +41,7 @@ Använda Google Cloud Storage för att lagra användningsrapporter medför minim
 
 1. Om du inte har aktiverat fakturering export till en fil, följer du anvisningarna i [hur du aktiverar fakturering export till en fil](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file). Du kan använda JSON- eller CSV fakturering exportformat.
 2. Annars i Google Cloud Platform-konsolen navigerar du till **fakturering** > **fakturering export**. Observera faktureringen **bucketnamnet** och **rapporten prefix**.  
-    ![Fakturering export](./media/connect-google-account/billing-export.png)
+    ![Fakturering export informationen som visas på sidan fakturering export](./media/connect-google-account/billing-export.png)
 
 ## <a name="enable-google-cloud-platform-apis"></a>Aktivera Google Cloud Platform API: er
 
@@ -69,7 +69,7 @@ För att samla in information om användning och tillgången Cloudyn måste du h
 4. I **Google kontonamn**, ange den e-postadressen för fakturering kontot och klicka sedan på **nästa**.
 5. Välj eller ange ett Google-konto i dialogrutan för Google-autentisering och sedan **TILLÅT** cloudyn.com åtkomst till ditt konto.
 6. Lägga till projektinformation begäran som användes tidigare anges. De innehåller **projekt-ID**, **projekt** namn, **fakturering** bucketnamnet, och **fakturering filen** rapportera prefix och klicka sedan på  **Spara**.  
-    ![Lägg till Google-projekt](./media/connect-google-account/add-project.png)
+    ![Lägga till Google-projekt i Cloudyn-kontot](./media/connect-google-account/add-project.png)
 
 Ditt Google-konto visas i listan över konton och det ska stå **autentiserad**. Ditt projektnamn i Google och ID ska visas och har en grön bock symbol under det. Kontostatus som ska stå **slutförd**.
 

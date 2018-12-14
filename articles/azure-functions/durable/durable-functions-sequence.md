@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ca6eefa6ccba3fabebd125d88010817c66db52ab
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642678"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339594"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktionen länkning i varaktiga funktioner - Hello sekvens-exempel
 
@@ -33,9 +33,10 @@ Den här artikeln beskriver följande funktioner i exempelappen:
 I följande avsnitt beskrivs konfiguration och kod som används för C#-skript och JavaScript. Kod för Visual Studio-utveckling visas i slutet av artikeln.
 
 > [!NOTE]
-> Varaktiga funktioner finns i JavaScript i att v2 funktionskörningen.
+> JavaScript varaktiga funktioner är tillgängliga för Functions 2.x-körningen endast.
 
 ## <a name="e1hellosequence"></a>E1_HelloSequence
+
 ### <a name="functionjson-file"></a>Function.JSON fil
 
 Om du använder Visual Studio Code eller Azure-portalen för utveckling, här är innehållet i den *function.json* -filen för orchestrator-funktion. De flesta orchestrator *function.json* filer nästan precis likadant ut som detta.
@@ -47,7 +48,7 @@ Viktigt är den `orchestrationTrigger` bindningstyp. Alla orchestrator-funktione
 > [!WARNING]
 > Om du vill följa regeln ”ingen i/o” orchestrator-funktioner, inte använda några indata eller utdatabindningar när du använder den `orchestrationTrigger` utlösa bindning.  Om andra indata eller utdatabindningar behövs, de ska i stället användas i kontexten för `activityTrigger` funktioner, som anropas av orchestrator.
 
-### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C#-skript (Visual Studio Code och Azure portal exempelkoden) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C#-skript (Visual Studio Code och Azure portal exempelkoden)
 
 Här är källkoden:
 
@@ -63,15 +64,16 @@ Här är källkoden:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-Alla funktioner i JavaScript orchestration måste innehålla den `durable-functions` modulen. Det här är ett JavaScript-bibliotek som översätter funktionen orchestration-åtgärder till Durables körning protokollet för utanför av språk. Det finns tre viktiga skillnader mellan en orchestration-funktion och andra JavaScript-funktioner:
+Alla funktioner i JavaScript orchestration måste innehålla den [ `durable-functions` modulen](https://www.npmjs.com/package/durable-functions). Det här är ett bibliotek som hjälper dig att skriva varaktiga funktioner i JavaScript. Det finns tre viktiga skillnader mellan en orchestration-funktion och andra JavaScript-funktioner:
 
 1. Funktionen är en [generator-funktionen.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
-2. Funktionen är inneslutna i ett anrop till den `durable-functions` modulen (här `df`).
-3. Funktionen avslutas genom att anropa `return`, inte `context.done`.
+2. Funktionen är inneslutna i ett anrop till den `durable-functions` modulens `orchestrator` metod (här `df`).
+3. Funktionen måste vara synkrona. Eftersom metoden ”orchestrator” hanterar anropande context.done, ska funktionen bara 'Returnera'.
 
-Den `context` objektet innehåller en `df` objekt kan du anropa andra *aktivitet* funktioner och pass indataparametrar med hjälp av dess `callActivityAsync` metod. Koden anropar `E1_SayHello` tre gånger i följd med olika parametervärden, med hjälp av `yield` att visa körningen ska vänta på de asynkrona aktiviteten funktionsanrop som ska returneras. Returvärdet för varje anrop har lagts till i den `outputs` listan som returneras i slutet av funktionen.
+Den `context` objektet innehåller en `df` objekt kan du anropa andra *aktivitet* funktioner och pass indataparametrar med hjälp av dess `callActivity` metod. Koden anropar `E1_SayHello` tre gånger i följd med olika parametervärden, med hjälp av `yield` att visa körningen ska vänta på de asynkrona aktiviteten funktionsanrop som ska returneras. Returvärdet för varje anrop har lagts till i den `outputs` listan som returneras i slutet av funktionen.
 
 ## <a name="e1sayhello"></a>E1_SayHello
+
 ### <a name="functionjson-file"></a>Function.JSON fil
 
 Den *function.json* fil för funktionen aktivitet `E1_SayHello` är ungefär som `E1_HelloSequence` förutom att den använder en `activityTrigger` bindningstyp i stället för en `orchestrationTrigger` bindningstyp.
@@ -93,7 +95,7 @@ Den här funktionen har en parameter av typen [DurableActivityContext](https://a
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-Till skillnad från en orchestration JavaScript-funktion måste en JavaScript-funktion för aktiviteten ingen särskild konfiguration. Inmatningen som skickades till den av orchestrator-funktionen finns på den `context.bindings` objekt under namnet på den `activitytrigger` bindning – i det här fallet `context.bindings.name`. Bindningsnamn kan anges som en parameter för funktionen exporterade och öppnas direkt, vilket är vad exempelkoden gör.
+Till skillnad från en JavaScript-funktion orchestration behöver en aktivitet-funktionen ingen särskild konfiguration. Inmatningen som skickades till den av orchestrator-funktionen finns på den `context.bindings` objekt under namnet på den `activityTrigger` bindning – i det här fallet `context.bindings.name`. Bindningsnamn kan anges som en parameter för funktionen exporterade och öppnas direkt, vilket är vad exempelkoden gör.
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
@@ -150,7 +152,7 @@ Här är orchestration som en enda C#-fil i ett Visual Studio-projekt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här exemplet har visat en enkel orchestration för länkning av funktionen. I nästa exempel visas hur du implementerar fan-in/fan-i mönstret. 
+Det här exemplet har visat en enkel orchestration för länkning av funktionen. I nästa exempel visas hur du implementerar fan-in/fan-i mönstret.
 
 > [!div class="nextstepaction"]
 > [Kör Fan-in/fan-i exemplet](durable-functions-cloud-backup.md)

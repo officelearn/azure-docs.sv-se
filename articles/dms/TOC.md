@@ -13,6 +13,7 @@
 ## [Migrera SQL Server till Azure SQL DB Managed Instance online](tutorial-sql-server-managed-instance-online.md)
 ## [Migrera MySQL till Azure DB för MySQL online](tutorial-mysql-azure-mysql-online.md)
 ## [Migrera PostgreSQL till Azure DB för PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
+## [Migrera MongoDB till Azure Cosmos DB Mongo-API offline](tutorial-mongodb-cosmos-db.md)
 
 # Instruktionsguider
 ## [Använda PowerShell för att migrera SQL Server till Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
@@ -20,16 +21,17 @@
 ## [Övervaka migreringsaktiviteter](how-to-monitor-migration-activity.md)
 
 # Resurser
+## [Scenariostatus för databasmigrering](resource-scenario-status.md)
+## [Översikt över förutsättningar](pre-reqs.md)
+## [Nätverkstopologier för Azure SQL DB Managed Instance-migrering](resource-network-topologies.md)
 ## [Kända problem – Onlinemigrering till Azure SQL DB](known-issues-azure-sql-online.md)
 ## [Kända problem – Onlinemigrering till Azure SQL DB för MySQL](known-issues-azure-mysql-online.md)
 ## [Kända problem – Onlinemigrering till Azure SQL DB för PostgreSQL](known-issues-azure-postgresql-online.md)
 ## [Tillgängliga tjänster och verktyg för datamigreringsscenarier](dms-tools-matrix.md)
-## [Översikt över förutsättningar](pre-reqs.md)
 ## [Vanliga frågor och svar](faq.md)
-## [Nätverkstopologier för Azure SQL DB Managed Instance-migrering](resource-network-topologies.md)
-## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=database-migration)
-## [Prissättning](https://aka.ms/dms-pricing)
 ## [User Voice-feedback](https://feedback.azure.com/forums/906100-azure-database-migration-service)
+## [Prissättning](https://aka.ms/dms-pricing)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=database-migration)
 ## [Guide för databasmigrering](https://aka.ms/datamigration)
 ## [Data Migration Assistant](https://aka.ms/dma)
 ## [SQL Server Migration Assistant](https://aka.ms/ssma)

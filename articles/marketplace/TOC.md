@@ -1,16 +1,18 @@
 # [Dokumentation om Azure Marketplace och AppSource](index.md)
-## [Principer för klassificering och recension](./rating-review-policies.md)   
+
 ## [Översikt och fördelar med Azure Marketplace och AppSource](./marketplace-publishers-guide.md)  
 
 ### [Publicera på marknadsplatsen](./become-publisher.md)  
 #### [Skapa ett Microsoft-konto](./guidelines.md)
 #### [Registrera i Dev Center](./register-dev-center.md) 
 #### [Spårning av kundanvändning för Azure-partner](./azure-partner-customer-usage-attribution.md)
-#### [Leadhantering för marknadsplatsen i molnet](./lead-management-for-cloud-marketplace.md)
 
-### [Butiker](./comparing-appsource-azure-marketplace.md)  
+### [En marknadsplats, två butiker](./comparing-appsource-azure-marketplace.md)  
 
-### [Fastställa publiceringsalternativet för lösningen](./determine-your-listing-type.md)  
+### [Publiceringsalternativ och överväganden](./determine-your-listing-type.md)
+#### [Leadhantering](./lead-management-for-cloud-marketplace.md)
+#### [Transaktioner på Azure Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Privata erbjudanden](./private-offers.md)
 
 ### [Publiceringsguide efter erbjudandetyp](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
@@ -26,8 +28,7 @@
 ### [Låt din verksamhet växa genom marknadsplatsen](./grow-your-business-with-azure-marketplace.md)  
 #### [Önskade lösningar](./preferred-solutions.md) 
 #### [Validering av Marketplace-innehåll](./marketplace-criteria-content-validation.md)
-#### [Privata erbjudanden](./private-offers.md)
-#### [Marketplace ‎– överväganden och funktioner för kommersiella transaktioner](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Principer för klassificering och recension](./rating-review-policies.md)   
 
 ### [Support för Azure Marketplace och AppSource](./support-azure-marketplace.md)  
 
@@ -67,8 +68,15 @@
 #### [Vanliga problem när virtuella hårddiskar skapas](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 #### [Ansluta till virtuella datorer](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
 #### [Konfigurera virtuella datorer](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
-#### [Distribuera virtuella datorer från virtuella hårddiskar](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [Distributionsmall för virtuell hårddisk (JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+#### [Windows Remote Management](./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md) 
+##### [Konfigurera WinRM när en virtuell dator har skapats](./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md)
+#### [Distribuera virtuell dator](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [Skapa en användaravbildning av en virtuell dator](./cloud-partner-portal/virtual-machine/cpp-create-user-image.md)
+##### [Skapa ett certifikat för nyckelvalv](./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md)
+###### [Distributionsmall för nyckelvalv](./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md)
+#### [Distribuera en virtuell dator från en virtuell hårddisk för användare](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md)
+##### [Distributionsmall för virtuell hårddisk](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+##### [Distribuera en virtuell dator från en marknadsplats](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 #### [Certifiera avbildning av virtuell dator](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
 #### [Hämta SAS-URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 #### [Vanliga problem med SAS-URL](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
@@ -88,21 +96,53 @@
 ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
+<!-- new section for Azure apps -->
 
-## [Erbjudande för Azure-program](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
-### [Skapa hanterat program](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
-### [Skapa lösningsmall](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
-### [Publicera en hanteringslösning](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
-### [Riktlinjer för SEO](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [Sätt igång med erbjudande](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
-### [Uppdatera befintligt erbjudande](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
-### [Ta bort erbjudande](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
+## [Erbjudande för Azure-program](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
+### [Förutsättningar](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
+### [Skapa ett erbjudande för Azure-program](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
+#### [fliken Erbjudandeinställningar](./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md)
+#### [fliken SKU:er](./cloud-partner-portal/azure-applications/cpp-skus-tab.md)
+#### [fliken Test Drive](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
+#### [fliken Marketplace](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
+#### [fliken Stöd](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
+<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Publicera ett erbjudande för Azure-program](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+### [Uppdatera befintligt erbjudande](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
-## [Erbjudande för SaaS-program](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
-### [SaaS-appar – guide för teknisk publicering](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
-### [SaaS-försäljning genom Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
+<!-- Legacy Azure App section replaced
+## [Azure application offer](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
+    Obsolete ### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
+### [Author solution template](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
+### [Publish a Management Solution](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
+### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
+### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
+### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
+   Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
+-->
+
+<!-- new for SaaS 12/05/2018 -->
+## [Erbjudande för SaaS-program](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
+### [Förutsättningar](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
+### [Skapa ett erbjudande för SaaS-program](./cloud-partner-portal/saas-app/cpp-create-offer.md)
+#### [fliken Erbjudandeinställningar](./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md)
+#### [Fliken Teknisk information](./cloud-partner-portal/saas-app/cpp-technical-info-tab.md)
+#### [Fliken Planer](./cloud-partner-portal/saas-app/cpp-plans-tab.md)
+#### [Fliken Kanalinformation](./cloud-partner-portal/saas-app/cpp-channel-info-tab.md)
+#### [fliken Test Drive](./cloud-partner-portal/saas-app/cpp-testdrive-tab.md)
+#### [Fliken Butiksinformation](./cloud-partner-portal/saas-app/cpp-storefront-tab.md)
+#### [Fliken Kontakter](./cloud-partner-portal/saas-app/cpp-contacts-tab.md)
+### [Publicera erbjudande](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
+### [Uppdatera befintligt erbjudande](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 ### [SaaS-API:er](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+
+<!-- Legacy SaaS Offer replaced
+## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
+### [SaaS apps technical publishing guide](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
+### [SaaS Sell through Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
+### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+-->
 
 ## [Containererbjudande](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [Förutsättningar](./cloud-partner-portal/containers/cpp-prerequisites.md)

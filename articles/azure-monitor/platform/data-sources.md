@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 4b8908809cca23fb270494cc736f4b65aa9d1ca2
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c5035356d9d55298d5b060a3ac2fd3a7cd41f8df
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186199"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385558"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Datakällor i Azure Monitor
 Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att övervaka hälsotillstånd och prestanda för dina resurser och program som körs på dem. Dessa resurser kan vara i Azure i en annan molnet eller lokalt.  Se [Data som samlas in av Azure Monitor](data-collection.md) mer information om hur dessa data lagras och hur du kan visa den.
@@ -43,7 +43,7 @@ Telemetrirelaterade hälsa och åtgärden Azure själva omfattar information om 
 [Azure Service Health](../../monitoring-and-diagnostics/monitoring-service-notifications.md) innehåller information om hälsotillståndet för Azure-tjänster i din prenumeration som ditt program och resurser som förlitar sig på. Du kan skapa aviseringar för att aviseras om aktuella och förväntade allvarliga problem som kan påverka ditt program. Tjänstehälsa poster lagras i den [Azure-aktivitetsloggen](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), så du kan visa dem i aktiviteten Log Utforskaren och kopiera dem till Log Analytics.
 
 ### <a name="azure-activity-log"></a>Azure-aktivitetsloggen
-Den [Azure-aktivitetsloggen](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) innehåller tjänsten hälsojournaler tillsammans med poster på några konfigurationsändringar som gjorts i dina Azure-resurser. Aktivitetsloggen är tillgängligt för alla Azure-resurser och visar sina _externa_ vy. Vissa typer av poster i aktivitetsloggen beskrivs i [Azure-aktivitetsloggen Händelseschema](../../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+Den [Azure-aktivitetsloggen](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) innehåller tjänsten hälsojournaler tillsammans med poster på några konfigurationsändringar som gjorts i dina Azure-resurser. Aktivitetsloggen är tillgängligt för alla Azure-resurser och visar sina _externa_ vy. Vissa typer av poster i aktivitetsloggen beskrivs i [Azure-aktivitetsloggen Händelseschema](../../azure-monitor/platform/activity-log-schema.md).
 
 Du kan visa aktivitetsloggen för en viss resurs på en sida i Azure portal eller visa loggarna från flera resurser i den [aktivitet Log Explorer](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Det är särskilt användbart för att kopiera loggposterna till Log Analytics för att kombinera det med andra övervakningsdata. Du kan även skicka dem till andra platser med hjälp av [Händelsehubbar](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
 
@@ -60,9 +60,9 @@ De flesta Azure services genererar [plattform mått](data-collection.md#metrics)
 
 
 ### <a name="resource-diagnostic-logs"></a>Resursdiagnostikloggar
-Medan aktivitetsloggen innehåller information om åtgärder som utförs på en Azure-resurser, resursnivå [diagnostikloggar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) ge insikter om driften av själva resursen.   Krav och innehållet i de här loggarna [varierar beroende på resurstyp](../../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+Medan aktivitetsloggen innehåller information om åtgärder som utförs på en Azure-resurser, resursnivå [diagnostikloggar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) ge insikter om driften av själva resursen.   Krav och innehållet i de här loggarna [varierar beroende på resurstyp](../../azure-monitor/platform/tutorial-dashboards.md).
 
-Du kan inte visa diagnostikloggar direkt i Azure-portalen, men du kan [skicka dem till Azure storage för arkivering](../../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) och exportera dem till [Händelsehubb](../../event-hubs/event-hubs-about.md) för omdirigering till andra tjänster eller [in Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) för analys. Vissa resurser kan skriva direkt till Log Analytics medan andra innan du kan skriva till ett lagringskonto [importeras till Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+Du kan inte visa diagnostikloggar direkt i Azure-portalen, men du kan [skicka dem till Azure storage för arkivering](../../azure-monitor/platform/archive-diagnostic-logs.md) och exportera dem till [Händelsehubb](../../event-hubs/event-hubs-about.md) för omdirigering till andra tjänster eller [in Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) för analys. Vissa resurser kan skriva direkt till Log Analytics medan andra innan du kan skriva till ett lagringskonto [importeras till Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>Övervakningslösningar
  [Övervakningslösningar](../../azure-monitor/insights/solutions.md) samla in data för att ge ytterligare insikter i driften av en viss tjänst eller ett program. De samla in data till Log Analytics där det kan vara analyseras med hjälp av den [frågespråket](../../azure-monitor/log-query/log-query-overview.md) eller [vyer](../../azure-monitor/platform/view-designer.md) som vanligtvis ingår i lösningen.
@@ -92,7 +92,7 @@ Förutom telemetri som ditt program kan skriva till gästoperativsystemet, detal
 ### <a name="application-data"></a>Programdata
 När du aktiverar Application Insights för ett program genom att installera en instrumentationspaket samlar det in mått och loggar som relaterar till prestanda och driften av programmet. Detta inkluderar detaljerad information om sidvisningar, programförfrågningar och undantag. Application Insights lagrar data som samlas in i Azure-mått och Log Analytics. Den innehåller omfattande verktyg för att analysera data, men du kan också analysera den med data från andra källor med hjälp av verktyg, till exempel Metrics Explorer och sökningar i loggen.
 
-Du kan också använda Application Insights till [skapa ett anpassat mått](../../application-insights/app-insights-api-custom-events-metrics.md).  På så sätt kan du definiera din egen logik för att beräkna ett numeriskt värde och sedan lagra värdet med andra mått som kan nås från Metric Explorer och används för [Autoskala](../../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) och måttaviseringar.
+Du kan också använda Application Insights till [skapa ett anpassat mått](../../application-insights/app-insights-api-custom-events-metrics.md).  På så sätt kan du definiera din egen logik för att beräkna ett numeriskt värde och sedan lagra värdet med andra mått som kan nås från Metric Explorer och används för [Autoskala](../../azure-monitor/platform/autoscale-custom-metric.md) och måttaviseringar.
 
 ### <a name="dependencies"></a>Beroenden
 Om du vill övervaka olika logiska åtgärder för ett program, måste du [samla in telemetri från flera komponenter](../../application-insights/app-insights-transaction-diagnostics.md). Application Insights har stöd [distribuerade telemetrikorrelation](../../application-insights/application-insights-correlation.md) som identifierar beroenden mellan komponenter så att du kan analysera dem tillsammans.

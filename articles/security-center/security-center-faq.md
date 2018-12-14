@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 956ffb298301aef914221a8d2e623b19191909c0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2be11f97882a7c6353b214886ce6c5a3a66add89
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095371"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339118"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -251,7 +251,7 @@ Säkerhetsprinciperna i Azure Security Center enhet säkerhetsrekommendationer o
 ### <a name="who-can-modify-a-security-policy"></a>Vem som kan ändra en säkerhetsprincip för?
 Om du vill ändra en säkerhetsprincip måste du vara en administratör eller ägare eller deltagare i den aktuella prenumerationen.
 
-Läs hur du konfigurerar en säkerhetsprincip i [ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md).
+Läs hur du konfigurerar en säkerhetsprincip i [ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md).
 
 ### <a name="what-is-a-security-recommendation"></a>Vad är en säkerhetsrekommendation?
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När eventuella säkerhetsproblem identifieras visas skapas rekommendationer. Via rekommendationerna får du genom processen att konfigurera nödvändig kontroll. Några exempel:

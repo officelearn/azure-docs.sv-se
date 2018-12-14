@@ -1,77 +1,71 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ef0ecc7a9e89168ed57c75ab24c3233692d77151
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 865f7421172c3302333b1cbf465f66806b296759
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863575"
-documentType: LandingData
-title: Dokumentation om Azure Machine Learning
-metadata:
-  title: Dokumentation om Azure Machine Learning – Självstudier, API-referens | Microsoft Docs
-  description: Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala och förstå användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.
-  services: machine-learning
-  author: j-martens
-  ms.service: machine-learning
-  ms.component: core
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 12/04/2018
-  ms.author: jmartens
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314388"
 abstract:
   description: Lär dig hur du integrerar intelligenta algoritmer i appar och webbplatser med hjälp av dessa Azure Machine Learning-produkter.  Självstudier, snabbstarter, API-referenser och exempel med anvisningar.
+documentType: LandingData
+metadata:
+  author: j-martens
+  description: Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala och förstå användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.
+  ms.author: jmartens
+  ms.component: core
+  ms.date: 12/04/2018
+  ms.devlang: na
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  services: machine-learning
+  title: Dokumentation om Azure Machine Learning – Självstudier, API-referens | Microsoft Docs
 sections:
 - items:
-  - type: list
-    style: cards
-    className: cardsM
+  - className: cardsM
     columns: 2
     items:
     - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>Lär dig hur den här tjänsten hjälper dataforskare att utveckla och hantera AI-lösningar<br/> med CLI och Python-verktyg och -bibliotek med en mängd olika tjänster för data och beräkning på Azure. Läs mer...</p>
+      html: <p>Lär dig hur den här tjänsten hjälper dataforskare att utveckla och hantera AI-lösningar<br/> med hjälp av Azure CLI och Python-verktyg och -bibliotek med en mängd olika tjänster för data och beräkning i Azure. Läs mer...</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: Azure Machine Learning-tjänsten
-- title: Snabbstarter och självstudier
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du snabbt konfigurerar och använder Azure Machine Learning-tjänsten:'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/i_machine-learning.svg
-    rows:
-    - title: Kom igång med tjänsten i Azure-portalen
-      values:
-      - href: /azure/machine-learning/service/quickstart-get-started
-    - title: Kom igång med tjänsten i Python
-      values:
-      - href: /azure/machine-learning/service/quickstart-create-workspace-with-python
-    - title: Förbereda data för modellering
-      values:
-      - href: /azure/machine-learning/service/tutorial-data-prep
-    - title: Skapa en egen maskininlärningsmodell
-      values:
-      - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-    - title: Generera och finjustera algoritmer automatiskt
-      values:
-      - href: /azure/machine-learning/service/tutorial-auto-train-models
-    - title: Distribuera modellen som en webbtjänst
-      values:
-      - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-    - title: Använda maskininlärningsmodellerna
-      values:
-      - href: /azure/machine-learning/service/how-to-consume-web-service
-    - title: Skapa och hantera pipelines för maskininlärning
-      values:
-      - href: /azure/machine-learning/service/how-to-create-your-first-pipeline
-- title: Andra Microsoft Machine Learning-tekniker
-  items:
-  - type: list
     style: cards
-    className: cardsM
+    type: list
+- items:
+  - text: 'Komma igång med tjänsten Azure Machine Learning Service:'
+    type: paragraph
+  - text: <b>Snabbstarter:</b>
+    type: paragraph
+  - items:
+    - html: <a href="service/quickstart-create-workspace-with-python">Använda Python för att komma igång</a>
+    - html: <a href="service/quickstart-get-started">Använda Microsoft Azure-portalen för att komma igång</a>
+    style: unordered
+    type: list
+  - text: <b>Självstudie för avbildningsklassificering med MNIST-data:</b>
+    type: paragraph
+  - items:
+    - html: 'Del 1: <a href="service/tutorial-train-models-with-aml">Träna din modell</a>'
+    - html: 'Del 2: <a href="service/tutorial-deploy-models-with-aml">Distribuera modellen</a>'
+    style: unordered
+    type: list
+  - text: <b>Självstudie för regressionsmodellering med data från taxibilar i New York:</b>
+    type: paragraph
+  - items:
+    - html: 'Del 1: <a href="service/tutorial-data-prep">Förbereda data för modellering</a>'
+    - html: 'Del 2: <a href="service/tutorial-auto-train-models">Använd automatiserad maskininlärning för att träna modeller</a>'
+    style: unordered
+    type: list
+  - text: <b>Förbruka dina modeller:</b>
+    type: paragraph
+  - items:
+    - html: <a href="service/how-to-consume-web-service">Förbrukning av begäran-svar-modeller</a>
+    - html: <a href="service/how-to-run-batch-predictions">Batch-förutsägelser med ML-pipelines</a>
+    style: unordered
+    type: list
+  title: Snabbstarter och självstudier
+- items:
+  - className: cardsM
     columns: 2
     items:
     - href: /azure/cognitive-services/
@@ -80,7 +74,7 @@ sections:
         src: /azure/machine-learning/media/index/cognitive-services.png
       title: Cognitive Services
     - href: /azure/machine-learning/studio/
-      html: <p>Lär dig hur detta dra och släpp-verktyg där flera användare kan samarbeta kan användas för att bygga, testa och distribuera förutsägelseanalyslösningar utifrån dina data. Läs mer... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      html: <p>Ett dra-och-släpp-verktyg där flera användare kan samarbeta för att skapa, testa och distribuera prediktiva analyslösningar utifrån dina data med R eller Python. </p>
       image:
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
       title: Azure Machine Learning Studio
@@ -104,3 +98,7 @@ sections:
       image:
         src: /azure/machine-learning/media/index/virtualmachine.svg
       title: Virtuell dator för datavetenskap
+    style: cards
+    type: list
+  title: Andra Microsoft Machine Learning-tekniker
+title: Dokumentation om Azure Machine Learning

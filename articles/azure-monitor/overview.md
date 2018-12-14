@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 2d1f96359512a3c2135909ebf69ec9ec3b801d61
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8b5b96f7a67dfbb33f470825b8ba4cabd3469dfc
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190568"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385201"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -35,11 +35,11 @@ Följande diagram ger en översikt över Azure Monitor. I mitten av diagrammet �
 ## <a name="monitoring-data-platform"></a>Övervaka dataplattform
 Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer [mått och loggar](../azure-monitor/platform/data-collection.md). [Mått](../azure-monitor/platform/data-collection.md#metrics) är numeriska värden som beskriver någon aspekt av ett system vid en viss tidpunkt. De är enkel och kan stödja scenarier i nästan realtid. [Loggar](../azure-monitor/platform/data-collection.md#logs) innehåller olika typer av data ordnas i poster med olika uppsättningar med egenskaper för varje typ. Telemetri, till exempel händelser och spårningar lagras som loggar dessutom till prestandadata så att den kan alla kombineras för analys.
 
-För många Azure-resurser visas data som samlas in av Azure Monitor direkt i sina översiktssidan i Azure-portalen. Till exempel ta en titt på en virtuell dator och du ser flera diagram som visar prestandamått. Klicka på något av diagrammen för att öppna data i [Metric explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) i Azure-portalen, där du kan skapa diagram över värdena för flera mått med tiden.  Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar.
+För många Azure-resurser visas data som samlas in av Azure Monitor direkt i sina översiktssidan i Azure-portalen. Till exempel ta en titt på en virtuell dator och du ser flera diagram som visar prestandamått. Klicka på något av diagrammen för att öppna data i [Metric explorer](../azure-monitor/platform/metrics-charts.md) i Azure-portalen, där du kan skapa diagram över värdena för flera mått med tiden.  Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar.
 
 ![Mått](media/overview/metrics.png)
 
-Loggdata som samlas in av Azure Monitor lagras i Log Analytics som innehåller en [funktionsrikt frågespråk](../azure-monitor/log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med den [sidan Log Analytics](../azure-monitor/log-query/portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [ aviseringsregler](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Loggdata som samlas in av Azure Monitor lagras i Log Analytics som innehåller en [funktionsrikt frågespråk](../azure-monitor/log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med den [sidan Log Analytics](../azure-monitor/log-query/portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [ aviseringsregler](../azure-monitor/platform/alerts-overview.md).
 
 Frågespråket i Log Analytics passar enkla loggfrågor men innehåller även avancerade funktioner som aggregeringar, kopplingar och smart analytics. Du kan snabbt lära dig frågespråket med [flera lektioner](../azure-monitor/log-query/get-started-queries.md) som är tillgängliga.  Viss vägledning erbjuds användare som redan är bekanta med [SQL](../azure-monitor/log-query/sql-cheatsheet.md) och [Splunk](../azure-monitor/log-query/splunk-cheatsheet.md).
 
@@ -94,7 +94,7 @@ Förutom att du kan analysera övervakningsdata interaktivt, kunna en effektiv l
 
 
 ### <a name="alerts"></a>Aviseringar
-[Aviseringar i Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) informera dig om kritiska tillstånd och potentiellt försöker vidta åtgärder. Varningsregler baserat på mått ger nära nog realtid aviseringar baserat på numeriska värden, medan regler baserat på loggar tillåter komplex logik för data från flera källor.
+[Aviseringar i Azure Monitor](../azure-monitor/platform/alerts-overview.md) informera dig om kritiska tillstånd och potentiellt försöker vidta åtgärder. Varningsregler baserat på mått ger nära nog realtid aviseringar baserat på numeriska värden, medan regler baserat på loggar tillåter komplex logik för data från flera källor.
 
 Aviseringsregler i Azure Monitor Använd [åtgärdsgrupper](../azure-monitor/platform/action-groups.md), som innehåller en unik uppsättning mottagare och åtgärder som kan delas mellan flera regler. Baserat på dina krav, kan åtgärdsgrupper utföra åtgärder, t ex med webhookar ha aviseringar starta externa åtgärder eller för att integrera med dina ITSM-verktyg.
 

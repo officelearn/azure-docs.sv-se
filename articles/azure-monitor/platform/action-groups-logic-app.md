@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 4b8547435293f26c7f22ed6d5181c64fbabcd574
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0ab496b884506b013c6a4abb2dff1e1feff4fc72
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285041"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342994"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hur du utlöser komplexa åtgärder med Azure Monitor-aviseringar
 
@@ -295,6 +295,6 @@ Processen för att skapa en måttavisering liknar [skapar en aktivitetsloggavise
 Logic Apps har ett antal olika anslutningar som gör det möjligt att utlösaråtgärder i ett brett utbud av program och databaser. Slack, SQL Server, Oracle, Salesforce, är några exempel. Mer information om anslutningsappar finns i [Logikapp anslutningsappar](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Nästa steg
-* Hämta en [översikt över Azure aktivitetsloggaviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) och lär dig hur du får aviseringar.  
+* Hämta en [översikt över Azure aktivitetsloggaviseringar](../../azure-monitor/platform/alerts-overview.md) och lär dig hur du får aviseringar.  
 * Lär dig hur du [konfigurera aviseringar när ett meddelande om Azure Service Health publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Läs mer om [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).

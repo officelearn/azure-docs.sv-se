@@ -15,12 +15,12 @@ ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f2143d15156c8f69430610eac2f467c5a6887300
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d6696d9bdd69b085b9c9ac0804da68cd91612f35
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017825"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386969"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -76,8 +76,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [DevTest Labs-användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. |
 | [DNS-Zondeltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [DocumentDB-Kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
-| [EventGrid EventSubscription deltagare (förhandsgranskning)](#eventgrid-eventsubscription-contributor-preview) | Låter dig hantera EventGrid händelseåtgärder för prenumerationen. |
-| [EventGrid EventSubscription läsare (förhandsgranskning)](#eventgrid-eventsubscription-reader-preview) | Kan du läsa EventGrid händelseprenumerationer. |
+| [EventGrid EventSubscription deltagare (förhandsgranskning)](#eventgrid-eventsubscription-contributor-preview) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
+| [EventGrid EventSubscription läsare (förhandsgranskning)](#eventgrid-eventsubscription-reader-preview) | Låter dig läsa EventGrid-händelseprenumerationer. |
 | [HDInsight domäntjänster deltagare](#hdinsight-domain-services-contributor) | Kan läsa, skapa, ändra och ta bort domäntjänstrelaterade åtgärder som behövs för HDInsight Enterprise Security Package |
 | [Intelligent Systems-Kontodeltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
 | [Nyckelvalvsdeltagare](#key-vault-contributor) | Låter dig hantera nyckelvalv, men inte ha åtkomst till dem. |
@@ -92,9 +92,9 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Hanterade Identitetsoperatör](#managed-identity-operator) | Läs och tilldela användartilldelad identitet |
 | [Hanteringsgrupp-deltagare](#management-group-contributor) | Rollen hanteringsgrupp-deltagare |
 | [Hanteringsgruppen läsare](#management-group-reader) | Rollen hanteringsgrupp-läsare |
-| [Övervaka deltagare](#monitoring-contributor) | Kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Övervaka deltagare](#monitoring-contributor) | Kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Övervaka mått utgivare](#monitoring-metrics-publisher) | Tillåter publicering av mått mot Azure-resurser |
-| [Övervaka läsare](#monitoring-reader) | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Övervaka läsare](#monitoring-reader) | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Nätverksdeltagare](#network-contributor) | Låter dig hantera nätverk, men ger dig inte tillgång till dem. |
 | [Nya Relic APM-Kontodeltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management-konton och program, men ger dig inte tillgång till dem. |
 | [Läsare och dataåtkomst](#reader-and-data-access) | Kan du visa allt, men inte kan du ta bort eller skapa ett lagringskonto eller en resurs. Det gör också att läs-/ skrivåtkomst till alla data i ett lagringskonto via åtkomst till lagringskontonycklarna. |
@@ -102,9 +102,9 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Resursprincip (förhandsversion)](#resource-policy-contributor-preview) | (Förhandsversion) Användare från EA med behörighet att skapa/ändra resursprinciper, skapa supportbegäranden och läsa resurser/hierarkier. |
 | [Scheduler-Jobbsamlingsdeltagare](#scheduler-job-collections-contributor) | Låter dig hantera Scheduler-jobbsystem, men ger dig inte tillgång till dem. |
 | [Söktjänstdeltagare](#search-service-contributor) | Låter dig hantera söktjänster, men ger dig inte tillgång till dem. |
-| [Säkerhetsadministratör](#security-admin) | I Security Center endast: kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer |
+| [Säkerhetsadministratör](#security-admin) | I Säkerhetscenter: Kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer |
 | [Säkerhetshanteraren (bakåtkompatibel)](#security-manager-legacy) | Det här är en äldre roll. Använd säkerhetsadministratör istället |
-| [Säkerhetsläsare](#security-reader) | I Security Center endast: Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar |
+| [Säkerhetsläsare](#security-reader) | I Säkerhetscenter: Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar |
 | [Site Recovery-bidragsgivare](#site-recovery-contributor) | Låter dig hantera Site Recovery-tjänsten förutom att skapa valv och tilldela roller |
 | [Site Recovery-operatör](#site-recovery-operator) | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
 | [Site Recovery-läsare](#site-recovery-reader) | Låter dig se Site Recovery-status men inte utföra andra hanteringsåtgärder |
@@ -114,7 +114,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Lagringskontodeltagare](#storage-account-contributor) | Låter dig hantera lagringskonton, men ger dig inte åtkomst till dem. |
 | [Tjänstroll som Storage-konto operatör av Lagringskontonyckel](#storage-account-key-operator-service-role) | Operatörer av lagringskontonycklar får lista och återskapa nycklar till lagringskonton |
 | [Storage Blob Data-deltagare (förhandsgranskning)](#storage-blob-data-contributor-preview) | Tillåter läs-, skriv- och borttagningsåtkomst till Azure Storage Blob-containers och data |
-| [Storage Blob Data-ägare (förhandsversion)](#storage-blob-data-owner-preview) | Tillåter Läs-, Skriv-, delete- och POSIX superanvändare åtkomst till Azure Storage blob-behållare och data |
+| [Storage Blob Data-ägare (förhandsversion)](#storage-blob-data-owner-preview) | Tillåter läs-, skriv-, borttagnings-, och POSIX-superanvändaråtkomst till Azure Storage Blob-containers och data |
 | [Storage Blob Data-läsare (förhandsgranskning)](#storage-blob-data-reader-preview) | Tillåter läsåtkomst till Azure Storage Blob-containers och data |
 | [Lagringsködata-deltagare (förhandsgranskning)](#storage-queue-data-contributor-preview) | Tillåter läs-, skriv- och borttagningssåtkomst till Azure Storage-köer och kömeddelanden |
 | [Lagringsködata-läsare (förhandsgranskning)](#storage-queue-data-reader-preview) | Tillåter läsåtkomst till Azure Storage-köer och kömeddelanden |
@@ -348,7 +348,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Beskrivning** | Åtgärden lista autentiseringsuppgifter för klusteradministratör. |
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Åtgärder** |  |
-> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lista över clusterAdmin autentiseringsuppgifterna för ett hanterat kluster |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lista över clusterAdmin-autentiseringsuppgifter för ett hanterat kluster |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Rollen klusteranvändare för Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
@@ -357,7 +357,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Beskrivning** | Åtgärden lista autentiseringsuppgifter för klusteranvändare. |
 > | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Åtgärder** |  |
-> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lista över clusterUser autentiseringsuppgifterna för ett hanterat kluster |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lista över clusterUser-autentiseringsuppgifter för ett hanterat kluster |
 
 ## <a name="azure-stack-registration-owner"></a>Ägare för Azure Stack-registrering
 > [!div class="mx-tableFixed"]
@@ -940,11 +940,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription deltagare (förhandsgranskning)
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Contributor (förhandsversion)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig hantera EventGrid händelseåtgärder för prenumerationen. |
+> | **Beskrivning** | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
 > | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -957,11 +957,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription läsare (förhandsgranskning)
+## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Reader (förhandsversion)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan du läsa EventGrid händelseprenumerationer. |
+> | **Beskrivning** | Låter dig läsa EventGrid-händelseprenumerationer. |
 > | **Id** | 2414bbcf-6497-4FAF-8c65-045460748405 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -1190,11 +1190,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Åtgärder** |  |
 > | Microsoft.Management/managementGroups/read | Lista över hanteringsgrupper för autentiserade användare. |
 
-## <a name="monitoring-contributor"></a>Övervaka deltagare
+## <a name="monitoring-contributor"></a>Övervakningsdeltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Beskrivning** | Kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Åtgärder** |  |
 > | * / läsa | Läsa resurser av alla typer utom hemligheter. |
@@ -1221,7 +1221,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 
-## <a name="monitoring-metrics-publisher"></a>Övervakningsmått-publicerare
+## <a name="monitoring-metrics-publisher"></a>Övervakningsmåttutgivare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1234,11 +1234,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | Skrivning av mått |
 
-## <a name="monitoring-reader"></a>Övervaka läsare
+## <a name="monitoring-reader"></a>Övervakningsläsare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Beskrivning** | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Åtgärder** |  |
 > | * / läsa | Läsa resurser av alla typer utom hemligheter. |
@@ -1348,7 +1348,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | I Security Center endast: kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer |
+> | **Beskrivning** | I Säkerhetscenter: Kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -1394,7 +1394,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | I Security Center endast: Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar |
+> | **Beskrivning** | I Säkerhetscenter: Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -1697,11 +1697,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |
 
-## <a name="storage-blob-data-owner-preview"></a>Storage Blob Data-ägare (förhandsversion)
+## <a name="storage-blob-data-owner-preview"></a>Storage Blob Data-ägare (förhandsgranskning)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter Läs-, Skriv-, delete- och POSIX superanvändare åtkomst till Azure Storage blob-behållare och data |
+> | **Beskrivning** | Tillåter läs-, skriv-, borttagnings-, och POSIX-superanvändaråtkomst till Azure Storage Blob-containers och data |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Åtgärder** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en container |

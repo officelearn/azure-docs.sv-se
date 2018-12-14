@@ -7,6 +7,12 @@ items:
     href: Overview/overview.md
 - name: Snabbstarter
   items:
+  - name: Få svar från kunskapsbasen
+    items:
+    - name: Använda Postman
+      href: Quickstarts/get-answer-from-kb-using-postman.md
+    - name: Använda cURL
+      href: Quickstarts/get-answer-from-kb-using-cURL.md
   - name: Använda REST API:er
     items:
     - name: Skapa en ny kunskapsbas
@@ -77,8 +83,6 @@ items:
       href: How-To/create-knowledge-base.md
     - name: Lägga till konversationer i din kunskapsbas
       href: How-to/chit-chat-knowledge-base.md
-    - name: Använda metadata med API för GenerateAnswer
-      href: How-To/metadata-generateanswer-usage.md
     - name: Migrera en kunskapsbas från förhandsversionen
       href: Tutorials/migrate-knowledge-base.md
     - name: Redigera en kunskapsbas
@@ -91,9 +95,11 @@ items:
       href: How-To/publish-knowledge-base.md
     - name: Testa en kunskapsbas
       href: How-To/test-knowledge-base.md
-  - name: Integrera med andra tjänster
+  - name: Använda kunskapsbas
     items:
-    - name: Integrera QnA Maker och LUIS
+    - name: Använda metadata med API för GenerateAnswer
+      href: How-To/metadata-generateanswer-usage.md
+    - name: Med en robot
       href: Tutorials/integrate-qnamaker-luis.md
   - name: Hantera tjänst
     items:
@@ -136,6 +142,20 @@ items:
   - name: HTTP-svarskoder
     displayName: 200, 2xx, 400, 401, 403, 404
     href: http-response-codes.md
+  - name: SDK:er
+    items:
+    - name: C#
+      items:
+      - name: NuGet
+        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
+    - name: Node.js
+      items:
+      - name: NPM
+        href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+    - name: Ruby
+      items:
+      - name: Gem
+        href: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
 - name: Resurser
   items:
   - name: Regional tillgänglighet
@@ -154,9 +174,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blogg
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: e9adfa628172efa5417a14202e5f5832088fedca
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4323dcd58b35fefcfa91864bd58ce2129f1a53c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835768"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272454"

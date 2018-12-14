@@ -4,30 +4,32 @@ items:
 - name: Översikt
   items:
   - name: Vad är tjänsten Azure Machine Learning?
-    displayName: AML, services, overview
+    displayName: AML services overview
     href: overview-what-is-azure-ml.md
   - name: Så här fungerar tjänsten
-    displayName: architecture
+    displayName: architecture concepts definitions
     href: concept-azure-machine-learning-architecture.md
   - name: Vad händer med Workbench?
-    displayName: desktop
+    displayName: desktop ui
     href: overview-what-happened-to-workbench.md
   - name: Viktig information
-    displayName: what's new
+    displayName: what's new issues bugs
     href: azure-machine-learning-release-notes.md
   expanded: true
 - name: Snabbstarter
   items:
   - name: Kom igång – Portal
+    displayName: install sdk workspace
     href: quickstart-get-started.md
   - name: Kom igång – Python
-    displayName: create workspace
+    displayName: create workspace install sdk
     href: quickstart-create-workspace-with-python.md
 - name: Självstudier
   items:
   - name: Klassificering av avbildning (MNIST-data)
     items:
     - name: 1. Träna en modell
+      displayName: build modeling
       href: tutorial-train-models-with-aml.md
     - name: 2. Distribuera en modell
       href: tutorial-deploy-models-with-aml.md
@@ -43,6 +45,9 @@ items:
   href: samples-notebooks.md
 - name: Begrepp
   items:
+  - name: Automatiserad maskininlärning
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
   - name: Modellhantering
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
@@ -68,7 +73,6 @@ items:
         href: how-to-vscode-train-deploy.md
   - name: Förbereda data
     displayName: data prep, etl, elt, data preparation
-    href: how-to-data-prep.md
     items:
     - name: Läsa in data
       href: how-to-load-data.md
@@ -79,7 +83,7 @@ items:
   - name: Inlärningsmodeller
     items:
     - name: Konfigurera miljöer för utbildning
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Få åtkomst till data under utbildning
       href: how-to-access-data.md
@@ -96,11 +100,11 @@ items:
       href: how-to-track-experiments.md
   - name: Azure-maskininlärning
     displayName: automl, auto ml
-    href: how-to-automated-ml.md
     items:
     - name: Konfigurera automatisk utbildning
       href: how-to-configure-auto-train.md
     - name: Använd fjärrberäkningsmål
+      displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX-modeller
     items:
@@ -109,9 +113,9 @@ items:
   - name: Distribuera modeller
     items:
     - name: Välj var du vill distribuera modeller
-      displayName: publish, azure kubernetes, azure container instances
+      displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
-    - name: Distribuera till FPGA:er
+    - name: FPGA:er
       href: how-to-deploy-fpga-web-service.md
     - name: Felsöka
       href: how-to-troubleshoot-deployment.md
@@ -120,7 +124,7 @@ items:
   - name: Konsumera webbtjänster
     items:
     - name: Använda i realtid
-      displayName: create client, client, consume
+      displayName: create client consume
       href: how-to-consume-web-service.md
     - name: Köra batch-förutsägelser
       href: how-to-run-batch-predictions.md
@@ -136,18 +140,18 @@ items:
     displayName: limits
     href: how-to-manage-quotas.md
   - name: Använd CLI för Machine Learning
-    displayName: cli, command line, command-line, az,
+    displayName: cli command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
 - name: Referens
   items:
   - name: Maskininlärning SDK
-    displayName: api, core, package
+    displayName: api core package python
     href: https://aka.ms/aml-sdk
   - name: SDK för dataförberedelser
-    displayName: api, preparation, package
+    displayName: api preparation package python
     href: https://aka.ms/data-prep-sdk
   - name: Övervaka SDK
-    displayName: api, package
+    displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
 - name: Resurser
   items:
@@ -158,6 +162,7 @@ items:
   - name: Regional tillgänglighet
     href: https://azure.microsoft.com/regions/services/
   - name: Kända problem
+    displayName: bugs errors troubleshoot
     href: resource-known-issues.md
   - name: Få support
     href: support-for-aml-services.md
@@ -167,7 +172,7 @@ items:
   - name: Inaktuella dokument
     items:
     - name: Migrera från Workbench
-      displayName: Workbench, upgrade, update, transfer
+      displayName: Workbench upgrade update transfer
       href: how-to-migrate.md
     - name: Exportera eller ta bort kontodata (inaktuellt)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
@@ -365,9 +370,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Äldre problem
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: a5c26bd2ef020ca737907c8a66776a3769bfeefd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf7216271dea4bcdda7bea91c1b386a4ba612f8f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101253"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310519"

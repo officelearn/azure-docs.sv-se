@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 0338ffa13d1b141bb40deaf43fd04fe37bfaf5d2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252124"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338591"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -291,7 +291,7 @@ Några av de insikter som du kanske vill få när konfigurationen är slutförd 
     ![Instrumentpanelen visar fördelning i virtuella nätverk](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - Den virtuella nätverkstopologin visar menyfliksområdet längst upp för val av parametrar som ett virtuellt nätverk (Inter vnet-anslutningar/Active/Inactive), externa anslutningar, aktiva flöden och skadliga flöden i det virtuella nätverket.
-- Du kan filtrera den virtuella nätverkstopologin baserat på prenumerationer, arbetsytor, resouece grupper och tidsintervall. Ytterligare filter som hjälper dig att förstå flödet är: Flow typ (mellan virtuella nätverk, IntraVNET osv), Flow riktning (inkommande, utgående), Flow Status (tillåtna, blockerad) virtuella nätverk (målgrupper och ansluten), anslutningstyp (Peering eller Gateway - P2S och S2S) och NSG. Du kan använda dessa filter för att fokusera på virtuella nätverk som du vill undersöka i detalj.
+- Du kan filtrera den virtuella nätverkstopologin baserat på prenumerationer, arbetsytor, resursgrupper och tidsintervall. Ytterligare filter som hjälper dig att förstå flödet är: Flow typ (mellan virtuella nätverk, IntraVNET osv), Flow riktning (inkommande, utgående), Flow Status (tillåtna, blockerad) virtuella nätverk (målgrupper och ansluten), anslutningstyp (Peering eller Gateway - P2S och S2S) och NSG. Du kan använda dessa filter för att fokusera på virtuella nätverk som du vill undersöka i detalj.
 - Den virtuella nätverkstopologin visar fördelning av trafik till ett virtuellt nätverk för flöden (tillåten/blockerad/inkommande/utgående/Benign/skadlig), protokoll och nätverkssäkerhetsgrupper, till exempel:
 
     ![Virtuella nätverkets topologi som visar information om distribution och flödet av trafik](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

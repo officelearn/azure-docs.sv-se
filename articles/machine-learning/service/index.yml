@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 30a415fb0df910333b81f36cfb925faafd1c8c1b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: da46b78d764465d8b9e5ce438b0843e0b79e16a9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080171"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271155"
 documentType: LandingData
-title: Dokumentation – Azure Machine Learning-tjänsten
+title: Dokumentation om Azure Machine Learning-tjänsten
 metadata:
-  title: Dokumentation om Azure Machine Learning-tjänsten – självstudier, API-referens| Microsoft Docs
+  title: Dokumentation – Azure Machine Learning Service – självstudier, API-referens| Microsoft Docs
   description: Lär dig hur du integrerar intelligenta algoritmer i appar och webbplatser. Använd Scikit-learn, Tensorflow, Pytorch eller något annat Python-baserat ramverk för att skapa en maskininlärningsmodell och träna den lokalt eller i molnet. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.
   services: machine-learning
   author: j-martens
@@ -27,13 +27,13 @@ sections:
 - items:
   - type: list
     style: cards
-    className: cardsB
-    columns: 1
+    className: cardsFTitle
     items:
-    - html: <p>Träna och distribuera dina ML-modeller i en Azure-molntjänst. <a href="overview-what-is-azure-ml.md">Läs mer om tjänsten...</a></p>
+    - title: Börja läsa om Azure Machine Learning Service
+      href: /azure/machine-learning/service/overview-what-is-azure-ml
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning-tjänst
+        href: /azure/machine-learning/service/overview-what-is-azure-ml
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
@@ -46,16 +46,23 @@ sections:
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: '<b>Självstudier</b>: Lär dig hur du konfigurerar ett experiment och operationaliserar modeller.'
+    text: Lär dig hur du konfigurerar ett experiment och operationaliserar modeller.
+  - type: paragraph
+    text: <b>Självstudie för avbildningsklassificering med MNIST-data:</b>
   - type: list
     style: unordered
     items:
-    - html: Bildklassificering (del 1)&#58; <a href="tutorial-train-models-with-aml">Träna din egen maskininlärningsmodell</a>
-    - html: Bildklassificering (del 2)&#58; <a href="tutorial-deploy-models-with-aml">Distribuera modellen</a></br>&nbsp;
-    - html: Regression (del 1)&#58; <a href="tutorial-data-prep">Förbereda datauppgifterna från taxibilar i New York för modellering</a>
-    - html: Regression (del 2)&#58; <a href="tutorial-auto-train-models">Generera en modell med hjälp av automatiserad maskininlärning</a>
+    - html: 'Del 1: <a href="tutorial-train-models-with-aml">Träna en egen maskininlärningsmodell</a>'
+    - html: 'Del 2: <a href="tutorial-deploy-models-with-aml">Distribuera modellen</a>'
   - type: paragraph
-    text: '<b>Exempelanteckningsböcker</b>: Utforska Azure Machine Learning med <a href="https://aka.ms/aml-notebooks">dessa Jupyter Notebooks</a>, som finns på GitHub.'
+    text: <b>Självstudie för regressionsmodellering med data från taxibilar i New York:</b>
+  - type: list
+    style: unordered
+    items:
+    - html: 'Del 1: <a href="tutorial-data-prep">Förbereda datauppgifterna från taxibilar i New York för modellering</a>'
+    - html: 'Del 2: <a href="tutorial-auto-train-models">Använda automatiserad maskininlärning för att skapa modeller snabbare</a>'
+  - type: paragraph
+    text: '<b>Exempel på notebook-filer</b>: Utforska tjänsten med dessa <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://aka.ms/aml-notebooks">Jupyter Notebooks</a> på GitHub.'
 - title: Referens
   items:
   - type: list

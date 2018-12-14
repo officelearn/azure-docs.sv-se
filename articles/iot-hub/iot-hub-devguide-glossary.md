@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7599fbe05b99466ed1d1a3db17156888cf9ea353
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227154"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338302"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub-artiklar.
@@ -40,8 +40,8 @@ Det finns _SDK: er enheter_ lagringsklientbibliotek för flera språk som gör d
 ## <a name="azure-iot-service-sdks"></a>Azure IoT service SDK: er
 Det finns _service SDK: er_ lagringsklientbibliotek för flera språk som gör det möjligt att skapa [appar för serverdelar](#back-end-app) som interagerar med en IoT-hubb. IoT Hub-självstudier visar hur du använder dessa tjänst-SDK: er. Du hittar källkoden och ytterligare information om tjänst-SDK: er i den här GitHub [databasen](https://github.com/Azure/azure-iot-sdks).
 
-## <a name="azure-iot-toolkit"></a>Azure IoT Toolkit
-Den [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) är ett plattformsoberoende, öppen källkod Visual Studio Code-tillägg som hjälper dig att hantera Azure IoT Hub och enheter i VS Code. Med Azure IoT Toolkit kan IoT-utvecklare utveckla IoT-projekt i VS Code enkelt.
+## <a name="azure-iot-hub-toolkit"></a>Azure IoT Hub Toolkit
+Den [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (tidigare Azure IoT Toolkit) är ett plattformsoberoende, öppen källkod Visual Studio Code-tillägg som hjälper dig att hantera Azure IoT Hub och enheter i VS Code. Med Azure IoT Hub Toolkit kan IoT-utvecklare utveckla IoT-projekt i VS Code enkelt.
 
 ## <a name="azure-portal"></a>Azure Portal
 Den [Microsoft Azure-portalen](https://portal.azure.com) är en central plats där du kan etablera och hantera Azure-resurser. Den organiserar dess innehåll med hjälp av _blad_.
@@ -141,7 +141,7 @@ Liknar enhetstvillingen, en modultvilling är JSON-dokument som lagrar informati
 ## <a name="twin-synchronization"></a>Twin synkronisering
 Twin synkronisering använder den [önskade egenskaper](#desired-properties) i enhetstvillingar eller modultvillingar för att konfigurera dina enheter eller moduler och hämta [rapporterade egenskaper](#reported-properties) från att lagra i läsningen.
 
-## <a name="direct-method"></a>Direkt metod
+## <a name="direct-method"></a>Direktmetod
 En [direktmetod](iot-hub-devguide-direct-methods.md) är ett sätt som du kan utlösa en metod för att köra på en enhet genom att aktivera en API på IoT hub.
 
 ## <a name="endpoint"></a>Slutpunkt

@@ -9,35 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e17412636a904508352370bc7292a7d64bac6bc
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280445"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385575"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Hantera HDInsight-kluster med Ambari-Webbgränssnittet
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari förenklar hantering och övervakning av ett Hadoop-kluster genom att tillhandahålla ett enkelt sätt att använda webbgränssnittet och REST API. Ambari ingår i Linux-baserade HDInsight-kluster och används för att övervaka klustret och gör ändringar i konfigurationen.
+Apache Ambari förenklar hantering och övervakning av ett Apache Hadoop-kluster genom att tillhandahålla ett enkelt sätt att använda webbgränssnittet och REST API. Ambari ingår i Linux-baserade HDInsight-kluster och används för att övervaka klustret och gör ändringar i konfigurationen.
 
 Lär dig hur du använder Ambari-Webbgränssnittet med ett HDInsight-kluster i det här dokumentet.
 
-## <a id="whatis"></a>Vad är Ambari?
+## <a id="whatis"></a>Vad är Apache Ambari?
 
 [Apache Ambari](http://ambari.apache.org) förenklar Hadoop-hanteringen genom att tillhandahålla en enkel att använda webbgränssnittet. Du kan använda Ambari för att hantera och övervaka Hadoop-kluster. Utvecklare kan integrera de här funktionerna i sina program med hjälp av den [Ambari REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari-Webbgränssnittet är som standard med HDInsight-kluster som använder Linux-operativsystem.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 
 ## <a name="connectivity"></a>Anslutning
 
 Ambari-Webbgränssnittet finns i ditt HDInsight-kluster på HTTPS://CLUSTERNAME.azurehdinsight.net, där **CLUSTERNAME** är namnet på klustret.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ansluta till Ambari på HDInsight kräver HTTPS. När du uppmanas att autentisera, använda namnet på administratörskontot och lösenordet du angav när klustret har skapats.
 
 ## <a name="ssh-tunnel-proxy"></a>SSH-tunnel (proxy)
@@ -46,7 +46,7 @@ Ambari för ditt kluster är tillgängliga direkt via Internet, visas inte vissa
 
 ## <a name="ambari-web-ui"></a>Ambari-webbgränssnittet
 
-> [!WARNING]
+> [!WARNING]  
 > Inte alla funktioner i Ambari-Webbgränssnittet stöds i HDInsight. Mer information finns i den [stöds inte operations](#unsupported-operations) i det här dokumentet.
 
 När du ansluter till Ambari-Webbgränssnittet, uppmanas du att autentisera till sidan. Använd kluster administratörsanvändare (standard administratör) och lösenordet som du använde när klustret skapas.
@@ -120,7 +120,7 @@ Den **Services** sidopanelen på instrumentpanelen ger snabb inblick i status f�
 
 ![tjänster sidofältet](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
 
-> [!NOTE]
+> [!NOTE]  
 > De tjänster som visas skiljer sig åt mellan HDInsight-klustertyper och versioner. De tjänster som visas här kan skilja sig från de tjänster som visas för ditt kluster.
 
 Att välja en tjänst visar mer detaljerad information om tjänsten.
@@ -138,7 +138,7 @@ Vissa tjänster visas en **snabblänkar** länken längst upp på sidan. Detta k
 
 Om du väljer någon av dessa länkar öppnas en ny flik i webbläsaren som visar den valda sidan.
 
-> [!NOTE]
+> [!NOTE]  
 > Att välja den **snabblänkar** post för en tjänst kan returnera ett ”det gick inte att hitta” serverfel. Om felet uppstår, måste du använda en SSH-tunnel när du använder den **snabblänkar** posten för den här tjänsten. Mer information finns i [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="management"></a>Hantering
@@ -147,7 +147,7 @@ Om du väljer någon av dessa länkar öppnas en ny flik i webbläsaren som visa
 
 Arbeta med användare, grupper och behörigheter kan användas med en [domänanslutna](./domain-joined/apache-domain-joined-introduction.md) HDInsight-kluster. Information om hur du använder Ambari Management UI på ett domänanslutet kluster finns i [hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md).
 
-> [!WARNING]
+> [!WARNING]  
 > Ändra inte lösenordet för Ambari-watchdog (hdinsightwatchdog) på Linux-baserade HDInsight-klustret. Ändra lösenordet delar möjligheten att använda skriptåtgärder eller utföra skalningsåtgärder med klustret.
 
 ### <a name="hosts"></a>Värdar
@@ -156,7 +156,7 @@ Den **värdar** sidan listar alla värdar i klustret. Följ dessa steg för att 
 
 ![sidan för värdar](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Lägga till, ta ur drift och recommissioning en värd bör inte användas med HDInsight-kluster.
 
 1. Välj den värd som du vill hantera.
@@ -195,7 +195,7 @@ Från den **instrumentpanelen** eller **Services** kan du använda den **åtgär
 
 ![tjänståtgärder](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [!WARNING]
+> [!WARNING]  
 > Medan **Lägg till tjänst** visas i den här menyn den bör inte användas för att lägga till tjänster i HDInsight-klustret. Nya tjänster ska läggas till med en skriptåtgärd under klusteretablering. Mer information om hur du använder skriptåtgärder finns i [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
 Medan den **åtgärder** knappen kan starta om alla tjänster, ofta du vill starta, stoppa eller starta om en specifik tjänst. Använd följande steg för att utföra åtgärder på en enskild tjänst:
@@ -206,12 +206,12 @@ Medan den **åtgärder** knappen kan starta om alla tjänster, ofta du vill star
 
     ![tjänsteåtgärd](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Starta om vissa tjänster medan klustret är igång kan generera aviseringar. Om du vill undvika aviseringar kan du använda den **tjänståtgärder** knappen för att aktivera **underhållsläge** för tjänsten innan du utför omstarten.
 
 3. När en åtgärd har valts, den **# op** post överst på sidan steg att visa att en bakgrundsåtgärden sker. Om konfigurerat för att visa visas listan över bakgrundsåtgärder.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Om du har aktiverat **underhållsläge** för tjänsten, Kom ihåg att inaktivera den genom att använda den **tjänståtgärder** knappen när åtgärden har slutförts.
 
 Om du vill konfigurera en tjänst, använder du följande steg:
@@ -226,12 +226,12 @@ Om du vill konfigurera en tjänst, använder du följande steg:
 
 ## <a name="ambari-views"></a>Ambari-vyer
 
-Ambari-vyer kan utvecklare plugin-UI-element i Ambari-Webbgränssnittet med den [Ambari-vyer Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight innehåller följande vyer med Hadoop-klustertyper:
+Ambari-vyer kan utvecklare plugin-UI-element i Ambari-Webbgränssnittet med den [Apache Ambari-vyer Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight innehåller följande vyer med Hadoop-klustertyper:
 
 
-* Hive-vyn: Med hjälp av Hive-vyn kan du köra Hive-frågor direkt från din webbläsare. Du kan spara frågor, visa resultat, spara resultaten för klusterlagring eller hämta resultaten till din lokala dator. Mer information om hur du använder Hive-vyer finns i [Använd Hive-vyer med HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
+* Hive-vyn: Hive-vyn kan du köra Hive-frågor direkt från din webbläsare. Du kan spara frågor, visa resultat, spara resultaten för klusterlagring eller hämta resultaten till din lokala dator. Mer information om hur du använder Hive-vyer finns i [använda Apache Hive-vyer med HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
-* Tez vy: Tez visa kan du bättre förstå och optimera jobb. Du kan visa information om hur Tez-jobb körs och vilka resurser som används.
+* Tez vy: Tez-vy kan du bättre förstå och optimera jobb. Du kan visa information om hur Tez-jobb körs och vilka resurser som används.
 
 ## <a name="unsupported-operations"></a>Åtgärder som inte stöds
 
@@ -241,4 +241,4 @@ Följande Ambari-åtgärder stöds inte på HDInsight:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du använder den [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) med HDInsight.
+Lär dig hur du använder den [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) med HDInsight.

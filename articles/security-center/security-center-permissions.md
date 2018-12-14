@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: de9186faa9c6228f1938a94016ef449ce8bb1899
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313455"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335939"
 ---
 # <a name="permissions-in-azure-security-center"></a>Behörigheter i Azure Security Center
 
@@ -29,8 +29,8 @@ Security Center utvärderar konfigurationen av dina resurser för att identifier
 
 Förutom dessa roller finns två specifika roller i Security Center:
 
-* **Säkerhetsläsare**: en användare som tillhör den här rollen har rätt behörighet till Security Center. Användaren kan visa rekommendationer, aviseringar, en säkerhetsprincip och security tillstånd, men göra inte några ändringar.
-* **Säkerhetsadministratör**: en användare som tillhör den här rollen har samma rättigheter som Security-läsare och kan också uppdatera säkerhetsprinciper och stänga aviseringar och rekommendationer.
+* **Säkerhetsläsare**: En användare som tillhör den här rollen har rätt behörighet till Security Center. Användaren kan visa rekommendationer, aviseringar, en säkerhetsprincip och security tillstånd, men göra inte några ändringar.
+* **Säkerhetsadministratör**: En användare som tillhör den här rollen kan har samma rättigheter som Security-läsare och också uppdatera säkerhetsprinciper och stänga aviseringar och rekommendationer.
 
 > [!NOTE]
 > Säkerhetsroller, Säkerhetsläsare och säkerhetsadministratörer, har åtkomst endast i Security Center. Säkerhetsroller har inte åtkomst till andra delar av Azure, till exempel lagring, webb- och Mobile eller Sakernas Internet.
@@ -59,7 +59,7 @@ I följande tabell visar roller och tillåtna åtgärder i Security Center. Ett 
 ## <a name="next-steps"></a>Nästa steg
 Den här artikeln beskrivs hur Security Center använder RBAC för att tilldela behörigheter till användare och identifierat de tillåtna åtgärderna för varje roll. Nu när du är bekant med rolltilldelningar som behövs för att övervaka säkerhetstillståndet för din prenumeration, redigera IPSec-principer och använder rekommendationerna, Lär dig hur du:
 
-- [Ange säkerhetsprinciper i Security Center](security-center-azure-policy.md)
+- [Ange säkerhetsprinciper i Security Center](tutorial-security-policy.md)
 - [Hantera säkerhetsrekommendationer i Security Center](security-center-recommendations.md)
 - [Övervaka säkerhetshälsa för dina Azure-resurser](security-center-monitoring.md)
 - [Hantera och besvara säkerhetsaviseringar i Security Center](security-center-managing-and-responding-alerts.md)

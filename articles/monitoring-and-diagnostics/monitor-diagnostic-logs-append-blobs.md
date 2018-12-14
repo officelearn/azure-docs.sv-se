@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 48295a48700ee8b7331ae9811b7dd43a0ec8fa69
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1d580e6468044f14b6a206911c4da237f774af3b
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959894"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386527"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Förbereda för ändring av format till Azure Monitor arkiveras på ett lagringskonto för diagnostikloggar
 
 > [!WARNING]
-> Om du skickar [diagnostikloggar för Azure-resurs eller mått till ett lagringskonto med hjälp av resursdiagnostikinställningar](./monitoring-archive-diagnostic-logs.md) eller [aktivitetsloggar till ett storage-konto med loggprofiler](./monitoring-archive-activity-log.md), formatet för data i storage-konto ändras till JSON-rader från den 1 november 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
+> Om du skickar [diagnostikloggar för Azure-resurs eller mått till ett lagringskonto med hjälp av resursdiagnostikinställningar](./../azure-monitor/platform/archive-diagnostic-logs.md) eller [aktivitetsloggar till ett storage-konto med loggprofiler](./../azure-monitor/platform/archive-activity-log.md), formatet för data i storage-konto ändras till JSON-rader från den 1 november 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
 >
 > 
 
@@ -31,9 +31,9 @@ Azure Monitor erbjuder en funktion som gör det möjligt att skicka diagnostikda
 * Ange en diagnostikinställning från nu och den 1 November fortsätter att sända data i det aktuella formatet fram till den 1 November.
 * Den här ändringen inträffar på en gång i alla regioner för offentliga moln. Ändringen inträffar inte ännu i Azure i Kina, Azure Tyskland och Azure Government-moln.
 * Den här ändringen påverkar följande datatyper:
-  * [Diagnostikloggar för Azure-resurs](./monitoring-archive-diagnostic-logs.md) ([finns i listan över resurser här](./monitoring-diagnostic-logs-schema.md))
+  * [Diagnostikloggar för Azure-resurs](./../azure-monitor/platform/archive-diagnostic-logs.md) ([finns i listan över resurser här](./../azure-monitor/platform/tutorial-dashboards.md))
   * [Azure-Resursmått som exporteras av diagnostikinställningar](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
-  * [Azure aktivitetsloggdata som exporteras av loggprofiler](./monitoring-archive-activity-log.md)
+  * [Azure aktivitetsloggdata som exporteras av loggprofiler](./../azure-monitor/platform/archive-activity-log.md)
 * Den här ändringen påverkar inte:
   * Flödesloggar för nätverk
   * Azure-tjänstloggar inte gjorts tillgängliga via Azure Monitor ännu (till exempel diagnostikloggar för Azure App Service, storage analytics-loggar)
@@ -135,5 +135,5 @@ Anpassade verktyg ska uppdateras för att hantera både det aktuella formatet oc
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [arkivering resursdiagnostikloggar till ett lagringskonto](./monitoring-archive-diagnostic-logs.md)
-* Lär dig mer om [Arkivera aktivitetsloggdata till ett lagringskonto](./monitoring-archive-activity-log.md)
+* Lär dig mer om [arkivering resursdiagnostikloggar till ett lagringskonto](./../azure-monitor/platform/archive-diagnostic-logs.md)
+* Lär dig mer om [Arkivera aktivitetsloggdata till ett lagringskonto](./../azure-monitor/platform/archive-activity-log.md)

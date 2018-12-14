@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c7d38538b3876ae91c0ae3794e14ab11f08993c6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162893"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384266"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Aktiva Directory Role-Based Access Control (förhandsversion)
 
@@ -68,6 +68,8 @@ Innan du kan köra det här exemplet redigera filen App.config och, beroende på
 - Omdirigerings-URI som du angav i din app i föregående steg.
  
 När du kör konsolprogrammet, uppmanas du att välja ett scenario; Klicka på **interaktiv användarinloggning** genom att skriva dess nummer och trycka på RETUR. Programmet visas ett fönster för inloggning, begär tillstånd att få åtkomst till Event Hubs och sedan använder tjänsten för att gå igenom scenariot skicka och ta emot under inloggning identiteten.
+
+Appen använder `ServiceAudience.EventHubsAudience` som tokenmålgruppen. När du använder andra språk eller SDK: er där målgruppen inte är tillgänglig som en konstant, rätt värdet som ska användas är `https://eventhubs.azure.net/`.
 
 ## <a name="next-steps"></a>Nästa steg
 

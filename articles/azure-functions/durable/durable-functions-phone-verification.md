@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7bc9341d7e078b0ae69cc9a734c02f257df6d96a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: beb6650125bdf7526b8167ba0f076b079e4e84a8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643357"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342875"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Mänsklig interaktion i varaktiga funktioner - Phone verifiering exemplet
 
@@ -45,8 +45,8 @@ Den här artikeln beskriver följande funktioner i exempelappen:
 * **E4_SendSmsChallenge**
 
 I följande avsnitt beskrivs konfiguration och kod som används för C#-skript och JavaScript. Kod för Visual Studio-utveckling visas i slutet av artikeln.
- 
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS verifiering orchestration (Visual Studio Code och Azure portal exempelkoden) 
+
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS verifiering orchestration (Visual Studio Code och Azure portal exempelkoden)
 
 Den **E4_SmsPhoneVerification** funktionen använder standard *function.json* för orchestrator-funktioner.
 
@@ -58,7 +58,7 @@ Här är den kod som implementerar funktionen:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -72,7 +72,7 @@ När startats gör orchestrator-funktion följande:
 Användaren får ett SMS-meddelande med en fyrsiffrig kod. De har 90 sekunder att skicka den samma 4-siffrig kod till funktionen-instans orchestrator för att slutföra verifieringen. Om de skickar fel kod får de en ytterligare tre försök att hämta det direkt (inom samma 90 sekunder fönster).
 
 > [!NOTE]
-> Det kanske inte är uppenbara på första, men den här orchestrator-funktionen är helt deterministisk. Detta beror på den `CurrentUtcDateTime` egenskapen används för att beräkna förfallotid timer och den här egenskapen returnerar samma värde på varje repetitionsattacker nu i orchestrator-koden. Detta är viktigt att se till att samma `winner` resultat av varje upprepade anrop till `Task.WhenAny`.
+> Det kanske inte är uppenbara på första, men den här orchestrator-funktionen är helt deterministisk. Detta beror på den `CurrentUtcDateTime` (.NET) och `currentUtcDateTime` (JavaScript) egenskaper som används för att beräkna förfallotid timer och dessa egenskaper returnerar samma värde på varje repetitionsattacker nu i orchestrator-koden. Detta är viktigt att se till att samma `winner` resultat av varje upprepade anrop till `Task.WhenAny` (.NET) eller `context.df.Task.any` (JavaScript).
 
 > [!WARNING]
 > Det är viktigt att [Avbryt timers](durable-functions-timers.md) om du inte längre behöver dem upphöra, som i exemplet ovan då svar tas emot.
@@ -89,7 +89,7 @@ Och här är koden som genererar 4-siffrig kontrollkoden och skickar SMS: et:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -106,6 +106,7 @@ Content-Type: application/json
 
 "+1425XXXXXXX"
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Length: 695
@@ -115,12 +116,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-   > [!NOTE]
-   > För närvarande kan inte JavaScript orchestration starter-funktioner returnera instanshantering URI: er. Den här funktionen kommer att läggas till i en senare version.
-
 Orchestrator-funktion som tar emot det angivna telefonnumret och omedelbart skickar ett SMS-meddelande med en slumpmässigt genererad 4-siffriga Verifieringskod &mdash; exempelvis *2168*. Funktionen väntar sedan i 90 sekunder för ett svar.
 
-Om du vill svara med kod kan du använda `RaiseEventAsync` inuti ett annat fungera eller anropa den **sendEventUrl** HTTP POST-webhook som refereras i 202-svaret ovan ersätter `{eventName}` med namnet på händelsen, `SmsChallengeResponse`:
+Om du vill svara med kod kan du använda [ `RaiseEventAsync` (.NET) eller `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances) inuti ett annat fungera eller anropa den **sendEventUrl** HTTP POST-webhook som refereras i 202-svaret ovan , ersätta `{eventName}` med namnet på händelsen, `SmsChallengeResponse`:
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -135,6 +133,7 @@ Om du skickar detta innan timern upphör att gälla, dirigering är klar och `ou
 ```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
+
 ```
 HTTP/1.1 200 OK
 Content-Length: 144

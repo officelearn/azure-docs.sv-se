@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90bba26bf1fd941085568cacd4d005f10eaed1b8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005401"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384213"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Skriptåtgärdsutveckling med HDInsight
 
 Lär dig hur du anpassar ditt HDInsight-kluster med Bash-skript. Skriptåtgärder är ett sätt att anpassa HDInsight under eller när klustret har skapats.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Vad är skriptåtgärder
@@ -43,7 +43,7 @@ Mer information om hur du använder dessa metoder för att tillämpa skriptåtg�
 
 När du utvecklar ett anpassat skript för ett HDInsight-kluster kan finns det flera bästa praxis att tänka på:
 
-* [Använder Hadoop-version](#bPS1)
+* [Använder Apache Hadoop-version](#bPS1)
 * [Target OS-Version](#bps10)
 * [Ange stabil länkar till skriptresurser](#bPS2)
 * [Använd förkompilerad resurser](#bPS4)
@@ -54,10 +54,10 @@ När du utvecklar ett anpassat skript för ett HDInsight-kluster kan finns det f
 * [Spara filer i ASCII-format med LF radbrytningar](#bps8)
 * [Använda logik för återförsök för att återställa från tillfälliga fel](#bps9)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Skriptåtgärder måste slutföras inom 60 minuter eller processen misslyckas. Under noden etablering, körs skriptet samtidigt med andra processer för installation och konfiguration. Konkurrens om resurser, till exempel CPU-tid eller nätverk bandbredd kan orsaka skriptet tar längre tid att slutföra än i din utvecklingsmiljö.
 
-### <a name="bPS1"></a>Använder Hadoop-version
+### <a name="bPS1"></a>Använder Apache Hadoop-version
 
 Olika versioner av HDInsight har olika versioner av Hadoop-tjänster och komponenter som är installerade. Om skriptet förväntar sig en specifik version av en tjänst eller en komponent, bör du endast använda skriptet med versionen av HDInsight som innehåller komponenterna som krävs. Du kan hitta information om komponenten-versioner som ingår i HDInsight med hjälp av den [versionshantering för HDInsight](hdinsight-component-versioning.md) dokumentet.
 
@@ -110,7 +110,7 @@ Skript och associerade resurser måste vara tillgängliga under hela klustrets l
 
 Det bästa sättet är att hämta och arkivera allt i ett Azure Storage-konto på din prenumeration.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Lagringskontot som används måste vara standardkontot för lagring för klustret eller en offentlig, skrivskyddade behållare för andra storage-konto.
 
 Till exempel de exempel som tillhandahålls av Microsoft lagras i den [ https://hdiconfigactions.blob.core.windows.net/ ](https://hdiconfigactions.blob.core.windows.net/) storage-konto. Den här platsen är en offentlig, skrivskyddade behållare som underhålls av HDInsight-teamet.
@@ -129,12 +129,12 @@ Till exempel ett skript som ändrar konfigurationsfiler bör inte lägga till du
 
 Linux-baserade HDInsight-kluster tillhandahåller två huvudnoder som är aktiva i klustret och skriptåtgärder kör på båda noderna. Om de komponenter som du installerar räknar bara en huvudnod, installera inte komponenterna på båda huvudnoder.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tjänster som tillhandahålls som en del av HDInsight är utformade för att växla över mellan två huvudnoder efter behov. Den här funktionen utökas inte till anpassade komponenter installeras via skriptåtgärder. Om du behöver hög tillgänglighet för anpassade komponenter måste du implementera en egen mekanism för redundans.
 
 ### <a name="bPS6"></a>Konfigurera anpassade komponenter om du vill använda Azure Blob storage
 
-Komponenter som du installerar på klustret kan ha en standardkonfiguration som använder lagring med Hadoop Distributed File System (HDFS). HDInsight använder Azure Storage eller Data Lake Store som standardlagring. Båda ger en kompatibel HDFS-filsystemets som data finns kvar även om klustret tas bort. Du kan behöva konfigurera komponenter som du installerar för WASB eller ADL istället för HDFS.
+Komponenter som du installerar på klustret kan ha en standardkonfiguration som använder Apache Hadoop Distributed File System (HDFS) lagring. HDInsight använder Azure Storage eller Data Lake Store som standardlagring. Båda ger en kompatibel HDFS-filsystemets som data finns kvar även om klustret tas bort. Du kan behöva konfigurera komponenter som du installerar för WASB eller ADL istället för HDFS.
 
 Du behöver inte ange filsystemet för de flesta åtgärder. Till exempel följande giraph-examples.jar filen kopieras från det lokala filsystemet till klusterlagringen:
 
@@ -148,8 +148,8 @@ I det här exemplet på `hdfs` kommando använder transparent standardklusterlag
 
 HDInsight skriptutdata som skrivs till STDOUT- och STDERR-loggar. Du kan visa den här informationen med hjälp av Ambari-webbgränssnittet.
 
-> [!NOTE]
-> Ambari är endast tillgänglig om klustret har skapats. Om du använder en skriptåtgärd under klusterskapandet och skapa misslyckas i felsökningsavsnittet [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) andra sätt för att komma åt information som loggas.
+> [!NOTE]  
+> Apache Ambari är endast tillgänglig om klustret har skapats. Om du använder en skriptåtgärd under klusterskapandet och skapa misslyckas i felsökningsavsnittet [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) andra sätt för att komma åt information som loggas.
 
 De flesta verktyg och Installationspaketen skriva redan information till STDOUT- och STDERR, men du kanske vill lägga till ytterligare loggning. Använda för att skicka text STDOUT `echo`. Exempel:
 
@@ -216,7 +216,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>Hjälpkomponentmetoder för anpassade skript
 
-Skriptet åtgärd hjälpmetoder är verktyg som du kan använda när du skriver anpassade skript. Dessa metoder finns i den[ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) skript. Använd följande för att hämta och använda dem som en del av skriptet:
+Skriptet åtgärd hjälpmetoder är verktyg som du kan använda när du skriver anpassade skript. Dessa metoder finns i den [ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) skript. Använd följande för att hämta och använda dem som en del av skriptet:
 
 ```bash
 # Import the helper method module.
@@ -278,16 +278,16 @@ Skript som används för att anpassa ett kluster behöver lagras i något av fö
 
 * En __offentligt läsbara URI__. Till exempel en URL till data som lagras på OneDrive, Dropbox eller andra filer som är värd för tjänsten.
 
-* En __Azure Data Lake Store-konto__ som är associerad med HDInsight-klustret. Mer information om hur du använder Azure Data Lake Store med HDInsight finns i [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* En __Azure Data Lake Store-konto__ som är associerad med HDInsight-klustret. Mer information om hur du använder Azure Data Lake Store med HDInsight finns i [snabbstarten: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Tjänstens huvudnamn HDInsight använder för att få åtkomst till Data Lake Store måste ha läsbehörighet till skriptet.
 
 Resurser som används av skriptet måste också vara offentligt tillgängliga.
 
 Lagra filer i ett Azure Storage-konto eller Azure Data Lake Store ger snabb åtkomst, som båda i Azure-nätverket.
 
-> [!NOTE]
+> [!NOTE]  
 > URI-format som används för att referera till skriptet skiljer sig beroende på tjänsten som används. Storage-konton som är associerade med HDInsight-kluster kan använda `wasb://` eller `wasbs://`. Offentligt läsbara URI: er använder `http://` eller `https://`. Data Lake Store använder `adl://`.
 
 ### <a name="checking-the-operating-system-version"></a>Kontrollera versionen av operativsystemet
@@ -332,8 +332,8 @@ Mer information om hur du använder varje metod finns i [hur du använder skript
 Microsoft tillhandahåller exempelskript för att installera komponenter på ett HDInsight-kluster. Se följande länkar för mer exempel skriptåtgärder.
 
 * [Installera och använda Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md)
-* [Installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md)
-* [Installera och använda Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md)
+* [Installera och använda Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md)
+* [Installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md)
 * [Installera eller uppgradera Mono på HDInsight-kluster](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>Felsökning
@@ -342,13 +342,13 @@ Här följer några fel som kan uppstå när du använder skript som du har utve
 
 **Fel**: `$'\r': command not found`. Ibland följt av `syntax error: unexpected end of file`.
 
-*Orsak*: det här felet uppstår om rader i ett skript som avslutas med CRLF. UNIX-system förväntar sig bara LF som raden slutar.
+*Orsak*: Det här felet uppstår om rader i ett skript som avslutas med CRLF. UNIX-system förväntar sig bara LF som raden slutar.
 
 Det här problemet uppstår oftast när skriptet har skapats på en Windows-miljö, eftersom CRLF är en gemensam hållning slutar för många textredigerare på Windows.
 
-*Lösning*: om det är ett alternativ i textredigeraren väljer Unix-format eller LF för raden slutar. Du kan också använda följande kommandon på ett Unix-system för att ändra CRLF till en LF:
+*Lösning*: Om det är ett alternativ i textredigerare, Välj Unix-format eller LF för raden slutar. Du kan också använda följande kommandon på ett Unix-system för att ändra CRLF till en LF:
 
-> [!NOTE]
+> [!NOTE]  
 > Följande kommandon kan grovt jämföras i att de ska ändra radbrytningar CRLF till LF. Välj en baserat på Verktyg som är tillgängliga på datorn.
 
 | Kommando | Anteckningar |
@@ -360,9 +360,9 @@ Det här problemet uppstår oftast när skriptet har skapats på en Windows-milj
 
 **Fel**: `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Orsak*: det här felet uppstår när skriptet har sparats som UTF-8 med en Byte (BOM Order Mark).
+*Orsak*: Det här felet uppstår när skriptet har sparats som UTF-8 med en Byte (BOM Order Mark).
 
-*Lösning*: spara filen som ASCII eller som UTF-8 utan en struktur. Du kan också använda följande kommando i ett Linux- eller Unix-system för att skapa en fil utan Strukturen:
+*Lösning*: Spara filen som ASCII eller som UTF-8 utan en struktur. Du kan också använda följande kommando i ett Linux- eller Unix-system för att skapa en fil utan Strukturen:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 

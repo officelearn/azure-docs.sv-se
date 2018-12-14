@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 04dbc5c60e802e7861b9e2a98c51446281b7ae3f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: da866145f9c1ad39987b0f9a4449d4e5ff7f18f5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320615"
+ms.locfileid: "53337129"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig aviseringar och övervakning i Azure Monitor ersätter klassiska aviseringar och övervakning
 
@@ -53,7 +53,7 @@ Som vi nämnt tidigare, klassisk övervakning och avisering plattform för närv
 - Äldre (klassisk)-plattformen och anpassade mått för Application Insights samt aviseringar på dem som för närvarande tillgänglig via [aviseringar (klassisk) avsnittet](../azure-monitor/platform/alerts-classic.overview.md) av Azure-portalen och tillgänglig som [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resurs
 - Äldre (klassisk) Felavvikelser avisering för närvarande tillgängligt som [Smart identifiering i Application Insights](../application-insights/app-insights-proactive-diagnostics.md) på Azure portal, med aviseringar har konfigurerats visas i [aviseringar (klassisk) avsnittet](../azure-monitor/platform/alerts-classic.overview.md) i Azure Portal
 
-Alla klassiska övervakning och avisering system, inklusive motsvarande [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [Azure-portalsidan](../azure-monitor/platform/alerts-classic-portal.md), och [ Resursmall](monitoring-enable-alerts-using-template.md) förblir användbart fram till slutet av juni 2019. 
+Alla klassiska övervakning och avisering system, inklusive motsvarande [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [Azure-portalsidan](../azure-monitor/platform/alerts-classic-portal.md), och [ Resursmall](../azure-monitor/platform/alerts-enable-template.md) förblir användbart fram till slutet av juni 2019. 
 
 I slutet av juni 2019 i Azure Monitor:
 
@@ -76,4 +76,4 @@ Den här artikeln kommer att ständigt uppdaterade kommer länkar och informatio
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om den [nya enhetliga Azure Monitor](../azure-monitor/overview.md).
-* Mer information om den nya [Azure Alerts](monitoring-overview-alerts.md).
+* Mer information om den nya [Azure Alerts](../azure-monitor/platform/alerts-overview.md).

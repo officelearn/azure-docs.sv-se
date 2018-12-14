@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 764ca0203a418ce29c942d38d8fad5bbc00c071b
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 00af4cc67dc7490727af46e12c387fb0f147371d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321757"
+ms.locfileid: "53339849"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Övervaka prestanda för Azure-webbappar
 På [Azure Portal](https://portal.azure.com) kan du konfigurera övervakning av programprestanda för dina [Azure-webbappar](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumenterar din app så att den skickar telemetri om sina aktiviteter till Application Insights-tjänsten, där informationen lagras och analyseras. Där kan du använda diagram med mätvärden och sökverktyg för att diagnostisera problem, förbättra prestanda och utvärdera användningen.
@@ -101,7 +101,7 @@ Application Insights kan tillhandahålla mer detaljerad telemetri genom installa
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) – övervaka Azure Functions med Application Insights
 * [Aktivera Azure-diagnostik](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) så att den skickas till Application Insights.
 * [Övervaka mätvärden för tjänstens hälsotillstånd](../azure-monitor/platform/data-collection.md) för att se till att tjänsten är tillgänglig och svarar.
-* [Få aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) när drifthändelser inträffar eller när mätvärden överskrider ett tröskelvärde.
+* [Få aviseringar](../azure-monitor/platform/alerts-overview.md) när drifthändelser inträffar eller när mätvärden överskrider ett tröskelvärde.
 * Använd [Application Insights för JavaScript-appar och webbsidor](app-insights-javascript.md) för att hämta klienttelemetri från webbläsare som besöker en webbsida.
 * [Konfigurera tillgänglighetswebbtester](app-insights-monitor-web-app-availability.md) så att du aviseras om webbplatsen inte fungerar.
 

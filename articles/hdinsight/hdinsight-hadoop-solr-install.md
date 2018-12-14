@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6a3f9928fa685c36a0495ba5d423c3be7bff2bea
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3f382aab5a00030b922fb890e82110454e7f3839
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009177"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384504"
 ---
-# <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Installera och använda Solr i Windows-baserade HDInsight-kluster
+# <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Installera och använda Apache Solr på Windows-baserade HDInsight-kluster
 
-Lär dig hur du anpassar Windows-baserade HDInsight-kluster med Solr med skriptåtgärd och använda Solr kan söka efter data.
+Lär dig hur du anpassar Windows-baserade HDInsight-kluster med Apache Solr med skriptåtgärd och använda Solr kan söka efter data.
 
-> [!IMPORTANT]
-> Stegen i det här dokumentet fungerar bara med Windows-baserade HDInsight-kluster. HDInsight är endast tillgänglig på Windows för versioner lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om att använda Solr med en Linux-baserat kluster finns i [installera och använda Solr på HDinsight Hadoop-kluster (Linux)](hdinsight-hadoop-solr-install-linux.md).
+> [!IMPORTANT]  
+> Stegen i det här dokumentet fungerar bara med Windows-baserade HDInsight-kluster. HDInsight är endast tillgänglig på Windows för versioner lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om att använda Solr med en Linux-baserat kluster finns i [installerar och använder Apache Solr på HDinsight Hadoop-kluster (Linux)](hdinsight-hadoop-solr-install-linux.md).
 
 
 Du kan installera Solr på någon typ av kluster (Hadoop-, Storm, HBase, Spark) i Azure HDInsight med hjälp av *skriptåtgärd*. Ett exempelskript för att installera Solr på ett HDInsight-kluster finns i en skrivskyddad Azure storage blob [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
@@ -32,7 +32,7 @@ Exempelskript som används i det här avsnittet skapar du ett Windows-baserade S
 
 **Relaterade artiklar**
 
-* [Installera och använda Solr på HDinsight Hadoop-kluster (Linux)](hdinsight-hadoop-solr-install-linux.md)
+* [Installera och använda Apache Solr på HDinsight Hadoop-kluster (Linux)](hdinsight-hadoop-solr-install-linux.md)
 * [Skapa Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md): allmän information om hur du skapar HDInsight-kluster.
 * [Anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize]: allmän information om hur du anpassar HDInsight-kluster med skriptåtgärd.
 * [Utveckla skriptåtgärder skript för HDInsight](hdinsight-hadoop-script-actions.md).
@@ -41,7 +41,7 @@ Exempelskript som används i det här avsnittet skapar du ett Windows-baserade S
 <a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> är en enterprise search plattform som möjliggör kraftfull fulltextsökning på data. Hadoop kan lagra och hantera stora mängder data, ger Apache Solr sökfunktioner för att snabbt hämta data.
 
 ## <a name="install-solr-using-portal"></a>Installera Solr med hjälp av portalen
-1. Börja skapa ett kluster med hjälp av den **skapa anpassade** enligt beskrivningen på [skapa Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md).
+1. Börja skapa ett kluster med hjälp av den **skapa anpassade** enligt beskrivningen på [skapa Apache Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md).
 2. På den **skriptåtgärder** sidan i guiden klickar du på **lägga till skriptåtgärd** att ge information om skriptåtgärd, enligt nedan:
 
     ![Använda skriptåtgärder för att anpassa ett kluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Använd skriptåtgärder för att anpassa ett kluster")
@@ -167,18 +167,18 @@ Du måste börja med att indexera Solr med vissa datafiler. Du kan sedan använd
    Det här kommandot kopierar ögonblicksbilden till /example/data/under behållaren i standard Storage-konto som är kopplat till klustret.
 
 ## <a name="install-solr-using-aure-powershell"></a>Installera Solr med Aure PowerShell
-Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Exemplet visar hur du installerar Spark med Azure PowerShell. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Exemplet visar hur du installerar Apache Spark med Azure PowerShell. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="install-solr-using-net-sdk"></a>Installera Solr med .NET SDK
-Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Exemplet visar hur du installerar Spark med .NET SDK. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Exemplet visar hur du installerar Apache Spark med .NET SDK. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="see-also"></a>Se också
-* [Installera och använda Solr på HDinsight Hadoop-kluster (Linux)](hdinsight-hadoop-solr-install-linux.md)
-* [Skapa Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md): allmän information om hur du skapar HDInsight-kluster.
+* [Installera och använda Apache Solr på HDinsight Hadoop-kluster (Linux)](hdinsight-hadoop-solr-install-linux.md)
+* [Skapa Apache Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md): allmän information om hur du skapar HDInsight-kluster.
 * [Anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize]: allmän information om hur du anpassar HDInsight-kluster med skriptåtgärd.
 * [Utveckla skriptåtgärder skript för HDInsight](hdinsight-hadoop-script-actions.md).
-* [Installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]: skriptåtgärd exempel om hur du installerar Spark.
-* [Installera Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md): skriptåtgärd exempel om att installera Giraph.
+* [Installera och använda Apache Spark på HDInsight-kluster][hdinsight-install-spark]: Skriptexempel för en åtgärd om hur du installerar Spark.
+* [Installera Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md): Skriptexempel för en åtgärd om att installera Giraph.
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md

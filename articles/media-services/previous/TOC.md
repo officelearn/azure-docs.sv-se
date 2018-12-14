@@ -177,8 +177,8 @@
 ### [Bearbeta med Content Moderator](media-services-content-moderation.md)
 
 ## [Konfigurera telemetri](media-services-telemetry-overview.md)
-###[NET](media-services-dotnet-telemetry.md)
-###[REST](media-services-rest-telemetry.md)
+### [NET](media-services-dotnet-telemetry.md)
+### [REST](media-services-rest-telemetry.md)
 
 ## Skala
 ### [Mediebearbetning](media-services-scale-media-processing-overview.md)

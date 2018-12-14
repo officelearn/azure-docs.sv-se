@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: 7c567cc70a87e7856f511112d3bff692f5af3993
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf2cbdb57276fccd31af61f2df1b76eeba816e66
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194019"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341634"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -299,4 +299,4 @@ Medan lösningen kostar ingenting att använda gäller förbrukning av diagnosti
 
 - Använd [Loggsökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att visa detaljerad Azure SQL-data.
 - [Skapa dina egna instrumentpaneler](../../azure-monitor/platform/dashboards.md) visar Azure SQL-data.
-- [Skapa aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) när specifika Azure SQL-händelser inträffar.
+- [Skapa aviseringar](../../azure-monitor/platform/alerts-overview.md) när specifika Azure SQL-händelser inträffar.

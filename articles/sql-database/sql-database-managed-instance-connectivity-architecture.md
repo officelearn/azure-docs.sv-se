@@ -12,16 +12,22 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: bf8b3ab62697857a636b7550376cfa0b6d4ebecd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 964f91f412645e141ca003d511480f6f6eb438a3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269540"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343316"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance Anslutningsarkitektur
 
 Den här artikeln innehåller kommunikationsöversikt för Azure SQL Database Managed Instance och beskriver anslutningsarkitektur samt hur de olika komponenterna fungerar därigenom dirigera trafik till den hanterade instansen.  
+
+Azure SQL Database Managed Instance är placerad i virtuella Azure-nätverket och undernätet dedikerad till hanterade instanser. Den här distributionen gör det möjligt för följande scenarier: 
+- Skydda privata IP-adressen.
+- Ansluta till en hanterad instans direkt från ett lokalt nätverk.
+- Ansluta en hanterad instans till länkad server eller en annan lokala datalager.
+- Ansluta en hanterad instans till Azure-resurser.
 
 ## <a name="communication-overview"></a>Översikt över tjänstkommunikation
 
@@ -66,12 +72,53 @@ Klienterna ansluter till hanterad instans med det värdnamn som har ett formulä
 
 Privata IP-adressen hör till den hanterade instansen interna belastningsutjämnaren (ILB) som dirigerar trafik till den hanterade instansen Gateway (GW). Eftersom flera hanterade instanser kan potentiellt körs i samma kluster, använder GW värdnamn för hanterad instans för att omdirigera trafik till rätt SQL-motor-tjänst.
 
-Hanterings-och ansluta till Managed Instance med [hanteringsslutpunkten](sql-database-managed-instance-management-endpoint.md) som mappar till extern belastningsutjämnare. Trafiken dirigeras till noderna endast om togs emot på en fördefinierad uppsättning portar som används uteslutande av Managed Instance komponenterna. Inbyggda brandväggen på noderna är konfigurerad för att tillåta trafik enbart från Microsoft specifika IP-intervall. All kommunikation mellan komponenterna och Hanteringsplanet är ömsesidigt autentiserad-certifikat.
+Hanterings-och ansluta till Managed Instance med [hanteringsslutpunkten](#management-endpoint) som mappar till extern belastningsutjämnare. Trafiken dirigeras till noderna endast om togs emot på en fördefinierad uppsättning portar som används uteslutande av Managed Instance komponenterna. Inbyggda brandväggen på noderna är konfigurerad för att tillåta trafik enbart från Microsoft specifika IP-intervall. All kommunikation mellan komponenterna och Hanteringsplanet är ömsesidigt autentiserad-certifikat.
+
+## <a name="management-endpoint"></a>Hanteringsslutpunkt
+
+Det virtuella klustret i Azure SQL Database Managed Instance innehåller en hanteringsslutpunkt som Microsoft använder för att hantera den hanterade instansen. Hanteringsslutpunkten skyddas med inbyggda brandväggen på nätverket och det ömsesidig certifikatverifiering på programnivå. Du kan [hitta ip-adress för hantering av slutpunkten](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+
+När anslutningar öppnas från inuti den hanterade instansen (säkerhetskopiering, granskningsloggen) visas den som trafiken kommer ifrån från management endpoint offentlig IP-adress. Du kan begränsa åtkomst till offentliga tjänster från hanterad instans genom att ställa in brandväggsregler för att tillåta hanterad instans-IP-adressen. Hitta mor einformation om den metod som kan [verifiera Managed Instance inbyggda brandväggen](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+
+> [!NOTE]
+> Detta gäller inte ställa in brandväggsregler för Azure-tjänster som finns i samma region som hanterad instans som Azure-plattformen har en optimering för trafik som går mellan de tjänster som är samordnad.
+
+## <a name="network-requirements"></a>Nätverkskrav
+
+Du kan distribuera hanterade instanser i ett dedikerat undernät (hanterad instans-undernät) i det virtuella nätverket som uppfyller följande krav:
+- **Dedikerade undernät**: Managed Instance undernätet får inte innehålla andra molntjänst som är associerade med det och det får inte vara ett Gateway-undernät. Du kommer inte att kunna skapa en hanterad instans i ett undernät som innehåller resurser än Managed Instance och du kan inte senare lägga till andra resurser i undernätet.
+- **Kompatibla Nätverkssäkerhetsgrupp (NSG)**: En NSG som är associerade med en hanterad instans-undernätet måste innehålla regler som visas i följande tabeller (obligatorisk inkommande säkerhetsregler och obligatoriska utgående säkerhetsregler) framför andra regler. Du kan använda en NSG för att fullständigt kontrollera åtkomsten till slutpunkten för hanterad instans-data genom att filtrera trafik på port 1433. 
+- **Tabellen kompatibla användardefinierad väg (UDR)**: Hanterad instans-undernätet måste ha en routningstabell för användare med **0.0.0.0/0 nästa hopp till Internet** som obligatoriska UDR tilldelade till den. Dessutom kan du lägga till en UDR som dirigerar trafik som har lokala privata IP-adressintervall som ett mål via vnet-gateway eller virtuell nätverksinstallation (NVA). 
+- **Valfri anpassad DNS**: Om en anpassad DNS har angetts i det virtuella nätverket, måste Azures rekursiva matchare IP-adress (till exempel 168.63.129.16) läggas till i listan. Mer information finns i [konfigurera anpassad DNS](sql-database-managed-instance-custom-dns.md). Anpassad DNS-server måste kunna matcha värdnamn i följande domäner och deras underdomäner: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, och *microsoftonline p.com*. 
+- **Tjänsten har inga slutpunkter**: Managed Instance undernätet får inte ha en tjänstslutpunkt som är associerade med den. Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar det virtuella nätverket.
+- **Tillräckligt med IP-adresser**: Hanterad instans-undernätet måste ha minst 16 IP-adresser (rekommenderas minst är 32 IP-adresser). Mer information finns i [avgör storleken på undernätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](sql-database-managed-instance-configure-vnet-subnet.md) när du konfigurerar den att uppfylla [Managed Instance nätverkskraven](#network-requirements), eller skapa en [nya nätverk och undernät](sql-database-managed-instance-create-vnet-subnet.md).
+
+> [!IMPORTANT]
+> Du kan inte distribuera en ny hanterad instans om målundernätet inte är kompatibel med alla dessa krav. När en hanterad instans skapas en *avsikt nätverksprincip* har tillämpats på undernätet för att förhindra att icke-kompatibla ändringar till konfiguration av nätverk. När den senaste instansen har tagits bort från undernätet på *avsikt nätverksprincip* tas också bort
+
+### <a name="mandatory-inbound-security-rules"></a>Obligatorisk inkommande säkerhetsregler 
+
+| Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
+|------------|----------------------------|--------|-----------------|-----------|------|
+|hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |Alla        |Tillåt |
+|. mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |Alla        |Tillåt |
+|health_probe|Alla                         |Alla     |AzureLoadBalancer|Alla        |Tillåt |
+
+### <a name="mandatory-outbound-security-rules"></a>Obligatorisk utgående säkerhetsregler 
+
+| Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
+|------------|--------------|--------|-----------------|-----------|------|
+|hantering  |80, 443, 12000|TCP     |Alla              |Alla        |Tillåt |
+|. mi_subnet   |Alla           |Alla     |Alla              |MI – UNDERNÄT  |Tillåt |
+
+  > [!Note]
+  > Även om obligatoriska inkommande säkerhetsregler som tillåter trafik från _alla_ källa på portar 9000, 9003, 1438, 1440, 1452 portarna skyddas av inbyggda brandvägg. Detta [artikeln](sql-database-managed-instance-find-management-endpoint-ip-address.md) visar hur du kan identifiera hantering slutpunktens IP-adress och kontrollera brandväggsregler. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt finns i [vad är en hanterad instans](sql-database-managed-instance.md)
-- Mer information om konfiguration av virtuellt nätverk finns i [hanteras VNet instanskonfiguration](sql-database-managed-instance-vnet-configuration.md).
+- Lär dig hur du [konfigurera nya VNet](sql-database-managed-instance-create-vnet-subnet.md) eller [konfigurera befintliga VNet](sql-database-managed-instance-configure-vnet-subnet.md) där du kan distribuera hanterade instanser.
+- [Beräkna ut storleken på undernätet](sql-database-managed-instance-determine-size-vnet-subnet.md) där du ska distribuera hanterade instanser. 
 - För en Snabbstart Lär dig hur du skapar hanterad instans:
   - Från den [Azure-portalen](sql-database-managed-instance-get-started.md)
   - med hjälp av [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)

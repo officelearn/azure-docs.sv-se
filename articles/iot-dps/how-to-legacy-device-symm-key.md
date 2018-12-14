@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 60321b2463a535c3f7a0c73e0922010bd12a3e82
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323243"
+ms.locfileid: "53341243"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Hur du etablerar äldre enheter med symmetriska nycklar
 
@@ -239,22 +239,25 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
-
-7. I fönstret *Solution Explorer* i Visual Studio går du till projektet **hsm\_security\_client** och expanderar det. Expandera **Källfiler** och öppna **hsm\_client\_key.c**. 
-
-    Hitta deklarationen för konstanterna `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE`. Gör följande ändringar i filen och spara filen.
-
-    Uppdatera värdet för den `REGISTRATION_NAME` konstant med den **unika registrerings-ID för din enhet**.
-    
-    Uppdatera värdet för den `SYMMETRIC_KEY_VALUE` konstant med din **härledda enhetsnyckel**.
+6. Hitta anropet till `prov_dev_set_symmetric_key_info()` i **prov\_dev\_klienten\_sample.c** som har kommenterats bort.
 
     ```c
-    static const char* const REGISTRATION_NAME = "sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6";
-    static const char* const SYMMETRIC_KEY_VALUE = "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-7. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
+    Ta bort kommentarerna funktionsanropet och Ersätt platshållarvärdena (inklusive hakparenteser) med unika registrerings-ID för enheten och härledda enhetsnyckeln som du skapade.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6", "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=");
+    ```
+   
+    Spara filen.
+
+7. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
+
+8. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
 
     Följande utdata är ett exempel på när den simulerade enheten lyckas med starten och ansluter till etableringstjänstinstansen för att tilldelas en IoT-hubb:
 
@@ -273,7 +276,7 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
     Press enter key to exit:
     ```
 
-8. I portalen går du till den IoT-hubb som din simulerade enhet tilldelades och klickar på fliken **IoT-enheter**. Vid lyckad etablering av den simulerade enheten till hubben visas dess enhets-ID på bladet **IoT-enheter** med *STATUS* **aktiverad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
+9. I portalen går du till den IoT-hubb som din simulerade enhet tilldelades och klickar på fliken **IoT-enheter**. Vid lyckad etablering av den simulerade enheten till hubben visas dess enhets-ID på bladet **IoT-enheter** med *STATUS* **aktiverad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
 
     ![Enheten är registrerad på IoT-hubben](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 

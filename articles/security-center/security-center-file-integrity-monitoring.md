@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314000"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338540"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av filintegritet i Azure Security Center
 Lär dig hur du konfigurerar filen integritet övervakning (FIM) i Azure Security Center med den här genomgången.
@@ -205,7 +205,7 @@ Du kan inaktivera FIM. FIM använder lösningen Azure ändringsspårning för at
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln berättade om du använder filen integritet övervakning (FIM) i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Ange säkerhetsprinciper](security-center-azure-policy.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
+* [Ange säkerhetsprinciper](tutorial-security-policy.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
 * [Hantera säkerhetsrekommendationer](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhetshälsa](security-center-monitoring.md)– Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
 * [Hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)– Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.

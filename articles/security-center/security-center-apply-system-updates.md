@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a0d0cbacfa03080d519e5d9e3592ad01ed58b933
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f3c055d55da06e6410520084a1c96baa78b91496
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316591"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341720"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Tillämpa systemuppdateringar i Azure Security Center
 Azure Security Center övervakar dagliga Windows och Linux-datorer (VM) och datorer efter saknade uppdateringar av operativsystemet. Security Center hämtar en lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har konfigurerats på en Windows-dator. Security Center söker också efter de senaste uppdateringarna i Linux-system. Om en virtuell dator eller en dator saknar en systemuppdatering, rekommenderar Security Center att du tillämpar systemuppdateringar.
@@ -45,7 +45,7 @@ I det här exemplet ska vi använda **Compute**.
 
   Längst ned på instrumentpanelen visar en lista över alla saknade uppdateringar för dina virtuella datorer och datorer och allvarlighetsgraden för saknad uppdatering.  Listan innehåller:
 
-    - NAME: Namnet på uppdateringen som saknas.
+    - NAMN: Namnet på uppdateringen som saknas.
     - NEJ. VM: ar och datorer: Totalt antal virtuella datorer och datorer som saknar denna uppdatering.
     - TILLSTÅND: Det aktuella tillståndet för rekommendationen:
 
@@ -55,9 +55,9 @@ I det här exemplet ska vi använda **Compute**.
 
     - ALLVARLIGHETSGRAD: Visas hur viktig rekommendationen:
 
-      - Hög: En säkerhetsrisk finns en viktig resurs (program, virtuell dator eller nätverkssäkerhetsgrupp) som måste åtgärdas.
+      - Hög: En sårbarhet i finns en viktig resurs (program, virtuell dator eller nätverkssäkerhetsgrupp) som måste åtgärdas.
       - Medel: Icke-kritiska eller ytterligare åtgärder krävs för att slutföra en process eller åtgärda en säkerhetsrisk.
-      - Låg: En säkerhetsrisk bör åtgärdas, men kräver inte omedelbar åtgärd. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
+      - Låg: Ett problem bör åtgärdas, men kräver inte omedelbar åtgärd. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
 
 3. Välj en saknad uppdatering i listan om du vill visa information.
 
@@ -84,7 +84,7 @@ Starta om den virtuella datorn från Azure för att slutföra processen.
 ## <a name="next-steps"></a>Nästa steg
 I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
+* [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
 * [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.

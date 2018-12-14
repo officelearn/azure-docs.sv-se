@@ -8,23 +8,26 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0c3c2fdddada3b90c84b3f06f8639bde7db50f95
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f6a2d6a35200bc4dec169aae72415c1c2904c465
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073558"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341141"
 ---
 # <a name="speech-synthesis-markup-language"></a>Tal syntes Markup Language
 
-Tal syntes Markup Language (SSML) är en XML-baserade märkspråk som gör det möjligt att styra uttal och *prosody* av text till tal. Prosody refererar till om du vill och försäljningsargument tal – dess musik, om du vill. Du kan ange ord fonetiskt, ge tips för att tolka siffror, infoga pauser, kontroll försäljningsargument, volym, och priset med mera.
+Tal syntes Markup Language (SSML) är en XML-baserade märkspråk som gör det möjligt att styra uttal och *prosody* av text till tal. Prosody refererar till om du vill och försäljningsargument tal – dess musik, om du vill. Du kan ange ord fonetiskt, ge tips för att tolka siffror, infoga pauser, kontroll försäljningsargument, volym, och priset med mera. Mer information finns i [tal syntes Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 
-Mer information finns i [tal syntes Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) på W3C.
+En fullständig lista över språk som stöds, språk och röster (neural och standard), se [språkstöd](language-support.md#text-to-speech).
 
-I följande exempel visas hur du använder SSML för vanliga tal syntes behov:
+Följande avsnitt innehåller exempel för vanliga tal syntes uppgifter.
+
+>[!IMPORTANT]
+> För närvarande är prosody taggning endast tillgänglig för standard röster.
 
 ## <a name="add-a-break"></a>Lägga till en paus
 ```xml
@@ -90,5 +93,4 @@ I följande exempel visas hur du använder SSML för vanliga tal syntes behov:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)
+* [Språkstöd: röster, språk, språk](language-support.md)

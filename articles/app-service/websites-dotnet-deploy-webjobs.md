@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: aa1d5a4fc29b6fa5fc751edfd40e61d8762f6bd7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 300ccf5da3528be63ae618338b8953d05b0e799d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965350"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337469"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Utveckla och distribuera WebJobs med hjälp av Visual Studio – Azure App Service
 
@@ -142,7 +142,7 @@ När du konfigurerar ett konsolprogram för distribution av WebJobs, Visual Stud
           "runMode": "Continuous"
         }
 
-Du kan redigera den här filen direkt Visual Studio ger IntelliSense. Filschemat lagras på [ http://schemastore.org ](http://schemastore.org/schemas/json/webjob-publish-settings.json) och kan visa.  
+Du kan redigera den här filen direkt Visual Studio ger IntelliSense. Filschemat lagras på [ https://schemastore.org ](https://schemastore.org/schemas/json/webjob-publish-settings.json) och kan visa.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
 När du länkar ett WebJobs-aktiverade projekt till ett webbprojekt Visual Studio lagrar namnet på WebJobs-projekt i en *webjobs list.json* filen i webbprojektet *egenskaper* mapp. Listan kan innehålla flera WebJobs-projekt som du ser i följande exempel:
@@ -159,7 +159,7 @@ När du länkar ett WebJobs-aktiverade projekt till ett webbprojekt Visual Studi
           ]
         }
 
-Du kan redigera den här filen direkt Visual Studio ger IntelliSense. Filschemat lagras på [ http://schemastore.org ](http://schemastore.org/schemas/json/webjobs-list.json) och kan visa.
+Du kan redigera den här filen direkt Visual Studio ger IntelliSense. Filschemat lagras på [ https://schemastore.org ](https://schemastore.org/schemas/json/webjobs-list.json) och kan visa.
 
 ## <a id="deploy"></a>Distribuera ett WebJobs-projekt
 Ett WebJobs-projekt som du har länkat till ett webbprojekt distribueras automatiskt med webbprojektet. Läs om hur webbdistribution för projektet **anvisningar hjälper** > **distribuera app** i det vänstra navigeringsfönstret.

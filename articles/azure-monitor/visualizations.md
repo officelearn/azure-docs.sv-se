@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 56ad4fdf781d9ed94a082ab5eb352803c70e52ef
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a2fd26d110e7bf1ce7ac365b83659e5d33a037df
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996234"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383552"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera data som lagras i Azure Monitor. Detta inkluderar [mått i Azure-mått store](../azure-monitor/platform/data-collection.md#metrics) och [logga data i Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
@@ -32,7 +32,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 ### <a name="advantages"></a>Fördelar
 - Djup integrering i Azure. Visualiseringar kan fästas på instrumentpaneler från flera Azure sidor, inklusive Metrics explorer, Log Analytics och Application Insights.
 - Har stöd för både mått och loggar.
-- Kombinera data från flera källor, inklusive utdata från [måttutforskaren](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics-frågor](../azure-monitor/log-query/log-query-overview.md), och [mappar](../application-insights/app-insights-app-map.md) och [tillgänglighet]()i Application Insights.
+- Kombinera data från flera källor, inklusive utdata från [måttutforskaren](../azure-monitor/platform/metrics-charts.md), [Log Analytics-frågor](../azure-monitor/log-query/log-query-overview.md), och [mappar](../application-insights/app-insights-app-map.md) och [tillgänglighet]()i Application Insights.
 - Alternativet för personliga eller delade instrumentpaneler. Integrerad med Azure [Rollbaserad autentisering (RBAC)](../role-based-access-control/overview.md).
 - Automatisk uppdatering. Mått-uppdatering är beroende av tidsintervall med minst fem minuter. Loggar uppdatera på en minut.
 - Innehåller parametrar mått instrumentpaneler med tidsstämpel och anpassade parametrar.

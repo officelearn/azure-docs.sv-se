@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 36cdb8a84c7ec7e05917be1144ae008f90cad03a
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c589d1a11903f761fa791f36014fe235c1973514
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321143"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386918"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -245,7 +245,6 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Azure Database Migration
 * Azure Databricks
 * Azure Migrate
-* Batch AI
 * Certifikat - App Service-certifikat kan flyttas, men uppladdade certifikat har [begränsningar](#app-service-limitations).
 * Container Instances
 * Container Service

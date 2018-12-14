@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739574"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339883"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Konvertera en skalningsuppsättningsmall till en skalningsuppsättningsmall för hanterad disk
 
@@ -126,7 +126,7 @@ Det finns ingen explicit egenskap i scale set-konfigurationen för om du vill an
 
 ## <a name="data-disks"></a>Datadiskar
 
-Med ovanstående ändringar scale set använder hanterade diskar för Operativsystemets disk, men vad gäller datadiskar? Lägg till egenskapen ”dataDisks” under ”storageProfile” på samma nivå som ”osDisk” för att lägga till datadiskar. Värdet för egenskapen är en JSON-lista med objekt, som har egenskaper ”lun” (som måste vara unikt för varje datadisk på en virtuell dator), ”createOption” (”tom” finns för närvarande det enda alternativet som stöds), och ”diskSizeGB” (storleken på disken i gigabyte; måste vara större än 0 och mindre än 1024) som i följande exempel: 
+Med ovanstående ändringar scale set använder hanterade diskar för Operativsystemets disk, men vad gäller datadiskar? Lägg till egenskapen ”dataDisks” under ”storageProfile” på samma nivå som ”osDisk” för att lägga till datadiskar. Värdet för egenskapen är en JSON-lista med objekt, som har egenskaper ”lun” (som måste vara unikt för varje datadisk på en virtuell dator), ”createOption” (”tom” finns för närvarande det enda alternativet som stöds), och ”diskSizeGB” (storleken på disken i gigabyte; måste vara större än 0 och mindre än 1024) som i följande exempel:
 
 ```
 "dataDisks": [
@@ -144,7 +144,7 @@ Läs mer om att använda datadiskar med skalningsuppsättningar i [i den här ar
 
 
 ## <a name="next-steps"></a>Nästa steg
-Till exempel Resource Manager-mallar med hjälp av skalningsuppsättningar, söka efter ”vmss” i den [github-lagringsplatsen för Azure-Snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates).
+Till exempel Resource Manager-mallar med hjälp av skalningsuppsättningar, söka efter ”vmss” i den [Azure Quickstart GitHub-lagringsplatsen för](https://github.com/Azure/azure-quickstart-templates).
 
 Allmän information finns i [huvudlandningssida för skalningsuppsättningar](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

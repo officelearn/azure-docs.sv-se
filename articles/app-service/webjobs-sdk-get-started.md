@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 95fd44d5865eb804cb91d7adc2cc17bb5f957b5c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275218"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339815"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -396,7 +396,7 @@ I det här avsnittet ska göra du följande uppgifter för att konfigurera Appli
 
 I det här avsnittet kör du lokalt igen för att verifiera att loggningsdata nu kommer att Application Insights även om konsolen.
 
-1. Använd **Server Explorer** i Visual Studio för att skapa ett kömeddelande, på samma sätt som du gjorde [tidigare](#trigger-the-function), förutom att ange *Hello App Insights!* som meddelandetext.
+1. Använd **Server Explorer** i Visual Studio för att skapa ett kömeddelande, på samma sätt som du gjorde [tidigare](#trigger-the-function-in-azure), förutom att ange *Hello App Insights!* som meddelandetext.
 
 1. Kör projektet.
 

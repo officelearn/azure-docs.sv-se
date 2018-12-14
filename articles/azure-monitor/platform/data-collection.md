@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: c9929149c029d15d496eac0eb530371418e1e1f2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3795db2928e23b16d93e544c4f148b049eccfdef
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323515"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384844"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -96,9 +96,9 @@ Det finns tre grundläggande källor till mätvärden som samlats in från Azure
 ### <a name="what-can-you-do-with-metrics"></a>Vad kan du göra med mått?
 Följande: uppgifter som du kan utföra med mått
 
-- Använd [måttutforskaren](../../monitoring-and-diagnostics/monitoring-metric-charts.md) att analysera insamlade mätvärdena och rita ut dem i ett diagram. Spåra prestanda för en resurs (till exempel en virtuell dator, webbplats eller logic app) genom att fästa diagram för en [Azure-instrumentpanelen](../../azure-portal/azure-portal-dashboards.md).
+- Använd [måttutforskaren](../../azure-monitor/platform/metrics-charts.md) att analysera insamlade mätvärdena och rita ut dem i ett diagram. Spåra prestanda för en resurs (till exempel en virtuell dator, webbplats eller logic app) genom att fästa diagram för en [Azure-instrumentpanelen](../../azure-portal/azure-portal-dashboards.md).
 - Konfigurera en [måttaviseringsregel](alerts-metric.md) som skickar ett meddelande eller tar [automatisk åtgärd](action-groups.md) när måtten överskrider ett tröskelvärde.
-- Använd [Autoskala](../../monitoring-and-diagnostics/monitoring-overview-autoscale.md) att öka eller minska resurser baserat på ett mått som korsar ett tröskelvärde.
+- Använd [Autoskala](../../azure-monitor/platform/autoscale-overview.md) att öka eller minska resurser baserat på ett mått som korsar ett tröskelvärde.
 - Vägens mått till Log Analytics att analysera måttdata tillsammans med loggdata och för att lagra måttvärden under längre tid än 93 dagar. 
 - Stream mått för att en [Händelsehubb](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) att dirigera dem till [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) eller till externa system.
 - [Arkivera](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) prestanda eller hälsotillstånd historiken för dina resurser för efterlevnad, granskning eller rapportering offline.
@@ -109,7 +109,7 @@ Följande: uppgifter som du kan utföra med mått
 ### <a name="viewing-metrics"></a>Visa mått
 Mått i Azure har samlats in i Azure Monitor metrics-databasen. Det här är en tidsserie databas som är optimerat för snabb hämtnings- och lagrar måttvärden 93 dagar. Kopiera mått till Log Analytics för långsiktig analys och trender.
 
-Måttdata används i en mängd olika sätt enligt beskrivningen ovan. Använd [måttutforskaren](../../monitoring-and-diagnostics/monitoring-metric-charts.md) att direkt analysera data i din mått store och skapa diagram över värdena för flera mått med tiden. Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta mått med hjälp av den [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Måttdata används i en mängd olika sätt enligt beskrivningen ovan. Använd [måttutforskaren](../../azure-monitor/platform/metrics-charts.md) att direkt analysera data i din mått store och skapa diagram över värdena för flera mått med tiden. Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta mått med hjälp av den [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Metrics Explorer](media/data-collection/metrics-explorer.png)
 
@@ -174,7 +174,7 @@ Du kan få vägledning för att samla in mått från Azure-resurser på [samla i
 ### <a name="logs-to-metrics"></a>Loggar till mått
 Enligt beskrivningen ovan, är mått snabbare än loggar, så du kan skapa aviseringar med kortare svarstider och till en lägre kostnad. Log Analytics samlar in en betydande mängd numeriska data som skulle vara lämplig för mått, men inte lagras i Azure-mått-databasen.  Ett vanligt exempel är prestandadata som samlats in från agenter och lösningar för hantering. Vissa av dessa värden kan kopieras till mått-databasen, när de är tillgängliga för aviseringar och analys med Metrics explorer.
 
-Förklaring av den här funktionen är tillgänglig på [skapa aviseringar för mått för loggar i Azure Monitor](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). Listan över värden support finns på [stöds mått med Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
+Förklaring av den här funktionen är tillgänglig på [skapa aviseringar för mått för loggar i Azure Monitor](../../azure-monitor/platform/alerts-metric-logs.md). Listan över värden support finns på [stöds mått med Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Stream-data till externa system
 Förutom att använda verktygen i Azure för att analysera övervakningsdata, kan du ha ett krav att vidarebefordra det till ett externt verktyg, till exempel en säkerhetsinformations- och event management (SIEM)-produkt. Den här vidarebefordran normalt görs direkt från övervakade resurser via [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

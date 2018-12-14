@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820315"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384776"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Files
 
@@ -29,7 +29,7 @@ Innan du skapar ett importjobb för att överföra data till Azure Files noggran
 - Har minst en Azure Storage-konto. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-quickstart-create-account.md).
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
 - Har ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems).
-- [Ladda ned WAImportExport version 2](https://www.microsoft.com/download/details.aspx?id=55280) på Windows-system. Packa upp i standardmappen `waimportexport`. Till exempel `C:\WaImportExport`.
+- [Ladda ned WAImportExport version 2](https://aka.ms/waiev2) på Windows-system. Packa upp i standardmappen `waimportexport`. Till exempel `C:\WaImportExport`.
 - Ha ett FedEx/DHL-konto. 
     - Kontot måste vara giltig, bör ha saldo och måste ha returfrakt funktioner.
     - Generera en spårningsnummer för export-jobbet.
@@ -40,7 +40,7 @@ Innan du skapar ett importjobb för att överföra data till Azure Files noggran
  
 
 
-## <a name="step-1-prepare-the-drives"></a>Steg 1: Förbered enheterna
+## <a name="step-1-prepare-the-drives"></a>Steg 1: Förbereda enheterna
 
 Det här steget genererar en journalfil. Journalfilen lagrar grundläggande information, till exempel serienumret för enheten och krypteringsnyckeln lagringskontouppgifter.
 
@@ -57,7 +57,7 @@ Utför följande steg för att förbereda enheterna.
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
-    - **Importera en mapp**: alla filer och mappar under *MyFolder2* rekursivt kopieras till filresursen. Mappstruktur.
+    - **Importera en mapp**: Alla filer och mappar under *MyFolder2* rekursivt kopieras till filresursen. Mappstruktur.
 
         ```
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
@@ -137,7 +137,7 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
 3. I **Jobbdetaljer**:
     
-    - Ladda upp journalfiler som du skapade under det föregående [steg 1: Förbered enheterna](#step-1-prepare-the-drives). 
+    - Ladda upp journalfiler som du skapade under det föregående [steg 1: Förbereda enheterna](#step-1-prepare-the-drives). 
     - Välj det lagringskonto som data ska importeras till. 
     - Dropoff platsen fylls i automatiskt baserat på regionen som det valda lagringskontot.
    
@@ -162,7 +162,7 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
         ![Skapa importjobb – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Steg 3: Skicka enheter till Azure-datacentret 
+## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Steg 3: Leverera enheter till Azure-datacentret 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
@@ -170,7 +170,7 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Steg 5: Kontrollera ladda upp data till Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Steg 5: Kontrollera datauppladdning till Azure
 
 Spåra jobbet kan slutföras. När jobbet har slutförts, kan du kontrollera att dina data har överförts till Azure. Ta bort lokalt data endast när du har kontrollerat att överföringen har slutförts.
 

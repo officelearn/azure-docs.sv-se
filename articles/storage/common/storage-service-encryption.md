@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094900"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384130"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption för vilande data
 Azure Storage Service Encryption för vilande data kan du skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. Med den här funktionen krypterar Azure storage-plattformen automatiskt dina data före beständig Azure Managed Disks, Azure Blob, kö eller Table storage eller Azure Files och dekrypterar data innan hämtning. Hantering av kryptering, kryptering på rest, dekryptering och nyckelhantering på kryptering av lagringstjänst är transparent för användarna. Alla data som skrivs till Azure storage-plattformen krypteras med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blockchiffer som finns.
@@ -33,7 +33,7 @@ Funktionen krypterar automatiskt data på:
 
 Kryptering av lagringstjänst påverkar inte prestanda för Azure storage-tjänster.
 
-Du kan använda Microsoft-hanterade krypteringsnycklarna med Storage Service Encryption eller du kan använda dina egna krypteringsnycklar. Mer information om hur du använder dina egna nycklar finns i [kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+Du kan använda Microsoft-hanterade krypteringsnycklar med Kryptering för lagringstjänst eller dina egna krypteringsnycklar. Mer information om hur du använder dina egna nycklar finns i [kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 ## <a name="view-encryption-settings-in-the-azure-portal"></a>Visa krypteringsinställningar i Azure portal
 Om du vill visa inställningarna för kryptering av lagringstjänst, logga in på den [Azure-portalen](https://portal.azure.com) och välj ett lagringskonto. I den **inställningar** väljer den **kryptering** inställningen.
@@ -81,7 +81,7 @@ Ja, krypteras alla kopior av storage-konto. Alla redundans stöds – lokalt red
 Kryptering av lagringstjänst är tillgänglig i alla regioner.
 
 **Är Storage Service Encryption FIPS 140-2 kompatibelt?**  
-Ja, kryptering av lagringstjänst är FIPS 140-2-kompatibel.
+Ja, kryptering av lagringstjänst är FIPS 140-2-kompatibel. Läs mer om de kryptografiska moduler som underliggande kryptering av lagringstjänst [Cryptography API: Nästa generations](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
 **Hur kontaktar jag någon om jag har problem eller vill ge feedback?**  
 Kontakta [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) för eventuella problem eller feedback som rör kryptering av lagringstjänst.

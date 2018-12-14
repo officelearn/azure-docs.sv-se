@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317508"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344150"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
 Azure Security Center analyserar dagligen operativsystemet (OS) på dina virtuella datorer (VM) och en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommendera säkerhetsreglerna för konfiguration och den rekommenderar konfigurationsändringar för att åtgärda dessa sårbarheter.
@@ -42,23 +42,23 @@ Det här exemplet beskriver ”åtgärda säkerhetskonfigurationer” rekommenda
 
   Överst på instrumentpanelen visar:
 
-  - **Misslyckade regler efter allvarlighetsgrad**: det totala antalet regler att Operativsystemets konfiguration misslyckades mellan dina virtuella datorer och datorer, indelade efter allvarlighetsgrad.
-  - **Misslyckade regler efter typ**: det totala antalet regler att Operativsystemets konfiguration misslyckades mellan dina virtuella datorer och datorer, indelade efter typen.
-  - **Windows-regler som inte**: det totala antalet regler misslyckades på grund av din Windows OS-konfigurationer.
-  - **Linux-regler som inte**: det totala antalet regler misslyckades på grund av Linux OS-konfigurationer.
+  - **Misslyckade regler efter allvarlighetsgrad**: Det totala antalet regler att Operativsystemets konfiguration misslyckades mellan dina virtuella datorer och datorer, indelade efter allvarlighetsgrad.
+  - **Misslyckade regler efter typ**: Det totala antalet regler att Operativsystemets konfiguration misslyckades mellan dina virtuella datorer och datorer, indelade efter typen.
+  - **Windows-regler som inte**: Det totala antalet regler som misslyckades på grund av din Windows OS-konfigurationer.
+  - **Linux-regler som inte**: Det totala antalet regler som misslyckades på grund av Linux OS-konfigurationer.
 
   Den nedre delen av instrumentpanelen visas alla misslyckade regler för dina virtuella datorer och datorer och allvarlighetsgraden för saknad uppdatering. Listan innehåller följande element:
 
-  - **CCEID**: The CCE Unik identifierare för regeln. Security Center använder Common Configuration Enumeration (CCE) för att tilldela unika identifierare till konfigurationsregler.
-  - **Namn på**: namnet på den misslyckade regeln.
-  - **Regeltyp**: den *registernyckeln*, *säkerhetsprincip*, *granskningsprincip*, eller *IIS* regeltyp.
-  - **Nej. VM: ar och datorer**: det totala antalet virtuella datorer och datorer som misslyckade regeln gäller för.
-  - **Regeln allvarlighetsgrad**: The CCE värdet *kritisk*, *viktigt*, eller *varning*.
-  - **Tillstånd**: det aktuella tillståndet för rekommendationen:
+  - **CCEID**: Den unika identifieraren CCE för regeln. Security Center använder Common Configuration Enumeration (CCE) för att tilldela unika identifierare till konfigurationsregler.
+  - **Namn på**: Namnet på den misslyckade regeln.
+  - **Regeltyp**: Den *registernyckeln*, *säkerhetsprincip*, *granskningsprincip*, eller *IIS* regeltyp.
+  - **Nej. VM: ar och datorer**: Det totala antalet virtuella datorer och datorer som misslyckade regeln gäller för.
+  - **Regeln allvarlighetsgrad**: Värdet för CCE *kritisk*, *viktigt*, eller *varning*.
+  - **tillstånd**: Det aktuella tillståndet för rekommendationen:
 
-    - **Öppen**: Rekommendationen har inte utförts än.
-    - **Pågår**: rekommendationen håller på att resurserna och ingen åtgärd krävs av dig.
-    - **Löst**: rekommendationen har tillämpats. När problemet har lösts, inaktiveras posten.
+    - **Öppna**: Rekommendationen har inte utförts än.
+    - **Pågår**: Rekommendationen håller på att resurserna och ingen åtgärd krävs av dig.
+    - **Löst**: Rekommendationen har tillämpats. När problemet har lösts, inaktiveras posten.
 
 3. Om du vill visa information om en regel som inte, väljer du den i listan.
 
@@ -66,16 +66,16 @@ Det här exemplet beskriver ”åtgärda säkerhetskonfigurationer” rekommenda
 
    I den detaljerade vyn visas följande information:
 
-   - **Namn på**: namnet på regeln.
-   - **CCIED**: The CCE Unik identifierare för regeln.
+   - **Namn på**: Namnet på regeln.
+   - **CCIED**: Den unika identifieraren CCE för regeln.
    - **OS-version**: OS-versionen av den virtuella datorn eller datorn.
-   - **Regeln allvarlighetsgrad**: The CCE värdet *kritisk*, *viktigt*, eller *varning*.
-   - **Fullständig beskrivning**: beskrivning av regeln.
-   - **Säkerhetsproblem**: förklaring av säkerhetsproblem eller risk om regeln inte tillämpas.
-   - **Potentiell påverkan**: inverkan på företaget när regeln tillämpas.
-   - **Motåtgärden**: anvisningarna för reparation.
-   - **Förväntat värde**: det värde som förväntas när Security Center analyserar din konfiguration för VM OS mot regeln.
-   - **Faktiskt värde**: det värde som returneras efter en analys av din VM Operativsystemets konfiguration mot regeln.
+   - **Regeln allvarlighetsgrad**: Värdet för CCE *kritisk*, *viktigt*, eller *varning*.
+   - **Fullständig beskrivning**: Beskrivning av regeln.
+   - **Säkerhetsproblem**: Förklaring av säkerhetsproblem eller risk om regeln inte tillämpas.
+   - **Potentiell påverkan**: Vilken inverkan när regeln tillämpas.
+   - **Motåtgärden**: Anvisningarna för reparation.
+   - **Förväntat värde**: Det värde som förväntas när Security Center analyserar din konfiguration för VM OS mot regeln.
+   - **Faktiskt värde**: Det värde som returneras efter en analys av din VM Operativsystemets konfiguration mot regeln.
    - **Regeln åtgärden**: Regelåtgärd som används av Security Center under analysen av dina Virtuella Operativsystemets konfiguration mot regeln.
 
 4. Överst i fönstret detaljerad vy väljer **Search**.  
@@ -101,7 +101,7 @@ Om du vill granska vilka konfigurationer som övervakas, se [lista över rekomme
 Om du vill veta mer om Security Center finns i följande resurser:
 
 * En lista över Windows och Linux-datorer som stöds finns i [plattformar som stöds i Azure Security Center](security-center-os-coverage.md).
-* Läs hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper i [ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md).
+* Läs hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper i [ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md).
 * Läs hur rekommendationer hjälper dig att skydda dina Azure-resurser i [hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md).
 * Läs hur du övervakar hälsotillståndet för dina Azure-resurser i [övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md).
 * Läs hur du hanterar och åtgärdar säkerhetsaviseringar i [hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).

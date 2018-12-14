@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: acbb54da9cf52a73acf11b43d702675544bcc5fa
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873809"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339526"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 
@@ -78,13 +78,13 @@ Följande tabeller är ordnade efter felkod.
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
 | Det går inte att säkerhetskopiera eftersom transaktionsloggen för datakällan är full. | Transaktionell loggutrymmet för databasen är full. | Om du vill åtgärda problemet genom att referera till den [dokumentation om SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Den här SQL database stöder inte den begärda säkerhetskopieringstypen. | Alltid på AG sekundära repliker stöder inte fullständiga och differentiella säkerhetskopieringar. | <ul><li>Om du har utlöst en ad hoc-säkerhetskopiering, utlösa säkerhetskopior på den primära noden.</li><li>Om säkerhetskopieringen har schemalagts av Grupprincip, kontrollera att den primära noden har registrerats. Att registrera noden [följer du stegen för att identifiera en SQL Server-databas](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> | 
+| Den här SQL database stöder inte den begärda säkerhetskopieringstypen. | Alltid på AG sekundära repliker stöder inte fullständiga och differentiella säkerhetskopieringar. | <ul><li>Om du har utlöst en ad hoc-säkerhetskopiering, utlösa säkerhetskopior på den primära noden.</li><li>Om säkerhetskopieringen har schemalagts av Grupprincip, kontrollera att den primära noden har registrerats. Att registrera noden [följer du stegen för att identifiera en SQL Server-databas](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Återställningsfel
 
 Följande felkoder som visas när återställning jobb misslyckas.
 
-### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite 
+### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
@@ -107,7 +107,7 @@ Följande felkoder som visas när återställning jobb misslyckas.
 
 Följande felkoder finns för registreringsfel.
 
-### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError 
+### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
@@ -124,6 +124,16 @@ Följande felkoder finns för registreringsfel.
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
 | Azure Backup-tjänsten använder Virtuella Azure-gästagenten för säkerhetskopiering men gästagenten är inte tillgängliga på målservern. | Gästagenten är inte aktiverat eller är skadad | [Installera virtuella datorns gästagent](../virtual-machines/extensions/agent-windows.md) manuellt. |
+
+## <a name="configure-backup-failures"></a>Konfigurera Backup-fel
+
+Följande fel är koder för Konfigurera säkerhetskopiering fel.
+
+### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
+
+| Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
+|---|---|---|
+| Automatiskt skydd avsett har antingen tagits bort eller är inte längre giltig. | När du aktiverar automatiskt skydd på en SQL-instans **Konfigurera säkerhetskopiering** uppgifter har körts för alla databaser i instansen. Om du inaktiverar automatiskt skydd medan jobben körs, kommer **pågår** jobb avbryts med den här felkoden. | Aktivera automatiskt skydd igen att skydda alla återstående databaser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

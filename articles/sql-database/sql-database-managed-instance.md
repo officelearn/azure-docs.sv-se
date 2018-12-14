@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: e94b9e6d39a8a2694658a4231c54a027523af10c
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 57dd6fc822e0285b33368987d2af7c690d4f7786
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889250"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337826"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Använda SQL Database Managed Instance med virtuella nätverk och nästan 100% kompatibilitet
 
@@ -41,13 +41,13 @@ Att välja mellan Azure SQL Database enkel databas, Azure SQL Database Managed I
 Azure SQL Database Managed Instance kombinerar de bästa funktionerna som finns både i Azure SQL Database och SQL Server Database Engine.
 
 > [!IMPORTANT]
-> En hanterad instans körs med alla funktioner i den senaste versionen av SQL Server, inklusive online åtgärder, plan för automatisk korrigeringar och andra enterprise prestandaförbättringar. En jämförelse av funktionerna förklaras i [funktionsjämförelse: Azure SQL Database jämfört med SQL Server](sql-database-features.md).
+> En hanterad instans körs med alla funktioner i den senaste versionen av SQL Server, inklusive online åtgärder, plan för automatisk korrigeringar och andra enterprise prestandaförbättringar. En jämförelse av funktionerna förklaras i [funktionsjämförelse: Azure SQL Database jämfört med SQLServer](sql-database-features.md).
 
 | **PaaS-fördelar** | **Verksamhetskontinuitet** |
 | --- | --- |
 |Ingen maskinvara att köpa och hantering <br>Ingen hantering av fasta kostnader för att hantera underliggande infrastruktur <br>Snabb etablering och skalning av tjänst <br>Automatisk uppdatering och version uppgradering <br>Integrering med andra data PaaS-tjänster |99,99% drifttid  <br>Inbyggda [hög tillgänglighet](sql-database-high-availability.md) <br>Data som skyddas med [automatiska säkerhetskopior](sql-database-automated-backups.md) <br>Kunden kan konfigureras kvarhållningsperiod <br>Användarinitierad [säkerhetskopior](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Tidpunkt för återställning till tidpunkt databasen](sql-database-recovery-using-backups.md#point-in-time-restore) funktion |
 |**Säkerhet och efterlevnad** | **Hantering**|
-|Isolerad miljö ([VNet-integrering](sql-database-managed-instance-vnet-configuration.md), enskild klient-tjänsten, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), enkel inloggning för support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-inloggningar</a> (**förhandsversion**) <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Identifiering av hot](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API för att automatisera service etablering och skalning <br>Azure-portalen funktioner för manuell tjänsten etablering och skalning <br>Data Migration Service
+|Isolerad miljö ([VNet-integrering](sql-database-managed-instance-connectivity-architecture.md), enskild klient-tjänsten, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), enkel inloggning för support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-inloggningar</a> (**förhandsversion**) <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Identifiering av hot](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API för att automatisera service etablering och skalning <br>Azure-portalen funktioner för manuell tjänsten etablering och skalning <br>Data Migration Service
 
 I följande tabell visas de viktigaste funktionerna i Managed Instance:
 
@@ -83,8 +83,8 @@ Mer information om skillnaden mellan maskinvarugenerationer i [resursgränser f�
 
 Hanterad instans finns i två tjänstnivåer:
 
-- **Generella**: avsedd för tillämpningar med vanliga prestanda och i/o-svarstidskrav.
-- **Alternativet affärskritisk**: avsedd för tillämpningar med låg i/o-svarstidskrav och minimal påverkan på underliggande underhållsåtgärder på arbetsbelastningen.
+- **Generella**: Avsedd för tillämpningar med vanliga prestanda och i/o-svarstidskrav.
+- **Affärskritisk**: Avsedd för tillämpningar med låg i/o-svarstidskrav och minimal påverkan på underliggande underhållsåtgärder på arbetsbelastningen.
 
 Båda versionerna garanterar 99,99% tillgänglighet och gör att du kan välja lagringsstorlek oberoende och beräkningskapacitet. Mer information om arkitektur med hög tillgänglighet i Azure SQL Database finns i [hög tillgänglighet och Azure SQL Database](sql-database-high-availability.md).
 
@@ -122,15 +122,15 @@ Azure SQL Database Managed Instance kombinerar avancerade säkerhetsfunktioner s
 
 Hanterad instans ger ytterligare säkerhetsisolering från andra klienter i Azure-molnet. Säkerhetsisolering innehåller:
 
-- [Intern implementering](sql-database-managed-instance-vnet-configuration.md) och vara ansluten till din lokala miljö med hjälp av Azure Express Route eller VPN-Gateway
-- SQL-slutpunkten exponeras endast via en privat IP-adress som tillåter säker anslutning från privata Azure eller hybrid-nätverk
-- Enda klient med dedikerad underliggande infrastruktur (beräkning, lagring)
+- [Intern implementering](sql-database-managed-instance-connectivity-architecture.md) och vara ansluten till din lokala miljö med hjälp av Azure Express Route eller VPN-Gateway.
+- SQL-slutpunkten exponeras endast via en privat IP-adress som tillåter säker anslutning från privata Azure eller hybrid-nätverk.
+- Enda klient med dedikerad underliggande infrastruktur (beräkning, lagring).
 
 Följande diagram illustrerar olika anslutningsalternativ för dina program:
 
 ![hög tillgänglighet](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
-Läs mer om VNet-integrering och nätverk genomförande av principer på undernätverksnivån i i [konfigurera ett virtuellt nätverk för Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) och [Anslut ditt program till Azure SQL Database Hanterad instans](sql-database-managed-instance-connect-app.md).
+Läs mer om VNet-integrering och nätverk genomförande av principer på undernätverksnivån i i [VNet arkitektur för Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md) och [Anslut ditt program till Azure SQL Database Hanterad instans](sql-database-managed-instance-connect-app.md).
 
 > [!IMPORTANT]
 > Placera flera hanterade instanser i samma undernät, var som tillåts av din säkerhetskrav, eftersom som ger dig ytterligare förmåner. Collocating instanser i samma undernät kan avsevärt förenkla nätverk infrastrukturunderhåll och minska instans etableringstid eftersom länge etablering varaktighet är associerat med kostnaden för att distribuera första hanterad instans i ett undernät.
@@ -207,7 +207,7 @@ Hanterad instans fördelar från att alltid upp-hittills i molnet, vilket inneb�
 
 - Hög tillgänglighet är inbyggd i och redan har konfigurerats med hjälp av teknik som liknar [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Automatiserade säkerhetskopieringar och tidpunkt för återställning till tidpunkt. Kunden kan initiera `copy-only` säkerhetskopieringar som inte stör automatisk loggsäkerhetskopieringssekvensen.
-- Hanterad instans tillåter inte att ange fullständig fysiska sökvägar så att alla motsvarande scenarier behöver stödjas på olika sätt: ÅTERSTÄLLA DB stöder inte WITH MOVE, skapa DB inte tillåter fysiska sökvägar, BULK INSERT fungerar med Azure Blobs endast osv.
+- Hanterad instans tillåter inte att ange fullständig fysiska sökvägar så att alla motsvarande scenarier behöver stödjas på olika sätt: ÅTERSTÄLLA DB stöder inte WITH MOVE, skapa DB tillåter inte fysiska sökvägar, BULK INSERT fungerar med Azure Blobs endast osv.
 - Hanterad instans stöder [Azure AD-autentisering](sql-database-aad-authentication.md) som molnet alternativ till Windows-autentisering.
 - Hanterad instans hanterar automatiskt XTP-filgruppen och filer för databaser som innehåller In-Memory OLTP-objekt
 - Hanterad instans har stöd för SQL Server Integration Services (SSIS) och kan värden SSIS-katalogen (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF), se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Jämförelse mellan SSIS-funktioner i SQL Database och Managed Instance finns [logisk jämför SQL Database-server och Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
@@ -234,8 +234,8 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 
 - Information om hur du skapar din första hanterad instans finns [Snabbstartsguide](sql-database-managed-instance-get-started.md).
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
-- Mer information om konfiguration av virtuella nätverk finns i avsnittet om [konfiguration av virtuella nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md).
+- Mer information om konfiguration av virtuella nätverk finns i avsnittet om [konfiguration av virtuella nätverk för hanterade instanser](sql-database-managed-instance-connectivity-architecture.md).
 - En Snabbstart som skapar en hanterad instans och återställer en databas från en säkerhetskopia, se [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
 - En självstudie om hur du använder Azure Database Migration Service (DMS) för migrering finns i avsnittet om [migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Avancerade övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i [övervaka Azure SQL Database med Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)
+- Information om avancerad övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i artikeln om att [övervaka Azure SQL Database med Azure SQL-analys](../azure-monitor/insights/azure-sql.md)
 - Information om priser finns i [priser för SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e060a18f1117a9392f867f0bf42ddfa80f68048d
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6f16325183f0a13382dd4533fd867a518f1750c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277496"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344303"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
 
@@ -26,7 +26,7 @@ ms.locfileid: "53277496"
 > Det här är preliminära dokumentationen för att skapa lösningar för hantering som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.   
 
 
-[Lösningar för hantering av](solutions.md) inkluderar vanligtvis [sparade sökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att analysera data som samlas in av lösningen.  De kan också definiera [aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) att meddela användaren eller automatiskt vidta åtgärder som svar på ett kritiskt problem.  Den här artikeln beskriver hur du definierar Log Analytics sparade sökningar och aviseringar i en [Resource Manager-mall](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) så att de kan ingå i [hanteringslösningar](solutions-creating.md).
+[Lösningar för hantering av](solutions.md) inkluderar vanligtvis [sparade sökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att analysera data som samlas in av lösningen.  De kan också definiera [aviseringar](../../azure-monitor/platform/alerts-overview.md) att meddela användaren eller automatiskt vidta åtgärder som svar på ett kritiskt problem.  Den här artikeln beskriver hur du definierar Log Analytics sparade sökningar och aviseringar i en [Resource Manager-mall](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) så att de kan ingå i [hanteringslösningar](solutions-creating.md).
 
 > [!NOTE]
 > Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure](solutions-creating.md)  
@@ -89,7 +89,7 @@ I följande tabell beskrivs varje egenskap för en sparad sökning.
 [Azure loggaviseringar](../../azure-monitor/platform/alerts-unified-log.md) skapas av Azure Varningsregler som kör angivna loggfrågor med jämna mellanrum.  Om resultatet av frågan matchar angivna villkor, skapas en aviseringspost och en eller flera åtgärder körs med hjälp av [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).  
 
 > [!NOTE]
-> Från och den 14 maj 2018 började alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta kopieras till Azure. Mer information finns i [utöka aviseringarna till Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Från och den 14 maj 2018 började alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta kopieras till Azure. Mer information finns i [utöka aviseringarna till Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 Aviseringsregler i en hanteringslösning består av följande tre olika resurser.
 
@@ -145,7 +145,7 @@ Ett schema kan ha flera åtgärder. En åtgärd kan definiera en eller flera pro
 Åtgärder kan definieras med hjälp av [åtgärdsgrupp] eller åtgärd resurs.
 
 > [!NOTE]
-> Från och den 14 maj 2018 alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta som började automatiskt ska utöka till Azure. Mer information finns i [utöka aviseringarna till Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Från och den 14 maj 2018 alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta som började automatiskt ska utöka till Azure. Mer information finns i [utöka aviseringarna till Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 
 Det finns två typer av åtgärden resursen som anges av den **typ** egenskapen.  Ett schema som kräver en **avisering** åtgärd, som definierar varningsregeln och vilka åtgärder vidtas när en avisering skapas. Åtgärden resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -227,7 +227,7 @@ Det här avsnittet är valfritt.  Inkludera det här avsnittet om du vill visa i
 #### <a name="azure-action-group"></a>Azure åtgärdsgrupp
 Alla aviseringar i Azure, använda åtgärdsgrupp som standardmekanism för att hantera åtgärder. Med åtgärdsgrupp kan du ange dina åtgärder en gång och sedan associerar åtgärdsgrupp att flera aviseringar – i Azure. Utan att behöva flera gånger deklarera samma åtgärder om och om igen. Åtgärdsgrupper stöd för flera åtgärder – inklusive e-post, SMS, röstsamtal, ITSM-anslutningen, Automation-Runbook, Webhook URI med mera. 
 
-För användare som har utökat sin aviseringar i Azure – bör ett schema nu ha åtgärdsgrupp information skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. Information om e-post, Webhook-URL: er, Runbook Automation-information och andra åtgärder måste vara definierade i sida en åtgärdsgrupp innan du kan skapa en avisering; går att skapa [åtgärdsgrupp från Azure Monitor](../../azure-monitor/platform/action-groups.md) i portalen eller Använd [åtgärdsgrupp - resursmall](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+För användare som har utökat sin aviseringar i Azure – bör ett schema nu ha åtgärdsgrupp information skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. Information om e-post, Webhook-URL: er, Runbook Automation-information och andra åtgärder måste vara definierade i sida en åtgärdsgrupp innan du kan skapa en avisering; går att skapa [åtgärdsgrupp från Azure Monitor](../../azure-monitor/platform/action-groups.md) i portalen eller Använd [åtgärdsgrupp - resursmall](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
@@ -241,7 +241,7 @@ För användare som har utökat sin aviseringar i Azure – bör ett schema nu h
 Varje schema har en **avisering** åtgärd.  Detta definierar information om aviseringen och eventuellt meddelande- och reparationsloggarna åtgärder.  Ett meddelande skickas ett e-postmeddelande till en eller flera adresser.  En reparation startar en runbook i Azure Automation att försöka åtgärda ett identifierat problem.
 
 > [!NOTE]
-> Från och den 14 maj 2018 alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta som började automatiskt ska utöka till Azure. Mer information finns i [utöka aviseringarna till Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Från och den 14 maj 2018 alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta som började automatiskt ska utöka till Azure. Mer information finns i [utöka aviseringarna till Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Det här avsnittet är valfritt inkluderar den om du vill att aviseringen för att skicka e-post till en eller flera mottagare.

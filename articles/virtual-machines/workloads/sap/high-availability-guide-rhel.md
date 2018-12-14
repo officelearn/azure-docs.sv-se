@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 110f487d486ccd2f1a26065aa225838a3a83c197
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6fc3fc0b7717242b6949d93f0668d7c56525ac49
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167230"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342829"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux
 
@@ -157,10 +157,10 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
 1. Skapa en Tillgänglighetsuppsättning  
    Ställ in max uppdateringsdomän
 1. Skapa virtuell dator 1  
-   Använd minst RHEL 7, i den här exempelbild Red Hat Enterprise Linux 7.4 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Använd minst RHEL 7, i den här exempelbild Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj Tillgänglighetsuppsättning skapade tidigare  
 1. Skapa virtuell dator 2  
-   Använd minst RHEL 7, i den här exempelbild Red Hat Enterprise Linux 7.4 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Använd minst RHEL 7, i den här exempelbild Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj Tillgänglighetsuppsättning skapade tidigare  
 1. Lägga till minst en datadisk till båda de virtuella datorerna  
    På diskar som används förusr/sap/`<SAPSID`> directory

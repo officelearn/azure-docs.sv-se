@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 7f2b4d870fdcf250f62d41fa4f3ea5bf13d323c3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847073"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387088"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -58,17 +58,17 @@ Det här dokumentet fokuserar främst på skapar en översikt över att skydda i
 
 ## <a name="develop-a-roadmap"></a>Utveckla en översikt 
 
-Microsoft rekommenderar att du utvecklar och följer en översikt över för att skydda privilegierad åtkomst från cyberhot angripare. Du kan alltid ändra ditt översikten för att hantera dina befintliga funktioner och särskilda krav i din organisation. Varje steg av översikten bör öka kostnaderna och svårigheten för motståndare att angripa privilegierad åtkomst till dina lokala, moln och hybrid-tillgångar. Microsoft rekommenderar att följande fyra översikten faser: rekommenderas detta översikten scheman mest effektiva och snabbaste implementeringarna först, baserat på Microsofts upplevelser med cyberattackkedjan incident och svaret implementering. Tidslinjerna för den här översikten är ungefärliga.
+Microsoft rekommenderar att du utvecklar och följer en översikt över för att skydda privilegierad åtkomst från cyberhot angripare. Du kan alltid ändra ditt översikten för att hantera dina befintliga funktioner och särskilda krav i din organisation. Varje steg av översikten bör öka kostnaderna och svårigheten för motståndare att angripa privilegierad åtkomst till dina lokala, moln och hybrid-tillgångar. Microsoft rekommenderar följande fyra översikten faser: Det här rekommenderas översikten scheman de mest effektiva och snabbaste implementeringarna först, baserat på Microsofts upplevelser med cyberattackkedjan incident och svaret implementering. Tidslinjerna för den här översikten är ungefärliga.
 
 ![Faser i översikten med tiden rader](./media/directory-admin-roles-secure/roadmap-timeline.png)
 
-* Steg 1 (24 – 48 timmar): kritiska objekt som vi rekommenderar att du gör direkt
+* Steg 1 (24 – 48 timmar): Kritiska objekt som vi rekommenderar att du gör direkt
 
-* Steg 2 (2 – 4 veckor): minimera de mest använda attackteknikerna
+* Steg 2 (2 – 4 veckor): Minimera de mest använda attackteknikerna
 
-* Steg 3 (1 – 3 månader): skapa synlighet och skapa fullständig kontroll av administratörsaktivitet
+* Steg 3 (1 – 3 månader): Skapa synlighet och skapa fullständig kontroll av administratörsaktivitet
 
-* Steg 4 (sex månader och senare): fortsätta skapa försvar för att ytterligare skydda din säkerhet-plattform
+* Steg 4 (sex månader och senare): Fortsätta skapa försvar för att ytterligare skydda din säkerhet-plattform
 
 Översikt över ramverket har utformats för att maximera användningen av Microsoft-tekniker som du kanske redan har distribuerat. Du kan också dra nytta av viktiga aktuella och kommande säkerhetstekniker och integrera säkerhetsverktyg från andra leverantörer som du redan har distribuerat eller planerar distribution. 
 
@@ -196,7 +196,7 @@ Utföra incidenthantering effektivt är ett komplext företag. Därför kan krä
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>Säker lokala Privilegierade administrativa konton om du inte redan har gjort
 
-Om din Azure Active Directory-klient är synkroniserad med den lokala Active Directory, och följ sedan riktlinjerna i [Security privilegierad åtkomst översikt](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): steg 1. Detta innefattar att skapa separata konton för användare som behöver genomföra lokala administrativa uppgifter, distribuera arbetsstationer för privilegierad åtkomst för Active Directory-administratörer och skapa unika lösenord lokal administratör för arbetsstationer och servrar.
+Om din Azure Active Directory-klient är synkroniserad med den lokala Active Directory, och följ sedan riktlinjerna i [Security privilegierad åtkomst översikt](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Steg 1. Detta innefattar att skapa separata konton för användare som behöver genomföra lokala administrativa uppgifter, distribuera arbetsstationer för privilegierad åtkomst för Active Directory-administratörer och skapa unika lösenord lokal administratör för arbetsstationer och servrar.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Ytterligare åtgärder för organisationer som hanterar åtkomst till Azure
 
@@ -210,7 +210,7 @@ Microsoft-konton från andra program, t.ex Xbox Live och Outlook bör inte anvä
 
 #### <a name="monitor-azure-activity"></a>Övervaka Azure
 
-Azure-aktivitetsloggen innehåller en historik över händelser på prenumerationsnivå i Azure. Den innehåller information om som skapas, uppdateras och tagit bort vilka resurser, och när de här händelserna inträffade. Mer information finns i [granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md).
+Azure-aktivitetsloggen innehåller en historik över händelser på prenumerationsnivå i Azure. Den innehåller information om som skapas, uppdateras och tagit bort vilka resurser, och när de här händelserna inträffade. Mer information finns i [granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Ytterligare åtgärder för organisationer som hanterar åtkomst till andra molnappar via Azure AD 
@@ -275,7 +275,7 @@ Du kan hämta den här rapporten från [Security Incident Management i Microsoft
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Fortsätt att skydda lokala Privilegierade administrativa konton
 
-Om Azure Active Directory är ansluten till en lokal Active Directory, och följ sedan riktlinjerna i den [Security privilegierad åtkomst översikt](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): steg 2. Detta inkluderar distribuera arbetsstationer för privilegierad åtkomst för alla administratörer, som kräver MFA, med bara tillräckligt administratör för domänkontrollanter, vilket minskar risken för angrepp på domäner, distribuera ATA för identifiering av attack.
+Om Azure Active Directory är ansluten till en lokal Active Directory, och följ sedan riktlinjerna i den [Security privilegierad åtkomst översikt](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Steg 2. Detta inkluderar distribuera arbetsstationer för privilegierad åtkomst för alla administratörer, som kräver MFA, med bara tillräckligt administratör för domänkontrollanter, vilket minskar risken för angrepp på domäner, distribuera ATA för identifiering av attack.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Ytterligare åtgärder för organisationer som hanterar åtkomst till Azure
 
@@ -390,52 +390,52 @@ Bestäm om du behöver [överföra ägarskap för en Azure-prenumeration till et
 
 Läs mer om hur Microsoft Office 365 hanterar säkerhetsincidenter [Security Incident Management i Microsoft Office 365](https://aka.ms/Office365SIM).
 
-## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>Vanliga frågor och svar: Vanliga frågor rörande att säkra privilegierad åtkomst  
+## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>VANLIGA FRÅGOR OCH SVAR: Vanliga frågor rörande att säkra privilegierad åtkomst  
 
 
-**F:** vad gör jag om jag inte har implementerats ännu alla komponenter för säker åtkomst?
+**F:** Vad gör jag om jag inte har implementerats ännu alla komponenter för säker åtkomst?
 
-**Svar:** definiera minst två glas kontot, tilldela MFA till Privilegierade konton och separata användarkonton från globala administratörskonton.
-
-
-**F:** efter ett intrång, vad är det främsta problem som måste åtgärdas först?
-
-**Svar:** vara säker på att du kräver den starkaste autentiseringen för högexponerade enskilda användare.
+**Svar:** Definiera minst två glas kontot, tilldela MFA till Privilegierade konton och separata användarkonton från globala administratörskonton.
 
 
-**F:** vad händer om våra Privilegierade administratörer har inaktiverats?
+**F:** Vad är det främsta problem som måste åtgärdas först efter ett intrång?
 
-**Svar:** skapa en Global administratör-konto som är alltid hålls uppdaterade.
-
-
-**F:** vad händer om det finns endast en global administratör till vänster och de går inte att nå? 
-
-**Svar:** använda ett av dina glas konton för att få omedelbar privilegierad åtkomst.
+**Svar:** Var noga med att du kräver den starkaste autentiseringen för högexponerade enskilda användare.
 
 
-**F:** hur kan jag skydda administratörer i min organisation?
+**F:** Vad händer om våra Privilegierade administratörer har inaktiverats?
 
-**Svar:** finns administratörer i organisationen alltid göra sin dagliga verksamhet som ”utan privilegier” standardanvändare.
+**Svar:** Skapa en Global administratör-konto som är alltid hålls uppdaterade.
+
+
+**F:** Vad händer om det finns endast en global administratör vänster och de inte går att nå? 
+
+**Svar:** Använd ett av dina glas konton för att få omedelbar privilegierad åtkomst.
+
+
+**F:** Hur kan jag skydda administratörer i min organisation?
+
+**Svar:** Finns administratörer i organisationen alltid göra sin dagliga verksamhet som ”utan privilegier” standardanvändare.
  
 
-**F:** vad är bästa praxis för att skapa administratörskonton i Azure AD?
+**F:** Vad är bästa praxis för att skapa administratörskonton i Azure AD?
 
-**Svar:** reservera privilegierad åtkomst för specifika administrativa uppgifter.
-
-
-**F:** vilka verktyg som finns för att minska beständiga administratörsåtkomst?
-
-**Svar:** Privileged Identity Management (PIM) och Azure AD-administratörsroller.
+**Svar:** Reservera privilegierad åtkomst för specifika administrativa uppgifter.
 
 
-**F:** vad är Microsoft position på Synkronisera administratörskonton till Azure AD?
+**F:** Vilka verktyg finns för att minska beständiga administratörsåtkomst?
 
-**Svar:** nivå 0-administratörskonton (inklusive konton, grupper och andra resurser som har direkt eller indirekt administrativ kontroll av AD-skogen, domäner eller domänkontrollanter och alla tillgångar) används endast för lokala AD-konton och är normalt inte synkroniseras för Azure AD för molnet. 
+**Svar:** Roller för Privileged Identity Management (PIM) och Azure AD-administratör.
 
 
-**F:** hur vi håller administratörer från att tilldela slumpmässiga administratörsåtkomst i portalen?
+**F:** Vad är Microsoft position på Synkronisera administratörskonton till Azure AD?
 
-**Svar:** använda icke-privilegierade konton för alla användare och de flesta administratörer. Börja med att utveckla ett fotavtryck för organisationen för att ta reda på vilken bör vara privilegierad några administratörskonton. Och Övervakare som nyligen skapats administrativa användare.
+**Svar:** Nivå 0-administratörskonton (inklusive konton, grupper och andra resurser som har direkt eller indirekt administrativ kontroll av AD-skogen, domäner eller domänkontrollanter och alla tillgångar) används endast för lokala AD-konton och är vanligtvis inte synkroniseras för Azure AD för molnet. 
+
+
+**F:** Hur håller vi administratörer från att tilldela slumpmässiga administratörsåtkomst i portalen?
+
+**Svar:** Använda icke-privilegierade konton för alla användare och de flesta administratörer. Börja med att utveckla ett fotavtryck för organisationen för att ta reda på vilken bör vara privilegierad några administratörskonton. Och Övervakare som nyligen skapats administrativa användare.
 
 
 ## <a name="next-steps"></a>Nästa steg

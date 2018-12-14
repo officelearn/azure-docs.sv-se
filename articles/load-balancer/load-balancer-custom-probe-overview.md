@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: d3e0fd510968abed55e0e3fea2a8689027713a2b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8ffc2a84850254451bb8356ceb0c08cd56823afd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310410"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344218"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
@@ -56,6 +56,9 @@ När du använder [HA Ports belastningsutjämningsregler](load-balancer-ha-ports
 Du bör inte NAT och proxy som en hälsoavsökning via den instans som tar emot hälsoavsökningen till en annan instans i ditt virtuella nätverk som detta kan leda till kaskadfel i ditt scenario.
 
 Om du vill testa en avsökning uteblivna eller skriva ned en enskild instans kan du använda en säkerhetsgrupp för explicit block hälsoavsökningen (mål eller [källa](#probesource)).
+
+>[!IMPORTANT]
+> Aktivera inte [TCP tidsstämplar](https://tools.ietf.org/html/rfc1323).  Aktivera TCP tidsstämplar genereras hälsoavsökningar misslyckas på grund av TCP-paket som tas bort av den Virtuella datorns gästoperativsystem OS TCP-stacken, vilket resulterar i belastningsutjämnaren markera respektive slutpunkten.
 
 ### <a name="tcpprobe"></a> TCP-avsökning
 

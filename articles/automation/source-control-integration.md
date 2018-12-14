@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023755"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342246"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
@@ -62,7 +62,7 @@ På den **källa kontroll sammanfattning** sidan, Fyll i informationen och klick
 
 ## <a name="syncing"></a>Synkroniserar
 
-Konfigurera automatisk synkronisering när du konfigurerar integrering av källkontroll, startar den första synkroniseringen automatiskt. Om automatisk synkronisering inte har angetts, väljer du den från tabellen på den **källkontroll (förhandsversion)** sidan. Klicka på **Starta synkronisering** att starta synkroniseringen.  
+Konfigurera automatisk synkronisering när du konfigurerar integrering av källkontroll, startar den första synkroniseringen automatiskt. Om automatisk synkronisering inte har angetts, väljer du den från tabellen på den **källkontroll (förhandsversion)** sidan. Klicka på **Starta synkronisering** att starta synkroniseringen.
 
 Du kan visa statusen för den aktuella synkroniseringsjobb eller tidigare inställningarna genom att klicka på den **Synkronisera jobb** fliken. På den **källkontroll** listrutan, Välj en källkontroll.
 
@@ -109,7 +109,7 @@ Källkontroll kräver vissa minsta möjliga behörigheter för personliga åtkom
 
 ### <a name="github"></a>GitHub
 
-|Omfång  |Beskrivning  |
+|Scope  |Beskrivning  |
 |---------|---------|
 |**lagringsplats**     |         |
 |lagringsplats: status     | Åtkomststatus för genomförande         |
@@ -121,7 +121,7 @@ Källkontroll kräver vissa minsta möjliga behörigheter för personliga åtkom
 
 ### <a name="azure-devops"></a>Azure DevOps
 
-|Omfång  |
+|Scope  |
 |---------|
 |Kod (läsa)     |
 |Projekt och team (läsa)|

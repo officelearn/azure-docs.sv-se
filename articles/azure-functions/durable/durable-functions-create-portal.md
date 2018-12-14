@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 3381939e296009b0fd58366f7fff410ea01d1206
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a79faa1dc5a28e5e2ac37ea164c341b855b3bb80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864034"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339730"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Skapa varaktiga funktioner med hjälp av Azure portal
 
@@ -24,17 +24,43 @@ Den [varaktiga funktioner](durable-functions-overview.md) tillägget för Azure 
 >[!NOTE]
 >
 >* Om du utvecklar varaktiga funktioner i C#, i stället bör du [Visual Studio 2017 utveckling](durable-functions-create-first-csharp.md).
-* Om du utvecklar varaktiga funktioner i JavaScript, i stället bör du **Visual Studio Code utveckling**.
->
->Skapa varaktiga funktioner stöds med hjälp av JavaScript inte ännu i portalen. Använd Visual Studio Code i stället.
+* Om du utvecklar varaktiga funktioner i JavaScript, i stället bör du [Visual Studio Code utveckling](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-Du måste ha en funktionsapp som värd för körning av en funktion. En funktionsapp kan du gruppera dina funktioner som en logisk enhet för enklare hantering, distribution och dela resurser. Du måste skapa en C# funktionsapp, eftersom JavaScript-mallar inte stöds ännu för varaktiga funktioner.  
+Du måste ha en funktionsapp som värd för körning av en funktion. En funktionsapp kan du gruppera dina funktioner som en logisk enhet för enklare hantering, distribution och dela resurser. Du kan skapa en .NET eller JavaScript-app.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-Som standard använder funktionsappen skapas version 2.x av Azure Functions-körningen. Tillägget varaktiga funktioner fungerar på båda versionerna 1.x och 2.x av Azure Functions-körningen. Mallar är dock endast tillgängliga när med version 2.x av körningsmiljön.
+Som standard använder funktionsappen skapas version 2.x av Azure Functions-körningen. Tillägget varaktiga funktioner fungerar på båda versionerna 1.x och 2.x av Azure Functions-körning i C#, och version 2.x i JavaScript. Mallar är dock endast tillgängliga när med version 2.x av körningstillfället oavsett det valda språket.
+
+## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Installera durable-functions npm-paket (JavaScript)
+
+Om du skapar varaktiga funktioner i JavaScript, behöver du installera den [ `durable-functions` npm-paketet](https://www.npmjs.com/package/durable-functions).
+
+1. Välj funktionsappens namn följt av **plattformsfunktioner**, sedan **avancerade verktyg (Kudu)**.
+
+   ![Functions plattformsfunktioner väljer Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+
+2. Inuti Kudu-konsolen väljer **Felsökningskonsolen** sedan **CMD**.
+
+   ![Kudu-Felsökningskonsolen](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+3. Din funktionsapp filstruktur bör visas. Gå till mappen `site/wwwroot`. Därifrån kan du ladda upp en `package.json` fil genom att dra och släppa den i fönstret fil directory. Ett sampel `package.json` är lägre än:
+
+    ```json
+    {
+      "dependencies": {
+        "durable-functions": "^1.1.2"
+      }
+    }
+    ```
+
+   ![Kudu överför package.json](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+4. När din `package.json` har överförts, kör den `npm install` från Kudu-konsolen för fjärråtkomst körning.
+
+   ![Kudu kör npm install](./media/durable-functions-create-portal/kudu-npm-install.png)
 
 ## <a name="create-an-orchestrator-function"></a>Skapa en orchestrator-funktion
 
@@ -92,7 +118,7 @@ Som standard använder funktionsappen skapas version 2.x av Azure Functions-kör
         }
     ```
 
-1. Fortsätta anropar den `statusQueryGetUri` slutpunkten tills status ändras till **slutförd**, och du ser ett svar som i följande exempel: 
+1. Fortsätta anropar den `statusQueryGetUri` slutpunkten tills status ändras till **slutförd**, och du ser ett svar som i följande exempel:
 
     ```json
     {
@@ -113,4 +139,4 @@ Din första varaktiga funktion är nu aktiv och körs i Azure.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om vanliga mönster för varaktiga funktion](durable-functions-overview.md)
+> [Läs mer om vanliga mönster för beständiga funktioner](durable-functions-overview.md)

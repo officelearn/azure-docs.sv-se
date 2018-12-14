@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e6204933d6b9a4a6b296a141520fc8887c9181f1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 22e15f58f3d4e7f4db3ac3bd519dbb286a36ef95
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279732"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384147"
 ---
-# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Portar som används av Hadoop-tjänster på HDInsight
+# <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portar som används av Apache Hadoop-tjänster på HDInsight
 
-Det här dokumentet innehåller en lista över portar som används av Hadoop-tjänster som körs på Linux-baserade HDInsight-kluster. Det innehåller även information om portar som används för att ansluta till klustret med SSH.
+Det här dokumentet innehåller en lista över portar som används av Apache Hadoop-tjänster som körs på Linux-baserade HDInsight-kluster. Det innehåller även information om portar som används för att ansluta till klustret med SSH.
 
 ## <a name="public-ports-vs-non-public-ports"></a>Offentliga portar jämfört med icke-offentlig portar
 
@@ -26,7 +26,7 @@ Linux-baserade HDInsight-kluster exponera bara tre portar offentligt på interne
 
 Internt HDInsight implementeras av flera Azure virtuella datorer (noder i klustret) som körs på Azure Virtual Network. I det virtuella nätverket tillgång från portarna som exponeras inte via internet. Till exempel om du ansluter till en av huvudnoderna med hjälp av SSH från klustrets huvudnod du kan sedan direkt åtkomst till tjänster som körs på klusternoderna.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Om du inte anger ett virtuellt Azure nätverk som ett alternativ för HDInsight, skapas en automatiskt. Men du kan inte ansluta till andra datorer (till exempel andra Azure-datorer eller utvecklingsdatorn klienten) till den här virtuella nätverket.
 
 
@@ -41,20 +41,20 @@ Alla noder i ett HDInsight-kluster finns i Azure Virtual Network och kan inte n�
 | sshd |22 |SSH |Ansluter klienter till sshd på den primära huvudnoden. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight). |
 | sshd |22 |SSH |Ansluter klienter till sshd på gränsnoden. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight). |
 | sshd |23 |SSH |Ansluter klienter till sshd på den sekundära huvudnoden. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight). |
-| Ambari |443 |HTTPS |Ambari-webbgränssnittet. Se [hantera HDInsight med hjälp av Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md) |
-| Ambari |443 |HTTPS |Ambari REST API. Se [hantera HDInsight med hjälp av Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST-API. Se [använda Hive med Curl](hadoop/apache-hadoop-use-pig-curl.md), [använda Pig med Curl](hadoop/apache-hadoop-use-pig-curl.md), [använda MapReduce med Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| Ambari |443 |HTTPS |Ambari-webbgränssnittet. Se [hantera HDInsight med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md) |
+| Ambari |443 |HTTPS |Ambari REST API. Se [hantera HDInsight med hjälp av Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
+| WebHCat |443 |HTTPS |HCatalog REST-API. Se [använda Apache Hive med Curl](hadoop/apache-hadoop-use-pig-curl.md), [använda Apache Pig med Curl](hadoop/apache-hadoop-use-pig-curl.md), [använda MapReduce med Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |Ansluter till Hive med ODBC. Se [Anslut Excel till HDInsight med Microsoft ODBC driver](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |Ansluter till Hive med JDBC. Se [Anslut till Hive på HDInsight med Hive JDBC-drivrutinen](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
+| HiveServer2 |443 |JDBC |Ansluter till ApacheHive med JDBC. Se [Anslut till Apache Hive på HDInsight med Hive JDBC-drivrutinen](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Följande är tillgängliga för specifika klustertyper:
 
 | Tjänst | Port | Protokoll | Klustertyp | Beskrivning |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST-API. Se [komma igång med HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST-API. Se [skicka Spark-jobb via fjärranslutning med Livy](spark/apache-spark-livy-rest-interface.md) |
-| Spark Thrift-server |443 |HTTPS |Spark |Spark Thrift-server som används för att skicka Hive-frågor. Se [använda Beeline med Hive på HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
-| Storm |443 |HTTPS |Storm |Storm-Webbgränssnittet. Se [distribuera och hantera Storm-topologier i HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST-API. Se [komma igång med Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST-API. Se [skicka Apache Spark-jobb via fjärranslutning med Apache Livy](spark/apache-spark-livy-rest-interface.md) |
+| Spark Thrift-server |443 |HTTPS |Spark |Spark Thrift-server som används för att skicka Hive-frågor. Se [använda Beeline med Apache Hive på HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
+| Storm |443 |HTTPS |Storm |Storm-Webbgränssnittet. Se [distribuera och hantera Apache Storm-topologier i HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Autentisering
 
@@ -67,10 +67,10 @@ Alla tjänster som exponeras offentligt på internet måste autentiseras:
 
 ## <a name="non-public-ports"></a>Icke-offentlig portar
 
-> [!NOTE]
+> [!NOTE]  
 > Vissa tjänster är bara tillgängliga på specifika klustertyper. Till exempel är HBase bara tillgängligt på HBase klustertyper.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Vissa tjänster som bara köras på en huvudnod i taget. Om du försöker ansluta till tjänsten på den primära huvudnoden och får ett felmeddelande, försöker du med hjälp av den sekundära huvudnoden.
 
 ### <a name="ambari"></a>Ambari
@@ -166,7 +166,7 @@ Exempel:
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift-servrar |Huvudnoder |10002 |Thrift | &nbsp; | Tjänsten för att ansluta till Spark SQL (Thrift/JDBC) |
 | Livy-server | Huvudnoder | 8998 | HTTP | &nbsp; | Tjänsten för att köra instruktioner, jobb och program |
-| Jupyter Notebook | Huvudnoder | 8001 | HTTP | &nbsp; | Jupyter notebook-webbplats |
+| Jupyter-notebook-fil | Huvudnoder | 8001 | HTTP | &nbsp; | Jupyter notebook-webbplats |
 
 Exempel:
 

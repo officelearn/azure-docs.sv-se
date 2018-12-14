@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d638c9d2805d903247c5dbe615602ee8474096a7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6a1b9c110c79e428ab0cc182d0da370e59bc4f30
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285391"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386221"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
-Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
+Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
 
 Log aviseringen består av Loggsökning regler som har skapats för [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Läs mer om användningen i [skapar loggaviseringar i Azure](../../azure-monitor/platform/alerts-log.md)
 
 > [!NOTE]
-> Populära loggdata från [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)
+> Populära loggdata från [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](../../azure-monitor/platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Sök loggvarningsregel - definitions- och typer
@@ -32,7 +32,7 @@ Regler för log search definieras av följande information:
 - **Loggar frågor**.  Den fråga som körs varje gång regeln utlöses.  Poster som returneras av den här frågan används för att avgöra om en avisering skapas. Analytics-fråga kan även inkludera [schemaläggningskapacitet mellan program anrop](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [mellan arbetsytan anrop och [mellan resurser anrop](../../azure-monitor/log-query/cross-workspace-query.md) förutsatt att användaren har behörighet att externa program. 
 
     > [!IMPORTANT]
-    > Användaren måste ha [Azure Monitoring deltagare](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md) roll för att skapa, ändra och uppdatera loggaviseringar i Azure Monitor, tillsammans med åtkomst & fråga körningsbehörigheter för analytics-mål i varningsregeln eller aviseringsfråga. Om användaren skapar inte har åtkomst till alla analytics mål i varningsregeln eller aviseringsfråga - regeln skapades kan misslyckas eller loggvarningsregel körs med ofullständiga resultat.
+    > Användaren måste ha [Azure Monitoring deltagare](../../azure-monitor/platform/roles-permissions-security.md) roll för att skapa, ändra och uppdatera loggaviseringar i Azure Monitor, tillsammans med åtkomst & fråga körningsbehörigheter för analytics-mål i varningsregeln eller aviseringsfråga. Om användaren skapar inte har åtkomst till alla analytics mål i varningsregeln eller aviseringsfråga - regeln skapades kan misslyckas eller loggvarningsregel körs med ofullständiga resultat.
 
 - **Tidsperiod**.  Anger tidsintervallet för frågan. Frågan returnerar bara de poster som har skapats i det här intervallet för den aktuella tiden. Tidsperiod begränsar de data som hämtats för loggfråga att förhindra missbruk och kringgår alla tid-kommandon (t.ex. sedan) används i loggen frågan. <br>*Till exempel om hur lång tid har angetts till 60 minuter och frågan körs klockan 13:15, returneras endast de poster som har skapats mellan 12:15 PM och 1:15 log frågan. Om log frågan använder tid kommandot som sedan nu 7d, log frågan skulle köras endast för data mellan 12:15 PM och 1:15 – som om det finns data för endast de senaste 60 minuterna. Och inte för sju dagarnas data som anges i loggfråga.*
 - **Frekvens**.  Anger hur ofta frågan ska köras. Kan vara ett värde mellan 5 minuter och 24 timmar. Ska vara lika med eller mindre än tidsperioden.  Om värdet är större än hur lång tid, riskerar du poster som saknas.<br>*Anta exempelvis att en tidsperiod på 30 minuter och en frekvens på 60 minuter.  Om frågan körs i 1:00, returnerar poster mellan 12:30 och 1:00.  Nästa gång frågan körs är 2:00 när den skulle returnera poster mellan 1:30 och 2:00.  Alla poster som skapats mellan 01:00 och 1:30 skulle aldrig ska utvärderas.*
@@ -120,6 +120,6 @@ Priser för loggvarningar anges på den [priser för Azure Monitor](https://azur
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [skapa i loggaviseringar i Azure](../../azure-monitor/platform/alerts-log.md).
 * Förstå [webhooks i loggaviseringar i Azure](alerts-log-webhook.md).
-* Lär dig mer om [Azure-aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Lär dig mer om [Azure-aviseringar](../../azure-monitor/platform/alerts-overview.md).
 * Läs mer om [Application Insights](../../application-insights/app-insights-analytics.md).
 * Läs mer om [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    

@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 202a68d219bec3a70e50afa68228cbc6bf453518
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011671"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383909"
 ---
-# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installera Giraph på HDInsight Hadoop-kluster och använda Giraph för att bearbeta storskaliga diagram
+# <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installera Apache Giraph på HDInsight Hadoop-kluster och använda Giraph för att bearbeta storskaliga diagram
 
 Lär dig mer om att installera Apache Giraph på ett HDInsight-kluster. Funktionen för åtgärden skriptet i HDInsight kan du anpassa ditt kluster genom att köra ett bash-skript. Skript kan användas för att anpassa kluster under och när klustret har skapats.
 
@@ -33,7 +33,7 @@ Lär dig mer om att installera Apache Giraph på ett HDInsight-kluster. Funktion
 
 * Beräkna den sida rangordningen för webbsidor.
 
-> [!WARNING]
+> [!WARNING]  
 > Komponenter som tillhandahålls med HDInsight-kluster stöds fullt ut – Microsoft Support hjälper till att isolera och lösa problem relaterade till dessa komponenter.
 >
 > Anpassade komponenter, till exempel Giraph, får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Microsoft Support kanske kan lösa problemet. Om inte, du måste läsa öppen källkod-communities där djup kompetens för den tekniken hittas. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
@@ -68,17 +68,17 @@ Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet
 
 2. I den **valfri konfiguration** väljer **skriptåtgärder**, och ange följande information:
 
-   * **NAMN på**: Ange ett eget namn för skriptåtgärden.
+   * **NAMN PÅ**: Ange ett eget namn för skriptåtgärden.
 
    * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-   * **HEAD**: Kontrollera den här posten
+   * **HEAD**: Kontrollera den här posten.
 
-   * **WORKER**: lämna det avmarkerat
+   * **WORKER**: Lämna det avmarkerat.
 
-   * **ZOOKEEPER**: lämna det avmarkerat
+   * **ZOOKEEPER**: Lämna det avmarkerat.
 
-   * **PARAMETRAR**: lämna fältet tomt
+   * **PARAMETRAR**: Lämna fältet tomt.
 
 3. Längst ned på den **skriptåtgärder**, använda den **Välj** för att spara konfigurationen. Använd slutligen den **Välj** knappen längst ned på den **valfri konfiguration** avsnitt för att spara informationen som valfri konfiguration.
 
@@ -172,4 +172,4 @@ När klustret har skapats, kan du använda följande steg för att köra exemple
 
 * [Installera och använda Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md).
 
-* [Installera Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md).
+* [Installera Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md).

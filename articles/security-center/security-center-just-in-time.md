@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6281b79e374db164bbd11b602e92336162cae089
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5c42c0d5597e1e14bbb7814ad635abcd086db804
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841769"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339050"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera VM-åtkomst med hjälp av just-in-time
 
@@ -49,7 +49,11 @@ När en användare begär åtkomst till en virtuell dator, kontrollerar Security
 >
 >
 
-## <a name="using-jit-access-in-azure-security-center"></a>Med JIT-åtkomst i Azure Security Center
+Du kan komma åt JIT via:
+- [Med JIT-åtkomst i Azure Security Center](#jit-asc)
+- [Med JIT-åtkomst till en Azure VM-bladet](#jit-vm)
+
+## Med JIT-åtkomst i Azure Security Center <a name="jit-asc"></a>
 
 1. Öppna instrumentpanelen för **Security Center**.
 
@@ -121,7 +125,7 @@ Redigera en befintlig just-in-time-princip för en virtuell dator:
 3. Under **JIT VM-åtkomstkonfiguration**, du kan redigera de befintliga inställningarna för en port som redan skyddad eller Lägg till en ny anpassad port. Mer information finns i [konfigurerar en princip för just-in-time-åtkomst](#jit-config). 
   ![JIT vm-åtkomst](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="using-jit-access-in-an-azure-vm-blade"></a>Med JIT-åtkomst till en Azure VM-bladet
+## Med JIT-åtkomst till en Azure VM-bladet <a name="jit-vm"></a>
 
 Du kan ansluta till en virtuell dator med JIT direkt från VM-bladet i Azure för din bekvämlighet.
 
@@ -187,7 +191,7 @@ Tilldela dem *åtgärder* för rollen:
 -    På omfånget för en prenumeration eller resursgrupp eller virtuell dator:
    - Microsoft.Compute/virtualMachines/write 
 
-Ange dessa privilegier så att en användare att begära har JIT-åtkomst till en virtuell dator: tilldela dem *åtgärder* för användaren:
+Ange dessa privilegier så att en användare att begära har JIT-åtkomst till en virtuell dator: Tilldela dem *åtgärder* för användaren:
 -   På en prenumeration eller resursgrupp omfattning som är associerad med den virtuella datorn:
    - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiera/åtgärd
 -    På omfånget för en prenumeration eller resursgrupp eller virtuell dator:
@@ -264,7 +268,7 @@ I den här artikeln har du lärt dig hur just-in-time VM-åtkomst i Security Cen
 
 I följande avsnitt kan du lära dig mer om Security Center:
 
-- [Ange säkerhetsprinciper](security-center-azure-policy.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
+- [Ange säkerhetsprinciper](tutorial-security-policy.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
 - [Hantera säkerhetsrekommendationer](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 - [Övervakning av säkerhetshälsa](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
 - [Hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.openlocfilehash: 271d7518094982dcd1e973a7d51b231beae92b78
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 613001c8495ba6c6a259063b8d8d3bce21b66960
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185912"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336432"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Skapa en anpassad instrumentpanel för användning i Log Analytics
 
@@ -68,7 +68,7 @@ Det finns tre typer av brickvisualiseringar att välja mellan:
 
 | diagramtyp | Den gör |
 | --- | --- |
-| ![Liggande stapeldiagram](./media/dashboards/oms-dashboards-bar-chart.png) |Visar en tidslinje för sökningen sparad logg resultatet som ett stapeldiagram eller en lista med resultat efter ett fält beroende på om din loggsökning aggregerar resultaten efter ett fält eller inte. |
+| ![Stapeldiagram](./media/dashboards/oms-dashboards-bar-chart.png) |Visar en tidslinje för sökningen sparad logg resultatet som ett stapeldiagram eller en lista med resultat efter ett fält beroende på om din loggsökning aggregerar resultaten efter ett fält eller inte. |
 | ![mått](./media/dashboards/oms-dashboards-metric.png) |Visar de totala log search resultatet träffar som ett tal i en panel. Metrisk paneler kan du ange ett tröskelvärde som belyser panelen när tröskelvärdet har uppnåtts. |
 | ![Rad](./media/dashboards/oms-dashboards-line.png) |Visar en tidslinje för sparade log search resultatet träffar med värden som ett linjediagram. |
 
@@ -86,4 +86,4 @@ Om du vill ta bort en panel, gå till vyn min instrumentpanel och klicka på **a
 ![Ta bort en panel](./media/dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Skapa [aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) i Log Analytics för att generera meddelanden och åtgärda problem.
+* Skapa [aviseringar](../../azure-monitor/platform/alerts-overview.md) i Log Analytics för att generera meddelanden och åtgärda problem.

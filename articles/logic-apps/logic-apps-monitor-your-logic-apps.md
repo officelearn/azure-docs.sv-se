@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 79e4d15c79a7f905a33fe471bcfda3e7ca367b01
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0d2b7a5e3239cf46c41db0a086b804c34df5d6e2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996459"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386952"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -155,7 +155,7 @@ Om du vill förfina frågan genom att lägga till ett filter, välja **+ Lägg t
 
 Tillsammans med Azure Log Analytics kan utöka du hur du använda diagnostikdata för din logikapp med andra Azure-tjänster, till exempel: 
 
-* [Arkivera Azure Diagnostics-loggar i Azure Storage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Arkivera Azure Diagnostics-loggar i Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Stream Azure-diagnostikloggar för Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
 Du kan sedan hämta i realtid övervakningen med hjälp av telemetri och analyser från andra tjänster som [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Exempel:
@@ -174,7 +174,7 @@ Baserat på de alternativ som du vill konfigurera, ska du se till att du första
 
 ## <a name="set-up-alerts-for-your-logic-app"></a>Konfigurera aviseringar för din logikapp
 
-Du kan övervaka specifika mått eller Överskriden tröskelvärden för din logikapp genom att ställa in [aviseringar i Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). Lär dig mer om [mått i Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+Du kan övervaka specifika mått eller Överskriden tröskelvärden för din logikapp genom att ställa in [aviseringar i Azure](../azure-monitor/platform/alerts-overview.md). Lär dig mer om [mått i Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 Ställa in aviseringar utan [Azure Log Analytics](../log-analytics/log-analytics-overview.md), Följ stegen nedan. För mer avancerade villkor för aviseringar och åtgärder, [konfigurera Log Analytics](#azure-diagnostics) för.
 

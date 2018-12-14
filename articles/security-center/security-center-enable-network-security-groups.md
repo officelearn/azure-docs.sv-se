@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2ac1baea3c4ef677f9c0927a038e15828683b851
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f10365f4acf62ba4719e89932f18433e70925ebf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308757"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341770"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Aktivera Nätverkssäkerhetsgrupper i Azure Security Center
 Azure Security Center rekommenderar att du aktiverar en nätverkssäkerhetsgrupp (NSG) om något inte redan är aktiverad. Nätverkssäkerhetsgrupper innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till dina VM-instanser i ett virtuellt nätverk. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet. Dessutom kan trafik till en enskild VM begränsas ytterligare genom att koppla en NSG direkt till den virtuella datorn. Läs mer i [vad är en Nätverkssäkerhetsgrupp (NSG)?](../virtual-network/security-overview.md)
 
-Om du inte har Nätverkssäkerhetsgrupper aktiverade två rekommendationer visas i Security Center för att du: aktivera Nätverkssäkerhetsgrupper på undernät och aktivera Nätverkssäkerhetsgrupper på virtuella datorer. Du kan välja vilken nivå, undernät eller virtuella datorn att tillämpa NSG: er.
+Om du inte har Nätverkssäkerhetsgrupper aktiverade visar två rekommendationer i Security Center till dig: Aktivera Nätverkssäkerhetsgrupper på undernät och aktivera Nätverkssäkerhetsgrupper på virtuella datorer. Du kan välja vilken nivå, undernät eller virtuella datorn att tillämpa NSG: er.
 
 > [!NOTE]
 > I det här dokumentet beskrivs tjänsten genom en exempeldistribution.  Det är alltså inte en steg-för-steg-guide.
@@ -53,7 +53,7 @@ Den här artikeln visade hur du implementerar Security Center-rekommendationen �
 
 I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
+* [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
 * [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.

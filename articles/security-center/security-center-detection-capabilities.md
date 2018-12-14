@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 922e0afb77a9f1e42f014770ccc51d2a356d112b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e9aacdd75d35a714a9f878d059514fd8aa65f50d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843741"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340750"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Identifieringsfunktioner i Azure Security Center
 Det här dokumentet beskrivs avancerade identifieringsfunktionerna i Azure Security Center, som hjälper dig att identifiera aktiva hot mot dina Microsoft Azure-resurser – både Windows och Linux - och ger dig de information som behövs för att svara snabbt.
 
-Avancerade identifieringar är tillgängliga på standardnivån för Azure Security Center. En kostnadsfri utvärderingsversion är tillgänglig. Information om hur du uppgraderar prisnivån finns i avsnittet om [säkerhetsprinciper](security-center-azure-policy.md). Mer information om priser finns på [sidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Avancerade identifieringar är tillgängliga på standardnivån för Azure Security Center. En kostnadsfri utvärderingsversion är tillgänglig. Information om hur du uppgraderar prisnivån finns i avsnittet om [säkerhetsprinciper](tutorial-security-policy.md). Mer information om priser finns på [sidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## <a name="responding-to-todays-threats"></a>Svara på vår tids hot
@@ -57,23 +57,23 @@ Beteendeanalys är en teknik som analyserar och jämför data med en samling kä
 
 Dessutom korreleras data med andra tecken för att hitta bevis på utbredda attacker. Den här korrelationen gör det möjligt att identifiera händelser som matchar fastställda hotindikatorer. Några exempel är:
 
-* **Misstänkt körning av processer**: Angripare använder flera metoder för att köra skadlig programvara utan identifiering. Till exempel kan en angripare ge skadlig kod samma namn som legitima systemfiler, men placera filerna på en annan plats, använda ett namn som liknar namnet på en oskadlig fil eller maskera filens egentliga filnamnstillägg. Security Center-modellerna bearbetar beteenden och övervakar körningen av processer för att identifiera avvikelser som dessa.  
-* **Dold skadlig kod och försök att utnyttja system**: Avancerad skadlig kod kan ta sig förbi traditionella produkter mot skadlig kod genom att aldrig skriva till en disk eller genom att kryptera programvarukomponenter som lagras på en disk.  Sådan skadlig kod kan dock identifieras med minnesanalyser eftersom den skadliga koden måste lämna spår i minnet för att kunna fungera. När programvara kraschar fångar en kraschdumpfil en del av minnet vid tidpunkten för kraschen.  Genom att analysera minnet i kraschdumpen kan Azure Security Center identifiera tekniker som utnyttjar sårbarheter i programvara, som kommer åt känsliga data och som ligger gömda på en komprometterad dator, utan att påverka datorns prestanda.
-* **Lateral förflyttning och intern rekognosering**: För att vara kvar i ett komprometterat nätverk och lokalisera/samla in värdefulla data försöker angripare ofta röra sig lateralt från den komprometterade datorn till andra datorer i samma nätverk. Security Center övervakar process- och inloggningsaktiviteter för att identifiera försök att expandera en angripares fäste i nätverket, till exempel kommandokörning via fjärranslutning, nätverksavsökning och kontouppräkning.
+* **Körning av misstänkt process**: Angripare använder flera metoder för att köra skadlig programvara utan identifiering. Till exempel kan en angripare ge skadlig kod samma namn som legitima systemfiler, men placera filerna på en annan plats, använda ett namn som liknar namnet på en oskadlig fil eller maskera filens egentliga filnamnstillägg. Security Center-modellerna bearbetar beteenden och övervakar körningen av processer för att identifiera avvikelser som dessa.  
+* **Dold skadlig kod och försök**: Avancerad skadlig kod kan ta sig förbi traditionella antivirusprodukter genom att aldrig skriva till disk eller kryptera programvarukomponenter som lagras på disk.  Sådan skadlig kod kan dock identifieras med minnesanalyser eftersom den skadliga koden måste lämna spår i minnet för att kunna fungera. När programvara kraschar fångar en kraschdumpfil en del av minnet vid tidpunkten för kraschen.  Genom att analysera minnet i kraschdumpen kan Azure Security Center identifiera tekniker som utnyttjar sårbarheter i programvara, som kommer åt känsliga data och som ligger gömda på en komprometterad dator, utan att påverka datorns prestanda.
+* **Lateral förflyttning och intern rekognosering**: Om du vill spara i ett komprometterat nätverk och lokalisera/samla in värdefulla data försöker angripare ofta lateralt från den komprometterade datorn till andra i samma nätverk. Security Center övervakar process- och inloggningsaktiviteter för att identifiera försök att expandera en angripares fäste i nätverket, till exempel kommandokörning via fjärranslutning, nätverksavsökning och kontouppräkning.
 * **Skadliga PowerShell-skript**: PowerShell används av angripare för att köra skadlig kod på virtuella måldatorer för en rad olika syften. Security Center inspekterar PowerShell-aktivitet för att hitta tecken på misstänkt aktivitet.
-* **Utgående attacker**: Angripare attackerar ofta resurser i molnet med avsikten att använda dessa resurser för att bygga upp fler attacker. Komprometterade virtuella datorer kan till exempel användas för att köra råstyrkeattacker mot andra virtuella datorer, skicka skräppost eller söka av öppna portar och andra enheter på Internet. Genom att använda maskininlärning för nätverkstrafiken kan Security Center upptäcka avvikande utgående nätverkskommunikation. När det gäller skräppost kan Security Center även korrelera ovanlig e-posttrafik med information fån Office 365 för att avgöra om e-posten är skräppost eller en legitim e-postkampanj.  
+* **Utgående attacker**: Angripare siktar in ofta molnresurser med målet att använda dessa resurser för att skapa fler attacker. Komprometterade virtuella datorer kan till exempel användas för att köra råstyrkeattacker mot andra virtuella datorer, skicka skräppost eller söka av öppna portar och andra enheter på Internet. Genom att använda maskininlärning för nätverkstrafiken kan Security Center upptäcka avvikande utgående nätverkskommunikation. När det gäller skräppost kan Security Center även korrelera ovanlig e-posttrafik med information fån Office 365 för att avgöra om e-posten är skräppost eller en legitim e-postkampanj.  
 
 ### <a name="anomaly-detection"></a>Avvikelseidentifiering
 Azure Security Center använder också avvikelseidentifiering för att identifiera hot. Till skillnad mot beteendeanalyser (som är beroende av kända mönster som härleds från stora datamängder) är avvikelseidentifiering mer ”anpassad” och utgår från standarder som är specifika för dina distributioner. Maskininlärning tillämpas för att fastställa om aktiviteten i dina distributioner är normal. Sedan genereras regler som definierar avvikande förhållanden som kan representera en säkerhetshändelse. Här är ett exempel:
 
-* **Inkommande råstyrkeattacker med RDP/SSH**: Dina distributioner kan ha upptagna virtuella datorer med ett stort antal inloggningar varje dag och andra virtuella datorer som bara har ett fåtal om ens någon inloggning. Azure Security Center kan fastställa standardvärden för inloggningsaktiviteten för dessa virtuella datorer och använda maskininlärning för att definiera vad som avviker från normal inloggningsaktivitet. Om antalet inloggningar eller tiden på dagen då inloggningarna sker eller den plats som inloggningarna begärs från eller andra inloggningsrelaterade egenskaper kraftigt avviker från standardvärdena så kan en varning skickas. Maskininlärningen avgör vad som är viktigt.
+* **Inkommande RDP/SSH-råstyrkeattacker**: Dina distributioner kan ha upptagna virtuella datorer med ett stort antal inloggningar varje dag och andra datorer som har ett fåtal ens någon inloggning. Azure Security Center kan fastställa standardvärden för inloggningsaktiviteten för dessa virtuella datorer och använda maskininlärning för att definiera vad som avviker från normal inloggningsaktivitet. Om antalet inloggningar eller tiden på dagen då inloggningarna sker eller den plats som inloggningarna begärs från eller andra inloggningsrelaterade egenskaper kraftigt avviker från standardvärdena så kan en varning skickas. Maskininlärningen avgör vad som är viktigt.
 
 ## <a name="continuous-threat-intelligence-monitoring"></a>Kontinuerlig övervakning av hotinformation
 Azure Security Center är knutet till säkerhetsforskning och datavetenskapsteam som hela tiden bevakar ändringar i hotlandskapet. Bland annat kan följande projekt nämnas:
 
-* **Övervakning av hotinformation**: Hotinformation inbegriper mekanismer, indikatorer, effekter och rekommendationer relaterade till befintliga eller nya hot. Den här informationen delas i säkerhets-communityn och Microsoft övervakar feeds om hotinformation från interna och externa källor.
-* **Informationsdelning**: Säkerhetsteamen som arbetar med Microsofts breda utbud av molnbaserade och lokala tjänster, servrar och enheter för klientslutpunkter delar och analyserar sina insikter.
-* **Microsofts säkerhetsexperter**: Kontinuerligt arbete i team inom hela Microsoft som arbetar inom specialiserade säkerhetsområden, exempelvis datautredning och identifiering av webbattacker.
+* **Övervakning av hotinformation**: Hotinformation innehåller mekanismer, indikatorer, effekter och rekommendationer relaterade till befintliga eller nya hot. Den här informationen delas i säkerhets-communityn och Microsoft övervakar feeds om hotinformation från interna och externa källor.
+* **Informationsdelning**: Insikter från security team i Microsofts breda utbud av molnet och lokala tjänster, servrar, och enheter klientslutpunkter delar och analyserar.
+* **Microsofts säkerhetsexperter**: Kontinuerligt arbete i team inom hela Microsoft som arbetar inom specialiserade säkerhetsområden, t.ex. identifiering av datautredning och webb-attack.
 * **Identifieringsjustering**: Algoritmer körs mot kundens verkliga datauppsättningar och säkerhetsanalytiker arbetar med kunden för att granska resultaten. Sann och falsk positiv identifiering används för att förfina maskininlärningsalgoritmerna.
 
 Dessa kombinerade ansträngningar resulterar i nya och förbättrade identifieringar, som du kan dra nytta av direkt – ingen åtgärd krävs av dig.

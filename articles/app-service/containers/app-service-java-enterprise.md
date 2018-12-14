@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: e473326e9f337bfb2fd1202bc3b76e468dd6015e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 34506266ed4a2103f0d3bd7a8014b9a038b25491
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315085"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338047"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java företagens guide för App Service på Linux
 
-Azure App Service i Linux kan Java-utvecklare för att bygga, distribuera och skala program för JEE (Java Enterprise) på en helt hanterad tjänst för Linux-baserade.  Den underliggande Java Enterprise-körningsmiljön är öppen källkod [Wildfly](http://wildfly.org/) programserver.
+Azure App Service i Linux kan Java-utvecklare för att bygga, distribuera och skala program för JEE (Java Enterprise) på en helt hanterad tjänst för Linux-baserade.  Den underliggande Java Enterprise-körningsmiljön är öppen källkod [Wildfly](https://wildfly.org/) programserver.
 
 Den här guiden innehåller viktiga begrepp och instruktioner för Java-företagsutvecklare med i App Service för Linux. Om du aldrig har distribuerat Java-program med Azure App Service för Linux, bör du genomföra den [Java-quickstart](quickstart-java.md) första. Om App Service för Linux som inte är specifika för Java Enterprise datasäkerhetsfrågor besvaras i den [Java developer's guide](app-service-linux-java.md) och [App Service Linux vanliga frågor och svar](app-service-linux-faq.md).
 
@@ -115,5 +115,5 @@ Som standard aktiveras webbsockets i App Service. Kom igång med WebSockets i di
 App Service innehåller verktyg som hjälper dig att felsöka problem med ditt program.
 
 -   Aktivera loggning genom att klicka på **diagnostikloggar** i det vänstra navigeringsfönstret. Klicka på **filsystem** att din kvot och kvarhållning period för lagring och spara dina ändringar. Du hittar de här loggarna under `/home/LogFiles/`.
--   [Använda SSH för att ansluta till programinstansen](/app-service-linux-ssh-support) att visa loggar för att köra program.
+-   [Använda SSH för att ansluta till programinstansen](app-service-linux-ssh-support.md) att visa loggar för att köra program.
 -   Kontrollera diagnostikloggar den **diagnostikloggar** panelen i portalen eller med hjälp av Azure CLI-kommando: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 911b8051530daca57fe26fb22c6dc1be845c6d6d
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: e1482b4238211db45a7f317d874bbb3a8c974cb2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321434"
+ms.locfileid: "53337911"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Hantera åtkomstbehörigheter till Azure Blob- och ködata med RBAC (förhandsversion)
 
@@ -27,11 +27,11 @@ En Azure AD-identitet kan vara en användare, grupp eller program tjänstens huv
 
 Azure Storage stöder både inbyggda och anpassade RBAC-roller. Azure Storage erbjuder dessa inbyggda RBAC-roller för användning med Azure AD:
 
-- [Storage Blob Data-deltagare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
-- [Storage Blob Data-läsare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
-- [Storage Blob Data-ägare (förhandsversion)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
-- [Lagringsködata-deltagare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
-- [Lagringsködata-läsare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
+- [Storage Blob Data-ägare (förhandsversion)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview): Du anger ägarskap och ACL: er för Azure Data Lake Storage Gen2 (förhandsversion). Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
+- [Storage Blob Data-deltagare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview): Använd för att bevilja behörigheter för Läs/Skriv/ta bort till Blob storage-resurser.
+- [Storage Blob Data-läsare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview): Använd det här alternativet om du vill ge läsbehörighet till Blob storage-resurser.
+- [Lagringsködata-deltagare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview): Använd för att ge Läs/Skriv/ta bort behörighet till Azure-köer.
+- [Lagringsködata-läsare (förhandsgranskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview): Använd det här alternativet om du vill ge läsbehörighet till Azure-köer.
 
 Mer information om hur inbyggda roller definieras för Azure Storage, se [förstå rolldefinitioner](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 
@@ -45,10 +45,10 @@ Tilldela en RBAC-roll till en Azure-identitet att ge behörighet till behållare
 
 |Scope|Ägare för BLOB-Data|BLOB Data-deltagare|BLOB-dataläsare|Lagringsködata-deltagare|Lagringsködata-läsare|
 |---|---|---|---|---|---|
-|Prenumerationsnivå|Läs-/ skrivåtkomst till alla behållare och blobbar i prenumerationen|Läs-/ skrivåtkomst till alla behållare och blobbar i prenumerationen| Läsbehörighet till alla behållare och blobbar i prenumerationen|Läs-/ skrivåtkomst till alla köer i prenumerationen|Läsbehörighet till alla köer i prenumerationen|
-|Resursgrupp|Läs-/ skrivåtkomst till alla behållare och blobbar i resursgruppen.|Läs-/ skrivåtkomst till alla behållare och blobbar i resursgruppen.|Läsbehörighet till alla behållare och blobbar i resursgruppen.|Läs-/ skrivåtkomst till alla köer i resursgruppen|Läsbehörighet till alla köer i resursgruppen|
-|Lagringskontonivån|Läs-/ skrivåtkomst till alla behållare och blobbar i lagringskontot|Läs-/ skrivåtkomst till alla behållare och blobbar i lagringskontot|Läsbehörighet till alla behållare och blobbar i lagringskontot|Läs-/ skrivåtkomst till alla köer i lagringskontot|Läsbehörighet till alla köer i lagringskontot|
-|Behållare/kö-nivå|Läs/skrivbehörighet till den angivna behållaren och dess blobbar|Läs/skrivbehörighet till den angivna behållaren och dess blobbar|Läsbehörighet till den angivna behållaren och dess blobbar|Läs/skrivbehörighet till den angivna kön|Läsbehörighet till den angivna kön|
+|Prenumerationsnivå|Ange ägarskap och ACL: er för Data Lake Storage-resurser i prenumerationen|Läs/Skriv/ta bort åtkomst till alla behållare och blobbar i prenumerationen| Läsbehörighet till alla behållare och blobbar i prenumerationen|Läs/Skriv/ta bort åtkomst till alla köer i prenumerationen|Läsbehörighet till alla köer i prenumerationen|
+|Resursgrupp|Ange ägarskap och ACL: er för Data Lake Storage-resurser i resursgruppen.|Läs/Skriv/ta bort åtkomst till alla behållare och blobbar i resursgruppen.|Läsbehörighet till alla behållare och blobbar i resursgruppen.|Läs/Skriv/ta bort åtkomst till alla köer i resursgruppen|Läsbehörighet till alla köer i resursgruppen|
+|Lagringskontonivån|Ange ägarskap och ACL: er för Data Lake Storage-resurser i storage-konto|Läs/Skriv/ta bort åtkomst till alla behållare och blobbar i lagringskontot|Läsbehörighet till alla behållare och blobbar i lagringskontot|Läs/Skriv/ta bort åtkomst till alla köer i lagringskontot|Läsbehörighet till alla köer i lagringskontot|
+|System-behållaren-kö filnivå|Ange ägarskap och ACL: er för Data Lake Storage-resurser i filsystemet|Läs/Skriv/ta bort åtkomst till den angivna behållaren och dess blobbar|Läsbehörighet till den angivna behållaren och dess blobbar|Läs/Skriv/ta bort åtkomst till den angivna kön|Läsbehörighet till den angivna kön|
 
 > [!NOTE]
 > Ägare för Azure Storage-kontot kan tilldelas du automatiskt inte behörighet att komma åt data. Du måste uttryckligen tilldela dig själv en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resursgrupp, storage-konto, eller en behållare eller en kö.

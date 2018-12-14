@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: b05fd9571494dfc3680e2d56fabb02de17920378
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3a106b0fe570fe44f96529d830271dfe4912437f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197410"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336501"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för mått med Azure Monitor
 
-Måttaviseringar i Azure Monitor är ett sätt att få ett meddelande när en av dina mått överskrider ett tröskelvärde. Måttaviseringar fungerar på flera olika flerdimensionella plattform mått, anpassade mått, Application Insights standard och anpassade mått. I den här artikeln beskriver vi hur du skapar, visa och hantera måttaviseringsregler via Azure portal och Azure CLI. Du kan också skapa måttaviseringsregler med hjälp av Azure Resource Manager-mallar som beskrivs i [en separat artikel](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+Måttaviseringar i Azure Monitor är ett sätt att få ett meddelande när en av dina mått överskrider ett tröskelvärde. Måttaviseringar fungerar på flera olika flerdimensionella plattform mått, anpassade mått, Application Insights standard och anpassade mått. I den här artikeln beskriver vi hur du skapar, visa och hantera måttaviseringsregler via Azure portal och Azure CLI. Du kan också skapa måttaviseringsregler med hjälp av Azure Resource Manager-mallar som beskrivs i [en separat artikel](../../azure-monitor/platform/alerts-enable-template.md).
 
 Du kan lära dig mer om hur mått aviseringar fungerar från [översikt över aviseringar i mått](alerts-metric-overview.md).
 
@@ -128,6 +128,6 @@ I föregående avsnitt beskrivs hur du skapar, visa och hantera måttaviseringsr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa måttaviseringar med hjälp av Azure Resource Manager-mallar](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+- [Skapa måttaviseringar med hjälp av Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-enable-template.md).
 - [Förstå hur mått aviseringar work](alerts-metric-overview.md).
 - [Förstå web hook schemat för måttaviseringar](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)

@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: c19769dda281f4346c23b823ea00eac83790b618
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a110d14293b391a6856b56d0d8a84a24a90d33e1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582538"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341668"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
-När du registrerar dig för Azure, finns det flera saker du kan göra för att få en bättre uppfattning av spenderar. Den [priskalkylator](https://azure.microsoft.com/pricing/calculator/) kan ge en uppskattning av kostnaderna innan du skapar en Azure-resurs. Den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ger dig den aktuella kostnadsdata och prognos för din prenumeration. Om du vill gruppera och uppskatta kostnaden för olika projekt eller team kan du titta på [resurstaggning](../azure-resource-manager/resource-group-using-tags.md). Om din organisation har ett rapporteringssystem som du föredrar att använda kan du kolla den [billing API: er](billing-usage-rate-card-overview.md). 
+När du registrerar dig för Azure, finns det flera saker du kan göra för att få en bättre uppfattning av spenderar. Den [priskalkylator](https://azure.microsoft.com/pricing/calculator/) kan ge en uppskattning av kostnaderna innan du skapar en Azure-resurs. Den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ger dig den aktuella kostnadsdata och prognos för din prenumeration. Om du vill gruppera och uppskatta kostnaden för olika projekt eller team kan du titta på [resurstaggning](../azure-resource-manager/resource-group-using-tags.md). Om din organisation har ett rapporteringssystem som du föredrar att använda kan du kolla den [billing API: er](billing-usage-rate-card-overview.md).
 
 - Om din prenumeration är ett Enterprise Agreement (EA), är den offentliga förhandsversionen för att se dina kostnader i Azure portal tillgänglig. Om din prenumeration via Cloud Solution Provider (CSP) eller Azure-sponsring, kanske några av de följande funktionerna inte gäller för dig. Se [ytterligare resurser för EA, CSP och sponsring](#other-offers) för mer information.
 
-- Om din prenumeration är en kostnadsfri utvärderingsversion, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure i Open (AIO) eller BizSpark, din prenumeration inaktiveras automatiskt när alla krediten är slut. Lär dig mer om [utgiftsgränser](#spending-limit) för att förhindra att din prenumeration unexpectantly inaktiverad.
+- Om din prenumeration är en kostnadsfri utvärderingsversion, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure i Open (AIO) eller BizSpark, din prenumeration inaktiveras automatiskt när alla krediten är slut. Lär dig mer om [utgiftsgränser](#spending-limit) för att förhindra att din prenumeration inaktiveras oväntat.
 
 - Om du har registrerat dig för [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/), [du kan använda några av de mest populära Azure-tjänsterna kostnadsfritt i 12 månader](billing-create-free-services-included-free-account.md). Tillsammans med de rekommendationer som visas nedan, se [undvika att debiteras kostnadsfritt konto](billing-avoid-charges-free-account.md).
 
@@ -75,17 +75,17 @@ Du kan använda taggar för gruppen faktureringsinformation för tjänster som s
 
 ![Skärmbild som visar hur du konfigurerar taggar i portalen](./media/billing-getting-started/tags.PNG)
 
-Taggarna som visas i olika kostnaden reporting vyer. Till exempel de är synliga i din [kostnad analysvy](#costs) direkt och [detaljerat .csv visas](#invoice-and-usage) efter din första faktureringsperiod.
+Taggarna som visas i olika kostnaden reporting vyer. Till exempel de är synliga i din [kostnad analysvy](#costs) omedelbart och detaljerat .csv visas efter din första faktureringsperiod.
 
 Mer information finns i [med taggar för att organisera Azure-resurser](../azure-resource-manager/resource-group-using-tags.md).
 
 ### <a name="costs"></a> Regelbundet kontrollera portal för kostnadsdata och bränna hastighet
 
-När du får dina tjänster kan regelbundet kontrollerar du de hur mycket kostar du. Du kan se den aktuella kostnader och bränna hastighet i Azure-portalen. 
+När du får dina tjänster kan regelbundet kontrollerar du de hur mycket kostar du. Du kan se den aktuella kostnader och bränna hastighet i Azure-portalen.
 
-1. Gå till den [prenumerationsbladet i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och välja en prenumeration.
+1. Gå till den [prenumerationer i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och välja en prenumeration.
 
-2. Du bör se kostnadsdata och bränna hastighet i popup-bladet. Det stöds inte för ditt erbjudande (en varning visas i den övre delen).
+2. Om det finns stöd för din prenumeration, se kostnadsdata och bränna hastighet.
 
     ![Skärmbild av bränna hastighet och analys på detaljnivå i Azure portal](./media/billing-getting-started/burn-rate.PNG)
 
@@ -95,15 +95,15 @@ När du får dina tjänster kan regelbundet kontrollerar du de hur mycket kostar
 
 4. Du kan filtrera efter olika egenskaper som [taggar](#tags), resursgrupp och tidsintervallet. Klicka på **tillämpa** att bekräfta filtren och **hämta** om du vill exportera vyn till en fil med Comma-Separated värden (.csv).
 
-5. Dessutom kan du klicka på en resurs om du vill se varje dag spendera historik och hur mycket kostar resursen varje dag.
+5. Dessutom kan du klicka på en resurs för att se din dagliga spendera historik och hur mycket kostar resursen varje dag.
 
     ![Skärmbild av historikvyn kostnader i Azure-portalen](./media/billing-getting-started/costhistory.PNG)
 
-Vi rekommenderar att du kontrollerar kostnaderna som visas med beräkningar som du fick när du har valt tjänsterna. Om kostnaderna kundefterfrågan skiljer sig från beräkningar, dubbelkolla prisplanen (A1 vs A0 VM, till exempel) som du har valt för dina resurser. 
+Vi rekommenderar att du kontrollerar kostnaderna som visas med beräkningar som du fick när du har valt tjänsterna. Kostnaderna är kundefterfrågan samma beräkningar, dubbelkolla prisplanen som du har valt för dina resurser.
 
 ### <a name="consider-enabling-cost-cutting-features-like-auto-shutdown-for-vms"></a>Överväg att aktivera kostnaden övergripande funktioner som automatisk avstängning för virtuella datorer
 
-Beroende på ditt scenario kan du konfigurera automatisk avstängning för virtuella datorer i Azure-portalen. Mer information finns i [automatisk avstängning för virtuella datorer med Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
+Beroende på ditt scenario kan du konfigurera automatisk avstängning för dina virtuella datorer i Azure-portalen. Mer information finns i [automatisk avstängning för virtuella datorer med Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
 ![Skärmbild med alternativ för automatisk avstängning i portalen](./media/billing-getting-started/auto-shutdown.PNG)
 
@@ -144,28 +144,29 @@ Tala med din kontoansvarige eller Azure-partner för att komma igång.
 
 Om du hanterar IT för en stor organisation kan vi rekommenderar att du läser [Azure enterprise kodskelett](/azure/architecture/cloud-adoption-guide/subscription-governance) och [enterprise IT white paper om](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (PDF-nedladdning, endast på engelska).
 
-#### <a name="EA"></a> Förhandsversion av Enterprise-avtal kostnad vyer i Azure Portal 
+#### <a name="EA"></a> Förhandsversion av Enterprise-avtal kostnad vyer i Azure-portalen 
 
 Enterprise kostnaden vyer är för närvarande i offentlig förhandsversion. Objekt att Observera:
-- Prenumeration kostnaderna baseras på användning och redovisa inte förbetalda belopp, överdrag, inkluderade antalet, justeringar och skatter. Faktiska kostnader beräknas på registreringsnivå. 
-- Belopp som visas i Azure-portalen kan vara fördröjda jämfört med värden i Enterprise portal.  
-- Om du inte ser kostnader, kan det bero på något av följande orsaker:
-    - Du har inte tillräckligt med RBAC-behörighet på prenumerationsnivån. Om du vill visa företaget kostnaden vyer, måste du vara Billing Reader, läsare, deltagare eller ägare på prenumerationsnivån.
+
+- Prenumeration kostnaderna baseras på användning och omfattar inte förbetalda belopp, överdrag, inkluderade antalet, justeringar och skatter. Faktiska kostnader beräknas på registreringsnivå.
+- Belopp som visas i Azure-portalen kan skilja sig från vad som finns i Enterprise portal. Uppdateringar i Enterprise portal kan ta några minuter innan ändringarna visas i Azure-portalen.
+- Om du inte ser kostnader, kan det vara för en av följande orsaker:
+    - Du har inte behörigheter på prenumerationsnivån. Om du vill visa företaget kostnaden vyer, måste du vara Billing Reader, läsare, deltagare eller ägare på prenumerationsnivån.
     - Du är en kontoinnehavare och din registrering-administratör har inaktiverat de ”AO visa debiteringar” ställa in.  Kontakta din administratör för registreringen för att få åtkomst till kostnader. 
-    - Du är administratör avdelning och din registrering-administratör har inaktiverat de ”DA visa debiteringar” ställa in.  Kontakta din administratör för registreringen för att få åtkomst. 
-    - Du har köpt Azure via en kanalpartner och partnern släppts inte prisinformation.  
-- När inställningar som rör kostnaden åtkomst har uppdaterats i Enterprise portal, finns det en fördröjning på några minuter innan ändringarna syns i Azure-portalen.
+    - Du är administratör avdelning och din registrering-administratör har inaktiverat de ”DA visa debiteringar” ställa in.  Kontakta din administratör för registreringen för att få åtkomst.
+    - Du har köpt Azure via en kanalpartner och partnern släppa inte prisinformation.  
+- Om du uppdaterar inställningar som rör kostnad åtkomst i Enterprise portal, finns det en fördröjning på några minuter innan ändringarna visas i Azure-portalen.
 - Utgiftsgränsen och faktura riktlinjer gäller inte för EA-prenumerationer.
 
 ### <a name="check-your-subscription-and-access"></a>Kontrollera din prenumeration och åtkomst
 
-Visa kostnaderna kräver [prenumerationer på servernivå åtkomst till faktureringsinformation](billing-manage-access.md), men bara kontoadministratören som kan komma åt den [Kontocenter](https://account.azure.com/Subscriptions)Ändra faktureringsinformationen och hantera prenumerationer. Kontoadministratören är den person som har gått igenom registreringsprocessen. Mer information finns i [Lägg till eller ändra Azure-administratörsroller som hanterar prenumerationen eller tjänsterna](billing-add-change-azure-subscription-administrator.md).
+Om du vill visa kostnader, måste du ha [prenumerationer på servernivå åtkomst till faktureringsinformation](billing-manage-access.md). Endast Kontadministratören kan komma åt den [Kontocenter](https://account.azure.com/Subscriptions)ändra faktureringsinformation och hantera prenumerationer. Kontoadministratören är den person som har gått igenom registreringsprocessen. Mer information finns i [Lägg till eller ändra Azure-administratörsroller som hanterar prenumerationen eller tjänsterna](billing-add-change-azure-subscription-administrator.md).
 
-Om du vill se om du är kontoadministratören, går du till den [prenumerationsbladet i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och titta på listan över prenumerationer som du har åtkomst till. Titta under **min roll**. Om status är Stopped *kontoadministratören*, sedan är du ok. Om det är något annat som *ägare*, och du inte har fullständig behörighet.
+Om du vill se om du är kontoadministratören, gå till [prenumerationer i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Titta på listan över prenumerationer som du har åtkomst till. Titta under **min roll**. Om status är Stopped *kontoadministratören*, sedan är du ok. Om det är något annat som *ägare*, och du inte har fullständig behörighet.
 
 ![Skärmbild av din roll i vyn prenumerationer i Azure portal](./media/billing-getting-started/sub-blade-view.PNG)
 
-Om du inte är kontoadministratören och sedan någon förmodligen gav dig delvis åtkomst via [Azure Active Directory rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md) (RBAC). Hantera prenumerationer och fakturering info, ändra [hitta kontoadministratören](billing-subscription-transfer.md#whoisaa) och be dem att utföra uppgifter eller [överföra prenumerationen till dig](billing-subscription-transfer.md).
+Om du inte är kontoadministratören och sedan någon förmodligen gav dig delvis åtkomst med hjälp av [Azure Active Directory rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md) (RBAC). Hantera prenumerationer och fakturering info, ändra [hitta kontoadministratören](billing-subscription-transfer.md#whoisaa). Be kontoadministratören för att utföra uppgifter eller [överföra prenumerationen till dig](billing-subscription-transfer.md).
 
 Om din kontoadministratör inte längre med din organisation och du behöver hantera fakturering, [Kontakta oss](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

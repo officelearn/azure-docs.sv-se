@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 49f515c4321b13652d64c2e6f5b8e44ed6a29bca
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4ea00d1e23ce26855fe4bf01dc473c6b8672db47
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188103"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384555"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
@@ -76,7 +76,7 @@ Azure-resurser som stöder [Azure monitor](../../azure-monitor/overview.md) kan 
 >
 
 * Information för tillgängliga mått i [stöds mått med Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
-* Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+* Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../../azure-monitor/platform/tutorial-dashboards.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Aktivera diagnostik med PowerShell
 Du behöver i November 2016 (v2.3.0) eller senare versionen av [Azure PowerShell](/powershell/azure/overview).

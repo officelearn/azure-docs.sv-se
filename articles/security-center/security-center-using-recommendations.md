@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: rkarlin
-ms.openlocfilehash: 36e3e8c6c34099149cb13aa60efb6668fcc7d53c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d496f3f28cee711109c5c200102d48482bf6cd9c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958422"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340706"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använd Azure Security Center-rekommendationer för att förbättra säkerheten
 Du kan minska risken för en betydande säkerhetshändelse genom att konfigurera en säkerhetsprincip för och implementera rekommendationer som tillhandahålls av Azure Security Center. Den här artikeln visar hur du använder säkerhetsprinciper och säkerhetsrekommendationer i Security Center för att minska en säkerhetsangrepp.
@@ -30,7 +30,7 @@ Du kan minska risken för en betydande säkerhetshändelse genom att konfigurera
 >
 
 ## <a name="managing-security-recommendations"></a>Hantera säkerhetsrekommendationer
-En säkerhetsprincip definierar ett antal kontrollfunktioner som rekommenderas för resurser inom en viss prenumeration eller resursgrupp. I Security Center ställer in du principer enligt ditt företags säkerhetskrav. Mer information finns i [ange säkerhetsprinciper i Security Center](security-center-azure-policy.md).
+En säkerhetsprincip definierar ett antal kontrollfunktioner som rekommenderas för resurser inom en viss prenumeration eller resursgrupp. I Security Center ställer in du principer enligt ditt företags säkerhetskrav. Mer information finns i [ange säkerhetsprinciper i Security Center](tutorial-security-policy.md).
 
 Säkerhetsprinciper för resursgrupper ärvs från prenumerationsnivån.
 

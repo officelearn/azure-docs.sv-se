@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 5e18a4690eacaaeaa4422379fc8a4e3d2a02e717
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 89e9b7190a3c419c256513e477f85313e4f9f3bd
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134173"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384895"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -31,14 +31,14 @@ Dessa loggar skiljer sig från den [aktivitetsloggen](monitoring-overview-activi
 
 Dessa loggar är också skiljer sig från diagnostikloggar för gäst-OS-nivå. Gäst-OS-diagnostikloggar är dessa som samlats in av en agent som körs i en virtuell dator eller andra stöds resurstyp. Resursnivå diagnostikloggar kräver inga agenten och avbilda resurs-specifika data från Azure-plattformen, diagnostikloggar för gäst-OS-nivå samla in data från det operativsystem och program som körs på en virtuell dator.
 
-Inte alla tjänster som stöder diagnostikloggar som beskrivs här. [Den här artikeln innehåller en lista för avsnittet vilka tjänster stöder diagnostikloggar](./monitoring-diagnostic-logs-schema.md).
+Inte alla tjänster som stöder diagnostikloggar som beskrivs här. [Den här artikeln innehåller en lista för avsnittet vilka tjänster stöder diagnostikloggar](./../azure-monitor/platform/tutorial-dashboards.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Vad du kan göra med diagnostikloggar
 Här följer några av de saker som du kan göra med diagnostikloggar:
 
 ![Logiska placeringen av diagnostikloggar](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
-* Sparar dem till en [ **Lagringskonto** ](monitoring-archive-diagnostic-logs.md) för granskning eller manuell granskning. Du kan ange kvarhållning tid (i dagar) med **resursdiagnostikinställningar**.
+* Sparar dem till en [ **Lagringskonto** ](../azure-monitor/platform/archive-diagnostic-logs.md) för granskning eller manuell granskning. Du kan ange kvarhållning tid (i dagar) med **resursdiagnostikinställningar**.
 * [Stream att **Händelsehubbar** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) för inmatning av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
 * Analysera dem med [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md), där data skrivs direkt till Log Analytics och behöver inte först skriva data till lagring.  
 
@@ -68,13 +68,13 @@ Dessa inställningar konfigureras enkelt från diagnostikinställningar i portal
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
+> *Till exempel*: ”Inkommande meddelanden'-mått i en Händelsehubb kan utforskas och läggas till på en per kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 >
 
 ## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Hur du aktiverar insamling av diagnostikloggar
 
-Insamling av diagnostikloggar kan aktiveras [som en del av en resurs i en Resource Manager-mall](./monitoring-enable-diagnostic-logs-using-template.md) eller när en resurs har skapats via den resurssida i portalen. Du kan också aktivera samling när som helst med Azure PowerShell eller CLI-kommandon eller med Azure Monitor REST-API.
+Insamling av diagnostikloggar kan aktiveras [som en del av en resurs i en Resource Manager-mall](./../azure-monitor/platform/diagnostic-logs-stream-template.md) eller när en resurs har skapats via den resurssida i portalen. Du kan också aktivera samling när som helst med Azure PowerShell eller CLI-kommandon eller med Azure Monitor REST-API.
 
 > [!TIP]
 > De här anvisningarna kan inte direkt till varje resurs. Finns i schemat länkarna längst ned på sidan för att förstå särskilda åtgärder som kan gälla för vissa typer av resurser.
@@ -229,7 +229,7 @@ Att lägga till en diagnostikinställning öppnar vyn diagnostikinställningar, 
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Tjänster som stöds, kategorier och scheman för diagnostikloggar
 
-[Se den här artikeln](monitoring-diagnostic-logs-schema.md) för en fullständig lista över tjänster som stöds och loggkategorier och scheman som används av dessa tjänster.
+[Se den här artikeln](../azure-monitor/platform/tutorial-dashboards.md) för en fullständig lista över tjänster som stöds och loggkategorier och scheman som används av dessa tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 

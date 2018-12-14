@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 2829055c6bb9cc848b2e0a2e997e6a5541d4aba7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2198d7520d660904423eabbec8df71e55e3011dd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839661"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338642"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveriberedskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
@@ -28,7 +28,7 @@ Azure Site Recovery-scenario för replikering mellan den lokala VMware eller fys
 
 Under 2018 och 2019 släpps två uppdateringar: 
 
--   Uppdatering 7: Korrigeringar nätverksproblem för konfiguration och efterlevnad och tillhandahåller stöd för TSL 1.2.
+-   Uppdatering 7: Åtgärdar problem med konfiguration och efterlevnad av nätverket och ger stöd för TSL 1.2.
 -   Uppdatera 8: Lägger till stöd för Linux-operativsystem RHEL/CentOS 7.3/7.4/7.5 och SUSE 12
 
 Efter uppdatering 8, ingen ytterligare släpps uppdateringar. Det blir begränsad snabbkorrigering stöd för de operativsystem som har lagts till i uppdatering 8 och felkorrigeringar baserat på bästa prestanda.
@@ -99,16 +99,16 @@ Ladda ned den [uppdatera](https://aka.ms/asr-scout-update6) .zip-filen. Filen in
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
   - UA update4 bitar för RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. Extrahera .zip-filer.
-2. **RX server**: kopiera **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** till RX-servern och extrahera den. I den extrahera mappen kör **/Install**.
-3. **Konfigurationsservern och processervern**: kopiera **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** till konfigurationsservern och processervern. Dubbelklicka för att köra den.<br>
+2. **RX server**: Kopiera **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** till RX-servern och extrahera den. I den extrahera mappen kör **/Install**.
+3. **Konfigurationsservern och processervern**: Kopiera **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** till konfigurationsservern och processervern. Dubbelklicka för att köra den.<br>
 4. **Windows-huvudmålservern**: Om du vill uppdatera enhetlig agenten, kopiera **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till servern. Dubbelklicka på den för att köra den. Samma enhetlig agentuppdatering gäller även för källservern. Om källan inte har uppdaterats till uppdatering 4, bör du uppdatera enhetlig agenten.
   Uppdateringen behöver inte tillämpa på Huvudmålservern mål förbereds med **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** eftersom det här är den nya GA installer med de senaste ändringarna.
-5. **vContinuum-server**: kopiera **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** till servern.  Kontrollera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
+5. **vContinuum-server**:  Kopiera **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** till servern.  Kontrollera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
     Uppdateringen behöver inte tillämpa på Huvudmålet förberedd med **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** eftersom det här är den nya GA installer med de senaste ändringarna.
 6. **Linux huvudmålserver**: Om du vill uppdatera enhetlig agenten, kopiera **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till huvudservern målserver och extrahera den. I den extrahera mappen kör **/Install**.
 7. **Windows-källservern**: Om du vill uppdatera enhetlig agenten, kopiera **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till källservern. Dubbelklicka på filen för att köra den. 
     Du behöver inte installera uppdatering 5-agenten på källservern om den redan har uppdaterats till uppdatering 4 eller källagent installeras med installationsprogrammet för senaste grundläggande **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Linux-källservern**: kopiera motsvarande version av agentfilen enhetlig till Linux-servern för att uppdatera enhetlig agenten och extrahera den. I den extrahera mappen kör **/Install**.  Exempel: För RHEL 6.7 64-bitars server, kopiera **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till servern, och extrahera den. I den extrahera mappen kör **/Install**.
+8. **Linux-källservern**: Kopiera motsvarande version av agentfilen enhetlig till Linux-servern för att uppdatera enhetlig agenten och extrahera den. I den extrahera mappen kör **/Install**.  Exempel: För RHEL 6.7 64-bitars server, kopiera **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till servern, och extrahera den. I den extrahera mappen kör **/Install**.
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
@@ -124,7 +124,7 @@ Ladda ned den [uppdatera](https://aka.ms/asr-scout-update6) .zip-filen. Filen in
 ## <a name="updates"></a>Uppdateringar
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 uppdatering 6 
-Uppdaterad: Oktober 12 2017
+Uppdaterad: 12 oktober 2017
 
 Ladda ned [Scout uppdatering 6](https://aka.ms/asr-scout-update6).
 
@@ -142,7 +142,7 @@ Scout uppdatering 6 är en ackumulerad uppdatering. Den innehåller alla korrige
 > [!NOTE]
 > * Grundläggande Unified Agent(UA) installationsprogrammet för Windows har uppdaterats till support för Windows Server 2016. Det nya installationsprogrammet **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** paketeras med grundläggande Scout GA-paketet (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Samma installationsprogrammet ska användas för alla Windows-version som stöds. 
 > * Basera Windows vContinuum & Huvudmålet installer har uppdaterats till support för Windows Server 2016. Det nya installationsprogrammet **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** paketeras med grundläggande Scout GA-paketet (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Samma installationsprogrammet används för att distribuera Windows 2016 Master Target och Huvudmålserver för Windows 2012 R2.
-> * Ladda ned GA-paketet från portalen, enligt beskrivningen i [skapa ett valv](#create-a-vault).
+> * Windows server 2016 på fysisk server stöds inte av ASR Scout. Det stöder endast Windows Server 2016 VMware-dator. 
 >
 
 #### <a name="bug-fixes-and-enhancements"></a>Felkorrigeringar och förbättringar
@@ -246,17 +246,17 @@ Uppdatering 3 åtgärdar följande problem:
   * CentOS 6 uppdatering 7
 * Konfigurationsservern och RX konsoler nu visa aviseringar för paret som gäller bitmappsläge.
 * Följande säkerhetskorrigeringar har lagts till i RX:
-    * Auktorisering kringgå via parametern manipulation: begränsad åtkomst till användare som inte är tillämpliga.
-    * Förfalskning av begäran mellan webbplatser: sidan token konceptet implementerades och genererar slumpmässigt för varje sida. Det innebär att det finns en enda inloggning instans för samma användare och sidan uppdatering fungerar inte. I stället omdirigerar till instrumentpanelen.
-    * Ladda upp skadliga filer: filerna är begränsade till specifika tillägg: z, aiff, asf, avi, bmp, csv, dokument, docx, FLA-, flv, gif, gz, gzip, jpeg, jpg, log, mid mov, mp3, mp4, mpc, mpeg, mpg, ods odt, pdf, png, ppt, pptx, pxd, qt, RAM-minne, rar, rm, rmi, rmvb, rtf , sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml och zip.
-    * Beständiga cross site scripting: indata verifieringar har lagts till.
+    * Auktorisering kringgå via parametern manipulation: Begränsad åtkomst till användare som inte är tillämpliga.
+    * Förfalskning av begäran: Sidan token konceptet implementerades och genereras slumpmässigt för varje sida. Det innebär att det finns en enda inloggning instans för samma användare och sidan uppdatering fungerar inte. I stället omdirigerar till instrumentpanelen.
+    * Ladda upp skadliga filer: Filer är begränsade till specifika tillägg: z, aiff, asf, avi, bmp, csv, dokument, docx, FLA-, flv, gif, gz, gzip, jpeg, jpg, log, mid mov, mp3, mp4, mpc, mpeg, mpg, ods odt, pdf, png, ppt, pptx, pxd, qt, RAM-minne, rar, rm, rmi, rmvb, rtf, sdc, sitd, SWF- , sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml och zip.
+    * Beständiga cross site scripting: Inkommande verifieringar har lagts till.
 
 ### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 uppdatering 2 (uppdatering 03 15 december)
 
 Korrigeringar i uppdatering 2 omfattar:
 
-* **Konfigurationsservern**: problem som hindrade den 31 dagars kostnadsfri Avläsning av funktionen inte fungerar som förväntat när konfigurationsservern registrerades till Azure Site Recovery-valv.
-* **Enhetlig agenten**: åtgärda ett problem i uppdatering 1 som resulterade i uppdateringen inte installeras på huvudmålservern, vid uppgradering från version 8.0 8.0.1.
+* **Konfigurationsservern**: Problem som förhindrade 31 dagar kostnadsfria Avläsning av funktion inte fungerar som förväntat när konfigurationsservern registrerades till Azure Site Recovery-valv.
+* **Enhetlig agenten**: Åtgärda ett problem i uppdatering 1 som resulterade i uppdateringen inte installeras på huvudmålservern, vid uppgradering från version 8.0 8.0.1.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 uppdatering 1
 Uppdatering 1 innehåller följande felkorrigeringar och nya funktioner:

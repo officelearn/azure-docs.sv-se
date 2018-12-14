@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2c4730b3ec84ca14bcc3e93ed82faf37b15970d7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0d27b16690516becc586678f8cf3edea234feeea
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010379"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383408"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och lösa fel togs emot från WebHCat på HDInsight
 
@@ -22,18 +22,18 @@ Läs mer om felmeddelanden när du använder WebHCat med HDInsight och hur du l�
 
 ## <a name="what-is-webhcat"></a>Vad är WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) är ett REST-API för [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), tabell- och storage lagringshanteringslager för Hadoop. WebHCat är aktiverat som standard på HDInsight-kluster och används av olika verktyg och skicka jobb, hämta jobbstatus och så vidare utan att logga in i klustret.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) är ett REST-API för [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), en tabell och lagringshanteringslager för lagring för Apache Hadoop. WebHCat är aktiverat som standard på HDInsight-kluster och används av olika verktyg och skicka jobb, hämta jobbstatus och så vidare utan att logga in i klustret.
 
 ## <a name="modifying-configuration"></a>Ändra konfigurationen
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Flera av de fel som anges i det här dokumentet beror på att en konfigurerade maxantalet har överskridits. När steget upplösning nämner att du kan ändra ett värde, måste du använda något av följande för att utföra ändringen:
 
-* För **Windows** kluster: använda en skriptåtgärd för att konfigurera värdet när klustret skapas. Mer information finns i [utveckla skriptåtgärder](hdinsight-hadoop-script-actions.md).
+* För **Windows** kluster: Använda en skriptåtgärd för att konfigurera värdet när klustret skapas. Mer information finns i [utveckla skriptåtgärder](hdinsight-hadoop-script-actions.md).
 
-* För **Linux** kluster: Använd Ambari (webb- eller REST API) för att ändra värdet. Mer information finns i [hantera HDInsight med Ambari](hdinsight-hadoop-manage-ambari.md)
+* För **Linux** kluster: Använd Apache Ambari (webb- eller REST API) för att ändra värdet. Mer information finns i [hantera HDInsight med hjälp av Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### <a name="default-configuration"></a>Standardkonfiguration

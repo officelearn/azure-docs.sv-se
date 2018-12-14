@@ -15,21 +15,21 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 379e5503900621381bbc27c6604cc8208cfdb80e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9e99e5f999c927ed0376a89b9f6d9f73fa8b2b2b
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076465"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384181"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
  
-Den här artikeln förklarar hur du övervakar ett Batch-konto med hjälp av funktionerna i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [mått](../azure-monitor/platform/data-collection.md#metrics) och [diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) för resurser i Batch-kontot. Samla in och använda dessa data i en mängd olika sätt att övervaka ditt Batch-konto och diagnostisera problem. Du kan också konfigurera [måttaviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) så att du att få meddelanden när ett mått överskrider ett angivet värde. 
+Den här artikeln förklarar hur du övervakar ett Batch-konto med hjälp av funktionerna i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [mått](../azure-monitor/platform/data-collection.md#metrics) och [diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) för resurser i Batch-kontot. Samla in och använda dessa data i en mängd olika sätt att övervaka ditt Batch-konto och diagnostisera problem. Du kan också konfigurera [måttaviseringar](../azure-monitor/platform/alerts-overview.md) så att du att få meddelanden när ett mått överskrider ett angivet värde. 
 
 ## <a name="batch-metrics"></a>Batch-mått
 
-Mått är Azure telemetridata (kallas även prestandaräknare) skickas från dina Azure-resurser som förbrukas av Azure Monitor-tjänsten. Inkludera exempel mått i ett Batch-konto: Pool skapa händelser, med låg prioritet Nodantal och uppgiften klar händelser. 
+Mått är Azure telemetridata (kallas även prestandaräknare) skickas från dina Azure-resurser som förbrukas av Azure Monitor-tjänsten. Exempel mått i ett Batch-konto är: Skapande av pool händelser, antal noder med låg prioritet och uppgiften slutföra händelser. 
 
 Se den [lista över mått som stöds Batch](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
 
@@ -71,7 +71,7 @@ Konfigurera en metrisk varning i portalen:
 2. Under **övervakning**, klickar du på **Aviseringsregler** > **Lägg till metrisk varning**.
 3. Välj ett mått, en varningsvillkor (till exempel när ett mått överskrider ett visst värde under en period) och en eller flera meddelanden.
 
-Du kan också konfigurera en nästan i realtid aviseringen med hjälp av den [REST API](https://docs.microsoft.com/rest/api/monitor/). Mer information finns i [översikt över aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+Du kan också konfigurera en nästan i realtid aviseringen med hjälp av den [REST API](https://docs.microsoft.com/rest/api/monitor/). Mer information finns i [översikt över aviseringar](../azure-monitor/platform/alerts-overview.md)
 
 ## <a name="batch-diagnostics"></a>Batch-diagnostik
 
@@ -109,7 +109,7 @@ Andra valfritt mål för diagnostikloggar:
 
     ![Batch-diagnostik](media/batch-diagnostics/diagnostics-portal.png)
 
-Andra alternativ för att aktivera insamling av supportloggar omfattar: använda Azure Monitor i portalen för att konfigurera diagnostikinställningar ska du använda en [Resource Manager-mall](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), eller Använd Azure PowerShell eller Azure CLI. Se [samla in och använda loggdata från resurserna i Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Andra alternativ för att aktivera insamling av supportloggar omfattar: använda Azure Monitor i portalen för att konfigurera diagnostikinställningar ska du använda en [Resource Manager-mall](../azure-monitor/platform/diagnostic-logs-stream-template.md), eller Använd Azure PowerShell eller Azure CLI. Se [samla in och använda loggdata från resurserna i Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Diagnostisk loggar i storage
@@ -133,7 +133,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 Varje PT1H.json-blob-fil innehåller JSON-formaterade händelser som inträffade inom den angivna timmen i blob-URL (till exempel h = 12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minutvärdet (m = 00) är alltid 00, eftersom diagnostiska logghändelser delas upp i enskilda blobar per timme. (Hela tiden är i UTC.)
 
 
-Mer information om schemat för diagnostikloggar i storage-konto finns i [Arkivera Azure-diagnostikloggar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Mer information om schemat för diagnostikloggar i storage-konto finns i [Arkivera Azure-diagnostikloggar](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 Använda Storage-API: er för att komma åt loggarna i ditt storage-konto via programmering. 
 

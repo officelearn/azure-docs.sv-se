@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: d3183353cbadb821ac7f84c81f4da747be823e4f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 432f1a89979829bd43596d0d6a3ab7a2a3bfb996
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276731"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336490"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -29,7 +29,7 @@ Varje åtgärd består av följande egenskaper:
 * **Åtgärdstyp**: Åtgärden som ska utföras. Exempel är att skicka en röst-anrop, SMS, e-postmeddelandet, eller utlösa olika typer av automatiska åtgärder. Se typer senare i den här artikeln. 
 * **Information om**: Motsvarande information som kan variera efter *åtgärdstyp*. 
 
-Information om hur du använder Azure Resource Manager-mallar för att konfigurera åtgärdsgrupper finns i [åtgärd grupp Resource Manager-mallar](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+Information om hur du använder Azure Resource Manager-mallar för att konfigurera åtgärdsgrupper finns i [åtgärd grupp Resource Manager-mallar](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Skapa en grupp med hjälp av Azure-portalen ##
 1. I den [portal](https://portal.azure.com)väljer **övervakaren**. Den **övervakaren** bladet konsoliderar alla dina övervakningsinställningar och -data i en vy.
@@ -73,7 +73,7 @@ När du har skapat en åtgärdsgrupp den syns i den **åtgärdsgrupper** delen a
    - azureemail-noreply@microsoft.com
    - alerts-noreply@mail.windowsazure.com
 
-Du kan ha upp till 1 000 e poståtgärder i en åtgärdsgrupp. Se den [begränsar information frekvensbegränsningen](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) artikel
+Du kan ha upp till 1 000 e poståtgärder i en åtgärdsgrupp. Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel
 
 **ITSM** – du kan ha upp till 10 ITSM-åtgärder i en åtgärd grupp ITSM-åtgärden kräver en ITSM-anslutningen. Lär dig hur du skapar en [ITSM-anslutningen](../../azure-monitor/platform/itsmc-overview.md).
 
@@ -83,10 +83,10 @@ Du kan ha upp till 1 000 e poståtgärder i en åtgärdsgrupp. Se den [begränsa
 
 **Runbook** -du kan ha upp till 10 Runbook-åtgärder i en åtgärd grupp referera till den [Azure-prenumerationstjänsten](../../azure-subscription-service-limits.md) för gränser för Runbook-nyttolaster
 
-**SMS** – du kan ha upp till 10 SMS-åtgärder i en grupp finns åtgärd i den [begränsar information frekvensbegränsningen](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) artikel se den [SMS Avisera beteende](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md) artikeln
+**SMS** – du kan ha upp till 10 SMS-åtgärder i en grupp finns åtgärd i den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel se den [SMS Avisera beteende](../../azure-monitor/platform/alerts-sms-behavior.md) artikeln
 
 **Röst** – du kan ha upp till 10 Voice-åtgärder i en åtgärdsgrupp</dd>
-Se den [begränsar information frekvensbegränsningen](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) artikel</dd>
+Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel</dd>
 
 **Webhook** – du kan ha upp till 10 Webhook-åtgärder i en åtgärdsgrupp. Logik för omprövning - tidsgränsen för svar är 10 sekunder. Webhook-anrop kommer att göras upp till 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504 eller HTTP-slutpunkt svarar inte. Det första återförsöket sker efter 10 sekunder. Andra och sista återförsök sker efter 100 sekunder.
 
@@ -102,9 +102,9 @@ Att ta emot uppdateringar om ändringar av dessa IP-adresser som vi rekommendera
 
 
 ## <a name="next-steps"></a>Nästa steg ##
-* Läs mer om [SMS Avisera beteende](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md).  
+* Läs mer om [SMS Avisera beteende](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Få en [förståelse för avisering webhook för aktivitetslogg](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Läs mer om [ITSM-anslutningsprogram](../../azure-monitor/platform/itsmc-overview.md)
-* Läs mer om [hastighetsbegränsning](../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) på aviseringar.
-* Hämta en [översikt över aktivitetsloggaviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md), och lär dig hur du får aviseringar.  
+* Läs mer om [hastighetsbegränsning](../../azure-monitor/platform/alerts-rate-limiting.md) på aviseringar.
+* Hämta en [översikt över aktivitetsloggaviseringar](../../azure-monitor/platform/alerts-overview.md), och lär dig hur du får aviseringar.  
 * Lär dig hur du [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

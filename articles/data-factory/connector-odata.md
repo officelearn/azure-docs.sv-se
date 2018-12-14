@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: c8bee6902fb74cb77c34395fd05c1c861b4f630e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 349d3a6eacf22a0ce3f842dd30df19964cdf7f23
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166142"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337333"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Kopiera data från en OData-källan med hjälp av Azure Data Factory
 
@@ -35,7 +35,7 @@ Du kan kopiera data från en OData-källan till alla datalager för mottagare so
 Mer specifikt stöder denna OData-koppling:
 
 - OData version 3.0 och 4.0.
-- Kopiera data med någon av följande autentiseringar: **anonym**, **grundläggande**, eller **Windows**.
+- Kopiering av data på något av följande autentiseringar: **Anonym**, **grundläggande**, **Windows**, **AAD tjänstens huvudnamn**, och **hanterad tjänstidentitet**.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -51,9 +51,16 @@ Följande egenskaper har stöd för en OData-länkad tjänst:
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen måste anges till **OData**. |Ja |
 | url | Rot-URL för OData-tjänsten. |Ja |
-| authenticationType | Vilken typ av autentisering som används för att ansluta till OData-källan. Tillåtna värden är **anonym**, **grundläggande**, och **Windows**. OAuth stöds inte. | Ja |
+| authenticationType | Vilken typ av autentisering som används för att ansluta till OData-källan. Tillåtna värden är **anonym**, **grundläggande**, **Windows**, **AadServicePrincipal**, och **ManagedServiceIdentity** . Användare baserat OAuth inte stöds. | Ja |
 | Användarnamn | Ange **användarnamn** om du använder grundläggande eller Windows-autentisering. | Nej |
 | lösenord | Ange **lösenord** för användaren-konto som du angav för **användarnamn**. Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| servicePrincipalId | Ange Azure Active Directory-programmets klient-ID. | Nej |
+| aadServicePrincipalCredentialType | Ange autentiseringstypen som ska användas för autentisering av tjänstens huvudnamn. Tillåtna värden är: `ServicePrincipalKey` eller `ServicePrincipalCert`. | Nej |
+| servicePrincipalKey | Ange nyckel för Azure Active Directory-programmet. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| servicePrincipalEmbeddedCert | Ange base64-kodat certifikat för ditt program i Azure Active Directory. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| servicePrincipalEmbeddedCertPassword | Ange lösenordet för ditt certifikat om certifikatet är skyddat med ett lösenord. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).  | Nej|
+| klient | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Nej |
+| aadResourceId | Ange den AAD-resursen som du begär för auktorisering.| Nej |
 | connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan välja Azure Integration Runtime eller en lokal Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel 1: Använder anonym autentisering**
@@ -123,6 +130,64 @@ Följande egenskaper har stöd för en OData-länkad tjänst:
 }
 ```
 
+**Exempel 4: Med hjälp av viktiga autentisering av tjänstens huvudnamn**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of on-premises OData source>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "aadServicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<AAD resource>"
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
+**Exempel 5: Med hjälp av service principal cert-autentisering**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of on-premises OData source>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "aadServicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalEmbeddedCert": { 
+                "type": "SecureString", 
+                "value": "<base64 encoded string of (.pfx) certificate data>"
+            },
+            "servicePrincipalEmbeddedCertPassword": { 
+                "type": "SecureString", 
+                "value": "<password of your certificate>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<AAD resource e.g. https://tenant.sharepoint.com>"
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 Det här avsnittet innehåller en lista över egenskaper som har stöd för OData-datauppsättningen.
@@ -169,7 +234,7 @@ För att kopiera data från OData-, ange den **källa** typ i Kopieringsaktivite
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **RelationalSource**. | Ja |
-| DocumentDB | OData-frågealternativ för filtrering av data. Exempel: `"?$select=Name,Description&$top=5"`.<br/><br/>**Obs**: The OData-anslutningsapp kopierar data från den kombinerade URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Mer information finns i [OData-URL komponenter](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
+| DocumentDB | OData-frågealternativ för filtrering av data. Exempel: `"?$select=Name,Description&$top=5"`.<br/><br/>**Obs**: OData-koppling kopierar data från den kombinerade URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Mer information finns i [OData-URL komponenter](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
 
 **Exempel**
 
@@ -213,7 +278,7 @@ När du kopierar data från OData-, används följande mappningar mellan OData-d
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte] |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | decimaltal |
+| Edm.Decimal | Decimal |
 | Edm.Double | Double-värde |
 | Edm.Single | Enkel |
 | Edm.Guid | GUID |

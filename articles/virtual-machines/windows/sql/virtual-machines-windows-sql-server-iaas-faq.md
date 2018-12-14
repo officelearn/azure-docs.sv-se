@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495481"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339407"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
@@ -80,7 +80,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag ändra en virtuell dator om du vill använda min egen SQL Server-licens om den har skapats från en användningsbaserad galleriavbildningar?**
 
-   Ja. Du kan flytta enkelt flytta mellan två licensieringsmodeller finns, oavsett den avbildning som ursprungligen har distribuerats. Mer information finns i [ändra så att licensieringsmodellen för en SQL-VM](virtual-machines-windows-sql-ahb.md).
+   Ja. Du kan flytta enkelt flytta mellan två licensieringsmodeller finns, oavsett den avbildning som ursprungligen har distribuerats. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md).
 
 1. **Bör jag använda BYOL-avbildningar eller SQL VM RP för att skapa den nya SQL VM?**
 
@@ -112,7 +112,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Är det möjligt att registrera lokal distribuerade SQL Server-datorer med SQL VM-resursprovidern?**
 
-   Ja. Om du har distribuerat SQL Server från din egen media, kan du registrera din SQL-VM med resursprovidern att hämta de hanterbarhet fördelarna med SQL IaaS-tillägget. Du kan dock inte att konvertera till PAYG-en lokal distribuerade SQL-VM. 
+   Ja. Om du distribueras SQL Server från din egen media och installera SQL IaaS-tillägget som du kan registrera din SQL Server-VM med resursprovidern att hämta de hanterbarhet fördelarna med SQL IaaS-tillägget. Du kan dock inte att konvertera en lokal distribuerade SQL-VM till betala per användning.  
 
 ## <a name="administration"></a>Administration
 
@@ -153,7 +153,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Vad är skillnaden mellan virtuella datorer med SQL och SQL Database-tjänsten?**
 
-   Den övergripande som kör SQL Server på virtuella Azure-datorer är inte som skiljer sig från som kör SQL Server i ett fjärranslutet datacenter. Däremot [SQL Database](../../../sql-database/sql-database-technical-overview.md) erbjuder databas som en tjänst. Med SQL Database kan har du inte åtkomst till de datorer som värd för dina databaser. En fullständig jämförelse i [Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure Virtual Machines (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+   Den övergripande som kör SQL Server på virtuella Azure-datorer är inte som skiljer sig från som kör SQL Server i ett fjärranslutet datacenter. Däremot [SQL Database](../../../sql-database/sql-database-technical-overview.md) erbjuder databas som en tjänst. Med SQL Database kan har du inte åtkomst till de datorer som värd för dina databaser. En fullständig jämförelse i [Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQLServer på virtuella Azure-datorer (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 1. **Hur installerar jag verktyg för SQL-Data på min Azure-VM**
 

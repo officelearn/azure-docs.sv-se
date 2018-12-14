@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255310"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383943"
 ---
 # <a name="monitor-cluster-performance"></a>Övervaka klusterprestanda
 
 Övervaka hälsotillstånd och prestanda för ett HDInsight-kluster är viktigt för att upprätthålla optimala prestanda och användning av resurser. Övervakning kan också hjälpa dig att identifiera och åtgärda konfigurationsfel för klustret och kodfel för användaren.
 
-I följande avsnitt beskrivs hur du övervakar och optimerar belastningen på dina kluster, YARN-köer och identifiera begränsning lagringsproblem.
+I följande avsnitt beskrivs hur du övervakar och optimera belastningen på dina kluster, Apache Hadoop YARN-köer och identifiera lagring begränsning problem.
 
 ## <a name="monitor-cluster-load"></a>Övervaka kluster belastning
 
@@ -43,7 +43,7 @@ Välj någon av värdnamnen för detaljerad information om komponenter som körs
 
 ![värd-information](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-Se [hantera HDInsight-kluster med hjälp av Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md) mer information om att ställa in aviseringar och visa mått.
+Se [hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md) mer information om att ställa in aviseringar och visa mått.
 
 ## <a name="yarn-queue-configuration"></a>Konfiguration för YARN-kö
 
@@ -79,14 +79,14 @@ Om du använder Azure Storage, för information om övervakning av storage-relat
 
 Om ditt kluster lagringsenheten är Azure Data Lake Store (ADLS), beror din begränsning sannolikt på bandbreddsgränser. Begränsning kan i det här fallet identifieras av får begränsningsfel i loggarna för uppgiften. ADLS, finns i avsnittet begränsningar på lämplig tjänst i de här artiklarna:
 
-* [Prestandajusteringsvägledning för Hive på HDInsight och Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Prestandajusteringsvägledning för Apache Hive på HDInsight och Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Prestandajusteringsvägledning för MapReduce på HDInsight och Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Prestandajusteringsvägledning för Storm på HDInsight och Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Prestandajusteringsvägledning för Apache Storm på HDInsight och Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Besök följande länkar för mer information om felsökning och övervakning av ditt kluster:
 
 * [Analysera HDInsight-loggar](hdinsight-debug-jobs.md)
-* [Felsöka appar med YARN-loggar](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Aktivera heap dumps för Hadoop-tjänster på Linux-baserat HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Felsöka appar med Apache Hadoop YARN-loggar](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Aktivera heap dumps för Apache Hadoop-tjänster på Linux-baserat HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

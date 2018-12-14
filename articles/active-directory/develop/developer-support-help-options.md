@@ -17,14 +17,14 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422447"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337146"
 ---
-# <a name="support-and-help-options-for-developers"></a>Support och hjälper dig att alternativ för utvecklare 
+# <a name="support-and-help-options-for-developers"></a>Support och hjälper dig att alternativ för utvecklare
 
 Oavsett om du bara börjar att integrera med Azure Active Directory, Microsoft identiteter eller Microsoft Graph API, eller när du implementerar en ny funktion för ditt program, finns gånger som du vill få hjälp från communityn eller förstå den stöd för alternativ som du har som utvecklare. Den här artikeln hjälper dig att förstå alternativen nedan en sammanfattning:
 
@@ -38,7 +38,7 @@ Oavsett om du bara börjar att integrera med Azure Active Directory, Microsoft i
 
 ## <a name="search"></a>Search
 
-Om du har en utvecklings-relaterad fråga kan du kanske kan hitta vad du behöver på vår dokumentation vår [github-exempel](https://github.com/azure-samples), eller svar på [Stack Overflow](https://www.stackoverflow.com) frågor.
+Om du har en utvecklings-relaterad fråga kan du kanske kan hitta vad du behöver på vår dokumentation vår [GitHub-exempel](https://github.com/azure-samples), eller svar på [Stack Overflow](https://www.stackoverflow.com) frågor.
 
 ### <a name="scoped-search"></a>Omfattad sökning
 För snabbare resultat, begränsa sökningen till Stack Overflow, vår dokumentation och våra kodexempel med hjälp av följande på din [sökmotor](https://bing.com):
@@ -76,7 +76,7 @@ Om du inte hittar svar på ditt problem vid en sökning, skicka en ny fråga att
 |Annat område som rör autentisering eller auktorisering ämnen |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
-> I följande inlägg från Stack Overflow innehåller tips om hur du skapar frågor och tips om hur du lägger till källkoden - följa dessa riktlinjer kan du öka risken för community-medlemmar att utvärdera och svara snabbt på din fråga:  
+> I följande inlägg från Stack Overflow innehåller tips om hur du skapar frågor och tips om hur du lägger till källkoden - följa dessa riktlinjer kan du öka risken för community-medlemmar att utvärdera och svara snabbt på din fråga:
 > - [Hur jag för att ställa en bra fråga](https://stackoverflow.com/help/how-to-ask)
 > - [Så här skapar du en Minimal, fullständig och kontrollerbara exempel](https://stackoverflow.com/help/mcve)
 

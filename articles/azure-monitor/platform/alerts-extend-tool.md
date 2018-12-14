@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7b02f5b55b12b9e35e749ff845e2af2f6598364b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0524e38f155049c630ace7f33805ef230c8dccca
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285496"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344252"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Utöka aviseringar från Log Analytics till Azure-aviseringar
 Funktionen för säkerhetsvarningar i Azure Log Analytics ersätts av Azure-aviseringar. Som en del av denna övergång utökas aviseringar som du ursprungligen konfigurerades i Log Analytics till Azure. Om du inte vill vänta tills de flyttas automatiskt till Azure, kan du starta processen:
@@ -479,5 +479,5 @@ Här följer anvisningarna för reparation för varje fel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om den nya [Azure Alerts uppleva](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Mer information om den nya [Azure Alerts uppleva](../../azure-monitor/platform/alerts-overview.md).
 * Lär dig mer om [loggaviseringar i Azure Alerts](alerts-unified-log.md).

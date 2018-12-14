@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5a3c160fcb550fc4f0c92145733aa993b95bd112
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089352"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338898"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API: er
 
@@ -34,7 +34,7 @@ Varje begäran antingen tal till text eller text till tal REST-API: et kräver i
 | Stöds auktorisering rubriker | Tal-till-text | Text till tal |
 |------------------------|----------------|----------------|
 | OCP-Apim-Subscription-Key | Ja | Nej |
-| Auktorisering: ägar | Ja | Ja |
+| Auktorisering: Ägar | Ja | Ja |
 
 När du använder den `Ocp-Apim-Subscription-Key` rubrik, måste du bara ange din prenumerationsnyckel. Exempel:
 
@@ -322,9 +322,20 @@ Segmentvis överföring (`Transfer-Encoding: chunked`) kan hjälpa dig att minsk
 Detta kodexempel visar hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens huvud. `request` ett objekt i HTTPWebRequest är ansluten till rätt REST-slutpunkten. `audioFile` är sökvägen till en ljudfil på disken.
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -424,20 +435,10 @@ Detta är ett typiskt svar för `detailed` erkännande.
 
 ## <a name="text-to-speech-api"></a>Text till tal-API
 
-Dessa regioner har stöd för text till tal med hjälp av REST-API. Kontrollera att du väljer den slutpunkt som matchar din region för prenumerationen.
+Text till tal REST API har stöd för neurala och standard text till tal röster, som stöder ett visst språk och dialekt som identifieras av nationella inställningar.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-Speech-tjänsten stöder 24-KHz ljuduppspelning tillsammans med 16 Khz utdata som stöddes av Bing-taligenkänning. Fyra 24-KHz utdataformat och två 24-KHz röster stöds.
-
-### <a name="voices"></a>Röster
-
-| Nationell inställning | Språk   | Kön | Mappning |
-|--------|------------|--------|---------|
-| en-US  | Svenska | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, Jessa24kRUS)” |
-| en-US  | Svenska | Man   | ”Microsoft Server tal Text till tal-röst (en-US, Guy24kRUS)” |
-
-Se en fullständig lista över tillgängliga röster [språk som stöds](language-support.md#text-to-speech).
+* En fullständig lista över röster Se [språkstöd](language-support.md#text-to-speech).
+* Information om regional tillgänglighet finns i [regioner](regions.md#text-to-speech).
 
 ### <a name="request-headers"></a>Begärandehuvud
 
@@ -452,7 +453,7 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för tal till t
 
 ### <a name="audio-outputs"></a>Ljud utdata
 
-Detta är en lista över de format som ljud som skickas i varje begäran som den `X-Microsoft-OutputFormat` rubrik. Var och en innehåller en bithastigheten och kodningstyp.
+Detta är en lista över de format som ljud som skickas i varje begäran som den `X-Microsoft-OutputFormat` rubrik. Var och en innehåller en bithastigheten och kodningstyp. Speech-tjänsten stöder 24-KHz och 16 KHz ljud utdata.
 
 |||
 |-|-|

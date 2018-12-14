@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: bbb0bbc6ddbbabb37932edc6946394b020631231
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637466"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342331"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS på Azure virtuella datorer på Red Hat Enterprise Linux för SAP NetWeaver
 
@@ -110,10 +110,10 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
 1. Skapa en Tillgänglighetsuppsättning  
    Ställ in max uppdateringsdomän
 1. Skapa virtuell dator 1  
-   Använd minst RHEL 7, i den här exempelbild Red Hat Enterprise Linux 7.4 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Använd minst RHEL 7, i den här exempelbild Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj Tillgänglighetsuppsättning skapade tidigare  
 1. Skapa virtuell dator 2  
-   Använd minst RHEL 7, i den här exempelbild Red Hat Enterprise Linux 7.4 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Använd minst RHEL 7, i den här exempelbild Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj Tillgänglighetsuppsättning skapade tidigare  
 1. Lägga till en datadisk för alla SAP-system till båda de virtuella datorerna.
 

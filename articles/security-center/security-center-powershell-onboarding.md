@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ce410e69427f29ce70f8b2136a08bd7e6d00113c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ecfab15860ffc690d341069b626e5d7579c00da4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249732"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340376"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatisera onboarding av Azure Security Center med hjälp av PowerShell
 
@@ -40,7 +40,7 @@ I det här exemplet ska vi aktivera Security Center på en prenumeration med ID:
 
 5. Ange organisationens [IT-chef som security-kontakt för ASC aviseringar och viktiga händelser](security-center-provide-security-contact-details.md).
 
-6. Tilldela Security Center [standard säkerhetsprinciper](security-center-azure-policy.md).
+6. Tilldela Security Center [standard säkerhetsprinciper](tutorial-security-policy.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -111,6 +111,6 @@ Mer information om hur du kan använda PowerShell för att automatisera Kom igå
 
 Mer information om Security Center finns i följande artikel:
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
+* [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.

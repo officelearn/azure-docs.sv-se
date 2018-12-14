@@ -1,19 +1,19 @@
 ---
 title: Skapa och hantera händelseregler i ditt program med Azure IoT Central | Microsoft Docs
 description: Azure IoT Central-händelseregler hjälper dig att övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skickar ett e-postmeddelande när regeln utlöses.
-author: ankitgupta
+author: ankitscribbles
 ms.author: ankitgup
 ms.date: 08/14/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0712b92e8288174e27e5ed5a5ab396d94e438e92
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: af85ff8272853be82bae5c79622295fddfc60ade
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958635"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337282"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för händelsen och ställa in meddelanden i Azure IoT Central programmet
 

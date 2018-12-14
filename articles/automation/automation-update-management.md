@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ccccad1cb510c4988092467c723e117a47456aaf
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 06006456a08c5eb499eff504fea5dcffdc11d662
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277513"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342399"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
 Du kan använda lösningen för uppdateringshantering i Azure Automation för att hantera uppdateringar av operativsystemet för dina Windows- och Linux-datorer som distribueras i Azure, lokala miljöer eller andra molnleverantörer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
-Du kan aktivera uppdateringshantering för virtuella datorer direkt från Azure Automation-kontot. Information om hur du aktiverar uppdateringshantering för virtuella datorer från ditt Automation-konto, se [hantera uppdateringar för flera virtuella datorer](manage-update-multi.md). Du kan också aktivera uppdateringshantering för en virtuell dator från fönstret virtuell dator i Azure-portalen. Det här scenariot är tillgänglig för [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) och [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuella datorer.
+Du kan aktivera uppdateringshantering för virtuella datorer direkt från Azure Automation-kontot. Information om hur du aktiverar uppdateringshantering för virtuella datorer från ditt Automation-konto, se [hantera uppdateringar för flera virtuella datorer](manage-update-multi.md). Du kan också aktivera uppdateringshantering för en virtuell dator från sidan virtuell dator i Azure-portalen. Det här scenariot är tillgänglig för [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) och [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuella datorer.
 
 ## <a name="solution-overview"></a>Lösningsöversikt
 
@@ -41,7 +41,7 @@ När en CVE är viktig, tar 2 – 3 timmar innan uppdateringen att visas för Li
 
 När en dator är klar en sökning efter uppdateringskompatibilitet vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator körs kompatibilitetsgenomsökningen var 12: e timme som standard.
 
-Förutom genomsökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter om du MMA startas innan installationen av uppdateringen och efter installationen av uppdateringen.
+Förutom genomsökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter från MMA startas innan installationen av uppdateringen och efteråt.
 
 För en Linux-dator utförs kompatibilitetsgenomsökningen var tredje timme som standard. Om MMA-agenten startas initieras en kompatibilitetsgenomsökning inom 15 minuter.
 
@@ -148,7 +148,7 @@ Du kan granska följande information för att verifiera agentanslutning med Log 
 1. På Kontrollpanelen, öppna **Microsoft Monitoring Agent**. På den **Azure Log Analytics** fliken agenten visas följande meddelande: **Microsoft Monitoring Agent har anslutits till Log Analytics**.
 2. Öppna Windows-händelseloggen. Gå till **program- och tjänstloggar\operations Manager** och Sök efter händelse-ID 3000 och 5002 för händelse-ID från källan **tjänstanslutning**. Dessa händelser anger att datorn har registrerats med Log Analytics-arbetsytan och tar emot konfigurationen.
 
-Om agenten inte kan kommunicera med Log Analytics och agenten är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver, kontrollerar du att den brandväggen eller proxyservern har konfigurerats korrekt. Läs hur du kontrollerar att den brandväggen eller proxyservern har konfigurerats korrekt i [nätverkskonfiguration för Windows-agenten](../azure-monitor/platform/agent-windows.md) eller [nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
+Om agenten inte kan kommunicera med Log Analytics och agenten har konfigurerats att kommunicera med internet genom en brandvägg eller proxyserver, bekräfta att brandväggen eller proxyservern har konfigurerats korrekt. Läs hur du verifierar att brandväggen eller proxyservern har konfigurerats korrekt i [nätverkskonfiguration för Windows-agenten](../azure-monitor/platform/agent-windows.md) eller [nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Om dina Linux-system har konfigurerats för att kommunicera med en proxy eller Log Analytics-Gateway och är onboarding den här lösningen, uppdatera den *proxy.conf* behörigheter som ska tilldelas den gruppen omiuser läsbehörighet för filen med hjälp av den följande kommandon:
@@ -285,7 +285,7 @@ Hantering av uppdateringar är beroende av Windows Update för att hämta och in
 
 ### <a name="pre-download-updates"></a>Pre hämta uppdateringar
 
-Om du vill konfigurera automatiskt hämtar uppdateringar i en Grupprincip, kan du ange den [inställningen Konfigurera automatiska uppdateringar](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) till **3**. Detta hämtar uppdateringar som behövs i bakgrunden, men installeras inte. Detta håller uppdateringshantering kontroll över scheman, men kan uppdateringar som hämtas utanför underhållsperioden uppdateringshantering. Det här kan hindra **underhållsperioden har överskridits** fel i hantering av uppdateringar.
+Om du vill konfigurera automatiskt hämtar uppdateringar i en Grupprincip, kan du ange den [inställningen Konfigurera automatiska uppdateringar](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) till **3**. Detta hämtar uppdateringar som behövs i bakgrunden, men installera inte dem. Detta håller uppdateringshantering kontroll över scheman, men kan uppdateringar som hämtas utanför underhållsperioden uppdateringshantering. Det här kan hindra **underhållsperioden har överskridits** fel i hantering av uppdateringar.
 
 Du kan också ange detta med PowerShell, kör följande PowerShell på ett system som du vill hämta uppdateringar automatiskt.
 
@@ -297,7 +297,7 @@ $WUSettings.Save()
 
 ### <a name="enable-updates-for-other-microsoft-products"></a>Aktivera uppdateringar för andra Microsoft-produkter
 
-Som standard innehåller Windows Update endast uppdateringar för Windows. Om du aktiverar **hämta uppdateringar för andra Microsoft-produkter när jag uppdaterar Windows**, det finns uppdateringar för andra produkter, inklusive sådana saker säkerhetsuppdateringar för SQL Server eller andra första tillverkare. Det här alternativet kan inte konfigureras av en Grupprincip. Kör följande PowerShell på de system som du vill aktivera andra första part korrigeringsfiler på och uppdateringshantering följer den här inställningen.
+Som standard innehåller Windows Update endast uppdateringar för Windows. Om du aktiverar **hämta uppdateringar för andra Microsoft-produkter när jag uppdaterar Windows**, får du uppdateringar för andra produkter, inklusive sådana saker säkerhetsuppdateringar för SQL Server eller andra första tillverkare. Det här alternativet kan inte konfigureras av en Grupprincip. Kör följande PowerShell på de system som du vill aktivera andra första part korrigeringsfiler på och uppdateringshantering följer den här inställningen.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -305,6 +305,11 @@ $ServiceManager.Services
 $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
+
+## <a name="third-party"></a> Tredjeparts-korrigeringar i Windows
+
+Hantering av uppdateringar är beroende av WSUS eller Windows Update för att korrigera stöds Windows-System. Verktyg som [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) gör att du kan publicera anpassade uppdateringar i WSUS. Det här scenariot kan uppdateringshantering patch-datorer som använder WSUS som deras uppdateringslagringsplats med programvara från tredje part. Information om hur du konfigurerar Updates Publisher finns i [installera Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Planera för nätverk
 
@@ -319,7 +324,7 @@ Följande adresser krävs för hantering av uppdateringar. Kommunikation till de
 
 Mer information om portar som kräver att Hybrid Runbook Worker finns [Hybrid Worker-rollen portar](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
-Det rekommenderas att använda de adresser som anges när du definierar undantag. För IP-adresser som du kan ladda ned den [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och återspeglar aktuella intervall och eventuella kommande ändringar till IP-adressintervall.
+Vi rekommenderar att du använder de adresser som anges när du definierar undantag. För IP-adresser som du kan ladda ned den [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och återspeglar aktuella intervall och eventuella kommande ändringar till IP-adressintervall.
 
 ## <a name="search-logs"></a>Sök i loggar
 
@@ -584,7 +589,7 @@ Eftersom uppdateringshantering update-funktioner i molnet, kan vissa uppdatering
 
 Uppdateringshantering kan dock fortfarande att rapportera den datorn som icke-kompatibel eftersom den innehåller ytterligare information om relevanta uppdateringen.
 
-Distribuera uppdateringar med klassificeringen fungerar inte på CentOS direkt ur lådan. För SUSE, att välja *endast* andra uppdateringar som klassificeringen resultera i att vissa uppdateringar installeras även om säkerhetsuppdateringar rör zypper (package manager) eller dess beroenden krävs först. Det här är en begränsning i zypper. I vissa fall kan du bli ombedd att köra uppdateringsdistribution, för att verifiera Kontrollera update-loggen.
+Distribuera uppdateringar med klassificeringen fungerar inte på CentOS direkt ur lådan. För SUSE, att välja *endast* andra uppdateringar som klassificeringen resultera i att vissa uppdateringar installeras även om säkerhetsuppdateringar rör zypper (package manager) eller dess beroenden krävs först. Det här beteendet är en begränsning av zypper. I vissa fall kan behöva du köra distributionen av uppdateringen. Du kan kontrollera genom att kontrollera update-loggen.
 
 ## <a name="troubleshoot"></a>Felsöka
 

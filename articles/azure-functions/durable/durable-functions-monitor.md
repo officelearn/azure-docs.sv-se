@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7af8015e424b4a9169a9b80ed5e7070a8fa6de1c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643322"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342580"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Övervaka scenariot i varaktiga funktioner - väder watcher exemplet
 
@@ -32,7 +32,7 @@ Det här exemplet övervakar en plats aktuella väderförhållanden och varnar e
 * Övervakare kan avsluta när vissa villkor är uppfyllt eller avslutas med en annan process.
 * Övervakare kan ta parametrar. Exemplet visar hur samma process för övervakning av väder kan tillämpas på alla begärda platsen och telefonnummer.
 * Övervakare är skalbara. Eftersom varje Övervakare är en orchestration-instans, kan du skapa flera bildskärmar utan att behöva skapa nya funktioner eller definiera mer kod.
-* Övervakare integrera enkelt i större arbetsflöden. En Övervakare kan vara en del av en mer komplex orchestration-funktion eller en [underordnade orchestration](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
+* Övervakare integrera enkelt i större arbetsflöden. En Övervakare kan vara en del av en mer komplex orchestration-funktion eller en [underordnade orchestration](durable-functions-sub-orchestrations.md).
 
 ## <a name="configuring-twilio-integration"></a>Konfigurera Twilio-integrering
 
@@ -59,7 +59,7 @@ Den här artikeln beskriver följande funktioner i exempelappen:
 * `E3_SendGoodWeatherAlert`: En aktivitet-funktion som skickar ett SMS-meddelande via Twilio.
 
 I följande avsnitt beskrivs konfiguration och kod som används för C#-skript och JavaScript. Kod för Visual Studio-utveckling visas i slutet av artikeln.
- 
+
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Vädret övervakning orchestration (Visual Studio Code och Azure portal exempelkoden)
 
 Den **E3_Monitor** funktionen använder standard *function.json* för orchestrator-funktioner.
@@ -72,7 +72,7 @@ Här är den kod som implementerar funktionen:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -83,7 +83,7 @@ Den här orchestrator-funktionen utför följande åtgärder:
 3. Anrop **E3_GetIsClear** att avgöra om det finns tydligt skies på den begärda platsen.
 4. Om vädret är tom anropar **E3_SendGoodWeatherAlert** att skicka ett SMS-meddelande till den begärda telefonnummer.
 5. Skapar en hållbar timer för att återuppta orchestration vid nästa avsökningsintervall. Exemplet använder en hårdkodad värdet av utrymmesskäl.
-6. Fortsätter att köras tills den [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) pass övervakarens upphör att gälla, eller en SMS-avisering skickas.
+6. Fortsätter att köras tills den [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (C#) eller `currentUtcDateTime` (JavaScript) skickar den övervakarens upphör att gälla eller en SMS-avisering skickas.
 
 Flera orchestrator-instanser kan köras samtidigt genom att skicka flera **MonitorRequests**. Plats för att övervaka och telefonnumret för att skicka ett SMS-avisering till kan anges.
 
@@ -107,7 +107,7 @@ Och här är implementeringen. Precis som POCOs som används för dataöverföri
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +121,7 @@ Och här är den kod som skickar SMS: et:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -134,8 +134,9 @@ POST https://{host}/orchestrators/E3_Monitor
 Content-Length: 77
 Content-Type: application/json
 
-{ "Location": { "City": "Redmond", "State": "WA" }, "Phone": "+1425XXXXXXX" }
+{ "location": { "city": "Redmond", "state": "WA" }, "phone": "+1425XXXXXXX" }
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
@@ -144,9 +145,6 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
-
-   > [!NOTE]
-   > För närvarande kan inte JavaScript orchestration starter-funktioner returnera instanshantering URI: er. Den här funktionen kommer att läggas till i en senare version.
 
 Den **E3_Monitor** instans startas och frågar de aktuella väderförhållandena för den begärda platsen. Om vädret är tom anropar en funktion för aktiviteten för att skicka en avisering; i annat fall anger en timer. När timern upphör att gälla återupptas för samordning.
 
@@ -168,7 +166,7 @@ Du kan se för samordning genom att titta på funktionen aktivitetsloggar i Azur
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-Dirigering kommer [avsluta](durable-functions-instance-management.md#terminating-instances) när dess tidsgräns har nått eller rensa skies identifieras. Du kan också använda `TerminateAsync` inuti ett annat fungera eller anropa den **terminatePostUri** HTTP POST-webhook som refereras i 202-svaret ovan ersätter `{text}` med orsaken uppsägning:
+Dirigering kommer [avsluta](durable-functions-instance-management.md#terminating-instances) när dess tidsgräns har nått eller rensa skies identifieras. Du kan också använda `TerminateAsync` (.NET) eller `terminate` (JavaScript) inuti ett annat fungera eller anropa den **terminatePostUri** HTTP POST-webhook som refereras i 202-svaret ovan ersätter `{text}` med orsaken till avslutning:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

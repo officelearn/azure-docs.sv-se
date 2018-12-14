@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: a4c4017d7fa798559817c281d159148ec675d158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281361"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386510"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Fråga Azure Log Analytics för att övervaka HDInsight-kluster
 
@@ -46,7 +46,7 @@ Lär dig hur du söker efter specifika mått för ditt HDInsight-kluster.
 
 5. I den vänstra rutan under **typ**, Välj ett mått som du vill gå på djupet i och välj sedan **tillämpa**. Följande skärmbild visar de `metrics_resourcemanager_queue_root_default_CL` typ har valts.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Du kan behöva välja den **[+] mer** för att hitta det mått som du letar efter. Dessutom den **tillämpa** är knappen längst ned i listan så att du måste rulla ned för att se den.
 
     Observera att frågan i textrutan ändras till det visas i rutan markerade i följande skärmbild:
@@ -115,7 +115,7 @@ Redigera eller ta bort en befintlig avisering:
 1. Öppna Log Analytics-arbetsytan från Azure-portalen.
 2. I den vänstra menyn, Välj **avisering**.
 3. Välj den avisering du vill redigera eller ta bort.
-4. Du har följande alternativ: **spara**, **Ignorera**, **inaktivera**, och **ta bort**.
+4. Du har följande alternativ: **Spara**, **Ignorera**, **inaktivera**, och **ta bort**.
 
     ![HDInsight Log Analytics borttagning av redigera](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 

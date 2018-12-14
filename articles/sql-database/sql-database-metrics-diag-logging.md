@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 86fb7e715abc57c989202fc7f02ff04d33ddd6e1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 245372b39f4b730128c593ddd04225bd82875393
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275718"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387105"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -281,7 +281,7 @@ Läs om hur du [ändra inställningarna för startdiagnostik med hjälp av REST-
 
 ### <a name="resource-manager-template"></a>Resource Manager-mall
 
-Läs om hur du [aktivera diagnostikinställningar när resursen skapas med hjälp av Resource Manager-mall](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md).
+Läs om hur du [aktivera diagnostikinställningar när resursen skapas med hjälp av Resource Manager-mall](../azure-monitor/platform/diagnostic-logs-stream-template.md).
 
 ## <a name="stream-into-azure-sql-analytics"></a>Stream till Azure SQL-analys
 

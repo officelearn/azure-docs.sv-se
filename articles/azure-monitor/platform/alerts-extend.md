@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7896a205cd281f0d11724f6f549b9aa247180bac
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2028b9555ec20fc5e97511a2a908351b66aec216
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285020"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385507"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Utöka Log Analytics-aviseringar till Azure-aviseringar
 
@@ -27,7 +27,7 @@ Det finns flera fördelar med att skapa och hantera aviseringar i Azure portal, 
 
 - Till skillnad från i Operations Management Suite-portalen där endast 250 aviseringar kan skapas och visas, har Azure-aviseringar ingen sådan begränsning.
 - Från Azure-aviseringar kan du hantera, räkna upp och visa alla dina aviseringstyper. Tidigare var kan du bara göra det för Log Analytics-aviseringar.
-- Du kan begränsa åtkomsten till användarna bara övervakning och avisering med hjälp av den [Azure Monitor rollen](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+- Du kan begränsa åtkomsten till användarna bara övervakning och avisering med hjälp av den [Azure Monitor rollen](../../azure-monitor/platform/roles-permissions-security.md).
 - Du kan använda i Azure Alerts [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md). På så sätt kan du ha mer än en åtgärd för varje avisering. Du kan SMS, skicka en röstsamtal, anropar en Azure Automation-runbook, anropa en webhook och konfigurera en anslutning för IT Service Management (ITSM). 
 
 ## <a name="process-of-extending-your-alerts"></a>Utöka dina aviseringar
@@ -52,7 +52,7 @@ När dina aviseringar utsträcks till Azure-aviseringar, fortsätta de att vara 
 Du omdirigeras automatiskt till Azure-aviseringar när du försöker redigera en befintlig avisering eller skapa en ny avisering i Operations Management Suite-portalen.  
 
 > [!NOTE]
-> Se till att de behörigheter som tilldelats till personer som behöver lägga till eller redigera aviseringar tilldelas korrekt i Azure. Information om vilka behörigheter som du måste bevilja finns i [behörigheter för att använda Azure Monitor och aviseringar](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).  
+> Se till att de behörigheter som tilldelats till personer som behöver lägga till eller redigera aviseringar tilldelas korrekt i Azure. Information om vilka behörigheter som du måste bevilja finns i [behörigheter för att använda Azure Monitor och aviseringar](../../azure-monitor/platform/roles-permissions-security.md).  
 > 
 
 Du kan fortsätta att skapa aviseringar från den [Log Analytics API](../../azure-monitor/platform/api-alerts.md) och [Log Analytics-resursmall](../../azure-monitor/insights/solutions-resources-searches-alerts.md). När du gör detta måste du inkludera åtgärdsgrupper.
@@ -60,5 +60,5 @@ Du kan fortsätta att skapa aviseringar från den [Log Analytics API](../../azur
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om verktyg för att [initiera utöka aviseringar från Log Analytics i Azure](alerts-extend-tool.md).
-* Läs mer om den [Azure Alerts uppleva](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Läs mer om den [Azure Alerts uppleva](../../azure-monitor/platform/alerts-overview.md).
 * Lär dig hur du skapar [loggaviseringar i Azure Alerts](alerts-unified-log.md).

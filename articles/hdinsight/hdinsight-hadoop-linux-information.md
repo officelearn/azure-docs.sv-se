@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 89f2178af3f1a1a6ede9b97d79568798a25985b1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: abaf69136fbed577095b3efba2ec6d4383907255
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015697"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385218"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
-Azure HDInsight-kluster tillhandahåller Hadoop på en välbekant miljö för Linux, som körs i Azure-molnet. För de flesta saker, bör det fungera precis som andra Hadoop på Linux-installation. Det här dokumentet anropar specifika skillnader som du bör känna till.
+Azure HDInsight-kluster tillhandahåller Apache Hadoop på en välbekant miljö för Linux, som körs i Azure-molnet. För de flesta saker, bör det fungera precis som andra Hadoop på Linux-installation. Det här dokumentet anropar specifika skillnader som du bör känna till.
 
 > [!IMPORTANT]
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -27,9 +27,9 @@ Azure HDInsight-kluster tillhandahåller Hadoop på en välbekant miljö för Li
 
 Många av stegen i det här dokumentet använder följande verktyg, som kan behöva installeras på datorn.
 
-* [cURL](https://curl.haxx.se/) – används för att kommunicera med webbtjänster
-* [jq](https://stedolan.github.io/jq/) – används för att parsa JSON-dokument
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) – används för att hantera Azure-tjänster
+* [cURL](https://curl.haxx.se/) – används för att kommunicera med webbtjänster.
+* [jq](https://stedolan.github.io/jq/) – används för att parsa JSON-dokument.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) – används för att hantera Azure-tjänster.
 
 ## <a name="users"></a>Användare
 
@@ -64,7 +64,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och seda
     > [!IMPORTANT]
     > Några av web UIs som är tillgängliga via Ambari åtkomst till noder med en intern domännamn. Interna domännamn är inte tillgängliga för allmänheten via internet. Felmeddelandet ”Det gick inte att hitta” fel vid åtkomst till vissa funktioner via Internet.
     >
-    > Om du vill använda den fullständiga funktionaliteten hos Ambari-webbgränssnittet, använda en SSH-tunnel för proxy webbtrafik till klustrets huvudnod. Se [Använd SSH-tunnlar för att komma åt Ambari-webbgränssnittet, resurshanteraren, JobHistory, NameNode, Oozie och andra web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
+    > Om du vill använda den fullständiga funktionaliteten hos Ambari-webbgränssnittet, använda en SSH-tunnel för proxy webbtrafik till klustrets huvudnod. Se [använda SSH-tunnlar till Apache Ambari-webbgränssnittet, resurshanteraren, JobHistory, NameNode, Oozie och andra web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;klusternamn >.azurehdinsight.net/ambari
 
@@ -80,21 +80,21 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och seda
     >
     > Autentisering är klartext - alltid använda HTTPS för att säkerställa att anslutningen är säker.
 
-* **SSH** - &lt;klusternamn >-ssh.azurehdinsight.net på port 22 eller 23. Att ansluta till den primära huvudnoden 23 används för att ansluta till sekundärt används port 22. Mer information om huvudnoderna finns i [Tillgänglighet och tillförlitlighet för Hadoop-kluster i HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;klusternamn >-ssh.azurehdinsight.net på port 22 eller 23. Att ansluta till den primära huvudnoden 23 används för att ansluta till sekundärt används port 22. Mer information om huvudnoderna finns i [tillgänglighet och tillförlitlighet för Apache Hadoop-kluster i HDInsight](hdinsight-high-availability-linux.md).
 
     > [!NOTE]
     > Du kan bara komma åt huvudnoderna klustret via SSH från en klientdator. När du är ansluten, kan du sedan komma åt arbetsnoderna genom att använda SSH från en huvudnod.
 
-Mer information finns i den [portar som används av Hadoop-tjänster på HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentet.
+Mer information finns i den [portar som används av Apache Hadoop-tjänster på HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentet.
 
-## <a name="file-locations"></a>Sökvägar
+## <a name="file-locations"></a>Filplatser
 
 Hadoop-relaterade filer kan hittas på klusternoder på `/usr/hdp`. Den här katalogen innehåller följande undermappar:
 
-* **2.2.4.9-1**: katalognamnet är versionen av Hortonworks Data Platform som används av HDInsight. Numret på ditt kluster kan skilja sig från den som anges här.
-* **aktuella**: den här katalogen innehåller länkar till underkataloger på den **2.2.4.9-1** directory. Den här katalogen finns så att du inte behöver komma ihåg det lägre versionsnumret.
+* **2.2.4.9-1**: Katalognamnet är versionen av Hortonworks Data Platform som används av HDInsight. Numret på ditt kluster kan skilja sig från den som anges här.
+* **aktuella**: Den här katalogen innehåller länkar till underkataloger på den **2.2.4.9-1** directory. Den här katalogen finns så att du inte behöver komma ihåg det lägre versionsnumret.
 
-Exempeldata och JAR-filerna finns på Hadoop Distributed File System på `/example` och `/HdiSamples`
+Exempeldata och JAR-filerna finns på Hadoop Distributed File System på `/example` och `/HdiSamples`.
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure Storage och Data Lake Store
 
@@ -102,9 +102,9 @@ I de flesta Hadoop-distributioner kan lagras data i HDFS som backas upp av lokal
 
 När du använder HDInsight lagras datafiler i ett skalbart och återhämtningsbart sätt i molnet med Azure Blob Storage och eventuellt Azure Data Lake Store. De här tjänsterna ger följande fördelar:
 
-* Billiga långsiktig lagring
-* Åtkomst från externa tjänster som websites, filen uppladdning/nedladdning verktyg, SDK: er med olika språk och webbläsare
-* Stor filkapacitet och stora skalbar lagring
+* Billiga långsiktig lagring.
+* Åtkomst från externa tjänster som websites, filen uppladdning/nedladdning verktyg, SDK: er med olika språk och webbläsare.
+* Stor filkapacitet och stora skalbar lagring.
 
 Mer information finns i [förstå blobar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) och [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -120,7 +120,7 @@ Vissa kommandon kan kräva att du kan ange schemat som en del av URI: N vid åtk
 
 När du använder __Azure Storage__, Använd någon av följande URI-scheman:
 
-* `wasb:///`: Åtkomst standard storage med hjälp av dekrypterade kommunikation.
+* `wasb:///`: Åtkomst till standard storage med hjälp av dekrypterade kommunikation.
 
 * `wasbs:///`: Standard storage med krypterad kommunikation.  Wasbs-schemat stöds endast från HDInsight version 3.6 och senare.
 
@@ -143,7 +143,7 @@ Du kan använda Ambari för att hämta konfigurationen för standard-lagring fö
 
 ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
-> [!NOTE]
+> [!NOTE]  
 > Det här kommandot returnerar den första konfigurationen tillämpas på servern (`service_config_version=1`), som innehåller den här informationen. Du kan behöva lista alla konfigurationsversionerna hittar det senaste.
 
 Det här kommandot returnerar ett värde som liknar följande URI: er:
@@ -176,8 +176,8 @@ Det finns en olika sätt att komma åt data från utanför HDInsight-kluster. H�
 
 Om du använder __Azure Storage__, se följande länkar för sätt att du kan komma åt dina data:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): kommandoradsgränssnittet kommandon för att arbeta med Azure. När installationen är klar att använda den `az storage` kommandot för att få hjälp om hur du använder lagring, eller `az storage blob` för blob-fil.
-* [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): ett python-skript för att arbeta med blobar i Azure Storage.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Kommandon för att arbeta med Azure. När installationen är klar att använda den `az storage` kommandot för att få hjälp om hur du använder lagring, eller `az storage blob` för blob-fil.
+* [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Ett python-skript för att arbeta med blobar i Azure Storage.
 * Olika SDK: er:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -205,8 +205,8 @@ Klusterskalning funktionen kan du ändra dynamiskt antalet datanoder som använd
 
 Olika klustertyper påverkas genom att skala på följande sätt:
 
-* **Hadoop**: när du skalar ned antalet noder i ett kluster, några av tjänsterna i klustret har startats om. Skalningsåtgärder kan orsaka jobb körs eller väntar på misslyckas vid skalning åtgärden slutfördes. Du kan skicka jobb när åtgärden har slutförts.
-* **HBase**: regionservrar balanseras automatiskt inom några minuter när skalning åtgärden har slutförts. För att jämna ut regionservrar manuellt, använder du följande steg:
+* **Hadoop**: När du skalar ned antalet noder i ett kluster, några av tjänsterna i klustret startas om. Skalningsåtgärder kan orsaka jobb körs eller väntar på misslyckas vid skalning åtgärden slutfördes. Du kan skicka jobb när åtgärden har slutförts.
+* **HBase**: Regionservrar balanseras automatiskt inom några minuter när skalning åtgärden har slutförts. För att jämna ut regionservrar manuellt, använder du följande steg:
 
     1. Ansluta till HDInsight-klustret med SSH. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
@@ -218,9 +218,9 @@ Olika klustertyper påverkas genom att skala på följande sätt:
 
             balancer
 
-* **Storm**: du bör balansera om alla Storm-topologier som körs när en åtgärd för skalning har utförts. Ombalansering gör att topologin kan justera parallelliteten inställningar baserat på det nya antalet noder i klustret. Använd någon av följande alternativ för att balansera om topologier som körs:
+* **Storm**: Du bör balansera om alla Storm-topologier som körs när en åtgärd för skalning har utförts. Ombalansering gör att topologin kan justera parallelliteten inställningar baserat på det nya antalet noder i klustret. Använd någon av följande alternativ för att balansera om topologier som körs:
 
-    * **SSH**: ansluta till servern och Använd följande kommando för att balansera om en topologi:
+    * **SSH**: Ansluta till servern och Använd följande kommando för att balansera om en topologi:
 
             storm rebalance TOPOLOGYNAME
 
@@ -231,12 +231,12 @@ Olika klustertyper påverkas genom att skala på följande sätt:
         1. Öppna **https://CLUSTERNAME.azurehdinsight.net/stormui** i webbläsaren, där KLUSTERNAMN är namnet på ditt Storm-kluster. Om du uppmanas ange HDInsight-klusternamnet administrator (administratör) och lösenordet du angav när klustret skapas.
         2. Välj topologi som du inte vill att balansera om, och välj sedan den **balansera om** knappen. Ange fördröjningen innan ombalanseringen utförs.
 
-* **Kafka**: du bör balansera om partitionsrepliker efter skalningsåtgärder. Mer information finns i den [hög tillgänglighet för data med Kafka på HDInsight](./kafka/apache-kafka-high-availability.md) dokumentet.
+* **Kafka**: Du bör balansera om partitionsrepliker efter skalningsåtgärder. Mer information finns i den [hög tillgänglighet för data med Apache Kafka på HDInsight](./kafka/apache-kafka-high-availability.md) dokumentet.
 
 Specifik information om att skala ditt HDInsight-kluster finns i:
 
-* [Hantera Hadoop-kluster i HDInsight med hjälp av Azure-portalen](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Hantera Hadoop-kluster i HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hur installerar jag Hue (eller andra Hadoop-komponenterna)?
 
@@ -247,8 +247,8 @@ HDInsight är en hanterad tjänst. Om Azure upptäcker ett problem med klustret,
 
 Skriptåtgärder är Bash-skript. Skripten kör när klustret skapas och används för att installera och konfigurera ytterligare komponenter. Exempelskript tillhandahålls för att installera följande komponenter:
 
-* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Information om hur du utvecklar dina egna skriptåtgärder finns i [Utveckling av skriptåtgärder med HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
@@ -275,6 +275,6 @@ Om du vill använda en annan version av en komponent att ladda upp den version s
 ## <a name="next-steps"></a>Nästa steg
 
 * [Migrera från Windows-baserade HDInsight till Linux-baserade](hdinsight-migrate-from-windows-to-linux.md)
-* [Använda Hive med HDInsight](hadoop/hdinsight-use-hive.md)
-* [Använda Pig med HDInsight](hadoop/hdinsight-use-pig.md)
+* [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
+* [Använda Apache Pig med HDInsight](hadoop/hdinsight-use-pig.md)
 * [Använda MapReduce-jobb med HDInsight](hadoop/hdinsight-use-mapreduce.md)

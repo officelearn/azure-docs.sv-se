@@ -69,7 +69,7 @@ items:
   - name: App Service-planer
     href: azure-web-sites-web-hosting-plans-in-depth-overview.md
   - name: OS-funktioner
-    href: web-sites-available-operating-system-functionality.md
+    href: operating-system-functionality.md
   - name: Säkerhet
     href: app-service-security.md
     items:
@@ -213,34 +213,8 @@ items:
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Kvotinformation
     href: ../azure-subscription-service-limits.md#app-service-limits
-  - name: Tjänstuppdateringar och viktig information
-    items:
-    - name: Azure-uppdateringar
-      href: https://azure.microsoft.com/updates/?product=app-service
-    - name: Azure SDK för .NET 3.0
-      href: azure-sdk-dotnet-release-notes-3-0.md
-    - name: Azure SDK för .NET 2.9
-      href: azure-sdk-dotnet-release-notes-2-9.md
-    - name: Azure SDK för .NET 2.8
-      href: azure-sdk-dotnet-release-notes-2-8.md
-    - name: Azure SDK för .NET 2.7
-      href: azure-sdk-dotnet-release-notes-2-7.md
-    - name: Azure SDK för .NET 2.6
-      href: azure-sdk-dotnet-release-notes-2-6.md
-    - name: Azure SDK för .NET 2.5.1
-      href: app-service-release-notes.md
-    - name: Azure SDK för .NET 2.5
-      href: https://msdn.microsoft.com/library/azure/dn873976.aspx
-    - name: Azure SDK för .NET 2.4
-      href: https://msdn.microsoft.com/library/azure/dn794167.aspx
-    - name: Azure SDK för .NET 2.3
-      href: https://msdn.microsoft.com/library/azure/dn655054.aspx
-    - name: Azure SDK för .NET 2.2
-      href: https://msdn.microsoft.com/library/azure/dn459835.aspx
-    - name: Azure SDK för .NET 2.1
-      href: https://msdn.microsoft.com/library/azure/dn407359.aspx
-    - name: Azure SDK för .NET 2.0
-      href: https://msdn.microsoft.com/library/azure/dn169556.aspx
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=app-service
   - name: Bästa praxis
     href: app-service-best-practices.md
   - name: Exempel
@@ -260,21 +234,21 @@ items:
     - name: Felsöka Node.js-app
       href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
     - name: Felsöka HTTP 502 och 503
-      href: app-service-web-troubleshoot-http-502-http-503.md
+      href: troubleshoot-http-502-http-503.md
     - name: Felsöka prestandaproblem
-      href: app-service-web-troubleshoot-performance-degradation.md
+      href: troubleshoot-performance-degradation.md
     - name: Felsöka problem med domän och certifikat
-      href: app-service-web-troubleshoot-domain-ssl-certificates.md
+      href: troubleshoot-domain-ssl-certificates.md
     - name: VANLIGA FRÅGOR OCH SVAR
       items:
       - name: Vanliga frågor och svar om tillgänglighet, prestanda och program
-        href: app-service-web-availability-performance-application-issues-faq.md
+        href: faq-availability-performance-application-issues.md
       - name: Vanliga frågor och svar om distribution
-        href: app-service-web-deployment-faq.md
+        href: faq-deployment.md
       - name: Vanliga frågor och svar om tekniker med öppen källkod
-        href: app-service-web-open-source-technologies-faq.md
+        href: faq-open-source-technologies.md
       - name: Vanliga frågor och svar om konfiguration och hantering
-        href: app-service-web-configuration-and-management-faq.md
+        href: faq-configuration-and-management.md
   - name: Ändring av IP-adress
     items:
     - name: Inkommande IP-adress
@@ -283,9 +257,9 @@ items:
       href: ip-address-change-outbound.md
     - name: SSL-adress
       href: ip-address-change-ssl.md
-ms.openlocfilehash: d67c2a680d47710bdfa63153d19c64803125e65a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5a3af3678496bb850ed99397f8d6bb186ce92677
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259111"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53382804"

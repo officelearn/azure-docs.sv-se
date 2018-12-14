@@ -1,30 +1,34 @@
 ---
-title: Media Encoder Standard format och -codec
+title: Media Encoder Standard format och -codec - Azure
 description: Det här avsnittet ger en översikt över Media Encoder Standard format och -codec.
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255718"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384742"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Standardformat för Media Encoder och codec-rutiner
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 2](media-services-media-encoder-standard-formats.md)
+> * [Version 3](../latest/media-encoder-standard-formats.md)
+
 Det här dokumentet innehåller en lista med de vanligaste import- och exportfilformat som du kan använda med Media Encoder Standard.
 
-## <a name="input-containerfile-formats"></a>Ange Inmatningsbehållare/filformat
+## <a name="input-containerfile-formats"></a>Ange inmatningsbehållare/filformat
 | Filformat (filnamnstillägg) | Stöds |
 | --- | --- | --- | --- |
 | FLV (med H.264- och AAC-codec) (.flv) |Ja |
@@ -52,8 +56,6 @@ Media Encoder Standard stöder medför följande ljudformat i indata behållare:
 eller
 
 * MXF-, GXF- och QuickTime-filer där ljudet utförs som separata PCM-spår, men kanalmappningen (till stereo eller 5.1) kan härledas från filens metadata
-
-Stöd för explicit/användaren har angett kanalmappningen ges inom en snar framtid.
 
 ## <a name="input-video-codecs"></a>Codec för indatavideo
 | Codec för indatavideo | Stöds |

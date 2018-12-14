@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ab498a108eba39088aa610188918934dd4ec1d3e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078961"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386782"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Anslut storage explorer till en Azure Stack-prenumeration eller ett lagringskonto
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 I den här artikeln lär du dig att ansluta till din Azure Stack-prenumerationer och lagringskonton med storage explorer. Azure storage explorer är en fristående app som gör det enkelt att arbeta med Azure Stack storage-data i Windows, macOS och Linux.
 
@@ -45,9 +45,16 @@ Du måste exportera rotcertifikatet för Azure Stack-behörighet för Azure Stac
 
 2. I **filen**väljer **Lägg till/ta bort snapin-modulen**, och Lägg sedan till **certifikat** att hantera **mitt användarkonto**.
 
-3. Under **konsolen \certificated (lokal dator) \Trusted Root Certification Authorities\Certificates** hitta **AzureStackSelfSignedRootCert**.
+3.  Under **konsolen \certificated (lokal dator) \Trusted Root Certification Authorities\Certificates**.
 
-    ![Läsa in rotcertifikatet för Azure Stack via mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+    - ASDK, hitta **AzureStackSelfSignedRootCert**.
+
+        ![Läsa in rotcertifikatet för Azure Stack via mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+
+    - Hitta rotcertifikatet för ditt externa certifikat för ett integrerat system. 
+    
+        ![Läsa in rotcertifikatet för Azure Stack via mmc.exe](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
+        
 
 4. Högerklicka på certifikatet, Välj **alla uppgifter** > **exportera**, och följ sedan anvisningarna för att exportera certifikatet med **Base 64-kodad X.509 (. CER)**.
 

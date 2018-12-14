@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: da486b25a9a35cb4f00d6e5a4689d5be3d270e36
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013283"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386908"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera ScaleR och SparkR i HDInsight
 
 Det här dokumentet beskrivs hur du kan förutsäga ankomst flygförseningar med hjälp av en **ScaleR** logistic regression-modellen. I exemplet används flygning fördröjning och väder data med hjälp av **SparkR**.
 
-Även om båda paketen körs på motorn för körning av Hadoops Spark, blockeras de minnesintern Datadelning eftersom de kräver sina egna respektive Spark-sessioner. Tills problemet åtgärdas i en kommande version av ML Server, är lösningen att upprätthålla inte överlappar Spark-sessioner och för att utbyta data via mellanliggande filer. Instruktionerna här visar att dessa krav är enkelt att uppnå.
+Även om båda paketen körs på motorn för körning av Apache Hadoop Spark, blockeras de minnesintern Datadelning eftersom de kräver sina egna respektive Spark-sessioner. Tills problemet åtgärdas i en kommande version av ML Server, är lösningen att upprätthålla inte överlappar Spark-sessioner och för att utbyta data via mellanliggande filer. Instruktionerna här visar att dessa krav är enkelt att uppnå.
 
 Det här exemplet har ursprungligen delas i en talk på Strata 2016 av Mario Inchiosa och Roni Burd. Du hittar den här diskussionen på [att bygga en skalbar Datavetenskapsplattform med R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Bedömning någon annanstans
 
-Vi kan också använda modellen för bedömnings-data på en annan plattform. Genom att spara det som en RDS-fil och överföra och importerar den RDS till ett mål som bedömning miljö, till exempel SQL Server R Services. Det är viktigt att se till att faktor nivåer av data som ska poängsättas matchar de som modellen har skapats. Som matchar kan uppnås genom att extrahera och sparar kolumninformation som är associerade med den modellering av finansdata via Scaler's `rxCreateColInfo()` funktion och sedan använda den kolumninformationen till inkommande datakällan för förutsägelse. I följande spara några rader i testdatauppsättningen vi och extrahera och Använd kolumninformation från det här exemplet i skriptet förutsägelse:
+Vi kan också använda modellen för bedömnings-data på en annan plattform. Genom att spara det som en RDS-fil och överföra och importerar den RDS till ett mål som bedömning miljö, till exempel MIcrosoft SQL Server R Services. Det är viktigt att se till att faktor nivåer av data som ska poängsättas matchar de som modellen har skapats. Som matchar kan uppnås genom att extrahera och sparar kolumninformation som är associerade med den modellering av finansdata via Scaler's `rxCreateColInfo()` funktion och sedan använda den kolumninformationen till inkommande datakällan för förutsägelse. I följande spara några rader i testdatauppsättningen vi och extrahera och Använd kolumninformation från det här exemplet i skriptet förutsägelse:
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ I den här artikeln visas hur det är möjligt att kombinera användningen av Sp
 
 ## <a name="next-steps-and-more-information"></a>Nästa steg och mer information
 
-- Mer information om användning av ML Server på Spark finns i den [komma igång](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Mer information om användning av ML-Server i Apache Spark finns i den [komma igång](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
 - Allmän information om ML Server finns i den [Kom igång med R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artikeln.
 

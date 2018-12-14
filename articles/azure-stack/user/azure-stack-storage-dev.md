@@ -9,23 +9,23 @@ ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a914a95831176a51cc6b5e2c5bf69ef1ad60bcc0
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035941"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341566"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Kom igång med Azure Stack verktyg för lagringsutveckling
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Microsoft Azure Stack tillhandahåller en uppsättning lagringstjänster som innehåller blob, tabell och queue storage.
 
 Använd den här artikeln som vägledning för att komma igång med Azure Stack verktyg för lagringsutveckling. Du hittar mer detaljerad information och exempelkod i motsvarande Azure storage-självstudier.
 
-> [!NOTE]  
-> Det finns kända skillnader mellan Azure Stack storage och Azure storage, inklusive särskilda krav för varje plattform. Det finns till exempel specifika klientbibliotek och viss slutpunkts-suffixkrav för Azure Stack. Mer information finns i [Azure Stack-lagring: skillnader och överväganden](azure-stack-acs-differences.md).
+> [!NOTE]
+> Det finns kända skillnader mellan Azure Stack storage och Azure storage, inklusive särskilda krav för varje plattform. Det finns till exempel specifika klientbibliotek och viss slutpunkts-suffixkrav för Azure Stack. Mer information finns i [Azure Stack-lagring: Skillnader och överväganden](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Azure-klientbiblioteken
 
@@ -37,7 +37,7 @@ De REST API-versionerna som stöds för Azure Stack-lagring är 2017-04-17, 2016
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 8.7.0 | Nuget-paketet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0 | filen App.config |
 | Java | 6.1.0 | Maven-paketet:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | Anslutningsinställningar för sträng |
-| Node.js | 2.7.0 | NPM-länk:<br>https://www.npmjs.com/package/azure-storage<br>(Kör: `npm install azure-storage@2.7.0`)<br> <br>Github-version:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Instans tjänstedeklaration |
+| Node.js | 2.7.0 | NPM-länk:<br>https://www.npmjs.com/package/azure-storage<br>(Kör: `npm install azure-storage@2.7.0`)<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Instans tjänstedeklaration |
 | C++ | 3.1.0 | Nuget-paketet:<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | Anslutningsinställningar för sträng |
 | PHP | 1.0.0 | GitHub-version:<br>Vanliga: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>Kö:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Tabell: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Installera via Composer (Mer information, [se information nedan](#install-php-client-via-composer---current).) | Anslutningsinställningar för sträng |
 | Python | 1.0.0 | GitHub-version:<br>Vanliga:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>BLOB:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Kö:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Instans tjänstedeklaration |
@@ -66,7 +66,7 @@ Installera via Composer: (gör blob som exempel).
 |---------|---------|---------|---------|
 |.NET     |6.2.0|Nuget-paketet:<br>[https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0](https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)<br><br>GitHub-version:<br>[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|filen App.config|
 |Java|4.1.0|Maven-paketet:<br>[http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0)<br><br>GitHub-version:<br> [https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0](https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0)|Anslutningsinställningar för sträng|
-|Node.js     |1.1.0|NPM-länk:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(kör: `npm install azure-storage@1.1.0)`<br><br>Github-version:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Instans tjänstedeklaration||C++|2.4.0|Nuget-paketet:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub-version:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Anslutningsinställningar för sträng|
+|Node.js     |1.1.0|NPM-länk:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(kör: `npm install azure-storage@1.1.0)`<br><br>GitHub-version:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Instans tjänstedeklaration||C++|2.4.0|Nuget-paketet:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub-version:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Anslutningsinställningar för sträng|
 |C++|2.4.0|Nuget-paketet:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub-version:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Anslutningsinställningar för sträng|
 |PHP|0.15.0|GitHub-version:<br>[https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0](https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0)<br><br>Installera via Composer (se detaljer nedan)|Anslutningsinställningar för sträng|
 |Python     |0.30.0|PIP-paket:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Kör: `pip install -v azure-storage==0.30.0)`<br><br>GitHub-version:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Instans tjänstedeklaration|

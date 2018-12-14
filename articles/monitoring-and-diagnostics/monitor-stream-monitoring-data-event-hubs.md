@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 3bf2135e7d4cb0e34d6e38e8673d5d69f262979c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a65611c1e84bdd01bac525012553e6cd7c7fc4e4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322405"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386867"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -58,7 +58,7 @@ Om du vill skicka data från Azure Active Directory-loggen i ett Event Hubs-namn
 
 ## <a name="azure-subscription-monitoring-data"></a>Azure-prenumeration övervakningsdata
 
-Azure-prenumeration övervakningsdata är tillgängliga i den [Azure-aktivitetsloggen](./monitoring-overview-activity-logs.md). Innehåller skapa, uppdatera och ta bort från Resource Manager, ändringar i [Azure tjänstehälsa](../service-health/service-health-overview.md) som kan påverka resurser i din prenumeration, de [resurshälsa](../service-health/resource-health-overview.md) tillstånd övergångar och flera andra typer av händelser på prenumerationsnivå. [Den här artikeln beskriver alla typer av händelser som visas i Azure-aktivitetsloggen](./monitoring-activity-log-schema.md).
+Azure-prenumeration övervakningsdata är tillgängliga i den [Azure-aktivitetsloggen](./monitoring-overview-activity-logs.md). Innehåller skapa, uppdatera och ta bort från Resource Manager, ändringar i [Azure tjänstehälsa](../service-health/service-health-overview.md) som kan påverka resurser i din prenumeration, de [resurshälsa](../service-health/resource-health-overview.md) tillstånd övergångar och flera andra typer av händelser på prenumerationsnivå. [Den här artikeln beskriver alla typer av händelser som visas i Azure-aktivitetsloggen](./../azure-monitor/platform/activity-log-schema.md).
 
 ### <a name="activity-log-data"></a>Aktivitetsloggdata
 
@@ -117,7 +117,7 @@ Routning övervakningsdata till en event hub med Azure Monitor kan du lätt kan 
 * **Syslog-servern** – om du vill strömma Azure Monitor-data direkt till en syslog-server, du kan ta en titt [denna GitHub-lagringsplats](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Arkivera aktivitetsloggen till ett lagringskonto](monitoring-archive-activity-log.md)
+* [Arkivera aktivitetsloggen till ett lagringskonto](../azure-monitor/platform/archive-activity-log.md)
 * [Läs en översikt över Azure-aktivitetsloggen](monitoring-overview-activity-logs.md)
 * [Konfigurera en avisering baserat på en händelse i aktivitetsloggen](../azure-monitor/platform/alerts-log-webhook.md)
 

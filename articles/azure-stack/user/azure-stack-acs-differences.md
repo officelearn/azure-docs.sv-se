@@ -14,22 +14,22 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: efdc1cda9b52b6b79a3ccdcfd16542f7cb4b891a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838556"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341906"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-lagring: skillnader och överväganden
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-lagring: Skillnader och överväganden
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Azure Stack storage är en uppsättning lagringstjänster för molnet i Microsoft Azure Stack. Azure Stack-storage tillhandahåller blob, tabell, kö och hanteringsfunktioner för konto med Azure-konsekventa semantik.
 
 Den här artikeln sammanfattas de kända Azure Stack Storage skillnaderna från Azure Storage-tjänster. Här visas även saker att tänka på när du distribuerar Azure Stack. Läs om övergripande skillnader mellan globala Azure och Azure Stack i den [viktiga överväganden](azure-stack-considerations.md) artikeln.
 
-## <a name="cheat-sheet-storage-differences"></a>Lathund: Storage skillnader
+## <a name="cheat-sheet-storage-differences"></a>Lathund: Storage-skillnader
 
 | Funktion | Azure (global) | Azure Stack |
 | --- | --- | --- |
@@ -41,6 +41,7 @@ Den här artikeln sammanfattas de kända Azure Stack Storage skillnaderna från 
 |Hanterade diskar|Premium och standard som stöds|Stöds när du använder version 1808 eller senare.
 |Blobnamn|1 024 tecken (2 048 byte)|880 tecken (1,760 byte)
 |Maxstorlek för block blob|4,75 TB (100 MB X 50 000 block)|4,75 TB (100 MB x 50 000 block) för 1802 update eller senare version. 50 000 x 4 MB (cirka 195 GB) för tidigare versioner.
+|Kopiering av sidan blob-ögonblicksbild|Säkerhetskopiering Azure ohanterade Virtuella diskar som är anslutna till en aktiv virtuell dator stöds|Stöds inte än.
 |Sidan kopiering av blob inkrementell ögonblicksbild|Premium och standard Azure sidblobar som stöds|Stöds inte än.
 |Lagringsnivåer för bloblagring|Frekvent, lågfrekvent och arkivlagringsnivå.|Stöds inte än.
 Mjuk borttagning för blob storage|Förhandsversion|Stöds inte än.
@@ -62,21 +63,21 @@ Azure Storage services-API: er:
 
 Uppdatera 1802 eller senare:
 
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Tidigare versioner:
 
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure Storage Service management API: er:
 
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 ## <a name="sdk-versions"></a>SDK-versioner
 
@@ -86,7 +87,7 @@ Azure Stack-storage stöder följande klientbibliotek:
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET           | Från 6.2.0 till 8.7.0.          | NuGet-paketet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | filen App.config              |
 | Java           | Från 4.1.0 till 6.1.0           | Maven-paketet:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Anslutningsinställningar för sträng      |
-| Node.js        | Från 1.1.0 till 2.7.0           | NPM-länk:<br>https://www.npmjs.com/package/azure-storage<br>(Till exempel: kör ”npm-installationsprogrammet azure-storage@2.7.0”)<br> <br>Github-version:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Instans tjänstedeklaration |
+| Node.js        | Från 1.1.0 till 2.7.0           | NPM-länk:<br>https://www.npmjs.com/package/azure-storage<br>(Till exempel: kör ”npm-installationsprogrammet azure-storage@2.7.0”)<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Instans tjänstedeklaration |
 | C++            | Från 2.4.0 till 3.1.0           | NuGet-paketet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Anslutningsinställningar för sträng      |
 | PHP            | Från 0.15.0 till 1.0.0          | GitHub-version:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installera via Composer (se detaljer nedan)                                                                                                                                                                                                                  | Anslutningsinställningar för sträng      |
 | Python         | Från 0.30.0 till 1.0.0          | GitHub-version:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Instans tjänstedeklaration |

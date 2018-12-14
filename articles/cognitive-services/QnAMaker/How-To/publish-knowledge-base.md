@@ -1,6 +1,6 @@
 ---
-title: Publicera en kunskapsbas - QnA Maker
-titleSuffix: Azure Cognitive Services
+title: Publicera en kunskapsbas
+titleSuffix: QnA Maker - Azure Cognitive Services
 description: Publicera din kunskapsbas är det sista steget i att göra din kunskapsbas tillgängliga som en slutpunkt för besvara fråga. När du publicerar en kunskapsbas flyttar frågor och svar om innehållet i kunskapsbasen från test-index till ett index för produktion i Azure search.
 services: cognitive-services
 author: tulasim88
@@ -8,23 +8,25 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 9c3d1009742f9ca0df6dc2f2d1a2d1904397275a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: deeebd99425bc1ec1ed2ae76ef4852119a9c10ea
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087856"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342450"
 ---
-# <a name="publish-a-knowledge-base-in-qna-maker"></a>Publicera en kunskapsbas i QnA Maker
+# <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>Publicera en kunskapsbas med QnA Maker-portalen
 
-Publicera din kunskapsbas är det sista steget i att göra din kunskapsbas tillgängliga som en slutpunkt för besvara fråga. 
+Publicera din kunskapsbas är det sista steget i att göra din kunskapsbas tillgängliga som en fråga besvarar slutpunkt för ett klientprogram. 
 
-När du publicerar en kunskapsbas flyttar frågor och svar om innehållet i kunskapsbasen från test-index till ett index för produktion i Azure search.
+När du publicerar en kunskapsbas flyttar frågor och svar innehållet i kunskapsbasen från test-index till ett index för produktion i Azure search.
 
 ![Publicera prod test index](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="publish-a-knowledge-base"></a>Publicera en kunskapsbas
 
@@ -36,6 +38,10 @@ När du publicerar en kunskapsbas flyttar frågor och svar om innehållet i kuns
 
     ![Publicerades kunskapsbas](../media/qnamaker-how-to-publish-kb/publish-success.png)
     
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du är klar med kunskapsbasen kan du ta bort den i QnA Maker-portalen.
+
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]

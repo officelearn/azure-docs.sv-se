@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3bebdfea34cea9d0b0b5c19489ce51bf25f60af9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 152b9a7fdac91865baa8a2c20c632e7a228be62f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189735"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340767"
 ---
 # <a name="data-sources-in-log-analytics"></a>Datakällor i Log Analytics
 Log Analytics samlar in data från dina anslutna källor och lagrar dem i Log Analytics-arbetsytan.  De data som samlas in från varje definieras av datakällor som du konfigurerar.  Data i Log Analytics lagras som en uppsättning poster.  Varje datakälla skapar poster i en viss typ med varje typ av att ha en egen uppsättning egenskaper.
@@ -67,4 +67,4 @@ Alla data som samlas in av Log Analytics lagras som poster i arbetsytan.  Poster
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [lösningar](../../azure-monitor/insights/solutions.md) som lägger till funktioner i Log Analytics och också samla in data till arbetsytan.
 * Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  
-* Konfigurera [aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) att informera dig om viktiga data som samlas in från datakällor och lösningar.
+* Konfigurera [aviseringar](../../azure-monitor/platform/alerts-overview.md) att informera dig om viktiga data som samlas in från datakällor och lösningar.

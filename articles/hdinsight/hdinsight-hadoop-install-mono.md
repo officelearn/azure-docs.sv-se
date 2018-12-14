@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
 ms.custom: hdinsightactive
-ms.openlocfilehash: 9daf0d45c9bb24192750991e7bf84fa3614c970d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4f51de6ded29f93d29dbf80dd68715f621b5cb06
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011042"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384623"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Installera eller uppdatera Mono på HDInsight
 
@@ -26,7 +26,7 @@ Mono installeras på HDInsight 3.4 och senare och används för att köra .NET-p
 
 Det här skriptet godkänner följande parameter:
 
-* __Mono versionsnumret__: version av Mono för att installera. Versionen måste vara tillgänglig från [ https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/ ](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/).
+* __Mono versionsnumret__: Versionen av Mono för att installera. Versionen måste vara tillgänglig från [ https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/ ](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/).
 
 Skriptet installerar följande Mono paket:
 
@@ -52,7 +52,7 @@ Använd följande URI enligt skriptet åtgärd dokumentet:
 
 Om du vill ange Mono version som är installerad, använder du versionsnumret i den __parametrar__ fält. Ange till exempel `5.4` installera Mono 5.4.
 
-> [!NOTE]
+> [!NOTE]  
 > När du konfigurerar HDInsight med det här skriptet, markera skriptet som __bevarade__. Den här inställningen HDInsight tillämpas skriptet till arbetsnoder som har lagts till via skalning.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -60,8 +60,8 @@ Om du vill ange Mono version som är installerad, använder du versionsnumret i 
 Du har lärt dig hur du uppgraderar eller installerar en specifik version av Mono på HDInsight. Mer information om hur du använder .NET-program med Mono på HDInsight finns i följande dokument:
 
 * [Använda .NET för strömmande MapReduce på HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Använda .NET med Hive och Pig i HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Utveckla C#-lösningar med Storm på HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [Använda .NET med Apache Hive och Apache Pig i HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Utveckla C# lösningar med Apache Storm på HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
 * [Migrera .NET-lösningar till Linux-baserat HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 
-Mer information om hur du använder skriptåtgärder finns i [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md)
+Mer information om hur du använder skriptåtgärder finns i [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).

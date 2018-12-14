@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7df61cad250663d4b08c8c8d32257718e2f37db
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a88d4b09178ea32526cb8d035b47e1aef9c19dc3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012861"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384249"
 ---
-# <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Använd Maven för att skapa Java-program som använder HBase med Windows-baserade HDInsight (Hadoop)
-Lär dig hur du skapar och bygger en [Apache HBase](http://hbase.apache.org/) program i Java med Apache Maven. Använd sedan programmet med Azure HDInsight (Hadoop).
+# <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>Använd Apache Maven för att skapa Java-program som använder Apache HBase med Windows-baserade HDInsight (Apache Hadoop)
+Lär dig hur du skapar och bygger en [Apache HBase](http://hbase.apache.org/) program i Java med Apache Maven. Använd sedan programmet med Azure HDInsight (Apache Hadoop).
 
-[Maven](http://maven.apache.org/) är ett projekt hanterings- och förståelsen programverktyg som hjälper dig att skapa programvara, dokumentation och rapporter för Java-projekt. I den här artikeln får du lära dig hur du använder den för att skapa en grundläggande Java-program som skapar, frågor, och tar bort en HBase-tabell i ett Azure HDInsight-kluster.
+[Apache Maven](http://maven.apache.org/) är ett projekt hanterings- och förståelsen programverktyg som hjälper dig att skapa programvara, dokumentation och rapporter för Java-projekt. I den här artikeln får du lära dig hur du använder den för att skapa en grundläggande Java-program som skapar, frågor, och tar bort en HBase-tabell i ett Azure HDInsight-kluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Windows. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Krav
 * [Java-plattformen JDK](https://aka.ms/azure-jdks) 7 eller senare
-* [Maven 3.](http://maven.apache.org/)
+* [Apache Maven](http://maven.apache.org/)
 * Ett Windows-baserade HDInsight-kluster med HBase
 
-    > [!NOTE]
+    > [!NOTE]  
     > Stegen i det här dokumentet har testats med HDInsight-klusterversioner 3.2 och 3.3. Standardvärdena i exemplen är i ett kluster med HDInsight 3.3.
 
 ## <a name="create-the-project"></a>Skapa projektet
@@ -40,8 +40,8 @@ Lär dig hur du skapar och bygger en [Apache HBase](http://hbase.apache.org/) pr
 
     Det här kommandot skapar en katalog i den aktuella platsen med namnet som angetts av den **artifactID** parametern (**hbaseapp** i det här exemplet.) Den här katalogen innehåller följande objekt:
 
-   * **pom.XML**: The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) innehåller information om och konfiguration information som används för att skapa projektet.
-   * **SRC**: den katalog som innehåller den **main\java\com\microsoft\examples** directory, där du ska redigera programmet.
+   * **pom.XML**:  Projektet Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) innehåller information om och konfiguration information som används för att skapa projektet.
+   * **SRC**: Den katalog som innehåller den **main\java\com\microsoft\examples** directory, där du ska redigera programmet.
 3. Ta bort den **src\test\java\com\microsoft\examples\apptest.java** filen eftersom den inte används i det här exemplet.
 
 ## <a name="update-the-project-object-model"></a>Uppdatera projekt-objektmodell
@@ -53,9 +53,9 @@ Lär dig hur du skapar och bygger en [Apache HBase](http://hbase.apache.org/) pr
           <version>1.1.2</version>
         </dependency>
 
-    Det här avsnittet visar Maven att projektet kräver **hbase-client** version **1.1.2**. Vid kompilering hämtas det här beroendet från Maven-centrallagret standard. Du kan använda den [Maven-sökning för centrala lagringsplatsen](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) mer information om det här beroendet.
+    Det här avsnittet visar Maven att projektet kräver **hbase-client** version **1.1.2**. Vid kompilering hämtas det här beroendet från Maven-centrallagret standard. Du kan använda den [Apache Maven-sökning centrala lagringsplatsen](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) mer information om det här beroendet.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Versionsnumret måste matcha versionen av HBase som medföljer HDInsight-kluster. Använd följande tabell för att hitta rätt versionsnumret.
    >
    >
@@ -65,7 +65,7 @@ Lär dig hur du skapar och bygger en [Apache HBase](http://hbase.apache.org/) pr
    | 3.2 |0.98.4-hadoop2 |
    | 3.3 |1.1.2 |
 
-    Läs mer om HDInsight-versioner och komponenter, [vilka är de olika Hadoop-komponenterna med HDInsight](hdinsight-component-versioning.md).
+    Läs mer om HDInsight-versioner och komponenter, [vilka är de olika Apache Hadoop-komponenterna med HDInsight](hdinsight-component-versioning.md).
 2. Om du använder ett 3.3 för HDInsight-kluster, måste du också lägga till följande för att den `<dependencies>` avsnittet:
 
         <dependency>
@@ -122,12 +122,12 @@ Lär dig hur du skapar och bygger en [Apache HBase](http://hbase.apache.org/) pr
 
     Den `<resources>` avsnittet konfigurerar en resurs (**conf\hbase site.xml**) som innehåller konfigurationsinformation för HBase.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Du kan också ange konfigurationsvärden via kod. Visa kommentarerna i den **CreateTable** exemplet som följer att göra detta.
    >
    >
 
-    Detta `<plugins>` avsnittet konfigureras den [Maven-kompilatorn-pluginprogrammet](http://maven.apache.org/plugins/maven-compiler-plugin/) och [Maven nyans-pluginprogrammet](http://maven.apache.org/plugins/maven-shade-plugin/). Kompilatorn plugin-programmet används för att kompilera topologin. Nyans plugin-programmet används för att förhindra dubbletter av licens JAR-paket som skapats med Maven. Anledningen till det här används är att duplicerade licensfiler orsakar ett fel vid körning i HDInsight-klustret. Med hjälp av maven-nyans-plugin-programmet med den `ApacheLicenseResourceTransformer` implementering förhindrar det här felet.
+    Detta `<plugins>` avsnittet konfigureras den [plugin-programmet för Apache Maven-kompilatorn](http://maven.apache.org/plugins/maven-compiler-plugin/) och [Apache Maven nyans plugin-programmet](http://maven.apache.org/plugins/maven-shade-plugin/). Kompilatorn plugin-programmet används för att kompilera topologin. Nyans plugin-programmet används för att förhindra dubbletter av licens JAR-paket som skapats med Maven. Anledningen till det här används är att duplicerade licensfiler orsakar ett fel vid körning i HDInsight-klustret. Med hjälp av maven-nyans-plugin-programmet med den `ApacheLicenseResourceTransformer` implementering förhindrar det här felet.
 
     Maven-nyans-plugin-programmet ger också en uber jar (eller fat jar) som innehåller alla beroenden som krävs av programmet.
 4. Spara filen **pom.xml**.
@@ -173,7 +173,7 @@ Lär dig hur du skapar och bygger en [Apache HBase](http://hbase.apache.org/) pr
 
     Den här filen används för att läsa in HBase-konfigurationen för ett HDInsight-kluster.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Detta är en minimal hbase-site.xml-fil och innehåller utan minimikrav för HDInsight-klustret.
 
 6. Spara den **hbase-site.xml** fil.
@@ -357,11 +357,11 @@ Lär dig hur du skapar och bygger en [Apache HBase](http://hbase.apache.org/) pr
     Detta rensar alla tidigare byggartefakter, hämtas eventuella beroenden som inte redan har installerats, sedan skapar och paketerar programmet.
 3. När kommandot har slutförts, den **hbaseapp\target** katalogen innehåller en fil med namnet **hbaseapp-1.0-SNAPSHOT.jar**.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Den **hbaseapp-1.0-SNAPSHOT.jar** filen är en uber jar (kallas ibland för en fat jar) som innehåller alla beroenden som krävs för att köra programmet.
 
 ## <a name="upload-the-jar-file-and-start-a-job"></a>Ladda upp JAR-filen och starta ett jobb
-Det finns många sätt att överföra en fil till ditt HDInsight-kluster, enligt beskrivningen i [överföra data för Hadoop-jobb i HDInsight](hdinsight-upload-data.md). Följande steg använder Azure PowerShell.
+Det finns många sätt att överföra en fil till ditt HDInsight-kluster, enligt beskrivningen i [överföra data för Apache Hadoop-jobb i HDInsight](hdinsight-upload-data.md). Följande steg använder Azure PowerShell.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 

@@ -1,24 +1,24 @@
 ---
-title: Skapa en kunskapsbas - QnA Maker
-titleSuffix: Azure Cognitive Services
-description: Att lägga till chit-chatt i din robot gör det mer konversationsanpassade och engagerande. QnA Maker kan du enkelt lägga till en i förväg uppsättning övre chit-chatt i din Kunskapsbas. Detta kan vara en startpunkt för din robot chit-chatt och spara tid och pengar på att skriva dem från grunden.
+title: Skapa kunskapsbas
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: Använd QnA Maker-portalen att lägga till kan du skapa en kunskapsbas med chit-chatt. Detta gör att din app engagerande. Lägg till en i förväg uppsättning övre chit-chatt i din Kunskapsbas som utgångspunkt för din robot chit-chatt och spara tid och pengar på att skriva dem från grunden.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 059e959aec34503f31cbf87266d0633865cbff46
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4a4f3d44454e7851f74bbeb072a9d4dcd600a6ef
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098754"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338132"
 ---
-# <a name="create-a-knowledge-base-in-qna-maker"></a>Skapa en kunskapsbas i QnA Maker
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Snabbstart: Skapa en kunskapsbas med QnA Maker-portalen
 
 QnA Maker gör det enkelt att lägga till befintliga datakällor när du skapar en kunskapsbas. Du kan skapa en ny QnA Maker-kunskapsbas från följande dokumenttyper:
 
@@ -27,17 +27,21 @@ QnA Maker gör det enkelt att lägga till befintliga datakällor när du skapar 
 * Produkter handböcker
 * Strukturerade dokument
 
-## <a name="steps"></a>Steg
+Inkludera en chit-chatt personlighet om du vill göra dina kunskaper mer engagerande med dina användare.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+
+## <a name="create-a-new-knowledge-base"></a>Skapa en ny kunskapsbas
 
 1. Logga in på att den [QnA Maker portal](https://qnamaker.ai) med dina autentiseringsuppgifter för Azure och välja **skapa en kunskapsbas**.
 
-2. Om du inte redan har skapat en QnA Maker-tjänsten väljer **skapar du en tjänst för frågor och svar om**. 
+1. Om du inte redan har skapat en QnA Maker-tjänsten väljer **skapar du en tjänst för frågor och svar om**. 
 
-3. Välj din Azure-klient, namn på Azure-prenumeration och Azure-resursnamn som är associerade med QnA Maker-tjänsten från listor i **steg 2** i QnA Maker-portalen. Välj Azure QnA Maker-tjänsten som är värd för Knowledge Base.
+1. Välj din Azure-klient, namn på Azure-prenumeration och Azure-resursnamn som är associerade med QnA Maker-tjänsten från listor i **steg 2** i QnA Maker-portalen. Välj Azure QnA Maker-tjänsten som är värd för Knowledge Base.
 
     ![Konfigurera frågor och svar om tjänsten](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
 
-4. Ange namnet på din kunskapsbas och datakällorna för nya kunskapsbasen.
+1. Ange namnet på din kunskapsbas och datakällorna för nya kunskapsbasen.
 
     ![Set-datakällor](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
@@ -46,21 +50,23 @@ QnA Maker gör det enkelt att lägga till befintliga datakällor när du skapar 
     - Ladda upp filer för data som du vill extrahera. Se den [prisinformation](https://aka.ms/qnamaker-pricing) att se hur många dokument som du kan lägga till.
     - Om du vill lägga till kunskapsbaser manuellt kan du hoppa över **steg 4** visas i föregående bild.
 
-5. Lägg till **Chit-chatt** till din KB. Välja att lägga till chit chat-supporten för din robot genom att välja någon av de fördefinierade personligheter 3. 
+1. Lägg till **Chit-chatt** till din KB. Välja att lägga till chit chat-supporten för din robot genom att välja någon av de 3 personligheter. 
 
-    <!-- TBD: add back in when chit chat how-to is merged
-    ![Add chit-chat to KB ](../media/qnamaker-how-to-chitchat/create-kb-chit-chat.png)
-    -->
+    ![Lägg till chit-chatt i KB ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
-6. Välj **skapa din Kunskapsbas**.
+1. Välj **skapa din Kunskapsbas**.
 
     ![Skapa KB](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-7. Det tar några minuter innan data ska extraheras.
+1. Det tar några minuter innan data ska extraheras.
 
     ![Extrahering](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 
-8. När din kunskapsbas har skapats, omdirigeras du till den **kunskapsbas** sidan.
+1. När din kunskapsbas har skapats, omdirigeras du till den **kunskapsbas** sidan.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du är klar med kunskapsbasen kan du ta bort den i QnA Maker-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,17 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 2e6697b07f305a78ef4cc3f462c76804160a9d12
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572807"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344605"
 ---
 När posterna för domännamnet har distribuerats, bör du kunna använda webbläsaren för att verifiera att ditt domännamn kan användas för att få åtkomst till din webbapp i Azure App Service.
 
 > [!NOTE]
-> Det kan ta lite tid för din CNAME ska spridas genom DNS-systemet. Du kan använda en tjänst som <a href="http://www.digwebinterface.com/"> http://www.digwebinterface.com/ </a> att verifiera att CNAME är tillgänglig.
+> Det kan ta lite tid för din CNAME ska spridas genom DNS-systemet. Du kan använda en tjänst som <a href="https://www.digwebinterface.com/"> https://www.digwebinterface.com/ </a> att verifiera att CNAME är tillgänglig.
 > 
 > 
 

@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 6d2e87c50eba293df7c5130ea6bf192ed7f83277
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679825"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344320"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analysera video-och ljudfiler
 
 Azure Media Services v3 kan du extrahera insikter från din video och ljud filer med Video Indexer via AMS v3 analyzer förinställningar (beskrivs i den här artikeln). Använd Video Indexer direkt om du vill få mer detaljerade insikter. Mer information om när du bör använda analysförinställningar för Video Indexer eller Media Services finns i [jämförelsedokumentet](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-Om du vill analysera ditt innehåll med Media Services v3 förinställningar kan du skapa en **transformera** och skicka en **jobbet** som använder en av dessa förinställningar: **AudioAnalyzerPreset** eller **VideoAnalyzerPreset**. I följande artikel visar hur du använder **VideoAnalyzerPreset**: [självstudie: analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md).
+Om du vill analysera ditt innehåll med Media Services v3 förinställningar kan du skapa en **transformera** och skicka en **jobbet** som använder en av dessa förinställningar: **AudioAnalyzerPreset** eller **VideoAnalyzerPreset**. I följande artikel visar hur du använder **VideoAnalyzerPreset**: [Självstudie: Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > När du använder en Video- eller Audio Analyzer-förinställningen använder du Azure-portalen för att ställa in ditt konto på att ha 10 mediereserverade S3-enheter. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md).
@@ -33,8 +33,7 @@ Media Services stöder för närvarande följande inbyggda analyzer förinställ
 
 |**Förinställda namnet**|**Scenario**|**Detaljer**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår.<br/>Du kan ange språket för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner” (till exempel ”en-US”). ”en-US”, ”en-GB”, ”es-ES”, ”es-MX”
-fr-FR, it-IT, ja-JP, pt-BR, zh-CN, de-DE, 'ar-t.ex ”., ru-RU,” Hej-IN ”. Om språket inte är har angetts eller värdet Null, ska automatisk språkidentifiering användas. Funktionen för identifiering av automatisk språk stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Funktionen för automatisk identifiering fungerar bäst med ljudinspelningar med tydligt går tal. Om automatisk språkidentifiering inte kan hitta språket, kommer avskrift att återgå till engelska.|
+|**AudioAnalyzerPreset**|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår. Du kan ange språk för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner”. Språk som stöds är engelska (en-US ”och” en-GB ”), spanska (” es-ES ”och” es-MX ”), franska (” fr-FR ”), italienska (” it-IT ”), japanska ('ja-JP”), portugisiska ('pt-BR ”), kinesiska ('zh-CN”), tyska (”de-DE”), arabiska ('ar-t.ex ”.), ryska ('ru-RU”), Hindi (”Hej-IN” ), och koreanska ('ko-KR ”).<br/><br/> Om språket inte angetts eller är inställt på null-värden, automatisk språkidentifiering ska användas. Funktionen för identifiering av automatisk språk stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Funktionen för automatisk identifiering fungerar bäst med ljudinspelningar med tydligt går tal. Om det inte går att hitta språket automatisk språkidentifiering, tillbaka utskrift till engelska.|
 |**VideoAnalyzerPreset**|Analysera ljud och video|Extraherar insikter (omfattande metadata) från både ljud och video och matar ut en fil i JSON-format. Du kan ange om du bara vill lyfta ut kunskaper ljud vid bearbetning av en videofil. Mer information finns i [analysera video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
@@ -438,4 +437,4 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md)
+[Självstudiekurs: Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md)

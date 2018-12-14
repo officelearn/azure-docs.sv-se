@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 12/11/2018
 ms.author: rkarlin
-ms.openlocfilehash: 08a16285a6e3e52fc9e2ddce6b6936dfd4639ba8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d0cdda4553808d1197d764d0a50e535515527443
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835581"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336449"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Uppgradera till standardnivån i Security Center för ökad säkerhet
 Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Du får insyn och kontroll över hybridmolnarbetsbelastningar active försvar som minskar din exponering för hot och intelligent identifiering för att hålla jämna steg med snabbt växande cyberattacker.
@@ -33,8 +33,8 @@ Security Center finns två nivåer:
 
 Mer information finns i Säkerhetscenter [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="try-standard-free-for-60-days"></a>Prova Standard kostnadsfritt under 60 dagar
-Standardnivån erbjuds kostnadsfritt de första 60 dagarna. I slutet av 60 dagar börjar om du väljer att fortsätta använda tjänsten, vi automatiskt att debitera för användningen.
+## <a name="try-standard-free-for-30-days"></a>Prova Standard kostnadsfritt i 30 dagar
+Standardnivån erbjuds kostnadsfritt de första 30 dagarna. I slutet av 30 dagar börjar om du väljer att fortsätta använda tjänsten, vi automatiskt att debitera för användningen.
 
 Du kan uppgradera en hel Azure-prenumeration till standardnivån som ärvs av alla resurser i prenumerationen.
 

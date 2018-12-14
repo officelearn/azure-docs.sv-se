@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: 67a236f592392744978b7d1d7f7e7d129515a9a0
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321809"
+ms.locfileid: "53342722"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -134,7 +134,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Replikerade datorer - Linux system/gäst fillagring
 
-* Filsystem: ext3 ext4, ReiserFS (Suse Linux Enterprise Server endast), XFS
+* Filsystem: ext3, ext4, ReiserFS (endast Suse Linux Enterprise Server), XFS, BTRFS
 * Volymhanterare: LVM2
 * Multipath programvara: Enheten Mapper
 

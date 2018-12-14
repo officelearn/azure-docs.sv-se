@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/10/2018
+ms.date: 12/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 448ef296af3ceaffffa1a4a69060916afd9abdc4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6ec3ca7c1323b342612293c5ea3ca1443370c9b4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185689"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386393"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
@@ -313,6 +313,8 @@ Principer för villkorlig åtkomst börjar gälla omedelbart. När detta händer
 ## <a name="b2b-guests-preview"></a>B2B-gäster (förhandsversion)
 
 De flesta organisationer har en process för sina anställda kan samtycka till sin organisations användningsvillkor och sekretesspolicyn. Men hur kan du ange samma medgivanden för Azure AD business-to-business (B2B) gästerna när de läggs via SharePoint eller team? Du kan använda villkorlig åtkomst och användningsvillkor, för att tillämpa en princip direkt mot B2B-gästanvändare. Under inbjudan inlösen flödet, kommer användaren att visas med användningsvillkoren. Det här stödet förhandsvisas just nu.
+
+Användningsvillkoren visas bara när användaren har ett gästkonto i Azure AD. SharePoint Online för närvarande har en [ad hoc extern delning mottagarens upplevelse](/sharepoint/what-s-new-in-sharing-in-targeted-release) att dela ett dokument eller en mapp som inte kräver att användaren har ett gästkonto. I det här fallet visas inte användningsvillkor.
 
 ![Alla gästanvändare](./media/active-directory-tou/b2b-guests.png)
 

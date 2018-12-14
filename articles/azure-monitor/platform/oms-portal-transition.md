@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
-ms.openlocfilehash: 6e85d19460d0b1c02ddd6666cf1e441e44e7a03d
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 08f26742d5c0af7f873d8f55204fd9ceeb141f1e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276782"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340088"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen som flyttar till Azure
 
@@ -82,7 +82,7 @@ Du är inte längre att kunna skapa nya arbetsytor med OMS-portalen. Följ riktl
 Aviseringar har [utökats till Azure-portalen](../../azure-monitor/platform/alerts-extend.md). När processen är klar hanteringsåtgärder på aviseringar endast att vara tillgänglig i Azure portal. Befintliga aviseringar fortsätter att listas i OMS-portalen. Om du använder aviseringar programmässigt med hjälp av Log Analytics avisering REST API eller Log Analytics-avisering resursmall måste du använda åtgärdsgrupper istället för åtgärder i API-anrop, Azure Resource Manager-mallar och PowerShell-kommandon.
 
 ### <a name="alert-management-solution"></a>Lösning för aviseringshantering
-I stället för den [lösning för aviseringshantering](../../azure-monitor/platform/alert-management-solution.md), du kan använda [Azure Monitor unified aviseringar gränssnittet](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) att visualisera och hantera dina aviseringar. Den här nya upplevelsen aggregerar aviseringar från flera källor på Azure inklusive aviseringar från Log Analytics. Du kan se distributioner av dina aviseringar, dra nytta av automatisk gruppering av relaterade aviseringar via smart grupper och visa aviseringar över flera prenumerationer när de omfattande filtren har använts. Alla dessa funktioner är tillgängliga i förhandsversionen från och med 4 juni 2018. Lösning för aviseringshantering blir inte tillgänglig i Azure-portalen. 
+I stället för den [lösning för aviseringshantering](../../azure-monitor/platform/alert-management-solution.md), du kan använda [Azure Monitor unified aviseringar gränssnittet](../../azure-monitor/platform/alerts-overview.md) att visualisera och hantera dina aviseringar. Den här nya upplevelsen aggregerar aviseringar från flera källor på Azure inklusive aviseringar från Log Analytics. Du kan se distributioner av dina aviseringar, dra nytta av automatisk gruppering av relaterade aviseringar via smart grupper och visa aviseringar över flera prenumerationer när de omfattande filtren har använts. Alla dessa funktioner är tillgängliga i förhandsversionen från och med 4 juni 2018. Lösning för aviseringshantering blir inte tillgänglig i Azure-portalen. 
 
 Data som samlas in av lösning för aviseringshantering (poster med en typ av avisering) fortsätter att vara i Log Analytics som lösningen är installerad för arbetsytan. Från och med augusti 2018, kommer strömning av aviseringar från enhetlig aviseringar i arbetsytor att aktiveras, ersätter den här funktionen. Vissa ändringar av entitetsschemat förväntas och meddelas vid ett senare tillfälle.
 

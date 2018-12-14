@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d0c61f6e905ca109f3f178996a08f353c36e7880
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316625"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337214"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig genom hur du använder rekommendationer i Azure Security Center för att hjälpa dig att skydda dina Azure-resurser.
@@ -34,13 +34,13 @@ Security Center analyserar regelbundet säkerhetstillståndet hos dina Azure-res
 
 ## <a name="implementing-security-recommendations"></a>Implementera säkerhetsrekommendationer
 ### <a name="set-recommendations"></a>Set-rekommendationer
-I [ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md), lär du dig att:
+I [ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md), lär du dig att:
 
 * Konfigurera säkerhetsprinciper.
 * Aktivera insamling av data.
 * Välj vilka rekommendationer för att se som en del av din säkerhetsprincip.
 
-Aktuella rekommendationer principcentret runt systemuppdateringar, baslinjeregler, program, [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) på undernät och nätverksgränssnitt, SQL database-granskning, SQL database transparent datakryptering, och brandväggar för webbaserade program.  [Ange säkerhetsprinciper](security-center-azure-policy.md) innehåller en beskrivning av varje rekommendation alternativ.
+Aktuella rekommendationer principcentret runt systemuppdateringar, baslinjeregler, program, [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) på undernät och nätverksgränssnitt, SQL database-granskning, SQL database transparent datakryptering, och brandväggar för webbaserade program.  [Ange säkerhetsprinciper](tutorial-security-policy.md) innehåller en beskrivning av varje rekommendation alternativ.
 
 ### <a name="monitor-recommendations"></a>Övervakare för rekommendationer
 När du har angett en säkerhetsprincip analyseras säkerhetstillståndet för resurserna i Azure i Security Center för upptäckt av eventuella säkerhetsrisker. Den **rekommendationer** panelen **översikt** gör att du vet att det totala antalet rekommendationer identifierades av Security Center.
@@ -55,16 +55,16 @@ Du kan filtrera rekommendationer. Om du vill filtrera rekommendationer, Välj **
 
 Rekommendationerna visas i tabellformat där varje rad motsvarar en viss rekommendation. Kolumner i den här tabellen är:
 
-* **Beskrivning av**: förklarar rekommendationen och vad som behöver göras för att åtgärda detta.
+* **BESKRIVNING AV**: Förklarar rekommendationen och vad som behöver göras för att åtgärda detta.
 * **RESURSEN**: Visar en lista över de resurser som den här rekommendationen gäller.
-* **TILLSTÅND**: beskriver det aktuella tillståndet för rekommendationen:
-  * **Öppna**: rekommendationen har inte utförts än.
-  * **Pågår**: rekommendationen håller på att resurserna och ingen åtgärd krävs av dig.
-  * **Löst**: rekommendationen har redan slutförts (i det här fallet raden är nedtonat).
-* **SEVERITY (ALLVARLIGHETSGRAD)**: Här visas hur viktig rekommendationen är.
-  * **Hög**: en säkerhetsrisk finns en viktig resurs (till exempel ett program, en virtuell dator eller en nätverkssäkerhetsgrupp) som måste åtgärdas.
-  * **Medel**: det finns ett säkerhetsproblem och icke-kritiska eller ytterligare åtgärder som krävs för att eliminera den eller för att slutföra en process.
-  * **Låg**: det finns en säkerhetsrisk som bör åtgärdas, men inte kräver omedelbar åtgärd. (Låg rekommendationer är inte visas som standard, men du kan filtrera fram om du vill se dem.)
+* **TILLSTÅND**: Beskriver det aktuella tillståndet för rekommendationen:
+  * **Öppna**: Rekommendationen har inte utförts än.
+  * **Pågår**: Rekommendationen håller på att resurserna och ingen åtgärd krävs av dig.
+  * **Löst**: Rekommendationen har redan slutförts (i det här fallet raden är nedtonat).
+* **ALLVARLIGHETSGRAD**: Visas hur viktig rekommendationen:
+  * **Hög**: En sårbarhet i finns en viktig resurs (till exempel ett program, en virtuell dator eller en nätverkssäkerhetsgrupp) som måste åtgärdas.
+  * **Medel**: Det finns ett säkerhetsproblem och icke-kritiska eller ytterligare åtgärder krävs att eliminera den eller för att slutföra en process.
+  * **Låg**: Det finns en säkerhetsrisk som bör åtgärdas, men inte kräver omedelbar åtgärd. (Låg rekommendationer är inte visas som standard, men du kan filtrera fram om du vill se dem.)
 
 Använd tabellen nedan som referens för att förstå rekommendationerna som är tillgängliga och vad var och en gör om du använder den.
 
@@ -135,7 +135,7 @@ Välj en rekommendation i tabellen i rekommendationerna ovan och gå igenom den 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet berättade säkerhetsrekommendationer i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
+* [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar Azure-resursernas hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.

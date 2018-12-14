@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 328dd39c3ff82666c327bc5d1d106a019fb2247b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 77291029dd15b887ea9d2fd3f0e3a31e71a2f537
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275830"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384368"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQLServer
 
@@ -79,7 +79,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | De flesta – se enskilda DMV: er |  Ja – Se [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
 |[Dynamisk datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Ja](sql-database-dynamic-data-masking-get-started.md)| [Ja](sql-database-dynamic-data-masking-get-started.md) |
 | [Elastiska pooler](sql-database-elastic-pool.md) | Ja | Inbyggda – en enda hanterad instans kan ha flera databaser som delar samma pool av resurser |
-| [Händelseaviseringar](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Nej, se [aviseringar](sql-database-insights-alerts-portal.md) | Ja |
+| [Händelseaviseringar](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Nej, se [aviseringar](sql-database-insights-alerts-portal.md) | Nej |
 | [Uttryck](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja | Ja |
 | [Utökade händelser](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Vissa – Se [utökade händelser i SQL-databas](sql-database-xevent-db-diff-from-svr.md) | Ja – Se [utökade händelser skillnader](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nej | Nej |
@@ -109,6 +109,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Nej | Nej |
 | [Principbaserad hantering](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Nej | Nej |
 | [Predikat](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Ja | Ja |
+| [Frågemeddelanden](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Nej | Ja |
 | [R-tjänster](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Förhandsversionen; Se [vad är nytt i machine learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Nej |
 | [Resursstyrning](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Nej | Ja |
 | [RESTORE-uttryck](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Nej | Ja – Se [återställa skillnader](sql-database-managed-instance-transact-sql-information.md#restore-statement) |

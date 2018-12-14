@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: a85ec0bf126aa7a25edffdaaf7c7f8a16a370c40
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d0b2ac54f70fedc409c386243e1755704c1c332c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014352"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386374"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager-mått och aviseringar
 
@@ -34,7 +34,7 @@ Bild 1 visar alla frågesvar som returnerades av Traffic Manager-profilen i exem
   
 ![Mått för Traffic Manager – aggregerad vy över alla frågor](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Bild 1: Samla vy med alla frågor*
+*Bild 1: Sammanställd vy med alla frågor*
   
 Bild 2 visar samma information, men den delas av slutpunkter. Därför kan du se mängden frågesvar där en viss slutpunkt returnerades.
 
@@ -52,12 +52,12 @@ Det här måttet kan antingen anges som ett samlat värde som representerar stat
 
 ![Mått för Traffic Manager – sammansatta vy över statusen för slutpunkten](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*Bild 3: Sammansatta vy över slutpunkten status mått – ”genomsnittlig” aggregering som valts*
+*Bild 3: Sammansatt vy över slutpunkten status mått – ”genomsnittlig” aggregering som valts*
 
 
 ![Mått för Traffic Manager – dela vy över statusen för slutpunkten](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Bild 4: Dela överblick över mått för slutpunkt-status*
+*Bild 4: Dela upp överblick över mått för slutpunkt-status*
 
 Du kan använda de här måtten via [Azure Monitor-tjänsten](../monitoring-and-diagnostics/monitoring-supported-metrics.md)'s portalen [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), och [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), eller via avsnittet mått i Traffic Manager-portalen.
 
@@ -66,4 +66,4 @@ Förutom bearbetning och visa mått från Traffic Manager, Azure Monitor ger kun
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Azure Monitor-tjänsten](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-- Lär dig hur du [skapa ett nytt diagram med Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-charts.md#create-a-new-chart)
+- Lär dig hur du [skapa ett nytt diagram med Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)

@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8cdcdd6c5e0201f8f6af39faab0a67a68920e568
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094584"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342107"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Stöd för språk och din region för tjänsten för Taligenkänning
 
-Olika språk har stöd för olika funktioner för tal-tjänst. Följande tabeller sammanfattar språkstöd.
+Olika språk stöds för olika Speech Services-funktioner. Följande tabeller sammanfattar språkstöd.
 
-## <a name="speech-to-text"></a>Tal till text
+## <a name="speech-to-text"></a>Tal-till-text
 
 Microsoft taligenkänningens API stöder följande språk. Olika typer av anpassningar är tillgängliga för varje språk.
 
@@ -62,7 +62,24 @@ Microsoft taligenkänningens API stöder följande språk. Olika typer av anpass
 
 ## <a name="text-to-speech"></a>Text till tal
 
-API för taligenkänning syntes erbjuder följande röster, som stöder ett visst språk och dialekt som identifieras av nationella inställningar.
+Text till tal REST API har stöd för dessa röster som stöder ett visst språk och dialekt som identifieras av nationella inställningar.
+
+### <a name="neural-voices-preview"></a>Neural röster (förhandsversion)
+
+Neural text till tal är en ny typ av talsyntes som drivs av djupa neurala nätverk. När du använder en neural röst är syntetiskt tal nästan identiska med mänsklig inspelningar.
+
+Neural röster kan användas för att göra interaktion med chattrobotar och virtuella assistenter mer naturligt och engagerande och konverterar digitala texter, till exempel e-böcker till audiobooks och förbättra navigering i bilen system. Med människoliknande naturlig prosody och rensa rörlighet ord minska neural röster avsevärt lyssnande utmattning när användare interagerar med AI-system.
+
+En fullständig lista över neural röster och regional tillgänglighet finns i [regioner](regions.md#neural-voices).
+
+| Nationell inställning | Språk | Kön | Tjänsten Namnmappningen|
+|--------|----------|---------|--------------------|
+| en-US | English (US) | Man | ”Microsoft Server tal Text till tal-röst (en-US, GuyNeural)” |
+| en-US | English (US) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, JessaNeural)” |
+
+### <a name="standard-voices"></a>Standard röster
+
+Mer än 75 standard röster är tillgängliga i över 45 språk och nationella inställningar, där du kan omvandla text till syntetiskt tal. Mer information om regional tillgänglighet finns i [regioner](regions.md#standard-voices).
 
 Nationell inställning | Språk | Kön | Tjänsten Namnmappningen
 -------|----------|---------|--------------------

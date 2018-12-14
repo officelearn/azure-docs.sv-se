@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 3e547a1ee077f8c8ac87395b38f8707a6467fbc9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1dee53f633d8b5edf893e2f6c83430d7c1a69022
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184295"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341600"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Lösning i Azure Log Analytics för aviseringshantering
 
 ![Varningsikon för hantering](media/alert-management-solution/icon.png)
 
-Aviseringshantering-lösningen hjälper dig att analysera alla aviseringar i Log Analytics-lagringsplatsen.  Dessa aviseringar kan härröra från olika källor, inklusive de källorna [skapats av Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) eller [importeras från Nagios och Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). Lösningen också importerar aviseringar från någon [anslutna System Center Operations Manager-hanteringsgrupper](../../azure-monitor/platform/om-agents.md).
+Aviseringshantering-lösningen hjälper dig att analysera alla aviseringar i Log Analytics-lagringsplatsen.  Dessa aviseringar kan härröra från olika källor, inklusive de källorna [skapats av Log Analytics](../../azure-monitor/platform/alerts-overview.md) eller [importeras från Nagios och Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). Lösningen också importerar aviseringar från någon [anslutna System Center Operations Manager-hanteringsgrupper](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här lösningen fungerar med alla poster i Log Analytics-databasen med en typ av **avisering**, så du måste utföra konfigurationen som krävs för att samla in dessa poster.
 
-- För Log Analytics-aviseringar [skapa Varningsregler](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) skapa aviseringsposter direkt i databasen.
+- För Log Analytics-aviseringar [skapa Varningsregler](../../azure-monitor/platform/alerts-overview.md) skapa aviseringsposter direkt i databasen.
 - För Nagios och Zabbix-aviseringar [Konfigurera servrarna](../../azure-monitor/learn/quick-collect-linux-computer.md) att skicka aviseringar till Log Analytics.
 - För System Center Operations Manager-aviseringar [ansluta din Operations Manager-hanteringsgrupp till Log Analytics-arbetsytan](../../azure-monitor/platform/om-agents.md).  Alla varningar som skapats i System Center Operations Manager importeras till Log Analytics.  
 
@@ -121,4 +121,4 @@ Följande tabell innehåller exempel på loggsökningar för aviseringsposter so
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [Aviseringar i Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) för information om att generera aviseringar från Log Analytics.
+* Lär dig mer om [Aviseringar i Log Analytics](../../azure-monitor/platform/alerts-overview.md) för information om att generera aviseringar från Log Analytics.

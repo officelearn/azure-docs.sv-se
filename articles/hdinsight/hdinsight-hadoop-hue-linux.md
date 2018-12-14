@@ -10,31 +10,31 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 6c1acf0e0b93ca6d3a8eae9f291f37d7bb0aa763
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5df494904dd756ca7ef3a36a48da2224ab2bca81
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009291"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386017"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installera och använda Hue på HDInsight Hadoop-kluster
 
 Lär dig mer om att installera Hue i HDInsight-kluster och använda tunnel för att dirigera begäranden till nyans.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-is-hue"></a>Vad är Hue?
-Hue är en samling webbprogram som används för att interagera med ett Hadoop-kluster. Du kan använda Hue för att bläddra i lagring som är associerade med ett Hadoop-kluster (när det gäller HDInsight-kluster WASB), kör Hive-jobb och Pig-skript och så vidare. Följande komponenter är tillgängliga med Hue installationer på ett HDInsight Hadoop-kluster.
+Hue är en samling webbprogram som används för att interagera med ett Apache Hadoop-kluster. Du kan använda Hue för att bläddra i lagring som är associerade med ett Hadoop-kluster (när det gäller HDInsight-kluster WASB), kör Hive-jobb och Pig-skript och så vidare. Följande komponenter är tillgängliga med Hue installationer på ett HDInsight Hadoop-kluster.
 
 * Bivax Hive-redigeraren
-* Pig
+* Apache Pig
 * Metaarkiv manager
-* Oozie
+* Apache Oozie
 * FileBrowser (som pratar med WASB-behållare som standard)
 * Jobbwebbläsare
 
-> [!WARNING]
+> [!WARNING]  
 > Komponenter som tillhandahålls med HDInsight-kluster stöds fullt ut och Microsoft Support hjälper till att isolera och lösa problem relaterade till dessa komponenter.
 >
 > Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Detta kan resultera i att lösa problemet eller där du uppmanas att engagera tillgängliga kanaler för tekniker med öppen källkod som där djup kompetens för den tekniken hittas. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
@@ -47,14 +47,14 @@ Skript för att installera Hue i ett Linux-baserade HDInsight-kluster finns på 
 
 Det här avsnittet innehåller anvisningar om hur du använder skriptet när du etablerar kluster med Azure portal.
 
-> [!NOTE]
+> [!NOTE]  
 > Azure PowerShell, den klassiska Azure-CLI, HDInsight .NET SDK eller Azure Resource Manager-mallar kan också användas för att tillämpa skriptåtgärder. Du kan också använda skriptåtgärder för kluster som körs redan. Mer information finns i [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 >
 >
 
 1. Börja etablera ett kluster med hjälp av stegen i [etablera HDInsight-kluster på Linux](hdinsight-hadoop-provision-linux-clusters.md), men inte Slutför etableringen.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Om du vill installera Hue i HDInsight-kluster, den rekommendera huvudnoden storleken är minst A4 (8 kärnor, 14 GB minne).
    >
    >
@@ -62,12 +62,12 @@ Det här avsnittet innehåller anvisningar om hur du använder skriptet när du 
 
     ![Ange skriptet åtgärdsparametrar för Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "tillhandahålla skript åtgärdsparametrar för Hue")
 
-   * **NAMN på**: Ange ett eget namn för skriptåtgärden.
+   * **NAMN PÅ**: Ange ett eget namn för skriptåtgärden.
    * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
-   * **HEAD**: Markera det här alternativet
-   * **WORKER**: lämna fältet tomt.
-   * **ZOOKEEPER**: lämna fältet tomt.
-   * **PARAMETRAR**: lämna fältet tomt.
+   * **HEAD**: Markera det här alternativet.
+   * **WORKER**: Låt den vara tom.
+   * **ZOOKEEPER**: Låt den vara tom.
+   * **PARAMETRAR**: Låt den vara tom.
 3. Längst ned på den **skriptåtgärder**, använda den **Välj** för att spara konfigurationen. Använd slutligen den **Välj** knappen längst ned på den **valfri konfiguration** bladet för att spara ytterligare konfigurationsinformation.
 4. Fortsätta att etablera klustret enligt beskrivningen i [etablera HDInsight-kluster på Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -75,12 +75,12 @@ Det här avsnittet innehåller anvisningar om hur du använder skriptet när du 
 
 SSH-tunnlar är det enda sättet att komma åt Hue i klustret när den körs. Via SSH-tunnel tillåter trafik att gå direkt till huvudnoden i klustret där Hue körs. När klustret är färdigetablerat, kan du använda följande steg för att använda Hue i ett HDInsight Linux-kluster.
 
-> [!NOTE]
+> [!NOTE]  
 > Vi rekommenderar att du använder webbläsaren Firefox för att följa anvisningarna nedan.
 >
 >
 
-1. Använd informationen i [Använd SSH-tunnlar för att komma åt Ambari-webbgränssnittet, resurshanteraren, JobHistory, NameNode, Oozie och andra webbgränssnitt](hdinsight-linux-ambari-ssh-tunnel.md) att skapa en SSH-tunnel från ditt klientsystem till HDInsight-klustret och sedan konfigurera webbplatsen webbläsaren att använda SSH-tunnel som en proxy.
+1. Använd informationen i [använda SSH-tunnlar till Apache Ambari-webbgränssnittet, resurshanteraren, JobHistory, NameNode, Oozie och andra webbgränssnitt](hdinsight-linux-ambari-ssh-tunnel.md) att skapa en SSH-tunnel från ditt klientsystem till HDInsight-klustret och sedan konfigurera din webbläsare du använder SSH-tunnel som en proxy.
 
 2. När du har skapat en SSH-tunnel och konfigurerat din webbläsare med proxy-trafik via det, måste du söka efter namnet på den primära huvudnoden. Du kan göra detta genom att ansluta till klustret med SSH på port 22. Till exempel `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` där **användarnamn** är ditt SSH-användarnamn och **CLUSTERNAME** är namnet på klustret.
 
@@ -97,7 +97,7 @@ SSH-tunnlar är det enda sättet att komma åt Hue i klustret när den körs. Vi
     Det här är värdnamnet för den primära huvudnoden där Hue-webbplats finns.
 4. Använda webbläsaren för att öppna Hue-portalen på http://HOSTNAME:8888. Ersätt VÄRDDATORNAMN med namnet som du hämtade i föregående steg.
 
-   > [!NOTE]
+   > [!NOTE]  
    > När du loggar in för första gången uppmanas du att skapa ett konto för att logga in på Hue-portalen. De autentiseringsuppgifter som du anger här begränsas till portalen och inte är relaterade till administratören eller SSH-autentiseringsuppgifterna som du angav när du etablera klustret.
    >
    >
@@ -121,7 +121,7 @@ SSH-tunnlar är det enda sättet att komma åt Hue i klustret när den körs. Vi
     ![Använd filläsare](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Använd filläsare")
 3. Högerklicka på en fil eller mapp för att se de tillgängliga åtgärderna. Använd den **överför** i högra hörnet för att ladda upp filer till den aktuella katalogen. Använd den **New** för att skapa nya filer eller kataloger.
 
-> [!NOTE]
+> [!NOTE]  
 > Hue-filläsare kan bara visa innehållet i standardbehållaren kopplat till HDInsight-klustret. Eventuella ytterligare lagringsutrymme för konton/behållare som du har associerat med klustret kommer inte att komma åt med hjälp av webbläsaren. Ytterligare behållare som är associerade med klustret kommer dock alltid vara tillgänglig för Hive-jobb. Exempel: Om du har angett kommandot `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` i Hive-redigeraren kan du se innehållet i ytterligare behållare också. I det här kommandot **newcontainer** är inte standardbehållaren som är associerade med ett kluster.
 >
 >
@@ -130,7 +130,7 @@ SSH-tunnlar är det enda sättet att komma åt Hue i klustret när den körs. Vi
 1. Skriptet som används för att installera Hue installerar den endast på den primära huvudnoden av klustret.
 
 2. Under installationen, flera Hadoop-tjänster (HDFS, YARN, MR2, Oozie) startas om för att uppdatera konfigurationen. När skriptet har slutförts installera Hue, kan det ta lite tid för andra Hadoop-tjänster ska kunna starta. Detta kan påverka Hues prestanda från början. När alla tjänster startas Hue fungerar som den ska.
-3. Hue förstår inte Tez-jobb som är aktuella standardvärdet för Hive. Om du vill använda MapReduce som motorn för körning av Hive uppdatera skriptet för att använda följande kommando i skriptet:
+3. Hue förstår inte Apache Tez-jobb som är aktuella standardvärdet för Hive. Om du vill använda MapReduce som motorn för körning av Hive uppdatera skriptet för att använda följande kommando i skriptet:
 
         set hive.execution.engine=mr;
 
@@ -142,8 +142,8 @@ SSH-tunnlar är det enda sättet att komma åt Hue i klustret när den körs. Vi
 5. Hue förstår WebHDFS medan HDInsight-kluster använder Azure Storage med hjälp av `wasb://`. Så installerar det anpassade skriptet som används med skriptåtgärd WebWasb, som är en tjänst för WebHDFS-kompatibla du WASB. Så även via Hue-portalen säger HDFS på platser (som när du flyttar muspekaren över den **filläsare**), ska tolkas som WASB.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Installera Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). Använd kluster anpassning för att installera Giraph på HDInsight Hadoop-kluster. Giraph kan du utföra diagrambearbetning med Hadoop och den kan användas med Azure HDInsight.
-* [Installera Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md). Använd kluster anpassning för att installera Solr på HDInsight Hadoop-kluster. Solr kan du utföra kraftfulla sökningar på lagrade data.
+* [Installera Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). Använd kluster anpassning för att installera Giraph på HDInsight Hadoop-kluster. Giraph kan du utföra diagrambearbetning med Hadoop och den kan användas med Azure HDInsight.
+* [Installera Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md). Använd kluster anpassning för att installera Solr på HDInsight Hadoop-kluster. Solr kan du utföra kraftfulla sökningar på lagrade data.
 * [Installera R på HDInsight-kluster](hdinsight-hadoop-r-scripts-linux.md). Använd kluster anpassning för att installera R på HDInsight Hadoop-kluster. R är en öppen källkod och -miljö för statistisk databehandling. Den innehåller hundratals inbyggda statistiska funktioner och sin egen programmeringsspråk som kombinerar aspekter av funktions- och objektorienterad programmering. Det ger även omfattande grafiska funktioner.
 
 [powershell-install-configure]: install-configure-powershell-linux.md

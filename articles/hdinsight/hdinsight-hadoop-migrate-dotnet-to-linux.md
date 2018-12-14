@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: dc7cfb4df768fb7554bc7b5c772a6a778a8a793a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008121"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384214"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrera .NET-lösningar för Windows-baserade HDInsight till Linux-baserat HDInsight
 
@@ -26,7 +26,7 @@ Mono version 4.2.1 medföljer HDInsight version 3.6. Läs mer på vilken version
 
 Mer information om kompatibilitet mellan Mono och .NET finns i den [Mono-kompatibilitet (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > SCP.NET-ramverket är kompatibel med Mono. Läs mer om hur du använder SCP.NET med Mono [Använd Visual Studio för att utveckla C#-topologier för Apache Storm på HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="automated-portability-analysis"></a>Automatiserad portabilitet analys
@@ -47,7 +47,7 @@ Den [.NET portabilitet Analyzer](https://marketplace.visualstudio.com/items?item
 
     ![Portabilitet analyzer resultat dialogrutan](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Analysatorn identifierar inte alla problem med din lösning. Till exempel en sökväg för `c:\temp\file.txt` anses vara OK om Mono körs på Windows. Samma sökväg är inte giltig på en Linux-plattformen.
 
 ## <a name="manual-portability-analysis"></a>Manuell portabilitet analys
@@ -64,12 +64,12 @@ När du har ändrat din lösning med rekommendationerna från .NET portabilitet 
 
 Mer information om hur du använder loggar finns i följande dokument:
 
-* [Få åtkomst till YARN-programloggar i Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Åtkomst Apache Hadoop YARN-programloggar på Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Använda C# med MapReduce på HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Använda C#-användardefinierade funktioner med Hive och Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Använd C# användardefinierade funktioner med Apache Hive och Apache Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Utveckla C#-topologier för Storm på HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [Utveckla C# topologier för Apache Storm på HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

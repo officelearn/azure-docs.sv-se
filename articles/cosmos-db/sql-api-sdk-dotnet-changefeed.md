@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: ab4831a4a84e1f96624c5de1e53f9b8688a5c2cd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1544d60d94a73326d2cd0430de8a1f61aaefe373
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871677"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343980"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "52871677"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor – Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -41,6 +41,11 @@ ms.locfileid: "52871677"
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="v2-builds"></a>v2-versioner
+
+### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
+* Stöd har lagts till för att hantera delning i samlingar som använder delade databasen dataflöde.
+  * Den här versionen åtgärdas ett problem som kan uppstå under dela i samlingar med delade databasen dataflöde när dela resultatet i partitionen igen belastningsutjämning med endast en underordnad partitionsnyckelintervall skapas i stället för två. När detta sker kan Change Feed Processor fastna ta bort gamla partitionsnyckelintervall lånet och inte skapa nya lån. Problemet är löst i den här versionen.
+  * Mindre icke-bakåtkompatibel ändring: lagt till nya metoden IChangeFeedDocumentClient.ReadOffersFeedAsync som används för att kontrollera om colleciton har tilldelat dedikerade thoughput eller delar dataflöde med andra samlingar i databasen. Tillhandahåller anpassade implementering av IChangeFeedDocumentClient är ett avancerat scenario och kan användas för att övervaka alla anrop av Change Feed Processor att övervakas och låna samlingar. Med den här ändringen måste IChangeFeedDocumentClient implementering ändras genom att implementera den nya metoden.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * Har lagts till ny egenskap ChangeFeedProcessorOptions.StartContinuation stöd från ändringen feed från begäran fortsättningstoken. Detta används bara när lånsamling är tom eller ett lån har inte angetts ContinuationToken. ContinuationToken används för lån i lånsamling som har angetts ContinuationToken, och ChangeFeedProcessorOptions.StartContinuation ignoreras.

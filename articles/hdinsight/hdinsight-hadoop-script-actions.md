@@ -9,31 +9,28 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 21c7b94f694e8a2cfe6abfd74bbc616ade5dad82
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f0d6c22d54de0486ad679f93343f0e7b208f21f4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008359"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384075"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Utveckla skriptåtgärder skript för HDInsight Windows-baserade kluster
 Lär dig hur du skriver skript för skriptåtgärd för HDInsight. Information om hur du använder skriptåtgärd skript finns i [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster finns i [utveckla skriptåtgärder skript till HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet fungerar endast för Windows-baserade HDInsight-kluster. HDInsight är endast tillgänglig på Windows för versioner lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om hur du använder skriptåtgärder med Linux-baserade kluster finns i [utveckling av skriptåtgärder med HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
->
->
 
 
+Skriptåtgärd kan användas för att installera ytterligare programvara som körs på ett Apache Hadoop-kluster eller ändra konfigurationen för program som har installerats på ett kluster. Skriptåtgärder är skript som körs på noderna i klustret när HDInsight-kluster distribueras, och de utförs när noder i klustret Slutför konfiguration av HDInsight. En skriptåtgärd körs under kontot för systemadministratörsprivilegier och ger fullständiga åtkomsträttigheter till klusternoderna. Varje kluster kan anges med en lista över skriptåtgärder som ska köras i den ordning som de anges.
 
-Skriptåtgärd kan användas för att installera ytterligare programvara som körs på ett Hadoop-kluster eller ändra konfigurationen för program som har installerats på ett kluster. Skriptåtgärder är skript som körs på noderna i klustret när HDInsight-kluster distribueras, och de utförs när noder i klustret Slutför konfiguration av HDInsight. En skriptåtgärd körs under kontot för systemadministratörsprivilegier och ger fullständiga åtkomsträttigheter till klusternoderna. Varje kluster kan anges med en lista över skriptåtgärder som ska köras i den ordning som de anges.
-
-> [!NOTE]
+> [!NOTE]  
 > Om du får följande felmeddelande visas:
 >
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage: Termen ”spara HDIFile' identifieras inte som namnet på en cmdlet, funktion, skriptfil eller ett körbart program. Kontrollera stavningen av namnet, eller om en sökväg har inkluderats, kontrollera att sökvägen är korrekt och försök igen.
+> 
 > Det beror på att du skickat helper-metoder.  Se [hjälpkomponentmetoder för anpassade skript](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 >
 >
@@ -98,16 +95,16 @@ HDInsight innehåller flera skript för att installera ytterligare komponenter i
 
 | Namn | Skript |
 | --- | --- |
-| **Installera Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Se [installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]. |
+| **Installera Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Se [installera och använda Apache Spark i HDInsight-kluster][hdinsight-install-spark]. |
 | **Installera R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Se [installera och använda R i HDInsight-kluster](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Installera Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Se [installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md). |
-| **Installera Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Se [installera och använda Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md). |
-| **Förhandsladda Hive-bibliotek** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Se [lägga till Hive-bibliotek på HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md) |
+| **Installera Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Se [installerar och använder Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md). |
+| **Installera Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Se [installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md). |
+| **Förhandsladda Hive-bibliotek** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Se [lägga till Apache Hive-bibliotek på HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md) |
 
 
 Skriptåtgärd kan distribueras från Azure-portalen, Azure PowerShell eller med hjälp av HDInsight .NET SDK.  Mer information finns i [anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize].
 
-> [!NOTE]
+> [!NOTE]  
 > Exempel på skript fungerar bara med HDInsight-kluster av version 3.1 eller senare. Läs mer på HDInsight-klusterversioner [HDInsight-klusterversioner](hdinsight-component-versioning.md).
 >
 >
@@ -157,25 +154,25 @@ Här följer hjälpmetoder som tillhandahålls av det här skriptet:
 ## <a name="best-practices-for-script-development"></a>Metodtips för skriptutveckling av
 När du utvecklar ett anpassat skript för ett HDInsight-kluster kan finns det flera bästa praxis att tänka på:
 
-* Sök efter Hadoop-version
+* Söka efter den Hadoop-versionen.
 
     Endast HDInsight version 3.1 (Hadoop 2.4) och senare support med skriptåtgärder för att installera anpassade komponenter i ett kluster. I ett skript, måste du använda den **Get-HDIHadoopVersion** helper-metoden för att kontrollera Hadoop-versionen innan du fortsätter att utföra andra uppgifter i skriptet.
-* Ange stabil länkar till skriptresurser
+* Ange stabil länkar till skriptresurser.
 
     Användare bör se till att alla skript och andra artefakter som används i anpassningen av ett kluster förblir tillgängliga under hela klustrets livslängd och att versionerna av dessa filer inte ändrar för hela. De här resurserna krävs om återställningen av avbildningen av noder i klustret måste anges. Det bästa sättet är att hämta och arkivera allt i ett lagringskonto som du styr. Det här kontot kan vara standardkontot för lagring eller någon av de ytterligare lagringskonton som anges vid tidpunkten för distribution för ett anpassade kluster.
     Anpassade kluster-exempel i Spark- och R angivna i dokumentationen, exempelvis det är en lokal kopia av resurserna i det här lagringskontot: https://hdiconfigactions.blob.core.windows.net/.
-* Kontrollera att klustret anpassning skriptet är idempotent
+* Kontrollera att klustret anpassning skriptet är idempotent.
 
     Du får räkna med att noderna i ett HDInsight-kluster är avbildning återställs under klustrets livstid. Klustret anpassning skript körs när ett kluster återställs. Det här skriptet måste utformas ska vara idempotenta i den mening att efter återställningen av avbildningen, skriptet bör se till att klustret returneras till samma anpassade tillstånd som den var i bara när skriptet kördes för första gången när klustret skapades från början. Till exempel om ett anpassat skript har installerat ett program vid D:\AppLocation på den första körningen, sedan på varje efterföljande körning vid återställning av avbildning, skriptet ska kontrollera om programmet finns på D:\AppLocation plats innan du fortsätter med andra steg i den skript.
-* Installera anpassade komponenter i den optimala platsen
+* Installera anpassade komponenter i den optimala platsen.
 
     Om klusternoderna är avbildning kan C:\ resource enhet och D:\ systemenhet formateras om, vilket resulterar i förlust av data och program som har installerats på dessa enheter. Den här förlusten kan också inträffa om en Azure-dator (VM)-nod som är en del av klustret slutar fungera och ersätts av en ny nod. Du kan installera komponenter på D:\-enhet eller på plats C:\apps på klustret. Alla andra platser på enhet C:\ är reserverade. Ange platsen där program eller bibliotek ska installeras i klustret anpassning skriptet.
-* Garantera hög tillgänglighet för klusterarkitektur
+* Garantera hög tillgänglighet för klusterarkitekturen.
 
     HDInsight har en aktiv-passiv arkitektur för hög tillgänglighet, där en huvudnod är i aktivt läge (där HDInsight-tjänsterna körs) och andra Huvudnoden är i vänteläge (i vilken HDInsight tjänsterna inte körs). Noderna växla mellan lägena aktiva och passiva om HDInsight tjänster avbryts. Om en skriptåtgärd används för att installera tjänster på både huvudnoderna för hög tillgänglighet, Observera att mekanismen för HDInsight-redundans inte kan automatiskt växla över tjänsterna användarinstallerade. Så användarinstallerade tjänster på HDInsight huvudnoder som förväntas ha hög tillgänglighet måste antingen ha sina egna redundans sätt om du är i aktivt-passivt läge eller vara i aktivt-aktivt läge.
 
     Ett HDInsight-skriptåtgärder-kommando som körs på både huvudnoderna när rollen huvudnod anges som ett värde i den *ClusterRoleCollection* parametern. Så när du utformar ett anpassat skript, se till att skriptet är medveten om den här installationen. Du bör inte stöter på problem där samma tjänster har installerats och startats på både huvudnoderna och de hamnar konkurrerar med varandra. Tänk också på att data går förlorad under återställningen av avbildningen, så att programvaran via skriptåtgärd måste vara motståndskraftiga mot sådana händelser. Program bör utformas för att arbeta med med hög tillgänglighet data som är fördelade på flera noder. Upp till 1/5 noder i ett kluster kan att återställa avbildning på samma gång.
-* Konfigurera anpassade komponenter om du vill använda Azure Blob storage
+* Konfigurera anpassade komponenter om du vill använda Azure Blob storage.
 
     Med anpassade komponenter som du installerar på klusternoderna kan ha en standardkonfiguration för att använda Hadoop Distributed File System (HDFS) lagring. Du bör ändra konfigurationen för att använda Azure Blob storage i stället. På en kluster-reimage HDFS-filsystemets hämtar formaterad och du förlorar alla data som lagras där. Med Azure Blob storage i stället säkerställer att dina data finns kvar.
 
@@ -297,9 +294,9 @@ I händelse av att ett körningsfel inträffar ingå utdata som beskriver den oc
 
 ## <a name="see-also"></a>Se också
 * [Anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize]
-* [Installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]
-* [Installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md).
-* [Installera och använda Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md).
+* [Installera och använda Apache Spark på HDInsight-kluster][hdinsight-install-spark]
+* [Installera och använda Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md).
+* [Installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

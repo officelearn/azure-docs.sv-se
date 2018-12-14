@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 7ce11b3e54a8770a2b3d53e335afc57f52d3d14e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b74c3d355a720948c22e90b1792dcd6139c101ea
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425317"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338217"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Ordlista för utvecklare för Azure Active Directory
 
@@ -41,7 +41,7 @@ Se [tokenreferens för Azure-AD] [ AAD-Tokens-Claims] för mer information.
 
 ## <a name="application-id-client-id"></a>program-id (klient-id)
 
-Unik identifierare Azure AD-problem till en programregistrering som identifierar ett visst program och tillhörande konfigurationer. Den här program-id ([klient-id](https://tools.ietf.org/html/rfc6749#page-15)) används när du utför autentisering begär och är tillhandahålls autentisering-biblioteken i tid. Program-id (klient-id) är inte en hemlighet. 
+Unik identifierare Azure AD-problem till en programregistrering som identifierar ett visst program och tillhörande konfigurationer. Den här program-id ([klient-id](https://tools.ietf.org/html/rfc6749#page-15)) används när du utför autentisering begär och är tillhandahålls autentisering-biblioteken i tid. Program-id (klient-id) är inte en hemlighet.
 
 ## <a name="application-manifest"></a>programmanifest
 
@@ -102,7 +102,7 @@ Se [tokenreferens för Azure AD] [ AAD-Tokens-Claims] för mer information.
 
 ## <a name="client-application"></a>Klientprogram
 
-Enligt definitionen i den [OAuth2 auktorisering Framework][OAuth2-Role-Def], ett program som gör skyddade resursbegäranden för den [resursägaren](#resource-owner). Termen ”klient” innebär inte någon särskild maskinvaruegenskaper på implementering (till exempel om programmet körs på en server, en stationär dator eller andra enheter). 
+Enligt definitionen i den [OAuth2 auktorisering Framework][OAuth2-Role-Def], ett program som gör skyddade resursbegäranden för den [resursägaren](#resource-owner). Termen ”klient” innebär inte någon särskild maskinvaruegenskaper på implementering (till exempel om programmet körs på en server, en stationär dator eller andra enheter).
 
 Ett klientprogram begär [auktorisering](#authorization) från en resursägare att delta i en [OAuth2 auktoriseringsbeviljande](#authorization-grant) flödar och kan komma åt API: er/data åt ägare till resursen. Ramverk för OAuth2-auktorisering [definierar två typer av klienter][OAuth2-Client-Types], ”konfidentiellt” och ”offentliga”, baserat på klientens förmåga att upprätthålla sekretessen för autentiseringsuppgifterna. Program kan ha en [webbklienten (konfidentiellt)](#web-client) som körs på en webbserver, en [native client (offentlig)](#native-client) installerats på en enhet eller en [användar-agent-baserad klient (offentlig)](#user-agent-based-client)som körs i enhetens webbläsare.
 
@@ -118,7 +118,7 @@ En [OpenID Connect] [ OpenIDConnect-ID-Token] [säkerhetstoken](#security-token)
 
 Se [tokenreferens för Azure AD] [ AAD-Tokens-Claims] för mer information.
 
-## <a name="microsoft-identity-platform"></a>Microsoft identity-plattformen
+## <a name="microsoft-identity-platform"></a>Microsoft identitetsplattform
 
 Microsoft Identity-plattformen är en utveckling av identitetstjänsten och utvecklingsplattformen Azure Active Directory (Azure AD). Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter, får tokens för att anropa Microsoft Graph, andra Microsoft API:er eller API:er som utvecklare har byggt. Det är en fullständig plattform som består av en autentiseringstjänst, bibliotek, programregistrering och konfiguration, fullständig utvecklardokumentation, kodexempel och annat innehåll för utvecklare. Microsoft Identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect. Se [om Microsoft identity-plattformen](about-microsoft-identity-platform.md) för mer information.
 
@@ -151,7 +151,7 @@ Enligt definitionen i den [OAuth2 auktorisering Framework][OAuth2-Role-Def], en 
 
 Enligt definitionen i den [OAuth2 auktorisering Framework][OAuth2-Role-Def], en server som är värd för skyddad resurser, kan ta emot och svara på skyddade resursbegäranden av [klienten program](#client-application) som använder en [åtkomsttoken](#access-token). Även känt som en skyddad resurs server eller resursprogrammet.
 
-Resursservern visar API: er och tillämpar åtkomst till dess skyddade resurser via [scope](#scopes) och [roller](#roles), med hjälp av OAuth 2.0-auktorisering ramverket. Exempel: Azure AD Graph-API som ger åtkomst till Azure AD-klient-data och Office 365 API: er som ger åtkomst till data, till exempel e-post och kalender. Båda dessa är också tillgängliga via den [Microsoft Graph API][Microsoft-Graph]. 
+Resursservern visar API: er och tillämpar åtkomst till dess skyddade resurser via [scope](#scopes) och [roller](#roles), med hjälp av OAuth 2.0-auktorisering ramverket. Exempel: Azure AD Graph-API som ger åtkomst till Azure AD-klient-data och Office 365 API: er som ger åtkomst till data, till exempel e-post och kalender. Båda dessa är också tillgängliga via den [Microsoft Graph API][Microsoft-Graph].
 
 Precis som ett klientprogram resource programmets identitet konfiguration har upprättats [registrering](#application-registration) tillhandahåller både programmet och tjänstens huvudnamnsobjekt i en Azure AD-klient. Vissa Microsoft tillhandahåller API: er, till exempel Azure AD Graph-API har redan registrerat tjänstens huvudnamn som är tillgänglig i alla klienter under etableringen.
 
@@ -219,7 +219,7 @@ En typ av [klientprogram](#client-application) som utför all kod på en webbser
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den [utvecklarhandboken för Azure AD] [ AAD-Dev-Guide] är landningssidan som ska användas för alla Azure AD-utveckling-relaterade ämnen, t.ex. en översikt över [programintegrering] [ AAD-How-To-Integrate] och grunderna i [Azure AD-autentisering och autentisering som stöds scenarier][AAD-Auth-Scenarios]. Du kan också hitta kodexempel och självstudier om hur du får igång snabbt på [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+Den [utvecklarhandboken för Azure AD] [ AAD-Dev-Guide] är landningssidan som ska användas för alla Azure AD-utveckling-relaterade ämnen, t.ex. en översikt över [programintegrering] [ AAD-How-To-Integrate] och grunderna i [Azure AD-autentisering och autentisering som stöds scenarier][AAD-Auth-Scenarios]. Du kan också hitta kodexempel och självstudier om hur du får igång snabbt på [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Använd följande avsnitt för kommentarer för att ge feedback och hjälp att förfina och utforma det här innehållet, inklusive förfrågningar efter nya definitioner eller uppdatera befintliga!
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce1e82971f10541bf3a67d46b48c5fc93b5432b4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 4285c633062386657cbea478f327c9a1b088f16a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687086"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383824"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Installera och använda Presto på HDInsight Hadoop-kluster
 
@@ -22,13 +22,13 @@ I det här dokumentet du lära dig hur du installerar Presto på HDInsight Hadoo
 
 HDInsight erbjuder även stjärnexplosion Presto programmet för Apache Hadoop-kluster. Mer information finns i [installera program från tredje part på Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver en **HDInsight 3.5 Hadoop-kluster** som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight versioner](hdinsight-component-versioning.md).
 
 ## <a name="what-is-presto"></a>Vad är Presto?
 [Presto](https://prestodb.io/overview.html) är en snabb distribuerade SQL-frågemotor för stordata. Presto lämpar sig för interaktiva frågor på petabyte data. Mer information om komponenter av Presto och hur de fungerar tillsammans finns i [Presto begrepp](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
 
-> [!WARNING]
+> [!WARNING]  
 > Komponenter som tillhandahålls med HDInsight-kluster stöds fullt ut och Microsoft Support hjälper till att isolera och lösa problem relaterade till dessa komponenter.
 > 
 > Anpassade komponenter, till exempel Presto, får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Detta kan resultera i att lösa problemet eller där du uppmanas att engagera tillgängliga kanaler för tekniker med öppen källkod som där djup kompetens för den tekniken hittas. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
@@ -50,19 +50,19 @@ Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet
 
 2. På den **avancerade inställningar** Välj **skriptåtgärder**, och ange information nedan. Du kan också välja alternativet ”Installera Presto” för skripttypen.
    
-   * **NAMN på**: Ange ett eget namn för skriptåtgärden.
+   * **NAMN PÅ**: Ange ett eget namn för skriptåtgärden.
    * **Bash-skript-URI**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
-   * **HEAD**: Markera det här alternativet
-   * **WORKER**: Markera det här alternativet
-   * **ZOOKEEPER**: lämna den här kryssrutan tomt
-   * **PARAMETRAR**: lämna fältet tomt
+   * **HEAD**: Markera det här alternativet.
+   * **WORKER**: Markera det här alternativet.
+   * **ZOOKEEPER**: Lämna den här kryssrutan tom.
+   * **PARAMETRAR**: Lämna fältet tomt.
 
 
 3. Längst ned på den **skriptåtgärder** området klickar du på den **Välj** för att spara konfigurationen. Klicka slutligen på den **Välj** knappen längst ned på den **avancerade inställningar** område för att spara konfigurationsinformationen.
 
 4. Fortsätta att etablera klustret enligt beskrivningen i [etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Azure PowerShell, den klassiska Azure-CLI, HDInsight .NET SDK eller Azure Resource Manager-mallar kan också användas för att tillämpa skriptåtgärder. Du kan också använda skriptåtgärder för kluster som körs redan. Mer information finns i [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
     > 
     > 
@@ -86,7 +86,7 @@ Använd följande steg för att fungera Presto i ett HDInsight-kluster med:
    
         select count (*) from hivesampletable;
    
-    Som standard [Hive](https://prestodb.io/docs/current/connector/hive.html) och [TPCH](https://prestodb.io/docs/current/connector/tpch.html) anslutningsappar för Presto har redan konfigurerats. Hive-anslutning är konfigurerad för att använda installerat Hive standardinstallationen, så att alla tabeller från Hive automatiskt synliga i Presto.
+    Som standard [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) och [TPCH](https://prestodb.io/docs/current/connector/tpch.html) anslutningsappar för Presto har redan konfigurerats. Hive-anslutning är konfigurerad för att använda installerat Hive standardinstallationen, så att alla tabeller från Hive automatiskt synliga i Presto.
 
     Mer information finns i [Presto dokumentation](https://prestodb.io/docs/current/index.html).
 
@@ -168,11 +168,11 @@ TPC DS-är branschstandard för att mäta prestanda för många beslut support s
 
 
 ## <a name="see-also"></a>Se också
-* [Installera och använda Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md). Hue är ett webbgränssnitt som gör det enkelt att skapa, köra, och spara Pig och Hive-jobb.
+* [Installera och använda Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md). Hue är ett webbgränssnitt som gör det enkelt att skapa, köra och spara Apache Pig och Hive-jobb.
 
-* [Installera Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). Använd kluster anpassning för att installera Giraph på HDInsight Hadoop-kluster. Giraph kan du utföra diagrambearbetning med hjälp av Hadoop och kan användas med Azure HDInsight.
+* [Installera Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). Använd kluster anpassning för att installera Giraph på HDInsight Hadoop-kluster. Giraph kan du utföra diagrambearbetning med hjälp av Hadoop och kan användas med Azure HDInsight.
 
-* [Installera Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md). Använd kluster anpassning för att installera Solr på HDInsight Hadoop-kluster. Solr kan du utföra kraftfulla sökningar på lagrade data.
+* [Installera Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md). Använd kluster anpassning för att installera Solr på HDInsight Hadoop-kluster. Solr kan du utföra kraftfulla sökningar på lagrade data.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

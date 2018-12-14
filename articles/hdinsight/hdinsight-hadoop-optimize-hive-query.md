@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e9e92254db37edbd978b5799b13e63652e227f86
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014522"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385439"
 ---
-# <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimera Hive-frågor i Azure HDInsight
+# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive-frågor i Azure HDInsight
 
 I Azure HDInsight finns flera klustertyper och tekniker som kan köra Apache Hive-frågor. När du skapar ditt HDInsight-kluster väljer du lämplig klustertypen för att optimera prestanda för dina arbetsbelastningsbehov. 
 
@@ -38,7 +38,7 @@ HDInsight-kluster av typ av Hadoop-kluster är inte optimerade för prestanda so
 
 Läs mer om att skala HDInsight [skala HDInsight-kluster](hdinsight-scaling-best-practices.md)
 
-## <a name="use-tez-instead-of-map-reduce"></a>Använda Tez i stället för Map Reduce
+## <a name="use-apache-tez-instead-of-map-reduce"></a>Använda Apache Tez i stället för Map Reduce
 
 [Apache Tez](https://hortonworks.com/hadoop/tez/) är en alternativ Körningsmotor till MapReduce-motorn. Linux-baserade HDInsight-kluster har Tez aktiverat som standard.
 
@@ -124,16 +124,16 @@ Mer information finns i [partitionerade tabeller](https://cwiki.apache.org/confl
 ## <a name="use-the-orcfile-format"></a>Använd formatet ORCFile
 Hive stöder olika filformat. Exempel:
 
-* **Text**: standardfilformat och fungerar med de flesta scenarier
-* **Avro**: fungerar bra för heterogena miljöer
-* **ORC/Parquet**: bäst lämpade för prestanda
+* **Text**: standardfilformat och fungerar med de flesta scenarier.
+* **Avro**: fungerar bra för heterogena miljöer.
+* **ORC/Parquet**: bäst lämpade för prestanda.
 
 (Optimerad rad kolumner) ORC-format är ett mycket effektivt sätt att lagra Hive-data. ORC har jämfört med andra format, följande fördelar:
 
-* stöd för komplexa typer inklusive DateTime och komplexa och delvis strukturerade typer
-* upp till 70% komprimering
-* indexerar varje 10 000 rader, som gör att hoppa över rader
-* en betydande nedgång i körningsmiljön för körning
+* stöd för komplexa typer inklusive DateTime och komplexa och delvis strukturerade typer.
+* upp till 70% komprimering.
+* indexerar varje 10 000 rader, som gör att hoppa över rader.
+* en betydande nedgång i körningsmiljön för körning.
 
 Om du vill aktivera ORC-format, skapar du först en tabell med satsen *lagras som ORC*:
 
@@ -171,7 +171,7 @@ Nu ska infoga du data i ORC-tabellen från mellanlagringstabellen. Exempel:
     FROM lineitem;
    ```
    
-Du kan läsa mer på ORC-format i den [Hive Language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+Du kan läsa mer på ORC-format i den [Apache Hive Language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## <a name="vectorization"></a>Vectorization
 
@@ -196,10 +196,10 @@ Det finns flera optimeringsmetoder som du kan tänka på, till exempel:
 I den här artikeln har du lärt dig flera vanliga optimeringsmetoder för Hive-fråga. Mer information finns i följande artiklar:
 
 * [Använda Apache Hive i HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analysera flygförseningsdata med hjälp av Hive i HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Analysera Twitter-data med Hive i HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analysera sensordata med Frågekonsolen Hive med Hadoop i HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Använda Hive med HDInsight för att analysera loggar från webbplatser](hadoop/apache-hive-analyze-website-log.md)
+* [Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight](hdinsight-analyze-flight-delay-data.md)
+* [Analysera Twitter-data med Apache Hive i HDInsight](hdinsight-analyze-twitter-data.md)
+* [Analysera sensordata med hjälp av konsolen Apache Hive-fråga på Apache Hadoop i HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
+* [Använda Apache Hive med HDInsight för att analysera loggar från webbplatser](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

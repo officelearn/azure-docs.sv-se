@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 7339592833db148acb38ce378fe4cf261977dd72
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87edc2911a48aea1ff0d7ac826439fe547c7cd86
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275660"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342893"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
@@ -73,6 +73,20 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="nologs"></a>Scenario: Uppdatera hanteringsdata som inte visas i Log Analytics för en dator
+
+#### <a name="issue"></a>Problem
+
+Du har datorer som visas som **ej utvärderat** under **efterlevnad**, men du kan se pulsslag data i Log Analytics för Hybrid Runbook Worker men inte hantering av uppdateringar.
+
+#### <a name="cause"></a>Orsak
+
+Hybrid Runbook Worker kan behöva registreras igen och ominstalleras.
+
+#### <a name="resolution"></a>Lösning
+
+Följ stegen i [distribuera en Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) att installera om Hybrid Worker för Windows eller [distribuera en Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md) för Linux.
 
 ## <a name="windows"></a>Windows
 
@@ -141,20 +155,6 @@ Hybrid Runbook Worker gick inte att generera ett självsignerat certifikat
 #### <a name="resolution"></a>Lösning
 
 Kontrollera system-kontot har läsbehörighet till mappen **C:\ProgramData\Microsoft\Crypto\RSA** och försök igen.
-
-### <a name="nologs"></a>Scenario: Uppdatera hanteringsdata som inte visas i Log Analytics för en dator
-
-#### <a name="issue"></a>Problem
-
-Du har datorer som visas som **ej utvärderat** under **efterlevnad**, men du kan se pulsslag data i Log Analytics för Hybrid Runbook Worker men inte hantering av uppdateringar.
-
-#### <a name="cause"></a>Orsak
-
-Hybrid Runbook Worker kan behöva registreras igen och ominstalleras.
-
-#### <a name="resolution"></a>Lösning
-
-Följ stegen i [distribuera en Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) att installera om Hybrid Worker.
 
 ### <a name="hresult"></a>Scenario: Datorn visas som ej utvärderat och visar ett HResult-undantag
 

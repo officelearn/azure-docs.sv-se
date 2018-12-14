@@ -4,37 +4,35 @@ description: Konfigurera kontinuerlig integrering och kontinuerlig distribution 
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4db5fce89df0b5974261788608b785cf16917f1a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074807"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386833"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
-Du kan enkelt implementera DevOps med Azure IoT Edge-program med inbyggda Azure IoT Edge-uppgifter i Azure Pipelines eller [Azure IoT Edge-plugin för Jenkins](https://plugins.jenkins.io/azure-iot-edge) på Jenkins-servern. Den här artikeln visar hur du använder kontinuerlig integrering och kontinuerlig distribution funktionerna i Azure Pipelines och Azure DevOps-servern för att skapa, testa och distribuera program snabbt och effektivt till Azure IoT Edge. 
+Du kan enkelt implementera DevOps med Azure IoT Edge-program med inbyggda Azure IoT Edge-uppgifter i Azure Pipelines eller [Azure IoT Edge-plugin för Jenkins](https://plugins.jenkins.io/azure-iot-edge) på Jenkins-servern. Den här artikeln visar hur du kan använda den kontinuerliga integreringen och funktioner för kontinuerlig distribution av Azure Pipelines för att bygga, testa och distribuera program snabbt och effektivt till Azure IoT Edge. 
 
 I den här artikeln får du lära dig hur du:
 * Skapa och kontrollera i ett exempel på IoT Edge-lösning.
 * Konfigurera kontinuerlig integrering (CI) för att skapa lösningen.
 * Konfigurera kontinuerlig distribution (CD) för att distribuera lösningen och visa svar.
 
-Det tar 20 minuter att slutföra stegen i den här artikeln.
-
 ![Diagram - CI och CD grenar för utveckling och produktion](./media/how-to-ci-cd/cd.png)
 
 
 ## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Skapa en exempel Azure IoT Edge-lösning som använder Visual Studio Code
 
-I det här avsnittet skapar du ett exempel på IoT Edge lösning som innehåller enhetstester kan du köra som en del av skapandeprocessen. Innan du följer riktlinjerna i det här avsnittet utför du stegen i [utveckla en IoT Edge-lösning med flera moduler i Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
+I det här avsnittet skapar du ett exempel på IoT Edge lösning som innehåller enhetstester kan du köra som en del av skapandeprocessen. Innan du följer riktlinjerna i det här avsnittet utför du stegen i [utveckla en IoT Edge-lösning med flera moduler i Visual Studio Code](how-to-develop-multiple-modules-vscode.md).
 
-1. I VS Code kommandopalett skriver och kör kommandot **Azure IoT Edge: nya IoT-Edge lösning**. Välj sedan din arbetsytemapp, anger du Lösningsnamnet (standardnamnet är **EdgeSolution**), och skapa en C#-modul (**FilterModule**) som den första användarmodulen i den här lösningen. Du måste också ange lagringsplatsen för Docker-avbildningar för din första modul. Standard avbildningslagringsplatsen baseras på en lokal Docker-register (`localhost:5000/filtermodule`). Ändra den till Azure Container Registry (`<your container registry address>/filtermodule`) eller Docker-hubb för ytterligare kontinuerlig integrering.
+1. I VS Code kommandopalett skriver och kör kommandot **Azure IoT Edge: Ny IoT Edge-lösning**. Välj sedan din arbetsytemapp, anger du Lösningsnamnet (standardnamnet är **EdgeSolution**), och skapa en C#-modul (**FilterModule**) som den första användarmodulen i den här lösningen. Du måste också ange lagringsplatsen för Docker-avbildningar för din första modul. Standard avbildningslagringsplatsen baseras på en lokal Docker-register (`localhost:5000/filtermodule`). Ändra den till Azure Container Registry (`<your container registry address>/filtermodule`) eller Docker-hubb för ytterligare kontinuerlig integrering.
 
     ![Ställ in Azure Container Registry](./media/how-to-ci-cd/acr.png)
 
@@ -42,7 +40,7 @@ I det här avsnittet skapar du ett exempel på IoT Edge lösning som innehåller
 
 3. Din lösning för IoT Edge-exemplet är nu klar. Standard C# modulen fungerar som en modul för pipe-meddelande. I den `deployment.template.json`, visas den här lösningen innehåller två moduler. Meddelandet kommer att genereras från den `tempSensor` -modulen och kommer skickas direkt `FilterModule`, skickas sedan till din IoT-hubb.
 
-4. Spara dessa projekt och checkar in i din Azure-databaser eller Azure DevOps-Server-databasen.
+4. Spara dessa projekt och genomför i din Azure-databaser.
     
 > [!NOTE]
 > Mer information om hur du använder Azure-databaser finns i [dela din kod med Visual Studio och Azure-lagringsplatser](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -59,7 +57,7 @@ I det här avsnittet skapar du en build-pipeline som är konfigurerad för att k
 
     ![Skapa en ny bygg-pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-1. Om det händer väljer **Azure DevOps Git** källtyp. Välj sedan projektet, lagringsplatsen och grenen som var koden finns. Välj **fortsätta**.
+1. Om det händer väljer du Azure-lagringsplatser för källan. Välj sedan projektet, lagringsplatsen och grenen som var koden finns. Välj **fortsätta**.
 
     ![Välj Azure lagringsplatser Git](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -101,7 +99,7 @@ I det här avsnittet skapar du en build-pipeline som är konfigurerad för att k
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Konfigurera Azure Pipelines för kontinuerlig distribution
 I det här avsnittet skapar du en releasepipeline som är konfigurerad för att köras automatiskt när build-pipeline sjunker artefakter och den visar distributionsloggar i Azure-Pipelines.
 
-1. I den **versioner** fliken **+ ny pipeline**. Eller, om du redan har releaser kan välja den **+ ny** knappen.  
+1. I den **versioner** fliken **+ ny pipeline**. Eller, om du redan har releaser kan välja den **+ ny** och klicka sedan på **+ ny viktig pipeline**.  
 
     ![Lägg till releasepipeline](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -109,7 +107,7 @@ I det här avsnittet skapar du en releasepipeline som är konfigurerad för att 
 
     ![Börja med en tom jobb](./media/how-to-ci-cd/start-with-empty-job.png)
 
-2. Sedan versionspipelinen att initiera med ett steg: **steg 1**. Byt namn på den **steg 1** till **QA** och behandlar det som en testmiljö. Den finns vanligtvis flera faser i en typisk kontinuerlig distributionspipeline kan du skapa fler utifrån dina DevOps-metoder.
+2. Sedan initiera versionspipelinen med ett steg: **Steg 1**. Byt namn på den **steg 1** till **QA** och behandlar det som en testmiljö. Den finns vanligtvis flera faser i en typisk kontinuerlig distributionspipeline kan du skapa fler utifrån dina DevOps-metoder.
 
     ![Skapa test-miljö steg](./media/how-to-ci-cd/QA-env.png)
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50fa467a6405fdc6b99c78a8f57411abf3be6336
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 782e655edcb7cbac1965131bce4431dc5599328e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836635"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340637"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Hantera och åtgärda säkerhetsaviseringar i Azure Security Center
 Det här dokumentet beskriver hur du använder Azure Security Center för att hantera och svara på säkerhetsvarningar.
 
 > [!NOTE]
-> För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. En kostnadsfri utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](security-center-azure-policy.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
+> För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. En kostnadsfri utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](tutorial-security-policy.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
 >
 >
 
@@ -51,14 +51,14 @@ Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)
 
 Längst ned på sidan visas information om de olika aviseringarna. Du kan sortera listan genom att klicka på den kolumn som du vill sortera efter. Här följer en förklaring av de olika kolumnerna:
 
-* **Beskrivning**: en kort förklaring av aviseringen.
-* **Count (Antal)**: antalet problem av just den här typen som upptäckts en specifik dag
-* **Detected by (Upptäcktes genom)**: den tjänst som utlöste aviseringen
-* **Date (Datum)**: det datum då händelsen inträffade
-* **State (Status)**: aktuell status för den här aviseringen Det finns två tillstånd:
-  * **Active (Aktiv)**: Säkerhetsproblemet är upptäckt.
-  * **Dismissed (Avvisad)**: Säkerhetsaviseringen har avvisats av användaren. Den här statusen visas oftast för aviseringar som har undersöks och avhjälpts eller som visat inte vara något verkligt angrepp.
-* **Severity (Allvarlighetsgrad)**: kan vara hög, medelhög eller låg
+* **Beskrivning av**: En kort förklaring av aviseringen.
+* **Antal**: En lista över alla aviseringar för den här specifika typen som har identifierats på en viss dag.
+* **Identifierade av**: Den tjänst som utlöste aviseringen.
+* **Datum**: Det datum då händelsen inträffade.
+* **tillstånd**: Det aktuella tillståndet för den här aviseringen. Det finns två tillstånd:
+  * **Aktiva**: Säkerhetsaviseringen har identifierats.
+  * **Avvisade**: Säkerhetsaviseringen har avvisats av användaren. Den här statusen visas oftast för aviseringar som har undersöks och avhjälpts eller som visat inte vara något verkligt angrepp.
+* **Allvarlighetsgrad**: Allvarlighetsgrad, vilket kan vara hög, medel eller låg.
 
 > [!NOTE]
 > Säkerhetsvarningar som genererats av Security Center visas också under Azure-aktivitetsloggen. Mer information om hur du kommer åt Azure-aktivitetsloggen finns i [View activity logs to audit actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) (Visa aktivitetsloggar för att granska åtgärder på resurser).
@@ -70,13 +70,13 @@ Längst ned på sidan visas information om de olika aviseringarna. Du kan sorter
 > [!NOTE]
 > Allvarlighetsgrad för avisering visas på olika sätt i portalen och REST API, anges skillnaderna i listan nedan.
 
--   **Hög**: det finns en hög sannolikhet att resursen har komprometterats. Du bör se ut till den direkt. Security Center har hög exakthet i skadligt syfte och resultaten används för att utfärda aviseringen. Exempelvis kan en avisering som identifierar körningen av en känd skadlig, till exempel Mimikatz, ett vanliga verktyg som används för stöld av autentiseringsuppgifter. 
+-   **Hög**: Det finns en hög sannolikhet att resursen har komprometterats. Du bör se ut till den direkt. Security Center har hög exakthet i skadligt syfte och resultaten används för att utfärda aviseringen. Exempelvis kan en avisering som identifierar körningen av en känd skadlig, till exempel Mimikatz, ett vanliga verktyg som används för stöld av autentiseringsuppgifter. 
 -   **Medel (låg i REST-API)**: Detta är förmodligen en misstänkt aktivitet som kan tyda på att en resurs har komprometterats.
 Förtroende för Security Center analytiska eller söker är medium och säkerheten i skadligt syfte är mellan till hög. Dessa är vanligtvis machine learning eller avvikelseidentifiering baserat identifieringar. Till exempel ett tecken i försök från en avvikande plats.
 -   **Låg (Information i REST-API)**: Det kan vara en ofarliga positiva eller en attack med blockerade. 
     - Security Center är inte säker på nog att avsikten är skadlig och aktiviteten kan vara helt oskyldigt. Rensa logg är till exempel en åtgärd som kan inträffa när en angripare försöker att dölja ut sina spår, men i många fall en rutinmässig åtgärd utförs av administratörer.
     - Security Center berättar inte vanligtvis när blockerades attacker, såvida inte är ett intressant vi föreslår att du tittar närmare på. 
--   **Information (tyst i REST-API)**: du ser bara informationsaviseringar genom att granska nedåt i en säkerhetsincident eller om du använder REST-API med en specifik avisering ID. En incident består vanligtvis av ett antal aviseringar, vilket kan visas på egen hand ska bara endast i informationssyfte, men i kontexten för de andra aviseringarna kan vara värt av en närmare titt. 
+-   **Endast i informationssyfte (tyst i REST-API)**: Du ser bara informationsaviseringar när detaljnivån i en säkerhetsincident, eller om du använder REST-API med ett visst avisering-ID. En incident består vanligtvis av ett antal aviseringar, vilket kan visas på egen hand ska bara endast i informationssyfte, men i kontexten för de andra aviseringarna kan vara värt av en närmare titt. 
 
 ### <a name="filtering-alerts"></a>Filtrera varningar
 Aviseringarna kan filtreras efter datum, status och allvarlighetsgrad. Att filtrera kan vara bra när du vill begränsa hur många aviseringar du vill se. Kanske vill du till exempel se säkerhetsaviseringar från det senaste dygnet eftersom du undersöker ett potentiellt angrepp i systemet under den här tiden.

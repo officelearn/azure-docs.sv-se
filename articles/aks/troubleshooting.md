@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c20f2cc03565ce861dfc6317be8459fdafeef0bf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025358"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384113"
 ---
 # <a name="aks-troubleshooting"></a>AKS felsökning
 När du skapar eller manager AKS-kluster, kan ibland uppstå problem. Den här artikeln beskriver några vanliga problem och felsökning.
@@ -59,8 +59,31 @@ Om du inte ser kubernetes-instrumentpanelen kan du kontrollera om kube-proxy-pod
 
 Se till att standardwebbplatsen NSG inte har ändrats och den port 22 är öppen för anslutning till API-servern. Kontrollera om tunnelfront pod körs i namnområdet kube system. Om det inte är Framtvinga borttagning av den och kommer att startas om.
 
-### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Jag försöker uppgradera eller skala och får ”meddelande”: ”'imageReference' är inte tillåtet att ändra egenskapen”. Fel.  Hur kan jag åtgärda det här problemet?
+### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Jag försöker uppgradera eller skala och får ”meddelande”: ”'ImageReference' är inte tillåtet att ändra egenskapen”. Fel.  Hur kan jag åtgärda det här problemet?
 
 Det är möjligt att du får det här felet eftersom du har ändrat taggar i agentnoder i AKS-klustret. Ändra och ta bort taggar och andra egenskaper för resurser i resursgruppen MC_ * kan leda till oväntade resultat. Ändra resurser under MC_ * i AKS-kluster delar på SLO.
 
+### <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Hur förnyar jag tjänstens huvudhemlighet på mitt AKS-kluster?
 
+Som standard skapas AKS-kluster med en tjänst huvudnamn som har en förfallotid för ett år. Som du nära förfallodatum för ett år, kan du återställa autentiseringsuppgifter för att utöka tjänstens huvudnamn för en ytterligare period.
+
+I följande exempel utförs följande steg:
+
+1. Hämtar ID för tjänstens huvudnamn för ditt kluster med hjälp av den [az aks show](/cli/azure/aks#az-aks-show) kommando.
+1. Visar en lista över den service principal client secret med hjälp av den [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)
+1. Utökar tjänstens huvudnamn för en annan ett år med den [az ad sp credential-återställning](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) kommando. Klienthemlighet för tjänstens huvudnamn måste vara samma för AKS-klustret ska fungera korrekt.
+
+```azurecli
+# Get the service principal ID of your AKS cluster
+sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+
+# Get the existing service principal client secret
+key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
+
+# Reset the credentials for your AKS service principal and extend for 1 year
+az ad sp credential reset \
+    --name $sp_id \
+    --password $key_secret \
+    --years 1
+```

@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5237ab2b6970772e1f08264bb44223640c33a37
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 67995b4cc9c212f1798a37b54873bd349ac36576
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187270"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384930"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Konfigurera automatisk machine learning-experiment
 
@@ -232,8 +232,9 @@ Egenskap  |  Beskrivning | Standardvärde
 `run_configuration` |   RunConfiguration-objekt.  Används för fjärråtkomst körs. |Ingen
 `data_script`  |    Sökväg till en fil som innehåller get_data-metoden.  Krävs för remote körs.   |Ingen
 `model_explainability` | _Valfritt_ SANT/FALSKT <br/>  True aktiverar experimentera för att utföra funktionen vikten för varje iteration. Du kan också använda explain_model() metod på en viss iteration för att aktivera funktionen vikten på begäran som upprepas när experimentet har slutförts. | False
-`enable_ensembling`|Flagga för att aktivera en ensembling iteration när alla andra iterationer har slutfört.|
-`ensemble_iterations`|Antal upprepningar som vi välja en monterad pipeline vara en del av den slutliga ensemble.|
+`enable_ensembling`|Flagga för att aktivera en ensembling iteration när alla andra iterationer har slutfört.| True 
+`ensemble_iterations`|Antal upprepningar som vi välja en monterad pipeline vara en del av den slutliga ensemble.| 15
+`experiment_timeout_minutes`| Begränsar hur lång tid (minues) som kan vidta för hela körningen av experimentet | Ingen
 
 ## <a name="data-pre-processing-and-featurization"></a>Förbearbetning av data och funktionalisering
 

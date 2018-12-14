@@ -12,16 +12,19 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/23/2018
-ms.openlocfilehash: f26ea763d48d03fe7e981b7abbbe64e573ec0b3a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7ad3b81b792b37d2c3667dd554d41319a5727045
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224281"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336422"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Konfigurera en anpassad DNS för Azure SQL Database Managed Instance
 
-En Azure SQL Database Managed Instance måste distribueras i en Azure [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Det finns ett par scenarier (dvs. länkade servrar till andra SQL-instanser i miljön moln eller hybrid) som kräver privata värdnamn som matchas från den hanterade instansen. I så fall måste du konfigurera en anpassad DNS i Azure. Eftersom Managed Instance använder samma DNS för dess informationsresurser, måste DNS-konfiguration för virtuellt nätverk vara kompatibel med Managed Instance. 
+En Azure SQL Database Managed Instance måste distribueras i en Azure [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Det finns ett par scenarier (till exempel db e-post, länkade servrar till andra SQL-instanser i miljön moln eller hybrid) som kräver privata värdnamn som matchas från den hanterade instansen. I så fall måste du konfigurera en anpassad DNS i Azure. Eftersom Managed Instance använder samma DNS för dess informationsresurser, måste DNS-konfiguration för virtuellt nätverk vara kompatibel med Managed Instance. 
+
+   > [!IMPORTANT]
+   > Använd alltid fullständigt kvalificerade domännamn (FQDN) för e-postservrar, SQL-servrar och andra tjänster även om de är i privat DNS-zonen. Till exempel använda `smtp.contoso.com` för e-postserver eftersom enkel `smtp` löses inte korrekt.
 
 Om du vill göra en anpassad DNS-konfiguration är kompatibel med den hanterade instansen måste du: 
 - Konfigurera anpassad DNS-server så att den är kan matcha offentliga domännamn 
@@ -38,10 +41,10 @@ Om du vill göra en anpassad DNS-konfiguration är kompatibel med den hanterade 
    ![anpassad dns-alternativ](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Inte kan Azures rekursiva matchare i listan över DNS ge den hanterade instansen att ange ett felaktigt tillstånd där de anpassade DNS-servrarna inte kan användas av någon anledning. Återställa från att tillståndet kan kräva att du vill skapa en ny instans i ett virtuellt nätverk med efterlevnadsprinciperna för nätverk, skapa nivå instansdata och återställa databaserna. Ställa in Azures rekursiva matchare som säkerställer att den sista posten i listan över DNS, även om det misslyckas alla anpassade DNS-servrar, offentliga namn kan fortfarande matchas. Se [konfiguration av virtuellt nätverk](sql-database-managed-instance-vnet-configuration.md).
+   > Inte kan Azures rekursiva matchare i listan över DNS ge den hanterade instansen att ange ett felaktigt tillstånd där de anpassade DNS-servrarna inte kan användas av någon anledning. Återställa från att tillståndet kan kräva att du vill skapa en ny instans i ett virtuellt nätverk med efterlevnadsprinciperna för nätverk, skapa nivå instansdata och återställa databaserna. Ställa in Azures rekursiva matchare som säkerställer att den sista posten i listan över DNS, även om det misslyckas alla anpassade DNS-servrar, offentliga namn kan fortfarande matchas.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt finns i [vad är en hanterad instans](sql-database-managed-instance.md)
 - En självstudiekurs som visar hur du skapar en ny hanterad instans finns i [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
-- Information om hur du konfigurerar ett virtuellt nätverk för en hanterad instans finns i [konfiguration av virtuellt nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md)
+- Information om hur du konfigurerar ett virtuellt nätverk för en hanterad instans finns i [konfiguration av virtuellt nätverk för hanterade instanser](sql-database-managed-instance-connectivity-architecture.md)

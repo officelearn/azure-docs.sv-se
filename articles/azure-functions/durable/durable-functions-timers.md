@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad6ddacad322e4c2f952591be786d46cbcb95a21
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7af204ad76cb04c3d71c5108948be4036be1d1e4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642692"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338846"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timers i varaktiga funktioner (Azure Functions)
 
 [Varaktiga funktioner](durable-functions-overview.md) ger *varaktiga timers* för användning i orchestrator-funktioner att implementera fördröjningar eller ställa in timeouter på asynkrona åtgärder. Hållbar timers ska användas i orchestrator-funktioner i stället för `Thread.Sleep` och `Task.Delay` (C#) eller `setTimeout()` och `setInterval()` (JavaScript).
 
-Du skapar en hållbar timer genom att anropa den [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) -metod i [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). Metoden returnerar en uppgift som återupptar på ett angivet datum och tid.
+Du skapar en hållbar timer genom att anropa den [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) -metoden för [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) i .NET, eller `createTimer` -metoden för `DurableOrchestrationContext` i JavaScript. Metoden returnerar en uppgift som återupptar på ett angivet datum och tid.
 
 ## <a name="timer-limitations"></a>Begränsningar för timer
 
@@ -29,13 +29,13 @@ När du skapar en timer som upphör att gälla 4:30 pm, den underliggande varakt
 
 > [!NOTE]
 > * Hållbar timers kan inte räcker längre än 7 dagar på grund av begränsningar i Azure Storage. Vi arbetar på en [funktionsförfrågan att utöka timers längre än 7 dagar](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Använd alltid [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) i stället för `DateTime.UtcNow` som visas i exemplen nedan när du beräknar en tidsgräns som är relativ i en hållbar timer.
+> * Använd alltid [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) i stället för `DateTime.UtcNow` i .NET och `currentUtcDateTime` i stället för `Date.now` eller `Date.UTC` i JavaScript som visas i exemplen nedan när du beräknar en tidsgräns som är relativ i en hållbar timer .
 
 ## <a name="usage-for-delay"></a>Användning för fördröjning
 
 I följande exempel visas hur du använder varaktiga timers om man vill senarelägga körning. I exempel utfärdar ett fakturering meddelande varje dag under tio dagar.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
 
 ```js
 const df = require("durable-functions");
@@ -68,13 +68,13 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Undvika oändliga slingor i orchestrator-funktioner. Information om hur du säkert och effektivt implementerar oändlig loop-scenarier finns i [Eternal-Orkestreringar](durable-functions-eternal-orchestrations.md). 
+> Undvika oändliga slingor i orchestrator-funktioner. Information om hur du säkert och effektivt implementerar oändlig loop-scenarier finns i [Eternal-Orkestreringar](durable-functions-eternal-orchestrations.md).
 
 ## <a name="usage-for-timeout"></a>Användning för tidsgräns
 
 Det här exemplet illustrerar hur du använder varaktiga timers för att implementera tidsgränser.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -105,7 +105,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
 
 ```js
 const df = require("durable-functions");
@@ -142,4 +142,3 @@ En mer ingående exempel på hur du implementerar tidsgränser i orchestrator-fu
 
 > [!div class="nextstepaction"]
 > [Lär dig att öka och hantera externa händelser](durable-functions-external-events.md)
-

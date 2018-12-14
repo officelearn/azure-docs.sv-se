@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0be2895bf08cc7d6aa0b2e55b62b2d6705b27725
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: eb407a1026ab62fa719600a3992dc3b4653f1583
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007304"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383926"
 ---
-# <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Ambari-webbgränssnittet, JobHistory, NameNode, Oozie och andra web UIs
+# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Apache Ambari-webbgränssnittet, JobHistory, NameNode, Apache Oozie och andra web UIs
 
-HDInsight-kluster ger åtkomst till Ambari-webbgränssnittet via Internet, men vissa funktioner kräver en SSH-tunnel. Till exempel kan webbgränssnittet för Oozie-tjänsten inte nås via internet utan en SSh-tunnel.
+HDInsight-kluster ger åtkomst till Apache Ambari-webbgränssnittet via Internet, men vissa funktioner kräver en SSH-tunnel. Till exempel kan webbgränssnittet för Apache Oozie-tjänsten inte nås via internet utan en SSh-tunnel.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Varför ska jag använda en SSH-tunnel
 
@@ -34,7 +34,7 @@ Följande Web UIs kräver en SSH-tunnel:
 
 Om du använder skriptåtgärder för att anpassa ditt kluster, kräver alla tjänster eller verktyg som du installerar som Exponerar en webbtjänst en SSH-tunnel. Om du installerar nyans med en skriptåtgärd kan använda du till exempel en SSH-tunnel till Hue-webbgränssnittet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Om du har direkt åtkomst till HDInsight via ett virtuellt nätverk, behöver du inte använda SSH-tunnlar. Ett exempel för att komma åt HDInsight direkt via ett virtuellt nätverk finns i den [ansluta HDInsight till det lokala nätverket](connect-on-premises-network.md) dokumentet.
 
 ## <a name="what-is-an-ssh-tunnel"></a>Vad är en SSH-tunnel
@@ -100,14 +100,14 @@ När kommandot har slutförts, dirigeras trafik som skickas till port 9876 på d
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Använda tunneln från din webbläsare
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här avsnittet använder webbläsaren Mozilla FireFox eftersom den innehåller samma proxyinställningar på alla plattformar. Andra webbläsare, till exempel Google Chrome kan kräva ett tillägg, till exempel FoxyProxy att arbeta med tunneln.
 
 1. Konfigurera webbläsaren att använda **localhost** och den port du använde när du skapar tunnel som en **SOCKS v5** proxy. Här är hur Firefox-inställningar som ska se ut. Om du använder en annan port än 9876, byta till den som du använde:
    
     ![Bild av Firefox-inställningar](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > Att välja **fjärr-DNS** löser Domain Name System (DNS)-begäranden med hjälp av HDInsight-kluster. Den här inställningen löser DNS med hjälp av huvudnod i klustret.
 
 2. Kontrollera att tunneln fungerar genom att gå till en plats som [ http://www.whatismyip.com/ ](http://www.whatismyip.com/). Den returnerade IP-Adressen måste vara en används av Microsoft Azure-datacenter.
@@ -118,7 +118,7 @@ När klustret har upprättats, Använd följande steg för att verifiera att du 
 
 1. I webbläsaren går du till http://headnodehost:8080. Den `headnodehost` adress skickas via tunneln till klustret och Lös till huvudnoden som Ambari körs på. När du uppmanas, anger du det användarnamn för administratör (admin) och lösenord för klustret. Du kan uppmanas en gång med Ambari-webbgränssnittet. I så, fall ange informationen.
 
-   > [!NOTE]
+   > [!NOTE]  
    > När du använder den http://headnodehost:8080 -adressen för att ansluta till klustret, du ansluter via tunneln. Kommunikationen skyddas med hjälp av SSH-tunnel i stället för HTTPS. Om du vill ansluta via internet med hjälp av HTTPS, https://clustername.azurehdinsight.net, där **clustername** är namnet på klustret.
 
 2. Ambari-Webbgränssnittet Välj HDFS i listan till vänster på sidan.
@@ -129,7 +129,7 @@ När klustret har upprättats, Använd följande steg för att verifiera att du 
 
     ![Bild med expanderad meny med snabblänkar](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > När du väljer __snabblänkar__, kan du få en wait-indikator. Det här tillståndet kan inträffa om du har en långsam Internetanslutning. Vänta en minut eller två innan data tas emot från servern och försök sedan listan igen.
    >
    > Vissa poster i den **snabblänkar** menyn kan vara klipps bort höger sida av skärmen. I så, fall expanderar du menyn med hjälp av musen och Använd högerpilen för att rulla skärmen till höger för att se resten av menyn.
@@ -138,14 +138,14 @@ När klustret har upprättats, Använd följande steg för att verifiera att du 
 
     ![Bild av NameNode Användargränssnittet](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Lägg märke till URL-Adressen för den här sidan. Det bör likna **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. URI: N använder det interna fullständigt kvalificerade domännamnet (FQDN) för noden och är endast tillgänglig när du använder en SSH-tunnel.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du skapar och använder en SSH-tunnel, se följande dokument för andra sätt att använda Ambari:
 
-* [Hantera HDInsight-kluster med Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Hantera HDInsight-kluster med hjälp av Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 Mer information om hur du använder SSH med HDInsight finns i [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

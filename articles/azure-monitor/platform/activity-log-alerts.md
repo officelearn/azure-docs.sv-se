@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7b210a774cfdb9b7f33ec08cc75886c77e3e6cc0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285552"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341533"
 ---
 # <a name="alerts-on-activity-log"></a>Aviseringar för aktivitetsloggen 
 
@@ -61,7 +61,7 @@ Läs mer om åtgärdsgrupper i [skapa och hantera åtgärdsgrupper i Azure-porta
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Hämta en [översikt över aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+- Hämta en [översikt över aviseringar](../../azure-monitor/platform/alerts-overview.md).
 - Lär dig mer om [skapa och ändra aviseringar för aktivitetsloggar](../../azure-monitor/platform/alerts-activity-log.md).
 - Granska den [avisering webhook för aktivitetslogg](activity-log-alerts-webhook.md).
 - Lär dig mer om [service health meddelanden](../../monitoring-and-diagnostics/monitoring-service-notifications.md).

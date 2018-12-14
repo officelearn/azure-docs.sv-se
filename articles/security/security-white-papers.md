@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 214598291e69acfec2064738f798a48180ad05a6
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bb23dd98768c4aaa343082bbc2caae43071a5e1f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323003"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385677"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security-faktablad
 | | |
@@ -41,3 +41,5 @@ ms.locfileid: "53323003"
 |[Isolering i det offentliga Azure-molnet](azure-isolation.md)|Beskriver hur Azure ger isolering mot både skadlig och icke-skadliga användare. Fungerar som en vägledning för att skapa molnlösningar genom att erbjuda olika alternativ för isolering arkitekter. Primärt fokus är på kundinriktade säkerhetskontroller och försöker inte adress serviceavtal, modeller och DevOps-överväganden.|
 |[Översikt över efterlevnad i Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Den här hämtningsbara dokument innehåller Azure efterlevnadserbjudanden, däribland formella certifieringar, attesteringar, verifieringar, tillstånd och utvärderingar som produceras av fristående från tredje part granskning företag, samt avtalsenliga ändringar självutvärderingar, och kunden vägledning dokument kommer från Microsoft. <br/> Varje erbjudande beskrivning tillstånd kundinriktad vilka Azure-tjänster är inom omfånget för utvärderingen och innehåller länkar till hämtningsbara resurser för att hjälpa kunder med sina egna efterlevnad skyldigheter.|
 |[Säkerhetshantering i Azure](azure-security-management.md)|Beskrivs problem i fjärråtkomst för Azure-resurser. Natur i molnet kräver fjärråtkomst administration och därför säkerhet är avgörande. Beskriver allmänna riktlinjer, klientkonfiguration, bästa praxis och operativa principer och procedurer. |
+|[Azure Active Directory-säkerhetsaspekter](https://aka.ms/aaddatawhitepaper) | Nedladdningsbara dokumentet beskriver de olika komponenterna i Azure Active Directory och deras interaktion med varandra. Den beskriver hur de olika komponenterna skydda, säker, kryptera eller hash-sina data under överföring (till exempel via Internet) och hur den är skyddad i vila. Den förklarar olika datacenter-platser för Azure AD och deras interaktion med lokala kataloger, samt flödena till och från Azure AD. Slutligen beskriver operativa rutiner som används av det tekniska teamet för Azure AD för att hantera och skydda tjänsten.|
+

@@ -8,18 +8,18 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/04/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 265314ebf2568bd586934d371e1e6c1d74e0b9bb
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642314"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336535"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Översikt över funktionstyper och funktioner för varaktiga funktioner (Azure Functions)
 
-Azure varaktiga funktioner ger tillståndskänslig orkestrering av körning av funktion. En hållbar funktion är en lösning som består av olika Azure-funktioner. Var och en av dessa funktioner kan spela upp olika roller som en del av en orkestrering. Följande dokument innehåller en översikt över typerna av funktioner som ingår i en hållbar funktionen dirigering. Den innehåller också vissa vanliga mönster i ansluter funktioner tillsammans.  Kom igång nu genom att skapa din första varaktiga funktion i [ C# ](durable-functions-create-first-csharp.md) eller [JavaScript](quickstart-js-vscode.md).
+Varaktiga funktioner ger tillståndskänslig orkestrering av körning av funktion. En hållbar funktion är en lösning som består av olika Azure-funktioner. Var och en av dessa funktioner kan spela upp olika roller som en del av en orkestrering. Följande dokument innehåller en översikt över typerna av funktioner som ingår i en hållbar funktionen dirigering. Den innehåller också vissa vanliga mönster i ansluter funktioner tillsammans.  Kom igång nu genom att skapa din första varaktiga funktion i [ C# ](durable-functions-create-first-csharp.md) eller [JavaScript](quickstart-js-vscode.md).
 
 ![Typer av varaktiga funktioner][1]  
 
@@ -27,9 +27,11 @@ Azure varaktiga funktioner ger tillståndskänslig orkestrering av körning av f
 
 ### <a name="activity-functions"></a>Aktivitetsfunktioner
 
-Aktivitetsfunktioner är den grundläggande enheten för arbete i en hållbar dirigering.  Aktivitetsfunktioner är de funktioner och uppgifter som dirigeras i processen.  Du kan till exempel skapa en hållbar funktion att bearbeta en order - Kontrollera lagret, debitera kunden eller skapa en leverans.  Var och en av dessa uppgifter är en funktion för aktiviteten.  Aktivitetsfunktioner har inte några begränsningar i vilken typ av arbete som du kan göra i dem.  De kan skrivas på valfritt språk som stöds av Azure Functions.  Hållbar uppgift framework garanterar att varje funktion kallad aktivitet körs minst en gång under en orkestrering.
+Aktivitetsfunktioner är den grundläggande enheten för arbete i en hållbar dirigering.  Aktivitetsfunktioner är de funktioner och uppgifter som dirigeras i processen.  Du kan till exempel skapa en hållbar funktion att bearbeta en order - Kontrollera lagret, debitera kunden eller skapa en leverans.  Var och en av dessa uppgifter är en funktion för aktiviteten.  Aktivitetsfunktioner har inte några begränsningar i vilken typ av arbete som du kan göra i dem.  De kan skrivas på något [språk som stöds av varaktiga funktioner](durable-functions-overview.md#language-support). Hållbar uppgift ramverket garanterar att varje funktion kallad aktivitet ska köras minst en gång under en orkestrering.
 
-En aktivitet-funktion måste aktiveras via en [aktivitet utlösaren](durable-functions-bindings.md#activity-triggers).  Den här funktionen kommer att få en [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som en parameter. Du kan också binda utlösaren till alla andra objekt att skicka in indata till funktionen.  Funktionen aktivitet kan också returnera värden till orchestrator.  Om skicka eller returnerar flera värden från en aktivitet-funktion, kan du [utnyttjar tupplar eller matriser](durable-functions-bindings.md#passing-multiple-parameters).  Aktivitetsfunktioner kan bara aktiveras från en orchestration-instans.  Medan kod kan delas mellan en aktivitet-funktion och en annan funktion (till exempel en HTTP-utlöst funktion), kan varje funktion bara ha en utlösare.
+En aktivitet-funktion måste aktiveras via en [aktivitet utlösaren](durable-functions-bindings.md#activity-triggers).  .NET-funktioner kommer att få en [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som en parameter. Du kan också binda utlösaren till alla andra objekt att skicka in indata till funktionen. I JavaScript, indata kan nås via den `<activity trigger binding name>` egenskap på den [ `context.bindings` objektet](../functions-reference-node.md#bindings).
+
+Funktionen aktivitet kan också returnera värden till orchestrator.  Om skicka eller returnerar flera värden från en aktivitet-funktion, kan du [utnyttjar tupplar eller matriser](durable-functions-bindings.md#passing-multiple-parameters).  Aktivitetsfunktioner kan bara aktiveras från en orchestration-instans.  Medan kod kan delas mellan en aktivitet-funktion och en annan funktion (till exempel en HTTP-utlöst funktion), kan varje funktion bara ha en utlösare.
 
 Mer information och exempel finns i den [varaktiga funktioner bindning artikeln](durable-functions-bindings.md#activity-triggers).
 
@@ -79,7 +81,9 @@ Mer information och exempel finns i den [felhantering artikeln](durable-function
 
 En hållbar orchestration lagras vanligtvis i en kontext för en enskild funktion-app, finns men det mönster så att du kan koordinera orkestreringar mellan många funktionsappar.  Även om kommunikationen mellan appar kan hända via HTTP, med hjälp av beständiga ramverket för varje aktivitet innebär att du kan fortfarande ha en beständig process i två appar.
 
-Ett exempel på en mellan funktionsapp orchestration i C# finns nedan.  En aktivitet börjar externa dirigering. En annan aktivitet sedan hämtar och returnerar status.  Orchestrator ska vänta tills statusen ska vara klar innan du fortsätter.
+Exempel på en mellan funktionsapp orchestration i C# och JavaScript anges nedan.  En aktivitet börjar externa dirigering. En annan aktivitet sedan hämtar och returnerar status.  Orchestrator ska vänta tills statusen ska vara klar innan du fortsätter.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("OrchestratorA")]
@@ -128,6 +132,64 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
         return response.StatusCode == HttpStatusCode.OK;
     }
 }
+```
+
+#### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    // Do some work...
+
+    // Call a remote orchestration
+    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
+
+    // Wait for the remote orchestration to complete
+    while (true) {
+        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
+        if (isComplete) {
+            break;
+        }
+
+        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
+        yield context.df.createTimer(waitTime);
+    }
+
+    // B is done. Now go do more work...
+});
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, orchestratorName) {
+    const options = {
+        method: "POST",
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
+        body: ""
+    };
+
+    const statusUrl = await request(options);
+    return statusUrl;
+};
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, statusUrl) {
+    const options = {
+        method: "GET",
+        uri: statusUrl,
+        resolveWithFullResponse: true,
+    };
+
+    const response = await request(options);
+    // 200 = Complete, 202 = Running
+    return response.statusCode === 200;
+};
 ```
 
 ## <a name="next-steps"></a>Nästa steg

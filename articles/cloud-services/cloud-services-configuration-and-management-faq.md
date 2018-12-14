@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: fe096efba5419b283981f27e16c3e30a791412da
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322678"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387003"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och av hanteringsproblem för Azure Cloud Services: Vanliga frågor och svar (FAQ)
 
@@ -242,7 +242,7 @@ Autoskala baserat på minne mått för Cloud Services stöds inte för närvaran
 
 Du kan använda Application Insights för att undvika problemet. Automatisk skalning har stöd för Application Insights som en källa för mått och kan skala instansantalet roll baserat på gästen mått, till exempel ”minnet”.  Du måste konfigurera Application Insights i Cloud Service-paketet projektfilen (*.cspkg) och aktivera Azure-diagnostiktillägget på tjänsten för att implementera den här prestation.
 
-Mer information om hur du använder ett anpassat mått via Application Insights för att konfigurera automatisk skalning på molntjänster finns i [komma igång med automatisk skalning med anpassat mått i Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+Mer information om hur du använder ett anpassat mått via Application Insights för att konfigurera automatisk skalning på molntjänster finns i [komma igång med automatisk skalning med anpassat mått i Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 
 Läs mer om hur du integrerar Azure Diagnostics med Application Insights för Cloud Services, [skicka molntjänst, virtuell dator eller Service Fabric diagnostiska data till Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 

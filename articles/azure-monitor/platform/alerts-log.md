@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 768c26ad4d7eead2fcd81b9d9ea9270e1181bd91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277445"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339220"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor  
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du ställer in aviseringar med hjälp av gränssnitt
 Termen **Loggaviseringar** att beskriva aviseringar där signalen är anpassad fråga baserat på [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../../application-insights/app-insights-analytics.md). Mer information om funktioner, terminologi och typer från [Loggaviseringar - översikt](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
-> Populära loggdata från [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)
+> Populära loggdata från [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](../../azure-monitor/platform/alerts-metric-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Hantera aviseringar från Azure portal
 

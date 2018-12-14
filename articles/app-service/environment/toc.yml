@@ -85,7 +85,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Kvotinformation
     href: ../../azure-subscription-service-limits.md#app-service-limits
-  - name: Tjänstuppdateringar och viktig information
+  - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=app-service
   - name: Bästa praxis
     href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
@@ -112,22 +112,22 @@ items:
     - name: Felsöka Node.js-app
       href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Felsöka HTTP 502 och 503
-      href: ../app-service-web-troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+      href: ../troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Felsöka prestandaproblem
-      href: ../app-service-web-troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+      href: ../troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: VANLIGA FRÅGOR OCH SVAR
       items:
       - name: Vanliga frågor och svar om tillgänglighet, prestanda och program
-        href: ../app-service-web-availability-performance-application-issues-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Vanliga frågor och svar om distribution
-        href: ../app-service-web-deployment-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Vanliga frågor och svar om tekniker med öppen källkod
-        href: ../app-service-web-open-source-technologies-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Vanliga frågor och svar om konfiguration och hantering
-        href: ../app-service-web-configuration-and-management-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-ms.openlocfilehash: d9a026c0ba2601a1a4e61c5868b4fdd53599f579
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+        href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+ms.openlocfilehash: 0d19ea767773c7e944625973f28e025b74a093e4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165746"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384317"

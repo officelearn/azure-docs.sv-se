@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3f485d2e7c2aefaede7d0334fd89ce3bea9e3f3a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187916"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337078"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Med Azure Monitor för virtuella datorer (förhandsversion) mappas och förstå programkomponenter
 Visa de identifierade programkomponenterna i Windows och Linux-datorer som körs i Azure som din miljö kan observeras på två sätt med Azure Monitor för virtuella datorer från en virtuell dator direkt eller i grupper med virtuella datorer från Azure Monitor. 
@@ -51,7 +51,7 @@ Om du vill aktivera funktionen kartan att visa relevanta aviseringar måste du s
 - Innehåller en instruktion i gruppen per dator (till exempel **datorn intervall 1 minut**).
 - Välj varningar baserat på metriska måttenheter.
 
-Läs mer om Azure-aviseringar och skapa Varningsregler [Unified aviseringar i Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+Läs mer om Azure-aviseringar och skapa Varningsregler [Unified aviseringar i Azure Monitor](../../azure-monitor/platform/alerts-overview.md)
 
 Den **förklaring** alternativ i det övre högra hörnet beskriver symboler och roller på en karta.  Zooma in för en närmare titt på kartan och flytta it runt zoomning kontrollerna längst till höger på sidan anger zoomningsgraden och anpassa till sida för storleken på den aktuella sidan.  
 

@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 97f1c9e16ae6be9e6bece69d0923f6290a8cd072
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024723"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339271"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhetens SDK för C
 
@@ -75,11 +75,11 @@ Det finns flera verktyg för öppen källkod för att hantera din IoT-hubb.
 
 * Ett Windows-program som kallas [enhetsutforskare](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Ett plattformsoberoende Visual Studio Code-tillägg kallas [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+* Ett plattformsoberoende Visual Studio Code-tillägg kallas [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (tidigare Azure IoT Toolkit).
 
 * En plattformsoberoende Python CLI kallas [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
-Den här självstudien används den grafiska *enhetsutforskare* verktyget. Du kan använda den *Azure IoT Toolkit-tillägget för VS Code* om du utvecklar i VS Code. Du kan också använda den *IoT-tillägget för Azure CLI 2.0* verktyget om du föredrar att använda ett CLI-verktyg.
+Den här självstudien används den grafiska *enhetsutforskare* verktyget. Du kan använda den *Azure IoT Hub Toolkit-tillägget för VS Code* om du utvecklar i VS Code. Du kan också använda den *IoT-tillägget för Azure CLI 2.0* verktyget om du föredrar att använda ett CLI-verktyg.
 
 Device explorer-verktyg använder Azure IoT service-bibliotek för att utföra olika funktioner på IoT-hubben, som att lägga till enheter. Om du använder device explorer-verktyg för att lägga till en enhet, får du en anslutningssträng för din enhet. Du behöver den här anslutningssträngen för körs.
 
@@ -410,7 +410,7 @@ END_NAMESPACE(WeatherStation);
 
 Den **börjar\_namnområde** och **slutet\_namnområde** makron båda ta namnområdet för modellen som ett argument. Det förväntas att något mellan dessa makron är definitionen av din modell eller modeller och datastrukturer som använder modeller.
 
-I det här exemplet har en enda modell heter **ContosoAnemometer**. Den här modellen definierar två typer av data som din enhet kan skicka till IoT Hub: **DeviceId** och **vindhastigheten**. Den definierar även tre åtgärder (meddelanden) som enheten kan ta emot: **TurnFanOn**, **TurnFanOff**, och **SetAirResistance**. Alla dataposter har en typ, och varje åtgärd har ett namn (och eventuellt en uppsättning parametrar).
+I det här exemplet har en enda modell heter **ContosoAnemometer**. Den här modellen definierar två typer av data som din enhet kan skicka till IoT Hub: **DeviceId** och **vindhastigheten**. Den definierar också tre åtgärder (meddelanden) som enheten kan ta emot: **TurnFanOn**, **TurnFanOff**, och **SetAirResistance**. Alla dataposter har en typ, och varje åtgärd har ett namn (och eventuellt en uppsättning parametrar).
 
 Data och åtgärder som definierats i modellen kan du definiera en API-yta som du kan använda för att skicka meddelanden till IoT Hub och svara på meddelanden som skickas till enheten. Användning av den här modellen är bäst tolkas igenom ett exempel.
 

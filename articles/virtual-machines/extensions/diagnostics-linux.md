@@ -7,14 +7,14 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994810"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387054"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-Diagnostiktillägget för att övervaka mått och loggar
 
@@ -38,9 +38,7 @@ Det här tillägget fungerar med båda modellerna för Azure-distribution.
 
 ## <a name="installing-the-extension-in-your-vm"></a>Installera tillägget på den virtuella datorn
 
-Du kan aktivera det här tillägget med hjälp av Azure PowerShell-cmdletar, Azure CLI-skript eller mallar för Azure-distribution. Mer information finns i [tillägg funktioner](features-linux.md).
-
-Azure-portalen kan inte användas för att aktivera eller konfigurera LAD 3.0. Istället installerar och konfigurerar den version 2.3. Azure portal diagram och aviseringar kan du arbeta med data från båda versioner av tillägget.
+Du kan aktivera det här tillägget med hjälp av Azure PowerShell-cmdletar, Azure CLI-skript, ARM-mallar eller Azure-portalen. Mer information finns i [tillägg funktioner](features-linux.md).
 
 Dessa instruktioner för installation och en [nedladdningsbara exempelkonfiguration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) konfigurera LAD 3.0 som:
 
@@ -55,7 +53,7 @@ Nedladdningsbara konfigurationen är bara ett exempel. Anpassa efter dina egna b
 
 * **Azure Linux-Agent version 2.2.0 eller senare**. De flesta Azure VM Linux galleriavbildningar innehåller versionen 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` att bekräfta versionen som installerats på den virtuella datorn. Om den virtuella datorn kör en äldre version av gästagenten, Följ [instruktionerna](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) att uppdatera den.
 * **Azure CLI**. [Konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) miljö på din dator.
-* Wget-kommandot, om du inte redan har det.: kör `sudo apt-get install wget`.
+* Kommandot wget, om du inte redan har det: Kör `sudo apt-get install wget`.
 * En befintlig prenumeration och ett befintligt lagringskonto i den för att lagra data.
 * Lista med Linux-distributioner som stöds finns på https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
@@ -174,7 +172,7 @@ Element | Värde
 namn | En sträng som används för att referera till den här mottagare någon annanstans i konfigurationen av tillägget.
 typ | Typ av mottagare som definieras. Anger de andra värdena (om sådan finns) i instanser av den här typen.
 
-Version 3.0 av Linux-Diagnostiktillägget stöder två typer av mottagare: EventHub- och JsonBlob.
+Version 3.0 av Linux-Diagnostiktillägget stöder två typer av mottagare: EventHub och JsonBlob.
 
 #### <a name="the-eventhub-sink"></a>EventHub-mottagare
 
@@ -316,11 +314,11 @@ Element | Värde
 mottagare | (valfritt) En kommaavgränsad lista över namnen på mottagare till vilka LAD skickar aggregerade mätvärden resultat. Alla aggregerade mätvärden publiceras till varje listad mottagare. Se [sinksConfig](#sinksconfig). Exempel: `"EHsink1, myjsonsink"`.
 typ | Identifierar den faktiska leverantören av måttet.
 klass | Identifierar det specifika måttet i leverantörens namnområde tillsammans med ”räknaren”.
-Räknaren | Identifierar det specifika måttet i leverantörens namnområde tillsammans med ”class”.
+räknare | Identifierar det specifika måttet i leverantörens namnområde tillsammans med ”class”.
 counterSpecifier | Identifierar det specifika måttet i ett namnområde för Azure-mått.
 villkor | (valfritt) Väljer en specifik instans av objektet som måttet gäller eller väljer aggregering i alla instanser av objektet. Mer information finns i den [ `builtin` måttdefinitioner](#metrics-supported-by-builtin).
 sampleRate | ÄR 8601 intervall som anger den hastighet som raw-exempel för det här måttet har samlats in. Om inte har angetts samling intervallet anges av värdet för [sampleRateInSeconds](#ladcfg). Kortaste stöds samplingsfrekvensen är 15 sekunder (PT15S).
-enhet | Ska vara någon av de här strängarna: ”Count”, ”byte”, ”sekunder”, ”procent”, ”CountPerSecond”, ”BytesPerSecond”, ”Millisekunds”. Definierar enheten för måttet. Konsumenter av insamlade data förväntar sig värdena insamlade data för att matcha den här enheten. LAD ignorerar det här fältet.
+enhet | Bör vara något av de här strängarna: ”Antal”, ”byte”, ”sekunder”, ”procent”, ”CountPerSecond”, ”BytesPerSecond”, ”Millisekunds”. Definierar enheten för måttet. Konsumenter av insamlade data förväntar sig värdena insamlade data för att matcha den här enheten. LAD ignorerar det här fältet.
 displayName | Etiketten (på det språk som anges av de associera nationella inställningarna) som ska kopplas till dessa data i Azure-mått. LAD ignorerar det här fältet.
 
 CounterSpecifier är ett valfritt ID. Konsumenter av mätvärden, som Azure portal diagram och aviseringar funktion, använda counterSpecifier som ”nyckeln” som identifierar ett mått eller en instans av ett mått. För `builtin` mätvärden, rekommenderar vi du använder counterSpecifier värden som börjar med `/builtin/`. Om du kan samla in en specifik instans av ett mått, rekommenderar vi du bifoga identifierare för instansen till counterSpecifier-värde. Några exempel:
@@ -432,7 +430,7 @@ Builtin mått providern är en källa för mätvärden som är mest intressanta 
 
 Processor-klassen för mått innehåller information om processoranvändning på den virtuella datorn. Resultatet är medelvärdet över alla CPU: er vid sammanställning procenttal. I en virtuell dator i två vCPU, om en virtuell processor var 100% upptagen och den andra 100% inaktiv, skulle rapporterade PercentIdleTime vara 50. Om varje vCPU var 50% upptagen för samma period, skulle det rapporterade resultatet också vara 50. I en fyra vCPU virtuell dator, med en virtuell processor 100% upptagen och inaktiv andra, är rapporterade PercentIdleTime 75.
 
-Räknaren | Betydelse
+räknare | Betydelse
 ------- | -------
 PercentIdleTime | Procentandel av tiden under fönstret aggregering att processorer kör kernel inaktiv loop
 PercentProcessorTime | Procentandelen tid att köra en icke-inaktiv tråd
@@ -450,7 +448,7 @@ Om du vill ha ett enda mått som aggregeras över alla processorer, ange `"condi
 
 Klassen minne över mått som innehåller information om minnesanvändningen, växling och växlar.
 
-Räknaren | Betydelse
+räknare | Betydelse
 ------- | -------
 AvailableMemory | Tillgängligt fysiskt minne i MiB
 PercentAvailableMemory | Tillgängligt fysiskt minne i procent av det totala minnet
@@ -470,7 +468,7 @@ Den här klassen mått har en enda instans. Attributet ”villkor” har inga an
 
 Klassen nätverk över mått som innehåller information om nätverksaktivitet på en enskild nätverksgränssnitt sedan start. LAD exponerar inte bandbredd mätvärden, som kan hämtas från värdmått.
 
-Räknaren | Betydelse
+räknare | Betydelse
 ------- | -------
 BytesTransmitted | Totalt antal byte som skickats sedan start
 BytesReceived | Totalt antal byte mottaget sedan start
@@ -487,9 +485,9 @@ TotalCollisions | Antal kollisioner som rapporteras av nätverksportar sedan sta
 
 Filsystem-klassen för mått innehåller information om användningen för filsystem. Absoluta och procentuella värden rapporteras som de skulle visas för en vanlig användare (inte rot).
 
-Räknaren | Betydelse
+räknare | Betydelse
 ------- | -------
-FreeSpace | Ledigt diskutrymme i byte
+LedigtUtrymme | Ledigt diskutrymme i byte
 UsedSpace | Använt diskutrymme i byte
 PercentFreeSpace | Procent ledigt utrymme
 PercentUsedSpace | Använt utrymme i procent
@@ -508,7 +506,7 @@ Sammanställda värden över alla filsystem som kan hämtas genom att ange `"con
 
 Disk-klassen för mått innehåller information om diskanvändning för enheten. Statistiken gäller för hela enheten. Om det finns flera filsystem på en enhet, är räknare för enheten ett effektivt sätt, samman alla.
 
-Räknaren | Betydelse
+räknare | Betydelse
 ------- | -------
 ReadsPerSecond | Läsåtgärder per sekund
 WritesPerSecond | Skrivåtgärder per sekund

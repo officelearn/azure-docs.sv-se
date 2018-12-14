@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 53a6ae828009db24b56a11b1fdcbea19842191f4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106625"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340835"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
@@ -74,20 +74,20 @@ Varje rekommendation har en uppsättning åtgärder som du kan utföra när du h
 
 **Tillämpa systemuppdateringar** innehåller en sammanfattning av viktiga uppdateringar i diagramformat, en för Windows och en för Linux. Den andra delen har en tabell med följande information:
 
-- **NAMN**: Namnet på den uppdatering som saknas.
-- **ANTAL VM:AR OCH DATORER**: Det totala antalet virtuella datorer och datorer som saknar denna uppdatering.
-- **Uppdatera ALLVARLIGHETSGRAD**: visas hur viktig rekommendationen:
+- **NAMN PÅ**: Namnet på uppdateringen som saknas.
+- **ANTAL VM: ar och datorer**: Totalt antal virtuella datorer och datorer som saknar denna uppdatering.
+- **UPPDATERA ALLVARLIGHETSGRAD**: Visas hur viktig rekommendationen:
 
-    - **Kritiska**: en säkerhetsrisk finns en viktig resurs (program, virtuell dator eller nätverkssäkerhetsgrupp) som måste åtgärdas.
-    - **Viktiga**: icke-kritiska eller ytterligare åtgärder krävs för att slutföra en process eller åtgärda en säkerhetsrisk.
-    - **Måttlig**: en säkerhetsrisk som bör åtgärdas men inte kräver omedelbar åtgärd. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
+    - **Kritiska**: En sårbarhet i finns en viktig resurs (program, virtuell dator eller nätverkssäkerhetsgrupp) som måste åtgärdas.
+    - **Viktiga**: Icke-kritiska eller ytterligare åtgärder krävs för att slutföra en process eller åtgärda en säkerhetsrisk.
+    - **Måttlig**: Ett problem bör åtgärdas, men kräver inte omedelbar åtgärd. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
 
 
-- **STATE (STATUS)**: Här visas det aktuella tillståndet för rekommendationen:
+- **TILLSTÅND**: Det aktuella tillståndet för rekommendationen:
 
-    - **Öppen**: Rekommendationen har inte utförts än.
-    - **Pågående**: Rekommendationen håller på att utföras och ingen åtgärd behövs från din sida.
-    - **Löst**: Rekommendation har redan slutförts. (När problemet har lösts, inaktiveras posten).
+    - **Öppna**: Rekommendationen har inte utförts än.
+    - **Pågår**: Rekommendationen håller på att utföras och ingen åtgärd krävs av dig.
+    - **Löst**: Rekommendationen har redan slutförts. (När problemet har lösts, inaktiveras posten).
 
 Om du vill visa information om rekommendationen klickar du på namnet på den uppdatering som saknas.
 
@@ -249,7 +249,7 @@ Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper
 
 I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
+* [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 

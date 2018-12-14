@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d75195656581021253b5787a8bfd46639cc1754
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323140"
+ms.locfileid: "53340068"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Hur du använder anpassade allokeringsprinciper
 
@@ -449,20 +449,24 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
 
 6. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
 
+
 #### <a name="simulate-the-contoso-toaster-device"></a>Simulera Contoso toaster-enhet
 
-1. I fönstret *Solution Explorer* i Visual Studio går du till projektet **hsm\_security\_client** och expanderar det. Expandera **Källfiler** och öppna **hsm\_client\_key.c**. 
-
-    Hitta deklarationen för konstanterna `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE`. Gör följande ändringar i filen och spara filen.
-
-    Uppdatera värdet för den `REGISTRATION_NAME` konstant med registrerings-ID för enheten toaster **breakroom499-contoso-tstrsd-007**.
-    
-    Uppdatera värdet för den `SYMMETRIC_KEY_VALUE` konstant med enhetsnyckeln som du skapade för toaster-enheten. Värdet **JC8F96eayuQwwz + PkE7IzjH2lIAjCUnAa61tDigBnSs =** ges endast som ett exempel.
+1. Om du vill simulera toaster-enhet, hitta anropet till `prov_dev_set_symmetric_key_info()` i **prov\_dev\_klienten\_sample.c** som har kommenterats bort.
 
     ```c
-    static const char* const REGISTRATION_NAME = "breakroom499-contoso-tstrsd-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
+
+    Ta bort kommentarerna funktionsanropet och Ersätt platshållarvärdena (inklusive hakparenteser) med toaster registrerings-ID och härledda enhetsnyckeln som du skapade tidigare. Nyckelvärdet **JC8F96eayuQwwz + PkE7IzjH2lIAjCUnAa61tDigBnSs =** visas nedan ges endast som ett exempel.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
+    ```
+   
+    Spara filen.
 
 2. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
 
@@ -485,20 +489,16 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Simulera Contoso termisk pump enhet
 
-1. Tillbaka i Visual Studio *Solution Explorer* fönster, navigera till den **hsm\_security\_klienten** projekt och expandera den. Expandera **Källfiler** och öppna **hsm\_client\_key.c**. 
-
-    Hitta deklarationen för konstanterna `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE`. Gör följande ändringar i filen och spara filen.
-
-    Uppdatera värdet för den `REGISTRATION_NAME` konstant med registrerings-ID för den termiska pump enheten **mainbuilding167-contoso-hpsd-088**.
-    
-    Uppdatera värdet för den `SYMMETRIC_KEY_VALUE` konstant med enhetsnyckeln som du skapade för toaster-enheten. Värdet **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** ges endast som ett exempel.
+1. Uppdatera för att simulera enheten termisk pump anropet till `prov_dev_set_symmetric_key_info()` i **prov\_dev\_klienten\_sample.c** igen med den termiska pump registrerings-ID och härledda enhetsnyckel du skapade tidigare . Nyckelvärdet **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** visas nedan ges också bara som ett exempel.
 
     ```c
-    static const char* const REGISTRATION_NAME = "mainbuilding167-contoso-hpsd-088";
-    static const char* const SYMMETRIC_KEY_VALUE = "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
+   
+    Spara filen.
 
-7. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
+2. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
 
     Följande utdata är ett exempel på simulerade termisk pump enheten har startas och ansluta till etablering tjänstinstansen som ska tilldelas till Contoso termisk pumpar IoT hub med anpassade allokeringsprincipen:
 
@@ -515,8 +515,6 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
 
     Press enter key to exit:
     ```
-
-
 
 
 ## <a name="troubleshooting-custom-allocation-policies"></a>Felsökning av anpassade allokeringsprinciper

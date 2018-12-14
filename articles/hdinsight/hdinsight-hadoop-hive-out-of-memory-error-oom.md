@@ -10,16 +10,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90bf59dd7733864c345bbbb59b6236ae7b9a9c36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b49959d167dbb735ebb9be9c75e91ef257c6a70
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248323"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383841"
 ---
-# <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Åtgärda en Hive minnesfel i Azure HDInsight
+# <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Åtgärda en Apache Hive minnesfel i Azure HDInsight
 
-Lär dig hur du löser en Hive minnesfel när bearbeta stora tabeller genom att konfigurera minnesinställningarna för Hive.
+Lär dig hur du löser ett Apache Hive minnesfel (OOMA) vid bearbetning av stora tabeller genom att konfigurera minnesinställningarna för Hive.
 
 ## <a name="run-hive-query-against-large-tables"></a>Köra Hive-fråga mot stora tabeller
 
@@ -52,7 +52,7 @@ Hive-frågan tog 26 minuter att slutföra på en 24-nod A3 HDInsight-kluster. Ku
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
 
-Med hjälp av Tez-Körningsmotor. Samma fråga kördes i 15 minuter och returnerade följande fel:
+Med hjälp av Apache Tez-Körningsmotor. Samma fråga kördes i 15 minuter och returnerade följande fel:
 
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
@@ -105,7 +105,7 @@ Det är troligt kartan join var orsaken till området Java Heap vår på minne. 
 
 Som det här blogginlägget antyder följande två minnesinställningarna definiera container-minne för heap: **hive.tez.container.size** och **hive.tez.java.opts**. Av erfarenhet innebär inte out of undantag med otillräckligt minne behållarens storlek är för liten. Det innebär att Java heap-storlek (hive.tez.java.opts) är för liten. Så att varje gång du ser slut på minne kan du prova att öka **hive.tez.java.opts**. Om det behövs kan du behöva öka **hive.tez.container.size**. Den **java.opts** inställningen ska vara cirka 80% av **container.size**.
 
-> [!NOTE]
+> [!NOTE]  
 > Inställningen **hive.tez.java.opts** måste alltid vara mindre än **hive.tez.container.size**.
 > 
 > 
@@ -119,4 +119,4 @@ Med de nya inställningarna kördes frågan på under 10 minuter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Får ett OOMA fel innebär inte nödvändigtvis att behållarens storlek är för liten. I stället bör du konfigurera minnesinställningarna så att heap-storlek ökas och minst 80% av minnesstorlek behållare. Optimera Hive-frågor finns i [optimera Hive-frågor för Hadoop i HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Får ett OOMA fel innebär inte nödvändigtvis att behållarens storlek är för liten. I stället bör du konfigurera minnesinställningarna så att heap-storlek ökas och minst 80% av minnesstorlek behållare. Optimera Hive-frågor finns i [optimera Apache Hive-frågor för Apache Hadoop i HDInsight](hdinsight-hadoop-optimize-hive-query.md).

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7a55e28f34f36cd02b67e56c6262b9e1f06dde8f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642664"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338200"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i varaktiga funktioner (Azure Functions)
 
@@ -27,7 +27,7 @@ Alla undantag som genereras i en aktivitet funktionen ordnas tillbaka till orche
 
 Anta exempelvis att följande orchestrator-funktion som överför pengar från ett konto till en annan:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -38,16 +38,16 @@ public static async Task Run(DurableOrchestrationContext context)
 
     await context.CallActivityAsync("DebitAccount",
         new
-        { 
+        {
             Account = transferDetails.SourceAccount,
             Amount = transferDetails.Amount
         });
 
     try
     {
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.DestinationAccount,
                 Amount = transferDetails.Amount
             });
@@ -56,9 +56,9 @@ public static async Task Run(DurableOrchestrationContext context)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.SourceAccount,
                 Amount = transferDetails.Amount
             });
@@ -66,7 +66,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -108,7 +108,7 @@ Om anropet till den **CreditAccount** misslyckas åtgärden för mål-konto, orc
 
 När du anropar Aktivitetsfunktioner eller underordnade orchestration-funktioner, kan du ange en automatisk återförsöksprincip. I följande exempel försöker anropa en funktion upp till tre gånger och väntar 5 sekunder mellan varje nytt försök:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -118,41 +118,41 @@ public static async Task Run(DurableOrchestrationContext context)
         maxNumberOfAttempts: 3);
 
     await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
-    
+
     // ...
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
 
 ```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const retryOptions = new df.RetryOptions(5000, 3);
-    
+
     yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
 
     // ...
 });
 ```
 
-Den `CallActivityWithRetryAsync` (C#) eller `callActivityWithRetry` (JS) API tar en `RetryOptions` parametern. Suborchestration anrop med hjälp av den `CallSubOrchestratorWithRetryAsync` (C#) eller `callSubOrchestratorWithRetry` (JS) API kan använda dessa samma principer för återförsök.
+Den `CallActivityWithRetryAsync` (.NET) eller `callActivityWithRetry` (JavaScript) API tar en `RetryOptions` parametern. Suborchestration anrop med hjälp av den `CallSubOrchestratorWithRetryAsync` (.NET) eller `callSubOrchestratorWithRetry` (JavaScript) API kan använda dessa samma principer för återförsök.
 
 Det finns flera alternativ för att anpassa automatisk återförsöksprincipen. Dessa inkluderar:
 
-* **Maxantal försök**: det maximala antalet nya försök.
-* **Första återförsöket**: hur lång tid innan det första återförsöket försöka.
-* **Backoff koefficienten**: koefficienten används för att fastställa ökningstakt för backoff. Standardvärdet är 1.
-* **Max återförsöksintervallet**: längsta tid som ska förflyta mellan försöken.
-* **Nya försök**: längsta tid för gör ett nytt försök görs. Standardinställningen är att försöka igen på obestämd tid.
-* **Hantera**: en användardefinierad motringning kan anges som bestämmer huruvida ett funktionsanrop ska göras.
+* **Maxantal försök**: Det maximala antalet nya försök.
+* **Första återförsöket**: Hur lång tid att vänta innan den första återförsök.
+* **Backoff koefficienten**: Koefficienten används för att fastställa ökningstakt för backoff. Standardvärdet är 1.
+* **Max återförsöksintervallet**: Längsta tid som ska förflyta mellan försöken.
+* **Nya försök**: Längsta tid för gör ett nytt försök görs. Standardinställningen är att försöka igen på obestämd tid.
+* **Hantera**: Du kan ange en användardefinierad motringning som avgör huruvida ett funktionsanrop ska göras.
 
 ## <a name="function-timeouts"></a>Funktionen tidsgränser
 
-Du kanske vill lämna ett funktionsanrop inom en orchestrator-funktion om det tar för lång tid att slutföra. Det korrekta sättet att göra detta idag är genom att skapa en [varaktiga timer](durable-functions-timers.md) med `context.CreateTimer` tillsammans med `Task.WhenAny`, som i följande exempel:
+Du kanske vill lämna ett funktionsanrop inom en orchestrator-funktion om det tar för lång tid att slutföra. Det korrekta sättet att göra detta idag är genom att skapa en [varaktiga timer](durable-functions-timers.md) med `context.CreateTimer` (.NET) eller `context.df.createTimer` (JavaScript) tillsammans med `Task.WhenAny` (.NET) eller `context.df.Task.any` (JavaScript), som i följande exempel:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -181,7 +181,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fungerar endast 2.x)
 
 ```javascript
 const df = require("durable-functions");

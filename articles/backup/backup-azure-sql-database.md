@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: d38fc727ed7e9e3c47d2fcb9af7894f8a2a7c7a7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 988d61d6db867c33a2dd9998d675f40f49e71332
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262341"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341753"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Säkerhetskopiera SQL Server-databaser till Azure
 
@@ -46,6 +46,8 @@ Följande är kända begränsningar för den offentliga förhandsversionen:
 - [Säkerhetskopior av distribuerade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) har begränsningar.
 - SQL Server alltid på Redundansklusterinstanser (FCIs) stöds inte.
 - Använd Azure-portalen för att konfigurera Azure Backup för att skydda SQL Server-databaser. Azure PowerShell, Azure CLI och REST-API: er stöds inte för närvarande.
+- Åtgärder för säkerhetskopiering/återställning för speglade databaser, ögonblicksbilder av databaser och databaser under FCI stöds inte.
+- Databasen med många filer kan inte skyddas. Det maximala antalet filer som stöds är inte ett mycket deterministisk tal, eftersom den inte bara beror på hur många filer men beror också på sökvägslängden på filerna. Sådana fall är dock mindre vanliga. Vi bygger en lösning för att hantera detta.
 
 Se [vanliga frågor och svar](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) för mer information om support/inte scenarier som stöds.
 
@@ -105,6 +107,7 @@ Innan du säkerhetskopierar SQL Server-databasen kan du kontrollera följande vi
 - Identifiera eller [skapar ett Recovery Services-valv](backup-azure-sql-database.md#create-a-recovery-services-vault) i samma region eller språk som den virtuella datorn som är värd för SQL Server-instansen.
 - [Kontrollera behörigheterna för den virtuella datorn](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) som behövs för att säkerhetskopiera SQL-databaser.
 - Kontrollera att den [SQL-dator är ansluten till nätverket](backup-azure-sql-database.md#establish-network-connectivity).
+- Kontrollera om SQL-databaser namnges enligt den [riktlinjerna för namngivning](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) för Azure Backup för att göra säkerhetskopior av lyckas.
 
 > [!NOTE]
 > Du kan ha endast en lösning för säkerhetskopiering åt gången för att säkerhetskopiera SQL Server-databaser. Inaktivera alla andra SQL-säkerhetskopior innan du använder den här funktionen; i annat fall kommer säkerhetskopieringarna påverka och misslyckas. Du kan aktivera Azure Backup tillsammans med SQL-säkerhetskopiering utan någon konflikt för IaaS VM.
@@ -133,7 +136,7 @@ Rätt balans mellan alternativen är hanterbarhet, detaljerad kontroll och kostn
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Ange behörigheter för icke - SQL virtuella datorer på Marketplace
 
-Om du vill säkerhetskopiera en virtuell dator, Azure Backup kräver den **AzureBackupWindowsWorkload** tillägget installeras. Om du använder Azure Marketplace-datorer kan fortsätta att [identifiera SQL Server-databaser](backup-azure-sql-database.md#discover-sql-server-databases). Om den virtuella datorn som är värd för dina SQL-databaser inte är skapade från Azure Marketplace, Slutför följande procedur för att installera tillägget och ange lämpliga behörigheter. Förutom den **AzureBackupWindowsWorkload** tillägg, Azure Backup kräver SQL sysadmin-behörighet för att skydda SQL-databaser. För att identifiera databaser på den virtuella datorn, Azure Backup skapar kontot **NT Service\AzureWLBackupPluginSvc**. För Azure Backup för att identifiera SQL-databaser, den **NT Service\AzureWLBackupPluginSvc** kontot måste ha SQL och SQL sysadmin-behörighet. Följande procedur beskriver hur du anger dessa behörigheter.
+Om du vill säkerhetskopiera en virtuell dator, Azure Backup kräver den **AzureBackupWindowsWorkload** tillägget installeras. Om du använder Azure Marketplace-datorer kan fortsätta att [identifiera SQL Server-databaser](backup-azure-sql-database.md#discover-sql-server-databases). Om den virtuella datorn som är värd för dina SQL-databaser inte är skapade från Azure Marketplace, Slutför följande procedur för att installera tillägget och ange lämpliga behörigheter. Förutom den **AzureBackupWindowsWorkload** tillägg, Azure Backup kräver SQL sysadmin-behörighet för att skydda SQL-databaser. TTo identifiera databaser på den virtuella datorn, Azure Backup skapar kontot **NT Service\AzureWLBackupPluginSvc**. Det här kontot används för säkerhetskopiering och återställning och måste ha SQL sysadmin-behörighet. Dessutom är Azure Backup att utnyttja **NT AUTHORITY\SYSTEM** hänsyn till DB identifiering/förfrågan, så det här kontot måste vara en offentlig inloggning på SQL.
 
 Konfigurera behörigheter:
 
@@ -201,6 +204,14 @@ Under installationen, om du får felet `UserErrorSQLNoSysadminMembership`, anvä
 
 När du kopplar databasen med Recovery Services-valvet, nästa steg är att [konfigurera säkerhetskopieringsjobbet](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
+## <a name="sql-database-naming-guidelines-for-azure-backup"></a>SQL-databas riktlinjerna för namngivning för Azure Backup
+Undvik följande när du namnger databaserna för att säkerställa smidiga säkerhetskopieringar med Azure Backup för SQL Server i IaaS-VM:
+
+  * Avslutande/inledande blanksteg
+  * Avslutande '!'
+
+Vi har alias för Azure-tabell som inte stöds tecken, men vi rekommenderar att du inte de också. Mer information finns i den här [artikeln](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-sql-server-databases"></a>Identifiera SQL Server-databaser
@@ -215,7 +226,7 @@ Azure Backup identifierar alla databaser på en SQL Server-instans. Du kan skydd
 
 3. I den **alla tjänster** dialogrutan anger **återställningstjänster**. När du skriver filtrerar listan över resurser i dina indata. Välj **Recovery Services-valv** i listan.
 
-    ![Ange och välj Recovery Services-valv](./media/backup-azure-sql-database/all-services.png) <br/>
+  ![Ange och välj Recovery Services-valv](./media/backup-azure-sql-database/all-services.png) <br/>
 
     Listan över Recovery Services-valv i prenumerationen visas.
 
@@ -301,16 +312,9 @@ Konfigurera skydd för en SQL-databas:
     > För att optimera säkerhetskopierade belastning, delar Azure Backup upp stora säkerhetskopieringsjobb i flera batchar. Det maximala antalet databaser i en säkerhetskopiering är 50.
     >
 
-    Du kan också aktivera automatiskt skydd på hela instans eller AlwaysOn-tillgänglighetsgrupp genom att välja den **på** alternativet i motsvarande listrutan i den **AUTOPROTECT** kolumn. Funktionen automatiskt skydd inte bara aktiverar skydd på alla befintliga databaser i en gå utan också automatiskt skyddar eventuella nya databaser som ska läggas till den instansen eller tillgänglighetsgruppen i framtiden.  
+      Du kan också aktivera [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) på hela instans eller AlwaysOn-tillgänglighetsgrupp genom att välja den **på** alternativet i motsvarande listrutan i den **AUTOPROTECT**  kolumn. Den [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) funktionen inte bara aktiverar skydd på alla befintliga databaser i en go, men också automatiskt skyddar eventuella nya databaser som ska läggas till den instansen eller tillgänglighetsgruppen i framtiden.  
 
       ![Aktivera automatiskt skydd på Always On availability-gruppen](./media/backup-azure-sql-database/enable-auto-protection.png)
-
-      Om en instans eller en tillgänglighetsgrupp du redan har några av dess databaser som är skyddad, kan du fortfarande aktivera **på** auto-protect-alternativet. I det här fallet kommer den säkerhetskopieringsprincip som definierats i nästa steg nu endast tillämpas på oskyddade databaser databaser som redan skyddas kommer att fortsätta att skyddas med deras respektive principer.
-
-      Det finns ingen gräns för antalet databaser som får valts i en go med hjälp av automatisk-skydda funktionen (som du kan välja flera databaser som i valvet).  
-
-      Vi rekommenderar att du aktiverar automatiskt skydd för alla instanser och Always On-Tillgänglighetsgrupper om du vill att alla databaser som har lagts till i framtiden för att konfigureras automatiskt för skydd.
-
 
 7. Att skapa eller välj en säkerhetskopieringsprincip på den **säkerhetskopiering** menyn och välj **säkerhetskopieringspolicy**. Den **säkerhetskopieringspolicy** menyn öppnas.
 
@@ -340,6 +344,22 @@ Konfigurera skydd för en SQL-databas:
 
     ![Meddelandefält](./media/backup-azure-sql-database/notifications-area.png)
 
+
+## <a name="auto-protect-sql-server-in-azure-vm"></a>Automatisk – skydda SQLServer på Azure VM  
+
+Automatiskt skydd är en funktion som gör att du automatiskt skydda alla befintliga databaser samt framtida databaser som du vill lägga till i en fristående SQL Server-instans eller en SQL Server Always On-tillgänglighetsgrupp.
+
+Om en instans eller en tillgänglighetsgrupp du redan har några av dess databaser som är skyddad, kan du fortfarande aktivera **på** auto-protect-alternativet. Principen för säkerhetskopiering så definieras kommer i det här fallet bara att tillämpas på oskyddade databaserna medan databaserna som redan skyddas fortsätter att skyddas med deras respektive principer.
+
+![Aktivera automatiskt skydd på Always On availability-gruppen](./media/backup-azure-sql-database/enable-auto-protection.png)
+
+Det finns ingen gräns för antalet databaser som får valts i en go med hjälp av automatisk skydda funktionen. Konfigurera säkerhetskopiering utlöses för alla databaser som tillsammans och kan spåras i den **säkerhetskopieringsjobb**.
+
+Om du vill inaktivera automatiskt skydd på en instans av någon anledning, klickar du på namnet på instansen under **Konfigurera säkerhetskopiering** att öppna panelen höger information som har **inaktivera Autoprotect** på den längst upp. Klicka på **inaktivera Autoprotect** att inaktivera automatiskt skydd på den instansen.
+
+![Inaktivera automatiskt skydd på den instansen](./media/backup-azure-sql-database/disable-auto-protection.png)
+
+Alla databaser i instansen fortsätter att skyddas. Men inaktiverar den här åtgärden automatiskt skydd på alla databaser som ska läggas till i framtiden.
 
 ### <a name="define-a-backup-policy"></a>definierar en säkerhetskopieringspolicy
 
@@ -736,15 +756,9 @@ Sluta skydda en databas:
 
 7. Välj **stoppa säkerhetskopiering** upphöra med skyddet på databasen.
 
-  Tänk på att **stoppa säkerhetskopiering** alternativet inte fungerar för en databas i en instans för automatiskt skydd. Det enda sättet att sluta skydda den här databasen är att inaktivera automatiskt skydd på instansen för tillfället och välj sedan den **stoppa säkerhetskopiering** alternativet **Säkerhetskopieringsobjekt** för den här databasen.  
+  Tänk på att **stoppa säkerhetskopiering** alternativet inte fungerar för en databas i en [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) instans. Det enda sättet att sluta skydda den här databasen är att inaktivera den [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) på instansen för tillfället och välj sedan den **stoppa säkerhetskopiering** alternativet **Säkerhetskopieringsobjekt**för den här databasen.<br>
+  När du har inaktiverat automatiskt skydd, kan du **stoppa säkerhetskopiering** för databasen under **Säkerhetskopieringsobjekt**. Instansen kan nu igen aktiveras för automatiskt skydd.
 
-  Du kan inaktivera automatiskt skydd på en instans eller AlwaysOn-tillgänglighetsgruppen under **Konfigurera säkerhetskopiering**. Klicka på namnet på instansen för att öppna panelen höger information som har **inaktivera Autoprotect** längst upp. Klicka på **inaktivera Autoprotect** att inaktivera automatiskt skydd på den instansen.
-
-    ![Inaktivera automatiskt skydd på den instansen](./media/backup-azure-sql-database/disable-auto-protection.png)
-
-Alla databaser i instansen fortsätter att skyddas. Men inaktiverar den här åtgärden automatiskt skydd på alla databaser som ska läggas till i framtiden.
-
-När du har inaktiverat automatiskt skydd, kan du **stoppa säkerhetskopiering** för databasen under **Säkerhetskopieringsobjekt**. Instansen kan nu igen aktiveras för automatiskt skydd.
 
 ### <a name="resume-protection-for-a-sql-database"></a>Återuppta skyddet av en SQL-databas
 
@@ -835,22 +849,22 @@ Azure Backup Recovery Services-valv kan identifiera och skydda alla noder i samm
 
 ### <a name="while-i-want-to-protect-most-of-the-databases-in-an-instance-i-would-like-to-exclude-a-few-is-it-possible-to-still-use-the-auto-protection-feature"></a>Även om jag vill skydda de flesta av databaser i en instans, vill jag exkludera några. Går det fortfarande använda funktionen automatiskt skydd?
 
-Nej, automatiskt skydd gäller för hela-instansen. Du kan inte selektivt skydda databaser en instans med hjälp av automatiskt skydd.
+Nej, [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) gäller för hela-instansen. Du kan inte selektivt skydda databaser en instans med hjälp av automatiskt skydd.
 
 ### <a name="can-i-have-different-policies-for-different-databases-in-an-auto-protected-instance"></a>Kan jag ha olika principer för olika databaser i en automatisk-skyddad instans?
 
-Om du redan har vissa skyddade databaser i en instans kan de fortsätter att skyddas med deras respektive principer även när du har stängt **på** alternativet automatiskt skydd. Men alla oskyddade databaser tillsammans med de som du vill lägga till i framtiden har bara en enda princip som du definierar under **Konfigurera säkerhetskopiering** när databaserna som har valts. I själva verket till skillnad från andra skyddade databaser kan du även ändra principen för en databas med en instans för automatiskt skydd.
+Om du redan har vissa skyddade databaser i en instans kan de fortsätter att skyddas med deras respektive principer även när du har stängt **på** den [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) alternativet. Men alla oskyddade databaser tillsammans med de som du vill lägga till i framtiden har bara en enda princip som du definierar under **Konfigurera säkerhetskopiering** när databaserna som har valts. I själva verket till skillnad från andra skyddade databaser kan du även ändra principen för en databas med en instans för automatiskt skydd.
 Om du vill göra det, är det enda sättet att inaktivera automatiskt skydd på instansen för tillfället och sedan ändra principen för den här databasen. Du kan nu återaktivera automatiskt skydd för den här instansen.
 
 ### <a name="if-i-delete-a-database-from-an-auto-protected-instance-will-the-backups-for-that-database-also-stop"></a>Om jag tar bort en databas från en instans av automatiskt skydd säkerhetskopior för den här databasen även att stoppa?
 
 Om en databas har släppts från en instans av automatiskt skydd, försök Nej, fortfarande säkerhetskopior i databasen. Detta innebär att den borttagna databasen börjar visas som felaktig under **Säkerhetskopieringsobjekt** och behandlas fortfarande som skyddas.
 
-Det enda sättet att sluta skydda den här databasen är att inaktivera automatiskt skydd på instansen för tillfället och välj sedan den **stoppa säkerhetskopiering** alternativet **Säkerhetskopieringsobjekt** för den här databasen. Du kan nu återaktivera automatiskt skydd för den här instansen.
+Det enda sättet att sluta skydda den här databasen är att inaktivera den [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) på instansen för tillfället och välj sedan den **stoppa säkerhetskopiering** alternativet **Säkerhetskopieringsobjekt**för den här databasen. Du kan nu återaktivera automatiskt skydd för den här instansen.
 
 ###  <a name="why-cant-i-see-the-newly-added-database-to-an-auto-protected-instance-under-the-protected-items"></a>Varför kan jag inte se nyligen tillagda databasen till en automatiskt skydd instansen under de skyddade objekten?
 
-Du kan inte se en nyligen tillagd databas till en instans för automatiskt skydd som skyddas direkt. Det beror på att identifieringen körs vanligtvis var åttonde timme. Användaren kan dock köra en manuell identifiering med hjälp av **återställa databaser** alternativet för att identifiera och skydda nya databaser direkt enligt på bilden nedan:
+Du kan inte se en nyligen tillagd databas till en [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) instans skyddad direkt. Det beror på att identifieringen körs vanligtvis var åttonde timme. Användaren kan dock köra en manuell identifiering med hjälp av **återställa databaser** alternativet för att identifiera och skydda nya databaser direkt enligt på bilden nedan:
 
   ![Visa nytillagda databas](./media/backup-azure-sql-database/view-newly-added-database.png)
 

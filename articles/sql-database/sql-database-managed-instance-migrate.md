@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 5e2599c2089cbd9961b54966df5f0f98d6badcce
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274674"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337486"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrering av SQL Server-instans till Azure SQL Database Managed Instance
 
@@ -60,7 +60,7 @@ Du kan välja beräknings- och lagringsresurser vid distributionen tid och ändr
 Läs hur du skapar infrastrukturen som virtuellt nätverk och en hanterad instans i [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> Det är viktigt att hålla dina mål VNet och undernät alltid enligt [hanterad instans-VNet-krav](sql-database-managed-instance-vnet-configuration.md#requirements). All inkompatibilitet kan hindra dig från att skapa nya instanser eller använda dem som du redan har skapat.
+> Det är viktigt att hålla dina mål VNet och undernät alltid enligt [hanterad instans-VNet-krav](sql-database-managed-instance-connectivity-architecture.md#network-requirements). All inkompatibilitet kan hindra dig från att skapa nya instanser eller använda dem som du redan har skapat. Läs mer om [skapar en ny](sql-database-managed-instance-create-vnet-subnet.md) och [konfigurera befintliga](sql-database-managed-instance-configure-vnet-subnet.md) nätverk.
 
 ## <a name="select-migration-method-and-migrate"></a>Välj migreringsmetod och migrera
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
 ms.openlocfilehash: 968c9f2455269cf41a701de685e4f47255b46847
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726516"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386437"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 > [!div class="op_single_selector"]
@@ -90,7 +90,7 @@ Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra app
 
 * [Skapa ditt första Service Fabric-program i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 * [Lär dig hur du distribuerar och hanterar program i ditt lokala kluster](service-fabric-get-started-with-a-local-cluster.md)
-* [Lär dig mer om programmeringsmodeller: Reliable Services och Reliable Actors](service-fabric-choose-framework.md)
+* [Läs mer om programmeringsmodeller: Reliable Services och Reliable Actors](service-fabric-choose-framework.md)
 * [Kolla in Service Fabric-kodexemplen på GitHub](https://aka.ms/servicefabricsamples)
 * [Visualisera ditt kluster med hjälp av Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)

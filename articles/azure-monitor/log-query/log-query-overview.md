@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 26030764544189ae7b075711f0405bf5c0b4ab8f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc37b3b60a5ad7f4e2b4794e4fcb74c1a5004b75
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193832"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336891"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analysera Log Analytics-data i Azure Monitor
 
@@ -39,12 +39,12 @@ Du behöver en loggfråga för att hämta alla data från Log Analytics.  Om du 
 Olika sätt som du ska använda frågor i Log Analytics är följande:
 
 - **Portaler.** Du kan utföra interaktiva analyser av loggdata i de [Azure-portalen](../../azure-monitor/log-query/portals.md).  På så sätt kan du redigera din fråga och analysera resultaten i olika format och visualiseringar.  
-- **Varningsregler.** [Aviseringsregler](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) proaktivt identifiera problem från data i din arbetsyta.  Varje varningsregel baseras på en loggsökning som körs automatiskt med jämna mellanrum.  Resultatet är föremål för att avgöra om en avisering ska skapas.
+- **Varningsregler.** [Aviseringsregler](../../azure-monitor/platform/alerts-overview.md) proaktivt identifiera problem från data i din arbetsyta.  Varje varningsregel baseras på en loggsökning som körs automatiskt med jämna mellanrum.  Resultatet är föremål för att avgöra om en avisering ska skapas.
 - **Instrumentpaneler.** Du kan fästa resultatet av en fråga till en [Azure-instrumentpanelen](../../azure-monitor/platform/dashboards.md) som gör att du kan visualisera loggen och mätdata tillsammans och du kan också dela med andra Azure-användare. 
 - **Vyer.**  Du kan skapa visualiseringar av data som ska ingå i instrumentpaneler för användare med [Vydesigner](../../azure-monitor/platform/view-designer.md).  Loggfrågor tillhandahåller de data som används av [paneler](../../azure-monitor/platform/view-designer-tiles.md) och [visualisering delar](../../azure-monitor/platform/view-designer-parts.md) i varje vy.  
 - **Exportera.**  När du importerar data från Log Analytics-arbetsyta till Excel eller [Power BI](../../azure-monitor/platform/powerbi.md), skapar du en loggfråga för att definiera data som ska exporteras.
 - **PowerShell.** Du kan köra ett PowerShell-skript från en kommandorad eller ett Azure Automation-runbook som använder [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) att hämta data från Log Analytics.  Denna cmdlet kräver en fråga för att fastställa data som ska hämtas.
-- **Log Analytics-API.**  Den [Log Analytics Logga API: et search](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) tillåter alla REST API-klient att hämta loggdata från arbetsytan.  API-begäran innehåller en fråga som körs mot Log Analytics för att fastställa data som ska hämtas.
+- **Log Analytics-API.**  Den [Log Analytics Logga API: et search](../../azure-monitor/platform/alerts-overview.md) tillåter alla REST API-klient att hämta loggdata från arbetsytan.  API-begäran innehåller en fråga som körs mot Log Analytics för att fastställa data som ska hämtas.
 
 ![Loggsökningar](media/log-query-overview/queries-overview.png)
 

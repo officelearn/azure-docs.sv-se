@@ -10,15 +10,15 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/07/2018
-ms.openlocfilehash: a3580c2939f03e6ede6341e7afb293e7f7c5f885
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.date: 12/13/2018
+ms.openlocfilehash: 2eb263c6776453c4cae217168af969221485bfa3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016137"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386799"
 ---
-# <a name="service-and-tools-for-data-migration"></a>Tjänsten och verktyg för migrering av data
+# <a name="services-and-tools-available-for-data-migration-scenarios"></a>Tjänster och verktyg som är tillgängliga för migreringsscenarion
 
 Den här artikeln innehåller en matris med Microsoft och tjänster från tredje part och verktyg som är tillgängliga för att hjälpa dig med olika databasen och scenarier för migrering av data och personliga uppgifter.
 
@@ -27,7 +27,7 @@ Följande tabeller identifiera tjänsten och verktyg som du kan använda för at
 > [!NOTE]
 > I tabellerna nedan representerar objekten som är markerade med en asterisk (*) verktyg från tredje part.
 
-## <a name="business-justification-stage"></a>Företag motivering steg
+## <a name="business-justification-phase"></a>Företag motivering fas
 
 | **Källa** | **Mål** | **Identifiera /**<br/>**Inventering** | **SKU: er och mål**<br/>**Rekommendationen** | **TCO/ROI och**<br/>**Affärsfall** |
 | --- | --- | --- | --- | --- |
@@ -41,15 +41,17 @@ Följande tabeller identifiera tjänsten och verktyg som du kan använda för at
 | Oracle | Azure DB för PostgreSQL |  |  |  |
 | MongoDB | Cosmos DB | [Cloudamize *](https://www.cloudamize.com/) | [Cloudamize *](https://www.cloudamize.com/) |  |
 | Cassandra | Cosmos DB |  |  |  |
-| RDS/lokal MySQL | Azure DB för MySQL |  |  | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
-| RDS/lokal PostgreSQL | Azure DB för PostgreSQL |  |  | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | MySQL | Azure SQL DB, MI, virtuell dator | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [Molnet Atlas *](https://www.unifycloud.com/cloud-migration-tool/) | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
+| MySQL | Azure DB för MySQL | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
+| RDS MySQL | Azure DB för MySQL |  |  | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
+| PostgreSQL | Azure DB för PostgreSQL | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
+| RDS-PostgreSQL | Azure DB för PostgreSQL |  |  | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | DB2 | Azure SQL DB, MI, virtuell dator |  |  |  |
 | Access | Azure SQL DB, MI, virtuell dator |  |  |  |
 | Sybase | Azure SQL DB, MI, virtuell dator |  |  |  |
 | | | | | |
 
-## <a name="pre-migration-stage"></a>Före migreringen steg
+## <a name="pre-migration-phase"></a>Före migrering: fas
 
 | **Källa** | **Mål** | **AppData åtkomst**<br/>**Layer-utvärdering** | **Databas**<br/>**Utvärdering** | **Prestanda**<br/>**Utvärdering** |
 | --- | --- | --- | --- | --- |
@@ -63,15 +65,17 @@ Följande tabeller identifiera tjänsten och verktyg som du kan använda för at
 | Oracle | Azure DB för PostgreSQL |  |  |  |
 | MongoDB | Cosmos DB |  | [Cloudamize *](https://www.cloudamize.com/) | [Cloudamize *](https://www.cloudamize.com/) |
 | Cassandra | Cosmos DB |  |  |  |
-| RDS/lokal MySQL | Azure DB för MySQL |  |  |  |
-| RDS/lokal PostgreSQL | Azure DB för PostgreSQL |  |  |  |
 | MySQL | Azure SQL DB, MI, virtuell dator |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Molnet Atlas *](https://www.unifycloud.com/cloud-migration-tool/) |  |
+| MySQL | Azure DB för MySQL |  |  |  |
+| RDS MySQL | Azure DB för MySQL |  |  |  |
+| PostgreSQL | Azure DB för PostgreSQL |  |  |  |
+| RDS-PostgreSQL | Azure DB för PostgreSQL |  |  |  |
 | DB2 | Azure SQL DB, MI, virtuell dator |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Access | Azure SQL DB, MI, virtuell dator |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase | Azure SQL DB, MI, virtuell dator |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | | | | | |
 
-## <a name="migration-stage"></a>Steg för migrering
+## <a name="migration-phase"></a>Migreringsfas
 
 | **Källa** | **Mål** | **schemat** | **Data**<br/>**(Offline)** | **Data**<br/>**(Online)** |
 | --- | --- | --- | --- | --- |
@@ -85,15 +89,17 @@ Följande tabeller identifiera tjänsten och verktyg som du kan använda för at
 | Oracle | Azure DB för PostgreSQL |  |  |  |
 | MongoDB | Cosmos DB | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/)<br/>[Imanis Data *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/)<br/>[Imanis Data *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Cloudamize *](https://www.cloudamize.com/)<br/>[Imanis Data *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf)<br/>[Striims *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Cassandra | Cosmos DB | [Imanis Data *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Imanis Data *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Imanis Data *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) |
-| RDS/lokal MySQL | Azure DB för MySQL | [MySQL dump *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striims *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| RDS/lokal PostgreSQL | Azure DB för PostgreSQL | [PG dump *](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striims *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | MySQL | Azure SQL DB, MI, virtuell dator | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striims *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| MySQL | Azure DB för MySQL | [MySQL dump *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striims *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| RDS MySQL | Azure DB för MySQL | [MySQL dump *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striims *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| PostgreSQL | Azure DB för PostgreSQL | [PG dump *](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striims *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| RDS-PostgreSQL | Azure DB för PostgreSQL | [PG dump *](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striims *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | DB2 | Azure SQL DB, MI, virtuell dator | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striims *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Access | Azure SQL DB, MI, virtuell dator | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
 | Sybase | Azure SQL DB, MI, virtuell dator | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striims *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | | | | | |
 
-## <a name="post-migration-stage"></a>Steg efter migrering
+## <a name="post-migration-phase"></a>Uppgifter efter migrering: fas
 
 | **Källa** | **Mål** | **Optimize** (Optimera) |
 | --- | --- | --- |
@@ -107,9 +113,11 @@ Följande tabeller identifiera tjänsten och verktyg som du kan använda för at
 | Oracle | Azure DB för PostgreSQL |  |
 | MongoDB | Cosmos DB | [Cloudamize *](https://www.cloudamize.com/) |
 | Cassandra | Cosmos DB |  |
-| RDS/lokal MySQL | Azure DB för MySQL |  |
-| RDS/lokal PostgreSQL | Azure DB för PostgreSQL |  |
 | MySQL | Azure SQL DB, MI, virtuell dator |  |
+| MySQL | Azure DB för MySQL |  |
+| RDS MySQL | Azure DB för MySQL |  |
+| PostgreSQL | Azure DB för PostgreSQL |  |
+| RDS-PostgreSQL | Azure DB för PostgreSQL |  |
 | DB2 | Azure SQL DB, MI, virtuell dator |  |
 | Access | Azure SQL DB, MI, virtuell dator |  |
 | Sybase | Azure SQL DB, MI, virtuell dator |  |

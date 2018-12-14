@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f852b04c2c666519f10e5e3bb148c50dae7add00
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d725c42a758a44fa872138dfaef7e1c05e4b688f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682528"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385694"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar på måttdiagram i Application Insights
 
 Anteckningar på [Metrics Explorer](app-insights-metrics-explorer.md) diagrammen visas där du har distribuerat en ny version eller betydande händelse. De gör det enkelt att se om ändringarna hade någon effekt på prestanda för ditt program. De kan skapas automatiskt av den [Azure DevOps-tjänsterna buildsystemet](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Du kan också skapa anteckningar för att flagga en händelse om du vill genom att [skapa dem från PowerShell](#create-annotations-from-powershell).
 
 > [!NOTE]
-> Den här artikeln visar det inaktuella **klassiska mått uppleva**. Anteckningar är bara tillgängliga i den klassiska upplevelsen och i  **[arbetsböcker](app-insights-usage-workbooks.md)**. Mer information om aktuella mått upplevelse, finns [i den här artikeln](../monitoring-and-diagnostics/monitoring-metric-charts.md).
+> Den här artikeln visar det inaktuella **klassiska mått uppleva**. Anteckningar är bara tillgängliga i den klassiska upplevelsen och i  **[arbetsböcker](app-insights-usage-workbooks.md)**. Mer information om aktuella mått upplevelse, finns [i den här artikeln](../azure-monitor/platform/metrics-charts.md).
 
 ![Exempel på anteckningar med synliga korrelation med svarstid för servern](./media/app-insights-annotations/00.png)
 

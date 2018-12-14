@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6855521475e24b7243a391abdc6e6cf707991159
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320700"
+ms.locfileid: "53344099"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Hur du etablerar för flera innehavare 
 
@@ -139,7 +139,7 @@ Att rensa enklare, dessa virtuella datorer kommer att läggas till samma resursg
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceEest \
+    --name ContosoSimDeviceEast \
     --location eastus \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
@@ -327,28 +327,28 @@ Exempelkoden simulerar en startsekvens för enheten som skickar en begäran om e
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-
-1. Öppna **~/azure-iot-sdk-c/provisioning\_hsm-klient/kort\_klienten\_key.c** på bägge VM: ar. 
-
-    ```bash
-     vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
-    ```
-
-1. Hitta deklarationen för konstanterna `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE`. Gör följande ändringar i filer på båda regionala virtuella datorer och spara filerna.
-
-    Uppdatera värdet för den `REGISTRATION_NAME` konstant med den **unika registrerings-ID för din enhet**.
-    
-    Uppdatera värdet för den `SYMMETRIC_KEY_VALUE` konstant med din **härledda enhetsnyckel**.
+1. Hitta anropet till på bägge VM: ar, `prov_dev_set_symmetric_key_info()` i **prov\_dev\_klienten\_sample.c** som har kommenterats bort.
 
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
+    Ta bort kommentarerna funktionsanropen och Ersätt platshållarvärdena (inklusive hakparenteser) med unika registrerings-ID: N och härledda enhetsnycklar för varje enhet. Nycklar som visas nedan är till exempel endast. Använd nycklar som du skapade tidigare.
+
+    Östra USA:
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
-    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
     ```
+
+    Västra USA:
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
+    ```
+
+    Spara filerna.
 
 1. Navigera till exempelmappen visas nedan på bägge VM: ar, och skapa exemplet.
 
@@ -358,6 +358,13 @@ Exempelkoden simulerar en startsekvens för enheten som skickar en begäran om e
     ```
 
 1. När den har byggts köra **prov\_dev\_klienten\_sample.exe** på bägge VM: ar för att simulera en klient-enhet från varje region. Observera att varje enhet tilldelas klienten IoT-hubb som är närmast den simulerade enheten regioner.
+
+    Köra simuleringen:
+    ```bash
+    ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
+    ```
+
+    Exempel utdata från östra USA virtuell dator:
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -374,6 +381,7 @@ Exempelkoden simulerar en startsekvens för enheten som skickar en begäran om e
 
     ```
 
+    Exempel utdata från västra USA virtuell dator:
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9

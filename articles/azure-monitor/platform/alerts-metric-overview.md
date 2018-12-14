@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 8eb23528391ffeccdad6ba92345d28b31e18f0a3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: cf315718377210e13a6634c0eaf8caab158bcc4d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322115"
+ms.locfileid: "53342229"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur arbetet aviseringar i mått i Azure Monitor
 
-Måttaviseringar i Azure Monitor ovanpå flerdimensionella mått. De här måtten kan vara plattform mått [anpassade mått](../../azure-monitor/platform/metrics-custom-overview.md), [populära loggar från Log Analytics konverteras till mått](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md), standardmått i Application Insights. Måttaviseringar utvärderar med jämna mellanrum för att kontrollera om villkoren på en eller flera mått time series-är SANT och meddelar dig när utvärderingarna är uppfyllda. Måttaviseringar är tillståndskänsliga, det vill säga de endast skicka ut meddelanden när tillståndet ändras.
+Måttaviseringar i Azure Monitor ovanpå flerdimensionella mått. De här måtten kan vara plattform mått [anpassade mått](../../azure-monitor/platform/metrics-custom-overview.md), [populära loggar från Log Analytics konverteras till mått](../../azure-monitor/platform/alerts-metric-logs.md), standardmått i Application Insights. Måttaviseringar utvärderar med jämna mellanrum för att kontrollera om villkoren på en eller flera mått time series-är SANT och meddelar dig när utvärderingarna är uppfyllda. Måttaviseringar är tillståndskänsliga, det vill säga de endast skicka ut meddelanden när tillståndet ändras.
 
 ## <a name="how-do-metric-alerts-work"></a>Hur fungerar måttaviseringar
 
@@ -85,7 +85,7 @@ Du kan ange omfånget för övervakning av en enda metrisk varning på något av
 - alla virtuella datorer (inom en Azure-region) i en eller flera resursgrupper i en prenumeration
 - alla virtuella datorer (i en Azure-region) i en prenumeration
 
-Skapa måttvarningsregler som övervakar flera resurser stöds inte för närvarande via Azure-portalen. Du kan skapa dessa regler via [Azure Resource Manager-mallar](../../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Du får enskilda meddelanden för varje virtuell dator. 
+Skapa måttvarningsregler som övervakar flera resurser stöds inte för närvarande via Azure-portalen. Du kan skapa dessa regler via [Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Du får enskilda meddelanden för varje virtuell dator. 
 
 ## <a name="typical-latency"></a>Typisk svarstid
 
@@ -134,5 +134,5 @@ Om du använder klassiska måttaviseringar idag och vill ha mer information om m
 ## <a name="next-steps"></a>Nästa steg
 
 - [Lär dig att skapa, visa och hantera aviseringar för mått i Azure](alerts-metric.md)
-- [Lär dig hur du distribuerar måttaviseringar med hjälp av Azure Resource Manager-mallar](../../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md)
+- [Lär dig hur du distribuerar måttaviseringar med hjälp av Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Läs mer om åtgärdsgrupper](action-groups.md)

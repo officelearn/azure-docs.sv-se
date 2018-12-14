@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316998"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337605"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Avancerat skydd med Azure Security Center
 
@@ -27,17 +27,17 @@ Den här ändringen ger dig omfattande funktioner för slutpunktsidentifiering o
 
 Azure Security Center-kunder kan nu använda funktioner i Windows Defender ATP:
 
-- **Nästa generations efter intrång identifiering sensorer**: Windows Defender ATP-sensorer för Windows-servrar samla in ett brett utbud av beteendeanalys signaler.
+- **Nästa generations efter intrång identifiering sensorer**: Windows Defender ATP-sensorer för Windows-servrar samlar in ett brett utbud av beteendeanalys signaler.
 
-- **Analytics-baserat och molndrivna efter intrång identifiering**: Windows Defender ATP snabbt anpassas till ändra hot. Det använder avancerad analys och stordata. Windows Defender ATP framhävas av Intelligent Security Graph med signaler i Windows, Azure och Office för att identifiera okända hot. Det ger användbara aviseringar och gör att du kan svara snabbt.
+- **Analytics-baserat och molndrivna efter intrång identifiering**: Windows Defender ATP snabbt anpassas efter ändra hot. Det använder avancerad analys och stordata. Windows Defender ATP framhävas av Intelligent Security Graph med signaler i Windows, Azure och Office för att identifiera okända hot. Det ger användbara aviseringar och gör att du kan svara snabbt.
 
 - **Hotinformation**: Windows Defender ATP identifierar angripare verktyg, tekniker och procedurer. När den identifierar dessa genererar aviseringar. Det använder data som genereras av Microsoft threat intensiva kampanjperioder och security team, förstärkas med information som tillhandahålls av partner.
 
 Dessa funktioner är nu tillgängliga i Azure Security Center:
 
-- **Automatisk registrering**: The Windows Defender ATP-sensorn aktiveras automatiskt för Windows-servrar som är registrerad på Azure Security Center.
+- **Automatisk registrering**: Windows Defender ATP-sensorn aktiveras automatiskt för Windows-servrar som är registrerad på Azure Security Center.
 
-- **Enda glasruta**: I Azure Security Center-konsolen visar Windows Defender ATP-aviseringar.
+- **Enda glasruta**: Azure Security Center-konsolen visar Windows Defender ATP-aviseringar.
 
 - **Detaljerad datorn undersökning**: Azure Security Center-kunder komma åt Windows Defender ATP-konsolen för att utföra en detaljerade undersökningar för att upptäcka omfattningen av ett intrång.
 
@@ -105,6 +105,6 @@ Så här genererar en avisering om ofarliga Windows Defender ATP test:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md): Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
+- [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md): Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
 - [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md): Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
-- [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig hur du övervakar dina Azure-resursers hälsa.
+- [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig att övervaka hälsotillståndet för dina Azure-resurser.

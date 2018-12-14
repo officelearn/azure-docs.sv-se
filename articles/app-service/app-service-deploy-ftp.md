@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: f48dc4d91fd5fafda88f518c27c79e151e5b1ebe
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3b8c97fa772467d1e0aff830eec51d212045be39
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260080"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339713"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
 
@@ -96,7 +96,7 @@ Ett problem med programmet runtime uppstår vanligen i rätt uppsättning filer 
 Information om ett problem med distributionen eller runtime finns [distributionen jämfört med körningsproblem](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Jag kan inte FTP och publicera min kod. Hur kan jag för att lösa problemet?
-Kontrollera att du har angett rätt värdnamn och [autentiseringsuppgifter](#step-1--set-deployment-credentials). Kontrollera också att följande FTP-portar på din dator inte blockeras av en brandvägg:
+Kontrollera att du har angett rätt värdnamn och [autentiseringsuppgifter](#open-ftp-dashboard). Kontrollera också att följande FTP-portar på din dator inte blockeras av en brandvägg:
 
 - Anslutningsport för FTP-kontroll: 21
 - Anslutningsport för FTP-data: 989, 10001-10300

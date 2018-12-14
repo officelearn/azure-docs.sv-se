@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 54a88188a432a23476af6a1670635a23fb72eea7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643147"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341176"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i varaktiga funktioner (Azure Functions)
 
@@ -33,7 +33,7 @@ När en orchestration-instans måste köras, laddas lämplig raderna i tabellen 
 
 Den **instanser** tabellen är en annan Azure Storage-tabell som innehåller status för alla orchestration-instanser i en uppgift-hubb. Då instanser skapas, läggs nya rader i tabellen. Partitionsnyckeln för den här tabellen är orchestration instans-ID och Radnyckeln är en fast konstant. Det finns en rad per orchestration-instans.
 
-Den här tabellen används för att uppfylla instans frågebegäranden från den [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API samt de [frågan om HTTP-API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). Den förblir konsekvent med innehållet i den **historik** beskrivits i tabellen. Användning av en separat Azure Storage-tabell för att effektivt uppfyller instans frågeåtgärder på så vis påverkas av den [mönster Command and Query Responsibility uppdelning (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Den här tabellen används för att uppfylla instans frågebegäranden från den [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) (.NET) och `getStatus` (JavaScript) API: er samt de [frågan om HTTP-API](durable-functions-http-api.md#get-instance-status). Den förblir konsekvent med innehållet i den **historik** beskrivits i tabellen. Användning av en separat Azure Storage-tabell för att effektivt uppfyller instans frågeåtgärder på så vis påverkas av den [mönster Command and Query Responsibility uppdelning (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Intern Kölängd utlösare
 
@@ -53,10 +53,24 @@ Kontrollen köer innehåller en mängd olika typer av orchestration livscykel me
 
 Köer, tabeller och blobbar som används av varaktiga funktioner skapas genom att i ett konfigurerat Azure Storage-konto. Kontot som ska användas som kan anges med hjälp av den `durableTask/azureStorageConnectionStringName` i **host.json** fil.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+    }
   }
 }
 ```
@@ -67,6 +81,8 @@ Om inte anges används standardvärdet `AzureWebJobsStorage` lagringskontot anv�
 
 Aktivitetsfunktioner är tillståndslösa och skalade ut automatiskt genom att lägga till virtuella datorer. Orchestrator-funktioner, å andra sidan är *partitionerade* över en eller fler köer för kontrollen. Antalet köer kontroll definieras i den **host.json** fil. I följande exempel host.json kodfragment anges den `durableTask/partitionCount` egenskap `3`.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
@@ -74,6 +90,19 @@ Aktivitetsfunktioner är tillståndslösa och skalade ut automatiskt genom att l
   }
 }
 ```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "partitionCount": 3
+    }
+  }
+}
+```
+
 En uppgift-hubb kan konfigureras med mellan 1 och 16 partitioner. Om inte anges är standardvärdet för partitionsantal **4**.
 
 Vid utskalning till flera funktionen värd-instanser (normalt på olika virtuella datorer), får varje instans ett lås på en kontroll köer. Hantera implementeras internt som blob storage-lån och se till att en orchestration-instans körs bara på en enda värd-instans i taget. Om en uppgift hubb är konfigurerad med tre kontroll köer, kan orchestration-instanser vara Utjämning av nätverksbelastning över upp till tre virtuella datorer. Ytterligare virtuella datorer kan läggas till att öka kapaciteten för körning av aktiviteten funktion.
@@ -106,11 +135,26 @@ Azure Functions kan du köra flera funktioner samtidigt i en enda app-instans. D
 
 Båda aktivitet funktionen och orchestrator-funktion samtidighetsgränser kan konfigureras i den **host.json** fil. De relevanta inställningarna är `durableTask/maxConcurrentActivityFunctions` och `durableTask/maxConcurrentOrchestratorFunctions` respektive.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
   }
 }
 ```
@@ -121,15 +165,31 @@ I exemplet ovan kan högst 10 orchestrator-funktioner och 10 Aktivitetsfunktione
 > De här inställningarna är användbara för att hantera minne och CPU-användning på en enskild virtuell dator. När skalade ut över flera virtuella datorer, men har varje virtuell dator en egen uppsättning gränser. De här inställningarna kan inte användas för att styra samtidighet på global nivå.
 
 ## <a name="orchestrator-function-replay"></a>Återuppspelning av orchestrator-funktion
+
 Som tidigare nämnts är orchestrator-funktioner återupprepas med innehållet i den **historik** tabell. Som standard spelas Funktionskoden orchestrator varje gång en grupp med meddelanden har tagits bort från en kontroll kön.
 
 Det här beteendet för aggressiva repetitionsattacker kan inaktiveras genom att aktivera **utökade sessioner**. När utökad sessioner är aktiverade, sparas orchestrator-funktion-instanser i minnet längre och nya meddelanden kan bearbetas utan en fullständig repetitionsattacker. Utökade sessioner är aktiverade genom att ange `durableTask/extendedSessionsEnabled` till `true` i den **host.json** fil. Den `durableTask/extendedSessionIdleTimeoutInSeconds` inställningen används för att styra hur lång tid en inaktiv session hålls kvar i minnet:
+
+### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
   "durableTask": {
     "extendedSessionsEnabled": true,
     "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "extendedSessionsEnabled": true,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
   }
 }
 ```
@@ -150,10 +210,10 @@ Till exempel om `durableTask/extendedSessionIdleTimeoutInSeconds` är inställd 
 
 Det är viktigt att tänka på prestandakraven tidigt i planeringsprocessen när du planerar att använda varaktiga funktioner för ett produktionsprogram. Det här avsnittet beskrivs vissa grundläggande Användningsscenarier och den förväntade maximala dataflödet siffror.
 
-* **Sekventiell aktivitetskörning**: det här scenariot beskriver en orchestrator-funktion som kör en serie Aktivitetsfunktioner en efter en. Den mest liknar den [funktionen länkning](durable-functions-sequence.md) exemplet.
-* **Parallell aktivitetskörning**: det här scenariot beskriver en orchestrator-funktion som körs många Aktivitetsfunktioner parallellt med den [Fan-out, Fan-in](durable-functions-cloud-backup.md) mönster.
-* **Parallell bearbetning av certifikatsvar**: det här scenariot är den andra halvan av den [Fan-out, Fan-in](durable-functions-cloud-backup.md) mönster. Den fokuserar på prestanda hos fan-in. Det är viktigt att Observera att till skillnad från fan-out, fan-in gör du genom en enda orchestrator-funktion-instans, och därför kan bara köras på en enskild virtuell dator.
-* **Externa händelsebearbetning**: det här scenariot representerar en enskild orchestrator-funktion-instans som väntar på [externa händelser](durable-functions-external-events.md), en i taget.
+* **Sekventiell aktivitetskörning**: Det här scenariot beskriver en orchestrator-funktion som kör en serie Aktivitetsfunktioner en efter en. Den mest liknar den [funktionen länkning](durable-functions-sequence.md) exemplet.
+* **Parallell aktivitetskörning**: Det här scenariot beskriver en orchestrator-funktion som körs många Aktivitetsfunktioner parallellt med den [Fan-out, Fan-in](durable-functions-cloud-backup.md) mönster.
+* **Parallell bearbetning av certifikatsvar**: Det här scenariot är den andra halvan av den [Fan-out, Fan-in](durable-functions-cloud-backup.md) mönster. Den fokuserar på prestanda hos fan-in. Det är viktigt att Observera att till skillnad från fan-out, fan-in gör du genom en enda orchestrator-funktion-instans, och därför kan bara köras på en enskild virtuell dator.
+* **Externa händelsebearbetning**: Det här scenariot representerar en enskild orchestrator-funktion-instans som väntar på [externa händelser](durable-functions-external-events.md), en i taget.
 
 > [!TIP]
 > Till skillnad från fan-out är fan-in åtgärder begränsad till en enda virtuell dator. Om programmet använder fan-out, fan-in mönster och du är orolig fan-in prestanda, Överväg att dividera icke aktivitet funktionen fan-out över flera [underordnade orkestreringar](durable-functions-sub-orchestrations.md).

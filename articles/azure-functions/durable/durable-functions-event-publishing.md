@@ -8,26 +8,26 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 12/07/2018
 ms.author: glenga
-ms.openlocfilehash: 00735293d8fa8c6056f1ecf89fd312fe4b90bcac
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 78011e799fb4ddaf89fb1fd24c1f2a313ef49ba5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642706"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338115"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Functions-Durable publicering till Azure Event Grid (förhandsversion)
 
-Den här artikeln visar hur du ställer in Azure varaktiga funktioner för att publicera orchestration Livscykelhändelser (till exempel skapade, slutförda och misslyckade) till en anpassad [Azure Event Grid-ämne](https://docs.microsoft.com/azure/event-grid/overview). 
+Den här artikeln visar hur du ställer in varaktiga funktioner för att publicera orchestration Livscykelhändelser (till exempel skapade, slutförda och misslyckade) till en anpassad [Azure Event Grid-ämne](https://docs.microsoft.com/azure/event-grid/overview).
 
 Nedan följer några scenarier där den här funktionen är användbar:
 
-* **DevOps-scenarier som blå/grön distributioner**: du kanske vill veta om alla uppgifter körs innan du implementerar den [sida-vid-sida-distributionsstrategi](https://docs.microsoft.com/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
+* **DevOps-scenarier som blå/grön distributioner**: Du kanske vill veta om alla uppgifter körs innan du implementerar den [sida-vid-sida-distributionsstrategi](durable-functions-versioning.md#side-by-side-deployments).
 
-* **Avancerad support för övervakning och diagnostik**: du kan hålla reda på orchestration statusinformation i en extern lagring som är optimerat för frågor, till exempel SQL-databas eller CosmosDB.
+* **Avancerad support för övervakning och diagnostik**: Du kan hålla reda på orchestration statusinformation i en extern lagring som är optimerat för frågor, till exempel SQL-databas eller CosmosDB.
 
-* **Långvariga bakgrundsaktiviteten**: Om du använder varaktiga funktioner för en tidskrävande bakgrundsaktiviteten kan den här funktionen kan du enkelt se aktuell status.
+* **Långvariga bakgrundsaktiviteten**: Om du använder varaktiga funktioner för en tidskrävande bakgrundsaktiviteten kan du enkelt se aktuell status i den här funktionen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -39,12 +39,12 @@ Nedan följer några scenarier där den här funktionen är användbar:
 
 Skapa ett Event Grid-ämne för att skicka händelser från varaktiga funktioner. Följande instruktioner visar hur du skapar ett ämne med Azure CLI. Information om hur du gör det med hjälp av PowerShell eller Azure-portalen finns i följande artiklar:
 
-* [EventGrid Quickstarts: Skapa anpassad händelse – PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
-* [EventGrid Quickstarts: Skapa anpassad händelse – Azure-portalen](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
+* [EventGrid Snabbstarter: Skapa anpassad händelse – PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
+* [EventGrid Snabbstarter: Skapa anpassad händelse – Azure-portalen](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot `az group create`. Event Grid stöder för närvarande inte alla regioner. Information om vilka regioner som stöds finns i den [översikt över Event Grid](https://docs.microsoft.com/azure/event-grid/overview). 
+Skapa en resursgrupp med kommandot `az group create`. Event Grid stöder för närvarande inte alla regioner. Information om vilka regioner som stöds finns i den [översikt över Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -55,7 +55,7 @@ az group create --name eventResourceGroup --location westus2
 Ett Event Grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar din händelse till. Ersätt `<topic_name>` med ett unikt namn för ditt ämne. Ämnesnamnet måste vara unikt eftersom det blir en DNS-post.
 
 ```bash
-az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup 
+az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
 ```
 
 ## <a name="get-the-endpoint-and-key"></a>Hämta slutpunkten och nyckeln
@@ -119,7 +119,7 @@ Skapa en Funktionsapp. Det är bäst att hitta den i samma region som Event Grid
 
 ### <a name="create-an-event-grid-trigger-function"></a>Skapa en funktion för Event Grid-utlösare
 
-Skapa en funktion för att ta emot Livscykelhändelser. Välj **anpassad funktion**. 
+Skapa en funktion för att ta emot Livscykelhändelser. Välj **anpassad funktion**.
 
 ![Välj Skapa en anpassad funktion.](./media/durable-functions-event-publishing/functions-portal.png)
 
@@ -131,7 +131,7 @@ Ange namnet på funktionen och välj sedan `Create`.
 
 ![Skapa Event Grid-utlösare.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
 
-En funktion med följande kod skapas: 
+En funktion med följande kod skapas:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -153,11 +153,11 @@ Välj `Event Grid Topics` för **ämnestyp**. Välj den resursgrupp som du skapa
 
 ![Skapa en Event Grid-prenumeration.](./media/durable-functions-event-publishing/eventsubscription.png)
 
-Nu är du redo att ta emot Livscykelhändelser. 
+Nu är du redo att ta emot Livscykelhändelser.
 
-## <a name="create-durable-functions-to-send-the-events"></a>Skapa varaktiga funktioner för att skicka händelser.
+## <a name="create-durable-functions-to-send-the-events"></a>Skapa varaktiga funktioner för att skicka händelser
 
-Starta felsökning på den lokala datorn i projektet varaktiga funktioner.  Följande kod är samma som mallkod för varaktiga funktioner. Du har redan konfigurerat `host.json` och `local.settings.json` på den lokala datorn. 
+Starta felsökning på den lokala datorn i projektet varaktiga funktioner.  Följande kod är samma som mallkod för varaktiga funktioner. Du har redan konfigurerat `host.json` och `local.settings.json` på den lokala datorn.
 
 ```csharp
 using System.Collections.Generic;
@@ -217,7 +217,7 @@ Se loggar från den funktion som du skapade i Azure-portalen.
 ```
 2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
 2018-04-20T09:28:21.104 [Info] {
-    "id": "054fe385-c017-4ce3-b38a-052ac970c39d",    
+    "id": "054fe385-c017-4ce3-b38a-052ac970c39d",
     "subject": "durable/orchestrator/Running",
     "data": {
         "hubName": "DurableFunctionsHub",
@@ -259,18 +259,18 @@ Se loggar från den funktion som du skapade i Azure-portalen.
 I följande lista beskriver händelseschemat livscykel:
 
 * **ID**: Unik identifierare för Event Grid-händelse.
-* **ämne**: sökvägen till ämne för händelsen. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` kommer att `Running`, `Completed`, `Failed`, och `Terminated`.  
-* **data**: varaktiga funktioner specifika parametrar.
-    * **hubName**: [TaskHub](https://docs.microsoft.com/azure/azure-functions/durable-functions-task-hubs) namn.
-    * **functionName**: funktionsnamn för Orchestrator.
-    * **instanceId**: instanceId varaktiga funktioner.
-    * **Orsak**: ytterligare data som är associerade med spårningshändelsen. Mer information finns i [diagnostik i varaktiga funktioner (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-diagnostics)
-    * **runtimeStatus**: Körningsstatus för orkestrering. Körs, slutfört, misslyckades, har avbrutits. 
+* **Ämne**: Sökväg till ämne för händelsen. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` kommer att `Running`, `Completed`, `Failed`, och `Terminated`.  
+* **Data**: Varaktiga funktioner specifika parametrar.
+  * **hubName**: [TaskHub](durable-functions-task-hubs.md) namn.
+  * **functionName**: Orchestrator-funktionsnamn.
+  * **instanceId**: Varaktiga funktioner instanceId.
+  * **Orsak**: Ytterligare data som är associerade med spårningshändelsen. Mer information finns i [diagnostik i varaktiga funktioner (Azure Functions)](durable-functions-diagnostics.md)
+  * **runtimeStatus**: Körningsstatus för orkestrering. Körs, slutfört, misslyckades, har avbrutits.
 * **Händelsetyp**: ”orchestratorEvent”
-* **eventTime**: händelsetid (UTC).
+* **eventTime**: Händelsetid (UTC).
 * **dataVersion**: Version av händelseschemat livscykel.
-* **metadataVersion**: Version av metadata.
-* **avsnittet**: EventGrid avsnittet resurs.
+* **metadataVersion**:  Version av metadata.
+* **avsnittet**: EventGrid avsnittet resursen.
 
 ## <a name="how-to-test-locally"></a>Hur du testar lokalt
 

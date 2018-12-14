@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
-ms.openlocfilehash: 4535b141d177e49567d99a88d0c3883f5ddf746a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 839c8bfe6748c1aeaf7c8804ef4388cf8a623bdb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956814"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337843"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center och Azure SQL Database-tjänsten
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
@@ -60,7 +60,7 @@ Du kan ange en princip för att visa rekommendationer för SQL-granskning och tr
 För att ställa in en säkerhetsprincip, Välj den **princip** panelen på bladet Security Center. På den **säkerhetsprincip** bladet väljer du den prenumeration som du vill aktivera en säkerhetsprincip. Välj **skyddsprincip** och aktivera **på** de säkerhetsrekommendationer du vill använda för den här prenumerationen.
 ![Säkerhetsprincip][3]
 
-Mer information finns i [ställa in säkerhetsprinciper](security-center-azure-policy.md).
+Mer information finns i [ställa in säkerhetsprinciper](tutorial-security-policy.md).
 
 ## <a name="manage-security-recommendation"></a>Hantera säkerhetsrekommendation
 Security Center analyserar regelbundet säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer. Via rekommendationerna får du hjälp att ställa in de kontrollfunktioner som behövs.
@@ -85,7 +85,7 @@ Följ stegen i [SQL Database-hotidentifiering i Azure-portalen](../sql-database/
 Läs mer om rekommendationer i [hantera säkerhetsrekommendationer](security-center-recommendations.md).
 
 ## <a name="monitor-security-health"></a>Övervaka säkerhetshälsa
-När du har aktiverat [säkerhetsprinciper](security-center-azure-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser i den **resurssäkerhetshälsa** panelen. När du klickar på **Data** i den **resurssäkerhetshälsa** öppnas den **dataresurser** blad öppnas med SQL-rekommendationer för problem, till exempel för granskning och transparent kryptering inte är aktiverade. Här finns även rekommendationer gällande databasens allmänna hälsoläge.
+När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser i den **resurssäkerhetshälsa** panelen. När du klickar på **Data** i den **resurssäkerhetshälsa** öppnas den **dataresurser** blad öppnas med SQL-rekommendationer för problem, till exempel för granskning och transparent kryptering inte är aktiverade. Här finns även rekommendationer gällande databasens allmänna hälsoläge.
 ![Resurssäkerhetshälsa][6]
 
 Mer information finns i [övervakning av säkerhetshälsa](security-center-monitoring.md).

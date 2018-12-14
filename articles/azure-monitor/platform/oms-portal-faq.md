@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 108b6cafa185788a66689a4d16bbfba7f30da6c3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6b76249c85f9b8c64435043a75e39601d445ab0c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271478"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384725"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -33,7 +33,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 ![Log Analytics-arbetsyta](media/oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Hur gör jag för att hantera behörigheter?
-Om du inte har åtkomst till Log Analytics-arbetsytan i Azure-portalen kan du behöva konfigurera behörigheter genom [Azure rollbaserad åtkomst](../../role-based-access-control/role-assignments-portal.md). Mer information om hur du hanterar behörigheter för arbetsytan finns i [hantera arbetsytor](manage-access.md#manage-accounts-and-users). Information om hur du hanterar behörigheter för aviseringar finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Om du inte har åtkomst till Log Analytics-arbetsytan i Azure-portalen kan du behöva konfigurera behörigheter genom [Azure rollbaserad åtkomst](../../role-based-access-control/role-assignments-portal.md). Mer information om hur du hanterar behörigheter för arbetsytan finns i [hantera arbetsytor](manage-access.md#manage-accounts-and-users). Information om hur du hanterar behörigheter för aviseringar finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Hur gör jag för att skapa en ny arbetsyta? 
 I listan över arbetsytor i Azure-portalen klickar du på **Lägg till** i listan över arbetsytor.  Fullständig information finns i [skapa en Log Analytics-arbetsyta i Azure-portalen](../learn/quick-create-workspace.md).

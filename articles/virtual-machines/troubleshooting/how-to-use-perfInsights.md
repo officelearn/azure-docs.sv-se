@@ -140,7 +140,7 @@ Kör en regelbaserad motor i bakgrunden för att samla in data och diagnostisera
 > [!NOTE] 
 > Windows-versioner med .NET Framework 4.5 eller senare versioner är för närvarande.
 
-### <a name="performance-counter-trace-"></a>Prestandaräknaren spårning (*)
+### <a name="performance-counter-trace-"></a>Prestandaräknaren spårning (\*\*)
 
 Samlar in följande prestandaräknare:
 
@@ -156,7 +156,7 @@ Samlar in följande prestandaräknare:
 #### <a name="for-azure-files"></a>För Azure Files
 \SMB Klientresurser
 
-### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark-spårning (*)
+### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark-spårning (\*\*\*)
 I/o för Diskspd arbetsbelastning tester (OS-Disk [Skriv] och poolen enheter [Läs/Skriv])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Kör verktyget PerfInsights på den virtuella datorn

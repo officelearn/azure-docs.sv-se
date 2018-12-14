@@ -93,7 +93,7 @@ Enterprise-distributioner har vanligtvis arbetsbelastningar delas upp på flera 
 - **Hubbnätverk**. Det finns en Hubbnätverk **källa Hubbnätverk**: 10.10.10.0/24.
     - Den här Hubbnätverk fungerar som gatekeepern.
     - All kommunikation över undernät igenom den här hubben.
- - ****Hub vNet undernät**. Hubbnätverk har två undernät:
+ - ** Hub vNet undernät**. Hubbnätverk har två undernät:
      - **NVA-undernätet**: 10.10.10.0/25. Det här undernätet innehåller en NVA (10.10.10.10).
      - **Gateway-undernätet**: 10.10.10.128/25. Det här undernätet innehåller en ExpressRoute-gateway som är anslutna till en ExpressRoute-anslutning som dirigerar till den lokala platsen via en privat peering routningsdomän.
 - Datacenter på plats har en ExpressRoute-krets-anslutning via en partner edge i Hongkong.

@@ -63,8 +63,8 @@ Följande egenskaper har stöd för länkade filsystemtjänst:
 
 | Scenario | ”värd” i länkade tjänstdefinitionen | ”folderPath” i definitionen av datauppsättningen |
 |:--- |:--- |:--- |
-| Lokal mapp på datorn för Integration Runtime: <br/><br/>Exempel: D:\\ \* eller D:\folder\subfolder\\* |I JSON: `D:\\`<br/>Användargränssnitt: `D:\` |I JSON: `.\\` eller `folder\\subfolder`<br>I Användargränssnittet: `.\` eller `folder\subfolder` |
-| Delad fjärrmapp: <br/><br/>Exempel: \\ \\minserver\\dela\\ \* eller \\ \\minserver\\dela\\mappen\\undermapp\\* |I JSON: `\\\\myserver\\share`<br/>Användargränssnitt: `\\myserver\share` |I JSON: `.\\` eller `folder\\subfolder`<br/>I Användargränssnittet: `.\` eller `folder\subfolder` |
+| Lokal mapp på datorn för Integration Runtime: <br/><br/>Exempel: D:\\ \* eller D:\folder\subfolder\\ * |I JSON: `D:\\`<br/>Användargränssnitt: `D:\` |I JSON: `.\\` eller `folder\\subfolder`<br>I Användargränssnittet: `.\` eller `folder\subfolder` |
+| Delad fjärrmapp: <br/><br/>Exempel: \\ \\minserver\\dela\\ \* eller \\ \\minserver\\dela\\mappen\\undermapp\\ * |I JSON: `\\\\myserver\\share`<br/>Användargränssnitt: `\\myserver\share` |I JSON: `.\\` eller `folder\\subfolder`<br/>I Användargränssnittet: `.\` eller `folder\subfolder` |
 
 >[!NOTE]
 >När du skapar via Gränssnittet kan du behöver inte ange dubbla omvända snedstrecken (`\\`) för att undanta så som dul via JSON, ange omvänt snedstreck.

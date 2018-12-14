@@ -115,7 +115,7 @@ Om du vill skapa en A-post, måste du först hitta den virtuella IP-adressen fö
      Spara IP-adress som du behöver den när du skapar en A-post.
 2. Logga in till din DNS-registratorns webbplats och gå till sidan för hantering av DNS. Söker efter länkar eller områden på webbplatsen som är märkta som **domännamn**, **DNS**, eller **Namnserverhantering**.
 3. Nu hitta där du kan välja eller ange en post. Du kan behöva välja typ av post från en listmeny ned, eller gå till en sida med avancerade inställningar.
-4. Välj eller ange domän eller underdomän som ska använda den här A-post. Välj exempelvis **www** om du vill skapa ett alias för **www.customdomain.com**. Om du vill skapa en post för jokertecken för alla underordnade domäner, anger du ”***”. Det här täcker alla underdomäner som **mail.customdomain.com**, **login.customdomain.com**, och **www.customdomain.com**.
+4. Välj eller ange domän eller underdomän som ska använda den här A-post. Välj exempelvis **www** om du vill skapa ett alias för **www.customdomain.com**. Om du vill skapa en post för jokertecken för alla underordnade domäner, anger du ”*****”. Det här täcker alla underdomäner som **mail.customdomain.com**, **login.customdomain.com**, och **www.customdomain.com**.
    
     Om du vill skapa en A-post för rotdomänen, det kan vara markerat som den ”**@**' symbolen i din registratorns DNS-verktyg.
 5. Ange IP-adressen för din molntjänst i det angivna fältet. Det här associerar posten domän används i A-post med IP-adressen för din molntjänstdistribution.
@@ -126,7 +126,7 @@ Till exempel en post vidarebefordrar all trafik från följande **contoso.com** 
 | --- | --- |
 | \@ |137.135.70.239 |
 
-Det här exemplet visar hur du skapar en A-post för rotdomänen. Om du vill skapa en post för jokertecken för att täcka alla underordnade domäner, anger du ”***” som underdomänen.
+Det här exemplet visar hur du skapar en A-post för rotdomänen. Om du vill skapa en post för jokertecken för att täcka alla underordnade domäner, anger du ”*****” som underdomänen.
 
 > [!WARNING]
 > IP-adresser i Azure är dynamiska som standard. Vill du förmodligen att använda en [reserverade IP-adress](../virtual-network/virtual-networks-reserved-public-ip.md) så att din IP-adress inte ändras.

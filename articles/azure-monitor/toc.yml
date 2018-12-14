@@ -121,13 +121,13 @@ items:
   - name: Svara på incidenter
     items:
     - name: Aviseringar
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-overview.md
     - name: Klassiska aviseringar
       href: platform/alerts-classic.overview.md
     - name: Smarta grupper
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-smartgroups-overview.md
     - name: Automatisk skalning
-      href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
+      href: platform/autoscale-overview.md
     - name: Måttaviseringar
       href: platform/alerts-metric-overview.md
     - name: Loggaviseringar
@@ -151,7 +151,7 @@ items:
     - name: Hantera åtkomst
       items:
       - name: Rollbehörigheter och säkerhet
-        href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
+        href: platform/roles-permissions-security.md
       - name: Arbetsytor
         href: platform/manage-access.md
       - name: Program
@@ -217,7 +217,7 @@ items:
         - name: Felsökning
           href: platform/diagnostics-extension-troubleshooting.md
         - name: Aktivera diagnostikinställningar med Resource Manager-mallar
-          href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-stream-template.md
         - name: Förbered för JSON Lines-format för diagnostikloggar
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
         - name: VM-gäst till måttlager
@@ -441,9 +441,9 @@ items:
     - name: Dirigera data
       items:
       - name: Arkivera aktivitetsloggen
-        href: ../monitoring-and-diagnostics/monitoring-archive-activity-log.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-activity-log.md
       - name: Arkivera diagnostikloggar
-        href: ../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-diagnostic-logs.md
       - name: Lagra diagnostikloggar
         href: ../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md?toc=/azure/azure-monitor/toc.json
       - name: Strömma aktivitetsloggen till Event Hubs
@@ -655,7 +655,7 @@ items:
   - name: Analysera data
     items:
     - name: Skapa måttdiagram i Metrics Explorer
-      href: ../monitoring-and-diagnostics/monitoring-metric-charts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-charts.md
     - name: Visa händelser i aktivitetsloggen
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: Visa tjänstmeddelanden
@@ -740,11 +740,11 @@ items:
         - name: Aviseringar med dynamiska tröskelvärden
           href: platform/alerts-dynamic-thresholds.md
         - name: Konfigurera måttaviseringar för loggar
-          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-logs.md
         - name: Skapa en nyare måttavisering med en Resource Manager-mall
-          href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-create-templates.md
         - name: Skapa en klassisk måttavisering med en Resource Manager-mall
-          href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-enable-template.md
         - name: Få en klassisk måttavisering att anropa en webhook
           href: platform/alerts-webhooks.md
       - name: Använda loggaviseringar
@@ -760,7 +760,7 @@ items:
         - name: Konfigurera aviseringar i en händelse i aktivitetsloggen
           href: platform/alerts-activity-log.md
         - name: Migrera till aktivitetsloggsaviseringar
-          href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: platform/migrate-management-alerts.md
         - name: Konfigurera aviseringar för tjänstmeddelanden
           href: platform/alerts-activity-log-service-notifications.md
       - name: Använda programaviseringar
@@ -776,11 +776,11 @@ items:
         - name: Lär dig mer om webhook-schemat
           href: platform/activity-log-alerts-webhook.md
         - name: Beteende för SMS-aviseringar
-          href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-sms-behavior.md
         - name: Begränsningar för aviseringsfrekvensen
-          href: ../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-rate-limiting.md
         - name: Skapa åtgärdsgrupper med Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups-create-resource-manager-template.md
         - name: Implementera en Logikapp-åtgärd
           href: platform/action-groups-logic-app.md
       - name: Aviseringar från Operations Manager
@@ -790,11 +790,11 @@ items:
         - name: Hantera aviseringsinstanser
           href: platform/alerts-managing-alert-instances.md
         - name: Hantera smarta grupper
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-smart-groups.md
         - name: Hantera tillstånd för aviseringar och smarta grupper
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-alert-states.md
         - name: Hantera aviseringar från andra övervakningstjänster
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-nagios-zabbix-scom.md
     - name: Automatisk skalning
       items:
       - name: Genomgång av automatisk skalning
@@ -808,7 +808,7 @@ items:
       - name: Vanliga mönster
         href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
       - name: Skala automatiskt med anpassat mått
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-custom-metric.md
       - name: VM Scale Sets för automatisk skalning med Resource Manager-mallar
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Skala datorer i en skalningsuppsättning för virtuella datorer automatiskt
@@ -958,9 +958,9 @@ items:
   - name: Scheman
     items:
     - name: Tjänster, kategorier och scheman för diagnostikloggar
-      href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/tutorial-dashboards.md
     - name: Händelseschema för aktivitetslogg
-      href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/activity-log-schema.md
     - name: Schema för Azure Diagnostics-tillägg
       href: platform/diagnostics-extension-schema.md
       items:
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 06ea6e43343a0cf9982a6161fbd60d5bfce6b0ba
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 037ec2d246e30725448fb3da98263b557e11186d
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322558"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384437"

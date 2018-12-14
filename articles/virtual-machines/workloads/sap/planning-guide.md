@@ -1668,7 +1668,7 @@ I tabellen nedan vanliga SAP visas kommunikationsportar. Är tillräckliga för 
 
 *) nn = SAP-instansnummer
 
-*) sid = SAP-System-ID
+**) sid = SAP-System-ID
 
 Mer detaljerad information om portar som krävs för olika SAP-produkter eller tjänster efter SAP-produkter finns här <http://scn.sap.com/docs/DOC-17124>.
 Med det här dokumentet, bör du kunna öppna dedikerade portar i VPN-enhet krävs för specifika SAP-produkter och -scenarier.

@@ -7,6 +7,10 @@ items:
     href: Overview/overview.md
 - name: Snabbstarter
   items:
+  - name: Skapa en ny kunskapsbas
+    href: How-To/create-knowledge-base.md
+  - name: Publicera en kunskapsbas
+    href: How-To/publish-knowledge-base.md
   - name: Få svar från kunskapsbasen
     items:
     - name: Använda Postman
@@ -80,8 +84,6 @@ items:
     - name: Skapa och publicera en kunskapsbas
       href: Quickstarts/create-publish-knowledge-base.md
     - name: Skapa en kunskapsbas
-      href: How-To/create-knowledge-base.md
-    - name: Lägga till konversationer i din kunskapsbas
       href: How-to/chit-chat-knowledge-base.md
     - name: Migrera en kunskapsbas från förhandsversionen
       href: Tutorials/migrate-knowledge-base.md
@@ -91,8 +93,6 @@ items:
       href: How-To/collaborate-knowledge-base.md
     - name: Skapa en kunskapsbas på ett annat språk
       href: How-To/language-knowledge-base.md
-    - name: Publicera en kunskapsbas
-      href: How-To/publish-knowledge-base.md
     - name: Testa en kunskapsbas
       href: How-To/test-knowledge-base.md
   - name: Använda kunskapsbas
@@ -174,9 +174,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blogg
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: f4323dcd58b35fefcfa91864bd58ce2129f1a53c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a7edca422a935ff98c823a50ef62e62683729687
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272454"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343555"

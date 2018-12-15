@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 5de7496d73ebe1c89ce27ef27df73b197f34e7c7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642293"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407974"
 ---
-# <a name="using-a-cloud-dvr"></a>Med hjälp av ett moln-DVR
+# <a name="using-a-cloud-dvr"></a>Använda en moln-DVR
 
-En [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) låter dig kontrollera egenskaperna för den utgående direktsända dataströmmen, till exempel hur mycket av strömmen registreras (t.ex, kapaciteten för moln-DVR) och om huruvida användarna kan börjar titta på live stream. Förhållandet mellan en **LiveEvent** och dess **LiveOutput**s relation liknar traditionella TV-sändning, där en kanal (**LiveEvent**) representerar en konstant ström av video och en inspelning (**LiveOutput**) är begränsad till en viss tidpunkt-segment (till exempel kvällar nyheter från 18:30:00 till 19:00:00). Du kan spela TV med hjälp av en Digital Video Recorder (DVR) – den motsvarande funktionen i LiveEvents hanteras via egenskapen ArchiveWindowLength. Det är en ISO 8601-timespan varaktighet (till exempel PTHH:MM:SS) som anger kapaciteten för DVR och kan anges från minst 3 minuter till högst 25 timmar.
+En [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) låter dig kontrollera egenskaperna för den utgående direktsända dataströmmen, till exempel hur mycket av strömmen registreras (t.ex, kapaciteten för moln-DVR) och om huruvida användarna kan börjar titta på live stream. Förhållandet mellan en **LiveEvent** och dess **LiveOutput**s liknar traditionella TV-sändning, där en kanal (**LiveEvent**) representerar en konstant strömma video och en inspelning (**LiveOutput**) är begränsad till en viss tidpunkt-segment (till exempel kvällar nyheter från 18:30:00 till 19:00:00). Du kan spela TV med hjälp av en Digital Video Recorder (DVR) – den motsvarande funktionen i LiveEvents hanteras via egenskapen ArchiveWindowLength. Det är en ISO 8601-timespan varaktighet (till exempel PTHH:MM:SS) som anger kapaciteten för DVR och kan anges från minst 3 minuter till högst 25 timmar.
 
 ## <a name="liveoutput"></a>LiveOutput
 

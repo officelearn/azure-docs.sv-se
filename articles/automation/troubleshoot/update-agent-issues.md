@@ -4,25 +4,25 @@ description: Lär dig hur du felsöker problem med hantering av agenten.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 68bac54de4f6a9f16f54032b10031bcf7222c676
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969319"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434774"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Förstå Windows-agenten kontrollera resultaten i hantering av uppdateringar
 
-Det finns många orsaker till varför en dator i Azure inte kanske visar en **redo** status i Azure uppdateringshantering. Du kan kontrollera hälsotillståndet för en Hybrid Worker-agent för att fastställa underliggande problem i hantering av uppdateringar. Den här artikeln beskriver hur du kör Felsökaren för uppdateringshantering från Azure-portalen och offline-scenarier.
+Det kan finnas många orsaker till din dator inte visas **redo** i hantering av uppdateringar. Du kan kontrollera hälsotillståndet för en Hybrid Worker-agent för att fastställa det underliggande problemet i hantering av uppdateringar. Den här artikeln beskrivs hur du kör Felsökaren för datorer i Azure från Azure-portalen och icke-Azure-datorer i den [offlinescenario](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>Starta felsökaren
 
-I Azure-portalen i **felsöka Update-agenten** sidan visar problem med agenten. På sidan finns en länk till den här artikeln kan hjälpa dig med felsökning av problem. Gå till den **felsöka Update-agenten** väljer den **felsöka** länken i den **uppdatera Agentberedskap** kolumn.
+För datorer i Azure, klicka på den **Felsök** länka den **uppdatera Agentberedskap** kolumn i portalen startar den **felsöka Update-agenten** sidan. För icke-Azure-datorer ger länken du till den här artikeln. Se den [offline instruktioner](#troubleshoot-offline) att felsöka en icke-Azure-dator.
 
 ![Uppdatera av hanteringslistan över virtuella datorer](../media/update-agent-issues/vm-list.png)
 

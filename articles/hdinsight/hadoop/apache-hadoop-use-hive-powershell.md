@@ -9,26 +9,26 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4927c76c1bb6be6c27d2e559e6d1292008b3643b
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8bd754533758d2c736e3951e5c7a10f63bb72bd8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162370"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410184"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Kör Apache Hive-frågor med hjälp av PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShell i Azure-resursgrupp-läge kör Hive-frågor i en Apache Hadoop på HDInsight-kluster.
 
-> [!NOTE]
-> Det här dokumentet ger inte en detaljerad beskrivning av vad HiveQL-instruktioner som används i exemplen göra. Information om HiveQL som används i det här exemplet finns i [använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md).
+> [!NOTE]  
+> Det här dokumentet ger inte en detaljerad beskrivning av vad HiveQL-instruktioner som används i exemplen göra. Information om HiveQL som används i det här exemplet finns i [använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Linux-baserade Apache Hadoop på HDInsight-kluster av version 3.4 och senare.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * En klient med Azure PowerShell.
@@ -78,7 +78,7 @@ Följande steg visar hur du kan använda dessa cmdletar för att köra ett jobb 
         2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
-   > [!NOTE]
+   > [!NOTE]  
    > Du kan använda Azure PowerShell för frågor med längre HiveQL **här strängar** cmdlet eller HiveQL skriptfiler. Följande kodfragment visar hur du använder den `Invoke-Hive` cmdlet för att köra en skriptfil för HiveQL. HiveQL skriptfilen måste överföras till wasb: / /.
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
@@ -108,9 +108,9 @@ Som du kan se är det enkelt att köra Hive-frågor i ett HDInsight-kluster, öv
 
 Allmän information om Hive i HDInsight:
 
-* [Använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
 
 Information om andra sätt kan du arbeta med Hadoop i HDInsight:
 
-* [Använda Pig med Hadoop i HDInsight](hdinsight-use-pig.md)
-* [Använda MapReduce med Hadoop i HDInsight](hdinsight-use-mapreduce.md)
+* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
+* [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)

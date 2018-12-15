@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 610b3111b8b84f42327f39ac17285ba7fef0d719
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869226"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437579"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar på Azure
 Med Visual Studio på en förkonfigurerad Azure-dator (VM) är ett snabbt, enkelt sätt att gå från inget till en upp-igång-utvecklingsmiljö. Systemavbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -30,13 +30,13 @@ Med Visual Studio på en förkonfigurerad Azure-dator (VM) är ett snabbt, enkel
 Ny Azure-användare? [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Vilka konfigurationer och versioner är tillgängliga?
-Avbildningar för de senaste huvudversioner, Visual Studio 2017 och Visual Studio 2015 finns på Azure Marketplace. För varje större version visas den ursprungligen utgivna versionen (RTW) och de senaste uppdaterade versionerna. Var och en av dessa versioner erbjuder Visual Studio Enterprise och Visual Studio Community-versionerna. Dessa avbildningar uppdateras minst varje månad för att inkludera de senaste uppdateringarna för Visual Studio och Windows. När namnen på avbildningarna är desamma, innehåller varje Bildbeskrivning installerade produktversionen och avbildningens ”datum som anges efter”.
+Avbildningar för de senaste huvudversioner, Visual Studio 2017 och Visual Studio 2015 finns på Azure Marketplace.  Vi har nyligen lagt till stöd för förhandsversioner av den kommande huvudversionen – Visual Studio 2019.  För varje utgiven huvudversion visas den ursprungligen utgivna versionen (RTW) och de senaste uppdaterade versionerna.  Var och en av dessa versioner erbjuder Visual Studio Enterprise och Visual Studio Community-versionerna.  Dessa avbildningar uppdateras minst varje månad för att inkludera de senaste uppdateringarna för Visual Studio och Windows.  När namnen på avbildningarna är desamma, innehåller varje Bildbeskrivning installerade produktversionen och avbildningens ”datum som anges efter”.
 
 | Slutversionen                                              | Utgåvor                     |     Produktversion      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|   Visual Studio 2019: Förhandsversion av (förhandsversion 1)                   |           Enterprise         | Version 16.0.0 Preview 1 |
-| Visual Studio 2017: Senaste (Version 15.9)                    |    Enterprise, Community     |       Version 15.9.0     |
-|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.18     |
+|    Visual Studio 2019: Förhandsversion (förhandsversion 1)                   |           Enterprise         | Version 16.0.0 Preview 1 |
+| Visual Studio 2017: Senaste (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.4      |
+|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.20     |
 |   Visual Studio 2015: Senaste (Aktualizace 3)                      |    Enterprise, Community     |  Version 14.0.25431.01   |
 |         Visual Studio 2015: RTW                              |             Ingen             | (Har gått ut för att underhålla)  |
 
@@ -96,7 +96,7 @@ Mer information finns i [logga in i Visual Studio](/visualstudio/ide/signing-in-
 
 Spektrum av utvecklingsmiljöer är stor och det är verkliga kostnaden för att skapa mer komplexa miljöer. Du kan spara eller samla in, den Konfigurera virtuella datorn som en ”grundläggande avbildning” för framtida användning eller för andra medlemmar i din grupp oavsett konfigurationen för din miljö. Sedan, när du startar en ny virtuell dator du etablerar den från basavbildningen i stället för Azure Marketplace-avbildning.
 
-En snabb Sammanfattning: använda systemförberedelseverktyget (Sysprep) och Stäng av virtuell dator som körs och sedan avbilda *(bild 1)* den virtuella datorn som en bild via Användargränssnittet i Azure-portalen. Azure sparar den `.vhd` -fil som innehåller bilden i storage-konto du väljer. Den nya avbildningen visas sedan som en bildresurs i din prenumeration listan över resurser.
+En snabb Sammanfattning: Använda systemförberedelseverktyget (Sysprep) och Stäng av virtuell dator som körs och sedan avbilda *(bild 1)* den virtuella datorn som en bild via Användargränssnittet i Azure-portalen. Azure sparar den `.vhd` -fil som innehåller bilden i storage-konto du väljer. Den nya avbildningen visas sedan som en bildresurs i din prenumeration listan över resurser.
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Bild 1) Spara en avbildning via Azure-portalens användargränssnitt.*</center>
 

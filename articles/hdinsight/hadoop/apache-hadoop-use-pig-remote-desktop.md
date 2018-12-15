@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 69eeadd8252d20dd25ac6d0abbbf0c6c158383d5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633350"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438633"
 ---
 # <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>Kör Apache Pig-jobb från en fjärrskrivbordsanslutning
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
 Det här dokumentet innehåller en genomgång där Apache Pig-kommando för att köra satser i Pig Latin från en fjärrskrivbordsanslutning till en Windows-baserade HDInsight-kluster. Pig Latin kan du skapa MapReduce-program genom att beskriva Datatransformationer, snarare än mappa och minska funktioner.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Fjärrskrivbord är bara tillgängligt på HDInsight-kluster som använder Windows som operativsystem. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> För HDInsight 3.4 eller större finns i [använda Pig med HDInsight och SSH](apache-hadoop-use-pig-ssh.md) information om hur du kör interaktivt Pig-jobb direkt i klustret från en kommandorad.
+> För HDInsight 3.4 eller större finns i [använda Apache Pig med HDInsight och SSH](apache-hadoop-use-pig-ssh.md) information om hur du kör interaktivt Pig-jobb direkt i klustret från en kommandorad.
 
 ## <a id="prereq"></a>Förhandskrav
 Du behöver följande för att slutföra stegen i den här artikeln.
@@ -78,7 +78,7 @@ Aktivera Fjärrskrivbord för HDInsight-klustret och sedan ansluta till den geno
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
-   > [!NOTE]
+   > [!NOTE]  
    > Data lagras i den angivna katalogen i filer med namnet **del nnnnn**. Om katalogen finns redan, visas ett felmeddelande.
    >
    >
@@ -119,9 +119,9 @@ Som du ser kan kommandot Pig du interaktivt kör MapReduce åtgärder eller kör
 ## <a id="nextsteps"></a>Nästa steg
 Allmän information om Pig i HDInsight:
 
-* [Använda Pig med Hadoop i HDInsight](hdinsight-use-pig.md)
+* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
 
 Information om andra sätt kan du arbeta med Hadoop i HDInsight:
 
-* [Använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md)
-* [Använda MapReduce med Hadoop i HDInsight](hdinsight-use-mapreduce.md)
+* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)

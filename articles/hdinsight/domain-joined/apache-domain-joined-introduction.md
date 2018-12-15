@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ed735b8344c301be413dfe998ccf7f44bd686115
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011241"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436899"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>En introduktion till Apache Hadoop-säkerhet med Enterprise Security Package
 
@@ -24,8 +24,8 @@ Du kan skapa ett HDInsight-kluster med Enterprise Security Package (ESP) och som
 
 Enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC) för Apache Hive säkerhet med hjälp av [Apache Ranger](https://hortonworks.com/apache/ranger/). Konfigurera RBAC begränsar dataåtkomsten till bara vad som behövs. Slutligen kan administratören granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll. Administratören kan sedan få en hög styrningsgrad över företagets resurser.
 
-> [!NOTE]
-> Oozie har nu aktiverats på ESP-kluster. För att komma åt webbgränssnittet för Oozie användare bör aktivera [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
+> [!NOTE]  
+> Apache Oozie har nu aktiverats på ESP-kluster. För att komma åt webbgränssnittet för Oozie användare bör aktivera [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Enterprise security består av fyra större pelare: perimetersäkerhet, autentisering, auktorisering och kryptering.
 
@@ -39,7 +39,7 @@ En annan nivå av perimetersäkerhet uppnås genom VPN-Gateway-tjänsten. Gatewa
 ## <a name="authentication"></a>Autentisering
 En företagsadministratör kan skapa ett HDInsight-kluster med ESP i ett [virtuellt nätverk](https://azure.microsoft.com/services/virtual-network/). Alla noder i HDInsight-klustret är anslutna till den domän som hanteras av företaget. Detta uppnås med [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-Med den här konfigurationen kan kan företagets anställda logga in på noderna i klustret med hjälp av sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera med andra godkända slutpunkter som Ambari Views, ODBC, JDBC, PowerShell och REST API: er att interagera med klustret. Administratören har full kontroll över begränsningen av antalet användare som interagerar med klustret via dessa slutpunkter.
+Med den här konfigurationen kan kan företagets anställda logga in på noderna i klustret med hjälp av sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera med andra godkända slutpunkter som Apache Ambari Views, ODBC, JDBC, PowerShell och REST API: er att interagera med klustret. Administratören har full kontroll över begränsningen av antalet användare som interagerar med klustret via dessa slutpunkter.
 
 ## <a name="authorization"></a>Auktorisering
 Bästa praxis som de flesta företag följer att se till att alla medarbetare inte har åtkomst till alla företagsresurser. På samma sätt kan kan administratören definiera rollbaserad principer för åtkomstkontroll för klusterresurserna. 
@@ -63,6 +63,6 @@ Båda datalagren för HDInsight-kluster – Azure Blob storage och Azure Data La
 * [Planera för HDInsight-kluster med hjälp av ESP](apache-domain-joined-architecture.md)
 * [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md)
 * [Hantera HDInsight-kluster med ESP](apache-domain-joined-manage.md)
-* [Konfigurera Hive-principer för HDInsight-kluster med ESP](apache-domain-joined-run-hive.md)
+* [Konfigurera Apache Hive-principer för HDInsight-kluster med ESP](apache-domain-joined-run-hive.md)
 * [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
 

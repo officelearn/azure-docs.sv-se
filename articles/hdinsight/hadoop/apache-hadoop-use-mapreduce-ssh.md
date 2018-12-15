@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: df6a96d8bbf1c77d279806e69e7aa7f65387dd4b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bce79aed49b94071b4e83524de2d599fca182256
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632534"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438579"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Använda MapReduce med Apache Hadoop i HDInsight med SSH
 
@@ -63,7 +63,7 @@ Mer information om hur du använder SSH med HDInsight finns i [använda SSH med 
     Detta kommando startar den `wordcount` klass, som finns i den `hadoop-mapreduce-examples.jar` filen. Den använder den `/example/data/gutenberg/davinci.txt` dokumentet som indata och utdata lagras på `/example/data/WordCountOutput`.
 
     > [!NOTE]
-    > Läs mer om MapReduce-jobb och exempeldata, [använda MapReduce i Hadoop på HDInsight](hdinsight-use-mapreduce.md).
+    > Läs mer om MapReduce-jobb och exempeldata, [använda MapReduce i Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md).
 
 2. Jobbet skickar information som bearbetas, och den returnerar information liknande följande text när jobbet har slutförts:
 
@@ -80,7 +80,7 @@ Mer information om hur du använder SSH med HDInsight finns i [använda SSH med 
 
     Det här kommandot visar två filer, `_SUCCESS` och `part-r-00000`. Den `part-r-00000` filen innehåller utdata för jobbet.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Vissa MapReduce-jobb kan delas upp resultaten i flera **del-r-###** filer. I så fall använda den ### suffix för att ange ordningen på filerna.
 
 4. Om du vill visa utdata, använder du följande kommando:
@@ -111,5 +111,5 @@ Allmän information om MapReduce-jobb i HDInsight:
 
 Information om andra sätt kan du arbeta med Hadoop i HDInsight:
 
-* [Använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md)
-* [Använda Pig med Hadoop i HDInsight](hdinsight-use-pig.md)
+* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)

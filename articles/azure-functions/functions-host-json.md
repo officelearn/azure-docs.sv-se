@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635177"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413276"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host.JSON-referens för Azure Functions 2.x  
 
@@ -96,7 +96,23 @@ I följande avsnitt i den här artikeln beskrivs varje översta egenskap. Alla �
 
 Den här inställningen är underordnad [loggning](#logging).
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+Kontroller i [sampling funktion i Application Insights](./functions-monitoring.md#configure-sampling).
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+|Egenskap   |Standard | Beskrivning |
+|---------|---------|---------| 
+|isEnabled|true|Aktiverar eller inaktiverar sampling.| 
+|maxTelemetryItemsPerSecond|5|Tröskelvärdet på vilka sampling börjar.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -185,7 +201,28 @@ Styr loggning beteenden för funktionsappen, inklusive Application Insights.
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av filen loggning är aktiverat.  Alternativen är `never`, `always`, `debugOnly`. |
 |LogLevel|Saknas|Objekt som definierar loggkategori filtrering för funktionerna i appen. Version 2.x följer ASP.NET Core-layouten för log kategorifiltrering. På så sätt kan du filtrera loggning för specifika funktioner. Mer information finns i [Log filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.NET Core-dokumentationen. |
+|konsol|Saknas| Den [konsolen](#console) inställning för aktivitetsloggning. |
 |applicationInsights|Saknas| Den [applicationInsights](#applicationinsights) inställningen. |
+
+## <a name="console"></a>konsol
+
+Den här inställningen är underordnad [loggning](#logging). Den kontrollerar konsolen loggning när inte i felsökningsläge.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": "false"
+        },
+    ...
+    }
+}
+```
+
+|Egenskap   |Standard | Beskrivning |
+|---------|---------|---------| 
+|isEnabled|false|Aktiverar eller inaktiverar loggning för konsolen.| 
 
 ## <a name="queues"></a>köer
 

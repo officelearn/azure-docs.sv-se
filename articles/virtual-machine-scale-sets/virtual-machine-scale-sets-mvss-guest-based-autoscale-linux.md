@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: manayar
-ms.openlocfilehash: e30fdb684fbabbdcea334115e3f645e63dec6623
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: deddcc8623803f9d003f3fafcef5252ebd34b813
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322644"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438344"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Automatisk skalning med gästmått i en skalningsuppsättningsmall för Linux
 
 Det finns två typer av mått i Azure som har samlats in från virtuella datorer och skalningsuppsättningar: vissa kommer från den Virtuella värddatorn och andra kommer från den Virtuella gästdatorn. På en hög nivå om du använder standard CPU, disk och nätverk mätvärden, är sedan värdmått förmodligen ett bra alternativ. Om du behöver dock ett större antal mått, sedan är gästmått förmodligen ett bättre alternativ. Låt oss ta en titt på skillnaderna mellan två:
 
-Värdmått är enklare och mer tillförlitlig. De kräver inga ytterligare inställningar eftersom de har samlats in av värden VM, medan gästmått måste du installera den [Windows Azure-diagnostiktillägget](../virtual-machines/windows/extensions-diagnostics-template.md) eller [Linux Azure-diagnostiktillägget](../virtual-machines/linux/diagnostic-extension.md)på den Virtuella gästdatorn. En vanlig orsak till att använda gästmått i stället för värdmått är att gästmått ger ett större antal mått än värdmått. Ett exempel är minnesförbrukning mätvärden, som endast är tillgängliga via gästmått. Mått för stöds värden [här](../monitoring-and-diagnostics/monitoring-supported-metrics.md), och i vanliga gästmått [här](../azure-monitor/platform/autoscale-common-metrics.md). Den här artikeln visar hur du ändrar den [minsta lönsamma skaluppsättningsmall](./virtual-machine-scale-sets-mvss-start.md) att använda regler för automatisk skalning baserat på gästmått för Linux-skalningsuppsättningar.
+Värdmått är enklare och mer tillförlitlig. De kräver inga ytterligare inställningar eftersom de har samlats in av värden VM, medan gästmått måste du installera den [Windows Azure-diagnostiktillägget](../virtual-machines/windows/extensions-diagnostics-template.md) eller [Linux Azure-diagnostiktillägget](../virtual-machines/linux/diagnostic-extension.md)på den Virtuella gästdatorn. En vanlig orsak till att använda gästmått i stället för värdmått är att gästmått ger ett större antal mått än värdmått. Ett exempel är minnesförbrukning mätvärden, som endast är tillgängliga via gästmått. Mått för stöds värden [här](../azure-monitor/platform/metrics-supported.md), och i vanliga gästmått [här](../azure-monitor/platform/autoscale-common-metrics.md). Den här artikeln visar hur du ändrar den [minsta lönsamma skaluppsättningsmall](./virtual-machine-scale-sets-mvss-start.md) att använda regler för automatisk skalning baserat på gästmått för Linux-skalningsuppsättningar.
 
 ## <a name="change-the-template-definition"></a>Ändra malldefinitionen
 

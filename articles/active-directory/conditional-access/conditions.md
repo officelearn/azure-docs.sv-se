@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eb7d5dc2d38d814625e904d1270446f5f1671624
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321109"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410082"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory villkorlig åtkomst? 
 
@@ -74,7 +74,7 @@ Välj:
 
 - **Alla molnappar** till baslinje-principerna ska gälla för hela organisationen. Använd detta alternativ för principer som kräver multifaktorautentisering när inloggningsrisk har identifierats för alla appar i molnet. En princip som tillämpas på **alla molnappar** gäller för åtkomst till alla webbplatser och tjänster. Den här inställningen är inte begränsat till de molnappar som visas på den **Välj appar** lista. 
 
-- Enskilda molnappar till målet specifika tjänster av en princip. Du kan till exempel kräva att användarna ha en [kompatibel enhet](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) åtkomst till SharePoint Online. Den här principen tillämpas också till andra tjänster när de ansluter till SharePoint-innehåll. Ett exempel är Microsoft Teams. 
+- **Välj spp** till målet specifika tjänster i din princip. Du kan till exempel kräva att användarna ha en [kompatibel enhet](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) åtkomst till SharePoint Online. Den här principen tillämpas också till andra tjänster när de ansluter till SharePoint-innehåll. Ett exempel är Microsoft Teams. 
 
 Du kan utesluta specifika appar från en princip. De här apparna är dock fortfarande omfattas av principer som tillämpas på de tjänster som de har åtkomst till. 
 
@@ -137,16 +137,16 @@ Mer information finns i [vad är platsvillkoret för villkorlig åtkomst i Azure
 
 Som standard gäller principer för villkorlig åtkomst för följande appar:
 
-- [Webbläsarbaserade appar](technical-reference.md#supported-browsers) – webbläsarbaserade appar innehåller webbplatser som använder SAML, WS-Federation och OpenID Connect web SSO-protokoll. Detta gäller även för en webbplats eller webbapp-tjänst som har registrerats som en konfidentiell OAuth-klient. Till exempel Office 365 SharePoint-webbplats. 
+- **[Webbläsarappar](technical-reference.md#supported-browsers)**  – webbläsarbaserade appar innehåller webbplatser som använder SAML, WS-Federation och OpenID Connect web SSO-protokoll. Detta gäller även för en webbplats eller webbapp-tjänst som har registrerats som en konfidentiell OAuth-klient. Till exempel Office 365 SharePoint-webbplats. 
 
-- [Mobilappar och skrivbordsappar som använder modern autentisering](technical-reference.md#supported-mobile-applications-and-desktop-clients) -de här apparna inkluderar Office-program och phone-appar. 
+- **[Mobilappar och skrivbordsappar som använder modern autentisering](technical-reference.md#supported-mobile-applications-and-desktop-clients)**  – de här apparna inkluderar Office-program och phone-appar. 
 
 
 Dessutom kan du ange en principen på specifika klientappar som inte använder modern autentisering, till exempel:
 
-- Klientappar som använder Microsoft Exchange ActiveSync-protokollet. När en princip block med Exchange ActiveSync, får berörda användare ett enda karantän e-postmeddelande med information om varför de blockeras. Om det behövs, innehåller e-postmeddelandet anvisningar för att registrera sina enheter med Intune.
+- **[Exchange ActiveSync-klienter](conditions.md#exchange-activesync-clients)**  – när en princip block med Exchange ActiveSync, berörda användare får ett enda karantän e-postmeddelande med information om varför de blockeras. Om det behövs, innehåller e-postmeddelandet anvisningar för att registrera sina enheter med Intune.
 
-- Andra klienter. De här apparna inkluderar klienter som använder grundläggande autentisering med e-postprotokoll som IMAP-, MAPI-, POP-, SMTP- och äldre Office-program som inte använder modern autentisering. Mer information finns i [hur modern autentisering fungerar för Office 2013 och Office 2016 klientappar](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
+- **[Andra klienter](block-legacy-authentication.md)**  – de här apparna inkluderar klienter som använder grundläggande autentisering med e-postprotokoll som IMAP-, MAPI-, POP-, SMTP- och äldre Office-program som inte använder modern autentisering. Mer information finns i [hur modern autentisering fungerar för Office 2013 och Office 2016 klientappar](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![Klientappar](./media/conditions/41.png)
 
@@ -154,7 +154,7 @@ Vanliga användningsområden för det här villkoret är principer med följande
 
 - **[Kräv en hanterad enhet](require-managed-devices.md)**  för mobila och skrivbordsprogram som laddar ned data till en enhet. Tillåt webbläsaråtkomst från alla enheter på samma gång. Det här scenariot förhindrar sparar och synkroniserar dokument till en ohanterad enhet. Med den här metoden kan du minska sannolikheten för förlust av data om enheten tappas bort eller blir stulen.
 
-- **[Kräv en hanterad enhet](require-managed-devices.md)**  med ActiveSync för att få åtkomst till Exchange Online.
+- **[Kräv en hanterad enhet](require-managed-devices.md)**  för appar som använder ActiveSync åtkomst till Exchange Online.
 
 - **[Blockera äldre autentisering](block-legacy-authentication.md)**  till Azure AD (andra klienter)
 

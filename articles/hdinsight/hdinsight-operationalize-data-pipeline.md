@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 93c2808dc244a86f7a58aa65d649e9c3e8c17f7c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251716"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436168"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för dataanalys
 
@@ -30,13 +30,13 @@ I följande scenario är indata en platt fil som innehåller en batch med flygni
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-Exempel-pipeline väntar tills en ny tidsperiod flygning data tas emot och lagrar den detaljerade flyginformation i Hive data warehouse för långsiktig analyser. Pipelinen skapar även en mycket mindre datauppsättning som sammanfattar bara den dagliga datavolymen flygning. Den här dagliga flygning sammanfattningsdata skickas till en SQL-databas och tillhandahåller rapporter, till exempel för en webbplats.
+Exempel-pipeline väntar tills en ny tidsperiod flygning data tas emot och lagrar den detaljerade flyginformation i Apache Hive data warehouse för långsiktig analyser. Pipelinen skapar även en mycket mindre datauppsättning som sammanfattar bara den dagliga datavolymen flygning. Den här dagliga flygning sammanfattningsdata skickas till en SQL-databas och tillhandahåller rapporter, till exempel för en webbplats.
 
 Följande diagram illustrerar arbetsflödet i exemplet.
 
 ![Flight Datapipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Översikt över lösning för Oozie
+## <a name="apache-oozie-solution-overview"></a>Översikt över Apache Oozie-lösning
 
 Denna pipeline använder Apache Oozie som körs på ett HDInsight Hadoop-kluster.
 
@@ -139,7 +139,7 @@ Din Azure SQL Database är nu klar.
 
 Om du vill använda Oozie Web Console för att visa status för dina coordinator och arbetsflödesinstanser, ställer du in en SSH-tunnel till ditt HDInsight-kluster. Mer information finns i [SSH-Tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Du kan också använda Chrome med den [Foxy Proxy](https://getfoxyproxy.org/) tillägget Bläddra web klusterresurser via SSH-tunnel. Konfigurera den att proxy alla begäranden via värden `localhost` på den tunnel-port 9876. Den här metoden är kompatibelt med Windows-undersystem för Linux, även känt som Bash i Windows 10.
 
 1. Kör följande kommando för att öppna en SSH-tunnel till ditt kluster:
@@ -430,7 +430,7 @@ I följande tabell sammanfattas var och en av egenskaperna och anger var du hitt
 | månad | Månadskomponenten för den dagen för vilka flygning sammanfattningar beräknas. Lämna skick. |
 | dag | Dagen i månadskomponenten för den dagen för vilka flygning sammanfattningar beräknas. Lämna skick. |
 
-> [!NOTE]
+> [!NOTE]  
 > Se till att uppdatera din kopia av den `job.properties` filen med värdena som är specifika för din miljö innan du kan distribuera och kör din Oozie-arbetsflöde.
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Distribuera och köra Oozie-arbetsflöde

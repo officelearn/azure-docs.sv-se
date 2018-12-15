@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615611"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408008"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Store Batch AI-jobbindata och utdata med Azure Storage
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Den här guiden beskriver hur du använder Azure Storage för lagring av inkommande och utgående filer när du kör ett jobb. Azure Storage är en av flera lagringsalternativ som stöds av Batch AI. Batch AI kan integreras med Azure Storage genom att montera Azure Storage-System till ett Batch AI-jobb eller ett kluster filsystem, så att sömlös åtkomst till filer som lagras i molnet. 
 

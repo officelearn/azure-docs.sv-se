@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 790cc11e3d4cf1d0260b1099efd82bdddec85785
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d3c9c8eab0ce13aee5dbe7bdb732d45555e547fb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634574"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407175"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Kör Apache Hive-frågor med hjälp av HDInsight .NET SDK
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 Lär dig hur du skickar in Apache Hive-frågor med hjälp av HDInsight .NET SDK. Du skriva ett C#-program att skicka en Hive-fråga för att lista Hive-tabeller och visa resultatet.
 
-> [!NOTE]
+> [!NOTE]  
 > Stegen i den här artikeln måste utföras från en Windows-klient. Använd flikväljaren visas överst i artikeln för information om hur du använder en Linux-, OS X- eller Unix-klient för att arbeta med Hive.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -29,8 +29,8 @@ Innan du påbörjar den här artikeln måste du ha följande objekt:
 
 * **Ett Apache Hadoop-kluster i HDInsight**. Se [komma igång med Linux-baserat Hadoop i HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-    > [!WARNING]
-    > HDInsight .NET SDK stöder endast returnerar Hive-frågeresultat från Azure Storage-konton från och med den 15 September 2017. Om du använder det här exemplet med ett HDInsight-kluster som använder Azure Data Lake Store som primär lagring, kan du inte kan hämta sökresultat med hjälp av .NET SDK.
+    > [!WARNING]  
+    > HDInsight .NET SDK stöder endast returnerar Hive-frågeresultat från Azure Storage-konton från och med den 15 September 2017. Om du använder det här exemplet med ett HDInsight-kluster som använder Azure Data Lake Storage som primär lagring, kan du inte kan hämta sökresultat med hjälp av .NET SDK.
 
 * **Visual Studio 2013/2015/2017**.
 
@@ -138,11 +138,11 @@ Utdata från programmet bör se ut:
 I den här artikeln har du lärt dig att skapa ett HDInsight-kluster på flera olika sätt. Mer information finns i följande artiklar:
 
 * [Kom igång med Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
-* [Skapa Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Hantera Hadoop-kluster i HDInsight med hjälp av Azure-portalen](../hdinsight-administer-use-management-portal.md)
+* [Skapa Apache Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
+* [Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen](../hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
-* [Använda Pig med HDInsight](hdinsight-use-pig.md)
-* [Använda Sqoop med HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
+* [Använda Apache Pig med HDInsight](hdinsight-use-pig.md)
+* [Använd Apache Sqoop med HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Skapa .NET HDInsight-program med icke-interaktiv autentisering](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
  
 

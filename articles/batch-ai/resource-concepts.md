@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a9e3529f9d68ecdc614ea69cffc6897891f4548
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4454448809411c6390bc1f65c33b4abe76094ded
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057225"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407753"
 ---
 # <a name="overview-of-resources-in-batch-ai"></a>Översikt över resurser i Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 När du startar med hjälp av Batch AI-tjänsten, bör du förstå de tillgängliga Batch AI-resurserna. Som med andra Azure-tjänster du skapar Batch AI-resurser i en eller flera Azure *resursgrupper*. Skapa en eller flera Batch AI *arbetsytor* i en resursgrupp. Varje arbetsyta som innehåller en blandning av Batch AI *kluster*, *filservrar*, och *experiment*. Ett Batch AI-experiment kapslar in en grupp med *jobb*.
 
@@ -50,7 +53,7 @@ Ett experiment grupperar en uppsättning relaterade jobb som du fråga och hante
 
 ## <a name="job"></a>Jobb
 
-Ett jobb är en enskild uppgift eller ett skript som måste köras, till exempel för att träna en modell med djupinlärning. Varje jobb körs ett visst skript på ett kluster på arbetsytan. (Skriptet kan lagras på en Batch AI-filserver eller andra lagringslösning.) Varje Batch AI-jobb har en framework-typ som är kopplade till den: TensorFlow, Horovod, CNTK, Caffe och Caffe2, pyTorch, Chainer, anpassade MPI och anpassat. För varje framework Batch AI-tjänsten ställer in infrastrukturen som krävs och hanterar processerna som jobbet. Varje experiment kan ha flera jobb som är liknande, förutom några ändringar i olika parametrar.
+Ett jobb är en enskild uppgift eller ett skript som måste köras, till exempel för att träna en modell med djupinlärning. Varje jobb körs ett visst skript på ett kluster på arbetsytan. (Skriptet kan lagras på en Batch AI-filserver eller andra lagringslösning.) Varje Batch AI-jobb har en framework-typ som är kopplade till den: TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, anpassade MPI eller anpassat. För varje framework Batch AI-tjänsten ställer in infrastrukturen som krävs och hanterar processerna som jobbet. Varje experiment kan ha flera jobb som är liknande, förutom några ändringar i olika parametrar.
 
 ## <a name="next-steps"></a>Nästa steg
 

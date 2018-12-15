@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73f4aeb77124c21a07771ab080b88a56231e50da
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 34d084bc4115d0abf8f57c576c16330611f3a21b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185723"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409878"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -35,7 +35,6 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
 > Vi rekommenderar att du skapar en ny arbetsyta om du vill använda beräkning av Azure Machine Learning. Det finns en fjärransluten risk att användare som försöker skapa beräkning av Azure Machine Learning från en befintlig arbetsyta kan se ett fel. Befintliga beräkning i din arbetsyta bör fortsätta att fungera påverkas inte.
 
 ### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning-SDK för Python v1.0.2
-
 + **Större ändringar**
   + Den här versionen har bort vi stöd för att skapa en virtuell dator från Azure Machine Learning. Du kan fortfarande koppla ett befintligt moln virtuell dator eller en fjärransluten lokal server. 
   + Vi också tar bort sitt stöd för BatchAI, som ska ha stöd via Azure Machine Learning Compute nu.
@@ -56,7 +55,6 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
 <!--+ **Bugs fixed**-->
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning Data Förbered SDK v0.5.2
-
 + **Större ändringar** 
   * `SummaryFunction.N` har bytt namn till `SummaryFunction.Count`.
   
@@ -66,6 +64,9 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
   * to_spark_dataframe() kommer inte längre krascha när de Spark använder Kryo serialisering
   * Antal värden Inspector kan nu visa fler än 1000 unika värden
   * Slumpmässig dela misslyckas inte längre om det ursprungliga dataflödet saknar ett namn  
+
++ **Mer information**
+  * [Azure Machine Learning-SDK för dataförberedelse](https://aka.ms/data-prep-sdk)
 
 ### <a name="docs-and-notebooks"></a>Docs och bärbara datorer
 + ML-Pipelines

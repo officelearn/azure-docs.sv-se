@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b083b9a09b478ca5ad68e19d3a2133fb529da851
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4832a48489a043493639bdedd6c6adf3c828de11
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342960"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434706"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-initierare i varaktiga funktioner (Azure Functions)
 
-För bakgrundsjobb eller aktör-style-orkestreringar du ofta behöva se till att endast en instans av körs en viss orchestrator samtidigt. Detta kan göras [varaktiga funktioner](durable-functions-overview.md) genom att tilldela en specifik instans-ID till en orchestrator när du skapar den.
+För bakgrundsjobb som du ofta behöver se till körs att endast en instans av en viss orchestrator samtidigt. Detta kan göras [varaktiga funktioner](durable-functions-overview.md) genom att tilldela en specifik instans-ID till en orchestrator när du skapar den.
 
 ## <a name="singleton-example"></a>Singleton-exempel
 

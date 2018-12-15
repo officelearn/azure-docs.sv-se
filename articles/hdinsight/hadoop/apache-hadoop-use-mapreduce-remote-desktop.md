@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c0040958cbf748d3eafb3ee60806b064e4e0b1ba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634489"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435794"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Använda MapReduce i Apache Hadoop på HDInsight med fjärrskrivbord
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 I den här artikeln får lära du dig att ansluta till en Apache Hadoop på HDInsight-kluster med hjälp av fjärrskrivbord och kör MapReduce-jobb med hjälp av Hadoop-kommando.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Fjärrskrivbord är bara tillgängligt på Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > För HDInsight 3.4 eller större finns i [använda MapReduce med SSH](apache-hadoop-use-mapreduce-ssh.md) information om hur du ansluter till HDInsight-kluster och kör MapReduce-jobb.
@@ -40,7 +40,7 @@ När du är ansluten till skrivbordet för HDInsight-kluster, Använd följande 
 
 1. Från HDInsight-skrivbordet startar den **Hadoop-kommandoraden**. Då öppnas en ny kommandotolk i den **c:\apps\dist\hadoop-&lt;versionsnummer >** directory.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Versionsnumret ändras när Hadoop uppdateras. Den **HADOOP_HOME** miljövariabeln kan användas för att hitta sökvägen. Till exempel `cd %HADOOP_HOME%` ändrar kataloger till Hadoop-katalogen utan att behöva veta versionsnumret.
    >
    >
@@ -94,5 +94,5 @@ Allmän information om MapReduce-jobb i HDInsight:
 
 Information om andra sätt kan du arbeta med Hadoop i HDInsight:
 
-* [Använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md)
-* [Använda Pig med Hadoop i HDInsight](hdinsight-use-pig.md)
+* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)

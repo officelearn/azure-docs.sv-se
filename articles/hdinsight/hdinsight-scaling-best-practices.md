@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948142"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407889"
 ---
 # <a name="scale-hdinsight-clusters"></a>Skala HDInsight-kluster
 
 HDInsight ger flexibilitet när det gäller genom att ge dig möjlighet att skala upp och skala ned antalet arbetarnoder i dina kluster. På så sätt kan du minska ett kluster efter timmar eller helger och expanderas under toppefterfrågan för företag.
 
-Till exempel om du har några batchbearbetning som inträffar en gång om dagen eller en gång i månaden, HDInsight-kluster kan skalas upp ett par minuter före den schemalagda händelsen så att det ska finnas tillräckligt med minne och CPU-beräkningskraft. Du kan automatisera skalning med PowerShell-cmdlet [ `Set–AzureRmHDInsightClusterSize` ](hdinsight-administer-use-powershell.md#scale-clusters).  Senare, när bearbetningen är klar och användning som kraschar igen, kan du skala ned HDInsight-klustret till färre arbetarnoder.
+Till exempel om du har några batchbearbetning som inträffar en gång om dagen eller en gång i månaden, HDInsight-kluster kan skalas upp ett par minuter före den schemalagda händelsen så att det ska finnas tillräckligt med minne och CPU-beräkningskraft. Du kan automatisera skalning med PowerShell-cmdlet [ `Set–AzureRmHDInsightClusterSize` ](hdinsight-administer-use-powershell.md#scale-clusters).  Senare, när bearbetningen är klar och användning som kraschar igen, kan du skala ned HDInsight-klustret till färre arbetarnoder.
 
 * Du skalar ditt kluster via [PowerShell](hdinsight-administer-use-powershell.md):
 
@@ -77,7 +77,7 @@ Exempel:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-hbase-cluster"></a>Balansera ett HBase-kluster
+## <a name="rebalancing-an-apache-hbase-cluster"></a>Balansera ett Apache HBase-kluster
 
 Regionservrar balanseras automatiskt inom ett par minuter efter skalning åtgärden slutfördes. För att jämna ut regionservrar manuellt, använder du följande steg:
 
@@ -99,11 +99,11 @@ Som tidigare nämnts är avslutas alla väntande eller pågående jobb vid slutf
 
 ![Skala ett kluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-Om du minska ditt kluster till minst en underordnad nod som du ser i föregående bild fastna HDFS i felsäkert läge när arbetsnoder startas om på grund av korrigeringar eller omedelbart efter skalning igen.
+Om du minska ditt kluster till minst en underordnad nod som du ser i föregående bild, fastna Apache HDFS i felsäkert läge när arbetsnoder startas om på grund av korrigeringar eller omedelbart efter skalning igen.
 
 Den primära orsaken till detta är att Hive använder några `scratchdir` filer och förväntar sig tre repliker av varje block som standard men det finns bara en replik möjligt om du skalar till minst en arbetsnoden. Som en följd filerna i den `scratchdir` blir *under-replikerade*. Det kan leda till HDFS vara i felsäkert läge när tjänsterna har startats om efter åtgärden.
 
-När en skala ned försök sker, använder HDInsight Ambari-hanteringsgränssnitt du först inaktivera de extra oönskad arbetsnoder som replikerar sin HDFS-block till andra online arbetsnoder och på ett säkert sätt skala klustret ned. HDFS hamnar i felsäkert läge under underhållsfönstret, och ska komma när den skalning är klar. Nu är det att HDFS fastna i felsäkert läge.
+När en skala ned försök sker, använder HDInsight Apache Ambari-hanteringsgränssnitt du först inaktivera de extra oönskad arbetsnoder som replikerar sin HDFS-block till andra online arbetsnoder och på ett säkert sätt skala klustret ned. HDFS hamnar i felsäkert läge under underhållsfönstret, och ska komma när den skalning är klar. Nu är det att HDFS fastna i felsäkert läge.
 
 HDFS är konfigurerad med en `dfs.replication` inställning av 3. Därför är block av tillfälliga filer under-replikerade när det finns färre än tre arbetsnoder online, eftersom det finns inte de förväntade tre kopiorna av varje fil-block.
 
@@ -117,13 +117,13 @@ Efter att ha lämnat felsäkert läge, kan du manuellt bort temporära filer ell
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Exempel på fel när felsäkert läge är aktiverat
 
-* H070 det går inte att öppna Hive-session. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **kan inte skapa katalogen**  /tmp/hive/hive / 819c215c - 6d 87-4311-97c 8-4f0b9d2adcf0. **Namn på noden är i felsäkert läge**. De rapporterade blocken 75 måste ytterligare 12 förutsättningarna för att nå tröskelvärdet 0.9900 av totalt antal block 87. Antalet live datanodes 10 har nått det lägsta tillåtna värdet 0. Felsäkert läge stängs automatiskt när tröskelvärdena har uppnåtts.
+* H070 det går inte att öppna Hive-session. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Det går inte att skapa katalog** /tmp/hive/hive/819c215c-6d 87-4311-97 c 8-4f0b9d2adcf0. **Namn på noden är i felsäkert läge**. De rapporterade blocken 75 måste ytterligare 12 förutsättningarna för att nå tröskelvärdet 0.9900 av totalt antal block 87. Antalet live datanodes 10 har nått det lägsta tillåtna värdet 0. Felsäkert läge stängs automatiskt när tröskelvärdena har uppnåtts.
 
-* H100 inte går att skicka instruktionen Visa databaser: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: ansluta till hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername . Det gick inte att internal.cloudapp.NET/1.1.1.1]: **anslutningen nekades**
+* H100 inte går att skicka instruktionen Visa databaser: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Ansluta till hn0-clustername.servername.internal.cloudapp.net:10001 [hn0 clustername.servername. Det gick inte att internal.cloudapp.NET/1.1.1.1]: **Anslutningen nekades**
 
-* H020 gick inte att upprätta någon anslutning till hn0 hdisrv.servername.bx.internal.cloudapp .net: 10001: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: ansluta till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: anslutningen nekades: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: ansluta till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: **anslutningen nekades**
+* H020 gick inte att upprätta någon anslutning till hn0 hdisrv.servername.bx.internal.cloudapp .net: 10001: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Anslut till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: Anslutningen nekades: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Anslut till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: **Anslutningen nekades**
 
-* Från Hive-loggar: Varna [main]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)) – gick inte att starta HiveServer2 vid försöket 21, kommer att försöka igen i 60 sekunder java.lang.RuntimeException: fel vid tillämpningen av auktoriseringsprincip på hive-konfiguration: org.apache.hadoop.ipc.RemoteException ( org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **kan inte skapa katalogen** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Namn på noden är i felsäkert läge**.
+* Från Hive-loggar: Varna [main]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)) – gick inte att starta HiveServer2 vid försöket 21, kommer att försöka igen i 60 sekunder java.lang.RuntimeException: Fel vid tillämpningen av auktoriseringsprincip på hive-konfiguration: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Det går inte att skapa katalog** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Namn på noden är i felsäkert läge**.
     De rapporterade blocken 0 måste ytterligare 9 förutsättningarna för att nå tröskelvärdet 0.9900 av totalt antal block 9.
     Antalet live datanodes 10 har nått det lägsta tillåtna värdet 0. **Felsäkert läge kommer att inaktiveras automatiskt när tröskelvärdena har uppnåtts**.
     at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
@@ -151,7 +151,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![Felsäkert läge av](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Den `-D` växel är nödvändigt eftersom standardfilsystemet i HDInsight är antingen Azure Storage eller Azure Data Lake Store. `-D` Anger att kommandona körs mot lokala HDFS-filsystemet.
 
 Därefter kan du visa en rapport som visar information om HDFS-tillstånd:
@@ -251,7 +251,7 @@ Rensa tillfälliga filer, som tar bort block replikeringsfel, SSH till varje huv
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Det här kommandot kan bryta Hive om vissa jobb körs fortfarande.
 
 ### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>Hur du förhindrar att HDInsight blir kvar i felsäkert läge på grund av under-replikerade block
@@ -327,4 +327,4 @@ Det sista alternativet är att bevaka sällsynta fall där HDFS försätts i fel
 
 * [Introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Skala kluster](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Hantera HDInsight-kluster med Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
+* [Hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)

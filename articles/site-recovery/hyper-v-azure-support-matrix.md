@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 52657ae18b6fd06408887df82bd822eb2ff8fffe
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8c8ba338a7059d6d11f43bda6348aa6e645ab98c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964364"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410167"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd matrix för haveriberedskap för lokala Hyper-V-datorer till Azure
 
@@ -33,8 +33,8 @@ Hyper-V utan att Virtual Machine Manager | Du kan utföra katastrofåterställni
 
 **Server** | **Krav** | **Detaljer**
 --- | --- | ---
-Hyper-V (som körs utan att Virtual Machine Manager) | Windows Server 2016 (inklusive server core-installation), Windows Server 2012 R2 med de senaste uppdateringarna | När du konfigurerar en Hyper-V-plats i Site Recovery kan stöds blanda värdar som kör Windows Server 2016 och 2012 R2 inte.<br/><br/> För virtuella datorer finns på en värd som kör Windows Server 2016, stöds inte återställning till en annan plats.
-Hyper-V (som körs med Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Om du använder Virtual Machine Manager, ska Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.<br/><br/> Ett Virtual Machine Manager-moln där Hyper-V-värdar som kör Windows Server 2016 och 2012 R2 stöds inte för närvarande.<br/><br/> Miljöer som inkluderar en uppgradering av en befintlig server i Virtual Machine Manager 2012 R2 till 2016 stöds inte.
+Hyper-V (som körs utan att Virtual Machine Manager) | Windows Server 2016 (inklusive server core-installation), Windows Server 2012 R2 med de senaste uppdateringarna | För virtuella datorer finns på en värd som kör Windows Server 2016, stöds inte återställning till en annan plats.<br/><br/> Om du redan har konfigurerat Windows Server 2012 R2 med / eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera Operativsystemet, följer du riktlinjerna [dokumentation.](upgrade-2012R2-to-2016.md) 
+Hyper-V (som körs med Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Om du använder Virtual Machine Manager, ska Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>Replikerade virtuella datorer
@@ -59,15 +59,15 @@ Lägg till disk på replikerade Hyper-V-dator | Stöds ej. Inaktivera replikerin
 
 **Komponent** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan att Virtual Machine Manager**
 --- | --- | ---
-Värdnätverket: NIC Teaming | Ja | Ja
+Värdnätverket: NIC-Teamindelning | Ja | Ja
 Värdnätverket: VLAN | Ja | Ja
 Värdnätverket: IPv4 | Ja | Ja
 Värdnätverket: IPv6 | Nej | Nej
-Gäst VM-nätverk: NIC Teaming | Nej | Nej
+Gäst VM-nätverk: NIC-Teamindelning | Nej | Nej
 Gäst VM-nätverk: IPv4 | Ja | Ja
 Gäst VM-nätverk: IPv6 | Nej | Ja
-Gäst VM-nätverk: statisk IP-adress (Windows) | Ja | Ja
-Gäst VM-nätverk: statisk IP-adress (Linux) | Nej | Nej
+Gäst VM-nätverk: Statisk IP-adress (Windows) | Ja | Ja
+Gäst VM-nätverk: Statisk IP-adress (Linux) | Nej | Nej
 Gäst VM-nätverk: Multi-NIC | Ja | Ja
 
 
@@ -181,7 +181,7 @@ Om du vill kontrollera din distribution är kompatibla med inställningarna i de
 
 **Namn** | **Beskrivning** | **Detaljer**
 --- | --- | --- | --- | ---
-Azure Site Recovery-providern | Samordnar kommunikationen mellan lokala servrar och Azure <br/><br/> Hyper-V med Virtual Machine Manager: installerad på Virtual Machine Manager-servrar<br/><br/> Hyper-V utan att Virtual Machine Manager: installerad på Hyper-V-värdar| Senaste versionen: 5.1.2700.1 (tillgängligt från Azure portal)<br/><br/> [Senaste funktionerna och korrigeringarna](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
+Azure Site Recovery-providern | Samordnar kommunikationen mellan lokala servrar och Azure <br/><br/> Hyper-V med Virtual Machine Manager: Installerad på Virtual Machine Manager-servrar<br/><br/> Hyper-V utan att Virtual Machine Manager: Installerad på Hyper-V-värdar| Senaste versionen: 5.1.2700.1 (tillgängligt från Azure portal)<br/><br/> [Senaste funktionerna och korrigeringarna](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services-agenten | Samordnar replikering mellan Hyper-V-datorer och Azure<br/><br/> Installerad på den lokala Hyper-V-servrar (med eller utan Virtual Machine Manager) | Senaste agenten som är tillgängliga från portalen
 
 

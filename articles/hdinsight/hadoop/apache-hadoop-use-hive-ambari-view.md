@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632755"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407855"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använd Apache Ambari Hive-vyn med Apache Hadoop i HDInsight
 
@@ -26,7 +26,7 @@ Lär dig mer om att köra Hive-frågor med hjälp av Apache Ambari Hive-vy. Hive
 
 * En Linux-baserade Apache Hadoop på HDInsight-kluster av version 3.4 och senare.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * En webbläsare
@@ -81,7 +81,7 @@ Lär dig mer om att köra Hive-frågor med hjälp av Apache Ambari Hive-vy. Hive
 
    * `SELECT`: Väljer en uppräkning av alla rader där kolumnen t4 innehåller värdet [fel].
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Lämna den __databasen__ valet __standard__. I exemplen i det här dokumentet används standarddatabasen som ingår i HDInsight.
 
 5. Starta frågan med den **kör** knappen under kalkylbladet. Knappen blir orange och texten ändras till **stoppa**.
@@ -93,7 +93,7 @@ Lär dig mer om att köra Hive-frågor med hjälp av Apache Ambari Hive-vy. Hive
 
     Du kan använda den **loggar** fliken för att visa loggningsinformation som skapats för jobbet.
 
-   > [!TIP]
+   > [!TIP]  
    > Hämta eller spara resultatet från den **spara resultaten** dialogrutan från listrutan längst upp till vänster på den **Frågeprocessresultat** avsnittet.
 
 ### <a name="visual-explain"></a>Visual förklara
@@ -106,7 +106,7 @@ Den **Visual förklara** vy av frågan kan vara lättare att förstå flödet av
 
 Om du vill visa Tez UI för frågan, Välj den **Tez** fliken under kalkylbladet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tez används inte för att lösa alla frågor. Du kan lösa många frågor utan att använda Tez. 
 
 Om Tez användes för att matcha frågan, visas dirigeras Acyklisk graf (DAG). Om du vill visa DAG för frågor som du har kört tidigare, eller om du vill felsöka Tez-processen använder den [Tez visa](../hdinsight-debug-ambari-tez-view.md) i stället.
@@ -129,7 +129,7 @@ Från den **fråga** och du kan också spara frågor. När du har sparat en frå
 
 ![Bild av fliken sparade frågor](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
-> [!TIP]
+> [!TIP]  
 > Sparade frågor lagras i standardklusterlagringen. Du kan hitta de sparade frågorna under sökvägen `/user/<username>/hive/scripts`. Dessa lagras som klartext `.hql` filer.
 >
 > Om du tar bort klustret men behålla lagringen, kan du använda ett verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) eller Data Lake Storage Explorer (från den [Azure-portalen](https://portal.azure.com)) att hämta frågorna.
@@ -165,8 +165,8 @@ Du kan sedan använda en användardefinierad funktion i din fråga. Till exempel
 
 Mer information om hur du använder UDF med Hive i HDInsight finns i följande artiklar:
 
-* [Med hjälp av Python med Hive och Pig i HDInsight](python-udf-hdinsight.md)
-* [Lägga till en anpassad UDF med Hive i HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Med hjälp av Python med Apache Hive och Apache Pig i HDInsight](python-udf-hdinsight.md)
+* [Lägga till en anpassad Apache Hive UDF i HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Hive-inställningar
 
@@ -176,9 +176,9 @@ Du kan ändra olika Hive-inställningar, till exempel ändra Körningsmotor för
 
 Allmän information om Hive på HDInsight:
 
-* [Använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
 
 Information om andra sätt kan du arbeta med Hadoop i HDInsight:
 
-* [Använda Pig med Hadoop i HDInsight](hdinsight-use-pig.md)
-* [Använda MapReduce med Hadoop i HDInsight](hdinsight-use-mapreduce.md)
+* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
+* [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)

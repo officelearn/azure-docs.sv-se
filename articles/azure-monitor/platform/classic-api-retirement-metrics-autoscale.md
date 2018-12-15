@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.openlocfilehash: 1ea8fddf2b4e75abba38f011a271aada848a8cb5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192200"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433101"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor tillbakadragning av klassiska distributionsmodellen API: er för mått och automatisk skalning
 
@@ -24,7 +24,7 @@ Samma åtgärder har kunnat användas via en uppsättning av Azure Resource Mana
 
 Om du hanterar automatisk skalning via Azure-portalen, den [nya Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI eller Resource Manager-mallar, ingen åtgärd krävs.  
 
-Om du förbrukar mått via Azure portal eller via olika [övervakning partnertjänster](../../monitoring-and-diagnostics/monitoring-partners.md), ingen åtgärd krävs. Microsoft arbetar med övervakning av partner för att migrera till den nya API: er.
+Om du förbrukar mått via Azure portal eller via olika [övervakning partnertjänster](../../azure-monitor/platform/partners.md), ingen åtgärd krävs. Microsoft arbetar med övervakning av partner för att migrera till den nya API: er.
 
 ## <a name="who-is-affected"></a>Vem påverkas
 

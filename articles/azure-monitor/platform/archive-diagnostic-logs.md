@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: dbdfdfc76ec0174411851503353155f266e25726
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3aa3b2fa0dffb38970b80fe061f1fe09271e15b1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389116"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438309"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
 I den här artikeln visar vi hur du kan använda Azure portal, PowerShell-Cmdlets, CLI eller REST API för att arkivera dina [Azure diagnostikloggar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla dina diagnostikloggar med en princip för valfri kvarhållningstid för granskning, statiska analys eller säkerhetskopiering. Storage-kontot behöver inte finnas i samma prenumeration som resursen loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 
 > [!WARNING]
-> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md) 
+> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 

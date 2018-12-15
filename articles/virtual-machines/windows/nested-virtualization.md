@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e9b05751166ac200f4a9cdab4c7fe3ed797f2a10
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d1381ff16d0de382634b06fd081f1827588f8ee9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465256"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435114"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Hur du aktiverar kapslad virtualisering i en Azure VM
 
@@ -157,7 +157,7 @@ Följ stegen nedan för att konfigurera DHCP på den virtuella värddatorn för 
   
 4. Definiera en IP-adressintervall för DHCP-servern (till exempel 192.168.0.100 till 192.168.0.200).
   
-5. Klicka på **nästa** fram till sidan för standard-Gateway. Ange IP-adressen som du skapade tidigare (t.ex, 192.168.0.1) som standard-Gateway.
+5. Klicka på **nästa** fram till sidan för standard-Gateway. Ange IP-adressen som du skapade tidigare (t.ex, 192.168.0.1) som standard-Gateway och klicka sedan på **Lägg till**.
   
 6. Klicka på **nästa** tills guiden har slutförts, lämnar du alla standardvärden klickar **Slutför**.
     

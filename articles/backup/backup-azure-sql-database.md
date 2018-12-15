@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 988d61d6db867c33a2dd9998d675f40f49e71332
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341753"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410371"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Säkerhetskopiera SQL Server-databaser till Azure
 
@@ -298,7 +298,7 @@ Konfigurera skydd för en SQL-databas:
 
     ![Välj Konfigurera säkerhetskopiering](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    Azure Backup-tjänsten visar alla SQL Server-instanser med fristående databaser och SQL Server Always On-Tillgänglighetsgrupper. Om du vill visa de fristående databaserna i SQL Server-instansen, väljer du på ikonen till vänster om namnet på instansen. Välj på samma sätt på ikonen till vänster om Always On availability-gruppen att visa listan över databaser. Följande bild är ett exempel på en fristående instans och en Always On-tillgänglighetsgrupp.
+    Azure Backup-tjänsten visar alla SQL Server-instanser med fristående databaser och SQL Server alltid på Tillgänglighetsgrupper. Om du vill visa de fristående databaserna i SQL Server-instansen, väljer du på ikonen till vänster om namnet på instansen. Välj på samma sätt på ikonen till vänster om alltid på tillgänglighetsgruppen att visa listan över databaser. Följande bild är ett exempel på en fristående instans och en alltid på tillgänglighetsgrupp.
 
       ![Visa alla SQL Server-instanser med en fristående databas](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -312,7 +312,7 @@ Konfigurera skydd för en SQL-databas:
     > För att optimera säkerhetskopierade belastning, delar Azure Backup upp stora säkerhetskopieringsjobb i flera batchar. Det maximala antalet databaser i en säkerhetskopiering är 50.
     >
 
-      Du kan också aktivera [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) på hela instans eller AlwaysOn-tillgänglighetsgrupp genom att välja den **på** alternativet i motsvarande listrutan i den **AUTOPROTECT**  kolumn. Den [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) funktionen inte bara aktiverar skydd på alla befintliga databaser i en go, men också automatiskt skyddar eventuella nya databaser som ska läggas till den instansen eller tillgänglighetsgruppen i framtiden.  
+      Du kan också aktivera [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) på hela instansen eller alltid på tillgänglighetsgruppen genom att välja den **på** alternativet i motsvarande listrutan i den **AUTOPROTECT**  kolumn. Den [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) funktionen inte bara aktiverar skydd på alla befintliga databaser i en go, men också automatiskt skyddar eventuella nya databaser som ska läggas till den instansen eller tillgänglighetsgruppen i framtiden.  
 
       ![Aktivera automatiskt skydd på Always On availability-gruppen](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -347,9 +347,7 @@ Konfigurera skydd för en SQL-databas:
 
 ## <a name="auto-protect-sql-server-in-azure-vm"></a>Automatisk – skydda SQLServer på Azure VM  
 
-Automatiskt skydd är en funktion som gör att du automatiskt skydda alla befintliga databaser samt framtida databaser som du vill lägga till i en fristående SQL Server-instans eller en SQL Server Always On-tillgänglighetsgrupp.
-
-Om en instans eller en tillgänglighetsgrupp du redan har några av dess databaser som är skyddad, kan du fortfarande aktivera **på** auto-protect-alternativet. Principen för säkerhetskopiering så definieras kommer i det här fallet bara att tillämpas på oskyddade databaserna medan databaserna som redan skyddas fortsätter att skyddas med deras respektive principer.
+Automatiskt skydd kan du automatiskt skydda alla befintliga databaser och databaser som du skulle lägga till i framtiden till en fristående SQL Server-instans eller en SQL Server alltid på tillgänglighetsgruppen. Att aktivera **på** automatiskt skydd och välja en princip för säkerhetskopiering ska gälla för nyligen skyddade databaser, de befintliga skyddade databaserna fortsätter att använda föregående principen.
 
 ![Aktivera automatiskt skydd på Always On availability-gruppen](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -479,7 +477,7 @@ Du kan också välja en fullständig eller Differentiell säkerhetskopia att åt
     - **Åsidosätt databas**: Återställa data till samma SQL Server-instans som den ursprungliga källan. Effekten av det här alternativet är att skriva över den ursprungliga databasen.
 
     > [!Important]
-    > Om den valda databasen tillhör en Always On-tillgänglighetsgrupp, tillåter inte SQL Server att databasen kan skrivas över. I det här fallet bara den **alternativ plats** är aktiverat.
+    > Om den valda databasen tillhör en alltid på tillgänglighetsgrupp, tillåter inte SQL Server att databasen kan skrivas över. I det här fallet bara den **alternativ plats** är aktiverat.
     >
 
     ![Återställ konfigurationen menyn](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)

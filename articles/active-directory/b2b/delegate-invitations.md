@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: fd00fb8da3cf36518f9e28e827e59fd7ff45d687
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8abbbba0cdac783dd315cd1f0965e03c4e5a1a05
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622218"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434553"
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Delegera inbjudningar för Azure Active Directory B2B-samarbete
 
@@ -32,9 +32,12 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 ## <a name="control-who-can-invite"></a>Kontrollera vem som kan bjuda in
 
-Gå till Azure Active Directory > Inställningar > Hantera inställningar för externt samarbete
+I Azure Active Directory, väljer **användarinställningar**. Under **externa användare**väljer **hantera inställningar för externt samarbete**.
 
-![externalusers](https://user-images.githubusercontent.com/13383753/45905128-2c47f680-bda4-11e8-955d-6219c67935e0.PNG)
+> [!NOTE]
+> Den **inställningar för externt samarbete** är också tillgängliga från den **organisationens relationer** sidan. I Azure Active Directory, under **hantera**går du till **organisationens relationer** > **inställningar**.
+
+![Inställningar för externt samarbete](./media/delegate-invitations/control-who-to-invite.png)
 
 Med Azure AD B2B-samarbete, Innehavaradministratör ställa in inbjudan följande principer:
 

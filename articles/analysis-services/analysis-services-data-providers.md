@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 12/14/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f0c852b0b3de4edcf894d80ae397eae6c8980d49
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9589281654b74df8527bb7bcf58b0700482c3fed
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240417"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408977"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klientbibliotek för att ansluta till Azure Analysis Services
 
@@ -23,10 +23,10 @@ Klientbibliotek är nödvändiga för program och verktyg att ansluta till Analy
 
 |Ladda ned  |Produktversion  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.39      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.39      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.7.0.2    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.7.0.2     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.183      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.183      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.8.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.8.0.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO och ADOMD (NuGet-paket)
 
@@ -34,10 +34,10 @@ Klientbibliotek för Analysis Services AMO (Management Objects) och ADOMD är ti
 
 |Paket  | Produktversion  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.7.0.2    |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.7.02     |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.8.0.0    |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.8.0.0     |
 
-NuGet-paketet sammansättningar AssemblyVersion följer semantiska versionshantering: större. MINDRE. PATCH. NuGet-referenser läsa in den förväntade versionen, även om det finns en annan version i GAC (vilket ger från MSI-installation). PATCH ökas för varje version. AMO och ADOMD-versioner hålls synkroniserade.
+NuGet-paketet sammansättningar AssemblyVersion Följ semantiska versionshantering: STÖRRE. MINDRE. PATCH. NuGet-referenser läsa in den förväntade versionen, även om det finns en annan version i GAC (vilket ger från MSI-installation). PATCH ökas för varje version. AMO och ADOMD-versioner hålls synkroniserade.
 
 ## <a name="understanding-client-libraries"></a>Förstå klientbibliotek
 

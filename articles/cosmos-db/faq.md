@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: fc5b397f64bead38e630cb994d1d325a85b11cda
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 70feaae718bc6ff8e3f956f0fbc6aa395ba27061
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139664"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410405"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Följande villkor gäller för testa Azure Cosmos DB-prenumerationer:
 * Behållare per prenumeration för SQL, Gremlin-API och Table-konton.
 * Upp till tre samlingarna per prenumeration för MongoDB-konton.
 * 10 GB lagringskapacitet.
-* Global replikering finns tillgängligt i följande [Azure-regioner](https://azure.microsoft.com/regions/): centrala USA, Norra Europa och Asien, sydöstra
+* Global replikering finns tillgängligt i följande [Azure-regioner](https://azure.microsoft.com/regions/): Centrala USA, Norra Europa och Asien, sydöstra
 * Maximalt dataflöde på 5 K RU/s.
 * Prenumerationer upphör att gälla efter 24 timmar och kan utökas till högst 48 timmar totalt.
 * Azure supportärenden kan skapas för testa Azure Cosmos DB-konton dock tillhandahåller support till prenumeranter med befintliga supportavtal.
@@ -147,7 +147,7 @@ Ja, SQL-API kan appar lagrar godtyckliga JSON-dokument utan schemadefinitioner e
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>Stöder SQL API ACID-transaktioner?
 
-Ja, SQL-API: et stöder transaktioner mellan dokument uttryckta som JavaScript-lagrade procedurer och utlösare. Transaktioner är begränsade till en enda partition inom varje behållare och utförs med ACID-semantik som ”allt eller inget”, isolerade från andra kod och andra användarförfrågningar som körs samtidigt. Om undantag utlöses via serversidan körning av JavaScript-appkoden, återställs hela transaktionen. Mer information om transaktioner finns [databasen programtransaktionerna](programming.md#database-program-transactions).
+Ja, SQL-API: et stöder transaktioner mellan dokument uttryckta som JavaScript-lagrade procedurer och utlösare. Transaktioner är begränsade till en enda partition inom varje behållare och utförs med ACID-semantik som ”allt eller inget”, isolerade från andra kod och andra användarförfrågningar som körs samtidigt. Om undantag utlöses via serversidan körning av JavaScript-appkoden, återställs hela transaktionen. 
 
 ### <a name="what-is-a-container"></a>Vad är en behållare?
 
@@ -234,7 +234,7 @@ Tillsammans med MongoDB vanliga felkoder har MongoDB-API sin egen specifika felk
 | Fel               | Kod  | Beskrivning  | Lösning  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Det totala antalet enheter för programbegäran som används är högre än den etablerade begäransenhet för samlingen och har begränsats. | Överväg att skala dataflöde som tilldelats till en behållare eller en uppsättning behållare från Azure portal eller omförsök igen. |
-| ExceededMemoryLimit | 16501 | Åtgärden har gått över klientens minne mängd som en tjänst med flera klienter. | Minska omfånget för åtgärd via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {name: ”Andy”}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {ålder: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Åtgärden har gått över klientens minne mängd som en tjänst med flera klienter. | Minska omfånget för åtgärd via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {name: ”Andy”}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {ålder: -1}}<br> &nbsp; &nbsp; &nbsp;&nbsp;])*) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>Är Simba drivrutinen för MongoDB som stöds för användning med Azure cosmos DB MongoDB API?
 
@@ -395,11 +395,11 @@ Ja, information om hur du dra nytta av distribuerade natur i Azure Cosmos DB fin
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>När globala distributionen är aktiverat, hur lång tid tar det för att replikera data?
 
-Azure Cosmos DB sparar data varaktigt i den lokala regionen och skickar data till andra regioner direkt på bara några millisekunder. Replikeringen är beroende av endast den fram och åter tid för datacentret. Läs mer om global distribution möjligheterna för Azure Cosmos DB i [Azure Cosmos DB: en globalt distribuerad databastjänst på Azure](distribute-data-globally.md).
+Azure Cosmos DB sparar data varaktigt i den lokala regionen och skickar data till andra regioner direkt på bara några millisekunder. Replikeringen är beroende av endast den fram och åter tid för datacentret. Läs mer om global distribution möjligheterna för Azure Cosmos DB i [Azure Cosmos DB: En globalt distribuerad databastjänst på Azure](distribute-data-globally.md).
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>Kan konsekvensnivå läsbegäran ändras?
 
-Med Azure Cosmos DB kan du ange konsekvensnivån på behållarenivån (på tabellen). Du kan ändra nivån genom att ange värdet för TableConsistencyLevel nyckel i app.config-filen med hjälp av .NET SDK. Möjliga värden är: stark, begränsad föråldring, Session, konsekventa Prefix och eventuell. Mer information finns i [data justerbara konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Viktiga tanken är att du inte kan ange begäran-konsekvens nivå på fler än inställningen för tabellen. Exempelvis kan ange du inte konsekvensnivå för tabellen på eventuell och begäran konsekvensnivå på starka.
+Med Azure Cosmos DB kan du ange konsekvensnivån på behållarenivån (på tabellen). Du kan ändra nivån genom att ange värdet för TableConsistencyLevel nyckel i app.config-filen med hjälp av .NET SDK. Möjliga värden är: Stark, bunden utgång, Session, enhetligt Prefix och slutlig. Mer information finns i [data justerbara konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Viktiga tanken är att du inte kan ange begäran-konsekvens nivå på fler än inställningen för tabellen. Exempelvis kan ange du inte konsekvensnivå för tabellen på eventuell och begäran konsekvensnivå på starka.
 
 ### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>Hur hanterar redundans tabell-API om en region slutar att fungera?
 
@@ -536,13 +536,13 @@ Azure Cosmos DB använder [horisontell partitionering](partition-data.md) automa
 
 De flesta interna Tinkerpop Gremlin-drivrutiner kan alternativet för att skapa en ordlista med parametrar för frågekörning. Det här är ett exempel på hur du gör i [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) och i [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
-### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Varför får jag det ”Gremlin Frågekompileringsfel: Det gick inte att hitta någon av metoderna” fel?
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Varför får jag det ”Gremlin Frågekompileringsfel: Det gick inte att hitta någon av metoderna ”fel?
 
 Azure Cosmos DB Gremlin API implementerar en deluppsättning av de funktioner som definierats i Gremlin ytan. Stöds steg och mer information finns i [Gremlin-support](gremlin-support.md) artikeln.
 
 Den bästa lösningen är att skriva om steg som krävs Gremlin med funktioner som stöds eftersom alla viktiga Gremlin-steg som stöds av Azure Cosmos DB.
 
-### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Varför får jag det ”WebSocketException: servern returnerade statuskoden” 200 ”när statuskoden” 101' förväntades ”fel?
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Varför får jag det ”WebSocketException: Servern returnerade statuskoden ”200” när statuskoden ”101' förväntades” fel?
 
 Det här felet returneras sannolikt när fel slutpunkten som används. Den slutpunkt som genererar det här felet har följande mönster:
 

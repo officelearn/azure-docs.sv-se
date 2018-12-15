@@ -8,17 +8,17 @@ ms.author: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: cab2c7aabf23ba8636f46a92c8d864b1c9b74120
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2ebfc4b0d9bb71cf51e0927e6399d30488c2f939
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594853"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409436"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Uppgradera HDInsight-kluster till en nyare version
 Om du vill dra nytta av de senaste funktionerna för HDInsight, rekommenderar vi att HDInsight-kluster uppgraderas till den senaste versionen. Följ den nedan riktlinjer för att uppgradera din HDInsight-kluster versioner.
 
-> [!NOTE]
+> [!NOTE]  
 > Information om vilka versioner av HDInsight finns i [HDInsight komponenten versioner](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
@@ -45,5 +45,5 @@ När du har kontrollerat att allt fungerar som förväntat kan du schemalägga a
 ## <a name="next-steps"></a>Nästa steg
 * [Lär dig hur du skapar Linux-baserade HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
 * [Ansluta till HDInsight med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Hantera en Linux-baserade kluster med Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Hantera en Linux-baserade kluster med Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 

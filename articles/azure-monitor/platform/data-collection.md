@@ -1,6 +1,6 @@
 ---
 title: Övervakning av data som samlas in av Azure Monitor | Microsoft Docs
-description: Övervakning av data som samlas in av Azure Monitor är uppdelad i mått som är lätt och kan stödja nästan i realtid scenarier och loggar som lagras i Log Analytics för avancerad analys.
+description: Övervakning av data som samlas in av Azure Monitor är uppdelad i mått som är lätt och kan stödja scenarier i nästan realtid och loggar som används för avancerad analys.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -9,14 +9,14 @@ ms.service: monitoring
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 3795db2928e23b16d93e544c4f148b049eccfdef
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: fdf8d8977651c868c9f534dc61e3d1a77a43e672
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384844"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435964"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -34,7 +34,7 @@ Följande: specifika attribut för mått i Azure
 
 * Samlas in med en minut frekvens om inget annat anges i definitionen för det mått.
 * Identifieras unikt genom ett Måttnamn och ett namnområde som fungerar som en kategori.
-* Lagras i 93 dagar. Du kan kopiera mått till Log Analytics för långsiktiga trender.
+* Lagras i 93 dagar. Du kan kopiera mått till loggar för långsiktiga trender.
 
 Varje måttvärde har följande egenskaper:
 * Tiden samlades in värdet.
@@ -81,7 +81,7 @@ Till exempel kan ett visst antal användare på ditt program vid en given tidpun
 ### <a name="sources-of-metric-data"></a>Källor för måttdata
 Det finns tre grundläggande källor till mätvärden som samlats in från Azure Monitor. Alla de här måtten är tillgängliga i mått store där de kan utvärderas tillsammans oavsett källan.
 
-**Plattformen mått** skapas av Azure-resurser och ger dig insyn i deras hälsotillstånd och prestanda. Varje typ av resurs skapar en [distinkt uppsättning med mått](../../monitoring-and-diagnostics/monitoring-supported-metrics.md) utan konfiguration krävs. 
+**Plattformen mått** skapas av Azure-resurser och ger dig insyn i deras hälsotillstånd och prestanda. Varje typ av resurs skapar en [distinkt uppsättning med mått](../../azure-monitor/platform/metrics-supported.md) utan konfiguration krävs. 
 
 **Mätvärden för Application** skapas av Application Insights för övervakade program och hjälper dig att identifiera problem med prestanda och spåra trender i hur ditt program används. Detta inkluderar sådana värden som _serversvarstid_ och _webbläsarundantag_.
 
@@ -102,14 +102,14 @@ Följande: uppgifter som du kan utföra med mått
 - Vägens mått till Log Analytics att analysera måttdata tillsammans med loggdata och för att lagra måttvärden under längre tid än 93 dagar. 
 - Stream mått för att en [Händelsehubb](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) att dirigera dem till [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) eller till externa system.
 - [Arkivera](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) prestanda eller hälsotillstånd historiken för dina resurser för efterlevnad, granskning eller rapportering offline.
-- Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) eller [REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+- Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) eller [REST API](../../azure-monitor/platform/rest-api-walkthrough.md).
 
 
 
 ### <a name="viewing-metrics"></a>Visa mått
-Mått i Azure har samlats in i Azure Monitor metrics-databasen. Det här är en tidsserie databas som är optimerat för snabb hämtnings- och lagrar måttvärden 93 dagar. Kopiera mått till Log Analytics för långsiktig analys och trender.
+Mått i Azure Monitor lagras i en tidsserie databas som är optimerat för snabb hämtnings- och lagrar måttvärden 93 dagar. Kopiera mått till loggar för långsiktig analys och trender.
 
-Måttdata används i en mängd olika sätt enligt beskrivningen ovan. Använd [måttutforskaren](../../azure-monitor/platform/metrics-charts.md) att direkt analysera data i din mått store och skapa diagram över värdena för flera mått med tiden. Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta mått med hjälp av den [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Måttdata används i en mängd olika sätt enligt beskrivningen ovan. Använd [måttutforskaren](../../azure-monitor/platform/metrics-charts.md) att direkt analysera data i din mått store och skapa diagram över värdena för flera mått med tiden. Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta mått med hjälp av den [Azure monitoring REST API](../../azure-monitor/platform/rest-api-walkthrough.md).
 
 ![Metrics Explorer](media/data-collection/metrics-explorer.png)
 
@@ -126,18 +126,11 @@ Loggarna är särskilt användbart för att kombinera data från olika källor, 
 
 
 
-### <a name="log-analytics"></a>Log Analytics
-Loggar som samlats in från Azure Monitor lagras i Log Analytics som samlar in telemetri och övriga data från olika källor. Du får ett funktionsrikt frågespråk och en analytisk motor som ger dig insikter om hur dina program och resurser. Andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md) lagrar sina data i Log Analytics för att tillhandahålla en gemensam dataplattform i Azure-hantering.
-
-> [!IMPORTANT]
-> Data från Application Insights lagras i Log Analytics som andra loggdata förutom att den är lagrad i en separat partition. Det ger stöd för samma funktioner som andra Log Analytics-data, men du måste använda den [Application Insights-konsolen](../../application-insights/app-insights-analytics.md) eller [Application Insights API](https://dev.applicationinsights.io/) åt dessa data. Du kan använda en [mellan resurser fråga](../log-query/cross-workspace-query.md) att analysera programdata tillsammans med andra loggdata.
-
-
 ### <a name="sources-of-log-data"></a>Källor för loggdata
-Log Analytics kan samla in data från olika källor både i Azure och lokala resurser. Följande: källor för data som skrivs till Log Analytics
+Azure Monitor kan samla in loggdata från olika källor båda i Azure och lokala resurser. Källor för loggdata som följande:
 
 - [Aktivitetsloggar](collect-activity-logs.md) från Azure-resurser med information om sina konfigurationer och hälsa och [diagnostikloggar](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) som ger insikt i deras funktion.
-- Agenter på [Windows](../../log-analytics/log-analytics-windows-agent.md) och [Linux](../learn/quick-collect-linux-computer.md) virtuella datorer som skickar telemetri från gästoperativsystem och program till Log Analytics enligt [datakällor](agent-data-sources.md) som du konfigurerar.
+- Agenter på [Windows](agent-windows.md) och [Linux](../learn/quick-collect-linux-computer.md) virtuella datorer som skickar telemetri från gästoperativsystem och program till Azure Monitor enligt [datakällor](data-sources.md) som du konfigurerar.
 - Programdata som samlas in av [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Data som ger insikter om ett visst program eller tjänst från [övervakningslösningar](../insights/solutions.md) eller funktioner som Behållareinsikter, VM insikter eller Resource Group insikter.
 - Säkerhetsdata som samlas in av [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
@@ -145,7 +138,7 @@ Log Analytics kan samla in data från olika källor både i Azure och lokala res
 - Telemetri som skrivs till [Azure Storage](azure-storage-iis-table.md).
 - Anpassade data från alla REST API-klient som använder den [HTTP Data Collector API](data-collector-api.md) klienten eller från en [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) arbetsflöde.
 
-![Komponenter i Log Analytics](media/data-collection/logs-overview.png)
+![Översikt över loggar](media/data-collection/logs-overview.png)
 
 
 
@@ -153,28 +146,32 @@ Log Analytics kan samla in data från olika källor både i Azure och lokala res
 ### <a name="what-can-you-do-with-logs"></a>Vad kan du göra med loggar?
 Uppgifter som du kan utföra med loggar som följande:
 
-- Använd den [sidan Log Analytics](../log-query/get-started-portal.md) i Azure portal för att skriva frågor som analyserar loggdata.  Fästa resultatet renderas som tabeller eller diagram för en [Azure-instrumentpanelen](../../azure-portal/azure-portal-dashboards.md).
+- Använd [Log Analytics](../log-query/get-started-portal.md) i Azure portal för att skriva frågor som analyserar loggdata.  Fästa resultatet renderas som tabeller eller diagram för en [Azure-instrumentpanelen](../../azure-portal/azure-portal-dashboards.md).
 - Konfigurera en [loggvarningsregler](alerts-log.md) som skickar ett meddelande eller tar [automatisk åtgärd](action-groups.md) när frågans resultat matchar ett visst resultat.
-- Skapa ett arbetsflöde baserat på data i Log Analytics med hjälp av [Logikappar](~/articles/logic-apps/index.yml).
+- Skapa ett arbetsflöde baserat på log data med hjälp av [Logikappar](~/articles/logic-apps/index.yml).
 - Exportera resultatet av en fråga till [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.
 - Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) eller [REST API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Visa loggdata
-Alla data från Log Analytics hämtas med hjälp av en [loggfråga](../log-query/log-query-overview.md) som anger en viss uppsättning data. Frågor skrivs med den [Log Analytics-frågespråket](../log-query/get-started-queries.md) som är ett funktionsrikt frågespråk för att snabbt hämta, konsolidera och analysera insamlade data. Använd den [sidan Log Analytics](../log-query/portals.md) i Azure portal för att direkt analysera data i dina mått lagra och skapa diagram över värdena för flera mått med tiden. Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta mått med hjälp av den [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Alla loggdata i Azure Monitor hämtas med hjälp av en [loggfråga](../log-query/log-query-overview.md) skrivna med den [Datautforskaren frågespråk](../log-query/get-started-queries.md), där du kan snabbt hämta, konsolidera och analysera insamlade data. Använd [Log Analytics](../log-query/portals.md) att skriva och testa frågor i Azure-portalen. Du kan arbeta interaktivt med resultat eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta loggar med hjälp av den [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+
+> [!IMPORTANT]
+> Data från Application Insights lagras i en separat partition än andra loggdata i Azure Monitor. Det ger stöd för samma funktioner som andra loggdata, men du måste använda den [Application Insights-konsolen](/application-insights/app-insights-analytics.md) eller [Application Insights API](https://dev.applicationinsights.io/) åt dessa data. Du kan använda en [mellan resurser fråga](../log-query/cross-workspace-query.md) att analysera programdata tillsammans med andra loggdata.
 
 ![Logs](media/data-collection/logs.png)
+
 
 ## <a name="convert-monitoring-data"></a>Konvertera övervakningsdata
 
 ### <a name="metrics-to-logs"></a>Mått till loggar
-Du kan kopiera mått till Log Analytics för att utföra komplexa analyser med andra datatyper med hjälp av dess funktionsrikt frågespråk. Du kan även spara loggdata under längre perioder än mätvärden, där du kan utföra resursanvändningstrender. När mått eller några andra prestandadata lagras i Log Analytics, som data fungerar som en logg. Använda mått för att stödja nästan i realtid analys och varning när du använder loggar för trender och göra analyser med andra data.
+Du kan kopiera mått till loggar för att utföra avancerade analyser med andra datatyper med hjälp av Azure Monitor funktionsrikt frågespråk. Du kan även spara loggdata under längre perioder än mätvärden, där du kan utföra resursanvändningstrender. Använda mått för att stödja nästan i realtid analys och varning när du använder loggar för trender och göra analyser med andra data.
 
-Du kan få vägledning för att samla in mått från Azure-resurser på [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](collect-azure-metrics-logs.md). Få vägledning för att samla in resurser mått från Azure PaaS-resurser på [konfigurera insamling av mätvärden för Azure PaaS-resurs med Log Analytics](collect-azurepass-posh.md).
+Du kan få vägledning för att samla in mått från Azure-resurser på [samla in Azure-tjänsteloggar och mått för användning i Azure Monitor](collect-azure-metrics-logs.md). Få vägledning för att samla in resurser mått från Azure PaaS-resurser på [konfigurera insamling av mätvärden för Azure PaaS-resurs med Azure Monitor](collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Loggar till mått
-Enligt beskrivningen ovan, är mått snabbare än loggar, så du kan skapa aviseringar med kortare svarstider och till en lägre kostnad. Log Analytics samlar in en betydande mängd numeriska data som skulle vara lämplig för mått, men inte lagras i Azure-mått-databasen.  Ett vanligt exempel är prestandadata som samlats in från agenter och lösningar för hantering. Vissa av dessa värden kan kopieras till mått-databasen, när de är tillgängliga för aviseringar och analys med Metrics explorer.
+Enligt beskrivningen ovan, är mått snabbare än loggar, så du kan skapa aviseringar med kortare svarstider och till en lägre kostnad. En betydande mängd numeriska data lagras som loggar som skulle vara lämplig för mått, men inte lagras som mått i Azure Monitor.  Ett vanligt exempel är prestandadata som samlats in från agenter och lösningar för hantering. Vissa av dessa värden kan kopieras till mått, när de är tillgängliga för aviseringar och analys med Metrics Explorer.
 
-Förklaring av den här funktionen är tillgänglig på [skapa aviseringar för mått för loggar i Azure Monitor](../../azure-monitor/platform/alerts-metric-logs.md). Listan över värden support finns på [stöds mått med Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
+Förklaring av den här funktionen är tillgänglig på [skapa aviseringar för mått för loggar i Azure Monitor](../../azure-monitor/platform/alerts-metric-logs.md). Listan över värden support finns på [stöds mått med Azure Monitor](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Stream-data till externa system
 Förutom att använda verktygen i Azure för att analysera övervakningsdata, kan du ha ett krav att vidarebefordra det till ett externt verktyg, till exempel en säkerhetsinformations- och event management (SIEM)-produkt. Den här vidarebefordran normalt görs direkt från övervakade resurser via [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

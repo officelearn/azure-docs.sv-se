@@ -10,16 +10,19 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: fefbdffdeb3db86447038a3b3d4d24e8c7cd3803
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 977123459bcf9bb10c6b7ecf5d7a364f60564c48
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340444"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437086"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Hantera externa händelser i varaktiga funktioner (Azure Functions)
 
 Orchestrator-funktioner har möjlighet att vänta och lyssna efter externa händelser. Den här funktionen i [varaktiga funktioner](durable-functions-overview.md) kan ofta vara användbart för hantering av mänsklig interaktion eller andra externa utlösare.
+
+> [!NOTE]
+> Externa händelser är enkelriktade asynkrona åtgärder. De är inte lämplig för situationer där klienten skickar händelsen behöver en synkron svar från orchestrator-funktion.
 
 ## <a name="wait-for-events"></a>Vänta på händelser
 

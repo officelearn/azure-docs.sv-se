@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/07/2018
+ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e2d0d5073ffbeaed1c0215386a0c2c9f22a67d9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8686130e3b10ece605a6e648badf9aa1dae5e071
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288653"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435692"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribution av Oracle-DBMS i Azure virtuella datorer för SAP-arbetsbelastningar
 
@@ -321,13 +321,13 @@ Följande SAP-information är relaterade till SAP på Azure om området som besk
 
 | Nummer | Titel |
 | --- | --- |
-| [1928533] |SAP-program i Azure: produkter och Azure VM-typer |
-| [2015553] |SAP på Microsoft Azure: supportkrav |
+| [1928533] |SAP-program i Azure: Produkter som stöds och Azure VM-typer |
+| [2015553] |SAP på Microsoft Azure: Supportkrav |
 | [1999351] |Felsökning av utökad Azure övervakning för SAP |
 | [2178632] |Nyckeln som övervakning av mått för SAP på Microsoft Azure |
-| [2191498] |SAP på Linux med Azure: förbättrad övervakning |
-| [2039619] |SAP-program på Microsoft Azure med Oracle-databasen: stöd för produkter och versioner |
-| [2243692] |Linux på Microsoft Azure (IaaS) VM: SAP problem |
+| [2191498] |SAP på Linux med Azure: Förbättrad övervakning |
+| [2039619] |SAP-program på Microsoft Azure med Oracle-databasen: Produkter som stöds och versioner |
+| [2243692] |Linux på Microsoft Azure (IaaS) virtuell dator: Problem med SAP-licens |
 | [2069760] |Oracle Linux 7.x SAP-Installation och uppgradering |
 | [1597355] |Växlingsutrymme rekommendation för Linux |
 | [2171857] |Oracle Database 12c - stöd för filer system på Linux |
@@ -428,7 +428,9 @@ I enlighet med handböcker för installationen av SAP, bör Oracle-relaterade fi
 
 ### <a name="storage-configuration"></a>Storage-konfiguration
 
-Filsystemen av ext4, eller xfs eller Oracle ASMOnly har stöd för Oracle-databasfiler på Azure. Alla databasfiler måste lagras på dessa filsystem baserat på VHD: er eller Managed Disks. De här diskarna är monterade Azure-datorn och baseras på Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller [Azure hanterade diskar](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Filsystemen av ext4, eller xfs eller Oracle ASM har stöd för Oracle-databasfiler på Azure. Alla databasfiler måste lagras på dessa filsystem baserat på VHD: er eller Managed Disks. De här diskarna är monterade Azure-datorn och baseras på Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller [Azure hanterade diskar](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+
+För Oracle Linux UEK kernlar minimum för UEK version 4 krävs för [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
 
 Vi rekommenderar starkt att använda [Azure hanterade diskar](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Även rekommenderas med [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) för Oracle Database-distributioner.
 
@@ -493,7 +495,7 @@ Oracle Data Guard har stöd för hög tillgänglighet och katastrofåterställni
 Disaster Recovery aspekter för Oracle-databaser i Azure visas i artikeln [haveriberedskap för en Oracle Database 12c-databas i en Azure-miljö](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
 ### <a name="accelerated-networking"></a>Accelererat nätverk
-Tillhandahåller support för Azure Accelerated Networking i Oracle Linux med Oracle Linux 7 uppdatering 5 (Oracle Linux 7.5). Om du inte uppgradera till den senaste versionen för Oracle Linux 7.5, kan det finnas en lösning med RedHat kompatibla Kernel (RHCK) i stället för Oracle UEK kernel. Använda RHEL-kerneln i Oracle Linux stöds enligt SAP-kommentar [#1565179](https://launchpad.support.sap.com/#/notes/1565179). Kernel-versionen måste vara 3.10.0-862.13.1.el7 för Azure Accelerated Networking minsta RHCKL.
+Tillhandahåller support för Azure Accelerated Networking i Oracle Linux med Oracle Linux 7 uppdatering 5 (Oracle Linux 7.5). Om du inte uppgradera till den senaste versionen för Oracle Linux 7.5, kan det finnas en lösning med RedHat kompatibla Kernel (RHCK) i stället för Oracle UEK kernel. Använda RHEL-kerneln i Oracle Linux stöds enligt SAP-kommentar [#1565179](https://launchpad.support.sap.com/#/notes/1565179). Kernel-versionen måste vara 3.10.0-862.13.1.el7 för Azure Accelerated Networking minsta RHCKL. För att använda UEK kernel i Oracle Linux tillsammans med [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), måste du använda Oracle UEK kernel-version 5.
 
 Om du inte distribuerar virtuella datorer från avbildningen som inte baseras på Azure Marketplace, behöver du ytterligare konfigurationsfiler som ska kopieras till en virtuell dator genom att köra: 
 <pre><code># Copy settings from github to correct place in VM

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 44d2960d9cf5828af588f9392667553c18dedb0f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103463"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408042"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -93,11 +93,11 @@ namespace Functions.Tests
 
 Den `ListLogger` klassen implementerar följande medlemmar som kontrakt genom den `ILogger` gränssnitt:
 
-- **BeginScope**: scope lägga till kontext till din loggning. I det här fallet testet bara pekar på den statiska instansen på den [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) klass så att testet ska fungera.
+- **BeginScope**: Scope lägga till kontext till din loggning. I det här fallet testet bara pekar på den statiska instansen på den [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) klass så att testet ska fungera.
 
-- **IsEnabled**: standardvärdet `false` har angetts.
+- **IsEnabled**: Ett standardvärde på `false` har angetts.
 
-- **Log**: den här metoden använder den medföljande `formatter` fungera om du vill formatera meddelandet och lägger sedan till den resulterande texten till den `Logs` samling.
+- **Log**: Den här metoden använder den medföljande `formatter` fungera om du vill formatera meddelandet och lägger sedan till den resulterande texten till den `Logs` samling.
 
 Den `Logs` samling är en instans av `List<string>` och har initierats i konstruktorn.
 
@@ -178,13 +178,13 @@ namespace Functions.Tests
 ```
 Den `TestFactory` klassen implementerar följande medlemmar:
 
-- **Data**: den här egenskapen returnerar en [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) uppsättning exempeldata. Nyckelvärdepar representerar värden som skickas till en frågesträng.
+- **Data**: Den här egenskapen returnerar en [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) uppsättning exempeldata. Nyckelvärdepar representerar värden som skickas till en frågesträng.
 
-- **CreateDictionary**: den här metoden godkänner ett nyckel/värde-par som argument och returnerar en ny `Dictionary` används för att skapa `QueryCollection` att representera frågesträngsvärden.
+- **CreateDictionary**: Den här metoden godkänner ett nyckel/värde-par som argument och returnerar en ny `Dictionary` används för att skapa `QueryCollection` att representera frågesträngsvärden.
 
-- **CreateHttpRequest**: den här metoden skapar en HTTP-begäran initieras med de angivna parametrarna för frågesträngen.
+- **CreateHttpRequest**: Den här metoden skapar en HTTP-begäran initieras med de angivna parametrarna för frågesträngen.
 
-- **CreateLogger**: beroende på vilken loggaren, den här metoden returnerar en logger-klass som används för testning. Den `ListLogger` håller reda på loggade meddelanden för utvärdering i tester.
+- **CreateLogger**: Beroende på vilken loggaren, returnerar den här metoden en logger-klass som används för testning. Den `ListLogger` håller reda på loggade meddelanden för utvärdering i tester.
 
 Nästa **högerklickar du på** på den *Functions.Test* programmet och väljer **Lägg till > klass**, ge den namnet **FunctionsTests.cs** och ange den följande kod:
 
@@ -229,11 +229,11 @@ namespace Functions.Tests
 ```
 Medlemmar som implementerats i den här klassen är:
 
-- **Http_trigger_should_return_known_string**: det här testet skapar en begäran med frågan strängvärden för `name=Bill` att en HTTP-funktion och kontrollerar att det förväntade svaret returneras.
+- **Http_trigger_should_return_known_string**: Det här testet skapar en begäran med frågan strängvärden för `name=Bill` att en HTTP-funktion och kontrollerar att det förväntade svaret returneras.
 
-- **Http_trigger_should_return_string_from_member_data**: det här testet använder xUnit attribut för att tillhandahålla exempeldata till HTTP-funktionen.
+- **Http_trigger_should_return_string_from_member_data**: Det här testet används xUnit attribut för att tillhandahålla exempeldata till HTTP-funktionen.
 
-- **Timer_should_log_message**: det här testet skapar en instans av `ListLogger` och skickar den till en timer-funktion. När funktionen körs, kontrolleras loggen för att se till att förväntade meddelandet finns.
+- **Timer_should_log_message**: Det här testet skapar en instans av `ListLogger` och skickar den till en timer-funktion. När funktionen körs, kontrolleras loggen för att se till att förväntade meddelandet finns.
 
 ### <a name="run-tests"></a>Kör test
 
@@ -357,6 +357,6 @@ Nu ska vi konfigurera en brytpunkt i test- och tryck på **F5**.
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du skriver automatiska tester för dina funktioner, fortsätter du med dessa resurser:
-
+- [Manuellt köra en icke HTTP-utlöst funktion](./functions-manually-run-non-http.md)
 - [Azure Functions-felhantering](./functions-bindings-error-pages.md)
 - [Azure-funktion Event Grid utlösa lokal felsökning](./functions-debug-event-grid-trigger-local.md)

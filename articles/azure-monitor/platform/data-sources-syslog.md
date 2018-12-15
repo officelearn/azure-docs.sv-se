@@ -1,6 +1,6 @@
 ---
-title: Samla in och analysera Syslog-meddelanden i OMS Log Analytics | Microsoft Docs
-description: Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux. Den här artikeln beskriver hur du konfigurerar insamling av Syslog-meddelanden i Log Analytics och information för de poster som de skapar i OMS-databasen.
+title: Samla in och analysera Syslog-meddelanden i Azure Monitor | Microsoft Docs
+description: Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux. Den här artikeln beskriver hur du konfigurerar insamling av Syslog-meddelanden i Azure Monitor och information för de poster som de skapar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,30 +11,30 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c47f96a91d312eea1748b00e4272a7c9a11d5c1e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 263f9dcd038bd9ec20036983e273f56191e9a300
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186641"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436729"
 ---
-# <a name="syslog-data-sources-in-log-analytics"></a>Syslog-datakällor i Log Analytics
-Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux.  Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare.  När OMS-agenten för Linux installeras konfigurerar den lokala Syslog-daemon för att vidarebefordra meddelanden till agenten.  Agenten skickar sedan meddelandet till Log Analytics där en motsvarande post skapas i OMS-databasen.  
+# <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-datakällor i Azure Monitor
+Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux.  Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare.  När Log Analytics-agenten för Linux installeras konfigurerar den lokala Syslog-daemon för att vidarebefordra meddelanden till agenten.  Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.  
 
 > [!NOTE]
-> Log Analytics har stöd för insamling av meddelanden som skickas av rsyslog eller syslog-ng, där rsyslog är standard-daemon. Standard syslog-daemon på version 5 av Red Hat Enterprise Linux, CentOS och Oracle Linux-version (sysklog) stöds inte för syslog-händelseinsamling. Samla in syslog-data från den här versionen av dessa distributioner kan de [rsyslog-daemon](http://rsyslog.com) ska installeras och konfigureras för att ersätta sysklog.
+> Azure Monitor har stöd för insamling av meddelanden som skickas av rsyslog eller syslog-ng, där rsyslog är standard-daemon. Standard syslog-daemon på version 5 av Red Hat Enterprise Linux, CentOS och Oracle Linux-version (sysklog) stöds inte för syslog-händelseinsamling. Samla in syslog-data från den här versionen av dessa distributioner kan de [rsyslog-daemon](http://rsyslog.com) ska installeras och konfigureras för att ersätta sysklog.
 >
 >
 
 ![Sysloginsamling](media/data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Konfigurera Syslog
-OMS-agenten för Linux endast samlar in händelser med anläggningar och allvarlighetsgrader som anges i dess konfiguration.  Du kan konfigurera Syslog via Azure portal eller genom att hantera konfigurationsfiler på Linux-agenter.
+Log Analytics-agenten för Linux endast samlar in händelser med anläggningar och allvarlighetsgrader som anges i dess konfiguration.  Du kan konfigurera Syslog via Azure portal eller genom att hantera konfigurationsfiler på Linux-agenter.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Konfigurera Syslog i Azure portal
-Konfigurera Syslog från den [Data-menyn i Log Analytics avancerade inställningar](agent-data-sources.md#configuring-data-sources).  Den här konfigurationen levereras till konfigurationsfilen på varje Linux-agent.
+Konfigurera Syslog från den [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources).  Den här konfigurationen levereras till konfigurationsfilen på varje Linux-agent.
 
 Du kan lägga till en ny resurs genom att skriva dess namn och klicka på **+**.  Endast meddelanden med de valda allvarlighetsgraderna kommer att samlas in för varje resurs.  Kontrollera allvarlighetsgraderna för en viss tjänst du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera meddelanden.
 
@@ -43,7 +43,7 @@ Du kan lägga till en ny resurs genom att skriva dess namn och klicka på **+**.
 Som standard skickas automatiskt alla konfigurationsändringar till alla agenter.  Om du vill konfigurera Syslog manuellt på varje Linux-agent och avmarkerar sedan kryssrutan *Använd konfigurationen nedan för Mina Linux-datorer*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Konfigurera Syslog på Linux-agenten
-När den [OMS-agenten är installerad på en Linux-klient](../../azure-monitor/learn/quick-collect-linux-computer.md), installeras en standard syslog-konfigurationsfil som definierar anläggning och allvarlighetsgraden för de meddelanden som samlas in.  Du kan ändra den här filen om du vill ändra konfigurationen.  Konfigurationsfilen är olika beroende på Syslog-daemon som klienten har installerats.
+När den [Log Analytics-agenten är installerad på en Linux-klient](../../azure-monitor/learn/quick-collect-linux-computer.md), installeras en standard syslog-konfigurationsfil som definierar anläggning och allvarlighetsgraden för de meddelanden som samlas in.  Du kan ändra den här filen om du vill ändra konfigurationen.  Konfigurationsfilen är olika beroende på Syslog-daemon som klienten har installerats.
 
 > [!NOTE]
 > Om du redigerar systemloggkonfigurationen, måste du starta om syslog-daemon för att ändringarna ska börja gälla.
@@ -136,7 +136,7 @@ Du kan ta bort en resurs genom att ta bort delen av konfigurationsfilen.  Du kan
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Samla in data från ytterligare Syslog-portar
-OMS-agenten lyssnar efter Syslog-meddelanden på den lokala klienten på port 25224.  När agenten är installerad, är en standardkonfiguration för syslog tillämpas och finns på följande plats:
+Log Analytics-agenten lyssnar efter Syslog-meddelanden på den lokala klienten på port 25224.  När agenten är installerad, är en standardkonfiguration för syslog tillämpas och finns på följande plats:
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
@@ -178,7 +178,7 @@ Du kan ändra portnumret genom att skapa två konfigurationsfiler: en FluentD-ko
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
         log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
 
-Tjänsten måste startas om för att se till att konfigurationsändringarna träder i kraft när du har slutfört ändringarna, Syslog och OMS-agenten.   
+När du har slutfört ändringarna, gälla Syslog och agent-tjänsten måste startas om för att säkerställa att ändringar i konfigurationen för logganalys.   
 
 ## <a name="syslog-record-properties"></a>Egenskaper för Syslog-post
 Syslog-poster har en typ av **Syslog** och har egenskaperna i följande tabell.
@@ -205,6 +205,6 @@ I följande tabell innehåller olika exempel på loggfrågor som hämtar Syslog-
 | Syslog &#124; sammanfatta AggregatedValue = antal() efter lokal |Räkna Syslog-poster efter anläggning. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [logga queriesi](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
 * Använd [anpassade fält](../../azure-monitor/platform/custom-fields.md) att parsa data från syslog-poster i enskilda fält.
 * [Konfigurera Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) att samla in andra typer av data.

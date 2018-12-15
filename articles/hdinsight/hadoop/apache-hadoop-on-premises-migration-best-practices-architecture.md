@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7558a853657e3e3764cd8e3faf6dd466e9ead35e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994151"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434018"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - arkitektur Metodtips
 
@@ -75,7 +75,9 @@ Compute beräkningsklustren skapas nära lagringskontoresurserna i en Azure-regi
 
 ## <a name="use-external-metadata-stores"></a>Använda extern metadatalagring
 
+
 Det finns två huvudsakliga metastores som fungerar med HDInsight-kluster: [Apache Hive](https://hive.apache.org/) och [Apache Oozie](https://oozie.apache.org/). Hive-metaarkiv finns centrala schemadatabasen som kan användas av databearbetning-motorer, inklusive Hadoop, Spark, LLAP, Presto och Apache Pig. Oozie-metaarkiv lagrar information om att schemalägga och status för pågående och slutförda Hadoop-jobb.
+
 
 HDInsight använder Azure SQL Database för metastores för Hive och Oozie. Det finns två sätt att ställa in ett metaarkiv i HDInsight-kluster:
 

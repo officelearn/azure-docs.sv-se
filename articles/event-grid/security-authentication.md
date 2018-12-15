@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: f2bbcf0218291f91d3ee5b25e89a5f580e0c1c86
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105741"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413497"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -35,7 +35,7 @@ Liksom många andra tjänster som stöder webhooks måste Event Grid du bevisa �
 
 Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade Azure-funktion, måste din slutpunkt kod att delta i en verifiering handskakning med Event Grid. Event Grid stöder två olika sätt att verifiera prenumerationen.
 
-1. **ValidationCode handskakning (programmässiga)**: Om du styra källkoden för din slutpunkt för den här metoden rekommenderas. Vid tidpunkten för händelsen prenumeration har skapats skickar Event Grid en händelse för verifiering av prenumeration till din slutpunkt. Schemat för den här händelsen är ungefär som andra Event Grid-händelse. Datamängden i den här händelsen innehåller en `validationCode` egenskapen. Programmet kontrollerar att begäran om verifiering är för en förväntad händelse-prenumeration och ekar verifieringskoden till Event Grid. Den här mekanismen för handskakning stöds i alla Event Grid-versioner.
+1. **ValidationCode handskakning (programmässiga)**: Den här metoden rekommenderas om du kontrollera källkoden för din slutpunkt. Vid tidpunkten för händelsen prenumeration har skapats skickar Event Grid en händelse för verifiering av prenumeration till din slutpunkt. Schemat för den här händelsen är ungefär som andra Event Grid-händelse. Datamängden i den här händelsen innehåller en `validationCode` egenskapen. Programmet kontrollerar att begäran om verifiering är för en förväntad händelse-prenumeration och ekar verifieringskoden till Event Grid. Den här mekanismen för handskakning stöds i alla Event Grid-versioner.
 
 2. **ValidationURL handskakning (manuell)**: I vissa fall kan du inte åtkomst till källkoden för slutpunkten att implementera ValidationCode-handskakningen. Exempel: Om du använder en tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), du programmässigt kan inte svara med verifieringskoden.
 
@@ -46,7 +46,7 @@ Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade 
 ### <a name="validation-details"></a>Verifieringsinformation
 
 * Vid tidpunkten för händelsen skapande/uppdatering av prenumeration publicerar Event Grid en händelse för verifiering av prenumerationen till mål-slutpunkten. 
-* Händelsen innehåller ett huvudvärde ”aeg Händelsetyp: SubscriptionValidation”.
+* Händelsen innehåller ett huvudvärde ”aeg Händelsetyp: SubscriptionValidation ”.
 * Händelsemeddelandet har samma schema som andra Event Grid-händelser.
 * Händelsetyp-egenskapen för händelsen är `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * Dataegenskapen för händelsen innehåller en `validationCode` egenskap med en slumpmässigt genererad sträng. Till exempel ”validationCode: acb13...”.
@@ -79,6 +79,8 @@ För att bevisa ägarskapet för slutpunkten echo tillbaka verifieringskoden i e
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+Du måste returnera ett HTTP 200 OK Svarets statuskod. HTTP 202 accepterat inte identifieras som en giltig verifieringssvaret för Event Grid-prenumeration.
 
 Eller så kan du verifiera manuellt prenumerationen genom att skicka en GET-begäran till URL: en för verifiering. Händelseprenumerationen kvar i ett väntande tillstånd tills verifieras.
 
@@ -290,7 +292,7 @@ Följande är exempel Event Grid rolldefinitioner som användarna kan vidta olik
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: Tillåt åtgärder begränsade efter Tillåt men inte ta bort åtgärder.
+**EventGridNoDeleteListKeysRole.json**: För att tillåta begränsad post men Tillåt inte att ta bort åtgärder.
 
 ```json
 {
@@ -313,7 +315,7 @@ Följande är exempel Event Grid rolldefinitioner som användarna kan vidta olik
 }
 ```
 
-**EventGridContributorRole.json**: tillåter alla event grid-åtgärder.
+**EventGridContributorRole.json**: Tillåter alla event grid-åtgärder.
 
 ```json
 {

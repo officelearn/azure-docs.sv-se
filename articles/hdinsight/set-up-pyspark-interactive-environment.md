@@ -9,16 +9,16 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: e57fd3747ef9cbd55d073e02bc14816ca949bcd6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 82aebd780b7b821675a6ee891cc81e2b1c6fdafb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046243"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437222"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Ställ in interaktiv PySpark-miljö för Visual Studio Code
 
-Följande steg visar hur du installerar Python-paket genom att köra **HDInsight: interaktiv PySpark**.
+Följande steg visar hur du installerar Python-paket genom att köra **HDInsight: Interaktiv PySpark**.
 
 
 ## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>Ställ in interaktiv PySpark-miljö på macOS och Linux
@@ -86,7 +86,7 @@ Om du använder **python 3.x**, måste du använda kommandot **pip3** för följ
     - **python2** och **pysparkkernel** motsvarar **python 2.x**. 
     - **python3** och **pyspark3kernel** motsvarar **python 3.x**. 
 
-8. Starta om VS Code och gå sedan tillbaka till Skriptredigeraren med **HDInsight: interaktiv PySpark**.
+8. Starta om VS Code och gå sedan tillbaka till Skriptredigeraren med **HDInsight: Interaktiv PySpark**.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -95,14 +95,14 @@ Om du använder **python 3.x**, måste du använda kommandot **pip3** för följ
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda Azure HDInsight-verktyg för Visual Studio Code](hdinsight-for-vscode.md)
-* [Använd Azure Toolkit för IntelliJ för att skapa och skicka Spark Scala-appar](spark/apache-spark-intellij-tool-plugin.md)
-* [Felsöka Spark-program via fjärranslutning via SSH med hjälp av Azure Toolkit för IntelliJ](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Felsöka Spark-program via fjärranslutning via VPN med hjälp av Azure Toolkit för IntelliJ](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda HDInsight-verktyg i Azure Toolkit för Eclipse för att skapa Spark-program](spark/apache-spark-eclipse-tool-plugin.md)
+* [Använd Azure Toolkit för IntelliJ för att skapa och skicka Apache Spark Scala-appar](spark/apache-spark-intellij-tool-plugin.md)
+* [Felsöka Apache Spark-program via fjärranslutning via SSH med hjälp av Azure Toolkit för IntelliJ](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Felsöka Apache Spark-program via fjärranslutning via VPN med hjälp av Azure Toolkit för IntelliJ](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda HDInsight-verktygen i Azure Toolkit för Eclipse för att skapa Apache Spark-program](spark/apache-spark-eclipse-tool-plugin.md)
 * [Använda HDInsight Tools för IntelliJ med begränsat Hortonworks-läge](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](spark/apache-spark-zeppelin-notebook.md)
-* [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
+* [Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster på HDInsight](spark/apache-spark-zeppelin-notebook.md)
+* [Kernlar som är tillgängliga för Jupyter notebook i Apache Spark-kluster för HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight ](hdinsight-connect-hive-zeppelin.md)
+* [Visualisera Apache Hive-data med Microsoft Power BI i Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight ](hdinsight-connect-hive-zeppelin.md)

@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 34db8900d285baa7e9c4f97874023bbb52d5e864
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087906"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408838"
 ---
-# <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Felsöka YARN med Azure HDInsight
+# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop YARN med Azure HDInsight
 
 Läs mer om de viktigaste problemen och sina lösningar när du arbetar med Apache Hadoop YARN-nyttolaster i Apache Ambari.
 
@@ -59,7 +59,7 @@ Dessa ändringar visas direkt på Scheduler YARN-Användargränssnittet.
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-- [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+- [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Hur jag för att hämta YARN-loggar från ett kluster?
@@ -131,7 +131,7 @@ Dessa ändringar visas direkt på Scheduler YARN-Användargränssnittet.
 
 ### <a name="additional-reading-2"></a>Ytterligare resurser
 
-- [Ansluta till HDInsight (Hadoop) med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN-begrepp och program](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 

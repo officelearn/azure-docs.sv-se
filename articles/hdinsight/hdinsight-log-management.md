@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988503"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434893"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -24,13 +24,13 @@ Hantera loggar för HDInsight-kluster innehåller behåller information om alla 
 
 Vanliga steg i hantering av HDInsight är:
 
-* Steg 1: Fastställ logga bevarandeprinciper
-* Steg 2: Hantera klustret tjänstloggar versioner konfiguration
+* Steg 1: Fastställa principer för kvarhållning av logg
+* Steg 2: Hantera kluster tjänstloggar versioner konfiguration
 * Steg 3: Hantera loggfiler för klustret jobbet körning
 * Steg 4: Skapa prognoser för log volym lagringsstorlekar och kostnader
-* Steg 5: Fastställ log Arkiv principer och processer
+* Steg 5: Fastställa log Arkiv principer och processer
 
-## <a name="step-1-determine-log-retention-policies"></a>Steg 1: Fastställ logga bevarandeprinciper
+## <a name="step-1-determine-log-retention-policies"></a>Steg 1: Fastställa principer för kvarhållning av logg
 
 Det första steget i att skapa ett HDInsight-kluster log management strategi är att samla in information om affärsscenarier och lagringskrav för jobbet körning historik.
 
@@ -51,7 +51,7 @@ Du kan hämta de flesta av informationen på den högsta nivån med Azure portal
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Du kan också använda PowerShell för att visa denna information.  Mer information finns i [hantera Hadoop-kluster i HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md).
+Du kan också använda PowerShell för att visa denna information.  Mer information finns i [Apache hantera Hadoop-kluster i HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ### <a name="understand-the-workloads-running-on-your-clusters"></a>Förstå de arbetsbelastningar som körs i ditt kluster
 
@@ -69,9 +69,9 @@ Det är viktigt att förstå de typer av arbetsbelastningar som körs på HDInsi
 
 * Överväg hur du kan samla in loggar från klustret eller från flera kluster och sortera dem för exempelvis granskning, övervakning, planering och varningar. Du kan använda en anpassad lösning för att komma åt och ladda ned filerna med jämna mellanrum, och kombinera och analysera dem för att tillhandahålla en instrumentpanelsvy. Du kan också lägga till ytterligare funktioner för avisering för säkerhets- eller felidentifiering. Du kan skapa dessa verktyg med PowerShell, HDInsight SDK: er eller koden som ansluter till den klassiska distributionsmodellen.
 
-* Överväg om en övervakning lösning eller tjänst skulle vara en användbar fördel. Microsoft System Center innehåller en [HDInsight hanteringspaket](https://www.microsoft.com/download/details.aspx?id=42521). Du kan också använda verktyg från tredje part, till exempel Chukwa och Ganglia för att samla in och centralisera loggar. Många företag erbjuder tjänster för att övervaka Hadoop-baserade big data-lösningar, till exempel Centerity, Compuware APM och Sematext SPM Zettaset Orchestrator.
+* Överväg om en övervakning lösning eller tjänst skulle vara en användbar fördel. Microsoft System Center innehåller en [HDInsight hanteringspaket](https://www.microsoft.com/download/details.aspx?id=42521). Du kan också använda verktyg från tredje part, till exempel Apache Chukwa och Ganglia för att samla in och centralisera loggar. Många företag erbjuder tjänster för att övervaka Hadoop-baserade big data-lösningar, till exempel: Centerity, Compuware APM, Sematext SPM och Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Steg 2: Hantera klustret tjänstversioner och visa loggar skriptåtgärd
+## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Steg 2: Hantera service-kluster-versioner och visa loggar skriptåtgärd
 
 En typisk HDInsight-klustret använder flera tjänster och program med öppen källkod-paket (till exempel Apache HBase, Apache Spark och så vidare). För vissa arbetsbelastningar, till exempel bioinformatik, kan du behöva behålla service configuration logghistorik förutom loggarna för jobbkörning.
 
@@ -144,7 +144,7 @@ Sedan analysera loggdata lagringsplatser för nyckel log under en viss tidsperio
 
 Nu har du tillräcklig information för att skapa en strategi för hantering av loggen för viktiga loggarna.  Använd kalkylbladet (eller verktyg) för att skapa prognoser för båda log storlekstillväxt och logga Azure-tjänsten lagringskostnader framöver.  Överväg att även eventuella kvarhållning loggkraven för loggar som du undersöker.  Du kan nu reforecast framtida log kostnader för lagring, när du har fastställt vilken loggfiler kan tas bort (om sådan finns) och vilka loggar ska behållas och arkiveras till billigare Azure storage.
 
-## <a name="step-5-determine-log-archive-policies-and-processes"></a>Steg 5: Fastställ log Arkiv principer och processer
+## <a name="step-5-determine-log-archive-policies-and-processes"></a>Steg 5: Fastställa log Arkiv principer och processer
 
 När du har bestämt vilka loggfiler kan tas bort kan du justera parametrar på många Hadoop-tjänster för att automatiskt ta bort loggfiler efter en angiven tidsperiod.
 
@@ -177,5 +177,5 @@ För att samla in loggar från alla noder till en central plats, kan du skapa et
 ## <a name="next-steps"></a>Nästa steg
 
 * [Övervakning och loggning för HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Åtkomst till YARN-programloggen på Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Så här kontrollerar du storleken på loggfiler för olika Hadoop-komponenter](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)
+* [Åtkomstlogg Apache Hadoop YARN-program på Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Så här kontrollerar du storleken på loggfiler för olika Apache Hadoop-komponenter](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

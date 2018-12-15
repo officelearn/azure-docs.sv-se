@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 5acc9bfdd674d6677ad6da69b87bb8053cc43a19
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5052ec73114c040a4c140d258b197fdde58f6667
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972226"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409334"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Hur du använder Azure Mobile Apps-SDK för Android
 
@@ -189,13 +189,13 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Läs hur du skapar ytterligare tabeller i Mobile Apps-serverdel i [så här: definiera en] [ 15] (.NET-serverdel) eller [definiera tabeller med hjälp av en dynamiskt Schema] [ 16] (Node.js-serverdel).
+Läs hur du skapar ytterligare tabeller i Mobile Apps-serverdel i [så här: Definiera en] [ 15] (.NET-serverdel) eller [definiera tabeller med hjälp av en dynamiskt Schema] [ 16] (Node.js-serverdel).
 
 En tabell för Azure Mobile Apps-serverdel definierar fem särskilda fält, fyra av som är tillgängliga för klienter:
 
 * `String id`: Globalt unikt ID för posten.  Som bästa praxis, se id strängrepresentation av en [UUID] [ 17] objekt.
-* `DateTimeOffset updatedAt`: Det datum/tid för den senaste uppdateringen.  Fältet updatedAt anges av-servern och aldrig ska anges genom att klientkoden.
-* `DateTimeOffset createdAt`: Det datum/tid som objektet skapades.  Fältet createdAt anges av-servern och aldrig ska anges genom att klientkoden.
+* `DateTimeOffset updatedAt`: Datum/tid för den senaste uppdateringen.  Fältet updatedAt anges av-servern och aldrig ska anges genom att klientkoden.
+* `DateTimeOffset createdAt`: Datum och tid då objektet skapades.  Fältet createdAt anges av-servern och aldrig ska anges genom att klientkoden.
 * `byte[] version`: Vanligtvis representeras som en sträng, anges versionen också av servern.
 * `boolean deleted`: Anger att posten har tagits bort men inte rensats ännu.  Använd inte `deleted` som en egenskap i klassen.
 
@@ -446,7 +446,7 @@ En begäran för alla poster med den här metoden skapar minst två begäranden 
 > [!TIP]
 > Att välja rätt sidstorleken är en balans mellan minnesanvändning när begäran pågår, bandbreddsanvändning och fördröjning helt ta emot data.  Standard (50 poster) är lämplig för alla enheter.  Om du använder uteslutande på större minnesenheter, öka upp till 500.  Vi har hittat som ökar sidstorleken utöver 500 poster resulterar i oacceptabla fördröjningar och stora minnesproblem.
 
-### <a name="chaining"></a>Så här: sammanfoga fråga metoder
+### <a name="chaining"></a>Hur: Sammanfoga fråga metoder
 
 De metoder som används i frågor till serverdelen tabeller kan sammanfogas. Länkning fråga metoder kan du välja vissa kolumner i filtrerade rader som är sorterade och växlat minne. Du kan skapa komplexa logiska filter.  Varje fråga-metod returnerar ett frågeobjekt. Avsluta serie metoder och faktiskt kör frågan genom att anropa den **köra** metod. Exempel:
 
@@ -672,7 +672,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Så här: arbeta med ej typbestämd data
+## <a name="untyped"></a>Hur: Arbeta med ej typbestämd data
 
 Ej typbestämd programmeringsmodell ger exakt kontroll över JSON-serialisering.  Det finns några vanliga scenarier där du kanske vill använda en ej typbestämd programmeringsmodell. Exempel: om din serverdelstabellen innehåller många kolumner och du behöver bara referera till en delmängd av kolumnerna.  Den angivna modellen måste du definiera alla kolumner som definierats i Mobile Apps-serverdel i dataklassen.  De flesta av API-anrop för att komma åt data liknar skrivna programming anrop. Den största skillnaden är att i ej typbestämd modellen du anropa metoder på det **MobileServiceJsonTable** objektet, i stället för den **MobileServiceTable** objekt.
 
@@ -767,10 +767,10 @@ Samma uppsättning filtrering, filtrering och växling metoder som är tillgäng
 
 Azure Mobile Apps klient-SDK implementerar också offlinesynkronisering av data med hjälp av en SQLite-databas för att spara en kopia av serverdata lokalt.  Åtgärder som utförs på en offline-tabell kräver inte mobil anslutning ska fungera.  Offlinesynkronisering hjälper till med ökad flexibilitet och prestanda på bekostnad av mer komplex logik för konfliktlösning.  Azure Mobile Apps klient-SDK implementerar följande funktioner:
 
-* Inkrementell synkronisering: Endast uppdaterade och nya poster har hämtats, spara bandbredd och minnesförbrukningen.
+* Inkrementell synkronisering: Endast hämtas uppdaterade och nya poster, spara bandbredd och minnesförbrukningen.
 * Optimistisk samtidighet: Åtgärder antas ska lyckas.  Konfliktlösning skjuts upp tills uppdateringarna utförs på servern.
-* Konfliktlösning: SDK: N identifierar när en konflikt ändring har gjorts på servern och ger hookar för att varna användaren.
-* Mjuk borttagning: Borttagna poster är markerade har tagits bort, vilket gör att andra enheter att uppdatera sina offlinecache.
+* Lösning: SDK: N identifierar när en konflikt ändring har gjorts på servern och ger hookar för att varna användaren.
+* Mjuk borttagning: Raderade poster är markerade har tagits bort, vilket gör att andra enheter att uppdatera sina offlinecache.
 
 ### <a name="initialize-offline-sync"></a>Initiera synkronisering Offline
 
@@ -892,7 +892,7 @@ Den **invokeApi** metoden anropas på klienten, som skickar en POST-begäran til
 
 Självstudier beskrivs redan i detalj hur du lägger till dessa funktioner.
 
-App Service stöder [autentisera appanvändare](app-service-mobile-android-get-started-users.md) med hjälp av olika externa indentitetsprovidrar: Facebook, Google, Account, Twitter och Azure Active Directory. Du kan ange behörigheter för tabeller för att begränsa åtkomst för specifika åtgärder endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i serverdelen.
+App Service stöder [autentisera appanvändare](app-service-mobile-android-get-started-users.md) med hjälp av olika externa indentitetsprovidrar: Facebook, Google, Microsoft-konto, Twitter och Azure Active Directory. Du kan ange behörigheter för tabeller för att begränsa åtkomst för specifika åtgärder endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i serverdelen.
 
 Två autentiseringsflöden stöds: en **server** flöde och en **klienten** flöde. Server-flödet innehåller den enklaste autentiseringsupplevelse som den är beroende av webbgränssnittet för identitets-providers.  Inga ytterligare SDK: er måste implementera serverautentisering för flödet. Serverautentisering för flow ger inte en djupgående integrering på den mobila enheten och rekommenderas endast för bevis på koncept scenarier.
 
@@ -1314,6 +1314,6 @@ Den här koden måste köras innan du skapar en mobil klient som referens med hj
 [19]: https://www.odata.org/documentation/odata-version-3-0/
 [20]: https://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/configure-authentication-provider-aad.md
 [Future]: https://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: https://developer.android.com/reference/android/os/AsyncTask.html

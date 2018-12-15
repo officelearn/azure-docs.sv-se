@@ -1,6 +1,6 @@
 ---
-title: Samla in och analysera händelseloggarna för Windows i Azure Log Analytics | Microsoft Docs
-description: Windows-händelseloggar är en av de vanligaste datakällorna som används av Log Analytics.  Den här artikeln beskriver hur du konfigurerar insamling av Windows-händelseloggarna och information om de poster som skapas i Log Analytics-arbetsytan.
+title: Samla in och analysera händelseloggarna för Windows i Azure Monitor | Microsoft Docs
+description: Beskriver hur du konfigurerar insamling av Windows-händelseloggarna från Azure Monitor och information om de poster som de skapar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,34 +11,34 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 90aaed0ad364de69d3297ceb5c3323c6f4a7ecaf
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a8c08eb222595b1531eef850667d3834d568b166
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193339"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435811"
 ---
-# <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows-händelseloggen datakällor i Log Analytics
+# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows-händelseloggen datakällor i Azure Monitor
 Windows-händelseloggar är en av de vanligaste [datakällor](agent-data-sources.md) för att samla in data med hjälp av Windows-agenter eftersom många program skriva till händelseloggen i Windows.  Du kan samla in händelser från standard loggarna, t.ex System- och förutom att ange några anpassade loggar som skapats av program som du behöver övervaka.
 
 ![Windows-händelser](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Konfigurera Windows-händelse loggar
-Konfigurera Windows-händelseloggar från den [Data-menyn i logganalys-inställningar](agent-data-sources.md#configuring-data-sources).
+Konfigurera Windows-händelseloggar från den [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources).
 
-Log Analytics samlar endast in händelser från händelseloggarna för Windows som anges i inställningarna.  Du kan lägga till en händelselogg genom att skriva namnet på loggen och klicka på **+**.  Endast händelser med valda allvarlighetsgraderna samlas in för varje logg.  Kontrollera allvarlighetsgraderna för viss loggen som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera händelser.
+Azure Monitor samlar endast in händelser från händelseloggarna för Windows som anges i inställningarna.  Du kan lägga till en händelselogg genom att skriva namnet på loggen och klicka på **+**.  Endast händelser med valda allvarlighetsgraderna samlas in för varje logg.  Kontrollera allvarlighetsgraderna för viss loggen som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera händelser.
 
-När du skriver namnet på en händelselogg tillhandahåller Log Analytics förslag på vanliga Händelseloggnamn. Om du vill lägga till loggen inte visas i listan, du kan fortfarande lägga till den genom att skriva i det fullständiga namnet på loggen. Du hittar det fullständiga namnet på loggen med hjälp av Loggboken. I Loggboken, öppna den *egenskaper* för loggen och kopierar du strängen från den *fullständigt namn* fält.
+När du skriver namnet på en händelselogg innehåller Azure Monitor förslag på vanliga Händelseloggnamn. Om du vill lägga till loggen inte visas i listan, du kan fortfarande lägga till den genom att skriva i det fullständiga namnet på loggen. Du hittar det fullständiga namnet på loggen med hjälp av Loggboken. I Loggboken, öppna den *egenskaper* för loggen och kopierar du strängen från den *fullständigt namn* fält.
 
 ![Konfigurera Windows-händelser](media/data-sources-windows-events/configure.png)
 
 ## <a name="data-collection"></a>Datainsamling
-Log Analytics samlar in varje händelse som matchar en vald allvarlighetsgrad från en övervakade händelseloggen när händelsen skapas.  Agenten registrerar transformeringsfilen i varje händelseloggen som det samlar in från.  Om agenten kopplas från för en viss tidsperiod, sedan Log Analytics samlar in händelser från där den senast slutade, även om de händelserna som skapades när agenten var offline.  Finns det risk för dessa händelser som inte ska samlas in om händelseloggen radbryts med obetalda händelser att skrivas över när agenten är offline.
+Azure Monitor samlar in varje händelse som matchar en vald allvarlighetsgrad från en övervakade händelseloggen när händelsen skapas.  Agenten registrerar transformeringsfilen i varje händelseloggen som det samlar in från.  Om agenten kopplas från för en viss tidsperiod, sedan den samlar in händelser från där den senast slutade, även om de händelserna som skapades när agenten var offline.  Finns det risk för dessa händelser som inte ska samlas in om händelseloggen radbryts med obetalda händelser att skrivas över när agenten är offline.
 
 >[!NOTE]
->Log Analytics samlar inte in granskningshändelser som skapats av SQL Server från källa *MSSQLSERVER* med händelse-ID 18453 som innehåller nyckelord - *klassiska* eller *granska lyckade* och nyckelordet *0xa0000000000000*.
+>Azure Monitor samlar inte in granskningshändelser som skapats av SQL Server från källa *MSSQLSERVER* med händelse-ID 18453 som innehåller nyckelord - *klassiska* eller *granska lyckade* och nyckelordet *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Egenskaper för Windows händelse-poster
@@ -61,8 +61,8 @@ Windows-händelseposter har en typ av **händelse** och har egenskaperna i följ
 | TimeGenerated |Datum och tid då händelsen skapades i Windows. |
 | Användarnamn |Användarnamn för det konto som loggade händelsen. |
 
-## <a name="log-searches-with-windows-events"></a>Loggsökningar med Windows-händelser
-I följande tabell innehåller olika exempel på sökningar i loggen som hämtar Windows händelseposter.
+## <a name="log-queries-with-windows-events"></a>Loggfrågor med Windows-händelser
+I följande tabell innehåller olika exempel på loggfrågor som hämtar Windows händelseposter.
 
 | Söka i data | Beskrivning |
 |:---|:---|
@@ -73,7 +73,6 @@ I följande tabell innehåller olika exempel på sökningar i loggen som hämtar
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Konfigurera Log Analytics för att samla in andra [datakällor](agent-data-sources.md) för analys.
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  
-* Använd [anpassade fält](../../azure-monitor/platform/custom-fields.md) att parsa händelseposter till enskilda fält.
+* Konfigurera Azure Monitor för att samla in andra [datakällor](agent-data-sources.md) för analys.
+* Lär dig mer om [logga frågor](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar.  
 * Konfigurera [insamling av prestandaräknare](data-sources-performance-counters.md) från din Windows-agenter.

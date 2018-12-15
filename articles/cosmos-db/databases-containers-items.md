@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 9f2ed9c9059fa76a55ebd26fa3175605e89a4cdd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090283"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409549"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Arbeta med Azure Cosmos-databaser, behållare och objekt
 
@@ -26,10 +26,10 @@ Du kan skapa en eller flera Azure-Cosmos-databaser under ditt konto. En databas 
 
 | **Azure Cosmos-enhet** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-databas | Databas | Nyckelutrymme | Databas | Ej tillämpligt | Ej tillämpligt |
+|Azure Cosmos-databas | Databas | Nyckelutrymme | Databas | Databas | Ej tillämpligt |
 
 > [!NOTE]
-> Konton, när du skapar ditt första diagram eller tabellen en standarddatabas med Gremlin och tabell-API: er skapas automatiskt i ditt Azure Cosmos-konto.
+> När du skapar din första tabellen med tabell-API: er-konton kan skapas en standarddatabas automatiskt i ditt Azure Cosmos-konto.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Åtgärder på en Azure Cosmos-databas
 
@@ -49,9 +49,9 @@ En Azure Cosmos-behållare är enheten skalbarhet för både etablerat dataflöd
 
 När du skapar en Azure Cosmos-behållare kan konfigurera du dataflöde på något av följande lägen:
 
-* **Dedikerat dataflöde** läge: dataflödet som etableras i en behållare enbart för det och det backas upp av att serviceavtalen. Mer information finns i [hur du etablera dataflöde för en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
+* **Dedikerat dataflöde** läge: Dataflödet som etableras i en behållare enbart för det och det backas upp av att serviceavtalen. Mer information finns i [hur du etablera dataflöde för en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
 
-* **Delade etablerat dataflöde** läge: de här behållarna dela det etablerade dataflödet som med andra behållare i samma databas (förutom de här behållarna som har konfigurerats med dedikerad etablerat dataflöde). Med andra ord delas dataflöde i databasen mellan alla ”delade” behållare. Mer information finns i [så här konfigurerar du etablerat dataflöde på en Azure Cosmos-databas](how-to-provision-database-throughput.md).
+* **Delade etablerat dataflöde** läge: De här behållarna dela det etablerade dataflödet som med andra behållare i samma databas (förutom de här behållarna som har konfigurerats med dedikerad etablerat dataflöde). Med andra ord delas dataflöde i databasen mellan alla ”delade” behållare. Mer information finns i [så här konfigurerar du etablerat dataflöde på en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 
 En Azure Cosmos-behållare kan Elastiskt skala, oavsett om du skapar behållare med antingen ”delade” eller ”dedikerad” etablerat dataflöde lägen.
 
@@ -69,7 +69,7 @@ En Azure Cosmos-behållare är specialiserat till API-specifika entiteter på f�
 
 | **Azure Cosmos-enhet** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-behållare | Container | Tabell | Samling | Graph | Tabell |
+|Azure Cosmos-behållare | Samling | Tabell | Samling | Graph | Tabell |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Egenskaperna för en Azure Cosmos-behållare
 
@@ -105,7 +105,7 @@ Beroende på valet av API: et, kan ett Azure Cosmos-objekt representera antingen
 
 | **Cosmos-entitet** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-objekt | Objekt | Rad | Dokument | Nod eller Kanttabell | Objekt |
+|Azure Cosmos-objekt | Dokument | Rad | Dokument | Nod eller Kanttabell | Objekt |
 
 ### <a name="properties-of-an-item"></a>Egenskaper för ett objekt
 

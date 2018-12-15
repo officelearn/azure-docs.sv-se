@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c8d40587ec6feee9b1ae16e383341fc0f2d1ffb6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137902"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438514"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostisk loggning i Azure Cosmos DB 
 
@@ -75,14 +75,14 @@ Om du vill aktivera Diagnostisk loggning i Azure-portalen, gör du följande:
 
 2. I den **diagnostikinställningar** gör du följande steg: 
 
-    * **Namn på**: Ange ett namn för loggarna för att skapa.
+    * **Namn på**: Ange ett namn att skapa loggarna.
 
-    * **Arkivera till ett lagringskonto**: med det här alternativet måste du ha ett befintligt lagringskonto för att ansluta till. Om du vill skapa ett nytt lagringskonto i portal, [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md) och följ anvisningarna för att skapa en Azure Resource Manager, Allmänt konto. Gå sedan tillbaka till den här sidan i portalen för att välja ett lagringskonto. Det kan ta några minuter innan nyligen skapade lagringskonton ska visas i den nedrullningsbara menyn.
-    * **Stream till en händelsehubb**: Om du vill använda det här alternativet om du behöver en befintlig Event Hubs-namnområde och event hub att ansluta till. Om du vill skapa ett namnområde för Event Hubs [skapa ett Event Hubs-namnområde och en event hub med hjälp av Azure portal](../event-hubs/event-hubs-create.md). Återvänd sedan till den här sidan i portalen för att välja Event Hubs-namnområde och principen.
-    * **Skicka till Log Analytics**: för att använda det här alternativet måste använda en befintlig arbetsyta eller skapa en ny Log Analytics-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar dina loggar i Log Analytics finns i [visa loggar i Log Analytics](#view-in-loganalytics).
+    * **Arkivera till ett lagringskonto**: Om du vill använda det här alternativet om behöver du ett befintligt lagringskonto för att ansluta till. Om du vill skapa ett nytt lagringskonto i portal, [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md) och följ anvisningarna för att skapa en Azure Resource Manager, Allmänt konto. Gå sedan tillbaka till den här sidan i portalen för att välja ett lagringskonto. Det kan ta några minuter innan nyligen skapade lagringskonton ska visas i den nedrullningsbara menyn.
+    * **Stream till en händelsehubb**: Om du vill använda det här alternativet behöver du en befintlig Event Hubs-namnområde och event hub att ansluta till. Om du vill skapa ett namnområde för Event Hubs [skapa ett Event Hubs-namnområde och en event hub med hjälp av Azure portal](../event-hubs/event-hubs-create.md). Återvänd sedan till den här sidan i portalen för att välja Event Hubs-namnområde och principen.
+    * **Skicka till Log Analytics**: Om du vill använda det här alternativet måste använda en befintlig arbetsyta eller skapa en ny Log Analytics-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar dina loggar i Log Analytics finns i [visa loggar i Log Analytics](#view-in-loganalytics).
     * **Logga DataPlaneRequests**: Välj det här alternativet för att logga backend-begäranden från Azure Cosmos DB underliggande distribuerad plattform för SQL, diagram, MongoDB, Cassandra och tabell-API-konton. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
     * **Logga MongoRequests**: Välj det här alternativet för att logga användarinitierad begäranden från klientdelen för Azure Cosmos DB för att betjäna MongoDB API-konton. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
-    * **Metrisk begäranden**: Välj det här alternativet för att lagra utförliga data i [Azure-mått](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
+    * **Metrisk begäranden**: Välj det här alternativet för att lagra utförliga data i [Azure-mått](../azure-monitor/platform/metrics-supported.md). Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
 
 3. Välj **Spara**.
 
@@ -442,11 +442,11 @@ I följande tabell beskrivs innehållet i varje loggpost.
 | **tid** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
 | **Resurs-ID** | **Resurs** | Azure Cosmos DB-kontot som loggar är aktiverad.|
 | **Kategori** | **Kategori** | För Azure Cosmos DB-loggar är **DataPlaneRequests** är endast tillgängligt värde. |
-| **OperationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara något av följande åtgärder: skapa, uppdatera, Läs, ReadFeed, ta bort, Ersätt, kör, SQL-fråga, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
+| **OperationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara något av följande åtgärder: Skapa, uppdatera, läsa, ReadFeed, ta bort, ersätta, köra SQL-fråga, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
 | **Egenskaper** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
 | **Aktivitets-ID** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
 | **UserAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|
-| **ResourceType** | **ResourceType** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: databasen, behållare, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
+| **ResourceType** | **ResourceType** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: Databasen, behållare, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
 | **statusCode** | **statusCode_s** | Svarsstatus för åtgärden. |
 | **requestResourceId** | **Resurs-ID** | ResourceId som gäller för begäran. Värdet kan peka databaseRid, collectionRid eller documentRid beroende på de åtgärder som utförs.|
 | **clientIpAddress** | **clientIpAddress_s** | Klientens IP-adress. |

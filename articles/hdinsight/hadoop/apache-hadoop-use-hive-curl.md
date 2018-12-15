@@ -9,36 +9,36 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 637ce81f2e2ef4c7271e26bd4e9dfe36da524e27
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c5bf69a2ac6a70410339a5696da53169ca87170f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012750"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407226"
 ---
-# <a name="run-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Köra Hive-frågor med Apache Hadoop i HDInsight med hjälp av REST
+# <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Kör Apache Hive-frågor med Apache Hadoop i HDInsight med hjälp av REST
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Lär dig hur du använder WebHCat REST API för att köra Hive-frågor med Apache Hadoop på Azure HDInsight-kluster.
+Lär dig hur du använder REST-API WebHCat du kör Apache Hive-frågor med Apache Hadoop i Azure HDInsight-kluster.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Linux-baserat Hadoop i HDInsight-kluster av version 3.4 och senare.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * En REST-klient. Det här dokumentet används Windows PowerShell och [Curl](https://curl.haxx.se/) exempel.
 
-    > [!NOTE]
-    > Azure PowerShell tillhandahåller dedikerade cmdletar för att arbeta med Hive på HDInsight. Mer information finns i den [använda Hive med Azure PowerShell](apache-hadoop-use-hive-powershell.md) dokumentet.
+    > [!NOTE]  
+    > Azure PowerShell tillhandahåller dedikerade cmdletar för att arbeta med Hive på HDInsight. Mer information finns i den [använda Apache Hive med Azure PowerShell](apache-hadoop-use-hive-powershell.md) dokumentet.
 
 Det här dokumentet använder också Windows PowerShell och [Jq](https://stedolan.github.io/jq/) att bearbeta JSON-data som returneras från REST-begäranden.
 
 ## <a id="curl"></a>Kör en Hive-fråga
 
-> [!NOTE]
+> [!NOTE]  
 > När du använder cURL eller annan REST-kommunikation med WebHCat, måste du autentisera begärandena genom att ange användarnamn och lösenord för HDInsight-klustrets administratör.
 >
 > REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). För att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern kan du alltid göra begäranden genom att använda säker HTTP (HTTPS).
@@ -135,7 +135,7 @@ Det här dokumentet använder också Windows PowerShell och [Jq](https://stedola
    * `DROP TABLE` -Om tabellen redan finns tas den bort.
    * `CREATE EXTERNAL TABLE` -Skapar en ny ”externa” tabell i Hive. Externa tabeller lagra endast tabelldefinitionen i Hive. Data finns kvar i den ursprungliga platsen.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Externa tabeller som ska användas när du förväntar dig att underliggande data uppdateras av en extern källa. Till exempel en automatiserade uppladdningen eller en annan MapReduce-åtgärd.
      >
      > Tar bort en extern tabell har **inte** ta bort data, endast tabelldefinitionen.
@@ -144,7 +144,7 @@ Det här dokumentet använder också Windows PowerShell och [Jq](https://stedola
    * `STORED AS TEXTFILE LOCATION` -Där data lagras (katalogen/exempeldata) och att den lagras som text.
    * `SELECT` -Väljer en uppräkning av alla rader där kolumnen **t4** innehåller värdet **[fel]**. Det här uttrycket returnerar värdet **3** som det finns tre rader som innehåller det här värdet.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Observera att blanksteg mellan HiveQL-instruktioner har ersatts av den `+` tecken när det används med Curl. Citerade värden som innehåller ett blanksteg, till exempel avgränsare, bör inte ersättas av `+`.
 
       Det här kommandot returnerar ett jobb-ID som kan användas för att kontrollera status för jobbet.
@@ -177,16 +177,16 @@ Det här dokumentet använder också Windows PowerShell och [Jq](https://stedola
 
 Allmän information om Hive med HDInsight:
 
-* [Använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
 
 Information om andra sätt kan du arbeta med Hadoop i HDInsight:
 
-* [Använda Pig med Hadoop i HDInsight](hdinsight-use-pig.md)
-* [Använda MapReduce med Hadoop i HDInsight](hdinsight-use-mapreduce.md)
+* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
+* [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)
 
 Om du använder Tez med Hive finns i följande dokument för felsökningsinformation:
 
-* [Använda Ambari Tez-vyn på Linux-baserat HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Använd Apache Ambari Tez-vyn på Linux-baserat HDInsight](../hdinsight-debug-ambari-tez-view.md)
 
 Mer information om REST API som används i det här dokumentet finns i den [WebHCat referens](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) dokumentet.
 

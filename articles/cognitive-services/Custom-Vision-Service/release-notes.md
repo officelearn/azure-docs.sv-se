@@ -9,21 +9,31 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a4b6b1d267e9c86a03644129ee639b74ed214d88
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901336"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408365"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service viktig information
+
+
+## <a name="december-12-2018"></a>12 december 2018
+- Stöder export för objektidentifiering modeller (introducerats objektet identifiering Compact domän).
+- Fasta ett antal problem med förbättrad skärmläsare och tangentbordet navigering support. 
+- UX-uppdateringar för bildvisningsprogram och förbättrad objektidentifiering taggning upplevelse för snabbare taggar.  
+- Uppdaterade basmodellen för objektet identifiering domän för bättre kvalitet objektidentifiering. 
+- Bugfixes.
+
+## <a name="november-6-2018"></a>6 november 2018
+- Stöd har lagts till för logotyp domän i objektidentifiering.
 
 ## <a name="october-9-2018"></a>9 oktober 2018
 - Objektidentifiering försätts betalad förhandsversion. Du kan nu skapa objektidentifiering projekt med en Azure-resurs.
 - Har lagts till ”Flytta till Azure”-funktion till webbplatsen för att göra det enklare att uppgradera en begränsad utvärderingsversion-projektet för att länka till en Azure. resursen länkade projektet (F0 eller S0.) Du hittar den på inställningssidan för din produkt.  
 - Har lagts till export till ONNX 1.2, att stödja Windows 2018 oktober uppdaterad version av Windows-ML.
 Bugfixes, inklusive för ONNX exporten med specialtecken. 
-
 
 ## <a name="august-14-2018"></a>Den 14 augusti 2018
 - Har lagts till ”Kom igång” widget till customvision.ai plats som leder användarna genom utbildning. 

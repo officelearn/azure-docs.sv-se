@@ -14,36 +14,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 12/10/2018
 ms.author: gokuma
-ms.openlocfilehash: acae59922f5a46f059e19db6865491f5186139f7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 648b0818f07aca8763fa4af01380076ae307b0a2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103412"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408960"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Skapa en delad pool av virtuella datorer för datavetenskap
 
 Den här artikeln beskrivs hur du kan skapa en delad pool av virtuella datorer för datavetenskap (Dsvm) för ett team att använda. Fördelarna med att använda en delad pool är bättre resursutnyttjande, hjälp till delning och samarbete och effektivare hanteringen av DSVM resurser. 
 
-Du kan använda många metoder och tekniker för att skapa en pool med Dsvm. Den här artikeln handlar om pooler för batchbearbetning och interaktiva virtuella datorer.
-
-## <a name="batch-processing-pool"></a>Batchbearbetning pool
-Om du vill konfigurera en pool med Dsvm främst för att köra jobb i en batch offline, kan du använda den [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) eller [Azure Batch](https://docs.microsoft.com/azure/batch/) service. Den här artikeln fokuserar på Azure Batch AI.
-
-Ubuntu-versionen av DSVM stöds som en av avbildningarna i Azure Batch AI. I Azure CLI eller SDK för Python, där du skapar Azure Batch AI-kluster kan du ange den `image` parametern och ange den till `UbuntuDSVM`. Du kan välja vilken typ av bearbetning av noder som du vill: GPU-baserade instanser jämfört med enbart-CPU-instanser, antal processorer och minne för en [brett urval av VM-instanser](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) tillgängliga på Azure. 
-
-När du använder Ubuntu DSVM-avbildningen i Batch AI med GPU-baserad noder är förinstallerade alla nödvändiga GPU-drivrutiner och ramverk för djupinlärning. Förinstallationen sparar ganska lång tid i förbereda batch-noder. I själva verket om du utvecklar på en Ubuntu DSVM interaktivt du kommer att märka att Batch AI-noderna är exakt samma installationen och konfigurationen av miljön. 
-
-Vanligtvis när du skapar ett Batch AI-kluster kan skapa du också en filresurs som är monterad på alla noder. Filresursen används för indata och utdata för data, samt lagring av batch-jobb kod/skript. 
-
-När du skapar ett Batch AI-kluster kan använda du samma CLI eller SDK för Python-skicka jobb som ska köras. Du betalar för den tid som används för att köra batch-jobb. 
-
-Mer information finns i:
-* Steg för steg för att använda [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) att hantera Batch AI
-* Steg för steg för att använda [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) att hantera Batch AI
-* [Batch AI-recept](https://github.com/Azure/BatchAI) som visar hur du använder olika AI och djupinlärning ramverk med Batch AI
+Du kan använda många metoder och tekniker för att skapa en pool med Dsvm. Den här artikeln handlar om pooler för interaktiva virtuella datorer. Ett alternativt hanterade beräkningsinfrastruktur är beräkning av Azure Machine Learning. Se [konfigurera beräkningsmål](../service/how-to-set-up-training-targets.md#amlcompute) för mer information.
 
 ## <a name="interactive-vm-pool"></a>Interaktiv VM-pool
 

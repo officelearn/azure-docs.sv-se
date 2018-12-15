@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 8f43edfe468958bbc4a6fde14e8e03e5b4d4e0f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88aeaf1246583345d1d28218e8e91b3ecbcd166b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264346"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53430047"
 ---
 Organisationer har storskaliga behov. Dessa Big Compute-arbetsbelastningar omfattar teknisk design och analys, finansiella risker, bildrendering, komplex modellering, Monte Carlo-simuleringar och mycket mer. 
 
@@ -86,7 +86,6 @@ Köra anpassade eller kommersiella HPC-program i Azure. Flera exempel i det här
 
 ### <a name="ai-and-deep-learning"></a>AI och djupinlärning
 
-* [Batch AI](../articles/batch-ai/overview.md) utbildning djupinlärningsmodeller
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [Virtuell dator för djupinlärning](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Batch skeppsvarv recept för djupinlärning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -168,7 +167,6 @@ Azure-datorer, skalningsuppsättningar för virtuella datorer, Batch och relater
 
 ### <a name="ai-and-machine-learning"></a>AI och maskininlärning
 * [Machine Learning-tjänster](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Batch AI](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Nätverk

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera datakällor i Azure Log Analytics | Microsoft Docs
-description: Datakällor definierar vilka data som Log Analytics samlar in från agenter och andra anslutna datakällor.  Den här artikeln beskriver begreppet hur Log Analytics använder datakällor, beskrivs detaljer om hur du konfigurerar dem och innehåller en sammanfattning av de olika datakällorna som är tillgängliga.
+title: Konfigurera agenten datakällor i Azure Monitor | Microsoft Docs
+description: Datakällor definierar loggdata att Azure Monitor samlar in från agenter och andra anslutna datakällor.  Den här artikeln beskriver begreppet hur Azure Monitor datakällor, beskrivs detaljer om hur du konfigurerar dem och innehåller en sammanfattning av de olika datakällorna som är tillgängliga.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,25 +11,22 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2018
+ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 152b9a7fdac91865baa8a2c20c632e7a228be62f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 19878477888b37592105927ea03a849d3da7c891
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340767"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434944"
 ---
-# <a name="data-sources-in-log-analytics"></a>Datakällor i Log Analytics
-Log Analytics samlar in data från dina anslutna källor och lagrar dem i Log Analytics-arbetsytan.  De data som samlas in från varje definieras av datakällor som du konfigurerar.  Data i Log Analytics lagras som en uppsättning poster.  Varje datakälla skapar poster i en viss typ med varje typ av att ha en egen uppsättning egenskaper.
+# <a name="agent-data-sources-in-azure-monitor"></a>Agent-datakällor i Azure Monitor
+De data som Azure Monitor samlar in från agenter definieras av datakällor som du konfigurerar.  Data från agenter lagras som [logga data över](data-collection.md) med en uppsättning poster.  Varje datakälla skapar poster i en viss typ med varje typ av att ha en egen uppsättning egenskaper.
 
-![Logga Analytics datainsamling](./media/agent-data-sources/overview.png)
-
-Datakällor skiljer sig från [hanteringslösningar](../../azure-monitor/insights/solutions.md), som också samla in data från anslutna källor och skapa poster i Log Analytics.  Förutom att samla in data är vanligtvis lösningar loggsökningar och vyer som hjälper dig att analysera driften av ett visst program eller tjänst.
-
+![Insamling av logg](media/agent-data-sources/overview.png)
 
 ## <a name="summary-of-data-sources"></a>Översikt över datakällor
-I följande tabell visas de datakällor som är tillgängliga i Log Analytics.  Var och en har en länk till en separat artikel som tillhandahåller information för datakällan.   Det innehåller även information om deras metod och frekvensen för insamling av data till Log Analytics.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. Förklaringar av kolumnerna finns i [Data samling information om lösningar i Azure](../../azure-monitor/insights/solutions-inventory.md).
+I följande tabell visas de agent-datakällor som är tillgängliga i Azure Monitor.  Var och en har en länk till en separat artikel som tillhandahåller information för datakällan.   Det innehåller även information om deras metod och insamlingsfrekvensen. 
 
 
 | Datakälla | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data skickas via hanteringsgruppen | Insamlingsfrekvens |
@@ -44,27 +41,27 @@ I följande tabell visas de datakällor som är tillgängliga i Log Analytics.  
 
 
 ## <a name="configuring-data-sources"></a>Konfigurera datakällor
-Du konfigurerar datakällor från den **Data** menyn i Log Analytics **avancerade inställningar**.  Valfri konfiguration levereras till alla anslutna källor i din arbetsyta.  Du kan inte för närvarande undanta alla eventuella agenter från den här konfigurationen.
+Du konfigurerar datakällor från den **Data** menyn i **avancerade inställningar** för arbetsytan.  Valfri konfiguration levereras till alla anslutna källor i din arbetsyta.  Du kan inte för närvarande undanta alla eventuella agenter från den här konfigurationen.
 
 ![Konfigurera Windows-händelser](./media/agent-data-sources/configure-events.png)
 
-1. I Azure-portalen väljer du **Log Analytics** > din arbetsyta > **avancerade inställningar**.
+1. I Azure-portalen väljer du **arbetsytor** > din arbetsyta > **avancerade inställningar**.
 2. Välj **Data**.
 3. Klicka på datakällan som du vill konfigurera.
 4. Följer du länken till dokumentationen för varje datakälla i tabellen ovan för information på deras konfiguration.
 
 
 ## <a name="data-collection"></a>Datainsamling
-Datakällskonfigurationer levereras till agenter som är anslutna direkt till Log Analytics inom några minuter.  Angivna data samlas in från agenten och levereras direkt till Log Analytics med intervall som är specifika för varje datakälla.  Finns i dokumentationen för varje datakälla dessa ge specifik information.
+Datakällskonfigurationer levereras till agenter som är direkt anslutna till Azure Monitor inom några minuter.  Angivna data samlas in från agenten och levereras direkt till Azure Monitor med intervall som är specifika för varje datakälla.  Finns i dokumentationen för varje datakälla dessa ge specifik information.
 
-System Center Operations Manager-agenter i en ansluten hanteringsgrupp, datakällskonfigurationer översättas till hanteringspaket och levereras till hanteringsgruppen var femte minut som standard.  Agenten hämtar hanteringspaket som med andra och samlar in angivna data. Beroende på datakällan, data kommer att antingen skickas till en hanteringsserver som vidarebefordrar data till Log Analytics eller agenten skickar data till Log Analytics utan att gå via management-servern. Se [Data samling information om lösningar i Azure](../../azure-monitor/insights/solutions-inventory.md) mer information.  Du kan läsa om information om att ansluta Operations Manager och Log Analytics och ändra frekvensen konfigurationen levereras på [konfigurerar integrering med System Center Operations Manager](../../azure-monitor/platform/om-agents.md).
+System Center Operations Manager-agenter i en ansluten hanteringsgrupp, datakällskonfigurationer översättas till hanteringspaket och levereras till hanteringsgruppen var femte minut som standard.  Agenten hämtar hanteringspaket som med andra och samlar in angivna data. Beroende på datakällan, data kommer att antingen skickas till en hanteringsserver som vidarebefordrar data till Azure Monitor eller agenten skickar data till Azure Monitor utan att gå via management-servern. Se [samling som finns för att övervaka lösningar i Azure](../../azure-monitor/insights/solutions-inventory.md) mer information.  Du kan läsa om information om att ansluta Operations Manager och Azure Monitor och ändra frekvensen konfigurationen levereras på [konfigurerar integrering med System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md).
 
-Om agenten inte kan ansluta till Log Analytics eller Operations Manager, fortsätter den att samla in data som den ger när den upprättar en anslutning.  Data kan förloras om mängden data når den största möjliga cachestorleken för klienten, eller om agenten inte kan upprätta en anslutning inom 24 timmar.
+Om agenten inte kan ansluta till Azure Monitor eller Operations Manager, fortsätter den att samla in data som den ger när den upprättar en anslutning.  Data kan förloras om mängden data når den största möjliga cachestorleken för klienten, eller om agenten inte kan upprätta en anslutning inom 24 timmar.
 
-## <a name="log-analytics-records"></a>Log Analytics-poster
-Alla data som samlas in av Log Analytics lagras som poster i arbetsytan.  Poster som samlas in av olika datakällor har sin egen uppsättning egenskaper och identifieras av sina **typ** egenskapen.  Finns i dokumentationen för varje datakälla och lösningen information på varje posttyp.
+## <a name="log-records"></a>Loggposter
+Alla loggdata som samlas in av Azure Monitor lagras som poster i arbetsytan.  Poster som samlas in av olika datakällor har sin egen uppsättning egenskaper och identifieras av sina **typ** egenskapen.  Finns i dokumentationen för varje datakälla och lösningen information på varje posttyp.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [lösningar](../../azure-monitor/insights/solutions.md) som lägger till funktioner i Log Analytics och också samla in data till arbetsytan.
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  
-* Konfigurera [aviseringar](../../azure-monitor/platform/alerts-overview.md) att informera dig om viktiga data som samlas in från datakällor och lösningar.
+* Lär dig mer om [övervakningslösningar](../../azure-monitor/insights/solutions.md) som lägger till funktioner i Azure Monitor och också samla in data till arbetsytan.
+* Lär dig mer om [logga frågor](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in från datakällor och övervakningslösningar.  
+* Konfigurera [aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) att informera dig om viktiga data som samlas in från datakällor och övervakningslösningar.

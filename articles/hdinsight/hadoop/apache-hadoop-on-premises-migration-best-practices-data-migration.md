@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 54741bd2d76a7ba414613a40e07c47be703aa033
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994394"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433431"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för migrering av data
 
@@ -47,9 +47,11 @@ I följande tabell har ungefärliga data transfer varaktighet baserat på bandbr
 |1 PB|6 år|3 år|97 dagar|10 dagar|
 |2 PB|12 år|5 år|194 dagar|19 dagar|
 
-Verktyg som är inbyggt i Azure, till exempel DistCp, Azure Data Factory och AzureCp, kan användas för att överföra data över nätverket. Verktyg från tredje part WANDisco kan också användas för samma ändamål. Kafka Mirrormaker och Sqoop kan användas för pågående dataöverföring från en lokal plats till Azure storage-system.
+Verktyg som är inbyggt i Azure, till exempel Apache Hadoop DistCp, Azure Data Factory och AzureCp, kan användas för att överföra data över nätverket. Verktyg från tredje part WANDisco kan också användas för samma ändamål. Apache Kafka Mirrormaker och Apache Sqoop kan användas för pågående dataöverföring från en lokal plats till Azure storage-system.
 
-## <a name="performance-considerations-with-apache-distcp"></a>Prestandaöverväganden med Apache DistCp
+
+## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Prestandaöverväganden när du använder Apache Hadoop DistCp
+
 
 DistCp är ett Apache-projekt som använder en karta för MapReduce-jobb för att överföra data, hantera fel och återställa dessa fel. Det tilldelar en lista över källfiler varje aktivitet i kartan. Kartan aktiviteten kopierar sedan alla dess tilldelade filer till målplatsen. Det finns flera tekniker kan förbättra prestandan för DistCp.
 
@@ -86,7 +88,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ## <a name="metadata-migration"></a>Metadata-migrering
 
-### <a name="hive"></a>Hive
+### <a name="apache-hive"></a>Apache Hive
 
 Hive-metaarkiv kan migreras med hjälp av skript eller med hjälp av DB-replikering.
 
@@ -106,7 +108,7 @@ Hive-metaarkiv kan migreras med hjälp av skript eller med hjälp av DB-repliker
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 ```
 
-### <a name="ranger"></a>Ranger
+### <a name="apache-ranger"></a>Apache Ranger
 
 - Exportera lokala Ranger-principer till XML-filer.
 - Omvandla en lokal specifika HDFS-baserade sökvägar till WASB/ADLS med ett verktyg som XSLT.

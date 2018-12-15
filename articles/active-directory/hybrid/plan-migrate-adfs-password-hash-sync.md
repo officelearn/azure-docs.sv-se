@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 687ff4a7411113721b16636e1d11b30573e41642
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346696"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410269"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Migrera från federation till synkronisering av lösenordshash för Azure AD
 Följande dokument innehåller råd om hur du flyttar från AD FS till synkronisering av lösenordshash.
@@ -29,7 +29,7 @@ Följande dokument innehåller råd om hur du flyttar från AD FS till synkronis
 Följande krav måste anges innan du kan migrera.
 ### <a name="update-azure-ad-connect"></a>Uppdatera Azure AD Connect
 
-Du bör ha minst ska kunna genomföra stegen för att migrera till direktautentisering [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594.) 1.1.819.0. Den här versionen innehåller betydande förändringar i hur inloggning konverteringen utförs och minskar den totala tid att migrera från Federation till autentisering i molnet från potentiellt timmar och minuter.
+Du bör ha minst ska kunna genomföra stegen för att migrera till direktautentisering [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. Den här versionen innehåller betydande förändringar i hur inloggning konverteringen utförs och minskar den totala tid att migrera från Federation till autentisering i molnet från potentiellt timmar och minuter.
 
 > [!IMPORTANT]
 > Inaktuella dokumentation, verktyg och bloggar tyda på att användarkonvertering är ett obligatoriskt steg vid konvertering domäner från federerade till hanterade. Observera att konvertering av användare krävs inte längre och Microsoft arbetar på att uppdatera dokumentation och verktyg för att återspegla detta.
@@ -82,7 +82,7 @@ Kontrollera att Federation är aktiverat och att sömlös enkel inloggning och d
    
    3. Ta del av status för synkronisering av lösenord på skärmen granska din lösning.</br> 
 
-   Om synkronisering av Lösenordshash är för närvarande inaktiverad, måste du följa stegen i den här guiden för att aktivera den. Synkronisering av Lösenordshash är för närvarande inställd på aktiverad, kan du på ett säkert sätt hoppa över avsnittet [steg 1 – Aktivera synkronisering av Lösenordshash](#_Step_1_–) i den här guiden.
+   Om synkronisering av Lösenordshash är för närvarande inaktiverad, måste du följa stegen i den här guiden för att aktivera den. Synkronisering av Lösenordshash är för närvarande inställd på aktiverad, kan du på ett säkert sätt hoppa över avsnittet [steg 1 – Aktivera synkronisering av Lösenordshash](#step-1--enable-password-hash-synchronization) i den här guiden.
    4. Rulla ned till Active Directory Federation Services (AD FS) i fönstret granska din lösning.</br>
  
    Om du ser att AD FS-konfigurationen är i det här avsnittet och sedan på ett säkert sätt kan du anta AD FS ursprungligen konfigurerades via Azure AD Connect och kan därför konvertering av din domänerna från federerad som hanteras kan också styras via Azure AD Connect ”ändra användarinloggning -i ”alternativet, den här processen beskrivs i avsnittet **alternativ A - växeln från Federation till synkronisering av Lösenordshash med hjälp av Azure AD Connect**.
@@ -132,10 +132,9 @@ Innan du konverterar federerade till hanterade bör bör du titta på hur du anv
 | Om| sedan |
 |-|-|
 | Du kommer att behålla AD FS för andra program.| Du kommer att använda både AD FS och Azure AD och kommer att behöva tänka på slutanvändarens upplevelse som ett resultat. Användare kan behöva autentisera två gånger i vissa fall kan en gång till Azure AD (där de får enkel inloggning och senare till andra program som Office 365) och igen för alla program som fortfarande kopplad till AD FS som en förlitande part. |
-| AD FS är kraftigt anpassade och beroende av specifika anpassningsinställningarna i onload.js-filen inte kan dupliceras i Azure AD 
-(till exempel du har ändrat inloggningen så att användare bara ange något SamAccountName-format för sina användarnamn i stället för ett UPN eller har en kraftigt Företagsanpassad inloggningen går)| Behöver du kontrollera att din aktuella anpassning kraven kan uppfyllas av Azure AD innan du fortsätter. Se avsnitten anpassning av AD FS och AD FS-anpassning för mer information och vägledning.|
+| AD FS är kraftigt anpassade och beroende av specifika anpassningsinställningarna i onload.js-filen inte kan dupliceras i Azure AD (exempel: du har ändrat inloggningen så att användarna bara ange något SamAccountName-format för sina användarnamn i motsats i ett UPN- eller har en kraftigt Företagsanpassad inloggningen går)| Behöver du kontrollera att din aktuella anpassning kraven kan uppfyllas av Azure AD innan du fortsätter. Se avsnitten anpassning av AD FS och AD FS-anpassning för mer information och vägledning.|
 | Du blockerar äldre autentiseringsklienter via AD FS.| Överväg att ersätta kontroller för att blockera äldre autentiseringsklienter som för närvarande finns på AD FS med en kombination av [villkorlig åtkomstkontroll för äldre autentisering](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) och [klientåtkomst för Exchange Online Regler för](http://aka.ms/EXOCAR).|
-| Du behöver användare att utföra MFA mot den lokala MFA server-lösning när du autentiserar till AD FS.| Du kommer inte att kunna mata in en MFA-kontrollen via den lokala MFA-lösning i autentiseringsflödet för en hanterad domän, men du kan använda Azure MFA-tjänsten för att göra det framöver när domänen konverteras. Om användarna inte använder Azure MFA i dag, kommer det innebära en gång slutanvändarens registreringssteget som du måste förbereda för och kommunicera dina slutanvändare. |
+| Du behöver användare att utföra MFA mot den lokala MFA server-lösning när du autentiserar till AD FS.| Du kommer inte att kunna mata in en MFA-kontrollen via den lokala MFA-lösning i autentiseringsflödet för en hanterad domän, men du kan använda Azure MFA-tjänsten för att göra det framöver när domänen konverteras. Om användarna inte använder Azure MFA i dag, kommer det innebära en gång slutanvändarens registreringssteget som du måste förbereda för och kommunicera dina slutanvändare.|
 | Du använder principer för åtkomstkontroll (AuthZ-regler) idag i AD FS för att styra åtkomsten till Office 365.| Överväg att ersätta dem med motsvarande Azure AD [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) och [åtkomstregler för Exchange Online-klienten](http://aka.ms/EXOCAR).|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>Överväganden för vanliga AD FS-anpassningar
@@ -298,7 +297,7 @@ Använd den här metoden när AD FS har ursprungligen konfigurerats med Azure AD
    7. Öppna Azure AD-portalen, väljer Azure Active Directory och välj sedan Azure AD Connect.
    8. Kontrollera att som Federation inaktiveras när sömlös enkel inloggning och synkronisering av lösenord är aktiverade.  
   ![Bild 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
-   9. Gå till [testning och nästa steg](#_Next_Steps_and).
+   9. Gå till [testning och nästa steg](#testing-and-next-steps).
    
    > [!IMPORTANT]
    > Hoppa över avsnittet Alternativ B – växla från Federation till Lösenordshashsynkronisering med Azure AD Connect och PowerShell som stegen i avsnittet gäller inte.  
@@ -351,11 +350,14 @@ Konverteringen utförs med hjälp av Azure AD PowerShell-modulen.
 
    1. Öppna PowerShell och logga in på Azure AD med ett globalt administratörskonto.  
    2. Om du vill konvertera den första domänen, kör du följande kommando:  
+   
    ``` PowerShell
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
    ```
+   
    3. Öppna Azure AD-portalen, väljer Azure Active Directory och välj sedan Azure AD Connect.
    4. Kontrollera att domänen har konverterats till hanterade genom att köra följande kommando:
+   
    ``` PowerShell
    Get-MsolDomain -DomainName <domainname>
    ```
@@ -391,7 +393,7 @@ Sedan kan ska användaren få omdirigeras och har loggat in på åtkomstpanelen:
 > [!NOTE]
 > Sömlös enkel inloggning fungerar på Office 365-tjänster som stöder tips för domänen (till exempel myapps.microsoft.com/contoso.com). Office 365-portalen (portal.office.com) för närvarande stöder inte tips för domänen och därför det är normalt att användare måste ange sina UPN. När ett UPN är angivna, sömlös enkel inloggning på kan hämta Kerberos-biljetten för användarens räkning och logga dem i utan att ange ett lösenord. 
 
-> [!NOTE]
+> [!TIP]
 > Överväg att distribuera [Hybrid för Azure AD Join i Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) för en förbättrad enkel inloggning.
 
 ### <a name="removal-of-the-relying-party-trust"></a>Borttagning av förlitande part

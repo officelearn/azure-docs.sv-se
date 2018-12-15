@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8da2309a16c07440158c1de324eea1fa05b1c98b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 15aa80c5291854c937bdc128a597ed5bebd608a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189079"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437442"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX och Azure Machine Learning: Skapa och distribuera samverkande AI-modeller
 
@@ -69,7 +69,7 @@ Du kan använda Azure Machine Learning-tjänsten för att distribuera, hantera o
 
 ### <a name="install-and-configure-onnx-runtime"></a>Installera och konfigurera ONNX-körning
 
-ONNX Runtime är en högpresterande inferens motor med öppen källkod för ONNX-modeller. Den ger maskinvaruacceleration på processor- och GPU med API: er som är tillgängliga för Python, C#, och C. ONNX Runtime stöder ONNX 1.2 + modeller och körs på Linux, Windows och Mac. Python-paket är tillgängliga på [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), och [ C# paketet](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) på [Nuget.org](https://www.nuget.org). Mer information om projektet på [Github](https://github.com/Microsoft/onnxruntime). 
+ONNX Runtime är en högpresterande inferens motor med öppen källkod för ONNX-modeller. Den ger maskinvaruacceleration på processor- och GPU med API: er som är tillgängliga för Python, C#, och C. ONNX Runtime stöder ONNX 1.2 + modeller och körs på Linux, Windows och Mac. Python-paket är tillgängliga på [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), och [ C# paketet](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) på [Nuget.org](https://www.nuget.org). Mer information om projektet på [GitHub](https://github.com/Microsoft/onnxruntime). 
 
 Om du vill installera ONNX Runtime för Python, använder du:
 ```python
@@ -202,6 +202,6 @@ Mer information om ONNX eller bidra till projektet:
 + [ONNX-kod på GitHub](https://github.com/onnx/onnx)
 
 Mer information om ONNX Runtime eller bidra till projektet:
-+ [ONNX Runtime Github-lagringsplatsen](https://github.com/Microsoft/onnxruntime)
++ [ONNX Runtime GitHub-lagringsplatsen](https://github.com/Microsoft/onnxruntime)
 
 

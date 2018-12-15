@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ebb1e3614309f92fc21442100a13c53291b3acbb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984321"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407295"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synkronisera Azure Active Directory-användare till ett HDInsight-kluster
 
@@ -40,11 +40,11 @@ Om du inte redan har gjort det, [skapa ett HDInsight-kluster med Enterprise Secu
 
 4. Välj **Skapa**.
 
-## <a name="use-the-ambari-rest-api-to-synchronize-users"></a>Använda Ambari REST API för att synkronisera användare
+## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Använd Apache Ambari REST API för att synkronisera användare
 
 Användargrupper som anges när klustret skapas synkroniseras just då. Användarsynkronisering sker automatiskt en gång i timmen. Synkronisera användare direkt eller använda Ambari REST API för att synkronisera en annan grupp än de grupper som anges när klustret skapas.
 
-Följande metod använder INLÄGG med Ambari REST API. Mer information finns i [hantera HDInsight-kluster med hjälp av Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+Följande metod använder INLÄGG med Ambari REST API. Mer information finns i [hantera HDInsight-kluster med hjälp av Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 1. [Ansluta till klustret med SSH](hdinsight-hadoop-linux-use-ssh-unix.md). Översiktsfönstret för ditt kluster i Azure-portalen, väljer du den **Secure Shell (SSH)** knappen.
 
@@ -123,12 +123,12 @@ Följande metod använder INLÄGG med Ambari REST API. Mer information finns i [
 
 5. Det här resultatet visar att statusen är **Slutför**, en ny användare har skapats och att användaren har tilldelats ett medlemskap. I det här exemplet tilldelas användaren till ”HiveUsers”-synkroniseras LDAP-gruppen, eftersom användaren har lagts till samma grupp i Azure AD.
 
-> [!NOTE]
+> [!NOTE]  
 > Den tidigare metoden att endast synkronisera Azure AD-grupper som anges i den **ha åtkomst till användargrupper** egenskapen för domäninställningarna när klustret skapas. Mer information finns i [skapar ett HDInsight-kluster](domain-joined/apache-domain-joined-configure.md).
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Kontrollera det nyligen tillagda Azure AD-användare
 
-Öppna den [Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md) att kontrollera att den nya Azure AD-användare har lagts till. Komma åt Ambari-Webbgränssnittet genom att bläddra till **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Ange kluster administratörens användarnamn och lösenord.
+Öppna den [Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md) att kontrollera att den nya Azure AD-användare har lagts till. Komma åt Ambari-Webbgränssnittet genom att bläddra till **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Ange kluster administratörens användarnamn och lösenord.
 
 1. Ambari-instrumentpanelen väljer du **hantera Ambari** under den **admin** menyn.
 
@@ -148,6 +148,6 @@ När den nya användaren (eller domänanvändare) loggar du in på Ambari, anvä
 
 ## <a name="see-also"></a>Se också
 
-* [Konfigurera Hive-principer i HDInsight med ESP](hdinsight-domain-joined-run-hive.md)
+* [Konfigurera principer för Apache Hive i HDInsight med ESP](hdinsight-domain-joined-run-hive.md)
 * [Hantera HDInsight-kluster med ESP](hdinsight-domain-joined-manage.md)
-* [Auktorisera användare för Ambari](hdinsight-authorize-users-to-ambari.md)
+* [Auktorisera användare till Apache Ambari](hdinsight-authorize-users-to-ambari.md)

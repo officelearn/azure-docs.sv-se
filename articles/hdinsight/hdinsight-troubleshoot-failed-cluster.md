@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950725"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410286"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Felsöka ett långsamt eller felaktigt HDInsight-kluster
 
@@ -65,7 +65,7 @@ Du kan också använda den klassiska Azure-CLI:
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Ett annat alternativ med hjälp av PowerShell. Mer information finns i [hantera Hadoop-kluster i HDInsight med Azure PowerShell](hdinsight-administer-use-powershell.md).
+Ett annat alternativ med hjälp av PowerShell. Mer information finns i [hantera Apache Hadoop-kluster i HDInsight med Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Steg 2: Validera miljön för HDInsight-kluster
 
@@ -107,7 +107,7 @@ Jämför klusterversionen med den senaste versionen av HDInsight. Varje HDInsigh
 
 HDInsight-kluster består av olika typer av noder som körs på instanser av virtuella datorer. Varje nod kan övervakas för negativa effekter på resurser, problem med nätverksanslutningen och andra problem som kan sakta ned klustret. Varje kluster innehåller två huvudnoder och de flesta klustertyper innehålla en kombination av worker och kantnoder. 
 
-En beskrivning av de olika noderna som används av varje typ av kluster finns i [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
+En beskrivning av de olika noderna som används av varje typ av kluster finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
 I följande avsnitt beskrivs hur du kontrollerar hälsotillståndet för varje nod och i hela klustret.
 
@@ -117,7 +117,7 @@ Den [Ambari UI instrumentpanelen](#view-cluster-configuration-settings-with-the-
 
 ### <a name="check-your-webhcat-service"></a>Kontrollera din WebHCat-tjänst
 
-Ett vanligt scenario för Hive, Pig och Sqoop jobb misslyckas uppstår ett fel med den [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (eller *Templeton*) service. WebHCat är ett REST-gränssnitt för körning av Fjärrjobb, till exempel Hive, Pig, dig mer och MapReduce. WebHCat översätter jobbet inskickade önskemål till YARN-program och returnerar en status som härletts från statusen för YARN-programmet.  I följande avsnitt beskrivs vanliga WebHCat HTTP-statuskoder.
+Ett vanligt scenario för Apache Hive, Apache Pig eller Apache Sqoop jobb misslyckas uppstår ett fel med den [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (eller *Templeton*) service. WebHCat är ett REST-gränssnitt för körning av Fjärrjobb, till exempel Hive, Pig, dig mer och MapReduce. WebHCat översätter jobbet inskickade önskemål till Apache Hadoop YARN-program och returnerar en status som härletts från statusen för YARN-programmet.  I följande avsnitt beskrivs vanliga WebHCat HTTP-statuskoder.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (502 statuskod)
 
@@ -143,7 +143,7 @@ I det här fallet granska följande loggar i den `/var/log/webhcat` directory:
 * **webhcat console.log** är stdout för servern när startade
 * **webhcat-konsolen-error.log** är stderr för serverprocessen
 
-> [!NOTE]
+> [!NOTE]  
 > Varje `webhcat.log` perioder varje dag, genereras filerna med namnet `webhcat.log.YYYY-MM-DD`. Välj filen för det tidsintervall som du undersöker.
 
 I följande avsnitt beskrivs några orsaker till WebHCat-timeout.
@@ -184,9 +184,9 @@ Det finns två typer av tidsgränser på YARN-nivå:
 
 2. YARN-bearbetning kan ta lång tid, vilket kan orsaka tidsgränser.
 
-    * Lista alla jobb: det här är en tidskrävande anrop. Det här anropet räknar upp program från YARN ResourceManager och för varje färdiga programmet, hämtar status från YARN-JobHistoryServer. Med ett högre antal jobb kan det här anropet timeout.
+    * Lista över alla jobb: Det här är en tidskrävande anrop. Det här anropet räknar upp program från YARN ResourceManager och för varje färdiga programmet, hämtar status från YARN-JobHistoryServer. Med ett högre antal jobb kan det här anropet timeout.
 
-    * Lista jobb som är äldre än sju dagar: The HDInsight YARN JobHistoryServer är konfigurerad för att bevara slutfört jobb informationen i sju dagar (`mapreduce.jobhistory.max-age-ms` värde). Försök att räkna upp borttagna jobb resulterar i en tidsgräns.
+    * Lista jobb är äldre än sju dagar: HDInsight YARN JobHistoryServer är konfigurerad för att bevara slutfört jobb informationen i sju dagar (`mapreduce.jobhistory.max-age-ms` värde). Försök att räkna upp borttagna jobb resulterar i en tidsgräns.
 
 Diagnostisera problemen:
 
@@ -244,13 +244,13 @@ Ett HDInsight-kluster genererar loggar som skrivs till Azure-tabeller och Azure 
 
 ### <a name="review-heap-dumps"></a>Granska heapdumpar
 
-Heapdumpar innehåller en ögonblicksbild av programmets minne, inklusive värdena för variabler vid den tidpunkten, vilket är användbart för att diagnostisera problem som uppstår vid körning. Mer information finns i [aktivera heapdumpar för Hadoop-tjänster på Linux-baserade HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
+Heapdumpar innehåller en ögonblicksbild av programmets minne, inklusive värdena för variabler vid den tidpunkten, vilket är användbart för att diagnostisera problem som uppstår vid körning. Mer information finns i [aktivera heapdumpar för Apache Hadoop-tjänster på Linux-baserade HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
 ## <a name="step-6-check-configuration-settings"></a>Steg 6: Kontrollera konfigurationsinställningarna
 
 HDInsight-kluster är förkonfigurerad med standardinställningarna för relaterade tjänster, till exempel Hadoop, Hive, HBase och så vidare. Beroende på vilken typ av kluster, dess maskinvarukonfiguration, dess antalet noder, vilka typer av jobb du kör, och data du arbetar med (och hur dessa data bearbetas) du kan behöva optimera din konfiguration.
 
-Detaljerade anvisningar om hur du optimerar prestandakonfigurationer för de flesta scenarier finns i [optimera klusterkonfigurationer med Ambari](hdinsight-changing-configs-via-ambari.md). När du använder Spark, se [optimera Spark-jobb för prestanda](spark/apache-spark-perf.md). 
+Detaljerade anvisningar om hur du optimerar prestandakonfigurationer för de flesta scenarier finns i [optimera klusterkonfigurationer med Apache Ambari](hdinsight-changing-configs-via-ambari.md). När du använder Spark, se [optimera Apache Spark-jobb för prestanda](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Steg 7: Återskapa felet på ett annat kluster
 
@@ -265,8 +265,8 @@ Starta ett nytt kluster med samma konfiguration för att diagnostisera källan t
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera HDInsight-kluster med Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
+* [Hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
 * [Analysera HDInsight-loggar](hdinsight-debug-jobs.md)
-* [Åtkomst till YARN-programloggen på Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Aktivera heap dumps för Hadoop-tjänster på Linux-baserat HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Åtkomstlogg Apache Hadoop YARN-program på Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Aktivera heap dumps för Apache Hadoop-tjänster på Linux-baserat HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Kända problem för Apache Spark-kluster i HDInsight](hdinsight-apache-spark-known-issues.md)

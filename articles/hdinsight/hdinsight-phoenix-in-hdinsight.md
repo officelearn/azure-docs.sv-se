@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: d86600dd000d3e9c71a38b632aa75e82239401dd
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104587"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435556"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix i HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) är en öppen källkod, massivt parallella relationsdatabaslager bygger på [HBase](hbase/apache-hbase-overview.md). Phoenix kan du använda SQL-liknande frågor över HBase. Phoenix använder JDBC-drivrutiner under så att användarna kan skapa, ta bort, ändra SQL-tabeller, index, vyer och sekvenser och upsert rader individuellt och gruppvis. Phoenix används noSQL interna kompilering i stället för att använda MapReduce för att kompilera frågor att aktivera skapandet av låg latens program ovanpå HBase. Phoenix lägger till coprocessors om du vill kan du köra klienten anger kod i adressutrymmet för servern, köra koden samordnat med data. Denna metod minimerar klient/server-dataöverföring.
+[Apache Phoenix](http://phoenix.apache.org/) är en öppen källkod, massivt parallella relationsdatabaslager bygger på [Apache HBase](hbase/apache-hbase-overview.md). Phoenix kan du använda SQL-liknande frågor över HBase. Phoenix använder JDBC-drivrutiner under så att användarna kan skapa, ta bort, ändra SQL-tabeller, index, vyer och sekvenser och upsert rader individuellt och gruppvis. Phoenix används noSQL interna kompilering i stället för att använda MapReduce för att kompilera frågor att aktivera skapandet av låg latens program ovanpå HBase. Phoenix lägger till coprocessors om du vill kan du köra klienten anger kod i adressutrymmet för servern, köra koden samordnat med data. Denna metod minimerar klient/server-dataöverföring.
 
-Apache Phoenix öppnas stordatafrågor för icke-utvecklare som kan använda en SQL-liknande syntax i stället för programmering. Phoenix är optimerade för HBase, till skillnad från andra verktyg som [Hive](hadoop/hdinsight-use-hive.md) och Spark SQL. Fördelen för utvecklare skriver med hög prestanda frågor med mycket mindre kod.
+Apache Phoenix öppnas stordatafrågor för icke-utvecklare som kan använda en SQL-liknande syntax i stället för programmering. Phoenix är optimerade för HBase, till skillnad från andra verktyg som [Hive](hadoop/hdinsight-use-hive.md) och Apache Spark SQL. Fördelen för utvecklare skriver med hög prestanda frågor med mycket mindre kod.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 När du skickar in en SQL-fråga, Phoenix kompilerar frågan till HBase interna anrop och kör genomsökningen (eller planerar) parallellt för optimering. Det här lagret Abstraktionslager Frigör utvecklare från att skriva MapReduce-jobb, i stället fokusera på affärslogiken och arbetsflöde för sina program runt Phoenix's big datalagring.
@@ -122,7 +122,7 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## <a name="enable-and-tune-phoenix-with-ambari"></a>Aktivera och finjustera Phoenix med Ambari
+## <a name="enable-and-tune-phoenix-with-apache-ambari"></a>Aktivera och finjustera Phoenix med Apache Ambari
 
 En HDInsight HBase-kluster innehåller den [Ambari UI](hdinsight-hadoop-manage-ambari.md) för att göra ändringar i konfigurationen.
 

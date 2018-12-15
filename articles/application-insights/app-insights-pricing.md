@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: a81cb9041b905cfb00183981036116fbc61f376a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8a0acbfa18053b6b50bd872d109b02d556a6f5f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000881"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436071"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Hantera priser och datavolymer i Application Insights
 
 > [!NOTE]
 > Den här artikeln beskriver hur du analysera dataanvändning Application Insights.  Finns i följande artiklar för relaterad information.
-> - [Övervaka användning och uppskattade kostnader](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) beskriver hur du visar användning och beräknade kostnader för flera Azure övervakningsfunktioner för olika prissättningsmodeller. Det beskriver också hur du ändrar din prissättningsmodell.
+> - [Övervaka användning och uppskattade kostnader](../azure-monitor/platform/usage-estimated-costs.md) beskriver hur du visar användning och beräknade kostnader för flera Azure övervakningsfunktioner för olika prissättningsmodeller. Det beskriver också hur du ändrar din prissättningsmodell.
 
 Priser för [Azure Application Insights] [ start] baserat på datavolymen per program. Varje Application Insights-resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration.
 
@@ -86,14 +86,14 @@ Avgifter för Application Insights läggs till i Azure-fakturan. Du kan se infor
 ## <a name="data-rate"></a>Datahastighet
 Mängden data som du skickar är begränsad på tre sätt:
 
-* **Sampling**: du kan använda sampling för att minska mängden telemetri som skickas från dina server- och appar, med minimal förvrängning mått. Sampling är det primära verktyget som du kan använda för att justera mängden data som du skickar. Läs mer om [sampling funktioner](app-insights-sampling.md). 
-* **Dagligt tak**: när du skapar en Application Insights-resurs i Azure portal kan den dagliga gränsen är inställd på 100 GB/dag. När du skapar en Application Insights-resurs i Visual Studio kan standard är liten (endast 32,3 MB per dag). Dagligt tak standard anges för att underlätta testningen. Den är avsedd att användaren kommer att öka dagliga gräns innan du distribuerar appen till produktion. 
+* **Sampling**: Du kan använda sampling för att minska mängden telemetri som skickas från din server och klient apps, med minimal förvrängning mått. Sampling är det primära verktyget som du kan använda för att justera mängden data som du skickar. Läs mer om [sampling funktioner](app-insights-sampling.md). 
+* **Dagligt tak**: När du skapar en Application Insights-resurs i Azure-portalen, ange den dagliga gränsen på 100 GB/dag. När du skapar en Application Insights-resurs i Visual Studio kan standard är liten (endast 32,3 MB per dag). Dagligt tak standard anges för att underlätta testningen. Den är avsedd att användaren kommer att öka dagliga gräns innan du distribuerar appen till produktion. 
 
     Den maximala gränsen är 1 000 GB/dag, såvida inte du begära en högre maximal för ett program med hög trafik. 
 
     Var försiktig när du ställer in den dagliga gränsen. Din avsikt bör vara att *aldrig når den dagliga gränsen*. Om du når den dagliga gränsen du förlorar data under resten av dagen och du kan inte övervaka ditt program. Du kan ändra den dagliga gränsen med den **dagligt volymtak** alternativet. Du kan komma åt det här alternativet i den **användning och uppskattade kostnader** fönstret (Detta beskrivs mer utförligt senare i artikeln).
     Vi har tagit bort begränsningen för vissa prenumerationstyper som har krediter som inte kunde användas för Application Insights. Om prenumerationen har en utgiftsgräns, har tidigare dagliga taket dialogrutan anvisningar för att ta bort utgiftsgränsen och aktivera den dagliga gränsen som ska upphöjas utöver 32,3 MB per dag.
-* **Begränsning**: nätverksbegränsningar datahastighet till 32 000 händelser per sekund i genomsnitt över 1 minut per instrumentationsnyckel.
+* **Begränsning av**: Nätverksbegränsningar datahastighet på 32 000 händelser per sekund, ett genomsnitt över 1 minut per instrumentationsnyckel.
 
 *Vad händer om min app överskrider hastigheten?*
 

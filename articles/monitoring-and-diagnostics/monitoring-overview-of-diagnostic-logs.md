@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 89e9b7190a3c419c256513e477f85313e4f9f3bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 1a0eeb3c5ffadb50cf0a6c9fa313dff7d9fdef3c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384895"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436593"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -48,7 +48,7 @@ Du kan använda ett lagringskonto eller Event Hubs-namnområde som inte är i sa
 >  Du kan för närvarande inte arkivera flödesloggar för nätverk till ett lagringskonto som ligger bakom ett skyddat virtuellt nätverk.
 
 > [!WARNING]
-> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./monitor-diagnostic-logs-append-blobs.md) 
+> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 

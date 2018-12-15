@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 288ee46e9a5741a49ddcec1ef155c6f08b7b6cbc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016189"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408331"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
-Hive-metaarkiv i HDInsight är en viktig del av Hadoop-arkitektur. Ett metaarkiv finns centrala schemadatabasen som kan användas av andra stordata få tillgång till verktyg som Spark, Interactive Query (LLAP), Presto eller Pig. HDInsight använder en Azure SQL Database som Hive-metaarkiv.
+Apache Hive-metaarkiv i HDInsight är en viktig del av Apache Hadoop-arkitektur. Ett metaarkiv finns centrala schemadatabasen som kan användas av andra åtkomst stordataverktyg, till exempel Apache Spark, Interactive Query (LLAP), Presto eller Apache Pig. HDInsight använder en Azure SQL Database som Hive-metaarkiv.
 
 ![HDInsight Hive-Metadata Store-arkitektur](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
@@ -72,12 +72,12 @@ Här är några allmänna HDInsight Hive metastore metodtips:
 - När en ny, högre version av Azure HDInsight skapas mot en befintlig anpassad metaarkiv-databas, uppgraderar systemet schemat för metaarkiv, vilket är oåterkallelig utan att återställa databasen från en säkerhetskopia.
 - Om du delar ett metaarkiv över flera kluster kan du kontrollera att alla kluster är samma HDInsight-version. Olika Hive versioner använder olika metaarkiv databasscheman. Du kan inte till exempel dela ett metaarkiv för Hive 1.2 och Hive 2.1 version kluster. 
 
-## <a name="oozie-metastore"></a>Oozie-Metaarkiv
+##  <a name="apache-oozie-metastore"></a>Apache Oozie-Metaarkiv
 
 Apache Oozie är ett system för samordning av arbetsflöden som hanterar Hadoop-jobb.  Oozie stöder Hadoop-jobb för Apache MapReduce, Pig, Hive och andra.  Oozie använder ett metaarkiv för att lagra information om aktuella och slutförda arbetsflöden. Du kan använda Azure SQL Database som en anpassad metaarkiv för att öka prestandan när du använder Oozie. Metaarkiv kan också ge åtkomst till Oozie jobbdata när du har tagit bort ditt kluster.
 
-Anvisningar om hur du skapar en Oozie metastore med Azure SQL Database finns i [använda Oozie för arbetsflöden](hdinsight-use-oozie-linux-mac.md).
+Anvisningar om hur du skapar en Oozie metastore med Azure SQL Database finns i [Använd Apache Oozie för arbetsflöden](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera](./hdinsight-hadoop-provision-linux-clusters.md)
+- [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](./hdinsight-hadoop-provision-linux-clusters.md)

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 86006e68ac06ce26eb58cc14d4d881f81981183c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9fa1d0efc98627b976118a9e81ca430e1645a946
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164304"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437450"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualisera Apache Hive-data med Microsoft Power BI med hjälp av ODBC i Azure HDInsight
 
@@ -67,9 +67,9 @@ Fortsätt från föregående procedur.
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln lärde du dig att visualisera data från HDInsight med hjälp av Power BI.  Mer information finns i följande artiklar:
 
-* [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin](./apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Ansluta Excel till Hadoop med Power Query](apache-hadoop-connect-excel-power-query.md).
-* [Ansluta till Azure HDInsight och köra Hive-frågor med Data Lake Tools för Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
+* [Ansluta Excel till Apache Hadoop med Power Query](apache-hadoop-connect-excel-power-query.md).
+* [Ansluta till Azure HDInsight och kör Apache Hive-frågor med Data Lake Tools för Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
 * [Använda Azure HDInsight-verktyg för Visual Studio Code](../hdinsight-for-vscode.md).
 * [Ladda upp Data till HDInsight](./../hdinsight-upload-data.md).

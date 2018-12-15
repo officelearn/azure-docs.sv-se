@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: f18892d32a385b41f3325623e21da1dd25af7253
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: fc9ceb06eb51d1e88306f0971ad055facd05f9fb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744715"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437273"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
@@ -53,7 +53,7 @@ Schemalagda händelser innehåller händelser i följande användningsfall:
 
   Metadata Service visar information om att köra virtuella datorer med hjälp av en REST-slutpunkt som kan nås från den virtuella datorn. Informationen är tillgänglig via en nonroutable IP-adress så att den inte är exponerad utanför den virtuella datorn.
 
-### <a name="scope"></a>Omfattning
+### <a name="scope"></a>Scope
 Schemalagda händelser levereras till:
 
 - Alla virtuella datorer i en molntjänst.
@@ -75,7 +75,7 @@ Tjänsten Scheduled Events är en ny version. Versioner är obligatoriska. den a
 | Version | Versionstyp | Regioner | Viktig information | 
 | - | - | - | - | 
 | 2017-08-01 | Allmän tillgänglighet | Alla | <li> Bort föregås av ett anpassningsprefix understreck från resursnamn för virtuella Iaas-datorer<br><li>Metadata-huvud kravet gäller för alla begäranden | 
-| 2017-03-01 | Förhandsgranskning | Alla | <li>Första utgåvan
+| 2017-03-01 | Förhandsversion | Alla | <li>Första utgåvan
 
 
 > [!NOTE] 
@@ -93,7 +93,7 @@ Om du startar om en virtuell dator, en händelse med typen `Reboot` har schemala
 
 ## <a name="use-the-api"></a>Använda API: et
 
-### <a name="headers"></a>Sidhuvuden
+### <a name="headers"></a>Rubriker
 När du frågar Metadata Service måste du ange rubriken `Metadata:true` att se till att begäran inte oavsiktligt omdirigeras. Den `Metadata:true` rubrik krävs för alla schemalagda händelser förfrågningar. Det gick inte att använda huvud i begäran resulterar i ett ”felaktig begäran”-svar från Metadata Service.
 
 ### <a name="query-for-events"></a>Fråga efter händelser
@@ -123,7 +123,7 @@ I fall där det finns schemalagda händelser, svaret innehåller en matris med h
 ```
 
 ### <a name="event-properties"></a>Egenskaper för händelse
-|Egenskap  |  Beskrivning |
+|Egenskap   |  Beskrivning |
 | - | - |
 | EventId | Globalt unik identifierare för den här händelsen. <br><br> Exempel: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. Processorn är inaktiverad, men det finns ingen effekt på minne, öppna filer och nätverksanslutningar. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart. (Ickebeständig minne förloras.) <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod. (Differentierande diskar går förlorade.) |
@@ -137,9 +137,9 @@ Varje händelse schemaläggs en minimal mängd tidpunkt i framtiden baserat på 
 
 |Händelsetyp  | Minsta meddelande |
 | - | - |
-| Lås| 15 minuter |
-| Starta om | 15 minuter |
-| Distribuera om | 10 minuter |
+| Lås| 15 minuter |
+| Starta om | 15 minuter |
+| Omdistribuera | 10 minuter |
 
 ### <a name="start-an-event"></a>Starta en händelse 
 
@@ -211,6 +211,6 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Nästa steg 
 - Titta på [schemalagda händelser på Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) att se en demonstration. 
-- Granska Scheduled Events-kodexempel i den [Azure instans Metadata schemalagda händelser Github-lagringsplatsen](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
+- Granska Scheduled Events-kodexempel i den [Azure instans Metadata schemalagda händelser GitHub-lagringsplatsen](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Läs mer om API: er som är tillgängliga i den [Instance Metadata Service](instance-metadata-service.md).
 - Lär dig mer om [planerat underhåll för Linux-datorer i Azure](planned-maintenance.md).

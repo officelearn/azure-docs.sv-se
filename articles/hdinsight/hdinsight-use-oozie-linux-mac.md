@@ -9,35 +9,35 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: d673f12c8e9af29964c7b1a424ed36bdc13fc84b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 14b849a46701ab19c76ee175717c3715cc89f411
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013687"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408909"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Oozie med Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight
+# <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Lär dig använda Apache Oozie med Hadoop i Azure HDInsight. Oozie är ett arbetsflöde och koordination system som hanterar Hadoop-jobb. Oozie är integrerad med Hadoop-stacken och stöder följande jobb:
+Lär dig hur du använder Apache Oozie med Apache Hadoop på Azure HDInsight. Oozie är ett arbetsflöde och koordination system som hanterar Hadoop-jobb. Oozie är integrerad med Hadoop-stacken och stöder följande jobb:
 
-* Apache MapReduce
+* Apache Hadoop MapReduce
 * Apache Pig
 * Apache Hive
 * Apache Sqoop
 
 Du kan också använda Oozie för att schemalägga jobb som är specifika för ett system, t.ex. Java-program eller kommandoskript.
 
-> [!NOTE]
-> Ett annat alternativ att definiera arbetsflöden med HDInsight är att använda Azure Data Factory. Mer information om Data Factory finns [Använd Pig och Hive med Data Factory][azure-data-factory-pig-hive]. Använda Oozie i kluster med Enterprise Security Package finns [kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
+> [!NOTE]  
+> Ett annat alternativ att definiera arbetsflöden med HDInsight är att använda Azure Data Factory. Mer information om Data Factory finns [använda Apache Pig- och Apache Hive med Data Factory][azure-data-factory-pig-hive]. Använda Oozie i kluster med Enterprise Security Package finns [kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **En vanlig HDInsight-kluster**: se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **En vanlig HDInsight-kluster**: Se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystem som används på HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Exempel på ett arbetsflöde
@@ -54,9 +54,9 @@ Arbetsflödet som används i det här dokumentet innehåller två åtgärder. Å
 
     Hive-skriptet i det här dokumentet räknar Totalt antal besök för varje plattform, till exempel Android eller iPhone, och sparas antalet i ett nytt Hive-tabell.
 
-    Mer information om Hive finns i [Använda Hive med HDInsight][hdinsight-use-hive].
+    Mer information om Hive finns i [använda Apache Hive med HDInsight][hdinsight-use-hive].
 
-2. En åtgärd som Sqoop exporterar innehållet i den nya Hive-tabellen till en tabell som skapats i Azure SQL Database. Läs mer om Sqoop [Använd Hadoop Sqoop med HDInsight][hdinsight-use-sqoop].
+2. En åtgärd som Sqoop exporterar innehållet i den nya Hive-tabellen till en tabell som skapats i Azure SQL Database. Läs mer om Sqoop [Använd Apache Sqoop med HDInsight][hdinsight-use-sqoop].
 
 > [!NOTE]
 > Versioner som stöds Oozie på HDInsight-kluster, se [Nyheter i Hadoop-klusterversionerna från HDInsight][hdinsight-versions].
@@ -90,7 +90,7 @@ Oozie förväntar sig att du kan lagra alla resurser som krävs för ett jobb i 
 
     Ersätt `username` med ditt SSH-användarnamn.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Du kan ignorera fel som indikerar användaren är redan medlem i den `users` grupp.
 
 ## <a name="add-a-database-driver"></a>Lägga till en databasdrivrutin
@@ -101,7 +101,7 @@ Eftersom det här arbetsflödet använder Sqoop för att exportera data till SQL
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Du får ett meddelande om att filen redan finns.
 
 Om arbetsflödet använder andra resurser, till exempel en JAR-filen som innehåller ett MapReduce-program, som du behöver lägga till dessa resurser också.
@@ -232,7 +232,7 @@ Om du vill skapa en SQL-databas, följer du stegen i den [skapa en SQL-databas](
 
 ### <a name="create-the-table"></a>Skapa tabellen
 
-> [!NOTE]
+> [!NOTE]  
 > Det finns många sätt att ansluta till SQL-databas för att skapa en tabell. Följande steg använder [FreeTDS](http://www.freetds.org/) från HDInsight-klustret.
 
 
@@ -300,7 +300,7 @@ Jobbdefinitionen beskrivs var du hittar workflow.xml. Här beskrivs också var d
     <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Om HDInsight-klustret använder Azure Storage som standardlagring, den `<value>` elementet innehållet börjar med `wasb://`. Om Azure Data Lake Store används i stället, den börjar med `adl://`.
 
     Spara innehållet i den `<value>` elementet, eftersom den används i nästa steg.
@@ -376,7 +376,7 @@ Jobbdefinitionen beskrivs var du hittar workflow.xml. Här beskrivs också var d
 
    * Ersätt alla förekomster av `wasb://mycontainer@mystorageaccount.blob.core.windows.net` med värdet som du fick tidigare för standardlagring.
 
-     > [!WARNING]
+     > [!WARNING]  
      > Om sökvägen är en `wasb` sökväg, måste du använda den fullständiga sökvägen. Inte förkorta den så att den bara `wasb:///`.
 
    * Ersätt `YourName` med ditt inloggningsnamn för HDInsight-klustret.
@@ -384,7 +384,7 @@ Jobbdefinitionen beskrivs var du hittar workflow.xml. Här beskrivs också var d
 
      De flesta av informationen i den här filen används för att fylla i de värden som används i workflow.xml eller ooziewf.hql filer, till exempel `${nameNode}`.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Den `oozie.wf.application.path` posten anger var du hittar filen workflow.xml. Den här filen innehåller arbetsflödet som körs som det här jobbet.
 
 5. Om du vill spara filen, Välj Ctrl + X, ange `Y`, och välj sedan **RETUR**.
@@ -393,7 +393,7 @@ Jobbdefinitionen beskrivs var du hittar workflow.xml. Här beskrivs också var d
 
 Följande steg Använd Oozie-kommando för att skicka och hantera Oozie arbetsflöden på klustret. Kommandot Oozie finns ett eget användargränssnitt över den [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > När du använder kommandot Oozie, måste du använda det fullständiga Domännamnet för HDInsight-huvudnoden. Detta FQDN är endast tillgänglig från klustret, eller om klustret är i ett Azure-nätverk från andra datorer i samma nätverk.
 
 
@@ -435,7 +435,7 @@ Följande steg Använd Oozie-kommando för att skicka och hantera Oozie arbetsfl
     oozie job -info <JOBID>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Ersätt `<JOBID>` med det ID som returnerades i föregående steg.
 
     Detta returnerar information, till exempel följande text:
@@ -463,7 +463,7 @@ Följande steg Använd Oozie-kommando för att skicka och hantera Oozie arbetsfl
     oozie job -start JOBID
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Ersätt `<JOBID>` med ID returneras tidigare.
 
     Om du kan kontrollera status för efter det här kommandot, den är i tillståndet och information returneras för åtgärder i jobbet.
@@ -492,13 +492,13 @@ Följande steg Använd Oozie-kommando för att skicka och hantera Oozie arbetsfl
         Windows Phone   1791
         (6 rows affected)
 
-Läs mer om kommandot Oozie [Oozie kommandoradsverktyget](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
+Läs mer om kommandot Oozie [Apache Oozie kommandoradsverktyget](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
 ## <a name="oozie-rest-api"></a>Oozie REST-API
 
 Du kan skapa dina egna verktyg som fungerar med Oozie med Oozie REST API. Följande är HDInsight-specifik information om hur du använder för Oozie REST-API:
 
-* **URI: N**: du kan komma åt REST-API från utanför klustret på `https://CLUSTERNAME.azurehdinsight.net/oozie`.
+* **URI: N**: Du kan komma åt REST-API från utanför klustret på `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
 * **Autentisering**: Använd API: et för att autentisera, HTTP klusterkontot (admin) och lösenord. Exempel:
 
@@ -506,7 +506,7 @@ Du kan skapa dina egna verktyg som fungerar med Oozie med Oozie REST API. Följa
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
     ```
 
-Läs mer om hur du använder REST-API Oozie [Oozie Web Services API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+Läs mer om hur du använder REST-API Oozie [Apache Oozie Web Services API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 ## <a name="oozie-web-ui"></a>Oozie-Webbgränssnittet
 
@@ -540,11 +540,11 @@ Utför följande steg för att komma åt webbgränssnittet för Oozie:
 
 6. Från den **jobbinformation** fliken ser du den grundläggande jobbinformationen och de enskilda åtgärderna i jobbet. Du kan använda flikarna längst upp för att visa den **jobbdefinitionen**, **jobbkonfigurationen**, åtkomst till den **Jobblogg**, eller visa en riktad Acyklisk graf (DAG) för jobbet under **Jobb DAG**.
 
-   * **Jobblogg**: Välj den **hämta loggar** för att hämta alla loggar för jobbet, eller använda den **ange sökfilter** fält som du vill filtrera loggarna.
+   * **Jobb-Log**: Välj den **hämta loggar** för att hämta alla loggar för jobbet, eller använda den **ange sökfilter** fält som du vill filtrera loggarna.
 
        ![Jobblogg](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-   * **Jobbet DAG**: I DAG är en grafisk översikt över datasökvägar ledas genom arbetsflödet.
+   * **Jobb-DAG**: Gruppen för Databastillgänglighet är en grafisk översikt över datasökvägar ledas genom arbetsflödet.
 
        ![Jobbet DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
@@ -581,7 +581,7 @@ Du kan använda koordinatorn för att ange en start och slut förekomsten frekve
     >
     > * `${coordFrequency}`: Tiden mellan instanser av jobbet körs.
     > * `${coordStart}`: Jobbets starttid.
-    > * `${coordEnd}`: Jobbet sluttid.
+    > * `${coordEnd}`: Jobbets sluttid.
     > * `${coordTimezone}`: Coordinator jobb finns i en fast tidszon med inga sommartid vanligtvis representeras med hjälp av UTC. Den här tidszonen kallas den *Oozie bearbetning tidszon.*
     > * `${wfPath}`: Sökvägen till workflow.xml.
 
@@ -660,7 +660,7 @@ Du kan använda koordinatorn för att ange en start och slut förekomsten frekve
 
     ![Coordinator jobbinformation](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Den här bilden visar endast lyckade körningar av jobbet, inte de enskilda åtgärderna inom det schemalagda arbetsflödet. Om du vill se de enskilda åtgärderna, väljer du något av de **åtgärd** poster.
 
     ![Åtgärd-info](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
@@ -679,38 +679,38 @@ Följande är vissa fel kan uppstå och hur du löser dem.
 
 ### <a name="ja009-cannot-initialize-cluster"></a>JA009: Det går inte att initiera kluster
 
-**Symptom**: jobbet har statusen ändras till **PAUSAD**. Information om jobbet visar den `RunHiveScript` status som **START_MANUAL**. Att välja åtgärden visas följande felmeddelande visas:
+**Symptom**: Jobbstatusen ändras till **PAUSAD**. Information om jobbet visar den `RunHiveScript` status som **START_MANUAL**. Att välja åtgärden visas följande felmeddelande visas:
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Orsak**: The Azure Blob storage-adresser som används i den **job.xml** filen innehåller inte storage-behållare eller lagringskontonamn. Formatet för Blob storage-adress måste vara `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Orsak**: Azure Blob storage-adresser som används i den **job.xml** filen innehåller inte storage-behållare eller lagringskontonamn. Formatet för Blob storage-adress måste vara `wasb://containername@storageaccountname.blob.core.windows.net`.
 
-**Lösning**: ändra Blob storage-adresser som används av jobbet.
+**Lösning**: Ändra Blob storage-adresser som används av jobbet.
 
 ### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie är inte tillåtet att personifiera &lt;användare >
 
-**Symptom**: jobbet har statusen ändras till **PAUSAD**. Information om jobbet visar den `RunHiveScript` status som **START_MANUAL**. Om du väljer åtgärden visas följande felmeddelande visas:
+**Symptom**: Jobbstatusen ändras till **PAUSAD**. Information om jobbet visar den `RunHiveScript` status som **START_MANUAL**. Om du väljer åtgärden visas följande felmeddelande visas:
 
     JA002: User: oozie is not allowed to impersonate <USER>
 
-**Orsak**: de aktuella behörighetsinställningarna Tillåt inte Oozie att personifiera det angivna användarkontot.
+**Orsak**: De aktuella behörighetsinställningarna för tillåter inte Oozie att personifiera det angivna användarkontot.
 
 **Lösning**: Oozie kan personifiera användare i den **användare** grupp. Använd den `groups USERNAME` att se de grupper som användaren är medlem i. Om användaren inte är medlem i den **användare** gruppen, Använd följande kommando för att lägga till användaren i gruppen:
 
     sudo adduser USERNAME users
 
-> [!NOTE]
+> [!NOTE]  
 > Det kan ta flera minuter innan HDInsight identifierar att användaren har lagts till i gruppen.
 
 ### <a name="launcher-error-sqoop"></a>Starta fel (Sqoop)
 
-**Symptom**: jobbet har statusen ändras till **KILLED**. Information om jobbet visar den `RunSqoopExport` status som **fel**. Om du väljer åtgärden visas följande felmeddelande visas:
+**Symptom**: Jobbstatusen ändras till **KILLED**. Information om jobbet visar den `RunSqoopExport` status som **fel**. Om du väljer åtgärden visas följande felmeddelande visas:
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
 **Orsak**: Sqoop kan inte läsa in databasdrivrutinen som krävs för att få åtkomst till databasen.
 
-**Lösning**: när du använder Sqoop från ett Oozie-jobb kan du inkludera databasdrivrutinen med andra resurser, till exempel workflow.xml, jobbet använder. Dessutom referera till arkivet som innehåller databasdrivrutinen från den `<sqoop>...</sqoop>` delen av workflow.xml.
+**Lösning**: När du använder Sqoop från ett Oozie-jobb, måste du inkludera databasdrivrutinen med andra resurser, till exempel workflow.xml, jobb används. Dessutom referera till arkivet som innehåller databasdrivrutinen från den `<sqoop>...</sqoop>` delen av workflow.xml.
 
 Till exempel för jobbet i det här dokumentet använder du följande steg:
 
@@ -730,11 +730,11 @@ Till exempel för jobbet i det här dokumentet använder du följande steg:
 
 I den här självstudien får du har lärt dig hur du definierar ett Oozie-arbetsflöde och hur du kör ett Oozie-jobb. Mer information om hur du arbetar med HDInsight finns i följande artiklar:
 
-* [Använd tidsbaserade Oozie-koordinator med HDInsight][hdinsight-oozie-coordinator-time]
-* [Överföra data för Hadoop-jobb i HDInsight][hdinsight-upload-data]
-* [Använda Sqoop med Hadoop i HDInsight][hdinsight-use-sqoop]
-* [Använda Hive med Hadoop i HDInsight][hdinsight-use-hive]
-* [Använda Pig med Hadoop i HDInsight][hdinsight-use-pig]
+* [Använd den tidsbaserade Apache Oozie-koordinator med HDInsight][hdinsight-oozie-coordinator-time]
+* [Överföra data för Apache Hadoop-jobb i HDInsight][hdinsight-upload-data]
+* [Använd Apache Sqoop med Apache Hadoop i HDInsight][hdinsight-use-sqoop]
+* [Använda Apache Hive med Apache Hadoop i HDInsight][hdinsight-use-hive]
+* [Använda Apache Pig med Apache Hadoop på HDInsight][hdinsight-use-pig]
 * [Utveckla Java MapReduce-program för HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563

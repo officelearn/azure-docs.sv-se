@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 42494ef538fa9840afe5f489074934da3965d56f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c68febc7bd6aac0262c41cc8b33602f8496eb215
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414380"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436408"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator med Azure-portalen för återställning
 Om din Windows virtuell dator (VM) i Azure påträffar ett fel vid start- eller disk, kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är en misslyckad programuppdatering som förhindrar den virtuella datorn från att kunna starta. Den här artikeln beskriver hur du använder Azure-portalen för att ansluta den virtuella hårddisken till en annan virtuell Windows-dator att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
@@ -135,7 +135,7 @@ Koppla bort den befintliga virtuella hårddisken från Virtuellt felsökningsdat
 ## <a name="create-vm-from-original-hard-disk"></a>Skapa virtuell dator från den ursprungliga hårddisken
 Du kan skapa en virtuell dator från den ursprungliga virtuella hårddisken med [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). Mallen distribuerar en virtuell dator i ett befintligt virtuellt nätverk med hjälp av VHD-URL: en från det tidigare kommandot. Klicka på den **distribuera till Azure** knappen på följande sätt:
 
-![Distribuera virtuell dator från mall från Github](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
+![Distribuera virtuell dator från mall från GitHub](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
 
 Mallen läses in i Azure-portalen för distribution. Ange namn för din nya virtuella datorn och befintliga Azure-resurser och klistra in Webbadressen till din befintliga virtuella hårddisk. Du börjar distributionen genom att klicka på **köp**:
 

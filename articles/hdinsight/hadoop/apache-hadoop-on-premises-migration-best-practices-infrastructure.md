@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6a1641a76d43cdbac6253e00ea35f70325870853
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 6b0b047e74496fb9e58df05dc6118c5f376cb99d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993384"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437528"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
 
@@ -39,7 +39,7 @@ Se [standard noden konfiguration och VM-storlekar för kluster](../hdinsight-com
 
 Varje HDInsight-version är en molndistribution av en version av Hortonworks Data Platform (HDP) och består av en uppsättning komponenter för Hadoop-ekosystemet. Se [versionshantering för HDInsight](../hdinsight-component-versioning.md) mer information om alla komponenter i HDInsight och deras aktuella versioner.
 
-Du kan också använda Ambari UI eller Ambari REST API för att kontrollera Hadoop-komponenter och versioner i HDInsight.
+Du kan också använda Apache Ambari-Gränssnittet eller Ambari REST API för att kontrollera Hadoop-komponenter och versioner i HDInsight.
 
 Program eller komponenter som var tillgängliga i lokala kluster men inte ingår i HDInsight-kluster kan läggas på en kantnod eller på en virtuell dator i samma virtuella nätverk som HDInsight-kluster. Ett tredje parts Hadoop-program som inte är tillgänglig på Azure HDInsight kan installeras med alternativet ”program” i HDInsight-kluster. Anpassade Hadoop-program kan installeras på HDInsight-kluster med ”skriptåtgärder”. I följande tabell visas några av de vanliga program och deras alternativ för integrering av HDInsight:
 
@@ -90,7 +90,7 @@ HDInsight innehåller färdiga skript för att installera följande komponenter 
 - Förhandsladda Hive-bibliotek
 - Installera eller uppdatera Mono
 
-> [!Note]
+> [!Note]  
 > HDInsight ger inte direct-support för anpassade hadoop-komponenter eller komponenter som installeras med hjälp av skriptåtgärder.
 
 Skriptåtgärder kan även publiceras på Azure Marketplace som ett HDInsight-program.
@@ -140,7 +140,9 @@ En tom edge-nod är en Linux-dator med samma klientverktyg installeras och konfi
 
 Edge-noder kan skapas och tas bort via Azure portal och kan användas under eller efter att skapa kluster. När du har skapat gränsnoden kan du ansluta till gränsnoden via SSH och kör klientverktyg för att komma åt Hadoop-kluster i HDInsight. Kantnoden ssh-slutpunkten är `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
+
 Mer information finns i artikeln [använda tomma kantnoder på Apache Hadoop-kluster i HDInsight](../hdinsight-apps-use-edge-node.md).
+
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Använd upp- och Nedskalning funktion i kluster
 
@@ -188,7 +190,7 @@ Med Azure Virtual Network med HDInsight kan följande scenarier:
 
 HDInsight kan antingen läggas till en ny eller befintlig Azure-nätverk. Om HDInsight läggs till ett befintligt virtuellt nätverk, den befintliga nätverkssäkerhetsgrupper och användardefinierade vägar måste uppdateras för att tillåta obegränsad åtkomst till [flera IP-adresser](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) i Azure-datacentret. Se dessutom till att du inte blockerar trafik till den [portar](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) som används av HDInsight-tjänster.
 
-> [!Note]
+> [!Note]  
 > HDInsight stöder för närvarande inte Tvingad tunneltrafik. Tvingad tunneltrafik är en undernätsinställning för som tvingar utgående Internet-trafik till en enhet för granskning och loggning. Ta bort Tvingad tunneltrafik innan du installerar HDInsight i ett undernät eller skapa ett nytt undernät för HDInsight. HDInsight stöder inte heller att begränsa utgående nätverksanslutning.
 
 Mer information finns i följande artiklar:

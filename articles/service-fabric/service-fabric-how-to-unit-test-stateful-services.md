@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: 945cdf63a178a09f121f355aaa7635537e46e5ff
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4941d893c6c871541772569e42bf5169270def88
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703824"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413565"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Skapa enhetstester för tillståndskänsliga tjänster
 Enhetstestning Service Fabric tillståndskänsliga tjänster ger vanliga misstag som inte skulle nödvändigtvis fångas upp av konventionella program eller domänspecifika Enhetstestning. Det finns vissa saker som ska finnas i åtanke när du utvecklar enhetstester för tillståndskänsliga tjänster.
@@ -34,7 +34,7 @@ Den här artikeln förutsätter att [Enhetstestning tillståndskänsliga tjänst
 Från och med version 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) tillhandahåller ett API för simulerade både för samordning av replikerna och tillståndshantering. Detta används i exemplen.
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[Github](https://github.com/loekd/ServiceFabric.Mocks)
+[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric.Mocks är inte ägs eller hanteras av Microsoft. Det är dock för närvarande Microsofts rekommenderade biblioteket för Enhetstestning tillståndskänsliga tjänster.*
 
@@ -91,7 +91,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary 
+//promote idle secodary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary
@@ -100,7 +100,7 @@ PromoteNewReplicaToPrimaryAsync()
 PromoteNewReplicaToPrimaryAsync(4)
 ```
 
-## <a name="putting-it-all-together"></a>Sätter samman allt
+## <a name="putting-it-all-together"></a>Färdigställa allt
 Följande test visar hur du konfigurerar en replikuppsättning med tre noder och verifiera att data är tillgängliga från en sekundär efter en rolländring av. Ett vanligt problem i det här kan fånga upp är om data har lagts till under `InsertAsync` sparades till något i minnet eller till en tillförlitlig samling utan att köra `CommitAsync`. I båda fallen är sekundär synkroniserad med primärt. Detta skulle leda till inkonsekvent svar när tjänsten har flyttats.
 
 ```csharp

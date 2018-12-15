@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.openlocfilehash: af41e2af87afbbeb8629d07508d4e5244351a4df
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e709f1bed10ee1f7d45bea18b8bdf2c6653be6a6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277360"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433989"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 
 > [!NOTE]
 > Den här artikeln beskriver hur du analysera dataanvändning i Log Analytics.  Finns i följande artiklar för relaterad information.
 > - [Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics](manage-cost-storage.md) beskrivs hur du kontrollerar dina kostnader genom att ändra kvarhållningsperioden för data.
-> - [Övervaka användning och uppskattade kostnader](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) beskriver hur du visar användning och beräknade kostnader för flera Azure övervakningsfunktioner för olika prissättningsmodeller. Det beskriver också hur du ändrar din prissättningsmodell.
+> - [Övervaka användning och uppskattade kostnader](../../azure-monitor/platform/usage-estimated-costs.md) beskriver hur du visar användning och beräknade kostnader för flera Azure övervakningsfunktioner för olika prissättningsmodeller. Det beskriver också hur du ändrar din prissättningsmodell.
 
 ## <a name="understand-usage"></a>Förstå användningen
 

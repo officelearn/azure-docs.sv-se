@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d1c95802889c80baf79eaf0a0af1e30d6bc3fdfd
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3929e4d2a915e58922d26f6d4b81c7d3a4fc8afe
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322285"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434111"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programkartan: Hantera distribuerade program
 
@@ -200,6 +200,8 @@ Om du har problem med att få Programkartan som fungerar som förväntat, kan du
 3. Om du använder Azure Functions med C#, uppgradera till [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Bekräfta [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) är korrekt konfigurerad.
+
+5. Om du saknar ett beroende, kontrollera att det finns i listan över [automatiskt insamlade beroendena](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Om inte, du kan fortfarande spåra den manuellt med en [spåra beroendeanropet](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="portal-feedback"></a>Portalen feedback
 Använder du portalen feedback om du vill ge feedback.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 81057271fefddf7d204217d73b56e2734c8c3d48
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c6a47448fc99c2f58b315898c1b6af65f894da8d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162842"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436695"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Djupdykning – avancerad analys
 
@@ -56,14 +56,16 @@ Tillsammans med valt bäst passningsåtgärderna algoritm(er), måste du överv�
 
 HDInsight har flera alternativ för ett arbetsflöde för avancerad analys för maskininlärning:
 
-* [Maskininlärning och Spark](#machine-learning-and-spark)
+* [Machine Learning och Apache Spark](#machine-learning-and-spark)
 * [R och ML-tjänster](#r-and-r-server)
-* [Azure Machine Learning och Hive](#azure-machine-learning-and-hive)
-* [Spark och djupinlärning](#spark-and-deep-learning)
+* [Azure Machine Learning och Apache Hive](#azure-machine-learning-and-hive)
+* [Apache Spark och djupinlärning](#spark-and-deep-learning)
 
-### <a name="machine-learning-and-spark"></a>Maskininlärning och Spark
+### <a name="machine-learning-and-apache-spark"></a>Machine Learning och Apache Spark
 
-[HDInsight Spark](../spark/apache-spark-overview.md) är ett erbjudande för Azure som värd för [Spark](https://spark.apache.org/), en enhetlig öppen källkod, ramverk för parallellbearbetning av data som använder minnesintern bearbetning för att öka analyser av Stordata. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer som används i machine learning och grafberäkningar. 
+
+[HDInsight Spark](../spark/apache-spark-overview.md) är ett erbjudande för Azure som värd för [Apache Spark](https://spark.apache.org/), en enhetlig öppen källkod, ramverk för parallellbearbetning av data som använder minnesintern bearbetning för att öka analyser av Stordata. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer som används i machine learning och grafberäkningar. 
+
 
 Det finns tre skalbar machine learning-bibliotek som få algoritmiska modelleringsfunktioner till den här distribuerad miljö:
 
@@ -75,11 +77,11 @@ Det finns tre skalbar machine learning-bibliotek som få algoritmiska modellerin
 
 Som en del av HDInsight, kan du skapa ett HDInsight-kluster med [ML tjänster](../r-server/r-server-overview.md) redo att användas med enorma datauppsättningar och modeller. Den här nya funktionen ger dataexperter och statistiker med ett välbekanta R-gränssnitt som kan skalas på begäran via HDInsight, utan att behöva konfiguration och underhåll.
 
-### <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning och Hive
+### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning och Apache Hive
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) tillhandahåller verktyg för att modellen förutsägande analys, samt en helt hanterad tjänst som du kan använda för att distribuera förutsägelsemodeller som är klara att använda webbtjänster. Azure Machine Learning innehåller verktyg för att skapa fullständiga förutsägelseanalyslösningar i molnet för att snabbt skapa, testa, operationalisera och hantera förutsägelsemodeller. Välj från ett stort algoritmbibliotek, använda webbaserade verktyg för modellutveckling och enkelt distribuera din modell som en webbtjänst.
 
-### <a name="spark-and-deep-learning"></a>Spark och djupinlärning
+### <a name="apache-spark-and-deep-learning"></a>Apache Spark och djupinlärning
 
 [Djupinlärning](https://www.microsoft.com/research/group/dltc/) är en gren av machine learning som använder *djupa neurala nätverk* (dnn: er), INSPIRERAD av bioteknik processer i den mänskliga hjärnan. Djupinlärning finns som en lovande metod för artificiell intelligens många forskare. Några exempel på djupinlärning är talat språk översättare, bild av system och datorn resonemang. För att gå vidare sitt eget arbete i djupinlärning, Microsoft har utvecklat kostnadsfria, enkel att använda, öppen källkod [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Verktyget används ofta av en mängd olika Microsoft-produkter, företag över hela världen med ett behov av att distribuera djupinlärnings i stor skala och studenter som är intresserade av senaste algoritmer och tekniker. 
 
@@ -118,16 +120,16 @@ Följ [den här självstudien](../spark/apache-spark-microsoft-cognitive-toolkit
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hive och Azure Machine Learning
+Apache Hive och Azure Machine Learning
 
-* [Hive och Azure Machine Learning slutpunkt till slutpunkt](../../machine-learning/team-data-science-process/hive-walkthrough.md)
+* [Apache Hive och Azure Machine Learning slutpunkt till slutpunkt](../../machine-learning/team-data-science-process/hive-walkthrough.md)
 * [Med ett Azure HDInsight Hadoop-kluster på en datauppsättning som 1 TB](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
 
-Spark- och MLLib
+Apache Spark och MLLib
 
-* [Machine learning med Spark i HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Machine learning med Apache Spark i HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
+* [Apache Spark med Machine Learning: Använda Apache Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Apache Spark i HDInsight för att förutse matinspektionsresultat](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 Deep Learning och Cognitive Toolkit
 

@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 6588d65a4f19c06e3ee4990aba226dbd11119c91
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a86902d772226be136778d200a37c451b7b7e9a5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016258"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407260"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Direktuppspelning i skala i HDInsight
 
 Lösningar för stordata i realtid agera utifrån data i rörelse. Dessa data är vanligtvis mest värdefulla på dess ankomsttid. Om den inkommande dataströmmen blir större än vad som kan hanteras då kan behöva du begränsa resurser ner. Du kan också skalas ett HDInsight-kluster efter din lösning för liveuppspelning genom att lägga till noder på begäran.
 
-En eller flera datakällor som genererar händelser (ibland i miljoner per sekund) som behöver matas in snabbt utan att släppa någon användbar information i en strömmande program. Inkommande händelser hanteras med *strömbuffring*, kallas även *Händelsekö*, av en tjänst som [Kafka](kafka/apache-kafka-introduction.md) eller [Händelsehubbar](https://azure.microsoft.com/services/event-hubs/). När du har samlat in händelserna som du kan sedan analysera data med ett system för analys i realtid inom den *strömbearbetning* olika lager, till exempel [Storm](storm/apache-storm-overview.md) eller [Spark Streaming](spark/apache-spark-streaming-overview.md). Bearbetade data kan lagras i långsiktig lagringssystem som [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/), och visas i realtid på en instrumentpanel för business intelligence, till exempel [Power BI](https://powerbi.microsoft.com), Tableau eller en anpassad sida .
+En eller flera datakällor som genererar händelser (ibland i miljoner per sekund) som behöver matas in snabbt utan att släppa någon användbar information i en strömmande program. Inkommande händelser hanteras med *strömbuffring*, kallas även *Händelsekö*, av en tjänst som [Apache Kafka](kafka/apache-kafka-introduction.md) eller [Händelsehubbar](https://azure.microsoft.com/services/event-hubs/). När du har samlat in händelserna som du kan sedan analysera data med ett system för analys i realtid inom den *strömbearbetning* olika lager, till exempel [Apache Storm](storm/apache-storm-overview.md) eller [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Bearbetade data kan lagras i långsiktig lagringssystem som [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/), och visas i realtid på en instrumentpanel för business intelligence, till exempel [Power BI](https://powerbi.microsoft.com), Tableau eller en anpassad sida .
 
 ![HDInsight Streaming-mönster](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -39,7 +39,7 @@ Mer information finns i [vad är Apache Storm på Azure HDInsight?](storm/apache
 
 Spark Streaming är en utökning av Spark, vilket gör att du kan återanvända samma kod som du använder för batchbearbetning. Du kan kombinera batch- och interaktiva frågor i samma program. Till skillnad från Storm, Spark Streaming ger tillståndskänslig exakt-när bearbetning av semantik. När de används i kombination med den [Kafka direkta API](http://spark.apache.org/docs/latest/streaming-kafka-integration.html), som säkerställer att alla Kafka-data tas emot av Spark Streaming exakt en gång, är det möjligt att uppnå slutpunkt till slutpunkt exakt-garanterar en gång. En av Spark Streaming styrkor är dess feltolerant funktioner, återställa felaktiga noder snabbt när flera noder som används i klustret.
 
-Mer information finns i [vad är Spark Streaming?](hdinsight-spark-streaming-overview.md).
+Mer information finns i [vad är Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
 
 ## <a name="scaling-a-cluster"></a>Skala ett kluster
 
@@ -65,5 +65,5 @@ De här tre parametrarna kan konfigureras på klusternivå, för alla program so
 
 * [Kom igång med Apache Storm på HDInsight](storm/apache-storm-tutorial-get-started-linux.md)
 * [Exempeltopologier för Apache Storm på HDInsight](storm/apache-storm-example-topology.md)
-* [Introduktion till Spark i HDInsight](spark/apache-spark-overview.md)
+* [Introduktion till Apache Spark i HDInsight](spark/apache-spark-overview.md)
 * [Kom igång med Apache Kafka på HDInsight](kafka/apache-kafka-get-started.md)

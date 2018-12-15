@@ -15,12 +15,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622201"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408143"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory-programgalleriet
 
@@ -46,7 +46,7 @@ Logga in på Azure portal med ditt konto i Azure Active Directory-administratör
 
 I app-galleriet kan du lägga till en app som inte finns i listan genom att välja den **icke-galleriprogram** panel som visas i sökresultaten om din önskade app inte hittades. När du har angett ett namn för ditt program, kan du konfigurera alternativ för enkel inloggning och beteende. 
 
-**Snabbtips**: ett bra tips är att använda sökfunktionen för att kontrollera om programmet redan finns i programgalleriet. Om hitta appen och dess beskrivning nämner enkel inloggning, stöds redan programmet för federerad enkel inloggning.
+**Snabbtips**:  Ett bra tips är att använda sökfunktionen för att kontrollera om programmet redan finns i programgalleriet. Om hitta appen och dess beskrivning nämner enkel inloggning, stöds redan programmet för federerad enkel inloggning.
 
   ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
@@ -163,7 +163,7 @@ När avbildas på inloggningssidan, användare och grupper tilldelas och princip
 >
 
 ## <a name="existing-single-sign-on"></a>Befintlig enkel inloggning
-Välj det här alternativet om du vill lägga till en länk till ett program till din organisations Azure AD-åtkomstpanelen eller Office 365-portalen. Du kan använda detta att lägga till länkar till anpassade web apps som för närvarande använder Azure Active Directory Federation Services (eller annan federationstjänst) i stället för Azure AD för autentisering. Eller du kan lägga till djuplänkar till specifika SharePoint-sidor eller andra webbsidor som du vill visas på användarnas Åtkomstpaneler. 
+Välj det här alternativet om du vill lägga till en länk till ett program till din organisations Azure AD-åtkomstpanelen eller Office 365-portalen. Du kan använda detta att lägga till länkar i anpassade webbappar som använder Active Directory Federation Services (eller annan federationstjänst) i stället för Azure AD för autentisering. Eller du kan lägga till djuplänkar till specifika SharePoint-sidor eller andra webbsidor som du vill visas på användarnas Åtkomstpaneler. 
 
 När du har valt **nästa**, uppmanas du att ange Webbadressen till programmet för att länka till. När slutfört, användare och grupper kan tilldelas till programmet, vilket gör att programmet ska visas i den [Office 365-appstartaren](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomstpanelen](end-user-experiences.md) för dessa användare.
 

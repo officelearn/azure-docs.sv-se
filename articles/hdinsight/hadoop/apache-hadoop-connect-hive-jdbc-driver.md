@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: c565ccf7ac04e2a3ba86e2fa256a05a9649d2de4
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 59ca7a98bfa275502e847a8d2c34ec79141603da
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166157"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433822"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
 
@@ -164,14 +164,14 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 Nu när du har lärt dig hur du använder JDBC för att arbeta med Hive, Använd följande länkar för att utforska andra sätt att arbeta med Azure HDInsight.
 
-* [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualisera Apache Hive-data med Microsoft Power BI i Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualisera Interactive Query Hive-data med Power BI i Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin](apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Ansluta Excel till Hadoop med Power Query](apache-hadoop-connect-excel-power-query.md).
-* [Ansluta till Azure HDInsight och köra Hive-frågor med Data Lake Tools för Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
+* [Ansluta Excel till Apache Hadoop med Power Query](apache-hadoop-connect-excel-power-query.md).
+* [Ansluta till Azure HDInsight och kör Apache Hive-frågor med Data Lake Tools för Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
 * [Använda Azure HDInsight-verktyg för Visual Studio Code](../hdinsight-for-vscode.md).
 * [Ladda upp data till HDInsight](../hdinsight-upload-data.md)
-* [Använda Hive med HDInsight](hdinsight-use-hive.md)
-* [Använda Pig med HDInsight](hdinsight-use-pig.md)
+* [Använda Apache Hive med HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Pig med HDInsight](hdinsight-use-pig.md)
 * [Använda MapReduce-jobb med HDInsight](hdinsight-use-mapreduce.md)

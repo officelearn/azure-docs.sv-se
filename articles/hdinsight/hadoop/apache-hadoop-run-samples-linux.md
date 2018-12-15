@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: bf1fa41abe1c1f9b0d07ee7d77fe1c819e88ddc1
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f9bafec093a3ad6e26eb12cfdb321945353b4d08
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017628"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434145"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Köra MapReduce-exemplen som ingår i HDInsight
 
@@ -25,23 +25,23 @@ Lär dig hur du kör MapReduce-exemplen som ingår i Apache Hadoop på HDInsight
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Ett HDInsight-kluster**: se [komma igång med Hadoop med Hive i HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md)
+* **Ett HDInsight-kluster**: Se [komma igång med Apache Hadoop med Apache Hive i HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* **En SSH-klient**: Mer information finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **En SSH-klient**: Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 ## <a name="the-mapreduce-examples"></a>MapReduce-exempel
 
-**Plats**: finns exemplen i HDInsight-kluster på `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
+**Plats**: Exemplen finns på HDInsight-klustret på `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
 
-**Innehållet**: följande exempel finns i det här arkivet:
+**Innehållet**: Följande exempel finns i det här arkivet:
 
 * `aggregatewordcount`: En aggregering baserat mapreduce-program som räknar orden i indatafilerna.
 * `aggregatewordhist`: En aggregering baserat mapreduce-program som beräknar histogrammet av orden i indatafilerna.
 * `bbp`: Ett mapreduce-program som använder Bailey-Borwein-Plouffe för att beräkna exakta siffrorna i Pi.
-* `dbcount`: Ett exempel-jobb som räknar sidvisningar-loggar som lagras i en databas.
+* `dbcount`: En exempel-jobb som räknar sidvisningar-loggar som lagras i en databas.
 * `distbbp`: Ett mapreduce-program som använder en BBP-type-formel för att beräkna exakta bits pi.
 * `grep`: Ett mapreduce-program som räknar matchningar av ett regex i indata.
 * `join`: Ett jobb som utför en koppling sorterade, lika partitioneras datauppsättningar.
@@ -55,13 +55,13 @@ Lär dig hur du kör MapReduce-exemplen som ingår i Apache Hadoop på HDInsight
 * `sudoku`: En sudoku solver.
 * `teragen`: Generera data för terasort.
 * `terasort`: Kör terasort.
-* `teravalidate`: Kontrollerar resultaten av terasort.
+* `teravalidate`: Kontrollerar resultatet av terasort.
 * `wordcount`: Ett mapreduce-program som räknar orden i indatafilerna.
 * `wordmean`: Ett mapreduce-program som räknar av orden i indatafilerna genomsnittliga längd.
 * `wordmedian`: Ett mapreduce-program som räknar median längden på orden i indatafilerna.
 * `wordstandarddeviation`: Ett mapreduce-program som räknar standardavvikelsen för längden på orden i indatafilerna.
 
-**Källkod**: källkoden för dessa exempel ingår i HDInsight-klustret på `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
+**Källkod**: Källkoden för dessa exempel ingår i HDInsight-klustret på `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 ## <a name="run-the-wordcount-example"></a>Köra wordcount-exemplet
 
@@ -95,7 +95,7 @@ Lär dig hur du kör MapReduce-exemplen som ingår i Apache Hadoop på HDInsight
 
     Indata för det här jobbet har lästs från `/example/data/gutenberg/davinci.txt`. Utdata för det här exemplet lagras i `/example/data/davinciwordcount`. Båda sökvägarna finns på standardlagringen för klustret, inte det lokala filsystemet.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Enligt vad som anges i hjälpen för wordcount-exemplet, kan du också ange flera indatafiler. Till exempel `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` räknas orden i både davinci.txt och ulysses.txt.
 
 5. När jobbet har slutförts, använder du följande kommando för att visa utdata:
@@ -171,13 +171,13 @@ Det här exemplet används en mycket små 10 GB data så att den kan köras rela
 
 Det här exemplet använder tre uppsättningar MapReduce-program:
 
-* **TeraGen**: A MapReduce-program som genererar rader för sortering
+* **TeraGen**: Ett MapReduce-program som genererar rader för sortering
 
-* **TeraSort**: exempel indata och använder MapReduce för att sortera data i en totala ordning
+* **TeraSort**: Exempel för indata och använder MapReduce för att sortera data i en totala ordning
 
     TeraSort är en standard MapReduce-sortering, förutom en anpassad partitioner. Partitioner använder en sorterad lista över N-1 samplas nycklar som definierar nyckelintervall för varje minska. I synnerhet, alla nycklar sådana som samplar [i-1] < = key < exemplet [i] skickas för att minska i. Den här partitioner garantier att utdata för minskar i är mindre än utdata från minska i + 1.
 
-* **TeraValidate**: A MapReduce-program som kontrollerar att resultatet ska sorteras efter globalt
+* **TeraValidate**: Ett MapReduce-program som kontrollerar att resultatet ska sorteras efter globalt
 
     En mappning per fil skapas i katalogen och varje diagram säkerställer att varje nyckel är mindre än eller lika med föregående. Funktionen kartan genererar poster för de första och sista nycklarna för varje fil. Funktionen minska säkerställer att den första nyckeln för filen i är större än den senaste nyckeln för filen i-1. Eventuella problem rapporteras som utdata för fasen minska med nycklar som är i fel ordning.
 
@@ -209,9 +209,9 @@ Använd följande steg för att generera data, sortera och sedan Validera utdata
 
 Från den här artikeln lärde du dig att köra de exempel som ingår med Linux-baserade HDInsight-kluster. Självstudier om hur du använder Pig, Hive och MapReduce med HDInsight finns i följande avsnitt:
 
-* [Använda Pig med Hadoop i HDInsight](hdinsight-use-pig.md)
-* [Använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md)
-* [Använda MapReduce med Hadoop i HDInsight](hdinsight-use-mapreduce.md)
+* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
+* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md

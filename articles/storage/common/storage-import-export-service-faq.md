@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8111d80d0888455fbdf3ccf37e723fe348a62bee
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236729"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435012"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Tjänsten Azure Import/Export: vanliga frågor och svar 
 Här följer frågor och svar som du kan ha när du använder Azure Import/Export-tjänsten för att överföra data till Azure storage. Frågor och svar är ordnade i följande kategorier:
@@ -66,7 +66,10 @@ Ja. Du kan avbryta ett jobb när dess status är **skapa** eller **levererade**.
 Du kan visa status för slutförda jobb för upp till 90 dagar. Slutförda jobb tas bort efter 90 dagar.
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>Vad gör jag om jag vill importera eller exportera fler än 10 enheter?
-En import eller export-jobbet kan referera till endast 10-enheter i ett enskilt jobb. Om du vill skicka fler än 10 enheter, bör du skapa flera jobb. Enheter som är associerade med samma jobb måste levereras tillsammans i samma paket. Mer information och tips när datakapacitet sträcker sig över flera disk importjobb, kontaktar du Microsoft på bulkimport@microsoft.com.                                                              
+En import eller export-jobbet kan referera till endast 10-enheter i ett enskilt jobb. Om du vill skicka fler än 10 enheter, bör du skapa flera jobb. Enheter som är associerade med samma jobb måste levereras tillsammans i samma paket. Mer information och tips när datakapacitet sträcker sig över flera disk importjobb, kontaktar du Microsoft på bulkimport@microsoft.com. 
+
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>Den uppladdade blobben visar statusen ”lånet har upphört att gälla”. Vad ska jag göra?
+Du kan ignorera fältet ”lånet har upphört att gälla”. Import/Export tar lånet på blobben under överföringen kommer att se till att inga andra processer kan uppdatera blob parallellt. Lånet har upphört att gälla innebär att Import/export överförs inte längre till den och blobben är tillgängliga för dig. 
 
 ## <a name="shipping-disks"></a>Levererade diskar
 

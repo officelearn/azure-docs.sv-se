@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 9e0f614344372d08974bc7592ccb88e7382e4cb4
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017550"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435199"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Skapa filmrekommendationer med hjälp av Apache Mahout med Linux-baserade Apache Hadoop i HDInsight (SSH)
 
@@ -28,14 +28,14 @@ Mahout är ett [maskininlärning] [ ml] -biblioteket för Apache Hadoop. Mahout 
 
 * Ett Linux-baserade HDInsight-kluster. Information om hur du skapar en finns i [komma igång med Linux-baserat Hadoop i HDInsight][getstarted].
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * En SSH-klient. Mer information finns i dokumentet [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="mahout-versioning"></a>Mahout versionshantering
+## <a name="apache-mahout-versioning"></a>Apache Mahout versionshantering
 
-Mer information om versionen av Mahout på HDInsight finns i [HDInsight-versioner och Hadoop-komponenter](../hdinsight-component-versioning.md).
+Mer information om versionen av Mahout på HDInsight finns i [HDInsight-versioner och Apache Hadoop-komponenter](../hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Förstå rekommendationer
 
@@ -43,11 +43,11 @@ En av de funktioner som tillhandahålls av Mahout är en rekommendationsmotor. D
 
 Följande arbetsflöde är ett förenklat exempel som använder filmdata:
 
-* **Delad förekomsten**: Joe Alice och Bob alla gillade *Star Wars*, *The Empire under katastrofsituationer tillbaka*, och *avkastningen på Jedi*. Mahout anger att användare som gillar något av dessa filmer också som de andra två.
+* **delad förekomsten**: Joe Alice och Bob alla gillade *Star Wars*, *The Empire under katastrofsituationer tillbaka*, och *avkastningen på Jedi*. Mahout anger att användare som gillar något av dessa filmer också som de andra två.
 
-* **Delad förekomsten**: Bob och Alice också tyckte *The Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*. Mahout anger att användare som gillade föregående tre filmer också som dessa tre filmer.
+* **delad förekomsten**: Bob och Alice också tyckte *The Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*. Mahout anger att användare som gillade föregående tre filmer också som dessa tre filmer.
 
-* **Likhet rekommendation**: eftersom Joe gillade tre första filmer, Mahout tittar på filmer den andra med liknande inställningar som gillade, men Josef har inte sett (gillade/klassificerad). I det här fallet Mahout rekommenderar *The Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*.
+* **Likhet rekommendation**: Eftersom Joe gillade tre första filmer, Mahout tittar på filmer den andra med liknande inställningar som gillade, men Josef har inte sett (gillade/klassificerad). I det här fallet Mahout rekommenderar *The Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*.
 
 ### <a name="understanding-the-data"></a>Förstå data
 
@@ -59,8 +59,8 @@ Data i användaren ratings.txt har en struktur för `userID`, `movieID`, `userRa
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ## <a name="run-the-analysis"></a>Analys körs
@@ -71,7 +71,7 @@ Använd kommandot rekommendation jobbet ska köras från en SSH-anslutning till 
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Jobbet kan ta flera minuter att slutföra, och kan köra flera MapReduce-jobb.
 
 ## <a name="view-the-output"></a>Visa utdata
@@ -188,7 +188,7 @@ Mahout jobb ta inte bort tillfälliga data som skapas vid bearbetning av jobbet.
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > Om du vill köra kommandot igen måste du också ta bort katalogen. Använd följande för att ta bort den här katalogen:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
@@ -198,8 +198,8 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 Nu när du har lärt dig hur du använder Mahout kan upptäcka andra sätt att arbeta med data i HDInsight:
 
-* [Hive med HDInsight](hdinsight-use-hive.md)
-* [Pig med HDInsight](hdinsight-use-pig.md)
+* [Apache Hive med HDInsight](hdinsight-use-hive.md)
+* [Apache Pig med HDInsight](hdinsight-use-pig.md)
 * [MapReduce med HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: https://mahout.apache.org/developers/buildingmahout.html

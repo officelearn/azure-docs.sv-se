@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39223f49d315e722b13b734b3424d61f630834b1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6a86b5db5e5c79916325ebb547d65c9a30bf3e6a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966152"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410150"
 ---
-## <a name="configuring-homepage"></a>Konfigurera startsida
+# <a name="configuring-homepage"></a>Konfigurera startsida
 
 Startsidan är den sida som läses in när användare som har åtkomst till programmet går du till programmets URL. Om du har valt antingen ”exempel Contoso” eller ”exempel Devkits” programmallar när du skapar ditt program, ska ditt program ha fördefinierade startsidor. Om du valde å andra sidan programmallen ”anpassade program”, kommer din startsida måste anges.
 

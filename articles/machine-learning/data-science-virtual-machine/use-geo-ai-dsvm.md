@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: fd0b58d85631c437a71ad86b23e4d3a99965b331
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 872bfdfdef28dbb88861b723bd3186faea461cad
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101027"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410014"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Med hjälp av Geo AI Data Science Virtual Machine
 
@@ -43,11 +43,11 @@ R-brygga och ArcGIS installeras som ett R-bibliotek med namnet [arcgisbinding](h
 Förutom ML och djupinlärning framework-baserade exempel från grundläggande Data Science VM finns också en uppsättning geospatiala exempel som en del av Geo AI Data Science VM. Med hjälp av dessa exempel kan du ge din utvecklingen av AI-program med hjälp av geospatiala data och ArcGIS-programvara. 
 
 
-1. [Hämta anges med Geospatial analys med Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): ett grundläggande exempel som visar hur du arbetar med geospatiala data med hjälp av Python-gränssnitt för ArcGIS som tillhandahålls av den [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) biblioteket. Den visar även hur du kan kombinera traditionella machine learning med geospatiala data och visualisera resultat på en karta i ArcGIS. 
+1. [Hämta anges med Geospatial analys med Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Ett grundläggande exempel som visar hur du arbetar med geospatiala data med hjälp av Python-gränssnitt för ArcGIS som tillhandahålls av den [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) biblioteket. Den visar även hur du kan kombinera traditionella machine learning med geospatiala data och visualisera resultat på en karta i ArcGIS. 
 
-2. [Hämta anges med Geospatial analys med R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): ett grundläggande exempel som visar hur du arbetar med geospatiala data med hjälp av R-gränssnitt för ArcGIS som tillhandahålls av den [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) biblioteket. 
+2. [Hämta anges med Geospatial analys med R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Ett grundläggande exempel som visar hur du arbetar med geospatiala data med hjälp av R-gränssnitt för ArcGIS som tillhandahålls av den [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) biblioteket. 
 
-3. [Bildpunkter mark använda klassificering](https://github.com/Azure/pixel_level_land_classification): en självstudiekurs som illustrerar hur du skapar en modell för djupa neurala nätverk som tar emot en Flygfoto som indata och returnerar en mark-cover-etikett. Exempel på mark-cover etiketter är ”forested” eller ”water”. Modellen returnerar sådana en etikett för varje bildpunkt i avbildningen. Modellen har skapats med öppen källkod för Microsofts [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) ramverk för djupinlärning. Exemplet visar även hur du skalar ut utbildning om [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) och använda modellens förutsägelser i ArcGIS Pro-programvara. 
+3. [Bildpunkter mark använda klassificering](https://github.com/Azure/pixel_level_land_classification): En självstudiekurs som illustrerar hur du skapar en modell för djupa neurala nätverk som tar emot en Flygfoto som indata och returnerar en mark-cover-etikett. Exempel på mark-cover etiketter är ”forested” eller ”water”. Modellen returnerar sådana en etikett för varje bildpunkt i avbildningen. Modellen har skapats med öppen källkod för Microsofts [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) ramverk för djupinlärning. 
 
 
 ## <a name="next-steps"></a>Nästa steg

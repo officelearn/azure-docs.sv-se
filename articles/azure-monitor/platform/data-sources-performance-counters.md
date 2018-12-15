@@ -1,6 +1,6 @@
 ---
-title: Samla in och analysera prestandaräknare i Azure Log Analytics | Microsoft Docs
-description: Prestandaräknare samlas in av Log Analytics för att analysera prestanda på Windows och Linux-agenter.  Den här artikeln beskriver hur du konfigurerar insamling av prestandaräknare för både Windows och Linux-agenter, information om de lagras i arbetsytan och hur du analyserar dem i Azure-portalen.
+title: Samla in och analysera prestandaräknare i Azure Monitor | Microsoft Docs
+description: Prestandaräknare samlas in av Azure Monitor för att analysera prestanda på Windows och Linux-agenter.  Den här artikeln beskriver hur du konfigurerar insamling av prestandaräknare för både Windows och Linux-agenter, information om de lagras i arbetsytan och hur du analyserar dem i Azure-portalen.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: 23e416c510c3a6fff7c282406beaec1acf42b2ef
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186879"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438378"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows- och Linux prestanda datakällor i Log Analytics
-Prestandaräknare i Windows och Linux ger information om prestanda för maskinvarukomponenter, operativsystem och program.  Log Analytics kan samla in prestandaräknare med återkommande intervall för analys i nära realtid (NRT) utöver sammanställa prestandadata för längre sikt analys och rapportering.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows- och Linux prestanda datakällor i Azure Monitor
+Prestandaräknare i Windows och Linux ger information om prestanda för maskinvarukomponenter, operativsystem och program.  Azure Monitor kan samla in prestandaräknare med återkommande intervall för analys i nära realtid (NRT) utöver sammanställa prestandadata för längre sikt analys och rapportering.
 
 ![Prestandaräknare](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Konfigurera prestandaräknare
-Konfigurerar prestandaräknare från den [Data-menyn i logganalys-inställningar](agent-data-sources.md#configuring-data-sources).
+Konfigurerar prestandaräknare från den [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources).
 
-När du först konfigurerar Windows eller Linux-prestanda räknare för en ny Log Analytics-arbetsyta har möjlighet att snabbt skapa flera vanliga räknare.  De listas med en kryssruta bredvid varje.  Se till att alla räknare som du vill skapa från början är markerade och klickar sedan på **Lägg till valda prestandaräknare**.
+När du först konfigurerar Windows eller Linux-prestanda räknare för en ny arbetsyta har möjlighet att snabbt skapa flera vanliga räknare.  De listas med en kryssruta bredvid varje.  Se till att alla räknare som du vill skapa från början är markerade och klickar sedan på **Lägg till valda prestandaräknare**.
 
 Du kan välja en specifik instans för varje prestandaräknare för Windows-prestandaräknare. Instansen av varje räknare som du väljer gäller för alla underordnade räknare för den överordnade räknaren för prestandaräknare för Linux. I följande tabell visar de vanliga instanserna som är tillgängliga för både Linux och Windows prestandaräknare.
 
@@ -88,7 +88,7 @@ Parametrarna i det här elementet beskrivs i följande tabell.
 | interval | Frekvens vid vilken objektets prestandaräknare som samlas in. |
 
 
-I följande tabell visas de objekt och räknare som du kan ange i konfigurationsfilen.  Det finns ytterligare räknare för vissa program enligt beskrivningen i [samla in prestandaräknare för Linux-program i Log Analytics](data-sources-linux-applications.md).
+I följande tabell visas de objekt och räknare som du kan ange i konfigurationsfilen.  Det finns ytterligare räknare för vissa program enligt beskrivningen i [samla in prestandaräknare för Linux-program i Azure Monitor](data-sources-linux-applications.md).
 
 | Objektnamn | Räknarnamn |
 |:--|:--|
@@ -182,7 +182,7 @@ Följande är standardkonfigurationen för prestandamått.
     </source>
 
 ## <a name="data-collection"></a>Datainsamling
-Log Analytics samlar in alla angivna prestandaräknare på sina angivna provintervall på alla agenter som har som antalet installerade.  Informationen sammanställs inte och rådata är tillgänglig i alla log search vyer för den tid som anges av din prenumeration.
+Azure Monitor samlar in alla angivna prestandaräknare på sina angivna provintervall på alla agenter som har som antalet installerade.  Informationen sammanställs inte och rådata är tillgänglig i alla log frågevyer för den tid som anges av din prenumeration.
 
 ## <a name="performance-record-properties"></a>Egenskaper för prestanda-post
 Prestandaposter har en typ av **Perf** och har egenskaperna i följande tabell.
@@ -203,8 +203,8 @@ Prestandaposter har en typ av **Perf** och har egenskaperna i följande tabell.
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## <a name="log-searches-with-performance-records"></a>Loggsökningar med prestandaposter
-I följande tabell innehåller olika exempel på sökningar i loggen som hämtar prestandaposter.
+## <a name="log-queries-with-performance-records"></a>Loggfrågor med prestandaposter
+I följande tabell innehåller olika exempel på loggfrågor som hämtar prestandaposter.
 
 | Söka i data | Beskrivning |
 |:--- |:--- |
@@ -225,5 +225,5 @@ I följande tabell innehåller olika exempel på sökningar i loggen som hämtar
 
 ## <a name="next-steps"></a>Nästa steg
 * [Samla in prestandaräknare från Linux-program](data-sources-linux-applications.md) inklusive MySQL och Apache HTTP Server.
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  
-* Exportera insamlade data [Power BI](../../azure-monitor/platform/powerbi.md) för fler visualiseringar och analys.
+* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  
+* Exportera insamlade data [Power BI](powerbi.md) för fler visualiseringar och analys.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 707a23cbd04db9a0420c7776a24eb568a3483b0b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0f50ecb086b45cffb4ff27135a26f962c92926bf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385864"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434469"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-mått och aviseringar
 Azure DNS är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Den här artikeln beskriver mått och aviseringar för Azure DNS-tjänsten.
@@ -32,7 +32,7 @@ Azure DNS tillhandahåller mått för kunder så att de kan övervaka specifika 
 -   RecordSetCount
 -   RecordSetCapacityUtilization
 
-Du kan också se den [definitionen av de här måtten](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkdnszones) på dokumentationssidan för Azure Monitor.
+Du kan också se den [definitionen av de här måtten](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) på dokumentationssidan för Azure Monitor.
 >[!NOTE]
 > De här måtten är för tillfället bara tillgängliga för offentliga DNS-zoner som finns i Azure DNS. Om du har privata zoner finns i Azure DNS kan tillhandahåller de här måtten inte data för dessa zoner. Dessutom stöds för mått och aviseringar funktionen bara i offentlig Azure-molnet. Stöd för nationella moln följer vid ett senare tillfälle. 
 

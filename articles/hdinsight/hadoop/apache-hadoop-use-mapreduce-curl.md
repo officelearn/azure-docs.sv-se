@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 75f615f63b0741899995c2728f93231d8e46734a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016188"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406801"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av REST
 
-Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på en Apache Hadoop på HDInsight-kluster. CURL används för att demonstrera hur du kan interagera med HDInsight med hjälp av rådata HTTP-begäranden för att köra MapReduce-jobb.
+Lär dig använda Apache Hive WebHCat REST API för att köra MapReduce-jobb på en Apache Hadoop på HDInsight-kluster. CURL används för att demonstrera hur du kan interagera med HDInsight med hjälp av rådata HTTP-begäranden för att köra MapReduce-jobb.
 
-> [!NOTE]
-> Om du redan är bekant med Linux-baserade Hadoop-servrar, men du är nybörjare på HDInsight, finns i den [vad du behöver veta om Linux-baserat Hadoop i HDInsight](../hdinsight-hadoop-linux-information.md) dokumentet.
+> [!NOTE]  
+> Om du redan är bekant med Linux-baserade Hadoop-servrar, men du är nybörjare på HDInsight, finns i den [vad du behöver veta om Linux-baserade Apache Hadoop på HDInsight](../hdinsight-hadoop-linux-information.md) dokumentet.
 
 
 ## <a id="prereq"></a>Förhandskrav
@@ -31,7 +31,7 @@ Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på en 
 
 ## <a id="curl"></a>Kör ett MapReduce-jobb
 
-> [!NOTE]
+> [!NOTE]  
 > När du använder Curl eller annan REST-kommunikation med WebHCat, måste du autentisera begärandena genom att ange HDInsight-kluster administratörens användarnamn och lösenord. Du måste använda klustrets namn som en del av den URI som används för att skicka begäranden till servern.
 >
 > REST API skyddas med hjälp av [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda HTTPS för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
@@ -107,10 +107,10 @@ Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på en 
     Slutet av URI: N (/ mapreduce/jar) meddelar WebHCat att denna begäran startar ett MapReduce-jobb från en klass i ett jar-filen. De parametrar som används i det här kommandot är följande:
 
    * **-d**: `-G` inte används, så att begäran som standard POST-metoden. `-d` Anger de datavärden som skickas med begäran.
-    * **User.name**: användare som kör kommandot
-    * **JAR**: platsen för den jar-fil som innehåller klassen till kördes
-    * **klassen**: klassen som innehåller logiken som MapReduce
-    * **arg**: argument som ska skickas till MapReduce-jobb. I det här fallet, indatafilen och den katalog som används för utdata
+    * **User.name**: Den användare som kör kommandot
+    * **JAR**: Platsen för den jar-fil som innehåller klassen för att köra
+    * **klassen**: Den klass som innehåller logiken som MapReduce
+    * **arg**: Argument som ska skickas till MapReduce-jobb. I det här fallet, indatafilen och den katalog som används för utdata
 
    Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrollera status för jobbet:
 
@@ -136,7 +136,7 @@ Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på en 
 
     Om jobbet har slutförts, tillståndet som returnerades är `SUCCEEDED`.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Den här Curl-begäran returnerar ett JSON-dokument med information om jobbet. Jq används för att hämta tillståndet värdet.
 
 6. När tillståndet för jobbet har ändrats till `SUCCEEDED`, kan du hämta resultatet av jobbet från Azure Blob storage. Den `statusdir` parametern som skickas med frågan innehåller platsen för utdatafilen. I det här exemplet platsen är `/example/curl`. Den här adressen lagrar utdata för jobbet i kluster standardlagring på `/example/curl`.
@@ -147,11 +147,11 @@ Du kan visa och hämta dessa filer med hjälp av den [Azure CLI](https://docs.mi
 
 Allmän information om MapReduce-jobb i HDInsight:
 
-* [Använda MapReduce med Hadoop i HDInsight](hdinsight-use-mapreduce.md)
+* [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)
 
 Information om andra sätt kan du arbeta med Hadoop i HDInsight:
 
-* [Använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md)
-* [Använda Pig med Hadoop i HDInsight](hdinsight-use-pig.md)
+* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
 
 Mer information om REST-gränssnitt som används i den här artikeln finns det [WebHCat referens](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

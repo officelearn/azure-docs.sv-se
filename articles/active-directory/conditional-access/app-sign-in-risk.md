@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: abd9aeab88dc723ddcdff90ce58268296841dc4e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705930"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413310"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en risk för session har identifierats med villkorlig åtkomst i Azure Active Directory  
 
@@ -87,7 +87,7 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
 
     ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-3. På den **Azure Active Directory** sidan den **hantera** klickar du på **villkorlig åtkomst**.
+3. På den **Azure Active Directory** sidan den **Security** klickar du på **villkorlig åtkomst**.
 
     ![Villkorlig åtkomst](./media/app-sign-in-risk/03.png)
  

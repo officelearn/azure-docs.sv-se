@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 5998396faf746bd54d4f2dbd9c633ad3b4003878
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7184a5e1e9b41653cfe23aa863f8e4e4ea86c620
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193407"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409249"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Träffa IT Service Management Connector ITSM-produkter/tjänster
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/tjänst och IT Service Management Connector (ITSMC) i Log Analytics för att centralt hantera dina arbetsuppgifter. Läs mer om ITSMC [översikt](../../azure-monitor/platform/itsmc-overview.md).
@@ -291,7 +291,7 @@ Kontrollera att följande krav är uppfyllda:
 
 
 - ITSMC installerad. Mer information: [Att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Provance App ska registreras med Azure AD - och klient-ID är tillgänglig. Detaljerad information finns i [hur du konfigurerar active directory-autentisering](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Provance App ska registreras med Azure AD - och klient-ID är tillgänglig. Detaljerad information finns i [hur du konfigurerar active directory-autentisering](../../app-service/configure-authentication-provider-aad.md).
 
 - Användarroll:  Administratör.
 
@@ -319,7 +319,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 | **Användarnamn**   | Ange det användarnamn som kan ansluta till ITSMC.    |
 | **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs:** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i tjänsten ITSMC. _|
 | **Serveradress**   | Ange Webbadressen till din Provance-instans som du vill ansluta till ITSMC. |
-| **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i din Provance-instans.  Mer information om klient-ID finns i [hur du konfigurerar active directory-autentisering](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i din Provance-instans.  Mer information om klient-ID finns i [hur du konfigurerar active directory-autentisering](../../app-service/configure-authentication-provider-aad.md). |
 | **Datasynkroniseringsomfång**   | Välj Provance arbetsobjekten som du vill synkronisera till Azure Log Analytics, via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:**   Incidenter, ändringsbegäranden.|
 | **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar ITSMC berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad.|

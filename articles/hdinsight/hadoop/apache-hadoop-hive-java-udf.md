@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f027b4c827fd7afe1a9cd2f8f31839b092345728
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012495"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435080"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Använda en Java UDF med Apache Hive i HDInsight
 
@@ -213,7 +213,7 @@ Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som 
     ```
 
     > [!NOTE]
-    > Det här exemplet förutsätts att Azure Storage är standardlagringen för klustret. Om klustret använder Data Lake Store i stället, ändra den `wasb:///` värde att `adl:///`.
+    > Det här exemplet förutsätts att Azure Storage är standardlagringen för klustret. Om klustret använder Data Lake Storage i stället, ändra den `wasb:///` värde att `adl:///`.
 
 3. Använda en användardefinierad funktion för att konvertera värden som hämtats från en tabell till gemen strängar.
 
@@ -240,6 +240,6 @@ Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Andra sätt att arbeta med Hive, se [använda Hive med HDInsight](hdinsight-use-hive.md).
+Andra sätt att arbeta med Hive, se [använda Apache Hive med HDInsight](hdinsight-use-hive.md).
 
-Mer information om Hive User-Defined funktioner finns i [Hive operatorer och användardefinierade funktioner](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) delen av Hive-wiki på apache.org.
+Mer information om Hive User-Defined funktioner finns i [Apache Hive operatorer och användardefinierade funktioner](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) delen av Hive-wiki på apache.org.

@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5e5b8320459561ac2dbbf72a812e29e837e08cd6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ced7964fc96138ad7b18ab72d6c479e8db7eab8a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166667"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436236"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
 
@@ -22,13 +22,13 @@ Enterprise Security Package (ESP)-kluster tillhandahåller flera användare åtk
 
 I den här artikeln får du lära dig hur du konfigurerar ett HDInsight-kluster med ESP med hjälp av Azure Active Directory Domain Services (Azure AD DS-).
 
->[!NOTE]
->ESP är allmänt tillgänglig i HDI 3.6 för Spark, interaktiv och Apache Hadoop. ESP för HBase- och Kafka-kluster finns i förhandsversion.
+>[!NOTE]  
+>ESP är allmänt tillgänglig i HDI 3.6 för Apache Spark, interaktiv och Apache Hadoop. ESP för Apache HBase- och Apache Kafka-kluster finns i förhandsversion.
 
 ## <a name="enable-azure-ad-ds"></a>Aktivera Azure AD DS
 
-> [!NOTE]
-> Endast klientadministratörer ha behörighet att aktivera Azure AD-DS. Om klusterlagring är Azure Data Lake Store (ADLS) Gen1 och Gen2, inaktivera Multi-Factor Authentication (MFA) för användare som behöver åtkomst till klustret. Om klusterlagring är Azure Blob Storage (WASB) kan du inte inaktivera MFA.
+> [!NOTE]  
+> Endast klientadministratörer ha behörighet att aktivera Azure AD-DS. Om klusterlagring är Azure Data Lake Storage (ADLS) Gen1 och Gen2, inaktivera Multi-Factor Authentication (MFA) för användare som behöver åtkomst till klustret. Om klusterlagring är Azure Blob Storage (WASB) kan du inte inaktivera MFA.
 
 Aktivera AzureAD DS är en förutsättning innan du kan skapa ett HDInsight-kluster med ESP. Mer information finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
@@ -66,7 +66,7 @@ När den hanterade identitet skapas och rätt rollen, kan AAD-DS-administratöre
 
 ## <a name="networking-considerations"></a>Nätverksöverväganden
 
-> [!NOTE]
+> [!NOTE]  
 > Azure AD DS måste distribueras i ett Azure Resource Manager (ARM) baserat virtuellt nätverk. Klassiska virtuella nätverk stöds inte för Azure AD DS. Se [aktivera Azure Active Directory Domain Services med Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) för mer information.
 
 När du har aktiverat Azure AD-DS körs en lokal tjänst DNS (Domain Name)-server på AD-datorer (VM). Konfigurera din Azure AD DS virtuella nätverk (VNET) om du vill använda dessa anpassade DNS-servrar. För att hitta rätt IP-adresser, Välj **egenskaper** under den **hantera** kategori och titta på IP-adresser i listan under **IP-adress i virtuellt nätverk**.
@@ -114,5 +114,5 @@ Den hanterade identitet som du skapade kan väljas i listrutan användartilldela
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Konfigurera Hive-principer och köra Hive-frågor finns i [konfigurera Hive-principer för HDInsight-kluster med ESP](apache-domain-joined-run-hive.md).
-* Använda SSH för att ansluta till HDInsight-kluster med hjälp av ESP, finns i [använda SSH med Linux-baserat Hadoop i HDInsight från Linux, Unix eller OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Konfigurera Hive-principer och köra Hive-frågor finns i [konfigurerar Apache Hive-principer för HDInsight-kluster med ESP](apache-domain-joined-run-hive.md).
+* Använda SSH för att ansluta till HDInsight-kluster med hjälp av ESP, finns i [använda SSH med Linux-baserade Apache Hadoop på HDInsight från Linux, Unix eller OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

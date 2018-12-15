@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: d3fbc8e5b6595b52fe5ab9e766a108d271f2f448
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9973635593f7a8143ac1f3980b6e09caba44710b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104602"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413616"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -138,6 +138,18 @@ Felet innebär att azds.exe inte är i miljövariabeln PATH som visas i VS Code.
 
 Starta VS Code från en kommandotolk där PATH-miljövariabeln är korrekt.
 
+## <a name="error-required-tools-to-build-and-debug-projectname-are-out-of-date"></a>Fel ”nödvändiga verktyg för att skapa och Felsök 'projectname' är inaktuell”.
+
+Det här felet i Visual Studio Code visas om du har en nyare version av VS Code-tillägg för Azure Dev blanksteg, men en äldre version av Azure Dev blanksteg CLI.
+
+### <a name="try"></a>Testa
+
+Hämta och installera den senaste versionen av Azure Dev blanksteg CLI:
+
+* [Windows](http://aka.ms/get-azds-windows)
+* [Mac](http://aka.ms/get-azds-mac)
+* [Linux](https://aka.ms/get-azds-linux)
+
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>Fel 'azds' identifieras inte som ett internt eller externt kommando, ett körbart program eller en batchfil
  
 Du kan se det här felet om azds.exe inte är installerat eller korrekt konfigurerat.
@@ -172,8 +184,8 @@ Behållare-port är inte tillgängligt. Det här problemet kan inträffa därfö
 ### <a name="try"></a>Prova:
 1. Om behållaren håller på att bygger/distribueras, kan du vänta 2-3 sekunder och testa åtkomst till tjänsten igen. 
 1. Kontrollera i portkonfigurationen. De angivna portnummer måste vara **identiska** i alla tillgångar som nedan:
-    * **Dockerfile:** anges av den `EXPOSE` instruktion.
-    * **[Helm-diagrammet](https://docs.helm.sh):** anges av den `externalPort` och `internalPort` värden för en tjänst (ofta finns i en `values.yml` fil),
+    * **Dockerfile:** Anges av den `EXPOSE` instruktion.
+    * **[Helm-diagrammet](https://docs.helm.sh):** Anges av den `externalPort` och `internalPort` värden för en tjänst (ofta finns i en `values.yml` fil),
     * Alla portar som öppnas i programkoden, till exempel i Node.js: `var server = app.listen(80, function () {...}`
 
 
@@ -187,7 +199,7 @@ Du måste köra `azds up` från rotkatalogen för kod som du vill köra och mås
 1. Ändra katalogen till rotmappen som innehåller koden för tjänsten. 
 1. Om du inte har en _azds.yaml_ filen i mappen kod kör `azds prep` att generera Docker, Kubernetes och Azure Dev blanksteg tillgångar.
 
-## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Fel: ”det pipe programmet 'azds' avslutades oväntat med koden 126”.
+## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Fel: 'Pipe programmet 'azds' avslutades oväntat med koden 126 ”.
 Starta VS Code-felsökare kan ibland resultera i det här felet.
 
 ### <a name="try"></a>Prova:

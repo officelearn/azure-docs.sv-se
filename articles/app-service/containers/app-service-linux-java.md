@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 80a2cea90d8d1d2dd43207fa504e601b216714cc
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343487"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407345"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -135,7 +135,7 @@ Java-program som körs i App Service för Linux har samma uppsättning [säkerhe
 
 ### <a name="authenticate-users"></a>Autentisera användare
 
-Appautentisering i Azure-portalen med den **autentisering och auktorisering** alternativet. Därifrån kan aktivera du autentisering med hjälp av Azure Active Directory eller sociala inloggningar som Facebook, Google eller GitHub. Konfiguration av Azure portal fungerar bara när du konfigurerar en enda autentiseringsprovider.  Mer information finns i [konfigurera App Service-appen för att använda Azure Active Directory-inloggning](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) och relaterade artiklar för andra identitetsleverantörer.
+Appautentisering i Azure-portalen med den **autentisering och auktorisering** alternativet. Därifrån kan aktivera du autentisering med hjälp av Azure Active Directory eller sociala inloggningar som Facebook, Google eller GitHub. Konfiguration av Azure portal fungerar bara när du konfigurerar en enda autentiseringsprovider.  Mer information finns i [konfigurera App Service-appen för att använda Azure Active Directory-inloggning](/azure/app-service/configure-authentication-provider-aad) och relaterade artiklar för andra identitetsleverantörer.
 
 Om du vill aktivera flera inloggning providers, följ instruktionerna i den [anpassa App Service-autentisering](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) artikeln.
 

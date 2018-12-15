@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 8adff94a4cb536c3d8dbf7382b8acb69184030b5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325851"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435777"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begäranden till Azure Cognitive Services
 
@@ -23,6 +23,10 @@ Varje begäran till en Azure Cognitive Service måste innehålla en rubrik för 
 * [Autentisera med en prenumerationsnyckel som en tjänst](#authenticate-with-a-single-service-subscription-key)
 * [Autentisera med en flera tjänster prenumerationsnyckel](#authenticate-with-a-multi-service-subscription-key)
 * [Autentisera med en token](#authenticate-with-an-authentication-token)
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Innan du gör en begäran om behöver du ett Azure-konto och en Azure Cognitive Services-prenumeration. Om du redan har ett konto kan du gå vidare och gå vidare till nästa avsnitt. Om du inte har ett konto, har vi en guide som hjälper dig att konfigurera på några minuter: [Skapa ett Cognitive Services-konto för Azure](cognitive-services-apis-create-account.md).
 
 ## <a name="authentication-headers"></a>Autentiseringshuvuden
 

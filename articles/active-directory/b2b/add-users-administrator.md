@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3da427974c4a270a7a743bb81d2376cf61b77390
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335069"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436916"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal
 
@@ -24,7 +24,7 @@ Du kan använda Azure-portalen som global administratör eller en användare som
 När du lägger till en gästanvändare till katalogen du kan antingen skicka en direktlänk för gästanvändare till en delad app eller gästanvändaren kan klicka på URL-Adressen för inlösen i e-postinbjudan. Läs mer om processen för inlösen [inlösning av inbjudan för B2B-samarbete](redemption-experience.md).
 
 > [!IMPORTANT]
-> Du bör följa stegen i [instruktioner: Lägg till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement) att lägga till URL: en för din organisations sekretesspolicy. Som en del av den första gången inbjudan inlösen en inbjuden användare måste ge sitt godkännande till din sekretessvillkor för att fortsätta. 
+> Du bör följa stegen i [anvisningar: Lägg till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement) att lägga till URL: en för din organisations sekretesspolicy. Som en del av den första gången inbjudan inlösen en inbjuden användare måste ge sitt godkännande till din sekretessvillkor för att fortsätta. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Lägga till gästanvändare i katalogen
 
@@ -37,6 +37,9 @@ Följ dessa steg om du vill lägga till användare i B2B-samarbetet i katalogen:
 
    ![Visar där ny gästanvändare är i Användargränssnittet](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
+   > [!NOTE]
+   > Den **ny gästanvändare** alternativet är också tillgängligt på den **organisationens relationer** sidan. I **Azure Active Directory**under **hantera**väljer **organisationens relationer**.
+
 5. Under **Användarnamn** anger du den externa användarens e-postadress. Du kan också lägga till ett välkomstmeddelande. Exempel:
 
    ![Visar där ny gästanvändare är i Användargränssnittet](./media/add-users-administrator/InviteGuest.png) 

@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 61294d8b6b84b03b1e0c8d79b4d2855452c7f0e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9af8ce84805e48dd3c91dd7fb4fcf0b136fbfc60
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057231"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410099"
 ---
 # <a name="work-with-batch-ai-clusters"></a>Arbeta med Batch AI-kluster 
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Den här artikeln förklarar hur du arbetar med i Azure Batch AI-kluster. Det introducerar konceptet för kluster, vilka typer av konfigurationer som är möjliga och exempel. De flesta av de exempel som att skapa och hantera ett kluster i den här artikeln använder Azure CLI. Du kan dock använda andra verktyg som Azure-portalen och Azure Batch AI-SDK: er för att arbeta med kluster.
 
@@ -152,7 +155,7 @@ Utdata ska se ut ungefär så här.
 }
 ```
 
-### <a name="list-cluster-nodes"></a>Noder i listan
+### <a name="list-cluster-nodes"></a>Visa en lista över klusternoder
 
 Om du vill ansluta till noderna i hämtar följande kommando listan över noder och anslutningsinformationen.  
 

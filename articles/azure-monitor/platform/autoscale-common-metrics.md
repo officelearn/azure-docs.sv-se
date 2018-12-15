@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: f17d2d1cf25f533fb37d44da2890b6ad8741be82
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d12edc2023deb69118d7c02e053cd2525f6ae684
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326376"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437732"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoskalning vanliga mått
 Automatisk skalning med Azure Monitor kan du skala antalet instanser som körs upp eller ned, baserat på dessa data (mått). Det här dokumentet beskriver vanliga mått som du kanske vill använda. Du kan välja mått på resursen att skala genom att i Azure-portalen. Du kan också välja vilka mått som helst från en annan resurs kan skala med.
@@ -34,8 +34,8 @@ Om båda föregående fallen är sant, granskar [Använd PowerShell för att akt
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Värdmått för Resource Manager-baserade Windows och Linux-datorer
 Följande värdnivå mått genereras som standard för virtuella Azure-datorer och VMSS i både Windows och Linux-instanser. De här måtten beskrivs Azure VM, men har samlats in från Virtuella Azure-värd i stället för via agent installeras på den Virtuella gästdatorn. Du kan använda de här måtten i reglerna för automatisk skalning.
 
-- [Värdmått för Resource Manager-baserade Windows och Linux-datorer](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
-- [Värdmått för Resource Manager-baserade Windows och Linux VM Scale Sets](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
+- [Värdmått för Resource Manager-baserade Windows och Linux-datorer](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Värdmått för Resource Manager-baserade Windows och Linux VM Scale Sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Gäst-OS mått Resource Manager-baserade Windows virtuella datorer
 När du skapar en virtuell dator i Azure kan aktiveras diagnostik genom att använda Diagnostics-tillägg. Diagnostiktillägget genererar en uppsättning mått som kommer från inuti den virtuella datorn. Det innebär att du kan skalas automatiskt på mått som inte genereras som standard.

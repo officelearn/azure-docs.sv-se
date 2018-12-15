@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 5726444033d8da14c213918f409ddf5875e026b9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322763"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438208"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Översikt över Azure övervakningsagenter 
 Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av data från virtuella datorer som kör Microsoft Windows och Linux som ligger i Azure, ditt datacenter eller andra molnleverantörer. Det finns tre typer av agenter som kan övervaka en virtuell dator:
@@ -44,7 +44,7 @@ Du kan välja att samla in:
 Azure Diagnostics-agenten ska användas när du vill:
 
 * Arkivera loggar och mått till Azure storage
-* Integrera övervakningsdata med verktyg från tredje part. Dessa verktyg använder en mängd olika sätt, bland annat frågor till storage-konto, vidarebefordras till [Händelsehubbar](../../event-hubs/event-hubs-about.md), eller skicka en fråga med den [Azure Monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+* Integrera övervakningsdata med verktyg från tredje part. Dessa verktyg använder en mängd olika sätt, bland annat frågor till storage-konto, vidarebefordras till [Händelsehubbar](../../event-hubs/event-hubs-about.md), eller skicka en fråga med den [Azure Monitoring REST API](../../azure-monitor/platform/rest-api-walkthrough.md)
 * Ladda upp data till Azure Monitor för att skapa diagram med mätvärden i Azure-portalen eller skapa nära realtid [måttaviseringar](../../azure-monitor/platform/alerts-metric-overview.md). 
 * Skala VM scale sets och klassiska molntjänster baserat på OS gästmått.
 * Undersöka startproblem med de Virtuella med [Startdiagnostik](../../virtual-machines/troubleshooting/boot-diagnostics.md).

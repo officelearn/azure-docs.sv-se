@@ -10,12 +10,12 @@ ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167009"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408926"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -63,7 +63,7 @@ Detta gör att lösningen för ditt automation-konto. Lösningen kan ta upp till
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Konfigurera ändringsspårning och inventering
 
-Läs hur att integrera datorer till lösningen finns: [Onboarding automatiseringslösningar](automation-onboard-solutions-from-automation-account.md). Du kan konfigurera de objekt som ska spåra när du har en dator onboarding med lösningen ändringsspårning och inventering. När du aktiverar en ny fil eller registernyckel att spåra kan aktiveras för ändringsspårning och inventering.
+Läs hur att integrera datorer till lösningen finns: [Onboarding-automatiseringslösningar](automation-onboard-solutions-from-automation-account.md). Du kan konfigurera de objekt som ska spåra när du har en dator onboarding med lösningen ändringsspårning och inventering. När du aktiverar en ny fil eller registernyckel att spåra kan aktiveras för ändringsspårning och inventering.
 
 MD5-hash-värden för filerna som används för att spåra ändringar i filer på både Windows och Linux. Dessa hashvärden används sedan för att identifiera om en ändring har gjorts sedan den senaste inventeringen.
 
@@ -85,7 +85,7 @@ Använd följande steg för att konfigurera filspårning på Linux-datorer:
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
 |Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
 |Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger.<br>**Följ** – följer de symboliska länkarna under rekursion och dessutom ingår refererade filer/kataloger.<br>**Hantera** – följer de symboliska länkarna och tillåter ändring av returnerat innehåll.     |
-|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
+|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **SANT** eller **FALSKT**.|
 
 > [!NOTE]
 > Länkalternativet ”Hantera” rekommenderas inte. Hämtning av filinnehåll stöds inte.
@@ -105,7 +105,7 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt.        |
 |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: "c:\temp\\\*.txt"<br>Du kan också använda miljövariabler som "%winDir%\System32\\\*.*"       |
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
-|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
+|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **SANT** eller **FALSKT**.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Inställningar för jokertecken, rekursion och miljö
 
@@ -135,7 +135,7 @@ Använd följande steg för att konfigurera viktiga registerspårning på Window
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt.        |
-|Windows-registernyckel   | Sökvägen till att söka efter filen. Till exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
+|Windows-registernyckel   | Sökvägen till att söka efter filen. Exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -167,10 +167,21 @@ I följande tabell visas insamlingsfrekvens data för typerna av ändringar. Fö
 | Windows-registret | 50 minuter |
 | Windows-fil | 30 minuter |
 | Linux-fil | 15 minuter |
-| Windows-tjänster | 10 sekunder till 30 minuter</br> Standard: 30 minuter |
+| Windows-tjänster | 10 sekunder till 30 minuter</br> Standard: 30 minuter |
 | Linux-Daemon | 5 minuter |
 | Windows-programvara | 30 minuter |
 | Linux-programvara | 5 minuter |
+
+I följande tabell visar de spårade objekt gränserna per dator för ändringsspårning.
+
+| **Resurs** | **Gränsen**| **Anteckningar** |
+|---|---|---|
+|Fil|500||
+|Register|250||
+|Windows-programvara|250|Omfattar inte programuppdateringar|
+|Linux-paket|1250||
+|Tjänster|250||
+|Daemon|250||
 
 ### <a name="windows-service-tracking"></a>Windows service-spårning
 
@@ -256,7 +267,7 @@ Förutom den information som tillhandahålls i portalen, kan du göra sökningar
 
 Följande tabell innehåller exempel på loggsökningar för ändra poster som samlas in av den här lösningen:
 
-|Fråga  |Beskrivning  |
+|Söka i data  |Beskrivning  |
 |---------|---------|
 |ConfigurationData<br>&#124;där ConfigDataType == ”WindowsServices” och SvcStartupType == ”automatisk”<br>&#124;där SvcState == ”stoppad”<br>&#124;Sammanfatta arg_max(TimeGenerated, *) av SoftwareName dator         | Visar senaste lagerposter för Windows-tjänster som har ställts in på automatisk men har rapporterats som stoppas<br>Frågeresultaten har begränsats till den senaste posten för den SoftwareName och Computer      |
 |ConfigurationChange<br>&#124;där ConfigChangeType == ”programvara” och ChangeCategory == ”borttagen”<br>&#124;order by-TimeGenerated fall|Visar ändringsposter för borttagna program|

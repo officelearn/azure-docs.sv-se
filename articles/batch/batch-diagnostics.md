@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 9e99e5f999c927ed0376a89b9f6d9f73fa8b2b2b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384181"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438446"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
@@ -31,7 +31,7 @@ Den här artikeln förklarar hur du övervakar ett Batch-konto med hjälp av fun
 
 Mått är Azure telemetridata (kallas även prestandaräknare) skickas från dina Azure-resurser som förbrukas av Azure Monitor-tjänsten. Exempel mått i ett Batch-konto är: Skapande av pool händelser, antal noder med låg prioritet och uppgiften slutföra händelser. 
 
-Se den [lista över mått som stöds Batch](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+Se den [lista över mått som stöds Batch](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Mått är:
 

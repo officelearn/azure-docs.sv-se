@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 1544d60d94a73326d2cd0430de8a1f61aaefe373
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7b6fefd575901648a99bb3a67a05e705622bb74a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343980"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407872"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -45,7 +45,6 @@ ms.locfileid: "53343980"
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Stöd har lagts till för att hantera delning i samlingar som använder delade databasen dataflöde.
   * Den här versionen åtgärdas ett problem som kan uppstå under dela i samlingar med delade databasen dataflöde när dela resultatet i partitionen igen belastningsutjämning med endast en underordnad partitionsnyckelintervall skapas i stället för två. När detta sker kan Change Feed Processor fastna ta bort gamla partitionsnyckelintervall lånet och inte skapa nya lån. Problemet är löst i den här versionen.
-  * Mindre icke-bakåtkompatibel ändring: lagt till nya metoden IChangeFeedDocumentClient.ReadOffersFeedAsync som används för att kontrollera om colleciton har tilldelat dedikerade thoughput eller delar dataflöde med andra samlingar i databasen. Tillhandahåller anpassade implementering av IChangeFeedDocumentClient är ett avancerat scenario och kan användas för att övervaka alla anrop av Change Feed Processor att övervakas och låna samlingar. Med den här ändringen måste IChangeFeedDocumentClient implementering ändras genom att implementera den nya metoden.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * Har lagts till ny egenskap ChangeFeedProcessorOptions.StartContinuation stöd från ändringen feed från begäran fortsättningstoken. Detta används bara när lånsamling är tom eller ett lån har inte angetts ContinuationToken. ContinuationToken används för lån i lånsamling som har angetts ContinuationToken, och ChangeFeedProcessorOptions.StartContinuation ignoreras.
@@ -159,6 +158,10 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.2.5](#2.2.5) |13 december 2018 |--- |
+| [2.2.4](#2.2.4) |Den 29 november 2018 |--- |
+| [2.2.3](#2.2.3) |19 november 2018 |--- |
+| [2.2.2](#2.2.2) |Den 31 oktober 2018 |--- |
 | [2.2.1](#2.2.1) |24 oktober 2018 |--- |
 | [1.3.3](#1.3.3) |08 maj 2018 |--- |
 | [1.3.2](#1.3.2) |18 april 2018 |--- |

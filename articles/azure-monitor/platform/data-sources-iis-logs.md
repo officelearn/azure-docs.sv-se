@@ -1,6 +1,6 @@
 ---
-title: IIS-loggar i Azure Log Analytics | Microsoft Docs
-description: Internet Information Services (IIS) lagrar användarnas aktivitet i loggfiler som kan samlas in av Log Analytics.  Den här artikeln beskriver hur du konfigurerar insamling av IIS-loggar och information om de poster som skapas i Log Analytics-arbetsytan.
+title: IIS-loggar i Azure Monitor | Microsoft Docs
+description: Internet Information Services (IIS) lagrar användarnas aktivitet i loggfiler som kan samlas in av Azure Monitor.  Den här artikeln beskriver hur du konfigurerar insamling av IIS-loggar och information om de poster som de skapar i Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,31 +11,30 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 42509f98126ebb489fe17c58e6d58b37d7451cf0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: cd28eef249ae6b07b9e3f74b80c32a4b53370215
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189089"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436747"
 ---
-# <a name="iis-logs-in-log-analytics"></a>IIS-loggar i Log Analytics
-Internet Information Services (IIS) lagrar användarnas aktivitet i loggfiler som kan samlas in av Log Analytics.  
+# <a name="collect-iis-logs-in-azure-monitor"></a>Samla in IIS-loggar i Azure Monitor
+Internet Information Services (IIS) lagrar användaraktivitet i loggfilerna som kan samlas in av Azure Monitor och lagras som [logga data över](data-collection.md).
 
 ![IIS-loggar](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Konfigurera IIS-loggar
-Log Analytics samlar in poster från loggfiler som skapas i IIS, så du måste [konfigurera IIS för att logga](https://technet.microsoft.com/library/hh831775.aspx).
+Azure Monitor samlar in poster från loggfiler som skapas i IIS, så du måste [konfigurera IIS för att logga](https://technet.microsoft.com/library/hh831775.aspx).
 
-Log Analytics kan du endast har stöd för IIS-loggfiler i W3C-format och stöder inte anpassade fält eller avancerade IIS-loggningen.  
-Log Analytics samlar inte in loggar i ursprungligt format för NCSA eller IIS.
+Azure Monitor kan du endast har stöd för IIS-loggfiler i W3C-format och stöder inte anpassade fält eller avancerade IIS-loggningen. Den samlar inte in loggar i ursprungligt format för NCSA eller IIS.
 
-Konfigurera IIS-loggar i Log Analytics från den [Data-menyn i logganalys-inställningar](agent-data-sources.md#configuring-data-sources).  Det finns ingen konfiguration behövs är att välja **samla in W3C-format IIS-loggfiler**.
+Konfigurera IIS-loggar i Azure Monitor från den [avancerade inställningar menyn](agent-data-sources.md#configuring-data-sources).  Det finns ingen konfiguration behövs är att välja **samla in W3C-format IIS-loggfiler**.
 
 
 ## <a name="data-collection"></a>Datainsamling
-Log Analytics samlar in IIS-loggposter från varje agent som skapas varje gång loggen stängs och ett nytt lösenord. Denna frekvens styrs av den **Log File förnya schema** för IIS-webbplats som är en gång per dag som standard. Om inställningarna är till exempel **per timme**, och sedan Log Analytics samlar in loggen varje timme.  Om inställningen är **dagliga**, och sedan Log Analytics samlar in loggen var 24: e timme.
+Azure Monitor samlar in IIS-loggposter från varje agent som skapas varje gång loggen stängs och ett nytt lösenord. Denna frekvens styrs av den **Log File förnya schema** för IIS-webbplats som är en gång per dag som standard. Om inställningarna är till exempel **per timme**, och sedan Azure Monitor samlar in loggen varje timme.  Om inställningen är **dagliga**, och sedan Azure Monitor samlar in loggen var 24: e timme.
 
 
 ## <a name="iis-log-record-properties"></a>Egenskaper för IIS-post
@@ -65,7 +64,7 @@ IIS-loggposter har en typ av **W3CIISLog** och har egenskaperna i följande tabe
 | TimeGenerated |Datum och tid i posten loggades. |
 | timeTaken |Lång tid att bearbeta begäran i millisekunder. |
 
-## <a name="log-searches-with-iis-logs"></a>Loggsökningar med IIS-loggar
+## <a name="log-queries-with-iis-logs"></a>Loggfrågor med IIS-loggar
 I följande tabell innehåller olika exempel på loggfrågor som hämtar IIS-loggposter.
 
 | Söka i data | Beskrivning |
@@ -77,6 +76,5 @@ I följande tabell innehåller olika exempel på loggfrågor som hämtar IIS-log
 | W3CIISLog &#124; sammanfatta sum(csBytes) per dator &#124; ta 500000 |Totalt antal byte mottaget för varje IIS-dator. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Konfigurera Log Analytics för att samla in andra [datakällor](agent-data-sources.md) för analys.
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
-* Konfigurera aviseringar i Log Analytics för att informera dig om viktiga villkor finns i IIS-loggar.
+* Konfigurera Azure Monitor för att samla in andra [datakällor](agent-data-sources.md) för analys.
+* Lär dig mer om [logga frågor](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar.

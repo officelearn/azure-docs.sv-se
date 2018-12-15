@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2b059c9a8808db3b2426db0d997df15196be604d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ae2b06f266ef19d9558511284ba94c77cdca1955
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012087"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409691"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Kör Apache Hive-frågor med hjälp av Data Lake-verktyg för Visual Studio
 
@@ -24,7 +24,7 @@ Lär dig hur du använder Data Lake-verktyg för Visual Studio för att fråga s
 
 * Ett kluster i Azure HDInsight (Apache Hadoop på HDInsight)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio (någon av följande versioner):
@@ -37,7 +37,7 @@ Lär dig hur du använder Data Lake-verktyg för Visual Studio för att fråga s
 
 * HDInsight tools för Visual Studio eller Azure Data Lake tools för Visual Studio. Se [Kom igång med Visual Studio Hadoop-verktyg för HDInsight](apache-hadoop-visual-studio-tools-get-started.md) information om hur du installerar och konfigurerar verktygen.
 
-## <a id="run"></a> Köra Hive-frågor med Visual Studio
+## <a id="run"></a> Kör Apache Hive-frågor med Visual Studio
 
 1. Öppna **Visual Studio** och välj **New** > **projekt** > **Azure Data Lake**  >   **HIVE** > **Hive programmet**. Ange ett namn för det här projektet.
 
@@ -58,12 +58,12 @@ Lär dig hur du använder Data Lake-verktyg för Visual Studio för att fråga s
 
    * `CREATE EXTERNAL TABLE`: Skapar en ny ”externa” tabell i Hive. Externa tabeller kan du bara lagra tabelldefinitionen i Hive (data finns kvar i den ursprungliga platsen).
 
-     > [!NOTE]
+     > [!NOTE]  
      > Externa tabeller som ska användas när du förväntar dig att underliggande data uppdateras av en extern källa. Till exempel ett MapReduce-jobb eller Azure-tjänst.
      >
      > Tar bort en extern tabell har **inte** ta bort data, endast tabelldefinitionen.
 
-   * `ROW FORMAT`: Visar Hive hur informationen har formaterats. I det här fallet avgränsas fälten i varje logg med ett blanksteg.
+   * `ROW FORMAT`: Beskriver hur informationen har formaterats Hive. I det här fallet avgränsas fälten i varje logg med ett blanksteg.
 
    * `STORED AS TEXTFILE LOCATION`: Visar Hive att data lagras i katalogen/exempeldata och att den lagras som text.
 
@@ -95,7 +95,7 @@ Lär dig hur du använder Data Lake-verktyg för Visual Studio för att fråga s
 
    * `CREATE TABLE IF NOT EXISTS`: Skapar en tabell om den inte redan finns. Eftersom den `EXTERNAL` nyckelord används inte, den här instruktionen skapar en intern tabell. Interna tabeller lagras i datalagret Hive och hanteras av Hive.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Till skillnad från `EXTERNAL` tabeller, släppa en intern tabell även tar bort underliggande data.
 
    * `STORED AS ORC`: Lagrar data i optimerad raden (ORC) kolumnformat. ORC är ett mycket optimerade och effektiv format för att lagra Hive-data.
@@ -112,13 +112,13 @@ Som du kan se ger HDInsight tools för Visual Studio ett enkelt sätt att arbeta
 
 Allmän information om Hive i HDInsight:
 
-* [Använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
 
 Information om andra sätt kan du arbeta med Hadoop i HDInsight:
 
-* [Använda Pig med Hadoop i HDInsight](hdinsight-use-pig.md)
+* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
 
-* [Använda MapReduce med Hadoop i HDInsight](hdinsight-use-mapreduce.md)
+* [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)
 
 Mer information om HDInsight-verktyg för Visual Studio:
 

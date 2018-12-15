@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b60e1639a1c32763c4759720fe61b0e571fc9dd1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239431"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437103"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Lära dig viktiga begrepp i Windows PowerShell-arbetsflöde för Automation-runbooks
 
@@ -193,10 +193,10 @@ Workflow Copy-Files
 }
 ```
 
-Du kan använda den **ForEach-Parallel** konstruktion kommandon bearbetas parallellt för varje objekt i en samling. Objekt i samlingen bearbetas parallellt medan kommandona i skriptblocket körs sekventiellt. Detta använder du följande syntax som visas nedan. I det här fallet startar kommer Activity1 på samma gång för alla objekt i samlingen. För varje objekt startar Activity2 efter att Activity1 har slutförts. Activity3 startas endast efter att både Activity1 och Activity2 har slutförts för alla objekt.
+Du kan använda den **ForEach-Parallel** konstruktion kommandon bearbetas parallellt för varje objekt i en samling. Objekt i samlingen bearbetas parallellt medan kommandona i skriptblocket körs sekventiellt. Detta använder du följande syntax som visas nedan. I det här fallet startar kommer Activity1 på samma gång för alla objekt i samlingen. För varje objekt startar Activity2 efter att Activity1 har slutförts. Activity3 startas endast efter att både Activity1 och Activity2 har slutförts för alla objekt. Vi använder den `ThrottleLimit` parametern för att begränsa parallellitet. För hög en `ThrottleLimit` kan orsaka problem. Perfekt värdet för den `ThrottleLimit` parametern beror på många faktorer i din miljö. Du bör börja med ett lågt värde och försök olika ökande värden tills du hittar en som fungerar för din specifika situation.
 
 ```powershell
-ForEach -Parallel ($<item> in $<collection>)
+ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
 {
     <Activity1>
     <Activity2>
@@ -211,7 +211,7 @@ Workflow Copy-Files
 {
     $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-    ForEach -Parallel ($File in $Files)
+    ForEach -Parallel -ThrottleLimit 10 ($File in $Files)
     {
         Copy-Item -Path $File -Destination \\NetworkPath
         Write-Output "$File copied."
@@ -258,7 +258,7 @@ Workflow Copy-Files
 }
 ```
 
-Eftersom användarnamn autentiseringsuppgifter inte sparas när du anropar den [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) aktivitet eller när den senaste kontrollpunkten, måste du ange autentiseringsuppgifterna som null och sedan hämta dem igen från arkivet tillgången efter  **Pausa arbetsflöde** eller kontrollpunkt anropas.  I annat fall kan du få följande felmeddelande visas: *går inte att återuppta arbetsflödesjobbet, antingen eftersom persistence data inte kunde sparas helt eller sparat persistence data har skadats. Du måste starta om arbetsflödet.*
+Eftersom användarnamn autentiseringsuppgifter inte sparas när du anropar den [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) aktivitet eller när den senaste kontrollpunkten, måste du ange autentiseringsuppgifterna som null och sedan hämta dem igen från arkivet tillgången efter  **Pausa arbetsflöde** eller kontrollpunkt anropas.  I annat fall kan du få följande felmeddelande visas: *Det går inte att återuppta arbetsflödesjobbet, antingen eftersom persistence data inte kunde sparas helt eller sparat persistence data har skadats. Du måste starta om arbetsflödet.*
 
 Följande samma kod visar hur du hanterar detta i PowerShell Workflow-runbooks.
 

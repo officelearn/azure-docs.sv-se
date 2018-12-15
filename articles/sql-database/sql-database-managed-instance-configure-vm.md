@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/07/2018
-ms.openlocfilehash: ecaf0f0d490decae0fc6298415b15d4d5ddbb4fd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.date: 12/13/2018
+ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139103"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410075"
 ---
-# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabbstart: Konfigurera Azure virtuell dator att ansluta till en Azure SQL Database Managed Instance
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabbstart: Konfigurera virtuell Azure-dator att ansluta till en Azure SQL Database Managed Instance
 
 Den här snabbstarten visar hur du konfigurerar en Azure-dator att ansluta till en Azure SQL Database Managed Instance med SQL Server Management Studio (SSMS). En Snabbstart som visar hur du ansluter från en lokal klientdator med en punkt-till-plats-anslutning, se [konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md) 
 
@@ -84,7 +84,7 @@ Det enklaste sättet att skapa en virtuell dator för klienten med alla nödvän
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösenordet varje gång du [ansluta till den virtuella datorn](#connect-to-virtual-machine).|
    | **Storlek på virtuell dator** | Valfri giltig storlek | Standard i den här mallen för **Standard_B2s** är tillräcklig för den här snabbstarten. |
    | **Plats**|[resourceGroup () .location].| Ändra inte det här värdet. |
-   | **Namn på virtuellt nätverk**|Den plats som du tidigare valt|För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/).|
+   | **Namn på virtuellt nätverk**|Den virtuella nät nätverken nätverk där du skapade den hanterade instansen.|
    | **Namn på undernät**|Namnet på det undernät som du skapade i föregående procedur| Välj inte undernätet där du skapade den hanterade instansen.|
    | **artefakter plats** | [distribution ().properties.templateLink.uri] | Ändra inte det här värdet. |
    | **artefakter plats Sas-token** | Lämna tomt | Ändra inte det här värdet. |

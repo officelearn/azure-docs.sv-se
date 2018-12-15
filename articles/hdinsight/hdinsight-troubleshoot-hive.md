@@ -8,14 +8,14 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 832fab6c4f183ddad512c5e6e4309d70938a316b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600031"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407028"
 ---
-# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Felsöka Hive med Azure HDInsight
+# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Felsöka Apache Hive med Azure HDInsight
 
 Läs mer om på viktiga frågor och deras lösningar när du arbetar med Apache Hive nyttolaster i Apache Ambari.
 
@@ -104,7 +104,7 @@ Koden i Lösningssteg förutsätter att datasökvägar för det nya klustret är
 - [Egenskaper för hive-konfiguration](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hur jag för att analysera Tez DAG data på en kluster-kritisk väg?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hur jag för att analysera data i Apache Tez DAG på en kluster-kritisk väg?
 
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
@@ -126,17 +126,17 @@ Koden i Lösningssteg förutsätter att datasökvägar för det nya klustret är
   Du måste ange ett exempelprogram som det första argumentet.
 
   Giltigt programnamn inkluderar:
-    - **ContainerReuseAnalyzer**: skriva ut behållare återanvändning information i en grupp för Databastillgänglighet
-    - **CriticalPath**: hitta den kritiska vägen i DAG
-    - **LocalityAnalyzer**: skriva ut ort information finns i en grupp för Databastillgänglighet
-    - **ShuffleTimeAnalyzer**: analysera shuffle tidsinformation i en grupp för Databastillgänglighet
-    - **SkewAnalyzer**: analysera skeva informationen i en grupp för Databastillgänglighet
-    - **SlowNodeAnalyzer**: skriva ut nodinformation i en grupp för Databastillgänglighet
-    - **SlowTaskIdentifier**: Skriv ut långsam delar av uppgifterna i en grupp för Databastillgänglighet
-    - **SlowestVertexAnalyzer**: skriva ut den långsammaste hörn information i en grupp för Databastillgänglighet
-    - **SpillAnalyzer**: Skriv ut oljesanering detaljer i en grupp för Databastillgänglighet
-    - **TaskConcurrencyAnalyzer**: skriva ut samtidighet aktivitetsinformation i en grupp för Databastillgänglighet
-    - **VertexLevelCriticalPathAnalyzer**: hitta den kritiska vägen på hörn nivå i en grupp för Databastillgänglighet
+    - **ContainerReuseAnalyzer**: Skriva ut behållare återanvändning information i en grupp för Databastillgänglighet
+    - **CriticalPath**: Hitta den kritiska vägen i DAG
+    - **LocalityAnalyzer**: Skriva ut ort information finns i en grupp för Databastillgänglighet
+    - **ShuffleTimeAnalyzer**: Analysera shuffle tidsinformation i en grupp för Databastillgänglighet
+    - **SkewAnalyzer**: Analysera skeva informationen i en grupp för Databastillgänglighet
+    - **SlowNodeAnalyzer**: Skriva ut nodinformation i en grupp för Databastillgänglighet
+    - **SlowTaskIdentifier**: Skriva ut långsam delar av uppgifterna i en grupp för Databastillgänglighet
+    - **SlowestVertexAnalyzer**: Skriva ut den långsammaste hörn information i en grupp för Databastillgänglighet
+    - **SpillAnalyzer**: Skriva ut oljesanering information finns i en grupp för Databastillgänglighet
+    - **TaskConcurrencyAnalyzer**: Skriva ut samtidighet aktivitetsinformation i en grupp för Databastillgänglighet
+    - **VertexLevelCriticalPathAnalyzer**: Hitta den kritiska vägen på hörn nivå i en grupp för Databastillgänglighet
 
 
 ### <a name="additional-reading"></a>Ytterligare resurser

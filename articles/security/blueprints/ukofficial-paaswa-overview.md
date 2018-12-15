@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321996"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409028"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-säkerhet och efterlevnad skiss: PaaS Web program som är värd för Storbritannien officiella arbetsbelastningar
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Blueprint för säkerhet och efterlevnad: PaaS-webbprogram som är värd för Storbritannien officiella arbetsbelastningar
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Skisser för säkerhet och efterlevnad i Azure
 
@@ -39,7 +39,7 @@ Med hjälp av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-re
 
 Den här skissen är en foundation-arkitektur. Våra kunder kan använda den här skissen som en grund för sina officiella klassificering webbaserade arbetsbelastningar och expandera de mallar och resurser med sina egna krav. Den här skissen bygger på principerna för den [Storbritannien officiella Trelagers-IaaS-webbprogram skiss](https://aka.ms/ukofficial-iaaswa) att erbjuda våra kunder, både [infrastruktur som en tjänst (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/) och PaaS som redan för att hantera webbaserade arbetsbelastningar.
 
-Om du vill distribuera den här skissen, krävs en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du registrera dig snabbt och enkelt utan kostnad: Kom igång med Azure. Klicka på [här](https://aka.ms/ukofficial-paaswa-repo/) anvisningar för distribution.
+Om du vill distribuera den här skissen, krävs en Azure-prenumeration. Om du inte har en Azure-prenumeration kan registrera du dig snabbt och enkelt utan kostnad: Kom igång med Azure. Klicka på [här](https://aka.ms/ukofficial-paaswa-repo/) anvisningar för distribution.
 
 ## <a name="architecture-and-components"></a>Arkitektur och komponenter
 
@@ -79,7 +79,7 @@ Följande tekniker hanteringsfunktioner identitet i Azure-miljön:
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) Microsofts molnbaserade katalog- och identitetstjänst management multiklienttjänst. Alla användare för lösningen har skapats i Azure Active Directory, inklusive användare med åtkomst till SQL-databasen.
 - Det utförs autentiseringen till operatorn mot webbprogram och åtkomst för administrationen av Azure-resurser med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Kolumnen databaskryptering använder Azure AD för att autentisera program till Azure SQL Database. Mer information finns i [Always Encrypted: skydda känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- Kolumnen databaskryptering använder Azure AD för att autentisera program till Azure SQL Database. Mer information finns i [Always Encrypted: Skydda känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 - Kundorienterade webbprogram har konfigurerats för offentlig åtkomst. Att tillåta för nätverks-kontoskapandet och autentisering via active directory eller sociala identitetsleverantörer [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan integreras om det behövs.
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) identifierar potentiella säkerhetsproblem och riskfyllda konton ger rekommendationer för att förbättra säkerhetspositionen för din organisations identiteter, konfigurerar automatiska svar till har identifierats misstänkta åtgärder relaterade till din organisations identiteter, och undersöker misstänkta incidenter och vidtar lämpliga åtgärder du kan åtgärda detta.
 - [Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) aktiverar exakt fokuserade åtkomsthantering för Azure. Prenumerationsåtkomst är begränsad till administratör för prenumerationen och Azure Key Vault-åtkomst begränsas till användare som behöver åtkomst för nyckelhantering.
@@ -104,14 +104,14 @@ Data överförs från utanför och mellan Azure-komponenter är skyddat med hjä
 
 Azure Web Apps får du en fullständigt hanterad värdmiljö för webbprogram som har utvecklats i Java, PHP, Node.js, Python, HTML- och C# utan att behöva hantera infrastrukturen. Den tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) eller valfri Git-baserade lagringsplats.
 
-App Service är [ISO, SOC och PCI-kompatibel](https://www.microsoft.com/TrustCenter/) och kan autentisera användare med [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) eller med social inloggning ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), och [Microsoft authentication](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
+App Service är [ISO, SOC och PCI-kompatibel](https://www.microsoft.com/TrustCenter/) och kan autentisera användare med [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) eller med social inloggning ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter), och [Microsoft authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
 Basic, Standard och Premium-prenumerationer avser produktionsarbetsbelastningar och körs på särskilda virtuella datorinstanser. Varje instans har stöd för flera program och domäner. App services också stöd för [IP-adressbegränsningar](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) att skydda trafik till betrodda IP-adresser om det behövs och även [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) för säker anslutning till andra PaaS-tjänster till exempel [Nyckelvalv](https://azure.microsoft.com/services/key-vault/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Om det krävs ytterligare säkerhet vår isolerad är värd för dina appar i en privat, dedikerad miljö för Azure och är perfekt för appar som kräver säkra anslutningar till ditt lokala nätverk eller ytterligare prestanda och skalning.
 
 Den här mallen distribuerar följande App Service-funktioner:
 
 - [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) nivå för App Service-Plan
-- Flera Web App [distributionsfack](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): utveckling, förhandsgranskning, QA, UAT och naturligtvis produktion (standard-port).
+- Flera Web App [distributionsfack](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): Utveckling, förhandsgranskning, QA, UAT och naturligtvis produktion (standard-port).
 - [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) att ansluta till [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (Detta kan också användas för att ge åtkomst till [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Integrering med [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) att övervaka prestanda
 - [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
@@ -232,7 +232,7 @@ Tre metoder har angetts för distribution; En enkel ”express” [Azure CLI 2](
 1.  Klona eller ladda ned [detta](https://aka.ms/ukofficial-paaswa-repo) GitHub-lagringsplatsen till den lokala arbetsstationen.
 2.  Granska [metod 1: Azure CLI-2 (Express-version)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) och kör angivna kommandon.
 3.  Granska [metoden 1a: Azure CLI-2 (Konfigurera distribution via skriptargument)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) och kör angivna kommandon
-4.  Granska [metod 2: processen för distribution av Azure Portal](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) och kör kommandon för listan
+4.  Granska [metod 2: Processen för distribution av Azure Portal](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) och kör kommandon för listan
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
 

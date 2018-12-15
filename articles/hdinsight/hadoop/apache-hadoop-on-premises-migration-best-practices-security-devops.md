@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 548992ac221b1b6f9a29082eb986aa42c6a2807e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7cfb327a3eb6cbf2ae90c9d258a470797732acaa
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994000"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437511"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - säkerhet och bästa praxis för DevOps
 
@@ -24,7 +24,7 @@ Den här artikeln ger rekommendationer för säkerhets- och DevOps i Azure HDIns
 
 Enterprise Security Package (ESP) har stöd för Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomstkontroll. HDInsight-kluster är ansluten till Active Directory-domänen med det valda ESP-alternativet och enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC för Apache Hive säkerhet) med hjälp av Apache Ranger. Administratören kan också granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll.
 
-ESP är tillgängligt på följande klustertyper: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka och Interactive Query (Hive-LLAP). 
+ESP finns på följande klustertyper: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka och interaktiv fråga (Hive LLAP). 
 
 Använd följande steg för att distribuera domänanslutna HDInsight-kluster:
 
@@ -38,21 +38,24 @@ Använd följande steg för att distribuera domänanslutna HDInsight-kluster:
 - Aktivera LDAPS för AAD DS.
 - Skapa ett tjänstkonto i Azure Active Directory med delegerade Läs & admin skrivbehörighet till Organisationsenheten, så att den kan. Tjänstkontot kan ansluta datorer till domänen och placera datorn säkerhetsobjekt i Organisationsenheten. Det kan också skapa tjänstens huvudnamn i Organisationsenheten som du anger när klustret skapas.
 
+
     > [!Note]
     > Kontot behöver inte vara administratör för AD domänkonto.
 
+
 - Distribuera HDInsight ESP-kluster genom att ange följande parametrar:
-    - **Domännamn**: det domännamn som är associerat med Azure AD DS.
-    - **Domänanvändarnamn**: kontot i Azure AD DS-DC-hanterad domän som du skapade i föregående avsnitt, till exempel: `hdiadmin@contoso.onmicrosoft.com`. Den här domänanvändare ska vara administratör för det här HDInsight-klustret.
-    - **Domänlösenord**: lösenordet för tjänstkontot.
-    - **Organisationsenhet**: det unika namnet på den Organisationsenhet som du vill använda med HDInsight-klustret, till exempel: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Om den här Organisationsenheten inte finns, försöker HDInsight-klustret skapa Organisationsenheten med privilegier för kontot.
+    - **Domännamn**: Det domännamn som är associerat med Azure AD DS.
+    - **Domänanvändarnamn**: Tjänstkontot i Azure AD DS-DC-hanterad domän som du skapade i föregående avsnitt, till exempel: `hdiadmin@contoso.onmicrosoft.com`. Den här domänanvändare ska vara administratör för det här HDInsight-klustret.
+    - **Domänlösenord**: Lösenordet för tjänstkontot.
+    - **Organisationsenhet**: Det unika namnet på den Organisationsenhet som du vill använda med HDInsight-klustret, till exempel: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Om den här Organisationsenheten inte finns, försöker HDInsight-klustret skapa Organisationsenheten med privilegier för kontot.
     - **LDAPS-URL**: till exempel `ldaps://contoso.onmicrosoft.com:636`.
-    - **Ha åtkomst till användargrupper**: säkerhetsgrupperna vars användare som du vill synkronisera i klustret, till exempel: `HiveUsers`. Om du vill ange flera användargrupper avgränsa dem med semikolon (;). I grupperna måste finnas i katalogen innan du skapar ESP-klustret.
+    - **Ha åtkomst till användargrupper**: Säkerhetsgrupperna vars användare som du vill synkronisera i klustret, till exempel: `HiveUsers`. Om du vill ange flera användargrupper avgränsa dem med semikolon (;). I grupperna måste finnas i katalogen innan du skapar ESP-klustret.
 
 Mer information finns i följande artiklar:
 
 - [En introduktion till Apache Hadoop-säkerhet med domänanslutna HDInsight-kluster](../domain-joined/apache-domain-joined-introduction.md)
-- [Planera Azure-domänanslutna Hadoop-kluster i HDInsight](../domain-joined/apache-domain-joined-architecture.md)
+
+- [Planera Azure-domänanslutna Apache Hadoop-kluster i HDInsight](../domain-joined/apache-domain-joined-architecture.md)
 - [Konfigurera ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 - [Synkronisera Azure Active Directory-användare till ett HDInsight-kluster](../hdinsight-sync-aad-users-to-cluster.md)
 - [Konfigurera Apache Hive-policyer i domänanslutna HDInsight](../domain-joined/apache-domain-joined-run-hive.md)
@@ -106,7 +109,7 @@ Uppgradera regelbundet till den senaste versionen för HDInsight kan utnyttja de
 1. Importera alla tillfälliga data som har säkerhetskopierats.
 1. Starta jobb/fortsätta att bearbeta med hjälp av det nya klustret.
 
-Mer information finns i artikeln: [uppgradera HDInsight-kluster till en ny version](../hdinsight-upgrade-cluster.md).
+Mer information finns i artikeln: [Uppgradera HDInsight-kluster till en ny version](../hdinsight-upgrade-cluster.md).
 
 ## <a name="patch-cluster-operating-systems"></a>Korrigera klusteroperativsystemen
 

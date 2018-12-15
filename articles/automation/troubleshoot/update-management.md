@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 87edc2911a48aea1ff0d7ac826439fe547c7cd86
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d0d6ed03b6e28df9767e24170ebf5ec92bb9fe9a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342893"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434740"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
@@ -164,7 +164,7 @@ Du har datorer som visas som **ej utvärderat** under **efterlevnad**, och du se
 
 #### <a name="cause"></a>Orsak
 
-Windows update är inte korrekt konfigurerad på datorn.
+Windows Update eller WSUS är inte korrekt konfigurerad på datorn. Uppdateringshantering förlitar sig av Windows Update eller WSUS för att tillhandahålla uppdateringar som behövs, status för uppdateringen och resultatet av korrigeringar som distribueras. Utan den här informationen kan hantering av uppdateringar inte korrekt rapport om de korrigeringar som krävs eller installerad.
 
 #### <a name="resolution"></a>Lösning
 

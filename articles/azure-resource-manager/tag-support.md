@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284990"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409674"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-using-tags.md).
@@ -29,7 +29,7 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | konfiguration | Nej | 
 | agenter | Nej | 
 | aadsupportcases | Nej | 
-| Rapporter | Nej | 
+| rapporter | Nej | 
 | servicehealthmetrics | Nej | 
 | loggar | Nej | 
 | anonymousapiusers | Nej | 
@@ -68,18 +68,6 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | batchAccounts | Ja | 
-
-## <a name="batch-ai"></a>Batch AI
-| Resurstyp | Har stöd för taggar |
-| ------------- | ----------- |
-| Kluster | Ja | 
-| jobb | Ja | 
-| fileservers | Ja | 
-| arbetsytor | Ja | 
-| arbetsytor/kluster | Nej | 
-| arbetsytor/fileservers | Nej | 
-| arbetsytor/experiment | Nej | 
-| arbetsytor-experiment-jobb | Nej | 
 
 ## <a name="bing-maps"></a>Bing-kartor
 | Resurstyp | Har stöd för taggar |

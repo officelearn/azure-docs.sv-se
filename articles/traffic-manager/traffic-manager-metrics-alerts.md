@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: d0b2ac54f70fedc409c386243e1755704c1c332c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: bb7817b082da11de3071925d01a3402902410a6f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386374"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437977"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager-mått och aviseringar
 
@@ -27,7 +27,7 @@ Traffic Manager får du med DNS-baserade belastningsutjämning som innehåller f
 Traffic Manager får följande mått på basis av per profil som kan användas av kunder att förstå deras användning av Traffic manager och status för slutpunkter som under denna profil.  
 
 ### <a name="queries-by-endpoint-returned"></a>Frågor efter slutpunkten returnerade
-Använd [mätvärdet](../monitoring-and-diagnostics/monitoring-supported-metrics.md) att visa antalet frågor som behandlats av en Traffic Manager-profil under en angiven period. Du kan också visa samma information med en slutpunkt på Precision som hjälper dig att förstå hur många gånger en slutpunkt som returnerades i frågesvar från Traffic Manager.
+Använd [mätvärdet](../azure-monitor/platform/metrics-supported.md) att visa antalet frågor som behandlats av en Traffic Manager-profil under en angiven period. Du kan också visa samma information med en slutpunkt på Precision som hjälper dig att förstå hur många gånger en slutpunkt som returnerades i frågesvar från Traffic Manager.
 
 Bild 1 visar alla frågesvar som returnerades av Traffic Manager-profilen i exemplet nedan. 
 
@@ -43,7 +43,7 @@ Bild 2 visar samma information, men den delas av slutpunkter. Därför kan du se
 *Bild 2: Delad vy med frågan volym visas per slutpunkt returnerade*
 
 ## <a name="endpoint-status-by-endpoint"></a>Slutpunktsstatus av slutpunkten
-Använd [mätvärdet](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) att förstå hälsostatus för slutpunkter i profilen. Det tar två värden:
+Använd [mätvärdet](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) att förstå hälsostatus för slutpunkter i profilen. Det tar två värden:
  - Använd **1** om slutpunkten är igång.
  - Använd **0** om slutpunkten är nere.
 
@@ -59,11 +59,11 @@ Det här måttet kan antingen anges som ett samlat värde som representerar stat
 
 *Bild 4: Dela upp överblick över mått för slutpunkt-status*
 
-Du kan använda de här måtten via [Azure Monitor-tjänsten](../monitoring-and-diagnostics/monitoring-supported-metrics.md)'s portalen [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), och [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), eller via avsnittet mått i Traffic Manager-portalen.
+Du kan använda de här måtten via [Azure Monitor-tjänsten](../azure-monitor/platform/metrics-supported.md)'s portalen [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), och [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), eller via avsnittet mått i Traffic Manager-portalen.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Aviseringar i mått för Traffic Manager
 Förutom bearbetning och visa mått från Traffic Manager, Azure Monitor ger kunder möjlighet att konfigurera och mottagning av aviseringar som är associerade med de här måtten. Du kan välja vilka villkor som måste uppfyllas i de här måtten för en avisering ska ske, hur ofta dessa villkor måste övervakas och hur aviseringar ska skickas till dig. Mer information finns i [dokumentation aviseringar i Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [Azure Monitor-tjänsten](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
+- Läs mer om [Azure Monitor-tjänsten](../azure-monitor/platform/metrics-supported.md)
 - Lär dig hur du [skapa ett nytt diagram med Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)

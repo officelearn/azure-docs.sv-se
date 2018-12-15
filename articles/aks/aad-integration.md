@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dc0421baf1e5cb19be925072b5fffb989e23a3b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 9bdd3060219907f95454bfc9248572f796afd72e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979258"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437616"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
@@ -149,7 +149,7 @@ Använd först den [aaz aks get-credentials] [ az-aks-get-credentials] med den `
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Använd följande manifestet för att skapa en ClusterRoleBinding för ett Azure AD-konto. Uppdatera användarnamnet med en från Azure AD-klienten. Det här exemplet ger konto fullständig åtkomst till alla namnområden i klustret:
+Använd följande manifestet för att skapa en ClusterRoleBinding för ett Azure AD-konto. Det här exemplet ger konto fullständig åtkomst till alla namnområden i klustret. Skapa en fil som *rbac-aad-user.yaml*, och klistra in följande innehåll. Uppdatera användarnamnet med en från Azure AD-klienten:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -166,7 +166,13 @@ subjects:
   name: "user@contoso.com"
 ```
 
-En bindning för rollen kan även skapas för alla medlemmar i en Azure AD-grupp. Azure AD-grupper har angetts med grupp-ID för objekt som visas i följande exempel:
+Tillämpa en bindning med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot som visas i följande exempel:
+
+```console
+kubectl apply -f rbac-aad-user.yaml
+```
+
+En bindning för rollen kan även skapas för alla medlemmar i en Azure AD-grupp. Azure AD-grupper har angetts med grupp-ID för objekt som visas i följande exempel. Skapa en fil som *rbac-aad-group.yaml*, och klistra in följande innehåll. Uppdatera objekt-ID för gruppen med en från Azure AD-klienten:
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -181,6 +187,12 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
+```
+
+Tillämpa en bindning med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot som visas i följande exempel:
+
+```console
+kubectl apply -f rbac-aad-group.yaml
 ```
 
 Läs mer om hur du skyddar ett Kubernetes-kluster med RBAC [med RBAC-auktorisering][rbac-authorization].
@@ -221,6 +233,7 @@ Läs mer om hur du skyddar Kubernetes-kluster med hjälp av rollbaserad Åtkomst
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [rbac-authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

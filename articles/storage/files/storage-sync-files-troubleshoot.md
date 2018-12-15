@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 6ee16a0483b13471f12654f82ef6972b41ace634
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316959"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409470"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -468,20 +468,17 @@ När det här registervärdet har angetts godkänner Azure File Sync-agenten all
 | **Felsträng** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Reparation krävs** | Ja |
 
-Det här felet uppstår ofta eftersom servertiden är felaktig eller certifikatet som används för autentisering har upphört att gälla. Om servertiden är korrekt, utför följande steg för att ta bort det utgångna certifikatet (om det har gått ut) och återställa registreringstillstånd för servern:
+Det här felet uppstår ofta eftersom servertiden är felaktig eller certifikatet som används för autentisering har upphört att gälla. Utför följande steg för att förnya utgångna certifikat om servertiden stämmer:
 
 1. Öppna snapin-modulen MMC certifikat, Välj datorkontot och navigera till \Personal\Certificates certifikat (lokal dator).
-2. Ta bort certifikatet för klientautentisering om upphört att gälla och stäng snapin-modulen certifikat.
-3. Öppnar Regedit och ta bort nyckeln ServerSetting i registret: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. Gå till avsnittet registrerade servrar i Storage Sync-tjänsten i Azure-portalen. Högerklicka på servern med det utgångna certifikatet och klicka på ”avregistrera Server”.
-5. Kör följande PowerShell-kommandon på servern:
+2. Kontrollera om certifikatet för klientautentisering har upphört att gälla. Om certifikatet har upphört att gälla, stänger du MMC snapin-modulen certifikat och proceeed med återstående steg. 
+3. Verifiera Azure File Sync-agenten version 4.0.1.0 eller senare är installerat.
+4. Kör följande PowerShell-kommandon på servern:
 
     ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Reset-StorageSyncServer
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-6. Omregistrera servern genom att köra ServerRegistration.exe (standardsökvägen är C:\Program Files\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Den volym som Serverslutpunkten har för lite ledigt diskutrymme.**  
 | | |

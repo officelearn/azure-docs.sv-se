@@ -8,17 +8,18 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fcf11d10a05b553c85532d9092c42b515328b5c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f9c2324eb429c82f7e937b4f18311bf204eeb193
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188086"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408761"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Hur du stoppar övervakningen Azure Kubernetes Service (AKS) med Azure Monitor för behållare
 
@@ -35,14 +36,14 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 Om du vill återaktivera övervakning för ditt kluster, se [aktivera övervakning med hjälp av Azure CLI](container-insights-onboard.md#enable-monitoring-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
-Tillhandahållna är två Azure Resource Manager-mall för ta bort lösningsresurser konsekvent och upprepade gånger i resursgruppen. En är en JSON-mall som anger att konfigurationen ska *avanmäla dig* och den andra innehåller parametervärden som du konfigurerar för att ange AKS-kluster-ID och resurs resursgruppen som klustret distribueras i. 
+Tillhandahållna är två Azure Resource Manager-mall för ta bort lösningsresurser konsekvent och upprepade gånger i resursgruppen. En är en JSON-mall som anger hur du stoppar övervakningen och den andra innehåller parametervärden som du konfigurerar för att ange AKS-kluster-ID och resurs resursgruppen som klustret distribueras i. 
 
 Om du inte är bekant med begreppet att distribuera resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->Mallen måste distribueras i samma resursgrupp som klustret.
+>Mallen måste distribueras i samma resursgrupp som klustret. Om du utelämnar andra egenskaper eller tillägg när du använder den här mallen kan det resultera i sina tas bort från klustret. Till exempel *enableRBAC*.  
 >
 
 Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
@@ -148,5 +149,5 @@ Konfigurationsändringen kan ta några minuter att slutföra. När det är klart
 ProvisioningState       : Succeeded
 ```
 
-Om arbetsytan har skapats enbart för att stöd för övervakning av klustret och inte längre behövs kan behöva du manuellt ta bort den. Om du inte är bekant med hur du tar bort en arbetsyta kan se [ta bort en Azure Log Analytics-arbetsyta med Azure portal](../../azure-monitor/platform/delete-workspace.md). Glöm inte att den **Arbetssyteresurs-ID** vi kopierade tidigare i steg 4, du kommer att behöva som. 
+Om arbetsytan har skapats enbart för att stöd för övervakning av klustret och inte längre behövs kan behöva du manuellt ta bort den. Om du inte är bekant med hur du tar bort en arbetsyta kan se [ta bort en Azure Log Analytics-arbetsyta med Azure portal](../../log-analytics/log-analytics-manage-del-workspace.md). Glöm inte att den **Arbetssyteresurs-ID** vi kopierade tidigare i steg 4, du kommer att behöva som. 
 

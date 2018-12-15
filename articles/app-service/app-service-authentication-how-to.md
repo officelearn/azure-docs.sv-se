@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 67d08379d98873fa88ef20b5cc8c87163c067e3a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310461"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409759"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -29,11 +29,11 @@ Om du vill komma igång snabbt, finns i följande Självstudier:
 
 * [Självstudiekurs: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
 * [Självstudiekurs: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)
-* [Så här konfigurerar du din app för att använda Azure Active Directory-inloggning](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Så här konfigurerar du din app för att använda Facebook-inloggning](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Så här konfigurerar du din app för att använda Google-inloggning](app-service-mobile-how-to-configure-google-authentication.md)
-* [Så här konfigurerar du din app för att använda Microsoft-kontoinloggning](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Så här konfigurerar du din app för att använda Twitter-inloggning](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [Så här konfigurerar du din app för att använda Azure Active Directory-inloggning](configure-authentication-provider-aad.md)
+* [Så här konfigurerar du din app för att använda Facebook-inloggning](configure-authentication-provider-facebook.md)
+* [Så här konfigurerar du din app för att använda Google-inloggning](configure-authentication-provider-google.md)
+* [Så här konfigurerar du din app för att använda Microsoft-kontoinloggning](configure-authentication-provider-microsoft.md)
+* [Så här konfigurerar du din app för att använda Twitter-inloggning](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Använda flera inloggning-providers
 
@@ -183,7 +183,7 @@ När din provider åtkomst-token upphör att gälla måste autentiseras använda
 - **Google**: Lägg till en `access_type=offline` frågesträngparametern till din `/.auth/login/google` API-anrop. Om du använder SDK för Mobile Apps, du kan lägga till parametern till en av de `LogicAsync` överlagringar (se [Google uppdatera token](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Ger inte uppdateringstoken. Långlivade token går ut inom 60 dagar (se [Facebook förfallodatum och tillägg av åtkomsttoken](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter-**: Åtkomsttoken inte upphör att gälla (se [Twitter OAuth vanliga frågor och svar](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Microsoft-konto**: När [konfigurera autentiseringsinställningar för Microsoft-konto](app-service-mobile-how-to-configure-microsoft-authentication.md)väljer den `wl.offline_access` omfång.
+- **Microsoft-konto**: När [konfigurera autentiseringsinställningar för Microsoft-konto](configure-authentication-provider-microsoft.md)väljer den `wl.offline_access` omfång.
 - **Azure Active Directory**: I [ https://resources.azure.com ](https://resources.azure.com), gör följande:
     1. Längst ned på sidan Välj **Läs/Skriv**.
     1. I den vänstra webbläsaren, navigerar du till **prenumerationer** > **_\<prenumeration\_namn_**   >  **resourceGroups** > _**\<resource\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser** > _**\<app \_namn >**_ > **config** > **authsettings**. 

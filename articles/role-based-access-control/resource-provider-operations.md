@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b09f64e2183453b3656efa340d53682a241dd00e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017961"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410541"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -80,7 +80,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Hämtar användarens inställning för skogen.<br>Exempel - MetricCounterName som ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes, ldapsearches.<br>Inställningar för Användargränssnittet diagram osv. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/forestsummary/read | Hämtar skog sammanfattning för den angivna skogen som skogsnamn antalet domäner under den här skogen, antalet platser och platser information osv. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | Hämtar listan över mått som stöds för en viss tjänst.<br>För exempel extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för AD FS-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomainService.<br>Kör profil svarstid, TCP-anslutningar upprättas, Insights agenten privata byte, exportera statistik till Azure AD för ADSync-tjänsten. |
-> | Åtgärd | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att få information som rör: extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/premiumcheck/read | Detta API hämtar listan över alla integrerat ADDomainServices för en premium-klient. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/read | Hämtar information om tjänsten för det angivna tjänstnamnet. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/replicationdetails/read | Hämtar information om replikering för alla servrar för det angivna tjänstnamnet. |
@@ -115,9 +115,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/services/exportstatus/read | Hämtar exporteringsstatus för för en viss tjänst. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/feedbacktype/feedback/read | Hämtar aviseringar feedback för en viss tjänst och server. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/metricmetadata/read | Hämtar listan över mått som stöds för en viss tjänst.<br>För exempel extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för AD FS-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomainService.<br>Kör profil svarstid, TCP-anslutningar upprättas, Insights agenten privata byte, exportera statistik till Azure AD för ADSync-tjänsten. |
-> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Med en tjänst kan hämtar detta API medelvärdet för mått för en viss tjänst.<br>Detta API kan till exempel användas för att få information som rör: extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
-> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att få information som rör: extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
-> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Med en tjänst kan hämtar detta API aggregerade vyn för mått för en viss tjänst.<br>Detta API kan till exempel användas för att få information som rör: extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Med en tjänst kan hämtar detta API medelvärdet för mått för en viss tjänst.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Med en tjänst kan hämtar detta API aggregerade vyn för mått för en viss tjänst.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/monitoringconfiguration/write | Lägg till eller uppdaterar övervakningskonfigurationen för en tjänst. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/monitoringconfigurations/read | Hämtar övervakningsinställningar för en viss tjänst. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | Lägg till eller uppdaterar övervakningsinställningar för en tjänst. |
@@ -130,7 +130,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/datafreshness/read | För en viss server hämtar detta API en lista med datatyper som laddas av servrarna och den senaste tid för varje överföring. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/delete | Tar bort en server-instans i tjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/exportstatus/read | Hämtar exportera synkroniseringsfel-information för en viss tjänst för synkronisering. |
-> | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att få information som rör: extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/read | Läser server-instans i tjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/serviceconfiguration/read | Hämtar tjänstkonfigurationen för en viss klient. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/tenantwhitelisting/read | Hämtar lista över tillåtna funktionsstatus för en viss klient. |
@@ -600,38 +600,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Batch/register/action | Registrerar prenumerationen för Batch-Resursprovidern och gör det möjligt att skapa Batch-konton |
 > | Åtgärd | Microsoft.Batch/unregister/action | Avregistrerar prenumerationen för Batch-Resursprovidern som förhindrar skapandet av Batch-konton |
 
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Åtgärdstyp | Åtgärd | Beskrivning |
-> | --- | --- | --- |
-> | Åtgärd | Microsoft.BatchAI/clusters/read | Visar en lista över Batch AI-kluster eller hämtar egenskaperna för ett Batch AI-kluster |
-> | Åtgärd | Microsoft.BatchAI/fileservers/read | Visar en lista över Batch AI fileservers eller hämtar egenskaperna för ett Batch AI-filserver |
-> | Åtgärd | Microsoft.BatchAI/locations/operationresults/read | Hämtar Batch AI async resultat vid den angivna Azure-regionen |
-> | Åtgärd | Microsoft.BatchAI/locations/operationstatuses/read | Hämtar Åtgärdsstatus för Batch AI async vid den angivna Azure-regionen |
-> | Åtgärd | Microsoft.BatchAI/locations/usages/read | Hämtar Batch AI användningsområden för den angivna prenumerationen på den angivna Azure-regionen |
-> | Åtgärd | Microsoft.BatchAI/register/action | Registrerar prenumerationen för Batch AI-Resursprovidern och gör det möjligt att skapa Batch AI-resurser |
-> | Åtgärd | Microsoft.BatchAI/unregister/action | Avregistrerar prenumerationen för att förhindra att skapa resurser i Batch AI Batch AI Resource Provider |
-> | Åtgärd | Microsoft.BatchAI/workspaces/clusters/delete | Tar bort ett Batch AI-kluster |
-> | Åtgärd | Microsoft.BatchAI/workspaces/clusters/read | Visar en lista över Batch AI-kluster eller hämtar egenskaperna för ett Batch AI-kluster |
-> | Åtgärd | Microsoft.BatchAI/workspaces/clusters/remoteLoginInformation/action | Visar en lista över fjärr-inloggningsinformation för ett Batch AI-kluster |
-> | Åtgärd | Microsoft.BatchAI/workspaces/clusters/write | Skapar ett nytt Batch AI-kluster eller uppdaterar ett befintligt Batch AI-kluster |
-> | Åtgärd | Microsoft.BatchAI/workspaces/delete | Tar bort en Batch AI-arbetsyta |
-> | Åtgärd | Microsoft.BatchAI/workspaces/experiments/delete | Tar bort ett Batch AI-experiment |
-> | Åtgärd | Microsoft.BatchAI/workspaces/experiments/jobs/delete | Tar bort ett Batch AI-jobb |
-> | Åtgärd | Microsoft.BatchAI/workspaces/experiments/jobs/listoutputfiles/action | Listor utdatafiler för ett Batch AI-jobb |
-> | Åtgärd | Microsoft.BatchAI/workspaces/experiments/jobs/read | Visar en lista över Batch AI-jobb eller hämtar egenskaperna för ett Batch AI-jobb |
-> | Åtgärd | Microsoft.BatchAI/workspaces/experiments/jobs/remoteLoginInformation/action | Visar en lista över fjärr-inloggningsinformation för ett Batch AI-jobb |
-> | Åtgärd | Microsoft.BatchAI/workspaces/experiments/jobs/terminate/action | Avslutar ett Batch AI-jobb |
-> | Åtgärd | Microsoft.BatchAI/workspaces/experiments/jobs/write | Skapar ett nytt Batch AI-jobb eller uppdaterar ett befintligt Batch AI-jobb |
-> | Åtgärd | Microsoft.BatchAI/workspaces/experiments/read | Listor Batch AI-experimenten eller hämtar egenskaperna för ett Batch AI-experiment |
-> | Åtgärd | Microsoft.BatchAI/workspaces/experiments/write | Skapar ett nytt Batch AI-experiment eller uppdaterar ett befintligt Batch AI-experiment |
-> | Åtgärd | Microsoft.BatchAI/workspaces/fileservers/delete | Tar bort ett Batch AI-filserver |
-> | Åtgärd | Microsoft.BatchAI/workspaces/fileservers/read | Visar en lista över Batch AI fileservers eller hämtar egenskaperna för ett Batch AI-filserver |
-> | Åtgärd | Microsoft.BatchAI/workspaces/fileservers/write | Skapar en ny Batch AI-filserver eller uppdaterar en befintlig Batch AI-filserver |
-> | Åtgärd | Microsoft.BatchAI/workspaces/read | Visar en lista över Batch AI arbetsytor eller hämtar egenskaperna för en Batch AI-arbetsyta |
-> | Åtgärd | Microsoft.BatchAI/workspaces/write | Skapar en ny Batch AI-arbetsyta eller uppdaterar en befintlig Batch AI-arbetsyta |
-
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -671,7 +639,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Blueprint/blueprints/versions/read | Läs eventuella skisser |
 > | Åtgärd | Microsoft.Blueprint/blueprints/versions/write | Skapa eller uppdatera eventuella skisser |
 > | Åtgärd | Microsoft.Blueprint/blueprints/write | Skapa eller uppdatera eventuella skisser |
-> | Åtgärd | Microsoft.Blueprint/register/action | Registrerar Resursprovidern Azure skisser |
+> | Åtgärd | Microsoft.Blueprint/register/action | Registrerar Azure Blueprint-resursprovider |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -1324,16 +1292,16 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ContainerService/containerServices/delete | Tar bort en containertjänst |
 > | Åtgärd | Microsoft.ContainerService/containerServices/read | Hämta en containertjänst |
 > | Åtgärd | Microsoft.ContainerService/containerServices/write | Skapar en ny containertjänst eller uppdaterar en befintlig |
-> | Åtgärd | Microsoft.ContainerService/locations/operationresults/read | Hämtar status för en asynkron åtgärd-resultat |
+> | Åtgärd | Microsoft.ContainerService/locations/operationresults/read | Hämtar status för resultatet för en asynkron åtgärd |
 > | Åtgärd | Microsoft.ContainerService/locations/operations/read | Hämtar status för en asynkron åtgärd |
-> | Åtgärd | Microsoft.ContainerService/locations/orchestrators/read | Visar en lista över initierare som stöds |
+> | Åtgärd | Microsoft.ContainerService/locations/orchestrators/read | Visar en lista över containerdistributioner som stöds |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Hämta en åtkomstprofil för hanterat kluster efter rollnamn med hjälp av listautentiseringsuppgift |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/accessProfiles/read | Hämta en åtkomstprofil för hanterat kluster efter rollnamn |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/delete | Tar bort ett hanterat kluster |
-> | Åtgärd | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lista över clusterAdmin autentiseringsuppgifterna för ett hanterat kluster |
-> | Åtgärd | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lista över clusterUser autentiseringsuppgifterna för ett hanterat kluster |
+> | Åtgärd | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lista över clusterAdmin-autentiseringsuppgifter för ett hanterat kluster |
+> | Åtgärd | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lista över clusterUser-autentiseringsuppgifter för ett hanterat kluster |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/read | Hämta ett hanterat kluster |
-> | Åtgärd | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Hämtar uppgraderingsprofil i klustret |
+> | Åtgärd | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Hämtar klustrets uppgraderingsprofil |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/write | Skapar ett nytt hanterat kluster eller uppdaterar ett befintligt |
 > | Åtgärd | Microsoft.ContainerService/openShiftClusters/delete | Ta bort ett Open Shift-kluster |
 > | Åtgärd | Microsoft.ContainerService/openShiftClusters/read | Hämta ett Open Shift-kluster |
@@ -1341,9 +1309,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ContainerService/openShiftManagedClusters/delete | Ta bort ett hanterat kluster Open Shift |
 > | Åtgärd | Microsoft.ContainerService/openShiftManagedClusters/read | Hämta ett hanterat kluster Open Shift |
 > | Åtgärd | Microsoft.ContainerService/openShiftManagedClusters/write | Skapar ett nytt Open Shift hanterade kluster eller uppdaterar en befintlig |
-> | Åtgärd | Microsoft.ContainerService/operations/read | Visar en lista över åtgärder som är tillgängliga på resursprovidern Microsoft.ContainerService |
-> | Åtgärd | Microsoft.ContainerService/register/action | Registrerar prenumerationen med Microsoft.ContainerService-resursprovidern |
-> | Åtgärd | Microsoft.ContainerService/unregister/action | Avregistrerar prenumeration med Microsoft.ContainerService-resursprovidern |
+> | Åtgärd | Microsoft.ContainerService/operations/read | Visar en lista över åtgärder som är tillgängliga på Microsoft.ContainerService-resursprovidern |
+> | Åtgärd | Microsoft.ContainerService/register/action | Registrerar prenumeration på Microsoft.ContainerService-resursprovidern |
+> | Åtgärd | Microsoft.ContainerService/unregister/action | Avregistrerar prenumeration på Microsoft.ComputeService-resursprovidern |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
@@ -1542,9 +1510,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.Databricks/register/action | Registrera på Databricks. |
 > | Åtgärd | Microsoft.Databricks/workspaces/delete | Tar bort en Databricks-arbetsyta. |
-> | Åtgärd | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Anger tillgängliga diagnostikinställningarna för Databricks-arbetsyta |
+> | Åtgärd | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Ställer in tillgängliga diagnostikinställningar för Databricks-arbetsytan |
 > | Åtgärd | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Lägg till eller ändra diagnostikinställningarna. |
-> | Åtgärd | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga Loggdefinitioner för Databricks-arbetsyta |
+> | Åtgärd | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggdefinitioner för Databricks-arbetsytan |
 > | Åtgärd | Microsoft.Databricks/workspaces/read | Hämtar en lista över Databricks-arbetsytor. |
 > | Åtgärd | Microsoft.Databricks/workspaces/write | Skapar en Databricks-arbetsyta. |
 
@@ -2169,7 +2137,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Hämta lista över klustermått resursbeskrivningar |
 > | Åtgärd | Microsoft.EventHub/clusters/read | Hämtar beskrivning av klusterresurs |
 > | Åtgärd | Microsoft.EventHub/clusters/write | Hämtar beskrivning av klusterresurs |
-> | Åtgärd | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Tar bort VNet-regler i EventHub-Resursprovidern för det angivna virtuella nätverket |
+> | Åtgärd | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Tar bort reglerna för virtuellt nätverk i EventHub-resursprovidern för det angivna virtuella nätverket |
 > | Åtgärd | Microsoft.EventHub/namespaces/authorizationRules/action | Uppdateringar Namespace-auktoriseringsregeln. Detta API är inaktuell. Använd ett PUT-anrop för att uppdatera auktoriseringsregeln Namespace istället... Den här åtgärden stöds inte på API-versionen 2017-04-01. |
 > | Åtgärd | Microsoft.EventHub/namespaces/authorizationRules/delete | Ta bort auktoriseringsregel för Namespace. Auktoriseringsregel för standard Namespace kan inte tas bort.  |
 > | Åtgärd | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | Hämta anslutningssträngen till namnområdet |
@@ -2680,24 +2648,24 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.LocationBasedServices/accounts/delete | (Inaktuell: Använd /providers/Microsoft.Maps) Ta bort en Location Based Services-kontot. |
-> | Åtgärd | Microsoft.LocationBasedServices/accounts/listKeys/action | (Inaktuell: Använd /providers/Microsoft.Maps) Lista över nycklar för Location Based Services-konto |
-> | Åtgärd | Microsoft.LocationBasedServices/accounts/read | (Inaktuell: Använd /providers/Microsoft.Maps) Hämta en Location Based Services-kontot. |
-> | Åtgärd | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Inaktuell: Använd /providers/Microsoft.Maps) Skapa ny Location Based Services-konto primär eller sekundär nyckel |
-> | Åtgärd | Microsoft.LocationBasedServices/accounts/write | (Inaktuell: Använd /providers/Microsoft.Maps) Skapa eller uppdatera en Location Based Services-konto. |
-> | Åtgärd | Microsoft.LocationBasedServices/register/action | (Inaktuell: Använd /providers/Microsoft.Maps) Registrera providern |
+> | Åtgärd | Microsoft.LocationBasedServices/accounts/delete | (Inaktuell: Använd /providers/Microsoft.Maps) ta bort en Location Based Services-konto. |
+> | Åtgärd | Microsoft.LocationBasedServices/accounts/listKeys/action | (Inaktuell: Använd /providers/Microsoft.Maps)List Location Based Services-konto nycklar |
+> | Åtgärd | Microsoft.LocationBasedServices/accounts/read | (Inaktuell: Använd /providers/Microsoft.Maps) får en Location Based Services-konto. |
+> | Åtgärd | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Inaktuell: Använd /providers/Microsoft.Maps) skapa nya Location Based Services-konto primära eller sekundära nycklar |
+> | Åtgärd | Microsoft.LocationBasedServices/accounts/write | (Inaktuell: Använd /providers/Microsoft.Maps) skapa eller uppdatera en Location Based Services-konto. |
+> | Åtgärd | Microsoft.LocationBasedServices/register/action | (Inaktuell: Använd /providers/Microsoft.Maps) registrera providern |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.LocationServices/accounts/delete | (Inaktuell: Använd /providers/Microsoft.Maps) Ta bort en Location Services-konto. |
-> | Åtgärd | Microsoft.LocationServices/accounts/listKeys/action | (Inaktuell: Använd /providers/Microsoft.Maps) Lista över nycklar för Location Based Services-konto |
-> | Åtgärd | Microsoft.LocationServices/accounts/read | (Inaktuell: Använd /providers/Microsoft.Maps) Få en Location Services-konto. |
-> | Åtgärd | Microsoft.LocationServices/accounts/regenerateKey/action | (Inaktuell: Använd /providers/Microsoft.Maps) Skapa ny Location Based Services-konto primär eller sekundär nyckel |
-> | Åtgärd | Microsoft.LocationServices/accounts/write | (Inaktuell: Använd /providers/Microsoft.Maps) Skapa eller uppdatera en Location Services-konto. |
-> | Åtgärd | Microsoft.LocationServices/register/action | (Inaktuell: Använd /providers/Microsoft.Maps) Registrera providern |
+> | Åtgärd | Microsoft.LocationServices/accounts/delete | (Inaktuell: Använd /providers/Microsoft.Maps) ta bort en Location Services-konto. |
+> | Åtgärd | Microsoft.LocationServices/accounts/listKeys/action | (Inaktuell: Använd /providers/Microsoft.Maps)List Location Based Services-konto nycklar |
+> | Åtgärd | Microsoft.LocationServices/accounts/read | (Inaktuell: Använd /providers/Microsoft.Maps) får en Location Services-konto. |
+> | Åtgärd | Microsoft.LocationServices/accounts/regenerateKey/action | (Inaktuell: Använd /providers/Microsoft.Maps) skapa nya Location Based Services-konto primära eller sekundära nycklar |
+> | Åtgärd | Microsoft.LocationServices/accounts/write | (Inaktuell: Använd /providers/Microsoft.Maps) skapa eller uppdatera en Location Services-konto. |
+> | Åtgärd | Microsoft.LocationServices/register/action | (Inaktuell: Använd /providers/Microsoft.Maps) registrera providern |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 
@@ -3096,7 +3064,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Accepterar ett undertecknat avtal. |
 > | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/importImage/action | Importerar en avbildning till slutanvändarens ACR. |
 > | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Returnerar en konfig. |
-> | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | Sparar en config. |
+> | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | Sparar en konfig. |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -4357,7 +4325,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.ServiceBus/checkNameAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. |
 > | Åtgärd | Microsoft.ServiceBus/checkNamespaceAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. Detta API är inaktuell Använd Checknameavailability istället. |
-> | Åtgärd | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Tar bort VNet-regler i ServiceBus-Resursprovidern för det angivna virtuella nätverket |
+> | Åtgärd | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Tar bort reglerna för virtuellt nätverk i ServiceBus-resursprovidern för det angivna virtuella nätverket |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/authorizationRules/action | Uppdateringar Namespace-auktoriseringsregeln. Detta API är inaktuell. Använd ett PUT-anrop för att uppdatera auktoriseringsregeln Namespace istället... Den här åtgärden stöds inte på API-versionen 2017-04-01. |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/authorizationRules/delete | Ta bort auktoriseringsregel för Namespace. Auktoriseringsregel för standard Namespace kan inte tas bort.  |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | Hämta anslutningssträngen till namnområdet |

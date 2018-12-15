@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9c1b0d52a83d707df3a01212f2ab23c625987da0
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013227"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435318"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# med MapReduce, streaming på Apache Hadoop i HDInsight
 
@@ -157,7 +157,7 @@ När du har skapat programmet, skapar du det att skapa den `/bin/Debug/reducer.e
 
     * Om den här posten kan utökas, som du använder en __Azure Storage-konto__ som standardlagringen för klustret. Om du vill visa filerna på standardlagringen för klustret, expanderar du posten och dubbelklicka sedan på den __(standardbehållaren)__.
 
-    * Om den här posten inte kan expanderas, använder du __Azure Data Lake Store__ som standardlagringen för klustret. Om du vill visa filerna på standardlagringen för klustret, dubbelklickar du på den __(standard Storage-konto)__ posten.
+    * Om den här posten inte kan expanderas, använder du __Azure Data Lake Storage__ som standardlagringen för klustret. Om du vill visa filerna på standardlagringen för klustret, dubbelklickar du på den __(standard Storage-konto)__ posten.
 
 5. Använd någon av följande metoder för att ladda upp .exe-filer:
 
@@ -165,17 +165,17 @@ När du har skapat programmet, skapar du det att skapa den `/bin/Debug/reducer.e
 
         ![ladda upp ikon](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * Om du använder __Azure Data Lake Store__, högerklicka på ett tomt område i listan över filer och välj sedan __överför__. Välj slutligen den **mapper.exe** fil och klicka på **öppna**.
+    * Om du använder __Azure Data Lake Storage__, högerklicka på ett tomt område i listan över filer och välj sedan __överför__. Välj slutligen den **mapper.exe** fil och klicka på **öppna**.
 
     När den __mapper.exe__ överföringen har slutförts, upprepa uppladdningsprocessen för att ladda den __reducer.exe__ fil.
 
-## <a name="run-a-job-using-an-ssh-session"></a>Köra ett jobb: med hjälp av en SSH-session
+## <a name="run-a-job-using-an-ssh-session"></a>Kör ett jobb: Med hjälp av en SSH-session
 
 1. Använda SSH för att ansluta till HDInsight-kluster. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 2. Använd något av följande kommandon för att starta MapReduce-jobb:
 
-    * Om du använder __Data Lake Store__ som standardlagringsutrymme:
+    * Om du använder __Data Lake Storage__ som standardlagringsutrymme:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -189,7 +189,7 @@ När du har skapat programmet, skapar du det att skapa den `/bin/Debug/reducer.e
 
     I följande lista beskrivs vad varje parameter gör:
 
-    * `hadoop-streaming.jar`: Den jar-fil som innehåller funktioner för direktuppspelning MapReduce.
+    * `hadoop-streaming.jar`: Jar-filen som innehåller strömmande MapReduce-funktioner.
     * `-files`: Lägger till den `mapper.exe` och `reducer.exe` filer till det här jobbet. Den `adl:///` eller `wasb:///` innan varje fil måste sökvägen till roten för standardlagringen för klustret.
     * `-mapper`: Anger vilken fil implementerar mappningen.
     * `-reducer`: Anger vilken fil implementerar reducer.
@@ -214,7 +214,7 @@ När du har skapat programmet, skapar du det att skapa den `/bin/Debug/reducer.e
         yourselves      3
         youth   17
 
-## <a name="run-a-job-using-powershell"></a>Köra ett jobb: med hjälp av PowerShell
+## <a name="run-a-job-using-powershell"></a>Kör ett jobb: Använda PowerShell
 
 Använd följande PowerShell-skript för att köra ett MapReduce-jobb och hämta resultaten.
 
@@ -236,6 +236,6 @@ Det här skriptet uppmanas du att kontot för klustrets inloggningsnamn och lös
 
 Mer information om hur du använder MapReduce med HDInsight finns i [använda MapReduce med HDInsight](hdinsight-use-mapreduce.md).
 
-Information om hur du använder C# med Hive och Pig finns i [använda en C#-användardefinierade funktion med Hive och Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
+Information om hur du använder C# med Hive och Pig, se [används en C# användardefinierad funktion med Apache Hive och Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-Information om hur du använder C# med Storm på HDInsight finns i [utveckla C#-topologier för Storm på HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+Information om hur du använder C# med Storm på HDInsight, se [utveckla C# topologier för Apache Storm på HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 4ea00d1e23ce26855fe4bf01dc473c6b8672db47
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6b5fc02e763b66f1d7d01643d1c9d6c971d6db84
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384555"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434213"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
@@ -75,7 +75,7 @@ Azure-resurser som stöder [Azure monitor](../../azure-monitor/overview.md) kan 
 >
 >
 
-* Information för tillgängliga mått i [stöds mått med Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+* Information för tillgängliga mått i [stöds mått med Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 * Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../../azure-monitor/platform/tutorial-dashboards.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Aktivera diagnostik med PowerShell

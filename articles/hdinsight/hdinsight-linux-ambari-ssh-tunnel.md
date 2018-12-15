@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: eb407a1026ab62fa719600a3992dc3b4653f1583
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383926"
+ms.locfileid: "53409532"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Apache Ambari-webbgränssnittet, JobHistory, NameNode, Apache Oozie och andra web UIs
 
@@ -78,9 +78,19 @@ När kommandot har slutförts, dirigeras trafik som skickas till port 9876 på d
 
 ## <a name="useputty"></a>Skapa en tunnel med PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) är en grafisk SSH-klient för Windows. Använd följande steg för att skapa en SSH-tunnel som använder PuTTY:
+[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) är en grafisk SSH-klient för Windows. Om du inte är bekant med PuTTY läser den [PuTTY-dokumentationen](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Använd följande steg för att skapa en SSH-tunnel som använder PuTTY:
 
-1. Öppna PuTTY och ange din anslutningsinformation. Om du inte är bekant med PuTTY läser den [PuTTY-dokumentation (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
+### <a name="create-or-load-a-session"></a>Skapa eller läsa in en session
+
+1. Öppna PuTTY och kontrollera **Session** väljs på den vänstra menyn. Om du redan har sparat en session väljer sessionsnamnet från den **sparade sessioner** listan och klicka på **belastningen**.
+
+1. Om du inte redan har en sparad session, anger du information om din:
+    * **Värdnamn (eller IP-adress)** -SSH-adressen för HDInsight-klustret. Till exempel **mycluster-ssh.azurehdinsight.net**
+    * **Port** – 22
+    * **Anslutningstypen** – SSH
+1. Klicka på **Spara**
+
+    ![Skapa SSH-session](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
 2. I den **kategori** till vänster om dialogrutan, expandera **anslutning**, expandera **SSH**, och välj sedan **tunnlar**.
 
@@ -88,7 +98,7 @@ När kommandot har slutförts, dirigeras trafik som skickas till port 9876 på d
    
    * **Källport** – Porten på den klient som du vill vidarebefordra. Till exempel **9876**.
 
-   * **Mål** -SSH-adressen för Linux-baserade HDInsight-klustret. Till exempel **mycluster-ssh.azurehdinsight.net**.
+   * **Mål** -SSH-adressen för HDInsight-klustret. Till exempel **mycluster-ssh.azurehdinsight.net**.
 
    * **Dynamisk** – Aktiverar dynamisk SOCKS-proxyroutning.
      

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ea99c045d5f1bfaacaefab04322b2d4f1123c84
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d7b05757f031227ed1d5c3870a426567a1a31e6d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183514"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435658"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics
 
 > [!NOTE]
 > Den här artikeln beskriver hur du kan kontrollera dina kostnader i Log Analytics genom att ange kvarhållningsperioden för data.  Finns i följande artiklar för relaterad information.
 > - [Analysera dataanvändning i Log Analytics](manage-cost-storage.md) beskriver hur du analyserar och Avisera om din dataanvändning.
-> - [Övervaka användning och uppskattade kostnader](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) beskriver hur du visar användning och beräknade kostnader för flera Azure övervakningsfunktioner för olika prissättningsmodeller. Det beskriver också hur du ändrar din prissättningsmodell.
+> - [Övervaka användning och uppskattade kostnader](../../azure-monitor/platform/usage-estimated-costs.md) beskriver hur du visar användning och beräknade kostnader för flera Azure övervakningsfunktioner för olika prissättningsmodeller. Det beskriver också hur du ändrar din prissättningsmodell.
 
 Log Analytics har utformats för skalning och stöd för insamling av, indexering och lagra stora mängder data per dag från vilken källa som helst i ditt företag eller distribueras i Azure.  Detta kan vara en primära drivande faktorn för din organisation, är kostnadseffektivitet i slutändan underliggande drivrutinen. Det är också beroende av den valda planen därför det är viktigt att förstå att kostnaden för en Log Analytics-arbetsytan inte är bara baserat på mängden data som samlas in, och hur länge du har valt att lagra data som genereras från dina anslutna källor.  
 

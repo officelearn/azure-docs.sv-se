@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d0bc48e07efeaf8f09f177367da0570cf3c250ec
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165154"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436287"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package
 
@@ -30,8 +30,8 @@ Du kan också använda Oozie för att schemalägga jobb som är specifika för e
 
 - Ett Azure HDInsight Hadoop-kluster med Enterprise Security Package (ESP). Se [konfigurera HDInsight-kluster med ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
-    > [!NOTE]
-    > Detaljerade anvisningar om hur du använder Oozie på icke-ESP-kluster finns i [Använd Hadoop Oozie arbetsflöden i Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
+    > [!NOTE]  
+    > Detaljerade anvisningar om hur du använder Oozie på icke-ESP-kluster finns i [Använd Apache Oozie-arbetsflöden i Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="connect-to-an-esp-cluster"></a>Ansluta till ett ESP-kluster
 
@@ -52,7 +52,7 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
     Svaret statuskod **200 OK** anger lyckad registrering. Kontrollera användarnamnet och lösenordet om en obehörig svar tas emot, till exempel 401.
 
 ## <a name="define-the-workflow"></a>Definiera arbetsflödet
-Oozie arbetsflödesdefinitioner skrivs i Hadoop processen Definition Language (hPDL). hPDL är en definitionsspråk för XML-processen. Vidta följande steg för att definiera arbetsflödet:
+Oozie arbetsflödesdefinitioner skrivs i Apache Hadoop processen Definition Language (hPDL). hPDL är en definitionsspråk för XML-processen. Vidta följande steg för att definiera arbetsflödet:
 
 1.  Konfigurera en domänanvändare arbetsyta:
  ```bash
@@ -243,7 +243,7 @@ Du kan skapa två Hive-skript för Hive-servern 1 och Hive server 2 som visas i 
     select devicemake from hivesampletable limit 2;
     ```
 
-3.  Spara filen till Hadoop Distributed File System (HDFS):
+3.  Spara filen till Apache Hadoop Distributed File System (HDFS):
     ```bash
     hdfs dfs -put countrowshive1.hql countrowshive1.hql
     ```
@@ -271,11 +271,11 @@ Du kan skapa två Hive-skript för Hive-servern 1 och Hive server 2 som visas i 
 
 Skicka Oozie-jobb för ESP-kluster är som att skicka Oozie-jobb i icke-ESP-kluster.
 
-Mer information finns i [Använd Oozie med Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
+Mer information finns i [Använd Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="results-from-an-oozie-job-submission"></a>Resultat från en Oozie jobböverföring
+Oozie jobb körs för användaren. Så granska både Apache Hadoop YARN och Apache Ranger loggarna visa jobb som körs som den personifierade användaren. Kommandoradsgränssnittet utdata för ett jobb för Oozie ser ut som följande kod:
 
-Oozie jobb körs för användaren. Så granska både Apache YARN och Apache Ranger loggarna visa jobb som körs som den personifierade användaren. Kommandoradsgränssnittet utdata för ett jobb för Oozie ser ut som följande kod:
 
 
 ```bash
@@ -315,7 +315,7 @@ Ranger granskningsloggarna för Hive server 2 åtgärder visar Oozie körning av
 
 Oozie ensamt har en konfiguration för auktorisering av användare som kan blockera användare från att stoppa eller ta bort andra användares jobb. Om du vill aktivera den här konfigurationen, ange den `oozie.service.AuthorizationService.security.enabled` till `true`. 
 
-Mer information finns i [Oozie Installation och konfiguration](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
+Mer information finns i [Apache Oozie Installation och konfiguration](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 
 För komponenter som Hive-servern där Ranger plugin-programmet inte är tillgänglig eller så stöds 1 är endast coarse-grained HDFS auktorisering möjligt. Detaljerade auktorisering är bara tillgänglig via Ranger plugin-program.
 
@@ -328,6 +328,6 @@ Oozie webbgränssnittet ger en webbaserad översikt över statusen för Oozie-jo
 2. Följ den [Oozie webbgränssnittet](../hdinsight-use-oozie-linux-mac.md) steg för att aktivera SSH-tunnel till gränsnoden och komma åt webbgränssnittet.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Använda Oozie med Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
-* [Använda tidsbaserad Oozie-koordinator](../hdinsight-use-oozie-coordinator-time.md).
-* [Ansluta till HDInsight (Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* [Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
+* [Använda tidsbaserad Apache Oozie-koordinator](../hdinsight-use-oozie-coordinator-time.md).
+* [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

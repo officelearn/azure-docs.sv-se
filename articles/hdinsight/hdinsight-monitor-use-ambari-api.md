@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: f9ae9b374e97c0f4be32d6c6a7d47fd803a1a0e5
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 062925f7e072651f4b4189cec7ca73144c0cf994
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011529"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436338"
 ---
-# <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Övervaka Hadoop-kluster i HDInsight Ambari API
-Lär dig hur du övervakar HDInsight-kluster med Ambari APIs.
+# <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Övervaka Apache Hadoop-kluster i HDInsight med hjälp av Apache Ambari API
+Lär dig mer om att övervaka HDInsight-kluster med hjälp av Apache Ambari APIs.
 
-> [!NOTE]
-> Informationen i den här artikeln är främst för Windows-baserade HDInsight-kluster som innehåller en skrivskyddad version av Ambari REST API. Linux-baserade kluster, se [hantera Hadoop-kluster med Ambari](hdinsight-hadoop-manage-ambari.md).
+> [!NOTE]  
+> Informationen i den här artikeln är främst för Windows-baserade HDInsight-kluster som innehåller en skrivskyddad version av Ambari REST API. Linux-baserade kluster, se [hantera Apache Hadoop-kluster med Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 > 
 > 
 
@@ -36,7 +36,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
 * **En arbetsstation med Azure PowerShell**.
 * (Valfritt) [cURL][curl]. För att installera den, se [cURL versioner och nedladdningar][curl-download].
   
-  > [!NOTE]
+  > [!NOTE]  
   > När du använder cURL-kommando i Windows, Använd dubbla citattecken i stället för citattecken för värden för alternativ.
   > 
   > 
@@ -120,7 +120,7 @@ Utdata är:
 När du använder Ambari-slutpunkten ”https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}” i *värddatornamn* fält Returnerar det fullständigt kvalificerade domännamnet (FQDN) för noden i stället för värdnamnet. Före 10/8/2014-versionen i det här exemplet returneras bara ”**headnode0**”. Efter 10/8/2014-versionen kan du hämta det fullständiga Domännamnet ”**headnode0. { ClusterDNS} gt; .azurehdinsight .net**”, enligt exemplet ovan. Den här ändringen krävdes för att underlätta scenarier där flera klustertyper (till exempel HBase och Hadoop) kan distribueras i ett virtuellt nätverk (VNET). Detta inträffar exempelvis när du använder HBase som en backend-plattform för Hadoop.
 
 ## <a name="ambari-monitoring-apis"></a>Ambari övervaka API: er
-I följande tabell visas några av de vanligaste Ambari övervakning av API-anrop. Mer information om API: et finns i [Ambari API-referens][ambari-api-reference].
+I följande tabell visas några av de vanligaste Ambari övervakning av API-anrop. Mer information om API: et finns i [Apache Ambari API-referens][ambari-api-reference].
 
 | Övervaka API-anrop | URI | Beskrivning |
 | --- | --- | --- |
@@ -138,7 +138,7 @@ I följande tabell visas några av de vanligaste Ambari övervakning av API-anro
 | Få information om serverkonfigurationen. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Config-typer: core-plats, hdfs-plats, mapred-plats, hive-plats |
 
 ## <a name="next-steps"></a>Nästa steg
-Nu har du lärt dig hur du använder Ambari övervakning av API-anrop. Du kan läsa mer här:
+Nu har du lärt dig hur du använder Apache Ambari övervakning API-anrop. Du kan läsa mer här:
 
 * [Hantera HDInsight-kluster med Azure portal][hdinsight-admin-portal]
 * [Hantera HDInsight-kluster med Azure PowerShell][hdinsight-admin-powershell]

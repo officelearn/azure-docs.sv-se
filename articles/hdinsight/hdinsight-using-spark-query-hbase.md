@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 1136d97ad1c1d02320331e6d2013b68526d5abb4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f76dfc8499d294c2c682c4d9c4cf2cd2f858432f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277910"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408872"
 ---
-# <a name="use-spark-to-read-and-write-hbase-data"></a>Använda Spark för att läsa och skriva HBase-data
+# <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Använda Apache Spark för att läsa och skriva Apache HBase-data
 
-Apache HBase är vanligtvis efterfrågas med dess lågnivå-API (genomsökningar, hämtar och placerar) eller med en SQL-syntax med Phoenix. Apache innehåller också Spark HBase-anslutningstjänsten, som är ett praktiskt och högpresterande alternativ för att fråga och ändra data som lagras av HBase.
+Apache HBase är vanligtvis efterfrågas med dess lågnivå-API (genomsökningar, hämtar och placerar) eller med en SQL-syntax som använder Apache Phoenix. Apache innehåller också de Apache Spark HBase anslutningstjänsten, som är ett praktiskt och högpresterande alternativ för att fråga och ändra data som lagras av HBase.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -38,9 +38,9 @@ Den övergripande processen för att aktivera ditt Spark-kluster att fråga ditt
 5. Definiera en katalog som mappar schemat från Spark till HBase.
 6. Interagera med HBase-data med hjälp av antingen RDD eller DataFrame APIs.
 
-## <a name="prepare-sample-data-in-hbase"></a>Förbereda exempeldata i HBase
+## <a name="prepare-sample-data-in-apache-hbase"></a>Förbereda exempeldata i Apache HBase
 
-I det här steget ska du skapa och fylla i en enkel tabell i HBase, som sedan kan du ställa frågor med Spark.
+I det här steget ska du skapa och fylla i en enkel tabell i Apache HBase, som sedan kan du ställa frågor med Spark.
 
 1. Ansluta till klustrets huvudnod HBase-kluster med SSH. Mer information finns i [Anslut till HDInsight med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 2. Kör HBase-gränssnittet:
@@ -76,7 +76,7 @@ I det här steget ska du skapa och fylla i en enkel tabell i HBase, som sedan ka
 
 5. Välj lagringskontot i listan med en bock under kolumnen standard.
 
-    ![Standardkontot för lagring](./media/hdinsight-using-spark-query-hbase/default-storage.png)
+    ![Standardlagringskonto](./media/hdinsight-using-spark-query-hbase/default-storage.png)
 
 6. Välj panelen Blobar på rutan för lagring.
 
@@ -100,7 +100,7 @@ I det här steget ska du skapa och fylla i en enkel tabell i HBase, som sedan ka
 
 3. Välj lagringskontot i listan med en bock under kolumnen standard.
 
-    ![Standardkontot för lagring](./media/hdinsight-using-spark-query-hbase/default-storage.png)
+    ![Standardlagringskonto](./media/hdinsight-using-spark-query-hbase/default-storage.png)
 
 4. Välj panelen Blobar på rutan för lagring.
 
@@ -132,7 +132,7 @@ I det här steget ska du skapa och fylla i en enkel tabell i HBase, som sedan ka
 
 ## <a name="define-a-catalog-and-query"></a>Definiera en katalog och fråga
 
-I det här steget definierar du ett katalogobjekt som mappar schemat från Spark till HBase. 
+I det här steget definierar du ett katalogobjekt som mappar schemat från Apache Spark till Apache HBase. 
 
 1. Dina öppna Spark-Shell och kör följande `import` instruktioner:
 
@@ -244,4 +244,4 @@ I det här steget definierar du ett katalogobjekt som mappar schemat från Spark
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Spark-Anslutningsappen för HBase](https://github.com/hortonworks-spark/shc)
+* [Apache Spark-anslutningen för HBase](https://github.com/hortonworks-spark/shc)

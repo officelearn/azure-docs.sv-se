@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 5f75ada1d37f6bd5cb2d870dd5169de7a4844eb3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fa4e6aa1274609ebf990a02d41f63541668d3b37
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869065"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438718"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualisera data med Azure Cosmos DB med hjälp av anslutningsprogrammet för Power BI
 
@@ -34,7 +34,19 @@ Kontrollera att du har åtkomst till följande resurser innan du följer anvisni
 
 * Ladda ned den [vulkanen exempeldata](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) från GitHub.
 
-* [Skapa ett Azure Cosmos DB-databaskonto](https://azure.microsoft.com/documentation/articles/create-account/) och importera vulkanen-data med hjälp av den [Migreringsverktyget för Azure Cosmos DB data](import-data.md).
+* [Skapa ett Azure Cosmos DB-databaskonto](https://azure.microsoft.com/documentation/articles/create-account/) och importera vulkanen-data med hjälp av den [Migreringsverktyget för Azure Cosmos DB data](import-data.md). När du importerar data, Tänk på följande inställningar för källa och mål i datamigreringsverktyget:
+
+   * **Källparametrar** 
+
+       * **Importera från:** JSON-filerna
+
+   * **Målparametrar** 
+
+      * **Anslutningssträng:** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+
+      * **Partitionsnyckel:**  /land 
+
+      * **Samlingsdataflödet:** 1000 
 
 Du måste ha ett konto på PowerBI.com om du vill dela dina rapporter på PowerBI.com.  Läs mer om Power BI och Power BI Pro i [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 

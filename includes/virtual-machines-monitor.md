@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 43615caf00bec79c1f87736b6ca0d2b74bfb95d7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52857149"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53400005"
 ---
 Du kan dra nytta av många möjligheter att övervaka dina virtuella datorer genom att samla in, visa och analysera diagnostiska och logga data. Att göra enkla [övervakning](../articles/azure-monitor/overview.md) för den virtuella datorn kan du använda översiktsskärmen för den virtuella datorn i Azure-portalen. Du kan använda [tillägg](../articles/virtual-machines/windows/extensions-features.md) att konfigurera diagnostik på dina virtuella datorer att samla in ytterligare måttdata. Du kan också använda mer avancerade alternativ för övervakning, till exempel [Programinsikter](../articles/application-insights/app-insights-overview.md) och [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -31,7 +31,7 @@ Du kan konfigurera och övervaka mängden [diagnostikdata](https://docs.microsof
 
 ## <a name="alerts"></a>Aviseringar
 
-Du kan skapa [aviseringar](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) baserat på specifika prestandamått. Exempel på de problem som du kan bli aviserad om är när Genomsnittlig CPU-användning överskrider ett visst tröskelvärde eller tillgängligt diskutrymme sjunker under ett visst belopp. Aviseringar kan konfigureras i den [Azure-portalen](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)med hjälp av [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), eller [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+Du kan skapa [aviseringar](../articles/azure-monitor/platform/alerts-overview.md) baserat på specifika prestandamått. Exempel på de problem som du kan bli aviserad om är när Genomsnittlig CPU-användning överskrider ett visst tröskelvärde eller tillgängligt diskutrymme sjunker under ett visst belopp. Aviseringar kan konfigureras i den [Azure-portalen](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)med hjälp av [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), eller [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 
@@ -50,7 +50,7 @@ Några av de saker som du kan göra med aktivitetsloggen är:
 - Skapa en [aviseringen i en händelse i aktivitetsloggen](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 - [Stream till en Händelsehubb](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) för inmatning av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
 - Analysera dem i Power BI med hjälp av den [Power BI-Innehållspaketet](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Spara den till ett lagringskonto](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md) för arkivering eller manuell granskning. Du kan ange kvarhållningstid (i dagar) som använder Log-profil.
+- [Spara den till ett lagringskonto](../articles/azure-monitor/platform/archive-activity-log.md) för arkivering eller manuell granskning. Du kan ange kvarhållningstid (i dagar) som använder Log-profil.
 
 Du kan också komma åt aktivitetsloggdata med [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), eller [övervakaren REST API: er](https://docs.microsoft.com/rest/api/monitor/).
 
@@ -58,7 +58,7 @@ Du kan också komma åt aktivitetsloggdata med [Azure PowerShell](https://docs.m
 
 Några av de saker du kan göra med diagnostikloggar är:
 
-- [Spara dem till ett lagringskonto](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) för granskning eller manuell granskning. Du kan ange kvarhållningstid (i dagar) med hjälp av Resursdiagnostikinställningar.
+- [Spara dem till ett lagringskonto](../articles/azure-monitor/platform/archive-diagnostic-logs.md) för granskning eller manuell granskning. Du kan ange kvarhållningstid (i dagar) med hjälp av Resursdiagnostikinställningar.
 - [Stream dem till Event Hubs](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) ska matas in av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
 - Analysera dem med [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 

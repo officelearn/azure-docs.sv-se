@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3cb403b7f2ac529c79af5f83a1cbe436dc670a25
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901897"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413378"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snabbstart: Kräv användningsvillkor godkännas före åtkomst till molnappar 
 
@@ -72,13 +72,13 @@ Det här avsnittet ger dig stegen för att skapa ett exempel på villkor för an
 
 2. Typ **min användningsvillkor**, och spara dokumentet på datorn som **mytou.pdf**.
 
-3. Logga in på din [Azure-portalen](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
+3. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 
 4. I Azure portal, på det vänstra navigeringsfältet, klickar du på **Azure Active Directory**. 
 
     ![Azure Active Directory](./media/require-tou/02.png)
 
-5. På den **Azure Active Directory** sidan den **hantera** klickar du på **villkorlig åtkomst**.
+5. På den **Azure Active Directory** sidan den **Security** klickar du på **villkorlig åtkomst**.
 
     ![Villkorlig åtkomst](./media/require-tou/03.png) 
 
@@ -237,7 +237,7 @@ Klicka på **vad händer om** skapar en simuleringsrapport som visar:
 3. Klicka på **vad händer om**.
 
 
-## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
+## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorsstyrd åtkomst
 
 I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad inloggning. Förutom en simulering, bör du också testa principer för villkorlig åtkomst för att säkerställa att den fungerar som förväntat. 
 

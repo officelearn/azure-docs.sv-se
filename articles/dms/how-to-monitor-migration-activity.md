@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 1725be4209bfc9335654c574098c43102eca5a2d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/14/2018
+ms.openlocfilehash: a315e8b42ab8e0df659a3388a50fedf5dd3a54d2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961186"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413072"
 ---
 # <a name="monitor-migration-activity"></a>Övervaka migreringsaktiviteter
 I den här artikeln får lära du att övervaka förloppet för en migrering på både en databasnivå och en tabell.
@@ -136,7 +136,7 @@ I följande tabell beskrivs de fält som visas i tabellen på migreringens förl
 | **Uppdatering** | Antalet CDC-uppdateringar i rader som tillämpas på målet.      |
 | **Ta bort**      | Antal CDC tar bort i rader som tillämpas på målet. |
 | **Totalt antal tillämpade**      | Totalt CDC uppdateringar, infogningar, och tar bort i rader som tillämpas på målet. |
-| **Datafel** | Antal datafel inträffade i den här tabellen. Några exempel på felen är *511: Det går inte att skapa en rad med storleken %d som är större än den maximalt tillåtna Radstorleken av %d, 8114: fel vid konvertering av-datatypen %ls till %ls.*  Kunden ska fråga från attms_apply_exceptions tabell i Azure-målet på se felinformationen.    |
+| **Datafel** | Antal datafel inträffade i den här tabellen. Några exempel på felen är *511: Det går inte att skapa en rad med storleken %d som är större än den maximalt tillåtna Radstorleken av %d, 8114: Fel vid datatyp konvertering %ls till %ls.*  Kunden ska fråga från dms_apply_exceptions tabell i Azure-målet på se felinformationen.    |
 
 > [!NOTE]
 > CDC-värdena för att infoga, uppdatera och ta bort och totala tillämpas kan minska när databasen är startpunkt eller migrering har startats om.

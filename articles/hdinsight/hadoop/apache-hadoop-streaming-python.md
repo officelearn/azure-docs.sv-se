@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e8cf8de25a35909cb2a0fc94237bfa517c72e685
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634030"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410354"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Utveckla Python-strömmande MapReduce-program för HDInsight
 
@@ -47,9 +47,9 @@ Flödesschemat visar vad som händer under kartan och minska faser.
 
 Hadoop kan du ange en fil som innehåller kartan och minska logik som används av ett jobb. De specifika kraven för kartan och minska logic är:
 
-* **Inkommande**: kartan och minska komponenter måste läsa indata från STDIN.
-* **Utdata**: kartan och minska komponenter måste skriva utdata till STDOUT.
-* **Dataformatet**: data används och produceras måste vara ett nyckel/värdepar, avgränsade med ett tabbtecken.
+* **Indata**: Kartan och minska komponenter måste läsa indata från STDIN.
+* **Utdata**: Kartan och minska komponenter måste skriva utdata till STDOUT.
+* **Dataformatet**: Data används och produceras måste vara ett nyckel/värdepar, avgränsade med ett tabbtecken.
 
 Python kan enkelt hantera dessa krav med hjälp av den `sys` modulen att läsa från STDIN och använder `print` skriva ut till STDOUT. Den sista aktiviteten är helt enkelt formatera data med en flik (`\t`) tecken mellan nyckel och värde.
 
@@ -144,7 +144,7 @@ Använd följande PowerShell-skript för att ladda upp filer, kör jobbet och vi
 
     Det här kommandot kopierar filerna från det lokala systemet till huvudnoden.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Om du använder ett lösenord för att skydda SSH-konto, uppmanas du lösenordet. Om du har använt en SSH-nyckel kan du behöva använda den `-i` parametern och sökvägen till den privata nyckeln. Till exempel `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Anslut till klustret med hjälp av SSH:
@@ -170,17 +170,17 @@ Använd följande PowerShell-skript för att ladda upp filer, kör jobbet och vi
 
     Det här kommandot har följande delar:
 
-   * **hadoop-streaming.jar**: används när du utför strömmande MapReduce-åtgärder. Det gränssnitt Hadoop med den externa MapReduce-kod som du anger.
+   * **hadoop-streaming.jar**: Används när du utför strömmande MapReduce-åtgärder. Det gränssnitt Hadoop med den externa MapReduce-kod som du anger.
 
-   * **-filer**: lägger till de angivna filerna i MapReduce-jobbet.
+   * **-filer**: Lägger till de angivna filerna MapReduce-jobb.
 
-   * **-modulen för mappning**: talar om Hadoop vilken fil som ska användas som mappningen.
+   * **-modulen för mappning**: Talar om Hadoop vilken fil som ska användas som mappningen.
 
-   * **-reducer**: talar om Hadoop vilken fil som ska användas som reducer.
+   * **-reducer**: Anger vilken fil som ska användas som reducer för Hadoop.
 
-   * **-inkommande**: indatafilen som vi ska räkna ord från.
+   * **-inkommande**: Indatafilen som vi ska räkna ord från.
 
-   * **-utdata**: katalogen som utdata skrivs till.
+   * **-utdata**: Katalogen som utdata skrivs till.
 
     När MapReduce-jobb fungerar, visas processen som procenttal.
 
@@ -199,6 +199,6 @@ Använd följande PowerShell-skript för att ladda upp filer, kör jobbet och vi
 
 Nu när du har lärt dig hur du använder MapRedcue direktuppspelningsjobb med HDInsight kan utforska andra sätt att arbeta med Azure HDInsight med hjälp av följande länkar.
 
-* [Använda Hive med HDInsight](hdinsight-use-hive.md)
-* [Använda Pig med HDInsight](hdinsight-use-pig.md)
+* [Använda Apache Hive med HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Pig med HDInsight](hdinsight-use-pig.md)
 * [Använda MapReduce-jobb med HDInsight](hdinsight-use-mapreduce.md)

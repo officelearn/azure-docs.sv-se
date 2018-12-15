@@ -1,5 +1,5 @@
 ---
-title: Samla in programprestanda på Linux i Log Analytics | Microsoft Docs
+title: Samla in programprestanda på Linux i Azure Monitor | Microsoft Docs
 description: Den här artikeln innehåller information för att konfigurera Log Analytics-agenten för Linux för att samla in prestandaräknare för MySQL och Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 03faa393d42f3596aa6b05c4a3afb476c8b9e0a3
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 824d3f2402861ed8a54a29c9571654cc581e4c5e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186522"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434638"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Samla in prestandaräknare för Linux-program i Log Analytics 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Samla in prestandaräknare för Linux-program i Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Den här artikeln innehåller information för att konfigurera den [Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestandaräknare för specifika program.  De program som ingår i den här artikeln är:  
+Den här artikeln innehåller information för att konfigurera den [Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestandaräknare för specifika program i Azure Monitor-loggar.  De program som ingår i den här artikeln är:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP-Server](#apache-http-server)
@@ -114,7 +114,7 @@ Dessa behörigheter kan beviljas genom att köra följande kommandon för bevilj
 
 ### <a name="define-performance-counters"></a>Definiera prestandaräknare
 
-När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Log Analytics, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Log Analytics](data-sources-windows-events.md) med räknarna i följande tabell.
+När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
 
 | Objektnamn | Räknarnamn |
 |:--|:--|
@@ -150,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definiera prestandaräknare
 
-När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Log Analytics, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Log Analytics](data-sources-windows-events.md) med räknarna i följande tabell.
+När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
 
 | Objektnamn | Räknarnamn |
 |:--|:--|
@@ -168,4 +168,4 @@ När du har konfigurerat Log Analytics-agenten för Linux för att skicka data t
 
 ## <a name="next-steps"></a>Nästa steg
 * [Samla in prestandaräknare](data-sources-performance-counters.md) från Linux-agenter.
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [logga frågor](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar. 

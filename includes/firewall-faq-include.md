@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/20/2018
+ms.date: 12/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e33871f35613fbd5cdc5bf3162855b942056807f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7e547f49ec14bdb69a85dd916ef435c3f30f6ef2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254730"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413735"
 ---
 ### <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -37,7 +37,7 @@ Du kan distribuera Azure-brandväggen på alla virtuella nätverk, men kunder no
 
 ### <a name="how-can-i-install-the-azure-firewall"></a>Hur kan jag installera Azure-brandvägg?
 
-Du kan ställa in Azure-brandvägg med hjälp av Azure portal, PowerShell, REST API, eller med hjälp av mallar. Se [självstudie: distribuera och konfigurera Azure-brandväggen med hjälp av Azure-portalen](../articles/firewall/tutorial-firewall-deploy-portal.md) stegvisa instruktioner.
+Du kan ställa in Azure-brandvägg med hjälp av Azure portal, PowerShell, REST API, eller med hjälp av mallar. Se [självstudien: Distribuera och konfigurera Azure-brandväggen med hjälp av Azure-portalen](../articles/firewall/tutorial-firewall-deploy-portal.md) stegvisa instruktioner.
 
 ### <a name="what-are-some-azure-firewall-concepts"></a>Vilka är några begrepp för Azure-brandvägg?
 
@@ -45,8 +45,8 @@ Azure-brandväggen har stöd för regler och regelsamlingar. En regelsamling är
 
 Det finns två typer av samlingar:
 
-* *Regler för program*: du kan konfigurera fullständigt kvalificerade domännamn (FQDN) som kan nås från ett undernät.
-* *Network regler*: du kan konfigurera regler som innehåller källadresser, protokoll, målportar och måladresser.
+* *Regler för program*: Kan du konfigurera fullständigt kvalificerade domännamn (FQDN) som kan nås från ett undernät.
+* *Network regler*: Kan du konfigurera regler som innehåller källadresser, protokoll, målportar och måladresser.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Stöder Azure Brandvägg för inkommande trafikfiltrering?
 
@@ -54,7 +54,7 @@ Azure-brandväggen har stöd för filtrering av inkommande och utgående. Inkomm
 
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Vilka loggning och Analystjänster stöds av Azure-brandvägg?
 
-Azure-brandväggen är integrerad med Azure Monitor för att visa och analysera loggar från brandväggen. Loggar kan skickas till Log Analytics, Azure Storage eller Event Hubs. De kan analyseras i Log Analytics eller genom att olika verktyg som Excel och Power BI. Mer information finns i [självstudie: övervaka Azure brandväggsloggar](../articles/firewall/tutorial-diagnostics.md).
+Azure-brandväggen är integrerad med Azure Monitor för att visa och analysera loggar från brandväggen. Loggar kan skickas till Log Analytics, Azure Storage eller Event Hubs. De kan analyseras i Log Analytics eller genom att olika verktyg som Excel och Power BI. Mer information finns i [självstudien: Övervaka Azure brandväggsloggar](../articles/firewall/tutorial-diagnostics.md).
 
 ### <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Hur fungerar Azure-brandväggen på olika sätt från befintliga tjänster, till exempel nva: er på marketplace?
 
@@ -117,10 +117,14 @@ Tjänstbegränsningar för Azure-brandväggen, se [Azure-prenumeration och tjän
 
 Ja, du kan använda Azure-brandvägg i en virtuella navnätverket kan dirigera och filtrera trafik mellan två eker-nätverk. Undernät i varje eker virtuella nätverk måste ha UDR som pekar på Azure-brandväggen som en standard-gateway för det här scenariot ska fungera korrekt.
 
-### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Kan Azure-brandvägg framåt och filtrera nätverkstrafik mellan undernät i samma virtuella nätverk?
+### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Kan Azure-brandvägg framåt och filtrera nätverkstrafik mellan undernät i samma virtuella nätverk eller peerkopplade virtuella nätverk?
 
 Trafik mellan undernät i samma virtuella nätverk eller i en direkt peerkopplade virtuella nätverk dirigeras direkt även om UDR pekar på Azure-brandväggen som standard-gateway. Den rekommenderade metoden för interna nätverkssegmentering är att använda Nätverkssäkerhetsgrupper. Om du vill skicka undernätet till undernätet trafik i brandväggen i det här scenariot, måste UDR innehålla mål nätverk undernätsprefixet uttryckligen på båda undernäten.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Finns det någon brandvägg resource group begränsningar?
 
 Ja. Brandväggen, undernät, virtuella nätverk och den offentliga IP-adressen måste vara i samma resursgrupp.
+
+### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>När du konfigurerar DNAT för inkommande nätverkstrafik, också behöver jag konfigurera en motsvarande regel för att tillåta den trafiken?
+
+Nej. NAT-regler är implicit lägga till en regel för motsvarande för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](../articles/firewall/rule-processing.md).

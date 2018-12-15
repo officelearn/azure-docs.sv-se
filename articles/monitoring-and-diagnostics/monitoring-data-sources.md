@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: cf2dd013b0d6f8867129d2d53311af21af5a1fe2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4c32d6eccc996bf1a3670a521a7a86394a2f866f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385337"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434519"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Använda övervakningsdata från Azure
 
@@ -23,7 +23,7 @@ I Azure-plattformen samman vi övervakningsdata i en enda plats med Azure Monito
 
 | Datatyp | Kategori | Tjänster som stöds | Åtkomstmetoder |
 | --- | --- | --- | --- |
-| Azure Monitor på plattformsnivå-mått | Mått | [Se listan här](monitoring-supported-metrics.md) | <ul><li>**REST-API:** [Azure Monitor mått-API](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Storage blob eller event hub:** [Diagnostikinställningar](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
+| Azure Monitor på plattformsnivå-mått | Mått | [Se listan här](../azure-monitor/platform/metrics-supported.md) | <ul><li>**REST-API:** [Azure Monitor mått-API](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Storage blob eller event hub:** [Diagnostikinställningar](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
 | Compute OS gästmått (t.ex.) prestandaräknare) | Mått | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) och Linux-datorer (v2), [molntjänster](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabell eller blob:** [Windows eller Linux Azure-diagnostik](../azure-monitor/platform/diagnostics-extension-to-storage.md)</li><li>**Händelsehubb:** [Windows Azure diagnostics](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)</li></ul> |
 | Anpassade eller programmet mått | Mått | Alla program som instrumenteras med Application Insights | <ul><li>**REST-API:** [Application Insights REST API](https://dev.applicationinsights.io/reference)</li></ul> |
 | Storage-mått | Mått | Azure Storage | <ul><li>**Storage-tabell:** [Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
@@ -37,7 +37,7 @@ I Azure-plattformen samman vi övervakningsdata i en enda plats med Azure Monito
 | Active Directory-rapportering | Händelser | Azure Active Directory | <ul><li>**REST-API:** [Azure Active Directory graph API](../active-directory/reports-monitoring/concept-reporting-api.md)</li></ul> |
 | Security Center resursstatus | Status | [Alla resurser](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**REST-API:** [Status för säkerhet](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | Resource Health | Status | Tjänster som stöds | <ul><li>**REST-API:** [Resurshälsa REST API](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
-| Azure Monitor-måttaviseringar | Meddelanden | [Se listan här](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [Azure måttaviseringar](../azure-monitor/platform/alerts-webhooks.md)</li></ul> |
+| Azure Monitor-måttaviseringar | Meddelanden | [Se listan här](../azure-monitor/platform/metrics-supported.md) | <ul><li>**Webhook:** [Azure måttaviseringar](../azure-monitor/platform/alerts-webhooks.md)</li></ul> |
 | Azure Monitor Activity-Log-aviseringar | Meddelanden | Alla Azure-tjänster | <ul><li>**Webhook:** Azure-aktivitetsloggen-aviseringar</li></ul> |
 | Meddelanden om autoskalning | Meddelanden | [Se listan här](../azure-monitor/platform/autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Automatisk skalning meddelande webhook-nyttolasten schema](../azure-monitor/platform/autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
 | Logga sökfråga aviseringar | Meddelanden | Log Analytics | <ul><li>**Webhook:** [Webhook-åtgärd för loggaviseringsregler](../monitoring-and-diagnostics/../azure-monitor/platform/alerts-log-webhook.md)</li></ul> |

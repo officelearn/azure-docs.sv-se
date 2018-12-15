@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 02029170046e3c70965e2f607aa6c00c7ca131e3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 48f178b7a94e8989f8a0154bea6195834b1ec35f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389053"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438684"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera diagnostikinställningar automatiskt när en resurs skapas med en Resource Manager-mall
 I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du automatiskt starta direktuppspelning av dina diagnostikloggar och mått till Event Hubs, arkivera dem i ett Lagringskonto eller skicka dem till Log Analytics när en resurs skapas.
 
 > [!WARNING]
-> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md) 
+> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -116,7 +116,7 @@ För icke-beräkningsresurser behöver du göra två saker:
     ]
     ```
 
-Egenskaper för blob för Diagnostikinställningen följer [formatet som beskrivs i den här artikeln](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Att lägga till den `metrics` egenskapen gör att du kan också skicka Resursmått till dessa samma utdata, förutsatt att [resursen har stöd för Azure Monitor metrics](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Egenskaper för blob för Diagnostikinställningen följer [formatet som beskrivs i den här artikeln](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Att lägga till den `metrics` egenskapen gör att du kan också skicka Resursmått till dessa samma utdata, förutsatt att [resursen har stöd för Azure Monitor metrics](../../azure-monitor/platform/metrics-supported.md).
 
 Här är ett fullständigt exempel som skapar en Logikapp och aktiverar direktuppspelning till Event Hubs och lagringsutrymme i ett lagringskonto.
 

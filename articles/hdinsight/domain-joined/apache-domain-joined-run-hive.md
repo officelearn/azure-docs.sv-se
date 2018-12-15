@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 43b3e293bf2990c953aeb2947b1113ee30175dee
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632823"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435523"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera principer för Apache Hive i HDInsight med Enterprise Security Package
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna kan du använda Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
@@ -28,10 +28,9 @@ Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den hä
 
 1. Anslut till Ranger Admin-gränssnittet från en webbläsare. Webbadressen är https://&lt;ClusterName>.azurehdinsight.net/Ranger/.
 
-   > [!NOTE]
-   > Ranger använder andra autentiseringsuppgifter än Hadoop-kluster. Om du vill förhindra att webbläsare använder cachade Hadoop-autentiseringsuppgifter, använder du nya InPrivate-fönster för att ansluta till Ranger Admin-Gränssnittet.
-   >
-   >
+   > [!NOTE]  
+   > Ranger använder andra autentiseringsuppgifter än Apache Hadoop-kluster. Om du vill förhindra att webbläsare använder cachade Hadoop-autentiseringsuppgifter, använder du nya InPrivate-fönster för att ansluta till Ranger Admin-Gränssnittet.
+
 2. Logga in med klusteradministratörens domänanvändarnamn och lösenord:
 
     ![Startsida för HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
@@ -59,7 +58,7 @@ I det här avsnittet skapar du två Ranger-principer för att komma åt hivesamp
 
      ![Konfigurera HDInsight ESP Ranger Hive-princip](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
-     > [!NOTE]
+     > [!NOTE]  
      > Om en domänanvändare inte är ifylld i Välj användare, vänta en stund för att Ranger ska synkronisera med AAD.
      >
      >
@@ -134,6 +133,6 @@ Om du vill testa den andra principen (read-hivesampletable-devicemake) skapade d
 * Konfigurera ett HDInsight-kluster med Enterprise Security Package finns i [konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
 * För att hantera ett HDInsight-kluster med ESP, se [hantera HDInsight-kluster med ESP](apache-domain-joined-manage.md).
 * För att köra Hive-frågor med SSH på HDInsight-kluster med hjälp av ESP Se [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-* Om du vill ansluta Hive med Hive JDBC kan du läsa i [Anslut till Hive på Azure HDInsight med Hive JDBC-drivrutin](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
-* Om du vill ansluta Excel till Hadoop med Hive ODBC kan du läsa i [Anslut Excel till Hadoop med Microsoft Hive ODBC-drivrutin](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
-* Om du vill ansluta Excel till Hadoop med Power Query kan du läsa i [Anslut Excel till Hadoop med hjälp av Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md)
+* Ansluta Hive med Hive JDBC, finns i [Anslut till Apache Hive på Azure HDInsight med Hive JDBC-drivrutinen](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
+* Ansluta Excel till Hadoop med Hive ODBC kan se [Anslut Excel till Apache Hadoop med Microsoft Hive ODBC-drivrutin](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
+* Ansluta Excel till Hadoop med Power Query, finns i [Anslut Excel till Apache Hadoop med Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md)

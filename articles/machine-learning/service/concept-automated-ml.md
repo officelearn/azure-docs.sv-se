@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 09d4ef0b6a3455728ddab0484db4c701c6764214
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270934"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436967"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -53,7 +53,14 @@ Du kan granska loggade kör informationen, som innehåller mätvärden som samla
 
 ## <a name="model-explainability"></a>Modellen explainability
 
-En gemensam eftersom operativsystemet använder principbaserad av automatiserade machine learning är det inte går att se slutpunkt till slutpunkt-processen. Azure Machine Learning kan du visa detaljerad information om modeller för att öka transparens för program som körs på serverdelen. Utdata visar den övergripande funktionen vikten arbetet med modellen, rangordning resultaten av funktionerna som de har påverkat din modell. Du kan dessutom se per klass funktionen vikten och rangordning i klassificering problem.
+En gemensam eftersom operativsystemet använder principbaserad av automatiserade machine learning är det inte går att se slutpunkt till slutpunkt-processen. Azure Machine Learning kan du visa detaljerad information om modeller för att öka transparens för program som körs på serverdelen. Vissa modeller som linjär regression anses vara ganska intuitivt och därmed enkelt att förstå. Men eftersom vi lägga till fler funktioner och använda mer komplicerad machine learning-modeller, Förstå dem hämtar allt svårare. Det finns två viktiga aspekter att transparens i machine learning:
+
+1. Medvetenhet om machine learning-pipeline och alla steg som ingår inklusive Förbearbeta data/funktionalisering och finjustering värden.
+1. Förhållandet mellan indatavariabler (även kallat ”funktioner”) och modellen utdata.  Att känna till både omfattningen och riktningen på effekten av varje funktion på förutsägelsevärdet hjälper att bättre förstå och förklara modellen. Detta kallas för funktionen prioritet.
+
+Du kan aktivera globala funktionen vikten på begäran efter utbildning för pipelinen väljer eller aktivera det för alla pipelines som en del av automatiserad ML-utbildning.  Detta är en förhandsgranskningsfunktion och vi kommer att fortsätta att investera i att tillhandahålla mer omfattande information som hjälper dig att bättre förstå ML-modeller.  
+
+Följ den här [exempel notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) att experimentera med modellen förklaringar i Azure Machine Learning.
 
 ## <a name="next-steps"></a>Nästa steg
 

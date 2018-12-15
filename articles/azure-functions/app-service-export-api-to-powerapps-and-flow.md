@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: c91508cbd98f18c875411cc7a36f9d71d817fb31
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c9ff4332a10247787e3b11c5508d0d94a1f1c8ba
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997862"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410473"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-värdbaserade API till PowerApps och Microsoft Flow
 
@@ -154,7 +154,7 @@ När du använder en API-nyckel, uppmanas användare av din anslutningsapp du an
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 När du använder Azure AD kan du behöver två Azure AD-programregistreringar: en för själva API: T och en för den anpassade anslutningsappen:
 
-- Konfigurera registrering för API: et med den [App Service autentisering/auktorisering](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) funktionen.
+- Konfigurera registrering för API: et med den [App Service autentisering/auktorisering](../app-service/configure-authentication-provider-aad.md) funktionen.
 
 - Om du vill konfigurera registrering för anslutningstjänsten, följer du stegen i [att lägga till en Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). Registreringen måste få begränsad åtkomst till ditt API och en svars-URL för `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 

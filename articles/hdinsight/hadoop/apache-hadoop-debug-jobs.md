@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: d52a9411863962528eb0693f735ca0c4ee4c9991
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166514"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438820"
 ---
-# <a name="analyze-hadoop-logs"></a>Analysera Hadoop-loggar
+# <a name="analyze-apache-hadoop-logs"></a>Analysera Apache Hadoop-loggar
 
-Varje Apache Hadoop-kluster i Azure HDInsight har ett Azure storage-konto som används som standardfilsystem. Lagringskontot kallas standardkontot för lagring. Klustret använder Azure Table storage och Blob-lagringen på standardkontot för lagring för att lagra loggar.  Om du vill ta reda på standardkontot för lagring för klustret kan se [hantera Hadoop-kluster i HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Loggarna behåller i Storage-kontot även när klustret tas bort.
+Varje Apache Hadoop-kluster i Azure HDInsight har ett Azure storage-konto som används som standardfilsystem. Lagringskontot kallas standardkontot för lagring. Klustret använder Azure Table storage och Blob-lagringen på standardkontot för lagring för att lagra loggar.  Om du vill ta reda på standardkontot för lagring för klustret kan se [hantera Apache Hadoop-kluster i HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Loggarna behåller i Storage-kontot även när klustret tas bort.
 
 ## <a name="logs-written-to-azure-tables"></a>Loggar som skrivs till Azure-tabeller
 
@@ -101,9 +101,11 @@ Du kan nu använda Excel för att filtrera och sortera efter behov. Du kanske vi
 ## <a name="logs-written-to-azure-blob-storage"></a>Loggar som skrivs till Azure Blob Storage
 [Loggarna skrivs till Azure Tables](#log-written-to-azure-tables) ger en inblick i vad som händer med ett HDInsight-kluster. Dessa tabeller ger dock inte på aktivitetsnivå loggarna, vilket kan göra det enklare att gå djupare in problem när de uppstår. HDInsight-kluster är konfigurerade för att skriva uppgift loggar till ditt Blob Storage-konto för alla jobb som skickas via Templeton för att tillhandahålla den här nästa detaljnivå. Det innebär praktiskt taget, jobb som skickas med hjälp av Microsoft Azure PowerShell-cmdlets eller .NET jobbet skickas API: erna, inte jobb som skickas via RDP/kommandoradsbaserad-Command-Line åtkomst till klustret. 
 
-Om du vill visa loggfilerna kan se [åtkomst till YARN-programloggar på Linux-baserade HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Om du vill visa loggfilerna kan se [åtkomst Apache Hadoop YARN-programloggar på Linux-baserade HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Läs mer om Programloggar, [förenkla användarloggar hantering och åtkomst i YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
+Läs mer om Programloggar, [förenkla användarloggar hantering och åtkomst i Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
 
 ## <a name="view-cluster-health-and-job-logs"></a>Visa hälso- och loggar för kluster
 ### <a name="access-the-ambari-ui"></a>Komma åt Ambari UI
@@ -313,6 +315,6 @@ Några av följande felmeddelanden kan också ses i Azure-portalen när den anv�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda Ambari-vyer för att felsöka Tez-jobb på HDInsight](../hdinsight-debug-ambari-tez-view.md)
-* [Aktivera heap dumps för Hadoop-tjänster på Linux-baserat HDInsight](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Hantera HDInsight-kluster med Ambari-webbgränssnittet](../hdinsight-hadoop-manage-ambari.md)
+* [Använd Apache Ambari-vyer för att felsöka Apache Tez-jobb på HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Aktivera heap dumps för Apache Hadoop-tjänster på Linux-baserat HDInsight](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md)

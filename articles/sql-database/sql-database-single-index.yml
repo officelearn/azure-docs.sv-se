@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bc3ab808234ee0759abea0520ea0336489fc60d6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 32554b3bf88318dd8d775022369e2673d4e51a0f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309611"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435641"
 documentType: LandingData
 title: Azure SQL Database - databas
 metadata:
@@ -133,6 +133,7 @@ sections:
     - html: Migrera en befintlig databas till Azure med <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> eller <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Skydda din SQL-databas</a>
     - html: Distribuera dina data globalt med en <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">geo-distribuerad databas</a>
+    - html: Hitta mer <a href="sql-database-howto-single-database.md">anvisningar hjälper</a> som hjälper dig att konfigurera din databas.
 - title: Exempel
   items:
   - type: paragraph

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 21186c522e46dac11c1dc88bbad5c4b330bc1e3f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e45c5a37c4ba12d93ff7f78bb465cb650a7faffb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012036"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435097"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# användardefinierade funktioner med Apache Hive och Apache Pig strömning på Apache Hadoop i HDInsight
 
@@ -55,7 +55,7 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 
 ## <a name="create-the-c-projects"></a>Skapa C\# projekt
 
-### <a name="hive-udf"></a>Hive-UDF
+### <a name="apache-hive-udf"></a>Apache Hive UDF
 
 1. Öppna Visual Studio och skapa en lösning. Projekttyp, Välj **Konsolapp (.NET Framework)**, och namnge det nya projektet **HiveCSharp**.
 
@@ -115,7 +115,7 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 
 3. Bygga projektet.
 
-### <a name="pig-udf"></a>Pig UDF
+### <a name="apache-pig-udf"></a>Apache Pig UDF
 
 1. Öppna Visual Studio och skapa en lösning. Projekttyp, Välj **konsolprogram**, och namnge det nya projektet **PigUDF**.
 
@@ -168,7 +168,7 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 
     * Om den här posten kan utökas, som du använder en __Azure Storage-konto__ som standardlagringen för klustret. Om du vill visa filerna på standardlagringen för klustret, expanderar du posten och dubbelklicka sedan på den __(standardbehållaren)__.
 
-    * Om den här posten inte kan expanderas, använder du __Azure Data Lake Store__ som standardlagringen för klustret. Om du vill visa filerna på standardlagringen för klustret, dubbelklickar du på den __(standard Storage-konto)__ posten.
+    * Om den här posten inte kan expanderas, använder du __Azure Data Lake Storage__ som standardlagringen för klustret. Om du vill visa filerna på standardlagringen för klustret, dubbelklickar du på den __(standard Storage-konto)__ posten.
 
 6. Använd någon av följande metoder för att ladda upp .exe-filer:
 
@@ -176,11 +176,11 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 
         ![ladda upp ikon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Om du använder __Azure Data Lake Store__, högerklicka på ett tomt område i listan över filer och välj sedan __överför__. Välj slutligen den **HiveCSharp.exe** fil och klicka på **öppna**.
+    * Om du använder __Azure Data Lake Storage__, högerklicka på ett tomt område i listan över filer och välj sedan __överför__. Välj slutligen den **HiveCSharp.exe** fil och klicka på **öppna**.
 
     När den __HiveCSharp.exe__ överföringen har slutförts, upprepa uppladdningsprocessen för att ladda den __PigUDF.exe__ fil.
 
-## <a name="run-a-hive-query"></a>Köra en Hive-fråga
+## <a name="run-an-apache-hive-query"></a>Kör ett Apache Hive-fråga
 
 1. Öppna i Visual Studio **Server Explorer**.
 
@@ -193,7 +193,7 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
     -- add file wasb:///HiveCSharp.exe;
-    -- Uncomment the following if you are using Azure Data Lake Store
+    -- Uncomment the following if you are using Azure Data Lake Storage
     -- add file adl:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
@@ -212,7 +212,7 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 
 6. Klicka på **uppdatera** att uppdatera sammanfattning tills **jobbstatus** ändras till **slutförd**. Om du vill visa jobbutdata, klickar du på **Jobbutdata**.
 
-## <a name="run-a-pig-job"></a>Köra ett Pig-jobb
+## <a name="run-an-apache-pig-job"></a>Kör ett Apache Pig-jobb
 
 1. Använd någon av följande metoder för att ansluta till ditt HDInsight-kluster:
 
@@ -256,10 +256,10 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet har du lärt dig hur du använder .NET Framework-program från Hive och Pig i HDInsight. Om du vill lära dig hur du använder Python med Hive och Pig kan du läsa [använda Python med Hive och Pig i HDInsight](python-udf-hdinsight.md).
+I det här dokumentet har du lärt dig hur du använder .NET Framework-program från Hive och Pig i HDInsight. Om du vill lära dig hur du använder Python med Hive och Pig kan du läsa [använda Python med Apache Hive och Apache Pig i HDInsight](python-udf-hdinsight.md).
 
 Andra sätt att använda Pig och Hive och Läs om hur du använder MapReduce, finns i följande dokument:
 
-* [Använda Hive med HDInsight](hdinsight-use-hive.md)
-* [Använda Pig med HDInsight](hdinsight-use-pig.md)
+* [Använda Apache Hive med HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Pig med HDInsight](hdinsight-use-pig.md)
 * [Använda MapReduce med HDInsight](hdinsight-use-mapreduce.md)

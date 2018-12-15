@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f18f52fc409df769d164607a128caaf02ead5e4b
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 1c159e5c86f713f1f7dbce5cd96cd2ce5d3c22fb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057084"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437987"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure Database för MySQL
 
@@ -31,13 +31,13 @@ Skapa en virtuell nätverksregel det måste du först ta en [virtuellt nätverk]
 
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 
-**Virtuellt nätverk:** kan du ha virtuella nätverk som är associerade med din Azure-prenumeration.
+**Virtuellt nätverk:** Du kan ha virtuella nätverk som är associerade med din Azure-prenumeration.
 
-**Undernät:** ett virtuellt nätverk innehåller **undernät**. Alla Azure virtuella datorer (VM) som du har har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra compute-noder. Compute-noder som är utanför ditt virtuella nätverk inte kan komma åt det virtuella nätverket om du inte konfigurerar din säkerhet för att tillåta åtkomst.
+**Undernät:** Ett virtuellt nätverk innehåller **undernät**. Alla Azure virtuella datorer (VM) som du har har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra compute-noder. Compute-noder som är utanför ditt virtuella nätverk inte kan komma åt det virtuella nätverket om du inte konfigurerar din säkerhet för att tillåta åtkomst.
 
-**Tjänstslutpunkt för virtuellt nätverk:** A [tjänstslutpunkt för virtuellt nätverk] [ vm-virtual-network-service-endpoints-overview-649d] är ett undernät som egenskaper innehåller en eller flera formella Azure-tjänst-typnamn. I den här artikeln vi vill att ange namnet på **Microsoft.Sql**, som refererar till Azure-tjänsten med namnet SQL-databas. Den här tjänsttaggen gäller även för Azure Database för MySQL och PostgreSQL-tjänster. Det är viktigt att tänka på när du använder den **Microsoft.Sql** servicetagg till en VNet-tjänstslutpunkt konfigureras tjänstens slutpunkt trafik för alla Azure SQL Database, Azure Database för MySQL och Azure Database for PostgreSQL-servrar i undernätet. 
+**Tjänstslutpunkt för virtuellt nätverk:** En [tjänstslutpunkt för virtuellt nätverk] [ vm-virtual-network-service-endpoints-overview-649d] är ett undernät som egenskaper innehåller en eller flera formella Azure-tjänst-typnamn. I den här artikeln vi vill att ange namnet på **Microsoft.Sql**, som refererar till Azure-tjänsten med namnet SQL-databas. Den här tjänsttaggen gäller även för Azure Database för MySQL och PostgreSQL-tjänster. Det är viktigt att tänka på när du använder den **Microsoft.Sql** servicetagg till en VNet-tjänstslutpunkt konfigureras tjänstens slutpunkt trafik för alla Azure SQL Database, Azure Database för MySQL och Azure Database for PostgreSQL-servrar i undernätet. 
 
-**Regel för virtuella nätverk:** en virtuell nätverksregel för din Azure Database for MySQL-server är ett undernät som anges i åtkomstkontrollistan (ACL) för din Azure Database for MySQL-server. För att i Åtkomstkontrollistan för din Azure Database for MySQL-server måste undernätet måste innehålla den **Microsoft.Sql** typnamn.
+**Regel för virtuella nätverk:** En virtuell nätverksregel för din Azure Database for MySQL-server är ett undernät som anges i åtkomstkontrollistan (ACL) för din Azure Database for MySQL-server. För att i Åtkomstkontrollistan för din Azure Database for MySQL-server måste undernätet måste innehålla den **Microsoft.Sql** typnamn.
 
 En virtuell nätverksregel talar om för Azure Database for MySQL-server för att acceptera kommunikation från varje nod i undernätet.
 
@@ -91,8 +91,8 @@ Varje virtuellt nätverk regeln gäller för hela Azure Database för MySQL-serv
 
 Det finns en uppdelning av säkerhetsroller i administrationen av tjänstslutpunkter i virtuella nätverk. Åtgärd krävs från var och en av följande roller:
 
-- **Administratör för nätverk:** &nbsp; aktivera slutpunkten.
-- **Administratör för databasen:** &nbsp; uppdatera åtkomstkontrollistan (ACL) för att lägga till det angivna undernätet till Azure Database for MySQL-server.
+- **Administratör för nätverk:** &nbsp; Aktivera slutpunkten.
+- **Administratör för databasen:** &nbsp; Uppdatera åtkomstkontrollistan (ACL) för att lägga till det angivna undernätet till Azure Database for MySQL-server.
 
 *RBAC-alternativ:*
 
@@ -115,7 +115,7 @@ För Azure Database for MySQL har funktionen för regler för virtuellt nätverk
 
 - Virtual network-regler gäller endast för Azure Resource Manager-nätverk; och inte till [klassiska distributionsmodellen] [ arm-deployment-model-568f] nätverk.
 
-- Att aktivera på virtuella nätverksslutpunkter till Azure Database för MySQL med hjälp av den **Microsoft.Sql** tjänsttagg gör det också möjligt för slutpunkterna för alla Azure-databastjänster: Azure Database for MySQL, Azure Database för PostgreSQL Azure SQL Database och Azure SQL Data Warehouse.
+- Att aktivera på virtuella nätverksslutpunkter till Azure Database för MySQL med hjälp av den **Microsoft.Sql** tjänsttagg gör det också möjligt för slutpunkterna för alla Azure-databastjänster: Azure Database för MySQL, Azure Database för PostgreSQL, Azure SQL Database och Azure SQL Data Warehouse.
 
 - Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
 
@@ -144,7 +144,7 @@ Artiklar om hur du skapar regler för virtuellt nätverk, finns här:
 - [Skapa och hantera Azure Database för MySQL-VNet-regler med hjälp av Azure portal](howto-manage-vnet-using-portal.md)
 - [Skapa och hantera Azure Database för MySQL-VNet-regler med hjälp av Azure CLI](howto-manage-vnet-using-cli.md)
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

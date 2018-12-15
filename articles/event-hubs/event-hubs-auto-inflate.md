@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cf0c7a5339d2880bbed01fc95b54038d15f1c2ce
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083542"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408173"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs-dataflödesenheter
 Azure Event Hubs är en mycket skalbar dataströmningsplattform. Event Hubs användning ökar därför ofta när du börjar använda tjänsten. Denna användning kräver ökar den förinställt [genomflödesenheter](event-hubs-features.md#throughput-units) att skalas Event Hubs och hantera större överföringshastighet. Den **automatisk ökning** i Event Hubs automatiskt skalar upp genom att öka antalet dataflödesenheter, för användning behov. Öka genomflödesenheter förhindrar begränsningsscenarier där:
@@ -47,15 +47,25 @@ Du kan aktivera eller inaktivera automatisk ökning på ett namnområde för Eve
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Aktivera automatisk ökning via portalen
 
-Du kan aktivera funktionen för automatisk ökning när du skapar ett namnområde för Event Hubs:
+
+#### <a name="enable-at-the-time-of-creation"></a>Aktivera när den skapas 
+Du kan aktivera funktionen för automatisk ökning **när du skapar ett namnområde för Event Hubs**:
  
 ![Aktivera automatisk ökning vid skapande av händelsehubb i tid](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 Det här alternativet, kan du börja i liten skala med dina dataflödesenheter och skala upp som kräver din användning. Den övre gränsen för inflationen påverkar direkt inte prissättning, beroende på antalet dataflödesenheter som används per timme.
 
-Du kan också aktivera automatisk ökning med hjälp av den **skala** alternativ i inställningsfönstret i portalen:
+#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Aktivera automatisk ökning för en befintlig händelsehubb
+Du kan också aktivera funktionen för automatisk ökning och ändra dess inställningar med hjälp av följande anvisningar: 
  
-![Aktivera automatisk ökning med skala](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+1. På den **Event Hubs Namespace** väljer **inaktiverad** under **automatisk ökning genomflödesenheter**.  
+
+    ![Välj dataflödesenheter på sidan för Event Hubs-namnområde](./media/event-hubs-auto-inflate/select-throughput-units.png)
+2. I den **Skalningsinställningar** markerar du kryssrutan för **aktivera** (om funktionen för automatisk skalning inte aktiverad).
+
+    ![Välj Aktivera](./media/event-hubs-auto-inflate/scale-settings.png)
+3. Ange den **maximala** antal dataflödesenheter eller Använd rullningslisten för att ange ett värde. 
+4. (valfritt) Uppdatera den **minsta** antal dataflödesenheter överst i den här sidan. 
 
 
 > [!NOTE]

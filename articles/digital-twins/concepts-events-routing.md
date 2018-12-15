@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: a1a31ec7ee0d1daea9f178e51dc860279d3787ec
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e16d27314a159b124e35560ffb8cd9685fc5c7a0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615355"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438021"
 ---
 # <a name="routing-events-and-messages"></a>Routningshändelser och meddelanden
 
@@ -23,9 +23,9 @@ IoT-lösningar har ofta förenats flera kraftfulla tjänster som omfattar lagrin
 
 Azure Digital Twins finns två sätt att integrera IoT-händelser i andra Azure-tjänster eller program:
 
-* **Routning Azure Digital Twins händelser**: ett objekt i den spatial graph som ändringar, telemetridata som tas emot, eller en användardefinierad funktion som skapar en avisering baserat på fördefinierade villkor kan utlösa Azure Digital Twins händelser. Användarna kan skicka dessa händelser till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus-ämnen](https://azure.microsoft.com/services/service-bus/), eller [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) för vidare bearbetning.
+* **Routning Azure Digital Twins händelser**: Ett objekt i den spatial graph som ändringar, telemetridata som tas emot, eller en användardefinierad funktion som skapar en avisering baserat på fördefinierade villkor kan utlösa Azure Digital Twins händelser. Användarna kan skicka dessa händelser till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus-ämnen](https://azure.microsoft.com/services/service-bus/), eller [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) för vidare bearbetning.
 
-* **Routning enhetstelemetri**: förutom routning händelser, Azure Digital Twins kan också dirigera raw-enhet telemetrimeddelanden till Event Hubs för ytterligare insikter och analyser. Dessa typer av meddelanden bearbetas inte av Azure Digital Twins. Och de är bara vidarebefordras till händelsehubben.
+* **Routning enhetstelemetri**: Förutom routning händelser, kan Azure Digital Twins också dirigera raw-enhet telemetrimeddelanden till Event Hubs för ytterligare insikter och analyser. Dessa typer av meddelanden bearbetas inte av Azure Digital Twins. Och de är bara vidarebefordras till händelsehubben.
 
 Användare kan ange en eller flera utgående slutpunkter att skicka händelser eller för att vidarebefordra meddelanden. Händelser och meddelanden skickas till slutpunkter enligt inställningarna för fördefinierade routning. Med andra ord kan användarna ange en viss slutpunkt för att ta emot händelser för graph-åtgärden, en annan för att ta emot telemetri enhetshändelser och så vidare.
 

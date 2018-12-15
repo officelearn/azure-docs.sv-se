@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f2b22eb779a8ebe1d1fd804443663abc9a4245ec
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 16d85510efb055d7d564ffadb9fff2b200771bc6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141653"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438837"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av portalen
 > [!div class="op_single_selector"]
@@ -88,6 +88,10 @@ Kretsägaren har rätt att ändra och återkalla auktoriseringar när som helst.
 **Du skapar en anslutning auktoriseringsregler**
 
 Kretsägaren skapar en auktorisering. Detta resulterar i att skapa en auktoriseringsnyckeln som kan användas av en kretsanvändare för att ansluta sina virtuella nätverksgatewayer för ExpressRoute-kretsen. En auktorisering är giltig för endast en anslutning.
+
+> [!NOTE]
+> Varje anslutning kräver en separat auktorisering.
+>
 
 1. I ExpressRoute-sidan klickar du på **auktoriseringar** och skriv sedan en **namn** för auktorisering och klicka på **spara**.
 

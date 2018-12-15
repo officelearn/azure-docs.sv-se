@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: fb77c7e8a511d9d97720066113217a39ffc23b24
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4f6dbb52778893de0468dbab82351b9020af2927
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197419"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412817"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
-Den här artikeln beskriver hur du skapar och publicerar något erbjudande för Azure-program för Azure Marketplace. Varje erbjudande visas som en egen enhet på Azure Marketplace och är associerad med en eller flera SKU: er. Ett erbjudande består av följande grupper i tillgångar och stödtjänster:
+Den här artikeln beskriver hur du skapar och publicerar något erbjudande för Azure-program för Azure Marketplace. Varje erbjudande visas som en egen enhet på Azure Marketplace och består av följande grupper i tillgångar och stödtjänster: information om erbjudande, SKU: er, marknadsföring artefakter och supportinformation.
 
 ## <a name="new-offer-form"></a>Nytt erbjudande formulär
 
@@ -33,7 +33,7 @@ Logga in på den [Cloud Partner Portal](http://cloudpartner.azure.com/), och vä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Sidan nytt erbjudande för typ av erbjudande för Azure-program innehåller en uppsättning av flikar och formulärfält som du använder för att skapa ett nytt erbjudande. Var och en av följande artiklar beskriver hur du använder fliken Definiera tillgångar och stödtjänster för ditt nya erbjudande.
+Nytt erbjudande-sidan innehåller en uppsättning flikar och formulärfält som du använder för att skapa ett nytt erbjudande. Följande artiklar beskriver hur du definierar tillgångar och stödtjänster för ditt nya erbjudande.
 
 * [fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
 * [fliken SKU:er](./cpp-skus-tab.md)

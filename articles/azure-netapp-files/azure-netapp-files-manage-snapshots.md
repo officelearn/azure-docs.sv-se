@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 48cb88b9815ba723d93c18caf63f33b50eea850c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009198"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412949"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp filer
 Du kan använda Azure NetApp filer om du vill skapa en ögonblicksbild av på begäran för en volym eller återställa från en ögonblicksbild till en ny volym.
@@ -43,29 +43,33 @@ För närvarande kan återställa du en ögonblicksbild endast till en ny volym.
 
 4. Ange information för den nya volymen i fönstret Ny volym:  
     * **Namn**   
-        Ange namnet för den volym som du skapar.  
+        Ange namnet på den volym du skapar.  
         
-        Namnet måste vara unika inom en resursgrupp. Det måste vara minst 3 tecken.  Det kan använda alla alfanumeriska tecken.
+        Namnet måste vara unikt inom sin resursgrupp. Det måste innehålla minst tre tecken.  Du kan använda alla alfanumeriska tecken.
 
     * **Filsökväg**     
-        Ange sökvägen till filen som ska användas för att skapa exportsökvägen för den nya volymen. Exportsökvägen används för att montera och komma åt volymen.   
+        Ange filsökvägen som ska användas för att skapa exportvägen för den nya volymen. Exportvägen används för att sätta upp och komma åt volymen.   
         
-        Ett monteringsmål är slutpunkten för NFS-IP-adress. Det genereras automatiskt.   
+        Ett monteringsmål är slutpunkten för NFS-IP-adressen. Det skapas automatiskt.   
         
-        Filens sökväg får innehålla bokstäver, siffror och bindestreck (”-”) endast. Det måste vara mellan 16 och 40 tecken. 
+        Filsökvägen får endast innehålla bokstäver, siffror och bindestreck (-). Det måste vara mellan 16 och 40 tecken långt. 
 
     * **Kvot**  
-        Ange mängden logisk lagring som allokerats till volymen.  
+        Ange mängden logisk lagring som tilldelas till volymen.  
 
-        Den **tillgänglig kvot** fält visar mängden outnyttjat utrymme i poolen valda kapacitet som du kan använda för att skapa en ny volym. Storleken på den nya volymen får inte överskrida tillgänglig kvot.
+        Fältet **Tillgänglig kvot** visar mängden outnyttjat utrymme i kapacitetspoolen, som du kan använda för att skapa en ny volym. Storleken på den nya volymen får inte överskrida den tillgängliga kvoten.
 
     *   **Virtuellt nätverk**  
-        Ange den Azure-nätverk (Vnet) som från vilken du vill komma åt volymen. 
-        
-        Det virtuella nätverket som du anger måste ha Azure NetApp filer som konfigurerats. Tjänsten Azure NetApp Files kan nås från ett virtuellt nätverk som finns på samma plats som volymen.  
+        Ange från vilket virtuellt Azure-nätverk du vill komma åt volymen.  
+        Det virtuella nätverket som du anger måste ha ett undernät som delegerats till Azure NetApp-filer. Tjänsten Azure NetApp Files kan nås från samma virtuella nätverk eller från ett virtuellt nätverk som finns i samma region som volym via Vnet-peering. Du kan också komma åt volymen från ditt lokala nätverk via Expressroute. 
 
-    ![Återställda ny volym](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-    
+    * **Undernät**  
+        Ange det undernät som du vill använda för volymen.  
+        Det undernät som du anger måste delegeras till Azure NetApp Files-tjänsten. Du kan skapa ett nytt undernät genom att välja **Skapa nytt** under fältet undernät.  
+<!--
+    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
+-->
+
 5. Klicka på **OK**.   
     Den nya volymen som ögonblicksbilden återställs visas i bladet volymer.
 

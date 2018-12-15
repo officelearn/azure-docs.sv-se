@@ -4,25 +4,25 @@ description: Lär dig hur du felsöker problem med hantering av agenten.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/06/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 028a06a7fb627fd69bdd2f0a2084bbdef11eaed4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077253"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438650"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Förstå Linux-agenten kontrollera resultaten i hantering av uppdateringar
 
-Det kan finnas många orsaker till din Azure-dator inte visas **redo** i hantering av uppdateringar. Du kan kontrollera hälsotillståndet för en Hybrid Worker-agent för att fastställa det underliggande problemet i hantering av uppdateringar. Den här artikeln beskrivs hur du kör Felsökaren från Azure-portalen och offline-scenarier.
+Det kan finnas många orsaker till din dator inte visas **redo** i hantering av uppdateringar. Du kan kontrollera hälsotillståndet för en Hybrid Worker-agent för att fastställa det underliggande problemet i hantering av uppdateringar. Den här artikeln beskrivs hur du kör Felsökaren för datorer i Azure från Azure-portalen och icke-Azure-datorer i den [offlinescenario](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>Starta felsökaren
 
-Genom att klicka på den **Felsök** länka den **uppdatera Agentberedskap** kolumn i portalen kan du starta den **felsöka Update-agenten** sidan. Den här sidan visar problem med agenten och en länk till den här artikeln för att hjälpa dig att felsöka dina problem.
+För datorer i Azure, klicka på den **Felsök** länka den **uppdatera Agentberedskap** kolumn i portalen startar den **felsöka Update-agenten** sidan. För icke-Azure-datorer ger länken du till den här artikeln. Se den [offline instruktioner](#offline) att felsöka en icke-Azure-dator.
 
 ![sidan virtuell dator](../media/update-agent-issues-linux/vm-list.png)
 
@@ -54,12 +54,12 @@ OS-kontroll verifierar om Hybrid Runbook Worker kör något av följande operati
 
 ### <a name="oms-agent"></a>OMS-agenten
 
-Den här kontroller säkerställer att OMS-agenten för Linux är installerad. Anvisningar för hur du installerar den finns i [installera agenten för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
+Den här kontrollen säkerställer att OMS-agenten för Linux är installerad. Anvisningar för hur du installerar den finns i [installera agenten för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
 ### <a name="oms-agent-status"></a>Status för OMS-Agent
 
-Den här kontrollen säkerställer att OMS-agenten för Linux körs. Om agenten inte körs kan du köra följande kommando för att försöka starta om den. Mer information om hur du felsöker agenten finns [Linux Hybrid Runbook worker felsökning](hybrid-runbook-worker.md#linux)
+Den här kontrollen säkerställer att OMS-agenten för Linux körs. Om agenten inte körs måste köra du följande kommando för att försöka starta om den. Läs mer om hur du felsöker agenten [Linux Hybrid Runbook worker felsökning](hybrid-runbook-worker.md#linux)
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -71,7 +71,7 @@ Den här kontrollen avgör om agenten rapporterar till flera arbetsytor. Flera v
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-Det här kontrollerar du OMS-agenten för Linux innehåller Hybrid Runbook Worker-paket. Det här paketet måste anges för hantering av uppdateringar ska fungera.
+Det här kontrollerar om OMS-agenten för Linux har Hybrid Runbook Worker-paketet. Det här paketet måste anges för hantering av uppdateringar ska fungera.
 
 ### <a name="hybrid-runbook-worker-status"></a>Hybrid Runbook Worker-status
 

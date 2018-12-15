@@ -1,6 +1,6 @@
 ---
-title: Samla in anpassade JSON-data i Log Analytics | Microsoft Docs
-description: Anpassade JSON-datakällor kan samlas in i Log Analytics med Log Analytics-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON, till exempel curl eller någon av Fluentds över 300 plugin-program. Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
+title: Samla in anpassade JSON-data i Azure Monitor | Microsoft Docs
+description: Anpassade JSON-datakällor kan samlas in i Azure Monitor med Log Analytics-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON, till exempel curl eller någon av Fluentds över 300 plugin-program. Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c7aed6ab1cd14185aad90c5cb5366ccfe325be0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 64f1d7b1437ea018a25db18e5f92bffaac8f7099
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193985"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438463"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-log-analytics"></a>Samla in anpassade JSON-datakällor med Log Analytics-agenten för Linux i Log Analytics
+# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Samla in anpassade JSON-datakällor med Log Analytics-agenten för Linux i Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Anpassade JSON-datakällor kan samlas in i Log Analytics med Log Analytics-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON som [curl](https://curl.haxx.se/) eller någon av [Fluentds över 300 plugin-program](http://www.fluentd.org/plugins/all). Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
+Anpassade JSON-datakällor kan samlas in i [Azure Monitor loggar](data-collection.md) med Log Analytics-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON som [curl](https://curl.haxx.se/) eller någon av [Fluentds över 300 plugin-program](http://www.fluentd.org/plugins/all). Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
 
 > [!NOTE]
 > Log Analytics-agenten för Linux v1.1.0-217 + krävs för anpassad JSON-Data
@@ -31,7 +31,7 @@ Anpassade JSON-datakällor kan samlas in i Log Analytics med Log Analytics-agent
 
 ### <a name="configure-input-plugin"></a>Konfigurera inkommande plugin-programmet
 
-Om du vill samla in JSON-data i Log Analytics, lägger du till `oms.api.` i början av en FluentD-tagg i en indata-plugin-programmet.
+Om du vill samla in JSON-data i Azure Monitor, lägger du till `oms.api.` i början av en FluentD-tagg i en indata-plugin-programmet.
 
 Till exempel följande är en separat konfigurationsfil `exec-json.conf` i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Här används plugin-programmet FluentD `exec` att köra ett curl-kommando med 30 sekunders mellanrum.  Utdata från det här kommandot samlas in av plugin-programmet för JSON-utdata.
 
@@ -85,13 +85,13 @@ Starta om Log Analytics-agenten för Linux-tjänsten med följande kommando.
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Resultat
-Data kommer att samlas in i Log Analytics med en typ av post för `<FLUENTD_TAG>_CL`.
+Data samlas in i Azure Monitor-loggar med en typ av post för `<FLUENTD_TAG>_CL`.
 
-Till exempel anpassade taggar `tag oms.api.tomcat` i Log Analytics med en typ av post för `tomcat_CL`.  Du kan hämta alla poster i den här typen med följande loggsökning.
+Till exempel anpassade taggar `tag oms.api.tomcat` i Azure Monitor med en typ av post för `tomcat_CL`.  Du kan hämta alla poster i den här typen med följande loggfråga.
 
     Type=tomcat_CL
 
-Kapslad JSON-data källor som stöds, men indexeras baserat på överordnad fältet. Till exempel följande JSON-data returneras från en Log Analytics-sökningen som `tag_s : "[{ "a":"1", "b":"2" }]`.
+Kapslad JSON-data källor som stöds, men indexeras baserat på överordnad fältet. Till exempel följande JSON-data returneras från en loggfråga som `tag_s : "[{ "a":"1", "b":"2" }]`.
 
 ```
 {
@@ -104,5 +104,4 @@ Kapslad JSON-data källor som stöds, men indexeras baserat på överordnad fäl
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
- 
+* Lär dig mer om [logga frågor](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar. 

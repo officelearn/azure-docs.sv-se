@@ -1,6 +1,6 @@
 ---
-title: Distribuera resurser till Azure-prenumeration | Microsoft Docs
-description: Beskriver hur du skapar en Azure Resource Manager-mall som distribuerar resurser prenumerationsområde.
+title: Skapa resursgrupp och resurser på prenumeration – Azure Resource Manager-mall
+description: Beskriver hur du skapar en resursgrupp i en Azure Resource Manager-mall. Den visar också hur du distribuerar resurser i omfånget för Azure-prenumeration.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,22 +9,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9a9fe16f562805f1bfd6f51af063531f34ffdde2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308506"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435301"
 ---
-# <a name="deploy-resources-to-an-azure-subscription"></a>Distribuera resurser till en Azure-prenumeration
+# <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Skapa resursgrupper och resurser för en Azure-prenumeration
 
-Normalt kan distribuera du resurser till en resursgrupp i Azure-prenumerationen. Vissa resurser kan dock distribueras på nivån för din Azure-prenumeration. De här resurserna använda i din prenumeration. [Principer](../azure-policy/azure-policy-introduction.md), [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md), och [Azure Security Center](../security-center/security-center-intro.md) är tjänster som du vill tillämpa på prenumerationsnivå i stället för resursgruppsnivå.
+Normalt kan distribuera du resurser till en resursgrupp i Azure-prenumerationen. Du kan dock använda prenumerationsnivå distributioner för att skapa resursgrupper och resurser som gäller för din prenumeration.
 
-Den här artikeln använder Azure CLI och PowerShell för att distribuera mallarna. Du kan inte använda portalen för att distribuera mallarna eftersom portalgränssnittet distribuerar till resursgrupp, inte Azure-prenumeration.
+Om du vill skapa en resursgrupp i en Azure Resource Manager-mall definierar en **Microsoft.Resources/resourceGroups** resurs med ett namn och plats för resursgruppen. Du kan skapa en resursgrupp och distribuera resurser till resursgruppen i samma mall.
 
-## <a name="name-and-location-for-deployment"></a>Namn och plats för distribution
+[Principer](../azure-policy/azure-policy-introduction.md), [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md), och [Azure Security Center](../security-center/security-center-intro.md) är tjänster som du vill tillämpa på prenumerationsnivå i stället för resursgruppsnivå.
+
+Den här artikeln visar hur du skapar resursgrupper och hur du skapar resurser som gäller i hela prenumerationen. Det använder Azure CLI och PowerShell för att distribuera mallarna. Du kan inte använda portalen för att distribuera mallarna eftersom portalgränssnittet distribuerar till resursgrupp, inte Azure-prenumeration.
+
+## <a name="schema-and-commands"></a>Schema- och kommandon
+
+Schema- och kommandon som du använder för prenumerationsnivå distributioner skiljer sig från distribution av resursgrupper. 
+
+Schemat, använda `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`.
+
+Azure CLI-kommando för distribution använder [az distributionen skapa](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create).
+
+PowerShell-kommando för distribution använder [New AzureRmDeployment](/powershell/module/azurerm.resources/new-azurermdeployment).
+
+## <a name="name-and-location"></a>Namn och plats
 
 När du distribuerar till din prenumeration, måste du ange en plats för distributionen. Du kan också ange ett namn för distributionen. Om du inte anger ett namn för distributionen, används namnet på mallen som distributionens namn. Till exempel distribuerar en mall med namnet **azuredeploy.json** skapar ett standardnamn för distribution av **azuredeploy**.
 
@@ -37,6 +51,207 @@ För nivån prenumerationsdistributioner finns några viktiga överväganden nä
 * Den [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) funktionen är **inte** stöds.
 * Den [resourceId()](resource-group-template-functions-resource.md#resourceid) funktionen stöds. Du kan använda den för att hämta resurs-ID för resurser som används vid prenumeration på distributioner. Till exempel hämta resurs-ID för en principdefinition med `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
 * Den [reference()](resource-group-template-functions-resource.md#reference) och [list()](resource-group-template-functions-resource.md#list) funktioner stöds.
+
+## <a name="create-resource-group"></a>Skapa resursgrupp
+
+I följande exempel skapas en tom resursgrupp.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[parameters('rgName')]",
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Om du vill distribuera den här mallen med Azure CLI, använder du:
+
+```azurecli-interactive
+az deployment create \
+  -n demoEmptyRG \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+Om du vill distribuera den här mallen med PowerShell använder du:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
+```
+
+## <a name="create-several-resource-groups"></a>Skapa flera resursgrupper
+
+Använd den [kopieringselement](resource-group-create-multiple.md) med resursgrupper för att skapa fler än en resursgrupp. 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgNamePrefix": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        },
+        "instanceCount": {
+            "type": "int"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
+            "copy": {
+                "name": "rgCopy",
+                "count": "[parameters('instanceCount')]"
+            },
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Om du vill distribuera den här mallen med Azure CLI och skapa tre resursgrupper, använder du:
+
+```azurecli-interactive
+az deployment create \
+  -n demoCopyRG \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
+  --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+Om du vill distribuera den här mallen med PowerShell använder du:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgNamePrefix demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
+```
+
+## <a name="create-resource-group-and-deploy-resource"></a>Skapa resursgrupp och distribuera resurser
+
+Använd en kapslad mall för att skapa en resursgrupp och distribuera resurser till den. Den kapslade mallen definierar resurserna som ska distribueras till resursgruppen. Ange den kapslade mallen som beroende på resursgruppen som ska kontrollera att resursgruppen finns innan du distribuerar resurser.
+
+I följande exempel skapas en resursgrupp och distribuerar ett lagringskonto till resursgruppen.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        },
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(subscription().id, parameters('rgName')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[parameters('rgName')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "storageDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2017-10-01",
+                            "name": "[variables('storageName')]",
+                            "location": "[parameters('rgLocation')]",
+                            "kind": "StorageV2",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Om du vill distribuera den här mallen med Azure CLI, använder du:
+
+```azurecli-interactive
+az deployment create \
+  -n demoRGStorage \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json \
+  --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
+```
+
+Om du vill distribuera den här mallen med PowerShell använder du:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
 
 ## <a name="assign-policy"></a>Tilldela princip
 
@@ -257,7 +472,5 @@ New-AzureRmDeployment `
 
 ## <a name="next-steps"></a>Nästa steg
 * Ett exempel för att distribuera inställningar för arbetsyta för Azure Security Center finns i [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Om du vill skapa en resursgrupp, [skapa resursgrupper i Azure Resource Manager-mallar](create-resource-group-in-template.md).
 * Läs om hur du skapar Azure Resource Manager-mallar i [Webbsidemallar](resource-group-authoring-templates.md). 
 * En lista över tillgängliga funktioner i en mall finns i [Mallfunktioner](resource-group-template-functions.md).
-

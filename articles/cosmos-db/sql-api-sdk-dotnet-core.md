@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 040b0ae80defcd6d1c737851edd5a7dc16273fc6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340410"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413514"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 ### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
 * Förhandsversion 1 av [Version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) av .NET SDK för en förhandsversion.
 * Target .NET Standard som har stöd för .NET framework 4.6.1+ och .NET Core 2.0 +
-* Ny objektmodell med översta CosmosClient och metoder dela upp på relevanta CosmosDatabases, CosmosContainers och CosmosItems klasser. 
-* Stöd för strömmar. 
-* Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras. 
+* Ny objektmodell med översta CosmosClient och metoder dela upp på relevanta CosmosDatabases, CosmosContainers och CosmosItems klasser.
+* Stöd för strömmar.
+* Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -136,7 +136,7 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
  
- * Anpassning av ändra från Azure DocumentDB till Azure Cosmos DB i API-referensen dokumentation, metadatainformation i sammansättningar och NuGet-paketet. 
+ * Anpassning av ändra från Azure DocumentDB till Azure Cosmos DB i API-referensen dokumentation, metadatainformation i sammansättningar och NuGet-paketet.
  * Visa diagnostikinformation och svarstid från svaret antalet begäranden som skickas med direktanslutning läge. Egenskapsnamnen är RequestDiagnosticsString och RequestLatency ResourceResponse klassen.
  * Den SDK-versionen kräver att den senaste versionen av Azure Cosmos DB-emulatorn tillgänglig för nedladdning från https://aka.ms/cosmosdb-emulator.
  
@@ -150,8 +150,8 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
-* Stöd har lagts till för PartitionKeyRangeId som en FeedOption för att samla frågeresultaten till en specifik partition nyckelintervall värde. 
-* Stöd har lagts till för StartTime som en ChangeFeedOption att börja titta för att ändringarna efter den tidpunkten. 
+* Stöd har lagts till för PartitionKeyRangeId som en FeedOption för att samla frågeresultaten till en specifik partition nyckelintervall värde.
+* Stöd har lagts till för StartTime som en ChangeFeedOption att börja titta för att ändringarna efter den tidpunkten.
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
@@ -216,12 +216,12 @@ Azure Cosmos DB .NET Core SDK gör det möjligt att bygga snabba, plattformsober
 Förhandsversion av Azure Cosmos DB .NET Core SDK gör det möjligt att bygga snabba, plattformsoberoende [ASP.NET Core](https://www.asp.net/core) och [.NET Core](https://www.microsoft.com/net/core#windows) appar för att köras på Windows, Mac och Linux.
 
 Förhandsversion av Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av den [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md) och har stöd för följande:
-* Alla [anslutningsläge](performance-tips.md#networking): Gateway-läge, direkt TCP och Direct HTTPs. 
+* Alla [anslutningsläge](performance-tips.md#networking): Gateway-läge, direkt TCP och Direct HTTPs.
 * Alla [konsekvensnivåer](consistency-levels.md): Begränsad föråldring, stark, Session och slutlig.
-* [Partitionerade samlingar](partition-data.md). 
+* [Partitionerade samlingar](partition-data.md).
 * [Databaskonton och geo-replikering](distribute-data-globally.md).
 
-Om du har frågor som rör detta SDK kan skicka till [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), eller rapportera problemet i den [github-lagringsplatsen](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Om du har frågor som rör detta SDK kan skicka till [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), eller rapportera problemet i den [GitHub-lagringsplatsen](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
 ## <a name="release--retirement-dates"></a>Fri & Släpp dras tillbaka datum
 
@@ -256,5 +256,5 @@ Om du har frågor som rör detta SDK kan skicka till [StackOverflow](https://sta
 | [0.1.0-Preview](#0.1.0-preview) |Den 15 november 2016 |Den 31 december 2016 |
 
 ## <a name="see-also"></a>Se även
-Mer information om Cosmos DB finns [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan. 
+Mer information om Cosmos DB finns [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
 

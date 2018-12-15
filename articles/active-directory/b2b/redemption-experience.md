@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: c0f384dafc4ba30eb3e735ee17ae051245378135
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f580c78fa2114905a0ef28f51feee50361717a27
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254997"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435335"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Inlösning av inbjudan Azure Active Directory B2B-samarbete
 
@@ -52,6 +52,12 @@ När alla gästanvändare loggar in till resurser i en partnerorganisation för 
 ![Skärmbild som visar användarinställningar i åtkomstpanelen](media/redemption-experience/ConsentScreen.png) 
 
 Information om hur du som en Innehavaradministratör kan länka till din organisations sekretesspolicy finns [anvisningar: Lägg till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement).
+
+## <a name="terms-of-use"></a>Användningsvillkor
+
+Du kan visa användningsvillkoren till gästanvändaren under inledande inlösen med hjälp av Azure AD-villkoren i Använd funktion. I Azure Active Directory, kan du komma åt den här funktionen under **hantera** > **organisationens relationer** > **användningsvillkoren** eller under **Security** > **villkorlig åtkomst** > **användningsvillkoren**. Mer information finns i [Azure AD användningsvillkor Använd funktion](../governance/active-directory-tou.md).
+
+![Skärmbild som visar nya användningsvillkor](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>Nästa steg
 

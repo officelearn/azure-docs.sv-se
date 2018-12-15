@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database connectivity-arkitektur | Microsoft Docs
-description: Det här dokumentet beskriver Azure SQL Database connectivity arkitekturen från Azure eller från utanför Azure.
+title: Dirigera Azure trafik till Azure SQL Database och SQL Data Warehouse | Microsoft Docs
+description: Det här dokumentet beskriver den Azure SQL Database och SQL Data Warehouse anslutningsarkitektur från Azure eller från utanför Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,17 +11,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/02/2018
-ms.openlocfilehash: 986741a68113da00800a18cb58648ac66b1de116
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.date: 12/13/2018
+ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322030"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435726"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-arkitektur
+# <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
-Den här artikeln förklarar Azure SQL Database anslutningsarkitektur samt hur de olika komponenterna fungerar för att dirigera trafik till din Azure SQL Database-instans. Azure SQL Database connectivity komponenter fungerar att dirigera nätverkstrafik till Azure-databasen med klienter som ansluter från i Azure och klienter som ansluter från utanför Azure. Den här artikeln innehåller också skriptexempel för att ändra hur anslutning sker, samt den information som rör ändra standardinställningar för anslutningen.
+Den här artikeln förklarar Azure SQL Database och SQL Data Warehouse-anslutning arkitekturen samt hur de olika komponenterna fungerar därigenom dirigera trafik till din Azure SQL-instans. Dessa komponenter-funktion för anslutningen att dirigera nätverkstrafik till Azure SQL Database eller SQL Data Warehouse med klienter som ansluter från i Azure och klienter som ansluter från utanför Azure. Den här artikeln innehåller också skriptexempel för att ändra hur anslutning sker, samt den information som rör ändra standardinställningar för anslutningen.
 
 > [!IMPORTANT]
 > **[Förändring] För service-slutpunkt-anslutningar till Azure SQL-servrar, en `Default` anslutning beteendet ändras till `Redirect`.**
@@ -36,7 +36,10 @@ Den här artikeln förklarar Azure SQL Database anslutningsarkitektur samt hur d
 > - Programmet ansluter till en befintlig server sällan så att våra telemetri att avläsa information om dessa program 
 > - Logik för automatisk distribution skapar en logisk server förutsatt att det är standardbeteendet för slutpunkten Tjänstanslutningar `Proxy` 
 >
-> Om slutpunkten Tjänstanslutningar inte kunde upprättas till Azure SQL-server och du misstänka att du påverkas av den här ändringen, kontrollera att anslutningstypen är explicit inställd på `Redirect`. Om så är fallet, måste du öppna brandväggsregler för virtuell dator och Nätverkssäkerhetsgrupper (NSG) till alla Azure-IP-adresser i regionen som tillhör Sql [servicetagg](../virtual-network/security-overview.md#service-tags). Om det inte är ett alternativ för dig, växla server explicit till `Proxy`.
+> Om slutpunkten Tjänstanslutningar inte kunde upprättas till Azure SQL-server och du misstänka att du påverkas av den här ändringen, kontrollera att anslutningstypen är explicit inställd på `Redirect`. Om så är fallet, måste du öppna brandväggsregler för virtuell dator och Nätverkssäkerhetsgrupper (NSG) till alla Azure-IP-adresser i regionen som tillhör Sql [servicetagg](../virtual-network/security-overview.md#service-tags) för portar 11000 12000. Om det inte är ett alternativ för dig, växla server explicit till `Proxy`.
+
+> [!NOTE]
+> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
 
 ## <a name="connectivity-architecture"></a>Anslutningsarkitektur
 
@@ -54,7 +57,7 @@ Följande steg beskriver hur upprättas en anslutning till en Azure SQL database
 
 Azure SQL Database stöder följande tre alternativ för den här inställningen för anslutning av en SQL Database-server:
 
-- **Omdirigering (rekommenderas):** Klienter ansluta direkt till den nod som värd för databasen. Om du vill aktivera anslutningen klienter måste tillåta utgående brandväggsregler till alla Azure-IP-adresser i regionen med Nätverkssäkerhetsgrupper (NSG) med [tjänsttaggar](../virtual-network/security-overview.md#service-tags)), inte bara Azure SQL Database gateway IP-adresser. Eftersom paket går direkt till databasen, har svarstid och dataflöde bättre prestanda.
+- **Omdirigering (rekommenderas):** Klienter ansluta direkt till den nod som värd för databasen. Om du vill aktivera anslutningen klienter måste tillåta utgående brandväggsregler till alla Azure-IP-adresser i regionen med Nätverkssäkerhetsgrupper (NSG) med [tjänsttaggar](../virtual-network/security-overview.md#service-tags)) för portar 11000-12000, inte bara Azure SQL Database gateway-IP adresser på port 1433. Eftersom paket går direkt till databasen, har svarstid och dataflöde bättre prestanda.
 - **Proxy:** I det här läget är alla anslutningar via proxy via Azure SQL Database-gatewayer. Om du vill aktivera anslutning, måste klienten ha utgående brandväggsregler som tillåter endast Azure SQL Database-gateway IP-adresser (vanligtvis två IP-adresser per region). Om du väljer det här läget kan resultera i högre svarstider och lägre dataflöde, beroende på typen av arbetsbelastning. Vi rekommenderar starkt att den `Redirect` anslutningsprincip över den `Proxy` anslutningsprincip för lägsta svarstid och högsta dataflöde.
 - **standard:** Detta tillämpas principen på alla servrar när du har skapat, såvida inte du uttryckligen ändrar principen till antingen `Proxy` eller `Redirect`. Principen som beror på om anslutningar kommer från i Azure (`Redirect`) eller utanför Azure (`Proxy`).
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: c13650d53098c891b168cb88516dbee53f3da5cc
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f36879828f5927cbb5477b32cdb6b4832010d4c
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260267"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413140"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Snabbstart: Skapa en notebook-fil
 
@@ -40,7 +40,7 @@ Kloning av skapar en kopia av en GitHub-anteckningsbok i anteckningsböcker i Az
 
 1. I den **överför GitHub-lagringsplatsen** som visas, ange eller ange följande information och välj sedan **Import**:
 
-    - **Github-lagringsplatsen**: Microsoft cognitive-tjänster-datorer (det här namnet klonar Jupyter-anteckningsböcker för Azure Cognitive Services på [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
+    - **GitHub-lagringsplatsen**: Microsoft cognitive-tjänster-datorer (det här namnet klonar Jupyter-anteckningsböcker för Azure Cognitive Services på [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
     - **Klona rekursivt**: (avmarkerad)
     - **Projektnamnet**: Cognitive Services klon
     - **Projektet ID**: cognitive services klon

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f2f086dbe5056ee3d83be2d8725f49fd502d1b2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 72b0aba4d2bf9cb666d1cb7ae30d0cbdefe3045b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139237"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438421"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -509,6 +509,8 @@ Det returnerade objektet är i följande format:
 
 ### <a name="remarks"></a>Kommentarer
 
+Den `resourceGroup()` funktionen kan inte användas i en mall som är [distribueras på prenumerationsnivå](deploy-to-subscription.md). Det kan endast användas i mallar som har distribuerats till en resursgrupp.
+
 Ett vanligt användningsområde för resourceGroup-funktionen är att skapa resurser på samma plats som resursgruppen. I följande exempel använder resursgruppens plats för att tilldela en plats för en webbplats.
 
 ```json
@@ -593,9 +595,9 @@ Identifieraren returneras i följande format:
 
 ### <a name="remarks"></a>Kommentarer
 
-De parametervärden som du anger beror på om resursen är i på samma prenumeration och resursgrupp som den aktuella distributionen.
+När det används med en [prenumerationsnivå distribution](deploy-to-subscription.md), `resourceId()` funktionen går bara att hämta ID för resurser som har distribuerats på den nivån. Du kan till exempel få ID för en principdefinition eller rolldefinition, men inte ID för ett lagringskonto. För distributioner till en resursgrupp gäller motsatt. Du kan inte hämta resurs-ID för resurser som har distribuerats på prenumerationsnivå.
 
-Hämta resurs-ID för ett lagringskonto i samma prenumeration och resursgrupp med:
+De parametervärden som du anger beror på om resursen är i på samma prenumeration och resursgrupp som den aktuella distributionen. Hämta resurs-ID för ett lagringskonto i samma prenumeration och resursgrupp med:
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
@@ -617,6 +619,12 @@ Hämta resurs-ID för en databas i en annan resursgrupp med:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
+```
+
+Hämta resurs-ID för en prenumerationsnivå resurs när du distribuerar prenumerationsområde med:
+
+```json
+"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
 ```
 
 Du behöver ofta, Använd den här funktionen när du använder ett lagringskonto eller ett virtuellt nätverk i en annan resursgrupp. I följande exempel visas hur en resurs från en extern resursgrupp enkelt kan användas:

@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636891"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436933"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Förstå Digital Twins objektmodeller och rumsliga intelligence graph
 
@@ -48,11 +48,11 @@ Andra typer av objekt är:
 - **Roller** är en uppsättning behörigheter som tilldelats användare och enheter i spatial diagrammet, till exempel `Space Administrator`, `User Administrator`, och `Device Administrator`.
 - **Rolltilldelningar** är associationen mellan en roll och ett objekt i spatial diagrammet. Exempelvis kan kan en användare eller ett huvudnamn för tjänsten beviljas behörighet att hantera ett blanksteg i spatial diagrammet.
 - **Säkerhet viktiga butiker** security-nycklar för alla enheter i hierarkin under ett visst utrymme objekt så att enheten att kommunicera säkert med digitala Twins.
-- **Användardefinierade funktioner** (UDF) Tillåt anpassningsbara sensor telemetribearbetning i spatial diagrammet. Det kan till exempel en UDF: 
-    - Ange ett värde för sensorn. 
-    - Utföra anpassad logik baserat på sensoravläsningar och ange utdata till ett blanksteg. 
-    - Koppla metadata till ett blanksteg. 
-    - Skicka meddelanden när fördefinierade villkor är uppfyllda. För närvarande kan UDF: er skrivas i JavaScript.
+- **Användardefinierade funktioner** (UDF) Tillåt anpassningsbara sensor telemetribearbetning i spatial diagrammet. Det kan till exempel en UDF:
+  - Ange ett värde för sensorn.
+  - Utföra anpassad logik baserat på sensoravläsningar och ange utdata till ett blanksteg.
+  - Koppla metadata till ett blanksteg.
+  - Skicka meddelanden när fördefinierade villkor är uppfyllda. För närvarande kan UDF: er skrivas i JavaScript.
 - **Matchers** är objekt som bestämmer vilka UDF: er körs för en viss telemetri-meddelande.
 - **Slutpunkter** är platser där telemetrimeddelanden och Digital Twins händelser kan vidarebefordras, till exempel `Event Hub`, `Service Bus`, och `Event Grid`.
 
@@ -84,8 +84,8 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 | Namn | Ersätt med |
 | --- | --- |
-| YOUR_INSTANCE_NAME | Namnet på din digitala Twins-instans |
-| YOUR_LOCATION | Vilken server-region som din instans är värd för |
+| YOUR_INSTANCE_NAME | Namnet på Digital Twins-instansen |
+| YOUR_LOCATION | Den serverregion som instansen finns i |
 
  Det fullständiga URL-formatet som visas i den här avbildningen.
 
@@ -103,9 +103,9 @@ Alla API-anrop måste autentiseras med hjälp av [OAuth](https://docs.microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om enhetsanslutning och hur du skickar telemetrimeddelanden till Digital Twins [Azure Digital Twins enhetens anslutning och telemetriingång](concepts-device-ingress.md).
+- Läs om enhetsanslutning och hur du skickar telemetrimeddelanden till Digital Twins [Azure Digital Twins enhetens anslutning och telemetriingång](concepts-device-ingress.md).
 
-* Mer information om hantering av API-begränsningar och begränsningar, läsa [Azure Digital Twins API management och begränsningar](concepts-service-limits.md).
+- Mer information om hantering av API-begränsningar och begränsningar, läsa [Azure Digital Twins API management och begränsningar](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

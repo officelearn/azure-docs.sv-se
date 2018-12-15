@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 0d2b7a5e3239cf46c41db0a086b804c34df5d6e2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386952"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434264"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -207,7 +207,7 @@ Ställa in aviseringar utan [Azure Log Analytics](../log-analytics/log-analytics
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Inställningar för Azure Diagnostics-händelser och information
 
-Varje diagnostisk händelse har information om din logikapp och händelsen, till exempel status, starttid, Sluttid och så vidare. Om du vill konfigurera övervakning, spårning och loggning, kan du använda dessa uppgifter med de [REST API för Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) och [REST API för Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Varje diagnostisk händelse har information om din logikapp och händelsen, till exempel status, starttid, Sluttid och så vidare. Om du vill konfigurera övervakning, spårning och loggning, kan du använda dessa uppgifter med de [REST API för Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) och [REST API för Azure Diagnostics](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
 Till exempel den `ActionCompleted` händelsen har den `clientTrackingId` och `trackedProperties` egenskaper som du kan använda för att spåra och övervaka:
 

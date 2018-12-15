@@ -1,6 +1,6 @@
 ---
-title: Samla in Nagios och Zabbix-aviseringar i Log Analytics | Microsoft Docs
-description: Nagios och Zabbix är verktyg med öppen källkod. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem tillsammans med aviseringar från andra källor.  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
+title: Samla in Nagios och Zabbix-aviseringar i Azure Monitor | Microsoft Docs
+description: Nagios och Zabbix är verktyg med öppen källkod. Du kan samla in aviseringar från de här verktygen i Azure Monitor för att analysera dem tillsammans med aviseringar från andra källor.  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,18 +11,24 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2018
+ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 2d90c0c1ab1a6423a206345b7d7d6f34874d2366
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 217f19b02ccd5561ee499388bb62d5a6639086ac
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335735"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436202"
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Log Analytics från Log Analytics-agenten för Linux 
+# <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Azure Monitor från Log Analytics-agenten för Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+<<<<<<< HEAD [Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen i Azure Monitor för att analysera dem med loggdata från andra källor.  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
+
+> [!NOTE]
+> [Aviseringar som skapats av Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) lagras separat från loggdata och inte kan nås från loggfrågor.
+=======
 [Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem tillsammans med [aviseringar från andra källor](../../azure-monitor/platform/alerts-overview.md).  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
+>>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
  
 ## <a name="prerequisites"></a>Förutsättningar
 Samla in varningar från Nagios versionen har stöd för Log Analytics-agenten för Linux 4.2.x och Zabbix upp till version 2.x.
@@ -78,7 +84,7 @@ Utför följande steg för att samla in aviseringar på Nagios-servern.
 
 
 ## <a name="alert-records"></a>Aviseringsposter
-Du kan hämta aviseringsposter från Nagios och Zabbix med [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics.
+Du kan hämta aviseringsposter från Nagios och Zabbix med [logga frågor](../log-query/log-query-overview.md) i Azure Monitor.
 
 ### <a name="nagios-alert-records"></a>Nagios-avisering poster
 
@@ -116,5 +122,5 @@ Avisera poster som samlas in av Zabbix har en **typ** av **avisering** och en **
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [aviseringar](../../azure-monitor/platform/alerts-overview.md) i Log Analytics.
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) i Azure Monitor.
+* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 

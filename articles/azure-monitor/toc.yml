@@ -137,7 +137,7 @@ items:
   - name: Visualisera data
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: Partnerintegrering
-    href: ../monitoring-and-diagnostics/monitoring-partners.md?toc=/azure/azure-monitor/toc.json
+    href: platform/partners.md
   - name: VANLIGA FRÅGOR OCH SVAR
     items:
     - name: Log Analytics
@@ -219,7 +219,7 @@ items:
         - name: Aktivera diagnostikinställningar med Resource Manager-mallar
           href: platform/diagnostic-logs-stream-template.md
         - name: Förbered för JSON Lines-format för diagnostikloggar
-          href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-append-blobs.md
         - name: VM-gäst till måttlager
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
         - name: VM-skalningsuppsättningsgäst till måttlager
@@ -651,7 +651,7 @@ items:
       - name: Exportera programdata
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: Skicka data till Grafana
-      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
+      href: platform/grafana-plugin.md
   - name: Analysera data
     items:
     - name: Skapa måttdiagram i Metrics Explorer
@@ -798,7 +798,7 @@ items:
     - name: Automatisk skalning
       items:
       - name: Genomgång av automatisk skalning
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-get-started.md
       - name: Förstå inställningarna för automatisk skalning
         href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
       - name: Bästa praxis
@@ -806,7 +806,7 @@ items:
       - name: Vanliga mått
         href: platform/autoscale-common-metrics.md
       - name: Vanliga mönster
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-common-scale-patterns.md
       - name: Skala automatiskt med anpassat mått
         href: platform/autoscale-custom-metric.md
       - name: VM Scale Sets för automatisk skalning med Resource Manager-mallar
@@ -832,7 +832,7 @@ items:
   - name: Hantera användning och kostnad
     items:
     - name: Användning och uppskattade kostnader
-      href: ../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md?toc=/azure/azure-monitor/toc.json
+      href: platform/usage-estimated-costs.md
     - name: Volym och kvarhållning för programdata
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
     - name: Information om Enterprise-prenumerationsavtal för program
@@ -866,7 +866,7 @@ items:
     - name: API
       items:
       - name: Genomgång med REST API
-        href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
+        href: platform/rest-api-walkthrough.md
       - name: Aviserings-API
         href: platform/api-alerts.md
     - name: Program
@@ -952,7 +952,7 @@ items:
   - name: Mått
     items:
     - name: Mått som stöds
-      href: ../monitoring-and-diagnostics/monitoring-supported-metrics.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-supported.md
     - name: Mått som stöds för nyare aviseringar
       href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
   - name: Scheman
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 037ec2d246e30725448fb3da98263b557e11186d
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9be0566a2e0fddc61d5c7028e9ecc7a24930b2f2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384437"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438395"

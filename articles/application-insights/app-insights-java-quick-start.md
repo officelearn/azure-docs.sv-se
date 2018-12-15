@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 45d1275ac3b78836cbb77c4e1508d0689c215d69
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246521"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998595"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Börja övervaka din Java-webbapp
 
@@ -29,7 +29,7 @@ Snabbstarten guidar dig genom processen att lägga till Application Insights SDK
 För att slutföra den här snabbstarten behöver du:
 
 - Installera JRE 1.7 eller 1.8
-- Installera [Kostnadsfria Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/downloads/). Den här snabbstarten använder Eclipse Oxygen (4.7)
+- Installera [Kostnadsfria Eclipse IDE för Java EE-utvecklare](https://www.eclipse.org/downloads/). Den här snabbstarten använder Eclipse Oxygen (4.7)
 - Du behöver en Azure-prenumeration och ett befintligt dynamiskt Java-webbprojekt
  
 Om du inte har ett dynamiskt Java-webbprojekt kan du skapa ett med [snabbstarten Skapa en Java-webapp](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
@@ -67,7 +67,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![Nytt App Insights-resursformulär](./media/app-insights-java-quick-start/000-j.png)
 
-2. Kopiera ```http://dl.microsoft.com/eclipse``` till fältet Work With (Arbeta med) > markera **Azure Toolkit for Java** (Azure Toolkit för Java) > välj **Application Insights Plugin for Java** >  **(Application Insights-plugin-programmet för Java), avmarkera** Contact all update sites during install to find required software (Kontakta alla uppdateringssidor vid installationen för att hitta programvara som krävs).
+2. Kopiera ```https://dl.microsoft.com/eclipse``` till fältet Work With (Arbeta med) > markera **Azure Toolkit for Java** (Azure Toolkit för Java) > välj **Application Insights Plugin for Java** >  **(Application Insights-plugin-programmet för Java), avmarkera** Contact all update sites during install to find required software (Kontakta alla uppdateringssidor vid installationen för att hitta programvara som krävs).
 
 3. När installationen är klar uppmanas du att **starta om Eclipse**.
 
@@ -130,7 +130,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![Diagram för servermått](./media/app-insights-java-quick-start/livemetricsjava.png)
 
-Mer information om övervakning av Java finns i den [ytterligare App Insights Java-dokumentationen](.\app-insights-java-get-started.md).
+Mer information om övervakning av Java finns i den [ytterligare App Insights Java-dokumentationen](./app-insights-java-get-started.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

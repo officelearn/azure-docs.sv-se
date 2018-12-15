@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: 9df51626a1bd36b0ea171c89c67a5c1ca79d60e6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0d593e52c8dc3bc961df706ccef2da9da2f3f778
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873708"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087141"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Hantera grupper av databaser med Elastic Database-jobb
 
@@ -127,7 +127,7 @@ Följande exempel visar hur olika målgruppsdefinitioner räknas upp dynamiskt n
 
 ![Exempel med målgrupper](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-**Exempel 5** och *exempel 6* illustrerar avancerade scenarier där Azure SQL-servrar, elastiska pooler och databaser kan kombineras med hjälp av inkluderings- och exkluderingsregler.<br>
+**Exempel 5** och **exempel 6** illustrerar avancerade scenarier där Azure SQL-servrar, elastiska pooler och databaser kan kombineras med hjälp av inkluderings- och exkluderingsregler.<br>
 **Exempel 7** illustrerar hur shards (fragment) i en shard-karta även kan utvärderas när ett jobb körs.
 
 ### <a name="job"></a>Jobb

@@ -1,19 +1,18 @@
 ---
 title: ta med fil
 description: ta med fil
-services: signalr
 author: anthonychu
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: c74a0726bbbe635793b48b6fe6ebd6f0c72f95f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e01db73f58c77ff62f7abe707884fc2649fd042
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006295"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262798"
 ---
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -24,4 +23,3 @@ Om du inte planerar att fortsätta använda den här appen tar du bort alla resu
 1. Markera resursgruppen i fönstret som öppnas och klicka sedan på **Ta bort resursgrupp**.
 
 1. I det nya fönstret, skriv namnet på resursgruppen som ska tas bort och klicka sedan på **Ta bort**.
-

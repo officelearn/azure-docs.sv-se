@@ -12,16 +12,16 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496033"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993184"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Skapa en OpenAPI-definition för en funktion
 
-REST-API:er beskrivs ofta med hjälp av en OpenAPI-definition (kallades tidigare för en [Swagger](http://swagger.io/)-fil). Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade.
+REST-API:er beskrivs ofta med hjälp av en OpenAPI-definition (kallades tidigare för en [Swagger](https://swagger.io/)-fil). Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade.
 
 I den här självstudien skapar du en funktion som avgör om en nödreparation på en vindturbin är kostnadseffektiv. Du kan sedan skapa en OpenAPI-definition för funktionsappen så att funktionen kan anropas från andra appar och tjänster.
 
@@ -123,7 +123,7 @@ Nu har du en funktion som avgör om en nödreparation är kostnadseffektiv. Näs
 
 ## <a name="generate-the-openapi-definition"></a>Generera OpenAPI-definitionen
 
-Nu är du redo att generera OpenAPI-definitionen. Den här definitionen kan användas av andra Microsoft-program som API Apps, [PowerApps](functions-powerapps-scenario.md) och [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), samt av andra utvecklingsverktyg från tredje part som [Postman](https://www.getpostman.com/docs/importing_swagger) och [många andra paket](http://swagger.io/tools/).
+Nu är du redo att generera OpenAPI-definitionen. Den här definitionen kan användas av andra Microsoft-program som API Apps, [PowerApps](functions-powerapps-scenario.md) och [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), samt av andra utvecklingsverktyg från tredje part som [Postman](https://www.getpostman.com/docs/importing_swagger) och [många andra paket](https://swagger.io/tools/).
 
 1. Välj endast de *verb* som ditt API har stöd för (i det här fallet POST). Det gör den genererade API-definitionen tydligare.
 
@@ -141,7 +141,7 @@ Nu är du redo att generera OpenAPI-definitionen. Den här definitionen kan anv�
 
     ![API-definitionskälla](media/functions-openapi-definition/api-definition-source.png)
 
-    Det här steget möjliggör en uppsättning OpenAPI-alternativ för funktionsappen, inklusive en slutpunkt som kan vara värd för en OpenAPI-fil från funktionsappens domän, en infogad kopia av [OpenAPI Editor](http://editor.swagger.io), och en mallgenerator för API-definitioner.
+    Det här steget möjliggör en uppsättning OpenAPI-alternativ för funktionsappen, inklusive en slutpunkt som kan vara värd för en OpenAPI-fil från funktionsappens domän, en infogad kopia av [OpenAPI Editor](https://editor.swagger.io), och en mallgenerator för API-definitioner.
 
 1. Klicka på **Generera API-definitionsmall** > **Spara**.
 
@@ -168,7 +168,7 @@ Nu är du redo att generera OpenAPI-definitionen. Den här definitionen kan anv�
         parameters: []
         description: >-
             Replace with Operation Object
-            #http://swagger.io/specification/#operationObject
+            #https://swagger.io/specification/#operationObject
         responses:
             '200':
             description: Success operation

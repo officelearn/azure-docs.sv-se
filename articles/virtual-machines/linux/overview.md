@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 06bd1216aa3f78b41526670044de0250ad0df7d7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 96daacef134ca60cb497907a770c83a4bba24a5b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833269"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956032"
 ---
 # <a name="azure-and-linux"></a>Azure och Linux
 Microsoft Azure är en växande samling integrerade offentliga molntjänster som omfattar analyser, virtuella datorer, databaser, mobil, nätverk, lagring och webb – perfekt som värd för dina lösningar.  Microsoft Azure tillhandahåller en skalbar plattform som gör att du bara betalar för vad du använder, när du behöver det – utan att behöva investera i lokal maskinvara.  Azure är klar när du är klar att skala upp och ut lösningar oavsett vilken skala du behöver för dina klienter.
@@ -82,7 +82,7 @@ Microsoft har ett nära samarbete med partner för att se till att de tillgängl
 * Bitnami – [Bitnami Library för Azure](https://azure.bitnami.com/)
 * Mesosphere – [Azure Marketplace – Mesosphere DC/OS på Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
 * Docker – [Azure Marketplace – Azure Container Service med Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
-* Jenkins – [Azure Marketplace – CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
+* Jenkins – [Azure Marketplace – CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
 
 ## <a name="getting-started-with-linux-on-azure"></a>Komma igång med Linux på Azure
 Om du vill börja använda Azure behöver du ett Azure-konto, Azure CLI installerat och ett par offentliga och privata SSH-nycklar.

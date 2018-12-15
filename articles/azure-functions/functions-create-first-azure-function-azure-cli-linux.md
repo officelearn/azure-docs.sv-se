@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 6597e0058176eaa819170a494e4908ab44456360
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b6df653f89f05a9b253ecea102ed8310ff2a53b7
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850541"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438300"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Skapa din första Linux-funktion med hjälp av Core Tools och Azure CLI (förhandsversion)
 
-Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/overview/serverless-computing/) Linux-miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. Linux-värdfunktioner är för närvarande i förhandsversion och kräver [Functions 2.0-runtime](functions-versions.md). Mer information om förhandsversionsöverväganden för att köra funktionsappar i Linux finns i [den här artikeln om Functions i Linux](https://aka.ms/funclinux).
+Med Azure Functions kan du köra kod i en [serverfri](https://azure.com/serverless) Linux-miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. Linux-värdfunktioner är för närvarande i förhandsversion och kräver [Functions 2.0-runtime](functions-versions.md). Mer information om förhandsversionsöverväganden för att köra funktionsappar i Linux finns i [den här artikeln om Functions i Linux](https://aka.ms/funclinux).
 
 Den här snabbstartsartikeln går igenom hur du använder Azure CLI till att skapa din första funktionsapp som körs på Linux. Funktionskoden skapas lokalt och distribueras sedan till Azure med hjälp av [Azure Functions Core Tools](functions-run-local.md).
 

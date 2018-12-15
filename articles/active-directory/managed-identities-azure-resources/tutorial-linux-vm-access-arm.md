@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 6c4869c6ed392b8ae0fb33176435aa3f58abaa1e
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 24975fe0e3c423a3f356bd4a5a961456c511c96b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706440"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253042"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Resource Manager
 
@@ -51,7 +51,7 @@ Med hjälp av hanterade identiteter för Azure-resurser kan din kod hämta åtko
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns systemtilldelade hanterade identitet och använd den för att anropa Resource Manager 
 
-För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. I portalen går du till den virtuella Linux-datorn och i **översikten** klickar du på **Anslut**.  
 2. **Anslut** till den virtuella datorn med valfri SSH-klient. 
@@ -92,11 +92,11 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
     Svar tillbaka information för den specifika resursgruppen:    
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```     
+    ```
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-In this quickstart, you learned how to use a system-assigned managed identity to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
+I den här snabbstarten har du lärt dig hur du använder en systemtilldelad hanterad identitet för att få åtkomst till Azure Resource Manager-API:et.  Mer information om Azure Resource Manager finns här:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

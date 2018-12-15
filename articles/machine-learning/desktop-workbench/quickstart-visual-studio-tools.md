@@ -11,18 +11,18 @@ ms.custom: mvc, vs-azure
 ms.topic: quickstart
 ms.date: 11/15/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 48651d7c4589af4f8866001c1330c041cab5ea1a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 4cb204665e3f7e7c5bb15c739fd38dae1494ca99
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261368"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410252"
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools för AI
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
-Visual Studio Tools för AI är ett tillägg i Visual Studio Code för att skapa, testa och distribuera djupinlärnings- och AI-lösningar. Tillägget är smidigt integrerat med Azure Machine Learning, till exempel en vy över körningshistorik med information om prestanda för tidigare träningar och anpassade mått. Det har också en utforskarvy med exempel för att söka efter och starta nya projekt med [Microsoft Cognitive Toolkit (kallades tidigare CNTK)](https://docs.microsoft.com/cognitive-toolkit/), [Google TensorFlow](https://www.tensorflow.org) och andra djupinlärningsramverk. Den innehåller även en utforskare för beräkningsmål som gör att du kan skicka jobb för att träna modeller i fjärrmiljöer som Azure Virtual Machines eller Linux-servrar med GPU. Det ger också en förenklad åtkomst till [Azure Batch AI (förhandsversion)](https://docs.microsoft.com/azure/batch-ai/).
+Visual Studio Tools för AI är ett tillägg i Visual Studio Code för att skapa, testa och distribuera djupinlärnings- och AI-lösningar. Tillägget är smidigt integrerat med Azure Machine Learning, till exempel en vy över körningshistorik med information om prestanda för tidigare träningar och anpassade mått. Det har också en utforskarvy med exempel för att söka efter och starta nya projekt med [Microsoft Cognitive Toolkit (kallades tidigare CNTK)](https://docs.microsoft.com/cognitive-toolkit/), [Google TensorFlow](https://www.tensorflow.org) och andra djupinlärningsramverk. Den innehåller även en utforskare för beräkningsmål som gör att du kan skicka jobb för att träna modeller i fjärrmiljöer som Azure Virtual Machines eller Linux-servrar med GPU. 
  
 ## <a name="getting-started"></a>Komma igång 
 Innan du börjar måste du ladda ned och installera [Visual Studio](https://www.visualstudio.com/downloads/). När du har öppnat Visual Studio utför du följande steg:

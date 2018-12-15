@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 708fddf6150e83d520617f59ea3018953f7fe77f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 15a7cc1940a01486c6b660ec65b47f072dc7996e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963312"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970694"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Skapa en Azure-funktion som ansluter till Azure Cosmos DB
 
-Det här exempelskriptet för Azure Functions skapar en funktionsapp och ansluter funktionen till en Azure Cosmos DB-databas. Appinställningen som skapas och som innehåller anslutningen kan användas med en [lagringsutlösare eller bindning för Azure Cosmos DB](..\functions-bindings-cosmosdb.md).
+Det här exempelskriptet för Azure Functions skapar en funktionsapp och ansluter funktionen till en Azure Cosmos DB-databas. Appinställningen som skapas och som innehåller anslutningen kan användas med en [lagringsutlösare eller bindning för Azure Cosmos DB](../functions-bindings-cosmosdb.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ Det här exemplet skapar en Azure-funktionsapp och lägger till en Cosmos DB-slu
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon: varje kommando i tabellen länkar till kommandospecifik dokumentation.
+I det här skriptet används följande kommandon: Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|

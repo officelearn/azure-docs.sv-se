@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3c7a1dd9ba688c5cc9776dbfba0841c9a06065dc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419698"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184975"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK och tjänst-SDK och gruppregistreringar för IoT Hub Device Provisioning-tjänsten
 
@@ -49,20 +49,20 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
             - Välj filen **_RootCA.pem_** som du nyss skapade.
             - Klicka på knappen **Spara** när det är klart.
 
-        ![Lägg till certifikat](./media/tutorial-group-enrollments/add-certificate.png)
+           ![Lägg till certifikat](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Välj det nya certifikatet:
             - Klicka på **Skapa verifieringskod**. Kopiera den skapade koden.
             - Kör verifieringsstegen. Ange _verifieringskoden_ eller högerklicka för att klistra in PowerShell-fönstret som körs.  Tryck på **RETUR**.
             - Välj den nyligen skapade filen **_verifyCert4.pem_** i Azure-portalen. Klicka på **Verifiera**.
 
-            ![Validera certifikat](./media/tutorial-group-enrollments/validate-certificate.png)
+              ![Validera certifikat](./media/tutorial-group-enrollments/validate-certificate.png)
 
     1. Avsluta genom att köra stegen för att skapa dina enhetscertifikat och rensa resurser.
 
-    > [!NOTE]
-    > När du skapar enhetscertifikat ska du se till att endast använda gemena alfanumeriska tecken och bindestreck i enhetens namn.
-    >
+       > [!NOTE]
+       > När du skapar enhetscertifikat ska du se till att endast använda gemena alfanumeriska tecken och bindestreck i enhetens namn.
+       >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Skapa en post för enhetsregistrering

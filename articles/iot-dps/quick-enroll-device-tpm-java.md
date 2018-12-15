@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 6b0068bc912de13590cd9bc7418ea6fcdb01189f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4c494eda7126a21223f65a7e52c220fca93b2e39
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420497"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184669"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrera TPM-enhet på IoT Hub Device Provisioning-tjänsten med Java-tjänst-SDK
 
@@ -34,7 +34,7 @@ Se till att [konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal]
 
 2. Konfigurera miljövariabler för Java-installationen. Variabeln `PATH` ska innehålla den fullständiga sökvägen till katalogen *jdk1.8.x\bin*. Om det här är datorns första Java-installation skapar du en ny miljövariabeln med namnet `JAVA_HOME` och gör så att den pekar på den fullständiga sökvägen till katalogen *jdk1.8.x*. På Windows-datorer finns den här katalogen i mappen *C:\\Program\\Java\\* och du kan skapa eller redigera miljövariabler genom att söka efter **Redigera systemets miljövariabler** i **Kontrollpanelen** på Windows-datorn. 
 
-  Du kan kontrollera om Java har konfigurerats på datorn genom att köra följande kommando i kommandofönstret:
+   Du kan kontrollera om Java har konfigurerats på datorn genom att köra följande kommando i kommandofönstret:
 
     ```cmd\sh
     java -version

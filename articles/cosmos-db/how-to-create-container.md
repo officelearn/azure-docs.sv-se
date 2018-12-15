@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: d22103a049d62f48e8b9b9d3f71138842fbfaa89
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5558409c3a3b0aef3757ebb73b2046a7018e4150
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262496"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088195"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>Skapa en container i Azure Cosmos DB
 
@@ -26,35 +26,34 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
 
 1. [Skapa ett nytt Cosmos DB-konto](create-sql-api-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
 
-1. Öppna rutan **Datautforskaren** och välj **Ny samling**. Fyll sedan i formuläret med följande information:
+1. Öppna fönsterrutan **Datautforskaren** och välj **Ny samling**. Fyll sedan i formuläret med följande information:
 
    * Skapa en ny databas eller välj en befintlig.
    * Ange ett samlings-ID.
-   * Välj **obegränsad** lagringskapacitet.
    * Ange en partitionsnyckel.
-   * Ange ett dataflöde, till exempel 1000 RU:er.
+   * Ange ett dataflöde, till exempel 1 000 RU.
    * Välj **OK**.
 
 ![SQL API skapar en samling](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>MongoDB API
+### <a id="portal-mongodb">MongoDB-API</a>
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Cosmos DB-konto](create-mongodb-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
 
-1. Öppna rutan **Datautforskaren** och välj **Ny samling**. Fyll sedan i formuläret med följande information:
+1. Öppna fönsterrutan **Datautforskaren** och välj **Ny samling**. Fyll sedan i formuläret med följande information:
 
    * Skapa en ny databas eller välj en befintlig.
    * Ange ett samlings-ID.
    * Välj **obegränsad** lagringskapacitet.
    * Ange en shardnyckel.
-   * Ange ett dataflöde, till exempel 1000 RU:er.
+   * Ange ett dataflöde, till exempel 1 000 RU.
    * Välj **OK**.
 
 ![MongoDB-API skapar en samling](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
-### <a id="portal-cassandra"></a>Cassandra-API
+### <a id="portal-cassandra"></a>API för Cassandra
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -65,7 +64,7 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
    * Skapa ett nytt nyckelutrymme eller välj ett befintligt.
    * Ange ett tabellnamn.
    * Ange egenskaper och ange en PRIMÄRNYCKEL.
-   * Ange ett dataflöde, till exempel 1000 RU:er.
+   * Ange ett dataflöde, till exempel 1 000 RU.
    * Välj **OK**.
 
 ![API för Cassandra skapar en samling](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
@@ -85,7 +84,7 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
    * Ange ett graf-id.
    * Välj **obegränsad** lagringskapacitet.
    * Ange en partitionsnyckel för hörn.
-   * Ange ett dataflöde, till exempel 1000 RU:er.
+   * Ange ett dataflöde, till exempel 1 000 RU.
    * Välj **OK**.
 
 ![Gremlin-API skapar en samling](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
@@ -100,7 +99,7 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
 
    * Ange ett tabell-id.
    * Välj **obegränsad** lagringskapacitet.
-   * Ange ett dataflöde, till exempel 1000 RU:er.
+   * Ange ett dataflöde, till exempel 1 000 RU.
    * Välj **OK**.
 
 ![Tabell-API skapar en samling](./media/how-to-create-container/partitioned-collection-create-table.png)
@@ -214,6 +213,6 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artiklar för att lära dig om partitionering i Cosmos DB:
+I följande artiklar kan du lära dig om partitionering i Cosmos DB:
 
 - [Partitionering i Azure Cosmos DB](partitioning-overview.md)

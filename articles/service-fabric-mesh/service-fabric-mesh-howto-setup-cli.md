@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: dc37ff85deccdd5a1f8703033d300d878f9a7e4c
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: daeec38863ee7e9dd4e56f2470e5f9459dcc8bc1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887992"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958601"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI
 Service Fabric Mesh-kommandoradsgränssnittet (CLI) krävs för att distribuera och hantera resurser lokalt och i Azure Service Fabric Mesh. 
@@ -73,7 +73,7 @@ Om du vill använda Maven-pluginprogrammet i Maven Java-appen lägger du till f�
       ...
       <plugin>
         <groupId>com.microsoft.azure</groupId>
-          <artifactId>azure-sf-maven-plugin</artifactId>
+          <artifactId>azure-sfmesh-maven-plugin</artifactId>
           <version>0.1.0</version>
           <configuration>
             ...

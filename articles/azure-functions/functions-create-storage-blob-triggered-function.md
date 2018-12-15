@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113860"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999880"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Skapa en funktion som utlöses av Azure Blob Storage
 
@@ -27,7 +27,7 @@ Lär dig hur du skapar en funktion som utlöses när filer överförs till eller
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-+ Hämta och installera [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
++ Hämta och installera [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 + En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-azure-function-app"></a>Skapa en Azure Functions-app
@@ -76,7 +76,7 @@ Anslut sedan till ditt Azure Storage-konto och skapa containern **samples-workit
 
     ![Hämta autentiseringsuppgifterna för att ansluta till lagringskontot.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. Kör verktyget [Microsoft Azure Storage Explorer](http://storageexplorer.com/), klicka på anslutningsikonen till vänster, välj **Use a storage account name and key** (Använd ett kontonamn och en kontonyckel för lagringskontot) och klicka på **Nästa**.
+1. Kör verktyget [Microsoft Azure Storage Explorer](https://storageexplorer.com/), klicka på anslutningsikonen till vänster, välj **Use a storage account name and key** (Använd ett kontonamn och en kontonyckel för lagringskontot) och klicka på **Nästa**.
 
     ![Kör verktyget Storage Account Explorer.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 

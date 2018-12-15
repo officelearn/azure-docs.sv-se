@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: 95ce6b0b7cabd5d677bcfa4434d419c7bfc0b7b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5edb8feeffe2bcb4bc6a55e31fa65c06e5ab6ea7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869882"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960421"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>Använd PowerShell och återställ en Azure SQL-databas från säkerhetskopior
 
@@ -46,7 +46,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar en resursgrupp där alla resurser lagras. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Skapar en logisk server som är värd för en databas eller elastisk pool. | 
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar en resursgrupp där alla resurser lagras. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Skapar en logisk server som är värd för en databas eller elastisk pool. |
 | [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Skapar en databas på en logisk server i form av en fristående databas eller en databas som tillhör en pool. |
 [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | Hämtar en geo-redundant säkerhetskopia av en databas. |
 | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | Återställer en SQL-databas. |

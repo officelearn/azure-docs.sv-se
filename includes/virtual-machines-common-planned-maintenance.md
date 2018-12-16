@@ -5,48 +5,48 @@ services: virtual-machines
 author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/05/2018
+ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: f203e056df00fb1a9b1e7e43930955040dfce4aa
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f5bd0923c1edac06f952ff93e087505a76407b05
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39030017"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444409"
 ---
-Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfrastrukturens tillförlitlighet, prestanda och säkerhet för virtuella datorer. Dessa uppdateringar omfattar allt från korrigeringar av programvarukomponenter i värdmiljön (som operativsystem, hypervisor-program och olika agenter som distribuerats på värddatorn), uppdateringar av nätverkskomponenter till att ta maskinvara ur drift. Flesta av dessa uppdateringar genomförs utan någon inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka:
+Azure uppdaterar regelbundet plattform för att förbättra tillförlitligheten, prestanda och säkerheten för infrastrukturen för värd för virtuella datorer. Dessa uppdateringar sträcker sig från korrigeringar programvarukomponenter i värdmiljön, uppgradera nätverkskomponenter, till maskinvara ta ur drift. Flesta av dessa uppdateringar har ingen inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka och Azure väljer minst påverkar metoden efter uppdateringar:
 
-- Om en omstart utan uppdatering är möjligt, använder Azure minne bevarande Underhåll för att pausa den virtuella datorn när värden har uppdaterats eller den virtuella datorn flyttas till en värd som redan är uppdaterad helt och hållet.
+- Om en icke-rebootful uppdatering är möjligt, den virtuella datorn pausas medan värden uppdateras eller den är aktiv migreras till en värd som redan är uppdaterad.
 
-- Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. I dessa fall kan också får du ett tidsfönster som där du kan starta underhållet själv, samtidigt som passar dig.
+- Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. Azure ger också ett tidsfönster som där du kan starta underhållet själv, samtidigt som passar dig. Azure investeringar i att minska fall när de virtuella datorerna måste startas om för plattform för planerat underhåll. 
 
-Den här sidan beskriver hur Microsoft Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i Hantera tillgängligheten för virtuella datorer för [Windows](../articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Den här sidan beskriver hur Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i Hantera tillgängligheten för virtuella datorer för [Windows](../articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Program som körs på en virtuell dator kan samla in information om kommande uppdateringar med hjälp av Azure Metadata Service för [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) eller [Linux](../articles/virtual-machines/linux/instance-metadata-service.md).
+Du kan hämta i VM-meddelande om kommande Underhåll med schemalagda händelser för [Windows](../articles/virtual-machines/windows/scheduled-events.md) eller [Linux](../articles/virtual-machines/linux/scheduled-events.md).
 
 ”” Instruktioner om hur du hanterar planerat underhåll, finns i ”Hantera meddelanden planerat underhåll” för [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) eller [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="memory-preserving-maintenance"></a>Minne bevarande Underhåll
+## <a name="non-rebootful-maintenance"></a>Icke-rebootful Underhåll
 
-När uppdateringar inte kräver en fullständig omstart, används minne preserving Underhåll mekanismer för att begränsa effekten till den virtuella datorn. Den virtuella datorn pausas i upp till 30 sekunder, bevarar minnet i RAM, medan den faktiska driftsmiljön gäller nödvändiga uppdateringar och korrigeringar, eller flyttar den virtuella datorn till en värd som redan är uppdaterad. Den virtuella datorn sedan återupptas och synkroniseras klockan på den virtuella datorn automatiskt. 
+Målet för de flesta icke rebootful uppdateringar är mindre än 10 sekunder pausa för den virtuella datorn. I vissa fall minnet bevarande Underhåll används mekanismer, vilket pausar den virtuella datorn i upp till 30 sekunder och bevarar minnet i RAM-minne. Den virtuella datorn sedan återupptas och synkroniseras klockan på den virtuella datorn automatiskt. Azure är allt med hjälp av Direktmigrering tekniker och förbättra minne bevarar Underhåll mekanism för att minska varaktighet för pausen.
 
-Dessa icke rebootful underhållsåtgärder är tillämpad feldomän av feldomän och förloppet stoppas om någon varning hälsotillstånd signaler tas emot.
+Dessa icke rebootful underhållsåtgärder är tillämpad feldomän av feldomän och förloppet stoppas om någon varning hälsotillstånd signaler tas emot. 
 
-Vissa program kan påverkas av dessa typer av uppdateringar. Program som utför händelsebearbetning i realtid, t.ex. mediedirektuppspelning eller transkodning eller hög genomströmning nätverk scenarier, kan inte utformas ska kunna hanteras en 30 andra paus. <!-- sooooo, what should they do? --> Om den virtuella datorn flyttas till en annan värd, kanske vissa känsliga arbetsbelastningar märker en liten prestandaförsämring i några minuter ledde till pausen virtuella datorn. 
+Vissa program kan påverkas av dessa typer av uppdateringar. Den virtuella datorn är live migreras till en annan värd, kanske vissa känsliga arbetsbelastningar märker en liten prestandaförsämring i några minuter ledde till VM-pausa. Sådana program kan dra nytta av schemalagda händelser för [Windows](../articles/virtual-machines/windows/scheduled-events.md) eller [Linux](../articles/virtual-machines/linux/scheduled-events.md) att förbereda för underhåll av virtuell dator och har ingen påverkan under Azure-underhåll. Azure fungerar även på Underhåll styr funktioner för sådana mycket känsliga program. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Underhåll som kräver en omstart
 
-När virtuella datorer behöver startas om för planerat underhåll, meddelas du i förväg. Planerat underhåll har två faser: fönstret självbetjäning och en schemalagd underhållsperiod.
+I de sällsynta fall när virtuella datorer behöver startas om innan planerat underhåll meddelas du i förväg. Planerat underhåll har två faser: fönstret självbetjäning och en schemalagd underhållsperiod.
 
 Den **självbetjäning fönstret** kan du starta underhållet på dina virtuella datorer. Under denna tid kan du fråga varje virtuell dator för att se deras status och kontrollera resultatet av din senaste begäran.
 
-När du startar självbetjäningsunderhållet, flyttas den virtuella datorn till en nod som redan har uppdaterats och aktiverar den igen. Eftersom den virtuella datorn om den temporära disken går förlorad och den dynamiska IP-adresser som är associerade med virtuella nätverksgränssnittet har uppdaterats.
+När du startar självbetjäningsunderhållet, om den virtuella datorn till en nod som redan är uppdaterad. Eftersom den virtuella datorn om den temporära disken går förlorad och den dynamiska IP-adresser som är associerade med virtuella nätverksgränssnittet har uppdaterats.
 
 Om du startar självbetjäningsunderhållet och det finns ett fel under åtgärden har stoppats, uppdateras inte den virtuella datorn och du får möjlighet att göra om Underhåll självbetjäning. 
 
-När fönstret via självbetjäning har passerat den **schemalagda underhållsperiod** börjar. Under den här tidsperioden kan du fortfarande fråga efter underhållsfönstret, men inte längre att kunna starta underhållet själv.
+När fönstret via självbetjäning har passerat den **schemalagda underhållsperiod** börjar. Under den här tidsperioden du fortfarande kan fråga efter underhållsfönstret, men det går inte att starta underhållet själv.
 
 Information om hur du hanterar underhåll som kräver en omstart, finns i ”Hantera meddelanden planerat underhåll” för [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) eller [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
@@ -56,14 +56,14 @@ Om du vill vänta tills det schemalagda underhållsfönstret finns några saker 
 
 #### <a name="paired-regions"></a>Länkade regioner
 
-Varje Azure-region paras ihop med en annan region inom samma geografiska område, tillsammans de se en regionala par. Under schemalagt underhåll uppdaterar Azure endast de virtuella datorerna i en enda region för en regionparet. När du till exempel uppdaterar de virtuella datorerna i regionen USA, norra centrala så uppdaterar inte Azure inte alla virtuella datorer i regionen USA, södra centrala på samma gång. Andra regioner än Europa, norra kan emellertid ges underhåll samtidigt som USA, östra. Förstå hur regionpar fungerar kan hjälpa dig att bättre att distribuera dina virtuella datorer mellan regioner. Mer information finns i [Azure regionpar](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Varje Azure-region paras ihop med en annan region inom samma geografiska område och tillsammans de gör en regionala par. I fasen för schemalagt underhåll uppdaterar Azure endast de virtuella datorerna i en enda region för en regionparet. När du uppdaterar den virtuella datorn i norra centrala USA, uppdatera inte Azure exempelvis virtuella datorer i USA, södra centrala på samma gång. Andra regioner än Europa, norra kan emellertid ges underhåll samtidigt som USA, östra. Förstå hur regionpar fungerar kan hjälpa dig att bättre att distribuera dina virtuella datorer mellan regioner. Mer information finns i [Azure regionpar](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 #### <a name="availability-sets-and-scale-sets"></a>Tillgänglighetsuppsättningar och skalningsuppsättningar
 
 När du distribuerar en arbetsbelastning på Azure Virtual Machines kan skapa du virtuella datorer i en tillgänglighetsuppsättning för att ge hög tillgänglighet för ditt program. Detta garanterar att minst en virtuell dator under ett avbrott eller rebootful underhållshändelser är tillgänglig.
 
-Enskilda virtuella datorer är fördelade på upp till 20 uppdateringsdomäner (ud) i en tillgänglighetsuppsättning. Under det schemalagda underhållet påverkas endast en enskild uppdateringsdomän vid en given tidpunkt. Tänk på att ordningen för de uppdateringsdomäner som påverkas inte nödvändigtvis sker sekventiellt. 
+Enskilda virtuella datorer är fördelade på upp till 20 uppdateringsdomäner (ud) i en tillgänglighetsuppsättning. Under det schemalagda underhållet uppdateras bara en enda uppdateringsdomän vid en given tidpunkt. Ordningen för de uppdateringsdomäner som håller på att uppdateras inträffa inte nödvändigtvis sekventiellt. 
 
-Virtual machine scale sets är en Azure-beräkningsresurs som hjälper dig att distribuera och hantera en uppsättning identiska virtuella datorer som en enskild resurs. Skalningsuppsättningen distribueras automatiskt över uppdateringsdomäner, som virtuella datorer i en tillgänglighetsuppsättning. Precis som med tillgänglighetsuppsättningar påverkas med skalningsuppsättningar en enda uppdateringsdomän vid en given tidpunkt under schemalagt underhåll.
+Virtual machine scale sets är en Azure-beräkningsresurs som hjälper dig att distribuera och hantera en uppsättning identiska virtuella datorer som en enskild resurs. Skalningsuppsättningen distribueras automatiskt över uppdateringsdomäner, som virtuella datorer i en tillgänglighetsuppsättning. Precis som med tillgänglighetsuppsättningar uppdateras med skalningsuppsättningar en enda uppdateringsdomän vid en given tidpunkt under schemalagt underhåll.
 
 Mer information om hur du konfigurerar dina virtuella datorer för hög tillgänglighet finns i Hantera tillgängligheten för dina virtuella datorer för [Windows](../articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).

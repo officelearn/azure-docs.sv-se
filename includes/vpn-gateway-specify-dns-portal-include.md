@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 68c3351eccf86c7867074e5713852f57ebf7e7ef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: 9a5e2e7e735404efad75d6dd318e965ebbefe73c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30921595"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444406"
 ---
 1. Gå till **DNS-servrar** på det virtuella nätverkets sida **Inställningar** och öppna sidan **DNS-servrar** genom att klicka.
 
     ![Ange en DNS-server](./media/vpn-gateway-specify-dns-portal-include/specify-dns-server.png "Ange en DNS-server")
 
-  - **DNS-servrar:** Välj **Anpassad**.
-  - **Lägg till DNS-server:** Ange IP-adressen för den DNS-server som du vill använda för namnmatchning.
+   - **DNS-servrar:** Välj **anpassad**.
+   - **Lägg till DNS-server:** Ange IP-adressen för DNS-servern som du vill använda för namnmatchning.
 
 2. När du har lagt till DNS-servern sparar du konfigurationen genom att klicka på **Spara** överst på sidan.

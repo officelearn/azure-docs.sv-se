@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4ee182202cf1ecbbb0845541269f7241de26c170
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 3e4f5c07602d5bc1b7760793664415f092301c20
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30326559"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444389"
 ---
 ### <a name="gwipnoconnection"></a> Ändra ”GatewayIpAddress” för den lokala nätverksgatewayen – ingen gatewayanslutning
 
@@ -34,32 +34,32 @@ Om VPN-enheten som du vill ansluta till har bytt offentlig IP-adress måste du �
 
 1. Ta bort anslutningen. Du kan ta reda på namnet på anslutningen med hjälp av cmdleten Get-AzureRmVirtualNetworkGatewayConnection.
 
-  ```azurepowershell-interactive
-  Remove-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 `
-  -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   Remove-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+   -ResourceGroupName TestRG1
+   ```
 2. Ändra värdet för GatewayIpAddress. Du kan också ändra adressprefixen på samma gång. Se till att använda det befintliga namnet på din lokala nätverksgateway. Om du inte gör det skapar du en ny lokal nätverksgateway i stället för att skriva över den som redan finns.
 
-  ```azurepowershell-interactive
-  New-AzureRmLocalNetworkGateway -Name Site1 `
-  -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
-  -GatewayIpAddress "104.40.81.124" -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   New-AzureRmLocalNetworkGateway -Name Site1 `
+   -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
+   -GatewayIpAddress "104.40.81.124" -ResourceGroupName TestRG1
+   ```
 3. Skapa anslutningen. I det här exemplet konfigurerar vi en IPsec-anslutningstyp. När du återskapar anslutningen kan du använda den anslutningstyp som har angetts för din konfiguration. Ytterligare anslutningar finns på sidan [PowerShell-cmdlet](https://msdn.microsoft.com/library/mt603611.aspx).  För att få VirtualNetworkGateway-namnet kan du köra cmdlet:en Get-AzureRmVirtualNetworkGateway.
    
     Ange variablerna.
 
-  ```azurepowershell-interactive
-  $local = Get-AzureRMLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
-  $vnetgw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   $local = Get-AzureRMLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
+   $vnetgw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+   ```
    
     Skapa anslutningen.
 
-  ```azurepowershell-interactive 
-  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1Site1 -ResourceGroupName TestRG1 `
-  -Location "East US" `
-  -VirtualNetworkGateway1 $vnetgw `
-  -LocalNetworkGateway2 $local `
-  -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-  ```
+   ```azurepowershell-interactive 
+   New-AzureRmVirtualNetworkGatewayConnection -Name VNet1Site1 -ResourceGroupName TestRG1 `
+   -Location "East US" `
+   -VirtualNetworkGateway1 $vnetgw `
+   -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```

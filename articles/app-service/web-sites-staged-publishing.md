@@ -45,7 +45,7 @@ Appen måste köras i den **Standard**, **Premium**, eller **isolerad* nivå fö
     ![Lägg till en ny distributionsplats][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Om appen inte redan är i den **Standard**, **Premium**, eller **isolerad* nivå, du får ett meddelande om de stödda nivåerna för att aktivera mellanlagrad publicering. Nu har du möjlighet att välja **uppgradera** och navigera till den **skala** fliken i din app innan du fortsätter.
+   > Om appen inte redan är i den **Standard**, **Premium**, eller **isolerad* nivå, du får ett meddelande om de stödda nivåerna för att aktivera mellanlagrad publicering. Nu har du möjlighet att välja ** **uppgradera** och navigera till den **skala** fliken i din app innan du fortsätter.
    > 
    > 
 3. I den **Lägg till en plats** bladet namnge facket och välja om du vill klona appkonfiguration från en annan befintlig distributionsplats. Klicka på bockmarkeringen för att fortsätta.

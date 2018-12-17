@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f212e2555b6097912628791635a539bc488d4979
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342406"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413174"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Kom igång med API för taligenkänning taligenkänning i JavaScript
 
@@ -34,10 +34,10 @@ API för taligenkänning är en del av Cognitive Services. Du kan få kostnadsfr
 
 ## <a name="get-started"></a>Kom igång
 
-I det här avsnittet vägleder vi dig genom stegen för att läsa in en exempel-HTML-sida. Exemplet finns i vår [github-lagringsplatsen](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Du kan **öppna exemplet direkt** från databasen, eller **öppna exemplet från en lokal kopia** av databasen. 
+I det här avsnittet vägleder vi dig genom stegen för att läsa in en exempel-HTML-sida. Exemplet finns i vår [GitHub-lagringsplatsen](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Du kan **öppna exemplet direkt** från databasen, eller **öppna exemplet från en lokal kopia** av databasen.
 
 > [!NOTE]
-> Vissa webbläsare blockera åtkomst till mikrofonen på att ta bort skydd ursprung. Därför rekommenderar vi att vara värd för i exemplet / din app på https till detta ska fungera på alla webbläsare som stöds. 
+> Vissa webbläsare blockera åtkomst till mikrofonen på att ta bort skydd ursprung. Därför rekommenderar vi att vara värd för i exemplet / din app på https till detta ska fungera på alla webbläsare som stöds.
 
 ### <a name="open-the-sample-directly"></a>Öppna exemplet direkt
 

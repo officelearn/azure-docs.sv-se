@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/23/2018
 ms.author: b-juche
-ms.openlocfilehash: 6869d60bfadbeb3f3ed9c7b67d3560e49c73e65b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 23ec6d3a91dea91fba8565280bcce4e9385f49ae
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010250"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413249"
 ---
 # <a name="azure-netapp-files-documentation"></a>Dokumentation om Azure NetApp Files
 
 Lär dig att med hjälp av Azure NetApp Files skapa och hantera NetApp-konton, kapacitetspooler och volymer, konfigurera exportprinciper, montera en volym för en virtuell dator och hantera ögonblicksbilder.
 
 > [!IMPORTANT] 
-> Alla aktiviteter som beskrivs i dokumentationen kräver att du är med i programmet för allmänt tillgängliga förhandsversioner och given åtkomst till Azure-resursprovidern för Microsoft.NetApp. Mer information om att gå med i programmet för allmänt tillgängliga förhandsversioner finns på [registreringssidan för allmänt tillgängliga förhandsversioner för Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+> Alla aktiviteter som beskrivs i dokumentationen kräver att du är med i programmet för allmänt tillgängliga förhandsversioner och given åtkomst till Azure-resursprovidern för Microsoft.NetApp. Om du vill gå med i programmet för den allmänt tillgängliga förhandsversionen kan du [registrera dig för Azure NetApp Files](azure-netapp-files-register.md). 
 
 <ul class="panelContent cardsFTitle">
     <li>

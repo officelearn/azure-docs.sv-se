@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d5e97d82a011bc4aba29aa597a7fc6473d17a3b2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256008"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970798"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Använda Azure Application Insights till att förstå hur kunderna använder din app
 
@@ -53,20 +53,20 @@ På panelen **Användare** kan du få förstå viktig information om dina använ
 2. Välj **Användare** på menyn.
 3. Standardvyn visar antalet unika användare som har anslutit till din app de senaste 24 timmarna.  Du kan ändra tidsfönstret och ange olika villkor för att filtrera den här informationen.
 
-    ![Frågebyggaren](media\app-insights-tutorial-users\QueryBuilder.png)
+    ![Frågebyggaren](media/app-insights-tutorial-users/QueryBuilder.png)
 
 6. Klicka på listrutan **Under** och ändra tidsfönstret till 7 dagar.  Det här ökar data som ingår i de olika diagrammen i panelen.
 
-    ![Ändra tidsintervallet](media\app-insights-tutorial-users\TimeRange.png)
+    ![Ändra tidsintervallet](media/app-insights-tutorial-users/TimeRange.png)
 
 4. Klicka på listrutan **Dela med** för att lägga till en uppdelning av en användaregenskap i diagrammet.  Välja **land eller region**.  Diagrammet innehåller samma data men du kan visa en uppdelning av antalet användare för varje land.
 
-    ![Diagram för land eller region](media\app-insights-tutorial-users\CountryorRegion.png)
+    ![Diagram för land eller region](media/app-insights-tutorial-users/CountryorRegion.png)
 
 5. Placera markören över olika staplar i diagrammet och observera att antalet för varje land bara visar tidsfönstret som representeras av den stapeln.
 6. Ta en titt på kolumnen **Insikter** till höger som utför analyser av dina användardata.  Det här ger information som antalet unika sessioner under tidsperioden och poster med gemensamma egenskaper som utgör en betydande del av användardata 
 
-    ![Kolumnen Insikter](media\app-insights-tutorial-users\insights.png)
+    ![Kolumnen Insikter](media/app-insights-tutorial-users/insights.png)
 
 
 ## <a name="analyze-user-sessions"></a>Analysera användarsessioner
@@ -75,15 +75,15 @@ Panelen **Sessioner** liknar panelen **Användare**.  **Användare** hjälper di
 1. Välj **Sessioner** på menyn.
 2. Ta en titt på diagrammet och observera att du har samma alternativ för att filtrera och dela upp data som på panelen **Användare**.
 
-    ![Frågebyggaren för sessioner](media\app-insights-tutorial-users\SessionsBuilder.png)
+    ![Frågebyggaren för sessioner](media/app-insights-tutorial-users/SessionsBuilder.png)
 
 3. I fönstret **Sample of these sessions** (Exempel på dessa sessioner) till höger listar sessioner som innehåller ett stort antal händelser.  Det här är intressanta sessioner att analysera.
 
-    ![Exempel på dessa sessioner](media\app-insights-tutorial-users\SessionsSample.png)
+    ![Exempel på dessa sessioner](media/app-insights-tutorial-users/SessionsSample.png)
 
 4. Klicka på en av sessionerna för att visa dess **sessionstidslinje**, som visar varje åtgärd i sessionerna.  Det här kan hjälpa dig att identifiera information som sessioner med ett stort antal undantag.
 
-    ![Sessionstidslinje](media\app-insights-tutorial-users\SessionsTimeline.png)
+    ![Sessionstidslinje](media/app-insights-tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Gruppera liknande användare
 En **Kohort** är en uppsättning användare med liknande egenskaper.  Du kan använda kohorter för att filtrera data i andra panelen, så att du kan analysera olika grupper av användare.  Till exempel kanske du bara vill analysera användare som har slutfört ett köp.
@@ -92,12 +92,12 @@ En **Kohort** är en uppsättning användare med liknande egenskaper.  Du kan an
 2.  Klicka på **Nytt** om du vill skapa en kohort.
 3.  Välj listrutan **Who used** (Som har använt) och välj en åtgärd.  Bara användare som har använt den här åtgärden inom rapportens tidsperiod inkluderas.
 
-    ![Kohort som har utfört angivna åtgärder](media\app-insights-tutorial-users\CohortsDropdown.png)
+    ![Kohort som har utfört angivna åtgärder](media/app-insights-tutorial-users/CohortsDropdown.png)
 
 4.  Välj **Användare** på menyn.
 5.  I listrutan **Visa** väljer du den kohort du precis har skapat.  Data för diagrammet begränsas till de användarna.
 
-    ![Kohort i användarverktyget](media\app-insights-tutorial-users\UsersCohort.png)
+    ![Kohort i användarverktyget](media/app-insights-tutorial-users/UsersCohort.png)
 
 
 ## <a name="compare-desired-activity-to-reality"></a>Jämför önskad aktivitet med verkligheten
@@ -105,16 +105,16 @@ Medan de tidigare panelerna fokuserar på vad användarna av din app har gjort f
 
 1. Välj **Trattar** på menyn och klicka sedan på **Ny**. 
 
-    ![](media\app-insights-tutorial-users\funnelsnew.png)
+    ![](media/app-insights-tutorial-users/funnelsnew.png)
 
 2. Ange ett **trattnamn**.
 3. Skapa en tratt med minst två steg genom att välja en åtgärd för varje steg.  Listan över åtgärder skapas utifrån användningsdata som samlas in av Application Insights.
 
-    ![](media\app-insights-tutorial-users\funnelsedit.png)
+    ![](media/app-insights-tutorial-users/funnelsedit.png)
 
 4. Klicka på **Spara** för att spara tratten och visa sedan resultaten.  Fönstret till höger om tratten visar de vanligaste händelserna före den första aktiviteten och efter den sista aktiviteten för att hjälpa dig att förstå användartendenser runt den specifika sekvensen.
 
-    ![](media\app-insights-tutorial-users\funnelsright.png)
+    ![](media/app-insights-tutorial-users/funnelsright.png)
 
 
 ## <a name="learn-which-customers-return"></a>Få reda på vilka kunder som kommer tillbaka
@@ -123,11 +123,11 @@ Medan de tidigare panelerna fokuserar på vad användarna av din app har gjort f
 1. Välj **Kvarhållning** på menyn.
 2. Som standard innehåller den analyserade informationen användare som har utfört en åtgärd och sedan kommit tillbaka och utfört en åtgärd.  Du kan ändra det här filtret så att det, till exempel, bara inkluderar de användare som kommer tillbaka efter att ha slutfört ett köp.
 
-    ![](media\app-insights-tutorial-users\retentionquery.png)
+    ![](media/app-insights-tutorial-users/retentionquery.png)
 
 3. De återkommande användarna som matchar villkoren visas i grafiskt format och tabellformat för olika tidsvaraktigheter.  Det vanliga mönstret visar en gradvis nedgång i antalet återkommande användare över tid.  En plötslig nedgång från en tidsperiod till nästa kan ge upphov till oro. 
 
-    ![](media\app-insights-tutorial-users\retentiongraph.png)
+    ![](media/app-insights-tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>Analysera användarnavigering
 Ett **användarflöde** visualiserar hur användare navigerar mellan sidorna och funktionerna i din app.  Det här hjälper dig att besvara frågor som var användarna normalt går från en viss sida, hur de normalt avslutar din app och om det finns några åtgärder som upprepas regelbundet.
@@ -136,15 +136,15 @@ Ett **användarflöde** visualiserar hur användare navigerar mellan sidorna och
 2.  Klicka på **Nytt** för att skapa ett nytt användarflöde och klicka sedan på **Redigera** för att redigera dess egenskaper.
 3.  Öka **tidsintervallet** till 7 dagar och välj sedan den inledande händelsen.  Flödet spårar användarsessioner som börjar med den händelsen.
 
-    ![](media\app-insights-tutorial-users\flowsedit.png)
+    ![](media/app-insights-tutorial-users/flowsedit.png)
 
 4.  Användarflödet visas och du kan se olika användarvägar och deras antal sessioner.  Blå linjer anger en åtgärd som användaren har utfört efter den aktuella åtgärden.  En blå linje anger att användarsessionen är slut.
 
-    ![](media\app-insights-tutorial-users\flows.png)
+    ![](media/app-insights-tutorial-users/flows.png)
 
 5.  Om du vill ta bort en händelse från flödet klickar du på **x** i hörnet av åtgärden och klickar sedan på **Skapa diagram**.  Diagrammet ritas om med instanserna av den händelsen borttagna.  Klicka på **Redigera** för att se att händelsen nu har lagts till i **Exkluderade händelser**.
 
-    ![](media\app-insights-tutorial-users\flowsexclude.png)
+    ![](media/app-insights-tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>Konsolidera användningsdata
 **Arbetsböcker** kombinerar datavisualiseringar, analysfrågor och text till interaktiva dokument.  Du kan använda arbetsböcker för att gruppera gemensam användningsinformation, konsolidera information från en viss incident eller rapportera tillbaka till ditt team om appens användning.
@@ -153,12 +153,12 @@ Ett **användarflöde** visualiserar hur användare navigerar mellan sidorna och
 2.  Klicka på **Nytt** för att skapa en ny arbetsbok.
 3.  En fråga har redan angetts som innehåller alla användningsdata på sista dagen visade som ett stapeldiagram.  Du kan använda den här frågan, redigera den manuellt eller klicka på **Exempelfrågor** för att välja från andra användbara frågor.
 
-    ![](media\app-insights-tutorial-users\samplequeries.png)
+    ![](media/app-insights-tutorial-users/samplequeries.png)
 
 4.  Klicka på **Klar med redigeringen**.
 5.  Klicka på **Redigera** i det övre fönstret för att redigera texten högst upp i arbetsboken.  Det här formateras med markdown.
 
-    ![](media\app-insights-tutorial-users\markdown.png)
+    ![](media/app-insights-tutorial-users/markdown.png)
 
 6.  Klicka på **Lägg till användare** för att lägga till ett diagram med användarinformation.  Redigera informationen om diagrammet om du vill och klicka sedan på **Klar med redigeringen** för att spara det.
 

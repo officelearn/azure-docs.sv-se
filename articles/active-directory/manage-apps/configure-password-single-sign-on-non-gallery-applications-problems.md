@@ -239,11 +239,11 @@ Den nedan beskriver mer vad de meddelandet objekt innebär och ger exempel på v
 
 -   **Visningsnamn** – **(kan vara tom)** en mer detaljerad visningsnamn för felet
 
-    -   Exempel * – **proxyinställningarna för programmet**
+    -   Exempel *– **proxyinställningarna för programmet**
 
 -   **Status för** – specifika status för meddelandet
 
-    -   Exempel * – **misslyckades**
+    -   Exempel *– **misslyckades**
 
 -   **Objekt-ID** – **(kan vara tom)** objekt-ID som åtgärden utfördes
 

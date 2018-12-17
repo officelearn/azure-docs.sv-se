@@ -103,7 +103,7 @@ Om du vill se till att den offentliga IP-adressen för din molntjänst (även ka
 - [Reserverad IP-adressen för en befintlig molntjänst](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associera en reserverad IP-adress till en molntjänst med hjälp av en tjänstkonfigurationsfil](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
 
-Om du har fler än en instans för dina roller bör inte kopplar RIP till din molntjänst orsakar några driftstopp. Du kan också vitlista IP-intervallet för din Azure-datacenter. Du kan hitta alla Azure-IP-intervall på den [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653). 
+Om du har fler än en instans för dina roller bör inte kopplar RIP till din molntjänst orsakar några driftstopp. Du kan också placera IP-intervallet för din Azure-datacenter i listan över tillåtna. Du kan hitta alla Azure-IP-intervall på den [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653). 
 
 Den här filen innehåller de IP-adressintervall (inklusive compute, SQL och storage-intervall) används i Azure-datacenter. En uppdaterad fil publiceras varje vecka som visar aktuella intervall och eventuella kommande ändringar till IP-adressintervall. De nya intervall som visas i filen används inte i datacenter för minst en vecka. Hämta den nya XML-filen varje vecka och gör nödvändiga ändringar på din plats för att kunna identifiera vilka tjänster som körs i Azure. Azure ExpressRoute-användare kan Observera att den här filen används för att uppdatera BGP-annonser Azure utrymme i den första veckan varje månad. 
 

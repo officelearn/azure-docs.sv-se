@@ -124,13 +124,13 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | Grekland                         |        ✓       |
 | Ungern                        |        ✓       |
 | Island                        |        ✓       |
-| Irland (republiken Makedonien)          |        ✓       |
+| Irland          |        ✓       |
 | Italien                          |        ✓       |
 | Lettland                         |        ✓       |
 | Liechtenstein                  |        ✓       |
 | Litauen                      |        ✓       |
 | Luxemburg                     |        ✓       |
-| Republiken Makedonien                      |        ✓       |
+| Irland                      |        ✓       |
 | Malta                          |        ✓       |
 | Moldavien                        |        ✓       |
 | Monaco                         |        ✓       |

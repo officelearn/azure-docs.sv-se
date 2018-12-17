@@ -58,7 +58,7 @@ Multipath.conf har fem avsnitt:
 
 - **System standardnivåer** *(standardvärde)*: du kan åsidosätta system standardnivåer.
 - **Svartlistad enheter** *(svartlistat)*: du kan ange i listan med enheter som inte ska kontrolleras av enheten mapper.
-- **Svartlista undantag** *(blacklist_exceptions)*: du kan identifiera specifika enheter så att de behandlas som flera sökvägar enheter även om anges i svartlistat.
+- **Blockeringslista undantag** *(blacklist_exceptions)*: Du kan identifiera specifika enheter så att de behandlas som enheter med flera sökvägar även om anges i blockeringslistan.
 - **Specifika inställningar för lagring controller** *(enheter)*: du kan ange inställningar som tillämpas på enheter som har leverantör och produktinformation.
 - **Specifika Enhetsinställningar** *(multipaths)*: du kan använda det här avsnittet för att finjustera konfigurationsinställningarna för enskilda LUN.
 

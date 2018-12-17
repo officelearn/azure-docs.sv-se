@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 926712d8d38f144c583dcf61c3cd0f078566296a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964006"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409266"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Hur du använder Mobile Apps Node.js-SDK
 
@@ -794,7 +794,7 @@ var api = {
 module.exports = api;
 ```
 
-Varje parameter är en av de RESTful standardverb: hämta, publicera, uppdatera eller ta bort. Metoden är en standard [ExpressJS mellanprogram] funktion som skickar krävs utdata.
+Varje parameter är en av de RESTful standardverb: Hämta, publicera, uppdatera eller ta bort. Metoden är en standard [ExpressJS mellanprogram] funktion som skickar krävs utdata.
 
 ### <a name="howto-customapi-auth"></a>Kräv autentisering för åtkomst till ett anpassat API
 
@@ -918,13 +918,13 @@ Du kan även redigera tabellåtgärder med hjälp av App Service Editor. När du
 
 Följande kommandon är tillgängliga i kommandofältet för en tabell:
 
-* **Ändra behörigheter**: ändra behörigheten för Läs, infoga, uppdatera och ta bort åtgärder på tabellen.
+* **Ändra behörigheter**: Ändrar behörigheter för Läs, infoga, uppdatera och ta bort åtgärder på tabellen.
  Alternativen är att tillåta anonym åtkomst, kan kräva autentisering eller inaktiverar all åtkomst till åtgärden.
-* **Redigera skriptet**: skriptfilen för tabellen har öppnats i App Service Editor.
-* **Hantera scheman**: lägga till eller ta bort kolumner eller ändra Tabellindex.
-* **Rensa tabell**: trunkera en befintlig tabell genom att ta bort alla rader med data, men lämna schemat oförändrade.
-* **Ta bort rader**: ta bort enskilda datarader.
-* **Visa direktuppspelningsloggar**: ansluta till strömmande Loggtjänsten för din webbplats.
+* **Redigera skriptet**: Skriptfilen för tabellen öppnas i App Service Editor.
+* **Hantera scheman**: Lägg till eller ta bort kolumner eller ändra Tabellindex.
+* **Rensa tabell**: Trunkera en befintlig tabell genom att ta bort alla rader med data, men lämna schemat oförändrade.
+* **Ta bort rader**: Ta bort enskilda datarader.
+* **Visa direktuppspelningsloggar**: Anslut till strömmande Loggtjänsten för din webbplats.
 
 ### <a name="work-easy-apis"></a>Arbeta med enkla API: er i Azure portal
 
@@ -963,11 +963,11 @@ Du kan redigera dina Node.js-backend-skriptfiler i App Service Editor utan att b
 [Snabbstart för Xamarin.Forms-klienten]: app-service-mobile-xamarin-forms-get-started.md
 [Snabbstart för Windows Store-klienten]: app-service-mobile-windows-store-dotnet-get-started.md
 [synkronisering av offlinedata]: app-service-mobile-offline-data-sync.md
-[Konfigurera Azure Active Directory-autentisering]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Konfigurera Facebook-autentisering]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Konfigurera Google-autentisering]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Konfigurera Microsoft-autentisering]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Konfigurera Twitter-autentisering]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Konfigurera Azure Active Directory-autentisering]: ../app-service/configure-authentication-provider-aad.md
+[Konfigurera Facebook-autentisering]: ../app-service/configure-authentication-provider-facebook.md
+[Konfigurera Google-autentisering]: ../app-service/configure-authentication-provider-google.md
+[Konfigurera Microsoft-autentisering]: ../app-service/configure-authentication-provider-microsoft.md
+[Konfigurera Twitter-autentisering]: ../app-service/configure-authentication-provider-twitter.md
 [Azure App Service-Distributionsguide]: ../app-service/app-service-deploy-local-git.md
 [Övervakning av Azure App Service]: ../app-service/web-sites-monitor.md
 [Aktivera Diagnostisk loggning i Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md

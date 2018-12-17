@@ -251,7 +251,7 @@ Gatewayen använder de här fullständigt kvalificerade domännamn:
 | login.microsoftonline.com | 443 | HTTPS | 
 ||||
 
-I vissa fall görs Azure Service Bus-anslutningar med IP-adresser i stället för fullständigt kvalificerade domännamn. Så kanske du vill vitlista IP-adresser för ditt dataområde i brandväggen. Att vitlista IP-adresser i stället domäner, kan du hämta och använda den [Microsoft Azure Datacenter IP-intervall lista](https://www.microsoft.com/download/details.aspx?id=41653). IP-adresser i den här listan finns i [Classless Inter-Domain Routing CIDR-](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
+I vissa fall görs Azure Service Bus-anslutningar med IP-adresser i stället för fullständigt kvalificerade domännamn. Så kanske du vill placera IP-adresserna för ditt dataområde i brandväggen i listan över tillåtna. Om du vill placera IP-adresser snarare än domäner i listan över tillåtna kan du hämta och använda listan över [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). IP-adresser i den här listan finns i [Classless Inter-Domain Routing CIDR-](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
 ### <a name="force-https-communication-with-azure-service-bus"></a>Tvinga HTTPS-kommunikation med Azure Service Bus
 

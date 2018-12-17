@@ -162,7 +162,7 @@ Använd vyn Marketplace för att konfigurera de fält som visas för erbjudandet
 
 ### <a name="preview-subscription-ids"></a>Förhandsversion av prenumerations-ID: N
 
-Lista med Azure-prenumeration-ID som du vill ha åtkomst till erbjudandet om erbjudandet har publicerats. Dessa white visas prenumerationer kan du testa förhandsgranskade erbjudandet innan du gör den live. Du kan vitlista upp till 100 prenumerationer partnerportalen.
+Lista med Azure-prenumeration-ID som du vill ha åtkomst till erbjudandet om erbjudandet har publicerats. Dessa white visas prenumerationer kan du testa förhandsgranskade erbjudandet innan du gör den live. Partnerportalen låter dig placera upp till 100 prenumerationer i listan över tillåtna.
 
 ### <a name="suggested-categories"></a>Föreslagna kategorier
 

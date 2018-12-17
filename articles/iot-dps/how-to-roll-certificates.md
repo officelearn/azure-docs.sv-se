@@ -52,7 +52,7 @@ När en enhet har etablerats via automatisk etablering, den startas upp och kont
 
 När ett nytt lövcertifikat har återställts till enheten, kan den inte längre ansluta till IoT hub eftersom den använder ett nytt certifikat för att ansluta. IoT hub kan endast identifiera enheten med det gamla certifikatet. Resultatet av anslutningsförsök till enheten kommer att felmeddelandet ”obehörig” anslutning. För att lösa det här felet måste du uppdatera registreringspost för enheten att kompensera för enhetens nya lövcertifikatet. Etableringstjänsten kan sedan uppdatera IoT Hub device registerinformationen efter behov när enheten är nätverkskonfigurationsinställningar. 
 
-Ett möjligt undantag till den här anslutningsfel är ett scenario där du har skapat en [Registreringsgruppen](concepts-service.md#enrollment-group) för din enhet i etableringstjänsten. I det här fallet om du inte löpande rot- eller mellanliggande certifikat i enhetens certifikatkedja, identifieras sedan enheten om det nya certifikatet ingår i förtroendekedjan som definierats i registreringsgruppen. Om det här scenariot uppstår som en reaktion på en säkerhetsöverträdelse, bör du minst svartlista specifik enhet certifikaten i gruppen som anses vara brott mot. Mer information finns i [Svartlista specifika enheter i en registreringsgrupp](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Ett möjligt undantag till den här anslutningsfel är ett scenario där du har skapat en [Registreringsgruppen](concepts-service.md#enrollment-group) för din enhet i etableringstjänsten. I det här fallet om du inte löpande rot- eller mellanliggande certifikat i enhetens certifikatkedja, identifieras sedan enheten om det nya certifikatet ingår i förtroendekedjan som definierats i registreringsgruppen. Om det här scenariot uppstår som en reaktion på en säkerhetsöverträdelse, bör du åtminstone blockeringslista de specifika enhetscertifikaten i gruppen som anses ha överträtts. Mer information finns i [Blockeringslista specifika enheter i en registreringsgrupp](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
 
 Uppdaterar poster för registrering för certifikat som återkallas görs på den **hantera registreringar** sidan. Följ dessa steg för att komma åt sidan:
 
@@ -200,7 +200,7 @@ När reprovisioning är klar, kommer enheter att kunna ansluta till IoT Hub med 
 
 ## <a name="blacklist-certificates"></a>Svartlistat certifikat
 
-Du kan behöva svartlista ett certifikat som svar på en säkerhetsöverträdelse. Inaktivera registreringsposten för mål-/ enhetscertifikat blacklist ett certifikat. Mer information finns i godkänna enheter i den [hantera avregistrering](how-to-revoke-device-access-portal.md) artikeln.
+Du kan behöva blockeringslista ett certifikat som svar på en säkerhetsöverträdelse. Inaktivera registreringsposten för mål-/ enhetscertifikat blacklist ett certifikat. Mer information finns i godkänna enheter i den [hantera avregistrering](how-to-revoke-device-access-portal.md) artikeln.
 
 När ett certifikat ingår som en del av en post för inaktiverad registrering, försök att registrera med en IoT hub med certifikat misslyckas även om den är aktiverad som en del av en annan post för registrering.
  

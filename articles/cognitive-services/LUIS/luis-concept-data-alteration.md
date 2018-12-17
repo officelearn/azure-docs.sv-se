@@ -50,7 +50,7 @@ När [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/ser
 ```
  
 ### <a name="whitelist-words"></a>Lista över tillåtna ord
-Stavningskontroll i Bing API som används i LUIS inte stöder en vitlista av ord som ska förbises vid stavningskontroll kontrollera förändras. Om du vill lista för tillåten ord eller förkortningar bearbeta uttryck i klientprogrammet med en lista för tillåten innan du skickar uttryck till LUIS för avsiktlig förutsägelse.
+Stavningskontroll i Bing API som används i LUIS inte stöder en vitlista av ord som ska förbises vid stavningskontroll kontrollera förändras. Stavningskontroll i Bing API som används i LUIS inte stöder en lista över tillåtna ord som ska förbises vid stavningskontrollsförändringar.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Ändra tidszonen för fördefinierade datetimeV2 entitet
 När en LUIS-app använder fördefinierade datetimeV2 entiteten, kan ett datetime-värde returneras i svaret förutsägelse. Tidszonen för begäran används för att fastställa rätt datum/tid att returnera. Om förfrågan kommer från en bot eller ett annat centraliserad program innan du kommer till LUIS, korrigera tidszonen LUIS använder. 

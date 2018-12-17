@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 845f991085a4427ab4f4301cab1dc60215374554
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185774"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438769"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Översikt över Azure Load Balancer Standard
 
@@ -229,7 +229,7 @@ Standard Load Balancer är en produkt som debiteras baserat på antalet belastni
 - Lär dig mer om [Hälsoavsökningar](load-balancer-custom-probe-overview.md).
 - Läs mer om [Tillgänglighetszoner](../availability-zones/az-overview.md).
 - Lär dig mer om [diagnostik för Standard Load Balancer](load-balancer-standard-diagnostics.md).
-- Lär dig mer om [stöd för flerdimensionella mått](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) för diagnostik i [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Lär dig mer om [stöd för flerdimensionella mått](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) för diagnostik i [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Läs om hur du använder [belastningsutjämnare för utgående anslutningar](load-balancer-outbound-connections.md).
 - Lär dig mer om [utgående regler](load-balancer-outbound-rules-overview.md).
 - Lär dig mer om [TCP nollställs inaktiv](load-balancer-tcp-reset.md).

@@ -266,7 +266,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Guernsey                  |   | ✓ |
 | Ungern                   | ✓ | ✓ |
 | Island                   | ✓ | ✓ |
-| Irland (republiken Makedonien)     | ✓ | ✓ |
+| Irland     | ✓ | ✓ |
 | Isle of Man               |   | ✓ |
 | Italien                     | ✓ | ✓ |
 | Jan Mayen                 |   | ✓ |
@@ -275,7 +275,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Liechtenstein             | ✓ | ✓ |
 | Litauen                 | ✓ | ✓ |
 | Luxemburg                | ✓ | ✓ |
-| Republiken Makedonien                 | ✓ | ✓ |
+| Irland                 | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldavien                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |

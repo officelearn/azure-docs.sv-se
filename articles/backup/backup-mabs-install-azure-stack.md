@@ -335,7 +335,7 @@ När du vet för Azure anslutningen och den Azure-prenumerationen kan kan du anv
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställa från förlust av anslutning
 
-Om en brandvägg eller en proxy som hindrar åtkomst till Azure, vitlista följande domän-adresser i brandväggen/proxy-profil:
+Om en brandvägg eller en proxy förhindrar åtkomst till Azure, så placera följande domänadresser i brandväggens/proxyns profil i listan över tillåtna:
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com

@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975898"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434672"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
-Azure Functions som körs i två olika lägen: förbrukningsplanen och Azure App Service-plan. Med förbrukningsplanen beräkningskraften automatiskt när koden körs. Din app är skalade ut vid behov för att hantera belastningen och skalades när koden inte körs. Du behöver inte betala för virtuella datorer eller reserverad kapacitet i förväg.
+Azure Functions som körs i två olika lägen: Förbrukningsplan och Azure App Service-plan. Med förbrukningsplanen beräkningskraften automatiskt när koden körs. Din app är skalade ut vid behov för att hantera belastningen och skalades när koden inte körs. Du behöver inte betala för virtuella datorer eller reserverad kapacitet i förväg.
 
 > [!NOTE]  
 > [Linux-värd](functions-create-first-azure-function-azure-cli-linux.md) är för närvarande bara tillgängligt på en App Service plan.
@@ -68,7 +68,7 @@ I den dedikerade App Service-planen kör dina funktionsappar på dedikerade virt
 
 En virtuell dator frikopplar kostnaden från antalet körningar, körningstid och minne som används. Därför kan betalar du inte mer än kostnaden för den VM-instans som du tilldelar. Mer information om hur App Service-planen fungerar finns i den [Azure App Service-planer djupgående översikt över](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Du kan skala ut manuellt genom att lägga till flera VM-instanser med en App Service-plan eller du kan aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Du kan även skala upp genom att välja en annan App Service-plan. Mer information finns i [skala upp en app i Azure](../app-service/web-sites-scale.md). 
+Du kan skala ut manuellt genom att lägga till flera VM-instanser med en App Service-plan eller du kan aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Du kan även skala upp genom att välja en annan App Service-plan. Mer information finns i [skala upp en app i Azure](../app-service/web-sites-scale.md). 
 
 När du kör JavaScript-funktioner i en App Service-plan, bör du välja en plan med färre virtuella processorer. Mer information finns i den [väljer App Service-planer med enkel kärna](functions-reference-node.md#considerations-for-javascript-functions).  
 

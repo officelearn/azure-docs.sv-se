@@ -15,14 +15,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 140994de4b1be61f16593e450d156b81727a9f52
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251030"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437851"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 ## <a name="general"></a>Allmänt
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Vad är resource strukturen för Meddelandehubbar?
 
@@ -33,14 +33,14 @@ Rekommenderade mappning matchar ett namnområde med en app. Du kan ha en hubb f�
 ### <a name="what-is-the-price-model-for-notification-hubs"></a>Vad är Prismodell för Meddelandehubbar?
 Senaste prisinformationen hittar du på den [Prisinformation om Notification hub] sidan. Notification Hub faktureras på namnområdesnivå. (Definition av ett namnområde, finns i ”vad är resource strukturen för Meddelandehubbar”?) Meddelandehubbar erbjuder tre nivåer:
 
-* **Kostnadsfria**: den här nivån är en bra utgångspunkt för att utforska push-funktioner. Det rekommenderas inte för produktionsappar. Du får 500 enheter och 1 miljon push-meddelanden ingår per namnområde per månad, med ingen garanti för tjänsten servicenivåavtal (SLA).
-* **Grundläggande**: den här nivån (eller Standard-nivån) rekommenderas för mindre produktionsappar. Du får 200 000 enheter och 10 miljoner push-meddelanden ingår per namnområde per månad som utgångspunkt. Tillväxt kvotalternativ ingår.
-* **Standard**: den här nivån rekommenderas för medelstora till stora produktionsappar. Du får 10 miljoner enheter och 10 miljoner push-meddelanden ingår per namnområde per månad som utgångspunkt. Kvot ökning alternativ och omfattande telemetri funktioner ingår.
+* **Kostnadsfria**: Den här nivån är en bra utgångspunkt för att utforska push-funktioner. Det rekommenderas inte för produktionsappar. Du får 500 enheter och 1 miljon push-meddelanden ingår per namnområde per månad, med ingen garanti för tjänsten servicenivåavtal (SLA).
+* **Grundläggande**: Den här nivån (eller Standard-nivån) rekommenderas för mindre produktionsappar. Du får 200 000 enheter och 10 miljoner push-meddelanden ingår per namnområde per månad som utgångspunkt. Tillväxt kvotalternativ ingår.
+* **Standard**: Den här nivån rekommenderas för medelstora till stora produktionsappar. Du får 10 miljoner enheter och 10 miljoner push-meddelanden ingår per namnområde per månad som utgångspunkt. Kvot ökning alternativ och omfattande telemetri funktioner ingår.
 
 Standard-nivån funktioner:
-* **Omfattande telemetri**: du kan använda Notification Hubs telemetri Per meddelande för att spåra alla push-begäranden och feedback från plattformsspecifikt System för felsökning.
-* **Multitenancy**: du kan arbeta med plattformsspecifika meddelandesystem autentiseringsuppgifter i en namnområdesnivå. Det här alternativet kan du enkelt dela klienter i hubs inom samma namnområde.
-* **Schemalagda push**: du kan schemalägga meddelanden skickas ut när som helst.
+* **Omfattande telemetri**: Du kan använda Notification Hubs telemetri Per meddelande för att spåra alla push-begäranden och feedback från plattformsspecifikt System för felsökning.
+* **Multitenancy**: Du kan arbeta med plattformsspecifika meddelandesystem autentiseringsuppgifter i en namnområdesnivå. Det här alternativet kan du enkelt dela klienter i hubs inom samma namnområde.
+* **Schemalagda push**: Du kan schemalägga meddelanden skickas ut när som helst.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Vad är Notification Hubs SLA?
 För nivåerna Basic och Standard Meddelandehubbar kan korrekt konfigurerade program skicka push-meddelanden eller utföra registreringshanteringsåtgärder minst 99,9 procent av tiden. Mer information om serviceavtalet går du till den [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) sidan.
@@ -51,10 +51,10 @@ För nivåerna Basic och Standard Meddelandehubbar kan korrekt konfigurerade pro
 ### <a name="which-customers-are-using-notification-hubs"></a>Vilka kunder använder Notification Hubs?
 Många kunder använder Notification Hubs. Vissa viktiga som finns här:
 
-* Sotji 2014: Hundratals intressegrupper, 3 + miljoner enheter och 150 + miljoner meddelanden som skickas inom två veckor. [Fallstudie: vinter]
+* Sotji 2014: Hundratals intressegrupper, 3 + miljoner enheter och 150 + miljoner meddelanden som skickas inom två veckor. [Fallstudie: Vinter]
 * Skanska: [Fallstudie: Skanska]
 * Seattle gånger: [Fallstudie: Seattle gånger]
-* Mural.LY: [Fallstudie: Mural.ly]
+* Mural.LY: [Fallstudie: Mural.LY]
 * 7Digital: [Fallstudie: 7Digital]
 * Bing-appar: Tiotals miljoner enheter skicka 3 miljoner meddelanden per dag.
 
@@ -199,10 +199,10 @@ Vi erbjuder även möjligheten att exportera dessa data programmässigt (på Sta
 [Azure Portal]: https://portal.azure.com
 [Prisinformation om Notification hub]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
-[Fallstudie: vinter]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
+[Fallstudie: Vinter]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Fallstudie: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Fallstudie: Seattle gånger]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Fallstudie: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
+[Fallstudie: Mural.LY]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Fallstudie: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hub REST API: er]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification Hubs komma igång-Självstudier]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
@@ -213,7 +213,7 @@ Vi erbjuder även möjligheten att exportera dessa data programmässigt (på Sta
 [Säkerhetsmodell för Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Handledning för Hubs säker Push-meddelande]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Meddelandehubbar felsökning]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Notification Hubs mått]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Notification Hubs mått]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Notification Hubs mått-exempel]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Registreringar Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com

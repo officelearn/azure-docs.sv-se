@@ -59,7 +59,7 @@ Detta ID syns i URL: er i produkten. Det får bara innehålla gemena alfanumeris
 
 **Exempel:**
 
-Om utgivaren **contoso** skapar ett erbjudande med erbjudande-ID *exempel Cortana Intelligence*, den visas i AppSource som ”https://appsource.microsoft.com/marketplace/apps/**contoso**.*exempel – Cortana Intelligence*? fliken = Overview ”.
+Om utgivaren **contoso** skapar ett erbjudande med erbjudande-ID *exempel Cortana Intelligence*, den visas i AppSource som ”https://appsource.microsoft.com/marketplace/apps/**contoso**.*exempel – Cortana Intelligence\*? fliken = Overview ”.
 
 ### <a name="publisher-id"></a>Utgivar-ID
 

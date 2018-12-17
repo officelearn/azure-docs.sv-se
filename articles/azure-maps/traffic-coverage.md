@@ -48,7 +48,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 |Ungern     |✓         |✓         |
 |Island     |         |✓         |
 |Indonesien     |✓         |✓         |
-|Irland (republiken Makedonien)     |✓         |✓         |
+|Irland     |✓         |✓         |
 |Israel     |         |✓         |
 |Italien     |✓         |✓        |
 |+ San Marino     |✓         |✓         |

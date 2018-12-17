@@ -225,7 +225,7 @@ Den slutgiltiga utdata för Hive kan också komprimeras.
 
 ### <a name="enable-speculative-execution"></a>Aktivera spekulativ körning
 
-Spekulativ körning startar ett visst antal duplicerade åtgärder för att identifiera och svartlista långsamma uppgift spåraren samtidigt förbättra den övergripande jobbkörningen genom att optimera enskilda resultat.
+Spekulativ körning startar ett visst antal duplicerade åtgärder för att identifiera och blockeringslista den långsamma uppgiftsspåraren och samtidigt förbättra den övergripande jobbkörningen genom att optimera enskilda resultat.
 
 Spekulativ körning bör inte aktiveras för långvariga MapReduce-aktiviteter med stora mängder indata.
 

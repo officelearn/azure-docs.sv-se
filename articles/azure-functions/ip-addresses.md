@@ -60,7 +60,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="data-center-outbound-ip-addresses"></a>Utgående IP-adresser i datacentret
 
-Om du vill lista över tillåtna utgående IP-adresser som används av dina funktionsappar, ett annat alternativ är att vitlista i funktionsappar datacenter (Azure-region). Du kan [hämta en JSON-fil som visar en lista över IP-adresser för alla Azure-Datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Hitta den JSON-fragment som gäller för den region som funktionsappen som körs i.
+Om du vill lista över tillåtna utgående IP-adresser som används av dina funktionsappar. Ett annat alternativ är att placera funktionsapparnas datacenter (Azure-region) i en lista över tillåtna. Du kan [hämta en JSON-fil som visar en lista över IP-adresser för alla Azure-Datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Hitta den JSON-fragment som gäller för den region som funktionsappen som körs i.
 
 Det här är till exempel hur Västeuropa JSON-fragment kan se ut:
 

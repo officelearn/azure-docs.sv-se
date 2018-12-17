@@ -90,7 +90,7 @@ Bevakaraktiviteten består av två delar. Bevakaren och åtgärden. Bevakaren k�
 1. Ange följande värden för parametrarna:
 
    ***EVENTDATA** – lämna tomt. Data skickas från bevakarrunbookflöde.  
-   ***Kör inställningar** -lämnar som Azure som denna runbook körs i Automation-tjänsten.
+   ***Kör inställningar** ** -lämnar som Azure som denna runbook körs i Automation-tjänsten.
 
 1. Klicka på **OK**, och välj sedan att gå tillbaka till sidan watcher.
 1. Klicka på **OK** att skapa bevakaraktiviteten.

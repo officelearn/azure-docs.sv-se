@@ -203,7 +203,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Autentisering och säkerhet modellen översikt över Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Steg** | En token som ger direktåtkomst till event hub bör inte ges till enheten. Med en mindre privilegierad token för att ge tillgång endast till en utgivare enheten skulle för att identifiera och svartlista det om inte en falsk eller komprometteras enheten.|
+| **Steg** | En token som ger direktåtkomst till event hub bör inte ges till enheten. Om du använder en mindre privilegierad token för enheten som endast ger åtkomst till en utgivare, så skulle det underläta att identifiera och blockeringslista enheten om den skulle visa sig vara en otillåten eller komprometterad enhet.|
 
 ## <a id="sas-minimum-permissions"></a>Ansluta till Event Hub med SAS-nycklar som har den lägsta behörigheten som krävs
 

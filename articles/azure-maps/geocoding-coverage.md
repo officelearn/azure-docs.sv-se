@@ -177,7 +177,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ungern                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Island                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Irland (republiken Makedonien)                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Irland                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isle of Man                                         |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Italien                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |        ✓        |                |              |      ✓     |          ✓         |
@@ -189,7 +189,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Litauen                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxemburg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Republiken Makedonien                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Irland                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldavien                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

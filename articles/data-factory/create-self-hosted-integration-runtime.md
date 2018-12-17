@@ -232,7 +232,7 @@ På den *Windows-brandväggen* nivå (datornivå), dessa utgående portar aktive
 > [!NOTE]
 > Baserat på din källa och mottagare, kan du behöva godkänna ytterligare domäner och utgående portar i företagets brandvägg eller Windows-brandväggen.
 >
-> För vissa molndatabaser (till exempel Azure SQL Database och Azure Data Lake), kan du behöva vitlista IP-adresser för lokal integration runtime-datorer på sina brandväggskonfigurationen.
+> För vissa molndatabaser (som Azure SQL Database och Azure Data Lake), kan du behöva placera IP-adresser för de lokala integrationskörningsdatorernas brandväggskonfiguration i listan över tillåtna.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Kopieringsdata från en källa till en mottagare
 Kontrollera att brandväggsreglerna har aktiverats korrekt på företagets brandvägg och Windows-brandväggen på den lokala installation av integration runtime-datorn, och den datalagringen själva. Om du aktiverar de här reglerna kan den lokala integreringskörningen att ansluta till både källa och mottagare har. Aktivera regler för varje datalager som är inblandade i kopieringsåtgärden.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 2264e6ff686519f7ef0d436d67f3055a48a7421b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997086"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409453"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -231,7 +231,7 @@ När ingen giltig lagringsanslutningssträng har angetts för **AzureWebJobsStor
 
 ## <a name="create-func"></a>Skapa en funktion
 
-Om du vill skapa en funktion, kör du följande kommando:
+Skapa en funktion genom att köra följande kommando:
 
 ```bash
 func new
@@ -444,7 +444,7 @@ Följande projektet publiceringsalternativ stöds bara i version 2.x:
 | **`--publish-settings-only -o`** |  Endast Publiceringsinställningar och hoppa över innehållet. Standardvärdet är fråga. |
 |**`--list-ignored-files`** | Visar en lista över filer som ignoreras under publicering, som baseras på .funcignore-filen. |
 | **`--list-included-files`** | Visar en lista över filer som har publicerats som baseras på .funcignore-filen. |
-| **`--zip`** | Publicera i Kör från Zip-paketet. Kräver appen att ha AzureWebJobsStorage inställningen. |
+| **`--nozip`** | Aktiverar standard `Run-From-Zip` läge av. |
 | **`--build-native-deps`** | Hoppar över skapandet .wheels mapp när du publicerar python funktionsappar. |
 | **`--additional-packages`** | Lista över paket som ska installeras när du skapar inbyggda beroenden. Till exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera före publicering verifiering i vissa scenarier. |

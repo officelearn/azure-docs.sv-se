@@ -47,7 +47,7 @@ Om du vill konfigurera en godkänd IP-lista, gå till `HKLM\SOFTWARE\Microsoft\A
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | sträng | Tom | Ange en semikolonavgränsad lista med IP-adresser. Inkludera IP-adresser för datorer där tjänstbegäranden kommer t.ex NAS/VPN-servern. IP-intervall är undernät inte stöds. <br><br> Till exempel *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-När en begäran kommer från en IP-adress som finns på vitlistan, hoppas över tvåstegsverifiering. IP-vitlistan jämförs IP-adressen som har angetts i den *ratNASIPAddress* attribut för RADIUS-begäran. Om en RADIUS-begäran kommer utan attributet ratNASIPAddress, loggas följande varning: ”P_WHITE_LIST_WARNING::IP vitlista ignoreras eftersom käll-IP saknas i RADIUS-begäran i NasIpAddress attribut”.
+När en begäran kommer från en IP-adress som finns på vitlistan, hoppas över tvåstegsverifiering. IP-vitlistan jämförs IP-adressen som har angetts i den *ratNASIPAddress* attribut för RADIUS-begäran. Om en RADIUS-begäran kommer utan attributet ratNASIPAddress, loggas följande varning: ”P_WHITE_LIST_WARNING::IP lista över tillåtna ignoreras eftersom käll-IP saknas i RADIUS-begäran i NasIpAddress attribut”.
 
 ## <a name="next-steps"></a>Nästa steg
 

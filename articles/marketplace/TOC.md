@@ -83,21 +83,6 @@
 ### [Publicera erbjudande för VM](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 ### [Uppdatera befintligt erbjudande](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-<!-- Following legacy VM section was replaced.  -->
-<!-- 
-## Virtual machines
-### [Dev center account registration](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [Author virtual machine offer](./cloud-partner-portal-orig/cloud-partner-portal-publish-virtual-machine.md)
-### [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md)
-### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer.md)
-### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer.md)
-### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
-### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
--->
-<!-- new section for Azure apps -->
-
 ## [Erbjudande för Azure-program](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 ### [Förutsättningar](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
 ### [Skapa ett erbjudande för Azure-program](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
@@ -201,7 +186,16 @@
 ### [BPM och metoder](./cloud-partner-portal-orig/bpm-and-methodologies.md)
 ### [Hjälp-wiki](./cloud-partner-portal-orig/help-wiki.md)
 
-## [Konsulttjänster](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+<!--
+## [Consulting services](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+-->
+## [Konsulttjänster](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
+### [Förutsättningar](./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md)
+### [Skapa ett konsulttjänsterbjudande](./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md)
+#### [fliken Erbjudandeinställningar](./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md)
+#### [fliken Butiksinformation](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
+### [Publicera ett konsulttjänsterbjudande](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
+
 ## [Hantera utgivarprofil](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
 ## [Hantera användare](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
 ## [GDPR-efterlevnad](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)

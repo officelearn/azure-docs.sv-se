@@ -134,15 +134,15 @@ items:
     - name: Autentisera användare
       items:
       - name: Autentisera med Azure AD
-        href: app-service-mobile-how-to-configure-active-directory-authentication.md
+        href: configure-authentication-provider-aad.md
       - name: Autentisera med Facebook
-        href: app-service-mobile-how-to-configure-facebook-authentication.md
+        href: configure-authentication-provider-facebook.md
       - name: Autentisera med Google
-        href: app-service-mobile-how-to-configure-google-authentication.md
+        href: configure-authentication-provider-google.md
       - name: Autentisera med Microsoft-konto
-        href: app-service-mobile-how-to-configure-microsoft-authentication.md
+        href: configure-authentication-provider-microsoft.md
       - name: Autentisera med Twitter
-        href: app-service-mobile-how-to-configure-twitter-authentication.md
+        href: configure-authentication-provider-twitter.md
     - name: Avancerad autentisering
       href: app-service-authentication-how-to.md
     - name: Begränsa IP-adresser
@@ -162,7 +162,7 @@ items:
     - name: Konfigurera PremiumV2-nivå
       href: app-service-configure-premium-tier.md
     - name: Skala ut till flera instanser
-      href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+      href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
     - name: Högdensitetsvärd
       href: app-service-high-density-hosting.md
   - name: Övervaka app
@@ -257,9 +257,9 @@ items:
       href: ip-address-change-outbound.md
     - name: SSL-adress
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 5a3af3678496bb850ed99397f8d6bb186ce92677
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2a0dc03143688e1aadb0666242d44ab06763f04b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53382804"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437885"

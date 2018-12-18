@@ -215,7 +215,7 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | Azure Global Services * | 12076:5050 |
 | Andra Office 365 Online-tjänster | 12076:5100 |
 
-***Azure globala tjänster inkluderar Azure DevOps**
+***Azure globala tjänster inkluderar Azure DevOps**\**
 
 
 > [!NOTE]

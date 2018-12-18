@@ -51,8 +51,8 @@ Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av s
 ### <a name="application-2"></a>Program #2: 
 Följ samma steg för programmet #1, med följande undantag: 
 
-**Steg #5**: Intern URL: en ska nu vara QlikSense-URL: en med den autentiseringsport som används av programmet. Standardvärdet är **4244** för HTTPS och 4248 för HTTP. Exempel: **https&#58;//demo.qlik.com:4244**</br></br> 
-**Steg #10:** inte konfigurera enkel inloggning och lämna den **enkel inloggning inaktiverad**
+**Steg #5**: Intern URL: en ska nu vara QlikSense-URL: en med den autentiseringsport som används av programmet. Standardvärdet är **4244** för HTTPS och 4248 för HTTP. Exempel: **https&#58;//demo.qlik.com:4244**</br></br>**Steg #10:** inte konfigurera enkel inloggning och lämna den **enkel inloggning inaktiverad** 
+
  
  
 ## <a name="testing"></a>Testning 

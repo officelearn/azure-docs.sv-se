@@ -60,7 +60,7 @@ Under krypteringen ska klientbiblioteket generera ett slumpmässigt initieringen
 > 
 > 
 
-Ladda ned en krypterad blob innebär att du hämtar innehållet i hela bloben med den **DownloadTo *** /** BlobReadStream ** bekväma metoder. Den omslutna CEK oinslagna och används tillsammans med IV (som lagras som blob-metadata i det här fallet) för att returnera dekrypterade data till användarna.
+Ladda ned en krypterad blob innebär att du hämtar innehållet i hela bloben med den **DownloadTo**\* /** BlobReadStream** bekväma metoder. Den omslutna CEK oinslagna och används tillsammans med IV (som lagras som blob-metadata i det här fallet) för att returnera dekrypterade data till användarna.
 
 Ladda ned ett godtyckligt adressintervall (**DownloadRange*** metoder) innebär att området som tillhandahålls av användare för att få en liten mängd ytterligare data som kan användas för att kunna dekryptera den begärda i krypterad blob intervallet.
 

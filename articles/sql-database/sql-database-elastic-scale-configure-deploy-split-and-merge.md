@@ -143,7 +143,7 @@ Om din arbetsroll inte går att använda, men din webbroll lyckas, är det troli
    ```
 
 * Se till att servernamnet inte börjar med **https://**.
-* Se till att din Azure SQL DB-server tillåter Azure Services för att ansluta till den. Gör detta genom att öppna databasen i portalen och se till att den **Tillåt åtkomst till Azure-tjänster** är inställt på ** på ***.
+* Se till att din Azure SQL DB-server tillåter Azure Services för att ansluta till den. Gör detta genom att öppna databasen i portalen och se till att den **Tillåt åtkomst till Azure-tjänster** är inställt på **på**\*\*.
 
 ## <a name="test-the-service-deployment"></a>Testa service-distributionen
 ### <a name="connect-with-a-web-browser"></a>Ansluta med en webbläsare

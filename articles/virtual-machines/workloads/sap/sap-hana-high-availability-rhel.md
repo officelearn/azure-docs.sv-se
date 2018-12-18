@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167419"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338530"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på Red Hat Enterprise Linux
 
@@ -88,7 +88,7 @@ SAP HANA är installerad på två virtuella datorer för att uppnå hög tillgä
 SAP HANA System Replication installationen använder en dedikerad virtuell värdnamn och virtuella IP-adresser. På Azure måste en belastningsutjämnare använda en virtuell IP-adress. I följande lista visas konfigurationen av belastningsutjämnaren:
 
 * Konfiguration på klientsidan: IP-adress 10.0.0.13 för hn1-db
-* Backend-konfigurationen: ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska ingå i HANA System Replication
+* Backend-konfiguration: Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska ingå i HANA System Replication
 * Avsökningsporten: Port 62503
 * Belastningsutjämningsregler: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
 
@@ -104,11 +104,11 @@ Om du vill distribuera mallen genom att följa dessa steg:
 1. Öppna den [databasen mallen] [ template-multisid-db] på Azure portal.
 1. Ange följande parametrar:
     * **SAP-System-ID**: Ange ID för SAP-system för SAP-system som du vill installera. ID: T används som ett prefix för de resurser som distribueras.
-    * **OS-typ**: Välj något av Linux-distributioner. Det här exemplet väljer **RHEL 7**.
+    * **OS-typ**: Välj en av Linux-distributioner. Det här exemplet väljer **RHEL 7**.
     * **DB-typ**: Välj **HANA**.
     * **SAP-systemstorlek**: Ange hur många SAP som kommer att ge det nya systemet. Om du inte är säker på hur många SAP kräver att systemet genom att be din SAP-teknikpartner eller systemintegratör.
     * **Systemets tillgänglighet**: Välj **HA**.
-    * **Administratören Username, administratörslösenord eller SSH-nyckeln**: skapas en ny användare som kan användas för att logga in på datorn.
+    * **Administratören Username, administratörslösenord eller SSH-nyckeln**: En ny användare skapas som kan användas för att logga in på datorn.
     * **Undernät-ID**: Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har en undernätet som definierades när den virtuella datorn ska tilldelas att namnge ID för det specifika undernätet. ID: T vanligtvis ser ut som **/subscriptions/\<prenumerations-ID > /resourceGroups/\<resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/\<virtuellt nätverksnamn > /subnets/ \<undernätets namn >**. Lämna tomt om du vill skapa ett nytt virtuellt nätverk
 
 ### <a name="manual-deployment"></a>Manuell distribution
@@ -120,9 +120,9 @@ Om du vill distribuera mallen genom att följa dessa steg:
 1. Skapa en belastningsutjämnare (internt).
    * Välj det virtuella nätverket som skapades i steg 2.
 1. Skapa virtuell dator 1.  
-   Använd minst Red Hat Enterprise Linux 7.4 för SAP HANA. Det här exemplet används Red Hat Enterprise Linux 7.4 för SAP HANA-avbildningen <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> Välj tillgänglighetsuppsättning som skapades i steg 3.
+   Använd minst Red Hat Enterprise Linux 7.4 för SAP HANA. Det här exemplet används Red Hat Enterprise Linux 7.4 för SAP HANA-avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Välj tillgänglighetsuppsättning som skapades i steg 3.
 1. Skapa virtuell dator 2.  
-   Använd minst Red Hat Enterprise Linux 7.4 för SAP HANA. Det här exemplet används Red Hat Enterprise Linux 7.4 för SAP HANA-avbildningen <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> Välj tillgänglighetsuppsättning som skapades i steg 3.
+   Använd minst Red Hat Enterprise Linux 7.4 för SAP HANA. Det här exemplet används Red Hat Enterprise Linux 7.4 för SAP HANA-avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Välj tillgänglighetsuppsättning som skapades i steg 3.
 1. Lägga till datadiskar.
 1. Konfigurera belastningsutjämnaren. Börja med att skapa en IP-adresspool på klientsidan:
 
@@ -187,11 +187,11 @@ Mer information om portarna som krävs för SAP HANA, finns i kapitlet [anslutni
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]** : Steget som gäller för alla noder.
-* **[1]** : Steget som gäller för nod 1.
-* **[2]** : Steget som gäller för nod 2 i Pacemaker-klustret.
+* **[A]** : Steget gäller för alla noder.
+* **[1]** : Steget gäller nod 1.
+* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
 
-1. **[A]**  Konfigurera disklayouten: **logiska Volume Manager (LVM)**.
+1. **[A]**  Konfigurera disklayouten: **Logical Volume Manager (LVM)**.
 
    Vi rekommenderar att du använder LVM för volymer som lagrar data och loggfiler. I följande exempel förutsätter att de virtuella datorerna har fyra datadiskar som används för att skapa två volymer.
 
@@ -257,7 +257,7 @@ Stegen i det här avsnittet använder följande prefix:
    <pre><code>sudo mount -a
    </code></pre>
 
-1. **[A]**  Konfigurera disklayouten: **vanlig diskar**.
+1. **[A]**  Konfigurera disklayouten: **Vanlig diskar**.
 
    Du kan placera dina HANA-data och loggfiler lagras på en disk för demo-system. Skapa en partition på /dev/disk/azure/scsi1/lun0 och formatera den med xfs:
 
@@ -305,28 +305,28 @@ Stegen i det här avsnittet använder följande prefix:
    * Kör den **hdblcm** programmet från DVD-skivan för HANA. Ange följande värden i Kommandotolken:
    * Välj installation: Ange **1**.
    * Välj ytterligare komponenter för installation: Ange **1**.
-   * Ange installationssökvägen [/ hana/delade]: anger du väljer.
+   * Ange installationssökvägen [/ hana/delade]: Välj ange.
    * Ange namn på lokal värd [.]: Välj ange.
-   * Vill du lägga till ytterligare värdar i systemet? (j/n) [n]: anger du väljer.
+   * Vill du lägga till ytterligare värdar i systemet? (j/n) [n]: Välj ange.
    * Ange SAP HANA System-ID: Ange SID HANA, till exempel: **HN1**.
    * Ange instansnummer [00]: Ange numret HANA-instans. Ange **03** om du har använt mallar för Azure eller följt manuell distribution i den här artikeln.
-   * Välj databasen läge / ange Index [1]: Ange väljer.
+   * Välj databasen läge / ange Index [1]: Välj ange.
    * Välj systemanvändning / ange Index [4]: Välj användarvärde system.
-   * Ange platsen för datavolymer [/ hana/data/HN1]: anger du väljer.
-   * Ange platsen för Loggvolymerna [/ hana/log/HN1]: anger du väljer.
-   * Begränsa maximal minnesallokering? [n]: anger du väljer.
-   * Ange Certifikatvärdnamn för värd ”...” [...]: Anger du väljer.
+   * Ange platsen för datavolymer [/ hana/data/HN1]: Välj ange.
+   * Ange platsen för Loggvolymerna [/ hana/log/HN1]: Välj ange.
+   * Begränsa maximal minnesallokering? [n]: Välj ange.
+   * Ange Certifikatvärdnamn för värd ”...” [...]: Välj ange.
    * Ange SAP värd Agent-användare (sapadm) lösenord: Ange värden agenten användarens lösenord.
    * Bekräfta SAP värd Agent-användare (sapadm) lösenord: Ange värden agenten användarens lösenord igen för att bekräfta.
-   * Ange systemadministratören (hdbadm) lösenord: Ange administratörslösenordet som system.
+   * Ange systemadministratören (hdbadm) lösenord: Ange lösenord.
    * Bekräfta systemadministratören (hdbadm) lösenord: Ange lösenord igen för att bekräfta.
-   * Ange systemadministratören Home katalogen [/ usr/sap/HN1/home]: anger du väljer.
-   * Ange System administratör inloggningsgränssnitt [/ bin/sh]: anger du väljer.
+   * Ange arbetskatalog för System-administratör [/ usr/sap/HN1/home]: Välj ange.
+   * Ange System administratör inloggningsgränssnitt [/ bin/sh]: Välj ange.
    * Ange systemadministratören användar-ID [1001]: Välj ange.
-   * Ange ID för användargrupp (sapsys) [79]: anger du väljer.
-   * Ange lösenord för databasen användare (SYSTEM): Ange lösenordet för användaren.
-   * Bekräfta lösenord (DATABASSYSTEM användaren): Ange databas användarens lösenord igen för att bekräfta.
-   * Starta om systemet efter omstart av datorn? [n]: anger du väljer.
+   * Ange ID för användargrupp (sapsys) [79]: Välj ange.
+   * Ange databaslösenord för användare (SYSTEM): Ange lösenordet för användaren.
+   * Bekräfta databas-användarlösenord (SYSTEM): Ange databas användarens lösenord igen för att bekräfta.
+   * Starta om systemet efter omstart av datorn? [n]: Välj ange.
    * Vill du fortsätta? (j/n): Verifiera sammanfattningen. Ange **y** att fortsätta.
 
 1. **[A]**  Uppgradera Värdagenten SAP.
@@ -348,9 +348,9 @@ Stegen i det här avsnittet använder följande prefix:
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]** : Steget som gäller för alla noder.
-* **[1]** : Steget som gäller för nod 1.
-* **[2]** : Steget som gäller för nod 2 i Pacemaker-klustret.
+* **[A]** : Steget gäller för alla noder.
+* **[1]** : Steget gäller nod 1.
+* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[A]**  Konfigurera brandväggen
 
@@ -439,9 +439,9 @@ sudo firewall-cmd --zone=public --add-port=30342/tcp
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]** : Steget som gäller för alla noder.
-* **[1]** : Steget som gäller för nod 1.
-* **[2]** : Steget som gäller för nod 2 i Pacemaker-klustret.
+* **[A]** : Steget gäller för alla noder.
+* **[1]** : Steget gäller nod 1.
+* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[A]**  Konfigurera brandväggen
 

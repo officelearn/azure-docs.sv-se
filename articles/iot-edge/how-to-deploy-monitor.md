@@ -95,7 +95,7 @@ När du har alla moduler för en distribution som konfigurerats väljer **nästa
 
 ### <a name="step-3-specify-routes-optional"></a>Steg 3: Ange vägar (valfritt)
 
-Vägar definierar hur moduler kommunicerar med varandra i en distribution. Som standard i guiden får du en väg kallas **väg** och definieras som **FROM /* i $uppströms **, vilket innebär att alla meddelanden som utdata av alla moduler som skickas till din IoT-hubb.  
+Vägar definierar hur moduler kommunicerar med varandra i en distribution. Som standard i guiden får du en väg kallas **väg** och definieras som **FROM /\* i $uppströms**, vilket innebär att alla meddelanden som utdata av alla moduler som skickas till din IoT-hubb.  
 
 Lägg till eller uppdatera vägar med information från [deklarera vägar](module-composition.md#declare-routes)och välj sedan **nästa** att fortsätta till avsnittet granskning.
 

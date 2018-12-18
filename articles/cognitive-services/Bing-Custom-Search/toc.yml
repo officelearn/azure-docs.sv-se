@@ -3,26 +3,30 @@ items:
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Anpassad sökning i Bing?
+  - name: Vad är API:et för anpassad Bing-sökning?
     href: overview.md
   expanded: true
-- name: Snabbstarter för REST API
+- name: Snabbstarter
   items:
-  - name: Skapa den första instansen
+  - name: Skapa en anpassad sökinstans
     href: quick-start.md
-  - name: C#
-    href: call-endpoint-csharp.md
-  - name: Java
-    href: call-endpoint-java.md
-  - name: Node.js
-    href: call-endpoint-nodejs.md
-  - name: Python
-    href: call-endpoint-python.md
+  - name: Hämta sökresultat från din instans
+    items:
+    - name: REST-API
+      items:
+      - name: Använd C#
+        href: call-endpoint-csharp.md
+      - name: Använda Java
+        href: call-endpoint-java.md
+      - name: Använda Node.js
+        href: call-endpoint-nodejs.md
+      - name: Använda Python
+        href: call-endpoint-python.md
+    - name: SDK
+      items:
+      - name: Använd C#
+        href: sdk-csharp-quick-start.md
   expanded: true
-- name: Snabbstarter för SDK
-  items:
-  - name: Snabbstart för SDK i C#
-    href: sdk-csharp-quick-start.md
 - name: Självstudier
   items:
   - name: Skapa en webbsida för anpassad sökning
@@ -33,23 +37,23 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
 - name: Instruktionsguider
   items:
-  - name: Konfigurera anpassad sökupplevelse
+  - name: Konfigurera din anpassade sökupplevelse
     href: define-your-custom-view.md
-  - name: Anropa anpassad sökning
+  - name: Anropa din anpassade sökinstans
     href: search-your-custom-view.md
-  - name: Konfigurera värdbaserad UI-upplevelse
+  - name: Konfigurera och integrera ett värdbaserat användargränssnitt
     href: hosted-ui.md
-  - name: Dela anpassad sökning
+  - name: Dela din anpassade sökinstans
     href: share-your-custom-search.md
-  - name: Hämta bilder från din instans
+  - name: Hämta bilder från din sökinstans
     href: get-images-from-instance.md
-  - name: Hämta filmer från din instans
+  - name: Hämta videor från din sökinstans
     href: get-videos-from-instance.md
-  - name: Konfigurera anpassad upplevelse för automatiska förslag
+  - name: Konfigurera en anpassad upplevelse för automatiska förslag
     href: define-custom-suggestions.md
   - name: Hantera träffmarkering
     href: hit-highlighting.md
-  - name: Webbsidor för sida
+  - name: Bläddra bland webbsidor
     href: page-webpages.md
 - name: Referens
   items:
@@ -85,9 +89,9 @@ items:
     href: endpoint-custom.md
   - name: Stöd för språk och region
     href: language-support.md
-ms.openlocfilehash: 62392b7ff226072108c61f10b3f0519677aaba6b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 81d0d94efc519fa241ab36979506b2baddf50d91
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432010"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555873"

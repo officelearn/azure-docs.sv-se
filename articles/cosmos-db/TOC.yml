@@ -80,7 +80,7 @@ items:
       href: consistency-levels.md
     - name: Välja rätt konsekvensnivå
       href: consistency-levels-choosing.md
-    - name: Konsekvensnivåer och API:er för Azure Cosmos DB
+    - name: Konsekvensnivåer och API:er för Cosmos DB
       href: consistency-levels-across-apis.md
     - name: Kompromisser avseende konsekvens, tillgänglighet och prestanda
       href: consistency-levels-tradeoffs.md
@@ -144,6 +144,12 @@ items:
       href: unique-keys.md
     - name: Transaktioner och optimistisk samtidighet
       href: database-transactions-optimistic-concurrency.md
+  - name: Programmering på serversidan
+    items:
+    - name: Lagrade procedurer, utlösare och UDF:er
+      href: stored-procedures-triggers-udfs.md
+    - name: API för JavaScript-fråga
+      href: javascript-query-api.md
   - name: Optimera dina kostnader för Azure Cosmos DB
     items:
     - name: Prismodell
@@ -178,8 +184,6 @@ items:
       href: firewall-support.md
     - name: Åtkomst från virtuella nätverk
       href: vnet-service-endpoint.md
-    - name: Key Vault-stöd
-      href: access-secrets-from-keyvault.md
   - name: Företagsberedskap
     items:
     - name: Säkerhetskopiering och återställning online
@@ -250,8 +254,14 @@ items:
       items:
       - name: Justera prestanda för frågor
         href: sql-api-query-metrics.md
-      - name: Lagrade procedurer, utlösare och UDF:er
-        href: programming.md
+      - name: Programmering på serversidan
+        items:
+        - name: Skriva lagrade procedurer, utlösare och UDF:er
+          href: how-to-write-stored-procedures-triggers-udfs.md
+        - name: Skriva lagrade procedurer och utlösare med API för JavaScript-fråga
+          href: how-to-write-javascript-query-api.md
+        - name: Använda lagrade procedurer, utlösare och UDF:er
+          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Datatyper
         items:
         - name: DateTime
@@ -308,7 +318,7 @@ items:
             href: tutorial-develop-mongodb-nodejs-part3.md
           - name: Del 4 – Skapa ett konto
             href: tutorial-develop-mongodb-nodejs-part4.md
-          - name: Del 5 – Ansluta till Azure Cosmos DB
+          - name: Del 5 – Anslut till Cosmos DB
             href: tutorial-develop-mongodb-nodejs-part5.md
           - name: Del 6 – Utför CRUD-åtgärder
             href: tutorial-develop-mongodb-nodejs-part6.md
@@ -479,6 +489,8 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Konfigurera resursdelning för korsande ursprung (CORS)
       href: how-to-configure-cross-origin-resource-sharing.md
+    - name: Skydda med Key Vault
+      href: access-secrets-from-keyvault.md
   - name: Företagsberedskap
     items:
     - name: Återställa data från en säkerhetskopia
@@ -529,7 +541,7 @@ items:
         href: performance-testing.md
     - name: Kostnadseffektiva läsningar och skrivningar
       href: key-value-store-cost.md
-  - name: Visualisera Azure Cosmos DB-data
+  - name: Visualisera Cosmos DB-data
     items:
     - name: Använda Power BI
       href: powerbi-visualize.md
@@ -603,9 +615,9 @@ items:
       href: use-cases.md
     - name: Appar för sociala medier
       href: social-media-apps.md
-ms.openlocfilehash: d31364cb9d458e54ae407d10fd88d8db4e9f457f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 34fc77f13f0c0bd394d96e19b86a1632ce2846b1
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384674"
+ms.locfileid: "53410116"

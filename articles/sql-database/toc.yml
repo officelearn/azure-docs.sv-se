@@ -101,6 +101,8 @@ items:
       href: sql-database-service-tiers-dtu.md
     - name: Förskottsbetalning för reserverad kapacitet
       href: sql-database-reserved-capacity.md
+    - name: Migrera från Premium RS-tjänstnivån
+      href: sql-database-service-tiers-prs.md
   - name: Beräkning och lagring
     items:
     - name: Översikt
@@ -115,7 +117,7 @@ items:
       href: sql-database-service-tier-hyperscale-faq.md
   - name: Enkla databaser
     items:
-    - name: Enskild databas
+    - name: Översikt över enkel databas
       href: sql-database-single-index.yml
     - name: Skapa och hantera
       href: sql-database-single-databases-manage.md
@@ -149,7 +151,7 @@ items:
       href: sql-database-single-database-scale.md
   - name: Hanterade instanser
     items:
-    - name: Hanterade instanser
+    - name: Översikt över hanterade instanser
       href: sql-database-managed-instance-index.yml
     - name: Översikt över hanterade instanser
       href: sql-database-managed-instance.md
@@ -163,7 +165,7 @@ items:
       href: sql-database-managed-instance-transact-sql-information.md
   - name: Plattform som en tjänst
     items:
-    - name: Plattform som en tjänst
+    - name: Översikt över Plattform som en tjänst
       href: sql-database-paas.yml
     - name: Verksamhetskontinuitet
       href: sql-database-business-continuity.md
@@ -195,7 +197,7 @@ items:
         href: sql-database-disaster-recovery-drills.md
   - name: Säkerhet
     items:
-    - name: Säkerhet
+    - name: Säkerhetsöversikt
       href: sql-database-security-index.yml
     - name: Säkerhetsöversikt
       href: sql-database-security-overview.md
@@ -249,7 +251,7 @@ items:
         href: transparent-data-encryption-byok-azure-sql.md
   - name: Skalbarhet
     items:
-    - name: Skalbarhet
+    - name: Översikt över skalbarhet
       href: sql-database-scalability-index.yml
     - name: Skala upp/ned
       href: sql-database-scale-resources.md
@@ -283,6 +285,8 @@ items:
     href: sql-database-features.md
   - name: Övervakning och justering
     items:
+    - name: Översikt över övervakning och justering
+      href: sql-database-monitoring-tuning-index.yml
     - name: Övervakning och prestandajustering
       href: sql-database-monitor-tune-overview.md
     - name: Prestandaövervakning
@@ -315,8 +319,12 @@ items:
       href: sql-database-temporal-tables.md
 - name: Instruktionsguider
   items:
+  - name: Översikt
+    href: sql-database-howto.md
   - name: Enskild databas
     items:
+    - name: Översikt
+      href: sql-database-howto-single-database.md
     - name: Migrera till SQL Database
       href: sql-database-cloud-migrate.md
     - name: Hantera SQL-databas efter migrering
@@ -393,6 +401,8 @@ items:
         href: elastic-jobs-migrate.md
   - name: Hanterad instans
     items:
+    - name: Översikt
+      href: sql-database-howto-managed-instance.md
     - name: Migrera till hanterad instans
       href: sql-database-managed-instance-migrate.md
     - name: Migrera transparent datakrypteringscertifikat till hanterad instans
@@ -666,9 +676,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Avinstallera elastiskt jobb (inaktuellt)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: d94f4fb39ccdee60fae434204369fd844aedeb20
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d276b202da8055965a43f5313b6a8c4b335f74b2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384283"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436032"

@@ -91,7 +91,7 @@
 #### [fliken Test Drive](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [fliken Marketplace](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [fliken Stöd](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Skapa tekniska tillgångar](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [Publicera ett erbjudande för Azure-program](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [Uppdatera befintligt erbjudande](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 

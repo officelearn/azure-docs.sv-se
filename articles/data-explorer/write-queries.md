@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**Anslut till**](https://docs.microsoft.com/azure/kusto/query/joinoperator): sammanfogar raderna i två tabeller för att skapa en ny tabell genom att matcha värdena för den eller de angivna kolumnerna från varje tabell. Kusto stöder en hel rad join-typer: **fullouter**, **inre**, **innerunique**, **leftanti**, **leftantisemi **, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter **, **rightsemi**.
+[**Anslut till**](https://docs.microsoft.com/azure/kusto/query/joinoperator): sammanfogar raderna i två tabeller för att skapa en ny tabell genom att matcha värdena för den eller de angivna kolumnerna från varje tabell. Kusto stöder en hel rad join-typer: **fullouter**, **inre**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**.
 
 I följande exempel kopplar ihop två tabeller med en inre koppling.
 

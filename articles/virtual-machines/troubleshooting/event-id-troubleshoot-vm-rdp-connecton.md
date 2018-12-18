@@ -56,35 +56,35 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 
 **Loggnamn:** System <br />
 **Källa:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:***tid* <br />
+**Datum:** *tid* <br />
 **Händelse-ID:** 1058 <br />
 **Aktivitetskategori:** None <br />
 **Nivå:** fel <br />
 **Nyckelord:** klassiska <br />
 **Användare:** saknas <br />
-**Dator:***dator* <br />
+**Dator:** *dator* <br />
 **Beskrivning:** värdserver för fjärrskrivbordssession har det gick inte att ersätta det utgångna självsignerat certifikat som används för autentisering av värdserver för fjärrskrivbordssession i SSL-anslutningar. Statuskoden var åtkomst nekas.
 
 **Loggnamn:** System <br />
 **Källa:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:***tid* <br />
+**Datum:** *tid* <br />
 **Händelse-ID:** 1058 <br />
 **Aktivitetskategori:** None <br />
 **Nivå:** fel <br />
 **Nyckelord:** klassiska <br />
 **Användare:** saknas <br />
-**Dator:***dator* <br />
+**Dator:** *dator* <br />
 **Beskrivning:** värdserver för fjärrskrivbordssessioner kunde inte skapa ett nytt självsignerat certifikat som ska användas för serverautentisering för RD Session host i SSL-anslutningar, statuskod: var objektet finns redan.
 
 **Loggnamn:** System <br />
 **Källa:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:***tid* <br />
+**Datum:** *tid* <br />
 **Händelse-ID:** 1057 <br />
 **Aktivitetskategori:** None <br />
 **Nivå:** fel <br />
 **Nyckelord:** klassiska <br />
 **Användare:** saknas <br />
-**Dator:***dator* <br />
+**Dator:** *dator* <br />
 **Beskrivning:** värdserver för fjärrskrivbordssessioner kunde inte skapa ett nytt självsignerat certifikat som ska användas för autentisering av värdserver för fjärrskrivbordssession på SSL-anslutningar. Statuskoden var Keyset inte finns
 
 Du kan också leta efter SCHANNEL felhändelser 36872 och 36870 genom att köra följande kommandon:
@@ -102,7 +102,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Nivå:** fel <br />
 **Nyckelord:**       <br />
 **Användare:** SYSTEM <br />
-**Dator:***dator* <br />
+**Dator:** *dator* <br />
 **Beskrivning:** ett allvarligt fel uppstod vid försök att komma åt den privata nyckeln för SSL server autentiseringsuppgifter. Felkoden som returnerades från den kryptografiska modulen är 0x8009030D.  <br />
 Internt fel-tillståndet är 10001.
 
@@ -224,7 +224,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Nivå:** fel <br />
 **Nyckelord:**       <br />
 **Användare:** SYSTEM <br />
-**Dator:***dator* <br />
+**Dator:** *dator* <br />
 **Beskrivning:** ett allvarligt fel inträffade när en autentiseringsuppgift för TLS-server. Internt fel-tillståndet är 10013.
  
 ### <a name="cause"></a>Orsak
@@ -248,13 +248,13 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 
 **Loggnamn:** Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
 **Källa:** Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Datum:***tid* <br />
+**Datum:** *tid* <br />
 **Händelse-ID:** 2056 <br />
 **Aktivitetskategori:** (109) <br />
 **Nivå:** fel <br />
 **Nyckelord:**       <br />
 **Användare:** NÄTVERKSTJÄNST <br />
-**Dator:***datorn fqdn* <br />
+**Dator:** *datorn fqdn* <br />
 **Beskrivning:** går inte att hitta beskrivningen av händelse-ID 2056 från källan Microsoft-Windows-TerminalServices-SessionBroker. Antingen den komponent som genererar den här händelsen är inte installerad på den lokala datorn eller installationen är skadad. Du kan installera eller reparera komponenten på den lokala datorn. <br />
 Om händelsen skapades på en annan dator, hade visningsinformationen sparas till händelsen. <br />
 Följande information ingick i händelsen: <br />
@@ -264,13 +264,13 @@ Det gick inte att logga in på databasen.
 
 **Loggnamn:** Microsoft-Windows-TerminalServices-SessionBroker-klient/Operational <br />
 **Källa:** Microsoft-Windows-TerminalServices-SessionBroker-klient <br />
-**Datum:***tid* <br />
+**Datum:** *tid* <br />
 **Händelse-ID:** 1296 <br />
 **Aktivitetskategori:** (104) <br />
 **Nivå:** fel <br />
 **Nyckelord:**       <br />
 **Användare:** NÄTVERKSTJÄNST <br />
-**Dator:***datorn fqdn* <br />
+**Dator:** *datorn fqdn* <br />
 **Beskrivning:** går inte att hitta beskrivningen av händelse-ID 1296 från källan Microsoft-Windows-TerminalServices-SessionBroker-klient. Antingen den komponent som genererar den här händelsen är inte installerad på den lokala datorn eller installationen är skadad. Du kan installera eller reparera komponenten på den lokala datorn.
 Om händelsen skapades på en annan dator, hade visningsinformationen sparas till händelsen.
 Följande information ingick i händelsen:  <br />

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6c8737b353503144094a4e2fb6bc7b5471a377b9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6b7e0bf650d46f7e445aacc4bb61efca94510716
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989931"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538675"
 documentType: LandingData
 title: Dokumentation om Web Apps
 metadata:
@@ -75,15 +75,15 @@ sections:
     - image:
         src: media/index/zip.svg
       text: ZIP/WAR
-      href: app-service-deploy-zip.md
+      href: deploy-zip.md
     - image:
         src: media/index/ftp.svg
       text: FTP
-      href: app-service-deploy-ftp.md
+      href: deploy-ftp.md
     - image:
         src: media/index/git-icon.svg
       text: Lokal Git
-      href: app-service-deploy-local-git.md
+      href: deploy-local-git.md
     - image:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: Azure DevOps
@@ -91,19 +91,19 @@ sections:
     - image:
         src: media/index/github-octicons.svg
       text: GitHub
-      href: app-service-continuous-deployment.md
+      href: deploy-continuous-deployment.md
     - image:
         src: media/index/bitbucket.svg
       text: Bitbucket
-      href: app-service-continuous-deployment.md
+      href: deploy-continuous-deployment.md
     - image:
         src: media/index/dropbox.svg
       text: DropBox-synkronisering
-      href: app-service-deploy-content-sync.md
+      href: deploy-content-sync.md
     - image:
         src: media/index/onedrive.svg
       text: OneDrive-synkronisering
-      href: app-service-deploy-content-sync.md
+      href: deploy-content-sync.md
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -115,7 +115,7 @@ sections:
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mappa en befintlig anpassad domän till ditt program</a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Bind ett befintligt SSL-certifikat till ditt program</a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Lägga till ett CDN till ditt program</a>
-- title: Utveckla din kompetens med Microsoft Learn
+- title: Utveckla dina färdigheter med Microsoft Learn
   items:
   - type: list
     style: cards
@@ -163,6 +163,6 @@ sections:
     - title: Kommandorad
       html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
     - title: Språk
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
+      html: <p><a href="/dotnet/api">NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST
       html: <p><a href="/rest/api/appservice">REST API-referens</a></p>

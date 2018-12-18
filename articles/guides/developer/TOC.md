@@ -55,7 +55,7 @@
 ### [Serverlösa appar](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Kluster för mikrotjänster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Distribuera
-### [Webb- och mobilappar från källkontroll](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
+### [Webb- och mobilappar från källkontroll](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)
 ### [Mikrotjänster lokalt](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -93,7 +93,7 @@
 # Referens
 ## [REST](https://docs.microsoft.com/rest/api/)
 ## SDK:er
-### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
+### [NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
 ### [Node.js](http://azure.github.io/azure-sdk-for-node/)
 ### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)

@@ -156,7 +156,7 @@ Du måste börja med att indexera Solr med vissa datafiler. Du kan sedan använd
           </response>
       ```
       
-   2. I fjärrsessionen, går du till {SOLR_HOME}\{samling} \data. För klustret skapas via exempelskriptet, bör detta vara `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. På den här platsen bör du se en mapp för ögonblicksbilder som skapats med ett namn som liknar **ögonblicksbild.* tidsstämpel ***.
+   2. I fjärrsessionen, går du till {SOLR_HOME}\{samling} \data. För klustret skapas via exempelskriptet, bör detta vara `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. På den här platsen bör du se en mapp för ögonblicksbilder som skapats med ett namn som liknar **ögonblicksbild.\*tidsstämpel**\*.
    
    3. ZIP-mappen för ögonblicksbilder och överför den till Azure Blob storage. Gå till platsen för mappen för ögonblicksbilder med hjälp av följande kommando från kommandoraden Hadoop:
 

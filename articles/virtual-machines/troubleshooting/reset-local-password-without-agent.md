@@ -133,7 +133,7 @@ Alltid försöka med att återställa ett lösenord med hjälp av den [Azure-por
      ![Kopiera disk URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Skapa en virtuell dator från den Virtuella källdatorns OS-disken:
    
-   * Använd [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) att skapa en virtuell dator från en specialiserad virtuell Hårddisk. Klicka på den `Deploy to Azure` knappen för att öppna Azure portal med mallbaserade informationen som fyllts i åt dig.
+   Använd [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) att skapa en virtuell dator från en specialiserad virtuell Hårddisk. Klicka på den `Deploy to Azure` knappen för att öppna Azure portal med mallbaserade informationen som fyllts i åt dig.
    * Om du vill behålla de tidigare inställningarna för den virtuella datorn, väljer *redigera mallen* att tillhandahålla ditt befintligt virtuellt nätverk, undernät, nätverkskort eller offentlig IP-adress.
    * I den `OSDISKVHDURI` parametern textruta, klistra in URI för källan VHD hämta i föregående steg:
      

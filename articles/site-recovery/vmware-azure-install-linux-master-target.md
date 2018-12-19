@@ -259,7 +259,7 @@ Använd följande steg för att skapa en kvarhållningsdisken:
     
     Välj **infoga** att börja redigera filen. Skapa en ny rad och Lägg till följande text. Redigera diskens multipath ID baserat på det markerade multipath ID från föregående kommando.
 
-     **/dev/mapper/ <Retention disks multipath id> /mnt/kvarhållning ext4 rw 0 0**
+    **/dev/mapper/<Retention disks multipath id> /mnt/kvarhållning ext4 rw 0 0**
 
     Välj **Esc**, och skriv sedan **: wq** (skriva och avsluta) att Stäng editor-fönstret.
 

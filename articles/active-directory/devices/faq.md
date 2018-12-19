@@ -24,7 +24,7 @@ ms.locfileid: "53309186"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
-**F: Jag har registrerat enheten nyligen. Varför visas inte enheten under Mina användarinformation i Azure-portalen? Eller varför enhetens ägare markeras som ej tillämpligt för hybrid Azure AD-anslutna enheter? ** 
+**F: Jag har registrerat enheten nyligen. Varför visas inte enheten under Mina användarinformation i Azure-portalen? Eller varför enhetens ägare markeras som ej tillämpligt för hybrid Azure AD-anslutna enheter?**
  **S:** Windows 10-enheter som är hybrid Azure AD-anslutna visas inte under användarenheterna.
 Du måste använda vy över alla enheter i Azure portal. Du kan också använda PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
@@ -107,14 +107,14 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 
 ---
 
-**F: Kan Mina användare logga in på Azure AD-anslutna enheter som har tagits bort eller inaktiveras i Azure AD? ** 
+**F: Kan Mina användare logga in på Azure AD-anslutna enheter som har tagits bort eller inaktiveras i Azure AD?**
  **S:** Ja. Windows har cachelagrat inloggningsmöjlighet så att tidigare inloggade användare åtkomst till skrivbordet snabbt även utan nätverksanslutning. När en enhet tas bort eller inaktiveras i Azure AD, är det inte känt för Windows-enheten. Därför loggade in användare kan fortsätta att arbeta direkt med cachelagrade inloggning. Men eftersom enheten tas bort eller inaktiveras, användare kan inte komma åt några resurser som skyddas av enhetsbaserad villkorlig åtkomst. 
 
 Användare som inte redan har loggat in kan inte komma åt enheten eftersom det finns inga cachelagrade inloggning är aktiverat för dessa. 
 
 ---
 
-**F: Inaktiverade eller borttagna användare loggar in till Azure AD-anslutna enheter? ** 
+**F: Inaktiverade eller borttagna användare loggar in till Azure AD-anslutna enheter?**
  **S:** Ja, men endast under en begränsad tid. När en användare tas bort eller inaktiveras i Azure AD, är det inte omedelbart känt på Windows-enheten. Därför loggade in användare kan komma åt skrivbordet med cachelagrade inloggning. När enheten är medveten om användarens tillstånd (vanligtvis i mindre än 4 timmar), blockerar Windows dessa användare från att komma åt skrivbordet. När användaren tas bort eller inaktiveras i Azure AD, kommer alla sina tokens att återkallas, så att de inte kan komma åt några resurser. 
 
 Har tagits bort eller är inaktiverad användare som inte har loggat in tidigare inte åtkomst till en enhet eftersom det finns inga cachelagrade inloggning är aktiverat för dessa. 
@@ -127,7 +127,7 @@ Har tagits bort eller är inaktiverad användare som inte har loggat in tidigare
 
 ---
 
-**F: Hur ansluter jag till en fjärransluten Azure AD domänansluten enhet? ** 
+**F: Hur ansluter jag till en fjärransluten Azure AD domänansluten enhet?**
  **S:** Finns i artikeln https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc information.
 
 ---

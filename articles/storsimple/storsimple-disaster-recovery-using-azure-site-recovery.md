@@ -168,16 +168,16 @@ Du kan skapa en återställningsplan i ASR att automatisera redundansprocessen a
 1. I automation-konto klickar du på **variabler** &gt; **Lägg till en variabel** och Lägg till följande variabler. Du kan välja att kryptera dessa tillgångar. Dessa variabler finns specifika återställningsplan. Om din återställningsplanen är som du skapar i nästa steg namn TestPlan, dina variabler ska vara TestPlan-StorSimRegKey, TestPlan AzureSubscriptionName och så vidare.
 
    - **BaseUrl**: Resource Manager-url för Azure-molnet. Få med **Get-AzureRmEnvironment | Select-Object-namn, ResourceManagerUrl** cmdlet.
-   - * RecoveryPlanName ***- ResourceGroupName**: Resource Manager-grupp med StorSimple-resursen.
-   - * RecoveryPlanName ***- ManagerName**: The StorSimple-resurs som har StorSimple-enheten.
-   - * RecoveryPlanName ***- DeviceName**: The StorSimple-enhet som har växlas.
-   - * RecoveryPlanName ***- DeviceIpAddress**: IP-adressen för enheten (detta finns i den **enheter** fliken StorSimple Device Manager-avsnittet &gt; **inställningar** &gt; **Nätverk** &gt; **DNS-inställningarna** grupp).
-   - * RecoveryPlanName ***- VolumeContainers**: en kommaavgränsad sträng med volymbehållare på enheten som behöver att växlas över, till exempel: volcon1 volcon2, volcon3.
-   - * RecoveryPlanName ***- TargetDeviceName**: The StorSimple-Molninstallation som är behållarna som ska redundansväxlas.
-   - * RecoveryPlanName ***- TargetDeviceIpAddress**: IP-adressen för målenheten (detta finns i den **VM** avsnittet &gt; **inställningar** gruppen &gt; **nätverk** fliken).
-   - * RecoveryPlanName ***- StorageAccountName**: namnet på lagringskontot där skriptet (som måste köras på den redundansväxlade virtuella datorn) kommer att lagras. Detta kan vara ett storage-konto som har utrymme att lagra skriptet tillfälligt.
-   - * RecoveryPlanName ***- StorageAccountKey**: åtkomstnyckeln för lagringskontot ovan.
-   - * RecoveryPlanName ***- VMGUIDS**: när du skyddar en virtuell dator, Azure Site Recovery tilldelar varje virtuell dator ett unikt ID som ger information om den misslyckade VM. Om du vill ha VMGUID, Välj den **återställningstjänster** fliken och klicka på **skyddade objektet** &gt; **Skyddsgrupper** &gt;  **Datorer** &gt; **egenskaper**. Om du har flera virtuella datorer kan sedan lägga till GUID som en kommaavgränsad sträng.
+   - *RecoveryPlanName* **- ResourceGroupName**: Resource Manager-grupp med StorSimple-resursen.
+   - *RecoveryPlanName* **- ManagerName**: The StorSimple-resurs som har StorSimple-enheten.
+   - *RecoveryPlanName* **- DeviceName**: The StorSimple-enhet som har växlas.
+   - *RecoveryPlanName* **- DeviceIpAddress**: IP-adressen för enheten (detta finns i den **enheter** fliken StorSimple Device Manager-avsnittet &gt; **inställningar** &gt; **Nätverk** &gt; **DNS-inställningarna** grupp).
+   - *RecoveryPlanName* **- VolumeContainers**: en kommaavgränsad sträng med volymbehållare på enheten som behöver att växlas över, till exempel: volcon1 volcon2, volcon3.
+   - *RecoveryPlanName* **- TargetDeviceName**: The StorSimple-Molninstallation som är behållarna som ska redundansväxlas.
+   - *RecoveryPlanName* **- TargetDeviceIpAddress**: IP-adressen för målenheten (detta finns i den **VM** avsnittet &gt; **inställningar** gruppen &gt; **nätverk** fliken).
+   - *RecoveryPlanName* **- StorageAccountName**: namnet på lagringskontot där skriptet (som måste köras på den redundansväxlade virtuella datorn) kommer att lagras. Detta kan vara ett storage-konto som har utrymme att lagra skriptet tillfälligt.
+   - *RecoveryPlanName* **- StorageAccountKey**: åtkomstnyckeln för lagringskontot ovan.
+   - *RecoveryPlanName* **- VMGUIDS**: när du skyddar en virtuell dator, Azure Site Recovery tilldelar varje virtuell dator ett unikt ID som ger information om den misslyckade VM. Om du vill ha VMGUID, Välj den **återställningstjänster** fliken och klicka på **skyddade objektet** &gt; **Skyddsgrupper** &gt;  **Datorer** &gt; **egenskaper**. Om du har flera virtuella datorer kan sedan lägga till GUID som en kommaavgränsad sträng.
 
     Om namnet på återställningsplanen är fileServerpredayRP, till exempel sedan din **variabler**, **anslutningar** och **certifikat** fliken bör visas på följande sätt när du lägger till alla tillgångar.
 

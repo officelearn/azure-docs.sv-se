@@ -79,7 +79,7 @@ Här följer några exempel som visar vad du kan uppnå med anpassade roller:
   Det här scenariot kräver två rolltilldelningar.
 
   1. Tilldela inbyggt **deltagare** roll på nivån för data factory.
-  2. Skapa en anpassad roll med behörigheten * Microsoft.Resources/deployments/**. Tilldela den här anpassade rollen för användaren på resursgruppnivå.
+  2. Skapa en anpassad roll med behörigheten *Microsoft.Resources/deployments/*\*. Tilldela den här anpassade rollen för användaren på resursgruppnivå.
 
 - Låt en användare uppdatera en data factory från PowerShell eller SDK: N, men inte i Azure-portalen.
 

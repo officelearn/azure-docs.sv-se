@@ -233,7 +233,7 @@ Du kan kontrollera VPN-anslutningen genom att skapa två virtuella datorer: en i
 6. Ange en **prenumeration**, **resursgrupp**, och **plats**, och välj sedan **OK**.
 7. På den **storlek** , för den här instansen, Välj en VM-storlek, och välj sedan **Välj**.
 8. På den **inställningar** avsnittet, acceptera standardinställningarna. Se till att den **Azs-VNet** virtuellt nätverk har valts. Kontrollera att undernätet är inställt på **10.1.0.0/24**. Välj sedan **OK**.
-9. På den **sammanfattning** avsnittet, granskar du inställningarna och välj sedan * OK **.
+9. På den **sammanfattning** avsnittet, granskar du inställningarna och välj sedan *OK*\*.
 
 ## <a name="test-the-connection"></a>Testa anslutningen
 

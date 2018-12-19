@@ -26,18 +26,18 @@
 
 # Exempel
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-cli)
 ### [Virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## Azure PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-powershell)
 ### [Virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Begrepp
 ## [Fakturering och prenumerationer](https://docs.microsoft.com/azure/billing/billing-getting-started)
 ## [Jämförelser av värdtjänster](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
-## [Vad är App Service?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+## [Vad är App Service?](https://docs.microsoft.com/azure/app-service/overview)
 ## Virtuella datorer
 ### [Virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Virtuella Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/overview)

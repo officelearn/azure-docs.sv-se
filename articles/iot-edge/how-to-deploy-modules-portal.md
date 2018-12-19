@@ -59,7 +59,7 @@ Azure-portalen har en guide som visar hur du skapar distributionen manifestet, i
 
 ### <a name="specify-routes"></a>Ange vägar
 
-Som standard i guiden får du en väg kallas **väg** och definieras som **FROM /* i $uppströms **, vilket innebär att alla meddelanden som utdata av alla moduler som skickas till din IoT-hubb.  
+Som standard i guiden får du en väg kallas **väg** och definieras som **FROM /\* i $uppströms**, vilket innebär att alla meddelanden som utdata av alla moduler som skickas till din IoT-hubb.  
 
 Lägg till eller uppdatera vägar med information från [deklarera vägar](module-composition.md#declare-routes)och välj sedan **nästa** att fortsätta till avsnittet granskning.
 

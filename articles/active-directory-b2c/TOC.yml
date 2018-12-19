@@ -87,10 +87,22 @@ items:
     href: active-directory-b2c-reference-mfa.md
   - name: Identity Experience Framework
     items:
-    - name: Skapa en anpassad princip
-      href: active-directory-b2c-get-started-custom.md
     - name: Samla in loggar med Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: Konfigurera användarinmatning
+      href: active-directory-b2c-configure-signup-self-asserted-custom.md
+    - name: Skapa en anpassad princip
+      href: active-directory-b2c-get-started-custom.md
+    - name: Anpassa användargränssnittet
+      href: active-directory-b2c-ui-customization-custom.md
+    - name: Anpassa användargränssnittet dynamiskt
+      href: active-directory-b2c-ui-customization-custom-dynamic.md
+    - name: Anpassa token
+      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+    - name: Definiera anpassade attribut
+      href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+    - name: Aktivera ”Håll mig inloggad”
+      href: active-directory-b2c-reference-kmsi-custom.md
     - name: Integrera RESTful-API:er
       items:
       - name: Verifiera användarinmatning
@@ -123,6 +135,10 @@ items:
       href: page-contract.md
     - name: Skicka genom åtkomsttoken
       href: idp-pass-through-custom.md
+    - name: Lösenordskomplexitet
+      href: active-directory-b2c-reference-password-complexity-custom.md
+    - name: Lösenordsändring
+      href: active-directory-b2c-reference-password-change-custom.md
     - name: SAML-providrar
       items:
       - name: ADFS
@@ -131,24 +147,6 @@ items:
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: Spåra användarbeteende
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: Användarflöden
-      items:
-      - name: Konfigurera användarinmatning
-        href: active-directory-b2c-configure-signup-self-asserted-custom.md
-      - name: Anpassade attribut
-        href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-      - name: Anpassa användargränssnittet
-        href: active-directory-b2c-ui-customization-custom.md
-      - name: Anpassa användargränssnittet dynamiskt
-        href: active-directory-b2c-ui-customization-custom-dynamic.md
-      - name: Anpassa token
-        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-      - name: Lösenordskomplexitet
-        href: active-directory-b2c-reference-password-complexity-custom.md
-      - name: Lösenordsändring
-        href: active-directory-b2c-reference-password-change-custom.md
-      - name: Aktivera ”Håll mig inloggad”
-        href: active-directory-b2c-reference-kmsi-custom.md
     - name: Referens
       items:
       - name: Anspråkslösare
@@ -326,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 80e90efcc500f04e3ec1f3e10c157c9b415f0eda
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d61d6726d388fd7bf18f1bcbc168078afadd1a71
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079083"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579812"

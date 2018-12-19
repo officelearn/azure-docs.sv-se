@@ -51,7 +51,7 @@ Erbjudandet inställningar formuläret är en grundläggande och ange inställni
 
 Det här är en unik identifierare för erbjudandet i en utgivarprofil för. Detta ID syns i URL: er i produkten. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID: T får inte sluta med ett bindestreck och kan ha högst 50 tecken. Det här fältet är låst när ett erbjudande lanseras.
 
-till exempel om en utgivare contoso skapas ett erbjudande med ID för erbjudande *exempel-dynamics365 för åtgärder*, den visas i AppSource som \"https://appsource.microsoft.com/marketplace/apps/**contoso**.\*exempel – dynamics 365 för åtgärder\*? fliken = Översikt\"
+till exempel om en utgivare contoso skapas ett erbjudande med ID för erbjudande *exempel-dynamics365 för åtgärder*, den visas i AppSource som \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*exempel – dynamics 365 för åtgärder* ? fliken = Översikt\"
 
 ### <a name="publisher-id"></a>Utgivar-ID
 

@@ -26,7 +26,7 @@ items:
     - name: Använda Azure Storage
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Använda Azure Data Lake Store
+    - name: Använda Azure Data Lake Storage
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: Använda Apache Hadoop för interaktiva frågor
@@ -49,7 +49,7 @@ items:
       - name: Använda Apache Hive-vyn
         href: ../hadoop/apache-hadoop-use-hive-ambari-view.md
         maintainContext: true
-      - name: Använd Beeline
+      - name: Använda Apache Hive Beeline
         href: ../hadoop/apache-hadoop-use-hive-beeline.md
         maintainContext: true
       - name: Använda REST-API
@@ -71,7 +71,7 @@ items:
         href: ../hadoop/apache-hadoop-use-hive-query-console.md
         maintainContext: true
       maintainContext: true
-    - name: Använd en Java UDF med Hive
+    - name: Använda Java UDF med Apache Hive
       href: ../hadoop/apache-hadoop-hive-java-udf.md
       maintainContext: true
     - name: Skicka Apache Hadoop-jobb
@@ -396,9 +396,9 @@ items:
   - name: Windows-verktyg för HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 8a777d4f71d0592ceab6407a2e59bbed618f5f94
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 285c0718e92d8b20d820e9680c968747a370f668
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323192"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606596"

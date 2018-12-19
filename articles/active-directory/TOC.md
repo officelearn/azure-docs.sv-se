@@ -275,6 +275,7 @@
 ##### [Problem med att spara autentiseringsuppgifterna för administratören när användaretablering konfigureras – galleriapp](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [Användare har inte etablerats – galleriapp](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
 ##### [Fel användare har etablerats – galleriapp](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [SCIM-kompatibilitetsproblem – app som inte finns i galleriet](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Enkel inloggning
 ##### [Välj en metod](manage-apps/single-sign-on-modes.md)
@@ -321,10 +322,10 @@
 ## [Felsöka](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Distribuera Azure AD PoC (Proof of Concept)
-### [PoC-strategibok: Introduktion](active-directory-playbook-intro.md)
-### [PoC-strategibok: Ingredienser](active-directory-playbook-ingredients.md)
-### [PoC-strategibok: Implementering](active-directory-playbook-implementation.md)
-### [PoC-strategibok: Komponenter](active-directory-playbook-building-blocks.md)
+### [PoC-spelbok: Introduktion](active-directory-playbook-intro.md)
+### [PoC-spelbok: Ingredienser](active-directory-playbook-ingredients.md)
+### [PoC-spelbok: Implementering](active-directory-playbook-implementation.md)
+### [PoC-spelbok: Byggblock](active-directory-playbook-building-blocks.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=active-directory)

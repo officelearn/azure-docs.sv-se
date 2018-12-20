@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a4402d33bda8ece965608a19c8150ec616118b1c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a6afbd8e2ffd76ca29be294f5badbc7fa2edbc9a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105979"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650033"
 documentType: LandingData
 title: Dokumentation om QnA Maker
 metadata:
@@ -18,10 +18,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/10/2018
+  ms.date: 12/18/2018
   ms.author: tulasim
 abstract:
-  description: Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker.
+  description: QnA Maker är en molnbaserad API-tjänst som skapar ett konversationsanpassat lager för frågor och svar över dina data. Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker. QnA Maker-tjänsten svarar på dina användares frågor på naturligt språk genom att matcha med det bästa möjliga svaret från vanliga frågor och svar i kunskapsbasen.
   aside:
     image:
       alt: 
@@ -32,6 +32,27 @@ abstract:
     href: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
     width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/qnamaker/overview/overview
+      html: <p>Lär dig mer om QnA Maker.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Vad är QnA Maker?
+    - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
+      html: <p>Lär dig hur du skapar, tränar och publicerar en kunskapsbas.</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: Skapa, träna och publicera en kunskapsbas
+    - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
+      html: <p>Lär dig hur du publicerar en kunskapsbas.</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: Förstå datakällor
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
@@ -59,6 +80,15 @@ sections:
         src: media/index/logo_python.svg
       text: Python
       href: Quickstarts/create-new-kb-python
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: 'Lär dig hur du utvecklar program med hjälp av QnA Maker:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">Skapa en kunskapsbas och besvara frågor</a></li>
+    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">Skapa en QnA Maker-robot</a></li>
 - title: Referens
   items:
   - type: list

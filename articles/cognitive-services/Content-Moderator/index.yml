@@ -1,0 +1,109 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 7e6205f49aeacc960b01cfe43f0577e83de2896c
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654416"
+documentType: LandingData
+title: Content Moderator-dokumentation
+metadata:
+  title: Dokumentation om Content Moderator – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  description: Lär dig hur du använder Content Moderator för att kontrollera innehåll med text, bilder och video efter material som är potentiellt stötande, riskfyllt eller på annat sätt oönskat.
+  services: cognitive-services
+  author: nitinme
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.component: content-moderator
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/20/2018
+  ms.author: nitinme
+abstract:
+  description: Azure Content Moderator API är en kognitiv tjänst som kontrollerar innehåll med text, bilder och video efter material som är potentiellt stötande, riskfyllt eller på annat sätt oönskat. När sådant material hittas tillämpar tjänsten lämplig etiketter (flaggor) på innehållet. Appen kan sedan hantera flaggat innehåll för att uppfylla krav eller upprätthålla den avsedda miljön för användare.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/content-moderator-landing-page-video.png
+      width: 250
+    title: Videomoderering med Content Moderator (15:42)
+    href: https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
+    width: 250
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/content-moderator/overview
+      html: <p>Lär dig mer om API:et för Content Moderator.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Vad är Content Moderator?
+    - href: /azure/cognitive-services/content-moderator/text-moderation-api
+      html: <p>Lär dig mer om textmoderering.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: API för textmoderering
+    - href: /azure/cognitive-services/content-moderator/image-moderation-api
+      html: <p>Lär dig mer om bildmoderering.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: API för bildmoderering
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du kommer igång med Content Moderator genom att välja en länk <img src="media/index/link.jpg" height="15" width="15"></img>.
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: images/index/i_portal.svg
+    - image:
+        src: images/index/logo_csharp.svg
+    - image:
+        src: images/index/logo_python.svg
+    rows:
+    - title: Analysera textinnehåll
+      values:
+      - href: quick-start
+      - href: text-moderation-quickstart-dotnet
+      - href: text-moderation-quickstart-python
+    - title: Analysera avbildningsinnehåll
+      values:
+      - href: 
+      - href: image-moderation-quickstart-dotnet
+      - href: 
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: 'Lär dig hur du utvecklar program med hjälp av Content Moderator:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="ecommerce-retail-catalog-moderation.md">Moderera produktbilder för e-handel</a>
+- title: Exempel
+  items:
+  - type: paragraph
+    text: 'Hitta exempel för API:er för Content Moderator:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator&sort=Relevance">Kodexempel</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API:er
+      html: <p><a href="https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference">REST-API</a></p>
+    - title: SDK:er
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet">NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator">Go</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>

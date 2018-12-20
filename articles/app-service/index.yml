@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1a16dd52d06e4ee31e6645d6e5a4090afd897de9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 178ae177d3183d492540f03c8dc1dfa064ddeb22
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605406"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652446"
 documentType: LandingData
 title: Dokumentation om App Service
 metadata:
   document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
   title: Dokumentation om Azure App Service – självstudier, API-referens
-  meta.description: Learn how to use App Service to build and host websites and web applications.
+  meta.description: Learn how to use App Service to build and host websites and web applications, including RESTful APIs and mobile back ends.
   services: app-service
   author: czeumault
   manager: carolz
@@ -21,14 +21,14 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Med Azure App Service kan du skapa och vara värd för webbappar i valfritt programmeringsspråk utan att behöva hantera infrastrukturen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps eller valfri Git-lagringsplats. Lär dig hur du använder Azure Web Apps med våra snabbstarter, självstudier och exempel.
+  description: Med Azure App Service kan du skapa och vara värd för webbappar, mobila serverdelar och RESTful-API:er i valfritt programmeringsspråk utan att behöva hantera infrastrukturen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.
   aside:
     image:
       alt: 
       height: 110
       src: https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
       width: 250
-    title: Skapa en webbapp med Node.js och Azure App Service. (2:41)
+    title: Skapa en app med Node.js och Azure App Service. (2:41)
     href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
     width: 250
 sections:

@@ -66,7 +66,7 @@ I vårt fall definierar vi dessa anpassade taggar (**celebrity** (kändis), **fl
 > [!NOTE]
 > Självstudien är utformad för att använda prenumerationsnycklar i de regioner som visas i följande slutpunkter. Se till att matcha dina API-nycklar med region-URI:erna; annars fungerar nycklarna kanske inte med följande slutpunkter:
 
-         // Your API keys
+        // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -128,11 +128,11 @@ I vårt fall definierar vi dessa anpassade taggar (**celebrity** (kändis), **fl
 4. Logga in genom att välja från listan över tillgängliga Internetkonton.
 5. Observera de API-nycklar som visas på tjänstsidan.
     
-   ![Nycklar för API för visuellt innehåll](images/tutorial-computer-vision-keys.PNG)
+    ![Nycklar för API för visuellt innehåll](images/tutorial-computer-vision-keys.PNG)
     
 6. Se projektkällkoden för den funktion som söker igenom bilden med API för visuellt innehåll.
 
-         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
+        public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
         {
             var File = ImageUrl;
             string Body = $"{{\"URL\":\"{File}\"}}";
@@ -149,7 +149,7 @@ I vårt fall definierar vi dessa anpassade taggar (**celebrity** (kändis), **fl
                 ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
 
                 if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {                 
+                {
                     ReviewTags[2].Value = "true";
                 }
             }
@@ -161,7 +161,7 @@ I vårt fall definierar vi dessa anpassade taggar (**celebrity** (kändis), **fl
 
 1. [Logga in](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) på [förhandsversionen av Custom Vision API](https://www.customvision.ai/).
 2. Använd [snabbstarten](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) för att skapa din anpassade klassificerare för att identifiera potentiella förekomster av flaggor, leksaker och pennor.
-   ![Custom Vision-träningsbilder](images/tutorial-ecommerce-custom-vision.PNG)
+    ![Custom Vision-träningsbilder](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Hämta slutpunkts-URL för förutsägelse](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) för din anpassade klassificerare.
 4. Se projektkällkoden för att se den funktion som anropar din anpassade klassificerares förutsägelseslutpunkt för att söka igenom bilden.
 
@@ -185,7 +185,9 @@ I vårt fall definierar vi dessa anpassade taggar (**celebrity** (kändis), **fl
 
 1. I föregående avsnitt sökte du igenom inkommande bilder efter vuxet och vågat innehåll (Content Moderator), kändisar (Visuellt innehåll) och flaggor (Custom Vision).
 2. Baserat på vår matchningströskelvärden för varje sökning görs nyanserade fall tillgängliga för mänsklig granskning i granskningsverktyget.
-        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
+
+        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata)
+        {
 
             ReviewCreationRequest Review = new ReviewCreationRequest();
             Review.Item[0] = new ReviewItem();
@@ -207,7 +209,10 @@ I vårt fall definierar vi dessa anpassade taggar (**celebrity** (kändis), **fl
 
 1. Den här självstudiekursen förutsätter en ”C:Test”-katalog med en textfil som har en lista över bild-URL:er.
 2. Följande kod kontrollerar om filen finns och läser in alla URL:er i minnet.
-            // Sök efter en testkatalog för en textfil med listan över de bild-URL:er som ska genomsökas var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
+
+            // Sök efter en testkatalog för en textfil med listan över de bild-URL:er som ska genomsökas
+            var topdir = @"C:\test\";
+            var Urlsfile = topdir + "Urls.txt";
 
             if (!Directory.Exists(topdir))
                 return;
@@ -224,7 +229,12 @@ I vårt fall definierar vi dessa anpassade taggar (**celebrity** (kändis), **fl
 
 1. Den här toppnivåfunktionen loopar igenom alla bildwebbadresser i den textfil som vi nämnde tidigare.
 2. Den söker igenom dem med varje API, och om förtroendepoängen faller inom våra kriterier skapar den en granskning för mänskliga moderatorer.
-             // för varje bild-IRL i filen... foreach (var Url in Urls) { // Initiera en ny matris med granskningstaggar ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
+
+            // för varje bild-IRL i filen...
+            foreach (var Url in Urls)
+            {
+                // Initiera en ny matris med granskningstaggar
+                ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
 
                 // Evaluate for potential adult and racy content with Content Moderator API
                 EvaluateAdultRacy(Url, ref ReviewTags);
@@ -249,4 +259,4 @@ Utvecklare som använder Cognitive Services, inklusive det här klientbiblioteke
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa och utöka självstudien med hjälp av [projektets källfiler](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) på Github.
+Skapa och utöka självstudien med hjälp av [projektets källfiler](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) på GitHub.

@@ -102,11 +102,11 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
  
    Ja. Alla kunder kan registrera med den nya SQL-VM-resursprovidern. Dock bara kunder med Software Assurance-förmån kan aktivera den [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (eller BYOL) på en SQL Server VM. 
 
-1. **Vad händer med _* Microsoft.SqlVirtualMachine_* resursen om den Virtuella datorresursen flyttats eller tagits bort?** 
+1. **Vad händer med _\*Microsoft.SqlVirtualMachine_\* resursen om den Virtuella datorresursen flyttats eller tagits bort?** 
 
    När Microsoft.Compute/VirtualMachine resursen tas bort eller flyttas, och sedan den associerade resursen Microsoft.SqlVirtualMachine meddelas att asynkront replikeras igen.
 
-1. **Vad händer med den virtuella datorn om _* Microsoft.SqlVirtualMachine_* resursen tas bort?**
+1. **Vad händer med den virtuella datorn om _\*Microsoft.SqlVirtualMachine_\* resursen tas bort?**
 
    Resursen Microsoft.Compute/VirtualMachine påverkas inte när Microsoft.SqlVirtualMachine resursen tas bort. Som standard men licensiering ändringarna tillbaka till den ursprungliga källan för avbildningen. 
 

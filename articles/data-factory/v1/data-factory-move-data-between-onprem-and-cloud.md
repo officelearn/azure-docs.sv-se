@@ -304,7 +304,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
 ## <a name="create-pipeline"></a>Skapa pipeline
 I det här steget skapar du en **pipeline** med en **Kopieringsaktiviteten** som använder **EmpOnPremSQLTable** som indata och **OutputBlobTable** som utdata.
 
-1. I Data Factory-redigeraren, klicka på **... More (Mer)** och sedan på **Ny pipeline.
+1. I Data Factory-redigeraren, klicka på **... More (Mer)** och sedan på **Ny pipeline**.
 2. Ersätt JSON i den högra rutan med följande text:    
 
     ```JSON   

@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – skapa ett privat Docker-register i Azure med Azure-portalen
+title: Snabbstart – Skapa ett privat Docker-register i Azure – Azure Portal
 description: Lär dig snabbt att skapa ett privat Docker-containerregister med Azure-portalen.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 865c53fdda60f6a0384157ec68042b4b8b243a7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278675"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255371"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Snabbstart: Skapa ett containerregister med hjälp av Azure Portal
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure Portal
 
 Ett Azure-containerregister är ett privat Docker-register i Azure där du kan lagra och hantera dina privata Docker-containeravbildningar. I den här snabbstarten skapar du ett behållarregister med Azure-portalen, push-överföra en behållaravbildning till registret och slutligen distribuera behållaren från ditt register till Azure Container Instances (ACI).
 

@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för Azure Container Service – distribuera DC/OS-kluster
+title: (INAKTUELL) Snabbstart för Azure Container Service – distribuera DC/OS-kluster
 description: Snabbstart för Azure Container Service – distribuera DC/OS-kluster
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cd7f2284f3449fe8abdf1a6f8e85b9b0b712d7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efaf82c3f378f572c289b587dbe5df1923a58c62
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998567"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000524"
 ---
-# <a name="deploy-a-dcos-cluster"></a>Distribuera ett DC/OS-kluster
+# <a name="deprecated-deploy-a-dcos-cluster"></a>(INAKTUELL) Distribuera ett DC/OS-kluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS tillhandahåller en distribuerad plattform för att köra moderna och containerbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. Den här snabbstarten beskriver de grundläggande stegen för att distribuera ett DC/OS-kluster och köra en grundläggande arbetsbelastning.
 

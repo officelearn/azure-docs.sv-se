@@ -1,37 +1,36 @@
 ---
 title: Vad är Speech Service?
 titleSuffix: Azure Cognitive Services
-description: 'Speech Service, som är en del av Azure Cognitive Services, förenar flera taltjänster som tidigare var tillgängliga separat: Taligenkänning i Bing (som består av taligenkänning och text till tal), Custom Speech och talöversättning.'
+description: 'I Speech Service, som ingår i Azure Cognitive Services, samlas flera olika taltjänster som tidigare var tillgängliga separat: Taligenkänning i Bing (som består av taligenkänning och text till tal), Custom Speech och Talöversättning.'
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: ba4204c23f3467ff07940fd6a72464e67604dde1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e86adfd4e832e6b9514e4813ddd4a942b07ca624
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470454"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336602"
 ---
-# <a name="what-is-the-speech-service"></a>Vad är Speech Service?
+# <a name="what-is-speech-services"></a>Vad är Speech Services för något?
 
+Precis som de andra Azure-taltjänsterna, drivs Speech Services av de taltekniker som används i produkter som Cortana och Microsoft Office.
 
-Precis som de andra Azure-taltjänsterna drivs tjänsten Speech av de taltekniker som används i produkter som Cortana och Microsoft Office.
+Speech Services samlar de Azure-talfunktioner som tidigare var tillgängliga i funktionerna [Taligenkänning i Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) och [Custom Voice](http://customvoice.ai/). Nu ger en prenumeration åtkomst till alla dessa funktioner.
 
-Taltjänsten förenar Azure-talfunktionerna som tidigare var tillgängliga via funktionerna [Taligenkänning i Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) och [Custom Voice](http://customvoice.ai/). Nu ger en prenumeration åtkomst till alla dessa funktioner.
+## <a name="main-speech-services-functions"></a>Huvudfunktioner i Speech Services
 
-## <a name="main-speech-service-functions"></a>Huvudfunktioner i taltjänsten
-
-Taltjänstens främsta funktioner är tal till text (kallas även taligenkänning och taltranskription), text till tal (talsyntes) och talöversättning.
+De främsta funktionerna i Speech Services är tal till text (kallas även taligenkänning eller transkription), text till tal (talsyntes) och talöversättning.
 
 |Funktion|Funktioner|
 |-|-|
 |[Tal till text](speech-to-text.md)| <li>Transkriberar kontinuerlig realtidsöversättning av tal till text.<li>Kan masstranskribera tal från ljudinspelningar. <li>Stöder mellanliggande resultat, identifiering av talslut, automatisk textformatering och svordomsmaskering. <li>Kan anropa [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) för att härleda användaravsikten från transkriberat tal.\*|
-|[Text till tal](text-to-speech.md)| <li>Konverterar text till naturligt tal. <li>Erbjuder flera kön eller dialekter för många språk. <li>Stöder inmatning av oformaterad text eller Speech Synthesis Markup Language (SSML). |
+|[Text till tal](text-to-speech.md)| <li>**NYHET**! Innehåller neurala text-till-tal-röster som nästan är identiska med mänskligt tal (på engelska). <li>Konverterar text till naturligt tal. <li>Erbjuder flera kön eller dialekter för många språk. <li>Stöder inmatning av oformaterad text eller Speech Synthesis Markup Language (SSML). |
 |[Talöversättning](speech-translation.md)| <li>Översätter strömmande ljud i nära realtid.<li> Kan också bearbeta inspelat tal.<li>Ger resultat som text eller syntetiserat tal. |
 
 
@@ -52,18 +51,18 @@ Du kan använda anpassade modeller på samma ställen där du använder standard
 
 För att förenkla utvecklingen av talaktiverade program tillhandahåller Microsoft en [SDK för tal](speech-sdk.md) som ska användas med taltjänsten. Speech SDK tillhandahåller konsekvent tal till text och API:er för talöversättning för C#, C++ och Java. Om du utvecklar med något av dessa språk gör Speech SDK utvecklingen enklare genom att hantera nätverksinformationen åt dig.
 
-Taltjänsten har även en [REST API](rest-apis.md) som fungerar med alla programmeringsspråk som kan göra HTTP-förfrågningar. REST-gränssnittet erbjuder inte de strömmande realtidsfunktionerna i SDK.
+Speech Services har även ett [REST API](rest-apis.md) som kan användas med alla programmeringsspråk som kan göra HTTP-förfrågningar. REST-gränssnittet erbjuder inte de strömmande realtidsfunktionerna i SDK.
 
 |<br>Metod|Tal<br>till text|Text till<br>Tal|Tal<br>Översättning|<br>Beskrivning|
 |-|-|-|-|-|
 |[Speech SDK](speech-sdk.md)|Ja|Nej|Ja|Interna API:er för C#, C++ och Java för att förenkla utvecklingen.|
-|[REST](rest-apis.md)|Ja|Ja|Nej|En enkel HTTP-baserad API som gör det enkelt att lägga till tal i dina program.|
+|[REST API:er](rest-apis.md)|Ja|Ja|Nej|En enkel HTTP-baserad API som gör det enkelt att lägga till tal i dina program.|
 
 ### <a name="websockets"></a>WebSockets
 
-Speech-tjänsten har även WebSocket-protokoll för strömmande tal till text och talöversättning. SDK:erna för tal använder protokollen för att kommunicera med taltjänsten. Använd Speech SDK i stället för att försöka implementera din egen WebSocket-kommunikation med Speech-tjänsten.
+Speech Services har även stöd för WebSocket-protokoll vid strömmande tal till text och talöversättning. SDK:erna för tal använder protokollen för att kommunicera med taltjänsten. Använd Speech SDK i stället för att försöka implementera din egen WebSocket-kommunikation med Speech-tjänsten.
 
-Om du redan har kod som använder Taligenkänning i Bing eller Translator Speech via WebSockets kan du uppdatera den för att använda Speech-tjänsten. WebSocket-protokollen är kompatibla. Endast slutpunkterna är olika.
+Om du redan har kod som använder Taligenkänning i Bing eller Translator Speech via WebSockets, kan du uppdatera den till att använda Speech Services. WebSocket-protokollen är kompatibla. Endast slutpunkterna är olika.
 
 ### <a name="speech-devices-sdk"></a>Speech Devices SDK
 
@@ -72,7 +71,7 @@ Om du redan har kod som använder Taligenkänning i Bing eller Translator Speech
 
 ## <a name="speech-scenarios"></a>Tal-scenarier
 
-Användningsfall för taltjänster omfattar:
+Användningsfallen för Speech Services omfattar:
 
 > [!div class="checklist"]
 > * Skapa röstutlösta appar
@@ -85,15 +84,15 @@ Röstinmatning är ett bra sätt att göra appen flexibel, handsfree och snabb a
 
 Om din app är avsedd för användning av allmänheten kan du använda standardmodellen för taligenkänning. De identifierar en mängd olika talare i vanliga miljöer.
 
-Om din app används i en specifik domän, till exempel inom medicin eller IT, kan du skapa en [språkmodell](how-to-customize-language-model.md). Du kan använda den här modellen för att lära Speech-tjänsten om den särskilda terminologin som används av din app.
+Om din app används i en specifik domän, till exempel inom medicin eller IT, kan du skapa en [språkmodell](how-to-customize-language-model.md). Du kan använda den här modellen när du ska lära Speech Services den särskilda terminologi som används av din app.
 
-Om din app används i en högljudd miljö, exempelvis en fabrik, kan du skapa en anpassad [akustisk modell](how-to-customize-acoustic-models.md). Den här modellen hjälper Speech-tjänsten att skilja tal från brus och buller.
+Om din app används i en högljudd miljö, exempelvis en fabrik, kan du skapa en anpassad [akustisk modell](how-to-customize-acoustic-models.md). Den här modellen hjälper Speech Services att skilja tal från brus och buller.
 
 ### <a name="call-center-transcription"></a>Avskrifter av kundtjänst
 
 Kundtjänstinspelningar används oftast bara om det uppstår problem med ett samtal. Med taltjänsten är det enkelt att skriva av allt till text. Du kan enkelt indexera texten för [textsökning](https://docs.microsoft.com/azure/search/search-what-is-azure-search) eller använda [Textanalys](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/) för att identifiera sentiment, språk och nyckelfraser.
 
-Om dina kundtjänstinspelningar innehåller specialiserad terminologi, t.ex. produktnamn eller IT-jargong, kan du skapa en [språkmodell](how-to-customize-language-model.md) för att lära tjänsten Speech det ordförrådet. En anpassad [akustisk modell](how-to-customize-acoustic-models.md) kan hjälpa taltjänsten att förstå sämre telefonanslutningar.
+Om dina kundtjänstinspelningar innehåller specialiserad terminologi, t.ex. produktnamn eller IT-jargong, kan du skapa en [språkmodell](how-to-customize-language-model.md) som lär Speech Services denna terminologi. En anpassad [akustisk modell](how-to-customize-acoustic-models.md) kan hjälpa Speech Services vid telefonanslutningar av sämre kvalitet.
 
 Mer information om det här scenariot finns i [batch-transkription](batch-transcription.md) med taltjänsten.
 
@@ -105,7 +104,7 @@ Om du vill lägga till en unik personlighet till din röstaktiverade robot kan d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hämta en prenumerationsnyckel för taltjänsten.
+Hämta en prenumerationsnyckel för Speech Services.
 
 > [!div class="nextstepaction"]
-> [Prova Speech Service kostnadsfritt](get-started.md)
+> [Prova Speech Services kostnadsfritt](get-started.md)

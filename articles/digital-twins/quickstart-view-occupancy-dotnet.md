@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582402"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105520"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
@@ -58,8 +58,8 @@ Skapa beläggningsprogrammet med hjälp av följande steg.
 1. Kör `dotnet restore`.
 1. Redigera **appSettings.json** för att uppdatera följande variabler:
     - **ClientId**: Ange program-ID för din Azure AD-appregistrering som beskrevs i föregående avsnitt.
-    - **Klient**: Ange katalog-ID för din Azure AD-klient, som också beskrevs i föregående avsnitt.
-    - **BaseUrl**: URL:en för API för hantering för Digital Twins-instansen har formatet `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Ersätt platshållarna i webbadressen med värden för din instans från föregående avsnitt.
+    - **Klientorganisation**: Ange katalog-ID för din Azure AD-klientorganisation, som också beskrevs i föregående avsnitt.
+    - **BaseUrl**: Webbadressen för API för hantering av Digital Twins-instansen har formatet `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Ersätt platshållarna i webbadressen med värden för din instans från föregående avsnitt.
 
 ## <a name="provision-graph"></a>Etablera graf
 
@@ -71,7 +71,7 @@ I det här steget etableras den rumsliga Digital Twins-grafen med:
 - En anpassad funktion. 
 - En rolltilldelning.
  
-En rumslig graf etableras med hjälp av filen [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
+En rumslig graf etableras med hjälp av filen [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml). 
 
 1. Kör `dotnet run ProvisionSample`.
     >[!NOTE]
@@ -88,6 +88,9 @@ En rumslig graf etableras med hjälp av filen [provisionSample.yaml](https://git
 1. I slutet av körningen kopierar du enhetens `ConnectionString` för användning i exemplet med enhetssimulatorn. Kopiera den sträng som beskrivs i den här bilden.
 
     ![Etablera exempel][1]
+
+    >[!TIP]
+    > Du kan visa och ändra ett spatialt diagram med hjälp av [Visningsprogrammet för Azure Digital Twins Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## <a name="send-sensor-data"></a>Skicka sensordata
 

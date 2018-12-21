@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 3ae454be8327c1f9ce605899e4b26105d44ab0f6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157861"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189310"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad TPM-enhet med Azure IoT C SDK
 
@@ -142,15 +142,15 @@ I det här avsnittet kompilerar och kör du ett exempel som läser bekräftelsen
 
 3. På **Lägg till registrering** anger du följande information och klickar på knappen **Spara**.
 
-    - **Mekanism:** välj **TPM** som identitetsattesterings*mekanism*.
-    - **Bekräftelsenyckel:** ange den *bekräftelsenyckel* som du skapade för din TPM-enhet genom att köra projektet *tpm_device_provision*.
-    - **Registrerings-ID:** ange det *Registrerings-ID* som du skapade för din TPM-enhet genom att köra projektet *tpm_device_provision*.
-    - **IoT Edge-enhet:** välj **Inaktivera**.
-    - **Enhets-ID för IoT Hub:** ange **test-docs-device** för att ge enheten ett ID.
+    - **Mekanism:** Välj **TPM** som identitet för bestyrkande *mekanism*.
+    - **Bekräftelsenyckel:** Ange den *bekräftelsenyckel* som du skapade för din TPM-enhet genom att köra projektet *tpm_device_provision*.
+    - **Registrerings-ID**: Ange det *registrerings-ID* som du skapade för din TPM-enhet genom att köra projektet *tpm_device_provision*.
+    - **IoT Edge-enhet:** Välj **Inaktivera**.
+    - **Enhets-ID för IoT Hub:** Ge enheten ett ID genom att ange **test-docs-device**.
 
-    ![Ange information för enhetsregistrering i portalen](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+      ![Ange information för enhetsregistrering i portalen](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-    Vid lyckad registrering visas *Registrerings-ID* för enheten i listan under fliken *Individual Enrollments* (Enskilda registreringar). 
+      Vid lyckad registrering visas *Registrerings-ID* för enheten i listan under fliken *Individual Enrollments* (Enskilda registreringar). 
 
 
 <a id="firstbootsequence"></a>

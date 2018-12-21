@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie om ASP.NET MVC för Azure Cosmos DB: Utveckling av webbprogram'
+title: 'Självstudie om ASP.NET MVC för Azure Cosmos DB: Utveckling av webbapp'
 description: Självstudiekurs om ASP.NET MVC som beskriver hur du skapar ett MVC-webbprogram med hjälp av Azure Cosmos DB. Du kommer att lagra JSON- och åtkomstdata från en ”att göra”-app på Azure Websites – stegvis självstudiekurs om ASP NET MVC.
 keywords: asp.net mvc självstudier, webbprogramsutveckling, mvc-webbprogram, asp net mvc självstudier steg för steg
 services: cosmos-db
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 8230c2ba8c7fdb10d7e37a317d4eeb5abb120d60
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b0c8d46e74eec4bad7b7e664682c97eb0f0068b6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868726"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098734"
 ---
-# <a name="_Toc395809351"></a>Självstudiekurs om ASP.NET MVC: Utveckling av webbprogram med Azure Cosmos DB
+# <a name="_Toc395809351"></a>Självstudie om ASP.NET MVC: Utveckling av webbprogram med Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-dotnet-application.md)
@@ -84,7 +84,7 @@ Vi kommer att gå igenom hur du skapar en ny MVC-app från grunden i ASP.NET.
    
     Vi kör inte projektet lokalt nu eftersom du säkert har sett ASP.NET-appen ”Hello World”. Vi fortsätter i stället med att lägga till Azure Cosmos DB till projektet och skapa vårt program.
 
-## <a name="_Toc395637767"></a>Steg 3: Lägga till Azure Cosmos DB till MVC-webbprogramprojektet
+## <a name="_Toc395637767"></a>Steg 3: Lägga till Azure Cosmos DB till MVC-webbappsprojektet
 Nu har vi i princip de ASP.NET MVC-grunder som vi behöver för lösningen och det är dags att arbeta med det verkliga syftet med den här självstudiekursen, dvs. att lägga till Azure Cosmos DB till vårt MVC-webbprogram.
 
 1. Azure Cosmos DB .NET SDK paketeras och distribueras som ett NuGet-paket. Hämta NuGet-paketet i Visual Studio med hjälp av NuGet-pakethanteraren i Visual Studio genom att högerklicka på projektet i **Solution Explorer** och sedan klicka på **Hantera NuGet-paket**.
@@ -106,7 +106,7 @@ Nu har vi i princip de ASP.NET MVC-grunder som vi behöver för lösningen och d
    
     ![Skärmdump av de två referenser som lagts till JSON-dataprojektet i Solution Explorer](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
-## <a name="_Toc395637763"></a>Steg 4: Ställ in ASP.NET MVC-programmet
+## <a name="_Toc395637763"></a>Steg 4: Konfigurera ASP.NET MVC-programmet
 Nu ska vi lägga till modeller, vyer och styrenheter till MVC-appen:
 
 * [Lägga till en modell](#_Toc395637764).
@@ -216,7 +216,7 @@ Lägg slutligen till en vy för redigering av ett **objekt**, på samma sätt so
 
 När det är klart stänger du alla cshtml-dokument i Visual Studio eftersom vi återkommer till dem senare.
 
-## <a name="_Toc395637769"></a>Steg 5: Lägga till kod för Azure Cosmos DB
+## <a name="_Toc395637769"></a>Steg 5: Koppla Azure Cosmos DB
 Nu när standarddelarna i MVC är klara är det dags att lägga till koden för Azure Cosmos DB. 
 
 I det här avsnittet vi lägger till kod som hanterar följande:
@@ -414,9 +414,9 @@ Nu ska vi lägga till kod i Azure Cosmos DBRepository och ItemController så att
    
     Den här koden anropar DocumentDBRepository och använder metoden CreateItemAsync för att spara det nya todo-objektet i databasen. 
    
-    **Säkerhetsmeddelande**: Attributet **ValidateAntiForgeryToken** används här för att skydda appen mot attacker med förfalskning av begäran mellan webbplatser. Det är inte bara att lägga till attributet, även dina vyer behöver fungera med denna  antiförfalskningstoken. Mer information och implementeringsexempel finns i [Förhindra förfalskning av begäranden mellan webbplatser][Preventing Cross-Site Request Forgery]. Källkoden på [GitHub][GitHub] innehåller den fullständiga implementeringen.
+    **Säkerhetsmeddelande**: Attributet **ValidateAntiForgeryToken** används här för att skydda programmet mot attacker med förfalskning av begäran mellan webbplatser. Det är inte bara att lägga till attributet, även dina vyer behöver fungera med denna  antiförfalskningstoken. Mer information och implementeringsexempel finns i [Förhindra förfalskning av begäranden mellan webbplatser][Preventing Cross-Site Request Forgery]. Källkoden på [GitHub][GitHub] innehåller den fullständiga implementeringen.
    
-    **Säkerhetsmeddelande**: Vi använder också attributet **binda** på metodparametern för att skydda mot overpostingattacker. Mer information finns i [Grundläggande CRUD-åtgärder i ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+    **Säkerhetsmeddelande**: Vi använder även attributet **Bind** på metodparametern för att skydda mot overposting-attacker. Mer information finns i [Grundläggande CRUD-åtgärder i ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 Detta avslutar den kod som krävs för att lägga till nya objekt i vår databas.
 
@@ -545,8 +545,8 @@ Grattis! Du har precis skapat ditt första ASP.NET MVC-webbprogram med Azure Cos
 Om du vill lägga till ytterligare funktioner i appen tittar du igenom API:erna i [Azure Cosmos DB .NET-biblioteket](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet). Lägg gärna till egna bidrag i Azure Cosmos DB .NET-biblioteket på [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
+[Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app

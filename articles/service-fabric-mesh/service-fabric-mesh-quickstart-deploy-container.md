@@ -9,12 +9,12 @@ ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: ce3001a2984726332b036eea69d4e18e3d7d300b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 4be24b00c3ac4ffadf7eafdc7397f59113ec03b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890440"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088371"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Snabbstart: Distribuera Hello World till Service Fabric Mesh
 
@@ -48,10 +48,10 @@ az group create --name myResourceGroup --location eastus
 Skapa ditt program i en resursgrupp med kommandot `az mesh deployment create`.  Kör följande:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
-Föregående kommando distribuerar ett Linux-program med hjälp av [mesh_rp.linux.json-mallen](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Om du vill distribuera ett Windows-program använder du [mesh_rp.windows.json-mallen](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Windows-containeravbildningar är större än Linux-containeravbildningar och kan ta längre tid att distribuera.
+Föregående kommando distribuerar ett Linux-program med hjälp av [linux.json-mallen](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json). Om du vill distribuera ett Windows-program använder du [windows.json-mallen](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.windows.json). Windows-containeravbildningar är större än Linux-containeravbildningar och kan ta längre tid att distribuera.
 
 Det här kommandot skapar ett JSON-kodavsnitt som visas nedan. Under avsnittet ```outputs``` i JSON-utdata kopierar du egenskapen ```publicIPAddress```.
 

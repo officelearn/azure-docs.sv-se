@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Utför en sökning med C# – API för webbsökning i Bing'
+title: 'Snabbstart: Utföra en webbsökning med C# – REST-API:et för webbsökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten lär du dig att göra ditt första anrop API för webbsökning i Bing med C# och att ta emot ett JSON-svar.
+description: Använd den här snabbstarten om du vill skicka begäranden till REST-API:et för webbsökning i Bing med hjälp av C# och få ett JSON-svar.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: d868bec1e19ddde556f3c387646c5d7aa898b7d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 844fe2f65b59caba41697db00e809e34e1fe1017
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313494"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258669"
 ---
-# <a name="quickstart-use-c-to-call-the-bing-web-search-api"></a>Snabbstart: Använda C# för att anropa API för webbsökning i Bing  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Snabbstart: Söka på webben med hjälp av REST-API:et för webbsökning i Bing och C#
 
 Använd den här snabbstarten för att göra ditt första anrop till API för webbsökning i Bing och få ett JSON-svar.  
 

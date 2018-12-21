@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: e3968155c2619b5d6b09b68a59ff01607c45fa2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 57c70716ac0e3156440d4a602704cb0ac2e30130
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843554"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091176"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Migrera data till Azure Cosmos DB med hjälp av migreringsverktyget
 
@@ -24,7 +24,7 @@ Vilken API ska du använda med Azure Cosmos DB?
 
 * **[SQL API](documentdb-introduction.md)**  – Du kan använda något av källalternativen i datamigreringsverktyget när du importerar data.
 * **[Tabell-API](table-introduction.md)**  – Du kan använda datamigreringsverktyget eller AzCopy när du importerar data. Se [Importera data för användning med Azure Cosmos DB Table-API](table-import.md) för mer information.
-* **[MongoDB API](mongodb-introduction.md)** – Datamigreringsverktyget stöder för närvarande inte Azure Cosmos DB MongoDB API vare sig som källa eller mål. Om du vill migrera data i eller utanför MongoDB API-samlingar i Azure Cosmos DB, kan du läsa mer i [Azure Cosmos DB: Så här migrerar du data för MongoDB API](mongodb-migrate.md). Du kan fortfarande använda datamigreringsverktyget till att exportera data från MongoDB till Azure Cosmos DB SQL API-samlingar för användning med SQL API.
+* **[MongoDB API](mongodb-introduction.md)** – Datamigreringsverktyget stöder för närvarande inte Azure Cosmos DB MongoDB API vare sig som källa eller mål. Om du vill migrera data i eller utanför MongoDB API-samlingar i Azure Cosmos DB, kan du läsa mer i [Azure Cosmos DB: Så här migrerar du data för MongoDB API](mongodb-migrate.md) för att få instruktioner. Du kan fortfarande använda datamigreringsverktyget till att exportera data från MongoDB till Azure Cosmos DB SQL API-samlingar för användning med SQL API.
 * **[Gremlin API](graph-introduction.md)** – Datamigreringsverktyget är ett importverktyg som saknar stöd för Gremlin API-konton för närvarande.
 
 Den här självstudien omfattar följande uppgifter:
@@ -40,7 +40,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du utför
 
 * **Installera** [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) eller högre.
 
-* **Öka dataflödet**: Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Du bör öka dataflödet för större datamigreringar. När du har slutfört migreringen kan du minska dataflödet för att sänka kostnaderna. Mer information om hur du ökar dataflödet i Azure-portalen finns i avsnitten om [prestandanivåer](performance-levels.md) och [prisnivåer](https://azure.microsoft.com/pricing/details/cosmos-db/) i Azure Cosmos DB.
+* **Öka dataflödet:** Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Du bör öka dataflödet för större datamigreringar. När du har slutfört migreringen kan du minska dataflödet för att sänka kostnaderna. Mer information om hur du ökar dataflödet i Azure-portalen finns i avsnitten om [prestandanivåer](performance-levels.md) och [prisnivåer](https://azure.microsoft.com/pricing/details/cosmos-db/) i Azure Cosmos DB.
 
 * **Skapa Azure Cosmos DB-resurser:** Innan du börjar migrera data skapar du alla dina samlingar i förväg från Azure-portalen. För att migrera till ett Azure Cosmos DB-konto som har dataflöde på databasnivå anger du en partitionsnyckel när du skapar Azure Cosmos DB-samlingar.
 
@@ -64,7 +64,7 @@ Datamigreringsverktyget är en lösning med öppen källkod som importerar data 
 Källkoden för migreringsverktyget finns i GitHub på [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool). Du kan ladda ned och kompilera lösningen lokalt, eller [ladda ned en förkompilerad binär kod](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip) och sedan köra något av följande:
 
 * **Dtui.exe**: Grafisk gränssnittsversion av verktyget
-* **DT.exe**: Kommandoradsversion av verktyget
+* **Dt.exe**: Kommandoradsversion av verktyget
 
 ## <a name="select-data-source"></a>Välja datakälla
 
@@ -198,7 +198,7 @@ På samma sätt som med SQL-källan kan egenskapen för kapslade avgränsare anv
 
 Observera alias som t.ex. DomainInfo.Domain_Name och RedirectInfo.Redirecting. När du anger den kapslade avgränsaren '.', skapar importverktyget underdokumenten DomainInfo och RedirectInfo under importen. Här är ett exempel på ett resulterande dokument i Azure Cosmos DB:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 Importverktyget försöker härleda typinformationen för värden utan citattecken i CSV-filer (värden inom citattecken behandlas alltid som strängar).  Typer identifieras i följande ordning: nummer, datetime, booleskt värde.  
 
@@ -302,7 +302,7 @@ Ange namnet på samlingen som du ska importera data från när du importerar fr�
 
 Importverktygets alternativ för Azure Cosmos DB-källor innehåller följande avancerade alternativ:
 
-1. Inkludera interna fält: Anger om du vill inkludera Azure Cosmos DB-dokumentegenskaper för system i exporten (till exempel _rid, _ts).
+1. Inkludera interna fält: Anger huruvida du vill inkludera Azure Cosmos DB-dokumentegenskaper för system i exporten (till exempel _rid, _ts).
 2. Antal återförsök vid fel: Anger hur många gånger systemet försöker återupprätta anslutningen till Azure Cosmos DB vid tillfälliga fel (till exempel avbrott i nätverksanslutningen).
 3. Återförsöksintervall: Anger hur lång väntetiden är vid försök att återupprätta anslutningen till Azure Cosmos DB vid tillfälliga fel (till exempel avbrott i nätverksanslutningen).
 4. Anslutningsläge: Anger det anslutningsläge som ska användas med Azure Cosmos DB. Tillgängliga alternativ är DirectTcp, DirectHttps och Gateway. Direktanslutningslägena är snabbare, medan gatewayläget är mer brandväggsanpassat eftersom det endast använder port 443.
@@ -397,7 +397,7 @@ Massimportverktyget för Azure Cosmos DB innehåller följande avancerade extra 
 
 1. Batchstorlek: Verktyget har som standard en batchstorlek på 50.  Om de dokument som ska importeras är stora kan du minska batchstorleken. Om de dokument som ska importeras är små kan du öka batchstorleken.
 2. Maxstorlek för skript (byte): Verktyget har som standard en maxstorlek för skript på 512 kB.
-3. Inaktivera automatisk ID-generering: Om alla dokument som ska importeras har ett ID-fält kan det här alternativet öka prestandan. Dokument som saknar ett fält för unikt ID importeras inte.
+3. Inaktivera automatisk ID-generering: Om alla dokument som ska importeras har ett ID-fält kan det här alternativet öka prestanda. Dokument som saknar ett fält för unikt ID importeras inte.
 4. Uppdatera befintliga dokument: Verktyget ersätter som standard inte befintliga dokument med ID-konflikter. Med det här alternativet kan du skriva över befintliga dokument med matchande ID:n. Funktionen är användbar vid schemalagda datamigreringar som uppdaterar befintliga dokument.
 5. Antal återförsök vid fel: Anger hur ofta systemet försöker återupprätta anslutningen till Azure Cosmos DB vid tillfälliga fel (till exempel avbrott i nätverksanslutningen).
 6. Återförsöksintervall: Anger hur lång väntetiden är vid försök att återupprätta anslutningen till Azure Cosmos DB vid tillfälliga fel (till exempel avbrott i nätverksanslutningen).
@@ -451,7 +451,7 @@ Det finns ett antal avancerade alternativ under importen. När du importerar dat
 Azure Cosmos DB – Importverktyget för sekventiella poster innehåller följande avancerade alternativ:
 
 1. Antal parallella begäranden: Verktyget kan som standard hantera två parallella begäranden. Om de dokument som ska importeras är små, kan du öka antalet parallella begäranden. Om antalet ökas för mycket kan en nätverksbegränsning uppstå vid importen.
-2. Inaktivera automatisk ID-generering: Om alla dokument som ska importeras har ett ID-fält kan det här alternativet öka prestandan. Dokument som saknar ett fält för unikt ID importeras inte.
+2. Inaktivera automatisk ID-generering: Om alla dokument som ska importeras har ett ID-fält kan det här alternativet öka prestanda. Dokument som saknar ett fält för unikt ID importeras inte.
 3. Uppdatera befintliga dokument: Verktyget ersätter som standard inte befintliga dokument med ID-konflikter. Med det här alternativet kan du skriva över befintliga dokument med matchande ID:n. Funktionen är användbar vid schemalagda datamigreringar som uppdaterar befintliga dokument.
 4. Antal återförsök vid fel: Anger hur ofta systemet försöker återupprätta anslutningen till Azure Cosmos DB vid tillfälliga fel (till exempel avbrott i nätverksanslutningen).
 5. Återförsöksintervall: Anger hur lång väntetiden är vid försök att återupprätta anslutningen till Azure Cosmos DB vid tillfälliga fel (till exempel avbrott i nätverksanslutningen).

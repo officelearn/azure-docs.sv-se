@@ -1,8 +1,9 @@
 ---
-title: 'Självstudie 5: Entiteten Pattern.any för friformstext'
+title: Entiteten Pattern.any
 titleSuffix: Azure Cognitive Services
 description: Använd entiteten pattern.any för att extrahera data från yttranden som är välformade och där dataslutet lätt kan förväxlas med återstående ord i yttrandet.
 services: cognitive-services
+ms.custom: seodec18
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
@@ -10,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ee5ba6783a50ad50489a20aa662f17af2ca4ae6a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4551968cc446bb949d0b18cb77211808169cb907
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422005"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103480"
 ---
 # <a name="tutorial-5-extract-free-form-data"></a>Självstudie 5: Extrahera friformsdata
 

@@ -1,6 +1,6 @@
 ---
-title: Snabbstart Azure IoT Edge + Linux | Microsoft Docs
-description: I den här snabbstarten lär du dig hur du fjärrdistribuerar färdig kod till en IoT Edge-enhet.
+title: Snabbstart för att skapa en Azure IoT Edge-enhet i Linux | Microsoft Docs
+description: I den här snabbstarten får du lära dig att skapa en IoT Edge-enhet och sedan fjärrdistribuera färdig kod från Azure Portal.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2d988d70285e64414277bc2337a564aa87e45201
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1bc7425d1979b2e1a35884c0800117455aebe9b6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888145"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338065"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -27,7 +27,7 @@ I den här snabbstarten lär du dig att:
 3. Installera och starta IoT Edge-körningen på enheten.
 4. Fjärrdistribuera en modul till en IoT Edge-enhet.
 
-![Snabbstartsarkitektur](./media/quickstart-linux/install-edge-full.png)
+![Diagram – Snabbstart av arkitektur för enhet och moln](./media/quickstart-linux/install-edge-full.png)
 
 Denna snabbstart gör din Linux-dator eller virtuella dator till en IoT Edge-enhet. Du kan sedan distribuera en modul från Azure Portal till din enhet. Modulen som du distribuerar i den här snabbstarten är en simulerad sensor som genererar temperatur-, fuktighets- och lufttrycksdata. De andra självstudierna i Azure IoT Edge bygger vidare på det arbete som du gör här, genom att distribuera moduler som analyserar simulerade data för verksamhetsinsyn.
 
@@ -71,7 +71,7 @@ IoT Edge-enhet:
 
 Starta snabbstarten genom att skapa din IoT-hubb med Azure CLI.
 
-![Skapa IoT Hub](./media/quickstart-linux/create-iot-hub.png)
+![Diagram – Skapa en IoT-hubb i molnet](./media/quickstart-linux/create-iot-hub.png)
 
 Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en kostnadsfri hubb kan du använda den. Varje prenumeration kan bara ha en kostnadsfri IoT Hub. 
 
@@ -86,7 +86,7 @@ Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResourc
 ## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
 
 Registrera en IoT Edge-enhet med IoT-hubben som du nyss skapade.
-![Registrera en enhet](./media/quickstart-linux/register-device.png)
+![Diagram – Registrera en enhet med en IoT Hub-identitet](./media/quickstart-linux/register-device.png)
 
 Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera med din IoT Hub. Enhetsidentiteten finns i molnet, och du använder en unik enhetsanslutningssträng för att associera en fysisk enhet med en enhetsidentitet. 
 
@@ -111,7 +111,7 @@ Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska 
 ## <a name="connect-the-iot-edge-device-to-iot-hub"></a>Ansluta IoT Edge-enheten till IoT Hub
 
 Installera och starta Azure IoT Edge-körningen på din IoT Edge-enhet. 
-![Registrera en enhet](./media/quickstart-linux/start-runtime.png)
+![Diagram – Starta körningen på enheten](./media/quickstart-linux/start-runtime.png)
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub. 
 
@@ -171,7 +171,7 @@ Din IoT Edge-enhet har nu konfigurerats. Den är redo att köra molndistribuerad
 ## <a name="deploy-a-module"></a>Distribuera en modul
 
 Hantera din Azure IoT Edge-enhet från molnet för att distribuera en modul som ska skicka telemetridata till IoT Hub.
-![Registrera en enhet](./media/quickstart-linux/deploy-module.png)
+![Diagram – Distribuera en modul från ett moln till en enhet](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
@@ -197,7 +197,7 @@ Visa meddelanden som skickas från modulen tempSensor:
 
 Temperatursensormodulen kanske väntar på att ansluta till Edge Hub om den sista raden i loggen är `Using transport Mqtt_Tcp_Only`. Avbryt modulen och låt Edge-agenten starta om den. Du kan avsluta den med kommandot `sudo docker stop tempSensor`.
 
-Du kan även se när meddelandena tas emot av din IoT Hub med hjälp av [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Du kan även se när meddelandena tas emot av din IoT-hubb med hjälp av [Azure IoT Hub-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (tidigare Azure IoT Toolkit-tillägget). 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

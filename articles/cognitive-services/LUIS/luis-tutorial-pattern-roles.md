@@ -1,7 +1,8 @@
 ---
-title: 'Självstudie 4: Mönsterroller för kontextrelaterade data'
+title: Mönsterroller
 titleSuffix: Azure Cognitive Services
 description: Använd ett mönster för att extrahera data från ett välformaterat mallyttrande. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427496"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094414"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Självstudie 4: Extrahera kontextuellt relaterade mönster
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Självstudie 4: Extrahera sammanhangsbaserade mönster
 
 I den här självstudien använder du ett mönster för att extrahera data från ett välformaterat mallyttrande. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.  När du använder mönster behövs färre exempelyttranden för avsikten.
 
@@ -128,7 +129,7 @@ Etiketteringen av entiteter i de här stegen kan vara enklare om du tar bort den
 
 2. Gå till slutet av URL:en i adressen och ange `Move Wayne Berry from Miami to Mount Vernon`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -258,7 +259,7 @@ Städer, precis som namn på personer, är svåra på så sätt att de kan vara 
 
 2. Gå till slutet av URL:en i adressen och ange `Move wayne berry from miami to mount vernon`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

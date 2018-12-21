@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Hybrid Azure Active Directory-anslutningsenheter | Microsoft Docs
-description: Lär dig att konfigurera Hybrid Azure Active Directory-anslutningsenheter.
+description: Lär dig att konfigurera anslutna Azure Active Directory-hybridenheter.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277978"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434961"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Hybrid Azure Active Directory-anslutningar för federerade domäner
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudie: Konfigurera Azure Active Directory-hybridanslutningar för federerade domäner
 
 På liknande sätt som en användare blir en enhet till en identitet som du vill skydda och också använda för att skydda dina resurser, alltid och överallt. Det kan du göra genom att överföra enheternas identiteter till Azure Active Directory på något av följande sätt:
 
@@ -53,9 +53,12 @@ I den här självstudien förutsätts att du känner till:
 -  [Så här kontrollerar du Azure Active Directory Join-hybriden för dina enheter](hybrid-azuread-join-control.md)
 
 
+
 För att kunna konfigurera scenariot i den här självstudien behöver du:
 
 - Windows Server 2012 R2 med AD FS
+
+- En lokal Active Directory (AD) med en schemanivå på 85 eller senare. Mer information finns i [Upgrade your Active Directory Schema](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema) (Uppgradera Active Directory-schemat).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) version 1.1.819.0 eller senare. 
  
@@ -167,7 +170,7 @@ Om du vill registrera äldre Windows-enheter måste du se till att enhetsinstäl
 
 
     
-Följande princip måste vara inställd på **Alla**: **Användare kan registrera sina enheter med Azure AD**
+Följande princip måste anges till **Alla**: **Användare kan registrera sina enheter med Azure AD**
 
 ![Registrera enheter](./media/hybrid-azuread-join-federated-domains/23.png)
 

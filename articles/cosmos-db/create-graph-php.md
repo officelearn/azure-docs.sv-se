@@ -10,12 +10,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e5a7d40007076d09695d166148d84684c1cccee5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f6ff46f391ce03f67619ef685f841dcf95a1fd92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839627"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089474"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en grafdatabas med PHP och Azure Portal
 
@@ -37,7 +37,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
 Följande gäller också:
-* [PHP](http://php.net/) 5.6 eller senare
+* [PHP](https://php.net/) 5.6 eller senare
 * [Composer](https://getcomposer.org/download/)
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
@@ -104,7 +104,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kopiera den till appen. De här inställningarna gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I [Azure Portal](http://portal.azure.com/) klickar du på **Nycklar**. 
+1. I [Azure Portal](https://portal.azure.com/) klickar du på **Nycklar**. 
 
     Kopiera den första delen av URI-värdet.
 

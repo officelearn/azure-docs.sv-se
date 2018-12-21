@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: API för nyhetssökning i Bing, Ruby'
+title: 'Snabbstart: Utföra en nyhetssökning med Ruby – REST API för nyhetssökning i Bing'
 titlesuffix: Azure Cognitive Services
-description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för nyhetssökning i Bing.
+description: Använd den här snabbstarten om du vill skicka en begäran till REST API för nyhetssökning i Bing med hjälp av Ruby och få ett JSON-svar.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: 714f28166b8d24a5b8a69fe4f76ba1737de56e1d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 02b603c0a7e1f84b2677511f73f96eee20a613d9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315094"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250237"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Snabbstart för API:et för nyhetssökning i Bing med Ruby
+# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Snabbstart: Utföra en nyhetssökning med hjälp av Ruby och REST API för nyhetssökning i Bing
 
 I den här artikeln får du se hur du använder API:et för nyhetssökning i Bing, som ingår i Microsoft Cognitive Services i Azure. Även om den här artikeln använder Ruby, är API:et för bildsökning i Bing kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON. 
 

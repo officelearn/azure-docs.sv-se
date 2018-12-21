@@ -1,5 +1,5 @@
 ---
-title: Skapa din första Java-webbapp i Azure
+title: Skapa Java-webbapp – Azure App Service
 description: Distribuera en grundläggande Java-app och lär dig hur du kör webbappar i App Service.
 services: app-service\web
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.custom: seodec18
+ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283936"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253172"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Skapa din första Java-webbapp i Azure
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av [Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/).
+Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av [Eclipse IDE för Java EE-utvecklare](https://www.eclipse.org/).
 
 > [!NOTE]
 >
@@ -41,7 +41,7 @@ När du har slutfört den här snabbstarten ser din app ut ungefär som på föl
 
 Installera följande för att slutföra den här snabbstarten:
 
-* Kostnadsfria <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE för Java EE-utvecklare</a>. Den här snabbstarten använder Eclipse Neon.
+* Kostnadsfria <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE för Java EE-utvecklare</a>. Den här snabbstarten använder Eclipse Neon.
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit för Eclipse</a>.
 
 > [!NOTE]
@@ -117,7 +117,7 @@ Dialogrutan **Skapa App Service** visas med standardvärden. Numret **1706021852
 I dialogrutan **Skapa App Service**:
 
 * Ange ett unikt namn för din webbapp eller behåll det genererade namnet. Användarnamnet måste vara unikt inom Azure. Namnet är en del av URL-adressen för webbappen. Exempel: om webbappens namn är **MyJavaWebApp** så är URL-adressen *myjavawebapp.azurewebsites.net*.
-* Behåll webbehållaren som är standard för den här snabbstarten.
+* Behåll webbcontainern som är standard för den här snabbstarten.
 * Välj en Azure-prenumeration.
 * På fliken **App Service-plan**:
 
@@ -157,7 +157,7 @@ I dialogrutan **Distribuera webbapp** väljer du **Distribuera till rot**. Om du
 
 ![Dialogrutan Distribuera webbapp](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
-Dialogrutan visar valen för Azure, JDK och webbehållaren.
+Dialogrutan visar valen för Azure, JDK och webbcontainer.
 
 Välj **Distribuera** för att publicera webbappen i Azure.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Använda Apache Kafka-producenten och konsument-API:er – Azure HDInsight '
+title: 'Självstudie: Använda Apache Kafka-producent- och konsument-API:er – Azure HDInsight '
 description: Lär dig att använda Apache Kafka-producenten och konsument-API:er med Kafka i HDInsight. I självstudien får du lära dig att använda dessa API:er med Kafka i HDInsight från ett Java-program.
 services: hdinsight
 author: dhgoelmsft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd4c077e23170a295a29a75df08cf8f29f8ba3e4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313844"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413361"
 ---
-# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producenten och konsument-API:er
+# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producent- och konsument-API:er
 
 Lär dig att använda Apache Kafka-producenten och konsument-API:er med Kafka i HDInsight.
 
@@ -25,7 +25,7 @@ Kafka-producentens API tillåter att program skickar dataströmmar till Kafka-kl
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Ställ in din utvecklingsmiljö
+> * Ställt in din utvecklingsmiljö
 > * Konfigurera din distributionsmiljö
 > * Förstå koden
 > * Skapa och distribuera programmet
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Mer information om API:er finns i Apache-dokumentationen i [Producent-API](https://kafka.apache.org/documentation/#producerapi) och [Konsument-API](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
 
 Du måste ha följande komponenter installerade i utvecklingsmiljön:
 
@@ -49,7 +49,7 @@ Följande miljövariabler kan konfigureras när du installerar Java och JDK på 
 
 * `JAVA_HOME` – ska peka på den katalog där JDK har installerats.
 * `PATH` – ska innehålla följande sökvägar:
-  
+
     * `JAVA_HOME` (eller motsvarande sökväg).
     * `JAVA_HOME\bin` (eller motsvarande sökväg).
     * Den katalog där Maven är installerat.
@@ -63,8 +63,8 @@ Den här självstudien kräver att Apache Kafka finns i HDInsight 3.6. Informati
 Exempelprogrammet finns på [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) i underkatalogen `Producer-Consumer`. Programmet består i huvudsak av fyra filer:
 
 * `pom.xml`: Den här filen definierar projektberoenden, Java-version och paketeringsmetoder.
-* `Producer.java`: Den här filen skickar slumpmässiga meningar till Kafka med producent-API:et.
-* `Consumer.java`: Den här filen använder konsument-API:n till att läsa data från Kafka och generera den till STDOUT.
+* `Producer.java`: Den här filen skickar slumpmässiga meningar till Kafka med hjälp av producent-API:et.
+* `Consumer.java`: Den här filen använder konsument-API:et till att läsa data från Kafka och generera dem till STDOUT.
 * `Run.java`: Kommandoradsgränssnittet används för att köra producent- och konsumentkoden.
 
 ### <a name="pomxml"></a>Pom.xml
@@ -85,14 +85,14 @@ Viktiga saker att förstå i `pom.xml`-filen är:
     > [!NOTE]
     > `${kafka.version}`-posten har deklarerats i `<properties>..</properties>`-avsnittet i `pom.xml` och är konfigurerad till Kafka-versionen av HDInsight-klustret.
 
-* Plugin-program: Plugin-programmet Maven innehåller olika funktioner. I det här projektet används följande plugin-program:
+* Plugin-program: Maven-plugin-program tillhandahåller flera olika funktioner. I det här projektet används följande plugin-program:
 
     * `maven-compiler-plugin`: Används för att ange att den Java-version som används av projektet är 8. Detta är den version av Java som används av HDInsight 3.6.
-    * `maven-shade-plugin`: Används för att generera en Uber-jar som både innehåller det här programmet och eventuella beroenden. Den används också för att ange startpunkten för programmet, så att du kan köra Jar-filen direkt utan att behöva ange huvudklassen.
+    * `maven-shade-plugin`: Används för att generera en uber-jar som innehåller det här programmet samt eventuella beroenden. Den används också för att ange startpunkten för programmet, så att du kan köra Jar-filen direkt utan att behöva ange huvudklassen.
 
 ### <a name="producerjava"></a>Producer.java
 
-Producenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och skickar data till ett Kafka-ämne. Följande kodavsnitt är från filen [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) på [github-lagringsplatsen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) och visar hur du anger producentegenskaperna:
+Producenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och skickar data till ett Kafka-ämne. Följande kodavsnitt är från filen [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) på [GitHub-lagringsplatsen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) och visar hur du anger producentegenskaperna:
 
 ```java
 Properties properties = new Properties();
@@ -145,11 +145,11 @@ I den här koden är konsumenten konfigurerad att läsa från början av ämnet 
     Det här kommandot skapar en katalog med namnet `target`, som innehåller en fil med namnet `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
 3. Använd följande kommandon för att kopiera filen `kafka-producer-consumer-1.0-SNAPSHOT.jar` till ditt HDInsight-kluster:
-   
+
     ```bash
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
-   
+
     Ersätt **SSHUSER** med SSH-användare för klustret och ersätt **CLUSTERNAME** med namnet på klustret. Ange lösenordet för SSH-användaren när du uppmanas till det.
 
 ## <a id="run"></a> Köra exemplet
@@ -190,11 +190,11 @@ I den här koden är konsumenten konfigurerad att läsa från början av ämnet 
     ```
 
 4. När producenten är klar kan du använda följande kommando för att läsa från ämnet:
-   
+
     ```bash
     java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
     ```
-   
+
     De lästa posterna, tillsammans med antalet poster, visas.
 
 5. Använd __Ctrl + C__ om du vill avsluta konsumenten.
@@ -204,7 +204,7 @@ I den här koden är konsumenten konfigurerad att läsa från början av ämnet 
 Kafka-konsumenter använder en konsumentgrupp vid läsning av poster. Att använda samma grupp med flera konsumenter resulterar i belastningsutjämnaravläsningar från ett ämne. Varje konsument i gruppen tar emot en del av posterna.
 
 Konsumentprogrammet accepterar en parameter som används som grupp-ID. Exempelvis startar följande kommando en konsument med hjälp av ett grupp-ID i `mygroup`:
-   
+
 ```bash
 java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
 ```

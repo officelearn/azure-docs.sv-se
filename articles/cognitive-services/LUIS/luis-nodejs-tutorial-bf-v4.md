@@ -1,23 +1,24 @@
 ---
-title: LUIS-robot med Node.js – Självstudie – Webbappsrobot – Bot Framework SDK 4.0
+title: Bot – Node.js – v4
 titleSuffix: Azure Cognitive Services
 description: Använd Node.js och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattroboten använder appen Personalfrågor för att snabbt implementera en robotlösning. Roboten skapas med Bot Framework version 4 och webbappsroboten i Azure.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 20d2ed28291c8d8adfed4779b48f93c657438e0d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385914"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134989"
 ---
-# <a name="tutorial-luis-bot-in-nodejs"></a>Självstudie: LUIS-robot i Node.js
+# <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Självstudier: LUIS-bot i Node.js med Bot Framework 4.x och Azure Web App-robot
 Med Node.js kan du skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här roboten använder HomeAutomation-appen för att implementera en robotlösning. Roboten bygger på Azures [webbappsrobot](https://docs.microsoft.com/azure/bot-service/) med [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
 
 **I den här självstudiekursen får du lära du dig att:**
@@ -32,8 +33,6 @@ Med Node.js kan du skapa en chattrobot som är integrerad med språkförståelse
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-<!--* Samples from 
-https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp-with-luis-->
 * [Robotemulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
@@ -115,7 +114,7 @@ Ladda ned koden för webbappsroboten så att du kan utveckla den och använda de
 
 6. Öppna filen bot.js och leta efter `const results = await this.luisRecognizer.recognize(context);`. Det är här som användaruttrycket som angetts i roboten skickas till LUIS.
 
-    ```javascript
+    ```nodejs
     /**
      * Driver code that does one of the following:
      * 1. Display a welcome card upon startup
@@ -199,7 +198,7 @@ Kontrollera att roboten fungerar innan du ändrar koden eller några inställnin
 3. Skapa en fil som ska innehålla miljövariablerna som robotkoden söker efter. Ge filen namnet `.env`. Lägg till följande miljövariabler:
 
     <!--there is no code language that represents an .env file correctly-->
-    ```
+    ```env
     botFilePath=
     botFileSecret=
     ```
@@ -214,7 +213,7 @@ Kontrollera att roboten fungerar innan du ändrar koden eller några inställnin
 
 5. När roboten startas visar terminalfönstret den lokala porten som roboten körs på:
 
-    ```
+    ```console
     > basic-bot@0.1.0 start C:\Users\pattiowens\repos\BFv4\luis-nodejs-bot-src
     > node ./index.js NODE_ENV=development
 
@@ -248,7 +247,7 @@ Lägg till kod i `bot.js`-filen för att hantera de nya avsikterna.
 
 1. Leta upp avsnittet **Supported LUIS Intents** (LUIS-avsikter som stöds) längst upp i filen och lägg till konstanter för HomeAutomation-avsikterna:
 
-    ```javascript
+    ```nodejs
     // Supported LUIS Intents
     const GREETING_INTENT = 'Greeting';
     const CANCEL_INTENT = 'Cancel';
@@ -262,7 +261,7 @@ Lägg till kod i `bot.js`-filen för att hantera de nya avsikterna.
 
 2. Leta upp det **isTurnInterrupted** som tar emot LUIS-förutsägelsen av uttrycket och lägg till en rad för att skriva resultatet till konsolen.
 
-    ```node
+    ```nodejs
     /**
      * Look at the LUIS results and determine if we need to handle
      * an interruptions due to a Help or Cancel intent
@@ -277,7 +276,7 @@ Lägg till kod i `bot.js`-filen för att hantera de nya avsikterna.
 
     Roboten har inte exakt samma svar som en LUIS REST API-begäran så det är viktigt att du lär dig skillnaderna genom att titta på JSON-svarskoden. Egenskaperna för text och avsikter är samma men egenskapsvärdena för entiteter har ändrats. 
 
-    ```JSON
+    ```json
     {
         "$instance": {
             "HomeAutomation_Device": [
@@ -310,7 +309,7 @@ Lägg till kod i `bot.js`-filen för att hantera de nya avsikterna.
 
 3. Lägg till avsikterna till onTurn-metodens växelinstruktion för `DialogTurnStatus.empty`-fallet:
 
-    ```javascript
+    ```nodejs
     switch (topIntent) {
         case GREETING_INTENT:
             await dc.begin(GREETING_DIALOG);
@@ -343,7 +342,7 @@ Lägg till kod i `bot.js`-filen för att hantera de nya avsikterna.
 
 2. Roboten svarar med:
 
-    ```JSON
+    ```json
     TurnOn intent found, entities included: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
     ```
 

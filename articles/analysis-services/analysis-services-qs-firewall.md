@@ -8,23 +8,23 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 96141ddeeb73c7483935d5da49b9341436c10c18
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0351ab3213ac75559cc025f2ef71e2f098a7504c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429731"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993188"
 ---
-# <a name="quickstart-configure-server-firewall---portal"></a>Snabbstart: Konfigurera serverbrandvägg – portalen
+# <a name="quickstart-configure-server-firewall---portal"></a>Snabbstart: Konfigurera serverbrandväggen – portalen
 
 Den här snabbstarten hjälper dig att konfigurera en brandvägg för Azure Analysis Services-servern. Att kunna aktivera en brandvägg och konfigurera IP-adressintervall enbart för de datorer som har åtkomst till servern är en viktig del i skyddet av din server och dina data.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- En Analysis Services-server i din prenumeration. Mer information finns i [Snabbstart: Skapa en server – Portal](analysis-services-create-server.md) eller [Snabbstart: Skapa en server – PowerShell](analysis-services-create-powershell.md)
+- En Analysis Services-server i din prenumeration. Mer information finns i [Snabbstart: Skapa en server – portalen](analysis-services-create-server.md) eller [Snabbstart: Skapa en server – PowerShell](analysis-services-create-powershell.md)
 - Ett eller flera IP-adressintervall för klientdatorer (om så behövs).
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen 
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal 
 
 [Logga in på portalen](https://portal.azure.com)
 
@@ -46,4 +46,4 @@ Ta bort IP-adressintervallen eller inaktivera brandväggen när behovet inte lä
 I den här snabbstarten du har lärt dig hur du konfigurerar en brandvägg för servern. Nu när du har en server och har skyddat den med en brandvägg kan du lägga till en grundläggande exempeldatamodell till den från portalen. Att använda en exempelmodell är en bra idé om du vill lära dig mer om hur man konfigurerar modelldatabasroller och testar klientanslutningar. Fortsätt till och lägg till en exempelmodell om du vill lära dig mer.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Lägg till en exempelmodell till servern](analysis-services-create-sample-model.md)
+> [Självstudier: Lägg till en exempelmodell på servern](analysis-services-create-sample-model.md)

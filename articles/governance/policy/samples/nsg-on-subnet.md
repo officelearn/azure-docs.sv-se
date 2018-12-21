@@ -1,5 +1,5 @@
 ---
-title: Azure Policy-exempel – NSG x på varje undernät
+title: Exempel – NSG x i varje undernät
 description: Den här exempelprincipen kräver att en viss nätverkssäkerhetsgrupp används med varje virtuella undernät.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 24e8180d8040aa3cc15d9739bfb5283a1270514e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c23cf378f32a7f1699e7b01990a8f5ab05b2d10e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980074"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313096"
 ---
 # <a name="nsg-x-on-every-subnet"></a>NSG x i varje undernät
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel under [Azure Policy-exempel](index.md)
+- Granska fler exempel på [Azure-principexempel](index.md)

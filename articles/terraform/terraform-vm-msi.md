@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242100"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971172"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med hanterade identiteter för Azure-resurser
 
@@ -37,7 +37,7 @@ Så här skapar du en instans av en virtuell Linux Terraform-dator:
 
 3. På fliken med Terraform-information längst ned till höger väljer du knappen **Skapa**.
 
-    ![Skapa en virtuell Terraform-dator](media\terraformmsi.png)
+    ![Skapa en virtuell Terraform-dator](media/terraformmsi.png)
 
 4. Följande avsnitt innehåller indata för varje steg i guiden till att skapa den virtuella Terraform Linux-datorn. I följande avsnitt listas de indata som behövs för att konfigurera var och en av dessa steg.
 
@@ -47,16 +47,16 @@ Ange följande information på fliken **Skapa Terraform**:
 
 1. **Grundläggande inställningar**
     
-   * **Namn**: namnet på den virtuella Terraform-datorn.
-   * **Användarnamn**: det första inloggnings-ID:t för kontot.
-   * **Lösenord**: det första kontolösenordet. (Du kan använda en offentlig SSH-nyckel istället för ett lösenord.)
-   * **Prenumeration**: den prenumeration som datorn ska skapas och faktureras på. Du måste ha behörighet att skapa resurser för prenumerationen.
-   * **Resursgrupp**: en ny eller befintlig resursgrupp.
-   * **Plats**: Datacentret som är mest lämpligt. Vanligtvis är det datacentret som har det mesta av dina data, eller en som är närmast din fysiska plats för snabbaste nätverksåtkomst.
+   * **Namn**: Namnet på den virtuella Terraform-datorn.
+   * **Användarnamn**: Kontots första inloggnings-ID.
+   * **Lösenord**: Kontots första lösenord. (Du kan använda en offentlig SSH-nyckel istället för ett lösenord.)
+   * **Prenumeration**: Den prenumeration som datorn ska skapas och faktureras på. Du måste ha behörighet att skapa resurser för prenumerationen.
+   * **Resursgrupp**: En ny eller befintlig resursgrupp.
+   * **Plats**: Det mest lämpliga datacentret. Vanligtvis är det datacentret som har det mesta av dina data, eller en som är närmast din fysiska plats för snabbaste nätverksåtkomst.
 
 2. **Ytterligare inställningar**
 
-   * **Storlek**: storleken på den virtuella datorn. 
+   * **Storlek**: Storleken på den virtuella datorn. 
    * **Typ av virtuell datordisk**: SSD eller HDD.
 
 3. **Sammanfattning av Terraform**

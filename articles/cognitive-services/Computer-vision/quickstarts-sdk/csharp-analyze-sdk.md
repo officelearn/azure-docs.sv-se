@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 7de7a87c73c2dabddf2268a6a0bc2992d6017e4d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0983978221e9872e92ca366edd3bd3f2bfd9c3f4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853939"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413327"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Snabbstart: Analysera en bild med Computer Vision SDK och C#
 
@@ -162,7 +162,7 @@ namespace ImageAnalyze
 
 Om åtgärden lyckades visas den mest relevanta beskrivningen för varje bild.
 
-Ett exempel på JSON-råutdata finns i [API Quickstarts: Analyze a local image with C#](../QuickStarts/CSharp-analyze.md#examine-the-response) (API-snabbstarter: Analysera en lokal bild med C#).
+I [API-snabbstarter: Analysera en lokal bild med C#](../QuickStarts/CSharp-analyze.md#examine-the-response) finns ett exempel på JSON-råutdata.
 
 ```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg

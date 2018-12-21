@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: cced9a313664eaeaed4dd1298488670960b76413
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d57e251b241297c461b117edec8fee6316b337b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195778"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098040"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurera VPN-gatewayöverföring för peer-kopplade virtuella nätverk
 
@@ -79,7 +79,7 @@ Aktivera gatewayöverföring genom att följa anvisningarna för att skapa eller
     - Ange alternativet ”**Använd fjärrgateways**”
     - Klicka på ”OK”.
 
-    ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
 2. Om peer-kopplingen redan har skapats navigerar du till peer-resursen och aktiverar sedan alternativet ”**Använd fjärrgateways**”, som du ser i skärmbilden i steg (1)
 
@@ -90,7 +90,7 @@ Aktivera gatewayöverföring genom att följa anvisningarna för att skapa eller
     - Ange alternativet ”**Tillåt gatewayöverföring**”
     - Klicka på ”OK”.
 
-    ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
 4. Om peer-kopplingen redan har skapats navigerar du till peer-resursen och aktiverar sedan alternativet ”**Tillåt gatewayöverföring**”, som du ser i skärmbilden i steg (3)
 

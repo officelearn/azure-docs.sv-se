@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure Resource Manager-mall för att distribuera ett krypterat lagringskonto | Microsoft Docs
-description: Använd Visual Studio Code för att skapa en mall för att distribuera ett krypterat lagringskonto.
+title: Använda Azure Resource Manager-mallreferensen | Microsoft Docs
+description: Använd Azure Resource Manager-mallreferensen för att skapa en mall för distribution av ett krypterat lagringskonto.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,17 +10,18 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c75c0ce7d12f65878ec8cde0f265022c7beeb29
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613519"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097598"
 ---
-# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>Självstudie: Distribuera ett krypterat Azure Storage-konto med Resource Manager-mall
+# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Självstudie: Använda Azure Resource Manager-mallreferensen
 
 Lär dig hur du hittar information om mallschema och använd informationen för att skapa Azure Resource Manager-mallar.
 
@@ -77,9 +78,11 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 1. Bläddra till [Azure-mallar](https://docs.microsoft.com/azure/templates/).
 2. I **filtrera efter rubrik**, ange **lagringskonton**.
-3. Välj **Referens/Mallreferens/Lagring/Lagringskonto** enligt följande skärmbild:
+3. Välj **Referens/Mallreferens/Lagring/<Version>/Lagringskonton** enligt följande skärmbild:
 
     ![Resource Manager, mallreferens, lagringskonto](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    Om du inte vet vilken version du ska välja använder du den senaste versionen.
 
 4. Hitta den krypteringsrelaterade definitionsinformationen.  
 

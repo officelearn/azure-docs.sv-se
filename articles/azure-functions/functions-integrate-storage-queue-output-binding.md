@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854532"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995522"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 
@@ -31,7 +31,7 @@ För att slutföra den här snabbstarten behöver du:
 
 * Följ anvisningarna i [Skapa din första funktion i Azure Portal](functions-create-first-azure-function.md) och utför inte steget **Rensa resurser**. Den här snabbstarten skapar funktionsappen och funktionen som du använder här.
 
-* Installera [Microsoft Azure Storage Explorer](http://storageexplorer.com/). Det här är ett verktyg som du använder för att undersöka kömeddelanden som skapas av din utdatabindning.
+* Installera [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Det här är ett verktyg som du använder för att undersöka kömeddelanden som skapas av din utdatabindning.
 
 ## <a name="add-binding"></a>Lägga till en utdatabindning
 
@@ -67,7 +67,7 @@ Nu när du har definierat en utdatabindning måste du uppdatera koden så att bi
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
-I det här avsnittet lägger du till kod som skriver ett meddelande till utdatakön. Meddelandet innehåller värdet som skickades till HTTP-utlösaren i frågesträngen. Om frågesträngen till exempel innehåller `name=Azure` så är kömeddelandet *Name passed to the function: Azure* (Namn som skickats till funktionen: Azure).
+I det här avsnittet lägger du till kod som skriver ett meddelande till utdatakön. Meddelandet innehåller värdet som skickades till HTTP-utlösaren i frågesträngen. Om frågesträngen till exempel innehåller `name=Azure`, kommer kömeddelandet att vara *Namn som skickats till funktionen: Azure*.
 
 1. Välj din funktion så att funktionskoden visas i redigeraren.
 
@@ -122,7 +122,7 @@ En ny kö med namnet **outqueue** skapas i ditt lagringskonto av funktionskörni
 
 Hoppa över det här avsnittet om du redan har installerat Storage Explorer och anslutit den till lagringskontot som du använder med den här snabbstarten.
 
-2. Kör verktyget [Microsoft Azure Storage Explorer](http://storageexplorer.com/), klicka på anslutningsikonen till vänster, välj **Use a storage account name and key** (Använd ett kontonamn och en kontonyckel för lagringskontot) och klicka på **Nästa**.
+2. Kör verktyget [Microsoft Azure Storage Explorer](https://storageexplorer.com/), klicka på anslutningsikonen till vänster, välj **Use a storage account name and key** (Använd ett kontonamn och en kontonyckel för lagringskontot) och klicka på **Nästa**.
 
     ![Kör verktyget Storage Account Explorer.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -150,7 +150,7 @@ Hoppa över det här avsnittet om du redan har installerat Storage Explorer och 
 
 1. Expandera noden **Köer** och välj sedan kön med namnet **outqueue**. 
 
-   Kön innehåller meddelandet som köutdatabindningen skapade när du körde den HTTP-utlösta funktionen. Om du startade en funktion med standardvärdet `name` för *Azure* så är kömeddelandet *Name passed to the function: Azure* (Namn som skickats till funktionen: Azure).
+   Kön innehåller meddelandet som köutdatabindningen skapade när du körde den HTTP-utlösta funktionen. Om du startade en funktion med standardvärdet `name` för *Azure*, kommer kömeddelandet att vara *Namn som skickats till funktionen: Azure*.
 
     ![Kömeddelande som visas i Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 

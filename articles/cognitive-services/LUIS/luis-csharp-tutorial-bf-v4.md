@@ -1,23 +1,24 @@
 ---
-title: LUIS-robot med C# – Självstudie – Webbappsrobot – Bot Framework SDK 4.0
-titleSuffix: Azure Cognitive Services
+title: Bot – C# – v4
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattroboten använder appen Personalfrågor för att snabbt implementera en robotlösning. Roboten skapas med Bot Framework version 4 och webbappsroboten i Azure.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: 3ccec4fbd0fd69539e29e2f15f71115444bf0a48
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389300"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138950"
 ---
-# <a name="tutorial-luis-bot-in-c"></a>Självstudie: LUIS-robot i C#
+# <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Självstudie: LUIS-bot i C# med Bot Framework 4.x och Azure Web App-robot
 Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här roboten använder HomeAutomation-appen för att implementera en robotlösning. Roboten bygger på Azures [webbappsrobot](https://docs.microsoft.com/azure/bot-service/) med [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
 
 **I den här självstudiekursen får du lära du dig att:**

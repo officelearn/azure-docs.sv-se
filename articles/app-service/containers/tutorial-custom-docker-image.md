@@ -1,5 +1,5 @@
 ---
-title: Använda en anpassad Docker-avbildning för Web App for Containers – Azure | Microsoft Docs
+title: Använda en anpassad Docker-avbildning i Web App for Containers – Azure App Service | Microsoft Docs
 description: Så här använder du en anpassad Docker-avbildning för Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 517926a3c78e9c95a9ecef9ae058c33e47566adb
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: seodec18
+ms.openlocfilehash: ae9da43ac40a3da188e6030659cfb6de166c53bb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432618"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256085"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Använda du en anpassad Docker-avbildning för Web App for Containers
 
@@ -191,7 +191,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
 
 Du kan vara värd för ursprungliga Linux-program i molnet med Azure Web Apps. Om du vill skapa en Web App for Containers måste du köra Azure CLI-kommandon som skapar en grupp, sedan en tjänstplan och slutligen själva webbappen. 
 
@@ -292,7 +292,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. För att
     > [!NOTE]
     > Den här konfigurationen tillåter inga externa anslutningar till containern. SSH är endast tillgängligt via webbplatsen för Kudu/SCM. Kudu-/SCM-webbplatsen autentiseras med autentiseringsuppgifterna för publicering.
 
-* En [COPY](https://docs.docker.com/engine/reference/builder/#copy)-instruktion som instruerar Docker-motorn att kopiera filen [sshd_config](http://man.openbsd.org/sshd_config) till katalogen */etc/ssh/*. Konfigurationsfilen ska baseras på filen [sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
+* En [COPY](https://docs.docker.com/engine/reference/builder/#copy)-instruktion som instruerar Docker-motorn att kopiera filen [sshd_config](https://man.openbsd.org/sshd_config) till katalogen */etc/ssh/*. Konfigurationsfilen ska baseras på filen [sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/

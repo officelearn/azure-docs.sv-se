@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124988"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162230"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Självstudie: Konfigurera en Jenkins-miljö och aktivera CI/CD för en Java-app i Service Fabric
 
-Den här självstudien är del fem i en serie. Den visar hur du använder Jenkins för att distribuera uppgraderingar till din tillämpning. I den här självstudiekursen används plugin-programmet för Service Fabric Jenkins i kombination med en Github-databas, som är värd för röstningsprogrammet, för att distribuera tillämpningen till ett kluster.
+Den här självstudien är del fem i en serie. Den visar hur du använder Jenkins för att distribuera uppgraderingar till din tillämpning. I den här självstudien används plugin-programmet för Service Fabric Jenkins i kombination med en GitHub-databas, som är värd för röstningsprogrammet, för att distribuera tillämpningen till ett kluster.
 
 I del fem i serien lär du dig hur du:
 > [!div class="checklist"]
@@ -84,7 +84,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Skapa och konfigurera ett Jenkins-jobb
 
-1. Om du inte har någon databas att använda som värd för röstningsprojektet på Github börjar du med att skapa en. Databasen kallas **dev_test** i återstoden av den här självstudien.
+1. Om du inte har någon databas att använda som värd för röstningsprojektet på GitHub börjar du med att skapa en. Databasen kallas **dev_test** i återstoden av den här självstudien.
 
 1. Skapa ett **nytt objekt** på Jenkins-instrumentpanelen vid ``http://<HOST-IP>:8080``.
 
@@ -181,7 +181,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
     </CodePackage>
     ```
 
-1. Skicka dina nya ändringar till Github-databasen för att initiera ett Jenkins-jobb som utför en uppgradering av programmet.
+1. Skicka dina nya ändringar till GitHub-databasen för att initiera ett Jenkins-jobb som utför en uppgradering av programmet.
 
 1. I Service Fabric Explorer klickar du på listrutan **Program**. Om du vill visa status för uppgraderingen klickar du på fliken **Pågående uppgraderingar**.
 

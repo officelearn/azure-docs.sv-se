@@ -4,34 +4,32 @@ description: Azure Policy är en tjänst i Azure som används för att skapa, ti
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/06/2018
+ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: c016e21ff59d5f68afee79b2159218d10e90a7ec
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11384d1bbffb675bd322469d129464f58a48bb6b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252827"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311839"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
-IT-styrning säkerställer att din organisation ska kunna uppnå sina mål via effektiv användning av IT. Detta sker genom att tydlighet skapas mellan affärsmålen och IT-projekten.
+Styrning validerar att din organisation kan nå sina mål via effektiv användning av IT. Detta sker genom att tydlighet skapas mellan affärsmålen och IT-projekten.
 
 Har ditt företag ett stort antal IT-problem som aldrig verkar bli lösta?
-God IT-styrning omfattar att planera dina initiativ och ange prioritet på en strategisk nivå för att underlätta hantering och förebyggande av problem. Det är där Azure Policy kommer in.
+God IT-styrning omfattar att planera dina initiativ och ange prioritet på en strategisk nivå för att underlätta hantering och förebyggande av problem. Det är för det här strategiska behovet som Azure Policy kommer in i bilden.
 
-Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principer. De här principerna tillämpar olika regler och effekter på dina resurser så att resurserna efterlever dina företagsstandarder och serviceavtal. Azure Policy gör detta genom att köra utvärderingar av dina resurser och söka efter sådana som inte är kompatibla med de principer som du har skapat. Du kan till exempel ha en princip som endast tillåter en viss SKU-storlek för virtuella datorer i din miljö. När den här principen har implementerats utvärderas den när resurser skapas och uppdateras samt över dina befintliga resurser. Senare i den här dokumentationen går vi igenom mer information om hur du skapar och implementera principer med Azure Policy.
+Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principer. De här principerna tillämpar olika regler och effekter på dina resurser så att resurserna efterlever dina företagsstandarder och serviceavtal. Azure Policy uppfyller detta behov genom att utvärdera dina resurser för icke-kompatibilitet med tilldelade principer. Du kan till exempel ha en princip som endast tillåter en viss SKU-storlek för virtuella datorer i din miljö. När den här principen har implementerats utvärderas nya och befintliga standardresurser för kompatibilitet. Med rätt typ av princip kan befintliga resurser bli kompatibla. Senare i den här dokumentationen går vi igenom mer information om hur man skapar och implementerar principer med Azure Policy.
 
 > [!IMPORTANT]
 > Azure Policy:s kompatibilitetsutvärdering tillhandahålls nu för alla tilldelningar oavsett prisnivå. Om dina tilldelningar inte visar kompatibilitetsdata, ser du till att prenumerationen är registrerad med resursprovidern Microsoft.PolicyInsights.
 
 ## <a name="how-is-it-different-from-rbac"></a>Vad är skillnaden jämfört med RBAC?
 
-Det finns några viktiga skillnader mellan princip- och rollbaserad åtkomstkontroll (RBAC). RBAC fokuserar på användaråtgärder i olika omfång. Du kan till exempel läggas till i deltagarrollen för en resursgrupp i det önskade omfånget. Rollen gör att du kan göra ändringar i resursgruppen.
-Principer fokuserar på resursegenskaper under distributionen och för redan befintliga resurser. Med hjälp av principer kan du till exempel styra vilka typer av resurser som kan etableras. Eller du kan begränsa på vilka platser resurser kan etableras. Till skillnad från RBAC har principsystemet ”tillåt” som standard och ”neka” måste anges uttryckligen.
+Det finns några viktiga skillnader mellan princip- och rollbaserad åtkomstkontroll (RBAC). RBAC fokuserar på användaråtgärder i olika omfång. Du kan läggas till deltagarrollen för en resursgrupp, så att du kan göra ändringar i den resursgruppen. Principer fokuserar på resursegenskaper under distributionen och för redan befintliga resurser. Principer styr egenskaper, till exempel typer eller platser för resurser. Till skillnad från RBAC har principsystemet ”tillåt” som standard och ”neka” måste anges uttryckligen.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>RBAC-behörigheter i Azure Policy
 
@@ -40,38 +38,38 @@ Azure Policy har flera behörigheter, som kallas åtgärder, i två olika resurs
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Många inbyggda roller beviljar behörighet till Azure Policy-resurser. Rollen **Deltagare för resursprincip (förhandsversion)** innefattar de flesta principåtgärderna, och **Ägare** har fullständig behörighet. Båda **Deltagare** och **Läsare** kan läsa alla information om principen, men **Deltagare** kan även utlösa reparation.
+Många inbyggda roller beviljar behörighet till Azure Policy-resurser. Rollen **Deltagare för resursprincip (förhandsversion)** innefattar de flesta principåtgärderna. **Ägare** har fullständiga behörigheter. Båda **Deltagare** och **Läsare** kan använda alla principåtgärder för att läsa men **Deltagare** kan även utlösa reparation.
 
 Om ingen av de inbyggda rollerna har de behörigheter som krävs skapar du en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
 ## <a name="policy-definition"></a>Definition av princip
 
-Resan med att skapa och implementera en princip i Azure Policy börjar med skapandet av en principdefinition. Varje principdefinition har villkor för när den ska tillämpas. Och den har en tillhörande effekt som utförs om villkoren är uppfyllda.
+Resan med att skapa och implementera en princip i Azure Policy börjar med skapandet av en principdefinition. Varje principdefinition har villkor för när den ska tillämpas. Och den har en definierad effekt som träder ikraft om villkoren är uppfyllda.
 
-Vi erbjuder några inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Exempel:
+Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Exempel:
 
-- **Kräv SQL Server 12.0**: Den här principdefinitionen har villkor/regler för att kontrollera att alla SQL-servrar använder version 12.0. Dess effekt är att neka alla servrar som inte uppfyller dessa villkor.
-- **Tillåtna SKU:er för lagringskonton**: Den här principdefinitionen har en uppsättning villkor/regler som avgör om ett lagringskonto som distribueras finns inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte följer uppsättningen med definierade SKU-storlekar.
-- **Tillåten resurstyp**: Den här principdefinitionen har en uppsättning villkor/regler som anger vilka resurstyper organisationen kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.
-- **Tillåtna platser**: Med den här principen kan du begränsa vilka platser som kan anges när resurser distribueras i organisationen. Effekten används för att genomdriva kraven på geo-efterlevnad.
-- **Tillåtna SKU:er för virtuella datorer**: Med den här principen kan du ange en uppsättning SKU:er för virtuella datorer som kan distribueras i organisationen.
-- **Använd tagg med standardvärde**: Den här principen applicerar en obligatorisk tagg med ett standardvärde, om den inte anges av användaren.
-- **Tvinga fram tagg med värde**: Den här principen tvingar fram en obligatorisk tagg och dess värde på en resurs.
-- **Otillåtna resurstyper**: Med den här principen kan du ange vilka resurstyper som inte får distribueras i organisationen.
+- **Kräv SQL Server 12.0**: Kontrollerar att alla SQL-servrar använder version 12.0. Dess effekt är att neka alla servrar som inte uppfyller dessa villkor.
+- **Tillåtna SKU:er för lagringskonto**: Anger om ett lagringskonto som distribueras befinner sig inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte överensstämmer med uppsättningen definierade SKU-storlekar.
+- **Tillåtna resurstyper**: Definierar de resurstyper som du kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.
+- **Tillåtna platser**: Begränsar de tillgängliga platserna för nya resurser. Effekten används för att genomdriva kraven på geo-efterlevnad.
+- **Tillåtna SKU:er för virtuella datorer**: Anger en uppsättning SKU:erför virtuella datorer som du kan distribuera.
+- **Använd taggen och dess standardvärde**: Lägger till en nödvändig tagg och dess standardvärde om den inte har angetts med distributionsbegäran.
+- **Framtvinga tagg och dess värde**: Lägger till en nödvändig tagg och dess värde till en resurs.
+- **Otillåtna resurstyper**: Förhindrar en lista över resurstyper från att distribueras.
 
 För att implementera dessa principdefinitioner (både inbyggda och anpassade definitioner) måste du tilldela dem. Du kan tilldela de här principerna via Azure Portal, PowerShell eller Azure CLI.
 
-Tänk på att en principomvärdering görs cirka en gång i timmen, vilket innebär att om du gör ändringar i principdefinitionen efter tillämpning av principen (skapar en principtilldelning) omvärderas den över dina resurser inom en timme.
+Principutvärdering sker med flera olika åtgärder, till exempel tilldelning av principer eller principuppdateringar. En fullständig lista finns i [Principutvärderingsutlösare](./how-to/get-compliance-data.md#evaluation-triggers).
 
 Läs mer om principdefinitionernas strukturer i artikeln, [struktur för principdefinitioner](./concepts/definition-structure.md).
 
 ## <a name="policy-assignment"></a>Principtilldelning
 
-En principtilldelning är en principdefinition som tilldelas att äga rum inom ett specifikt område. Omfånget kan vara allt från en [hanteringsgrupp](../management-groups/overview.md) till en resursgrupp. Termen *område* avser alla resursgrupper, prenumerationer eller hanteringsgrupper som principdefinitionen har tilldelats. Principtilldelningar ärvs av alla underordnade resurser. Detta betyder att om en princip används för en resursgrupp så tillämpas den på alla resurser i den resursgruppen. Du kan dock utesluta ett delområde från principtilldelningen.
+En principtilldelning är en principdefinition som tilldelas att äga rum inom ett specifikt område. Omfånget kan vara allt från en [hanteringsgrupp](../management-groups/overview.md) till en resursgrupp. Termen *område* avser alla resursgrupper, prenumerationer eller hanteringsgrupper som principdefinitionen har tilldelats. Principtilldelningar ärvs av alla underordnade resurser. Den här designen innebär att en princip som används för en resursgrupp även används för resurserna i den resursgruppen. Du kan dock utesluta ett delområde från principtilldelningen.
 
-Du kan till exempel tilldela en princip som förhindrar skapande av nätverksresurser i ett prenumerationsområde. Men du kan undanta en resursgrupp i prenumerationen som är avsedd för nätverksinfrastruktur. Du beviljar åtkomst till den här nätverksresursgruppen till användare som du litar på för att skapa nätverksresurser.
+Du kan till exempel tilldela en princip som förhindrar skapande av nätverksresurser i ett prenumerationsområde. Du kan undanta en resursgrupp i prenumerationen som är avsedd för nätverksinfrastruktur. Du beviljar därefter åtkomst till den här nätverksresursgruppen för användare som du litar på för att skapa nätverksresurser.
 
-I ett annat exempel kanske du vill tilldela en princip för tillåtna resurstyper på hanteringsgruppsnivån. Och sedan tilldela en mer tillåtande princip (som tillåter fler resurstyper) för en underordnad hanteringsgrupp eller till och med direkt för prenumerationer. Det här exemplet fungerar dock inte eftersom principen är ett system för uttryckligt nekande. Du måste i stället utesluta den underordnade hanteringsgruppen eller prenumerationen från principtilldelningen på hanteringsgruppsnivån. Tilldela sedan den mer tillåtande principen på nivån för den underordnade hanteringsgruppen eller prenumerationen. Sammanfattat innebär det att om en princip leder till att en resurs nekas är det enda sättet att tillåta resursen att ändra den nekande principen.
+I ett annat exempel kanske du vill tilldela en princip för tillåtna resurstyper på hanteringsgruppsnivån. Och sedan tilldela en mer tillåtande princip (som tillåter fler resurstyper) för en underordnad hanteringsgrupp eller till och med direkt för prenumerationer. Det här exemplet fungerar dock inte eftersom principen är ett system för uttryckligt nekande. Du måste i stället utesluta den underordnade hanteringsgruppen eller prenumerationen från principtilldelningen på hanteringsgruppsnivån. Tilldela sedan den mer tillåtande principen på nivån för den underordnade hanteringsgruppen eller prenumerationen. Om en princip leder till att en resurs nekas är det enda sättet att tillåta resursen att ändra den nekande principen.
 
 Mer information om att ange principdefinitioner och tilldelningar via portalen finns i [Skapa en principtilldelning för att identifiera icke-kompatibla resurser i Azure-miljön](assign-policy-portal.md). Steg för [PowerShell](assign-policy-powershell.md) och [Azure CLI](assign-policy-azurecli.md) är också tillgängliga.
 
@@ -79,9 +77,9 @@ Mer information om att ange principdefinitioner och tilldelningar via portalen f
 
 Principparametrar underlättar hanteringen av principer genom att minska antalet principdefinitioner du måste skapa. Du kan definiera parametrar när du skapar en principdefinition så att den blir mer allmän. Sedan kan du återanvända den principdefinitionen för olika scenarier. Det gör du genom att ange olika värden när du tilldelar principdefinitionen. Till exempel ange du en uppsättning platser för en prenumeration.
 
-Parametrar definieras/skapas när du skapar en principdefinition. När en parameter har definierats ges den ett namn och eventuellt ett givet värde. Du kan till exempel definiera en parameter för en princip med titeln *plats*. Sedan kan du ge den olika värden som *EastUS* eller *WestUS* när du tilldelar en princip.
+Parametrar definieras när du skapar en principdefinition. När en parameter definieras ges den ett namn och eventuellt ett givet värde. Du kan till exempel definiera en parameter för en princip med titeln *plats*. Sedan kan du ge den olika värden som *EastUS* eller *WestUS* när du tilldelar en princip.
 
-Mer information om principparametrar finns i [Översikt över resursprinciper – parametrar](./concepts/definition-structure.md#parameters).
+Mer information om principparametrar finns i [Struktur för definitioner – parametrar](./concepts/definition-structure.md#parameters).
 
 ## <a name="initiative-definition"></a>Initiativdefinition
 
@@ -97,12 +95,11 @@ Under det här initiativet skulle du ha principdefinitioner som dessa:
 
 Precis som en principtilldelning är en initiativtilldelning en initiativdefinition som tilldelats ett specifikt område. Initiativtilldelningar minskar behovet av att göra flera initiativdefinitioner för varje område. Området kan även här vara allt från en hanteringsgrupp till en resursgrupp.
 
-Initiativet **Aktivera övervakning i Azure Security Center** från föregående exempel kan tilldelas olika områden. En tilldelning kan till exempel vara **prenumerationA**.
-En annan kan vara **prenumerationB**.
+Varje initiativ kan tilldelas till olika omfång. Ett initiativ kan tilldelas till båda **prenumeration A** och **prenumeration B**.
 
 ## <a name="initiative-parameters"></a>Initiativparametrar
 
-Precis som principparametrar underlättar initiativparametrar initiativhanteringen genom att minska redundansen. Initiativparametrar är i stort sett listan över parametrar som används av principdefinitionerna inom ett initiativ.
+Precis som principparametrar underlättar initiativparametrar initiativhanteringen genom att minska redundansen. Initiativparametrar är parametrar som används av principdefinitionerna inom ett initiativ.
 
 Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, med principdefinitionerna **policyA** och **policyB** som vardera förväntar sig olika typer av parametrar:
 
@@ -113,11 +110,11 @@ Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, m
 
 I det här scenariot, när du definierar initiativparametrar för **initiativC**, har du tre alternativ:
 
-- Använd parametrarna för principdefinitionerna i det här initiativet. I det här exemplet blir *allowedLocations* och *allowedSingleLocation* initiativparametrar för **initiativC**.
+- Använd parametrarna för principdefinitionerna i det här initiativet: I det här exemplet blir *allowedLocations* och *allowedSingleLocation* initiativparametrar för **initiativeC**.
 - Ange värden för parametrarna för principdefinitionerna i den här initiativdefinitionen. I det här exemplet kan du ange en lista över platser för **principA-parametern allowedLocations** och **principB-parametern allowedSingleLocation**. Du kan också ange värden när du tilldelar det här initiativet.
 - Ange en lista med alternativ *värden* som kan användas när du tilldelar det här initiativet. När du tilldelar det här initiativet kan ärvda parametrarna från principdefinitionerna inom initiativet endast ha värden från den här listan.
 
-Du kan till exempel skapa en lista med värdealternativ i en initiativdefinition som innehåller *EastUS*, *WestUS*, *CentralUS* och *WestEurope*. Därmed kan du inte ange ett annat värde som *Southeast Asia* under initiativtilldelning, eftersom det inte finns på listan.
+När du skapar värdealternativ i en initiativdefinition kan du inte ange ett annat värde under initiativtilldelningen eftersom det inte ingår i listan.
 
 ## <a name="maximum-count-of-policy-objects"></a>Maximalt antal principobjekt
 
@@ -125,13 +122,18 @@ Du kan till exempel skapa en lista med värdealternativ i en initiativdefinition
 
 ## <a name="recommendations-for-managing-policies"></a>Rekommendationer för principhantering
 
-Här är några riktlinjer och tips som vi rekommenderar att du följer när du skapar och hanterar principdefinitioner och tilldelningar:
+Här följer några råd och tips att tänka på:
 
-- Om du skapar principdefinitioner i din miljö rekommenderar vi att du börjar med en spårningsseffekt, till skillnad från en nekandeeffekt, för att spåra vilken effekt principdefinitionen har på resurserna i din miljö. Om du redan har skript på plats för att automatiskt skala upp dina program kan dessa automatiserade uppgifter eventuellt blockeras om du anger en nekandeeffekt.
-- Det är viktigt att tänka på organisationens hierarkier när du skapar definitioner och tilldelningar. Vi rekommenderar att du skapar definitioner på en högre nivå, till exempel på hanteringsgrupps- eller prenumerationsnivån, och tilldelar vid nästa underordnade nivå. Om du till exempel skapar en principdefinition på hanteringsgruppsnivån kan en principtilldelnings område för den definitionen anges ned till en prenumerationsnivå inom den hanteringsgruppen.
-- Vi rekommenderar att du alltid använder initiativdefinitioner i stället för principdefinitioner, även om du bara har en princip i åtanke. Om du till exempel har en principdefinition, *principdefA*, och du skapar den under initiativdefinitionen, *initiativdefC*. Om du senare vill skapa en till principdefinition för *principdefB* med mål som liknar *principdefA* kan du lägga till den under *initiativdefC* och på så vis spåra dem på ett bättre sätt.
-- Tänk på att när du har skapat en initiativtilldelning från en initiativdefinition kommer eventuella nya principdefinitioner som läggs till i initiativdefinitionen automatiskt att distribueras under initiativtilldelningarna under den initiativdefinitionen.
-- När en initiativtilldelning har utlösts kommer även alla principer inom initiativet att utlösas. Om du behöver köra en princip individuellt är det dock bättre att inte inkludera den i ett initiativ.
+- Börja med en spårningsseffekt i stället för en nekandeeffekt för att spåra den påverkan principdefinitionen får på resurserna i miljön. Om du redan har skript på plats för att automatiskt skala dina program kan dessa automatiserade uppgifter eventuellt blockeras om du anger en nekandeeffekt.
+
+- Ta hänsyn till på organisationens hierarkier när du skapar definitioner och tilldelningar. Vi rekommenderar att du skapar definitioner på högre nivåer, som på hanteringsgrupps- eller prenumerationsnivå. Skapa sedan tilldelningen på nästa underordnade nivå. Om du skapar en definition för en hanteringsgrupp, kan tilldelningen begränsas till en prenumeration eller resursgrupp inom den hanteringsgruppen.
+
+- Vi rekommenderar att du skapar och tilldelar initiativdefinitioner även för en enskild principdefinition.
+Om du som exempel har principdefinitionen *policyDefA*, så skapar du den under initiativdefinitionen *initiativeDefC*. Om du skapar en annan principdefinition senare för *policyDefB* med mål som liknar dem för *policyDefA*, kan du lägga till den under *initiativeDefC* och spåra dem tillsammans.
+
+- När du har skapat en initiativtilldelning blir principdefinitioner som lagts till i initiativet också en del av de initiativtilldelningarna.
+
+- När en initiativtilldelning utvärderas, utvärderas även alla principer inom initiativet. Om du behöver utvärdera en princip individuellt är det bättre att inte inkludera den i ett initiativ.
 
 ## <a name="video-overview"></a>Videoöversikt
 

@@ -1,23 +1,17 @@
 ---
-title: Vad är Azure SignalR? | Microsoft Docs
+title: Vad är Azure SignalR
 description: Översikt över Azure SignalR Service.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: a159833936ec4762213f063e235fa4f9237af95b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e66326c6c4d93a92c579255cb00b6614ecc03b8c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951108"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255184"
 ---
 # <a name="what-is-azure-signalr-service"></a>Vad är Azure SignalR Service?
 
@@ -25,7 +19,7 @@ Azure SignalR Service förenklar arbetet med att lägga till webbfunktioner i re
 
 Den här artikeln ger en översikt över Azure SignalR Service.
 
-## <a name="what-is-azure-signalr-service-used-for"></a>Vad används Azure SignalR Service till? 
+## <a name="what-is-azure-signalr-service-used-for"></a>Vad används Azure SignalR Service till?
 
 Det finns många programtyper som kräver uppdatering av innehållet i realtid. Följande exempel är goda kandidater för användning av Azure SignalR Service:
 
@@ -45,4 +39,3 @@ Det finns för närvarande tre sätt att använda Azure SignalR Service:
 - **[Skala en ASP.NET Core SignalR-App](signalr-overview-scale-aspnet-core.md)** – Integrera Azure SignalR Service med ett ASP.NET Core SignalR-program för att skala ut till hundratusentals anslutningar.
 - **[Skapa serverlösa realtidsappar](signalr-overview-azure-functions.md)** – Använd Azure Functions-integrering med Azure SignalR Service för att skapa serverlösa realtidsprogram med språk som JavaScript, C# och Java.
 - **[Skicka meddelanden från servern till klienter via REST API](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)** – Azure SignalR Service har REST API så att program kan skicka meddelanden till klienter som är anslutna med SignalR Service i alla REST-kompatibla programmeringsspråk.
-

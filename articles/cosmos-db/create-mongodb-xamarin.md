@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Skapa en Xamarin.Forms-app med .NET och MongoDB API'
+title: 'Azure Cosmos DB: Skapa en Xamarin.Forms-app med .NET och MongoDB-API:et'
 description: Presenterar ett Xamarin-kodexempel som du kan använda för att ansluta till och ställa frågor via Azure Cosmos DB MongoDB-API:t
 services: cosmos-db
 author: codemillmatt
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 4fde6d203999b15f0f60d4879c2fdc595e1fb7e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ece6780803809829e69fccc320ae65a0c7b0f94b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835564"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089266"
 ---
-# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Snabbstart: Skapat en Xamarin.Forms-app med MongoDB API med .NET och Azure-portalen
+# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Snabbstart: Skapa en Xamarin.Forms-app med MongoDB-API:et med .NET och Azure Portal
 
 > [!div class="op_single_selector"]
 > * [NET](create-mongodb-dotnet.md)
@@ -156,7 +156,7 @@ Följande kodfragment är alla hämtade från klassen `MongoService`, som finns 
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. Öppna ditt Azure Cosmos DB-konto i [Azure-portalen](http://portal.azure.com/), klicka på **Anslutningssträng** och därefter på **Läs- och skrivnycklar**. Du använder kopiera-knapparna på höger sida av skärmen för att kopiera den primära anslutningssträngen i nästa steg.
+1. Öppna ditt Azure Cosmos DB-konto i [Azure-portalen](https://portal.azure.com/), klicka på **Anslutningssträng** och därefter på **Läs- och skrivnycklar**. Du använder kopiera-knapparna på höger sida av skärmen för att kopiera den primära anslutningssträngen i nästa steg.
 
 2. Öppna filen **APIKeys.cs** i katalogen **Helpers** katalogen i projektet **TaskList.Core**.
 

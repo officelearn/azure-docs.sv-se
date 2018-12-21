@@ -1,5 +1,5 @@
 ---
-title: Skapa en Node.js-webbapp i Azure | Microsoft Docs
+title: Skapa en Node.js-webbapp – Azure App Service | Microsoft Docs
 description: Distribuera din första Node.js-Hello World-app i Azure App Service Web Apps på bara några minuter.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 6d3f367ce21e9574282805737f2eff6c83ea6157
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.custom: seodec18
+ms.openlocfilehash: 4646456acb44f3054ef948a17d3db330e4e1e727
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248204"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257988"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -119,10 +119,10 @@ Ange Node-körningen till 8.11.1. Om du vill se alla körningar som stöds ska d
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
-Bläddra till webbappen som precis skapades. Ersätt _&lt;appnamn >_ med ett unikt appnamn.
+Bläddra till webbappen som precis skapades. Ersätt `<app_name>` med ett unikt appnamn.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 Så här bör din nya webbapp se ut:

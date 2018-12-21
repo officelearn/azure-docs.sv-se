@@ -1,23 +1,24 @@
 ---
-title: Snabbstart i C# – förutspå avsikter – LUIS
-titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten använder du en tillgänglig offentlig LUIS-app för att fastställa användarens avsikt i konversationstext. Skicka med hjälp av C# användarens avsikt som text till den offentliga appens HTTP-slutpunkt för förutsägelse. Vid slutpunkten tillämpar LUIS den offentliga appens modell för att analysera betydelsen av text med naturligt språk, och fastställa den övergripande avsikten och extrahera data som är relevanta för appens ämnesdomän.
+title: Hämta avsikt, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: I den här C#-snabbstarten använder du en tillgänglig offentlig LUIS-app för att fastställa användarens avsikt i konversationstext.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0e58fb35fa29cde16b1ccf50dc20dacc693a4757
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035852"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141772"
 ---
-# <a name="quickstart-get-intent-using-c"></a>Snabbstart: Hämta avsikter med hjälp av C#
+# <a name="quickstart-get-intent-using-c"></a>Snabbstart: Hämta avsikt med C#
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -46,11 +47,11 @@ Använd C# för att fråga förutsägelseslutpunktens GET-[API](https://westus.d
 
 1. Skapa ett nytt konsolprogram i Visual Studio. 
 
-    ![Åtkomst till menyn för användarinställningar i LUIS](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ![Skapa ett nytt konsolprogram i Visual Studio](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
 2. I Visual Studio-projektet, i Solutions Explorer, väljer du **Lägg till referens** och välj sedan **System.Web** på fliken Sammansättningar.
 
-    ![Åtkomst till menyn för användarinställningar i LUIS](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ![välj Lägg till referens och sedan System.Web från fliken Sammansättningar](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
 3. Skriv över Program.cs med följande kod:
     

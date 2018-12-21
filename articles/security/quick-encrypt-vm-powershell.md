@@ -1,6 +1,6 @@
 ---
 title: Snabbstart – Kryptera en virtuell Windows IaaS-dator med Azure PowerShell | Microsoft Docs
-description: I den här snabbstarten lär du dig hur du krypterar en virtuell Windows-dator med hjälp av Azure PowerShell.
+description: I den här snabbstarten lär du dig hur du krypterar en virtuell Windows IaaS-dator i Azure med hjälp av Azure PowerShell.
 services: security
 documentationcenter: na
 author: mestew
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 531da9af871595e6f8bf5d22832367bbfb301dab
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.custom: seodec18
+ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245879"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087872"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Snabbstart: Kryptera en virtuell Windows IaaS-dator med Azure PowerShell
 
-Med Azure Disk Encryption kan du kryptera IaaS-diskar för virtuella Windows- och Linux-datorer. Lösningen är även integrerad med Azure Key Vault så att du kan kontrollera och hantera diskkrypteringsnycklar och hemligheter. Med Azure Disk-kryptering kan du skydda virtuella datorer i vila med branschstandardkrypteringsteknik. I den här snabbstarten får du skapa en virtuell Windows Server 2016-dator och kryptera OS-disken. 
+Med Azure Disk Encryption kan du kryptera IaaS-diskar för virtuella Windows- och Linux-datorer. Lösningen är även integrerad med Azure Key Vault så att du kan kontrollera och hantera diskkrypteringsnycklar och hemligheter. Med Azure Disk-kryptering kan du skydda virtuella datorer i vila med branschstandardkrypteringsteknik. I den här snabbstarten får du skapa en virtuell Windows Server 2016-dator och kryptera OS-disken.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -68,7 +69,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator 
 Nu behöver du skapa en virtuell dator så att du kan kryptera disken. Skriptet du använder skapar en virtuell Windows Server 2016-dator med 8 GB RAM-minne och en OS-disk på 30 GB. 
 
-1. Kopiera skriptet till skriptfönstret **Administratör: Windows PowerShell ISE** och ändra de tre översta variablerna. Resursgruppen och platsen måste vara desamma som du använde för [skriptet om förhandskrav](#bkmk_PrereqScript).  
+1. Kopiera skriptet till skriptfönstret **administratör: Windows PowerShell ISE** och ändra de tre översta variablerna. Resursgruppen och platsen måste vara desamma som du använde för [skriptet om förhandskrav](#bkmk_PrereqScript).  
 
    ```azurepowershell
     # Variables for common values

@@ -1,6 +1,6 @@
 ---
-title: Fråga ett index (.NET API – Azure Search) | Microsoft Docs
-description: Skapa en sökfråga i Azure Search och använd sökparametrar för att filtrera och sortera sökresultat.
+title: Fråga efter ett index i kod med hjälp av .NET SDK – Azure Search
+description: C#-kodexempel för att skapa en sökfråga i Azure Search. Lägg till sökparametrar för att filtrera och sortera sökresultaten.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/19/2017
-ms.openlocfilehash: 5b7f454fed6206ac57799d6f1e86152cd52dc9e9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 5c89902da5e773c60c8e2694159ddeed874ecab2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254425"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317006"
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Skicka frågor till ditt Azure Search-index med hjälp av .NET-SDK
 > [!div class="op_single_selector"]

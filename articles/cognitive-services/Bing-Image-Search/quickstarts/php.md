@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Utför en bildsökning med PHP – API för bildsökning i Bing'
+title: 'Snabbstart: Söka efter bilder – REST API och PHP för bildsökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Det enkla programmet i den här artikeln skickar en sökfråga och visar rådataresultat.
+description: Använd den här snabbstarten för att skicka bildsökningsbegäranden till REST-API med PHP för bildsökning i Bing och få JSON-svar.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: b3143a34590e41d0222b4e4aa6eeda07ee407e45
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 239ceb7ad88dd711ce082ae70391dae09bfc5e1f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311865"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261134"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Snabbstart: Skicka sökfrågor med REST API för bildsökning i Bing och PHP
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Snabbstart: Sök efter bilder med REST API och PHP för bildsökning i Bing
 
 Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Det enkla programmet i den här artikeln skickar en sökfråga och visar rådataresultat.
 

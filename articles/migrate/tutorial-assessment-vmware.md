@@ -4,15 +4,15 @@ description: Beskriver hur du identifierar och utvärderar lokala virtuella VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847991"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257819"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Azure Migrate måste ha åtkomst till VMware-servrar för att automatiskt kunna identifiera virtuella datorer för utvärdering. Skapa ett VMware-konto med följande egenskaper. Du kan ange det här kontot under konfigurationen av Azure Migrate.
 
 - Användartyp: Minst en skrivskyddad användare
-- Behörigheter: Datacenter-objekt –> Sprid till underordnat objekt, roll = skrivskyddad
+- Behörigheter: Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad
 - Information: Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.
 - Om du vill begränsa åtkomsten tilldelar du rollen Ingen åtkomst med Sprid till underordnat objekt till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
 
@@ -54,9 +54,14 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 2. Sök efter **Azure Migrate** och välj tjänsten **Azure Migrate** i sökresultaten. Klicka sedan på **Skapa**.
 3. Ange ett projektnamn och Azure-prenumerationen för projektet.
 4. Skapa en ny resursgrupp.
-5. Ange den geografiska plats där du vill skapa projektet och klicka sedan på **Skapa**. Du kan endast skapa ett Azure Migrate-projekt i regionen västra centrala USA. Du kan dock fortfarande planera migreringen för alla Azure-platser. Den angivna geografiska platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer.
+5. Ange den geografiska plats där du vill skapa projektet och klicka sedan på **Skapa**. Du kan endast skapa ett Azure Migrate-projekt i nedanstående områden. Du kan dock fortfarande planera migreringen för alla Azure-platser. Den angivna geografiska platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer.
 
-    ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
+**Geografi** | **Lagringsplats**
+--- | ---
+USA | USA, västra centrala eller USA, östra
+Azure Government | Virginia (USA-förvaltad region)
+
+![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
 
 ## <a name="download-the-collector-appliance"></a>Hämta insamlingsprogrammet
@@ -71,11 +76,11 @@ Azure Migrate skapar en lokal virtuell dator som kallas för insamlarprogram. De
     > [!NOTE]
     > Installationen för engångsidentifiering är nu inaktuell eftersom den här metoden förlitade sig på vCenter Servers statistikinställningarna för tillgänglighet av prestandadatapunkt och samlade in räknare för genomsnittlig prestanda, vilket resulterade i för små VM-storlekar för migrering till Azure.
 
-    **Omedelbar tillfredsställelse:** tack vare installationen för kontinuerlig identifiering kan du omedelbart skapa utvärderingar när identifieringen är klar (det klar några timmar beroende antalet virtuella datorer). Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *som lokalt* om du behöver omedelbar tillfredsställelse. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
+    **Omedelbar tillfredsställelse:** Tack vare installationen för kontinuerlig identifiering kan du omedelbart skapa utvärderingar när identifieringen är klar (det klar några timmar beroende på antalet virtuella datorer). Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *som lokalt* om du behöver omedelbar tillfredsställelse. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
 
     Installationen samlar bara in prestandadata kontinuerligt. Den identifierar inte någon konfigurationsändring i den lokala miljön (det vill säga tillägg av virtuell dator, borttagning, disktillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
-    - Tillägg av objekt (virtuella datorer, kärnor osv.): Om du vill återspegla dessa ändringar i Azure-portalen kan du stoppa identifieringen från installationen och sedan börja om igen. Då uppdateras ändringarna i Azure Migrate-projektet.
+    - Tillägg av objekt (virtuella datorer, diskar, kärnor osv.): Om du vill återspegla dessa ändringar på Azure-portalen kan du stoppa identifieringen från installationen och sedan starta den igen. Då uppdateras ändringarna i Azure Migrate-projektet.
 
     - Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
 
@@ -95,6 +100,14 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
 3. Den genererade hashen måste matcha nedanstående inställningar.
 
 #### <a name="continuous-discovery"></a>Kontinuerlig identifiering
+
+  För OVA-version 1.0.10.9
+
+  **Algoritm** | **Hash-värde**
+  --- | ---
+  MD5 | 169f6449cc1955f1514059a4c30d138b
+  SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
+  SHA256 | d68fe7d94be3127eb35dd80fc5ebc60434c8571dcd0e114b87587f24d6b4ee4d
 
   För OVA-version 1.0.10.4
 
@@ -156,12 +169,13 @@ Importera den nedladdade filen till vCenter Server.
 3. På skrivbordet klickar du på genvägen **Kör insamlare**.
 4. Klicka på **Sök efter uppdateringar** i det översta fältet i UI-insamlaren och kontrollera att insamlaren körs med den senaste versionen. Du kan annars ladda ner det senaste uppgraderingspaketet från länken och uppdatera insamlaren.
 5. I Azure Migrate Collector öppnar du **Set up prerequisites** (Ange förutsättningar).
+    - Välj det Azure-moln som du planerar att migrera (Azure Global eller Azure Government).
     - Acceptera licensvillkoren och läs informationen från tredje part.
     - Insamlaren kontrollerar att den virtuella datorn har Internetåtkomst.
-    - Om den virtuella datorn har åtkomst till Internet via en proxy, klickar du på **Proxyinställningar** där du anger proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) om Internetanslutningskraven och URL-listan som insamlaren använder.
+    - Om den virtuella datorn har åtkomst till Internet via en proxy, klickar du på **Proxyinställningar** där du anger proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) om kraven för Internetanslutning och den [lista över URL:er](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) som insamlaren använder.
 
-    > [!NOTE]
-    > Proxyadressen måste anges i formatet http://ProxyIPAddress eller http://ProxyFQDN. Endast HTTP-proxy stöds. Om du har en hanteringsproxy kan internetanslutningen misslyckas om du inte har importerat proxycertifikatet. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) om hur du kan åtgärda detta genom att importera proxycertifikatet som ett betrott certifikat på den virtuella datorn för insamling.
+      > [!NOTE]
+      > Proxyadressen måste anges i formatet http://ProxyIPAddress eller http://ProxyFQDN. Endast HTTP-proxy stöds. Om du har en hanteringsproxy kan internetanslutningen misslyckas om du inte har importerat proxycertifikatet. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) om hur du kan åtgärda detta genom att importera proxycertifikatet som ett betrott certifikat på den virtuella datorn för insamling.
 
     - Insamlaren kontrollerar att insamlingstjänsten körs. Tjänsten installeras som standard på den virtuella insamlardatorn.
     - Ladda ned och installera VMware PowerCLI.

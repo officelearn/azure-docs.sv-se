@@ -1,21 +1,22 @@
 ---
-title: 'Självstudie 4: Exakta textmatchningar – entiteten LUIS-lista'
+title: Exakt textmatchning
 titleSuffix: Azure Cognitive Services
 description: Hämta data som matchar en fördefinierad lista med objekt. Varje objekt i listan kan ha synonymer som också matchar exakt
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425079"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096697"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Självstudie 4: Extrahera exakta textmatchningar
 I den här självstudien får du lära dig hur du hämtar data som matchar en fördefinierad lista med objekt. Varje objekt i listan kan innehålla en lista med synonymer. I Human Resources-appen kan medarbetare identifieras med flera olika uppgifter, som namn, e-post, telefonnummer och skatte-id. 
@@ -106,11 +107,11 @@ Det primära, _kanoniska_ namnet för varje objekt är medarbetarens anställnin
 
 3. I dialogrutan för entiteter anger du `Employee` som entitetsnamn och **List** (Lista) som entitetstyp. Välj **Done** (Klar).  
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Skärmbild på dialogrutan för att skapa en ny entitet")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Skärmbild av att skapa en ny popup-dialogruta för en entitet](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Skärmbild av att skapa en ny popup-dialogruta för en entitet")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
 4. På entitetssidan för medarbetare anger du `Employee-24612` som det nya värdet.
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Skärmbild på värde som anges")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
+    [![Skärmbild av att ange värde](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Skärmbild av att ange värde")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
 5. Lägg till följande värden för synonymer:
 
@@ -122,7 +123,7 @@ Det primära, _kanoniska_ namnet för varje objekt är medarbetarens anställnin
     |Personligt mobilnummer|425-555-1212|
     |Amerikanskt socialförsäkringsnummer|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Skärmbild på synonymer som läggs till")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+    [![Skärmbild av att ange synonymer](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Skärmbild av att ange synonymer")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 6. Ange `Employee-45612` som nytt värde.
 
@@ -150,7 +151,7 @@ Det primära, _kanoniska_ namnet för varje objekt är medarbetarens anställnin
 
 2. Gå till slutet av URL:en i adressen och ange `shift 123-45-6789 from Z-1242 to T-54672`. Den sista frågesträngsparametern är `q`, yttrande**f**rågan. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `MoveEmployee` med `Employee` extraherad.
 
-  ```JSON
+  ```json
   {
     "query": "shift 123-45-6789 from Z-1242 to T-54672",
     "topScoringIntent": {

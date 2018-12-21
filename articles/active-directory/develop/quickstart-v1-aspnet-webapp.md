@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: a421527de275d38650c314d3722a7d2f93e8331d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 10de179c6055feb46439792ea74a0a3131f39646
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285024"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970667"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -56,7 +56,7 @@ Den här snabbstarten använder följande paket:
 | [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | Mellanprogram som gör att ett program kan använda OpenIdConnect för autentisering |
 | [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |Mellanprogram som gör att ett program kan hantera en användarsession med hjälp av cookies |
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | Gör att OWIN-baserade program kan köras i IIS med hjälp av pipelinen för ASP.NET-förfrågningar |
-|  |  | 
+|  |  |
 
 ## <a name="step-1-set-up-your-project"></a>Steg 1: Konfigurera projektet
 
@@ -73,7 +73,7 @@ Om du i stället vill ladda ned Visual Studio-projektet för det här exemplet f
 3. Namnge ditt program och välj **OK**.
 4. Välj **Tom** och markera sedan kryssrutan för att lägga till **MVC**-referenser.
 
-## <a name="step-3-add-authentication-components"></a>Steg 3: Lägga till autentiseringskomponenter
+## <a name="step-3-add-authentication-components"></a>Step 3: Lägga till autentiseringskomponenter
 
 1. Gå till **Verktyg > NuGet Package Manager > Package Manager Console** i Visual Studio.
 2. Lägg till **NuGet-paket för OWIN-mellanprogram** genom att skriva följande i Package Manager-konsolfönstret:
@@ -104,11 +104,11 @@ Så här skapar du en *startklass* för OWIN-mellanprogrammet:
 
 1. Lägg till namnområdena *OWIN* och *Microsoft.IdentityModel* till `Startup.cs`:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 2. Ersätt startklassen med följande kod:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=Startup "Startup.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -129,11 +129,11 @@ Skapa en ny kontrollant som exponerar in- och utloggningsmetoder.
 4.  Ge den namnet `HomeController` och välj **Lägg till**.
 5.  Lägg till **OWIN**-namnområden till klassen:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. Lägg till följande metoder för in- och utloggningshantering i kontrollanten genom att initiera en autentiseringsfråga via följande kod:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
 
 ## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Steg 6: Skapa appens startsida för att logga in användare via en inloggningsknapp
 
@@ -158,11 +158,11 @@ Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en k
 1. Ge den namnet **ClaimsController**.
 1. Ersätt koden i kontrollantklassen med följande kod, som lägger till attributet `[Authorize]` till klassen:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
-> Eftersom attributet `[Authorize]` används kan metoderna för den här kontrollanten endast köras om användaren har autentiserats. Om användaren inte har autentiserats och försöker få åtkomst till kontrollanten, initierar OWIN en autentiseringsfråga och tvingar användaren att autentisera. Koden ovan letar i användarens anspråk efter specifika attribut som finns med i användarens token. Dessa attribut är användarens fullständiga namn och användarnamn, samt objektidentifieraren för den globala användaren. Den innehåller också *klientorganisations-ID:t*, som representerar ID:t för användarens organisation. 
+> Eftersom attributet `[Authorize]` används kan metoderna för den här kontrollanten endast köras om användaren har autentiserats. Om användaren inte har autentiserats och försöker få åtkomst till kontrollanten, initierar OWIN en autentiseringsfråga och tvingar användaren att autentisera. Koden ovan letar i användarens anspråk efter specifika attribut som finns med i användarens token. Dessa attribut är användarens fullständiga namn och användarnamn, samt objektidentifieraren för den globala användaren. Den innehåller också *klientorganisations-ID:t*, som representerar ID:t för användarens organisation.
 <!--end-collapse-->
 
 ## <a name="step-8-create-a-view-to-display-the-users-claims"></a>Steg 8: Skapa en vy för att visa användarens anspråk
@@ -187,7 +187,7 @@ Skapa en ny vy i Visual Studio för att visa användarens anspråk på en webbsi
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
+    <add key="Authority" value="https://login.microsoftonline.com/{0}" />
     ```
 2. Välj projektet i Solution Explorer och titta på fönstret <i>Egenskaper</i> (om du inte ser egenskapsfönstret trycker du på F4)
 3. Ändra SSL aktiverat till <code>True</code>
@@ -227,10 +227,12 @@ Mer information om den här inställningen och begreppet ”program för flera i
 Det här alternativet är ett vanligt scenario för affärsapplikationer.
 
 Om du vill att programmet endast ska godkänna inloggningar från konton som tillhör en viss Azure AD-instans (inklusive *gästkonton* för den instansen) följer du dessa steg:
+
 1. Ersätt parametern `Tenant` i *web.config* från `Common` med organisationens klientnamn, t.ex. *contoso.onmicrosoft.com*.
 1. Ändra argumentet `ValidateIssuer` i [*OWIN-startklassen*](#configure-the-authentication-pipeline) till `true`.
 
 Följ dessa steg om du endast vill tillåta användare från en lista med specifika organisationer:
+
 1. Ange `ValidateIssuer` till Sant.
 1. Använd parametern `ValidIssuers` för att ange en lista med organisationer.
 

@@ -8,12 +8,12 @@ ms.component: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 39eacca1e5ddb4c7024c5195dc1823f2c3c651e7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9c16a882e49ceec4fc733cb3a8c1061dd1949e28
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875271"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166633"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-exempel för SQL API
 > [!div class="op_single_selector"]
@@ -37,11 +37,11 @@ Kodexempel för .NET SDK Version 3.0 (förhandsversion) finns i de senaste exemp
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
-- Du kan [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): din Visual Studio-prenumeration ger dig krediter varje månad som kan användas för Azure-betaltjänster.
+- Du kan [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Din Visual Studio-prenumeration ger dig krediter varje månad som du kan använda för Azure-betaltjänster.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-Du behöver också [Microsoft.Azure.DocumentDB NuGet-paketet](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
+Du behöver också [Microsoft.Azure.DocumentDB NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
 > [!NOTE]
 > Varje exempel är självständigt. Det konfigurerar sig själv och rensar upp efter sig. Därmed gör exemplen flera anrop till CreateDocumentCollectionAsync(). Varje gång det sker faktureras din prenumeration för en timmes användning per prestandanivå för den samling som skapas. 
@@ -146,7 +146,7 @@ Mer information om hur du skriver frågor finns i [SQL query within Azure Cosmos
 | [Läsa ändringsflöde](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) | 
 | [Läsa partitionsnyckelintervall](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync.aspx) | 
 
-Exempel på ändringsflöde för processor:  [Migreringsverktyget för ändringsflöde](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) visar hur du använder ändringsflödesprocessorbiblioteket för att replikera data till en annan Cosmos DB-samling.   
+Exempel på ändringsflödesprocessor:  [Migreringsverktyget för ändringsflöde](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) visar hur du använder ändringsflödesprocessorbiblioteket för att replikera data till en annan Cosmos DB-samling.   
 
 ## <a name="server-side-programming-examples"></a>Programmeringsexempel på serversidan
 Programmeringsfilen på serversidan, [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), visar hur du utför följande uppgifter.
@@ -161,7 +161,7 @@ Programmeringsfilen på serversidan, [azure-documentdb-dotnet/samples/code-sampl
 | [Skapa en postutlösare](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [Skapa användardefinierad funktion (UDF)](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-Mer information om programmering på serversidan finns på sidan om [Azure Cosmos DB-programmering på serversidan: lagrade procedurer, databasutlösare och UDF:er](programming.md).
+Mer information om programmering på serversidan finns på sidan om [Azure Cosmos DB-programmering på serversidan: Lagrade procedurer, databasutlösare och UDF:er](programming.md).
 
 ## <a name="user-management-examples"></a>Exempel för användarhantering
 Användarhanteringsfilen, [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), visar hur du utför följande uppgifter.

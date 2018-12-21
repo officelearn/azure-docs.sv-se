@@ -1,46 +1,269 @@
 ---
-title: Azure Event Grid- och Event Hubs-integration
-description: Beskriver hur du använder Azure Event Grid och Event Hubs för att migrera data till ett SQL Data Warehouse
+title: Skicka Event Hubs-data till informationslager – Event Grid
+description: Beskriver hur du använder Azure Event Grid och Event Hubs för att migrera data till ett SQL Data Warehouse. Den använder en Azure-funktion för att hämta en Capture-fil.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 08/22/2018
-ms.author: tomfitz
-ms.openlocfilehash: aad7a24d8b0e0bc74815cad3604db1cc21a6db96
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.date: 12/13/2018
+ms.author: spelluru
+ms.openlocfilehash: 450cbf4deace7d3edc1fcb50b8c3d8a91e936012
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163234"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385422"
 ---
-# <a name="stream-big-data-into-a-data-warehouse"></a>Strömma stordata till ett datalager
-
-Azure [Event Grid](overview.md) är en intelligent händelsedirigeringstjänst som skickar aviseringar från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till Azure Blob Storage eller Data Lake Store och som migrerar data till andra lagringsplatser. Det här [exemplet med Event Hubs Capture och Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs Capture med Event Grid för att sömlöst migrera Event Hubs-data från blobblagring till SQL Data Warehouse.
+# <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: Strömma stordata till ett datalager
+Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [integrationsexemplet med Event Hubs och Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med Event Grid för att sömlöst migrera hämtade Event Hubs-data från blobblagring till SQL Data Warehouse.
 
 ![Programöversikt](media/event-grid-event-hubs-integration/overview.png)
 
-När data skickas till händelsehubben hämtar Capture data från dataströmmen och genererar lagringsblobar med dessa data i Avro-format. När Capture genererar bloben utlöser detta en händelse. Event Grid skickar ut data om händelsen till prenumeranter. I detta fall skickas händelseinformationen till slutpunkten för Azure Functions. Händelseinformationen innehåller sökvägen för den genererade bloben. Funktionen använder den URL:en för att hämta filen och skickar den till informationslagret.
+Diagrammet visar arbetsflödet för lösningen som du skapar i självstudien: 
 
-Den här artikeln innehåller följande avsnitt:
+1. Data som skickas till en Azure-händelsehubb samlas i en Azure-blobblagring.
+2. När datainsamlingen är klar skapas en händelse som skickas till ett Azure-händelserutnät. 
+3. Händelserutnätet vidarebefordrar händelsedatan till en Azure-funktionsapp.
+4. Funktionsappen använder blobb-URL:en i händelsedatan till att hämta blobben från lagringen. 
+5. Funktionsappen migrerar blobbdatan till ett Azure SQL-informationslager. 
 
-* Distribuera följande infrastruktur:
-  * Händelsehubb med Capture aktiverat
-  * Lagringskonto för filerna från Capture
-  * Azure App Service-plan som värd för funktionsappen
-  * Funktionsapp för bearbetning av händelsen
-  * SQL Server som värd för informationslagret
-  * SQL Data Warehouse för lagring av migrerade data
-* Skapa en tabell i informationslagret
-* Lägga till kod i funktionsappen
-* Prenumerera på händelsen
-* Köra appen som skickar data till händelsehubben
-* Visa migrerade data i informationslagret
+I den här självstudien gör du följande:
 
-## <a name="about-the-event-data"></a>Om händelsedata
+> [!div class="checklist"]
+> * Använder en Azure Resource Manager-mall för att distribuera infrastrukturen: en händelsehubb, ett lagringskonto, en funktionsapp, ett SQL-informationslager.
+> * Skapar en tabell i informationslagret.
+> * Lägger till kod i funktionsappen.
+> * Prenumererar på händelsen. 
+> * Kör appen som skickar data till händelsehubben.
+> * Visar migrerade data i informationslagret.
 
-Event Grid distribuerar händelsedata till prenumeranterna. Följande exempel visar händelsedata för genereringen av en Capture-fil. Notera särskilt egenskapen `fileUrl` i objektet `data`. Funktionsappen hämtar det här värdet och använder det för att hämta Capture-filen.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+Du behöver följande för att kunna slutföra den här självstudiekursen:
+
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* [Visual studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/) med arbetsbelastningar för .NET-skrivbordsutveckling, Azure-utveckling, ASP.NET- och webbutveckling, Node.js-utveckling och Python-utveckling.
+* Ladda ned [exempelprojektet EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) till din dator.
+
+## <a name="deploy-the-infrastructure"></a>Distribuera infrastrukturen
+I det här steget distribuerar du den infrastruktur som krävs med en [Resource Manager-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). När du distribuerar mallen skapas följande resurser:
+
+* Händelsehubb med Capture-funktionen aktiverad.
+* Lagringskonto för hämtade filer. 
+* Apptjänstplan som är värd för funktionsappen
+* Funktionsapp för bearbetning av händelsen
+* SQL Server som värd för informationslagret
+* SQL Data Warehouse för lagring av migrerade data
+
+### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Starta Azure Cloud Shell i Azure Portal
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
+2. Välj **Cloud Shell**-knappen överst.
+
+    ![Azure Portal](media/event-grid-event-hubs-integration/azure-portal.png)
+3. Du ser att Cloud Shell öppnas längst ned i webbläsaren.
+
+    ![Cloud Shell](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 
+4. Om du i Cloud Shell ser ett alternativ för att välja mellan **Bash** och **PowerShell**, väljer du **Bash**. 
+5. Om du använder Cloud Shell för första gången, skapar du ett lagringskonto genom att välja **Skapa lagring**. Det måste finnas ett Azure-lagringskonto i Azure Cloud Shell för att vissa filer ska kunna lagras. 
+
+    ![Skapa lagring för Cloud Shell](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
+6. Vänta tills Cloud Shell har initierats. 
+
+    ![Skapa lagring för Cloud Shell](media/event-grid-event-hubs-integration/cloud-shell-initialized.png)
+
+
+### <a name="use-azure-cli"></a>Använda Azure CLI
+
+1. Skapa en Azure-resursgrupp genom att köra följande CLI-kommando: 
+    1. Kopiera och klistra in följande kommando i Cloud Shell-fönstret
+
+        ```azurecli
+        az group create -l eastus -n <Name for the resource group>
+        ```
+    1. Ge **resursgruppen** ett namn
+    2. Tryck på **RETUR**. 
+
+        Här är ett exempel:
+    
+        ```azurecli
+        user@Azure:~$ az group create -l eastus -n ehubegridgrp
+        {
+          "id": "/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/ehubegridgrp",
+          "location": "eastus",
+          "managedBy": null,
+          "name": "ehubegridgrp",
+          "properties": {
+            "provisioningState": "Succeeded"
+          },
+          "tags": null
+        }
+        ```
+2. Distribuera alla resurser som nämns i föregående avsnitt (händelsehubb, lagringskonto, funktionsapp, SQL-informationslager) genom att köra följande CLI-kommando: 
+    1. Kopiera och klistra in kommandot i Cloud Shell-fönstret. Alternativt kan du kopiera och klistra in i ett redigeringsprogram, ange värden och sedan kopiera kommandot till Cloud Shell. 
+
+        ```azurecli
+        az group deployment create \
+            --resource-group rgDataMigrationSample \
+            --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
+            --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
+        ```
+    2. Ange värden för följande entiteter:
+        1. Namn på den resursgrupp som du skapade tidigare.
+        2. Namn på händelsehubbens namnområde. 
+        3. Namn på händelsehubben. Du kan lämna värdet som det är (hubdatamigration).
+        4. Namn på SQL-servern.
+        5. Namn på SQL-användaren och lösenordet. 
+        6. Namn på SQL-informationslagret
+        7. Namn på lagringskontot. 
+        8. Namn på funktionsappen. 
+    3.  Tryck på **Retur-tangenten** i Cloud Shell-fönstret för att köra kommandot. Den här processen kan ta en stund eftersom du skapar många resurser. Kontrollera att det inte finns några fel i kommandoresultatet. 
+    
+
+### <a name="use-azure-powershell"></a>Använda Azure PowerShell
+
+1. Växla till PowerShell-läget i Azure Cloud Shell. Välj nedåtpilen i det övre vänstra hörnet av Azure Cloud Shell och välj **PowerShell**.
+
+    ![Växla till PowerShell](media/event-grid-event-hubs-integration/select-powershell-cloud-shell.png)
+2. Skapa en Azure-resursgrupp genom att köra följande kommando: 
+    1. Kopiera och klistra in följande kommando i Cloud Shell-fönstret.
+
+        ```powershell
+        New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
+        ```
+    2. Ge **resursgruppen** ett namn.
+    3. Tryck på Retur-tangenten. 
+3. Distribuera alla resurser som nämns i föregående avsnitt (händelsehubb, lagringskonto, funktionsapp, SQL-informationslager) genom att köra följande kommando:
+    1. Kopiera och klistra in kommandot i Cloud Shell-fönstret. Alternativt kan du kopiera och klistra in i ett redigeringsprogram, ange värden och sedan kopiera kommandot till Cloud Shell. 
+
+        ```powershell
+        New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
+        ```
+    2. Ange värden för följande entiteter:
+        1. Namn på den resursgrupp som du skapade tidigare.
+        2. Namn på händelsehubbens namnområde. 
+        3. Namn på händelsehubben. Du kan lämna värdet som det är (hubdatamigration).
+        4. Namn på SQL-servern.
+        5. Namn på SQL-användaren och lösenordet. 
+        6. Namn på SQL-informationslagret
+        7. Namn på lagringskontot. 
+        8. Namn på funktionsappen. 
+    3.  Tryck på **Retur-tangenten** i Cloud Shell-fönstret för att köra kommandot. Den här processen kan ta en stund eftersom du skapar många resurser. Kontrollera att det inte finns några fel i kommandoresultatet. 
+
+### <a name="close-the-cloud-shell"></a>Stäng Cloud Shell 
+Stäng Cloud Shell genom att välja knappen **Cloud Shell** i portalen (eller) **X** i det övre högra hörnet i Cloud Shell-fönstret. 
+
+### <a name="verify-that-the-resources-are-created"></a>Kontrollera att resurserna har skapats
+
+1. I Azure Portal väljer du **Resursgrupper** i den vänstra menyn. 
+2. Filtrera listan över resursgrupper genom att ange namnet på resursgruppen i sökrutan. 
+3. Välj din resursgrupp i listan.
+
+    ![Välj din resursgrupp](media/event-grid-event-hubs-integration/select-resource-group.png)
+4. Kontrollera att du ser följande resurser i resursgruppen:
+
+    ![Resurser i resursgruppen](media/event-grid-event-hubs-integration/resources-in-resource-group.png)
+
+### <a name="create-a-table-in-sql-data-warehouse"></a>Skapa en tabell i SQL Data Warehouse
+Skapa en tabell i informationslagret genom att köra skriptet [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Du kan köra skriptet med Visual Studio eller Frågeredigeraren i portalen. Följande steg visar hur du använder Frågeredigeraren: 
+
+1. I listan över resurser i resursgruppen, väljer du ditt SQL-informationslager. 
+2. På sidan SQL-informationslager väljer du **Frågeredigeraren (förhandsversion)** i den vänstra menyn. 
+
+    ![Sidan SQL-informationslager](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
+2. Ange namnet på **användare** och **lösenord** för SQL-servern och välj **OK**. 
+
+    ![SQL-serverautentisering](media/event-grid-event-hubs-integration/sql-server-authentication.png)
+4. Kopiera och kör följande SQL-skript i frågefönstret: 
+
+    ```sql
+    CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (
+        [DeviceId] nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL, 
+        [MeasureTime] datetime NULL, 
+        [GeneratedPower] float NULL, 
+        [WindSpeed] float NULL, 
+        [TurbineSpeed] float NULL
+    )
+    WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
+    ```
+
+    ![Köra SQL-fråga](media/event-grid-event-hubs-integration/run-sql-query.png)
+5. Låt den här fliken eller fönstret vara öppet så att du kan kontrollera att data har skapats i slutet av självstudien. 
+
+
+## <a name="publish-the-azure-functions-app"></a>Publicera Azure Functions-appen
+
+1. Starta Visual Studio 2017. 
+2. Öppna lösningen **EventHubsCaptureEventGridDemo.sln** som du laddade ned från [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) som en del av förutsättningarna.
+3. Högerklicka på **FunctionEGDWDumper** i Solution Explorer och välj **Publicera**.
+
+   ![Publicera funktionsapp](media/event-grid-event-hubs-integration/publish-function-app.png)
+4. Om du ser följande skärm väljer du **Starta**. 
+
+   ![Knappen Starta publicering](media/event-grid-event-hubs-integration/start-publish-button.png) 
+5. På sidan **Välj ett publiceringsmål** väljer du alternativet **Välj befintlig** och **Skapa profil**. 
+
+   ![Välj ett publiceringsmål](media/event-grid-event-hubs-integration/publish-select-existing.png)
+6. På App Service-sidan väljer du din **Azure-prenumeration**, **funktionsapp** i din resursgrupp och **OK**. 
+
+   ![Sidan App Service](media/event-grid-event-hubs-integration/publish-app-service.png) 
+1. När profilen har konfigurerats i Visual Studio väljer du **Publicera**.
+
+   ![Välj Publicera](media/event-grid-event-hubs-integration/select-publish.png)
+
+När du har publicerat funktionen är du redo att prenumerera på händelsen.
+
+## <a name="subscribe-to-the-event"></a>Prenumerera på händelsen
+
+1. I en ny flik eller ett nytt fönster med en webbläsare går du till [Azure Portal](https://portal.azure.com).
+2. I Azure Portal väljer du **Resursgrupper** i den vänstra menyn. 
+3. Filtrera listan över resursgrupper genom att ange namnet på resursgruppen i sökrutan. 
+4. Välj din resursgrupp i listan.
+
+    ![Välj din resursgrupp](media/event-grid-event-hubs-integration/select-resource-group.png)
+4. Välj App Service-planen i listan. 
+5. På sidan App Service-plan väljer du **Appar** i den vänstra menyn och sedan funktionsappen. 
+
+    ![Välj din funktionsapp](media/event-grid-event-hubs-integration/select-function-app-app-service-plan.png)
+6. Expandera funktionsappen, expandera funktioner och välj sedan din funktion. 
+
+    ![Välj Azure-funktion](media/event-grid-event-hubs-integration/select-function-add-button.png)
+7. Välj **Lägg till Event Grid-prenumeration** i verktygsfältet. 
+8. Gör följande på sidan **Skapa en Event Grid-prenumeration**: 
+    1. I avsnittet **INFORMATION OM ÄMNE** gör du följande:
+        1. Välj din Azure-prenumeration.
+        2. Välj Azure-resursgrupp.
+        3. Välj Event Hubs-namnområde.
+    2. På sidan **INFORMATION OM HÄNDELSEPRENUMERATION** anger du ett namn för prenumerationen (till exempel: captureEventSub). Välj sedan **Skapa**. 
+
+        ![Skapa Event Grid-prenumeration](media/event-grid-event-hubs-integration/create-event-subscription.png)
+
+## <a name="run-the-app-to-generate-data"></a>Kör appen för att generera data
+Nu har du slutfört konfigurationen av händelsehubben, SQL-informationslagret, Azure-funktionsappen och händelseprenumerationen. Innan du kör ett program som genererar data för händelsehubben måste du konfigurera några värden.
+
+1. Gå till resursgruppen som du gjorde tidigare i Azure Portal. 
+2. Välj Event Hubs-namnområde.
+3. På sidan **Event Hubs-namnområde** väljer du **Principer för delad åtkomst** i den vänstra menyn.
+4. Välj **RootManageSharedAccessKey** i listan med principer. 
+5. Välj kopieringsknappen intill textrutan **Primärnyckel för anslutningssträng**. 
+
+    ![Anslutningssträng för händelsehubbens namnområde](media/event-grid-event-hubs-integration/get-connection-string.png)
+1. Gå tillbaka till Visual Studio-lösningen. 
+2. Öppna **program.cs** i projektet WindTurbineDataGenerator.
+5. Ersätt de två konstanta värdena. Använd det kopierade värdet för **EventHubConnectionString**. Använd händelsehubbnamnet **hubdatamigration**. Om du använde ett annat namn för händelsehubben, anger du det namnet. 
+
+   ```cs
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
+   private const string EventHubName = "hubdatamigration";
+   ```
+
+6. Skapa lösningen. Kör programmet **WindTurbineGenerator.exe.** 
+7. Vänta några minuter och fråga sedan tabellen i informationslagret efter migrerade data.
+
+    ![Frågeresultat](media/event-grid-event-hubs-integration/query-results.png)
+
+### <a name="event-data-generated-by-the-event-hub"></a>Händelsedata som genererats av händelsehubben
+Event Grid distribuerar händelsedata till prenumeranterna. I följande exempel visar genererade händelsedata när data som strömmas via en händelsehubb hämtas i en blobb. Observera särskilt att egenskapen `fileUrl` i `data`-objektet pekar på blobben i lagringen. Funktionsappen använder den här URL:en för att hämta blobbfilen med insamlade data.
 
 ```json
 [
@@ -65,122 +288,6 @@ Event Grid distribuerar händelsedata till prenumeranterna. Följande exempel vi
 ]
 ```
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-Du behöver följande för att kunna slutföra den här självstudiekursen:
-
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-* [Visual studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/) med arbetsbelastningar för .NET-skrivbordsutveckling, Azure-utveckling, ASP.NET- och webbutveckling, Node.js-utveckling och Python-utveckling.
-* [Exempelprojektet EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) nedladdat på datorn.
-
-## <a name="deploy-the-infrastructure"></a>Distribuera infrastrukturen
-
-För enkelhetens skull distribuerar du den nödvändiga infrastrukturen med en Resource Manager-mall. Om du vill visa de resurser som distribueras visar du [mallen](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
-
-Om du använder Azure CLI använder du:
-
-```azurecli-interactive
-az group create -l westcentralus -n rgDataMigrationSample
-
-az group deployment create \
-  --resource-group rgDataMigrationSample \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
-  --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
-```
-
-Om du använder PowerShell använder du:
-
-```powershell
-New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
-
-New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
-```
-
-Ange ett lösenordsvärde när du uppmanas att göra det.
-
-## <a name="create-a-table-in-sql-data-warehouse"></a>Skapa en tabell i SQL Data Warehouse
-
-Lägg till en tabell i informationslagret genom att köra skriptet [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Kör skriptet med Visual Studio eller Frågeredigeraren på portalen.
-
-Skriptet som du kör är:
-
-```sql
-CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (
-    [DeviceId] nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL, 
-    [MeasureTime] datetime NULL, 
-    [GeneratedPower] float NULL, 
-    [WindSpeed] float NULL, 
-    [TurbineSpeed] float NULL
-)
-WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
-```
-
-## <a name="publish-the-azure-functions-app"></a>Publicera Azure Functions-appen
-
-1. Öppna [exempelprojektet EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) i Visual Studio 2017 (15.3.2 eller senare).
-
-1. Högerklicka på **FunctionEGDWDumper** i Solution Explorer och välj **Publicera**.
-
-   ![Publicera funktionsapp](media/event-grid-event-hubs-integration/publish-function-app.png)
-
-1. Välj **Azure-funktionsapp** och **Välj befintlig**. Välj **Publicera**.
-
-   ![Målfunktionsapp](media/event-grid-event-hubs-integration/pick-target.png)
-
-1. Välj den funktionsapp som du distribuerade via mallen. Välj **OK**.
-
-   ![Välj funktionsapp](media/event-grid-event-hubs-integration/select-function-app.png)
-
-1. När profilen har konfigurerats i Visual Studio väljer du **Publicera**.
-
-   ![Välj Publicera](media/event-grid-event-hubs-integration/select-publish.png)
-
-När du har publicerat funktionen är du redo att prenumerera på händelsen.
-
-## <a name="subscribe-to-the-event"></a>Prenumerera på händelsen
-
-1. Gå till [Azure-portalen](https://portal.azure.com/). Välj din resursgrupp och funktionsapp.
-
-   ![Visa funktionsapp](media/event-grid-event-hubs-integration/view-function-app.png)
-
-1. Välj funktionen.
-
-   ![Välj funktion](media/event-grid-event-hubs-integration/select-function.png)
-
-1. Välj **Lägg till Event Grid-prenumeration**.
-
-   ![Lägg till en prenumeration](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
-
-9. Ge Event Grid-prenumerationen ett namn. Använd **Event Hubs-namnområden** som händelsetyp. Ange värden för att välja din instans av Event Hubs-namnområdet. Lämna prenumerantens slutpunkt som det angivna värdet. Välj **Skapa**.
-
-   ![Skapa en prenumeration](media/event-grid-event-hubs-integration/set-subscription-values.png)
-
-## <a name="run-the-app-to-generate-data"></a>Kör appen för att generera data
-
-Nu har du slutfört konfigurationen av händelsehubben, SQL-informationslagret, Azure-funktionsappen och händelseprenumerationen. Lösningen är redo att migrera data från händelsehubben till informationslagret. Innan du kör ett program som genererar data för händelsehubben måste du konfigurera några värden.
-
-1. Välj händelsehubbens namnområde på portalen. Välj **Anslutningssträngar**.
-
-   ![Välj Anslutningssträngar](media/event-grid-event-hubs-integration/event-hub-connection.png)
-
-2. Välj **RootManageSharedAccessKey**
-
-   ![Välj nyckel](media/event-grid-event-hubs-integration/show-root-key.png)
-
-3. Kopiera **Anslutningssträng – primär nyckel**
-
-   ![Kopiera nyckel](media/event-grid-event-hubs-integration/copy-key.png)
-
-4. Gå tillbaka till Visual Studio-projektet. Öppna **program.cs** i projektet WindTurbineDataGenerator.
-
-5. Ersätt de två konstanta värdena. Använd det kopierade värdet för **EventHubConnectionString**. Använd händelsehubbnamnet **hubdatamigration**.
-
-   ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
-   private const string EventHubName = "hubdatamigration";
-   ```
-
-6. Skapa lösningen. Kör programmet WindTurbineGenerator.exe. Vänta några minuter och fråga sedan tabellen i informationslagret efter migrerade data.
 
 ## <a name="next-steps"></a>Nästa steg
 

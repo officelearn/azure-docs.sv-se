@@ -4,17 +4,17 @@ description: Azure Blueprint är en tjänst i Azure som används för att skapa,
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498603"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967699"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
@@ -111,7 +111,7 @@ Om du vill tilldela eller ta bort tilldelningar av skisser måste ditt konto ha 
 > [!NOTE]
 > Tilldelningar för skissen skapas på en prenumeration. Behörigheterna för tilldelning och för att ta bort tilldelning av behörigheter måste beviljas för eller ärvas till en prenumerationsomfattning.
 
-Förutom behörigheterna för skisstilldelningen har dessa behörigheter inkluderats i rollen **Ägare** och även i rollen **Deltagare**. Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad roll](../../role-based-access-control/custom-roles.md).
+Alla behörigheter ovan ingår i rollen **Ägare**. Rollen **Deltagare** har behörighet att skapa skisser och ta bort skisser men har inte behörighet att tilldela skisser. Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > Tjänstens huvudnamn för Azure Blueprint kräver rollen **Ägare** på den tilldelade prenumerationen för att aktivera distribution. Om du använder portalen är den här rollen automatiskt beviljad och återkallad för distributionen. Om du använder REST API måste den här rollen måste beviljas manuellt, men återkallas fortfarande automatiskt när distributionen är klar.

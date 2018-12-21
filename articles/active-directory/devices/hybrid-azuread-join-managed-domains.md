@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b8d45e72e15ff86b53f7355634e8f197b94260bd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887805"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435437"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera Azure Active Directory Join-hybrid för hanterade domäner
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera en Azure Active Directory-hybridanslutning för hanterade domäner
 
 På liknande sätt som en användare blir en enhet till en identitet som du vill skydda och också använda för att skydda dina resurser, alltid och överallt. Det kan du göra genom att överföra enheternas identiteter till Azure Active Directory på något av följande sätt:
 
@@ -53,7 +53,11 @@ I den här självstudien förutsätts att du känner till:
 -  [Så här kontrollerar du Azure Active Directory Join-hybriden för dina enheter](hybrid-azuread-join-control.md)
   
 
-Om du vill konfigurera scenariot i den här artikeln måste du ha den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 eller högre) installerad. 
+För att kunna konfigurera scenariot i den här artikeln behöver du:
+
+- En lokal Active Directory (AD) med en schemanivå på 85 eller senare. Mer information finns i [Uppgradera Active Directory-schemat](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
+
+- Den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 eller högre) måste vara installerad. 
 
 Kontrollera att Azure AD Connect har synkroniserat datorobjekten för enheterna du vill ska vara Hybrid Azure AD-anslutna till Azure AD. Om datorobjekten tillhör specifika organisationsenheter (OU) måste även organisationsenheterna konfigureras för synkronisering i Azure AD.
 
@@ -153,7 +157,7 @@ Om du vill registrera äldre Windows-enheter måste du se till att enhetsinstäl
 
 
     
-Följande princip måste vara inställd på **Alla**: **Användare kan registrera sina enheter med Azure AD**
+Följande princip måste anges som **Alla**: **Användarna kan registrera sina enheter med Azure AD**
 
 ![Registrera enheter](media/hybrid-azuread-join-managed-domains/23.png)
 
@@ -172,7 +176,7 @@ Dessutom kan du behöva aktivera **Tillåt uppdateringar i statusfältet via skr
 
 ### <a name="configure-seamless-sso"></a>Konfigurera sömlös enkel inloggning
 
-För att slutföra fullständig Azure AD-anslutning för dina äldre Windows-enheter i en hanterad domän som använder direktautentisering (PTA) eller synkronisering av lösenordshash (PHS) som Azure AD-molnautentiseringsmetod måste du även [konfigurera sömlös enkel inloggning](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+För att slutföra fullständig Azure AD-anslutning för dina äldre Windows-enheter i en hanterad domän som använder direktautentisering (PTA) eller synkronisering av lösenordshash (PHS) som Azure AD-molnautentiseringsmetod måste du även [konfigurera sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Kontrollera äldre Windows-enheter 

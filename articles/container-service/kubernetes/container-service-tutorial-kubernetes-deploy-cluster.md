@@ -1,24 +1,27 @@
 ---
-title: Självstudie för Azure Container Service – Distribuera ett kluster
+title: (INAKTUELL) Självstudie om Azure Container Service – Distribuera ett kluster
 description: Självstudie för Azure Container Service – Distribuera ett kluster
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d77396cdcaa3f2f291aff52dfd1e6793aee4039c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434432"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997848"
 ---
-# <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Distribuera ett Kubernetes-kluster i Azure Container Service
+# <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(INAKTUELL) Distribuera ett Kubernetes-kluster i Azure Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service finns i [Självstudie: Distribuera ett AKS-kluster (Azure Kubernetes Service)](../../aks/tutorial-kubernetes-deploy-cluster.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Kubernetes tillhandahåller en distribuerad plattform för containerbaserade program. Med Azure Container Service kan du snabbt och enkelt etablera ett produktionsklart Kubernetes-kluster. I den här självstudiekursen, som är del 3 av 7, distribueras ett Azure Container Service Kubernetes-kluster. Det här är några av stegen:
 

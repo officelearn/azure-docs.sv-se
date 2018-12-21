@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436019"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965163"
 ---
 # <a name="what-is-api-management"></a>Vad är API Management?
 
@@ -59,7 +59,7 @@ Systemet består av följande komponenter:
   * Skapa ett konto och börja prenumerera på API-nycklar.
   * Komma åt analyser om deras egen användning.
 
-Mer information finns i PDF-dokumentet [Cloud-based API Management: Harnessing the Power of APIs](http://j.mp/ms-apim-whitepaper). Det här introduktionsdokumentet om API Management av CITO Research innehåller bland annat följande avsnitt: 
+Mer information finns i [molnbaserad API-hantering: PDF-dokumentet Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper). Det här introduktionsdokumentet om API Management av CITO Research innehåller bland annat följande avsnitt: 
  
  * Vanliga API-relaterade krav och utmaningar
  * Frikoppla API:er och presentera fasader

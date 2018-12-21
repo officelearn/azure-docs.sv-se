@@ -3,18 +3,18 @@ title: Översikt över Azure Digital Twins | Microsoft Docs
 description: Läs mer om Azure Digital Twins, en Azure IoT-lösning för spatial intelligens.
 author: julieseto
 ms.author: jseto
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 84f329c0a97d0f79a5f612fb3054b82a182e4da9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287378"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437120"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Översikt över Azure Digital Twins
 
@@ -27,12 +27,12 @@ Med Azure Digital Twins kan du köra frågor mot data från ett fysiskt utrymme 
 - Optimera användningen av tillgängliga utrymmen för ett kontor.
 
 Azure Digital Twins gäller för alla typer av miljöer. Några exempel är lager, kontor, skolor, sjukhus och banker. Det kan även användas för idrottsarenor, fabriker, parkeringar, parker, smarta rutnät och städer. Azure Digital Twins kan användas i följande exempelscenarier för att:
- 
-- Spåra daglig temperatur för flera tillstånd. 
+
+- Spåra daglig temperatur för flera tillstånd.
 - Övervaka upptagna drönarvägar.
-- Identifiera autonoma fordon. 
-- Analysera användningsnivåerna för en byggnad. 
-- Hitta den mest använda kassan i din butik. 
+- Identifiera autonoma fordon.
+- Analysera användningsnivåerna för en byggnad.
+- Hitta den mest använda kassan i din butik.
 
 Vad ditt verkliga affärsscenario än är går det att etablera en motsvarande digital instans via Azure Digital Twins.
 
@@ -94,7 +94,7 @@ Azure Digital Twins är användbart för att representera den fysiska världen o
 
 Azure Digital Twins använder Azure IoT Hub för att ansluta IoT-enheter och -sensorer som håller allt uppdaterat med den fysiska världen. Följande diagram visar hur Azure Digital Twins relaterar till andra Azure IoT-tjänster.
 
-![Azure Digital Twins är en tjänst som bygger på Azure IoT Hub](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+![Azure Digital Twins är en tjänst som bygger på Azure IoT Hub][1]
 
 Läs mer om IoT [Azure IoT-tekniker och lösningar](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
 
@@ -102,15 +102,18 @@ Läs mer om IoT [Azure IoT-tekniker och lösningar](https://docs.microsoft.com/a
 
 Se en kort demonstration om Azure Digital Twins:
 
-> [!div class="nextstepaction"]
-> [Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins](./quickstart-view-occupancy-dotnet.md)
+>[!div class="nextstepaction"]
+>[Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins](./quickstart-view-occupancy-dotnet.md)
 
 Titta noga på ett program för anläggningshantering med hjälp av Azure Digital Twins:
 
-> [!div class="nextstepaction"]
-> [Självstudie: Distribuera Azure Digital Twins och konfigurera ett spatialt diagram](./tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[Självstudie: Distribuera Azure Digital Twins och konfigurera ett spatialt diagram](./tutorial-facilities-setup.md)
 
 Läs mer om grundläggande Azure Digital Twins-begrepp:
 
-> [!div class="nextstepaction"]
-> [Förstå Digital Twins-objektmodellen och diagram för spatial intelligens](./concepts-objectmodel-spatialgraph.md)
+>[!div class="nextstepaction"]
+>[Förstå Digital Twins-objektmodellen och diagram för spatial intelligens](./concepts-objectmodel-spatialgraph.md)
+
+<!-- Images -->
+[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

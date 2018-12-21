@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f7b3826e1e77933b49f0a742ebf8dfb994bf7ea9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fb8e2b11ce6178c10fb9dc7d13c5c7d817ece821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848739"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344116"
 ---
-# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Köra frågor mor Azure Cosmos DB-data med SQL-frågor
+# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>SQL-frågeexempel för att köra frågor mot data rån Azure Cosmos DB
 
 Azure Cosmos DB stöder frågekörning mot objekt med hjälp av SQL (Structured Query Language) som JSON-frågespråk på SQL API-konton. Vid utformningen av frågespråket för Azure Cosmos DB beaktas följande två mål:
 
@@ -21,7 +21,7 @@ Azure Cosmos DB stöder frågekörning mot objekt med hjälp av SQL (Structured 
 
 * Azure Cosmos DB använder JavaScript-programmeringsmodellen som grund för frågespråket. SQL API grundas på typsystemet, uttrycksutvärderingen och funktionsanropen i JavaScript. Den här ger i sin tur en naturlig programmeringsmodell för relationella projektioner, hierarkisk navigering mellan JSON-objekt, självkopplingar, spatiella förfrågningar och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript, bland andra funktioner.
 
-Den här artikeln vägleder dig igenom några SQL-exempelfrågor med hjälp av enkla JSON-objekt. Mer information om syntaxen för Azure Cosmos DB SQL-språket finns i artikeln [SQL-syntaxreferens](sql-api-sql-query-reference.md).
+Den här artikeln vägleder dig igenom några SQL-exempelfrågor med hjälp av enkla JSON-objekt. Mer information om syntaxen för Azure Cosmos DB SQL-språket finns i artikeln [SQL-syntaxreferens](sql-api-query-reference.md).
 
 ## <a id="GettingStarted"></a>Kom igång med SQL-kommandon
 
@@ -86,7 +86,7 @@ Här är ett andra objekt med en subtil skillnad – `givenName` och `familyName
 
 Nu provar vi några frågor mot dessa data för att förstå några av de viktigaste aspekterna i Azure Cosmos DB:s SQL-frågespråk.
 
-**Fråga1**: Till exempel returnerar följande fråga de objekt där ID-fältet matchar `AndersenFamily`. Eftersom det är en `SELECT *` är utdata för frågan det fullständiga JSON-objektet. Mer information om syntaxen finns i [SELECT-instruktionen](sql-api-sql-query-reference.md#select-query):
+**Fråga1**: Till exempel returnerar följande fråga de objekt där ID-fältet matchar `AndersenFamily`. Eftersom det är en `SELECT *` är utdata för frågan det fullständiga JSON-objektet. Mer information om syntaxen finns i [SELECT-instruktionen](sql-api-query-reference.md#select-query):
 
 ```sql
     SELECT *
@@ -166,7 +166,7 @@ Här följer några aspekter av Cosmos DB-frågespråket via de exempel som du h
 
 ## <a id="SelectClause"></a>Select-sats
 
-Varje fråga består av en SELECT-sats och valfria FROM- och WHERE-satser enligt ANSI-SQL-standarderna. Vanligtvis räknas källan i FROM-satsen upp för varje fråga. Sedan tillämpas filtret i WHERE-satsen på källan för att hämta en delmängd av JSON-objekt. Slutligen används SELECT-satsen för att beräkna de begärda JSON-värdena i select-listan. Läs om syntaxen i [SELECT-syntax](sql-api-sql-query-reference.md#bk_select_query).
+Varje fråga består av en SELECT-sats och valfria FROM- och WHERE-satser enligt ANSI-SQL-standarderna. Vanligtvis räknas källan i FROM-satsen upp för varje fråga. Sedan tillämpas filtret i WHERE-satsen på källan för att hämta en delmängd av JSON-objekt. Slutligen används SELECT-satsen för att beräkna de begärda JSON-värdena i select-listan. Läs om syntaxen i [SELECT-syntax](sql-api-query-reference.md#bk_select_query).
 
 I följande exempel visas en typisk SELECT-fråga.
 
@@ -260,7 +260,7 @@ Vi tittar på rollen för `$1` här. Satsen `SELECT` behövs för att skapa ett 
 
 ## <a id="FromClause"></a>FROM-sats
 
-FROM-satsen <from_specification> är valfri såvida inte källan filtreras eller projiceras senare i frågan. Läs om syntaxen i [FROM-syntax](sql-api-sql-query-reference.md#bk_from_clause). En fråga som `SELECT * FROM Families` anger att hela Families-containern är den källa över vilken det ska räknas upp. En särskild identifierar-ROOT kan användas för att representera containern i stället för containerns namn används.
+FROM-satsen <from_specification> är valfri såvida inte källan filtreras eller projiceras senare i frågan. Läs om syntaxen i [FROM-syntax](sql-api-query-reference.md#bk_from_clause). En fråga som `SELECT * FROM Families` anger att hela Families-containern är den källa över vilken det ska räknas upp. En särskild identifierar-ROOT kan användas för att representera containern i stället för containerns namn används.
 Följande lista innehåller de regler som tillämpas per fråga:
 
 * Containern kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller bara `SELECT f.id FROM Families f`. Här motsvarar `f` `Families`. `AS` är ett valfritt nyckelord för ge identifieraren ett alias.  
@@ -313,7 +313,7 @@ Källan kan även reduceras till en mindre delmängd. Till exempel skulle underr
     ]
 ```
 
-I exemplet ovan användes en matris som källa, men det skulle även gå att använda ett objekt som källa. Detta visas i följande exempel: alla giltiga JSON-värden (ej odefinierat) som kan hittas i källan kan ingå i frågans resultat. Om några familjer inte har ett `address.state`-värde ingår de inte i frågeresultatet.
+I exemplet ovan används en matris som källa, men det går även att använda ett objekt som källa. Detta visas i följande exempel: Alla giltiga JSON-värden (ej odefinierade) som finns i källan övervägs för inkludering i frågans resultat. Om några familjer inte har ett `address.state`-värde ingår de inte i frågeresultatet.
 
 **Fråga**
 
@@ -333,7 +333,7 @@ I exemplet ovan användes en matris som källa, men det skulle även gå att anv
 
 ## <a id="WhereClause"></a>WHERE-sats
 
-WHERE-satsen (**`WHERE <filter_condition>`**) är valfri. Den anger de villkor som de JSON-objekt som tillhandahålls av källan måste uppfylla för att inkluderas i resultatet. JSON-objekt måste utvärdera de angivna villkoren till ”true” (sant) för att kunna inkluderas i resultatet. WHERE-satsen används av indexlagret för att avgöra den absoluta minsta delmängden av källobjekt som kan ingå i resultatet. Läs om syntaxen i [WHERE-syntax](sql-api-sql-query-reference.md#bk_where_clause).
+WHERE-satsen (**`WHERE <filter_condition>`**) är valfri. Den anger de villkor som de JSON-objekt som tillhandahålls av källan måste uppfylla för att inkluderas i resultatet. JSON-objekt måste utvärdera de angivna villkoren till ”true” (sant) för att kunna inkluderas i resultatet. WHERE-satsen används av indexlagret för att avgöra den absoluta minsta delmängden av källobjekt som kan ingå i resultatet. Läs om syntaxen i [WHERE-syntax](sql-api-query-reference.md#bk_where_clause).
 
 Följande fråga begär objekt som innehåller en namnegenskapen vars värde är `AndersenFamily`. Andra objekt som inte har en namnegenskap, eller där värdet inte motsvarar `AndersenFamily`, utesluts.
 
@@ -1411,14 +1411,14 @@ Med funktionerna för typkontroll kan du kontrollera typen av ett uttryck i SQL-
 
 | **Användning** | **Beskrivning** |
 |-----------|------------|
-| [IS_ARRAY (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array) | Returnerar ett booleskt värde som anger huruvida värdets typ är en matris. |
-| [IS_BOOL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett booleskt värde. |
-| [IS_NULL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null) | Returnerar ett booleskt värde som anger huruvida värdets typ är null. |
-| [IS_NUMBER (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett tal. |
-| [IS_OBJECT (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett JSON-objekt. |
-| [IS_STRING (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string) | Returnerar ett booleskt värde som anger huruvida värdets typ är en sträng. |
-| [IS_DEFINED (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined) | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. |
-| [IS_PRIMITIVE (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive) | Returnerar ett booleskt värde som anger huruvida värdets typ är en sträng, ett tal, ett booleskt värde eller null. |
+| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Returnerar ett booleskt värde som anger huruvida värdets typ är en matris. |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett booleskt värde. |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | Returnerar ett booleskt värde som anger huruvida värdets typ är null. |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett tal. |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett JSON-objekt. |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | Returnerar ett booleskt värde som anger huruvida värdets typ är en sträng. |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | Returnerar ett booleskt värde som anger huruvida värdets typ är en sträng, ett tal, ett booleskt värde eller null. |
 
 Med hjälp av de här funktionerna kan du nu köra frågor på det sätt som visas i följande exempel:
 
@@ -1440,22 +1440,22 @@ Följande skalärfunktioner utför en åtgärd på ett strängindatavärde och r
 
 | Användning | Beskrivning |
 | --- | --- |
-| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) | Returnerar antalet tecken i det angivna stränguttrycket |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) | Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden. |
-| [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) | Returnerar en del av ett stränguttryck. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket börjar med det andra |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket slutar med det andra |
-| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) | Returnerar startpositionen för den första förekomsten av det andra stränguttrycket i det första angivna stränguttrycket eller -1 om strängen inte hittas. |
-| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) | Returnerar den vänstra delen av en sträng med det angivna antalet tecken. |
-| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) | Returnerar den högra delen av en sträng med det angivna antalet tecken. |
-| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) | Returnerar ett stränguttryck efter att inledande blanksteg har tagits bort. |
-| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) | Returnerar ett stränguttryck efter att efterföljande blanksteg har trunkerats. |
-| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) | Returnerar ett stränguttryck efter att teckendata med versaler har konverterats till gemener. |
-| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) | Returnerar ett stränguttryck efter att teckendata med gemener har konverterats till versaler. |
-| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) | Ersätter alla förekomster av ett angivet strängvärde med ett annat strängvärde. |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Returnerar antalet tecken i det angivna stränguttrycket |
+| [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden. |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Returnerar en del av ett stränguttryck. |
+| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket börjar med det andra |
+| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket slutar med det andra |
+| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra. |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Returnerar startpositionen för den första förekomsten av det andra stränguttrycket i det första angivna stränguttrycket eller -1 om strängen inte hittas. |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Returnerar den vänstra delen av en sträng med det angivna antalet tecken. |
+| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Returnerar den högra delen av en sträng med det angivna antalet tecken. |
+| [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Returnerar ett stränguttryck efter att inledande blanksteg har tagits bort. |
+| [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | Returnerar ett stränguttryck efter att efterföljande blanksteg har trunkerats. |
+| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Returnerar ett stränguttryck efter att teckendata med versaler har konverterats till gemener. |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | Returnerar ett stränguttryck efter att teckendata med gemener har konverterats till versaler. |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Ersätter alla förekomster av ett angivet strängvärde med ett annat strängvärde. |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | Upprepar ett strängvärde ett angivet antal gånger. |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) | Returnerar den omvända ordningen av ett strängvärde. |
+| [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Returnerar den omvända ordningen av ett strängvärde. |
 
 Med hjälp av de här funktionerna kan du nu köra frågor på följande sätt. Till exempel kan du returnera efternamnet i versaler på följande sätt:
 
@@ -1522,10 +1522,10 @@ Följande skalärfunktioner utför en åtgärd på ett matrisindatavärde och re
 
 | Användning | Beskrivning |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Returnerar antalet element i det angivna matrisuttrycket. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Returnerar en matris som är resultatet av en sammanfogning av två eller fler matrisvärden. |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Returnerar ett booleskt värde som anger huruvida matrisen innehåller det angivna värdet. Kan ange om matchningen är fullständig eller partiell. |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Returnerar en del av ett matrisuttryck. |
+| [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Returnerar antalet element i det angivna matrisuttrycket. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |Returnerar en matris som är resultatet av en sammanfogning av två eller fler matrisvärden. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Returnerar ett booleskt värde som anger huruvida matrisen innehåller det angivna värdet. Kan ange om matchningen är fullständig eller partiell. |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |Returnerar en del av ett matrisuttryck. |
 
 Matrisfunktioner kan användas för att manipulera matriser i JSON. Här är till exempel en fråga som returnerar alla objekt där en av föräldrarna är ”Robin Wakefield”. 
 
@@ -1627,7 +1627,7 @@ Bilden nedan visar arkitekturen för att stödja LINQ-frågor med hjälp av Cosm
 
 ### <a name="net-and-json-mapping"></a>.NET- och JSON-mappning
 
-Mappningen mellan .NET-objekt och JSON-objekt är naturlig – varje datamedlemsfält mappas till ett JSON-objekt, där fältnamnet mappas till ”nyckeldelen” i objektet och ”värdedelen” rekursivt mappas till värdedelen i objektet. Ta följande som exempel: familjeobjektet mappas till JSON-objektet enligt bilden nedan. Och omvänt mappas JSON-objektet tillbaka till ett .NET-objekt.
+Mappningen mellan .NET-objekt och JSON-objekt är naturlig – varje datamedlemsfält mappas till ett JSON-objekt, där fältnamnet mappas till ”nyckeldelen” i objektet och ”värdedelen” rekursivt mappas till värdedelen i objektet. Ta följande som exempel: Familjeobjektet mappas till JSON-objektet enligt bilden nedan. Och omvänt mappas JSON-objektet tillbaka till ett .NET-objekt.
 
 **C#-klass**
 
@@ -1738,15 +1738,15 @@ Här är en lista över LINQ-operatorer som stöds i den LINQ-provider som ingå
 * **Select**: Projektioner översätts till SQL SELECT inklusive objektkonstruktion
 * **Where**: Filter översätter till SQL WHERE och stöder översättning mellan && , || och ! till SQL-operatorerna
 * **SelectMany**: Tillåter uppspolning av matriser till SQL JOIN-satsen. Kan användas för att kedja/kapsla uttryck för att filtrera på matriselement
-* **OrderBy och OrderByDescending**: Översätts till ORDER BY (Sortera efter) stigande/fallande
+* **OrderBy och OrderByDescending**: Översätts till ORDER BY ascending/descending (stigande/fallande)
 * Operatorerna **Count**, **Sum**, **Min**, **Max** och **Average** för sammansättning och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** och **AverageAsync**.
 * **CompareTo**: Översätts till intervalljämförelser. Används ofta för strängar eftersom de inte är jämförbara i .NET
 * **Take**: Översätts till SQL TOP för att begränsa resultat av en fråga
 * **Math Functions** (Matematikfunktioner): Stöder översättning från .NET:s Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan och Truncate till motsvarande inbyggda SQL-funktioner.
 * **String Functions** (Strängfunktioner): Stöder översättning från .NET:s Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString och ToUpper till motsvarande inbyggda SQL-funktioner.
-* **Array Functions** (Matrisfunktioner): Stöder översättning från .NET:s Concat, Contains och Count till motsvarande inbyggda SQL-funktioner.
-* **Geospatial Extension Functions** (Geospatiala tilläggsfunktioner): Stöder översättning från stub-metoderna Distance, Within, IsValid och IsValidDetailed till motsvarande inbyggda SQL-funktioner.
-* **User-Defined Function Extension Function** (Användardefinierad tilläggsfunktion): Stöder översättning från stub-metoden UserDefinedFunctionProvider.Invoke till motsvarande inbyggda SQL-funktion.
+* **Matrisfunktioner** (Matrisfunktioner): Stöder översättning från .NET:s Concat, Contains och Count till motsvarande inbyggda SQL-funktioner.
+* **Geospatial Extension Functions** (Geospatiala tilläggsfunktioner): Stöder översättning från stubbmetoderna Distance, Within, IsValid och IsValidDetailed till motsvarande inbyggda SQL-funktioner.
+* **User-Defined Function Extension Function** (Användardefinierad tilläggsfunktion): Stöder översättning från stubbmetoden UserDefinedFunctionProvider.Invoke till motsvarande inbyggda SQL-funktion.
 * **Miscellaneous** (Övrigt): Stöder översättning av Coalesce och de villkorliga operatorerna. Kan översätta Contains till String CONTAINS, ARRAY_CONTAINS eller SQL IN beroende på kontext.
 
 ### <a name="sql-query-operators"></a>SQL-frågeoperatorer
@@ -2117,7 +2117,7 @@ För att hantera datakonsekvensprincipen för frågor använder du `x-ms-consist
 
 Om den konfigurerade indexeringsprincipen i containern inte har stöd för den angivna frågan returnerar Azure Cosmos DB-servern 400 ”Bad Request” (Felaktig begäran). Det här felmeddelandet returneras för intervallfrågor mot sökvägar som konfigurerats för hash-sökningar (likhet) och för sökvägar som uttryckligen exkluderas från indexering. `x-ms-documentdb-query-enable-scan`-huvudet kan anges att tillåta att frågan utför en genomsökning när ett index inte är tillgängligt.
 
-Du kan få detaljerade mått om frågekörning genom att ange `x-ms-documentdb-populatequerymetrics`-huvudet till `True`. Mer information finns i avsnittet om [SQL-frågemått för Azure Cosmos DB](sql-api-sql-query-metrics.md).
+Du kan få detaljerade mått om frågekörning genom att ange `x-ms-documentdb-populatequerymetrics`-huvudet till `True`. Mer information finns i avsnittet om [SQL-frågemått för Azure Cosmos DB](sql-api-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 
@@ -2253,14 +2253,14 @@ I följande exempel visas hur du använder queryDocuments i JavaScript-server-AP
 ## <a id="References"></a>Referenser
 
 1. [Introduktion till Azure Cosmos DB][introduction]
-2. [Azure Cosmos DB SQL-specifikation](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [Azure Cosmos DB SQL-specifikation](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Konsekvensnivåer i Azure Cosmos DB][consistency-levels]
-5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [http://json.org/](http://json.org/)
-7. JavaScript-specifikation [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Frågeutvärderingstekniker för stora databaser [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON [https://json.org/](https://json.org/)
+7. JavaScript-specifikation [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+9. Frågeutvärderingstekniker för stora databaser [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.

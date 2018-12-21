@@ -1,5 +1,5 @@
 ---
-title: Skapa en Node.js- och MongoDB-webbapp i Azure | Microsoft Docs
+title: Skapa Node.js-app med MongoDB – Azure App Service | Microsoft Docs
 description: Lär dig att få en Node.js-app att fungera i Azure med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,21 +14,21 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 2363f7f2e17bfc451ea9fd5486ba60fbc8ccb993
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 3666af764fa20a8343addedbddcdb12de0daf4a1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364293"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251512"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Självstudie: Skapa en Node.js- och MongoDB-webbapp i Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Självstudier: Skapa en Node.js- och MongoDB-webbapp i Azure
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js- och MongoDB-webbapp i Azure App Service på Linux](./containers/tutorial-nodejs-mongodb-app.md).
 >
 
-Med Azure Web Apps får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. I den här självstudien visas hur du skapar en Node.js-webbapp i Azure och ansluter den till en MongoDB-databas. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i [Azure App Service](app-service-web-overview.md). För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](http://meanjs.org/).
+Med Azure Web Apps får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. I den här självstudien visas hur du skapar en Node.js-webbapp i Azure och ansluter den till en MongoDB-databas. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i [Azure App Service](app-service-web-overview.md). För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](https://meanjs.org/).
 
 ![MEAN.js-app som körs i Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -49,10 +49,10 @@ Detta får du får lära dig:
 För att slutföra den här självstudien behöver du:
 
 1. [Installera Git](https://git-scm.com/)
-1. [Installera Node.js och NPM](https://nodejs.org/)
-1. [Installera Bower](https://bower.io/) (krävs för [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Installera Gulp.js](http://gulpjs.com/) (krävs för [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Installera och kör MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+2. [Installera Node.js och NPM](https://nodejs.org/)
+3. [Installera Bower](https://bower.io/) (krävs för [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+4. [Installera Gulp.js](https://gulpjs.com/) (krävs för [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+5. [Installera och kör MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## <a name="test-local-mongodb"></a>Testa lokal MongoDB
 
@@ -249,7 +249,7 @@ Gå till `http://localhost:8443` i en webbläsare. Klicka på alternativet för 
 
 I terminalen stoppar du Node.js genom att skriva `Ctrl+C`. 
 
-## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
 
 I det här steget distribuerar du ditt MongoDB-anslutna Node.js-program till Azure App Service.
 
@@ -310,10 +310,10 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
-Du kanske märker att distributionsprocessen kör [Gulp](http://gulpjs.com/) efter `npm install`. App Service kör inte Gulp- eller Grunt-uppgifter under distributionen. Den här exempellagringsplatsen har två extra filer i rotkatalogen för detta: 
+Du kanske märker att distributionsprocessen kör [Gulp](https://gulpjs.com/) efter `npm install`. App Service kör inte Gulp- eller Grunt-uppgifter under distributionen. Den här exempellagringsplatsen har två extra filer i rotkatalogen för detta: 
 
 - _.deployment_ – Den här filen skickar ett meddelande till App Service om att köra `bash deploy.sh` som anpassat distributionsskript.
 - _deploy.sh_ – Det anpassade distributionsskriptet. Om du granskar filen ser du att den kör `gulp prod` efter `npm install` och `bower install`. 

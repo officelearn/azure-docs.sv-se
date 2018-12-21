@@ -1,5 +1,5 @@
 ---
-title: Självstudie om att lägga till automatisk komplettering i sökrutan med Azure Search | Microsoft Docs
+title: Självstudie om att lägga till automatisk komplettering i sökrutan – Azure Search
 description: Exempel på hur vi kan förbättra användarens upplevelse av ditt datacentrerade program med hjälp av Azure Search-API:er för automatisk komplettering och förslag.
 manager: pablocas
 author: mrcarter8
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578182"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316190"
 ---
-# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Självstudie: Lägga till automatisk komplettering i sökrutan med Azure Search
+# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Självstudie: Lägga till automatisk komplettering i sökrutan med hjälp av Azure Search
 
 I den här självstudien får du lära dig hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions), [automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) och [fasetter](search-faceted-navigation.md) i [REST-API:et för Azure Search](https://docs.microsoft.com/rest/api/searchservice/) och [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) för att skapa en kraftfull sökruta. Med *förslag* ges rekommendationer av faktiska resultat utifrån det som användaren har skrivit hittills. *Komplettera automatiskt* är [en ny funktion (förhandsversion)](search-api-preview.md) i Azure Search, som tillhandahåller ord från index för att komplettera det som användaren skriver. Vi jämför flera tekniker för att förbättra användarproduktiviteten så att användarna snabbt och enkelt kan hitta det som de söker efter direkt medan de skriver.
 

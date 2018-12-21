@@ -4,22 +4,22 @@ description: Använd händelseroutningstjänsten i Azure Event Grid och skapa au
 services: iot-hub
 documentationcenter: ''
 author: kgremban
-manager: timlt
+manager: philmea
 editor: ''
 ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242527"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135023"
 ---
-# <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Självstudie: Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps
 
 Med Azure Event Grid kan du reagera på händelser i IoT Hub genom att utlösa åtgärder i underordnade företagsprogram.
 
@@ -37,19 +37,16 @@ Börja med att skapa en logikapp och lägg till en utlösare för händelserutn�
 
 ### <a name="create-a-logic-app-resource"></a>Skapa en resurs för en logikapp
 
-1. I [Azure-portalen ](https://portal.azure.com)väljer du **Nytt** > **Integration** > **Logikapp**.
+1. På [Azure-portalen](https://portal.azure.com) väljer du **Skapa en resurs** > **Integrering** > **Logikapp**.
 
    ![Skapa en logikapp](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. Ge logikappen ett namn som är unikt i din prenumeration och välj sedan samma prenumeration, resursgrupp och plats som din IoT-hubb. 
-3. När du är klar väljer du **Fäst på instrumentpanelen** och sedan **Skapa**.
+3. Välj **Skapa**.
 
-   Du har nu skapat en Azure-resurs för din logikapp. När Azure distribuerar din logikapp visar Logic Apps Designer mallar för vanliga mönster så kan du sätta igång snabbare.
+4. När resursen har skapats går du till din logikapp. 
 
-   > [!NOTE] 
-   > När du väljer **Fäst på instrumentpanelen** öppnas logikappen automatiskt i Logic Apps-designern. Om inte kan du leta upp och öppna logikappen manuellt.
-
-4. Välj **Tom logikapp** under **Mallar** i Logic Apps-designern, så att du kan skapa din logikapp från grunden.
+5. Logic Apps Designer visar mallar för vanliga mönster så att du kan komma igång snabbare. Välj **Tom logikapp** under **Mallar** i Logic Apps-designern, så att du kan skapa din logikapp från grunden.
 
 ### <a name="select-a-trigger"></a>Välj en utlösare
 
@@ -66,51 +63,51 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 
 4. Klistra in följande JSON-exempelkod i textrutan och välj sedan **Klar**:
 
-```json
-[{
-  "id": "56afc886-767b-d359-d59e-0da7877166b2",
-  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
-  "subject": "devices/LogicAppTestDevice",
-  "eventType": "Microsoft.Devices.DeviceCreated",
-  "eventTime": "2018-01-02T19:17:44.4383997Z",
-  "data": {
-    "twin": {
-      "deviceId": "LogicAppTestDevice",
-      "etag": "AAAAAAAAAAE=",
-      "deviceEtag": "null",
-      "status": "enabled",
-      "statusUpdateTime": "0001-01-01T00:00:00",
-      "connectionState": "Disconnected",
-      "lastActivityTime": "0001-01-01T00:00:00",
-      "cloudToDeviceMessageCount": 0,
-      "authenticationType": "sas",
-      "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-      },
-      "version": 2,
-      "properties": {
-        "desired": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        },
-        "reported": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        }
-      }
-    },
-    "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
+   ```json
+   [{
+     "id": "56afc886-767b-d359-d59e-0da7877166b2",
+     "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+     "subject": "devices/LogicAppTestDevice",
+     "eventType": "Microsoft.Devices.DeviceCreated",
+     "eventTime": "2018-01-02T19:17:44.4383997Z",
+     "data": {
+       "twin": {
+         "deviceId": "LogicAppTestDevice",
+         "etag": "AAAAAAAAAAE=",
+         "deviceEtag": "null",
+         "status": "enabled",
+         "statusUpdateTime": "0001-01-01T00:00:00",
+         "connectionState": "Disconnected",
+         "lastActivityTime": "0001-01-01T00:00:00",
+         "cloudToDeviceMessageCount": 0,
+         "authenticationType": "sas",
+         "x509Thumbprint": {
+           "primaryThumbprint": null,
+           "secondaryThumbprint": null
+         },
+         "version": 2,
+         "properties": {
+           "desired": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           },
+           "reported": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           }
+         }
+       },
+       "hubName": "egtesthub1",
+       "deviceId": "LogicAppTestDevice"
+     },
+     "dataVersion": "1",
+     "metadataVersion": "1"
+   }]
+   ```
 
 5. Ett popup-meddelande med texten **Remember to include a Content-Type header set to application/json in your request** (Glöm inte att ta med ett Content-Type-huvud konfigurerat till application/json i din begäran). Du kan ignorera det här förslaget och gå vidare till nästa avsnitt. 
 
@@ -119,16 +116,20 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 Åtgärder är alla steg som utförs när utlösaren har startat logikappens arbetsflöde. I den här självstudiekursen är åtgärden att skicka ett e-postmeddelande från din e-postleverantör. 
 
 1. Välj **Nytt steg**. Ett fönster öppnas med alternativet **Välj en åtgärd**.
+
 2. Sök efter **E-post**.
+
 3. Baserat på din e-leverantör söker du och väljer matchande anslutningsapp. I den här självstudiekursen används **Office 365 Outlook**. Stegen för andra e-postleverantörer liknar dessa. 
 
    ![Välj anslutningsprogram för e-postleverantör](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
 
 4. Välj åtgärden **Skicka ett e-postmeddelande**. 
+
 5. Logga in på ditt e-postkonto om du uppmanas att göra det. 
+
 6. Skapa e-postmallen. 
-   * **Till**: Ange e-postadressen som meddelandena ska skickas till. I den här självstudiekursen använder du ett e-postkonto som du kan komma åt för testning. 
-   * **Ämne** och **Brödtext**: Skriv e-postmeddelandets text. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata.  
+   * **Till**: Ange den e-postadress som meddelandena ska skickas till. I den här självstudiekursen använder du ett e-postkonto som du kan komma åt för testning. 
+   * **Ämne** och **Meddelandetext**: Skriv e-postmeddelandets text. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata.  
 
    Din e-postmall kanske liknar den i det här exemplet:
 
@@ -161,22 +162,24 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
    ![Skapa ny händelseprenumeration](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Skapa händelseprenumerationen med följande värden: 
-    * **Händelsetyp**: avmarkera Prenumerera på alla händelsetyper och välj **En enhet har skapats** på menyn.
-    * **Information om slutpunkten**: Välj slutpunktstypen **Webhook** och klicka på den valda slutpunkten. Klistra in webbadressen som du kopierade från logikappen och bekräfta valet.
+    * **Händelsetyp**: Avmarkera Prenumerera på alla händelsetyper och välj **En enhet har skapats** på menyn.
+    * **Information om slutpunkten**: Välj slutpunktstypen **Webhook** och klicka på den valda slutpunkten. Klistra in den webbadress som du kopierade från logikappen och bekräfta valet.
 
     ![webbadress till vald slutpunkt](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
     * **Information om händelseprenumeration**: Ange ett beskrivande namn och välj **Event Grid-schema**
 
-  Du kan spara händelseprenumerationen här och få meddelanden för alla enheter som har skapats i IoT-hubben. I den här självstudiekursen ska vi dock använda de valfria fälten för att filtrera fram specifika enheter: 
-
-  * **Ämnet börjar med**: Ange `devices/Building1_` för att filtrera fram enhetshändelser i byggnad 1.
-  * **Ämnet slutar med**: Ange `_Temperature` för att filtrera fram enhetshändelser relaterade till temperatur.
-
   När du är klar bör formuläret likna det i följande exempel: 
 
     ![Exempelformulär för händelseprenumeration](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
-    
+
+5. Du kan spara händelseprenumerationen här och få meddelanden för alla enheter som har skapats i IoT-hubben. I den här självstudien ska vi dock använda de valfria fälten för att filtrera efter specifika enheter. Välj **Ytterligare funktioner** längst upp i formuläret. 
+
+6. Skapa följande filter:
+
+  * **Ämne börjar med**: Ange `devices/Building1_` för att filtrera fram enhetshändelser i byggnad 1.
+  * **Ämne slutar med**: Ange `_Temperature` för att filtrera fram enhetshändelser relaterade till temperatur.
+
 5. Spara händelseprenumerationen genom att välja **Skapa**.
 
 ## <a name="create-a-new-device"></a>Skapa en ny enhet

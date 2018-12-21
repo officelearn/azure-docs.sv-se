@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 8b9daa0fbbf84e0f602498a0847c9e120f709b17
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057940"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408944"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Snabbstart: Skapa ett kluster för Azure Batch AI-träningsjobb med Azure-portalen
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Den här snabbstarten visar hur du använder Azure-portalen för att skapa ett Batch AI-kluster som du kan använda för att träna modeller med AI och maskininlärning. Azure Batch AI är en hanterad tjänst som datatekniker och AI-forskare kan använda för att träna modeller med AI och maskininlärning i stor skala på kluster av virtuella Azure-datorer.
 

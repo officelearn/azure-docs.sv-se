@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: API för nyhetssökning i Bing, Java'
+title: 'Snabbstart: Utföra en webbsökning med C# – REST-API:et för webbsökning i Bing'
 titlesuffix: Azure Cognitive Services
-description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med att använda API:et för nyhetssökning i Bing i Microsoft Cognitive Services på Azure.
+description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för nyhetssökning i Bing med hjälp av Java och få ett JSON-svar.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: d8ab0e10e8332cf2305185849d6446d679210845
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 9933f1c54e6081ed3f1004712543610a7883736b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316845"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260964"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-java"></a>Snabbstart för API:et för nyhetssökning i Bing med Java
+# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Snabbstart: Utföra en nyhetssökning med hjälp av Java och REST-API:et för nyhetssökning i Bing
 
 Den här artikeln visar hur använder API:n för Bing-sökning, som ingår i Microsoft Cognitive Services i Azure. Även om den här artikeln använder Java, är API:n en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
 

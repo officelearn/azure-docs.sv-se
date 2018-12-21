@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 6f5ed4e7ede9a098d69b7a40f44dd60f9b400472
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fa498c39123e09c212466c900e6000c0138db467
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010998"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413106"
 ---
 # <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Förstå lagringshierarkin för Azure NetApp Files
 
@@ -35,17 +35,19 @@ Innan du skapar en volym i Azure NetApp Files måste du köpa och konfigurera en
 ## <a name="capacity_pools"></a>Kapacitetspooler
 
 - En kapacitetspool mäts genom dess etablerade kapacitet.  
-- Kapaciteten etableras via de fasta SKU:er som du köpte (exempelvis en kapacitet på 4 TB).
+- Kapaciteten etableras via de fasta SKU:er som du köpte (exempelvis en kapacitet på 4 TiB).
+- Den minsta storleken för en enda kapacitetspool är 4 TiB och maxstorleken är 500 TiB. 
 - Kapacitetspoolen kan endast ha en servicenivå.  
   För närvarande är endast servicenivån Premium tillgänglig.
-- Varje kapacitetspool tillhör endast ett NetApp-konto.  
+- Varje kapacitetspool kan endast tillhör ett NetApp-konto. Du kan dock ha flera kapacitetspooler inom ett NetApp-konto.  
 - Det går inte att flytta kapacitetspooler mellan NetApp-konton.   
   I [Konceptdiagram över lagringshierarki](#conceptual_diagram_of_storage_hierarchy) nedan kan exempelvis Capacity Pool 1 inte flyttas från NetApp-kontot USA, östra till NetApp-kontot USA, västra 2.  
 
 ## <a name="volumes"></a>Volymer
 
-- En volym mäts efter logisk kapacitetsförbrukning och är skalbar upp till 100 TB per volym.
+- En volym mäts efter logisk kapacitetsförbrukning och är skalbar. Den minsta storleken är 100 TiB och maxstorleken är 92 TiB.
 - En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet.
+-   Du kan ha högst 100 volymer per Azure-prenumeration per region. 
 - Varje volym hör till endast en pool, men en pool kan innehålla flera volymer. 
 - Du kan flytta en volym mellan pooler inom samma NetApp-konto.    
   I [Konceptdiagram över lagringshierarki](#conceptual_diagram_of_storage_hierarchy) nedan kan du till exempel flytta volymerna från Kapacitetspool 1 till Kapacitetspool 2.
@@ -57,7 +59,4 @@ I följande exempel visar vi sambanden mellan Azure-prenumeration, NetApp-konton
 
 ## <a name="next-steps"></a>Nästa steg
 
-1. [Skapa ett NetApp-konto](azure-netapp-files-create-netapp-account.md)
-2. [Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
-3. [Skapa en volym för Azure NetApp Files](azure-netapp-files-create-volumes.md)
-4. [Konfigurera exportprincipen för en volym (valfritt)](azure-netapp-files-configure-export-policy.md)
+[Registrera dig för Azure NetApp Files](azure-netapp-files-register.md)

@@ -2,28 +2,28 @@
 author: MightyPen
 ms.service: sql-database
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 12/06/2018
 ms.author: genemi
-ms.openlocfilehash: b78d52f23de8d02189f10b32d26e070fb6deea68
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: b3b7027e5ae252eb899d2a44d171ea9c9795ab54
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52339739"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286171"
 ---
 <!-- sql-database-connect-query-prerequisites-server-connection-info-includes.md 
 
-## SQL server connection information
+## Get SQL server connection information
 -->
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet, databasnamnet och inloggningsinformationen i nästa procedurer.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**.
+1. Välj **SQL-databaser** på den vänstra menyn och välj sedan din databas på sidan för **SQL-databaser**.
 
-1. Granska serverns fullständiga namn på sidan **Översikt** för databasen, se bilden nedan. Om du hovrar över **servernamnet** visas alternativet **Klicka för att kopiera**.  
+1. Kontrollera det fullständigt kvalificerade servernamnet intill **Servernamn** på databasens sida **Översikt**. Om du vill kopiera servernamnet hovrar du över det och markerar ikonen **Kopiera**.  
 
-   ![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
+![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
 
-1. Om du glömmer inloggningsinformationen för servern kan du klicka på **Servernamn** för att gå till sidan **SQL-server** och visa namnet för **Serveradministratör**. Om det behövs väljer du **Återställ lösenord**.
+Om du har glömt din inloggningsinformation kan du öppna sidan **SQL-server** genom att markera servernamnet. Här kan du visa **serveradministratörsnamnet** och välja **Återställ lösenord** om så behövs.

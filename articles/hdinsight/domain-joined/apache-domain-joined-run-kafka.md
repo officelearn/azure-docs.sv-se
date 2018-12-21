@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0d9ad11ab9a53cf5de51dd3f262dc16054be5d85
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633056"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438616"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudie: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 
 1. Anslut till Ranger-administratörsanvändargränssnittet från en webbläsare med hjälp av URL:en `https://<ClusterName>.azurehdinsight.net/Ranger/`. Kom ihåg att ändra `<ClusterName>` till namnet på ditt Kafka-kluster.
 
-    > [!NOTE] 
+    > [!NOTE]  
     > Ranger-autentiseringsuppgifterna är inte samma som autentiseringsuppgifterna för Hadoop-kluster. Om du vill förhindra att webbläsare använder cachade Hadoop-autentiseringsuppgifter använder du ett nytt InPrivate-webbläsarfönster för att ansluta till Ranger-administratörsgränssnittet.
 
 2. Logga in med dina administratörsautentiseringsuppgifter för Azure Active Directory (AD). Azure AD-administratörsautentiseringsuppgifterna är inte samma som autentiseringsuppgifterna för HDInsight-kluster eller SSH-autentiseringsuppgifterna för Linux HDInsight-noder.
@@ -74,7 +74,7 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
 
    ![Skapa en princip i Apache Ranger-administratörsanvändargränssnittet](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
 
-   >[!NOTE] 
+   >[!NOTE]   
    >Vänta en stund medan Ranger synkroniserar med Azure AD om en domänanvändare inte automatiskt har fyllts i för **Välj användare**.
 
 4. Klicka på **Lägg till** för att spara principen.
@@ -113,13 +113,13 @@ Skapa två ämnen, **salesevents** och **marketingspend**:
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. Använd följande kommandon för att hämta värdarna för Kafka-koordinatortjänsten och Zookeeper. När du blir ombedd att göra det anger du lösenordet till klusteradministratörskontot.
+3. Använd följande kommandon för att hämta värdar för asynkrona Kafka-meddelandeköer och Apache Zookeeper. När du blir ombedd att göra det anger du lösenordet till klusteradministratörskontot.
 
    ```bash
    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
-> [!Note]
+> [!Note]  
 > Innan du fortsätter kan du behöva konfigurera din distributionsmiljö, om du inte redan har gjort det. Du behöver komponenter som Java JDK, Apache Maven och en SSH-klient med scp. Mer information finns i de här [installationsinstruktionerna](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 1. Ladda ned [exemplen på Apache Kafka-domänansluten producent/konsument](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
@@ -132,7 +132,7 @@ Skapa två ämnen, **salesevents** och **marketingspend**:
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
-   >[!NOTE] 
+   >[!NOTE]   
    >Endast Kafka-tjänstens processägare, till exempel roten, kan skriva till Zookeeper-znodes `/config/topics`. Ranger-principer tillämpas inte när en icke-privilegierad användare skapar ett ämne. Detta beror på att `kafka-topics.sh`-skriptet kommunicerar direkt med Zookeeper för att skapa ämnet. Poster läggs till i Zookeeper-noderna medan bevakarna på koordinatortjänstens sida övervakar och skapar relevanta ämnen. Auktoriseringen kan inte utföras via Ranger-plugin-programmet, och ovanstående kommando körs med hjälp av `sudo` via Kafka-koordinatorn.
 
 
@@ -210,5 +210,5 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ta med din egen nyckel till Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [En introduktion till Hadoop-säkerhet med Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+* [Ta med din egen nyckel till Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
+* [En introduktion till Apache Hadoop-säkerhet med Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Kör ett Spark-jobb på Azure Databricks med en Resource Manager-mall '
+title: 'Snabbstart: Köra ett Spark-jobb på Azure Databricks med en Resource Manager-mall '
 description: Snabbstarten visar hur du använder Azure Resource Manager-mallen för att skapa en arbetsyta för Azure Databricks, sedan skapa ett Apache Spark-kluster och därefter köra ett Spark-jobb.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 87aaf7108fabe0e4d96c4a2edd15db8531f1a828
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 793aa52c0eb49d122f520ead3ee80a869e7b62d9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578340"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251342"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snabbstart: Kör ett Spark-jobb på Azure Databricks med Azure Resource Manager-mallen
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Resource Manager-mallen
 
 I den här snabbstarten får du se hur du skapar en Azure Databricks-arbetsyta med en Azure Resource Manager-mall. Du kan använda arbetsytan för att skapa ett Apache Spark-kluster och köra ett Spark-jobb i Databricks-klustret. Mer information om Azure Databricks finns i [Vad är Azure Databricks?](what-is-azure-databricks.md)
 
@@ -80,7 +80,7 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 Innan du börjar med det här avsnittet måste du slutföra följande krav:
 
 * [Skapa ett Azure Blob Storage-konto](../storage/common/storage-quickstart-create-account.md).
-* Ladda ned en exempel-JSON-fil [från Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+* Ladda ned ett exempel på en JSON-fil [från GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 * Ladda upp JSON-exempelfilen till det Azure Blob Storage-konto som du har skapat. Du kan använda [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp filer.
 
 Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfigurera den för att läsa data från ett Azure Blob Storage-konto och kör ett Spark SQL-jobb på data.

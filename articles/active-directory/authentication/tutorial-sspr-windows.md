@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844846"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437154"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -29,8 +29,8 @@ I den här självstudien gör du så att användare kan återställa sina lösen
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * April 2018-uppdateringen för Windows 10 eller en senare klient som är:
-   * [Azure AD-ansluten](../device-management-azure-portal.md) eller 
-   * [Hybrid Azure AD-ansluten](../device-management-hybrid-azuread-joined-devices-setup.md)
+   * [Azure AD-ansluten dator](../device-management-azure-portal.md) eller
+   * [Hybrid Azure AD-ansluten dator](../device-management-hybrid-azuread-joined-devices-setup.md) med en nätverksanslutning till en domänkontrollant.
 * Återställning av lösenord för självbetjäning i Azure AD måste vara aktiverat.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Konfigurera länken Återställ lösenord med Intune
@@ -125,7 +125,11 @@ Det har bekräftats att följande principinställningar stör möjligheten att �
    * EnableLostMode har angetts på enheten
    * Explorer.exe har ersatts med ett anpassat gränssnitt
 
+Den här funktionen fungerar inte för nätverk som distribuerar nätverksautentisering 802.1x och alternativet ”Utför omedelbart innan användaren loggar in”. Nätverk med nätverksautentiseringen 802.1x distribuerad rekommenderas att använda datorautentisering för att aktivera funktionen.
+
 Om dina Windows 10-datorer finns bakom en proxyserver eller brandvägg ska HTTPS-trafik (443) till passwordreset.microsoftonline.com och ajax.aspnetcdn.com tillåtas.
+
+För Hybrid-domänanslutna scenarier så finns ett scenario där SSPR-arbetsflödet slutförs utan att en Active Directory-domänkontrollant behövs. Anslutning med en domänkontrollant krävs när lösenordet ska användas för första gången.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

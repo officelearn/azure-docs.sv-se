@@ -9,12 +9,12 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: f753d7273c685a7ec3e4e0877e171df04e69e5b4
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: da5370e274aa1904f803227d8c85912a7d26c533
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978323"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000661"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Vad är Service Fabric Mesh?
 
@@ -50,6 +50,7 @@ Med Service Fabric Mesh kan du:
 - Distribuera och hantera resurser med hjälp av [Azure-portalen](https://portal.azure.com), Resource Manager-mallar eller Azure CLI/PowerShell-bibliotek.
 - Konfigurera driftsövervakning och -avisering med hjälp av [Application Insights](/azure/application-insights/) (eller valfritt verktyg) för att registrera spårningar för drifts- och diagnostikdata från plattformen.
 - Få diagnostikinformation för program som skickas ut från programmodellen med hjälp av [Application Insights](/azure/application-insights/) eller valfritt verktyg.
+- Optimera resursanvändningen genom att ange regler för automatisk skalning för tjänster i programdefinitionen.
 
 ## <a name="mission-critical-platform-capabilities"></a>Uppdragskritiska plattformsfunktioner
 

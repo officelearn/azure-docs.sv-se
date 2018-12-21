@@ -1,5 +1,5 @@
 ---
-title: Lagra data med Azure IoT Edge SQL-modulen | Microsoft Docs
+title: Självstudie om att lagra data med SQL-modulen – Azure IoT Edge | Microsoft Docs
 description: Lär dig hur du lagrar data lokalt på din IoT Edge-enhet med en SQL Server-modul
 services: iot-edge
 author: kgremban
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834001"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163420"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -87,7 +87,7 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
 
 2. Öppna kommandopaletten i VS Code genom att välja **Visa** > **Kommandopalett**.
 
-3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) i kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
+3. I kommandopaletten skriver och kör du kommandot **Azure IoT Edge: Ny IoT Edge-lösning**. Ange följande information i kommandopaletten för att skapa din lösning: 
 
    | Fält | Värde |
    | ----- | ----- |
@@ -163,7 +163,7 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
                        {
                            //Execute the command and log the # rows affected.
                            var rows = await cmd.ExecuteNonQueryAsync();
-                           log.Info($"{rows} rows were updated");
+                           logger.LogInformation($"{rows} rows were updated");
                        }
                    }
 
@@ -251,7 +251,7 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
    }
    ```
 
-   ![Lägga till en SQL Server-container](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![Lägga till SQL-servermodul till manifest](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. Beroende på typen av Docker-containrar på din IoT Edge-enhet uppdaterar du **sql**-modulparametrarna med följande kod:
    * Windows-containrar:
@@ -324,7 +324,7 @@ När du instruerar Visual Studio Code att skapa din lösning hämtar den först 
 
 Du kan ange moduler på en enhet via IoT Hub, men du kan också komma åt din IoT Hub och enheter via Visual Studio Code. I det här avsnittet kan du konfigurera åtkomst till din IoT Hub och sedan använda VS Code för att distribuera din lösning till IoT Edge-enheten. 
 
-1. Välj **Azure IoT Hub: Välj IoT Hub** i kommandopaletten för VS Code.
+1. I kommandopaletten för VS Code väljer du **Azure IoT Hub: Välj IoT Hub**.
 
 2. Följ anvisningarna för att logga in på ditt Azure-konto. 
 
@@ -416,7 +416,7 @@ Kör följande kommando från SQL-kommandoverktyget för att visa formaterade ta
    GO
    ```
 
-   ![Visa lokala data](./media/tutorial-store-data-sql-server/view-data.png)
+   ![Visa innehållet i en lokal databas](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: Vad är nyhetssökning i Bing?
+title: Vad är API för nyhetssökning i Bing?
 titlesuffix: Azure Cognitive Services
-description: Visar hur du använder API för nyhetssökning i Bing till att söka efter nyheter på internet.
+description: Lär dig hur du använder API för nyhetssökning i Bing för att söka efter aktuella nyheter i flera kategorier på webben, inklusive rubriker och trendande ämnen.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 7a5df20358198e7ccb44ccc60be3ab7716f71ba6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 17383d38b1401149003ad9d1794b3e69284f9033
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227866"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253101"
 ---
-# <a name="what-is-bing-news-search"></a>Vad är nyhetssökning i Bing?
+# <a name="what-is-the-bing-news-search-api"></a>Vad är API för nyhetssökning i Bing?
 
 API för nyhetssökning i Bing fungerar ungefär (men inte exakt) som [Nyhetssökning i Bing](https://www.bing.com/news). Med API för nyhetssökning i Bing kan du skicka sökfrågor till Bing och få tillbaka en lista med relevanta nyhetsartiklar.
 

@@ -5,20 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9fa18b14b82376a25bb434acd770d340b1ef9262
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c0ce4e882f270f5e0c789a608aaada5c6c9cba92
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197144"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323831"
 ---
 Om du har problem med att ansluta kan du kontrollera följande:
 
-- Om du har exporterat ett klientcertifikat kontrollerar du att du har exporterat det som en PFX-fil med standardvärdet ”Ta med om möjligt alla certifikat i certifieringssökvägen”. När du exporterar det med det här värdet exporteras även rotcertifikatinformationen. När certifikatet installeras på klientdatorn installeras även rotcertifikatet som finns i PFX-filen på klientdatorn. Rotcertifikatinformationen måste vara installerad på klientdatorn. Du kan kontrollera detta genom att gå till **Hantera användarcertifikat** och navigera till **Betrodda rotcertifikatutfärdare\Certifikat**. Kontrollera att rotcertifikatet visas i listan. Rotcertifikatet måste finnas för att autentiseringen ska fungera.
+- Om du har exporterat ett klientcertifikat med **Certificate Export Wizard** (guiden för certifikatexport) kontrollerar du att du har exporterat det som en .pfx-fil och valt **Include all certificates in the certification path if possible** (Inkludera alla certifikat i certifieringssökvägen om det är möjligt). När du exporterar det med det här värdet exporteras även rotcertifikatinformationen. När du har installerat certifikatet på klientdatorn installeras även rotcertifikatet i .pfx-filen. Kontrollera att rotcertifikatet har installerats genom att öppna **Hantera användarcertifikat** och välja **Betrodda rotcertifikatutfärdare\certifikat**. Kontrollera att rotcertifikatet finns med. Detta krävs för att autentiseringen ska fungera.
 
-- Om du använder ett certifikat som har utfärdats med en certifikatutfärdarlösning för företag och har problem med autentiseringen kontrollerar du autentiseringsordningen på klientcertifikatet. Du kan kontrollera listan med autentiseringsordningen genom att dubbelklicka på klientcertifikatet och gå till **Information > Förbättrad nyckelanvändning**. Kontrollera att ”Klientautentisering” är den första posten i listan. Annars måste du utfärda ett klientcertifikat baserat på mallen Användare där Klientautentisering är den första posten i listan.
+- Om du använde ett certifikat som utfärdades av en certifikatutfärdarlösning för företag och du inte kan autentisera kontrollerar du autentiseringsordningen på klientcertifikatet. Kontrollera listan med autentiseringsordningen genom att dubbelklicka på klientcertifikatet, välja fliken **Information** och sedan välja **Förbättrad nyckelanvändning**. Kontrollera att *Klientautentisering* är den första posten i listan. Annars utfärdar du ett klientcertifikat baserat på den användarmall där *Klientautentisering* är den första posten i listan.
 
 - Mer information om P2S-felsökning finns i [Felsöka P2S-anslutningar](../articles/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

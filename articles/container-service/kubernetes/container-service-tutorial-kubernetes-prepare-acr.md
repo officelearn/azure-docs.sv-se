@@ -1,24 +1,27 @@
 ---
-title: Självstudie för Azure Container Service – Förbereda ACR
+title: (INAKTUELL) Självstudie om Azure Container Service – Förbereda ACR
 description: Självstudie för Azure Container Service – Förbereda ACR
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 735aca5509373f840c56e28887088f7a696ca137
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c3e5e7c4fb46b3f68013ac857dcad2e5434a978d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024094"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998316"
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container Registry
+# <a name="deprecated-deploy-and-use-azure-container-registry"></a>(INAKTUELL) Distribuera och använda Azure Container Registry
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service finns i [Självstudie: Distribuera och använda Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure Container Registry (ACR) är ett Azure-baserat och privat register för Docker-behållaravbildningar. I den här självstudien, som är del två av sju, får du hjälp att distribuera en instans av Azure Container Registry och att push-överföra en behållaravbildning till den. Det här är några av stegen:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera och transkribera tal, .NET Framework (Windows) – Speech Service'
+title: 'Snabbstart: Taligenkänning, .NET Framework (Windows) – Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av .NET-ramverket för Windows och Speech SDK. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 171d6c6a972d6fa3eb2e96ceacb75dd2fce1eb92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683511"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074903"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Snabbstart: Identifiera och transkribera tal med hjälp av Speech SDK och .NET Framework (Windows)
 

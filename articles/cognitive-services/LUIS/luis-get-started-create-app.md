@@ -1,23 +1,24 @@
 ---
-title: Skapa din första LUIS-app på 10 minuter
-titleSuffix: Azure Cognitive Services
+title: 'Snabbstart: Skapa en app'
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Skapa en LUIS-app där den fördefinierade domänen `HomeAutomation` används till att släcka lampor och stänga av apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 657f5b6879f7782cbd94588657dc0082eff1f9c5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71f3084be697dd84f3f262d2a79cd04a0ba76d8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423338"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086818"
 ---
-# <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda en färdig hemautomatiseringsapp
+# <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda fördefinierad hemautomatisering
 
 I den här snabbstarten skapar du en LUIS-app som använder den fördefinierade domänen `HomeAutomation` för att släcka lampor och stänga av apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
 
@@ -32,11 +33,11 @@ Du kan skapa och hantera dina appar på **Mina appar**.
 
 2. Välj **Create new app** (Skapa ny app).
 
-    [![](media/luis-quickstart-new-app/app-list.png "Skärmbild av applistan")](media/luis-quickstart-new-app/app-list.png)
+    [![Skärmbild av applista](media/luis-quickstart-new-app/app-list.png "Skärmbild av applista")](media/luis-quickstart-new-app/app-list.png)
 
 3. Namnge appen ”Home Automation” (Hemautomatisering) i dialogrutan.
 
-    [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Skärmbild på popup-dialogrutan Create new app (Skapa ny app)")](media/luis-quickstart-new-app/create-new-app-dialog.png)
+    [![Skärmbild av popup-fönstret Skapa ny app](media/luis-quickstart-new-app/create-new-app-dialog.png "Skärmbild av popup-fönstret Skapa ny app")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
 4. Välj programkultur. Välj engelska för appen Home Automation. Välj sedan **Done** (Klar). LUIS skapar appen Home Automation. 
 
@@ -47,11 +48,11 @@ Du kan skapa och hantera dina appar på **Mina appar**.
 
 Välj **Prebuilt domains** (Fönsterruta domäner) i navigeringsfönstret till vänster. Sök sedan efter ”Home”. Välj **Add domain** (Lägg till domän).
 
-[![](media/luis-quickstart-new-app/home-automation.png "Skärmbild av domänen Home Automation i menyn för den fördefinierade domänen")](media/luis-quickstart-new-app/home-automation.png)
+[![Skärmbild av domänen för hemautomatisering som anges i en fördefinierad domänmeny](media/luis-quickstart-new-app/home-automation.png "Skärmbild av domänen för hemautomatisering som anges i en fördefinierad domänmeny")](media/luis-quickstart-new-app/home-automation.png)
 
 När domänen har lagts till visar rutan för den fördefinierade domänen knappen **Remove domain** (Ta bort domän).
 
-[![](media/luis-quickstart-new-app/remove-domain.png "Skärmbild av domänen Home Automation med borttagningsknapp")](media/luis-quickstart-new-app/remove-domain.png)
+[![Skärmbild av domänen för hemautomatisering med knappen Ta bort](media/luis-quickstart-new-app/remove-domain.png "Skärmbild av domänen för hemautomatisering med knappen Ta bort")](media/luis-quickstart-new-app/remove-domain.png)
 
 ## <a name="intents-and-entities"></a>Avsikter och entiteter
 
@@ -62,7 +63,7 @@ Välj **Intents** i navigeringsfönstret till vänster för att granska avsikter
 
 Välj avsikten **HomeAutomation.TurnOff** (stänga av). Du kan se att avsikten innehåller en lista med yttranden som är märkta med entiteter.
 
-[![](media/luis-quickstart-new-app/home-automation-turnon.png "Skärmbild av avsikten HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![Skärmbild av avsikten HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnon.png "Skärmbild av avsikten HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 
@@ -79,7 +80,7 @@ Kontrollera att avsikten med högst poäng motsvarar den avsikt du förväntade 
 
 I den här exemplet identifieras ”Turn off the lights” (Släck lamporna) som avsikten med högst poäng, ”HomeAutomation.TurnOff”.
 
-[![](media/luis-quickstart-new-app/test.png "Skärmbild av testpanel med yttranden markerade")](media/luis-quickstart-new-app/test.png)
+[![Skärmbild av testpanelen med ett yttrande markerat](media/luis-quickstart-new-app/test.png "Skärmbild av testpanelen med ett yttrande markerat")](media/luis-quickstart-new-app/test.png)
 
 
 Välj **Test** igen för att dölja testfönstret. 
@@ -96,7 +97,7 @@ Välj **Test** igen för att dölja testfönstret.
 
 2. Gå till slutet av webbadressen, skriv `turn off the living room light` och tryck på Retur. I webbläsaren visas JSON-svaret för HTTP-slutpunkten.
 
-    [![](media/luis-quickstart-new-app/turn-off-living-room.png "Skärmbild av webbläsare med JSON-resultat som identifierar avsikten TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    [![Skärmbild av en webbläsare med ett JSON-resultat som har identifierat avsikten TurnOff](media/luis-quickstart-new-app/turn-off-living-room.png "Skärmbild av en webbläsare med ett JSON-resultat som har identifierat avsikten TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
     
 ## <a name="clean-up-resources"></a>Rensa resurser
 

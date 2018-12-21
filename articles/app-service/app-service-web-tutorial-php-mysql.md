@@ -1,5 +1,5 @@
 ---
-title: Skapa en PHP- och MySQL-webbapp i Azure | Microsoft Docs
+title: Skapa PHP-app med MySQL – Azure App Service | Microsoft Docs
 description: Lär dig hur du får igång en PHP-app i Azure med anslutning till en MySQL-databas i Azure.
 services: app-service\web
 documentationcenter: php
@@ -14,13 +14,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 9a1468c27e668663ca9079f5f1c9e5e97e51d2d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291302"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251682"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Självstudie: Skapa en PHP- och MySQL-webbapp i Azure
 
@@ -49,9 +49,9 @@ I den här guiden får du lära dig att:
 För att slutföra den här självstudien behöver du:
 
 * [Installera Git](https://git-scm.com/)
-* [Installera PHP 5.6.4 eller senare](http://php.net/downloads.php)
+* [Installera PHP 5.6.4 eller senare](https://php.net/downloads.php)
 * [Installera Composer](https://getcomposer.org/doc/00-intro.md)
-* Aktivera följande PHP-tillägg som behövs för Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer och XML
+* Aktivera följande PHP-tillägg som Laravel behöver: OpenSSL, PDO-MySQL, Mbstring, Tokenizer och XML
 * [Installera och starta MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Förbereda lokal MySQL
@@ -66,7 +66,7 @@ Anslut till din lokala MySQL-server via ett terminalfönster. Du kan använda de
 mysql -u root -p
 ```
 
-Om du uppmanas att ange ett lösenord anger du lösenordet för `root`-kontot. Se [MySQL: Återställa rotlösenordet](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html) om du inte kommer ihåg rotlösenordet för ditt konto.
+Om du uppmanas att ange ett lösenord anger du lösenordet för `root`-kontot. Om du inte kommer ihåg rotlösenordet för ditt konto kan du gå till [MySQL: Återställa rotlösenordet](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 MySQL-servern är igång om kommandot körs utan problem. Om inte, kontrollerar du att den lokala MySQL-servern är igång genom att följa [anvisningarna efter installation av MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
@@ -598,9 +598,9 @@ Uppdatera Azure-webbapp i webbläsaren så hämtas webbtrafik när loggströmnin
 Skriv när som helst `Ctrl`+`C` om du vill stoppa loggströmningen.
 
 > [!TIP]
-> Ett PHP-program kan använda standarden [error_log()](http://php.net/manual/function.error-log.php) för att skapa utdata till konsolen. Exempelprogrammet använder den här metoden i _app/Http/routes.php_.
+> Ett PHP-program kan använda standarden [error_log()](https://php.net/manual/function.error-log.php) för att skapa utdata till konsolen. Exempelprogrammet använder den här metoden i _app/Http/routes.php_.
 >
-> [Laravel använder Monolog](https://laravel.com/docs/5.4/errors) som loggningsprovider i webbramverket. Information om hur du får Monolog att skicka meddelanden till konsolen finns i artikeln om [PHP och hur du använder monolog för att skicka loggar till konsolen (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> [Laravel använder Monolog](https://laravel.com/docs/5.4/errors) som loggningsprovider i webbramverket. Information om hur du får Monolog att skicka meddelanden till konsolen finns i [PHP: Använda Monolog för att logga in på konsolen (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 

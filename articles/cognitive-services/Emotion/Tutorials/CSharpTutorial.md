@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Känsloigenkänning i ett ansikte på en bild – Känslo-API, C#'
+title: 'Självstudier: Känsloigenkänning i ett ansikte på en bild – Känslo-API, C#'
 titlesuffix: Azure Cognitive Services
 description: Utforska en grundläggande Windows-app för att känna igen känslor som uttrycks i ansikten på en bild.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 01/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3a84a68718fba29e2a4b2fae057e68976119c95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: da605ec4013fb11606f99f3d9a2dcfcfcab00d3b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237032"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163335"
 ---
-# <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Självstudie: Känsloigenkänning i ett ansikte på en bild.
+# <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Självstudier: Känsloigenkänning i ett ansikte på en bild.
 
 > [!IMPORTANT]
 > Känslo-API:et blir inaktuellt den 15 februari 2019. Funktionen för känsloigenkänning är nu allmänt tillgänglig som en del av [ansikts-API:et](https://docs.microsoft.com/azure/cognitive-services/face/). 
@@ -64,7 +64,7 @@ Nu när programmet körs ska vi se hur exempelappen integreras med Microsoft Cog
 
 Den här exempelappen använder Känslo-API-klientbiblioteket, en tunn C#-klientadapter för Microsofts Känslo-API. När du har skapat exempelappen enligt beskrivningen ovan fick du klientbiblioteket från ett NuGet-paket. Du kan granska klientbibliotekets källkod i mappen med namnet ”[Client Library](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)” under **Emotion**, **Windows**, **Client Library**, som är en del av den nedladdade fillagringsplatsen som nämnts ovan i [Krav](#Prerequisites).
 
-Du kan även ta reda på hur du använder klientbibliotekskoden i **Solution Explorer**: under **EmotionAPI-WPF_Samples** expanderar du **DetectEmotionUsingStreamPage.xaml** och letar upp **DetectEmotionUsingStreamPage.xaml.cs**, som används för att bläddra till en lokalt lagrad fil, eller expanderar **DetectEmotionUsingURLPage.xaml** och letar upp  **DetectEmotionUsingURLPage.xaml.cs**, som används när du laddar upp en bild-URL. Dubbelklicka på .xaml.cs-filerna så att de öppnas i nya fönster i Visual Studio.
+Du kan också hitta information om hur du använder klientbibliotekskoden i **Solution Explorer**: Expandera **DetectEmotionUsingStreamPage.xaml** under **EmotionAPI-WPF_Samples** och leta upp **DetectEmotionUsingStreamPage.xaml.cs**, som används för att bläddra till en lokalt lagrad fil, eller expandera **DetectEmotionUsingURLPage.xaml** och leta upp  **DetectEmotionUsingURLPage.xaml.cs**, som används när du laddar upp en bild-URL. Dubbelklicka på .xaml.cs-filerna så att de öppnas i nya fönster i Visual Studio.
 
 Vi tittar på hur känsloklientbiblioteket används i exempelappen genom att gå igenom två kodavsnitt från **DetectEmotionUsingStreamPage.xaml.cs** och **DetectEmotionUsingURLPage.xaml.cs**. Varje fil innehåller kodkommentarer som anger ”KEY SAMPLE CODE STARTS HERE” (PRIMÄR EXEMPELKOD STARTAR HÄR) och ”KEY SAMPLE CODE ENDS HERE” (PRIMÄR EXEMPELKOD SLUTAR HÄR) för att hjälpa dig att hitta de kodavsnitt som reproduceras nedan.
 

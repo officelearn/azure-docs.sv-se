@@ -1,6 +1,6 @@
 ---
-title: Använd Visual Studio och .NET för att fråga Azure SQL Database | Microsoft Docs
-description: Det här avsnittet visar hur du använder Visual Studio för att skapa ett program som ansluter till en Azure SQL Database och frågar den med hjälp av Transact-SQL-uttryck.
+title: Använda Visual Studio med .NET och C# för att köra frågor mot Azure SQL Database | Microsoft Docs
+description: Använd Visual Studio för att skapa en C#-app som ansluter till en Azure SQL-databas och kör frågor mot den med Transact-SQL-instruktioner.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,127 +11,121 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 5b458c881496a887d1415e115bf2b94c674be029
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/11/2018
+ms.openlocfilehash: 04a0abd0fba7ec53aebeb481ac80d36653d118b6
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911769"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384946"
 ---
-# <a name="quickstart-use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använd .NET (C#) med Visual Studio för att ansluta och skicka frågor till en Azure SQL-databas
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Snabbstart: Använda .NET och C# i Visual Studio för att ansluta till och köra frågor mot en Azure SQL-databas
 
-Den här snabbstarten visar hur du använder [.NET Framework](https://www.microsoft.com/net/) till att skapa ett C#-program med Visual Studio för anslutning till en Azure SQL-databas och använder Transact-SQL-instruktioner till att köra frågor mot data.
+Den här snabbstarten beskriver hur du använder [.NET Framework](https://www.microsoft.com/net/) och C#-kod i Visual Studio för att köra frågor mot en Azure SQL-databas med Transact-SQL-instruktioner.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Kontrollera att du har följande så att du kan genomföra den här snabbstarten:
+Följande krävs för att slutföra den här snabbstarten:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  
+- En [brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md) som tillåter den offentliga IP-adressen till den dator som du använder.
+  
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional- eller Enterprise-utgåvan.
 
-- En [brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md) för den offentliga IP-adressen till datorn som du använder för den här snabbstarten.
-
-- En installation av [Visual Studio Community 2017, Visual Studio Professional 2017 eller Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
-
-## <a name="sql-server-connection-information"></a>Anslutningsinformation för en SQL-server
+## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-#### <a name="for-adonet"></a>För ADO.NET
+## <a name="create-code-to-query-the-sql-database"></a>Skapa kod för att fråga SQL-databasen
 
-1. Fortsätt genom att klicka på **Visa databasanslutningssträngar**.
-
-2. Granska den fullständiga **ADO.NET**-anslutningssträngen.
-
-    ![ADO.NET-anslutningssträng](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
-
-> [!IMPORTANT]
-> Du måste ha en brandväggsregel för den offentliga IP-adressen för datorn som du utför den här självstudien med. Om du använder en annan dator eller har en annan offentlig IP-adress så skapar du en [brandväggsregel på servernivå med hjälp av Azure Portal](sql-database-get-started-portal-firewall.md). 
->
-  
-## <a name="create-a-new-visual-studio-project"></a>Skapa ett nytt Visual Studio-projekt
-
-1. I Visual Studio väljer du **Arkiv**, **Nytt** och **Projekt**. 
-2. I dialogrutan **Nytt projekt** expanderar du **Visual C#**.
-3. Välj **Konsolprogram** och ange *sqltest* som projektnamn.
-4. Klicka på **OK** för att skapa och öppna det nya projektet i Visual Studio
-4. Högerklicka på **sqltest** i Solution Explorer och klicka sedan på **Hantera NuGet-paket**. 
-5. På fliken **Bläddra** söker du efter ```System.Data.SqlClient``` och markerar det när du hittar det.
-6. På sidan **System.Data.SqlClient** klickar du på **Installera**.
-7. När installationen har slutförts granskar du ändringarna och klickar på **OK** för att stänga fönstret **Förhandsgranska**. 
-8. Om ett fönster för **Godkännande av licens** visas klickar du på **Jag accepterar**.
-
-## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL-databas
-1. Växla till (eller öppna vid behov) **Program.cs**
-
-2. Ersätt innehållet i **Program.cs** med följande kod och lägg till lämpliga värden för din server, databas, användare och lösenord.
-
-```csharp
-using System;
-using System.Data.SqlClient;
-using System.Text;
-
-namespace sqltest
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            try 
-            { 
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "your_server.database.windows.net"; 
-                builder.UserID = "your_user";            
-                builder.Password = "your_password";     
-                builder.InitialCatalog = "your_database";
-
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    Console.WriteLine("\nQuery data example:");
-                    Console.WriteLine("=========================================\n");
-                    
-                    connection.Open();       
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
-                    sb.Append("FROM [SalesLT].[ProductCategory] pc ");
-                    sb.Append("JOIN [SalesLT].[Product] p ");
-                    sb.Append("ON pc.productcategoryid = p.productcategoryid;");
-                    String sql = sb.ToString();
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
-                            }
-                        }
-                    }                    
-                }
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-            Console.ReadLine();
-        }
-    }
-}
-```
+1. Välj **Arkiv** > **Nytt** > **Projekt** i Visual Studio. 
+   
+1. Välj **Visual C#** i dialogrutan **Nytt projekt** och välj sedan **Konsolprogram (.NET Framework)**.
+   
+1. Ange *sqltest* som projektnamn och välj sedan **OK**. Det nya projektet skapas. 
+   
+1. Välj **Projekt** > **Hantera NuGet-paket**. 
+   
+1. Välj fliken **Bläddra**  i **NuGet-pakethanteraren** och leta upp och välj **System.Data.SqlClient**.
+   
+1. Välj **Installera** på sidan för **System.Data.SqlClient**. 
+   - Välj **OK** för att fortsätta med installationen om du uppmanas att göra det. 
+   - Om ett fönster för **godkännande av licensen** visas väljer du **Jag accepterar**.
+   
+1. När installationen har slutförts kan du stänga **NuGet-pakethanteraren**. 
+   
+1. Ersätt innehållet i **Program.cs** med följande kod i kodredigeraren. Ersätt värdena för `<server>`, `<username>`, `<password>` och `<database>`.
+   
+   >[!IMPORTANT]
+   >Koden i det här exemplet använder AdventureWorksLT-exempeldata, som du kan välja som källa när du skapar din databas. Om din databas har andra data använder du tabeller från din egen databas i SELECT-frågan. 
+   
+   ```csharp
+   using System;
+   using System.Data.SqlClient;
+   using System.Text;
+   
+   namespace sqltest
+   {
+       class Program
+       {
+           static void Main(string[] args)
+           {
+               try 
+               { 
+                   SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                   builder.DataSource = "<server>.database.windows.net"; 
+                   builder.UserID = "<username>";            
+                   builder.Password = "<password>";     
+                   builder.InitialCatalog = "<database>";
+   
+                   using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                   {
+                       Console.WriteLine("\nQuery data example:");
+                       Console.WriteLine("=========================================\n");
+                       
+                       connection.Open();       
+                       StringBuilder sb = new StringBuilder();
+                       sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
+                       sb.Append("FROM [SalesLT].[ProductCategory] pc ");
+                       sb.Append("JOIN [SalesLT].[Product] p ");
+                       sb.Append("ON pc.productcategoryid = p.productcategoryid;");
+                       String sql = sb.ToString();
+   
+                       using (SqlCommand command = new SqlCommand(sql, connection))
+                       {
+                           using (SqlDataReader reader = command.ExecuteReader())
+                           {
+                               while (reader.Read())
+                               {
+                                   Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
+                               }
+                           }
+                       }                    
+                   }
+               }
+               catch (SqlException e)
+               {
+                   Console.WriteLine(e.ToString());
+               }
+               Console.ReadLine();
+           }
+       }
+   }
+   ```
 
 ## <a name="run-the-code"></a>Kör koden
 
-1. Tryck på **F5** för att köra programmet.
-2. Kontrollera att de 20 översta raderna returneras och stäng sedan programfönstret.
+1. Kör appen genom att välja **Felsök** > **Starta felsökning**, genom att välja **Starta** i verktygsfältet eller genom att trycka på **F5**.
+1. Kontrollera att de 20 främsta raderna för kategori/produkt från databasen returneras och stäng sedan appfönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [ansluter och frågar en Azure SQL-databas med .NET Core](sql-database-connect-query-dotnet-core.md) på Windows/Linux/macOS.  
+- Lär dig hur du [ansluter och frågar en Azure SQL-databas med .NET Core](sql-database-connect-query-dotnet-core.md) i Windows/Linux/macOS.  
 - Lär dig mer om att [Komma igång med .NET Core för Windows/Linux/macOS med hjälp av kommandoraden](/dotnet/core/tutorials/using-with-xplat-cli).
 - Lär dig hur du [Utformar din första Azure SQL-databas med hjälp av SSMS](sql-database-design-first-database.md) eller [Utformar din första Azure SQL-databas med hjälp av .NET](sql-database-design-first-database-csharp.md).
 - Mer information om .NET finns i [.NET-dokumentationen](https://docs.microsoft.com/dotnet/).
-- [Exempel på logik för omprövning: Ansluta elastiskt till SQL med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- Exempel på omprövningslogik: [Ansluta elastiskt till SQL med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->

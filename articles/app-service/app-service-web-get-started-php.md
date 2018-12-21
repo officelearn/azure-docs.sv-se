@@ -1,5 +1,5 @@
 ---
-title: Skapa en PHP-webbapp i Azure | Microsoft Docs
+title: Skapa en PHP-webbapp – Azure App Service | Microsoft Docs
 description: Distribuera din första Hello World-app i PHP i Azure App Service Web Apps på bara några minuter.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin;cfowler
-ms.custom: mvc
-ms.openlocfilehash: 0dd8f90a39abc18263fcaa5bdb63a5b743728952
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.custom: seodec18
+ms.openlocfilehash: 02c80f3b3883af4b32b5bc0fb837680dad1e0ecf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42884972"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261559"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Skapa en PHP-webbapp i Azure
 
@@ -41,7 +41,7 @@ Du kan följa stegen här på en Mac-, Windows- eller Linux-dator. Det tar cirka
 För att slutföra den här snabbstarten behöver du:
 
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-* <a href="http://php.net/manual/install.php" target="_blank">Installera PHP</a>
+* <a href="https://php.net/manual/install.php" target="_blank">Installera PHP</a>
 
 ## <a name="download-the-sample-locally"></a>Ladda ned exemplet lokalt
 

@@ -1,21 +1,21 @@
 ---
 title: Registrera ditt Azure Enterprise-avtal med Cloudyn | Microsoft Docs
-description: Använd ditt Enterprise-avtal för att registrera dig för Cloudyn.
+description: Den här snabbstarten beskriver registreringsprocessen som krävs för att skapa en utvärderingsprenumeration på Cloudyn och logga in på Cloudyn-portalen.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
-ms.custom: ''
+ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 7a3ed93814407df8f3adfe7d16ba50258fcb323e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273581"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082347"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrera ett Azure Enterprise-avtal och visa kostnadsdata
 
@@ -25,22 +25,22 @@ Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Ma
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-- Logga in på Azure Portal på http://portal.azure.com.
+- Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="register-with-cloudyn"></a>Registrera dig för Cloudyn
 
 1. Klicka på **Kostnadshantering + fakturering** i listan med tjänster i Azure Portal.
 2. Klicka på **Cloudyn** under **Översikt**  
-    ![Cloudyn-sida](./media/quick-register-ea/cost-mgt-billing-service.png)
+    ![Cloudyn-sida som visas på Azure Portal](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. På sidan **Cloudyn** klickar du på **Go to Cloudyn** (Gå till Cloudyn) för att öppna Cloudyn-registreringssidan i ett nytt fönster.
 4. På utvärderingsregistreringssidan på Cloudyn-portalen anger du namnet på ditt företag och väljer sedan **Azure Enterprise Enrollment Administrator**.  
-    ![utvärderingsregistrering](./media/quick-register-ea/trial-reg.png)
-5. Ange API-nyckeln för Enterprise Portal-registreringen. Om du inte har nyckeln tillgänglig kan du klicka på länken [Enterprise Portal](https://ea.azure.com) och göra så här:
+5. Ange API-nyckeln för Enterprise Portal-registreringen. Om du inte har nyckeln tillgänglig kan du klicka på länken [Enterprise Portal](https://ea.azure.com) och göra så här:  
+    ![Klistra in din API-nyckel på fliken Fakturering](./media/quick-register-ea/trial-reg.png)
   1. Logga in på webbplatsen för Azure Enterprise och klicka på **Rapporter**, klicka på **API-åtkomstnyckel** och kopiera sedan den primära nyckeln.  
-    ![EA API-nyckel](./media/quick-register-ea/ea-key.png)
+    ![Exempel på en API-nyckel för EA på EA-portalen](./media/quick-register-ea/ea-key.png)
   3. Gå tillbaka till registreringssidan och klistra in API-nyckeln.
 6. Godkänn användningsvillkoren och validera sedan nyckeln. Klicka på **Nästa** för att tillåta att Cloudyn samlar in Azure-resursdata. Data som samlas in omfattar information om användning, prestanda, fakturering och taggar från dina prenumerationer.  
-    ![nyckelvalidering](./media/quick-register-ea/ea-key-validated.png)
+    ![Exempel på en lyckad validering av en API-nyckel för EA](./media/quick-register-ea/ea-key-validated.png)
 7. Under **Invite other stakeholders** (Bjud in andra intressenter) kan du lägga till användare genom att ange deras e-postadresser. Klicka på **Nästa** när du är klar. Beroende på storleken på Azure-registreringen kan det ta upp till 24 timmar innan all faktureringsinformation läggs till i Cloudyn.
 8. Klicka på **Go to Cloudyn** (Gå till Cloudyn) för att öppna Cloudyn-portalen. Nu ska din registrerade EA-kontoinformation visas på sidan **Cloud Accounts Management** (Hantering av molnkonton).
 

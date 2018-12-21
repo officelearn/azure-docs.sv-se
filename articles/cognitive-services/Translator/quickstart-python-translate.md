@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: db2328d09f9e06ccabdc2408327a342fe94fefe0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085996"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999591"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Snabbstart: Använda Translator Text API för att översätta en sträng med hjälp av Python
 
@@ -69,7 +69,7 @@ För närvarande är en slutpunkt tillgänglig för Translator Text, och den ang
 `params` används till att ange utdataspråken. I det här exemplet översätter vi från engelska till italienska och tyska: `it` och `de`.
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Översätta](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Mer information om slutpunkter, vägar och att begära parametrar finns i [Translator Text API 3.0: Översätt](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -102,7 +102,7 @@ body = [{
 }]
 ```
 
-Nu ska vi skapar en POST-begäran med hjälp av `requests`-modulen. Den tar tre argument: den sammanfogade URL:en, begärandesidhuvudena samt begärandetexten:
+Nu skapar vi en POST-begäran med hjälp av modulen `requests`. Den tar tre argument: den sammanfogade URL:en, begärandesidhuvudena samt begärandetexten:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -161,7 +161,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 
 ## <a name="see-also"></a>Se även
 
-Utöver textöversättning lär du dig hur du använder Translator Text API för att:
+Lär dig att använda Translator Text API till att:
 
 * [Translitterera text](quickstart-python-transliterate.md)
 * [Identifiera språket efter indata](quickstart-python-detect.md)

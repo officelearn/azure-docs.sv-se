@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c40cb3192d514d990ea2a5d66e1484ff204e9b10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d04d27ee6136edec8d9af16f9133cf9a7cc0720c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223565"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311566"
 ---
-# <a name="quickstart-self-service-password-reset"></a>Quickstart: Självåterställning av lösenord
+# <a name="quickstart-self-service-password-reset"></a>Snabbstart: Återställning av lösenord för självbetjäning
 
 I den här snabbstarten går du igenom konfiguration av självåterställning av lösenord (SSPR) som ett enkelt sätt för IT-administratörer att göra så att användarna kan återställa sina lösenord eller låsa upp sina konton.
 
@@ -64,7 +64,7 @@ Nu testar vi din SSPR-konfiguration med en testanvändare. Eftersom Microsoft ti
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Det är enkelt att inaktivera lösenordsåterställning via självbetjäning. Öppna Azure AD-klienten och gå till **Återställning av lösenord** > **Egenskaper**. Välj sedan **Ingen** under **Återställning av lösenord via självbetjäning har aktiverats**.
+Det är enkelt att inaktivera lösenordsåterställning via självbetjäning. Öppna Azure AD-klienten och gå till **Egenskaper** > **Återställning av lösenord**. Välj sedan **Ingen** under **Återställning av lösenord via självbetjäning har aktiverats**.
 
 ## <a name="next-steps"></a>Nästa steg
 

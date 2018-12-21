@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37f1bf5dc20d097f7f5f560e3bf1fdd25dc38045
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052707"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408059"
 ---
 # <a name="what-is-azure-batch-ai"></a>Vad är Azure Batch AI?
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Azure Batch AI är en hanterad tjänst som hjälper datatekniker och AI-forskare att träna och testa maskininlärnings- och AI-modeller i skala i Azure – utan att behöva hantera komplex infrastruktur. Beskriv beräkningsresurser, jobben som du vill köra, var du vill lagra modellens indata och utdata, så tar Batch AI hand om resten.
 
@@ -49,7 +52,7 @@ När du har tränat en modell kan du använda Batch AI för att testa modellen, 
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Använda Batch AI-SDK:er, kommandoradsskript eller Azure-portalen för att hantera beräkningsresurser och schemalägga jobb för träning och testning av AI: 
+Använda Batch AI-SDK:er, kommandoradsskript eller Azure-portalen för att hantera beräkningsresurser och schemalägga jobb för träning och testning av AI: 
 
 * **Etablera och skala kluster av virtuella datorer** – Välj antalet noder (virtuella datorer) och välj en GPU-aktiverad eller annan storlek för den virtuella datorn som uppfyller dina behov. Skala automatiskt eller manuellt upp eller ner antalet noder så att du bara använder resurser vid behov. 
 

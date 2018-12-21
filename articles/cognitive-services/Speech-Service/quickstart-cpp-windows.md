@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera tal i C++ på Windows med hjälp av Speech Service SDK'
+title: 'Snabbstart: Taligenkänning, C++ (Windows) – Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du identifierar tal i C++ på Windows Desktop med hjälp av Speech Service SDK
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218751"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075195"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i C++ på Windows med hjälp av tal-API
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Taligenkänning i C++ på Windows med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -31,11 +31,11 @@ Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den
 
 1. Starta Visual Studio 2017.
 
-1. Kontrollera att arbetsbelastningen **Desktop development with C++** (Skrivbordsutveckling med C++) är tillgänglig. Välj **Verktyg** > **Get Tools and Features** (Hämta verktyg och funktioner) på menyraden i Visual Studio för att öppna installationsprogrammet för Visual Studio. Om den här arbetsbelastningen redan är aktiverad går du direkt till nästa steg. 
+1. Kontrollera att arbetsbelastningen **Desktop development with C++** (Skrivbordsutveckling med C++) är tillgänglig. Välj **Verktyg** > **Get Tools and Features** (Hämta verktyg och funktioner) på menyraden i Visual Studio för att öppna installationsprogrammet för Visual Studio. Om den här arbetsbelastningen redan är aktiverad går du direkt till nästa steg.
 
     ![Skärmbild av fliken för arbetsbelastningar i Visual Studio](media/sdk/vs-enable-cpp-workload.png)
 
-    Annars markerar du kryssrutan intill **Desktop development with C++** (Skrivbordsutveckling med C++). 
+    Annars markerar du kryssrutan intill **Desktop development with C++** (Skrivbordsutveckling med C++).
 
 1. Kontrollera att komponenten **NuGet-pakethanteraren** är tillgänglig. Växla sedan till fliken **Enskilda komponenter** i installationsdialogrutan för Visual Studio och välj fliken **NuGet-pakethanteraren** om den inte redan är aktiverad.
 

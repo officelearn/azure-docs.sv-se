@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Kör Azure Functions med Azure Stream Analytics-jobb | Microsoft Docs'
+title: 'Självstudier: Kör Azure Functions med Azure Stream Analytics-jobb | Microsoft Docs'
 description: I den här självstudien får du lära dig att konfigurera Azure Functions som kanalmottagare för Stream Analytics-jobb.
 services: stream-analytics
 author: jasonwhowell
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978010"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164168"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Köra Azure Functions från Azure Stream Analytics-jobb 
 
@@ -35,34 +35,34 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Konfigurera ett Stream Analytics-jobb att köra en funktion 
 
-Det här avsnittet visar hur du konfigurerar ett Stream Analytics-jobb att köra en funktion som skriver data till Azure Redis Cache. Stream Analytics -jobbet läser händelser från Azure Event Hubs och kör en fråga som anropar funktionen. Funktionen läser data från Stream Analytics-jobbet och skriver dessa data till Azure Redis Cache.
+Det här avsnittet visar hur du konfigurerar ett Stream Analytics-jobb att köra en funktion som skriver data till Azure Cache for Redis. Stream Analytics -jobbet läser händelser från Azure Event Hubs och kör en fråga som anropar funktionen. Funktionen läser data från Stream Analytics-jobbet och skriver dessa data till Azure Cache for Redis.
 
 ![Diagram som visar relationer mellan Azure-tjänster](./media/stream-analytics-with-azure-functions/image1.png)
 
 Följande steg krävs för detta:
 * [Skapa ett Stream Analytics-jobb med Event Hubs som indata](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [Skapa en Azure Redis Cache-instans](#create-an-azure-redis-cache-instance)  
-* [Skapa en funktion i Azure Functions som kan skriva data till Azure Redis Cache](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [Skapa en Azure Cache for Redis-instans](#create-an-azure-redis-cache-instance)  
+* [Skapa en funktion i Azure Functions som kan skriva data till Azure Cache for Redis](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
 * [Uppdatera Stream Analytics-jobbet med funktionen som utdata](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [Kontrollera resultatet i Azure Redis Cache](#check-azure-redis-cache-for-results)  
+* [Kontrollera resultatet i Azure Cache for Redis](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Skapa ett Stream Analytics-jobb med Event Hubs som indata
 
 Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-analytics-real-time-fraud-detection.md) och skapa en händelsehubb. Starta händelsegeneratorprogrammet och skapa Stream Analytics-jobbet. (Hoppa över stegen för att skapa frågan och utdata. Se i stället följande avsnitt för att konfigurera Functions-utdata.)
 
-## <a name="create-an-azure-redis-cache-instance"></a>Skapa en Azure Redis Cache-instans
+## <a name="create-an-azure-cache-for-redis-instance"></a>Skapa en Azure Cache for Redis-instans
 
-1. Skapa en cache i Azure Redis Cache med anvisningarna i [Skapa en cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
+1. Skapa en cache i Azure Cache for Redis med anvisningarna i [Skapa en cache](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
 2. När du har skapat cachen under **Inställningar** väljer du **Åtkomstnycklar**. Skriv ner **den primära anslutningssträngen**.
 
-   ![Skärmbild av Azure Redis Cache-anslutningssträng](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Skärmbild av Azure Cache for Redis-anslutningssträng](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Skapa en funktion i Azure Functions som kan skriva data till Azure Redis Cache
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Skapa en funktion i Azure Functions som kan skriva data till Azure Cache for Redis
 
 1. Läs avsnittet [Skapa en funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) i dokumentationen till Functions. Du får anvisningar för hur du skapar en funktionsapp och en [HTTP-utlöst funktion i Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) med språket CSharp.  
 
-2. Gå till funktionen **run.csx**. Uppdatera den med nedanstående kod. (Ersätt ”\<din anslutningssträng för redis cache\>” med den primära Azure Redis Cache-anslutningssträng som du hämtade i föregående avsnitt.)  
+2. Gå till funktionen **run.csx**. Uppdatera den med nedanstående kod. (Ersätt ”\<din Azure Cache for Redis-anslutningssträng\>” med den primära Azure Cache for Redis-anslutningssträng som du hämtade i föregående avsnitt.)  
 
    ```csharp
    using System;
@@ -85,7 +85,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
       {        
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
-      var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
+      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
       log.Info($"Connection string.. {connection}");
     
       // Connection refers to a property that returns a ConnectionMultiplexer
@@ -185,17 +185,17 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
     
 6.  Starta Stream Analytics-jobbet.
 
-## <a name="check-azure-redis-cache-for-results"></a>Kontrollera resultatet i Azure Redis Cache
+## <a name="check-azure-cache-for-redis-for-results"></a>Kontrollera resultatet i Azure Cache for Redis
 
-1. Bläddra till Azure-portalen och leta rätt på din Azure Redis Cache. Välj **Konsol**.  
+1. Bläddra till Azure-portalen och leta rätt på din Azure Cache for Redis. Välj **Konsol**.  
 
-2. Använd [Redis-cachekommandon](https://redis.io/commands) för att kontrollera att dina data finns i Redis Cache. (Kommandot har formatet Get {nyckel}.) Exempel:
+2. Verifiera att dina data finns i Azure Cache for Redis genom att använda [Azure Cache for Redis-kommandon](https://redis.io/commands). (Kommandot har formatet Get {nyckel}.) Exempel:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
    Det här kommandot bör skriva ut värdet för den angivna nyckeln:
 
-   ![Skärmbild av Azure Redis Cache-utdata](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Skärmbild av Azure Cache for Redis-utdata](./media/stream-analytics-with-azure-functions/image5.png)
    
 ## <a name="error-handling-and-retries"></a>Felhantering och återförsök
 Om det uppstår ett fel när händelser skickas till Azure Functions försöker Stream Analytics på nytt att slutföra åtgärden. Det finns dock vissa fel för vilka återförsök inte sker, däribland följande:
@@ -207,6 +207,8 @@ Om det uppstår ett fel när händelser skickas till Azure Functions försöker 
 ## <a name="known-issues"></a>Kända problem
 
 När du försöker återställa värdet för Max batchstorlek Max batchantal till tomt (standard) i Azure-portalen ändras värdet tillbaka till det tidigare angivna värdet när du spara. Ange standardvärdena för de här fälten manuellt i det här fallet.
+
+Användning av [HTTP-routning](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) för dina Azure-funktioner stöds för närvarande inte av Stream Analytics.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

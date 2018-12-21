@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cad0ec8c2e2f8972cd856b34b8abdd5afd3a6316
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515207"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53182646"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Konfigurera tjänsten IoT Hub Device Provisioning på Azure Portal
 
@@ -37,11 +37,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 3. Ange följande information för den nya instansen av enhetsetableringstjänsten och klicka på **Skapa**.
 
     * **Namn:** Ange ett unikt namn för den nya instansen av enhetsetableringstjänsten. Om namnet som du anger är tillgängligt visas en grön bockmarkering.
-    * **Prenumeration**: Välj den prenumeration som du vill använda för att skapa instansen av enhetsetableringstjänsten.
+    * **Prenumeration:** Välj den prenumeration som du vill använda för att skapa instansen av enhetsetableringstjänsten.
     * **Resursgrupp:** I det här fältet kan du skapa en ny resursgrupp eller välja en befintlig som ska innehålla den nya instansen. Välj resursgruppen som innehåller den IoT-hubb du skapade, till exempel **TestResources**. Genom att lägga till alla relaterade resurser i en grupp kan du hantera dem tillsammans. Till exempel tas alla resurser som ingår i gruppen bort om resursgruppen tas bort. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-portal.md).
-    * **Plats**: Välj den plats som är närmast enheten.
+    * **Plats:** Välj den plats som är närmast enheterna.
 
-    ![Ange grundläggande information om instansen av enhetsetableringstjänsten på bladet på portalen](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+      ![Ange grundläggande information om instansen av enhetsetableringstjänsten på bladet på portalen](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. Klicka på meddelandet för att övervaka skapandet av resursinstansen. När tjänsten har distribuerats klickar du på **Fäst vid instrumentpanelen** och sedan **Gå till resurs**.
 
@@ -61,7 +61,7 @@ I det här avsnittet lägger du till en konfiguration till instansen av enhetset
     * **IoT-hubb:** Välj den IoT-hubb som du vill länka till den nya instansen av enhetsetableringstjänsten.
     * **Åtkomstprincip:** Välj **iothubowner** som autentiseringsuppgifter när du upprättar länken till IoT-hubben.  
 
-    ![Länka hubbnamnet för att länka till instansen av enhetsetableringstjänsten på bladet på portalen](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+      ![Länka hubbnamnet för att länka till instansen av enhetsetableringstjänsten på bladet på portalen](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. Nu bör den valda hubben visas under bladet **Linked IoT hubs** (Länkade IoT-hubbar). Du kan behöva klicka på **Uppdatera** för att visa **Länkade IoT-hubbar**.
 

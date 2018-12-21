@@ -1,37 +1,37 @@
 ---
-title: 'Självstudie 3: Data som matchar reguljära uttryck – extrahera välformade data'
+title: Entitet med reguljärt uttryck
 titleSuffix: Azure Cognitive Services
 description: Extrahera data med ett enhetligt format från ett yttrande med entiteten för reguljära uttryck.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423426"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135584"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>Självstudie 3: Extrahera välformade data
+# <a name="tutorial-3-extract-well-formatted-data"></a>Självstudie 3: Extrahera välutformade data
 I den här självstudien ska du ändra Human Resources-appen så att den extraherar data med ett enhetligt format från yttranden med entiteten **Regular Expression**.
 
 Syftet med en entitet är att extrahera viktiga data från yttrandet. I den här appen används entiteten för reguljära uttryck till att hämta formaterade HR-formulärnummer (Human Resources) från ett yttrande. Även om avsikten med yttrandet alltid fastställs med maskininlärning är just den här entitetstypen inte maskininlärd. 
 
 **Här är några exempelyttranden:**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|Exempel på yttranden|
+|--|
+|Var finns HRF-123456?|
+|Vem skapade HRF-123234?|
+|Har HRF-456098 publicerats på franska?|
+|HRF-456098|
+|Datum för HRF-456098?|
  
 Ett reguljärt uttryck passar bra för den här typen av data i följande fall:
 
@@ -129,7 +129,7 @@ Skapa en entitet för reguljära uttryck för att ange för LUIS vad ett HRF-num
 
 2. Gå till slutet av URL:en i adressen och ange `When were HRF-123456 and hrf-234567 published in the last year?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `FindForm` med de två formulärnumren `HRF-123456` och `hrf-234567`.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

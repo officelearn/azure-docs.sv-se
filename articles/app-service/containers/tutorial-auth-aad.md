@@ -1,6 +1,6 @@
 ---
-title: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service på Linux | Microsoft Docs
-description: Lär dig hur du använder App Service-autentisering och auktorisering och skyddar App Service-appar, inklusive åtkomst till fjärr-API:er.
+title: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Linux – Azure App Service | Microsoft Docs
+description: Lär dig hur du använder App Service-autentisering och auktorisering för att skydda App Service-appar som körs i Linux, inklusive åtkomst till fjärr-API:er.
 keywords: app service, azure app service, authN, authZ, säker, säkerhet, flera nivåer, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
-ms.openlocfilehash: a468c5d0f73cc182927f26ea9b7a85e2c5afb7c8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766367"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409426"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service på Linux
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service i Linux
 
 Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I App Service finns dessutom funktioner för [användarautentisering och auktorisering](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). I den här kursen visar vi hur du skyddar appar med App Service-autentisering och auktorisering. Vi använder en ASP.NET Core-app med Angular.js-klientdel, men det är bara ett exempel. App Service-autentisering och autentisering stöder alla språkkörningar. Du kan lära dig hur du använder det med det språk du föredrar genom att följa självstudiekursen.
 
@@ -237,11 +238,11 @@ Navigera till `http://<back_end_app_name>.azurewebsites.net` för att visa de ob
 
 I det här steget aktiverar du autentisering och auktorisering för två appar. Du kan också konfigurera klientdelsappen och generera en åtkomsttoken som du kan använda till att göra autentiserade anrop till serverdelsappen.
 
-Du använder Azure Active Directory som identitetsleverantör. Mer information finns i [Konfigurera Azure Active Directory-autentisering för App Services-appen](../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Du använder Azure Active Directory som identitetsleverantör. Mer information finns i [Konfigurera Azure Active Directory-autentisering för App Services-appen](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Aktivera autentisering och auktorisering för serverdelsapp
 
-I [Azure Portal](https://portal.azure.com) öppnar du hanteringssidan för serverdelsappen genom att klicka via vänster meny: **Resource groups** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_ (resursgrupper, min autentiseringsresursgrupp, namn på serverdelsapp).
+På [Azure-portalen](https://portal.azure.com) öppnar du hanteringssidan för serverdelsappen genom att klicka på den vänstra menyn: **Resursgrupper** > **myAuthResourceGroup** > _\<namn\_på\_serverdels\_app>_.
 
 ![ASP.NET Core-API som körs i Azure App Service](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Skapa ett virtuellt nätverk – snabbstart – Azure PowerShell | Microsoft Docs
-description: I den här snabbstarten får du lära dig hur du skapar ett virtuellt nätverk med hjälp av Azure Portal. Ett virtuellt nätverk gör det möjligt för Azure-resurser, till exempel virtuella datorer, att kommunicera privat med varandra och med Internet.
+description: I den här snabbstarten får du lära dig hur du skapar ett virtuellt nätverk med hjälp av Azure Portal. Med ett virtuellt nätverk kan Azure-resurser, till exempel virtuella datorer, kommunicera privat med varandra och med Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -14,35 +14,43 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/09/2018
+ms.date: 12/04/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: b8b67b235b54fb5bde738ed5cc1605e08d182a69
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4e2808df56684b257898f3e03f8e9ca36682063b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688093"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341923"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av PowerShell
 
-Ett virtuellt nätverk gör det möjligt för Azure-resurser, till exempel virtuella datorer (VM), att kommunicera privat med varandra och med Internet. I den här snabbstarten får du lära dig hur du skapar ett virtuellt nätverk. När du har skapat ett virtuellt nätverk distribuerar du två virtuella datorer i det virtuella nätverket. Sedan ansluter du till en virtuell dator från Internet och kommunicerar privat mellan de två virtuella datorerna.
+Med ett virtuellt nätverk kan Azure-resurser, exempelvis virtuella datorer, kommunicera privat med varandra och med Internet. I den här snabbstarten får du lära dig hur du skapar ett virtuellt nätverk. När du har skapat ett virtuellt nätverk distribuerar du två virtuella datorer i det virtuella nätverket. Sedan ansluter du till de virtuella datorerna från Internet och kommunicerar privat i det virtuella nätverket.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här snabbstarten version 5.4.1 eller senare av AzureRM PowerShell-modulen. Kör ` Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt istället, så kräver den här snabbstarten att du använder version 5.4.1 eller senare av AzureRM PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Information om hur installerar och uppgraderar finns i [Installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps).
 
-## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+Till sist, om du kör PowerShell lokalt måste du även köra `Connect-AzureRmAccount`. Kommandot skapar en anslutning med Azure.
 
-Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska innehålla det virtuella nätverket. Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+## <a name="create-a-resource-group-and-a-virtual-network"></a>Skapa en resursgrupp och ett virtuellt nätverk
+
+Det finns en handfull steg du måste gå igenom för att konfigurera din resursgrupp och virtuella nätverk.
+
+### <a name="create-the-resource-group"></a>Skapa en resursgrupp
+
+Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska vara värd för det virtuella nätverket. Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Skapa ett virtuellt nätverk med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). I följande exempel skapas ett virtuellt standardnätverk med namnet *myVirtualNetwork* på platsen *EastUS*:
+### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
+
+Skapa ett virtuellt nätverk med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). I det här exemplet skapas ett virtuellt standardnätverk med namnet *myVirtualNetwork* på platsen *EastUS*:
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzureRmVirtualNetwork `
@@ -52,7 +60,9 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Azure-resurser distribueras till ett undernät i ett virtuellt nätverk, så du behöver skapa ett undernät. Skapa en undernätskonfiguration med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). 
+### <a name="add-a-subnet"></a>Lägga till ett undernät
+
+Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa ett undernät. Skapa en undernätskonfiguration med namnet *standard* med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -61,7 +71,9 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Skriv undernätskonfigurationen till det virtuella nätverket med [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), som skapar undernätet i det virtuella nätverket:
+### <a name="associate-the-subnet-to-the-virtual-network"></a>Associera undernätet med det virtuella nätverket
+
+Du kan skriva undernätskonfigurationen till det virtuella nätverket med [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). Det här kommandot skapar undernätet:
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzureRmVirtualNetwork
@@ -69,11 +81,11 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Skapa två virtuella datorer i det virtuella nätverket:
+Skapa två virtuella datorer i det virtuella nätverket.
 
 ### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-Skapa en virtuell dator med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). När du kör kommandot nedan uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn. Alternativet `-AsJob` skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg.
+Skapa den första virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). När du kör följande kommando måste du ange autentiseringsuppgifter. Ange ett användarnamn och lösenord för den virtuella datorn:
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -85,17 +97,19 @@ New-AzureRmVm `
     -AsJob
 ```
 
-Utdata som liknar följande exempelutdata returneras, och Azure börjar skapa den virtuella datorn i bakgrunden.
+Alternativet `-AsJob` skapar den virtuella datorn i bakgrunden. Du kan fortsätta till nästa steg.
+
+När Azure börjar skapa den virtuella datorn i bakgrunden får du tillbaka något liknande detta:
 
 ```powershell
-Id     Name            PSJobTypeName   State         HasMoreData     Location             Command                  
---     ----            -------------   -----         -----------     --------             -------                  
-1      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmVM     
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+1      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmVM
 ```
 
-### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn 
+### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn
 
-Ange följande kommando:
+Skapa den andra virtuella datorn med det här kommandot:
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -105,11 +119,14 @@ New-AzureRmVm `
   -Name "myVm2"
 ```
 
-Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med nästa steg förrän föregående kommando har körts och utdata har returnerats till PowerShell.
+Du måste skapa en annan användare och lösenord. Det tar några minuter för Azure att skapa den virtuella datorn.
+
+> [!IMPORTANT]
+> Fortsätt inte med nästa steg förrän Azure har avslutat uppgiften.  Det hela är klart när Azure returnerar utdata till PowerShell.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
 
-Använd [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) för att returnera den offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den virtuella datorn *myVm1*:
+Använd [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) för att returnera den offentliga IP-adressen för en virtuell dator. I det här exemplet returneras den offentliga IP-adressen för den virtuella datorn *myVm1*:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -118,44 +135,96 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-Ersätt `<publicIpAddress>` i följande kommando med den offentliga IP-adressen som returnerades från föregående kommando och ange sedan följande kommando: 
+Öppna en kommandotolk på den lokala datorn. Kör `mstsc`-kommandot. Ersätt `<publicIpAddress>` med den offentliga IP-adress som returnerades från det senaste steget:
 
-```
+> [!NOTE]
+> Om du har kört dessa kommandon från en PowerShell-kommandotolk på din lokala dator, och du använder AzureRM PowerShell-modulversion 5.4.1 eller senare, kan du fortsätta i det gränssnittet.
+
+```cmd
 mstsc /v:<publicIpAddress>
 ```
 
-En RDP-fil (Remote Desktop Protocol) skapas och laddas ned till datorn. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn. Välj **OK**. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
+En fjärrskrivbordsprotokollsfil (*.rdp*) laddas ned till datorn och ett fjärrskrivbord öppnas.
+
+1. Välj **Anslut** om du uppmanas att göra det.
+
+1. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn.
+
+    > [!NOTE]
+    > Du kan behöva välja **Fler alternativ** > **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
+
+1. Välj **OK**.
+
+1. Du kan få en certifikatsvarning. Om så är fallet väljer du **Ja** eller **Fortsätt**.
 
 ## <a name="communicate-between-vms"></a>Kommunicera mellan virtuella datorer
 
-Från PowerShell på den virtuella datorn *myVm1* anger du `ping myvm2`. Ping misslyckas, eftersom ping som standard använder ICMP (Internet Control Message Protocol) och ICMP inte är tillåtet via Windows-brandväggen.
+1. Öppna PowerShell på fjärrskrivbordet på *myVm1*.
 
-För att tillåta *myVm2* att pinga *myVm1* i ett senare steg anger du följande kommando från PowerShell, som tillåter inkommande ICMP via Windows-brandväggen:
+1. Ange `ping myVm2`.
 
-```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
-```
+    Du får tillbaka något liknande detta:
 
-Stäng fjärrskrivbordsanslutningen till *myVm1*. 
+    ```powershell
+    PS C:\Users\myVm1> ping myVm2
 
-Utför stegen i [Ansluta till en virtuell dator från Internet](#connect-to-a-vm-from-the-internet) igen, men anslut till *myVm2*. 
+    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudap
+    Request timed out.
+    Request timed out.
+    Request timed out.
+    Request timed out.
 
-Från en kommandotolk på den virtuella datorn *myVm2* anger du `ping myvm1`.
+    Ping statistics for 10.0.0.5:
+        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+    ```
 
-Du får svar från *myVm1*, eftersom du har tillåtit ICMP via Windows-brandväggen på den virtuella datorn *myVm1* i ett tidigare steg.
+    Pinget misslyckas eftersom det använder Internet Control Message Protocol (ICMP). ICMP släpps som standard inte genom Windows-brandväggen.
 
-Stäng fjärrskrivbordsanslutningen till *myVm2*.
+1. Ange det efterföljande kommandot för att tillåta *myVm2* att pinga *myVm1* i ett senare skede:
+
+    ```powershell
+    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    ```
+
+    Kommandot tillåter ICMP inkommande genom Windows-brandväggen.
+
+1. Stäng fjärrskrivbordsanslutningen till *myVm1*.
+
+1. Upprepa stegen i [Ansluta till en virtuell dator från Internet](#connect-to-a-vm-from-the-internet). Den här gången ansluter du till *myVm2*.
+
+1. Från en kommandotolk på den virtuella datorn *myVm2* anger du `ping myvm1`.
+
+    Du får tillbaka något liknande detta:
+
+    ```cmd
+    C:\windows\system32>ping myVm1
+
+    Pinging myVm1.e5p2dibbrqtejhq04lqrusvd4g.bx.internal.cloudapp.net [10.0.0.4] with 32 bytes of data:
+    Reply from 10.0.0.4: bytes=32 time=2ms TTL=128
+    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+
+    Ping statistics for 10.0.0.4:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 2ms, Average = 0ms
+    ```
+
+    Du får svar från *myVm1*, eftersom du har tillåtit ICMP via Windows-brandväggen på den virtuella datorn *myVm1* i ett tidigare steg.
+
+1. Stäng fjärrskrivbordsanslutningen till *myVm2*.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när de inte längre behövs:
+När du är klar med det virtuella nätverket och de virtuella datorerna tar du bort resursgruppen och alla resurser den innehåller med [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup):
 
-```azurepowershell-interactive 
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat ett virtuellt standardnätverk och två virtuella datorer. Du har anslutit till en virtuell dator från Internet och kommunicerat privat mellan den virtuella datorn och en annan virtuell dator. Läs mer om virtuella nätverksinställningar i [Hantera ett virtuellt nätverk](manage-virtual-network.md). 
+I den här snabbstarten har du skapat ett virtuellt standardnätverk och två virtuella datorer. Du har anslutit till en virtuell dator från Internet och kommunicerat privat mellan den virtuella datorn och en annan virtuell dator. Läs mer om virtuella nätverksinställningar i [Hantera ett virtuellt nätverk](manage-virtual-network.md).
 
-Som standard tillåter Azure obegränsad privat kommunikation mellan virtuella datorer, men tillåter endast inkommande fjärrskrivbordsanslutningar till virtuella Windows-datorer från Internet. Om du vill lära dig mer om hur du tillåter eller begränsar olika typer av nätverkskommunikation till och från virtuella datorer fortsätter du till självstudien [Filtrera nätverkstrafik](tutorial-filter-network-traffic.md).
+Azure tillåter obegränsad privat kommunikation mellan virtuella datorer. Azure tillåter som standard endast inkommande fjärrskrivbordsanslutningar till virtuella Windows-datorer från Internet. Mer information om hur du konfigurerar olika typer av nätverkskommunikation för virtuella datorer finns i självstudien [Filtrera nätverkstrafik](tutorial-filter-network-traffic.md).

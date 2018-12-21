@@ -5,14 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/27/2018
+ms.date: 12/14/2018
 ms.author: victorh
-ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316407"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435573"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Självstudie: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
 
@@ -24,7 +25,7 @@ För den här självstudien skapar du tre virtuella nätverk:
 
 - **VNet-Hub** – brandväggen finns i det här virtuella nätverket.
 - **VNet-Spoke** – det virtuella ekernätverket representerar den arbetsbelastning som finns på Azure.
-- **VNet-Onprem** – det lokala virtuella nätverket representerar ett lokalt nätverk. I en verklig distribution kan det anslutas via en VPN- eller en Express Route-anslutning. För enkelhetens skull använder den här självstudien en VPN-gatewayanslutning, och ett virtuellt Azure-nätverk används för att representera ett lokalt nätverk.
+- **VNet-Onprem** – det lokala virtuella nätverket representerar ett lokalt nätverk. I en verklig distribution kan det anslutas via en VPN- eller en Route-anslutning. För enkelhetens skull använder den här självstudien en VPN-gatewayanslutning, och ett virtuellt Azure-nätverk används för att representera ett lokalt nätverk.
 
 ![Brandvägg i ett hybridnätverk](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -54,6 +55,12 @@ Det finns tre viktiga krav för att det här scenariot ska fungera korrekt:
 - Se till att ange **AllowGatewayTransit** vid peering av VNet-Hub till VNet-Spoke och **UseRemoteGateways** vid peering av VNet-Spoke till VNet-Hub.
 
 Information om hur dessa vägar skapas finns i avsnittet [Skapa vägar](#create-routes) i den här självstudien.
+
+>[!NOTE]
+>Azure Firewall måste ha direkt Internetanslutning. Om du har aktiverat tvingad tunneltrafik till lokalt via ExpressRoute eller Application Gateway behöver du konfigurera UDR 0.0.0.0/0 med värdet **NextHopType** inställt på **Internet** och sedan tilldela den till  **AzureFirewallSubnet**.
+
+>[!NOTE]
+>Trafiken mellan direkt peerkopplade virtuella nätverk dirigeras direkt även om UDE pekar på Azure Firewall som standardgateway. Om du vill skicka undernätet till undernätstrafik i brandväggen i det här scenariot så måste UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -482,4 +489,4 @@ Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de i
 Därefter kan du övervaka Azure Firewall-loggarna.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)
+> [Självstudie: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)

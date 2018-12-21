@@ -1,21 +1,22 @@
 ---
-title: Java-snabbstart – ändra modellen och träna upp LUIS-appen
-titleSuffix: Azure Cognitive Services
-description: I den här Java-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
+title: Ändra, träna appen, Java
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: I den här Java-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bfe4aae25a34799370e52c8677871a62935ab5c2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 206b345fedb033a6b98e350fec8c66a3496f5236
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419749"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080834"
 ---
 # <a name="quickstart-change-model-using-java"></a>Snabbstart: Ändra modell med hjälp av Java 
 
@@ -71,14 +72,14 @@ ms.locfileid: "50419749"
 
 Kompilera AddUtterance med beroendena
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## <a name="run-code"></a>Köra koden
 Om `AddUtterance` anropas utan argument läggs LUIS-yttrandena till i appen, men de tränas inte.
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 

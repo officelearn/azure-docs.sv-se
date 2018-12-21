@@ -1,5 +1,5 @@
 ---
-title: Skapa en enkelsidig Azure Time Series Insights-webbapp
+title: Skapa en enkelsidig Azure Time Series Insights-webbapp | Microsoft Docs
 description: Lär dig hur du skapar en enkelsidig webbapp som frågar och återger data från en TSI-miljö.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,14 +7,15 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626763"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275847"
 ---
-# <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Självstudier: Skapa en enkelsidig Azure Time Series Insights-webbapp
+# <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Självstudie: Skapa en enkelsidig Azure Time Series Insights-webbapp
 
 Den här självstudien vägleder dig genom processen att skapa din egen ensidiga webbapp (SPA) för att komma åt TSD-data som bygger på exempelprogrammet [Time Series Insights (Insikter från tidsserier;TSI) ](https://insights.timeseries.azure.com/clientsample). I den här självstudiekursen lär du dig:
 
@@ -33,8 +34,8 @@ Installera Visual Studio, om du inte redan gjort det. För den här kursen kan d
 
 Som tidigare nämnts utgör TSI-exempelprogrammet grunden för den design och kod som används i den här självstudiekursen. Koden omfattar användning av JavaScript-bibliotek för TSI-klient. TSI-klientbiblioteket tillhandahåller en abstraktion för två huvudkategorier av API:er:
 
-- **Omslutningsmetoder för att anropa TSI-frågans API:er**: REST-API:er som låter dig fråga efter TSI-data genom att använda JSON-baserade uttryck. Metoderna organiseras under `TsiClient.server`-namnområdet för biblioteket.
-- **Metoder för att skapa och fylla i flera typer av diagramkontroller**: Metoder som används för visualisering av TSI-data på en webbsida. Metoderna organiseras under `TsiClient.ux`-namnområdet för biblioteket.
+- **Omslutningsmetoder för att anropa fråge-API:er för TSI**: REST-API:er som gör det möjligt att fråga efter TSI-data med hjälp av JSON-baserade uttryck. Metoderna organiseras under `TsiClient.server`-namnområdet för biblioteket.
+- **Metoder för att skapa och fylla flera typer av diagramkontroller**: Metoder som används för att visualisera TSI-data på en webbsida. Metoderna organiseras under `TsiClient.ux`-namnområdet för biblioteket.
 
 Den här självstudiekursen kommer också att använda data från det exempelprogrammets TSI-miljö. Mer information om strukturen för TSI-exempelprogrammet och dess användning av TSI-klientbiblioteket finns i kursen [Utforska klient-JavaScript-biblioteket för Azure Time Series Insights](tutorial-explore-js-client-lib.md).
 
@@ -91,7 +92,7 @@ Innan du skapar programmet måste du registrera det med Azure AD. Registreringen
    > Beroende på webbläsaren kan behöva du korrigera filnamnstillägget (till HTML eller CSS) innan du sparar filen.
 
    - **index.HTML** HTML och JavaScript för sidan https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
-   - **sampleStyles.css:** CSS-stilark: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
+   - **sampleStyles.css:** CSS-formatmall: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
 1. Starta och logga in på Visual Studio och skapa ett projekt för webbappen. I menyn **Arkiv** väljer du alternativet **öppna**, **Webbplats**. I dialogrutan **Öppna webbplats** väljer du arbetskatalogen där du sparade HTML- och CSS-filerna och klickar sedan på **Öppna**:
 
@@ -177,8 +178,8 @@ Innan du skapar programmet måste du registrera det med Azure AD. Registreringen
 
 Felkod/-villkor | Beskrivning
 ---------------------| -----------
-*AADSTS50011: Inga svarsadress är registrerad för appen.* | Azure AD-registreringen saknar egenskapen ”Svars-URL”. Gå till sidan **Inställningar** / **Svars-URL: er** för din Azure AD-appregistrering. Kontrollera att den **inloggning**-URL som anges i steg 3 av [Registrera apen med Azure AD](#register-the-application-with-azure-ad) finns. 
-*AADSTS50011: Svars-URL:en som angavs i begäran matchar inte de svars-URL:er som har konfigurerats för appen: '<Application ID GUID>'.* | `postLogoutRedirectUri` som angavs i steg 4.b av [Bygga och publicera webbappen](#build-and-publish-the-web-application) måste överensstämma med värdet som anges under egenskapen **Inställningar** / **Svars-URL** i Azure AD-appregistrering. Se till att även ändra din **mål-URL** så att du använder `https`, per steg 5.e i [Bygg och publicera webbappen](#build-and-publish-the-web-application).
+*AADSTS50011: Ingen svarsadress har registrerats för appen.* | Azure AD-registreringen saknar egenskapen ”Svars-URL”. Gå till sidan **Inställningar** / **Svars-URL: er** för din Azure AD-appregistrering. Kontrollera att den **inloggning**-URL som anges i steg 3 av [Registrera apen med Azure AD](#register-the-application-with-azure-ad) finns. 
+*AADSTS50011: Svars-URL:en som angetts i begäran matchar inte de svars-URL:er som har konfigurerats för appen: <Application ID GUID>.* | `postLogoutRedirectUri` som angavs i steg 4.b av [Bygga och publicera webbappen](#build-and-publish-the-web-application) måste överensstämma med värdet som anges under egenskapen **Inställningar** / **Svars-URL** i Azure AD-appregistrering. Se till att även ändra din **mål-URL** så att du använder `https`, per steg 5.e i [Bygg och publicera webbappen](#build-and-publish-the-web-application).
 Webbappen har lästs in, men inloggningssidan har endast oformaterad text med en vit bakgrund. | Kontrollera att de sökvägar som beskrivs i steg 4.a i [Bygg och publicera webbappen](#build-and-publish-the-web-application) är korrekta. Om webbappen inte kan hitta CSS-filer kommer sidan inte att formateras korrekt.
 
 ## <a name="clean-up-resources"></a>Rensa resurser

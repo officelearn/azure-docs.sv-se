@@ -1,6 +1,7 @@
 ---
-title: 'Snabbstart: Utföra en bildsökning med Python – API för bildsökning i Bing'
-description: Använd den här snabbstarten att skicka ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla Python-programmet skickar en sökfråga till API:et och visar rådataresultat.
+title: 'Snabbstart: Sök efter bilder – API för bildsökning i Bing och Python'
+titleSuffix: Azure Cognitive Services
+description: Använd den här snabbstarten när du vill skicka bildsökningsbegäranden till REST-API för bildsökning i Bing med hjälp av Python och få JSON-svar.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -9,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: a51935300238235338ec30ec7061101745b0e0e5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: a93a044279cccd883de5f946bb236cad4b088ae2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314396"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261985"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Snabbstart: Skicka sökfrågor med hjälp av REST API och Python
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och Python
 
-Använd den här snabbstarten att skicka ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla Python-programmet skickar en sökfråga till API:et och visar rådataresultat.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Det här enkla Python-programmet skickar en sökfråga till API:et och visar rådataresultat.
 
 Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 

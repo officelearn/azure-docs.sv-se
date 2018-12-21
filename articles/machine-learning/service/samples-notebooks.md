@@ -1,5 +1,6 @@
 ---
-title: Självstudier om Azure Machine Learning-tjänsten i Jupyter-anteckningsböcker
+title: Exempel på Jupyter Notebooks
+titleSuffix: Azure Machine Learning service
 description: Hitta och använd exempel på Jupyter-anteckningsböcker för att utforska Azure Machine Learning-tjänsten i Python.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 5ec010d6e0539e9ba316b48dc02110dc19e4b13e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883946"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434536"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Använd Jupyter-anteckningsböcker för att utforska Azure Machine Learning-tjänsten
 
@@ -96,7 +98,7 @@ Du kan använda något av ovanstående alternativ, men du kan också installera 
    >[!NOTE]
    >Du kan använda en befintlig conda om det är version 4.4.10 eller senare. Använd `conda -V` för att visa versionen. Du kan uppdatera en conda-version med kommandot: `conda update conda`. Du behöver inte installera just mini-conda.
 
-1. Ladda ned exempelanteckningsböckerna från [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+1. Ladda ned exempelanteckningsböckerna från [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
 ) som en ZIP-fil och extrahera innehållet till en lokal katalog. Anteckningsböckerna för automatiserad maskininlärning finns i mappen `how-to-use-azureml/automated-machine-learning`.
 
 1. Konfigurera en ny Conda-miljö. 
@@ -114,9 +116,10 @@ Du kan använda något av ovanstående alternativ, men du kan också installera 
       + Konfigurerar widgeten
       + Startar en Jupyter-anteckningsbok
       
-      Skriptet tar conda-miljönamnet som en valfri parameter. Standardinställningen för conda-miljönamnet är `azure_automl`. Det exakta kommandot beror på operativsystemet. 
+   >[!NOTE]
+   > Skriptet tar conda-miljönamnet som en valfri parameter. Standardinställningen för conda-miljönamnet är `azure_automl`. Det exakta kommandot beror på operativsystemet. Detta är användbart om du skapar en ny miljö eller uppgraderar till en ny version. Du kan t.ex. använda automl_setup.cmd azure_automl_sandbox om du vill skapa ett miljönamn som azure_automl_sandbox. 
       
-      När skriptet har slutförts visas en Jupyter Notebook-startsida i webbläsaren.
+1. När skriptet har slutförts visas en Jupyter Notebook-startsida i webbläsaren.
 
 1. Navigera till sökvägen där du sparade anteckningsböckerna. 
 

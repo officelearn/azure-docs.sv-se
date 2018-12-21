@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/24/2018
 ms.author: dech
 ms.custom: include file
-ms.openlocfilehash: 6169821d0e81f0af108dccbfa761f5512e352628
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3915df46495e754843009a761e9a07aa2daddae2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853522"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53286207"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) i ett nytt webbläsarfönster.
 2. Klicka på **Skapa en resurs** > **Databaser** > **Azure Cosmos DB**.
@@ -26,7 +26,7 @@ ms.locfileid: "52853522"
     ---|---|---
     Prenumeration|*Din prenumeration*|Välj den Azure-prenumeration som ska användas för det här Azure Cosmos DB-kontot. 
     Resursgrupp|Skapa ny<br><br>*Ange ett unikt namn*|Välj **Skapa ny** och ange sedan ett nytt resursgruppsnamn för ditt konto. För enkelhetens skull kan du använda samma namn som för ditt kontonamn. 
-    Kontonamn|*Ange ett unikt namn*|Ange ett unikt namn som identifierar ditt Azure Cosmos DB-konto. Eftersom*documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt ID.<br><br>Ditt ID får bara innehålla gemener, siffror och bindestreck och måste innehålla mellan 3 och 50 tecken.
+    Kontonamn|*Ange ett unikt namn*|Ange ett unikt namn som identifierar ditt Azure Cosmos DB-konto. Eftersom*documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt ID.<br><br>Ditt ID får bara innehålla gemener, siffror och bindestreck (-) och måste innehålla mellan 3 och 31 tecken.
     API|Core (SQL)|API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er: SQL (dokumentdatabas), Gremlin (grafdatabas), MongoDB (dokumentdatabas), Tabell-API och API för Cassandra. Varje API kräver för närvarande att du skapar ett separat konto. <br><br>Välj **Core (SQL)** eftersom du i den här artikeln skapar en dokumentdatabas och fråga med hjälp av SQL-syntax. <br><br>[Läs mer om SQL-API:et](../articles/cosmos-db/documentdb-introduction.md)|
     Plats|*Välj den region som är närmast dina användare*|Välj en geografisk plats som värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.
     Aktivera geo-redundans| Lämna tomt | Detta skapar en replikerad version av databasen i en andra (parad) region. Låt den vara tom.  

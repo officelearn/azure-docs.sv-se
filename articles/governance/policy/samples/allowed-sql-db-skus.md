@@ -1,5 +1,5 @@
 ---
-title: Azure Policy-exempel – tillåtna SQL DB SKU:er
+title: Exempel – Tillåtna SKU:er för SQL DB
 description: Den här exempelprincipen kräver att SQL-databaser använder en godkänd SKU.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 3f2ed04555f46f80585c3a17612e3071bfec415d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f22ee99750f12d44ca61fac6a0e5db4bde9634a1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992787"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311362"
 ---
 # <a name="allowed-sql-db-skus"></a>Tillåtna SKU:er för SQL DB
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel på [Azure Policy-exempel](index.md)
+- Granska fler exempel på [Azure-principexempel](index.md)

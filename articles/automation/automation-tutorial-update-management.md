@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679910"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184992"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Hantera Windows-uppdateringar med hjälp av Azure Automation
 
@@ -82,48 +82,24 @@ Klicka någon annanstans på uppdateringen för att öppna fönstret **Loggsökn
 
 ## <a name="configure-alerts"></a>Konfigurera varningar
 
-I det här steget lär du dig att ställa in en avisering som meddelar dig när uppdateringar har distribuerats via en Log Analytics-fråga eller genom att spåra huvud-runbook för uppdateringshantering för distributioner som har misslyckats.
+I det här steget lär du dig hur du ställer in en avisering som meddelar dig om statusen för en uppdateringsdistribution.
 
 ### <a name="alert-conditions"></a>Aviseringsvillkor
 
-Det finns olika aviseringsvillkor som måste definieras för varje typ av avisering.
+Gå till **Aviseringar** under **Övervakning** i ditt Automation-konto och klicka sedan på **+ Ny aviseringsregel**.
 
-#### <a name="log-analytics-query-alert"></a>Log Analytics-frågeavisering
+Ditt Automation-konto har redan valts som resursen. Om du vill ändra den kan du klicka på **Välj** och välja **Automation-konton** i listrutan **Filtrera efter resurstyp** på sidan **Välj en resurs**. Välj ditt Automation-konto och välj **Klar**.
 
-Du kan skapa en avisering baserad på en Log Analytics-fråga för lyckade distributioner. För misslyckade distributioner kan du använda stegen för [Runbook-aviseringen](#runbook-alert) och få aviseringar när något går fel med den huvud-runbook som orkestrerar distributionen av uppdateringar. Du kan skriva en anpassad fråga för ytterligare aviseringar och omfattar många olika scenarier.
+Klicka på **Lägg till villkor** för att välja lämplig signal för uppdateringsdistributionen. Följande tabell visar information om de två tillgängliga signalerna för uppdateringsdistributioner:
 
-I Azure Portal går du till **Övervaka**, och väljer sedan **Skapa avisering**.
+|Signalnamn|Dimensioner|Beskrivning|
+|---|---|---|
+|**Antal körningar av uppdateringsdistributionen**|– Namnet på uppdateringsdistributionen</br>– Status|Den här signalen används för att avisera om uppdateringsdistributionens övergripande status.|
+|**Antal datorspecifika körningar av uppdateringsdistributionen**|– Namnet på uppdateringsdistributionen</br>– Status</br>– Måldator</br>– ID för körningen av uppdateringsdistributionen|Den här signalen används för att avisera om statusen för en uppdateringsdistribution som är riktad mot specifika datorer|
 
-Under **1. Definiera aviseringstillstånd** , klicka på **Välj mål**. Under **Filtrera efter resurstyp** väljer du **Log Analytics**. Välj Log Analytics-arbetsytan och välj sedan **Klar**.
-
-![Skapa avisering](./media/automation-tutorial-update-management/create-alert.png)
-
-Välj **Lägg till villkor**.
-
-Under **Konfigurera signallogik**, i tabellen, välj **Anpassad loggsökning**. Ange sedan följande fråga i textrutan **Sökfråga**:
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize by UpdateRunName, Computer
-```
-Den här frågan returnerar datorer och uppdateringens körnamn som slutförts under den tidsperiod som angetts.
-
-Under **Aviseringslogik**, för **Tröskelvärde**, ange **1**. När du är klar väljer du **Klar**.
+För dimensionsvärdena väljer du ett giltigt värde i listan. Om värdet som du letar efter inte visas i listan klickar du på **\+**-tecknet bredvid dimensionen och skriver ett anpassat namn. Därefter kan du välja det värde som du vill söka efter. Om du vill välja alla värden från en dimension klickar du på knappen **Välj \***. Om du inte väljer ett värde för en dimension ignoreras den dimensionen under utvärderingen.
 
 ![Konfigurera signallogiken](./media/automation-tutorial-update-management/signal-logic.png)
-
-#### <a name="runbook-alert"></a>Runbook-avisering
-
-För misslyckade distributioner måste du avisera om felet i din master-runbook.
-I Azure Portal går du till **Övervaka**, och väljer sedan **Skapa avisering**.
-
-Under **1. Definiera aviseringstillstånd** , klicka på **Välj mål**. Under **Filtrera efter resurstyp** väljer du **Automation-konton**. Välj ditt Automation-konto och välj **Klar**.
-
-För **Namn på runbook** klickar du på **\+**-tecknet och skriver in **Patch-MicrosoftOMSComputers** som anpassat namn. För **Status** väljer du **Misslyckad** eller klickar på **\+**-tecknet och skriver **Misslyckad**.
-
-![Konfigurera signallogiken för runbook-flöden](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 Under **Aviseringslogik**, för **Tröskelvärde**, ange **1**. När du är klar väljer du **Klar**.
 
@@ -133,7 +109,7 @@ Under **2. Definiera aviseringsinformation**, ange ett namn och en beskrivning f
 
 ![Konfigurera signallogiken](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Under **3. Definiera åtgärdsgrupp**, välj **Ny åtgärdsgrupp**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Välj **Skapa ny** under **Åtgärdsgrupper**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
 
 I rutan **Åtgärdsgruppnamn** anger du ett namn för aviseringen och ett kortnamn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 
@@ -155,15 +131,15 @@ Schemalägg en ny uppdateringsdistribution för den virtuella datorn, gå till *
 
 Under **Ny uppdateringsdistribution** anger du följande information:
 
-* **Namn**: Ange ett unikt namn på uppdateringsdistributionen.
+* **Namn**: Ange ett unikt namn för uppdateringsdistributionen.
 
-* **Operativsystem**: Välj operativsystem som mål för uppdateringsdistributionen.
+* **Operativsystem**: Välj det operativsystem som uppdateringsdistributionen ska riktas mot.
 
-* **Grupper att uppdatera (förhandsversion)**: definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)
+* **Grupper som ska uppdateras (förhandsversion)**: Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)
 
 * **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../azure-monitor/platform/computer-groups.md)
 
-* **Uppdatera klassificering**: Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. Låt alla typer vara markerade för den här självstudien.
+* **Uppdatera klassificering**: Välj vilka typer av programvaror som ingick i distributionen av uppdateringsdistributionen. Låt alla typer vara markerade för den här självstudien.
 
   Klassificeringstyper:
 
@@ -176,12 +152,12 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
 * **Uppdateringar att inkludera/exkludera** – detta öppnar sidan **Inkludera/exkludera**. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras och finns i [inkluderingsbeteende](automation-update-management.md#inclusion-behavior)
 
-* **Schemainställningar**: Sidan **Schemainställningar** öppnas. Starttiden är som standard 30 minuter efter den aktuella tiden. Du kan ange starttiden till helst från 10 minuter i framtiden.
+* **Schemainställningar**: Fönstret **Schemainställningar** öppnas. Starttiden är som standard 30 minuter efter den aktuella tiden. Du kan ange starttiden till helst från 10 minuter i framtiden.
 
    Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Under **Återkommande**, välj **En gång**. Lämna standardvärdet till 1 dag och välj **OK**. Då ställs ett återkommande schema in.
 
-* **Skript före och efter**: Välj skript som ska köras före och efter distributionen. Mer information finns i [Hantera skript före och efter](pre-post-scripts.md).
-* **Underhållsperiod (minuter)**: Låt standardvärdet stå kvar. Du kan ange tidsfönstret som du vill att distributionen av uppdateringen ska ske inom. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
+* **Förskript och efterskript**: Välj vilka skript som ska köras före och efter distributionen. Mer information finns i [Hantera skript före och efter](pre-post-scripts.md).
+* **Underhållsperiod (minuter)**: Låt standardvärdet vara kvar. Du kan ange tidsfönstret som du vill att distributionen av uppdateringen ska ske inom. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
 
 * **Omstartsalternativ**: Den här inställningen avgör hur omstarter ska hanteras. De tillgängliga alternativen är:
   * Starta om vid behov (standard)

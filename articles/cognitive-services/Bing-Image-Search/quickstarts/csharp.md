@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Utföra en bildsökning med C# – API för bildsökning i Bing'
+title: 'Snabbstart: Söka efter bilder – REST API för bildsökning i Bing och C#'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Den här enkla C#-appen skickar en HTTP-bildsökningsfråga till API:et och visar webbadressen till den första bild som returneras.
+description: Använd den här snabbstarten när du vill skicka bildsökningsbegäranden till REST API för bildsökning i Bing med hjälp av C# och få JSON-svar.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 3819b476c5d3638f409b4195d6340920032d7b99
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67dd91d7555ebd1e72cea168fc8b841bf4ed9175
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307499"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249523"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Snabbstart: Skicka sökfrågor med API för bildsökning i Bing och C#
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Snabbstart: Sök efter bilder med hjälp av REST API för bildsökning i Bing och C#
 
 Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Den här enkla C#-appen skickar en HTTP-bildsökningsfråga till API:et och visar webbadressen till den första bild som returneras.
 

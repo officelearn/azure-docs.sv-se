@@ -1,25 +1,18 @@
 ---
-title: Snabbstart – Azure SignalR Service REST API | Microsoft Docs
+title: Snabbstart – Azure SignalR Service REST API
 description: En snabbstart för att använda Azure SignalR Service REST API.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 36fb87d3255149c041c4288d13c54eaff8425e06
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024370"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251869"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snabbstart: Sända realtidsmeddelanden från konsolapp
 
@@ -30,17 +23,15 @@ I den här snabbstarten får du lära dig hur du sänder meddelanden från en ko
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här snabbstarten kan köras på macOS, Windows eller Linux.
+
 * [.NET Core SDK](https://www.microsoft.com/net/download/core)
 * Valfri textredigerare eller kodredigerare.
 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto.
-
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -68,6 +59,7 @@ Du kan även hitta hur du skapar en åtkomsttoken för autentisering med Azure S
 ### <a name="build-the-executable-file"></a>Skapa den körbara filen
 
 Vi använder macOS osx.10.13-x64 som exempel. Det finns [referenser](https://docs.microsoft.com/dotnet/core/rid-catalog) till hur du bygger på andra plattformar.
+
 ```bash
 cd AzureSignalR-samples/samples/Serverless/
 
@@ -108,7 +100,7 @@ Du kan köra `dotnet user-secrets set Azure:SignalR:ConnectionString "<Connectio
 
 ## <a name="usage"></a>Användning
 
-När servern har startats använder du kommandot för att skicka meddelandet
+När servern har startats använder du kommandot för att skicka meddelandet:
 
 ```
 send user <User Id>
@@ -121,8 +113,11 @@ broadcast
 Du kan starta flera klienter med olika klientnamn.
 
 ## <a name="usage"> </a> Integrering med tjänster från tredje part
+
 Azure SignalR-tjänsten tillåter tredjepartstjänster att integrera med systemet.
-### <a name="usage"> </a> Definition av tekniska specifikationer
+
+### <a name="definition-of-technical-specifications"></a>Definition av tekniska specifikationer
+
 Följande tabell visar alla versioner av de REST API:er som stöds hittills. Du hittar även definitionsfilen för varje specifika version
 
 Version | API-tillstånd | Door | Specifik
@@ -136,14 +131,15 @@ API | `1.0-preview` | `1.0`
 --- | --- | ---
 [Sänd till alla](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
 [Sänd till en grupp](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-Sänd till vissa grupper | :heavy_check_mark: (inaktuell) | `N / A`
+Sänd till vissa grupper | :heavy_check_mark: (Inaktuell) | `N / A`
 [Sänd till specifika användare](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-Skicka till vissa användare | :heavy_check_mark: (inaktuell) | `N / A`
+Skicka till vissa användare | :heavy_check_mark: (Inaktuell) | `N / A`
 [Lägga till användare i en grupp](#add-user-to-group) | `N / A` | :heavy_check_mark:
 [Ta bort en användare från en grupp](#remove-user-from-group) | `N / A` | :heavy_check_mark:
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Sänd till alla
+
 Version | API HTTP-metod | URL för begäran | Begärandetext
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -151,6 +147,7 @@ Version | API HTTP-metod | URL för begäran | Begärandetext
 
 <a name="broadcast-group"> </a>
 ### <a name="broadcast-to-a-group"></a>Sänd till en grupp
+
 Version | API HTTP-metod | URL för begäran | Begärandetext
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -158,6 +155,7 @@ Version | API HTTP-metod | URL för begäran | Begärandetext
 
 <a name="send-user"> </a>
 ### <a name="sending-to-specific-users"></a>Skicka till specifika användare
+
 Version | API HTTP-metod | URL för begäran | Begärandetext
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -165,12 +163,14 @@ Version | API HTTP-metod | URL för begäran | Begärandetext
 
 <a name="add-user-to-group"> </a>
 ### <a name="adding-a-user-to-a-group"></a>Lägga till användare i en grupp
+
 Version | API HTTP-metod | URL för begäran
 --- | --- | ---
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>Ta bort en användare från en grupp
+
 Version | API HTTP-metod | URL för begäran
 --- | --- | ---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`

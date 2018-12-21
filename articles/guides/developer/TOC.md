@@ -36,7 +36,7 @@
 
 # Begrepp
 ## [Fakturering och prenumerationer](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Jämförelser av värdtjänster](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [Jämförelser av värdtjänster](https://docs.microsoft.com/azure/app-service/overview-compare)
 ## [Vad är App Service?](https://docs.microsoft.com/azure/app-service/overview)
 ## Virtuella datorer
 ### [Virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
@@ -76,11 +76,11 @@
 ### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Backup
-### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service/manage-backup)
 ### [Virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Övervaka
-### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
+### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
 ### [Virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Mikrotjänster](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)

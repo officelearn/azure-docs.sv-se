@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957936"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106081"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Självstudie: Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps
 
 Du kan starta ett automatiserat [arbetsflöde för en logikapp](../logic-apps/logic-apps-overview.md) när specifika händelser inträffar i Azure-resurser eller i resurser från tredje part. Dessa resurser kan publicera händelserna till ett [Azure-händelserutnät](../event-grid/overview.md). Händelserutnätet skickar i sin tur händelserna vidare till prenumeranter som har köer, webhooks eller [händelsehubbar](../event-hubs/event-hubs-what-is-event-hubs.md) som slutpunkter. Som prenumerant kan din logikapp vänta på dessa händelser från händelserutnätet innan den kör automatiserade arbetsflöden för att utföra uppgifter – utan att du behöver skriva någon kod.
 
@@ -81,9 +81,9 @@ Börja med att skapa en logikapp och lägg till en utlösare för händelserutn�
    Nu visas [*anslutningsprogram*](../connectors/apis-list.md) och [*utlösare*](../logic-apps/logic-apps-overview.md#logic-app-concepts) i Logic Apps-designern som du kan använda för att börja skapa logikappen, samt åtgärder som du kan lägga till efter en utlösare för att utföra åtgärder. En utlösare är en händelse som skapar en instans av en logikapp och som startar logikappens arbetsflöde. 
    Din logikapp måste ha en utlösare som det första objektet.
 
-6. Skriv ”event grid” (händelserutnät) som filter i sökrutan. Välj den här utlösaren: **Azure Event Grid – On a resource event** (Azure Event Grid – vid en resurshändelse)
+6. Skriv ”event grid” (händelserutnät) som filter i sökrutan. Välj den här utlösaren: **Azure Event Grid - On a resource event** (vid en resurshändelse)
 
-   ![Välj den här utlösaren: Azure Event Grid – On a resource event (Azure Event Grid – vid en resurshändelse)](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Välj den här utlösaren: "Azure Event Grid - On a resource event" (vid en resurshändelse)](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 7. När du uppmanas att göra det loggar du in i Azure Event Grid med dina autentiseringsuppgifter för Azure.
 
@@ -101,7 +101,7 @@ Börja med att skapa en logikapp och lägg till en utlösare för händelserutn�
    | **Prenumeration** | *{prenumeration-på-virtuell-Azure-dator}* | Välj händelseutfärdarens Azure-prenumeration. I den här självstudiekursen väljer du Azure-prenumerationen för din virtuella dator. | 
    | **Resurstyp** | Microsoft.Resources.resourceGroups | Välj händelseutfärdarens resurstyp. I den här självstudiekursen väljer du det angivna värdet så att logikappen endast övervakar resursgrupper. | 
    | **Resursnamn** | *{namn-på-resursgrupp-för-virtuell-dator}* | Välj utgivarens resursnamn. I den här självstudiekursen väljer du namnet på resursgruppen för din virtuella dator. | 
-   | Välj **Visa avancerade alternativ** om du vill visa valfria inställningar. | *{se beskrivningar}* | * **Prefixfilter**: I den här självstudiekursen lämnar du den här inställningen tom. Standardbeteendet matchar alla värden. Du kan dock ange en prefixsträng som ett filter, till exempel en sökväg och en parameter för en specifik resurs. <p>* **Suffixfilter**: I den här självstudiekursen lämnar du den här inställningen tom. Standardbeteendet matchar alla värden. Du kan dock ange en suffixsträng som ett filter, till exempel ett filnamnstillägg, om du bara vill använda specifika filtyper.<p>* **Prenumerationsnamn**: Ange ett unikt namn för din händelseprenumeration. |
+   | Välj **Visa avancerade alternativ** om du vill visa valfria inställningar. | *{se beskrivningar}* | * **Prefixfilter**: I den här självstudien lämnar du den här inställningen tom. Standardbeteendet matchar alla värden. Du kan dock ange en prefixsträng som ett filter, till exempel en sökväg och en parameter för en specifik resurs. <p>* **Suffixfilter**: I den här självstudien lämnar du den här inställningen tom. Standardbeteendet matchar alla värden. Du kan dock ange en suffixsträng som ett filter, till exempel ett filnamnstillägg, om du bara vill använda specifika filtyper.<p>* **Prenumerationsnamn**: Ange ett unikt namn för din händelseprenumeration. |
    | | | 
 
    När du är klar bör utlösaren för händelserutnätet se ut ungefär som i det här exemplet:

@@ -8,17 +8,17 @@ ms.component: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 1c54eff207de61a02a1ef752da66bb3b4f6d1580
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 53ca762232db5e79acdacbb3d52ce05f88dc108b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850354"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080409"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin-diagram
-Azure Cosmos DB stöder [Apache Tinkerpops](http://tinkerpop.apache.org) diagrambläddringsspråk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Gremlin-API för att skapa diagramentiteter och utföra diagramfrågeåtgärder. Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
+Azure Cosmos DB stöder [Apache Tinkerpops](https://tinkerpop.apache.org) diagrambläddringsspråk [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Gremlin-API för att skapa diagramentiteter och utföra diagramfrågeåtgärder. Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
 
-Azure Cosmos DB ger dig företagsklara funktioner diagramdatabaser. Det inkluderar global distribution, oberoende skalning av lagring och dataflöde, förutsägbara svarstider i ensiffriga millisekunder, automatisk indexering, serviceavtal, lästillgänglighet för databaskonton som sträcker sig över två eller flera Azure-regioner. Eftersom Azure Cosmos DB stöder TinkerPop/Gremlin, kan du enkelt migrera program som skrivits med en annan daigramdatabas utan att behöva göra kodändringar. Dessutom tack vare stöd för Gremlin, integreras Azure Cosmos DB smidigt med TinkerPop-aktiverade ramverk för analys som [Apache Spark GraphX](http://spark.apache.org/graphx/). 
+Azure Cosmos DB ger dig företagsklara funktioner diagramdatabaser. Det inkluderar global distribution, oberoende skalning av lagring och dataflöde, förutsägbara svarstider i ensiffriga millisekunder, automatisk indexering, serviceavtal, lästillgänglighet för databaskonton som sträcker sig över två eller flera Azure-regioner. Eftersom Azure Cosmos DB stöder TinkerPop/Gremlin, kan du enkelt migrera program som skrivits med en annan daigramdatabas utan att behöva göra kodändringar. Dessutom tack vare stöd för Gremlin, integreras Azure Cosmos DB smidigt med TinkerPop-aktiverade ramverk för analys som [Apache Spark GraphX](https://spark.apache.org/graphx/). 
 
 I den här artikeln ger vi en snabb genomgång av Gremlin och räknar upp de Gremlin-funktioner och steg som stöds av Gremlin-API:et.
 
@@ -29,19 +29,19 @@ Nu ska vi använda ett exempeldiagram för att förstå hur frågor kan uttrycka
 
 Det här diagrammet innehåller följande brytpunktstyper (kallas etikett i Gremlin):
 
-- Personer: diagrammet innehåller tre personer, Robin, Thomas och Ben
+- Personer: Diagrammet innehåller tre personer, Robin, Thomas och Ben
 - Intressen: Deras intressen, i det här exemplet, Fotboll
 - Enheter: De enheter som personerna använder
 - Operativsystem: De operativsystem som enheterna körs på
 
 Vi representerar relationerna mellan dessa entiteter via följande kanttyper/etiketter:
 
-- Känner: till exempel Thomas känner Robin
-- Intressen: representerar intressena för personerna i vårt diagram, till exempel Ben är intresserad av fotboll
+- Känner: till exempel, Thomas känner Robin
+- Intressen: Representerar intressena för personerna i vårt diagram, till exempel Ben är intresserad av fotboll
 - KörOS: den bärbara datorn kör Windows-operativsystemet
-- Användning: Representerar vilken enhet som en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
+- Använder: Representerar vilken enhet som en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
 
-Vi kör några åtgärder mot det här diagrammet med [Gremlin-konsolen](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Du kan också utföra dessa åtgärder med hjälp av Gremlin-drivrutinerna i den plattform du vill (Java, Node.js, Python eller .NET).  Innan vi tittar på vad som stöds i Azure Cosmos DB ska vi titta på några exempel för att bekanta oss med syntaxen.
+Vi kör några åtgärder mot det här diagrammet med [Gremlin-konsolen](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Du kan också utföra dessa åtgärder med hjälp av Gremlin-drivrutinerna i den plattform du vill (Java, Node.js, Python eller .NET).  Innan vi tittar på vad som stöds i Azure Cosmos DB ska vi titta på några exempel för att bekanta oss med syntaxen.
 
 Först ska vi titta på CRUD. Följande Gremlin-uttryck infogar Thomas-brytpunkten i diagrammet:
 
@@ -151,46 +151,46 @@ Varje egenskap kan lagra flera värden inom en matris.
 | värde | Värdet på egenskapen
 
 ## <a name="gremlin-steps"></a>Gremlin-steg
-Nu ska vi titta på de Gremlin-steg som stöds av Azure Cosmos DB. En fullständig referens om Gremlin finns i [TinkerPop-referens](http://tinkerpop.apache.org/docs/current/reference).
+Nu ska vi titta på de Gremlin-steg som stöds av Azure Cosmos DB. En fullständig referens om Gremlin finns i [TinkerPop-referens](https://tinkerpop.apache.org/docs/current/reference).
 
 | steg | Beskrivning | TinkerPop 3.2-dokumentation |
 | --- | --- | --- |
-| `addE` | Lägger till en kant mellan två brytpunkter | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
-| `addV` | Lägger till en brytpunkt i diagrammet | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `and` | Ser till att alla bläddringar returnerar ett värde | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
-| `as` | Ett stegmodulator för att tilldela en variabel till utdata från ett steg | [as step](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | En stegmodulator som används med `group` och `order` | [by step](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
-| `coalesce` | Returnerar den första bläddringen som returnerar ett resultat | [coalesce step](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | Returnerar ett konstant värde. Används med `coalesce`| [constant step](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
-| `count` | Returnerar antalet från bläddringen | [count step](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
-| `dedup` | Returnerar värden med borttagna dubbletter | [dedup step](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
-| `drop` | Släpper värdena (brytpunkt/kant) | [drop step](http://tinkerpop.apache.org/docs/current/reference/#drop-step) |
-| `fold` | Fungerar som en barriär som beräknar sammanställningen av resultat| [fold step](http://tinkerpop.apache.org/docs/current/reference/#fold-step) |
-| `group` | Grupperar värdena baserat på de angivna etiketterna| [group step](http://tinkerpop.apache.org/docs/current/reference/#group-step) |
-| `has` | Används för att filtrera egenskaper, brytpunkter och kanter. Stöder varianterna `hasLabel`, `hasId`, `hasNot` och `has`. | [has step](http://tinkerpop.apache.org/docs/current/reference/#has-step) |
-| `inject` | Matar in värden i en dataström| [inject step](http://tinkerpop.apache.org/docs/current/reference/#inject-step) |
-| `is` | Används för att utföra ett filter med ett booleskt uttryck | [is step](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
-| `limit` | Används för att begränsa antalet objekt i bläddringen| [limit step](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
-| `local` | Bäddar in ett avsnitt av en bläddring lokalt, liknar en underfråga | [local step](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
-| `not` | Används för att skapa negationer av ett filter | [not step](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | Returnerar resultatet av den angivna bläddringen om den ger upphov till ett resultat, annars returneras det anropande elementet | [optional step](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
-| `or` | Garanterar att minst en av bläddringarna returnerar ett värde | [or step](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
-| `order` | Returnerar resultat i den angivna sorteringsordningen | [order step](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
-| `path` | Returnerar den fullständiga sökvägen för bläddringen | [path step](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
-| `project` | Projicerar egenskaperna som en karta | [project step](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
-| `properties` | Returnerar egenskaperna för de angivna etiketterna | [properties step](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
-| `range` | Filtrerar till det angivna intervallet med värden| [range step](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
-| `repeat` | Upprepar steget för det angivna antalet gånger. Används för upprepning | [repeat step](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
-| `sample` | Används för exempelresultat för bläddringen | [sample step](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Används för att projicera resultat från bläddringen |  [select step](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | Används för icke-blockerande sammanställningar från bläddringen | [store step](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
-| `tree` | Sammanställ sökvägar från en brytpunkt i ett träd | [tree step](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
-| `unfold` | Rulla upp en iterator som ett steg| [unfold step](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
-| `union` | Sammanfoga resultat från flera bläddringar| [union step](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
-| `V` | Inkluderar de steg som krävs för bläddringar mellan brytpunkter och kanter `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` och `otherV` för | [vertex steps](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
-| `where` | Används för att filtrera resultat från bläddringen. Stöder operatorerna `eq`, `neq`, `lt`, `lte`, `gt`, `gte` och `between`  | [where step](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
+| `addE` | Lägger till en kant mellan två brytpunkter | [addE step](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addV` | Lägger till en brytpunkt i diagrammet | [addV step](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
+| `and` | Ser till att alla bläddringar returnerar ett värde | [and step](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Ett stegmodulator för att tilldela en variabel till utdata från ett steg | [as step](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | En stegmodulator som används med `group` och `order` | [by step](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | Returnerar den första bläddringen som returnerar ett resultat | [coalesce step](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | Returnerar ett konstant värde. Används med `coalesce`| [constant step](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | Returnerar antalet från bläddringen | [count step](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | Returnerar värden med borttagna dubbletter | [dedup step](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | Släpper värdena (brytpunkt/kant) | [drop step](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `fold` | Fungerar som en barriär som beräknar sammanställningen av resultat| [fold step](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | Grupperar värdena baserat på de angivna etiketterna| [group step](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | Används för att filtrera egenskaper, brytpunkter och kanter. Stöder varianterna `hasLabel`, `hasId`, `hasNot` och `has`. | [has step](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | Matar in värden i en dataström| [inject step](https://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | Används för att utföra ett filter med ett booleskt uttryck | [is step](https://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | Används för att begränsa antalet objekt i bläddringen| [limit step](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | Bäddar in ett avsnitt av en bläddring lokalt, liknar en underfråga | [local step](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | Används för att skapa negationer av ett filter | [not step](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | Returnerar resultatet av den angivna bläddringen om den ger upphov till ett resultat, annars returneras det anropande elementet | [optional step](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | Garanterar att minst en av bläddringarna returnerar ett värde | [or step](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | Returnerar resultat i den angivna sorteringsordningen | [order step](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | Returnerar den fullständiga sökvägen för bläddringen | [path step](https://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | Projicerar egenskaperna som en karta | [project step](https://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | Returnerar egenskaperna för de angivna etiketterna | [properties step](https://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | Filtrerar till det angivna intervallet med värden| [range step](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | Upprepar steget för det angivna antalet gånger. Används för upprepning | [repeat step](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | Används för exempelresultat för bläddringen | [sample step](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
+| `select` | Används för att projicera resultat från bläddringen |  [select step](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `store` | Används för icke-blockerande sammanställningar från bläddringen | [store step](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | Sammanställ sökvägar från en brytpunkt i ett träd | [tree step](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | Rulla upp en iterator som ett steg| [unfold step](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | Sammanfoga resultat från flera bläddringar| [union step](https://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | Inkluderar de steg som krävs för bläddringar mellan brytpunkter och kanter `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` och `otherV` för | [vertex steps](https://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | Används för att filtrera resultat från bläddringen. Stöder operatorerna `eq`, `neq`, `lt`, `lte`, `gt`, `gte` och `between`  | [where step](https://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-Den skrivoptimerade motorn som tillhandahålls av Azure Cosmos DB stöder automatisk indexering av alla egenskaperna i brytpunkter och kanter som standard. Därför bearbetas frågor med filter, intervallfrågor, sortering eller sammanställning av alla egenskaper från index och hanteras effektivt. Mer information om hur indexering fungerar i Azure Cosmos DV finns i vårt papper om [schemaoberoende indexering](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+Den skrivoptimerade motorn som tillhandahålls av Azure Cosmos DB stöder automatisk indexering av alla egenskaperna i brytpunkter och kanter som standard. Därför bearbetas frågor med filter, intervallfrågor, sortering eller sammanställning av alla egenskaper från index och hanteras effektivt. Mer information om hur indexering fungerar i Azure Cosmos DV finns i vårt papper om [schemaoberoende indexering](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Nästa steg
 * Kom igång med att skapa ett diagramprogram [med våra SDK:er](create-graph-dotnet.md) 

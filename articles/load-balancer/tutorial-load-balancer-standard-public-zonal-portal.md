@@ -1,14 +1,11 @@
 ---
-title: 'Självstudiekurs: Virtuella datorer med belastningsutjämnare i en zon – Azure Portal | Microsoft Docs'
-description: Den här kursen visar hur du skapar en standardbelastningsutjämnare med zonindelad klientdel för att belastningsutjämna virtuella datorer i en tillgänglighetszon med hjälp av Azure Portal
+title: 'Självstudie: Virtuella datorer med lastbalanserare i en zon – Azure-portalen'
+titlesuffix: Azure Load Balancer
+description: Den här kursen visar hur du skapar en Standard Load Balancer med zonindelad klientdel för att lastbalansera virtuella datorer i en tillgänglighetszon med hjälp av Azure Portal
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 580015b7f8b1f894c69ddec0f26daeb524932e4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: seodec18
+ms.openlocfilehash: dd4600d77373894cdc9d6225ae008a8bd677fb59
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637301"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262103"
 ---
-# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudiekurs: Belastningsutjämna virtuella datorer i en tillgänglighetszon med standardbelastningsutjämnare med hjälp av Azure Portal
+# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudie: Lastbalansera virtuella datorer i en tillgänglighetszon med Standard Load Balancer med hjälp av Azure-portalen
 
-I den här kursen skapar du en offentlig [Azure Load Balancer-standardinstans](https://aka.ms/azureloadbalancerstandard) med en zonindelad klientdel som använder en offentlig IP-standardadress med Azure Portal. I det här scenariot anger du en viss zon för dina klientdels- och serverdelsinstanser för att justera din datasökväg och dina resurser med en viss zon. Du lär dig hur du använder följande funktioner:
+I den här kursen skapar du en offentlig [Azure Standard Load Balancer-instans](https://aka.ms/azureloadbalancerstandard) med en zonindelad klientdel som använder en offentlig IP-standardadress med Azure Portal. I det här scenariot anger du en viss zon för dina klientdels- och serverdelsinstanser för att justera din datasökväg och dina resurser med en viss zon. Du lär dig hur du använder följande funktioner:
 
 > [!div class="checklist"]
-> * Skapa en Load Balancer-standarinstans med zonindelad klientdel.
+> * Skapa en Standard Load Balancer med zonindelad klientdel.
 > * Skapa nätverkssäkerhetsgrupper för att definiera regler för inkommande trafik.
-> * Skapa zonindelade virtuella datorer och anslut dem till en belastningsutjämnare.
-> * Skapa en hälsoavsökning för belastningsutjämnare.
-> * Skapa trafikregler för belastningsutjämnare.
+> * Skapa zonindelade virtuella datorer och anslut dem till en lastbalanserare.
+> * Skapa en hälsoavsökning för lastbalanserare.
+> * Skapa trafikregler för lastbalanserare.
 > * Skapa en enkel webbplats för Internet Information Services (IIS).
-> * Visa en belastningsutjämnare i praktiken.
+> * Visa en lastbalanserare i praktiken.
 
-Mer information om hur du använder tillgänglighetszoner med standardbelastningsutjämnare finns i [Standardbelastningsutjämnare och tillgänglighet zoner](load-balancer-standard-availability-zones.md).
+Mer information om hur du använder tillgänglighetszoner med Standard Load Balancer finns i [Standard Load Balancer och tillgänglighetszoner](load-balancer-standard-availability-zones.md).
 
 Om du vill kan du använda [Azure CLI](load-balancer-standard-public-zonal-cli.md) till att slutföra den här kursen.
 
@@ -47,23 +44,23 @@ Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-a-public-standard-load-balancer-instance"></a>Skapa en offentlig Standard Load Balancer-instans
 
-Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en ny offentlig IP-adress medan du skapar belastningsutjämnaren konfigureras den automatiskt som en standard-SKU-version. Den är också automatiskt zonredundant.
+Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en ny offentlig IP-adress medan du skapar lastbalanseraren konfigureras den automatiskt som en standard-SKU-version. Den är också automatiskt zonredundant.
 
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Load Balancer**.
-2. Ange dessa värden för belastningsutjämnaren på sidan **Skapa en belastningsutjämnare**:
-    - **myLoadBalancer** för belastningsutjämnarens namn.
-    - **Public** för belastningsutjämnarens typ.
-     - **myPublicIPZonal** för den nya offentliga IP-adress som du skapar. Välj **Välj en offentlig IP-adress**. Välj sedan **Skapa ny**. Ange **myPublicIP** som namn. SKU är standard. Välj **Zon 1** som **Tillgänglighetszon**.
+2. Ange dessa värden för lastbalanseraren på sidan **Skapa en lastbalanserare**:
+    - **myLoadBalancer** för lastbalanserarens namn.
+    - **Public** för lastbalanserarens typ.
+      - **myPublicIPZonal** för den nya offentliga IP-adress som du skapar. Välj **Välj en offentlig IP-adress**. Välj sedan **Skapa ny**. Ange **myPublicIP** som namn. SKU är standard. Välj **Zon 1** som **Tillgänglighetszon**.
     - **myResourceGroupZLB** som namn på den nya resursgrupp som du skapar.
     - **westeurope** för platsen.
-3. Skapa belastningsutjämnaren genom att välja **Skapa**.
+3. Skapa lastbalanseraren genom att välja **Skapa**.
    
     ![Skapa en zonindelad Standard Load Balancer-instans med Azure Portal](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
 
 
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
-I det här avsnittet skapar du ett virtuellt nätverk. Du kan också skapa två virtuella datorer i samma zon (dvs zon 1) för den region som ska läggas till i belastningsutjämnarens serverdelspool. Sedan installerar du IIS på de virtuella datorerna så att du enklare kan testa den zonredundanta belastningsutjämnaren. Om en virtuell dator misslyckas så misslyckas även hälsoavsökningen för den virtuella datorn i samma zon. Trafiken fortsätter att hanteras av andra virtuella datorer i samma zon.
+I det här avsnittet skapar du ett virtuellt nätverk. Du kan också skapa två virtuella datorer i samma zon (dvs zon 1) för den region som ska läggas till i lastbalanserarens serverdelspool. Sedan installerar du IIS på de virtuella datorerna så att du enklare kan testa den zonredundanta lastbalanseraren. Om en virtuell dator misslyckas så misslyckas även hälsoavsökningen för den virtuella datorn i samma zon. Trafiken fortsätter att hanteras av andra virtuella datorer i samma zon.
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 1. Välj **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk** längst upp till vänster på skärmen.  Ange följande värden för det virtuella nätverket:
@@ -81,7 +78,7 @@ I det här avsnittet skapar du ett virtuellt nätverk. Du kan också skapa två 
     - **myNetworkSecurityGroup** för nätverkssäkerhetsgruppens namn.
     - **myResourceGroupLB** för den befintliga resursgruppens namn.
    
-    ![Skapa en nätverkssäkerhetsgrupp](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+     ![Skapa en nätverkssäkerhetsgrupp](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### <a name="create-nsg-rules"></a>Skapa nätverkssäkerhetsgruppsregler
 
@@ -100,7 +97,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
     - **Tillåt HTTP** för **Beskrivning**.
 4. Välj **OK**.
  
- ![Skapa nätverkssäkerhetsgruppsregler](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Skapa nätverkssäkerhetsgruppsregler](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. Upprepa steg 2 till 4 om du vill skapa en annan regel med namnet **myRDPRule**. Den här regeln tillåter en inkommande RDP-anslutning som använder port 3389 med följande värden:
     - **Tjänstetagg** för **Källa**.
@@ -112,7 +109,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
     - **myRDPRule** för **Namn**.
     - **Tillåt HTTP** för **Beskrivning**.
 
-    ![Skapa en RDP-regel](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+      ![Skapa en RDP-regel](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
@@ -153,14 +150,14 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 7. Stäng RDP-sessionen med **myVM1**.
 8. Upprepa steg 1 till 7 för att installera IIS på **myVM2**.
 
-## <a name="create-load-balancer-resources"></a>Skapa resurser för belastningsutjämning
+## <a name="create-load-balancer-resources"></a>Skapa resurser för lastbalansering
 
-I det här avsnittet konfigurerar du inställningar för belastningsutjämnaren för en serverdelsadresspool och en hälsoavsökning. Du kan också ange belastningsutjämnare och nätverk adress translation regler för inläsning.
+I det här avsnittet konfigurerar du inställningar för lastbalanseraren för en serverdelsadresspool och en hälsoavsökning. Du kan också ange lastbalanserare och nätverk adress translation regler för inläsning.
 
 
 ### <a name="create-a-backend-address-pool"></a>Skapa en serverdelsadresspool
 
-För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till belastningsutjämnaren. Skapa serverdelsadresspoolen **myBackendPool** så att den omfattar **VM1** och **VM2**.
+För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till lastbalanseraren. Skapa serverdelsadresspoolen **myBackendPool** så att den omfattar **VM1** och **VM2**.
 
 1. Välj **Alla resurser** på menyn längst till vänster. Välj sedan **myLoadBalancer** i resurslistan.
 2. Välj **Serverdelspooler** under **Inställningar**. Välj sedan **Lägg till**.
@@ -169,13 +166,13 @@ För att distribuera trafik till de virtuella datorerna finns en adresspool på 
     - Välj **myVNet** som **Virtuellt nätverk** i den nedrullningsbara menyn. 
     - För **Virtuell dator** och **IP-adress** lägger du till **myVM1** och **myVM2** samt motsvarande offentliga IP-adresser.
 4. Välj **Lägg till**.
-5. Kontrollera att inställningen för serverdelspoolens belastningsutjämnare visar båda de virtuella datorerna: **myVM1** och **myVM2**.
+5. Kontrollera att inställningen för serverdelspoolens lastbalanserare visar båda de virtuella datorerna: **myVM1** och **myVM2**.
  
     ![Skapa en serverdelspool](./media/tutorial-load-balancer-standard-zonal-portal/create-backend-pool.png) 
 
 ### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
 
-Använd hälsoavsökningen så att belastningsutjämnaren kan övervaka din apps status. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från belastningsutjämnarens rotation baserat på deras svar på hälsokontroller. Skapa en hälsoavsökning **myHealthProbe** så att du kan övervaka de virtuella datorernas hälsotillstånd.
+Använd hälsoavsökningen så att lastbalanseraren kan övervaka din apps status. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller. Skapa en hälsoavsökning **myHealthProbe** så att du kan övervaka de virtuella datorernas hälsotillstånd.
 
 1. Välj **Alla resurser** på menyn längst till vänster. Välj sedan **myLoadBalancer** i resurslistan.
 2. Välj **Hälsoavsökningar** under **Inställningar**. Välj sedan **Lägg till**.
@@ -189,9 +186,9 @@ Använd hälsoavsökningen så att belastningsutjämnaren kan övervaka din apps
 
    ![Lägg till en hälsoavsökning](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
-### <a name="create-a-load-balancer-rule"></a>Skapa en belastningsutjämningsregel
+### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 
-En belastningsutjämningsregel definierar hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. Skapa en belastningsutjämningsregel med namnet **myLoadBalancerRuleWeb** som ska avlyssna port 80 i klientdelen **FrontendLoadBalancer**. Regeln skickar belastningsutjämnad nätverkstrafik till serverdelsadresspoolen **myBackEndPool**, också det med port 80. 
+En lastbalanseringsregel definierar hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. Skapa en lastbalanseringsregel med namnet **myLoadBalancerRuleWeb** som ska avlyssna port 80 i klientdelen **FrontendLoadBalancer**. Regeln skickar belastningsutjämnad nätverkstrafik till serverdelsadresspoolen **myBackEndPool**, också det med port 80. 
 
 1. Välj **Alla resurser** på menyn längst till vänster. Välj sedan **myLoadBalancer** i resurslistan.
 2. Välj **Belastningsutjämningsregler** under **Inställningar**. Välj sedan **Lägg till**.
@@ -206,19 +203,19 @@ En belastningsutjämningsregel definierar hur trafiken ska distribueras till de 
     
     ![Lägga till en belastningsutjämningsregel](./media/tutorial-load-balancer-standard-zonal-portal/load-balancing-rule.png)
 
-## <a name="test-the-load-balancer"></a>Testa belastningsutjämnaren
-1. Hitta den offentliga IP-adressen för belastningsutjämnaren på skärmen **Översikt**. Välj **Alla resurser**. Välj sedan **myPublicIP**. 
+## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
+1. Hitta den offentliga IP-adressen för lastbalanseraren på skärmen **Översikt**. Välj **Alla resurser**. Välj sedan **myPublicIP**. 
 
 2. Kopiera den offentliga IP-adressen. Klistra sedan in den i webbläsarens adressfält. Sidan som innehåller namnet på webbserversidan visas i webbläsaren.
 
       ![IIS-webbserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
-3. Om du vill se belastningsutjämnaren i arbete kan du tvinga fram ett stopp av den virtuella dator som visas. Uppdatera webbläsaren om du vill se det andra servernamn som visas i webbläsaren.
+3. Om du vill se lastbalanseraren i arbete kan du tvinga fram ett stopp av den virtuella dator som visas. Uppdatera webbläsaren om du vill se det andra servernamn som visas i webbläsaren.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, belastningsutjämnaren och alla relaterade resurser när de inte längre behövs. Markera den resursgrupp som innehåller belastningsutjämnaren. Välj sedan **Ta bort**.
+Ta bort resursgruppen, lastbalanseraren och alla relaterade resurser när de inte längre behövs. Markera den resursgrupp som innehåller lastbalanseraren. Välj sedan **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information finns i [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
+- Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md).
 - [Belastningsutjämna virtuella datorer mellan tillgänglighetszoner](tutorial-load-balancer-standard-public-zone-redundant-portal.md).

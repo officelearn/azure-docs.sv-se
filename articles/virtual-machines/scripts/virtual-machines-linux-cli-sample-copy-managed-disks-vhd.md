@@ -1,6 +1,6 @@
 ---
-title: Skriptexempel för Azure CLI – Exportera/kopiera underliggande VHD för hanterade diskar till ett lagringskonto | Microsoft Docs
-description: Skriptexempel för Azure CLI – Exportera/kopiera underliggande VHD för hanterade diskar till ett lagringskonto
+title: Azure CLI-exempel – Kopiera en hanterad disk till ett lagringskonto
+description: Azure CLI-exempel – Exportera eller kopiera en hanterad disk till ett lagringskonto.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.custom: mvc
-ms.openlocfilehash: c5f06a8c8fb707a2bf0451f8e9ed391ac0c5bad9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: mvc,seodec18
+ms.openlocfilehash: 4ee8b9dbb22e4530beb81bea9735867ecf21a1d4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045262"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183038"
 ---
-# <a name="exportcopy-the-underlying-vhd-of-a-managed-disk-to-a-storage-account-with-cli"></a>Exportera/kopiera en underliggande VHD från en hanterad disk till ett lagringskonto med CLI
+# <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportera/kopiera en hanterad disk till ett lagringskonto med hjälp av Azure CLI
 
 Det här skriptet exporterar den underliggande virtuella hårddisken från en hanterad disk till ett lagringskonto i samma eller i en annan region. Först genererar skriptet SAS-URI:n för den hanterade disken och använder den sedan för att kopiera den virtuella hårddisken till ett lagringskonto. Använd det här skriptet för att kopiera dina hanterade diskar för regional utökning. 
 

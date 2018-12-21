@@ -1,21 +1,21 @@
 ---
-title: Snabbstart – Kör ett program i Azure Container Instances
-description: I den här snabbstarten använder du Azure PowerShell för att distribuera ett program i en dockercontainer i Azure Container Instances
+title: Snabbstart – Kör ett program i Azure Container Instances – PowerShell
+description: I den här snabbstarten använder du Azure PowerShell för att distribuera en dockercontainer i Azure Container Instances med Azure PowerShell
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 33444e810a2deebee11e535c73ce3e249f42b340
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b17cca7f0c00aba260b97b29345ff33156a50138
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854651"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183955"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Snabbstart: Kör ett program i Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Snabbstart: Kör ett containerprogram i Azure Container Instances med Azure PowerShell
 
 Använd Azure Container Instances för att snabbt och enkelt köra dockercontainrar i Azure. Du behöver inte distribuera virtuella datorer eller använda en komplett plattform för containerorkestrering, som Kubernetes. I den här snabbstarten använder du Azure-portalen för att skapa en Windows-container i Azure och göra dess program tillgängligt med ett fullständigt kvalificerat domännamn (FQDN). Några sekunder efter du kört ett enskilt distributionskommando kan du bläddra till programmet som körs:
 
@@ -93,7 +93,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en Azure-containerinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en avbildning av en container och distribuera den från ett privat Azure-containerregister, går du vidare till självstudien för Azure Container Instances.
+I den här snabbstarten har du skapat en Azure-containerinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)

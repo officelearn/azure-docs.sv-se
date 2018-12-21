@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs om indexering, frågor och filtrering i Azure Search med hjälp av portalen | Microsoft Docs
+title: Självstudie om indexering, frågor och filtrering i Azure Portal – Azure Search
 description: I den här självstudien använder du Azure Portal och fördefinierade exempeldata för att generera ett index i Azure Search. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning, geosearch och mycket annat.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: aac579da3aaf6ab1507bbc12d79a5b183a82d665
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.custom: seodec2018
+ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592763"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314031"
 ---
-# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>Självstudier: Använda inbyggda verktyg för Azure Search-indexering och Azure Search-frågor
+# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Självstudie: Använda inbyggda portalverktyg för Azure Search-indexering och frågor
 
 Om du vill få en snabb genomgång av Azure Search-begrepp kan du använda de inbyggda verktygen som finns på Azure Search-servicesidan på Azure-portalen. De här verktygen tillhandahåller inte alla funktioner i .NET- och REST API:erna. Men guiden och redigeringsprogrammen erbjuder en kodfri introduktion till Azure Search, så att du kan skriva intressanta frågor mot en exempeldatamängd direkt.
 
@@ -33,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller hitta en befintlig tjänst i din aktuella prenumeration.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Öppna instrumentpanelen för Azure Search-tjänsten. Om du inte har fäst tjänstepanelen på instrumentpanelen kan du hitta din tjänst på det här sättet:
 
    * Klicka på **Alla tjänster** i det vänstra navigeringsfönstret.

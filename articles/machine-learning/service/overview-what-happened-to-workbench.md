@@ -1,6 +1,7 @@
 ---
-title: Vad händer med Azure Machine Learning Workbench? | Microsoft Docs
-description: Läs mer om vad som händer med Workbench-programmet, vad som har ändrats i Azure Machine Learning och vad supporttidslinjen är.
+title: Vad hände med Workbench?
+titleSuffix: Azure Machine Learning service
+description: Läs mer om vad som hände med Workbench-programmet, vad som har ändrats i tjänsten Azure Machine Learning och vad supporttidslinjen är.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: db09203e86c32a7e03b4b2c4bcc670d16583ab20
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: c9559e07cc70cbd7adafd75c23b9e67d45bee48a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879442"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184313"
 ---
-# <a name="what-is-happening-to-workbench-in-azure-machine-learning"></a>Vad händer med Workbench i Azure Machine Learning?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-service"></a>Vad händer med Workbench i tjänsten Azure Machine Learning?
 
 Workbench-programmet och vissa andra tidiga funktioner togs bort och ersattes i versionen från september 2018 för att frigöra plats för en förbättrad [arkitektur](concept-azure-machine-learning-architecture.md). Versionen innehåller många viktiga uppdateringar som baseras på feedback från kunder och förbättrar upplevelsen. Grundläggande funktioner från experimentkörningar till modelldistribution har inte ändrats, men nu kan du använda den robusta <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> och [CLI](reference-azure-machine-learning-cli.md) för att utföra dina maskininlärningsaktiviteter och pipelines.  
 
@@ -82,13 +84,13 @@ Lär dig hur du kommer igång [i Python med huvud-SDK:n](quickstart-get-started.
  
 De modeller som du registrerade i ditt gamla modellregister måste migreras till din nya arbetsyta om du vill fortsätta att använda dem. Du kan göra detta genom att [ladda ned modeller och registrera om dem](how-to-migrate.md) i den nya arbetsytan. 
 
-Bilder som du skapade i ditt gamla avbildningsregister måste återskapas i den nya arbetsytan om du vill fortsätta att använda dem. Du kan göra detta genom att följa avsnittet [Skapa Docker-avbildning](how-to-deploy-to-aci.md#configure-an-image). 
+Bilder som du skapade i ditt gamla avbildningsregister måste återskapas i den nya arbetsytan om du vill fortsätta att använda dem. Du kan göra detta genom att följa avsnittet [Konfigurera och skapa avbildning](how-to-deploy-and-where.md#configureimage). 
 
 ## <a name="what-about-deployed-web-services"></a>Vad händer med distribuerade webbtjänster?
 
 Modeller som du distribuerade som webbtjänster med hjälp av ditt modellhanteringskonto fortsätter att fungera så länge det finns stöd för Azure Container Service (ACS). Dessa webbtjänster fungerar även när supporten har upphört för modellhanteringskonton. När stödet för det gamla CLI upphör att gälla upphör dock även möjligheten att hantera de webbtjänsterna.
 
-I den nyare versionen distribueras modeller som webbtjänster till [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) eller [Azure Kubernetes Service](how-to-deploy-to-aks.md)-kluster (AKS). Du kan även [distribuera till FPGA och till IoT-kanten](how-to-deploy-and-where.md). Utan att behöva ändra några av dina bedömningsfiler, beroenden och scheman kan du distribuera om dina modeller med hjälp av den nya SDK:n eller CLI. 
+I den nyare versionen distribueras modeller som webbtjänster till Azure Container Instances (ACI) eller Azure Kubernetes Service-kluster (AKS). Du kan även distribuera till FPGA och till IoT-kanten. Mer information finns i dokumentet [Hur och var du ska distribuera](how-to-deploy-and-where.md). Utan att behöva ändra några av dina bedömningsfiler, beroenden och scheman kan du distribuera om dina modeller med hjälp av den nya SDK:n eller CLI. 
 
 ## <a name="what-about-the-old-sdk--cli"></a>Vad gäller för den gamla SDK:n och CLI?
 

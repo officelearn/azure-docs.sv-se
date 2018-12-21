@@ -1,5 +1,5 @@
 ---
-title: 'Anslutningsleverantörer och platser: Azure ExpressRoute | Microsoft Docs'
+title: 'Anslutningsproviders och platser: Azure ExpressRoute | Microsoft Docs'
 description: Den här artikeln innehåller en detaljerad översikt över platser där tjänster erbjuds och hur du ansluter till Azure-regioner. Sorteras efter anslutningsleverantör.
 services: expressroute
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 12/13/2018
 ms.author: pareshmu
-ms.openlocfilehash: 817dd1ec5cd047035099fb88d998f79cd8c39078
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 0e683fefd0905eb48149e676b26341b47ccd9abf
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276065"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409793"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -42,16 +42,16 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 
 | **Geopolitisk region** | **Zon** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- | --- |
-| **Australiensiska myndigheter** |Zon 1 | Centrala Australien, Centrala Australien 2 |Canberra, Canberra2 |
-| **Europa** |Zon 1 |Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |Amsterdam, Amsterdam2, Dublin, London, Marseille, Newport (Wales), Paris |
-| **Nordamerika** |Zon 1 |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
-| **Asien** |Zon 2 |Östra Asien, Sydostasien |Hongkong SAR, Kuala Lumpur, Singapore, Singapore2 |
-| **Australien** |Zon 2 |Sydöstra Australien, östra Australien |Melbourne, Sydney | 
-| **Indien** |Zon 2 |Västra Indien, centrala Indien, södra Indien |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Japan** |Zon 2 |Västra Japan, östra Japan |Osaka, Tokyo |
-| **Sydkorea** |Zon 2 |Sydkorea, centrala; Sydkorea, södra |Busan, Söul|
-| **Sydafrika** |Zon 3 |[Sydafrika, västra+, Sydafrika, norra+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Kapstaden, Johannesburg |
-| **Sydamerika** |Zon 3 |Södra Brasilien |Sao Paulo |
+| **Australiensiska myndigheter** | 1 | Centrala Australien, Centrala Australien 2 |Canberra, Canberra2 |
+| **Europa** | 1 |Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |Amsterdam, Amsterdam2, Dublin, London, Marseille, Newport (Wales), Paris |
+| **Nordamerika** | 1 |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
+| **Asien** | 2 |Östra Asien, Sydostasien |Hongkong SAR, Kuala Lumpur, Singapore, Singapore2 |
+| **Australien** | 2 |Sydöstra Australien, östra Australien |Melbourne, Sydney | 
+| **Indien** | 2 |Västra Indien, centrala Indien, södra Indien |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Japan** | 2 |Västra Japan, östra Japan |Osaka, Tokyo |
+| **Sydkorea** | 2 |Sydkorea, centrala; Sydkorea, södra |Busan, Söul|
+| **Sydafrika** | 3 |[Sydafrika, västra+, Sydafrika, norra+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Kapstaden, Johannesburg |
+| **Sydamerika** | 3 |Södra Brasilien |Sao Paulo |
 
 
  **+** kommer snart
@@ -62,8 +62,8 @@ Tabellen nedan innehåller information om regioner och geopolitiska gränser fö
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- |
 | **Moln för amerikanska myndigheter** |US Gov, Arizona; US Gov, Iowa; US Gov, Texas; US Gov, Virginia; US DoD, centrala; US DoD, östra  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
-| **Kina, östra** |Kina, östra, Kina, östra 2 |Shanghai |
-| **Kina, norra** |Kina, norra, Kina, norra 2 |Beijing |
+| **Kina, östra** |Kina, östra, Kina, östra 2 |Shanghai, Shanghai2 |
+| **Kina, norra** |Kina, norra, Kina, norra 2 |Beijing, Beijing2 |
 | **Tyskland** |Centrala Tyskland, östra Tyskland |Berlin, Frankfurt |
 
 Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i ExpressRoute. Du måste aktivera ExpressRoutes premiumtillägg som stöder global anslutning. Anslutning till nationella molnmiljöer stöds inte. Kontakta din anslutningsleverantör om detta behov uppstår.
@@ -160,6 +160,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
 | --- | --- | --- | --- |
 | **China Telecom** |Stöds |Stöds inte |Beijing, Shanghai |
+| **GDS** |Stöds |Stöds inte |Beijing2, Shanghai2 |
 
 Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expressroute/).
 

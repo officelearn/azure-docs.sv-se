@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: edef88694cc335a63ce279e96a204ed4b8fe7376
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b1602af59cd46b4bbcefa6f1df3cd84c0d342b71
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469511"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959707"
 ---
 # <a name="import-an-openapi-specification"></a>Importera en OpenAPI-specifikation
 
-I den här artikeln visas hur du importerar en OpenAPI-specifikation för serverdels-API som finns på http://conferenceapi.azurewebsites.net?format=json. Detta serverdels-API tillhandahålls av Microsoft och finns i Azure. Artikeln beskriver också hur du testar APIM-API.
+I den här artikeln visas hur du importerar en OpenAPI-specifikation för serverdels-API som finns på https://conferenceapi.azurewebsites.net?format=json. Detta serverdels-API tillhandahålls av Microsoft och finns i Azure. Artikeln beskriver också hur du testar APIM-API.
 
 > [!IMPORTANT]
 > Det här [dokumentet](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) innehåller viktig information och tips om OpenAPI-import.
@@ -51,13 +51,13 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 
     |Inställning|Värde|Beskrivning|
     |---|---|---|
-    |**OpenAPI-specifikation**|http://conferenceapi.azurewebsites.net?format=json|Refererar till tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen.|
+    |**OpenAPI-specifikation**|https://conferenceapi.azurewebsites.net?format=json|Refererar till tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen.|
     |**Visningsnamn**|*Demokonferens-API*|Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON. <br/>Det här namnet visas i Developer-portalen.|
     |**Namn**|*demo-conference-api*|Tillhandahåller ett unikt namn för API:et. <br/>Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON.|
     |**Beskrivning**|Ange en valfri beskrivning av API: et.|Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON.|
     |**API URL-suffix**|*konferens*|Suffixet läggs till i API-hanteringstjänstens bas-URL. API Management skiljer API:erna åt med hjälp av deras suffix, och suffixet måste därför vara unikt för alla API:er för en viss utgivare.|
     |**URL-schema**|*HTTPS*|Fastställer vilka protokoll som kan användas för att få åtkomst till API:et. |
-    |**Produkter**|*Obegränsat*| Du kan publicera API:et genom att associera det med en produkt. Om du vill lägga till det nya API:et till en produkt anger du produktnamnet. Det här steget kan du upprepa flera gånger för om du ska lägga till API:et till flera produkter.<br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Unlimited**. |
+    |**Produkter**|*Obegränsat*| Du kan publicera API:et genom att associera det med en produkt. Om du vill lägga till det nya API:et till en produkt anger du produktnamnet. Det här steget kan du upprepa flera gånger för om du ska lägga till API:et till flera produkter.<br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Obegränsat**. |
 
 4. Välj **Skapa**.
 

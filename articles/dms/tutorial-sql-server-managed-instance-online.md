@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: ccbfc6e204981a4e14812759715d0482e5b6cb67
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 030cd89bbd6407cd2e83a9b56942adbf419e069b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874774"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956711"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Självstudie: Migrera SQL Server till Azure SQL Database Managed Instance online med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal SQL Server-instans till [hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance.md) med minimal avbrottstid. Information om ytterligare metoder som kan kräva manuella insatser finns i artikeln om [migrering av SQL Server-instans till hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance-migrate.md).
@@ -64,24 +64,24 @@ För att slutföra den här kursen behöver du:
 
 1. Logga in på Azure-portalen och välj **Alla tjänster** och sedan **Prenumerationer**.
 
-    ![Visa portalprenumerationer](media\tutorial-sql-server-to-managed-instance-online\portal-select-subscriptions.png)        
+    ![Visa portalprenumerationer](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)        
 2. Välj den prenumeration där du vill skapa en instans av Azure Database Migration Service och välj sedan **Resursprovidrar**.
 
-    ![Visa resursprovidrar](media\tutorial-sql-server-to-managed-instance-online\portal-select-resource-provider.png)
+    ![Visa resursprovidrar](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
 
 3. Sök efter migreringen och välj sedan **Registrera** till höger om **Microsoft.DataMigration**.
 
-    ![Registrera resursprovider](media\tutorial-sql-server-to-managed-instance-online\portal-register-resource-provider.png)   
+    ![Registrera resursprovider](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)   
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Skapa en Azure Database Migration Service-instans
 
 1. I Azure Portal väljer du + **Skapa en resurs**, söker efter **Azure Database Migration Service** och väljer sedan **Azure Database Migration Service** i listrutan.
 
-     ![Azure Marketplace](media\tutorial-sql-server-to-managed-instance-online\portal-marketplace.png)
+     ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance-online/portal-marketplace.png)
 
 2. På sidan **Azure Database Migration Service** väljer du **Skapa**.
 
-    ![Skapa Azure Database Migration Service-instans](media\tutorial-sql-server-to-managed-instance-online\dms-create1.png)
+    ![Skapa Azure Database Migration Service-instans](media/tutorial-sql-server-to-managed-instance-online/dms-create1.png)
 
 3. På sidan **Create Migration Service** anger du ett namn för tjänsten, prenumerationen och en ny eller befintlig resursgrupp.
 
@@ -102,7 +102,7 @@ För att slutföra den här kursen behöver du:
    
     Mer information om kostnader och prisnivåer finns på [sidan med priser](https://aka.ms/dms-pricing).
    
-    ![Skapa DMS-tjänst](media\tutorial-sql-server-to-managed-instance-online\dms-create-service3.png)
+    ![Skapa DMS-tjänst](media/tutorial-sql-server-to-managed-instance-online/dms-create-service3.png)
 
 7.  Välj **Skapa** för att skapa tjänsten.
 
@@ -112,7 +112,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 1. I Azure Portal väljer du **Alla tjänster**, söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Services**.
 
-    ![Leta reda på alla instanser Azure Database Migration Service](media\tutorial-sql-server-to-managed-instance-online\dms-search.png)
+    ![Leta reda på alla instanser Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
 
 2. På **Azure Database Migration Service-sidan** söker du efter namnet på instansen som du har skapat och väljer sedan instansen.
  
@@ -120,7 +120,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 4. På sidan **Nytt migreringsprojekt** anger du namnet på projektet, I textrutan **Typ av källserver** väljer du **SQL Server**, i textrutan **Målservertyp** väljer du **Hanterad Azure SQL Database-instans** och sedan för **Välj typ av aktivitet** väljer du **Online-datamigrering (förhandsversion)**.
 
-   ![Skapa DMS-projekt](media\tutorial-sql-server-to-managed-instance-online\dms-create-project3.png)
+   ![Skapa DMS-projekt](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 
 5. Välj **Skapa och kör aktivitet** för att skapa projektet.
 
@@ -135,7 +135,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
     > [!CAUTION]
     > SSL-anslutningar som har krypterats med ett självsignerat certifikat ger inte stark säkerhet. De är sårbara för man-in-the-middle-attacker. Du bör inte lita på SSL som använder självsignerade certifikat i en produktionsmiljö eller på servrar som är anslutna till internet.
 
-   ![Källinformation](media\tutorial-sql-server-to-managed-instance-online\dms-source-details2.png)
+   ![Källinformation](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
 3. Välj **Spara**.
 
@@ -151,7 +151,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 3. Ange **SQL-användare** och **lösenord** för att ansluta till målinstansen för Azure SQL Database Managed Instance.
 
-    ![Välja mål](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![Välja mål](media/tutorial-sql-server-to-managed-instance-online/dms-target-details3.png)
 
 2.  Välj **Spara**.
 
@@ -159,7 +159,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 1. På sidan **Välj källdatabaser** väljer du de källdatabaser som du vill migrera.
 
-    ![Välj källdatabaser](media\tutorial-sql-server-to-managed-instance-online\dms-select-source-databases2.png)
+    ![Välj källdatabaser](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
 
 2. Välj **Spara**.
 
@@ -175,7 +175,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
     |**Prenumeration på Azure Storage-kontot** | Välj den prenumeration som innehåller Azure Storage-kontot. |
     |**Azure Storage-konto** | Välj det Azure Storage-konto som DMS kan överföra de säkerhetskopierade filerna från SMB-nätverksresursen till och använda för databasmigrering.  Vi rekommenderar att du väljer Storage-kontot i samma region som DMS-tjänsten för bästa möjliga prestanda vid filöverföring. |
     
-    ![Konfigurera migreringsinställningar](media\tutorial-sql-server-to-managed-instance-online\dms-configure-migration-settings4.png)
+    ![Konfigurera migreringsinställningar](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
 2. Välj **Spara**.
  
@@ -185,7 +185,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 2. Granska och verifiera informationen som är kopplad till migreringsprojektet.
  
-    ![Sammanfattning av migreringsprojekt](media\tutorial-sql-server-to-managed-instance-online\dms-project-summary3.png)
+    ![Sammanfattning av migreringsprojekt](media/tutorial-sql-server-to-managed-instance-online/dms-project-summary3.png)
 
 ## <a name="run-and-monitor-the-migration"></a>Köra och övervaka migreringen
 
@@ -193,11 +193,11 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 2. På migreringsaktivitetssidan väljer du **Uppdatera** för att uppdatera visningen.
  
-   ![Migreringsaktivitet pågår](media\tutorial-sql-server-to-managed-instance-online\dms-monitor-migration2.png)
+   ![Migreringsaktivitet pågår](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration2.png)
 
     Du kan expandera databaserna och inloggningskategorierna ytterligare för att övervaka migreringsstatusen för respektive serverobjekt.
 
-   ![Migreringsaktivitet pågår](media\tutorial-sql-server-to-managed-instance-online\dms-monitor-migration-extend2.png)
+   ![Migreringsaktivitet pågår](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>Utföra snabbmigrering
 
@@ -213,11 +213,11 @@ Databasen är tillgänglig för att utföra en snabbmigrering när den fullstän
 
 4.  Välj **Bekräfta** och sedan **Använd**.
 
-    ![Förbereda för att slutföra startpunkt](media\tutorial-sql-server-to-managed-instance-online\dms-complete-cutover.png)
+    ![Förbereda för att slutföra startpunkt](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
 5.  När status för databasmigreringen visar **Slutförd** ansluter du dina program till den nya målinstansen för Azure SQL Database Managed Instance.
 
-    ![Startpunkt slutförd](media\tutorial-sql-server-to-managed-instance-online\dms-cutover-complete.png)
+    ![Startpunkt slutförd](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

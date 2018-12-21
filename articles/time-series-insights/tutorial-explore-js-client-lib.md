@@ -1,5 +1,5 @@
 ---
-title: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
+title: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights | Microsoft Docs
 description: Läs mer om JavaScript-klientbiblioteket i Azure Time Series Insights och dess relaterade programmeringsmodell.
 author: ashannon7
 manager: cshankar
@@ -8,12 +8,13 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 33dcf6f69d1287b4e040b3cccf4164667db2b75f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707001"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269982"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Självstudie: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
 
@@ -82,7 +83,7 @@ Låt oss först se på HTML- och JavaScript-källkoden bakom sidan som renderade
 
 3. Expandera `<div class="chartsWrapper">`-elementet så hittar du flera underordnade `<div>` element. Dessa element används för att placera varje diagramkontrollexempel. Observera att det finns flera par `<div>`-element, ett för varje diagramexempel:
 
-   - Det första (`class="rowOfCardsTitle"`) innehåller en beskrivande rubrik som sammanfattar vad diagrammen visar. Till exempel: Statiskt linjediagram med teckenförklaringar i fullstorlek.
+   - Det första (`class="rowOfCardsTitle"`) innehåller en beskrivande rubrik som sammanfattar vad diagrammen visar. Exempel: Statiskt linjediagram med teckenförklaringar i fullstorlek.
    - Det andra (`class="rowOfCards"`) elementet är överordnat och innehåller ytterligare underordnade `<div>`-element som placerar de faktiska diagramkontrollerna inom en rad.
 
    ![Body div-element](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -95,8 +96,8 @@ Låt oss först se på HTML- och JavaScript-källkoden bakom sidan som renderade
 
 Även om vi inte går igenom det i detalj, erbjuder TSI klientbiblioteket **tsclient.js** en abstraktion för två viktiga kategorier:
 
-- **Omslutningsmetoder för att anropa TSI-frågans API:er**: REST-API:er som låter dig fråga efter TSI-data genom att använda sammansatta uttryck. Metoderna som är organiserade under `TsiClient.Server`-namnområdet för biblioteket.
-- **Metoder för att skapa och fylla i flera typer av diagramkontroller**: Metoder som används för rendering av TSI-sammanställda data på en webbsida. Metoderna organiseras under `TsiClient.UX`-namnområdet för biblioteket.
+- **Omslutningsmetoder för att anropa fråge-API:er för TSI**: REST-API:er som gör det möjligt att fråga efter TSI-data med hjälp av sammansatta uttryck. Metoderna organiseras under `TsiClient.Server`-namnområdet för biblioteket.
+- **Metoder för att skapa och fylla flera typer av diagramkontroller**: Metoder som används för att återge insamlade TSI-data på en webbsida. Metoderna organiseras under `TsiClient.UX`-namnområdet för biblioteket.
 
 Följande begrepp är universella och gäller för TSI-klientbibliotekets API:er i allmänhet.
 
@@ -236,7 +237,7 @@ Titta på koden som ligger bakom avsnittet i HTML-koden som är under `// Exampl
 1. Först definieras en serie med anpassade åtgärder. Varje åtgärd innehåller en matris med ett eller flera element. Varje element definierar ett enskilt kontextmenyalternativ:
 
    - `barChartActions`: Den här åtgärden definierar snabbmenyn för cirkeldiagrammet, som innehåller ett element för att definiera ett enstaka objekt:
-     - `name`: Texten som används för menyobjektet: Skriv ut parametrar till konsolen.
+     - `name`: Den text som ska användas för menyalternativet: ”Skriv ut parametrar till konsolen”.
      - `action`: Åtgärden som är associerad med menyobjektet. Åtgärden är alltid en anonym funktion som tar tre argument som är baserade på mängduttrycket som används för att skapa diagrammet. I det här fallet skrivs argumenten till konsolfönstret i webbläsaren:
        - `ae`: Mängduttrycksmatrisen.
        - `splitBy`: SplitBy-värdet.
@@ -262,9 +263,9 @@ Penslar används för att omfatta ett tidsintervall för att definiera åtgärde
 Den kod som används för att illustrera penslar visas i exemplet ovan Linjediagrammet med kontextmeny för att skapa cirkel/stapel linjediagrammet som beskriver [popup-snabbmenyer](#popup-context-menus-section).
 
 1. Pensel åtgärder liknar en snabbmeny i att de definierar en serie av anpassade åtgärder för penseln. Varje åtgärd innehåller en matris med ett eller flera element. Varje element definierar ett enskilt kontextmenyalternativ:
-   - `name`: Texten som används för menyobjektet: Skriv ut parametrar till konsolen.
+   - `name`: Den text som ska användas för menyalternativet: ”Skriv ut parametrar till konsolen”.
    - `action`: Den åtgärd som är associerad med menyalternativet som alltid är en anonym funktion som tar två argument. I det här fallet skrivs argumenten till konsolfönstret i webbläsaren:
-      - `fromTime`: Tidsstämpeln från för penselmarkeringen.
+      - `fromTime`: Tidsstämpeln ”från” för penselmarkeringen.
       - `toTime`: Tidsstämpeln till för penselmarkeringen.
 
 2. Penselåtgärder läggs till som en annan diagramalternativegenskap. Observera `brushContextMenuActions: brushActions`-egenskapen som överförs till `linechart.Render`-anropet.
@@ -285,6 +286,6 @@ I den här självstudiekursen lärde du dig att:
 Som vi nämnt tidigare använder TSI-exempelprogrammet en demo-datamängd. Om du vill veta hur du kan skapa din egen TSI-miljö och datamängd, fortsätter du till följande artikel:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skapa en Azure Time Series Insights-miljö](tutorial-create-populate-tsi-environment.md)
+> [Självstudie: Skapa en Azure Time Series Insights-miljö](tutorial-create-populate-tsi-environment.md)
 
 

@@ -1,21 +1,21 @@
 ---
-title: Självstudie om Azure Container Instances – förbereda Azure Container Registry
-description: Självstudie om Azure Container Instances del 2 av 3 – förbereda Azure Container Registry
+title: Förbereda Azure Container Registry för Azure Container Instances
+description: Självstudie om Azure Container Instances del 2 av 3 – förbereda Azure Container Registry och push-överföra en avbildning
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: e7cf9c5fad6219e71205c181b2dbb6828595afdd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eeb0fe5b19f23e101eab9393dca64e1e13bf6922
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855450"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188933"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Självstudier: Distribuera och använda Azure Container Registry
+# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Självstudie: Distribuera ett register med Azure Container Registry och push-överföra en containeravbildning
 
 Det här är del två i en serie självstudier med tre delar. I [del ett](container-instances-tutorial-prepare-app.md) av självstudiekursen skapades en Docker-containeravbildning för ett Node.js-webbprogram. I den här självstudien push-överför du avbildningen till Azure Container Registry. Om du ännu inte har skapat containeravbildningen så gå tillbaka till [Självstudie 1 – skapa containeravbildning](container-instances-tutorial-prepare-app.md).
 
@@ -24,7 +24,7 @@ Azure Container Registry är ditt privata Docker-register i Azure. I den här sj
 > [!div class="checklist"]
 > * Skapa en Azure Container Registry-instans
 > * Tagga en containeravbildning för Azure-containerregistret
-> * Överför avbildningen till registret
+> * överföra avbildningen till registret.
 
 I nästa artikel, som är den sista i serien, distribuerar du behållaren från ditt privata register till Azure Container Instances.
 

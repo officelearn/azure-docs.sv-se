@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 7fca4adf8130a6a60e4a89edf129a73562289c5e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2979cdd0184e287ba83ae8a254722b64decce83d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837502"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413701"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använda Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -28,15 +28,15 @@ ms.locfileid: "52837502"
 </tr>
 <tr>
   <td><strong>Docker-källa</strong></td>
-  <td>[Github](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
+  <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
 </tr>
 </table>
-  
-Azure Cosmos DB-emulatorn ger en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utveckling. Med Azure Cosmos DB-emulatorn kan du utveckla och testa ditt program lokalt, utan att skapa en Azure-prenumeration och utan kostnad. När du är nöjd med hur programmet fungerar i Azure Cosmos DB-emulatorn kan du växla till ett Azure Cosmos DB-konto i molnet. 
 
-För närvarande stöder datautforskaren i emulatorn endast fullständigt SQL API-samlingar och MongoDB-samlingar. Containrar för Table, Graph och Cassandra stöds ännu inte helt. 
+Azure Cosmos DB-emulatorn ger en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utveckling. Med Azure Cosmos DB-emulatorn kan du utveckla och testa ditt program lokalt, utan att skapa en Azure-prenumeration och utan kostnad. När du är nöjd med hur programmet fungerar i Azure Cosmos DB-emulatorn kan du växla till ett Azure Cosmos DB-konto i molnet.
 
-Den här artikeln beskriver följande uppgifter: 
+För närvarande stöder datautforskaren i emulatorn endast fullständigt SQL API-samlingar och MongoDB-samlingar. Containrar för Table, Graph och Cassandra stöds ännu inte helt.
+
+Den här artikeln beskriver följande uppgifter:
 
 > [!div class="checklist"]
 > * Installera emulatorn
@@ -54,11 +54,11 @@ Azure Cosmos DB-emulatorn erbjuder mycket tillförlitlig emulering av Azure Cosm
 
 Även om emuleringen av Azure Cosmos DB-tjänsten är verklighetstrogen så implementeras emulatorn på ett annat sätt än tjänsten. Till exempel använder emulatorn standardkomponenter i operativsystemet som det lokala filsystemet för beständighet och HTTP-protokollstacken för anslutningar. Funktioner som förlitar sig på Azure-infrastruktur som global replikering, latensvärden på enstaka millisekunder för läsning/skrivning och justerade konsekvensnivåer inte är tillgängliga.
 
-## <a name="differences-between-the-emulator-and-the-service"></a>Skillnader mellan emulatorn och tjänsten 
+## <a name="differences-between-the-emulator-and-the-service"></a>Skillnader mellan emulatorn och tjänsten
 Eftersom Azure Cosmos DB-emulatorn tillhandahåller en emulerad miljö som körs på en lokal utvecklararbetsstation finns det några skillnader mellan emulatorn och ett Azure Cosmos DB-konto i molnet:
 
-* För närvarande stöder datautforskaren i emulatorn endast SQL API-samlingar och MongoDB-samlingar. API:er för Table, Graph och Cassandra stöds ännu inte.  
-* Azure Cosmos DB-emulatorn stöder endast ett enda fast konto och en välkänd huvudnyckel.  Nyckelomgenerering fungerar inte i Azure Cosmos DB-emulatorn.
+* För närvarande stöder datautforskaren i emulatorn endast SQL API-samlingar och MongoDB-samlingar. API:er för Table, Graph och Cassandra stöds ännu inte.
+* Azure Cosmos DB-emulatorn stöder endast ett enda fast konto och en välkänd huvudnyckel. Nyckelomgenerering fungerar inte i Azure Cosmos DB-emulatorn.
 * Azure Cosmos DB-emulatorn är inte en skalbar tjänst och stöder inte ett stort antal samlingar.
 * Azure Cosmos DB-emulatorn kan inte simulera olika [Azure Cosmos DB-konsekvensnivåer](consistency-levels.md).
 * Azure Cosmos DB-emulatorn simulerar inte [replikering över flera regioner](distribute-data-globally.md).
@@ -75,14 +75,14 @@ Azure Cosmos DB-emulatorn har följande krav på maskin- och programvara:
   * 10 GB ledigt hårddiskutrymme
 
 ## <a name="installation"></a>Installation
-Du kan ladda ned och installera Azure Cosmos DB-emulatorn från [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) eller köra emulatorn på Docker för Windows. Instruktioner om hur du använder emulatorn i Docker för Windows finns i [Köra med Docker](#running-on-docker). 
+Du kan ladda ned och installera Azure Cosmos DB-emulatorn från [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) eller köra emulatorn på Docker för Windows. Instruktioner om hur du använder emulatorn i Docker för Windows finns i [Köra med Docker](#running-on-docker).
 
 > [!NOTE]
 > Om du ska installera, konfigurera och köra Azure Cosmos DB-emulatorn måste du ha administratörsbehörighet på datorn.
 
 ## <a name="running-on-windows"></a>Köra i Windows
 
-Du kan starta Azure Cosmos DB-emulatorn genom att först klicka på Start eller trycka på Windows-tangenten. Börja skriva **Azure Cosmos DB Emulator** och välj emulatorn från listan med program. 
+Du kan starta Azure Cosmos DB-emulatorn genom att först klicka på Start eller trycka på Windows-tangenten. Börja skriva **Azure Cosmos DB Emulator** och välj emulatorn från listan med program.
 
 ![Välj Start-knappen eller tryck på Windows-tangenten, börja skriva **Azure Cosmos DB Emulator** och välj emulatorn i listan med program](./media/local-emulator/database-local-emulator-start.png)
 
@@ -99,10 +99,10 @@ När Azure Cosmos DB-emulatorn startar öppnas automatiskt Azure Cosmos DB-datau
 ![Startprogrammet för den lokala Azure Cosmos DB-emulatorn i Datautforskaren](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
 ## <a name="checking-for-updates"></a>Leta efter uppdateringar
-Datautforskaren anger om det finns en ny uppdatering som går att ladda ned. 
+Datautforskaren anger om det finns en ny uppdatering som går att ladda ned.
 
 > [!NOTE]
-> Det är inte garanterat att data som skapats i en version av Azure Cosmos DB-emulatorn går att komma åt när en annan version används. Om du behöver spara dina data på lång sikt rekommenderar vi att du lagrar dessa data på ett Azure Cosmos DB-konto istället för i Azure Cosmos DB-emulatorn. 
+> Det är inte garanterat att data som skapats i en version av Azure Cosmos DB-emulatorn går att komma åt när en annan version används. Om du behöver spara dina data på lång sikt rekommenderar vi att du lagrar dessa data på ett Azure Cosmos DB-konto istället för i Azure Cosmos DB-emulatorn.
 
 ## <a name="authenticating-requests"></a>Autentisera förfrågningar
 Precis som när du använder Azure Cosmos DB i molnet måste varje begäran du gör i Azure Cosmos DB-emulatorn autentiseras. Azure Cosmos DB-emulatorn stöder endast ett enda fast konto och en välkänd autentiseringsnyckel för autentisering med huvudnyckel. Kontot och nyckeln är de enda autentiseringsuppgifter som tillåts för användning med Azure Cosmos DB-emulatorn. De är:
@@ -111,25 +111,25 @@ Precis som när du använder Azure Cosmos DB i molnet måste varje begäran du g
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 
 > [!NOTE]
-> Huvudnyckeln som stöds av Azure Cosmos DB-emulatorn är endast avsedd att användas med emulatorn. Du kan inte använda ditt Azure Cosmos DB-produktionskonto och -nyckel med Azure Cosmos DB-emulatorn. 
+> Huvudnyckeln som stöds av Azure Cosmos DB-emulatorn är endast avsedd att användas med emulatorn. Du kan inte använda ditt Azure Cosmos DB-produktionskonto och -nyckel med Azure Cosmos DB-emulatorn.
 
-> [!NOTE] 
+> [!NOTE]
 > Om du har startat emulatorn med /-tangentalternativet använder du den genererade nyckeln istället för ”C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==”
 
 Precis som Azure Cosmos DB-tjänsten stöder Azure Cosmos DB-emulator endast säker kommunikation via SSL.
 
 ## <a name="running-on-a-local-network"></a>Köra på ett lokalt nätverk
 
-Du kan köra emulatorn på ett lokalt nätverk. För att aktivera nätverksåtkomst anger du alternativet /AllowNetworkAccess på [kommandoraden](#command-line-syntax), vilket också kräver att du anger /Key=key_string eller /KeyFile=file_name. Du kan generera en fil med en slumpmässig nyckel med /GenKeyFile=file_name.  Du kan sedan skicka den till /KeyFile=file_name eller /Key=contents_of_file.
+Du kan köra emulatorn på ett lokalt nätverk. För att aktivera nätverksåtkomst anger du alternativet /AllowNetworkAccess på [kommandoraden](#command-line-syntax), vilket också kräver att du anger /Key=key_string eller /KeyFile=file_name. Du kan generera en fil med en slumpmässig nyckel med /GenKeyFile=file_name. Du kan sedan skicka den till /KeyFile=file_name eller /Key=contents_of_file.
 
 För att aktivera nätverksåtkomst för första gången ska användaren stänga emulatorn och ta bort emulatorns datakatalog (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Utveckla med emulatorn
-När du kör Azure Cosmos DB-emulatorn på datorn kan du använda valfri [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) som stöds eller [REST API för Azure Cosmos DB](/rest/api/cosmos-db/) till att interagera med emulatorn. Azure Cosmos DB-emulatorn innehåller även en inbyggda Datautforskare som du kan använda till att skapa samlingar för API:er för SQL och MongoDB, och visa och redigera dokument utan att skriva någon kod.   
+När du kör Azure Cosmos DB-emulatorn på datorn kan du använda valfri [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) som stöds eller [REST API för Azure Cosmos DB](/rest/api/cosmos-db/) till att interagera med emulatorn. Azure Cosmos DB-emulatorn innehåller även en inbyggda Datautforskare som du kan använda till att skapa samlingar för API:er för SQL och MongoDB, och visa och redigera dokument utan att skriva någon kod.
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
-        new Uri("https://localhost:8081"), 
+        new Uri("https://localhost:8081"),
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 Om du använder [Azure Cosmos DB-protokollstöd för MongoDB](mongodb-introduction.md) använder du följande anslutningssträng:
@@ -138,7 +138,7 @@ Om du använder [Azure Cosmos DB-protokollstöd för MongoDB](mongodb-introducti
 
 Du kan använda befintliga verktyg som [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) för att ansluta till Azure Cosmos DB-emulatorn. Du kan också migrera data mellan Azure Cosmos DB-emulatorn och Azure Cosmos DB-tjänsten med [datamigreringsverktyget i Azure Cosmos DB](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-> [!NOTE] 
+> [!NOTE]
 > Om du har startat emulatorn med /-tangentalternativet använder du den genererade nyckeln istället för ”C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==”
 
 Med Azure Cosmos DB-emulatorn kan du som standard skapa upp till 25 samlingar med en enda partition eller 1 partitionerad samling. Mer information om att ändra värdet finns i [Setting the PartitionCount value](#set-partitioncount) (Ange PartitionCount-värdet).
@@ -202,7 +202,7 @@ Om du vill visa en lista över alternativ skriver du `CosmosDB.Emulator.exe /?` 
 </tr>
 <tr>
   <td>Port</td>
-  <td>Anger det portnummer som ska användas för emulatorn.  Standardvärdet är 8081.</td>
+  <td>Anger det portnummer som ska användas för emulatorn. Standardvärdet är 8081.</td>
   <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
   <td>&lt;port&gt;: Enskilt portnummer</td>
 </tr>
@@ -210,7 +210,7 @@ Om du vill visa en lista över alternativ skriver du `CosmosDB.Emulator.exe /?` 
   <td>MongoPort</td>
   <td>Anger det portnummer som ska användas för API för MongoDB-kompatibilitet. Standardvärdet är 10255.</td>
   <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
-  <td>&lt;mongoport&gt;: Enskilt portnumber</td>
+  <td>&lt;mongoport&gt;: Enskilt portnummer</td>
 </tr>
 <tr>
   <td>DirectPorts</td>
@@ -222,7 +222,7 @@ Om du vill visa en lista över alternativ skriver du `CosmosDB.Emulator.exe /?` 
   <td>Nyckel</td>
   <td>Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor.</td>
   <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
-  <td>&lt;key&gt;: Nyckeln måste vara en base-64-kodning av en 64 bytes vektor</td>
+  <td>&lt;nyckel&gt;: Nyckeln måste vara en base-64-kodning av en 64 bytes vektor</td>
 </tr>
 <tr>
   <td>EnableRateLimiting</td>
@@ -275,14 +275,14 @@ Om du vill visa en lista över alternativ skriver du `CosmosDB.Emulator.exe /?` 
 <tr>
   <td>GenKeyFile</td>
   <td>Generera en ny auktoriseringsnyckel och spara den i den angivna filen. Den genererade nyckeln kan användas med alternativen /Key eller /KeyFile.</td>
-  <td>CosmosDB.Emulator.exe  /GenKeyFile=&lt;sökväg till nyckelfilen&gt;</td>
+  <td>CosmosDB.Emulator.exe /GenKeyFile=&lt;sökväg till nyckelfilen&gt;</td>
   <td></td>
 </tr>
 <tr>
   <td>Konsekvens</td>
   <td>Ställ in konsekvensnivå för kontot.</td>
   <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
-  <td>&lt;consistency&gt;: Värdet måste ha någon av följande [konsekvensnivåer](consistency-levels.md): session, stark, eventuell eller BoundedStaleness.  Standardvärdet är Session.</td>
+  <td>&lt;konsekvens&gt;: Värdet måste ha någon av följande [konsekvensnivåer](consistency-levels.md): Session, Stark, Eventuell eller BoundedStaleness. Standardvärdet är Session.</td>
 </tr>
 <tr>
   <td>?</td>
@@ -298,9 +298,9 @@ Med Azure Cosmos DB-emulatorn kan du som standard skapa upp till 25 samlingar me
 
 Om du försöker skapa en samling när det aktuella partitionsantalet har överskridits utlöser emulatorn ett ServiceUnavailable-undantag med följande meddelande.
 
-    Sorry, we are currently experiencing high demand in this region, 
-    and cannot fulfill your request at this time. We work continuously 
-    to bring more and more capacity online, and encourage you to try again. 
+    Sorry, we are currently experiencing high demand in this region,
+    and cannot fulfill your request at this time. We work continuously
+    to bring more and more capacity online, and encourage you to try again.
     Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
@@ -337,13 +337,13 @@ Här följer en sammanfattning av kommandon för att styra emulatorn från Power
 
 #### <a name="remarks"></a>Kommentarer
 
-Returnerar någon av dessa ServiceControllerStatus-värden: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running eller ServiceControllerStatus.Stopped.
+Returnerar ett av följande värden för ServiceControllerStatus: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running, or ServiceControllerStatus.Stopped.
 
 ### `Start-CosmosDbEmulator`
 
 #### <a name="syntax"></a>Syntax
 
-`Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>]  [<CommonParameters>]`
+`Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
 #### <a name="remarks"></a>Kommentarer
 
@@ -378,21 +378,21 @@ När du har installerat [Docker för Windows](https://www.docker.com/docker-wind
 
 Hämta därefter emulatoravbildningen från Docker-hubben genom att köra följande kommando i ditt favoritgränssnitt.
 
-```     
-docker pull microsoft/azure-cosmosdb-emulator 
+```
+docker pull microsoft/azure-cosmosdb-emulator
 ```
 Starta avbildningen genom att köra följande kommandon.
 
 Från kommandoraden:
-```cmd 
+```cmd
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
 ```
 
 Från PowerShell:
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
 ```
 
 Svaret ser ut ungefär så här:
@@ -407,12 +407,12 @@ cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 --------------------------------------------------------------------------------------------------
 Starting interactive shell
-``` 
+```
 
 Använd nu slutpunkten och huvudnyckeln från svaret i din klient och importera SSL-certifikatet till din värd. För att importera SSL-certifikatet gör du följande från en kommandotolk för administratör:
 
 Från kommandoraden:
-```cmd 
+```cmd
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 ```
@@ -438,7 +438,7 @@ Ta hjälp av följande tips när du ska felsöka problem du stöter på med Azur
 
 - Om Azure Cosmos DB-emulatorn kraschar ska du samla in kraschdumpfiler från mappen c:\Users\<användarnamn>\AppData\Local\CrashDumps, komprimera dem och bifoga dem i ett e-postmeddelande till [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-- Om det uppstår krascher i CosmosDB.StartupEntryPoint.exe kör du följande kommando från en kommandotolk för administratör: `lodctr /R` 
+- Om det uppstår krascher i CosmosDB.StartupEntryPoint.exe kör du följande kommando från en kommandotolk för administratör: `lodctr /R`
 
 - Om du stöter på ett anslutningsfel ska du [samla in spårningsfiler](#trace-files), komprimera dem och bifoga dem i ett e-postmeddelande till [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
@@ -464,7 +464,7 @@ För att samla in felsökningsspårningar kör du följande kommandon från en a
 1. Avsluta alla öppna instanser av den lokala emulatorn genom att högerklicka på ikonen för Azure Cosmos DB-emulatorn i meddelandefältet och sedan klicka på Avsluta. Det kan ta någon minut för alla instanser att avslutas.
 2. I Windows-sökrutan skriver du **Appar och funktioner** och klickar på resultatet för **Appar och funktioner (systeminställningar)**.
 3. I listan över appar bläddrar du till **Azure Cosmos DB-emulatorn**, väljer den, klickar på **Avinstallera** och bekräftar sedan och klickar på **Avinstallera** igen.
-4. När appen är avinstallerad navigerar du till `C:\Users\<user>\AppData\Local\CosmosDBEmulator` och tar bort mappen. 
+4. När appen är avinstallerad navigerar du till `C:\Users\<user>\AppData\Local\CosmosDBEmulator` och tar bort mappen.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -479,7 +479,7 @@ I den här självstudien har du gjort följande:
 > * Anropade emulatorn från kommandoraden
 > * Samlade in spårningsfiler
 
-I den här självstudien har du lärt dig att använda den lokala emulatorn för kostnadsfri lokal utveckling. Du kan nu fortsätta till nästa självstudie och lära dig att exportera SSL-certifikat för emulatorn. 
+I den här självstudien har du lärt dig att använda den lokala emulatorn för kostnadsfri lokal utveckling. Du kan nu fortsätta till nästa självstudie och lära dig att exportera SSL-certifikat för emulatorn.
 
 > [!div class="nextstepaction"]
 > [Exportera Azure Cosmos DB emulatorcertifikat](local-emulator-export-ssl-certificates.md)

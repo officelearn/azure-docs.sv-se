@@ -1,5 +1,5 @@
 ---
-title: Exempel i Azure Policy – Tillåt anpassad avbildning av virtuell dator från en resursgrupp
+title: Exempel – Tillåta anpassad VM-avbildning från en resursgrupp
 description: Den här exempelprincipen kräver att anpassade avbildningar kommer från en godkänd resursgrupp.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 1eed7dc0348336d69d0b8ad9206c71fd72c1f012
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 17cf4c4fdfd270ee21f7f01d1c8f89ff1a1d11ea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971237"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315340"
 ---
 # <a name="allow-custom-vm-image-from-a-resource-group"></a>Tillåt anpassad avbildning av virtuell dator från en resursgrupp
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel under [Azure Policy-exempel](index.md)
+- Granska fler exempel på [Azure-principexempel](index.md)

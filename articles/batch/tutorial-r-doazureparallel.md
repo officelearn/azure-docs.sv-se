@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: fb616dc95cc7dd7dbb25f2deb832b517d0747ae4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 305ea27e787196f648fcb4c536f33b12c924c015
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315458"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164707"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Självstudie: Kör en parallell R-simulering med Azure Batch 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Självstudie: Köra en parallell R-simulering med Azure Batch 
 
 Kör dina parallella R-arbetsbelastningar i full skala med [doAzureParallel](http://www.github.com/Azure/doAzureParallel), ett enkelt R-paket som gör att du kan använda Azure Batch direkt från din R-session. doAzureParallel-paketet bygger på det populära R-paketet [foreach](http://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel tar varje iteration av loopen foreach och skickar den som en Azure Batch-uppgift.
 

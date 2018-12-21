@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: db4a2356d3de91e4951acd69dc858730349019d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a5376aed3e9cdb12be58cb07d7eb00303a03a963
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274560"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074885"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -112,7 +112,7 @@ Om du till exempel köper en reservation för en VM av typ DS1\_v2 i östra USA 
 
 Om den däremot bara körs 50 % av tiden blir brytpunkten vid 10 månader och besparingen endast 49,74 USD per år. Då har du kanske ingen fördel av att köpa reservationen instanstypen i det här exemplet. Se följande bild:
 
-![Brytpunkt i Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
+![Exempel på brytpunkten för virtuella Azure-datorer](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## <a name="view-ri-costs"></a>Visa RI-kostnader
 
@@ -127,11 +127,11 @@ Rapporterna för verklig kostnadsanalys och analys över tid visar det totala be
 
 Gå till **Kostnad** > **Kostnadsanalys** > på Cloudyn-portalen och välj sedan **Actual Cost Analysis** (verklig kostnadsanalys) eller **Actual Cost Over Time** (verklig kostnad över tid). Nästa steg är att ställa in filter. Du kan till exempel filtrera enbart Azure/VM-tjänst och gruppera efter resurstyp och prismodell. Se följande bild:
 
-![Verklig kostnad för reserverad instans](./media/tutorial-optimize-reserved-instances/azure05.png)
+![Exempel på verklig kostnad för reserverad instans](./media/tutorial-optimize-reserved-instances/azure05.png)
 
 Du kan filtrera på en tjänst, i det här exemplet **Azure/VM**, och gruppera efter **Prismodell** och **Resurstyp** såsom följande bild visar:
 
-![Grupper och filter i rapporten Verklig kostnad](./media/tutorial-optimize-reserved-instances/azure06.png)
+![Exempel på grupper och filter i rapporten Verklig kostnad som är grupperade efter modellen och resursens pristyp](./media/tutorial-optimize-reserved-instances/azure06.png)
 
 Du kan också analysera den typ av betalningar som du har gjort i form av engångsavgifter och avgifter för användning och licenser.
 
@@ -145,7 +145,7 @@ I rapporten Verklig kostnad kunde du se en topp för ett RI-köp den 16 november
 
 Du visar den genom att gå till **Kostnad** > **Kostnadsanalys** > och väljer sedan **Amortized Cost Analysis** (amorterad kostnadsanalys) eller **Amortized Cost Over Time** (amorterad kostnad över tid).
 
-![Amorterad kostnad för reserverad instans](./media/tutorial-optimize-reserved-instances/azure07.png)
+![Exempelrapport som visar amorterad kostnad för reserverad instans](./media/tutorial-optimize-reserved-instances/azure07.png)
 
 ## <a name="optimize-aws-ri-costs"></a>Optimera AWS RI-kostnader
 
@@ -166,25 +166,25 @@ Gå till rapportmenyn längst upp i portalen och klicka på **Optimizer** (Optim
 
 Följande bild visar köprekommendationerna från rapporten.
 
-![Köprekommendationer](./media/tutorial-optimize-reserved-instances/aws01.png)
+![Exempel som visar köprekommendationerna i rapporten om EC2-köprekommendationer](./media/tutorial-optimize-reserved-instances/aws01.png)
 
 I det här exemplet innehåller Cloudyn\_-kontot 32 köprekommendationer för reserverade instanser. Om du följer alla köprekommendationer har du möjlighet att spara 137 770 USD årligen. Tänk på att rekommendationer för köp från Cloudyn förutsätter att användningen av dina befintliga arbetsbelastningar förblir oförändrad.
 
 Om du vill visa information som förklarar varför varje köp rekommenderas klickar du på plustecknet ( **+** ) under **Berättiganden** . Här är ett exempel för den första rekommendationen i listan.
 
-![Köpberättiganden](./media/tutorial-optimize-reserved-instances/aws02.png)
+![Exempel som visar information om justering av köp](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 Föregående exempel visar att det skulle kosta 90 456 USD per år att köra arbetsbelastningen på begäran. Köper du i stället reservationen i förväg skulle samma arbetsbelastning kosta 56 592 USD och spara dig 33 864 USD per år.
 
 Klicka på plustecknet bredvid **EC2 RI Purchase Impact** (EC2 Köpeffekt för RI) om du vill visa brytpunkten för ett år, så att du kan se ungefär när din investering realiseras. I följande exempel börjar den ackumulerade på begäran-kostnaden att överstiga den ackumulerade RI-kostnaden cirka åtta månader efter att du har genomfört köpet:
 
-![Köpeffekt](./media/tutorial-optimize-reserved-instances/aws03.png)
+![Exempel som visar information om köppåverkan](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 Vid den tidpunkten börjar du spara pengar.
 
 Du kan granska **Instances over Time** (Instanser över tid) för att verifiera hur väl den föreslagna köprekommendationen stämmer. I det här exemplet kan du se att i genomsnitt sex instanser har använts för arbetsbelastningen under den senaste 30-dagarsperioden.
 
-![Instanser över tid](./media/tutorial-optimize-reserved-instances/aws04.png)
+![Exempel som visar historisk användning av instanser över tid](./media/tutorial-optimize-reserved-instances/aws04.png)
 
 ## <a name="modify-unused-reservations"></a>Ändra oanvända reservationer
 
@@ -196,23 +196,23 @@ Klicka på **Optimizer** (Optimerare)  > **Inefficiencies** (Ineffektivitet)  > 
 
 Följande bilder visar rapporten med oanvända reserverade instanser.
 
-![Oanvända reservationer](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
+![Exempel som visar sammanfattningsinformation om oanvända reservationer](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
 
 Klicka på plustecknet under **Information** för att visa information om en specifik reservation.
 
-![Information om oanvända reservationer](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
+![Exempel som visar information om oanvända reservationer](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
 
 I föregående exempel finns totalt 77 oanvända reservationer i olika tillgänglighetszoner. Den första reservationen har 51 oanvända instanser. Längre ned i listan kan vi se potentiella ändringar av reserverade instanser som du kan göra med hjälp av instanstypen **m3.2xlarge** i tillgänglighetszonen **us-east-1c**.
 
 Klicka på **Ändra** för den första reservationen i listan för att öppna sidan **Ändra RI**, som visar data om reservationen.
 
-![Ändra RI](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
+![Exempel som visar reservationer som går att modifiera](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
 
 Reserverade instanser som du kan ändra visas i en lista. I följande exempelbild finns det 51 oanvända reservationer som du kan ändra, men det behövs 54 mellan de två reservationerna. Om du ändrar dina oanvända reservationer så att alla används kommer fyra instanser att fortsätta att köras på begäran. I det här exemplet kan du dela dina oanvända reservationer, så att den första reservationen använder 30 och den andra reservationen använder 21.
 
 Klicka på plustecknet för den första reservationsposten och ange **30** som **Reservationskvantitet**. För den andra posten anger du **21** som reservationskvantitet och klickar sedan på **Tillämpa**.
 
-![Ändra reservationskvantitet](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
+![Exempel som visar ändringar för reservationskvantitet](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
 
 Alla dina oanvända instanser för reservationen används nu fullt ut och 51 instanser körs inte längre på begäran. I det här exemplet sparar du pengar åt din organisation genom att minska på begäran-användningen avsevärt och utnyttja reservationer som du redan betalar för.
 

@@ -1,18 +1,18 @@
 ---
-title: Azure CLI-skript – Skapa ett konto, en databas och ett diagram för Gremlin API i Azure Cosmos DB | Microsoft Docs
+title: Azure CLI-skript – Skapa ett konto, en databas och ett diagram för Gremlin API i Azure Cosmos DB
 description: Exempel på Azure CLI-skript – Skapa ett konto, en databas och ett diagram för Gremlin API i Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: c920fd55442897688fab8c88e599fe4837667cf9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0e870b00cefc235a99c084c5a405b69c07187907
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019606"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956677"
 ---
 # <a name="azure-cosmos-db-create-a-gremlin-api-account-using-azure-cli"></a>Azure Cosmos DB: Skapa ett Gremlin API-konto med hjälp av Azure CLI
 
@@ -42,7 +42,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Skapar ett Azure Cosmos DB-konto. |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Skapa en Azure Cosmos DB-databas. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Skapar en Azure Cosmos DB-databas. |
 | [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Skapar ett Azure Cosmos DB-diagram för Gremlin. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 

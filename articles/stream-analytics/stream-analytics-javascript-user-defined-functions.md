@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Användardefinierade funktioner i Azure Stream Analytics JavaScript | Microsoft Docs '
+title: 'Självstudie: Användardefinierade funktioner i Azure Stream Analytics JavaScript | Microsoft Docs '
 description: I den här självstudien får utföra avancerade frågor med användardefinierade JavaScript-funktioner
 keywords: javascript, user defined functions, udf
 services: stream-analytics
@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: rodrigoa
-ms.openlocfilehash: 56ac08593d29a9003f5509f2be52f50fa250bd75
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431603"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088885"
 ---
-# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Självstudier: Användardefinierade funktioner i Azure Stream Analytics JavaScript
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Självstudie: Användardefinierade funktioner i Azure Stream Analytics JavaScript
  
 Azure Stream Analytics stödjer användardefinierade JavaScript-funktioner. Med den omfattande uppsättningen av **String**-, **RegExp**-, **Math**-, **Array**- och **Date**-metoder som JavaScript erbjuder blir det enklare att skapa komplexa datatransformationer med Stream Analytics-jobb.
 
@@ -58,7 +58,7 @@ För att skapa en enkel användardefinierad JavaScript-funktion under ett befint
 4.  På bladet **Ny funktion** för **funktionstypen** väljer du **JavaScript**. En standardmall för funktionen visas i redigeraren.
 5.  För **UDF-alias** anger du **hex2Int** och ändrar funktionsimplementeringen på följande sätt:
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -73,7 +73,7 @@ För att skapa en enkel användardefinierad JavaScript-funktion under ett befint
 1. I frågeredigeraren under **JOBBTOPOLOGI** väljer du **Fråga**.
 2.  Redigera frågan och anropa sedan den användardefinierade funktionen så här:
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ Om du har ett bearbetningssteg för uppföljning som använder Stream Analytics-
 
 **Definiera en användardefinierad JavaScript-funktion:**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **Exempelfråga:**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

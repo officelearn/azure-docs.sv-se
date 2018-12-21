@@ -1,18 +1,18 @@
 ---
-title: Azure CLI-skript – Skapa ett konto, en databas och en tabell för API för Cassandra i Azure Cosmos DB | Microsoft Docs
+title: Azure CLI-skript – Skapa ett konto, en databas och en tabell för API för Cassandra i Azure Cosmos DB
 description: Exempel på Azure CLI-skript – Skapa ett konto, en databas och en tabell för API för Cassandra i Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 72eb26599ce2f57e7178d5741851b6e442a62e23
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 381dc16366b4772f828ed474637d029324703c9e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019603"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961562"
 ---
 # <a name="azure-cosmos-db-create-a-cassandra-api-account-using-azure-cli"></a>Azure Cosmos DB: Skapa ett Cassandra API-konto med hjälp av Azure CLI
 

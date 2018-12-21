@@ -1,24 +1,27 @@
 ---
-title: Tjänstens huvudnamn för Azure Kubernetes-kluster
+title: (INAKTUELL) Tjänstens huvudnamn för Azure Kubernetes-kluster
 description: Skapa och hantera ett tjänstobjekt för Azure Active Directory för ett Kubernetes-kluster i Azure Container Service
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 53bb09824a88980a171fa4067a9efd2fc067a898
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954580"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992150"
 ---
-# <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Konfigurera ett Azure AD-tjänstobjekt för ett Kubernetes-kluster i Container Service
+# <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(INAKTUELL) Konfigurera ett Azure AD-tjänstobjekt för ett Kubernetes-kluster i Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Den uppdaterade versionen av artikeln som använder Azure Kubernetes Service finns i [Tjänstens huvudnamn med Azure Kubernetes Service (AKS)](../../aks/kubernetes-service-principal.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 I Azure Container Service kräver ett Kubernetes-kluster ett [Azure Active Directory-tjänstobjekt](../../active-directory/develop/app-objects-and-service-principals.md) för att kunna interagera med Azure-API:er. Tjänstens huvudnamn krävs för att dynamiskt hantera resurser som [användardefinierade vägar](../../virtual-network/virtual-networks-udr-overview.md) och [lager 4 för Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 

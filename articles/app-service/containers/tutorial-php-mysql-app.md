@@ -1,6 +1,6 @@
 ---
-title: Skapa en PHP- och MySQL-webbapp i Azure App Service i Linux | Microsoft Docs
-description: Lär dig hur du får igång en PHP-app i Azure med anslutning till en MySQL-databas i Azure.
+title: Skapa PHP-webbapp med MySQL på Linux – Azure App Service | Microsoft Docs
+description: Lär dig hur du får en PHP-app att fungera i Azure App Service i Linux, med anslutning till en MySQL-databas i Azure.
 services: app-service\web
 author: cephalin
 manager: erikre
@@ -10,13 +10,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 91beef3076005fc7b95b1ffd208be238e23a7b8b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: 5d9843eecfed56f09c3a6d659976ca1ce5f42d80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291495"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342368"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Skapa en PHP- och MySQL-webbapp i Azure App Service i Linux
 
@@ -45,9 +45,9 @@ I den här guiden får du lära dig att:
 För att slutföra den här självstudien behöver du:
 
 * [Installera Git](https://git-scm.com/)
-* [Installera PHP 5.6.4 eller senare](http://php.net/downloads.php)
+* [Installera PHP 5.6.4 eller senare](https://php.net/downloads.php)
 * [Installera Composer](https://getcomposer.org/doc/00-intro.md)
-* Aktivera följande PHP-tillägg som behövs för Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer och XML
+* Aktivera följande PHP-tillägg som Laravel behöver: OpenSSL, PDO-MySQL, Mbstring, Tokenizer och XML
 * [Installera och starta MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Förbereda lokal MySQL
@@ -62,7 +62,7 @@ Anslut till din lokala MySQL-server via ett terminalfönster. Du kan använda de
 mysql -u root -p
 ```
 
-Om du uppmanas att ange ett lösenord anger du lösenordet för `root`-kontot. Se [MySQL: Återställa rotlösenordet](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html) om du inte kommer ihåg rotlösenordet för ditt konto.
+Om du uppmanas att ange ett lösenord anger du lösenordet för `root`-kontot. Om du inte kommer ihåg rotlösenordet för ditt konto kan du gå till [MySQL: Återställa rotlösenordet](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 MySQL-servern är igång om kommandot körs utan problem. Om inte, kontrollerar du att den lokala MySQL-servern är igång genom att följa [anvisningarna efter installation av MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > Du kan begränsa brandväggsregeln ännu mer genom att [endast använda de utgående IP-adresser som används av din app](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta *\<your_ip_address>* med [din lokala IPv4 IP-adress](http://www.whatsmyip.org/).
+I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta *\<your_ip_address>* med [din lokala IPv4 IP-adress](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
@@ -350,7 +350,7 @@ Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `D
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-Du kan komma åt inställningarna med PHP-metoden [getenv](http://php.net/manual/en/function.getenv.php). I Laravel-koden används en [env](https://laravel.com/docs/5.4/helpers#method-env)-omslutning över PHP `getenv`. MySQL-konfigurationen i _config/database.php_ ser till exempel ut som följande kod:
+Du kan komma åt inställningarna med PHP-metoden [getenv](https://php.net/manual/en/function.getenv.php). I Laravel-koden används en [env](https://laravel.com/docs/5.4/helpers#method-env)-omslutning över PHP `getenv`. MySQL-konfigurationen i _config/database.php_ ser till exempel ut som följande kod:
 
 ```php
 'mysql' => [

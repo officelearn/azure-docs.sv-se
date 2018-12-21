@@ -1,5 +1,5 @@
 ---
-title: Azure Policy-exempel – godkända avbildningar av virtuella datorer
+title: Exempel – Godkända VM-avbildningar
 description: Den här exempelprincipen kräver att endast godkända anpassade avbildningar distribueras i din miljö.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: d4216c785155ac5462dbcb1b48bf58e7bc718601
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efec6c4e0a677681fd9f1132f4573d99b35236d4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965386"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312671"
 ---
 # <a name="approved-vm-images"></a>Godkända VM-avbildningar
 
@@ -25,7 +24,7 @@ Du kan distribuera det här exemplet med hjälp av:
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure CLI](#azure-cli)
-- [REST API](#rest-api)
+- [REST-API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

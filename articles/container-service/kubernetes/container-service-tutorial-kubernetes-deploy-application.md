@@ -1,24 +1,27 @@
 ---
-title: Självstudie för Azure Container Service – Distribuera ett program
+title: (INAKTUELL) Självstudie för Azure Container Service – Distribuera ett program
 description: Självstudie för Azure Container Service – Distribuera ett program
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7f9c0c3ad11cb6988f528503d614ab26dcc0968
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919185"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998785"
 ---
-# <a name="run-applications-in-kubernetes"></a>Köra program i Kubernetes
+# <a name="deprecated-run-applications-in-kubernetes"></a>(INAKTUELL) Köra program i Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> För den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service läser du[Självstudie: Köra program i Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 I den här självstudien, som är del fyra av sju, distribuerar du ett exempelprogram till ett Kubernetes-kluster. Det här är några av stegen:
 

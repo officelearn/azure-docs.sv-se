@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416893"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135346"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Självstudie: Konfigurera meddelandedirigering med IoT Hub
 
@@ -56,6 +56,10 @@ Följande avsnitt beskriver hur du utför stegen som krävs. Följ instruktioner
 1. Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md). 
 
 2. Skapa en IoT-hubb på S1-nivån. Lägg till en konsumentgrupp till din IoT-hubb. Konsumentgruppen används av Azure Stream Analytics när data hämtas.
+
+   > [!NOTE]
+   > Du måste använda en Iot-hubb på en betalnivå för att slutföra den här självstudien. På den kostnadsfria nivån kan bara ställa in en slutpunkt, och den här självstudien kräver flera slutpunkter.
+   > 
 
 3. Skapa ett V1-standardlagringskonto med Standard_LRS-replikering.
 
@@ -304,13 +308,13 @@ Data skrivs till bloblagring i Avro-format.
 
    **Namn**: Ange ett namn för din routningsfråga. I den här självstudien används **StorageRoute**.
 
-   **Slutpunkt**: visar den slutpunkt som du nyss skapade. 
+   **Slutpunkt**: Visar den slutpunkt som du nyss skapade. 
    
    **Datakälla**: Välj **Enhetstelemetrimeddelanden** från listrutan.
 
-   **Aktivera väg**: se till att detta är aktiverat.
+   **Aktivera rutt**: Se till att detta är aktiverat.
    
-   **Routningsfråga**: Ange `level="storage"` som frågesträng. 
+   **Dirigeringsfråga**: Ange `level="storage"` som frågesträng. 
 
    ![Skärmbild som visar hur du skapar en hanteringsregel för lagringskontot.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
@@ -342,11 +346,11 @@ Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelander
 
    **Namn**: Ange ett namn för din routningsfråga. Den här självstudien använder **SBQueueRoute**. 
 
-   **Slutpunkt**: visar den slutpunkt som du nyss skapade.
+   **Slutpunkt**: Visar den slutpunkt som du nyss skapade.
 
    **Datakälla**: Välj **Enhetstelemetrimeddelanden** från listrutan.
 
-   **Routningsfråga**: Ange `level="critical"` som frågesträng. 
+   **Dirigeringsfråga**: Ange `level="critical"` som frågesträng. 
 
    ![Skärmbild som visar hur du skapar en routningsfråga för Service Bus-kön.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
@@ -370,7 +374,7 @@ Service Bus-kön ska användas för att ta emot meddelanden som har angetts som 
 
    **Prenumeration**: Välj din Azure-prenumeration.
 
-   **Resursgrupper**: Klicka på **Använd befintlig** och välj din resursgrupp. I den här självstudien används **ContosoResources**. 
+   **Resursgrupp**: Klicka på **Använd befintlig** och välj din resursgrupp. I den här självstudien används **ContosoResources**. 
 
    **Plats**: Använd din plats. I den här självstudien används **USA, västra**. 
 
@@ -424,7 +428,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 2. Ange följande information för jobbet.
 
-   **Jobbnamn**: Jobbets namn. Namnet måste vara globalt unikt. I självstudien används **contosoJob**.
+   **Jobbnamn**: Namnet på jobbet. Namnet måste vara globalt unikt. I självstudien används **contosoJob**.
 
    **Resursgrupp**: Använd samma resursgrupp som användes av IoT-hubben. I den här självstudien används **ContosoResources**. 
 
@@ -440,7 +444,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 5. I rutan **Indata** klickar du på **Lägg till strömindata** och väljer IoT Hub. På skärmen som visas fyller du i följande fält:
 
-   **Inmatat alias**: Den här självstudien använder **contosoinputs**.
+   **Indataalias**: I självstudien används **contosoinputs**.
 
    **Prenumeration**: Välj din prenumeration.
 

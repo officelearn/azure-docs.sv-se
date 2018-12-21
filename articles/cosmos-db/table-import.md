@@ -1,19 +1,19 @@
 ---
-title: Importera data för användning med Azure Cosmos DB Table-API:et
-description: Lär dig hur du importerar data som ska användas med Azure Cosmos DB Table-API:et.
-services: cosmos-db
+title: Migrera befintliga data till ett tabell-API-konto i Azure Cosmos DB
+description: Lär dig att migrera eller importera lokala eller molnbaserade data till ett Azure Tabell-API-konto i Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 12/07/2017
 ms.author: sngun
-ms.openlocfilehash: d277df3fa98564ebec92e548fa070e92cf76f200
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: b2256f16d284cb079231e271a7fc06c25c381c8a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874047"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137692"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrera data till Azure Cosmos DB Table-API-konto
 
@@ -89,7 +89,7 @@ Använd följande alternativ för målet när du definierar Azure Cosmos DB Tabl
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
 <a id="azure-table-storage"></a>
-### <a name="sample-command-source-is-azure-table-storage"></a>Exempelkommando: Källan är Azure Table Storage
+### <a name="sample-command-source-is-azure-table-storage"></a>Exempel-kommando: Källa är Azure Table Storage
 
 Här är ett kommandoradsexempel som visar hur du importerar från Azure Table Storage till Table API:
 
@@ -97,7 +97,7 @@ Här är ett kommandoradsexempel som visar hur du importerar från Azure Table S
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
-### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Exempelkommando: Källan är Azure Cosmos DB Table API (förhandsversion)
+### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Exempel-kommando: Källan är Azure Cosmos DB tabell-API (förhandsversion)
 
 Här är ett kommandoradsexempel som visar hur du importerar från Table API (förhandsversion) till Table API GA:
 

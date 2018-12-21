@@ -1,5 +1,5 @@
 ---
-title: Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps | Microsoft Docs
+title: Binda befintligt anpassat SSL-certifikat – Azure App Service | Microsoft Docs
 description: Lär dig hur du binder ett anpassat SSL-certifikat till din webbapp, din mobila serverdelstjänst för appar eller en API-app i Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: a543561658d593398ca74f8ae68dd6d0d27bcdaa
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.custom: seodec18
+ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636467"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257003"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Självstudie: Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps
 
@@ -139,9 +139,9 @@ På sidan **Lägg till SSL-bindning** använder du listrutorna och väljer det d
 >
 >
 
-I **SSL-typ** väljer du om du vill använda **[Servernamnindikator (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** eller IP-baserad SSL.
+I **SSL-typ** väljer du om du vill använda **[Servernamnindikator (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)** eller IP-baserad SSL.
 
-- **SNI-baserad SSL** – Du kan lägga till flera SNI-baserade SSL-bindningar. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information om webbläsare som stöds finns i [Servernamnindikator](http://wikipedia.org/wiki/Server_Name_Indication)).
+- **SNI-baserad SSL** – Du kan lägga till flera SNI-baserade SSL-bindningar. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information om webbläsare som stöds finns i [Servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).
 - **IP-baserad SSL** – Det går bara att lägga till en IP-baserad SSL-bindning. Med det här alternativet tillåts endast ett SSL-certifikat för att skydda en dedikerad offentlig IP-adress. Om du vill skydda flera domäner, måste du skydda alla med samma SSL-certifikat. Detta är det vanligaste alternativet för SSL-bindning.
 
 Klicka på **Lägg till bindning**.

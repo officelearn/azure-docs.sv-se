@@ -1,5 +1,5 @@
 ---
-title: Självstudie om att söka i halvstrukturerade data från Azure-molnlagring i Azure Search | Microsoft Docs
+title: Självstudie om att söka i halvstrukturerade data i Azure-molnlagring – Azure Search
 description: I den här självstudien får du lära dig att söka i halvstrukturerade Azure-blobdata med Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
-ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005085"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313834"
 ---
-# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Självstudie: Söka i halvstrukturerade data i Azure-molnlagring
+# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Självstudie: Söka efter halvstrukturerade data i Azure-molnlagring
 
 I en självstudiekurs i två delar får du lära dig hur du söker efter halvstrukturerade och ostrukturerade data med Azure Search. I [del 1](../storage/blobs/storage-unstructured-search.md) fick du lära dig att söka i ostrukturerade data och den innehöll också viktiga förutsättningar för den här kursen, till exempel information om hur du skapar ett lagringskonto. 
 
@@ -281,7 +282,7 @@ Parametern `$filter` fungerar endast med metadata som markerades som filtrerbara
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resursgruppen som innehåller Azure Search-tjänsten. Du kan ta bort resursgruppen nu om du vill ta bort allt innehåll i den permanent. I portalen ser du resursgruppens namn på översiktssidan för Azure Search-tjänsten.
+Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resursgruppen som innehåller Azure Search-tjänsten. Du kan ta bort resursgruppen nu så att allt innehåll i den tas bort permanent. I portalen ser du resursgruppens namn på översiktssidan för Azure Search-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 

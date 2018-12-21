@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Azure Dedicated HSM Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av CLI | Microsoft Docs
-description: Självstudie som visar hur du distribuerar en dedikerad HSM med hjälp av CLI
+title: Självstudie om att distribuera till ett befintligt virtuellt nätverk med hjälp av Azure CLI – Dedikerad HSM i Azure | Microsoft Docs
+description: Självstudie som visar hur du distribuerar en dedikerad HSM med hjälp av CLI i ett befintligt virtuellt nätverk
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,19 +8,19 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: ca30dc9d86db8faabfdd3791b74b9f86c9480ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679655"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080324"
 ---
-# <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av CLI
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Självstudie: Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av CLI
 
 Dedikerad HSM i Azure tillhandahåller en fysisk enhet enbart för kundanvändning, med fullständig administrativ kontroll och fullständigt hanteringsansvar. Användningen av fysiska enheter skapar ett behov av att Microsoft styr enhetsallokeringen för att säkerställa att kapacitet hanteras på ett effektivt sätt. I en Azure-prenumeration syns tjänsten Dedikerad HSM därför normalt inte för resursetablering. Azure-kunder som behöver åtkomst till tjänsten Dedikerad HSM måste först kontakta sin Microsoft-kontoansvarige och begära registrering för tjänsten Dedikerad HSM. Det är först när den här processen är klar som etablering blir möjlig. 
 
@@ -38,7 +38,7 @@ Den här självstudien fokuserar på integreringen av ett par HSM:er och den nö
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Dedikerad HSM i Azure är för närvarande inte tillgängligt på Azure-portalen. All interaktion med tjänsten sker via kommandoraden eller PowerShell. Den här självstudien använder kommandoradsgränssnittet (CLI) i Azure Cloud Shell. Om Azure CLI är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+Dedikerad HSM i Azure är för närvarande inte tillgängligt på Azure-portalen. All interaktion med tjänsten sker via kommandoraden eller PowerShell. Den här självstudien använder kommandoradsgränssnittet (CLI) i Azure Cloud Shell. Om Azure CLI är nytt för dig följer du instruktionerna för att komma igång här: [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
 Antaganden:
 
@@ -130,7 +130,7 @@ När parametervärden har angetts måste filerna laddas upp till Azure-portalens
 
 Kommandogränssnittet innehåller ett alternativ för uppladdning/nedladdning i verktygsfältet, och du bör ange det här till att ladda upp milen och parameterfilerna till din filresurs:
 
-![prenumerationsstatus](media/tutorial-deploy-hsm-cli/file-share.png)
+![filresurs](media/tutorial-deploy-hsm-cli/file-share.png)
 
 När filerna har laddats upp är du redo att skapa resurser. Innan du skapar nya HSM-resurser finns det vissa nödvändiga resurser som du bör kontrollera så att de finns plats. Du måste ha ett virtuellt nätverk med undernätsintervall för beräkning, HSM:er och gateway. Följande kommandon utgör ett exempel på vad som skulle skapa ett sådant virtuellt nätverk.
 
@@ -191,7 +191,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![etableringsstatus](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![etableringsutdata](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 Du kan nu även se resurser med hjälp av [Azure-resursutforskaren](https://resources.azure.com/).   När du är i utforskaren expanderar du ”prenumerationer” till vänster, din specifika prenumeration för Dedikerad HSM, ”resursgrupper” samt den resursgrupp som du använde och väljer slutligen objektet ”resurser”.
 

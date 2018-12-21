@@ -1,5 +1,5 @@
 ---
-title: Skapa och använda en intern lastbalanserare med en Azure App Service-miljö
+title: Skapa intern lastbalanserare med App Service-miljön – Azure
 description: Information om hur du skapar och använder en Internetisolerad Azure App Service-miljö
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.custom: seodec18
+ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378286"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344286"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
@@ -56,19 +56,19 @@ Det finns några saker som du inte kan göra när du använder en ILB ASE:
 
 Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
-1. I Azure-portalen väljer du **Skapa en resurs** > **Webb** > **App Service Environment**.
+1. På Azure-portalen väljer du  **Skapa en resurs** > **Webb** > **App Service-miljön**.
 
-1. Välj din prenumeration.
+2. Välj din prenumeration.
 
-1. Välj eller skapa en Resursgrupp.
+3. Välj eller skapa en Resursgrupp.
 
-1. Välj eller skapa ett virtuellt nätverk (VNet).
+4. Välj eller skapa ett virtuellt nätverk (VNet).
 
-1. Om du väljer ett befintligt VNet måste du skapa ett undernät för att rymma ASE. Se till att undernätets storlek är tillräckligt stort för att rymma kommande ASE-tillväxt. Vi rekommenderar en storlek på `/24`, som har 256 adresser och kan hantera en ASE med maximal storlek och olika skalningsbehov. 
+5. Om du väljer ett befintligt VNet måste du skapa ett undernät för att rymma ASE. Se till att undernätets storlek är tillräckligt stort för att rymma kommande ASE-tillväxt. Vi rekommenderar en storlek på `/24`, som har 256 adresser och kan hantera en ASE med maximal storlek och olika skalningsbehov. 
 
-1. Välj **Virtuellt nätverk/plats** > **Konfiguration av virtuellt nätverk**  Ställ in **VIP-typ** på **Intern**.
+6. Välj  **Virtuellt nätverk/plats** > **Konfiguration av virtuellt nätverk**. Ställ in **VIP-typ** på **Intern**.
 
-1. Ange ett domännamn. Den här domänen är den som används för appar som har skapats i denna ASE. Det finns vissa begränsningar. Det kan inte vara:
+7. Ange ett domännamn. Den här domänen är den som används för appar som har skapats i denna ASE. Det finns vissa begränsningar. Det kan inte vara:
 
     * net   
 
@@ -96,14 +96,14 @@ På bladet **Virtuellt nätverk** finns alternativet **Konfiguration av virtuell
 
 När du har valt **Intern** tas möjligheten att lägga till fler IP-adresser till din ASE bort. Istället måste du ange domänen för ASE. I en ASE med extern VIP används ASE-namnet i domänen för appar som skapats i denna ASE.
 
-Om du ställer in **VIP-typ** på **Intern** används inte ditt ASE-namn i ASE-domänen. Du anger domänen uttryckligen. Om din domän är *contoso.corp.net* och du skapar en app i den ASE:n med namnet *timereporting* är appens URL-adress timereporting.contoso.corp.net.
+Om du ställer in **VIP-typ** på **Intern** används inte ditt ASE-namn i ASE-domänen. Du anger domänen uttryckligen. Om din domän är *contoso.corp.net*  och du skapar en app i den ASE:n med namnet  *timereporting* är appens URL-adress timereporting.contoso.corp.net.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Skapa en app i en ILB ASE ##
 
 Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanligtvis.
 
-1. I Azure Portal väljer du **Skapa en resurs** > **Webb och mobilt** > **Webbapp**.
+1. På Azure-portalen väljer du  **Skapa en resurs** > **Webb och mobilt** > **Webbapp**.
 
 1. Ange appens namn.
 
@@ -117,9 +117,9 @@ Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanl
 
 1. Välj eller skapa en App Service plan. Om du vill skapa en ny App Service plan väljer du ASE som plats. Välj den arbetarpool där du vill att din App Service plan ska skapas. När du skapar din App Service plan ska du välja din ASE som plats och arbetarpoolen. När du anger namnet på appen ersätts domänen under ditt appnamn med ASE-domänen.
 
-1. Välj **Skapa**. Om du vill att appen ska visas på instrumentpanelen ska du markera kryssrutan **Fäst på instrumentpanelen**.
+1. Välj **Skapa**. Om du vill att appen ska visas på instrumentpanelen markerar du kryssrutan  **Fäst på instrumentpanelen** .
 
-    ![Skapa App Service plan][2]
+    ![Skapa App Service-plan][2]
 
     Under **Appnamn** uppdateras domännamnet för att återspegla din ASE-domän.
 
@@ -127,7 +127,7 @@ Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanl
 
 En ILB ASE skiljer sig något från en icke-ILB ASE. Du måste hantera din egen DNS som redan anges. Du måste också tillhandahålla ditt eget certifikat för HTTPS-anslutningar.
 
-När du har skapat din ASE visar domännamnet den domän du angav. Ett nytt objekt visas på menyn **Inställning** med namnet **ILB-certifikat**. ASE skapas med ett certifikat som inte anger ILB ASE-domän. Om du använder en ASE med det certifikatet informerar webbläsaren om att det är ogiltigt. Det här certifikatet gör det lättare att testa HTTPS, men du måste ladda upp ditt eget certifikat som är bundet till din ILB ASE-domän. Det här steget är nödvändigt oavsett om certifikatet är självsignerat eller förvärvas från en certifikatutfärdare.
+När du har skapat din ASE visar domännamnet den domän du angav. Ett nytt objekt visas på menyn **Inställning** med namnet **ILB-certifikat**. ASE skapas med ett certifikat som inte anger ILB ASE-domän. Om du använder en ASE med det certifikatet informerar webbläsaren om att det är ogiltigt. Det här certifikatet gör det lättare att testa HTTPS, men du måste ladda upp ditt eget certifikat som är bundet till din ILB ASE-domän. Det här steget är nödvändigt oavsett om certifikatet är självsignerat eller förvärvas från en certifikatutfärdare.
 
 ![ILB ASE-domännamn][3]
 
@@ -154,7 +154,7 @@ Certifikatet som dessa PowerShell-kommandon genererar flaggas av webbläsare eft
 
 Så här laddar du upp egna certifikat och testar åtkomst:
 
-1. När ASE har skapats går du till ASE UI. Välj **ASE** > **Inställningar** > **ILB-certifikat**.
+1. När ASE har skapats går du till ASE UI. Välj **ASE** > **Inställningar** > **ILB-certifikat**.
 
 1. Du anger ILB-certifikat genom att välja filen certificate .pfx och ange lösenordet. Det här steget tar tid att bearbeta. Det visas ett meddelande om att en överföring pågår.
 
@@ -174,9 +174,9 @@ Så här laddar du upp egna certifikat och testar åtkomst:
 
     b. Om du vill test webbdistributionens publicering eller åtkomst till den avancerade konsolen skapar du en post för _mytestapp.scm.ilbase.com_.
 
-1. Använd en webbläsare på den virtuella datorn och gå till http://mytestapp.ilbase.com. (Eller gå till ditt webbnamn i din domän.)
+1. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. (Eller gå till ditt webbnamn i din domän.)
 
-1. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Om du använder ett självsignerat certifikat ska du acceptera bristen på säkerhet.
+1. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Om du använder ett självsignerat certifikat ska du acceptera bristen på säkerhet.
 
     IP-adressen för din ILB anges under **IP-adresser**. Den här listan innehåller även IP-adresserna som används av externa virtuella IP-adresser (VIP) och för inkommande hanteringstrafik.
 
@@ -222,13 +222,9 @@ Om du vill veta mer om hur du konfigurerar din interna belastningsutjämnare i a
 ## <a name="get-started"></a>Kom igång ##
 
 * Information om hur du kommer igång med ASE finns i [Introduktion till App Service-miljöer][Intro].
- 
+ 
 <!--Image references-->
-[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
-[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
-[3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png
-[4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png
-[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
+[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png [2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png [3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png [4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png [5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -244,10 +240,10 @@ Om du vill veta mer om hur du konfigurerar din interna belastningsutjämnare i a
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md

@@ -4,17 +4,17 @@ description: Använd Azure Policy för att genomdriva standarder, efterleva krav
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6ee7a4190248c8c18f747ee579aadc04a136696b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7cfcb71567931b1581618cf8f2239fb004befff8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583088"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087039"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att använda kompatibilitet
 
@@ -52,27 +52,27 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
 1. Välj ellipsen **Principdefinition** för att öppna listan med tillgängliga definitioner. Du kan filtrera principdefinitionen **Typ** som *Inbyggt* om du vill se alla och läsa deras beskrivningar.
 
-1. Välj **Kräv SQL Server version 12.0**. Om du inte hittar det genast skriver du **kräv sql server** i sökrutan och trycker sedan på RETUR eller klickar utanför sökrutan. Klicka på **Välj** längst ned på sidan **Tillgängliga definitioner** när du har hittat och valt principdefinitionen.
+1. Välj **Kräv SQL Server version 12.0**. Om du inte hittar det genast skriver du **require sql server** (kräv sql server) i sökrutan och trycker sedan på RETUR eller klickar utanför sökrutan. Klicka på **Välj** längst ned på sidan **Tillgängliga definitioner** när du har hittat och valt principdefinitionen.
 
    ![Hitta en princip](../media/create-and-manage/select-available-definition.png)
 
-1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet låter du *Kräv SQL Server version 12.0* vara kvar. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.  **Tilldelad av** anges automatiskt baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
+1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet låter du *Kräv SQL Server version 12.0* vara kvar. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.  **Tilldelad av** fylls automatiskt i baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
 
-1. Lämna **Skapa en hanterad identitet** avmarkerat. Det här _måste_ markeras när principen eller initiativet som tilldelas omfattar en princip med effekten [deployIfNotExists](../concepts/effects.md#deployifnotexists). Eftersom principen som används för den här självstudien inte gör det kan du lämna det tomt. Mer information finns i avsnitten [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ markeras när den princip eller det initiativ som tilldelas omfattar en princip med effekten [deployIfNotExists](../concepts/effects.md#deployifnotexists). Eftersom den princip som används för den här självstudien inte gör det kan du lämna den tom. Mer information finns i avsnitten [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Klicka på **Tilldela**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implementera en ny anpassad princip
 
-Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure Policy. Sedan ska du skapa en ny anpassad princip för att spara kostnader genom att se till att de virtuella datorer du har skapat i din miljö inte kan vara i G-serien. På så sätt nekas varje gång en begäran från en användare i organisationen som försöker skapa en virtuell dator i G-serien.
+Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure Policy. Sedan skapar du en ny anpassad princip för att spara kostnader genom att kontrollera att de virtuella datorer som skapats i din miljö inte kan vara i G-serien. På så sätt nekas varje gång en begäran från en användare i organisationen som försöker skapa en virtuell dator i G-serien.
 
 1. Välj **Definitioner** under **Redigering** till vänster på sidan Azure Policy.
 
    ![Definition under redigering](../media/create-and-manage/definition-under-authoring.png)
 
-1. Välj **+ Principdefinition** överst på sidan. Sidan **Principdefinition** öppnas.
+1. Välj **+ Principdefinition** överst på sidan. Den här knappen öppnar sidan **Principdefinition**.
 
-1. Ange följande:
+1. Ange följande information:
 
    - Hanteringsgruppen eller prenumerationen där principdefinitionen sparas. Välj **Definitionens plats** med ellipsen.
 
@@ -110,7 +110,7 @@ Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure
     }
     ```
 
-    Värdet i egenskapen *Fält* i principregeln måste vara något av följande: Namn, Typ, Plats, Taggar eller ett alias. Ett exempel på ett alias kan vara `"Microsoft.Compute/VirtualMachines/Size"`.
+    Egenskapen *fält* i principregeln måste vara något av följande värden: Namn, Typ, Plats, Taggar eller ett alias. Ett exempel på ett alias kan vara `"Microsoft.Compute/VirtualMachines/Size"`.
 
     Fler Azure-principexempel finns i [Azure Policy-mallar](../samples/index.md).
 
@@ -158,7 +158,7 @@ Inkludera en begärantext som liknar följande exempel:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Skapa en principdefinition med PowerShell
 
-Innan du fortsätter med PowerShell-exemplet ska du se till att du har den senaste versionen av Azure PowerShell installerad. Principparametrar lades till i version 3.6.0. Om du har en tidigare version returnerar exemplen ett fel som anger att parametern inte går att hitta.
+Innan du fortsätter med PowerShell-exemplet ser du till att du har den senaste versionen av Azure PowerShell installerad. Principparametrar lades till i version 3.6.0. Om du har en tidigare version returnerar exemplen ett fel som anger att parametern inte kan hittas.
 
 Du kan skapa en principdefinition med cmdleten `New-AzureRmPolicyDefinition`.
 
@@ -322,7 +322,7 @@ Den returnerar alla tillgängliga principdefinitioner, inklusive inbyggda princi
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Skapa och tilldela en initiativdefinition
 
-Med en initiativdefinition kan du gruppera flera principdefinitioner för att uppnå ett övergripande mål. Du skapar en initiativdefinition för att se till att resurser inom definitionens omfång efterlever principdefinitionerna som utgör initiativdefinitionen. Se [Översikt över Azure Policy](../overview.md) för mer information om initiativdefinitioner.
+Med en initiativdefinition kan du gruppera flera principdefinitioner för att uppnå ett övergripande mål. Du skapar en initiativdefinition för att kontrollera att resurser inom definitionens omfång efterlever de principdefinitioner som utgör initiativdefinitionen. Se [Översikt över Azure Policy](../overview.md) för mer information om initiativdefinitioner.
 
 ### <a name="create-an-initiative-definition"></a>Skapa en initiativdefinition
 
@@ -338,7 +338,7 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Ange **Namn** och **Beskrivning** för initiativet.
 
-   Det här exemplet ser till att resurser efterlever principdefinitioner om säkerhet. Namnge initiativet **Bli säker** och ange beskrivningen som: **Det här initiativet har skapats för att hantera principdefinitioner associerade med att säkra resurser**.
+   Det här exemplet kontrollerar att resurser efterlever principdefinitioner om säkerhet. Namnge initiativet **Get Secure** och ange beskrivningen som: **Det här initiativet har skapats för att hantera principdefinitioner associerade med att skydda resurser**.
 
 1. Välj bland befintliga alternativ eller skapa en ny kategori i **Kategori**.
 
@@ -354,7 +354,7 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
    ![Initiativdefinitioner](../media/create-and-manage/initiative-definition-2.png)
 
-1. Om en principdefinition som läggs till initiativet har parametrar visas de under namnet på principen i området med **principer och parametrar**. _Värdet_ kan anges till antingen Ange värde (hårdkodat för alla tilldelningar i initiativet) eller Använd initiativparametern (ställs in under varje initiativtilldelning). Om du väljer Ange värde kan du via listrutan till höger om _Värden_ ange eller välja önskade värden. Om du väljer Använd initiativparametern så visas ett nytt avsnitt **Initiativparameter** där du kan definiera den parameter som ställs in under initiativtilldelningen. Tillåtna värden för den här initiativparametern kan ytterligare begränsa vad du kan ange under initiativtilldelningen.
+1. Om en principdefinition som läggs till i initiativet har parametrar visas de under namnet på principen i området **Principer och parametrar**. _Värdet_ kan anges till antingen Ange värde (hårdkodat för alla tilldelningar i initiativet) eller Använd initiativparametern (ställs in under varje initiativtilldelning). Om du väljer "Ange värde" kan du via listrutan till höger om _Värden_ ange eller välja värden. Om du väljer Använd initiativparametern så visas ett nytt avsnitt **Initiativparameter** där du kan definiera den parameter som ställs in under initiativtilldelningen. Tillåtna värden för den här initiativparametern kan ytterligare begränsa vad du kan ange under initiativtilldelningen.
 
    ![Initiativdefinitionsparametrar](../media/create-and-manage/initiative-definition-3.png)
 
@@ -367,23 +367,23 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Välj **Definitioner** under **Redigering** till vänster på sidan Azure Policy.
 
-1. Leta upp initiativdefinitionen **Bli säker** som du skapade tidigare och markera den. Välj **Tilldela** överst på sidan för att öppna sidan **Bli säker: tilldela initiativ**.
+1. Leta upp initiativdefinitionen **Bli säker** som du skapade tidigare och markera den. Välj **Tilldela** överst på sidan för att öppna sidan **Get Secure: Assign initiative** (Tilldela initiativ).
 
    ![Tilldela en definition](../media/create-and-manage/assign-definition.png)
 
-   Du kan också högerklicka på den markerade raden eller vänsterklicka på ellipsen i slutet av raden för att få upp en snabbmeny.  Välj sedan **Tilldela**.
+   Du kan även högerklicka på den markerade raden eller vänsterklicka på ellipsen i slutet av raden för att få upp en snabbmeny.  Välj sedan **Tilldela**.
 
    ![Högerklicka på en rad](../media/create-and-manage/select-right-click.png)
 
 1. Fyll i sidan **Get Secure: Assign Initiative** genom att ange följande exempelinformation. Du kan använda din egen information.
 
-   - Omfång: hanteringsgruppen eller prenumerationen som du sparade initiativet till blir standard.  Du kan ändra omfånget för att tilldela initiativet till en prenumeration eller resursgrupp inom lagringsplatsen.
+   - Omfång: Den hanteringsgrupp eller prenumeration som du sparade initiativet till blir standard.  Du kan ändra omfånget för att tilldela initiativet till en prenumeration eller resursgrupp inom lagringsplatsen.
    - Undantag: Konfigurera några resurser inom omfånget för att förhindra att initiativtilldelningen tillämpas på dem.
-   - Initiativdefinition och tilldelningsnamn: Get Secure (förifylld med namnet på initiativet som tilldelats).
+   - Initiativdefinition och tilldelningsnamn: Get Secure (förifylld som namnet på det initiativ som tilldelas).
    - Beskrivning: Initiativtilldelningen är skräddarsydd för att tillämpa den här gruppen med principdefinitioner.
-   - Tilldelad av: anges automatiskt baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
+   - Tilldelad av: Anges automatiskt baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
 
-1. Lämna **Skapa en hanterad identitet** avmarkerat. Det här _måste_ markeras när principen eller initiativet som tilldelas omfattar en princip med effekten [deployIfNotExists](../concepts/effects.md#deployifnotexists). Eftersom principen som används för den här självstudien inte gör det kan du lämna det tomt. Mer information finns i avsnitten [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ markeras när den princip eller det initiativ som tilldelas omfattar en princip med effekten [deployIfNotExists](../concepts/effects.md#deployifnotexists). Eftersom den princip som används för den här självstudien inte gör det kan du lämna den tom. Mer information finns i avsnitten [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Klicka på **Tilldela**.
 
@@ -403,20 +403,20 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Undanta en icke-kompatibel eller nekad resurs med Exkludering
 
-När du har angett att principdefinitionen kräver version 12.0 av SQL Server skulle en SQL-server som har skapats med en annan version än 12.0 nekas, precis som i exemplet ovan. I det här avsnittet går vi igenom hur du hanterar ett nekat försök att skapa en SQL-server genom att skapa ett undantag på en enskild resursgrupp. Undantaget förhindrar att principen (eller initiativet) tillämpas på resursen.
+När du har angett att principdefinitionen kräver version 12.0 av SQL Server skulle en SQL-server som har skapats med en annan version än 12.0 nekas, precis som i exemplet ovan. I det här avsnittet går vi igenom hur du hanterar en nekad begäran att skapa en SQL-server genom att skapa ett undantag på en enskild resursgrupp. Undantaget förhindrar att principen (eller initiativet) tillämpas på resursen.
 Följande exempel tillåter alla SQL-serverversioner i en enskild resursgrupp. Ett undantag kan gälla för en prenumeration, resursgrupp eller så kan du begränsa undantaget till enskilda resurser.
 
-En distribution som har förhindrats på grund av en tilldelad princip eller initiativ kan visas på två platser:
+En distribution som har förhindrats av en tilldelad princip eller ett initiativ kan visas på två platser:
 
 - I den resursgrupp som är mål för distributionen: Välj **Distributioner** till vänster på sidan och klicka på **Distributionsnamn** för den misslyckade distributionen. Resursen som nekades visas med statusen _Förbjuden_. För att fastställa den princip, det initiativ och den tilldelning som har nekat resursen, klickar du på **Misslyckades. Klicka här för information ->** på sidan Distributionsöversikt. Ett fönster öppnas till höger om sidan med felinformationen. Under **Felinformation** finns GUID för de relaterade principobjekten.
 
   ![Distributionen nekas av principtilldelningen](../media/create-and-manage/rg-deployment-denied.png)
 
-- På sidan Azure Policy: Välj **Efterlevnad** till vänster på sidan och klicka på principen **Kräv SQL Server version 12.0**. På sidan som öppnas visas en ökning i antalet för **Neka**. Under fliken **Händelser** visas också vem som försökte utföra distributionen som nekades av principen.
+- På sidan Azure Policy: Välj **Efterlevnad** till vänster på sidan och klicka på principen **Kräv SQL Server version 12.0**. På sidan som öppnas visas en ökning i antalet för **Neka**. På fliken **Händelser** visas även vem som försökte utföra den distribution som nekades av principen.
 
   ![Efterlevnadsöversikt för en tilldelad princip](../media/create-and-manage/compliance-overview.png)
 
-I det här exemplet har Trent Baker, en av Contosos virtualiseringsspecialister, utfört ett arbete som krävdes. Vi måste bevilja honom ett undantag, men vi vill inte ha SQL-servrar som inte är av version 12.0 i någon resursgrupp. Vi har skapat den nya resursgruppen **SQLServers_Excluded** och kommer nu att bevilja ett undantag till den för principtilldelningen.
+I det här exemplet utförde Trent Baker, en av Contosos seniora virtualiseringsspecialister, obligatoriskt arbete. Vi behöver bevilja Trent ett undantag, men vi vill inte ha de SQL-servrar som inte är av version 12.0 i godtyckliga resursgrupper. Vi har skapat den nya resursgruppen **SQLServers_Excluded** och kommer nu att bevilja ett undantag till den för principtilldelningen.
 
 ### <a name="update-assignment-with-exclusion"></a>Uppdatera tilldelning med undantag
 
@@ -433,13 +433,13 @@ I det här exemplet har Trent Baker, en av Contosos virtualiseringsspecialister,
 
 1. Klicka på **Välj** och sedan på **Spara**.
 
-I det här avsnittet har du hanterat ett nekat försök att skapa en förbjuden version av SQL-servern genom att skapa ett undantag för en enskild resursgrupp.
+I det här avsnittet löste du den nekade begäran genom att skapa ett undantag på en enskild resursgrupp.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du är klar med att arbeta med resurser i den här självstudien kan du använda följande steg för att ta bort tilldelningar eller definitioner som skapades ovan:
 
-1. Välj **Definitioner** (eller **Tilldelningar** om du ska ta bort en tilldelning) under **Redigering** till vänster om Azure Policy-sidan.
+1. Välj **Definitioner** (eller **Tilldelningar** om du ska ta bort en tilldelning) under **Redigering** till vänster på sidan Azure Policy.
 
 1. Sök efter den nya initiativ- eller principdefinition (eller tilldelning) som du vill ta bort.
 
@@ -447,7 +447,7 @@ Om du är klar med att arbeta med resurser i den här självstudien kan du anvä
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du gjort följande:
+I den här självstudien har du genomfört följande uppgifter:
 
 > [!div class="checklist"]
 > - Tilldelat en princip för att genomdriva ett villkor för resurser som du skapar i framtiden

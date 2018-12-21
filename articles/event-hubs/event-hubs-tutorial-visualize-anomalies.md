@@ -1,20 +1,20 @@
 ---
-title: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs | Microsoft Docs
+title: Visualisera dataavvikelser i realtidshändelser – Azure Event Hubs | Microsoft Docs
 description: Självstudie – Visualisera dataavvikelser i realtidshändelser som skickats till Microsoft Azure Event Hubs
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.author: shvija
-ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.custom: mvc
-ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004121"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091688"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Självstudie: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs
 
@@ -199,7 +199,7 @@ Indata för Steam Analytics-jobbet är kreditkortstransaktioner från händelseh
 
 2. Klicka på **Lägg till strömindata** i fönstret **Indata** och välj Event Hubs. På skärmen som visas fyller du i följande fält:
 
-   **Utdataalias**: Använd **contosooutputs**. Det här fältet är namnet på den indataström som används vid definiering av frågan efter data.
+   **Indataalias**: Använd **contosoinputs**. Det här fältet är namnet på den indataström som används vid definiering av frågan efter data.
 
    **Prenumeration**: Välj din prenumeration.
 
@@ -207,9 +207,9 @@ Indata för Steam Analytics-jobbet är kreditkortstransaktioner från händelseh
 
    **Namn på händelsehubb**: Klicka på **Använd befintlig** och välj din händelsehubb ($**eventHubName**).
 
-   **Namn på Event Hubs-princip**: Välj **RootManageSharedAccessKey**.
+   **Principnamn för Event Hubs**: Välj **RootManageSharedAccessKey**.
 
-   **Event Hubs-konsumentgrupp**: Använd standardkonsumentgruppen genom att lämna det här fältet tomt.
+   **Händelsehubbkonsumentgrupp**: Använd standardkonsumentgruppen genom att lämna det här fältet tomt.
 
    Acceptera standardvärdena för resten av fälten.
 

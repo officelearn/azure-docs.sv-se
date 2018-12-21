@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: ba27ceb784cf139c288a89f3191282fb9b364ddc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 8780e145845d820ef0c6ff2c43891287c1902e2c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864384"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000918"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudie: Migrera PostgreSQL till Azure Database for PostgreSQL online med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal PostgreSQL-instans till [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal avbrottstid. Du kan med andra ord migrera med minimal stilleståndstid i programmet. I den här självstudien migrerar du exempeldatabasen **DVD Rental** från en lokal instans av PostgreSQL 9.6 till Azure Database for PostgreSQL genom att använda en onlinemigreringsaktivitet i Azure Database Migration Service.
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här kursen behöver du:
 
-- Ladda ned och installera [PostgreSQL Community Edition](https://www.postgresql.org/download/) 9.5, 9.6 eller 10.3. PostgreSQL-källserverversionen måste vara 9.5.11, 9.6.7, 10.3 eller senare. Mer information finns i artikeln [Databasversioner som stöds av PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- Ladda ned och installera [PostgreSQL Community Edition](https://www.postgresql.org/download/) 9.5, 9.6 eller 10. PostgreSQL-källserverversionen måste vara 9.5.11, 9.6.7, 10 eller senare. Mer information finns i artikeln [Databasversioner som stöds av PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
     Dessutom måste den lokala PostgreSQL-version matcha Azure Database for PostgreSQL-versionen. Exempelvis kan PostgreSQL 9.5.11.5 endast migreras till Azure Database for PostgreSQL 9.5.11 och inte till version 9.6.7.
 
@@ -52,7 +52,7 @@ För att slutföra den här kursen behöver du:
 - Det finns två metoder för att anropa CLI:
     - Välj knappen Cloud Shell längst upp till höger i Azure Portal:
  
-       ![Cloud Shell-knappen i Azure Portal](media\tutorial-postgresql-to-azure-postgresql-online\cloud-shell-button.png)
+       ![Cloud Shell-knappen i Azure Portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
  
     - Installera och kör CLI lokalt. CLI 2.0 är kommandoradsverktyget för att hantera Azure-resurser.
      
@@ -188,10 +188,10 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     ```
 
     Till exempel skapar följande kommando en tjänst i:
-    - Plats: Östra USA2
+    - Plats: USA, östra 2
     - Prenumeration: 97181df2-909d-420b-ab93-1bff15acb6b7
-    - Resursgruppsnamn: PostgresDemo
-    - DMS-tjänstnamn: PostgresCLI
+    - Namn på resursgrupp: PostgresDemo
+    - DNS-tjänstnamn: PostgresCLI
 
     ```
     az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
@@ -233,8 +233,8 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     ```
     Till exempel skapar följande kommando ett projekt med dessa parametrar:
 
-      - Plats: USA, västra centrala
-      - Resursgruppsnamn: PostgresDemo
+      - Plats: Västra centrala USA
+      - Namn på resursgrupp: PostgresDemo
       - Tjänstnamn: PostgresCLI
       - Projektnamn: PGMigration
       - Källplattform: PostgreSQL

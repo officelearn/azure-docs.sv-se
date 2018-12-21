@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs – Distribuera ASA-jobb till Azure IoT Edge-enheter | Microsoft Docs
+title: 'Självstudie: Distribuera ett Azure Stream Analytics-jobb till en enhet – Azure IoT Edge | Microsoft Docs'
 description: I den här självstudien distribuerar du Azure Stream Analytics som en modul till en Iot Edge-enhet
 author: kgremban
 manager: philmea
@@ -7,16 +7,15 @@ ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566949"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139819"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul (förhandsversion)
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul
 
 Många IoT-lösningar använder analystjänster för att få information om data när de tas emot i molnet från IoT-enheter. Med Azure IoT Edge kan du använda logik från [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) och flytta den till själva enheten. Du kan minska hur mycket data som överförs och minska tiden det tar att reagera på insikter genom att bearbeta telemetriströmmar på gränsen.
 
@@ -34,11 +33,9 @@ I den här guiden får du lära dig att:
 > * Distribuera Azure Stream Analytics-jobbet till en IoT Edge-enhet från Azure Portal.
 
 <center>
-![Arkitekturdiagram för självstudien](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+![Diagram – Självstudie: modul för arkitektur, mellanlagring och ASA-jobb](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
->[!NOTE]
->Azure Stream Analytics-moduler för IoT Edge finns i en [allmänt tillgänglig förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -100,7 +97,7 @@ I det här avsnittet används de tre elementen för indata, utdata och fråga f�
 
 1. Välj **Indata** under **Jobbtopologi** och välj sedan **Lägg till strömindata**.
 
-   ![Azure Stream Analytics-indata](./media/tutorial-deploy-stream-analytics/asa_input.png)
+   ![Azure Stream Analytics, lägg till indata](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
 1. Välj **Edge Hub** i listrutan.
 
@@ -110,7 +107,7 @@ I det här avsnittet används de tre elementen för indata, utdata och fråga f�
 
 1. Öppna **Utdata** under **Jobbtopologi** och välj sedan **Lägg till**.
 
-   ![Azure Stream Analytics-utdata](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure Stream Analytics, lägg till utdata](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 1. Välj **Edge Hub** i listrutan.
 
@@ -207,7 +204,7 @@ I den här självstudien ska du distribuera två moduler. Den första modulen ä
 
     Du borde se att den nya Stream Analytics-modulen körs tillsammans med IoT Edge-agentmodulen och IoT Edge Hub.
 
-    ![Utdata för modulen](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![tempSensor och ASA-modulen rapporteras av enheten](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Visa data
 
@@ -229,7 +226,7 @@ Nu kan du gå till din IoT Edge-enhet för att se interaktionen mellan Azure Str
 
 Du bör kunna se datortemperaturen öka gradvis till den når 70 grader i 30 sekunder. Då utlöser Stream Analytics-modulen en återställning och datortemperaturen går tillbaka till 21. 
 
-   ![Dockerlogg](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![Återställa kommandoutdata till modulloggar](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 

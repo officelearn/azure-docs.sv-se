@@ -10,50 +10,66 @@ items:
   expanded: true
 - name: Snabbstarter
   items:
-  - name: Identifiera tal
+  - name: SDK
     items:
-    - name: Använda C# (.NET i Windows)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-csharp-dotnet-windows.md
-    - name: Använda C# (.NET Core i Windows)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-csharp-dotnetcore-windows.md
-    - name: Använda C# (Universell Windows-plattform)
-      displayName: recognize speech, speech recognition, speech to text, stt, C#, UWP
-      href: quickstart-csharp-uwp.md
-    - name: Använda C++ (Windows)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-cpp-windows.md
-    - name: Använda C++ (Linux)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-cpp-linux.md
-    - name: Använda Java (Android)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-java-android.md
-    - name: Använda Java (Windows eller Linux)
-      displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
-      href: quickstart-java-jre.md
-    - name: Använda JavaScript (webbläsare)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-js-browser.md
-    - name: Använda JavaScript (Node.js)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-js-node.md
-    - name: Använda Objective-C (iOS)
-      displayName: recognize speech, speech recognition, speech to text, stt, xcode
-      href: quickstart-objectivec-ios.md
-    - name: Använda Python
-      displayName: recognize speech, speech recognition, speech to text, stt, python
-      href: quickstart-python.md
-  - name: Text till tal
+    - name: Identifiera tal
+      items:
+      - name: C# (.NET Framework Windows)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-csharp-dotnet-windows.md
+      - name: C# (.NET Core Windows)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-csharp-dotnetcore-windows.md
+      - name: C# (UWP)
+        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        href: quickstart-csharp-uwp.md
+      - name: C++ (Windows)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-cpp-windows.md
+      - name: C++ (Linux)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-cpp-linux.md
+      - name: Java (Android)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-java-android.md
+      - name: Java (Windows, Linux)
+        displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
+        href: quickstart-java-jre.md
+      - name: JavaScript (webbläsare)
+        href: quickstart-js-browser.md
+      - name: JavaScript (Node.js)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-js-node.md
+      - name: Objective-C (iOS)
+        displayName: recognize speech, speech recognition, speech to text, stt, xcode
+        href: quickstart-objectivec-ios.md
+      - name: Python
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-python.md
+    - name: Översätt tal
+      items:
+      - name: C# (.NET Core Windows)
+        href: quickstart-translate-speech-dotnetcore-windows.md
+      - name: C# (.NET Framework Windows)
+        href: quickstart-translate-speech-dotnetframework-windows.md
+      - name: C# (UWP)
+        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        href: quickstart-translate-speech-uwp.md
+      - name: C++ (Windows)
+        href: quickstart-translate-speech-cpp-windows.md
+      - name: Java (Windows, Linux)
+        href: quickstart-translate-speech-java-jre.md
+  - name: REST API:er
     items:
-    - name: Använda C#, REST
-      href: quickstart-dotnet-text-to-speech.md
-    - name: Använda Node.js, REST
-      href: quickstart-nodejs-text-to-speech.md
-    - name: Använda Python, REST
-      href: quickstart-python-text-to-speech.md
-  - name: Komma igång med Speech Devices SDK
+    - name: Konvertera text-till-tal
+      items:
+      - name: C# (.NET Core)
+        href: quickstart-dotnet-text-to-speech.md
+      - name: Node.js
+        href: quickstart-nodejs-text-to-speech.md
+      - name: Python
+        href: quickstart-python-text-to-speech.md
+  - name: Speech Devices SDK
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk-qsg.md
 - name: Självstudier
@@ -210,9 +226,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Sekretess och cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 47335f2e0b09f797b01bfcbcc876f9a09dc57ecc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 16459f36ce6c65199fb609310ceac0a8863a6324
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605831"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715043"

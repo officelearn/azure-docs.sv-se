@@ -1,5 +1,5 @@
 ---
-title: Skapa en ASP.NET-app i Azure med SQL Database | Microsoft Docs
+title: Skapa en ASP.NET-app med SQL Database – Azure App Service | Microsoft Docs
 description: Lär dig hur du distribuerar en C# ASP.NET-app med en SQL Server-databas till Azure.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 783bf93c8507e76717a4293b2b29a9c11e9a1eed
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353824"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257785"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Självstudie: Skapa en ASP.NET-app i Azure med SQL Database
 

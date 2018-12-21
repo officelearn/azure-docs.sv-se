@@ -11,12 +11,12 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115569"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164627"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js
 
@@ -282,10 +282,10 @@ En förberedande aktivitet anges vid överföring av Azure Batch-jobbet. Här f�
 * **ID**: En unik identifierare för den förberedande aktiviteten
 * **commandLine**: Den kommandorad som exekverar den körbara filen
 * **resourceFiles**: En uppsättning objekt som tillhandahåller detaljerad information om de filer som måste laddas ned innan aktiviteten kan köras.  Här visas alternativen
-    - blobSource: SAS-URI för filen.
-    - filePath: Lokal sökväg för nedladdning och sparande av filen.
-    - fileMode: fileMode har ett oktalt format med standardvärdet 0770 (gäller endast Linux-noder).
-* **waitForSuccess**: Om värdet är satt till sant går det inte att köra aktiviteten om den förberedande aktiviteten misslyckas.
+    - blobSource: SAS-URI för filen
+    - filePath: Lokal sökväg för nedladdning och sparande av filen
+    - fileMode: fileMode har ett oktalt format med standardvärdet 0770 (gäller endast Linux-noder)
+* **waitForSuccess**: Om värdet är satt till sant går det inte att köra aktiviteten om den förberedande aktiviteten misslyckas
 * **runElevated**: Sätt värdet till sant om det krävs utökad behörighet för att få köra uppgiften.
 
 Följande kodfragment innehåller ett exempel på skriptkonfigurering för den förberedande aktiviteten:
@@ -317,8 +317,8 @@ Nu när vi har skapat ett jobb för bearbetning av CSV-filer kan vi börja skapa
 
 Om vi tittar på [Python-skriptet](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py) så godtas två möjliga parametrar:
 
-* container name: Den Storage-behållare som du vill ladda ned filer från
-* pattern: En valfri parameter för filnamnsmönster
+* containernamn: Den Storage-container som du vill ladda ned filer från
+* mönster: En valfri parameter för filnamnsmönster
 
 Anta att vi har fyra containrar – ”con1”, ”con2”, ”con3” och ”con4”. Följande kod visar hur man skickar aktiviteter till Azure Batch-jobbet ”process csv” som vi skapade tidigare.
 

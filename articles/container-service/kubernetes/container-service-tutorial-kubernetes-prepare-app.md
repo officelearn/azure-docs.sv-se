@@ -1,30 +1,33 @@
 ---
-title: Självstudie för Azure Container Service – Förbereda programmet
+title: (INAKTUELL) Självstudie för Azure Container Service – Förbereda programmet
 description: Självstudie för Azure Container Service – Förbereda programmet
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2fe160652bf8df289d590722ef4024f0b3dd397c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a003248104c45fa2bcc1020e0ad8ea895d759457
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164364"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992384"
 ---
-# <a name="create-container-images-to-be-used-with-azure-container-service"></a>Skapa behållaravbildningar som ska användas med Azure Container Service
+# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(INAKTUELL) Skapa containeravbildningar som ska användas med Azure Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> För den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service läser du[Självstudie: Förbereda ett program för Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 I den här självstudien, som är del ett av sju, förbereds ett program med flera behållare för användning i Kubernetes. Det här är några av stegen:  
 
 > [!div class="checklist"]
 > * Klona programkällan från GitHub  
-> * Skapa en behållaravbildning från programkällan
+> * Skapa en containeravbildning från programkällan
 > * Testa programmet i en lokal Docker-miljö
 
 När den är slutförd är följande program tillgängligt i din lokala utvecklingsmiljö.
@@ -35,7 +38,7 @@ I efterföljande självstudier har behållaravbildningen laddats upp till ett Az
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som behållare, behållaravbildningar och grundläggande docker-kommandon. Om det behövs kan du läsa [Get started with Docker]( https://docs.docker.com/get-started/) (Komma igång med Docker) för att få en genomgång av grunden för behållare. 
+Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som containrar, containeravbildningar och grundläggande docker-kommandon. Om det behövs kan du läsa [Get started with Docker]( https://docs.docker.com/get-started/) (Komma igång med Docker) för att få en genomgång av grunden för containrar. 
 
 För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac-](https://docs.docker.com/docker-for-mac/), [Windows-](https://docs.docker.com/docker-for-windows/) eller [Linux-](https://docs.docker.com/engine/installation/#supported-platforms)dator.
 
@@ -43,7 +46,7 @@ Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slut
 
 ## <a name="get-application-code"></a>Hämta programkod
 
-Exempelprogrammet som används i den här självstudien är en enkel röstningsapp. Programmet består av en webbkomponent på klientsidan och en Redis-instans på serversidan. Webbkomponenten paketeras i en anpassad behållaravbildning. Redis-instansen använder en oförändrad avbildning från Docker Hub.  
+Exempelprogrammet som används i den här självstudien är en enkel röstningsapp. Programmet består av en webbkomponent på klientsidan och en Redis-instans på serversidan. Webbkomponenten paketeras i en anpassad containeravbildning. Redis-instansen använder en oförändrad avbildning från Docker Hub.  
 
 Använd git och ladda ned en kopia av programmet till utvecklingsmiljön.
 
@@ -59,11 +62,11 @@ cd azure-voting-app-redis
 
 Inuti katalogen finns programmets källkod, en förskapad Docker Compose-fil och en Kubernetes-manifestfil. De här filerna används i hela självstudien. 
 
-## <a name="create-container-images"></a>Skapa behållaravbildningar
+## <a name="create-container-images"></a>Skapa containeravbildningar
 
-[Docker Compose](https://docs.docker.com/compose/) kan användas för att automatisera kompilering från behållaravbildningar och distribution av program med flera behållare.
+[Docker Compose](https://docs.docker.com/compose/) kan användas för att automatisera kompilering från containeravbildningar och distribution av program med flera containrar.
 
-Kör filen `docker-compose.yml` för att skapa behållaravbildningen, ladda ned Redis-avbildningen och starta programmet.
+Kör filen `docker-compose.yml` för att skapa containeravbildningen, ladda ned Redis-avbildningen och starta programmet.
 
 ```bash
 docker-compose up -d
@@ -84,7 +87,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Kör kommandot [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) för att se de behållare som körs.
+Kör kommandot [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) för att se de containrar som körs.
 
 ```bash
 docker ps
@@ -106,29 +109,29 @@ Gå till http://localhost:8080 om du vill se programmet som körs.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Nu när programfunktionen har verifierats, kan behållarna som körs stoppas och tas bort. Ta inte bort behållaravbildningarna. `azure-vote-front`-avbildningen överförs till en Azure Container Registry-instans i nästa självstudie.
+Nu när programfunktionen har verifierats, kan containrarna som körs stoppas och tas bort. Ta inte bort containeravbildningarna. `azure-vote-front`-avbildningen överförs till en Azure Container Registry-instans i nästa självstudie.
 
-Kör följande för att stoppa de behållare som körs.
+Kör följande för att stoppa de containrar som körs.
 
 ```bash
 docker-compose stop
 ```
 
-Ta bort stoppade behållare och resurser med följande kommando.
+Ta bort stoppade containrar och resurser med följande kommando.
 
 ```bash
 docker-compose down
 ```
 
-När du är klar har du en behållaravbildning som innehåller programmet Azure Vote.
+När du är klar har du en containeravbildning som innehåller programmet Azure Vote.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien testades ett program och behållaravbildningar skapades för programmet. Följande steg har slutförts:
+I den här självstudien testades ett program och containeravbildningar skapades för programmet. Följande steg har slutförts:
 
 > [!div class="checklist"]
 > * Klona programkällan från GitHub  
-> * Skapade en behållaravbildning från programkällan
+> * Skapade en containeravbildning från programkällan
 > * Testade programmet i en lokal Docker-miljö
 
 Fortsätt till nästa självstudie och lär dig om att lagra behållaravbildningar i ett Azure Container Registry.

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 0a582dc3acf17a10bd143988da7dd12627650dff
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8150774a630e6888dcd3bb5a4d219cfbf2c2c477
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834875"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310172"
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -32,17 +32,18 @@ Den här funktionen är tillgänglig för följande Azure-tjänster och regioner
 
 - **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: Allmänt tillgängligt i alla Azure-regioner.
 - **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla Azure-regioner.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla Azure-regioner.
 - **[Azure Database for PostgreSQL-server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Offentligt tillgänglig i Azure-regioner där databastjänsten är tillgänglig.
 - **[Azure Database for MySQL-server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Offentligt tillgänglig i Azure-regioner där databastjänsten är tillgänglig.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla offentliga Azure-molnregioner.
 - **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: Allmänt tillgängligt i alla offentliga Azure-molnregioner.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla offentliga Azure-molnregioner.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Allmänt tillgängligt i alla offentliga Azure-molnregioner.
 
 **Förhandsversion**
 
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgänglig som förhandsversion i alla offentliga Azure-molnregioner.
-- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgänglig i förhandsversion.
-- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgängligt i förhandsversion.
-- **[Azure Data Lake Store Generation 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgänglig i förhandsversion.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgängligt i förhandsversion.
 
 De mest uppdaterade meddelandena finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -50,11 +51,11 @@ De mest uppdaterade meddelandena finns på sidan för [Azure Virtual Network-upp
 
 Tjänstslutpunkter har följande fördelar:
 
-- **Förbättrad säkerhet för dina Azure-tjänstresurser**: privat adressutrymme för virtuella nätverk kan överlappa och kan därför inte användas för att unikt identifiera trafik från ditt virtuella nätverk. Tjänstslutpunkter ger dig möjligheten att skydda Azure-tjänstresurser i ditt virtuella nätverk genom att utöka identitet för virtuellt nätverk till tjänsten. När tjänstslutpunkter är aktiverade i ditt virtuella nätverk kan du skydda Azure-tjänstresurserna i nätverket genom att lägga till en virtuell nätverksregel för resurserna. Detta ger bättre säkerhet genom att helt ta bort åtkomst till offentlig Internetåtkomst för resurser och endast tillåta nätverk från ditt virtuella nätverk.
-- **Optimala vägar för Azure-tjänsttrafik från ditt virtuella nätverk**: I dag tvingar alla vägar i ditt virtuella nätverk som tvingar internettrafik till dina lokala och/eller virtuella enheter, s.k. tvingad tunneltrafik, även Azure-tjänsttrafiken att ta samma väg som internettrafiken. Med tjänstslutpunkter får du optimal routning för Azure-trafiken. 
+- **Förbättrad säkerhet för dina Azure-tjänstresurser**: Privat adressutrymme för virtuella nätverk kan överlappa och kan därför inte användas för att unikt identifiera trafik från ditt virtuella nätverk. Tjänstslutpunkter ger dig möjligheten att skydda Azure-tjänstresurser i ditt virtuella nätverk genom att utöka identitet för virtuellt nätverk till tjänsten. När tjänstslutpunkter är aktiverade i ditt virtuella nätverk kan du skydda Azure-tjänstresurserna i nätverket genom att lägga till en virtuell nätverksregel för resurserna. Detta ger bättre säkerhet genom att helt ta bort åtkomst till offentlig Internetåtkomst för resurser och endast tillåta nätverk från ditt virtuella nätverk.
+- **Optimal routning för Azure-tjänsttrafik från ditt virtuella nätverk**: I dag tvingar alla routningar på ditt virtuella nätverk som tvingar internettrafik till dina lokala och/eller virtuella enheter, s.k. tvingad tunneltrafik, även Azure-tjänsttrafiken att ta samma väg som internettrafiken. Med tjänstslutpunkter får du optimal routning för Azure-trafiken. 
 
   Slutpunkter tar alltid tjänsttrafiken direkt från ditt virtuella nätverk till tjänsten i Microsoft Azure-stamnätverket. Om du behåller trafiken i Azure-stamnätverket kan du fortsätta att granska och övervaka den utgående internettrafiken från dina virtuella nätverk, via tvingad tunneltrafik, utan att tjänsttrafiken påverkas. Läs mer om [användardefinierade vägar och tvingad tunneltrafik](virtual-networks-udr-overview.md).
-- **Enkelt att konfigurera och lägre administrationskostnader**: du behöver inte längre reserverade, offentliga IP-adresser i ditt virtuella nätverk för att skydda Azure-resurser genom IP-brandväggen. Det behövs inga NAT- eller gatewayenheter för att konfigurera tjänstslutpunkterna. Tjänstslutpunkter konfigureras via ett enkelt klick på ett undernät. Det krävs inga ytterligare kostnader för att underhålla slutpunkterna.
+- **Enkelt att konfigurera med mindre hanteringskostnader**: Du behöver inte längre reserverade, offentliga IP-adresser i dina virtuella nätverk för att skydda Azure-resurser med IP-brandvägg. Det behövs inga NAT- eller gatewayenheter för att konfigurera tjänstslutpunkterna. Tjänstslutpunkter konfigureras via ett enkelt klick på ett undernät. Det krävs inga ytterligare kostnader för att underhålla slutpunkterna.
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -99,9 +100,9 @@ Tjänstslutpunkter har följande fördelar:
 
 ### <a name="scenarios"></a>Scenarier
 
-- **Peerkopplade, anslutna eller flera virtuella nätverk**: om du vill skydda Azure-tjänster i flera undernät inom ett virtuellt nätverk eller i flera virtuella nätverk kan du aktivera tjänstslutpunkter i vart och ett av dessa undernät separat och skydda Azure-tjänstresurser i samtliga undernät.
-- **Filtrering av utgående trafik från ett virtuellt nätverk till Azure-tjänster**: om du vill granska eller filtrera trafiken till en Azure-tjänst från ett virtuellt nätverk kan du distribuera en virtuell nätverksinstallation inom det virtuella nätverket. Du kan sedan använda tjänstslutpunkter för undernätet där den virtuella nätverksinstallationen är distribuerad och endast skydda Azure-tjänstresurser i det här undernätet. Det här scenariot kan vara användbart om du vill begränsa Azure-tjänståtkomst från ditt virtuella nätverk till endast specifika Azure-resurser, med hjälp av filtrering i den virtuella nätverksinstallationen. Mer information finns i [Utgående trafik med virtuella nätverksinstallationer](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **Skydda Azure-resurser för tjänster som distribuerats direkt i ett virtuellt nätverk**: olika Azure-tjänster kan distribueras direkt i specifika undernät i ett virtuellt nätverk. Du kan skydda Azure-tjänstresurser i undernät med [hanterade tjänster](virtual-network-for-azure-services.md) genom att konfigurera en tjänstslutpunkt i undernätet med hanterade tjänster.
+- **Peer-kopplade, anslutna eller flera virtuella nätverk**: Om du vill skydda Azure-tjänster i flera undernät inom ett virtuellt nätverk eller i flera virtuella nätverk kan du aktivera tjänstslutpunkter i vart och ett av dessa undernät separat och skydda Azure-tjänstresurser i samtliga undernät.
+- **Filtrering av utgående trafik från ett virtuellt nätverk till Azure-tjänster**: Om du vill granska eller filtrera trafiken mot en Azure-tjänst från ett virtuellt nätverk kan du distribuera en virtuell nätverksinstallation inom det virtuella nätverket. Du kan sedan använda tjänstslutpunkter för undernätet där den virtuella nätverksinstallationen är distribuerad och endast skydda Azure-tjänstresurser i det här undernätet. Det här scenariot kan vara användbart om du vill begränsa Azure-tjänståtkomst från ditt virtuella nätverk till endast specifika Azure-resurser, med hjälp av filtrering i den virtuella nätverksinstallationen. Mer information finns i [Utgående trafik med virtuella nätverksinstallationer](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Skydda Azure-resurser i tjänster distribuerade direkt på virtuella nätverk**: Olika Azure-tjänster kan distribueras direkt till specifika undernät på ett virtuellt nätverk. Du kan skydda Azure-tjänstresurser i undernät med [hanterade tjänster](virtual-network-for-azure-services.md) genom att konfigurera en tjänstslutpunkt i undernätet med hanterade tjänster.
 - **Disktrafik från en virtuell Azure-dator**: Virtuell datordisktrafik (inklusive montering, demontering, diskIO), för hanterade/ohanterade diskar, påverkas inte av tjänstslutpunkternas ändrade routning för Azure Storage. Du kan begränsa REST-åtkomst till sidblobar för att välja nätverk via slutpunkter och [Azure Storage-nätverksregler](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ### <a name="logging-and-troubleshooting"></a>Loggning och felsökning
@@ -135,15 +136,19 @@ För en Azure-tjänstresurs (till exempel ett Azure Storage-konto) kan det finna
 
 ## <a name="virtual-network-service-endpoint-policies"></a>Principer för tjänstslutpunkter för virtuella nätverk 
 
-Med principer för tjänstslutpunkter för virtuella nätverk kan du filtrera trafik i virtuella nätverk till Azure-tjänster för att endast tillåta specifika Azure-tjänstresurser över tjänstslutpunkter. Principer för tjänstslutpunkt ger detaljerad åtkomstkontroll för trafik i virtuella nätverk till Azure-tjänster. Mer information: [Principer för tjänstslutpunkter för virtuella nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+Med principer för tjänstslutpunkter för virtuella nätverk kan du filtrera trafik i virtuella nätverk till Azure-tjänster för att endast tillåta specifika Azure-tjänstresurser över tjänstslutpunkter. Principer för tjänstslutpunkt ger detaljerad åtkomstkontroll för trafik i virtuella nätverk till Azure-tjänster. Mer information: [Principer för tjänstslutpunkter för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
+## <a name="faqs"></a>Vanliga frågor och svar
+
+Vanliga frågor och svar finns i [vanliga frågor och svar om tjänstslutpunkt för virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig att [konfigurera tjänstslutpunkter i virtuellt nätverk](tutorial-restrict-network-access-to-resources.md)
 - Lär dig att [skydda ett Azure Storage-konto i ett virtuellt nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig att [skydda en Azure SQL-databas i ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Lär dig att [skydda ett Azure SQL Data Warehouse i ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - Lär dig om [Azure-tjänstintegrering i virtuella nätverk](virtual-network-for-azure-services.md)
-- Lär dig om: [Principer för tjänstslutpunkter för virtuella nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- Lär dig om: [Principer för tjänstslutpunkter för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 -  Snabbstart: [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) för att konfigurera tjänstslutpunkt på ett VNet:s undernät och säkra ett Azure Storage-konto till det undernätet.
 

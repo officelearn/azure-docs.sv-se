@@ -1,5 +1,5 @@
 ---
-title: Analysera videor med Azure Media Services | Microsoft Docs
+title: Analysera videor med Media Services – Azure | Microsoft Docs
 description: Följ stegen i den här självstudien för att analysera videor med Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 3f0d6784f7b7c476313c5cc4190cacd99e4c3973
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612772"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133901"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Självstudie: Analysera videor med Media Services v3 med API:er
 
@@ -115,7 +115,7 @@ När du skapar en **Transformering** bör du först kontrollera om det redan fin
 
 #### <a name="job"></a>Jobb
 
-Som nämns ovan är objektet [Transformering](https://docs.microsoft.com/rest/api/media/transforms) receptet och ett [Jobb](https://docs.microsoft.com/rest/api/media/jobs) är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan. Du kan ange platsen för din video med: HTTPS-webbadresser, SAS-URL:er eller tillgångar som finns på ditt Media Services-konto. 
+Som nämns ovan är objektet [Transformering](https://docs.microsoft.com/rest/api/media/transforms) receptet och ett [Jobb](https://docs.microsoft.com/rest/api/media/jobs) är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan. Du kan ange platsen för din video med: HTTPS-adresser, SAS-webbadresser eller tillgångar på medietjänstkontot. 
 
 I det här exemplet är jobbets indata en lokal video.  
 
@@ -129,7 +129,7 @@ Vi rekommenderar inte att utföra avsökning av produktionsprogram på grund av 
 
 Event Grid är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser. Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
 
-**Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
+**Jobbet** går vanligtvis igenom följande tillstånd: **Schemalagd**, **I kö**, **Bearbetar**, **Slutfört** (sluttillstånd). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
 

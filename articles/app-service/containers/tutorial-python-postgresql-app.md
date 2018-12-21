@@ -1,5 +1,5 @@
 ---
-title: Skapa en Python- och PostgreSQL-webbapp i Azure App Service | Microsoft Docs
+title: Skapa en Python-webbapp med PostgreSQL på Linux – Azure App Service | Microsoft Docs
 description: Lär dig hur du kör en datadriven Python-app i Azure med anslutning till en PostgreSQL-databas.
 services: app-service\web
 documentationcenter: python
@@ -11,13 +11,13 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
-ms.custom: mvc
-ms.openlocfilehash: 3963e2ffb521a4b4732814e9b2992f4e83af1835
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865632"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337998"
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Skapa en Python- och PostgreSQL-webbapp i Azure App Service
 
@@ -205,7 +205,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 > [!NOTE]
 > Den här inställningen tillåter nätverksanslutningar från alla IP-adresser i Azure-nätverket. För användning i produktion kan du försöka konfigurera de mest restriktiva brandväggsreglerna [med hjälp av endast de utgående IP-adresserna som din app använder](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta *\<your_ip_address>* med [din lokala IPv4 IP-adress](http://www.whatsmyip.org/).
+I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta *\<your_ip_address>* med [din lokala IPv4 IP-adress](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -287,7 +287,7 @@ Django verifierar `HTTP_HOST`-huvudet i inkommande begäranden. För att Django-
 ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
-Django har inte stöd för att [behandla statiska filer i produktion](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), så du behöver aktivera det manuellt. För den här självstudien använder du [WhiteNoise](http://whitenoise.evans.io/en/stable/). WhiteNoise-paketet ingår redan i _requirements.txt_. Du behöver bara konfigurera Django till att använda det. 
+Django har inte stöd för att [behandla statiska filer i produktion](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), så du behöver aktivera det manuellt. För den här självstudien använder du [WhiteNoise](https://whitenoise.evans.io/en/stable/). WhiteNoise-paketet ingår redan i _requirements.txt_. Du behöver bara konfigurera Django till att använda det. 
 
 I _azuresite/settings.py_ letar du upp inställningen `MIDDLEWARE` och lägger till mellanprogrammet `whitenoise.middleware.WhiteNoiseMiddleware` i listan precis nedanför mellanprogrammet `django.middleware.security.SecurityMiddleware`. Inställningen `MIDDLEWARE` bör se ut så här:
 
@@ -307,7 +307,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 
-Mer information om hur du konfigurerar WhiteNoise finns i [dokumentation för WhiteNoise](http://whitenoise.evans.io/en/stable/).
+Mer information om hur du konfigurerar WhiteNoise finns i [dokumentation för WhiteNoise](https://whitenoise.evans.io/en/stable/).
 
 > [!IMPORTANT]
 > Avsnittet med databasinställningar följer redan bästa praxis för säkerhet vid användning av miljövariabler. De fullständiga distributionsrekommendationerna finns i avsnittet med [en checklista för distribution i dokumentationen om Django](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).

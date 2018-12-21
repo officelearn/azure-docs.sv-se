@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure-funktioner med Azure IoT Edge | Microsoft Docs
-description: I den här självstudien distribuerar du en Azure-funktion som en modul till en gränsenhet.
+title: 'Självstudie: Distribuera en Azure-funktion till en enhet – Azure IoT Edge | Microsoft Docs'
+description: I den här självstudien utvecklar du en Azure-funktion som en IoT Edge-modul och distribuerar den sedan till en gränsenhet.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,15 +8,15 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: d0ae009db0d9470942a4ff5d7c09e2cdd7bcdd53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165633"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081888"
 ---
-# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Självstudie: Distribuera Azure-funktioner som IoT Edge-moduler
+# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Självstudie: Distribuera Azure Functions som IoT Edge-moduler
 
 Du kan använda Azure Functions till att distribuera kod som implementerar din affärslogik direkt till dina Azure IoT Edge-enheter. I den här självstudien får du hjälp att skapa och distribuera en Azure-funktion som filtrerar sensordata för den simulerade IoT Edge-enheten. Du använder den simulerade IoT Edge-enheten som du skapade i snabbstarten Distribuera Azure IoT Edge på en simulerad enhet i [Windows](quickstart.md) eller [Linux](quickstart-linux.md). I den här guiden får du lära dig att:     
 
@@ -27,7 +27,7 @@ Du kan använda Azure Functions till att distribuera kod som implementerar din a
 > * visa filtrerade data.
 
 <center>
-![Arkitekturdiagram för självstudien](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+![Diagram – Självstudie: modul för arkitektur, mellanlagring och distributionsfunktion](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -63,7 +63,7 @@ Du kan använda valfritt Docker-kompatibelt register för att lagra dina contain
 
 1. I [Azure Portal](https://portal.azure.com) väljer du **Skapa en resurs** > **Container** > **Containerregister**.
 
-    ![Skapa ett containerregister](./media/tutorial-deploy-function/create-container-registry.png)
+    ![Skapa ett containerregister med Azure-portalen](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. Skapa containerregistret genom att ange följande värden:
 
@@ -90,7 +90,7 @@ Azure IoT Edge-tillägget för Visual Studio Code som du installerade i avsnitte
 
 2. Öppna kommandopaletten för VS Code genom att välja **Visa** > **Kommandopalett**.
 
-3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Skapa lösningen genom att följ anvisningarna på kommandopaletten.
+3. Skriv och kör kommandot **Azure IoT Edge på kommandopaletten: Ny IoT Edge-lösning**. Skapa lösningen genom att följ anvisningarna på kommandopaletten.
 
    | Fält | Värde |
    | ----- | ----- |
@@ -225,9 +225,9 @@ Du kan använda Azure Portal till att distribuera din funktionsmodul till en IoT
 
 1. Öppna kommandopaletten för VS Code genom att välja **Visa** > **Kommandopalett**.
 
-2. Sök efter och kör kommandot **Azure: Logga in**. Följ anvisningarna för att logga in på ditt Azure-konto. 
+2. Sök efter och kör kommandot  **i Azure: Logga in**. Följ anvisningarna för att logga in på ditt Azure-konto. 
 
-3. Leta upp kommandot **Azure IoT Hub: Välj IoT** i kommandopaletten och kör det. 
+3. Leta upp kommandot **Azure IoT Hub i kommandopaletten och kör det: Välj IoT Hub**. 
 
 4. Välj den prenumeration som innehåller din IoT-hubb och välj sedan den IoT-hubb du vill komma åt.
 
@@ -243,11 +243,11 @@ Du kan använda Azure Portal till att distribuera din funktionsmodul till en IoT
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-Du kan se alla meddelanden som kommer till din IoT-hubb genom att köra **Azure IoT Hub: Starta övervakning av D2C-meddelande** i kommandopaletten.
+Du kan se alla meddelanden som kommer till din IoT-hubb genom att köra **Azure IoT Hub: Börja övervaka D2C-meddelande** i kommandopaletten.
 
 Du kan också filtrera vyn för att visa alla meddelanden som kommer till IoT-hubben från en viss enhet. Högerklicka på enheten i avsnittet för **Azure IoT Hub-enheter** och välj **Start Monitoring D2C Messages** (Starta övervakning av D2C-meddelande).
 
-Om du vill stoppa meddelandeövervakningen kör du kommandot **Azure IoT Hub: Stop monitoring D2C message** (Azure IoT Hub: Sluta övervaka D2C-meddelande) i kommandopaletten. 
+Om du vill stoppa övervakningen av meddelanden kör du kommandot **Azure IoT Hub: Sluta övervaka D2C-meddelande** i kommandopaletten. 
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

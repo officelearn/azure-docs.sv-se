@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 246b423e69fa8fb73db45f44fa17c1bc65407681
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090733"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963529"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage med ändringsspårningsinformation 
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i Azure SQL Database-källan till ett Azure Blob Storage.  
@@ -189,7 +189,7 @@ Observera följande punkter:
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna **deltagare** eller **ägare**, eller vara **administratör** för Azure-prenumerationen.
-* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
@@ -198,7 +198,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
 ### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst.
 I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
 
-1. Skapa en JSON-fil med namnet **AzureStorageLinkedService.json** i mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial** med följande innehåll: (Skapa mappen om den inte redan finns). Ersätt `<accountName>`, `<accountKey>` med namnet och nyckeln för ditt Azure-lagringskonto innan du sparar filen.
+1. Skapa en JSON-fil med namnet **AzureStorageLinkedService.json** i mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial** med följande innehåll: (Skapa mappen om den inte redan finns.). Ersätt `<accountName>`, `<accountKey>` med namnet och nyckeln för ditt Azure-lagringskonto innan du sparar filen.
 
     ```json
     {
@@ -233,7 +233,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
 ### <a name="create-azure-sql-database-linked-service"></a>Skapa länkad Azure SQL Database-tjänst.
 I det här steget länkar du Azure SQL-databasen till datafabriken.
 
-1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.json** i mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial** med följande innehåll: Ersätt **&lt;serverns&gt; &lt;databasname&gt;, &lt;användar-id&gt;, och &lt;lösenord&gt;** med namnet på din Azure SQL-servern, namnet på din databas, ditt användar-id och lösenord innan du sparar filen. 
+1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.json** i mappen **C:\ADFTutorials\IncCopyMultiTableTutorial** med följande innehåll: Ersätt **&lt;server&gt;, &lt;database **, &lt;user id&gt; och &lt;password&gt;** med namnen för din Azure SQL-server, databas, ditt användar-ID och lösenord innan du sparar filen. 
 
     ```json
     {
@@ -249,7 +249,7 @@ I det här steget länkar du Azure SQL-databasen till datafabriken.
         }
     }
     ```
-2. I **Azure PowerShell** kör du cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureSQLDatabaseLinkedService**. 
+2. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** i **Azure PowerShell** för att skapa den länkade tjänsten: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -387,7 +387,7 @@ I det här steget skapar du en datauppsättning för att lagra ändringsspårnin
 ## <a name="create-a-pipeline-for-the-full-copy"></a>Skapa en pipeline för hela kopian
 I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar alla data från källdatalagret (Azure SQL Database) till måldatalagret (Azure Blob Storage).
 
-1. Skapa en JSON-fil med namnet FullCopyPipeline.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil: FullCopyPipeline.json i samma mapp med följande innehåll: 
 
     ```json
     {
@@ -445,26 +445,26 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Klicka på **Alla tjänster**, sök med nyckelordet `data factories` och välj **Datafabriker**. 
 
-    ![Menyn Datafabriker](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
+    ![Menyn Datafabriker](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
 3. Sök efter **din datafabrik** i listan med datafabriker och välj den så att du öppnar sidan Datafabrik. 
 
-    ![Sök efter din datafabrik](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-search-data-factory-2.png)
+    ![Sök efter din datafabrik](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
 4. På sidan Datafabrik klickar du på panelen **Övervaka och hantera**. 
 
-    ![Ikonen Övervaka och hantera](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-monitor-manage-tile-3.png)    
+    ![Ikonen Övervaka och hantera](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. Programmet **Data Integration** öppnas i en separat flik. Du kan se alla **pipelinekörningar** och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**. Klicka på länken i kolumnen **Åtgärder**. 
 
-    ![Pipelinekörningar](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-4.png)    
+    ![Pipelinekörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida som visar alla **aktivitetskörningar** för pipelinen. 
 
-    ![Aktivitetskörningar](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-5.png)
+    ![Aktivitetskörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. Om du vill växla tillbaka till vyn **Pipelinekörningar** klickar du på **Pipelines** enligt bilden. 
 
 
 ### <a name="review-the-results"></a>Granska resultaten
 Du ser en fil som heter `incremental-<GUID>.txt` i mappen `incchgtracking` i containern `adftutorial`. 
 
-![Utdatafil från fullständig kopia](media\tutorial-incremental-copy-change-tracking-feature-powershell\full-copy-output-file.png)
+![Utdatafil från fullständig kopia](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
 Filen ska innehålla data från Azure SQL-databasen:
 
@@ -495,7 +495,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Skapa en pipeline för deltakopian
 I det här steget skapar du en pipeline med följande aktiviteter och kör den med jämna mellanrum. **Lookupaktiviteterna** hämtar den nya och gamla SYS_CHANGE_VERSION från Azure SQL Database och skickar den till kopieringsaktiviteten. **Kopieringsaktiviteten** kopierar infogade/uppdaterade/borttagna data mellan de två SYS_CHANGE_VERSION-värdena från Azure SQL Database till Azure Blob Storage. Den **lagrade proceduraktivitetsuppdateringarna** uppdaterar värdet för SYS_CHANGE_VERSION för nästa pipelinekörning.
 
-1. Skapa en JSON-fil med namnet IncrementalCopyPipeline.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil: IncrementalCopyPipeline.json i samma mapp med följande innehåll: 
 
     ```json
     {
@@ -633,16 +633,16 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Res
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Övervaka den inkrementella kopieringspipelinen
 1. I **dataintegrationsprogrammet** uppdaterar du vyn för **pipelinekörningar**. Kontrollera att du ser IncrementalCopyPipeline i listan. Klicka på länken i kolumnen **Åtgärder**.  
 
-    ![Pipelinekörningar](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-6.png)    
+    ![Pipelinekörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida som visar alla **aktivitetskörningar** för pipelinen. 
 
-    ![Aktivitetskörningar](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-7.png)
+    ![Aktivitetskörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. Om du vill växla tillbaka till vyn **Pipelinekörningar** klickar du på **Pipelines** enligt bilden. 
 
 ### <a name="review-the-results"></a>Granska resultaten
 Du ser den andra filen i mappen `incchgtracking` i containern `adftutorial`. 
 
-![Utdatafil från inkrementell säkerhetskopia](media\tutorial-incremental-copy-change-tracking-feature-powershell\incremental-copy-output-file.png)
+![Utdatafil från inkrementell säkerhetskopia](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
 Filen ska endast innehålla deltadata från Azure SQL-databasen. Posten med `U` är den uppdaterade raden i databasen och `I` är den tillagda raden. 
 

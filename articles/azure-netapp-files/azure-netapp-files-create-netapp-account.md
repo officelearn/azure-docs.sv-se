@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ad8cc550ce69e4dc4c19a569718fa873a65b3620
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010352"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413191"
 ---
 # <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
 Genom att skapa ett NetApp-konto kan du konfigurera en kapacitetspool och sedan skapa en volym. Du använder bladet Azure NetApp-filer för att skapa ett nytt NetApp-konto.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Du måste ha tillstånd att komma åt Azure Resource Provider för Microsoft.NetApp och ha konfigurerats att använda Azure NetApp Files-tjänsten.  
+Du måste ha registrerat din prenumeration för att använda NetApp-resursprovidern och funktionen för offentlig förhandsversion.
 
-[Registreringssidan för den allmänt tillgängliga förhandsversionen av Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+[Registrera dig för Azure NetApp Files](azure-netapp-files-register.md)
 
 ## <a name="steps"></a>Steg 
 
-1. Leta upp Azure Portal-URL:en för förhandsversionen i din inbjudan till förhandsversionen och logga in på portalen. 
+1. Leta upp URL:en för Azure-portalen för förhandsversionen i din inbjudan till förhandsversionen och logga in på portalen. 
 2.  Gå till bladet Azure NetApp-filer genom att använda någon av följande metoder:  
   * Sök efter **Azure NetApp Files** i sökrutan på Azure Portal.  
   * Klicka på **Alla tjänster** i navigeringen och filtrera sedan på Azure NetApp Files.  
@@ -60,6 +60,5 @@ Du måste ha tillstånd att komma åt Azure Resource Provider för Microsoft.Net
 
 ## <a name="next-steps"></a>Nästa steg  
 
-1. [Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
-2. [Skapa en volym för Azure NetApp Files](azure-netapp-files-create-volumes.md)
-3. [Konfigurera exportprincipen för en volym (valfritt)](azure-netapp-files-configure-export-policy.md)
+[Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
+

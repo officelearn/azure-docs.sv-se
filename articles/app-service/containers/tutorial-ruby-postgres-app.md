@@ -1,5 +1,5 @@
 ---
-title: Skapa en Ruby- och Postgres-webbapp i Azure App Service i Linux | Microsoft Docs
+title: Skapa en Ruby-webbapp med Postgres på Linux – Azure App Service | Microsoft Docs
 description: Lär dig hur du får igång en Ruby-app som fungerar i Azure med anslutning till en PostgreSQL-databas i Azure.
 services: app-service\web
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445084"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271036"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Skapa en Ruby- och Postgres-webbapp i Azure App Service i Linux
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I den här självstudien visas hur du skapar en Ruby-webbapp och ansluter den till en PostgreSQL-databas. När du är klar har du en [Ruby on Rails](http://rubyonrails.org/)-app som körs i App Service på Linux.
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I den här självstudien visas hur du skapar en Ruby-webbapp och ansluter den till en PostgreSQL-databas. När du är klar har du en [Ruby on Rails](https://rubyonrails.org/)-app som körs i App Service på Linux.
 
 ![Ruby on Rails-appen körs i Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -43,7 +43,7 @@ För att slutföra den här självstudien behöver du:
 
 * [Installera Git](https://git-scm.com/)
 * [Installera Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
-* [Installera Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Installera Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Installera och kör PostgreSQL](https://www.postgresql.org/download/)
 
 ## <a name="prepare-local-postgres"></a>Förbereda lokala Postgres
@@ -92,7 +92,7 @@ bundle install --path vendor/bundle
 
 ### <a name="run-the-sample-locally"></a>Köra exemplet lokalt
 
-Kör [Rails-migreringen](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) för att skapa de tabeller som behövs för appen. Du kan se vilka tabeller som skapas i migreringarna i katalogen _db/migrations_ på Git-lagringsplatsen.
+Kör [Rails-migreringen](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations) för att skapa de tabeller som behövs för appen. Du kan se vilka tabeller som skapas i migreringarna i katalogen _db/migrations_ på Git-lagringsplatsen.
 
 ```bash
 rake db:create
@@ -324,8 +324,7 @@ I följande Cloud Shell-kommando ersätter du de två platshållarna _&lt;output
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output_of_rails_secret>" SECRET_KEY_BASE="<output_of_rails_secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
 ```
 
-
-  `ASSETS_PRECOMPILE="true"` uppmanar Ruby-standardcontainern att förkompilera tillgångar vid varje Git-distribution.
+`ASSETS_PRECOMPILE="true"` uppmanar Ruby-standardcontainern att förkompilera tillgångar vid varje Git-distribution.
 
 ### <a name="push-to-azure-from-git"></a>Skicka till Azure från Git
 

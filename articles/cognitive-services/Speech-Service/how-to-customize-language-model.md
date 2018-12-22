@@ -1,23 +1,24 @@
 ---
-title: 'Självstudie: Så skapar du en språkmodell med Speech Service'
+title: 'Självstudier: Skapa en språkmodell med Speech Service'
 titlesuffix: Azure Cognitive Services
-description: Lär dig hur du skapar en språkmodell med Speech Service.
+description: Lär dig hur du skapar en språkmodell med Speech Service. Lägg till röstinteraktion i ditt program genom att använda den här anpassade språkmodellen tillsammans med befintliga avancerade talmodeller från Microsoft.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469001"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093479"
 ---
-# <a name="tutorial-create-a-custom-language-model"></a>Självstudie: Skapa en anpassad språkmodell
+# <a name="tutorial-create-a-custom-language-model"></a>Självstudier: Skapa en anpassad språkmodell
 
 I det här dokumentet skapar du en anpassad språkmodell. Du kan sedan använda den här anpassade språkmodellen tillsammans med befintliga, avancerade talmodeller från Microsoft för att lägga till röstinteraktion i ditt program.
 
@@ -48,7 +49,7 @@ Meningarna behöver inte vara hela meningar eller grammatiskt korrekta, men de b
 
 Språkmodelldata ska skrivas i UTF-8 BOM. Textfilen ska innehålla ett exempel (mening, yttrande eller fråga) per rad.
 
-Om du vill att vissa termer ska ha en högre vikt (prioritet) kan du lägga till flera uttryck till dina data som innehåller de termerna. 
+Om du vill att vissa termer ska ha en högre vikt (prioritet) kan du lägga till flera uttryck till dina data som innehåller de termerna.
 
 De grundläggande kraven för språkdata sammanfattas i följande tabell.
 
@@ -75,7 +76,7 @@ Välj knappen **Import** (Importera) på raden **Language Datasets** (språkdata
 
 När du är redo att importera språkdatamängden loggar du in på [Speech Service-portalen](https://customspeech.ai). Först väljer du listrutan **Custom Speech** (Anpassat tal) på det översta menyfliksområdet. Välj sedan **Adaptation Data** (Anpassningsdata). Första gången du försöker ladda upp data till Speech Services visas en tom tabell med namnet **Datasets** (Datamängder).
 
-Om du vill importera en ny datamängd väljer du knappen **Import** (Importera) på raden **Language Datasets** (Språkdatamängder). Sedan visar platsen en sida för att ladda upp en ny datamängd. Ange ett **namn** och en **beskrivning** som hjälper dig att identifiera datamängden i framtiden, och välj sedan nationella inställningar. 
+Om du vill importera en ny datamängd väljer du knappen **Import** (Importera) på raden **Language Datasets** (Språkdatamängder). Sedan visar platsen en sida för att ladda upp en ny datamängd. Ange ett **namn** och en **beskrivning** som hjälper dig att identifiera datamängden i framtiden, och välj sedan nationella inställningar.
 
 Sedan använder du knappen **Choose File** (Välj fil) för att hitta språkdatatextfilen. Efter det väljer du **Import** (Importera) så laddas datamängden upp. Beroende på datamängdens storlek kan importen ta flera minuter.
 
@@ -97,9 +98,9 @@ När språkdata är klara väljer du **Language Models** (Språkmodeller) på li
 
 Du måste välja rätt nationella inställningar innan du vidtar åtgärder. De aktuella nationella inställningarna anges i tabellrubriken på alla sidor för data, modeller och distribution. Om du vill ändra de nationella inställningarna väljer du knappen **Change Locale** (Ändra nationella inställningar) som finns under tabellrubriken.  Då kommer du till en sida för bekräftelse av nationella inställningar. Välj **OK** för att gå tillbaka till tabellen.
 
-På sidan Create Language Model (Skapa språkmodell) anger du ett **Name** (Namn) och en **Description** (Beskrivning) som hjälper dig att hålla reda på viktig information om den här modellen, till exempel den datamängd som används. Välj sedan **Base Language Model** (Basspråkmodell) i listrutan. Den här modellen är startpunkten för din anpassning. 
+På sidan Create Language Model (Skapa språkmodell) anger du ett **Name** (Namn) och en **Description** (Beskrivning) som hjälper dig att hålla reda på viktig information om den här modellen, till exempel den datamängd som används. Välj sedan **Base Language Model** (Basspråkmodell) i listrutan. Den här modellen är startpunkten för din anpassning.
 
-Det finns två basspråkmodeller att välja mellan. Search and Dictation-modellen (Språkmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. Conversational-modellen (Konversationsmodell) lämpar sig för igenkänning av tal i samtalsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten. 
+Det finns två basspråkmodeller att välja mellan. Search and Dictation-modellen (Språkmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. Conversational-modellen (Konversationsmodell) lämpar sig för igenkänning av tal i samtalsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten.
 
 Search and Dictation-modellen (Språkmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. Conversational-modellen (Konversationsmodell) lämpar sig för igenkänning av tal i samtalsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten. En ny modell som kallas ”Universal” (Universell) är också allmänt tillgänglig. Universal syftar till att hantera alla scenarier och småningom ersätta modellerna Search and Dictation och Conversational.
 

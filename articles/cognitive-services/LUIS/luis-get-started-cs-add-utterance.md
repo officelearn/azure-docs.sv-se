@@ -1,21 +1,22 @@
 ---
-title: C#-snabbstart – ändra modell och träna LUIS-app
-titleSuffix: Azure Cognitive Services
-description: I den här C#-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
+title: Ändra, träna appen, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: I den här C#-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aab9651092f7ad5dbc78c31db8df4ef3538fedfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 23692bd6a0c708b2747a3cc211b8238d30dfe5db
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039980"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161754"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snabbstart: Ändra modell med hjälp av C#
 
@@ -28,7 +29,7 @@ ms.locfileid: "47039980"
 * Programmeringsspråket C# installerat.
 * NuGet-paketen [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) och [CommandLine](https://www.nuget.org/packages/CommandLineParser/)
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
@@ -56,7 +57,7 @@ Visual Studio-projektet behöver **JsonFormatterPlus** och **CommandLineParser**
 ### <a name="write-the-c-code"></a>Skriva C#-koden
 **Program.cs**-filen ska vara:
 
-```CSharp
+```C#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,9 +99,7 @@ Lägg till POST-begärandemetoden till klassen **Program**.
 
 Lägg till metoden för exempelyttranden från fil till klassen **Program**.
 
-   [!code-csharp[Add example utterances from file.
-](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
-")]
+   [!code-csharp[Add example utterances from file.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.")]
 
 När ändringarna har tillämpats på modellen tränar du modellen. Lägg till metoden till klassen **Program**.
 
@@ -128,7 +127,7 @@ Kompilera koden i Visual Studio.
 
 I projektets katalog /bin/Debug kör du programmet från en kommandorad. 
 
-```CMD
+```console
 ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 

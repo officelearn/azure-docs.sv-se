@@ -1,6 +1,6 @@
 ---
 title: Importera SQL BACPAC-filer med Azure Resource Manager-mallar | Microsoft Docs
-description: Lär dig hur du använder SQL Database-tillägget för att importera SQL BACPAC-filer med Azure Resource Manager-mallar
+description: Lär dig hur du använder SQL Database-tillägget för att importera SQL BACPAC-filer med Azure Resource Manager-mallar.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/04/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9f1b3ea74c59383561b019d32a80f1502716b29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 249356644772ae75b12f5c940ff5f9ed49b2c795
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879238"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994995"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar
 
-Lär dig hur du använder SQL Database-tillägget för att importera en BACPAC-fil. I den här självstudien skapar du en mall för att distribuera en Azure SQL-server, en SQL-databas och en BACPAC-fil. Information om hur du distribuerar tillägg för virtuell Azure-dator med hjälp av Azure Resource Manager-mallar finns i [# Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-vm-extensions.md).
+Lär dig hur du använder Azure SQL Database-tillägget för att importera en BACPAC-fil med Azure Resource Manager-mallar. Distributionsartefakter är vilka filer som helst, förutom den huvudsakliga mallfilen som behövs för att slutföra en distribution. BACPAC-filen är en artefakt. I den här självstudien skapar du en mall för att distribuera en Azure SQL-server och en SQL-databas och importera en BACPAC-fil. Information om hur du distribuerar tillägg för virtuell Azure-dator med hjälp av Azure Resource Manager-mallar finns i [# Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-vm-extensions.md).
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -45,7 +45,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="prepare-a-bacpac-file"></a>Förbereda en BACPAC-fil
 
@@ -68,12 +68,13 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
     * `Microsoft.Sql/servers`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
     * `Microsoft.SQL/servers/securityAlertPolicies`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
     * `Microsoft.SQL.servers/databases`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+
     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
 4. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Redigera mallen
 
-Du måste lägga till två ytterligare resurser i mallen.
+Lägg till två ytterligare resurser i mallen.
 
 * Om du vill tillåta att SQL databastillägget importerar BACPAC-filer måste du tillåta åtkomst till Azure-tjänster. Lägg till följande JSON till SQL server-definitionen:
 
@@ -82,7 +83,7 @@ Du måste lägga till två ytterligare resurser i mallen.
         "type": "firewallrules",
         "name": "AllowAllAzureIps",
         "location": "[parameters('location')]",
-        "apiVersion": "2014-04-01",
+        "apiVersion": "2015-05-01-preview",
         "dependsOn": [
             "[variables('databaseServerName')]"
         ],
@@ -126,11 +127,11 @@ Du måste lägga till två ytterligare resurser i mallen.
 
     Information om resursdefinitionen finns i [tilläggsreferensen för SQL Database](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Här följer några viktiga element:
 
-    * **dependsOn**: tilläggsresursen måste skapas efter att SQL-databasen har skapats.
+    * **dependsOn**: Tilläggsresursen måste skapas efter att SQL-databasen har skapats.
     * **storageKeyType**: Typ av lagringsnyckel som ska användas. Värdet kan vara antingen `StorageAccessKey` eller `SharedAccessKey`. Eftersom den angivna BACPAC-filen delas på ett Azure Storage-konto med offentlig åtkomst används ”SharedAccessKey” här.
     * **storageKey**: Lagringsnyckeln som ska användas. Om lagringsnyckeltypen är SharedAccessKey måste den föregås av ett ”?”.
     * **storageUri**: Lagrings-URI:n som ska användas. Om du väljer att inte använda BACPAC-filen som angavs måste du uppdatera värdena.
-    * **administratorLoginPassword**: Lösenordet för SQL-administratören. Vi rekommenderar att du använder ett genererat lösenord. Se [Förutsättningar](#prerequisites).
+    * **administratorLoginPassword**: Lösenordet för SQL-administratören. Använd ett genererat lösenord. Se [Förutsättningar](#prerequisites).
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -151,7 +152,7 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
     -TemplateFile azuredeploy.json
 ```
 
-Vi rekommenderar att du använder ett genererat lösenord. Se [Förutsättningar](#prerequisites).
+Använd ett genererat lösenord. Se [Förutsättningar](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
@@ -170,7 +171,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du distribuerat en SQL Server och en SQL-databas samt importerat en BACPAC-fil. Mer information om att distribuera Azure-resurser i flera regioner, och om att använda säker distributionspraxis, finns i
+I den här självstudien har du distribuerat en SQL Server och en SQL-databas samt importerat en BACPAC-fil. BACPAC-filen lagras i ett Azure Storage-konto. Vem som helst med URL:en kan komma åt filen. Läs hur du skyddar BACPAC-filen (artefakten) i
 
 > [!div class="nextstepaction"]
-> [Använda Distributionshanteraren i Azure](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Skydda artefakterna](./resource-manager-tutorial-secure-artifacts.md)

@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 0d4ba7edfb22a6710222c854ceb2bf86284d2d77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1ea12c9a544704ea91b85ae944e611e6769b5592
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057967"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407141"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Snabbstart: Skapa ett kluster för Batch AI-träningsjobb med Azure CLI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Den här snabbstarten visar hur du använder Azure CLI för att skapa ett Batch AI-kluster som du kan använda för att träna modeller för AI och maskininlärning. Batch AI är en hanterad tjänst som datatekniker och AI-forskare kan använda för att träna modeller för AI och maskininlärning i stor skala på kluster av virtuella Azure-datorer.
 
@@ -32,7 +35,7 @@ Klustret har till en början en enskild GPU-nod. När du har slutfört den här 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här snabbstarten att du kör Azure CLI version 2.0.38 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.38 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
 Den här snabbstarten förutsätter att du kör kommandon i Bash, antingen i Cloud Shell eller på din lokala dator.
 

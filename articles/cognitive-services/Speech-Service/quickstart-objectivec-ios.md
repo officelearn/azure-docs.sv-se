@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera tal i Objective-C på iOS med Speech Service-SDK'
+title: 'Snabbstart: Identifiera tal, Objective-C – Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du identifierar tal i Objective-C på iOS med Speech Service-SDK
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 7d1e05e13e55b8b7bc07eda71d63f96f12c81ff9
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219196"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090220"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Snabbstart: Identifiera tal i Objective-C på iOS med Speech Service-SDK
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med Speech Service-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -25,8 +25,11 @@ I den här artikeln lär du dig hur du skapar en iOS-app i Objective-C med hjäl
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En prenumerationsnyckel för taltjänsten. Se [Prova Speech Service kostnadsfritt](get-started.md).
-* En Mac med Xcode 9.4.1 installerad som iOS-utvecklingsmiljö. I den här självstudiekursen används iOS 11.4-versioner. Om du inte har Xcode än kan du installera det från [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
+Gå igenom den här listan med förhandskrav innan du sätter igång:
+
+* En [prenumerationsnyckel](get-started.md) för Speech Service
+* En macOS-dator med [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) eller senare
+* Målet angett till iOS version 11.4 eller senare
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Skaffa Speech SDK för iOS
 
@@ -37,7 +40,7 @@ Den aktuella versionen av Cognitive Services Speech SDK är `1.1.0`.
 Cognitive Services Speech SDK för Mac och iOS distribueras för närvarande som ett Cocoa-ramverk.
 Du kan ladda ned det på https://aka.ms/csspeech/iosbinary. Ladda ned filen till arbetskatalogen.
 
-## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt 
+## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt
 
 Starta Xcode och starta ett nytt projekt genom att klicka på **File** > **New** > **Project** (Arkiv > Nytt > Projekt).
 I dialogrutan för mallval väljer du mallen ”iOS Single View App”.
@@ -54,7 +57,7 @@ I dialogrutorna som följer gör du följande val:
     1. Välj arbetskatalogen och spara projektet där. Då skapas en `helloworld`-katalog i arbetskatalogen som innehåller alla filer för Xcode-projektet.
     1. Inaktivera skapandet av en Git-lagringsplats för det här exempelprojektet.
     1. Justera sökvägarna till SDK:et i *Project Settings* (Projektinställningar).
-        1. På fliken **General** (Allmänt) under rubriken **Embedded Binaries** (Inbäddade binära), lägger du till SDK-biblioteket som ramverk: **Add embedded binaries** > **Add other...** (Lägg till inbäddade binära > Lägg till annan) > navigera till arbetskatalogen och välj filen `MicrosoftCognitiveServicesSpeech.framework`. Det här lägger även automatiskt till SDK-biblioteket i rubriken **Linked Framework and Libraries** (Länkat ramverk och bibliotek).
+        1. Lägg till SDK-biblioteket som ett ramverk under rubriken **Embedded Binaries** (Inbäddade binära) på fliken **General** (Allmänt): **Add embedded binaries** > **Add other...** (Lägg till inbäddade binära > Lägg till annan) > navigera till arbetskatalogen och välj filen `MicrosoftCognitiveServicesSpeech.framework`. Det här lägger även automatiskt till SDK-biblioteket i rubriken **Linked Framework and Libraries** (Länkat ramverk och bibliotek).
         ![Tillagt ramverk](media/sdk/qs-objectivec-framework.png)
         1. Gå till fliken **Build Settings** (Versionsinställningar) och aktivera **All** (Alla).
         1. Lägg till katalogen `$(SRCROOT)/..` i *Framework Search Paths* (Sökvägar för ramverket) under rubriken **Search Paths** (Sökvägar).
@@ -62,7 +65,7 @@ I dialogrutorna som följer gör du följande val:
 
 ## <a name="set-up-the-ui"></a>Konfigurera användargränssnittet
 
-Exempelappen har ett mycket enkelt användargränssnitt: Två knappar för att starta taligenkänningen från fil eller från mikrofonen, och en textetikett som visar resultatet.
+Exempelappen har ett mycket enkelt användargränssnitt: Två knappar för att starta taligenkänning från en fil eller från mikrofonindata och en textetikett för att visa resultatet.
 Användargränssnittet konfigureras i `Main.storyboard`-delen av projektet.
 Öppna XML-vyn av storyboarden genom att klicka på posten `Main.storyboard` i projektträdet och välja **Open As...** > **Source Code** (Öppna som... > Källkod).
 Ersätt den automatiskt genererade XML:en med följande:
@@ -103,4 +106,3 @@ Leta efter det här exemplet i mappen `quickstart/objectivec-ios`.
 
 > [!div class="nextstepaction"]
 > [Hämta våra exempel](speech-sdk.md#get-the-samples)
-

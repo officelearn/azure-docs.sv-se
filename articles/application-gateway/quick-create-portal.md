@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6ad839b9cf1179e282b9163df5a38e13417408e2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7e11affece7e7eb133aa22e159ec07d4f15e96f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706236"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999606"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
@@ -25,7 +25,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com)
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
@@ -87,10 +87,10 @@ I det här exemplet skapar du två virtuella datorer som används som serverdels
     - *azureuser* – för administratörens användarnamn.
     - *Azure123456!* som lösenord.
 
-   Acceptera de andra standardvärdena och klicka på **Nästa: Diskar**.
-4. Acceptera diskstandardvärdet och klicka på **Nästa: Nätverk**.
+   Acceptera övriga standardvärden och klicka på **Nästa: Diskar**.
+4. Acceptera standardvärdena för diskar och klicka på **Nästa: Nätverk**.
 5. Kontrollera att **myVNet** har valts för det virtuella nätverket och att undernätet är **myBackendSubnet**.
-6. Acceptera de andra standardvärdena och klicka på **Nästa: Hantering**.
+6. Acceptera övriga standardvärden och klicka på **Nästa: Hantering**.
 7. Klicka på **Av** för att inaktivera startdiagnostik. Acceptera de andra standardvärdena och klicka på **Granska + skapa**.
 8. Granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
 9. Vänta på att skapandet av den virtuella datorn är klart innan du fortsätter.

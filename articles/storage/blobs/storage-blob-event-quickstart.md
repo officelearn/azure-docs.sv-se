@@ -1,21 +1,22 @@
 ---
-title: Dirigera Azure Blob Storage-händelser till en anpassad webbslutpunkt | Microsoft Docs
-description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser.
+title: Skicka Azure Blob Storage-händelser till en webbslutpunkt – Azure CLI | Microsoft Docs
+description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser. Skicka händelserna till en Webhook. Hantera händelserna i ett webbprogram.
 services: storage,event-grid
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/23/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 78ee6f198bf4e16e3b2b0deb8fdb0b68c0fe9b73
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec18
+ms.openlocfilehash: 2586b7f9c2a182ee065daab1d2a43eb5e0e2c99c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735102"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073728"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Dirigera Blob Storage-händelser till en anpassad webbslutpunkt med Azure CLI
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Snabbstart: Dirigera Storage-händelser till en webbslutpunkt med Azure CLI
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att prenumerera på Blob Storage-händelser och utlösa händelsen för att visa resultatet.
 
@@ -117,7 +118,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Visa din webbapp om du vill se händelsen som du har skickat.
+Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Visa din webbapp om du vill se händelsen som du har skickat.
 
 
 ```json

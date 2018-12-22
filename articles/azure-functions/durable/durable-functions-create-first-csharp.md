@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a0aed1fd65444397b3ca084cc0100aa5af49c918
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839521"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341056"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Skapa din första beständiga funktion i C\#
 
@@ -76,7 +76,7 @@ Visual Studio skapar ett tomt funktionsappsprojekt.  Det innehåller de grundlä
 
 En ny beständig funktion läggs till i appen.  Öppna den nya filen för att visa innehållet.  Det här beständiga funktionen är ett enkelt funktionslänkningsexempel.  
 
-* Metoden `RunOrchestrator` är associerad med orkestreringsfunktionen.  Den här funktionen startar, skapar en lista och lägger till resultatet av tre funktionsanrop i listan.  När de tre funktionsanropen har slutförts returnerar den listan.  Den funktion som den anropar är metoden `SayHello` (som standard heter den ”<NameOfFile>_Hello”).
+* Metoden `RunOrchestrator` är associerad med orkestreringsfunktionen.  Den här funktionen startar, skapar en lista och lägger till resultatet av tre funktionsanrop i listan.  När de tre funktionsanropen har slutförts returnerar den listan.  Den funktion som den anropar är metoden `SayHello` (som standard heter den `<NameOfFile>_Hello`).
 * Funktionen `SayHello` kommer att returnera ett ”hello”.
 * Metoden `HttpStart` beskriver den funktion som startar instanser av orkestreringen.  Den är associerad med en [HTTP-utlösare](../functions-bindings-http-webhook.md) som startar en ny instans av orkestreraren och returnerar ett statuskontrollsvar.
 
@@ -92,7 +92,7 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
     ![Lokal Azure-körningsmiljö](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
-3. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält och kör begäran. Nedan visas svaret på den lokala GET-begäran som returnerades av funktionen i webbläsaren: 
+3. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält och kör begäran. Nedan visas svaret på den lokala GET-begäran som returnerades av funktionen i webbläsaren:
 
     ![Svar för funktion-localhost i webbläsaren](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 

@@ -1,6 +1,7 @@
 ---
-title: 'Snabbstart: Använda Python SDK för att skapa en arbetsyta för Machine Learning-tjänsten – Azure Machine Learning'
-description: Kom igång med Azure Machine Learning. Installera Python SDK och använd den för att skapa en arbetsyta. Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Azure Machine Learning.
+title: 'Snabbstart:  Kom igång med Python'
+titleSuffix: Azure Machine Learning service
+description: Kom igång med Azure Machine Learning-tjänsten i Python. Använd Python SDK för att skapa en arbetsyta som är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +10,17 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 12/04/2018
-ms.openlocfilehash: f16d39238b46a811f34fdfe291d6c09bee662b9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870086"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268526"
 ---
-# <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använda Python för att komma igång med Azure Machine Learning
+# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använd Python SDK för att komma igång med Azure Machine Learning
 
-I den här snabbstarten använder du Azure Machine Learning SDK för Python för att skapa och sedan använda en [arbetsyta](concept-azure-machine-learning-architecture.md) för Machine Learning-tjänsten. Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning. I den här snabbstarten börjar du med att konfigurera din egen Python-miljö och Jupyter notebook-server. Information om hur du kör utan installation finns i [Snabbstart: Använda Azure-portalen för att komma igång med Azure Machine Learning](quickstart-get-started.md).
+I den här snabbstarten använder du Azure Machine Learning SDK för Python för att skapa och sedan använda en [arbetsyta](concept-azure-machine-learning-architecture.md) för Machine Learning-tjänsten. Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning. I den här snabbstarten börjar du med att konfigurera din egen Python-miljö och Jupyter notebook-server. Om du vill köra utan installation, se [snabbstarten: Använda Azure-portalen för att komma igång med Azure Machine Learning](quickstart-get-started.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -38,14 +40,12 @@ Följande Azure-resurser läggs automatiskt till din arbetsyta när de är regio
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
->[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.2 
-
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
-
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
 ## <a name="install-the-sdk"></a>Installera SDK:n
+
+>[!NOTE]
+> Koden i den här artikeln kräver Azure Machine Learning SDK version 1.0.2 eller senare 
 
 *Hoppa över det här avsnittet om du använder en virtuell dator för datavetenskap skapats efter den 27 September 2018.* Dessa virtuella datorer för datavetenskap levereras med Python SDK förinstallerad.
 

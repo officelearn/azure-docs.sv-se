@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: Utveckla med tabell-API i .NET'
-description: Lär dig att utveckla med Azure Cosmos DB:s tabell-API med .NET
-services: cosmos-db
+title: Utveckla med tabell-API:t med hjälp av .NET SDK
+titleSuffix: Azure Cosmos DB
+description: Lär dig att utveckla med tabell-API i Azure Cosmos DB genom att använda .NET SDK
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
+ms.date: 12/07/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: f10cb17f0300b6bd21d17b1e2ff204d57e4a7988
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877743"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251189"
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Utveckla med tabell-API i .NET
+# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>Utveckla med Azure Cosmos DB:s tabell-API med .NET SDK
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.
 
@@ -77,7 +77,7 @@ Vi ska börja med att skapa ett Azure Cosmos DB-konto i Azure-portalen.
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi klona en Table-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
+Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
 1. Öppna ett git-terminalfönster, t.ex. git bash, och använd kommandot `cd` för att ändra till en mapp där du vill installera exempelappen. 
 
@@ -97,7 +97,7 @@ Nu ska vi klona en Table-app från github, ange anslutningssträngen och köra a
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 
 
-1. I [Azure-portalen](http://portal.azure.com/) klickar du på **Anslutningssträng**. 
+1. I [Azure-portalen](https://portal.azure.com/) klickar du på **Anslutningssträng**. 
 
     Använd knapparna på höger sida av skärmen för att kopiera PRIMÄR ANSLUTNINGSSTRÄNG.
 
@@ -180,7 +180,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 Den här klienten initieras med konfigurationsvärdena `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` och `TablePreferredLocations` om de anges i appinställningarna.
 
 ## <a name="create-a-table"></a>Skapa en tabell
-Sedan kan du skapa en tabell med hjälp av `CloudTable`. Tabeller i Azure Cosmos DB kan skalas oberoende vad gäller lagring och dataflöde, och partitionering hanteras automatiskt av tjänsten. Azure Cosmos DB stöder både tabeller med fast storlek och obegränsade tabeller. Läs mer i informationen om [partitionering i Azure Cosmos DB](partition-data.md). 
+
+Sedan kan du skapa en tabell med hjälp av `CloudTable`. Tabeller i Azure Cosmos DB kan skalas oberoende vad gäller lagring och dataflöde, och partitionering hanteras automatiskt av tjänsten. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

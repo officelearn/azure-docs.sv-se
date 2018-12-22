@@ -1,6 +1,6 @@
 ---
-title: Anpassade inställningar för Apptjänstmiljöer
-description: Anpassade konfigurationsinställningar för Apptjänstmiljöer
+title: Anpassade konfigurationsinställningar för App Service-miljöer – Azure
+description: Anpassade konfigurationsinställningar för App Service-miljöer
 services: app-service
 documentationcenter: ''
 author: stefsch
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/22/2016
 ms.author: stefsch
-ms.custom: mvc
-ms.openlocfilehash: d60cdca78c143996fa5935726db0631321c9e2fe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.custom: seodec18
+ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129523"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271367"
 ---
-# <a name="custom-configuration-settings-for-app-service-environments"></a>Anpassade konfigurationsinställningar för Apptjänstmiljöer
+# <a name="custom-configuration-settings-for-app-service-environments"></a>Anpassade konfigurationsinställningar för App Service-miljöer
 ## <a name="overview"></a>Översikt
-Eftersom Apptjänstmiljöer är isolerad för att en kund är vissa konfigurationsinställningar som kan tillämpas enbart på Apptjänstmiljöer. Den här artikeln beskrivs de olika anpassningar som är tillgängliga för Apptjänstmiljöer.
+Eftersom App Service-miljöer är isolerade i en enda kund finns det vissa konfigurationsinställningar som kan användas exklusivt för App Service-miljöer. I den här artikeln beskrivs de olika anpassningar som är tillgängliga för App Service-miljöer.
 
-Om du inte har en Apptjänst-miljö, se [så här skapar du en Apptjänst-miljö](app-service-web-how-to-create-an-app-service-environment.md).
+Om du inte har en App Service-miljö kan du läsa [Skapa en App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
 
-Du kan lagra Apptjänstmiljö anpassningar med hjälp av en matris i den nya **clusterSettings** attribut. Det här attributet finns i ”egenskaper” ordlistan av den *hostingEnvironments* Azure Resource Manager-entiteten.
+Du kan lagra App Service-miljöanpassningar med hjälp av en matris i det nya attributet **clusterSettings**. Det här attributet finns i ordlistan ”Egenskaper” för *hostingEnvironments* Azure Resource Manager-entiteten.
 
-Följande förkortas Resource Manager mallen fragment visas den **clusterSettings** attribut:
+Följande förkortade Resource Manager-mallfragment visar attributet **clusterSettings**:
 
     "resources": [
     {
@@ -50,25 +50,25 @@ Följande förkortas Resource Manager mallen fragment visas den **clusterSetting
        }
     }
 
-Den **clusterSettings** attribut kan ingå i en Resource Manager-mall för att uppdatera Apptjänst-miljön.
+Attributet **clusterSettings** kan ingå i en Resource Manager-mall för att uppdatera App Service-miljön.
 
-## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Använda Azure Resource Explorer för att uppdatera en Apptjänst-miljö
-Du kan också uppdatera Apptjänst-miljön med hjälp av [resursutforskaren Azure](https://resources.azure.com).  
+## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Använda Azure Resource Explorer för att uppdatera en App Service-miljö
+Du kan också uppdatera App Service-miljön med hjälp av [Azure Resource Explorer](https://resources.azure.com).  
 
-1. Gå till noden i resursutforskaren, för Apptjänst-miljön (**prenumerationer** > **resursgrupper** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Klicka på den specifika Apptjänstmiljö som du vill uppdatera.
-2. I den högra rutan, klickar du på **läsning och skrivning** i det övre verktygsfältet för att tillåta interaktiva redigering i Resursläsaren.  
-3. Klicka på blå **redigera** knappen så att Resource Manager-mall kan redigeras.
-4. Bläddra längst ned i den högra rutan. Den **clusterSettings** attributet är på längst ned, där du kan ange eller uppdatera dess värde.
-5. Skriv (eller kopiera och klistra in) matrisen konfigurationsvärden som du vill ha i den **clusterSettings** attribut.  
-6. Klicka på gröna **PLACERA** knappen som finns längst upp i den högra rutan för att utföra ändringen i Apptjänst-miljön.
+1. Gå till noden för App Service-miljön i resursutforskaren (**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Klicka sedan på den specifika App Service-miljö du vill uppdatera.
+2. I den högra rutan klickar du på **Läs/Skriv** i det övre verktygsfältet för att tillåta interaktiv redigering i resursutofrskaren.  
+3. Klicka på den blå **redigeringsknappen** att Resource Manager-mallen kan redigeras.
+4. Rulla längst ned i den högra rutan. Attributet **clusterSettings** är allra längst ned på sidan, där du kan ange eller uppdatera dess värde.
+5. Ange (eller kopiera och klistra in) matrisen med konfigurationsvärden som du vill ha i attributet **clusterSettings**.  
+6. Klicka på den gröna knappen **PUT** (Placera) som finns högst upp i det högra fönstret för att genomföra ändringen i App Service-miljön.
 
-Men du skickar ändringen tar ungefär 30 minuter multiplicerat med antalet synliga komponenter i Apptjänst-miljön för att ändringarna ska börja gälla.
-Till exempel om en Apptjänst-miljö har fyra frontwebbservrarna, tar ungefär två timmar för av konfigurationsuppdateringen ska slutföras. Medan konfigurationsändringen lyfts, kan någon annan skalning operations eller ändra konfigurationsåtgärder ske i Apptjänst-miljön.
+Du skickar hur som helst in ändringen. Det tar ungefär 30 minuter gånger antalet klientdelar i App Service-miljön innan ändringen träder i kraft.
+Om en App Service-miljö exempelvis har fyra klientdelar tar det ungefär två timmar för konfigurationsuppdateringen att slutföras. Medan konfigurationsändringen distribueras kan inga andra skalningsåtgärder eller ändra konfigurationsåtgärder äga rum i App Service-miljön.
 
 ## <a name="disable-tls-10"></a>Inaktivera TLS 1.0
-En återkommande fråga från kunder, särskilt kunder som arbetar med PCI-överensstämmelse granskningar, så att uttryckligen inaktivera TLS 1.0 för sina appar.
+En återkommande fråga från kunder, särskilt de kunder som arbetar med PCI-efterlevnadsgranskning, är hur man explicit inaktiverar TLS 1.0 för appar.
 
-TLS 1.0 kan inaktiveras via följande **clusterSettings** post:
+TLS 1.0 kan inaktiveras via följande **clusterSettings**-post:
 
         "clusterSettings": [
             {
@@ -77,8 +77,8 @@ TLS 1.0 kan inaktiveras via följande **clusterSettings** post:
             }
         ],
 
-## <a name="change-tls-cipher-suite-order"></a>Ändra TLS cipher suite order
-En annan fråga från kunder är om de kan ändra listan över chiffer som förhandlas fram av servern, och detta kan uppnås genom att ändra den **clusterSettings** enligt nedan. Listan över tillgängliga krypteringssviter kan hämtas från [MSDN-artikel](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+## <a name="change-tls-cipher-suite-order"></a>Ändra ordning på TLS-chiffersvit
+En annan fråga från kunder är om de kan ändra listan över chiffer som förhandlas av servern. Det gör man genom att ändra **clusterSettings** enligt nedan. Listan över tillgängliga chiffersviter kan hämtas från [den här MSDN-artikeln](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
 
         "clusterSettings": [
             {
@@ -88,12 +88,12 @@ En annan fråga från kunder är om de kan ändra listan över chiffer som förh
         ],
 
 > [!WARNING]
-> Om felaktiga värden har angetts för chiffersviten SChannel inte förstår kan alla TLS-kommunikation till servern sluta fungera. I så fall behöver du ta bort den *FrontEndSSLCipherSuiteOrder* post från **clusterSettings** och skicka den uppdaterade mallen Resource Manager om du vill återgå till standardinställningarna cipher suite.  Använd den här funktionen med försiktighet.
+> Om felaktiga värden har angetts för chiffersviten som SChannel inte förstår kan all TLS-kommunikation till servern sluta fungera. I sådana fall måste du ta bort posten *FrontEndSSLCipherSuiteOrder* post från **clusterSettings** och skicka den uppdaterade Resource Manager-mallen för att återgå till standardchiffersvitinställningarna.  Använd den här funktionen med försiktighet.
 > 
 > 
 
 ## <a name="get-started"></a>Kom igång
-Mallwebbplatsen för Azure Quickstart Resource Manager-innehåller en mall med basdefinitionen för [att skapa en Apptjänst-miljö](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
+På mallwebbplatsen för Azure-snabbstarten för Resource Manager finns en mall med basdefinitionen för att [skapa en App Service-miljö](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->
 

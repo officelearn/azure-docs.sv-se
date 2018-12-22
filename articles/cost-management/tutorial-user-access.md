@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 64e56233546a22804036b43d9769247678036049
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275277"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099451"
 ---
-# <a name="tutorial-assign-access-to-cloudyn-data"></a>Självstudie: tilldela åtkomst till Cloudyn-data
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>Självstudie: Tilldela åtkomst till Cloudyn-data
 
 Åtkomsten till Cloudyn-data hanteras med hjälp av användare och entiteter. Cloudyn-användarkontot avgör åtkomsten till *entiteter* och administrativa funktioner. Det finns två typer av åtkomst: administratör och användare. Om administratörsåtkomsten inte modifieras per användare så ger den obegränsad tillgång till alla funktioner i Cloudyn-portalen, inklusive användarhantering, hantering av mottagarlistor och rotåtkomst till alla entitetsdata. Användaråtkomsten är avsedd för slutanvändare som vill visa och skapa rapporter för de entitetsdata de har åtkomst till.
 
@@ -47,7 +47,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 Ange nödvändig information om användaren. **Inloggnings-ID:t** måste vara en giltig e-postadress. Välj behörigheter och tillåt User Management (Användarhantering) så att användaren kan skapa och ändra andra användare. Med hanteringen av mottagarlistor kan användaren redigera mottagarlistor. En länk med inloggningsinformation skickas till användaren via e-post från Cloudyn när du väljer **Notify user by email** (Meddela användaren via e-post). Användaren anger ett lösenord vid sin första inloggning.
 
 Under **User has admin access** (Användaren har administratörsåtkomst) är rotentiteten i din organisation vald. Lämna root valt och spara användarinformationen. När rotentiteten är vald har användaren inte bara administratörsbehörighet för rotentiteten i trädet utan även alla enheter under den.  
-  ![Lägg till en ny användare med administratörsåtkomst](.\media\tutorial-user-access\new-admin-access.png)
+  ![Exempel som visar administratörsåtkomst i rutan Lägg till ny användare](./media/tutorial-user-access/new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Skapa en användare med användaråtkomst
 Vanliga användare som behöver åtkomst till Cloudyn-data som instrumentpaneler och rapporter ska ha användaråtkomst för att visa dem. Skapa en ny användare med användaråtkomst ungefär som när du skapade användaren med administratörsåtkomst, med följande skillnader:
@@ -56,7 +56,7 @@ Vanliga användare som behöver åtkomst till Cloudyn-data som instrumentpaneler
 - Välj de entiteter som användaren behöver åtkomst till i listan **User has user access** (Användaren har användaråtkomst).
 - Du kan också ge administratörer åtkomst till specifika entiteter om det behövs.
 
-![lägg till en ny användare med användaråtkomst](.\media\tutorial-user-access\new-user-access.png)
+![Exempel som visar användaråtkomst i rutan Lägg till ny användare](./media/tutorial-user-access/new-user-access.png)
 
 Om du vill se en självstudievideo om att lägga till användare, se [Lägg till användare till Cloudyn](https://youtu.be/Nzn7GLahx30).
 
@@ -88,11 +88,11 @@ När du registrerade ditt Azure-avtal eller -konto hos Cloudyn kopierades dina A
 
 Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**. Du börjar med en enda entitet (roten) och skapar entitetsträdet under roten. Här är ett exempel på en entitetshierarki som liknar många IT-organisationer när trädet är färdigt:
 
-![Entitetsträd](.\media\tutorial-user-access\entity-tree.png)
+![Exempel på ett entitetsträd som visas på sidan Kontohantering](./media/tutorial-user-access/entity-tree.png)
 
 Bredvid **Entities** (Entiteter) klickar du på **Add Entity** (Lägg till entitet). Ange information om personen eller avdelningen du vill lägga till. Fälten **Full Name** (Fullständigt namn) och **Email** (E-post) behöver inte matcha befintliga användare. Om du vill visa en lista med åtkomstnivåer kan du söka i hjälpen efter *Lägga till en entitet*.
 
-![Lägg till entitet](.\media\tutorial-user-access\add-entity.png)
+![Exempel som visar entitetsnamn och åtkomstnivåer i rutan Lägg till entitet](./media/tutorial-user-access/add-entity.png)
 
 När du är färdig sparar du entiteten med **Save** (Spara).
 

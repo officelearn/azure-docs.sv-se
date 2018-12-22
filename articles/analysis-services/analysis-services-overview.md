@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429447"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970203"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -23,13 +23,13 @@ Azure Analysis Services är en fullständigt hanterad plattform som tjänst (Paa
 
 ![Datakällor](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Video:** Se [översikt av Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) för mer information om hur Azure Analysis Services passar in med Microsofts övergripande BI-funktioner.
+**Video:** Mer information om hur Azure Analysis Services passar in med Microsofts övergripande BI-funktioner finns i [Översikt över Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4).
 
 ## <a name="get-up-and-running-quickly"></a>Kom igång snabbt
 
 På Azure Portal kan du [skapa en server](analysis-services-create-server.md) på några minuter. Och du kan skapa servrar med hjälp av en deklarativ mall med Azure Resource Manager-[mallar](../azure-resource-manager/resource-manager-create-first-template.md) och PowerShell. Du kan distribuera serverresurser tillsammans med andra Azure-komponenter såsom lagringskonton och Azure Functions, med en enda mall. 
 
-**Video:** Se [Automatiseringsdistribution](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) för mer information om hur du kan använda Azure Automation för att snabbare skapa servrar.
+**Video:** Mer information om hur du kan använda Azure Automation för att snabbare skapa servrar finns i [Automatiseringsdistribution](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation).
 
 Azure Analysis Services integreras med många Azure-tjänster vilket gör att du kan skapa lösningar för avancerade analyser. Integreringen med [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) ger dig säker, rollbaserad åtkomst till dina viktiga data. Integrera i en [Azure Data Factory](../data-factory/introduction.md)-pipeline genom att omfatta en aktivitet som läser in data i modellen. [Azure Automation](../automation/automation-intro.md) och [Azure Functions](../azure-functions/functions-overview.md) kan användas för att utföra enkel orkestrering av modeller med anpassad kod. 
 
@@ -146,7 +146,7 @@ Tabellmodeller i Azure Analysis Services stöder en mängd olika datakällor fr�
 
 ## <a name="your-data-is-secure"></a>Dina data är skyddade
 
-Azure Analysis Services tillhandahåller säkerhet för känsliga data på flera nivåer. På servernivå: brandvägg, Azure-autentisering, serveradministratörsroller och kryptering för serversidan. På datamodellnivån säkerställer användarroller, säkerhet på radnivå och säkerhet på objektnivå att dina data är säkra och endast ses av de användare som är avsedda att de den.
+Azure Analysis Services tillhandahåller säkerhet för känsliga data på flera nivåer. På servernivå: Brandvägg, Azure-autentisering, serveradministratörsroller och kryptering för serversidan. På datamodellnivån säkerställer användarroller, säkerhet på radnivå och säkerhet på objektnivå att dina data är säkra och endast ses av de användare som är avsedda att de den.
 
 ### <a name="firewall"></a>Brandvägg
 
@@ -182,7 +182,7 @@ Tjänstens huvudnamn är en programresurs för Azure Active Directory som du ska
 
 ### <a name="azure-governance"></a>Azure-styrning
 
-Azure Analysis Services lyder under [villkoren för Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) och [Microsofts sekretesspolicy](https://privacy.microsoft.com/privacystatement).
+Azure Analysis Services lyder under [villkoren för Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) och [Microsofts sekretesspolicy](https://privacy.microsoft.com/privacystatement).
 Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ## <a name="use-the-tools-you-already-know"></a>Använd de verktyg som du är van vid

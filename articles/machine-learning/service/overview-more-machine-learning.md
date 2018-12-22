@@ -1,5 +1,5 @@
 ---
-title: Jämför maskininlärningsprodukter från Microsoft – Azure | Microsoft Docs
+title: Jämför olika maskininlärningprodukter hos Microsoft
 description: Jämför olika produkter från Microsoft för att bygga, distribuera och hantera dina maskininlärningsmodeller. Bestäm vilka produkter du ska välja för din lösning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872560"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274136"
 ---
-# <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Vilka maskininlärningsprodukter har Microsoft?
+# <a name="what-are-the-machine-learning-products-at-microsoft"></a>Vilka maskininlärningsprodukter har Microsoft?
 
 Microsoft har olika produktalternativ för att bygga, distribuera och hantera dina maskininlärningsmodeller. Jämför dessa produkter och välj vad du behöver för att utveckla dina maskininlärningslösningar på effektivast möjliga sätt.
 
@@ -41,8 +41,7 @@ Microsoft har olika produktalternativ för att bygga, distribuera och hantera di
 
 Använd Azure Machine Learning-tjänsten till att träna, distribuera och hantera ML-modeller med hjälp av Python och CLI i molnskala.
 
->[!Note]
-> Du kan testa Azure Machine Learning kostnadsfritt. Det behövs inte något kreditkort eller någon Azure-prenumeration. Kom igång nu. https://azure.microsoft.com/free/
+Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 25fa099bcd6fa3843deadb3dc39d4250624ead06
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 2d83bab3686d274b9f37c0b0f7c92515801dbe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274594"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086461"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Självstudie: Skapa prognoser för framtida utgifter
 
@@ -37,11 +37,11 @@ Cloudyn innehåller rapporter för kostnadsprognoser som hjälper dig att göra 
 
 I rapporten Current Month Projected Cost visas kostnaderna för dina tjänster. Kostnaderna från början av månaden samt föregående månad används till att visa den beräknade kostnaden. Gå till rapportmenyn överst i portalen och klicka på **Costs (Kostnader)** > **Projection and Budget (Planering och budget)** > **Current Month Projected Cost** (Planerad kostnad för aktuell månad). I följande bild visas ett exempel.
 
-![Beräknad kostnad aktuell månad](./media/tutorial-forecast-spending/project-month01.png)
+![Exempelinformation som visas i rapporten om beräknad kostnad för aktuell månad](./media/tutorial-forecast-spending/project-month01.png)
 
 I det här exemplet ser du vilka tjänster som kostat mest. Kostnaderna för Azure var lägre än kostnaderna för AWS. Om du vill se detaljer om de beräknade kostnaderna för virtuella Azure-datorer går du till listan **Filter** och väljer **Azure/VM**.
 
-![beräknad kostnad aktuell månad för Azure VM](./media/tutorial-forecast-spending/project-month02.png)
+![Exempel som visar beräknad kostnad för Azure VM för aktuell månad](./media/tutorial-forecast-spending/project-month02.png)
 
 Följ samma grundprincip när du vill titta på månatliga beräknade kostnader för andra tjänster du är intresserad av.
 
@@ -49,11 +49,11 @@ I rapporten Annual Projected Cost visas extrapolerade kostnader för dina tjäns
 
 Gå till rapportmenyn överst i portalen och klicka på **Costs (Kostnader)** > **Projection and Budget (Planering och budget)** > **Annual Projected Cost** (Planerad årlig kostnad). I följande bild visas ett exempel.
 
-![Rapporten årlig beräknad kostnad](./media/tutorial-forecast-spending/project-annual01.png)
+![Exempel som visar rapport om beräknad årskostnad](./media/tutorial-forecast-spending/project-annual01.png)
 
 I det här exemplet ser du vilka tjänster som kostat mest. Precis som i det månatliga exemplet var Azure-kostnaderna lägre än AWS-kostnaderna. Om du vill se detaljer om de beräknade kostnaderna för virtuella Azure-datorer går du till listan **Filter** och väljer **Azure/VM**.
 
-![Årlig beräknad kostnad för virtuella datorer](./media/tutorial-forecast-spending/project-annual02.png)
+![Exempel som visar beräknad årskostnad för virtuella datorer](./media/tutorial-forecast-spending/project-annual02.png)
 
 I bilden ovan är den årliga beräknade kostnaden för virtuella Azure-datorer 28 374 USD.
 

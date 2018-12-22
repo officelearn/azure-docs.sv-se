@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Skapa ensidig webbapp – API för bildsökning i Bing'
+title: 'Självstudie: Skapa ensidig webbapp – API för bildsökning i Bing'
 titleSuffix: Azure cognitive services
 description: Med API för bildsökning i Bing kan du söka på webben efter relevanta bilder med hög kvalitet. Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et och visa resultaten inom webbsidan.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297459"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253960"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudie: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
 Med API för bildsökning i Bing kan du söka på webben efter relevanta bilder med hög kvalitet. Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et och visa resultaten inom webbsidan. Den här självstudiekursen liknar motsvarande [självstudiekurs](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) för webbsökning i Bing.
 
@@ -34,7 +34,7 @@ Den fullständiga källkoden till det här exemplet finns på [GitHub](https://g
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Den senaste versionen av [Node.js](https://nodejs.org/).
-* Ramverket [Express.js](https://expressjs.com/) för Node.js. Installationsinstruktioner för källkoden finns i gitHub-exemplets readme-fil.
+* Ramverket [Express.js](https://expressjs.com/) för Node.js. Installationsinstruktioner för källkoden finns i GitHub-exemplets readme-fil.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

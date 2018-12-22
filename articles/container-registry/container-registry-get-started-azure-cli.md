@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – skapa ett privat Docker-register i Azure med Azure CLI
+title: Snabbstart – Skapa ett privat Docker-register i Azure – Azure CLI
 description: Lär dig snabbt att skapa ett privat Docker-containerregister med Azure CLI.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: danlep
-ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 57c72056b669865278fa8109cd7f4963a1f0887a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, H1Hack27Feb2017, mvc
+ms.openlocfilehash: e75a2d126680c71542aa04bae5a30ea7c376cea1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855246"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255932"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Snabbstart: Skapa ett containerregister med hjälp av Azure CLI
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure CLI
 
 Azure Container Registry är en hanterad Docker-behållarregistertjänst som används för att lagra privata Docker-behållaravbildningar. I den här guiden får du lära dig att skapa en Azure Container Registry-instans med hjälp av Azure CLI, push-överföra en behållaravbildning till registret och distribuera behållaren från ditt register till Azure Container Instances (ACI).
 

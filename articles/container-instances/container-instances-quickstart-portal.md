@@ -1,25 +1,25 @@
 ---
-title: Snabbstart – Köra ett program i Azure Container Instances
-description: I den här snabbstarten använder du Azure-portalen för att distribuera ett program som körs i en Docker-container i Azure Container Instances
+title: Snabbstart – Kör ett program i Azure Container Instances – portalen
+description: I den här snabbstarten använder du Azure-portalen till att distribuera ett Docker-containerprogram som körs i en isolerad container i Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857728"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190296"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Snabbstart: Köra ett program i Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Snabbstart: Köra ett containerprogram i Azure Container Instances på Azure-portalen
 
-Använd Azure Container Instances för att snabbt och enkelt köra Docker-containrar i Azure. Du behöver inte distribuera virtuella datorer eller använda en komplett plattform för containerorkestrering, som Kubernetes. I den här snabbstarten använder du Azure-portalen för att skapa en container i Azure och göra programmet tillgängligt med ett fullständigt kvalificerat domännamn (FQDN). När du har konfigurerat några inställningar och distribuerat containern kan gå du till programmet som körs:
+Använd Azure Container Instances för att snabbt och enkelt köra dockercontainrar i Azure. Du behöver inte distribuera virtuella datorer eller använda en komplett plattform för containerorkestrering, som Kubernetes. I den här snabbstarten använder du Azure-portalen för att skapa en container i Azure och göra programmet tillgängligt med ett fullständigt kvalificerat domännamn (FQDN). När du har konfigurerat några inställningar och distribuerat containern kan gå du till programmet som körs:
 
-![Program som distribuerats till Azure Container Instances visas i en webbläsare][aci-portal-07]
+![App som distribuerats via Azure Container Instances visas i webbläsaren][aci-portal-07]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

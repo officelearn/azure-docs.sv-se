@@ -1,5 +1,5 @@
 ---
-title: Skapa en Node.js i Azure App Service i Linux | Microsoft Docs
+title: Skapa en Node.js-webbapp i Linux – Azure App Service | Microsoft Docs
 description: Distribuera din första Hello World-app av typen Node.js i Azure App Service i Linux på bara några minuter.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.custom: seodec18
+ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969552"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253598"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js-webbapp i Azure App Service i Linux
 

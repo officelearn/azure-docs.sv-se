@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987268"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320786"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
 
@@ -34,7 +34,15 @@ Funktionen Hanterade identiteter för Azure-resurser är kostnadsfri med Azure A
 > [!NOTE]
 > Hanterade identiteter för Azure-resurser är det nya namnet på tjänsten som tidigare hade namnet Hanterad tjänstidentitet (MSI).
 
-## Hur fungerar funktionen?<a name="how-does-it-work"></a>
+## <a name="terminology"></a>Terminologi
+
+Följande termer används i de hanterade identiteterna för Azure-resursernas dokumentationsuppsättning:
+
+- **Klient-ID** – En unik identifierare som genererats av Azure AD och som kopplas till ett program och tjänstens huvudnamn under den första etableringen.
+- **Ägar-ID** – Objekt-ID för tjänstens huvudnamnsobjekt för din hanterade identitet som används för att bevilja rollbaserad åtkomst till en Azure-resurs.
+- **Azure Instance Metadata Service (IMDS)** – En REST-slutpunkt som är tillgänglig för alla virtuella IaaS-datorer som skapas via Azure Resource Manager. Slutpunkten är tillgänglig på en välkänd icke-dirigerbar IP-adress (169.254.169.254), som endast kan nås från den virtuella datorn.
+
+## Hur fungerar hanterade identiteter för Azure-resurser?<a name="how-does-it-work"></a>
 
 Det finns två typer av hanterade identiteter:
 

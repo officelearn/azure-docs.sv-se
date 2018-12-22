@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: f06094fb82f10276f7a41d1b22f6dd99836a497f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095518"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957273"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage med ändringsspårningsinformation 
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i Azure SQL Database-källan till ett Azure Blob Storage.  
@@ -322,7 +322,7 @@ Klicka på **Utlösare** i verktygsfältet för pipelinen och klicka på **Trigg
 ### <a name="review-the-results"></a>Granska resultaten
 Du ser en fil som heter `incremental-<GUID>.txt` i mappen `incchgtracking` i containern `adftutorial`. 
 
-![Utdatafil från fullständig kopia](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![Utdatafil från fullständig kopia](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 Filen ska innehålla data från Azure SQL-databasen:
 
@@ -445,7 +445,7 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
 ### <a name="review-the-results"></a>Granska resultaten
 Du ser den andra filen i mappen `incchgtracking` i containern `adftutorial`. 
 
-![Utdatafil från inkrementell säkerhetskopia](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![Utdatafil från inkrementell säkerhetskopia](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 Filen ska endast innehålla deltadata från Azure SQL-databasen. Posten med `U` är den uppdaterade raden i databasen och `I` är den tillagda raden. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter bilder med API för bildsökning i Bing och Python'
+title: 'Snabbstart: Söka efter bilder – SDK för bildsökning i Bing för Python'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten till att göra din första bildsökning med API för bildsökning i Bing, som är en adapterklass för API:t och innehåller samma funktioner. Den här enkla Python-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: a2a39049196e19d29d2b4d845b9cf756392013bf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: c0cb795f2d40963263cbbb15a54ba8af2953f5f0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315043"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250373"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och Python
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Snabbstart: Söka efter bilder med SDK för bildsökning i Bing för Python
 
 Använd den här snabbstarten till att göra din första bildsökning med API för bildsökning i Bing, som är en adapterklass för API:t och innehåller samma funktioner. Den här enkla Python-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
 

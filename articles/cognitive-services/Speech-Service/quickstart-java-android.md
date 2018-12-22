@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Känna igen tal i Java på Android med hjälp av Speech Service SDK'
+title: 'Snabbstart: Identifiera tal, Java (Android) – Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du känna igen tal i Java på Android med hjälp av Speech Service SDK
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 0785383d8b5a8ab282d8097d5229fa5a8aade06f
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219434"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090116"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av Speech SDK
 
@@ -42,7 +42,7 @@ Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den
 
    ![Skärmdump som visar guiden Skapa ett nytt projekt](media/sdk/qs-java-android-02-create-android-project.png)
 
-1. På skärmen **Target Android Devices** (Android-målenheter) väljer du endast **Phone and Tablet** (Telefon och surfplatta). I listrutan under väljer du **API 23: Android 6.0 (Marshmallow)** och väljer **Nästa**.
+1. På skärmen **Target Android Devices** (Android-målenheter) väljer du endast **Phone and Tablet** (Telefon och surfplatta). I listrutan nedanför väljer du **API-23: Android 6.0 (Marshmallow)** och väljer sedan **Nästa**.
 
    ![Skärmdump som visar guiden Skapa ett nytt projekt](media/sdk/qs-java-android-03-target-android-devices.png)
 
@@ -63,7 +63,7 @@ Den aktuella versionen av Cognitive Services Speech SDK är `1.1.0`.
 Speech SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs för att använda den.
 Den finns i ett Maven-centrallager på https://csspeechstorage.blob.core.windows.net/maven/.
 
-Konfigurera ditt projekt för att använda Speech SDK. Öppna projektstrukturfönstret genom att välja **File** (Fil)  > **Project Structure** (Projektstruktur) på menyraden i Android Studio. I projektstrukturfönstret gör du följande ändringar: 
+Konfigurera ditt projekt för att använda Speech SDK. Öppna projektstrukturfönstret genom att välja **File** (Fil)  > **Project Structure** (Projektstruktur) på menyraden i Android Studio. I projektstrukturfönstret gör du följande ändringar:
 
 1. I listan till vänster i fönstret väljer du **Projekt**. Redigera inställningarna för **standardbiblioteksdatabasen** genom att lägga till ett kommatecken och vår URL till Maven-lagringsplatsen inom enkla citattecken. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
@@ -118,7 +118,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * Metoden `onCreate` inkluderar den kod som begär mikrofon- och internet-behörigheter och initierar inbyggd plattformsbindning. Du behöver bara konfigurera inbyggda plattformsbindningar en gång. Det bör göras tidigt under initieringen av programmet.
-   
+
    * Metoden `onSpeechButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapptryckning utlöser transkription från tal till text.
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Generera en miniatyrbild – SDK, C# – Visuellt innehåll'
+title: 'Snabbstart: Skapa en miniatyrbild – SDK, C# – Visuellt innehåll'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du skapa en miniatyrbild från en bild med hjälp av Windows C#-klientbiblioteket för Visuellt innehåll.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: d3340131c1f174201cc9fd1dcb31bd4a4b8cd07a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854092"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413293"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Snabbstart: Generera en miniatyrbild med Computer Vision SDK och C#
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Snabbstart: Generera en miniatyrbild med SDK för Visuellt innehåll och C#
 
 I den här snabbstarten ska du skapa en miniatyrbild från en bild med hjälp av Windows-klientbiblioteket för Visuellt innehåll.
 

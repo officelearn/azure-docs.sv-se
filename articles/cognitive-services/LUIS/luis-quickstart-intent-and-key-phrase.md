@@ -1,21 +1,22 @@
 ---
-title: 'Självstudie 8: Extrahering av nyckelfraser i LUIS'
+title: Extrahering av nyckelfraser
 titleSuffix: Azure Cognitive Services
 description: Använd den fördefinierade keyPhrase-entiteten till att extrahera nyckelämnen från yttranden. Du behöver inte märka ut några yttranden med fördefinierade entiteter. Entiteten identifieras automatiskt.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424820"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096935"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Självstudie 8: Extrahera nyckelfraser från yttranden
 I den här självstudien använder du den fördefinierade keyPhrase-entiteten till att extrahera nyckelämnen från yttranden. Du behöver inte märka upp några yttranden med fördefinierade entiteter. Entiteten identifieras automatiskt.
@@ -31,7 +32,6 @@ Ditt klientprogram kan använda dessa värden tillsammans med andra extraherade 
 
 **I den här självstudiekursen får du lära du dig att:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Använda en befintlig självstudieapp
 > * Lägga till keyPhrase-entitet 
@@ -84,7 +84,7 @@ Lägg till den fördefinierade keyPhrase-entiteten för att extrahera ämnesinne
 
 2. Gå till slutet av URL:en i adressen och ange `does form hrf-123456 cover the new dental benefits and medical plan`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {

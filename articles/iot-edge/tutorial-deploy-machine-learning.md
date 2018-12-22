@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure Machine Learning med Azure IoT Edge | Microsoft Docs
+title: Självstudie om att distribuera Azure Machine Learning till en enhet – Azure IoT Edge | Microsoft Docs
 description: I den här självstudien distribuerar du Azure Machine Learning som en modul till en gränsenhet
 author: kgremban
 manager: philmea
@@ -8,15 +8,15 @@ ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: c98dc9019421133b83ab9aec29f725852315f6ba
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: mvc, seodec18
+ms.openlocfilehash: db8318e94b646d57c00bc2e6958ba9e7f46ec7af
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977223"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344038"
 ---
-# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
+# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Självstudie: Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
 Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudiekursen vägleder dig genom processen att distribuera en Azure Machine Learning-modul som förutsäger när en enhet slutar fungera baserat på simulerade data om datortemperaturen. Mer information om Azure ML på IoT Edge finns i [Dokumentation om Azure Machine Learning](../machine-learning/service/how-to-deploy-to-iot.md).
 
@@ -115,7 +115,7 @@ Kontrollera att containeravbildningen skapades och lagras i Azure Container-regi
 
 1. I avsnittet **Registerinställningar** lägger du till de autentiseringsuppgifter som du kopierade från ditt Azure Container-register. 
 
-   ![Lägg till autentiseringsuppgifter för registret](./media/tutorial-deploy-machine-learning/registry-settings.png)
+   ![Lägga till autentiseringsuppgifter för register i manifest](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
 1. Om du redan har distribuerat modulen tempSensor till din IoT Edge-enhet kanske den fylls i automatiskt. Lägg till den om den inte redan finns i listan över moduler.
 
@@ -174,7 +174,7 @@ Om du utför dessa kommandon på en Linux-enhet kan du behöva använda `sudo` f
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>Visa data som inkommer till din IoT Hub
 
-Du kan visa meddelanden från enhet-till-moln som din IoT-hubb tar emot med hjälp av [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+Du kan visa meddelanden från enhet-till-moln som din IoT-hubb tar emot med hjälp av [Azure IoT Hub Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (kallades tidigare Azure IoT Toolkit-tillägget).
 
 Följande steg visar hur du ställer in Visual Studio Code för att övervaka meddelanden från enhet till moln som kommer till din IoT Hub. 
 
@@ -182,7 +182,7 @@ Följande steg visar hur du ställer in Visual Studio Code för att övervaka me
 
 2. Välj **...** och sedan alternativet för att **ställa in IoT Hub-anslutningssträngen** på menyn.
 
-   ![IoT Hub-enheter – fler menyer](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![Ange IoT-hubbens anslutningssträng](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. Ange anslutningssträngen iothubowner för din IoT Hub i textrutan som visas överst på sidan. Enhetens IoT Edge-enhet bör visas i listan över IoT Hub-enheter.
 

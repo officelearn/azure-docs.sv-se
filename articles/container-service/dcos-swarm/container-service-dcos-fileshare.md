@@ -1,5 +1,5 @@
 ---
-title: Filresurs för Azure DC/OS-kluster
+title: (INAKTUELL) Filresurs för Azure DC/OS-kluster
 description: Skapa och montera en filresurs till ett DC/OS-kluster i Azure Container Service
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 728f8ddbda35f27c0f89e1d72e98fd2d7669320e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973515"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999865"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Skapa och montera en filresurs till ett DC/OS-kluster
+# <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(INAKTUELL) Skapa och montera en filresurs till ett DC/OS-kluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Den här självstudien förklarar hur du skapar en filresurs i Azure och monterar den på varje agent och original av DC/OS-klustret. Om du konfigurerar en filresurs så blir det enklare att dela filer på ditt kluster, till exempel konfiguration, åtkomst, loggar och mycket mer. I den här självstudien slutför du följande uppgifter:
 

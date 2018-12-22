@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: a12107fe0dd25a383e7be1adbc717c7c1c654fa5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6f3f1f6eb89127e6b0ac0e2983a27dfd731651cb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846546"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094244"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en SQL API-app med Python och Azure Portal
 
@@ -153,7 +153,7 @@ Följande kodavsnitt är alla hämtade från filen `CosmosGetStarted.py`.
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. Gå till [Azure-portalen](http://portal.azure.com/). Gå till ditt Azure Cosmos DB-konto och klicka på **Nycklar** i den vänstra navigeringspanelen. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `CosmosGetStarted.py` i nästa steg.
+1. Gå till [Azure-portalen](https://portal.azure.com/). Gå till ditt Azure Cosmos DB-konto och klicka på **Nycklar** i den vänstra navigeringspanelen. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `CosmosGetStarted.py` i nästa steg.
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
 
@@ -173,7 +173,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 1. Gå till Visual Studio Code och välj **Visa**>**Kommandopalett**. 
 
-2. I kommandotolken anger du **Python: Välj tolk** och välj sedan den version av Python som ska användas.
+2. Vid kommandotolken anger du **Python: Välj tolk** och välj sedan den version av Python som ska användas.
 
     Sidfoten i Visual Studio Code uppdateras för att ange vilken tolk som valts. 
 

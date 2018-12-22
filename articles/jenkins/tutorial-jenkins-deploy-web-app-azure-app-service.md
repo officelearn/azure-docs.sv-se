@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 274de7ac63df0afc1a59e197deebeb7929cf1ef8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855018"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438480"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure App Service med kontinuerlig integrering och distribution i Jenkins
 
@@ -43,7 +43,7 @@ För att slutföra den här självstudien behöver du följande objekt:
 
 * En [Jenkins](https://jenkins.io/)-server med Java Development Kit (JDK) och Maven-verktyg installerade på en virtuell Linux-baserad dator i Azure
 
-  Om du inte har någon Jenkins-server kan du slutföra stegen nu i Azure-portalen: [Skapa Jenkins-server på en virtuell Linux-baserad dator i Azure](/azure/jenkins/install-jenkins-solution-template)
+  Om du inte har en Jenkins-server utför du dessa steg nu på Azure Portal: [Skapa en Jenkins-server på en virtuell Linux-dator i Azure](/azure/jenkins/install-jenkins-solution-template)
 
 * Ett [GitHub](https://github.com)-konto så att du kan få en fungerande kopia ([förgrening](#fork)) för exempelwebbappen för Java. 
 
@@ -92,7 +92,7 @@ Om du vill att Jenkins övervakar GitHub och svarar när nya incheckningar push-
 > 
 > De här stegen skapar personliga autentiseringsuppgifter för åtkomsttoken för Jenkins för att arbeta med GitHub med ditt GitHub-användarnamn och -lösenord. 
 > Men om ditt GitHub-konto använder tvåfaktorsautentisering ska du skapa din token i GitHub och konfigurera Jenkins för att använda denna token i stället. 
-> I dokumentationen för [Jenkins GitHub-plugin-programmet](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) finns mer information.
+> I dokumentationen för [Jenkins GitHub-plugin-programmet](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin) finns mer information.
 
 1. På sidan **Hantera Jenkins** väljer du **Konfigurera system**. 
 
@@ -164,7 +164,7 @@ Följande utdata genereras av kommandot **`create-for-rbac`**:
 
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------| 
-   | **Prenumerations-ID** | <*yourAzureSubscription-ID*> | GUID-värde för din Azure-prenumeration <p>**Tips**! Om du inte kan ditt Azure-prenumerations-ID kan du köra följande Azure CLI-kommando från antingen kommandoraden eller i Cloud Shell och sedan använda `id` GUID-värdet: <p>`az account list` | 
+   | **Prenumerations-ID** | <*yourAzureSubscription-ID*> | GUID-värde för din Azure-prenumeration <p>**Tips!** Om du inte kan ditt Azure-prenumerations-ID kan du köra följande Azure CLI-kommando från kommandoraden eller i Cloud Shell och sedan använda GUID-värdet `id`: <p>`az account list` | 
    | **Klient-ID** | <*yourAzureServicePrincipal-ID*> | `appId` GUID-värdet som tidigare har skapats för Azure-tjänstens huvudnamn | 
    | **Klienthemlighet** | <*yourSecurePassword*> | Värdet `password` eller ”hemligheten” du angav för Azure-tjänstens huvudnamn | 
    | **Klient-ID** | <*yourAzureActiveDirectoryTenant-ID*> | `tenant` GUID-värdet för din Azure Active Directory-klient | 

@@ -1,14 +1,11 @@
 ---
-title: 'Självstudie: Skapa en grundläggande intern lastbalanserare med hjälp av Azure-portalen | Microsoft Docs'
+title: 'Självstudie: Skapa en intern lastbalanserare – Azure-portalen'
+titlesuffix: Azure Load Balancer
 description: Den här självstudien beskriver hur du skapar en grundläggande intern lastbalanserare med hjälp av Azure-portalen.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 9ccbbb107dfd8fde237cdfdd4b0c3fcc080fd70e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839253"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262358"
 ---
-# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare i Azure-portalen
+# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare på Azure-portalen
 
 Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande begäranden sprids över virtuella datorer. Du kan använda Azure-portalen för att skapa en grundläggande lastbalanserare och balansera intern trafik över virtuella datorer. Den här självstudien visar hur du skapar och konfigurerar en intern lastbalanserare, serverdelsservrar och nätverksresurser på prisnivån Grundläggande.
 
@@ -46,7 +43,7 @@ Först skapar du ett virtuellt nätverk (VNet). I det virtuella nätverket skapa
    
    - **Namn**: Skriv *MyVNet*.
    - **ResourceGroup**: Välj **Skapa ny**, ange *MyResourceGroupLB* och välj **OK**. 
-   - **Undernät** > **Namn**: Skriv *MyBackendSubnet*.
+   - **Undernät** > **Namn**: Skriv *myBackendSubnet*.
    
 1. Välj **Skapa**.
 
@@ -57,16 +54,13 @@ Först skapar du ett virtuellt nätverk (VNet). I det virtuella nätverket skapa
 1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 Datacenter**. 
    
 1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Prenumeration** > **Resursgrupp**: i listrutan väljer du **MyResourceGroupLB**.
+   - **Prenumeration** > **Resursgrupp**: I listrutan väljer du **MyResourceGroupLB**.
    - **Instansinformation** > **Namn på virtuell dator**: Skriv *MyVM1*.
    - **Instansinformation** > **Tillgänglighetsalternativ**: 
      1. I listrutan väljer du **Tillgänglighetsuppsättning**. 
      2. Välj **Skapa ny**, skriv *MyAvailabilitySet* och välj **OK**.
-   - **Administratörskonto** > **Användarnamn**: Skriv *azureuser*.
-   - **Administratörskonto** > **Lösenord**: Skriv *Azure1234567*. 
-     Skriv lösenordet på nytt i fältet **Bekräfta lösenord**.
    
-1. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**. 
+1. Välj fliken **Nätverk** eller välj **Nästa: Diskar** och sedan **Nästa: Nätverk**. 
    
    Kontrollera att följande har valts:
    - **Virtuellt nätverk**: **MyVNet**
@@ -101,7 +95,7 @@ Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn 
    - **Undernät**: Välj **Välj ett undernät** och sedan **MyBackendSubnet**.
    - **IP-adresstilldelning**: Välj **Statisk** om det inte är valt.
    - **Privat IP-adress**: Skriv en adress som är i adressrymden för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.
-   - **ResourceGroup**: i listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
+   - **ResourceGroup**: I listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
    
 1. Välj **Skapa**.
    
@@ -212,7 +206,7 @@ Anslut först till alla tre virtuella datorer med Fjärrskrivbord (RDP).
    
 1. På skärmen Windows-säkerhet väljer du **Fler alternativ** och sedan **Använd ett annat konto**. 
    
-   Ange användarnamnet *azureuser* och lösenordet *Azure1234567* och välj **OK**.
+   Ange ett användarnamn och ett lösenord, och välj sedan **OK**.
    
 1. Svara **Ja** på eventuella certifikatfrågor. 
    

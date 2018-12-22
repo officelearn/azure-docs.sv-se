@@ -3,19 +3,19 @@ title: 'Azure Cosmos DB: Skapa en Flask-webbapp med Python och Azure Cosmos DB M
 description: Visar ett Python Flask-kodexempel som du kan använda för att ansluta till och ställa frågor via Azure Cosmos DB MongoDB-API:t
 services: cosmos-db
 author: slyons
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.author: sclyon
-ms.openlocfilehash: 70a103aa7c03abeed98237a3b1dc3ec8b514810a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849065"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165120"
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: Skapa en Flask-app med MongoDB-API:et
 
@@ -46,7 +46,7 @@ Den här snabbstartsguiden använder följande [Flask-exempel](https://github.co
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi klona en Flask-MongoDB API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt.
+Nu ska vi klona en Flask-MongoDB API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt.
 
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 
@@ -120,7 +120,7 @@ Följande kodavsnitt hämtas från filen app.py och använder anslutningssträng
 
 Om du vill testa koden mot ett aktivt Azure Cosmos DB-konto går du till Azure-portalen för att skapa ett konto och hämta information om anslutningssträngen. Kopiera den till appen.
 
-1. Öppna ditt Azure Cosmos DB-konto i [Azure-portalen](http://portal.azure.com/), klicka på **Anslutningssträng** och därefter på **Läs- och skrivnycklar**. Använd kopieringsknapparna till höger på skärmen och kopiera Användarnamn, Lösenord och Värd till filen Dal.cs i nästa steg.
+1. Öppna ditt Azure Cosmos DB-konto i [Azure-portalen](https://portal.azure.com/), klicka på **Anslutningssträng** och därefter på **Läs- och skrivnycklar**. Använd kopieringsknapparna till höger på skärmen och kopiera Användarnamn, Lösenord och Värd till filen Dal.cs i nästa steg.
 
 2. Öppna filen **app.py** i rotkatalogen.
 
@@ -134,7 +134,7 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure
 
-Om du vill distribuera den här appen kan du skapa en ny webbapp i Azure och aktivera kontinuerlig distribution med en förgrening av den här github-lagringsplatsen. Följ den här [självstudien](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) om du vill konfigurera kontinuerlig distribution med Github i Azure.
+Om du vill distribuera den här appen kan du skapa en ny webbapp i Azure och aktivera kontinuerlig distribution med en förgrening av den här GitHub-lagringsplatsen. Följ den här [självstudien](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) om du vill konfigurera kontinuerlig distribution med GitHub i Azure.
 
 När du distribuerar till Azure bör du ta bort dina programnycklar och kontrollera att avsnittet nedan inte har kommenterats bort:
 
@@ -149,11 +149,11 @@ Du måste sedan lägga till MONGOURL, MONGO_PASSWORD och MONGO_USERNAME i progra
 Om du inte vill skapa en förgrening av den här lagringsplatsen kan du även klicka på knappen nedan för att distribuera till Azure. Du bör sedan gå till Azure och konfigurera programinställningarna med dina uppgifter för Cosmos DB-kontot.
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
-<img src="http://azuredeploy.net/deploybutton.png"/>
+<img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]
-> Om du planerar att lagra din kod i Github eller något annat alternativ för källåtkomstkontroll måste du tänka på att ta bort anslutningssträngarna från koden. De kan anges med programinställningar för webbappen i stället.
+> Om du planerar att lagra din kod i GitHub eller något annat alternativ för källåtkomstkontroll måste du tänka på att ta bort anslutningssträngarna från koden. De kan anges med programinställningar för webbappen i stället.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 

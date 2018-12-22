@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Nyhetssökning i Bing, C#'
+title: Ansluta till API för nyhetssökning i Bing med anslutna tjänster i Visual Studio och C#
 titleSuffix: Azure Cognitive Services
 description: Ansluta till Nyhetssökning i Bing från en ASP.NET Core-webbapp.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: f1f5c590216975ce6b0813da6d9d98279d591454
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d08250c060184ceb49e5ab263e229ddaa08b6ec
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804352"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257768"
 ---
-# <a name="tutorial-connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Självstudie: Ansluta till API för nyhetssökning i Bing med anslutna tjänster i Visual Studio
+# <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Självstudie: Ansluta till API för nyhetssökning i Bing med anslutna tjänster i Visual Studio och C#
 
 Du kan aktivera appar och tjänster för att dra nytta av en annonsfri sökmotor som omfattar webben. Nyhetssökning i Bing är en av de söktjänster som är tillgängliga med Cognitive Services.
 

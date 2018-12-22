@@ -11,14 +11,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 clicktale: true
 ms.date: 04/10/2018
-ms.openlocfilehash: a41042dc72fc7883d5b3185453eab446a1378ce4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d8869d21be84ea886dd2ea7db48c60b1a308f807
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832317"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098125"
 ---
-# <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Snabbstart: Skapa en .NET-webbapp med Azure Cosmos DB med SQL API:t och Azure-portalen
+# <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Snabbstart: Skapa en .NET-webbapp med Azure Cosmos DB med hjälp av SQL API och Azure Portal
 
 > [!div class="op_single_selector"]
 > * [NET](create-sql-api-dotnet.md)
@@ -120,7 +120,7 @@ Följande kodfragment är alla hämtade från filen DocumentDBRepository.cs.
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. I [Azure-portalen](http://portal.azure.com/) går du till ditt Azure Cosmos DB-konto. Välj **Nycklar** i det vänstra navigeringsfönstret och sedan **läs- och skrivnycklar**. Du använder kopiera-knapparna till höger på skärmen för att kopiera URI:n och primärnyckeln i web.config-filen i nästa steg.
+1. I [Azure-portalen](https://portal.azure.com/) går du till ditt Azure Cosmos DB-konto. Välj **Nycklar** i det vänstra navigeringsfönstret och sedan **läs- och skrivnycklar**. Du använder kopiera-knapparna till höger på skärmen för att kopiera URI:n och primärnyckeln i web.config-filen i nästa steg.
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
 

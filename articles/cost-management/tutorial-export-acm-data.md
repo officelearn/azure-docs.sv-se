@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.custom: seodec18
+ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822372"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087941"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Självstudie: Skapa och hantera exporterade data
 
@@ -50,11 +50,11 @@ Cost Management + fakturering &gt; Cost Management &gt; välj en prenumeration e
 
 Skriv ett namn för exporten och välj alternativet ”Daily export of month-to-date costs” (Daglig export av kostnader hittills under månaden). Klicka på **Nästa**.
 
-![Ny export: exporttyp](./media/tutorial-export-acm-data/basics_exports.png)
+![Nytt exempel som visar exporttyp](./media/tutorial-export-acm-data/basics_exports.png)
 
 Ange prenumerationen för ditt Azure Storage-konto och välj sedan ditt lagringskonto.  Ange den lagringscontainer och den katalogsökväg som du vill att exportfilen ska gå till.  Klicka på **Nästa**.
 
-![Ny export: lagring](./media/tutorial-export-acm-data/storage_exports.png)
+![Nytt exportexempel som visar information om lagringskonto](./media/tutorial-export-acm-data/storage_exports.png)
 
 Granska exportinformationen och klicka på **Skapa**.
 
@@ -68,15 +68,15 @@ Du kan enkelt kontrollera att dina Cost Management-data samlas in och visa den e
 
 I exportlistan klickar du på lagringskontots namn. På sidan för lagringskontot klickar du på Öppna i Explorer. Om du ser en bekräftelseruta klickar du på **Ja** för att öppna filen i Azure Storage Explorer.
 
-![Sida för lagringskonto](./media/tutorial-export-acm-data/storage-account-page.png)
+![Lagringskontosidan som visar exempelinformation och länkar till Öppna i Explorer](./media/tutorial-export-acm-data/storage-account-page.png)
 
 I Storage Explorer navigerar du till den container som du vill öppna och väljer den mapp som motsvarar aktuell månad. En lista med CSV-filer visas. Välj en och klicka sedan på **Öppna**.
 
-![Storage Explorer](./media/tutorial-export-acm-data/storage-explorer.png)
+![Exempel på information som visas i Storage Explorer](./media/tutorial-export-acm-data/storage-explorer.png)
 
 Filen öppnas med det program eller den app som är inställt på att öppna CSV-filnamnstillägg. Här är ett exempel i Excel.
 
-![Exempeldata för export](./media/tutorial-export-acm-data/example-export-data.png)
+![Exempel på exporterade CSV-data som visas i Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
 ## <a name="access-exported-data-from-other-systems"></a>Komma åt exporterade data från andra system
 

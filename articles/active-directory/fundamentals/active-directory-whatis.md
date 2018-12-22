@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure Active Directory | Microsoft Docs
+title: Vad är Azure Active Directory? | Microsoft Docs
 description: Lär dig om Azure Active Directory, bland annat terminologi som krävs, målgrupp, grunderna i licensiering och associerade funktioner.
 services: active-directory
 author: eross-msft
@@ -8,12 +8,13 @@ ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
-ms.openlocfilehash: 1b1561ed8470c39b13def72774e253db28bf58d8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686593"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085934"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory? 
 Azure Active Directory (Azure AD) är Microsofts molnbaserade identitets- och åtkomshanteringstjänst. Azure AD hjälper dina medarbetare att logga in och få åtkomst till resurser i:
@@ -51,7 +52,7 @@ För att förbättra din Azure AD-implementering kan du lägga till betalfunktio
 
 - **Funktionslicenser med användningsbaserad betalning.** Du finns även extra funktionslicenser, till exempel Azure Active Directory Business-to-Customer (B2C). B2C kan hjälpa dig att ge identitets- och åtkomsthanteringslösningar för dina kundriktade appar. Mer information finns i [Azure Active Directory B2C-dokumentationen](../../active-directory-b2c/index.yml).
 
-Mer information om hur du associerar en Azure-prenumeration med Azure AD finns i [How to: Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) (Så här kopplar du eller lägger till en Azure-prenumeration till Azure Active Directory) och mer information om tilldelning av licenser till dina användare finns i [How to: Assign or remove Azure Active Directory licenses](license-users-groups.md) (Så här tilldelar eller tar du bort Azure Active Directory-licenser).
+Mer information om hur du kopplar en Azure-prenumeration till Azure AD finns i [: Hur du: Kopplar eller lägger till en Azure-prenumeration till Azure Active Directory](active-directory-how-subscriptions-associated-directory.md). Mer information om att tilldela licenser till användare finns i [Hur du: Tilldela eller ta bort licenser i Azure Active Directory](license-users-groups.md).
 
 ## <a name="terminology"></a>Terminologi
 För att bättre förstå Azure AD och dess dokumentation bör du läsa följande termer.

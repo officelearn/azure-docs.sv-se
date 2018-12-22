@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Notebooks | Microsoft Docs
-description: Kör Jupyter-notebooks i molnet med den kostnadsfria Azure Notebooks-tjänsten.
+title: Översikt över Azure Notebooks
+description: Kör Jupyter-notebooks i molnet med den kostnadsfria Azure Notebooks-tjänsten där varken installation eller konfiguration krävs.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a84f71c2656c73867ee076d4b993026558a0a504
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 92cfdea12dc51884ea04ed894a79ded7f532d88b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853546"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085407"
 ---
 # <a name="overview-of-azure-notebooks"></a>Översikt över Azure Notebooks
 
-Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. [Jupyter](http://jupyter.org/) (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera Markdown-text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbetsyta, *notebook-filen* (bilden tillhör jupyter.org):
+Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. [Jupyter](https://jupyter.org/) (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera Markdown-text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbetsyta, *notebook-filen* (bilden tillhör jupyter.org):
 
-[![](http://jupyter.org/assets/jupyterpreview.png "Jupyter Notebooks")](http://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![](https://jupyter.org/assets/jupyterpreview.png "Jupyter Notebooks")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Tack vare den här kraftfulla kombinationen av kod, grafik och förklarande text har Jupyter blivit populärt för många användningsområden, däribland datavetenskapsinstruktion, datarensning och transformering, numerisk simulering, statistisk modellering och utveckling av maskininlärningsmodeller.
 
@@ -51,7 +51,7 @@ Eftersom Azure Notebooks är en allmän plattform för skrivande, körning och d
 Kort sagt hjälper Azure Notebooks dig att utföra ditt arbete effektivare och därmed uppnå mer.
 
 > [!Note]
-> Mer information om Jupyter i sig finns på [jupyter.org](http://jupyter.org/) och i [Jupyter-dokumentationen](http://jupyter-notebook.readthedocs.io/en/latest/).
+> Mer information om Jupyter i sig finns på [jupyter.org](https://jupyter.org/) och i [Jupyter-dokumentationen](https://jupyter-notebook.readthedocs.io/en/latest/).
 
 ## <a name="pricing-and-quotas"></a>Priser och kvoter
 
@@ -71,7 +71,7 @@ För varje notebook-fil väljer du den kernel (det vill säga körningsmiljö) s
 
 Azure Notebooks innehåller även extra paket utöver de grundläggande distributionerna. Python-kernlarna innehåller till exempel biblioteken numpy, pandas, scikit-learn, matplotlib och bokeh.
 
-Du kan även anpassa ett projekt för att skapa en miljö för alla de notebook-filer i projektet. Mer information finns i [Snabbstart: Skapa ett projekt med en anpassad miljö](quickstart-create-jupyter-notebook-project-environment.md).
+Du kan även anpassa ett projekt för att skapa en miljö för alla de notebook-filer i projektet. Mer information finns i [ Snabbstart: Skapa ett projekt med en anpassad miljö](quickstart-create-jupyter-notebook-project-environment.md).
 
 Utöver de grundläggande distributionerna levereras Azure Notebooks förinstallerat med många extra paket som är användbara för dataexperter. Du kan även installera egna paket med hjälp av den typiska processen för varje språk.
 

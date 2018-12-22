@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f08de2398174363604576874627026dcc6199ac5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282517"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104670"
 ---
-# <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatisera storleksändring av överförda bilder med Event Grid
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: Automatisera storleksändring av överförda bilder med Event Grid
 
 [Azure Event Grid](overview.md) är en händelsetjänst för molnet. Med Event Grid kan du skapa prenumerationer på händelser som genereras av Azure-tjänster eller resurser från tredje part.  
 
-Den här självstudien är del två i en serie med Storage-självstudier. Den bygger vidare på [föregående Storage-självstudie][previous-tutorial] och lägger till serverfri och automatisk generering av miniatyrbilder med Azure Event Grid och Azure Functions. Event Grid gör att [Azure Functions](..\azure-functions\functions-overview.md) kan svara på [Azure Blob Storage](..\storage\blobs\storage-blobs-introduction.md)-händelser och generera miniatyrbilder av bilder som laddats upp. En händelseprenumeration skapas mot skapandehändelsen i Blob Storage. När en blob läggs till i en viss Blob-lagringscontainer anropas en funktionsslutpunkt. Data som skickas till funktionsbindningen från Event Grid används till att få åtkomst till bloben och generera miniatyrbilden.
+Den här självstudien är del två i en serie med Storage-självstudier. Den bygger vidare på [föregående Storage-självstudie][previous-tutorial] och lägger till serverfri och automatisk generering av miniatyrbilder med Azure Event Grid och Azure Functions. Event Grid gör att [Azure Functions](../azure-functions/functions-overview.md) kan svara på [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)-händelser och generera miniatyrbilder av bilder som laddats upp. En händelseprenumeration skapas mot skapandehändelsen i Blob Storage. När en blob läggs till i en viss Blob-lagringscontainer anropas en funktionsslutpunkt. Data som skickas till funktionsbindningen från Event Grid används till att få åtkomst till bloben och generera miniatyrbilden.
 
 Du kan använda Azure CLI och Azure-portalen till att lägga till funktionen för storleksändring i en befintlig app för uppladdning av bilder.
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 
 För att slutföra den här självstudien behöver du:
 
-Du måste ha slutfört föregående Blob Storage-självstudie: [Överför bilddata i molnet med Azure Storage][previous-tutorial].
+Du måste ha slutfört den föregående Blob Storage-självstudien: [Ladda upp avbildningsdata i molnet med Azure Storage][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -89,7 +89,7 @@ Nu måste du konfigurera funktionsappen så att den ansluts till Blob Storage-ko
 
 ## <a name="configure-the-function-app"></a>Konfigurera funktionsappen
 
-Funktionen behöver anslutningssträngen för att ansluta till bloblagringskontot. Funktionskoden som du distribuerar till Azure i följande steg letar efter anslutningssträngen i appinställningen myblobstorage_STORAGE, och den letar efter miniatyrbildens behållarnamn i appinställningen myContainerName. Hämta anslutningssträngen med kommandot [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Ange programinställningar med kommandot [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+Funktionen behöver anslutningssträngen för att ansluta till bloblagringskontot. Funktionskoden som du distribuerar till Azure i följande steg letar efter anslutningssträngen i appinställningen myblobstorage_STORAGE, och den letar efter miniatyrbildens behållarnamn i appinställningen myContainerName. Visa anslutningssträngen med kommandot [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Ange programinställningar med kommandot [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
 
 I följande CLI-kommandon är `<blob_storage_account>` namnet på det bloblagringskonto du skapade i föregående självstudie.
 
@@ -200,6 +200,6 @@ Gå vidare till del tre i Storage-självstudien om du vill lära dig om säker �
 > [Säker åtkomst till programdata i molnet](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 + Mer information om Event Grid finns i [En introduktion till Azure Event Grid](overview.md). 
-+ Om du vill prova en annan självstudie om Azure Functions kan du läsa [Skapa en funktion som kan integreras med Azure Logic Apps](..\azure-functions\functions-twitter-email.md). 
++ Om du vill prova en annan självstudie om Azure Functions kan du läsa [Skapa en funktion som kan integreras med Azure Logic Apps](../azure-functions/functions-twitter-email.md). 
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md

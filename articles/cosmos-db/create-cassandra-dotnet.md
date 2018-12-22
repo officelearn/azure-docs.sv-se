@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Cassandra API med .NET – Azure Cosmos DB'
+title: 'Snabbstart: API för Cassandra med .NET – Azure Cosmos DB'
 description: Den här snabbstarten visar hur du använder Cassandra API i Azure Cosmos DB för att skapa ett profilprogram med Azure-portalen och .NET
 services: cosmos-db
 ms.service: cosmos-db
@@ -10,17 +10,17 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3708027b766ff9070831dd3677e821565e0dd4fa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50c2362e961d882afc109a0554303d364d52384b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994963"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089440"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med .NET och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](create-cassandra-dotnet.md)
+> * [NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
@@ -96,7 +96,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 * Infoga användarentiteter med hjälp av IMapper-objektet med en ny session som ansluter till uprofile keyspace.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Fråga för att hämta alla användares information.
@@ -118,7 +118,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. Informationen i anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. På [Azure-portalen](http://portal.azure.com/) väljer du **Anslutningssträng**.
+1. På [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**.
 
     Använd ![Knappen Kopiera](./media/create-cassandra-dotnet/copy.png) knappen på höger sida av skärmen för att kopiera värdet ANVÄNDARNAMN.
 

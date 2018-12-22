@@ -1,5 +1,5 @@
 ---
-title: Vad är bildsökning i Bing?
+title: Vad är API:et för bildsökning i Bing?
 titleSuffix: Azure Cognitive Services
 description: Med API:et för bildsökning i Bing kan du använda Bings kognitiva bildsökningsfunktioner i programmet. Genom att skicka användarsökfrågor med API:et kan du hämta och visa relevanta och högkvalitativa avbildningar som liknar Bing-avbildningar.
 services: cognitive-services
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
-ms.openlocfilehash: 5d5d69eea3a064679cbc5ddc41891a73e77e55ea
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: eb5f508916ef0944a61d556725ae1ba04123584b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295367"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258312"
 ---
-# <a name="what-is-bing-image-search"></a>Vad är bildsökning i Bing?
+# <a name="what-is-the-bing-image-search-api"></a>Vad är API:et för bildsökning i Bing?
 
 Med API:et för bildsökning i Bing kan du använda Bings kognitiva bildsökningsfunktioner i programmet. Genom att skicka användarsökfrågor med API:et kan du hämta och visa relevanta och högkvalitativa avbildningar som liknar [Bing-avbildningar](https://www.bing.com/images).
 

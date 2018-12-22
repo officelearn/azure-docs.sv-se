@@ -3,110 +3,167 @@ title: 'Snabbstart: Hämta meningslängder, Go – Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du hämta längden på meningar i text med hjälp av Translator Text-API:et med Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: erhopf
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/29/2018
+ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 92ea2291760edf16863dc58a00bac4389f818e72
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 71b88afeb941e6b635548468e634e07597318116
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644937"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994087"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-go"></a>Snabbstart: Hämta meningslängder med Translator Text REST API (Go)
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Snabbstart: Använda Translator Text API för att fastställa meningslängd med hjälp av Go
 
-I den här snabbstarten ska du hämta längden på meningar i text med hjälp av Translator Text-API:et.
+I den här snabbstarten lär du dig att fastställa meningslängder (i antal tecken) med hjälp av Go och Translator Text REST API.
+
+För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du måste installera [Go-distributionen](https://golang.org/doc/install) för att köra koden. Exempelkoden använder endast **core**-bibliotek, så det finns inga externa beroenden.
+För den här snabbstarten krävs:
 
-För att använda Translator Text-API:et behöver du också en prenumerationsnyckel. Mer information finns i [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Så här registrerar du dig för Translator Text-API:et).
+* [Go](https://golang.org/doc/install)
+* En Azure-prenumerationsnyckel för Translator Text
 
-## <a name="breaksentence-request"></a>BreakSentence-begäran
+## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Följande kod delar in källtexten i meningar med hjälp av metoden [BreakSentence](./reference/v3-0-break-sentence.md).
+Skapa ett nytt Go-projekt med valfri IDE eller valfritt redigeringsprogram. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `sentence-length.go`.
 
-1. Skapa ett nytt Go-projekt i valfri kodredigerare.
-2. Lägg till koden nedan.
-3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Spara filen med tillägget .go.
-5. Öppna en kommandotolk på en dator där Go är installerat.
-6. Skapa filen, till exempel ”go build quickstart-sentences.go”.
-7. Kör filen, till exempel: ”quickstart-sentences”.
-
-```golang
+```go
 package main
 
 import (
+    "bytes"
     "encoding/json"
     "fmt"
-    "io/ioutil"
+    "log"
     "net/http"
-    "strconv"
-    "strings"
-    "time"
+    "net/url"
+    "os"
 )
+```
 
+## <a name="create-the-main-function"></a>Skapa Main-funktionen
+
+Det här exemplet kommer att försöka läsa din Translator Text-prenumerationsnyckel från miljövariabeln `TRANSLATOR_TEXT_KEY`. Om du inte känner till miljövariabler kan du ange `subscriptionKey` som en sträng och kommentera bort den villkorliga instruktionen.
+
+Kopiera den här koden till projektet:
+
+```go
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    const uriBase = "https://api.cognitive.microsofttranslator.com"
-    const uriPath = "/breaksentence?api-version=3.0"
-
-    const uri = uriBase + uriPath
-
-    const text = "How are you? I am fine. What did you do today?"
-
-    r := strings.NewReader("[{\"Text\" : \"" + text + "\"}]")
-
-    client := &http.Client{
-        Timeout: time.Second * 2,
+    /*
+     * Read your subscription key from an env variable.
+     * Please note: You can replace this code block with
+     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+     * want to use env variables.
+     */
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
+    if subscriptionKey == "" {
+       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
     }
-
-    req, err := http.NewRequest("POST", uri, r)
-    if err != nil {
-        fmt.Printf("Error creating request: %v\n", err)
-        return
-    }
-
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.FormatInt(req.ContentLength, 10))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    resp, err := client.Do(req)
-    if err != nil {
-        fmt.Printf("Error on request: %v\n", err)
-        return
-    }
-    defer resp.Body.Close()
-
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        fmt.Printf("Error reading response body: %v\n", err)
-        return
-    }
-
-    var f interface{}
-    json.Unmarshal(body, &f)
-
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
-    if err != nil {
-        fmt.Printf("Error producing JSON: %v\n", err)
-        return
-    }
-    fmt.Println(string(jsonFormatted))
+    /*
+     * This calls our breakSentence function, which we'll
+     * create in the next section. It takes a single argument,
+     * the subscription key.
+     */
+    breakSentence(subscriptionKey)
 }
 ```
 
-## <a name="breaksentence-response"></a>BreakSentence-svar
+## <a name="create-a-function-to-determine-sentence-length"></a>Skapa en funktion för att fastställa meningslängd
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
+Låt oss skapa en funktion för att fastställa meningslängd. Den här funktionen använder ett enda argument, din Translator Text-prenumerationsnyckel.
+
+```go
+func breakSentence(subscriptionKey string) {
+    /*  
+     * In the next few sections, we'll add code to this
+     * function to make a request and handle the response.
+     */
+}
+```
+
+Därefter ska vi skapa URL:en. URL:en skapas med metoderna `Parse()` och `Query()`. Lägg märke till att parametrar läggs till med `Add()`-metoden.
+
+Kopiera den här koden till funktionen `breakSentence`.
+
+```go
+// Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0")
+q := u.Query()
+q.Add("languages", "en")
+u.RawQuery = q.Encode()
+```
+
+>[!NOTE]
+> Mer information om slutpunkter, vägar och att begära parametrar finns i [Translator Text API 3.0: BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+
+## <a name="create-a-struct-for-your-request-body"></a>Skapa en struktur för begärandetexten
+
+Skapa sedan en anonym struktur för begärandetexten och koda den som JSON med `json.Marshal()`. Lägg till den här koden i funktionen `breakSentence`.
+
+```go
+// Create an anonymous struct for your request body and encode it to JSON
+body := []struct {
+    Text string
+}{
+    {Text: "How are you? I am fine. What did you do today?"},
+}
+b, _ := json.Marshal(body)
+```
+
+## <a name="build-the-request"></a>Skapa begäran
+
+Nu när du har kodat begärandetexten som JSON, kan du skapa din POST-begäran och anropa Translator Text API.
+
+```go
+// Build the HTTP POST request
+req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+if err != nil {
+    log.Fatal(err)
+}
+// Add required headers to the request
+req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Content-Type", "application/json")
+
+// Call the Translator Text API
+res, err := http.DefaultClient.Do(req)
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+## <a name="handle-and-print-the-response"></a>Hantera och skriva ut svaret
+
+Lägg till den här koden i funktionen `breakSentence` för att avkoda JSON-svaret. Formatera och skriv sedan ut resultatet.
+
+```go
+// Decode the JSON response
+var result interface{}
+if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+    log.Fatal(err)
+}
+// Format and print the response to terminal
+prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+fmt.Printf("%s\n", prettyJSON)
+```
+
+## <a name="put-it-all-together"></a>Färdigställa allt
+
+Det var allt – du har skapat ett enkelt program som anropar Translator Text API och returnerar en JSON-svar. Nu är det dags att köra programmet:
+
+```console
+go run sentence-length.go
+```
+
+Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
+
+## <a name="sample-response"></a>Exempelsvar
 
 ```json
 [
@@ -130,3 +187,13 @@ Utforska Go-paket för API:er för Cognitive Services via [Azure SDK för Go](ht
 
 > [!div class="nextstepaction"]
 > [Utforska Go-paket på GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+
+## <a name="see-also"></a>Se även
+
+Lär dig att använda Translator Text API till att:
+
+* [Översätta text](quickstart-go-translate.md)
+* [Translitterera text](quickstart-go-transliterate.md)
+* [Identifiera språket efter indata](quickstart-go-detect.md)
+* [Hämta alternativa översättningar](quickstart-go-dictionary.md)
+* [Hämta en lista över språk som stöds](quickstart-go-languages.md)

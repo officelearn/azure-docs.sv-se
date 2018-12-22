@@ -1,5 +1,6 @@
 ---
-title: Översikt över Azure Load Balancer | Microsoft Docs
+title: Vad är Azure Load Balancer?
+titlesuffix: Azure Load Balancer
 description: Översikt över funktioner, arkitektur och implementering av Azure Load Balancer-funktioner. Lär dig hur Load Balancer fungerar och utnyttja den i molnet.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219587"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185621"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -27,7 +29,7 @@ Load Balancer fördelar nya inkommande flöden på lastbalanserarens poolinstans
 
 Dessutom kan en offentlig lastbalanserare ge utgående anslutningar för virtuella datorer genom att översätta deras privata IP-adresser till offentliga IP-adresser.
 
-Azure Load Balancer är tillgänglig för två SKU:er: Basic and Standard. Det finns skillnader i skala, funktioner och priser. Alla scenarier som är möjliga med en Basic Load Balancer kan även skapas med Standard Load Balancer, men metoderna kan skilja sig något. När du lär dig om Load Balancer är det viktigt att du bekantar dig med grunderna och SKU-specifika skillnader.
+Azure Load Balancer finns tillgänglig i två SKU:er: Basic och Standard. Det finns skillnader i skala, funktioner och priser. Alla scenarier som är möjliga med en Basic Load Balancer kan även skapas med Standard Load Balancer, men metoderna kan skilja sig något. När du lär dig om Load Balancer är det viktigt att du bekantar dig med grunderna och SKU-specifika skillnader.
 
 ## <a name="why-use-load-balancer"></a>Varför använda Load Balancer? 
 
@@ -62,7 +64,7 @@ Load Balancer har följande grundläggande funktioner för TCP- och UDP-program:
 
     ![Hash-baserad distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *Bild: Hash-baserad distribution*
+    *Figur: Hash-baserad distribution*
 
 * **Portvidarebefordran**
 
@@ -86,7 +88,7 @@ Load Balancer har följande grundläggande funktioner för TCP- och UDP-program:
      
     Load Balancer har [olika hälsoavsökningstyper](load-balancer-custom-probe-overview.md#types) för TCP-, HTTP- och HTTPS-slutpunkter.
 
-    Och när du använder klassiska molntjänster tillåts en ytterligare typ: [gästagent](load-balancer-custom-probe-overview.md#guestagent).  Det här ska ses som en hälsoavsökning som sista utväg och rekommenderas inte när andra alternativ är genomförbara.
+    När du använder klassiska molntjänster tillåts dessutom en ytterligare typ:  [Gästagent](load-balancer-custom-probe-overview.md#guestagent).  Det här ska ses som en hälsoavsökning som sista utväg och rekommenderas inte när andra alternativ är genomförbara.
     
 * **Utgående anslutningar (SNAT)**
 
@@ -129,7 +131,7 @@ I följande bild visas en belastningsutjämnad slutpunkt för webbtrafik som del
 
 ![Exempel på offentlig lastbalanserare](./media/load-balancer-overview/IC727496.png)
 
-*Bild: Belastningsutjämning av webbtrafik med hjälp av en offentlig lastbalanserare*
+*Figur: Belastningsutjämning av webbtrafik med hjälp av en offentlig Load Balancer*
 
 När Internetklienter skickar begäranden för webbsidor till den offentliga IP-adressen för en webbapp på TCP-port 80 distribuerar Azure Load Balancer begäranden mellan de tre virtuella datorer i den belastningsutjämnade uppsättningen. Mer information om Load Balancer-algoritmer finns i avsnittet [Load Balancer-funktioner](load-balancer-overview.md##fundamental-load-balancer-features) i den här artikeln.
 
@@ -141,14 +143,14 @@ En intern lastbalanserare dirigerar trafik bara till resurser som finns i ett vi
 
 En intern lastbalanserare möjliggör följande typer av belastningsutjämning:
 
-* **Inom ett virtuellt nätverk**: Belastningsutjämning från virtuella datorer i det virtuella nätverket till en uppsättning virtuella datorer som finns i samma virtuella nätverk.
+* **Inom ett virtuellt nätverk**: Belastningsutjämning från virtuella datorer i det virtuella nätverket, till en uppsättning virtuella datorer som finns i samma virtuella nätverk.
 * **För ett virtuellt nätverk mellan olika platser**: Belastningsutjämning från lokala datorer till en uppsättning virtuella datorer som finns i samma virtuella nätverk. 
-* **För flernivåprogram**: Belastningsutjämning för Internetanslutna flernivåprogram när serverdelsnivåerna inte är Internetanslutna. Serverdelsnivåerna kräver belastningsutjämning av trafik från Internetansluten nivå (se nästa bild).
+* **För flernivåprogram**: Belastningsutjämning för flernivåprogram på Internet när serverdelsnivåerna inte är Internetanslutna. Serverdelsnivåerna kräver belastningsutjämning av trafik från Internetansluten nivå (se nästa bild).
 * **För verksamhetsspecifika appar**: Belastningsutjämning för verksamhetsspecifika appar som finns i Azure utan ytterligare maskin- eller programvara för belastningsutjämning. Det här scenariot innehåller lokala servrar som finns i uppsättningen datorer vars trafik är belastningsutjämnad.
 
 ![Exempel på intern lastbalanserare](./media/load-balancer-overview/IC744147.png)
 
-*Bild: Belastningsutjämning av flernivåprogram med hjälp av både offentlig och intern lastbalanserare*
+*Figur: Belastningsutjämning av flernivåprogram med hjälp av både en offentlig och en intern Load Balancer*
 
 ## <a name="pricing"></a>Prissättning
 Standard Load Balancer-användning debiteras baserat på antalet konfigurerade belastningsutjämningsregler och mängden bearbetade inkommande och utgående data. Prisinformation om Standard Load Balancer finns på sidan med [Load Balancer-priser](https://azure.microsoft.com/pricing/details/load-balancer/).

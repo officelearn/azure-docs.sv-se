@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 48e338a08330e0674cc4410adf135ec546a5e1c3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230605"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084024"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
 
@@ -75,20 +75,20 @@ Application Insights samlar in eventuella fel i programmet, och du kan se frekve
     ![Undantagsinformation](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identifiera felaktig kod
-Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. Du kan sedan felsöka källkoden genom att ladda ned ögonblicksbilden och öppna den i Visual Studio 2017.
+Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. Efteråt kan du felsöka källkoden genom att ladda ned ögonblicksbilden och öppna den i Visual Studio 2017 Enterprise.
 
 1. Klicka på **Open debug snapshot** (Öppna ögonblicksbild för felsökning) i egenskaperna för undantaget.
 2. Panelen **Debug Snapshot** (Ögonblicksbild för felsökning) öppnas med anropsstacken för förfrågningen.  Om du klickar på en metod visas värdena för alla lokala variabler vid tidpunkten för förfrågningen.  Om du börjar med den översta metoden i det här exemplet ser vi att det finns lokala variabler som inte har något värde.
 
     ![Ögonblicksbild för felsökning](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. Det första anropet som har giltiga värden är **ValidZipCode**, och vi kan se att ett postnummer angavs tillsammans med bokstäver som inte kan översättas till ett heltal.  Det här verkar vara felet i koden som måste åtgärdas.
+3. Det första anropet som har giltiga värden är **ValidZipCode**, och vi kan se att ett postnummer angavs tillsammans med bokstäver som inte kan översättas till ett heltal.  Det här verkar vara felet i koden som måste åtgärdas.
 
     ![Ögonblicksbild för felsökning](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. Om du vill ladda ned den här ögonblicksbilden till Visual Studio och leta rätt på den faktiska kod som måste åtgärdas klickar du på **Download Snapshot** (Ladda ned ögonblicksbild).
-6. Ögonblicksbilden läses in i Visual Studio.
-7. Nu kan du köra en felsökningssession i Visual Studio som snabbt identifierar vilken kodrad som orsakar undantaget.
+4. Sedan kan du ladda ned den här ögonblicksbilden till Visual Studio och leta rätt på den faktiska kod som behöver åtgärdas. Det gör du genom att klicka på **Ladda ned ögonblicksbild**.
+5. Ögonblicksbilden läses in i Visual Studio.
+6. Nu kan du köra en felsökningssession i Visual Studio Enterprise som snabbt identifierar vilken kodrad som orsakade undantaget.
 
     ![Undantag i kod](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 

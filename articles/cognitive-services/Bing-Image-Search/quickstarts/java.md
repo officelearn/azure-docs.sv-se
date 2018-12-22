@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Utföra en bildsökning med Java – API för bildsökning i Bing'
+title: 'Snabbstart: Sök efter bilder – API för bildsökning i Bing och Java'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten för att göra ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla Java-programmet skickar en sökfråga till API:et och visar rådataresultat.
+description: Använd den här snabbstarten när du vill skicka bildsökningsbegäranden till REST-API:et för bildsökning i Bing med hjälp av Java och få JSON-svar.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -11,16 +11,17 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 63add2406b4535747c09299ecc0df6d1b6b47da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 17dcf33074e7ee097a8778b3b867cb196cd814c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315876"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258176"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>Snabbstart: Skicka sökfrågor med REST API för bildsökning i Bing och Java
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Snabbstart: Sök efter bilder med API:et för bildsökning i Bing och Java
 
-Använd den här snabbstarten för att göra ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla Java-programmet skickar en sökfråga till API:et och visar rådataresultat.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Det här enkla Java-programmet skickar en sökfråga till API:et och visar rådataresultat.
 
 Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 

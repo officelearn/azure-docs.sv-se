@@ -1,23 +1,24 @@
 ---
-title: 'Självstudie 9: Sentimentanalys med positiva, negativa och neutrala sentiment i LUIS'
+title: Sentimentanalys
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du en app som visar hur det går till att extrahera positiva, negativa och neutrala sentiment från yttranden. Sentimenten bestäms utifrån hela yttrandet.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424858"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098951"
 ---
-# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Självstudie 9: Extrahera sentiment från ett helt yttrande
+# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Självstudie 9:  Extrahera sentiment från ett helt yttrande
 I den här självstudien skapar du en app som visar hur det går till att extrahera positiva, negativa och neutrala sentiment från yttranden. Sentimenten bestäms utifrån hela yttrandet.
 
 Sentimentanalys är förmågan att avgöra om en användares yttrande är positivt, negativt eller neutralt. 
@@ -94,7 +95,7 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
 
 2. Ändra reglaget **Attitydanalys** för att aktivera den här inställningen. 
 
-    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
+    ![Aktivera Attitydanalys som en publiceringsinställning](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
 ## <a name="publish"></a>Publicera
 
@@ -106,7 +107,7 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
 
 2. Gå till slutet av URL:en i adressen och ange `Jill Jones work with the media team on the public portal was amazing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `EmployeeFeedback` med sentimentanalysen extraherad.
     
-    ```JSON
+    ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {

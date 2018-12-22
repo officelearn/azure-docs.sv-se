@@ -1,5 +1,5 @@
 ---
-title: Belastningsutjämningscontainrar i Azure DC/OS-klustret
+title: (INAKTUELL) Belastningsutjämningscontainrar i Azure DC/OS-kluster
 description: Belastningsutjämna mellan flera behållare i ett Azure Container Service DC/OS-kluster.
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 8e8ad913c6e5b8e947b17ed8920285de3fcfd8ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a1883412a5285c4916c43a5c6ad81168096dd7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964368"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993553"
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Belastningsutjämna behållare i ett Azure Container Service DC/OS-kluster
+# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(INAKTUELL) Belastningsutjämna containrar i ett Azure Container Service DC/OS-kluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 I den här artikeln visar vi hur du skapar en intern lastbalanserare i en DC/OS-hanterad Azure Container Service med Marathon-LB. Med den här konfigurationen kan du skala program vågrätt. Du kan också använda offentliga och privata agentkluster genom att placera en lastbalanserare på det offentliga klustret och dina programbehållare på det privata klustret. I den här kursen för du göra följande:
 

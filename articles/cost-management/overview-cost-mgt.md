@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 16e2da864d51cbc44457715813e851fd873c8746
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276677"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997127"
 ---
 # <a name="what-is-azure-cost-management"></a>Vad är Azure Cost Management?
 
@@ -29,7 +29,7 @@ Du kan använda Azure-portalen eller olika API:er för exportautomatisering för
 
 ## <a name="plan-and-control-expenses"></a>Planering och kontrollera utgifter
 
-Cost Management hjälper dig att planera och kontrollera kostnader på följande sätt: kostnadsanalys, budgetar, rekommendationer och export av kostnadshanteringsdata.
+Med Cost Management kan du planera för och styra dina kostnader på följande sätt: Kostnadsanalys, budget, rekommendationer och export av kostnadshanteringsdata.
 
 Du använder kostnadsanalys för att utforska och analysera dina organisationskostnader. Du kan visa aggregerade kostnader efter organisation för att se var kostnader ackumuleras och för att identifiera utgiftstrender. Du kan även se ackumulerade kostnader över tid för att beräkna månatliga, kvartalsvisa eller årliga kostnadstrender mot en budget.
 

@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2673a0ec1e9ed66c9a1bb6e369ad5300a570ba0a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f0ba365096808954c24beb073f3570499fd23523
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240451"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408284"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Vad är villkorsstyrd åtkomst i Azure Active Directory?
 
 Säkerhet är en mycket viktig fråga för organisationer som använder molnet. En viktig aspekt av molnsäkerhet är identitet och åtkomst när det gäller att hantera dina molnresurser. I en mobil- och molnorienterad värld kan användare komma åt organisationens resurser med hjälp av en mängd olika enheter och appar från var som helst. Därför räcker det inte att bara fokusera på vem som kan komma åt en resurs. För att uppnå rätt balans mellan säkerhet och produktivitet måste du även beakta hur åtkomsten till en resurs går till när du fattar ett beslut om åtkomstkontroll. Med villkorsstyrd åtkomst för Azure Active Directory (Azure AD) kan du hantera det här kravet. Villkorsstyrd åtkomst är en funktion i Azure Active Directory. Med villkorsstyrd åtkomst kan du implementera automatiserade beslut för åtkomstkontroll om åtkomst till dina molnappar, baserat på villkor. 
+
+Principer för villkorlig åtkomst tillämpas när den första faktorautentiseringen har slutförts. Villkorlig åtkomst är alltså inte avsedd att vara en mekanism för att till exempel räkna och mäta överbelastningsattacker (DoS).  
 
 ![Kontroll](./media/overview/81.png)
 
@@ -49,13 +51,18 @@ Nedan följer några vanliga problem med åtkomst som villkorsstyrd åtkomst kan
 
 - **[Inloggningsrisk](conditions.md#sign-in-risk)**: Azure AD Identity Protection identifierar inloggningsrisker. Hur begränsar du åtkomsten om en identifierad inloggningsrisk indikerar en obehörig användare? Hur gör du om du behöver starkare bevis på att en inloggning har utförts av legitim användare? Hur gör du om du har misstankar som är starka nog att du vill även blockera enskilda användare från att komma åt en app?  
 
-- **[Nätverksplats](location-condition.md)**: Azure AD kan användas från var som helst. Vad händer om en åtkomstförsök utförs från en nätverksplats som inte kontrolleras av IT-avdelningen? En kombination av användarnamn och lösenord kan vara tillräckligt bra som identitetsbevis för åtkomstförsök från företagsnätverket. Hur gör du om du kräver starkare identitetsbevis för åtkomstförsök som initieras från andra oväntade länder eller regioner i världen? Och kanske vill du till och med blockera åtkomstförsök från vissa regioner?  
+- **[Nätverksplats](location-condition.md)**: Azure AD kan användas från alla platser. Vad händer om en åtkomstförsök utförs från en nätverksplats som inte kontrolleras av IT-avdelningen? En kombination av användarnamn och lösenord kan vara tillräckligt bra som identitetsbevis för åtkomstförsök från företagsnätverket. Hur gör du om du kräver starkare identitetsbevis för åtkomstförsök som initieras från andra oväntade länder eller regioner i världen? Och kanske vill du till och med blockera åtkomstförsök från vissa regioner?  
 
-- **[Enhetshantering](conditions.md#device-platforms)**: I Azure AD kan användare komma åt molnappar från en mängd olika enheter, inklusive mobila och personliga enheter. Vill du kräva att åtkomstförsök endast utförs med enheter som hanteras av IT-avdelningen? Kanske vill du till och med blockera vissa enhetstyper från att komma åt molnappar i din miljö? 
+- **[Enhetshantering](conditions.md#device-platforms)**: I Azure AD kan användarna komma åt molnappar från en mängd olika enheter, inklusive mobila och privata enheter. Vill du kräva att åtkomstförsök endast utförs med enheter som hanteras av IT-avdelningen? Kanske vill du till och med blockera vissa enhetstyper från att komma åt molnappar i din miljö? 
 
-- **[Klientprogram](conditions.md#client-apps)**: I dag kan du komma åt många molnappar med hjälp av olika apptyper, till exempel webbaserade appar, mobilappar och skrivbordsappar. Vad händer om ett åtkomstförsök utförs med en klientapptyp som orsakar kända problem? Hur gör du om du kräver en enhet som hanteras av IT-avdelningen för vissa typer av appar? 
+- **[Klientprogram](conditions.md#client-apps)**: I dag kan du komma åt många molnappar med olika apptyper, till exempel webbaserade appar, mobilappar och skrivbordsappar. Vad händer om ett åtkomstförsök utförs med en klientapptyp som orsakar kända problem? Hur gör du om du kräver en enhet som hanteras av IT-avdelningen för vissa typer av appar? 
 
 Dessa frågor och relaterade svar representerar vanliga åtkomstscenarier för villkorsstyrd åtkomst i Azure AD. Villkorsstyrd åtkomst är en funktion i Azure Active Directory som gör det möjligt att hantera åtkomstscenarier med hjälp av en principbaserad metod.
+
+  
+
+
+> [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
 
 ## <a name="conditional-access-policies"></a>Principer för villkorsstyrd åtkomst
@@ -69,9 +76,9 @@ En principer för villkorsstyrd åtkomst är en definition av ett åtkomstscenar
 
 **Om det här händer** definierar anledningen till att utlösa principen. Den här orsaken kännetecknas av en grupp villkor som uppfylls. I villkorsstyrd åtkomst i Azure AD spelar de två tilldelningsvillkoren en särskild roll:
 
-- **[Användare](conditions.md#users-and-groups)**: de användare som utför ett åtkomstförsök (**Vem**). 
+- **[Användare](conditions.md#users-and-groups)**: Den användare som utför ett åtkomstförsök (**Vem**). 
 
-- **[Molnappar](conditions.md#cloud-apps)**: målen för ett åtkomstförsök (**Vad**).    
+- **[Molnappar](conditions.md#cloud-apps)**: Målet för ett åtkomstförsök (**Vad**).    
 
 De här två villkoren är obligatoriska i en princip för villkorsstyrd åtkomst. Utöver de två obligatoriska villkoren kan du även inkludera ytterligare villkor som beskriver hur åtkomstförsök utförs. Vanliga exempel använder mobila enheter eller platser som ligger utanför företagets nätverk. Mer information finns på sidan om [villkor i villkorsstyrd åtkomst med Azure Active Directory](conditions.md).   
 
@@ -107,7 +114,5 @@ Användning av villkorsstyrd åtkomst kräver en Azure AD Premium-licens. Hitta 
     - Åtkomstkontroller kan du läsa sidan om [åtkomstkontroller i villkorsstyrd åtkomst med Azure Active Directory](controls.md).
 
 - Om du vill få lite erfarenhet med att konfigurera principer för villkorsstyrd åtkomst kan du läsa sidan om att [kräva MFA för specifika appar med villkorsstyrd åtkomst i Azure Active Directory](app-based-mfa.md).
-
-- Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md). 
 
 - Om du vill ha en stegvis distributionsplan med rekommenderade principer kan du läsa sidan om [distributionsplan för villkorsstyrd åtkomst](https://aka.ms/conditionalaccessdeploymentplan)

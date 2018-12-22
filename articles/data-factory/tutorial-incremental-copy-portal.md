@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 342fdce9a0e9b47380a8d8c975703ebb7f57e3b6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087137"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965555"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -43,7 +43,7 @@ I den här självstudiekursen får du göra följande:
 ## <a name="overview"></a>Översikt
 Här är det avancerade diagrammet: 
 
-![Läsa in data stegvis](media\tutorial-Incremental-copy-portal\incrementally-load.png)
+![Läsa in data stegvis](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
 Här är några viktiga steg för att skapa den här lösningen: 
 

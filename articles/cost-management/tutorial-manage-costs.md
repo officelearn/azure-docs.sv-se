@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7d319c82da09ec5c960e1f40bc26edce8ee372b9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274431"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083571"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Självstudie: Hantera kostnader med hjälp av Cloudyn
 
@@ -53,13 +53,11 @@ När du börjar allokera kostnader ska du först definiera omfattningen med hjä
 
 Om du vill skapa en anpassad kostnadsallokeringsmodell väljer du **Kostnader** &gt; **Kostnadshantering** &gt; **Cost Allocation 360°** (Kostnadsallokering 360°) på rapportens meny.
 
-![Kostnadsallokering 360° valt](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Exempel som visar en instrumentpanel där du väljer Kostnadsallokering 360°](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 På sidan **Cost Allocation 360°** (Kostnadsallokering 360°) väljer du **Add** (Lägg till) och ange sedan ett namn och en beskrivning för kostnadsmodellen. Välj antingen alla konton eller enskilda konton. Om du vill använda enskilda konton kan du välja flera konton från flera molntjänstproviders. Klicka sedan på **Categorization** (Kategorisering) för att välja vilka identifierade taggar som kategoriserar dina kostnadsdata. Välj de taggar (kategorier) som du vill ta med i modellen. I följande exempel visas taggen **Unit**.
 
-![Exempel på kategorisering i kostnadsmodell](./media/tutorial-manage-costs/cost-model01.png)
-
-
+![Exempel som visar kategorisering av kostnadsmodell](./media/tutorial-manage-costs/cost-model01.png)
 
 Exemplet visar att 19 680 USD inte är kategoriserade (saknar taggar).
 
@@ -97,7 +95,7 @@ Om du vill definiera en ny regel skapar du den i området **Rules** (Regler). An
 
 Följande bild visar ett exempel på regler som har skapats för en ny kategori som heter **Work-Load**:
 
-![Exempelkategori](./media/tutorial-manage-costs/category01.png)
+![Exempel som visar den nya arbetsbelastningskategorin](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>Taggkällor och rapporter
 
@@ -124,7 +122,7 @@ Vilka metoder som organisationer använder för showback och chargeback varierar
 
 Om du vill visa resultatet av en kostnadsallokering öppnar du Cost Analysis-rapporten och väljer den kostnadsmodell du skapade. Lägg sedan till en gruppering enligt en eller flera av taggarna som valts i kostnadsmodellen.
 
-![Cost Analysis-rapport](./media/tutorial-manage-costs/cost-analysis.png)
+![Kostnadsanalysrapport som visar ett exempel på data från den nya kostnaden](./media/tutorial-manage-costs/cost-analysis.png)
 
 Du kan enkelt skapa och spara rapporter som fokuserar på specifika tjänster som förbrukats av specifika grupper. Du kan till exempel ha en avdelning som använder många virtuella Azure-datorer. Du kan skapa en rapport som har filtrerats på virtuella Azure-datorer för att visa förbrukning och kostnader.
 

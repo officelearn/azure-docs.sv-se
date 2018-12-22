@@ -1,6 +1,6 @@
 ---
-title: Skriptexempel för Azure CLI – Exportera/kopiera ögonblicksbild som VHD till ett lagringskonto i annan region | Microsoft Docs
-description: Skriptexempel för Azure CLI – Exportera/kopiera ögonblicksbild som VHD till ett lagringskonto i samma prenumeration eller i en annan prenumeration
+title: Exempel på Azure CLI – Kopiera en ögonblicksbild till en lagringskonto i en annan region | Microsoft Docs
+description: Skriptexempel för Azure CLI – Exportera/kopiera ögonblicksbild som VHD till ett lagringskonto i samma prenumeration eller i en annan region.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
-ms.custom: mvc
-ms.openlocfilehash: cd555cfea6a84a0bdf0d0c4c9b9b68ae079fbc7b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: mvc,seodec18
+ms.openlocfilehash: bdc9da206e938c0c7fd3d027ee02b11d01a1b4d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852637"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106727"
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>Exportera/kopiera hanterade ögonblicksbilder som VHD till ett lagringskonto i annan region med CLI
+# <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Exportera/kopiera en ögonblicksbild till ett lagringskonto i annan region med CLI
 
 Det här skriptet exporterar en hanterad ögonblicksbild till ett lagringskonto i annan region. Först genererar det SAS-URI för ögonblicksbilden och sedan använder det SAS-URI för att kopiera den till ett lagringskonto i en annan region. Använd det här skriptet för att behålla en säkerhetskopia av dina hanterade diskar i annan region för haveriberedskap. 
 

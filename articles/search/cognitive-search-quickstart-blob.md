@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en pipeline för kognitiv sökning i Azure Search med hjälp av portalen | Microsoft Docs'
+title: 'Snabbstart: Pipeline för kognitiv sökning i Azure Portal – Azure Search'
 description: Kunskaper för dataextrahering, naturligt språk och bildbearbetning på Azure Portal med hjälp av exempeldata.
 manager: cgronlun
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec2018
+ms.openlocfilehash: 7d579bfdaf38b6c06b26cfa7b36f8e4d2ac5a1f2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264136"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386272"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snabbstart: Skapa en pipeline för kognitiv sökning med kunskaper och exempeldata
 
@@ -47,7 +48,9 @@ Du kan prova kognitiva sökning i en Azure Search-tjänst som skapats i någon a
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Körning av kunskapsuppsättning och extrahering och normalisering av bilder erbjuds för närvarande kostnadsfritt. Priserna för dessa funktioner meddelas vid ett senare tillfälle. 
+> Från och med 21 december 2018 kan du koppla en Cognitive Services-resurs med en funktionsuppsättning i Azure Search. Detta gör det möjligt för oss att börja debitera för körning av grundfärdigheter. Samma datum börjar vi också fakturera för bildextrahering som en del av dokumentknäckningsfasen. Textextrahering från dokument kan fortfarande användas utan kostnad.
+>
+> Körningen av inbyggda funktioner faktureras till det befintliga [betala per användning-priset för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättningen för bildextrahering följer prissättningen för förhandsversionen. Mer information finns på [prissättningssidan för Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Läs [mer](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -66,7 +69,7 @@ Börja med att registrera dig för Azure Search-tjänsten.
 
 1. Klicka på **Skapa en resurs**, sök efter Azure Search och klicka på **Skapa**. Läs [Skapa en Azure Search-tjänst på portalen](search-create-service-portal.md) om det är första gången du konfigurerar en söktjänst och du behöver mer hjälp.
 
-  ![Instrumentpanel](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Skapa en Azure Search-tjänst på portalen")
+  ![Instrumentpanel](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Skapa en Azure Search-tjänst på portalen")
 
 1. För Resursgrupp skapar du en resursgrupp som ska innehålla alla resurser som du skapar i den här snabbstarten. På så sätt blir det enklare att rensa resurserna när du är klar med snabbstarten.
 
@@ -76,16 +79,18 @@ Börja med att registrera dig för Azure Search-tjänsten.
 
   En kostnadsfri tjänst är begränsad till 3 index, 16 MB maximal blobstorlek och 2 minuters indexering, vilket är otillräckligt för att dra full nytta av funktionerna i kognitiv sökning. Information om gränserna för olika nivåer finns i [Tjänstbegränsningar](search-limits-quotas-capacity.md).
 
+  ![Tjänstdefinitionssidan i portalen](./media/cognitive-search-tutorial-blob/create-search-service1.png "Tjänstdefinitionssidan i portalen")
+  ![Tjänstdefinitionssidan i portalen](./media/cognitive-search-tutorial-blob/create-search-service2.png "Tjänstdefinitionssidan i portalen")
   > [!NOTE]
-  > Kognitiv sökning är tillgängligt i en offentlig förhandsversion. För närvarande kan du köra kunskapsuppsättningar på alla nivåer, inklusive den kostnadsfria nivån. Priserna för den här funktionen kommer att meddelas längre fram.
+  > Kognitiv sökning är tillgängligt i en offentlig förhandsversion. För närvarande kan du köra kunskapsuppsättningar på alla nivåer, inklusive den kostnadsfria nivån. Du kommer att kunna genomföra ett begränsat antal berikanden utan att behöva associera en betald Cognitive Services-resurs. Läs [mer](cognitive-search-attach-cognitive-services.md).
 
 1. Fäst tjänsten vid instrumentpanelen för snabb åtkomst till tjänstinformation.
 
-  ![Tjänstdefinitionssida på portalen](./media/cognitive-search-tutorial-blob/create-search-service.png "Tjänstdefinitionssida på portalen")
+  ![Tjänstdefinitionssida på portalen](./media/cognitive-search-tutorial-blob/create-search-service3.png "Tjänstdefinitionssida på portalen")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Konfigurera Azure Blob Service och läsa in exempeldata
 
-Berikningspipelinen hämtar data från Azure-datakällor som stöds av [Azure Search-indexerare](search-indexer-overview.md). I den här övningen använder vi blogglagring för att demonstrera flera typer av innehåll.
+Berikningspipelinen hämtar data från Azure-datakällor som stöds av [Azure Search-indexerare](search-indexer-overview.md). Observera att Azure Table Storage inte stöds för kognitiv sökning. I den här övningen använder vi blogglagring för att demonstrera flera typer av innehåll.
 
 1. [Ladda ned exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) som består av en liten filuppsättning med olika typer av data. 
 
@@ -103,14 +108,14 @@ Gå tillbaka till instrumentpanelsidan i Azure Search och klicka på **Importera
 
 I **Anslut till dina data** > **Azure Blob Storage** väljer du kontot och containern som du skapade. Namnge datakällan och lämna standardvärdena för resten av inställningarna. 
 
-   ![Konfiguration av Azure-blob](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   ![Konfiguration av Azure-blob](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
 
 
 Skapa datakällan genom att klicka på **OK**.
 
 En fördel med att använda guiden **Importera data** är att den även kan skapa ditt index. När datakällan skapas, skapar guiden samtidigt ett indexschema. Det kan ta några sekunder att skapa indexet.
 
-### <a name="step-2-add-cognitive-skills"></a>Steg 2: Lägga till kognitiva kunskaper
+### <a name="step-2-add-cognitive-skills"></a>Steg 2: Lägg till kognitiva färdigheter
 
 Nu ska du lägga till berikningssteg till indexeringspipelinen. På portalen finns fördefinierade kognitiva kunskaper för bild- och textanalys. På portalen körs en kunskapsuppsättning mot ett enda källfält. Det kan verka som ett litet mål, men för Azure-blobar innehåller fältet `content` merparten av blobdokumentet (till exempel ett Word-dokument eller en PowerPoint-presentation). Därför är det här fältet idealiskt, eftersom allt innehåll i en blob finns där.
 
@@ -124,7 +129,7 @@ Acceptera definitionen genom att klicka på **OK**.
 
 Kunskaper för bearbetning av naturligt språk körs på textinnehåll i exempeldatamängden. Eftersom vi inte valde några bildbearbetningsalternativ bearbetas inte JPEG-filerna som finns i exempeldatauppsättningen i den här snabbstarten. 
 
-### <a name="step-3-configure-the-index"></a>Steg 3: Konfigurera indexet
+### <a name="step-3-configure-the-index"></a>Step 3: Konfigurera indexet
 
 Kommer du ihåg indexet som skapades med datakällan? I det här steget kan du visa dess schema och ändra inställningar om det behövs. 
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: f54a9e40c4f75704e66c4a3a90ad4b293d1e6309
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 9929662f1fe4612e51c82248f64e3191f7fdb223
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889233"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955215"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-by-using-the-portal"></a>Snabbstart: Konfigurera Azure DNS för namnmatchning med hjälp av portalen
 
@@ -64,11 +64,11 @@ Du skapar DNS-poster för din domän inuti DNS-zonen. Skapa en ny adresspost ell
 
    - **Namn**: Skriv *www*. Postens namn är det värddatornamn som du vill lösa mot den angivna IP-adressen.
    - **Typ**: Välj **A**. ”A”-poster är de vanligaste, men det finns andra posttyper för e-postservrar (”MX”), IPv6-adresser (”AAAA”) och så vidare. 
-   - **TTL**: Skriv *1*. *Time-to-live* för DNS-begäran anger hur länge DNS-servrar och klienter kan cachelagra ett svar.
+   - **TTL**: Typ *1*. *Time-to-live* för DNS-begäran anger hur länge DNS-servrar och klienter kan cachelagra ett svar.
    - **TTL-enhet**: Välj **Timmar**. Det här är tidsenheten för **TTL**-värdet. 
    - **IP-adress**: För det här snabbstartsexemplet skriver du *10.10.10.10*. Det här värdet är den IP-adress som postnamnet matchar till. I ett verkligt scenario skulle du ange den offentliga IP-adressen för din webbserver.
 
-Eftersom den här snabbstarten inte använder en verklig domän behöver du inte konfigurera Azure DNS-namnservrarna hos en domännamnsregistrator. Med en verklig domän vill du att vem som helst på Internet matchar värdnamnet för att ansluta till din webbserver eller app. Du besöker din domännamnsregistrator för att ersätta namnserverposterna med Azure DNS-namnservrarna. Mer information finns i [Självstudie: Använda Azure DNS som värd för din domän](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+Eftersom den här snabbstarten inte använder en verklig domän behöver du inte konfigurera Azure DNS-namnservrarna hos en domännamnsregistrator. Med en verklig domän vill du att vem som helst på Internet matchar värdnamnet för att ansluta till din webbserver eller app. Du besöker din domännamnsregistrator för att ersätta namnserverposterna med Azure DNS-namnservrarna. Mer information finns i [Självstudie: Använda Azure DNS som värd för din domän.](dns-delegate-domain-azure-dns.md#delegate-the-domain)
 
 ## <a name="test-the-name-resolution"></a>Testa namnmatchningen
 

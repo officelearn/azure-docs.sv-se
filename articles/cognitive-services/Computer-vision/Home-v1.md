@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982126"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957035"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Vad är visuellt innehåll API version 1.0?
 
@@ -40,11 +40,11 @@ Det molnbaserade API:et för visuellt innehåll ger utvecklare åtkomst till ava
 ## <a name="requirements"></a>Krav
 * Indatametoder som stöds: Binära rawbildfiler i form av ett program-/oktettflöde eller bild-URL.
 * Bildformat som stöds: JPEG, PNG, GIF, BMP.
-* Bildfilstorlek: mindre än 4 MB.
-* Bilddimension: större än 50 x 50 bildpunkter.
+* Storlek på bildfil: mindre än 4 MB.
+* Bilddimensioner: större än 50 x 50 bildpunkter.
 
 ## <a name="tagging-images"></a>Tagga bilder
-API för visuellt innehåll returnerar taggar som baseras på över 2000 identifierbara objekt, levande varelser, landskap och åtgärder. I de fall där taggarna är tvetydiga eller dess betydelse inte är allmän kännedom ger API-svaren ”ledtrådar” för att tydliggöra taggarnas betydelse i en viss kontext. Taggar är inte ordnade som en taxonomi och det finns inga arvshierarkier. En samling innehållstaggar utgör grunden för en ”bildbeskrivning” som visas som språk som kan läsas av människor som är formaterade i fullständiga meningar. Observera att engelska för tillfället är det enda språket som stöds för bildbeskrivning.
+API för visuellt innehåll returnerar taggar som baseras på tusentals identifierbara objekt, levande varelser, landskap och åtgärder. I de fall där taggarna är tvetydiga eller dess betydelse inte är allmän kännedom ger API-svaren ”ledtrådar” för att tydliggöra taggarnas betydelse i en viss kontext. Taggar är inte ordnade som en taxonomi och det finns inga arvshierarkier. En samling innehållstaggar utgör grunden för en ”bildbeskrivning” som visas som språk som kan läsas av människor som är formaterade i fullständiga meningar. Observera att engelska för tillfället är det enda språket som stöds för bildbeskrivning.
 
 När du laddar upp en bild eller anger en bild-URL skapar API för visuellt innehålls algoritmer taggar baserat på de objekt, levande varelser och åtgärder som identifierats i avbildningen. Taggar är inte begränsade till huvudföremålet på bilden, som till exempel en person i förgrunden, utan finns även för saker som bakgrund (inomhus eller utomhus), möbler, verktyg, växter, djur, accessoarer, saker och så vidare.
 
@@ -258,7 +258,7 @@ Med den här tekniken kan du identifiera och extrahera handskriven text från an
 Med handskriven textigenkänning sparar du tid och kraft och blir effektiv. Du kan öka produktiviteten eftersom du kan ta bilder av text istället för att behöva skriva ner allt. Det gör det möjligt att digitalisera anteckningar. Med den här digitaliseringen kan du implementera snabba och enkla sökningar. Du slipper också den oreda som uppstår när du har för mycket papper omkring dig.
 
 Indatakrav:
-- Bildformat som stöds: JPEG, PNG, BMP.
+- Bildformat som stöds: JPEG, PNG och BMP.
 - Bildfilstorleken måste vara mindre än 4 MB.
 - Bilddimensioner måste vara minst 40 x 40, högst 3200 x 3200.
 

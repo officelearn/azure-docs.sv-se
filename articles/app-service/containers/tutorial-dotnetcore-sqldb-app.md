@@ -1,5 +1,5 @@
 ---
-title: Skapa en .NET Core- och SQL Database-webbapp i Azure App Service i Linux | Microsoft Docs
+title: Skapa en .NET Core-app med SQL Database på Linux – Azure App Service | Microsoft Docs
 description: Lär dig hur du får en .NET Core-app att fungera i Azure App Service i Linux, med anslutning till SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: ddea4621277303dd6c153205b683b4eea0151db0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: cb81699671bd2a0e86838d043ad0a4442eb79a6c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432270"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254249"
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Skapa en .NET Core- och SQL Database-webbapp i Azure App Service i Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "39432270"
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en .NET Core- och SQL Database-webbapp i Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
 >
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I den här självstudien visas hur du skapar en .NET Core-webbapp och ansluter den till SQL Database. När du är färdig har du en .NET Core MVC-app som körs i App Service i Linux.
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här självstudiekursen visar hur du skapar en .NET Core-webbapp och ansluter den till en SQL Database. När du är färdig har du en .NET Core MVC-app som körs i App Service i Linux.
 
 ![app som körs i App Service i Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
@@ -330,7 +330,7 @@ Hitta elementet `<td>` som innehåller ”tag helpers” `asp-action`. Lägg til
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 

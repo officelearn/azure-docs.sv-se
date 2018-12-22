@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e4ea8f92a562ea4bc90df98d6e459377b9886777
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844914"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190024"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Felsöka ändringar i miljön
 
@@ -117,7 +117,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
 |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: "c:\temp\\\*.txt"<br>Du kan också använda miljövariabler som "%winDir%\System32\\\*.*"         |
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
-|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
+|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **Sant** eller **Falskt**.|
 
 ### <a name="add-a-linux-file"></a>Lägga till en Linux-fil
 
@@ -135,7 +135,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
 |Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
 |Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – Ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger<br>**Följ** – Följer de symboliska länkarna under rekursion och inkluderar refererade filer/kataloger<br>**Hantera** – Följer de symboliska länkarna och tillåter ändring av behandling av returnerat innehåll      |
-|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
+|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **Sant** eller **Falskt**.|
 
    > [!NOTE]
    > Länkalternativet ”Hantera” rekommenderas inte. Hämtning av filinnehåll stöds inte.
@@ -177,12 +177,11 @@ Det kan vara användbart att granska ändringar i Azure-portalen, men det är b�
 
 Om du vill lägga till en avisering för en stoppad tjänst går du till Azure-portalen och sedan till **Övervaka**. Under **Delade tjänster** väljer du sedan **Aviseringar** och klickar på **+ Ny aviseringsregel**
 
-Under **1. Definiera aviseringstillstånd**  klickar du på **+ Välj mål**. Under **Filtrera efter resurstyp** väljer du **Log Analytics**. Välj Log Analytics-arbetsytan och välj sedan **Klar**.
+Klicka på **Markera** för att välja en anslutning. På sidan **Välj en resurs** väljer du **Log Analytics** i listrutan **Filtrera efter resurstyp**. Välj Log Analytics-arbetsytan och välj sedan **Klar**.
 
 ![Välj en resurs](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Välj **+ Lägg till villkor**.
-Under **Konfigurera signallogik**, i tabellen, välj **Anpassad loggsökning**. Ange sedan följande fråga i textrutan Sökfråga:
+Klicka på **Lägg till villkor** på sidan **Konfigurera signallogiken** väljer du **Anpassad loggsökning** i tabellen. Ange sedan följande fråga i textrutan Sökfråga:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -194,11 +193,9 @@ Under **Aviseringslogik** går du till **Tröskelvärde** och anger **0**. När 
 
 ![Konfigurera signallogiken](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Under **2. Definiera aviseringsinformation**, ange ett namn och en beskrivning för aviseringen. Ställ in **Allvarlighetsgrad** på **Information (Sev 2)**, **Varning (Sev 1)** eller **Kritisk (Sev 0)**.
+Välj **Skapa ny** under **Åtgärdsgrupper**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
 
-![Definiera aviseringsinformationen](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-Under **3. Definiera åtgärdsgrupp**, välj **Ny åtgärdsgrupp**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Under **Aviseringsinformation** anger du ett namn och en beskrivning för aviseringen. Ställ in **Allvarlighetsgrad** på **Information (Sev 2)**, **Varning (Sev 1)** eller **Kritisk (Sev 0)**.
 
 I rutan **Åtgärdsgruppnamn** anger du ett namn för aviseringen och ett kortnamn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 

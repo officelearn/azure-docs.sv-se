@@ -1,5 +1,5 @@
 ---
-title: Dockercontainervärdar i Azure-molnet
+title: (INAKTUELL) Dockercontainervärdar i Azure-molnet
 description: Azure Container Service erbjuder ett sätt att förenkla skapande, konfiguration och hantering av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare.
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 6bb13ad19f9b0b6137cdb2b4a9afbb2f325b9d36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975066"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001984"
 ---
-# <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Introduktion till värdlösningar med Dockerbehållare med Azure Container Service 
+# <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(INAKTUELL) Introduktion till värdlösningar med Dockerbehållare med Azure Container Service 
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Azure Container Service gör det enklare för dig att skapa, konfigurera och hantera av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare. Det använder en optimerad konfiguration av populära verktyg för öppen källkod för schemaläggning och dirigering. På så sätt kan du använda dina befintliga kunskaper eller använda en stor och växande mängd communityexpertis för att distribuera och hantera containerbaserade program i Microsoft Azure.
 

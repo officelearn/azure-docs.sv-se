@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Distribuera Azure-dedikerade HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell | Microsoft Docs
-description: Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
+title: Självstudie om att distribuera till ett befintligt virtuellt nätverk med hjälp av PowerShell – Dedikerad HSM i Azure | Microsoft Docs
+description: Självstudie som visar hur du distribuerar en dedikerad HSM med hjälp av PowerShell till ett befintligt virtuellt nätverk
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,17 +8,17 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a714a52ecd6398fde459c5814b8a6cf223655eff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318762"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086320"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
 
@@ -143,6 +143,14 @@ $delegation = New-AzureRmDelegation `
 ```
 
 ```powershell
+$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+  -Name hsmsubnet ` 
+  -AddressPrefix 10.2.1.0/24 ` 
+  -Delegation $delegation 
+
+```
+
+```powershell
 
 $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
@@ -179,7 +187,7 @@ Det här kommandot tar cirka 20 minuter att slutföra. Alternativet ”-verbose�
 
 ![etableringsstatus](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-När det klart, vilket visas med ”provisioningState”: ”Succeeded” (Lyckades) kan du logga in på den befintliga virtuella datorn och använd SSH för att säkerställa tillgängligheten för HSM-enheten.
+När det är klart visas ”provisioningState”: ”Succeeded” (Lyckades), och du kan ansluta till den befintliga virtuella datorn och använda SSH för att säkerställa HSM-enhetens tillgänglighet.
 
 ## <a name="verifying-the-deployment"></a>Kontrollera distributionen
 

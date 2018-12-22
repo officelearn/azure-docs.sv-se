@@ -1,24 +1,27 @@
 ---
-title: Självstudie för Azure Container Service – Uppdatera ett program
+title: (INAKTUELL) Självstudie för Azure Container Service – Uppdatera ett program
 description: Självstudie för Azure Container Service – Uppdatera ett program
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9cb5769d7f54a1036bf14199c87961c95ed2e7ce
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 99e282b720bb29ed5fb94ad2c9779ae56a019836
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432414"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993519"
 ---
-# <a name="update-an-application-in-kubernetes"></a>Uppdatera ett program i Kubernetes
+# <a name="deprecated-update-an-application-in-kubernetes"></a>(INAKTUELL) Uppdatera ett program i Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> För den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service läser du[Självstudie: Uppdatera ett program i Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-app-update.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny containeravbildning eller avbildningsversion. När du gör det mellanlagras uppdateringen så att endast en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar. 
 

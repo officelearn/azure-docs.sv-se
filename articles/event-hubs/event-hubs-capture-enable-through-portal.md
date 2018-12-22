@@ -1,6 +1,6 @@
 ---
-title: Aktivera avbildningsfunktionen för Azure Event Hubs via portalen | Microsoft Docs
-description: Använd Azure Portal för att aktivera avbildningsfunktionen i Event Hubs.
+title: Avbilda strömmande händelser med hjälp av Azure-portalen – Azure Event Hubs | Microsoft Docs
+description: Den här artikeln beskriver hur du aktiverar avbildning av händelser som strömmas via Azure Event Hubs med hjälp av Azure-portalen.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -10,18 +10,19 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5cb3fee975e99af3d86affcbc18d89277dde2dc1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f57e75f90511ace45198d7516a5d2550123d9be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409126"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075122"
 ---
-# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Aktivera avbildningsfunktionen i Event Hubs med Azure Portal
+# <a name="enable-capturing-of-events-streaming-through-azure-event-event-hubs"></a>Aktivera avbildning av händelser som strömmas via Azure Event Hubs
 
 Med Azure [Event Hubs Capture][capture-overview] kan du automatiskt leverera strömmande data i Event Hubs till valfritt [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)- eller [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)-konto.
 
@@ -35,7 +36,7 @@ När du skapar en händelsehubb kan du aktivera avbildningsfunktionen genom att 
 
 Standardvärdet för Tidsperiod är 5 minuter. Lägsta värde är 1 och högsta är 15. Du kan ange intervallet 10–500 MB för **Storlek**.
 
-![][1]
+![Tidsperiod för avbildning][1]
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Samla in data till ett Azure Data Lake Store-konto
 
@@ -52,7 +53,7 @@ Om du vill samla in data till Azure Data Lake Store skapar du ett Data Lake Stor
 2. Välj **Azure Data Lake Store** i rutan **Capture Provider** (Avbildningsprovider) på portalsidan **Skapa händelsehubb**.
 3. I **Välj Data Lake Store** anger du det Data Lake Store-konto som du skapade tidigare och i fältet **Data Lake Path** (Sökväg till Data Lake) anger du sökvägen till den datamapp som du skapade.
 
-    ![][3]
+    ![Välja Data Lake Storage-konto][3]
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>Lägga till eller konfigurera avbildningsfunktionen i en befintlig händelsehubb
 
@@ -60,11 +61,11 @@ Du kan konfigurera avbildningsfunktionen i befintliga händelsehubbar som finns 
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-![][2]
+![Konfigurera Azure Blob Storage][2]
 
 ### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
-![][4]
+![Konfigurera Azure Data Lake Storage][4]
 
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png

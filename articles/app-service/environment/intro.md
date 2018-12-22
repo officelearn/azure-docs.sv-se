@@ -1,5 +1,5 @@
 ---
-title: Introduktion till Azure App Service-miljöer
+title: Introduktion till App Service-miljöer – Azure
 description: Kort översikt över Azure App Service-miljöer
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: ee0b9fad15653c9315a8bdaad9a76d8355912863
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: af279f3a37290a3ab8a98318b5080d1145f45078
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248851"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269064"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduktion till Azure App Service-miljöer #
  
@@ -81,7 +81,7 @@ Mer information om hur ASE-miljöer fungerar med virtuella nätverk och lokala n
 
 ## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
 
-App Service Environment finns i två versioner: ASEv1 och ASEv2. Informationen ovan baserades på ASEv2. Det här avsnittet visar skillnaderna mellan ASEv1 och ASEv2. 
+App Service-miljön finns i två versioner: ASEv1 och ASEv2. Informationen ovan baserades på ASEv2. Det här avsnittet visar skillnaderna mellan ASEv1 och ASEv2. 
 
 I ASEv1 måste du hantera alla resurser manuellt. Det omfattar klientdelar, arbetare och IP-adresser som används för IP-baserad SSL. Innan du kan skala ut App Service-planen måste du först skala ut arbetarpoolen som du vill använda som värd.
 
@@ -103,9 +103,9 @@ ASEv1 använder en annan prissättningsmodell än ASEv2. I ASEv1 betalar du för
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/waf-overview.md

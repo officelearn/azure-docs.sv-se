@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414003"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408382"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Distribuera program till skalningsuppsättningar för virtuella datorer i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan distribuera program till Azure med Ansible. I den här artikeln får du se hur du distribuerar ett Java-program till en Azure VM-skalningsuppsättning (VMSS).  
@@ -35,7 +35,7 @@ I den här delen visas hur du använder Ansible för att hämta värdinformation
 
 Spara följande exempelspelbok som `get-hosts-tasks.yml`: 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -63,7 +63,7 @@ Spara följande exempelspelbok som `get-hosts-tasks.yml`:
 
 I det här avsnittet använder du git för att klona ett Java-exempelprojekt från GitHub och skapa projektet. Spara följande spelbok som `app.yml`:
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -87,7 +87,7 @@ Kör Ansible-spelboksexemplet med följande kommando:
 
 Utdata från kommandot ansible-playbook liknar följande där du ser att det skapade exempelappen genom att klona från GitHub:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -110,7 +110,7 @@ Följande avsnitt i en Ansible-spelbok installerar JRE (Java Runtime Environment
 
 (Ändra `admin_password` till ditt eget lösenord.)
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -167,7 +167,7 @@ Kör spelboken med följande kommando:
 
 Utdata från körning av kommandot ansible-playbook anger att Java-exempelprogrammet har installerats till värdgruppen i VM-skalningsuppsättningen:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -208,4 +208,4 @@ Grattis! Programmet körs nu på Azure. Nu kan du gå till lastbalanserarens web
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
-> [Ansible-exempelspelbok för VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Skala en VM-skalningsuppsättning automatiskt med hjälp av Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

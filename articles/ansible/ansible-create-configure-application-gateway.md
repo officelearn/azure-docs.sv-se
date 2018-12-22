@@ -1,21 +1,21 @@
 ---
-title: Hantera webbtrafik med Azure Application Gateway med hjälp av Ansible (förhandsversion)
+title: Hantera webbtrafik med Azure Application Gateway med hjälp av Ansible
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en Azure Application Gateway för att hantera webbtrafik
 ms.service: ansible
-keywords: ansible, azure, devops, bash, spelbok, azure application gateway, belastningsutjämnare, webbtrafik
+keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, web traffic
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: e3c165c87d6c179141f2ddd44f00f0f62a84b285
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: af7f22ae5c289a01e6876d8ce586cb32383c8d3b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912874"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253381"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible-preview"></a>Hantera webbtrafik med Azure Application Gateway med hjälp av Ansible (förhandsversion)
+# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Hantera webbtrafik med Azure Application Gateway med hjälp av Ansible
 
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar.
 
@@ -34,7 +34,7 @@ I den här självstudiekursen lär du dig att:
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 krävs för att köra följande exempelspelböcker i den här självstudien. Du kan installera Ansible 2.7 RC genom att köra `sudo pip install ansible[azure]==2.7.0rc2`. När Ansible 2.7 har släppts behöver du inte ange versionen.
+> Ansible 2.7 krävs för att köra följande exempelspelböcker i den här självstudien. 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

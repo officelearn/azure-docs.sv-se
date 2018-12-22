@@ -1,5 +1,5 @@
 ---
-title: Skapa en .NET Core- och SQL Database-webbapp i Azure App Service | Microsoft Docs
+title: Skapa en .NET Core-app med SQL Database – Azure App Service | Microsoft Docs
 description: Lär dig hur du får igång en .NET Core-app som fungerar i Azure App Service med anslutning till en SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -13,15 +13,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: e0161073c0c3e7d6ef491a4f2b86510e826b85dc
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: 775d7595e80c02bcfbc1c3d6abc687d5e335d7da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678669"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261015"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Självstudie: Skapa en .NET Core- och SQL Database-webbapp i Azure App Service
+# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Självstudier: Skapa en .NET Core- och SQL Database-webbapp i Azure App Service
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en .NET Core- och SQL Database-webbapp i Azure App Service i Linux](./containers/tutorial-dotnetcore-sqldb-app.md).

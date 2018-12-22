@@ -1,21 +1,21 @@
 ---
-title: Självstudiekurs om Azure Container Registry – Push-överför en uppdaterad avbildning för regionala distributioner
-description: Push-överför en ändrad Docker-avbildning till ditt geo-replikerade Azure-behållarregister och se sedan ändringarna automatiskt distribueras till webbprogram som körs i flera regioner. Del tre av en serie i tre delar.
+title: Självstudie – Push-överför en uppdaterad containeravbildning till regionala Azure-appdistributioner
+description: Push-överför en ändrad Docker-avbildning till ditt geo-replikerade Azure-containerregister och se sedan ändringarna automatiskt distribueras till webbprogram som körs i flera regioner. Del tre av en serie i tre delar.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 96e46c84039b7c72d5419972c7a5a401eab64659
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: d9faa89d33dde7da35ad4490b78b9a1d023274ae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855518"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256629"
 ---
-# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Självstudier: Push-överför en uppdaterad avbildning för regionala distributioner
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Självstudie: Push-överför en uppdaterad containeravbildning till ett geo-replikerat containerregister för regionala webbprogramdistributioner
 
 Det här är del tre i en serie självstudier i tre delar. I den [föregående kursen](container-registry-tutorial-deploy-app.md) konfigurerades geo-replikering för två olika regionala Web App-distributioner. I den här självstudiekursen modifierar du först programmet, skapar sedan en ny containeravbildning och push-överför den till ditt geo-replikerade register. Slutligen visar du ändringen, som distribuerats automatiskt med Azure Container Registry-webhookar i båda Web App-instanserna.
 

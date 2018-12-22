@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
-ms.openlocfilehash: 01281c0328fab85814ff93c73f9ea25e0d4c1b08
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 41a3a801214ff00c01397034e26fde6946ab97f0
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232808"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407821"
 ---
 # <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>CLI-exempel: Skapa ett Batch AI-kluster med en konfigurationsfil
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 Det här skriptet visar hur du använder en JSON-konfigurationsfil för att ange inställningar för ett Batch AI-kluster. Använd de här inställningarna i stället för motsvarande kommandoradsparametrar för `az batchai cluster create`. En konfigurationsfil är användbar när du vill montera flera filsystem på klusternoderna eller vill använda identiska konfigurationer i flera kluster.
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: f2cb5d33b8d7a7442da16a38e268c56de363a9c6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: secdec18
+ms.openlocfilehash: 9a27efe7908b2a15ceb823d7a85c4a12603731ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274090"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075989"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivera Azure-prenumerationer och konton med Cloudyn
 
@@ -41,7 +41,7 @@ Om ditt konto har tilldelats rollen **Deltagare** har du inte tillräcklig behö
 3. Välj **Användarinställningar** i Azure Active Directory.
 4. Kontrollera alternativet **Appregistreringar**.
     - Om det är inställt på **Ja** kan användare som inte är administratörer registrera AD-appar. Den här inställningen innebär att alla användare i Azure AD-klientorganisationen kan registrera en app.  
-    ![Appregistreringar](./media/activate-subs-accounts/app-register.png)
+    ![välj Appregistreringar i användarinställningarna](./media/activate-subs-accounts/app-register.png)
     - Om alternativet **Appregistreringar** är inställt på **Nej** kan bara administratörsanvändare i klientorganisationen registrera Azure Active Directory-appar. Klientadministratören måste registrera CloudynCollector-programmet.
 
 
@@ -53,12 +53,12 @@ När du lägger till en prenumeration till en kontouppdatering beviljar du åtko
 
 1. Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**.
 2. Klicka på **Lägg till nytt konto** så visas rutan **Lägg till nytt konto**. Ange informationen som krävs.  
-    ![Rutan Lägg till nytt konto](./media/activate-subs-accounts//add-new-account.png)
+    ![ange den information som krävs i rutan Lägg till nytt konto](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Uppdatera en prenumeration
 
 1. Om du vill uppdatera en _inaktiverad_ prenumeration som redan finns i Cloudyn går du till Kontohantering och klickar på pennsymbolen för redigering till höger om överordnad _klientorganisations-GUID_. Prenumerationerna är grupperade under en överordnad klientorganisation, så undvik att aktivera prenumerationer individuellt.
-    ![Identifiera prenumerationer igen](./media/activate-subs-accounts/existing-sub.png)
+    ![välj ditt klient-ID i rutan Identifiera prenumerationer på nytt](./media/activate-subs-accounts/existing-sub.png)
 2. Ange klient-ID om det behövs. Om du inte vet klient-ID kan du söka efter det genom att göra följande:
     1. Logga in på [Azure-portalen](https://portal.azure.com).
     2. Välj **Azure Active Directory** i Azure Portal.
@@ -106,7 +106,7 @@ Du kanske även behöver ge avdelningsadministratörer, kontoägare och Enterpri
 Det är bara Azure-tjänstadministratörer som kan aktivera Cloudyn. Det räcker inte att vara medadministratör. Du kan dock kringgå administratörskravet. Du kan begära att din Azure Active Directory-administratör beviljar dig behörighet att godkänna **CloudynAzureCollector** med ett PowerShell-skript. Följande skript ger behörighet att registrera tjänstens huvudnamn **CloudynAzureCollector** i Azure Active Directory.
 
 
-```
+```powershell
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #Tenant - enter your tenant ID or Name

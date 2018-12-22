@@ -1,23 +1,24 @@
 ---
-title: Python-snabbstart – ändra modell och träna LUIS-app
-titleSuffix: Azure Cognitive Services
-description: I den här Python-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
+title: Ändra, träna appen, Python
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: I den här Python-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6d05859977a7cba385877298405b9ce77034da68
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040184"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166361"
 ---
-# <a name="quickstart-change-model-using-python"></a>Snabbstart: Ändra modell med hjälp av Python
+# <a name="quickstart-change-model-using-python"></a>Snabbstart: Ändra modellen med Python
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -27,7 +28,7 @@ ms.locfileid: "47040184"
 * [Python 3.6](https://www.python.org/downloads/) eller senare.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
@@ -46,7 +47,7 @@ Kör programmet från en kommandorad med Python 3.6.
 
 Om add-utterance anropas utan argument läggs ett yttrande till i appen, men det tränas inte.
 
-```CMD
+```console
 > python add-utterances-3-6.py
 ```
 
@@ -83,7 +84,7 @@ Nedan visas resultatet av en lyckad begäran om att träna:
 }
 ```
 
-```JSON
+```json
 Requested training status.
 [
    {

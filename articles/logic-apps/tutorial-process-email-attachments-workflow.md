@@ -1,25 +1,25 @@
 ---
-title: Skapa arbetsflöden som bearbetar e-postmeddelanden och bifogade filer – Azure Logic Apps | Microsoft Docs
-description: I den här självstudien får du lära dig hur du skapar automatiska arbetsflöden så att du kan bearbeta e-postmeddelanden och bifogade filer med Azure Logic Apps, Azure Storage och Azure Functions
+title: Självstudie – Automatisera bearbetning av e-postmeddelanden och bifogade filer – Azure Logic Apps | Microsoft Docs
+description: Självstudie – Skapa automatiska arbetsflöden som hanterar e-postmeddelanden och bifogade filer med Azure Logic Apps, Azure Storage och Azure Functions
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231976"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140514"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Bearbeta e-postmeddelanden och bilagor med Azure Logic Apps
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Självstudie: Hantera e-postmeddelanden och bilagor automatiskt med Azure Logic Apps
 
-Med Azure Logic Apps lär du dig att automatisera arbetsflöden och integrera data i olika Azure-tjänster, Microsoft-tjänster och andra SaaS-appar (programvara som en tjänst) samt lokala system. I den här självstudien får du lära dig att skapa en [logikapp](../logic-apps/logic-apps-overview.md) som hanterar inkommande e-post och bilagor. Logikappen bearbetar innehållet, sparar det i Azure Storage och skickar meddelanden för granskning av innehållet. 
+Med Azure Logic Apps lär du dig att automatisera arbetsflöden och integrera data i olika Azure-tjänster, Microsoft-tjänster och andra SaaS-appar (programvara som en tjänst) samt lokala system. I den här självstudien får du lära dig att skapa en [logikapp](../logic-apps/logic-apps-overview.md) som hanterar inkommande e-post och bilagor. Logikappen analyserar e-postinnehållet, sparar det i Azure Storage och skickar meddelanden för granskning av innehållet. 
 
 I den här guiden får du lära dig att:
 
@@ -246,11 +246,11 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
 ## <a name="monitor-incoming-email"></a>Övervaka inkommande e-post
 
-1. På designern i sökrutan anger du "when new email arrives" (när ett nytt e-postmeddelande kommer) som filter. Välj den här utlösaren för e-postleverantören: **When a new email arrives - <*your-email-provider*>** (när ett nytt e-postmeddelande kommer - <din-e-postleverantör>).
+1. På designern i sökrutan anger du "when new email arrives" (när ett nytt e-postmeddelande kommer) som filter. Välj den här utlösaren för din e-postleverantör: **När ett nytt e-postmeddelande kommer – <*din-e-post-leverantör*>**
 
    Exempel:
 
-   ![Välj den här utlösaren för e-postleverantör: ”När ett nytt e-postmeddelande kommer”](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
+   ![Välj den här utlösaren för e-postleverantören: ”När ett nytt e-postmeddelande kommer”](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
    * För Azure arbets- eller skolkonto väljer du Office 365 Outlook. 
    * För personliga Microsoft-konton väljer du Outlook.com. 
@@ -328,7 +328,7 @@ Nu ska du lägga till ett villkor som väljer endast e-postmeddelanden med bifog
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -377,7 +377,7 @@ I det här steget lägger du till den tidigare skapade Azure-funktionen i logika
 
    ![Lägg till åtgärd inuti "If true" (Om sant)](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-2. I sökrutan hittar du ”azure functions” och väljer den här åtgärden: **Choose an Azure function - Azure Functions** (Välj en Azure-funktion - Azure-funktioner).
+2. Leta upp ”azure functions” i sökrutan och välj den här åtgärden: **Välja en Azure-funktion – Azure Functions**
 
    ![Välj åtgärd för Choose an Azure function (Välj en Azure-funktion)](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -419,7 +419,7 @@ Lägg sedan till en åtgärd som skapar en blob i lagringscontainern så att du 
 
 1. I blocket **If true** (Om sant) och under Azure-funktionen väljer du **Add an action** (Lägg till en åtgärd). 
 
-2. I sökrutan anger du "create blob" (skapa blob) som filter och väljer den här åtgärden: **Create blob - Azure Blob Storage** (Skapa blob - Azure-bloblagring).
+2. I sökrutan anger du "create blob" (skapa blob) som filter och väljer sedan den här åtgärden: **Skapa blob – Azure Blob Storage**
 
    ![Lägga till åtgärd för att skapa blob för e-postmeddelandets brödtext](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
 
@@ -518,7 +518,7 @@ Lägg sedan till åtgärden som sparar varje bilaga som en blob i lagringscontai
 
    ![Lägga till åtgärd i loop](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
-2. I sökrutan anger du "create blob" (skapa blob) som filter och väljer sedan den här åtgärden: **Create blob - Azure Blob Storage** (Skapa blob - Azure-bloblagring).
+2. I sökrutan anger du "create blob" (skapa blob) som filter och väljer sedan den här åtgärden: **Skapa blob – Azure Blob Storage**
 
    ![Lägga till åtgärd för att skapa blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
@@ -572,7 +572,7 @@ Lägg sedan till en åtgärd så att logikappen skickar e-post för att granska 
 
 ## <a name="send-email-notifications"></a>Skicka e-postmeddelanden
 
-1. I grenen **if true** (om sant) under loopen **For each email attachment** (För varje e-postbilaga) väljer du **Lägga till en åtgärd**. 
+1. I grenen **If true** (om sant) under loopen **For each email attachment** (För varje e-postbilaga) väljer du **Lägga till en åtgärd**. 
 
    ![Lägga till åtgärd under ”for each”-loop (för varje-loop)](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 

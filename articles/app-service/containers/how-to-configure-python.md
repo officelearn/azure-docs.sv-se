@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Python-appar för Azure App Service i Linux
+title: Konfigurera Python-appar i Linux – Azure App Service
 description: Den här självstudien beskriver alternativ för att redigera och konfigurera Python-appar för Azure App Service i Linux.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
-ms.custom: mvc
-ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633656"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249642"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Konfigurera din Python-app för Azure App Service i Linux
 
@@ -48,7 +48,7 @@ Python-appar som distribueras till App Service i Linux körs i en Docker-contain
 
 Den här containern har följande egenskaper:
 
-- Appar körs med hjälp av [Gunicorn WSGI HTTP Server](http://gunicorn.org/), med de ytterligare argumenten `--bind=0.0.0.0 --timeout 600`.
+- Appar körs med hjälp av [Gunicorn WSGI HTTP Server](https://gunicorn.org/), med de ytterligare argumenten `--bind=0.0.0.0 --timeout 600`.
 
 - Som standard innehåller basavbildningen Flask-webbramverket, men containern har stöd för andra ramverk som är WSGI-kompatibla och kompatibla med Python 3.7, till exempel Django.
 
@@ -59,9 +59,9 @@ Den här containern har följande egenskaper:
 Under starten kör App Service i Linux-containern följande steg:
 
 1. Sök efter och tillämpa ett anpassat startkommandot om sådant tillhandahålls.
-1. Kontrollera om finns en Django-apps *wsgi.py*-fil, och starta i så fall Gunicorn med hjälp av den filen.
-1. Sök efter en fil med namnet *application.py*, och om den hittas startar du Gunicorn med hjälp av `application:app` förutsatt att en Flask-app används.
-1. Om ingen annan app hittas startar du en standardapp som är inbyggd i containern.
+2. Kontrollera om finns en Django-apps *wsgi.py*-fil, och starta i så fall Gunicorn med hjälp av den filen.
+3. Sök efter en fil med namnet *application.py*, och om den hittas startar du Gunicorn med hjälp av `application:app` förutsatt att en Flask-app används.
+4. Om ingen annan app hittas startar du en standardapp som är inbyggd i containern.
 
 Följande avsnitt innehåller ytterligare information om varje alternativ.
 
@@ -100,7 +100,7 @@ Om din huvudmodul är i en undermapp, till exempel `website`, anger du den mappe
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Du kan även lägga till ytterligare argument för Gunicorn till kommandot, till exempel `--workers=4`. Mer information finns i [Köra Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+Du kan även lägga till ytterligare argument för Gunicorn till kommandot, till exempel `--workers=4`. Mer information finns i [Köra Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
 Utför följande steg för att tillhandahålla ett anpassat kommando:
 

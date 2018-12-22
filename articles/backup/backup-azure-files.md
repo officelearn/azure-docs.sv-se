@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 4a1fcd27603b0323fffe7b59ef2fdfdcabaf8f58
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 94a3282451a0efcc9209c4aac3d316e40560495f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874999"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972141"
 ---
 # <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
@@ -52,7 +52,7 @@ Alla säkerhetskopierade data lagras i Recovery Services-valv. Den här självst
 
     ![Välj Azure-filresursen som mål för säkerhetskopieringen](./media/backup-file-shares/overview-backup-page.png)
 
-2. I menyn Säkerhetskopieringsmål från **Vad vill du säkerhetskopiera?** väljer du Azure-filresurs.
+2. I menyn **Säkerhetskopieringsmål**, **Vad vill du säkerhetskopiera?** väljer du Azure FileShare.
 
     ![Välj Azure-filresursen som mål för säkerhetskopieringen](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
@@ -70,14 +70,14 @@ Alla säkerhetskopierade data lagras i Recovery Services-valv. Den här självst
 
 5. I listan **Filresurser** väljer du en eller flera filresurser som du vill säkerhetskopiera. Klicka på **OK**.
 
-6. När du har valt dina filresurser växlar säkerhetskopieringsmenyn över till **Säkerhetskopieringspolicy**. I den här menyn väljer du antingen en befintlig säkerhetskopieringspolicy eller skapar en ny. Klicka sedan på **Aktivera säkerhetskopiering**. 
+6. När du har valt dina filresurser växlar säkerhetskopieringsmenyn över till **Säkerhetskopieringspolicy**. I den här menyn väljer du antingen en befintlig säkerhetskopieringspolicy eller skapar en ny. Klicka sedan på **Aktivera säkerhetskopiering**.
 
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/apply-backup-policy.png)
 
     När du har etablerat en säkerhetskopieringspolicy tas en ögonblicksbild av filresurserna vid den schemalagda tiden och en återställningspunkt sparas för den valda perioden.
 
 ## <a name="create-an-on-demand-backup"></a>Skapa en säkerhetskopiering på begäran
-Ibland kanske du vill skapa en ögonblicksbild eller återställningspunkt på en annan tid än de tider som schemalagts i säkerhetskopieringspolicyn. En vanlig tid att generera en säkerhetskopiering på begäran är direkt efter att du har konfigurerat säkerhetskopieringspolicyn. Baserat på schemat i säkerhetskopieringspolicyn kan det ta timmar eller dagar tills en ögonblicksbild tas. För att skydda dina data fram tills säkerhetskopieringspolicyn aktiveras, bör du starta en säkerhetskopiering på begäran. Du behöver ofta skapa en säkerhetskopiering på begäran innan du utför planerade ändringar i dina filresurser. 
+Ibland kanske du vill skapa en ögonblicksbild eller återställningspunkt på en annan tid än de tider som schemalagts i säkerhetskopieringspolicyn. En vanlig tid att generera en säkerhetskopiering på begäran är direkt efter att du har konfigurerat säkerhetskopieringspolicyn. Baserat på schemat i säkerhetskopieringspolicyn kan det ta timmar eller dagar tills en ögonblicksbild tas. För att skydda dina data fram tills säkerhetskopieringspolicyn aktiveras, bör du starta en säkerhetskopiering på begäran. Du behöver ofta skapa en säkerhetskopiering på begäran innan du utför planerade ändringar i dina filresurser.
 
 ### <a name="to-create-an-on-demand-backup"></a>Skapa en säkerhetskopiering på begäran
 
@@ -93,8 +93,8 @@ Ibland kanske du vill skapa en ögonblicksbild eller återställningspunkt på e
 
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/backup-item-menu.png)
 
-4. I menyn Säkerhetskopieringsobjekt klickar du på **Säkerhetskopiera nu**. Eftersom detta är en säkerhetskopiering på begäran finns det ingen bevarandeprincip som är associerad med återställningspunkten. Dialogrutan **Säkerhetskopiera nu** öppnas. Ange den senaste dag som du vill behålla återställningspunkten för. 
-  
+4. I menyn Säkerhetskopieringsobjekt klickar du på **Säkerhetskopiera nu**. Eftersom detta är en säkerhetskopiering på begäran finns det ingen bevarandeprincip som är associerad med återställningspunkten. Dialogrutan **Säkerhetskopiera nu** öppnas. Ange den senaste dag som du vill behålla återställningspunkten för.
+
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/backup-now-menu.png)
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Återställa från en säkerhetskopia av Azure-filresurser
@@ -162,15 +162,15 @@ Sluta skydda en Azure-filresurs:
 
 1. Öppna det Recovery Services-valv som innehåller filresursens återställningspunkter och klicka på **Säkerhetskopieringsobjekt**. En lista med typer av säkerhetskopieringsobjekt visas.
 
-   ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/list-of-backup-items.png) 
+   ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/list-of-backup-items.png)
 
 2. I listan **Typ av säkerhetskopieringshantering** väljer du **Azure Storage (Azure Files)**. Listan med säkerhetskopieringsobjekt för (Azure Storage (Azure Files)) visas.
 
-   ![klicka på objektet om du vill öppna ytterligare en meny](./media/backup-file-shares/azure-file-share-backup-items.png) 
+   ![klicka på objektet om du vill öppna ytterligare en meny](./media/backup-file-shares/azure-file-share-backup-items.png)
 
 3. I listan med säkerhetskopieringsobjekt (Azure Storage (Azure Files)), väljer du det säkerhetskopieringsobjekt som du vill stoppa.
 
-4. I Azure-filresursobjekten klickar du i menyn **Mer** och väljer **Stoppa säkerhetskopiering**. 
+4. I Azure-filresursobjekten klickar du i menyn **Mer** och väljer **Stoppa säkerhetskopiering**.
 
    ![klicka på objektet om du vill öppna ytterligare en meny](./media/backup-file-shares/stop-backup.png)
 
@@ -186,7 +186,7 @@ Om du vill återuppta skyddet av filresursen, går du till Säkerhetskopieringso
 
    ![Välj det jobb som du vill övervaka](./media/backup-file-shares/resume-backup-job.png)
 
-### <a name="delete-backup-data"></a>Ta bort säkerhetskopieringsdata 
+### <a name="delete-backup-data"></a>Ta bort säkerhetskopieringsdata
 
 Du kan ta bort säkerhetskopian av en resurs under jobbet Stoppa säkerhetskopiering eller efter att du har stoppat skyddet. Det kan vara en fördel att vänta dagar eller veckor innan du tar bort återställningspunkterna. Till skillnad från återställning av återställningspunkter när du tar bort säkerhetskopierade data, kan du inte välja specifika återställningspunkter som ska tas bort. Om du väljer att ta bort säkerhetskopierade data, tar du bort alla återställningspunkter som är associerade med objektet.
 
@@ -196,5 +196,3 @@ Följande procedur förutsätter att säkerhetskopieringen av den virtuella dato
 Mer information om Azure-filresurser finns i
 - [Vanliga frågor och svar om säkerhetskopiering av Azure-filresurser](backup-azure-files-faq.md)
 - [Felsöka säkerhetskopiering av Azure-filresurser](troubleshoot-azure-files.md)
- 
-

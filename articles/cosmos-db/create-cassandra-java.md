@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Cassandra API med Java – Azure Cosmos DB'
+title: 'Snabbstart: API för Cassandra med Java – Azure Cosmos DB'
 description: Den här snabbstarten visar hur du använder Cassandra API i Azure Cosmos DB för att skapa ett profilprogram med Azure-portalen och Java
 services: cosmos-db
 ms.service: cosmos-db
@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 1683bdcdac5f34b4dd0795befe0b87d6ba1278b0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0ba2143847d51bda7bc15c0c93835c758505cd0b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421381"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089188"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med Java och Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Dessutom behöver du:
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.
     * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
-* [Ladda ned](http://maven.apache.org/download.cgi) och [installera](http://maven.apache.org/install.html) ett [Maven](http://maven.apache.org/)-binärarkiv
+* [Ladda ned](https://maven.apache.org/download.cgi) och [installera](https://maven.apache.org/install.html) ett [Maven](https://maven.apache.org/)-binärarkiv
     * I Ubuntu kan du köra `apt-get install maven` för att installera Maven.
 * [Git](https://www.git-scm.com/)
     * I Ubuntu kan du köra `sudo apt-get install git` för att installera Git.
@@ -152,7 +152,7 @@ Följande kodavsnitt är från filen `src/main/java/com/azure/cosmosdb/cassandra
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. Informationen i anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. På [Azure-portalen](http://portal.azure.com/) väljer du **Anslutningssträng**. 
+1. På [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**. 
 
     ![Visa och kopiera ett användarnamn från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-java/keys.png)
 

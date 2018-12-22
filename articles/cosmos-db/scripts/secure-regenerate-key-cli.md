@@ -1,17 +1,17 @@
 ---
-title: Azure CLI-skript – Generera om Azure Cosmos DB-kontonyckel | Microsoft Docs
+title: Azure CLI-skript – Generera om Azure Cosmos DB-kontonyckel
 description: Exempel på Azure CLI-skript – Generera om en Azure Cosmos DB-kontonyckel
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 06a71ce759a72483d9ac3993e82d14af21e7d9d7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 38ebfde4b9b473f412ae667cdc6b36ea5e991608
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007815"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958107"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>Generera om en Azure Cosmos DB-kontonyckel med hjälp av Azure CLI
 

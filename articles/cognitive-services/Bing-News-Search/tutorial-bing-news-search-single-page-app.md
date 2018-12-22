@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: App på en sida för nyhetssökning i Bing'
+title: 'Självstudie: Skapa en enkelsidig webbapp – API för nyhetssökning i Bing'
 titlesuffix: Azure Cognitive Services
-description: Förklarar hur du använder API:et för nyhetssökning i Bing i webbprogram med en enda sida.
+description: Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et för nyhetssökning i Bing och visa resultaten på webbsidan.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,16 @@ ms.component: bing-news-search
 ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: 1d27751d12c82736ca519bb3a0e9bcd49bef4a47
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803655"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262052"
 ---
-# <a name="tutorial-single-page-news-search-app"></a>Självstudie: Skapa en enkelsidig app med nyhetssökning
+# <a name="tutorial-create-a-single-page-web-app"></a>Självstudie: Skapa en enkelsidig webbapp
+
 Med API för nyhetssökning i Bing kan du söka på webben och få resultat av nyhetstyp som är relevanta för en sökfråga. I den här självstudien skapar vi ett enkelsidigt program som använder API för nyhetssökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.
 
 <!-- Remove until we can replace it with sanitized copy
@@ -103,7 +105,7 @@ HTML-formuläret innehåller element med följande namn:
 
 |Element|Beskrivning|
 |-|-|
-| `where` | En nedrullningsbar meny för att välja marknad (plats och språk) som används för sökningen. |
+| `where` | En listruta för att välja marknad (plats och språk) som används för sökningen. |
 | `query` | Textfältet för att ange sökvillkor. |
 | `category` | Kryssrutorna för att främja olika typer av resultat. Om du till exempel främjar hälsa, höjs rangordningen för hälsonyheter. |
 | `when` | Listruta för att valfritt begränsa sökningen till den senaste dagen, veckan eller månaden. |
@@ -274,7 +276,7 @@ En stor del av koden i de båda föregående funktionerna är dedikerade för fe
 |Fas|Potentiella fel|Hanterat av|
 |-|-|-|
 |Skapa objekt för JavaScript-begäran|Ogiltig URL|`try`/`catch` blockera|
-|Skapa förfrågan|Nätverksfel, avbrutna anslutningar|`error` och `abort` händelsehanterare|
+|Skapa begäran|Nätverksfel, avbrutna anslutningar|`error` och `abort` händelsehanterare|
 |Genomföra sökningen|Ogiltig begäran, ogiltig JSON, hastighetsbegränsningar|tests i `load` händelsehanterare|
 
 Fel hanteras genom att anropa `renderErrorMessage()` med all känd information om felet. Om svaret klarar alla feltester anropar vi `renderSearchResults()` för att visa sökresultatet på sidan.

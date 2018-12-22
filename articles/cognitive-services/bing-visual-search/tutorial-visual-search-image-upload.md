@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 24b4bacd6a369812a07095b1d9c114f557d10d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443465"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960065"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Självstudie: Dela upp uppladdningen i Visuell sökning i Bing
 
@@ -1340,4 +1340,4 @@ Här visas det fullständiga exemplet för HTML och JavaScript.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill se hur informationshämtning fungerar med hjälp av insiktstoken, kan du gå till [Självstudie om SDK för Visuell sökning i Bing och ImageInsightsToken](.\tutorial-visual-search-insights-token.md).
+Om du vill se hur informationshämtning fungerar med hjälp av insiktstoken, kan du gå till [Självstudie om SDK för Visuell sökning i Bing och ImageInsightsToken](./tutorial-visual-search-insights-token.md).

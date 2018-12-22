@@ -14,12 +14,12 @@ ms.date: 08/08/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8ebdb22ba5ca04a5c811b3b368055f5f4371c75f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8c5d980f25e196add6885d250665eae7127456f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40208938"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273127"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Snabbstart: Namnprincip för grupper i Azure Active Directory
 
@@ -80,7 +80,7 @@ Om du får ett meddelande om åtkomst till en icke-betrodd lagringsplats anger d
   
 ### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Steg 3: Ange namnprincipen och eventuella anpassade blockerade ord
 
-1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell.
+1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell. För att funktionen ska fungera korrekt måste [GroupName] inkluderas i inställningen.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -102,19 +102,19 @@ Klart! Du har angett en namnprincip och lagt till dina anpassade blockerade ord.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell.
+1. Ta bort gruppnamnsprefix och -suffix i Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =""
   ````
   
-2. Ange de anpassade blockerade ord du vill begränsa. I följande exempel visas hur du kan lägga till dina egna anpassade ord.
+2. Ta bort de anpassade spärrade orden.
   
   ````
   $Setting["CustomBlockedWordsList"]=""
   ````
   
-3. Spara inställningarna för att den nya principen ska gälla, som i följande exempel.
+3. Spara inställningarna.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting

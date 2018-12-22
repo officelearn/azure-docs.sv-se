@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/13/2018
+ms.date: 03/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52757098436349d38538f4c2168a70e53ad58421
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946620"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270169"
 ---
-# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Självstudie 3: Klassificera Iris – distribuera en modell
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Självstudie 3: Klassificera Iris: Distribuera en modell
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -238,7 +238,7 @@ Nu är du redo att skapa realtidswebbtjänsten.
 
    * `--model-file`: Modellfilen. I det här fallet är det pickle-filen model.pkl.
 
-   * `-s`: tjänstens schema. Detta skapades i ett tidigare steg genom att köra skriptet **score_iris.py** lokalt.
+   * `-s`: Tjänsten schema. Detta skapades i ett tidigare steg genom att köra skriptet **score_iris.py** lokalt.
 
    * `-n`: Appnamnet som måste skrivas med små bokstäver.
 
@@ -324,7 +324,7 @@ Testa **irisapp**-webbtjänsten som körs med hjälp av en JSON-kodad post med e
 
 ## <a name="view-the-collected-data-in-azure-blob-storage"></a>Visa insamlade data i Azure Blob Storage
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Leta rätt på dina lagringskonton. Det gör du genom att välja **Alla tjänster**.
 
@@ -351,7 +351,7 @@ Testa **irisapp**-webbtjänsten som körs med hjälp av en JSON-kodad post med e
 
 1. Du kan använda dessa data från Azure Blob Storage. Det finns en mängd olika verktyg som använder både Microsoft-program och verktyg med öppen källkod, som till exempel:
 
-   * Machine Learning: Öppna csv-filen genom att lägga till csv-filen som en datakälla.
+   * Maskininlärning: Öppna csv-filen genom att lägga till csv-filen som en datakälla.
 
    * Excel: Öppna de dagliga csv-filerna som ett kalkylblad.
 

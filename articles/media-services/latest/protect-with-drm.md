@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 84bdc560a135f8f1eb7d6c86fe4f3749135ff7e1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395092"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139052"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Använda leveranstjänst för dynamisk DRM-krypteringstjänst
 
@@ -40,7 +41,7 @@ Den här artikeln bygger på exemplet om [kryptering med DRM](https://github.com
 
         Programmet anger en JWT-tokentypbegränsning för principen.
 
-* Skapa en StreamingLocator för den angivna tillgången och med det angivna direktuppspelningspolicynamnet. I det här fallet används den fördefinierade principen. Två innehållsnycklar anges på StreamingLocator: AES-128 (kuvert) och CENC (PlayReady och Widevine).  
+* Skapa en StreamingLocator för den angivna tillgången och med det angivna direktuppspelningspolicynamnet. I det här fallet används den fördefinierade principen. Två nycklar anges på StreamingLocator: AES-128 (kuvert) och CENC (PlayReady och Widevine).  
     
     När du har skapat en StreamingLocator är utdatatillgången publicerad och tillgänglig för klienter för uppspelning.
 
@@ -51,14 +52,14 @@ Den här artikeln bygger på exemplet om [kryptering med DRM](https://github.com
 
     Du kan öppna en webbläsare och klistra in den webbadress som bildas för att starta Azure Media Player-demosidan där webbadressen en och token redan är ifyllda.  
 
-    ![skydda med drm](./media/protect-with-drm/playready_encrypted_url.png)
+    ![Skydda med DRM](./media/protect-with-drm/playready_encrypted_url.png)
 
 > [!NOTE]
 > Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). I dokumentationen om [direktuppspelningsprotokoll och krypteringstyper](content-protection-overview.md#streaming-protocols-and-encryption-types) ser du vad som är bra att kombinera.
 
 Exemplet som beskrivs i den här artikeln ger följande resultat:
 
-![skydda med drm](./media/protect-with-drm/ams_player.png)
+![AMS med DRM-skyddad video](./media/protect-with-drm/ams_player.png)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -116,7 +117,7 @@ I den här självstudiekursen skapar vi jobbets indata baserat på en fil som ma
 
 Jobbet tar en stund att slutföra och du meddelas när detta sker. Kodexemplet nedan visar hur du kontrollerar [jobbets](https://docs.microsoft.com/rest/api/media/jobs) status i tjänsten. Vi rekommenderar inte att utföra avsökning av produktionsprogram på grund av att svarstiden kan bli lång. Avsökningen kan begränsas om den överanvänds på ett konto. Utvecklare bör i stället använda Event Grid. Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
 
-**Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
+**Jobbet** går vanligtvis igenom följande tillstånd: **Schemalagd**, **I kö**, **Bearbetar**, **Slutfört** (sluttillstånd). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 

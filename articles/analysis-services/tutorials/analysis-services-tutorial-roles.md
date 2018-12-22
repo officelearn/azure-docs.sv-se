@@ -1,20 +1,21 @@
 ---
-title: Självstudie – Konfigurera serveradministratörs- och användarroller för Azure Analysis Services | Microsoft Docs
+title: Självstudie – Konfigurera administratörs- och användarroller för Azure Analysis Services | Microsoft Docs
+description: Lär dig hur du konfigurerar Azure Analysis Services-roller.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: a1e6e04c4019086d56cc0eb25176a507e514c477
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929237"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000632"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera serveradministratörs- och användarroller
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera roller för serveradministratör och användare
 
  I den här självstudien använder du SQL Server Management Studio (SSMS) för att ansluta till din server i Azure och konfigurera serveradministratörs- och modelldatabasroller. Du får också en introduktion till [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL är ett JSON-baserat skriptspråk för tabellmodeller på kompatibilitetsnivå 1 200 och högre. Det kan användas för att automatisera många tabellmodelleringsuppgifter. TMSL används ofta med PowerShell, men i den här kursen använder du XMLA-frågeredigeraren i SSMS. I den här självstudien får du utföra följande uppgifter: 
   
@@ -35,9 +36,9 @@ Mer information om användarsäkerhet i Azure Analysis Services finns i [Autenti
 - [Lägg till exempelmodellen adventureworks](../analysis-services-create-sample-model.md) på din server.
 - [Installera den senaste versionen av SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Portal](https://portal.azure.com/).
+Logga in på [portalen](https://portal.azure.com/).
 
 ## <a name="get-server-name"></a>Hämta servernamnet
 För att kunna ansluta till servern från SSMS behöver du först servernamnet. Du kan hämta servernamnet på Portal.
@@ -143,5 +144,5 @@ Ta bort användarkonton, gruppkonton och roller när du inte lägre behöver dem
 I den här självstudien fick du lära dig hur du ansluter till en Azure AS-server och utforskar adventureworks-exempelmodelldatabaser och egenskaper i SSMS. Du har också fått lära dig hur du använder SSMS och TMSL-skript för att lägga till användare och grupper i befintliga och nya roller. Nu när du har konfigurerat användarbehörigheter för servern och exempelmodelldatabasen kan du och andra användare ansluta till den via klientprogram som Power BI. Fortsätt med nästa självstudie om du vill lära dig mer. 
 
 > [!div class="nextstepaction"]
-> [Självstudie: Ansluta med Power BI Desktop](analysis-services-tutorial-pbid.md)
+> [Självstudie: Anslut med Power BI Desktop](analysis-services-tutorial-pbid.md)
 

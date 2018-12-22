@@ -1,12 +1,12 @@
 ---
-title: Vad är Azure Machine Learning Studio? | Microsoft Docs
+title: Översikt –Azure Machine Learning Studio | Microsoft Docs
 description: Översikt av Azure ML Studio, ett drag-och-släpp-verktyg för att snabbt skapa modeller från bibliotek med algoritmer och moduler som redan är helt färdiga att använda.
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.component: studio
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: d893a0817be6ae8a271d403ed0477fa04238954b
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264411"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250526"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio är ett drag-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Tjänsten Machine Learning Studio publicerar modeller som webbtjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
@@ -146,7 +146,7 @@ Om du tränar en bedrägeriidentifieringsmodell med övervakad inlärning använ
 När du har en tränad modell utvärderar du modellen med hjälp av återstående testdata. Du använder data vars resultat du redan känner till, så att du kan se om din modell gör korrekta förutsägelser.
 
 ## <a name="other-common-machine-learning-terms"></a>Andra vanliga maskininlärningstermer
-* **algoritmen**: En fristående uppsättning regler som används för att lösa problem genom databearbetning, beräkning eller automatiserade resonemang.
+* **algoritmen**: En fristående uppsättning regler som används för att lösa problem genom databehandling, beräkning eller automatiserade resonemang.
 * **avvikelseidentifiering**: En modell som flaggar ovanliga händelser eller värden och hjälper dig att identifiera problem. Exempelvis letar en identifiering av falska kreditkort efter ovanliga köp.
 * **kategoriska data**: Data som är ordnade efter kategorier och som kan delas in i grupper. En uppsättning kategoriska data för bilar kan exempelvis definiera år, märke, modell och pris.
 * **klassificering**: En modell för att organisera datapunkter i kategorier baserat på en datauppsättning vars kategorigrupperingar redan är kända.

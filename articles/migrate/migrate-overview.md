@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839742"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250598"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -22,10 +22,10 @@ Azure Migrate-tjänsten utvärderar lokala arbetsbelastningar för migrering til
 
 Med Azure Migrate får du hjälp med att:
 
-- **Utvärdera Azure-beredskap**: Utvärdera om dina lokala datorer är lämpliga att köra i Azure.
-- **Få storleksrekommendationer**: Få storleksrekommendationer för virtuella Azure-datorer baserat på lokala virtuella datorers prestandahistorik.
+- **Utvärdera Azure-beredskap**: Utvärdera om dina lokala datorer är lämpliga att köras i Azure.
+- **Få storleksrekommendationer**: Få storleksrekommendationer för virtuella Azure-datorer, baserat på lokala virtuella datorers prestandahistorik.
 - **Uppskatta månadskostnader**: Få uppskattade kostnader för att köra lokala virtuella datorer i Azure.  
-- **Migrera med hög exakthet**: Visualisera beroenden för lokala datorer för att skapa grupper av datorer som utvärderas och migreras tillsammans.
+- **Migrera med hög exakthet**: Visualisera beroenden i lokala datorer för att skapa grupper av datorer som utvärderas och migreras tillsammans.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
@@ -34,10 +34,14 @@ Med Azure Migrate får du hjälp med att:
 - Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering.
 - Om du vill identifiera en större miljö kan du dela identifieringen och skapa flera projekt. [Läs mer](how-to-scale-assessment.md). Azure Migrate stöder upp till 20 projekt per prenumeration.
 - Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
--  Du kan endast skapa ett Azure Migrate-projekt i regionen västra centrala USA. Du kan dock fortfarande planera en migrering till valfri Azure-plats.
-    - Endast metadata som identifieras från den lokala miljön lagras i migreringsprojektregionen.
-    - Metadata lagras i en av regionerna i den valda geografin: USA, västra centrala/USA, östra.
-    - Om du använder beroendevisualisering genom att skapa en ny Log Analytics-arbetsyta skapas arbetsytan i samma region som projektet.
+-  Du kan endast skapa ett Azure Migrate-projekt i nedanstående områden. Men det begränsar inte din möjlighet att skapa utvärderingar för andra Azure-målplatser.
+    **Geografi** | **Lagringsplats**
+    --- | ---
+    USA | USA, västra centrala eller USA, östra
+    Azure Government | Virginia (USA-förvaltad region)
+
+    Platsen som är associerad med migreringsprojektet används för att lagra metadata som identifieras från den lokala miljön. Metadata lagras i en av regionerna utifrån den geografiska plats som har angetts för migreringsprojektet. Om du använder beroendevisualisering genom att skapa en ny Log Analytics-arbetsyta skapas arbetsytan i samma region som projektet.
+- Funktionen för beroendevisualisering är inte tillgänglig i Azure Government.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Vad måste jag betala för?
@@ -93,8 +97,8 @@ Lokala virtuella datorer | Log Analytics Workspace | [TCP 443] | [Microsoft Moni
 
 När du har utvärderat lokala datorer kan du använda några olika verktyg för att utföra migreringen:
 
-- **Azure Site Recovery**: Du kan använda Azure Site Recovery för att migrera till Azure. Det kan du göra genom att [förbereda Azure-komponenterna](../site-recovery/tutorial-prepare-azure.md) du behöver, bland annat ett lagringskonto och ett virtuellt nätverk. Lokalt [förbereder du VMware-miljön](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). När allt är förberett konfigurerar och aktiverar du replikering till Azure och migrerar de virtuella datorerna. [Läs mer](../site-recovery/vmware-azure-tutorial.md).
-- **Azure Database Migration**: Om de lokala datorerna använder en databas som SQL Server, MySQL eller Oracle kan du använda [Azure Database Migration Service](../dms/dms-overview.md) för att migrera dem till Azure.
+- **Azure Site Recovery**: Du kan använda Azure Site Recovery till att migrera till Azure. Det kan du göra genom att [förbereda Azure-komponenterna](../site-recovery/tutorial-prepare-azure.md) du behöver, bland annat ett lagringskonto och ett virtuellt nätverk. Lokalt [förbereder du VMware-miljön](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). När allt är förberett konfigurerar och aktiverar du replikering till Azure och migrerar de virtuella datorerna. [Läs mer](../site-recovery/vmware-azure-tutorial.md).
+- **Azure Database Migration**: Om de lokala datorerna använder en databas som SQL Server, MySQL eller Oracle, kan du använda [Azure Database Migration Service](../dms/dms-overview.md) till att migrera dem till Azure.
 
 
 ## <a name="next-steps"></a>Nästa steg

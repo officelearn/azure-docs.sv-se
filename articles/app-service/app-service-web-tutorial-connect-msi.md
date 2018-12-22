@@ -1,5 +1,5 @@
 ---
-title: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet | Microsoft Docs
+title: Skydda SQL Database-anslutningar med en hanterad identitet – Azure App Service | Microsoft Docs
 description: Lär dig hur du gör dina databasanslutningar säkrare med hjälp av en hanterad identitet, och hur du använder den i andra Azure-tjänster.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8c31e410713e4ba8ce6443170ba5ad5c2e740419
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52677941"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259077"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
@@ -95,11 +95,10 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 ## <a name="modify-aspnet-code"></a>Ändra ASP.NET-koden
 
-Öppna **DotNetAppSqlDb**-projektet i Visual Studio, öppna _packages.config_ och lägg till följande rad i listan med paket.
+I Visual Studio öppnar du Package Manager-konsolen och lägger till NuGet-paketet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
-```xml
-<package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
-<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
+```PowerShell
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.1.0-preview
 ```
 
 Öppna _Models\MyDatabaseContext.cs_ och lägg till följande `using`-instruktioner överst i filen:

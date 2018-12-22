@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en ASP.NET-webbapp med Azure Cosmos DB med hjälp av SQL API och Azure-portalen'
+title: 'Snabbstart: Skapa en ASP.NET-webbapp med Azure Cosmos DB med hjälp av SQL API och Azure Portal'
 description: I den här snabbstarten använder du Azure Cosmos DB SQL API och Azure-portalen för att skapa en ASP.NET-webbapp
 author: deborahc
 ms.service: cosmos-db
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
 clicktale: true
-ms.openlocfilehash: 7686baf2476942748a67ae7c73b02596b6588607
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4422e656759418d715fb0bd26643581a0ca99a4f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853607"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089130"
 ---
-# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Snabbstart: Skapa en ASP.NET-webbapp med Azure Cosmos DB med hjälp av SQL API och Azure-portalen
+# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Snabbstart: Skapa en ASP.NET-webbapp med Azure Cosmos DB med hjälp av SQL API och Azure Portal
 
 > [!div class="op_single_selector"]
 > * [.NET (förhandsversion)](create-sql-api-dotnet-preview.md)
@@ -117,7 +117,7 @@ Följande kodavsnitt är alla hämtade från filen ToDoItemService.cs.
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. I [Azure-portalen](http://portal.azure.com/) går du till ditt Azure Cosmos DB-konto. Välj **Nycklar** i det vänstra navigeringsfönstret och sedan **läs- och skrivnycklar**. Du använder kopiera-knapparna till höger på skärmen för att kopiera URI:n och primärnyckeln i web.config-filen i nästa steg.
+1. I [Azure-portalen](https://portal.azure.com/) går du till ditt Azure Cosmos DB-konto. Välj **Nycklar** i det vänstra navigeringsfönstret och sedan **läs- och skrivnycklar**. Du använder kopiera-knapparna till höger på skärmen för att kopiera URI:n och primärnyckeln i web.config-filen i nästa steg.
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
 

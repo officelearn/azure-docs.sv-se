@@ -1,20 +1,20 @@
 ---
-title: 'Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure Pipelines'
+title: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure DevOps
 description: Den här artikeln beskriver hur du distribuerar ett Stream Analytics-jobb med CI/CD med hjälp av Azure DevOps Services.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 07/10/2018
-ms.openlocfilehash: 0f729725a04b19a513ca92953e997b51e4558884
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7e9ce598dbd8987ab32747f5fa9d14646ed4ee71
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986273"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164083"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure Pipelines
 Den här artikeln beskriver hur du konfigurerar kontinuerlig integrering och distribution för ett Azure Stream Analytics-jobb med hjälp av Azure Pipelines. 
@@ -55,11 +55,11 @@ Dela programkällfilerna till ett projekt i Azure DevOps så att du kan generera
 
 2. I vyn för **synkronisering** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps Services**.
 
-   ![Push-överföring med Git-lagringsplats](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
+   ![Knappen Push to Azure DevOps Services Publish Git Repo (Publicera Git-lagringsplats för Azure DevOps-tjänster med push-överföring)](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
 3. Verifiera din e-postadress och välj din organisation i listrutan **Azure DevOps Services-domän**. Skriv in lagringsplatsens namn och välj **Publicera lagringsplats**.
 
-   ![Push-överföring med Git-lagringsplats](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
+   ![Knappen Push Git repo Publish Repository (Publicera Git-lagringsplats med push-överföring)](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
     När du publicerar lagringsplatsen skapas ett nytt projekt i organisationen med samma namn som den lokala lagringsplatsen. Om du vill skapa lagringsplatsen i ett befintligt projekt klickar du på **Avancerat** bredvid **namnet på databasen** och väljer ett projekt. Du kan visa koden i webbläsaren genom att välja alternativet för att **visa på webben**.
  
@@ -73,33 +73,33 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
 
 1. Under fliken **Build & Release** (Bygge och version) väljer du **Builds** (Byggen) och sedan **+ New** (+ Nytt).  Välj **Azure DevOps Services Git** och **Fortsätt**.
     
-    ![Välj källa](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
+    ![Välj källa för DevOps Git i Azure DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
 2. I **Välj en mall** klickar du på **Tom process** för att börja med en tom pipeline.
     
-    ![Välj byggesmall](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
+    ![Välj en tom process från mallalternativen i DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
 3. Under **Utlösare** aktiverar du kontinuerlig integrering genom att markera utlösarstatusen **Aktivera kontinuerlig integrering**.  Välj alternativet för att **spara och köa** för att manuellt starta en version. 
     
-    ![Utlösarstatus](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
+    ![Aktivera utlösarstatus för kontinuerlig integrering](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
 4. Byggen utlöses också vid push-överföring och incheckning. Om du vill kontrollera förloppet för bygget växlar du till fliken **Builds** (Byggen).  När du har kontrollerat att bygget körs rätt måste du definiera en versionspipeline som distribuerar programmet till ett kluster. Högerklicka på ellipsen intill bygg-pipelinen och välj **Redigera**.
 
 5.  I **Uppgifter** anger du "Hosted" som **Agent queue** (Agentkö).
     
-    ![Välja agentkö](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue.png) 
+    ![Välj agentkö på menyn Uppgifter](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
 6. I **Fas 1** klickar du på **+** och lägger till en **NuGet**-uppgift.
     
-    ![Lägga till en NuGet-uppgift](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget.png)
+    ![Lägga till en NuGet-uppgift i agentkö](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
 
 7. Expandera **Avancerat** och lägg till `$(Build.SourcesDirectory)\packages` till **målkatalogen**. Behåll återstående NuGet-standardkonfigurationsvärden.
 
-   ![Konfigurera NuGet-uppgift](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-config.png)
+   ![Konfigurera aktiviteten för återställning av NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
 
 8. I **Fas 1** klickar du på **+** och lägger till en **MSBuild**-uppgift.
 
-   ![Lägga till MSBuild-uppgift](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-msbuild-task.png)
+   ![Lägga till en MSBuild-uppgift i agentkö](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
 
 9. Ändra **MSBuild-argumenten** till följande:
 
@@ -107,11 +107,11 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
    /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="$(Build.SourcesDirectory)\packages\Microsoft.Azure.StreamAnalytics.CICD.1.0.0\build\StreamAnalytics.targets"
    ```
 
-   ![Konfigurera MSBuild-uppgift](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-msbuild.png)
+   ![Konfigurera MSBuild-uppgift i DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
 
 10. I **Fas 1**, klickar du på **+** och lägger till en **Azure Resource Group Deployment**-uppgift. 
     
-    ![Lägga till en Azure Resource Group Deployment-uppgift](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy.png)
+    ![Lägga till en Azure Resource Group Deployment-uppgift](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-resource-group-deployment.png)
 
 11. Expandera **Azure Details** (Azure-information) och fyll i konfigurationen med följande:
     
@@ -124,16 +124,16 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
     |Mallparametrar  | [Lösningens sökväg]\bin\Debug\Deploy\\[Projektnamnet].JobTemplate.parameters.json   |
     |Åsidosätt mallparametrar  | Skriv in mallparametrarna som ska åsidosättas i textrutan. Example, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Den här egenskapen är valfri, men bygget kommer att resultera i fel om nyckelparametrarna inte åsidosätts.    |
     
-    ![Ange egenskaper](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
+    ![Ange egenskaper för distribution av Azure-resursgrupper](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
 12. Klicka på **Save & Queue** (Spara och köa) för att testa bygg-pipelinen.
     
-    ![Ange åsidosättningsparametrar](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
+    ![Spara och köa version i DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-and-queue-build.png)
 
 ### <a name="failed-build-process"></a>Misslyckad byggeprocess
 Det kan hända att du får fel för nulldistributionsparametrar om du inte åsidosatte mallparametrarna i **Azure Resource Group Deployment**-uppgiften för bygg-pipelinen. Gå tillbaka till bygg-pipelinen och åsidosätt nullparametrarna för att åtgärda problemet.
 
-   ![Byggeprocessen misslyckades](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
+   ![DevOps Stream Analytics-genereringsprocessen misslyckades](./media/stream-analytics-tools-visual-studio-cicd-vsts/devops-build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>Checka in och push-överför ändringar för att utlösa en frisläppning
 Kontrollera att pipelinen för den kontinuerliga integreringen fungerar genom att kontrollera kodändringar i Azure DevOps.    
@@ -142,11 +142,11 @@ När du skriver koden spåras dina ändringar automatiskt av Visual Studio. Geno
 
 1. I vyn **Ändringar** i Team Explorer lägger du till ett meddelande som beskriver uppdateringen. Spara sedan ändringarna.
 
-    ![Checka in och push-överför ändringar](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
+    ![Genomföra lagringsplatsändringar från Visual Studio](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-commit-changes-visual-studio.png)
 
 2. Välj statusfältikonen för de opublicerade ändringarna eller vyn Synkronisera i Team Explorer. Välj **Push** (Push-överföring) för att uppdatera koden i Azure DevOps.
 
-    ![Checka in och push-överför ändringar](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
+    ![Skicka ändringar från Visual Studio](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-visual-studio.png)
 
 När du skickar ändringar till Azure DevOps Services via push-överföring utlöses ett bygge automatiskt.  När bygg-pipelinen har slutförts skapas en version automatiskt och börjar uppdatera jobbet i klustret.
 

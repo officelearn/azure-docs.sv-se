@@ -1,6 +1,6 @@
 ---
-title: Distribuera Custom Vision till en Azure IoT Edge-enhet | Microsoft Docs
-description: Lär dig skapa en modell för visuellt innehåll som körs som en container med hjälp av Custom Vision och IoT Edge.
+title: Självstudie om att distribuera en Custom Vision-klassificerare till en enhet – Azure IoT Edge | Microsoft Docs
+description: I den här självstudien lär du dig att skapa en modell för visuellt innehåll som körs som en container med hjälp av Custom Vision och IoT Edge.
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566490"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075836"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 
@@ -99,7 +99,7 @@ För att skapa en bildklassificerare krävs en uppsättning träningsbilder samt
 
 5. Välj **Ladda upp 10 filer**. 
 
-   ![Ladda upp filer taggade med ”hemlock”](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
+   ![Ladda filer taggade med hemlockgran till Custom Vision](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
 6. När bilderna har laddats upp väljer du **Klar**.
 
@@ -117,7 +117,7 @@ För att skapa en bildklassificerare krävs en uppsättning träningsbilder samt
 
 1. När du har tränat klassificeraren väljer du **Exportera** på sidan Prestanda för klassificeraren. 
 
-   ![Exportera bildklassificerare](./media/tutorial-deploy-custom-vision/export.png)
+   ![Exportera din tränade bildklassificerare](./media/tutorial-deploy-custom-vision/export.png)
 
 2. Välj **DockerFile** som plattform. 
 
@@ -151,7 +151,7 @@ En lösning är ett logiskt sätt att utveckla och organisera flera moduler för
 
 3. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
 
-4. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
+4. I kommandopaletten anger och kör du kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning). Ange följande information i kommandopaletten för att skapa din lösning: 
 
    | Fält | Värde |
    | ----- | ----- |
@@ -201,7 +201,7 @@ I en verklig Custom Vision-distribution skulle du har en kamera som tillhandahå
 
 I det här avsnittet lägger du till en ny modul i samma CustomVisionSolution och anger kod för att skapa den simulerade kameran. 
 
-1. I samma Visual Studio Code-fönster använder du kommandopaletten för att köra **Azure IoT Edge: Lägg till IoT Edge-modul**. I kommandopaletten anger du följande information för den nya modulen: 
+1. I samma Visual Studio Code-fönster använder du kommandopaletten för att köra **Azure IoT Edge: Add IoT Edge Module** (Lägg till IoT Edge-modul). I kommandopaletten anger du följande information för den nya modulen: 
 
    | Uppmaning | Värde | 
    | ------ | ----- |
@@ -423,7 +423,7 @@ Först skapar och överför du lösningen till ditt containerregister.
 
 Konfigurera sedan åtkomst till din IoT-hubb från Visual Studio Code. 
 
-1. Välj **Azure IoT Hub: Välj IoT Hub** i kommandopaletten för VS Code.
+1. I kommandopaletten för VS Code väljer du **Azure IoT Hub: Select IoT Hub** (Välj IoT-hubb).
 2. Följ anvisningarna för att logga in på ditt Azure-konto. 
 3. Välj din Azure-prenumeration och sedan din IoT Hub i kommandopaletten. 
 

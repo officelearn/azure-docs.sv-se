@@ -1,25 +1,24 @@
 ---
-title: 'Självstudie: Attitydanalys på strömmad data med hjälp av Azure Databricks'
+title: 'Självstudie: Sentimentanalys på strömmade data med hjälp av Azure Databricks'
 description: Lär dig att använda Azure Databricks med Event Hubs och Cognitive Services API för att kunna köra attitydanalys på strömmande data nästan i realtid.
 services: azure-databricks
 author: lenadroid
+ms.author: alehall
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 10/23/2018
-ms.author: alehall
-ms.openlocfilehash: cf396dea6ee467267ea73379ea04026fc8cc53b2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 12/07/2018
+ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636591"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100198"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudie: Attitydanalys på strömmad data med hjälp av Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudie: Sentimentanalys på strömmade data med hjälp av Azure Databricks
 
-I kursen får du lära dig att köra attitydanalys på en dataström med hjälp av Azure Databricks nästan i realtid. Du konfigurerar datainmatningssystemet med Azure Event Hubs. Du kan använda meddelanden från Event Hubs i Azure Databricks med hjälp av Spark Event Hubs-anslutningsprogrammet. Slutligen kan du använda Microsoft Cognitive Service API:er för att köra attitydanalys på strömmad data.
+I den här självstudien får du lära dig att köra sentimentanalys på en dataström med hjälp av Azure Databricks nästan i realtid. Du konfigurerar datainmatningssystemet med Azure Event Hubs. Du kan använda meddelanden från Event Hubs i Azure Databricks med hjälp av Spark Event Hubs-anslutningsprogrammet. Slutligen kan du använda Microsoft Cognitive Service API:er för att köra attitydanalys på strömmad data.
 
 I slutet av den här självstudien har du strömmat tweets från Twitter som innehåller termen ”Azure” och kört attitydanalys på dessa tweets.
 
@@ -151,7 +150,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
 ## <a name="get-a-cognitive-services-access-key"></a>Hämta en Cognitive Services-åtkomstnyckel
 
-I den här kursen använder du [API:er för textanalys i Microsoft Cognitive Services](../cognitive-services/text-analytics/overview.md) till att köra attitydanalys på strömmade tweets nästan i realtid. Innan du använder API:erna måste du skapa ett Microsoft Cognitive Services-konto i Azure och hämta en åtkomstnyckel för att kunna använda API:er för textanalys.
+I den här självstudien använder du [API:er för textanalys i Microsoft Cognitive Services](../cognitive-services/text-analytics/overview.md) till att köra sentimentanalys på en ström av tweets nästan i realtid. Innan du använder API:erna behöver du skapa ett Microsoft Cognitive Services-konto i Azure och hämta en åtkomstnyckel för att kunna använda API:er för textanalys.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -169,7 +168,7 @@ I den här kursen använder du [API:er för textanalys i Microsoft Cognitive Ser
     - Välj den Azure-prenumeration som kontot skapas under.
     - Välj en Azure-plats.
     - Välj en prisnivå för tjänsten. Läs mer om prissättningen för Cognitive Services på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    - Ange om du vill skapa en ny resursgrupp eller välj en befintlig.
+    - Ange om du vill skapa en ny resursgrupp eller välja en befintlig.
 
     Välj **Skapa**.
 
@@ -206,7 +205,7 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 
 ## <a name="send-tweets-to-event-hubs"></a>Skicka tweets till Event Hubs
 
-I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Event Hubs-arbetsytan och Twitter-programmet som du skapade tidigare. Anteckningsboken strömmar tweets med nyckelordet ”Azure” till Event Hubs i realtid.
+I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Event Hubs-namnrymden och det Twitter-program som du skapade tidigare. Anteckningsboken strömmar tweets med nyckelordet ”Azure” till Event Hubs i realtid.
 
 ```scala
 import java.util._
@@ -313,7 +312,7 @@ val customEventhubParameters =
   EventHubsConf(connectionString)
   .setMaxEventsPerTrigger(5)
 
-val incomingStream = spark.readStream.format("eventhubs").option(customEventhubParameters.toMap).load()
+val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
 
 incomingStream.printSchema
 
@@ -396,7 +395,7 @@ Utdatan liknar nu följande kodfragment:
     ...
     ...
 
-Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med Event Hubs-kopplingen för Apache Spark. Mer information om hur du använder Event Hubs-anslutningsprogrammet för Apache Spark finns i [dokumentationen till anslutningsprogrammet](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-anslutningsprogrammet för Apache Spark finns i [dokumentationen till anslutningsprogrammet](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Köra attitydanalys på tweets
 
@@ -509,7 +508,7 @@ object SentimentDetector extends Serializable {
 }
 ```
 
-Lägg till ytterligare en cell för att definiera en Spark-UDF (User Defined Function – användardefinierad funktion) som avgör attityder.
+Lägg till ytterligare en cell för att definiera en Spark-UDF (User Defined Function – användardefinierad funktion) som avgör sentiment.
 
 ```scala
 // User Defined Function for processing content of messages to return their sentiment.
@@ -571,7 +570,7 @@ Du bör se utdata som liknar följande kodavsnitt:
 
 Ett värde nära **1** i kolumnen **Attityd** innebär en bra Azure-upplevelse. Ett värde närmare **0** tyder på problem som användare kan uppleva när de använder Microsoft Azure.
 
-Klart! Med Azure Databricks har du strömmat data till Azure Event Hubs, använt dataströmmar med Event Hubs-anslutningsprogrammet och sedan kört attitydanalys på strömmande data nästan i realtid.
+Klart! Med Azure Databricks har du strömmat data till Azure Event Hubs, använt dataströmmar med Event Hubs-anslutningsappen och sedan kört sentimentanalys på strömmande data nästan i realtid.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa en app med flera containrar (förhandsversion) i Azure Web App for Containers med hjälp av en Docker Compose-konfiguration
+title: Skapa en app för flera containrar med Docker Compose – Azure App Service
 description: Distribuera din första app med flera containrar i Azure Web App for Containers på några minuter
 keywords: azure app service, web app, linux, docker, compose, multicontainer, multi-container, web app for containers, multiple containers, container, kubernetes, wordpress, azure db for mysql, production database with containers
 services: app-service\web
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 1d54d914edb306b89dc6f2604aa5af3d17cb535d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec18
+ms.openlocfilehash: 404be7a064e0e4b09178830b7802192e8775e121
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576790"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316589"
 ---
-# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Skapa en app med flera containrar (förhandsversion) med hjälp av Web App for Containers
+# <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Skapa en app med flera containrar (förhandsversion) med hjälp av en Docker Compose-konfiguration
 
 Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. Den här snabbstarten visar hur du distribuerar en app med flera containrar till Web App for Containers i [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) med hjälp av en Docker Compose-konfiguration. För Kubernetes och en fullständig heltäckande lösning med Azure DB för MySQL följer du [självstudiekursen om flera containrar](tutorial-multi-container-app.md).
 

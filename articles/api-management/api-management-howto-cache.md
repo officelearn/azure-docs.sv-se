@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 2c417a0e9a3f50032aa3c97ced57d3249bc7c93a
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 549194ce1dcab5cd449c60c934421b3bea154d6a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620683"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015695"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Förbättra prestanda i Azure API Management med cachelagring
 
@@ -38,7 +38,7 @@ Detta får du får lära dig:
 ## <a name="availability"></a>Tillgänglighet
 
 > [!NOTE]
-> Internt cacheminne är inte tillgängligt på nivån **Förbrukning** för Azure API Management. Du kan [använda en extern Redis-cache](api-management-howto-cache-external.md) i stället.
+> Internt cacheminne är inte tillgängligt på nivån **Förbrukning** för Azure API Management. Du kan [använda en extern Azure Cache for Redis](api-management-howto-cache-external.md) istället.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -76,7 +76,7 @@ Med cachelagringsprinciperna i det här exemplet returnerar den första begäran
     **Varaktighet** anger giltighetsintervallet för de cachelagrade svaren. I det här exemplet är intervallet **20** sekunder.
 
 > [!TIP]
-> Om du använder en extern cache enligt beskrivningen i [Använda en extern Redis-cache i Azure API Management](api-management-howto-cache-external.md) kan det vara bra att ange attributet `cache-preference` för cachelagringsprinciperna. Mer information finns i [Principer för API Management-cachelagring](api-management-caching-policies.md).
+> Om du använder en extern cache enligt beskrivningen i [Använda en extern Azure Cache for Redis i Azure API Management](api-management-howto-cache-external.md) kan det vara bra att ange attributet `cache-preference` för cachelagringsprinciperna. Mer information finns i [Principer för API Management-cachelagring](api-management-caching-policies.md).
 
 ## <a name="test-operation"> </a>Anropa en åtgärd och testa cachelagringen
 Om du vill se hur cachelagringen fungerar i praktiken kan du anropa åtgärden från utvecklarportalen.
@@ -91,7 +91,7 @@ Om du vill se hur cachelagringen fungerar i praktiken kan du anropa åtgärden f
 ## <a name="next-steps"> </a>Nästa steg
 * Mer information om cachelagringsprinciper finns i [Cachelagringsprinciper][Caching policies] i [Principreferens för API Management][API Management policy reference].
 * Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).
-* Mer information om hur du använder extern Redis-cache finns i [Använda en extern Redis-cache i Azure API Management](api-management-howto-cache-external.md).
+* Mer information om hur du använder extern Azure Cache for Redis finns i [Använda en extern Azure Cache for Redis i Azure API Management](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

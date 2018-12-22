@@ -1,22 +1,25 @@
 ---
-title: Snabbstart för språket Go – ändra modell och träna LUIS-app
-description: I den här snabbstarten för språket Go lägger du till exempelyttranden till en app för hemautomatisering och tränar appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
-titleSuffix: Microsoft Cognitive Services
+title: Ändra, träna appen, Go
+description: I den här snabbstarten för språket Go lägger du till exempelyttranden till en app för hemautomatisering och tränar appen.
+titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2cd8c1aa2deb2af97d4f720efa0e40146b15b888
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e3fb6b2532f2dc99a48cc3c2eac9029367c52185
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031874"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100301"
 ---
 # <a name="quickstart-change-model-using-go"></a>Snabbstart: Ändra modell med hjälp av Go
+
+I den här snabbstarten överför du yttranden till en LUIS-slutpunkt och få avsikt och entiteter tillbaka.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -66,7 +69,7 @@ ms.locfileid: "47031874"
 
 2. Kör Go-programmet från kommandoraden genom att ange följande text i kommandotolken: 
 
-    ```CMD
+    ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
     ```
@@ -75,7 +78,7 @@ ms.locfileid: "47031874"
 
     Den här kommandotolken visar resultatet:
 
-    ```CMD
+    ```console
     add example utterances requested
     [
         {

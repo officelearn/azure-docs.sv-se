@@ -12,23 +12,25 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/28/2018
+ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: 42e475f4da2102bb8b010daec6e6451ba7f13848
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8fc76c33055f7131444a073d2f8560e136c0701d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011100"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413259"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Skapa en volym för Azure NetApp Files
 
 En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet.  Du kan skapa flera volymer i en kapacitetspool men volymernas totala kapacitetsförbrukning får inte överskrida poolens storlek. 
 
 ## <a name="before-you-begin"></a>Innan du börjar 
-Du måste redan ha konfigurerat en kapacitetspool.  
+Du måste redan ha konfigurerat en kapacitetspool.   
+[Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)   
+Ett undernät måste delegeras till Azure NetApp Files.  
+[Delegera ett undernät till Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-[Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
 
 ## <a name="steps"></a>Steg 
 1.  Klicka på bladet **Volymer** via bladet Hantera kapacitetspooler. 
@@ -38,26 +40,40 @@ Du måste redan ha konfigurerat en kapacitetspool.
 3.  I fönstret Ny volym klickar du på **Skapa** och fyller i följande fält:   
     * **Namn**      
         Ange namnet på den volym du skapar.   
-        Namnet måste vara unikt inom sin resursgrupp. Det måste innehålla minst 3 tecken.  Du kan använda alla alfanumeriska tecken.
+
+        Namnet måste vara unikt inom sin resursgrupp. Det måste innehålla minst tre tecken.  Du kan använda alla alfanumeriska tecken.
 
     * **Filsökväg**  
         Ange filsökvägen som ska användas för att skapa exportvägen för den nya volymen. Exportvägen används för att sätta upp och komma åt volymen.   
-        Ett monteringsmål är slutpunkten för NFS-IP-adressen. Det skapas automatiskt.    
+     
         Filsökvägen får endast innehålla bokstäver, siffror och bindestreck (-). Det måste vara mellan 16 och 40 tecken långt.  
 
     * **Kvot**  
         Ange mängden logisk lagring som tilldelas till volymen.  
+
         Fältet **Tillgänglig kvot** visar mängden outnyttjat utrymme i kapacitetspoolen, som du kan använda för att skapa en ny volym. Storleken på den nya volymen får inte överskrida den tillgängliga kvoten.  
 
     * **Virtuellt nätverk**  
-        Ange från vilket virtuellt Azure-nätverk du vill komma åt volymen. Det virtuella nätverk du anger måste vara konfigurerat för Azure NetApp Files. Azure NetApp Files-tjänsten kan endast nås via ett virtuellt nätverk som finns på samma plats som volymen.   
+        Ange från vilket virtuellt Azure-nätverk du vill komma åt volymen.  
 
-    ![Ny volym](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        Det virtuella nätverk som du anger måste ha ett undernät delegerat till Azure NetApp Files. Azure NetApp Files-tjänsten kan endast nås från samma virtuella nätverk eller från ett virtuellt nätverk som finns i samma region som volymen via VNet-peering. Du kan även komma åt volymen från ditt lokala nätverk via ExpressRoute.   
+
+    * **Undernät**  
+        Ange det undernät som du vill använda för volymen.  
+        Det undernät som du anger måste delegeras till Azure NetApp Files. 
+        
+        Om du inte har delegerat ett undernät kan du klicka på **Skapa nytt** på sidan Skapa en volym. På sidan Skapa undernät anger du sedan undernätsinformationen och väljer **Microsoft.NetApp/volumes** för att delegera undernätet för Azure NetApp Files.    
+ 
+        ![Ny volym](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+    
+        ![Skapa undernät](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
 
 4.  Klicka på **OK**. 
  
 En volym ärver prenumeration, resursgrupp och platsattribut från kapacitetspoolen. Du kan övervaka volymdistributionsstatusen via fliken Meddelanden.
 
 ## <a name="next-steps"></a>Nästa steg  
-[Konfigurera exportprincipen för en volym (valfritt)](azure-netapp-files-configure-export-policy.md)
+* [Konfigurera exportprincipen för en volym (valfritt)](azure-netapp-files-configure-export-policy.md)
+* [Läs om integrering av virtuella nätverk för Azure-tjänster](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 

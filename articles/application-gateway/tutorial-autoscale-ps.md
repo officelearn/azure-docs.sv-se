@@ -1,48 +1,50 @@
 ---
-title: Skapa en zonredundant programgateway för automatisk skalning med en reserverad IP-adress – Azure PowerShell
-description: Lär dig hur du skapar en zonredundant programgateway för automatisk skalning med en reserverad IP-adress med hjälp av Azure PowerShell.
+title: 'Självstudie: Skapa en zonredundant programgateway för automatisk skalning med en reserverad IP-adress – Azure PowerShell'
+description: I den här självstudien får du lära dig hur du skapar en zonredundant programgateway för automatisk skalning med en reserverad IP-adress med hjälp av Azure PowerShell.
 services: application-gateway
 author: amitsriva
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 9/26/2018
+ms.date: 11/26/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d86ce2e1bac2fb58df8df748381a00eac21e65cb
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 99fa5d6f0ba74b56a53f2d1af1b99c7e5c2896a7
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48016942"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323208"
 ---
-# <a name="tutorial-create-an-autoscaling-zone-redundant-application-gateway-with-a-reserved-virtual-ip-address-using-azure-powershell"></a>Självstudie: Skapa en zonredundant programgateway för automatisk skalning med en reserverad virtuell IP-adress med hjälp av Azure PowerShell
+# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Självstudie: Skapa en application gateway som förbättrar åtkomsten till webbprogrammet
 
-Den här självstudien beskriver hur du skapar en programgateway i Azure Application Gateway med hjälp av Azure PowerShell-cmdletar och Azure Resource Manager-distributionsmodellen. Den här självstudien fokuserar på skillnaderna i den nya SKU:n för automatisk skalning jämfört med den befintliga standard-SKU:n. Mer specifikt funktionerna som ger stöd för automatisk skalning, zonredundans och reserverade virtuella IP-adresser (statisk IP-adress).
+Om du är IT-administratör som arbetar med att förbättra webbappmåtkomst kan du kan optimera din programgateway om du vill skala baserat på kundernas efterfrågan och sträcka dig över flera tillgänglighetszoner. Den här självstudien hjälper dig att konfigurera Azure Application Gateway-funktioner som gör det: automatisk skalning, zonredundans och reserverade virtuella IP-adresser (statisk IP-adress). Du använder Azure PowerShell-cmdletar och Azure Resource Manager-distributionsmodellen för att lösa problemet.
 
-Mer information om automatisk skalning och zonredundans med en programgateway finns i avsnittet [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md) (Zonredundant programgateway för automatisk skalning (offentlig förhandsversion)).
-
-> [!IMPORTANT]
-> SKU:n för zonredundant programgateway för automatisk skalning är för närvarande tillgänglig som en offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!IMPORTANT] 
+> SKU:n för zonredundant programgateway för automatisk skalning är för närvarande tillgänglig som en offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera konfigurationsparametern för automatisk skalning
-> * Använda zonparametern
-> * Använda en statisk virtuell IP-adress
+> * Skapa ett virtuellt nätverk för autoskalning
+> * Skapa en reserverad offentlig IP-adress
+> * Konfigurera infrastrukturen för din application gateway
+> * Ange automatisk skalning
 > * Skapa programgatewayen
-
+> * Testa programgatewayen
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
 Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Azure PowerShell-modulen version 6.9.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
-## <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 ```azurepowershell
 Connect-AzureRmAccount
 Select-AzureRmSubscription -Subscription "<sub name>"
 ```
+
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 Skapa en resursgrupp på en av de tillgängliga platserna.
 
@@ -54,7 +56,8 @@ $rg = "<rg name>"
 New-AzureRmResourceGroup -Name $rg -Location $location
 ```
 
-## <a name="create-a-vnet"></a>Skapa ett virtuellt nätverk
+## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+
 Skapa ett virtuellt nätverk med ett dedikerat undernät för en programgateway för automatisk skalning. För närvarande går det bara att distribuera en programgateway för automatisk skalning i varje dedikerat undernät.
 
 ```azurepowershell
@@ -85,7 +88,9 @@ $publicip = Get-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP"
 $vnet = Get-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
 $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
-## <a name="configure-application-gateway-infrastructure"></a>Konfigurera infrastrukturen för programgatewayen
+
+## <a name="configure-the-infrastructure"></a>Konfigurera infrastrukturen
+
 Konfigurera IP-konfigurationen, IP-konfigurationen för klientsidan, serverdelspoolen, HTTP-inställningarna, certifikatet, porten, lyssnaren och regeln i samma format som den befintliga standardprogramgatewayen. Den nya SKU:n följer samma objektmodell som standard-SKU:n.
 
 ```azurepowershell
@@ -116,12 +121,13 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleTyp
 
 Nu kan du ange konfigurationen för automatisk skalning för programgatewayen. Två typer av konfiguration för automatisk skalning stöds:
 
-- **Läget för bestämd kapacitet**. I det här läget skalas inte programgatewayen automatiskt och körs med en fast skalningsenhetskapacitet.
+* **Läget för bestämd kapacitet**. I det här läget skalas inte programgatewayen automatiskt och körs med en fast skalningsenhetskapacitet.
 
    ```azurepowershell
    $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
    ```
-- **Läget för automatisk skalning**. I det här läget skalas programgatewayen automatiskt baserat på programmets trafikmönster.
+
+* **Läget för automatisk skalning**. I det här läget skalas programgatewayen automatiskt baserat på programmets trafikmönster.
 
    ```azurepowershell
    $autoscaleConfig = New-AzureRmApplicationGatewayAutoscaleConfiguration -MinCapacity 2
@@ -130,9 +136,7 @@ Nu kan du ange konfigurationen för automatisk skalning för programgatewayen. T
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Skapa programgateway och lägg till redundanszoner. 
-
-Zonkonfigurationen stöds bara i regioner där Azure-zoner är tillgängliga. I regioner där Azure-zoner inte är tillgängliga bör zonparametern utelämnas. En programgateway kan också distribueras i en enda zon, i två zoner eller i alla tre zoner. PublicIPAddress för en programgateway i en enda zon måste vara bunden till samma zon. För en redundant programgateway i två eller tre zoner måste även PublicIPAddress vara zonredundant, så ingen zon anges.
+Skapa programgatewayen och inkludera redundanszoner och konfigurationen för automatisk skalning.
 
 ```azurepowershell
 $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
@@ -145,24 +149,17 @@ $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Använd [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) till att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen eller DNS-namnet och klistra in det i webbläsarens adressfält.
+Använd Get-AzureRmPublicIPAddress till att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen eller DNS-namnet och klistra in det i webbläsarens adressfält.
 
 `Get-AzureRmPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Utforska först de resurser som har skapats med programgatewayen och sedan när den inte längre behövs kan du använda kommandot `Remove-AzureRmResourceGroup` för att ta bort resursgruppen, programgatewayen och alla relaterade resurser.
+
+Utforska först de resurser som har skapats med application gateway. När du inte behöver dem längre kan du använda kommandot `Remove-AzureRmResourceGroup` för att ta bort resursgruppen, programgatewayen och alla relaterade resurser.
 
 `Remove-AzureRmResourceGroup -Name $rg`
 
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Använda en statisk virtuell IP-adress
-> * Konfigurera konfigurationsparametern för automatisk skalning
-> * Använda zonparametern
-> * Skapa programgatewayen
 
 > [!div class="nextstepaction"]
 > [Skapa en programgateway med webbadressbaserade routningsregler](./tutorial-url-route-powershell.md)

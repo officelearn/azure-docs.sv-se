@@ -1,5 +1,5 @@
 ---
-title: Självstudie för Azure Container Service – Hantera DC/OS
+title: (INAKTUELL) Självstudie för Azure Container Service – Hantera DC/OS
 description: Självstudie för Azure Container Service – Hantera DC/OS
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8f4b1c1c66243c06d46ef3fddec8ea495163fa07
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999621"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000425"
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Självstudie för Azure Container Service – Hantera DC/OS
+# <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(INAKTUELL) Självstudie för Azure Container Service – Hantera DC/OS
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS tillhandahåller en distribuerad plattform för att köra moderna och containerbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. I den här snabbstarten beskrivs de grundläggande stegen för att distribuera ett DC/OS-kluster och köra en grundläggande arbetsbelastning.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Utföra en sökning med Go – API för webbsökning i Bing'
+title: 'Snabbstart: Utföra en webbsökning med Go – REST-API:et för webbsökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten lär du dig att göra ditt första anrop API för webbsökning i Bing med Go och att ta emot ett JSON-svar.
+description: Använd den här snabbstarten om du vill skicka begäranden till REST-API:et för webbsökning i Bing med hjälp av Go och få ett JSON-svar
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -11,14 +11,15 @@ ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
-ms.openlocfilehash: 4191232e45d012d3aec5d056c28e765332073ede
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 97b9a75802441a9360291d334b9920366a1c9450
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310437"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255643"
 ---
-# <a name="quickstart-use-go-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Go för att anropa API för webbsökning i Bing  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Snabbstart: Söka på webben med hjälp av REST-API:et för webbsökning i Bing och Go
 
 Använd den här snabbstarten för att göra ditt första anrop till API för webbsökning i Bing och få ett JSON-svar på mindre än 10 minuter.  
 

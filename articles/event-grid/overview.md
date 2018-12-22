@@ -1,21 +1,22 @@
 ---
-title: Översikt för Azure Event Grid
-description: Beskriver Azure Event Grid och dess begrepp.
+title: Publicera och prenumerera på programhändelser – Azure Event Grid
+description: Skicka händelsedata från en källa till hanterare med Azure Event Grid. Skapa händelsebaserade program och integrera med Azure-tjänster.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 08/17/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fbe9b79cd407f74686d572aa1e5c7ac1d837cd25
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: seodec18
+ms.openlocfilehash: 466f7614026866bb038f3c73b23e28e34d9f2e30
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223434"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321024"
 ---
-# <a name="an-introduction-to-azure-event-grid"></a>En introduktion till Azure Event Grid
+# <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
 Med Azure Event Grid kan du enkelt skapa program med händelsebaserade arkitekturer. Du börjar med att välja Azure-resursen som du vill prenumerera på och anger sedan händelsehanteraren eller WebHook-slutpunkten som händelsen ska skickas till. Event Grid har inbyggt stöd för händelser som kommer från Azure-tjänster, som lagringsblobar och resursgrupper. Du kan också använda egna händelser med Event Grid, med hjälp av anpassade ämnen. 
 
@@ -25,9 +26,9 @@ Azure Event Grid är för närvarande tillgängligt i alla offentliga regioner. 
 
 Den här artikeln innehåller en översikt för Azure Event Grid. Om du vill komma igång med Event Grid kan du läsa [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md). 
 
-![Funktionell modell för Event Grid](./media/overview/functional-model.png)
+![Event Grid-modell för källor och hanterare](./media/overview/functional-model.png)
 
-Obs! Den här bilden illustrerar hur Event Grid ansluter källor och hanterare och är inte en heltäckande lista över integreringar som stöds.
+Den här bilden illustrerar hur Event Grid ansluter källor och hanterare och är inte en heltäckande lista över integreringar som stöds.
 
 ## <a name="event-sources"></a>Händelsekällor
 
@@ -64,7 +65,7 @@ Det finns fem begrepp i Azure Event Grid som hjälper dig igång:
 * **Händelser** – Vad hände?
 * **Händelsekällor** – där händelsen ägde rum.
 * **Ämnen** – Slutpunkten som utgivarna skickar händelser till.
-* **Händelseprenumerationer** – Den slutpunkt eller inbyggda mekanism som dirigerar händelser, ibland till flera hanterare. Prenumerationer används också av hanterarna för att filtrera inkommande händelser på ett intelligent sätt.
+* **Händelseprenumerationer** – Den slutpunkt eller inbyggda mekanism som dirigerar händelser, ibland till fler än en hanterare. Prenumerationer används också av hanterarna för att filtrera inkommande händelser på ett intelligent sätt.
 * **Händelsehanterare** – Den app eller tjänst som reagerar på händelsen.
 
 Mer information om de här begreppen finns i [Begrepp i Azure Event Grid](concepts.md).
@@ -75,8 +76,8 @@ Här följer några viktiga funktioner i Azure Event Grid:
 
 * **Enkelhet** – Peka och klicka för att dirigera händelser från Azure-resursen till valfri händelsehanterare eller slutpunkt.
 * **Avancerad filtrering** – Filtrera på händelsetyp eller händelsens publiceringssökväg för att säkerställa att händelsehanterarna endast får relevanta händelser.
-* **Förgrena** – Prenumerera på flera slutpunkter till samma händelse för att kunna skicka kopior av händelsen till så många platser som behövs.
-* **Tillförlitlighet** – Använd 24-timmars återförsök med exponentiell backoff för att säkerställa att händelser levereras.
+* **Förgrena** – Prenumerera på flera slutpunkter till samma händelse för att kunna skicka kopior av händelsen till så många platser som det behövs.
+* **Tillförlitlighet** – 24-timmars omförsök med exponentiellt intervall för att se till att händelser levereras.
 * **Betala per händelse** – Betala endast för hur mycket du använder Event Grid.
 * **Högt dataflöde** – Skapa arbetsbelastningar med hög volym i Event Grid med stöd för miljontals händelser per sekund.
 * **Inbyggda händelser** – Kom igång snabbt med resursdefinierade inbyggda händelser.
@@ -86,23 +87,23 @@ En jämförelse av Event Grid, Event Hubs och Service Bus finns i [Välj mellan 
 
 ## <a name="what-can-i-do-with-event-grid"></a>Vad kan jag göra med Event Grid?
 
-Azure Event Grid innehåller flera funktioner som avsevärt förbättrar åtgärdsautomatisering och integreringsarbete utan server: 
+Azure Event Grid innehåller flera funktioner som avsevärt förbättrar åtgärdsautomatisering och [integreringsarbete](http://azure.com/integration) utan server: 
 
 ### <a name="serverless-application-architectures"></a>Arkitekturer för program utan server
 
-![Program utan server](./media/overview/serverless_web_app.png)
+![Arkitektur för program utan server](./media/overview/serverless_web_app.png)
 
-Event Grid kopplar samman datakällor och händelsehanterare. Använd exempelvis Event Grid för att direkt utlösa att en funktion utan server kör bildanalys varje gång ett nytt foto läggs till i en bloblagringscontainer. 
+Event Grid kopplar samman datakällor och händelsehanterare. Använd till exempel Event Grid för att utlösa en serverlös funktion som analyserar bilder när de läggs till i en Blob Storage-container. 
 
 ### <a name="ops-automation"></a>Automatisering av åtgärder
 
 ![Automatisering av åtgärder](./media/overview/Ops_automation.png)
 
-Event Grid ger snabbare automatisering och enklare principtillämpning. Event Grid kan exempelvis meddela Azure Automation när en virtuell dator skapas eller en SQL-databas utökas. De här händelserna kan användas för att automatiskt kontrollera att tjänstkonfigurationer följer standard, placera metadata i åtgärdsverktyg, tagga virtuella datorer eller arkivera arbetsobjekt.
+Event Grid ger snabbare automatisering och enklare principtillämpning. Använd till exempel Event Grid för att meddela Azure Automation när en virtuell dator eller SQL-databas skapas. Använd de här händelserna för att automatiskt kontrollera att tjänstkonfigurationer följer standard, placera metadata i åtgärdsverktyg, tagga virtuella datorer eller arkivera arbetsobjekt.
 
 ### <a name="application-integration"></a>Integrering av program
 
-![Integrering av program](./media/overview/app_integration.png)
+![Integrering av program med Azure](./media/overview/app_integration.png)
 
 Event Grid ansluter din app till andra tjänster. Skapa till exempel ett anpassat ämne för att skicka appens händelsedata till Event Grid och dra nytta av dess tillförlitliga leverans, avancerade dirigering och direkta integrering med Azure. Du kan även använda Event Grid med Logic Apps för att bearbeta data var som helst, utan att skriva någon kod. 
 
@@ -121,4 +122,4 @@ Azure Event Grid använder en prismodell med betalning per händelse, så du bet
 * [Strömma stordata till ett datalager](event-grid-event-hubs-integration.md)  
   En självstudie som använder Azure Functions till att strömma data från Event Hubs till SQL Data Warehouse.
 * [REST API-referens för Event Grid](/rest/api/eventgrid)  
-  Ger mer teknisk information om Azure Event Grid och en referens för att hantera prenumerationer på händelser, routning och filtrering.
+  Innehåller referensinnehåll för hantering av händelseprenumerationer, routning och filtrering.

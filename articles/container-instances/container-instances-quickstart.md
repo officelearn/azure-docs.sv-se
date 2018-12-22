@@ -1,25 +1,25 @@
 ---
-title: Snabbstart – Köra ett program i Azure Container Instances
-description: I den här snabbstarten använder du Azure PowerShell för att distribuera ett program som körs i en Docker-container i Azure Container Instances
+title: Snabbstart – Kör ett program i Azure Container Instances – CLI
+description: I den här snabbstarten använder du Azure CLI till att distribuera ett Docker-containerprogram som ska köras i en isolerad container i Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855671"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189616"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Snabbstart: Köra ett program i Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Snabbstart: Köra ett containerprogram i Azure Container Instances med Azure CLI
 
-Använd Azure Container Instances för att snabbt och enkelt köra Docker-containrar i Azure. Du behöver inte distribuera virtuella datorer eller använda en komplett plattform för containerorkestrering, som Kubernetes. I den här snabbstarten använder du Azure-portalen för att skapa en container i Azure och göra programmet tillgängligt med ett fullständigt kvalificerat domännamn (FQDN). Några sekunder efter att du har kört ett enskilt distributionskommando kan du gå till det program som körs:
+Använd Azure Container Instances för att snabbt och enkelt köra dockercontainrar i Azure. Du behöver inte distribuera virtuella datorer eller använda en komplett plattform för containerorkestrering, som Kubernetes. I den här snabbstarten använder du Azure CLI till att skapa en container i Azure och göra programmet tillgängligt med ett fullständigt domännamn (FQDN). Några sekunder efter att du har kört ett enskilt distributionskommando kan du gå till det program som körs:
 
-![Program som distribuerats till Azure Container Instances visas i en webbläsare][aci-app-browser]
+![App som distribuerats via Azure Container Instances visas i webbläsaren][aci-app-browser]
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][azure-account] konto innan du börjar.
 
@@ -29,7 +29,7 @@ Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Azure-containerinstanser (liksom alla Azure-resurser) måste distribueras till en resursgrupp. Resursgrupper gör det enkelt att se och hantera relaterade Azure-resurser.
+Azure-containerinstanser måste, precis som alla Azure-resurser, distribueras i en resursgrupp. Resursgrupper gör det enkelt att se och hantera relaterade Azure-resurser.
 
 Skapa först en resursgrupp med namnet *myResourceGroup* på platsen *eastus* med följande [az group create][az-group-create]-kommando:
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure CLI anger du ett resursgruppsnamn, ett containerinstansnamn och en Docker-containeravbildning till kommandot [az container create][az-container-create]. Du kan exponera dina containrar för internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller bådadera. I den här snabbstarten distribuerar du en container med en DNS-namnetikett som är värd för en liten webbapp som skrivits i Node.js.
 
-Kör följande kommando för att starta en instans av containern. Värdet `--dns-name-label` måste vara unikt i den Azure-region där du skapar instansen. Om du får felmeddelandet ”DNS-namnetiketten är inte tillgänglig” provar du med en annan DNS-namnetikett.
+Kör följande kommando för att starta en instans av containern. Värdet `--dns-name-label` måste vara unikt inom den Azure-region som du skapar instansen i. Om du får felmeddelandet ”DNS-namnetiketten är inte tillgänglig” provar du med en annan DNS-namnetikett.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
@@ -62,7 +62,7 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-När containerns `ProvisioningState` är **Lyckades**, navigerar du till dess fullständiga domännamn (FQDN) i webbläsaren. Om du ser en webbsida som liknar följande – grattis! Du har distribuerat ett program som körs i en Docker-container till Azure.
+När containerns `ProvisioningState` är **Lyckades**, navigerar du till dess fullständiga domännamn (FQDN) i webbläsaren. Om du ser en webbsida som liknar följande – grattis! Du har distribuerat ett program som körs i en dockercontainer till Azure.
 
 ![Skärmbild från webbläsaren som visar ett program som körs i en instans av Azure-containern][aci-app-browser]
 

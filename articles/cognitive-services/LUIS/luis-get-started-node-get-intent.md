@@ -1,23 +1,26 @@
 ---
-title: Node.js-snabbstart – förutspå avsikter – LUIS
-titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten använder du en tillgänglig offentlig LUIS-app för att fastställa användarens avsikt i konversationstext. Skicka med hjälp av Node.js användarens avsikt som text till den offentliga appens HTTP-slutpunkt för förutsägelse. Vid slutpunkten tillämpar LUIS den offentliga appens modell för att analysera betydelsen av text med naturligt språk, och fastställa den övergripande avsikten och extrahera data som är relevanta för appens ämnesdomän.
+title: Hämta avsikt, Node.js
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: I den här snabbstarten använder du en tillgänglig offentlig LUIS-app för att fastställa användarens avsikt i konversationstext. Skicka med hjälp av Node.js användarens avsikt som text till den offentliga appens HTTP-slutpunkt för förutsägelse.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92e10b1f4ec8be1dc67ff449df32ef76e365b5f2
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038926"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162672"
 ---
-# <a name="quickstart-get-intent-using-nodejs"></a>Snabbstart: Hämta avsikter med hjälp av Node.js
+# <a name="quickstart-get-intent-using-nodejs"></a>Snabbstart: Hämta avsikt med Node.js
+
+I den här snabbstarten överför du yttranden till en LUIS-slutpunkt och få avsikt och entiteter tillbaka.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -31,7 +34,7 @@ ms.locfileid: "47038926"
 
 
 > [!NOTE] 
-> Den fullständiga Node.js-lösningen finns i [**LUIS-Samples** Github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
+> Den fullständiga Node.js-lösningen finns i [**LUIS-exempel** GitHub-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
 
 ## <a name="get-luis-key"></a>Hämta LUIS-nyckel
 

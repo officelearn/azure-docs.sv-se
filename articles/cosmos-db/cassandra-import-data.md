@@ -2,19 +2,20 @@
 title: 'Självstudie: Migrera data till ett Cassandra API-konto i Azure Cosmos DB'
 description: I den här självstudien lär du dig hur du använder Copy-kommandot i CQL och Spark för att kopiera data från Apache Cassandra till ett Cassandra API-konto i Azure Cosmos DB.
 author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
-ms.author: govindk
 ms.topic: tutorial
 ms.date: 12/03/2018
-ms.reviewer: sngun
+ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: 604cab3bed73366ce28c8bb35b63df6379985cfb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ed86ce20a6230d487dfbd968a31507953400fab6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867476"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100482"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Självstudie: Migrera data till ett Cassandra API-konto i Azure Cosmos DB
 
@@ -72,12 +73,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du kan flytta data från befintliga Cassandra-arbetsbelastningar till Azure Cosmos DB med hjälp av följande alternativ:
 
-* [COPY-kommandot i Cqlsh](#using-cqlsh-copy-command)  
-* [Med hjälp av Spark](#using-spark) 
+* [COPY-kommandot i Cqlsh](#migrate-data-using-cqlsh-copy-command)  
+* [Med hjälp av Spark](#migrate-data-using-spark) 
 
 ## <a name="migrate-data-using-cqlsh-copy-command"></a>Migrera data med hjälp av COPY-kommandot i cqlsh
 
-[COPY-kommandot i CQL](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) används för att kopiera lokala data till Cassandra-API-kontot i Azure Cosmos DB. Använd följande steg för att kopiera data:
+[COPY-kommandot i CQL](https://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) används för att kopiera lokala data till Cassandra-API-kontot i Azure Cosmos DB. Använd följande steg för att kopiera data:
 
 1. Hämta information om anslutningssträngen för Cassandra-API:ets konto:
 

@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs i indexering av Azure SQL-databaser i Azure Search | Microsoft Docs
+title: Självstudie i indexering av Azure SQL-databaser i Azure-portalen – Azure Search
 description: I den här självstudien crawlar du en Azure SQL-databas för att extrahera sökbara data och fylla ett Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988803"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312059"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Självstudie: Crawla en Azure SQL-databas med Azure Search-indexerare
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Självstudie: Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
 
 Den här kursen visar hur du konfigurerar en indexerare för att extrahera sökbara data från en Azure SQL-exempeldatabas. [Indexerare](search-indexer-overview.md) är en komponent i Azure Search som crawlar externa datakällor och fyller ett [sökindex](search-what-is-an-index.md) med innehåll. Indexeraren för Azure SQL-databasen är den indexerare som används mest. 
 
@@ -272,7 +273,7 @@ Alla indexerare, inklusive den som du just har skapat programmässigt, visas i p
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resursgruppen som innehåller Azure Search-tjänsten. Du kan ta bort resursgruppen nu om du vill ta bort allt innehåll i den permanent. I portalen ser du resursgruppens namn på översiktssidan för Azure Search-tjänsten.
+Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resursgruppen som innehåller Azure Search-tjänsten. Du kan ta bort resursgruppen nu så att allt innehåll i den tas bort permanent. I portalen ser du resursgruppens namn på översiktssidan för Azure Search-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Mappa ett befintligt anpassat DNS-namn till Azure Web Apps | Microsoft Docs
+title: Mappa befintligt anpassat DNS-namn – Azure App Service | Microsoft Docs
 description: Lär dig hur du lägger till ett befintligt anpassat DNS-domännamn (anpassad domän) i en webbapp, mobilappserverdel eller API-app i Azure App Service.
 keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
 services: app-service\web
@@ -15,13 +15,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.custom: seodec18
+ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664895"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270271"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Självstudie: Mappa ett befintligt anpassat DNS-namn till Azure Web Apps
 
@@ -52,7 +52,7 @@ För att slutföra den här självstudien behöver du:
 
 ## <a name="prepare-the-app"></a>Förbereda appen
 
-För att kunna mappa ett anpassat DNS-namn till en webbapp måste webbappens [App Service-plan](https://azure.microsoft.com/pricing/details/app-service/) vara en betalplan (**Delad**, **Basic**, **Standard** eller **Premium**). I det här steget ser du till att App Service-appen har en prisnivå som stöds.
+För att kunna mappa ett anpassat DNS-namn till en webbapp måste webbappens [App Service-plan](https://azure.microsoft.com/pricing/details/app-service/) vara en betalplan (**Delad**, **Basic**, **Standard**, **Premium** eller **Förbrukning** för Azure Functions). I det här steget ser du till att App Service-appen har en prisnivå som stöds.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 

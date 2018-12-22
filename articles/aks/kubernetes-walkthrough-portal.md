@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 0b4e334ea9a423ed4eb9a0830d68ad7f4b843a88
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6075086b390a14e807e493bd574ac889b81272bf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833658"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437358"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Kubernetes Service-kluster (AKS)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snabbstart: Distribuera ett AKS-kluster (Azure Kubernetes Service)
 
 I den här snabbstarten ska du distribuera ett AKS-kluster med hjälp av Azure-portalen. Därefter kör vi ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet.
 
@@ -51,7 +51,7 @@ Du skapar ett AKS-kluster genom att slutföra följande steg:
 
     Välj **Nästa: nätverk** när du är klar.
 
-1. **Nätverk**: Konfigurera följande nätverksalternativ, som ska anges som standard:
+1. **Nätverk**: Konfigurera följande nätverksalternativ:
     
     - **HTTP-programdirigering** – välj **Ja** för att konfigurera en integrerad kontrollant för inkommande trafik som automatiskt skapar offentliga DNS-namn. Mer information om HTTP-routning finns i [AKS HTTP-routning och DNS][http-routing].
     - **Nätverkskonfiguration** – välj nätverkskonfigurationen **Grundläggande** med hjälp av Kubernetes-plugin-programmet [kubenet][kubenet] i stället för avancerad nätverkskonfiguration med [Azure CNI][azure-cni]. Mer information om nätverksalternativ finns i [Översikt över AKS-nätverk][aks-network].
@@ -88,7 +88,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 kubectl get nodes
 ```
 
-Följande exempelutdata visar den enskilda nod som skapades i föregående steg.
+Följande exempelutdata visar den enskilda nod som skapades i föregående steg. Kontrollera att status för noden är ”klar”.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION

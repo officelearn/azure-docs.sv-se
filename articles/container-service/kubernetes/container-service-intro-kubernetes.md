@@ -1,5 +1,5 @@
 ---
-title: Introduktion till Azure Container Service för Kubernetes
+title: (INAKTUELL) Introduktion till Azure Container Service för Kubernetes
 description: Med Azure Container Service för Kubernetes kan du enkelt distribuera och hantera behållarbaserade program i Azure.
 services: container-service
 author: gabrtv
@@ -9,16 +9,19 @@ ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 3e019f02d13ade6a42f4739eacae55f5bf6ac2af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e00ac57cc36b3331cfb847ecedc6c75132cdeb6b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973600"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999184"
 ---
-# <a name="introduction-to-azure-container-service-for-kubernetes"></a>Introduktion till Azure Container Service för Kubernetes
+# <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>(INAKTUELL) Introduktion till Azure Container Service för Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Den uppdaterade versionen av artikeln som använder Azure Kubernetes Service finns i [Översikt över Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure Container Service för Kubernetes gör det enkelt för dig att skapa, konfigurera och hantera av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare. På så sätt kan du använda dina befintliga kunskaper eller använda en stor och växande mängd communityexpertis för att distribuera och hantera containerbaserade program i Microsoft Azure.
 

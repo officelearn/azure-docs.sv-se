@@ -1,21 +1,22 @@
 ---
-title: Anpassade händelser för Azure Event Grid med Azure Portal | Microsoft Docs
-description: Använd Azure Event Grid och PowerShell för att publicera ett ämne och prenumerera på händelsen.
+title: Skicka anpassade händelser till en webbslutpunkt – Event Grid, Azure CLI
+description: Använd Azure Event Grid och Azure Portal till att publicera ett anpassat ämne och prenumerera på händelser för det ämnet. Händelserna hanteras av en webbapp.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: seodec18
+ms.openlocfilehash: e93ee410d1d6ac0de0646194c716d64ffb8e4316
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040634"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093476"
 ---
-# <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Skapa och dirigera anpassade händelser med Azure Portal och Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Snabbstart: Dirigera anpassade händelser till en webbslutpunkt med Azure Portal och Event Grid
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure-portalen för att skapa ett anpassat ämne, prenumerera på det anpassade ämnet och utlösa händelsen för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
@@ -45,7 +46,7 @@ Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du p
 
    ![Startsteg](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Ge det anpassade ämnet ett unikt namn. Ämnesnamnet måste vara unikt eftersom det representeras av en DNS-post. Använd inte det namn som visas på bilden. Skapa ett eget namn istället. Ge resursgruppen ett namn. Välj **Skapa**.
+1. Ge det anpassade ämnet ett unikt namn. Ämnesnamnet måste vara unikt eftersom det representeras av en DNS-post. Använd inte det namn som visas på bilden. I stället skapar du ett eget namn som måste bestå av 3–50 tecken och enbart får innehålla a-z, A-Z, 0-9 och ”-”. Ge resursgruppen ett namn. Välj **Skapa**.
 
    ![Ange värden för event grid-ämnet](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

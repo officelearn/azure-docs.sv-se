@@ -1,23 +1,24 @@
 ---
-title: 'Självstudie 3: Mönster för att förbättra LUIS-förutsägelser'
+title: Mönster
 titleSuffix: Azure Cognitive Services
 description: Använd mönster för att förbättra avsikts- och entitetsförutsägelser och samtidigt ge färre exempelyttranden. Mönstret tillhandahålls via ett exempel på mallyttrande, som innehåller syntax för att identifiera entiteter och ignorerbar text.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138335"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075530"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Självstudie 3: Lägga till vanliga yttrandeformat
+# <a name="tutorial-3-add-common-utterance-formats"></a>Självstudie 3: Lägg till vanliga yttrandeformat
 
 I den här kursen använder du mönster för att förbättra avsikts- och entitetsförutsägelser och samtidigt ge färre exempelyttranden. Mönstret tillhandahålls via ett exempel på mallyttrande, som innehåller syntax för att identifiera entiteter och ignorerbar text. Ett mönster är en kombination av uttrycksmatchning och maskininlärning.  Exemplet på mallyttrande, tillsammans med avsiktsyttranden, ger LUIS en bättre förståelse för vilka yttranden som passar avsikten. 
 
@@ -106,7 +107,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 
 2. Gå till slutet av URL:en i adressen och ange `Who is the boss of Jill Jones?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -229,7 +230,7 @@ I den här kursen lägger du till två nya avsikter: `OrgChart-Manager` och `Org
 
 När LUIS returnerar en förutsägelse till klientappen kan avsiktsnamnet användas som ett funktionsnamn i klientappen och att entiteten Employee (Medarbetare) kan användas som en parameter till den funktionen.
 
-```Javascript
+```nodejs
 OrgChartManager(employee){
     ///
 }
@@ -277,7 +278,7 @@ Kom ihåg att medarbetare skapades i [självstudiekursen om listentiteter](luis-
 
 3. Gå till slutet av URL:en i adressen och ange `Who is the boss of Jill Jones?` som yttrande. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {

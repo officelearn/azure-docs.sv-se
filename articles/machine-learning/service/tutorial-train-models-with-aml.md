@@ -1,5 +1,6 @@
 ---
-title: 'Självstudie: Träna en modell för avbildningsklassificering med Azure Machine Learning-tjänsten'
+title: 'Självstudie om bildklassificering: Inlärningsmodeller'
+titleSuffix: Azure Machine Learning service
 description: Den här självstudien visar hur du använder Azure Machine Learning-tjänsten för att träna en modell för avbildningsklassificering med scikit-learn i en Python Jupyter-anteckningsbok. Den här självstudien är del ett i en serie med två delar.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879493"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310121"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Självstudie #1: Träna en modell för avbildningsklassificering med Azure Machine Learning-tjänsten
+# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Självstudie: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten
 
 I den här självstudien ska du träna en maskininlärningsmodell, både lokalt och på fjärranslutna beräkningsresurser. Du ska använda tränings- och distributionsarbetsflödet för Azure Machine Learning-tjänsten i en Python Jupyter-anteckningsbok.  Du kan sedan använda anteckningsboken som en mall för att träna din egen maskininlärningsmodell med egna data. Den här självstudien är **del ett i en självstudieserie i två delar**.  
 
@@ -33,7 +35,7 @@ Lär dig att:
 
 Du lär dig hur du väljer en modell och distribuerar den i [del två av de här självstudierna](tutorial-deploy-models-with-aml.md). 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
 >[!NOTE]
 > Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.2
@@ -382,11 +384,11 @@ Den första körningen tar **cirka tio minuter**. Men för efterföljande körni
 
 Detta händer medan du väntar:
 
-- **Avbildningsgenerering**: En Docker-avbildning skapas som matchar Python-miljön som anges av beräkningsobjektet. Avbildningen laddas upp till arbetsytan. Det tar **cirka fem minuter** att skapa och ladda upp avbildningen. 
+- **Avbildningsgenerering**: En Docker-avbildning skapas som matchar den Python-miljö som anges av beräkningsobjektet. Avbildningen laddas upp till arbetsytan. Det tar **cirka fem minuter** att skapa och ladda upp avbildningen. 
 
   Den här fasen sker en gång för varje Python-miljö eftersom containern cachelagras för efterföljande körningar.  När avbildningen skapas strömmas loggar till körningshistoriken. Du kan övervaka avbildningsgenereringen med hjälp av dessa loggar.
 
-- **Skalning**: Om fjärrklustret kräver fler noder för att köra körningen än vad som är tillgängligt för tillfället, läggs ytterligare noder till automatiskt. Skalningen tar normalt **cirka fem minuter.**
+- **Skalning**: Om fjärrklustret kräver fler noder för att köra körningen än vad som för närvarande är tillgängligt läggs ytterligare noder till automatiskt. Skalningen tar normalt **cirka fem minuter.**
 
 - **Körning**: I det här steget skickas de nödvändiga skripten och filerna till beräkningsmålet. Därefter monteras/kopieras datalager varefter entry_script körs. När jobbet körs strömmas stdout och ./logs-katalogen till körningshistoriken. Du kan övervaka körningsförloppet med hjälp av dessa loggar.
 

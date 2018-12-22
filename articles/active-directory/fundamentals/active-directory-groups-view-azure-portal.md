@@ -1,6 +1,6 @@
 ---
-title: Snabbstart för att visa organisationens grupper och medlemmar Azure Active Directory | Microsoft Docs
-description: Snabbstart med steg för hur du söker efter och visar organisationens grupper och deras tilldelade medlemmar med hjälp av Azure-portalen.
+title: Snabbstart för att visa organisationens grupper och medlemmar – Azure Active Directory | Microsoft Docs
+description: Anvisningar om hur du söker efter och visar organisationens grupper och deras tilldelade medlemmar.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,14 +10,14 @@ ms.component: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 9da9f055163f5df4ea064bd46caa811e39fba20c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 002b4bb4ab20e531132b461f90857cfab6aecfd3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056411"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087486"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -43,11 +43,11 @@ Skapa en ny grupp med namnet _MDM policy – West_. Mer information om hur du sk
 
 2. Fyll i sidan **Grupp**:
     
-    - **Grupptyp:** välj **Säkerhet**
+    - **Grupptyp:** Välj **Säkerhet**
     
-    - **Gruppnamn:** skriv _MDM policy – West_
+    - **Gruppnamn:** Skriv _MDM policy – West_
     
-    - **Medlemstyp:** välj **Tilldelad**.
+    - **Typ av medlemskap:** Välj **Tilldelade**.
 
 3. Välj **Skapa**.
 
@@ -58,9 +58,9 @@ Skapa en ny användare med namnet _Alain Charon_. En användare måste finnas in
 
 2. Fyll i sidan **Användare**:
 
-    - **Namn:** skriv _Alain Charon_.
+    - **Namn:** Skriv _Alain Charon_.
 
-    - **Användarnamn:** skriv *alain@contoso.com*.
+    - **Användarnamn:** Skriv *alain@contoso.com*.
 
 3. Kopiera det automatiskt genererade lösenordet som anges i rutan **Lösenord** och välj sedan **Skapa**.
 

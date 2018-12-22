@@ -11,30 +11,30 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: c270fef40b732f170add32ef52eeadc790d8cd83
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/07/2018
+ms.openlocfilehash: 34b3ee54c48040eaa6f7b7569921678869baa84b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913517"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092374"
 ---
-# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Snabbstart: Använda Go för att köra frågor mot en Azure SQL-databas
+# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Snabbstart: Använda Go för att köra frågor mot en Azure SQL Database
 
-Den här snabbstarten visar hur du använder [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) för att ansluta till en Azure SQL Database. Här visas också hur du använder Transact-SQL-uttryck för att köra frågor mot och ändra data.
+I den här snabbstarten visas hur du använder programmeringsspråket [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) till att ansluta till en Azure SQL-databas och köra Transact-SQL-instruktioner för att köra frågor på och ändra data. [Go](https://golang.org/) är ett programmeringsspråk med öppen källkod som gör det enkelt att skapa enkel, pålitlig och effektiv programvara.  
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att kunna slutföra den här snabbstarten behöver du följande:
+För att slutföra den här kursen behöver du:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- En [brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md) för den offentliga IP-adressen till datorn som du använder för den här snabbstarten.
+- En [brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md) konfigurerad för datorns offentliga IP-adress.
 
-- Du har installerat Go och relaterad programvara för ditt operativsystem:
+- Go och relaterad programvara för ditt operativsystem installerat:
 
     - **MacOS**: Installera Homebrew och GoLang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-    - **Ubuntu**: Installera GoLang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+    - **Ubuntu**:  Installera GoLang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
     - **Windows**: Installera GoLang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
 
 ## <a name="sql-server-connection-information"></a>Anslutningsinformation för en SQL-server
@@ -49,7 +49,7 @@ För att kunna slutföra den här snabbstarten behöver du följande:
    mkdir SqlServerSample
    ```
 
-2. Gå till katalogen för **SqlServerSample** och hämta och installera SQL Server-drivrutinen för Go:
+2. Gå till katalogen för **SqlServerSample** och installera SQL Server-drivrutinen för Go.
 
    ```bash
    cd SqlServerSample
@@ -59,7 +59,7 @@ För att kunna slutföra den här snabbstarten behöver du följande:
 
 ## <a name="create-sample-data"></a>Skapa exempeldata
 
-1. Skapa med hjälp av valfritt redigeringsprogram en fil med namnet **CreateTestData.sql** i mappen **SqlServerSample**. Kopiera och klistra in följande T-SQL-kod i den. Den här koden skapar ett schema, en tabell och infogar några rader.
+1. Skapa med hjälp av valfritt redigeringsprogram en fil med namnet **CreateTestData.sql** i mappen **SqlServerSample**. Kopiera och klistra in följande T-SQL-kod i filen. Det skapar ett schema och en tabell och infogar några rader.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -82,7 +82,7 @@ För att kunna slutföra den här snabbstarten behöver du följande:
    GO
    ```
 
-2. Anslut till databasen med hjälp av sqlcmd och kör SQL-skriptet för att skapa schemat, tabellen och infoga några rader. Ersätt lämpliga värden för din server, databas, användarnamn och lösenord.
+2. Använd `sqlcmd` för att ansluta till databasen och köra det nya SQL-skriptet. Ersätt lämpliga värden för din server, databas, användarnamn och lösenord.
 
    ```bash
    sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
@@ -92,7 +92,7 @@ För att kunna slutföra den här snabbstarten behöver du följande:
 
 1. Skapa en fil med namnet **sample.go** i mappen **SqlServerSample**.
 
-2. Öppna filen och ersätt innehållet med följande kod. Lägg till lämpliga värden för din server, databas, användarnamn och lösenord. Det här exemplet använder metoderna GoLang Context för att kontrollera att det finns en aktiv anslutning till databasservern.
+2. Öppna filen och klistra in följande kod. Lägg till lämpliga värden för din server, databas, användarnamn och lösenord. Det här exemplet använder metoderna GoLang Context för att kontrollera att det finns en aktiv anslutning till databasservern.
 
    ```go
    package main
@@ -288,13 +288,13 @@ För att kunna slutföra den här snabbstarten behöver du följande:
 
 ## <a name="run-the-code"></a>Kör koden
 
-1. Kör följande kommandon i kommandotolken:
+1. Kör följande kommando i kommandotolken.
 
    ```bash
    go run sample.go
    ```
 
-2. Verifiera utdata:
+2. Verifiera utdata.
 
    ```text
    Connected!

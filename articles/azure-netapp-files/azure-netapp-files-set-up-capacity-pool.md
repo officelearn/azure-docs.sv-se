@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 0e9203f5b4e2a9043e242b804c82017cf6fc3ee1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 55a1d16ce1617ecf7bc28c7c62de8557ceeea311
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010811"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412919"
 ---
 # <a name="set-up-a-capacity-pool"></a>Konfigurera en kapacitetspool
 När du konfigurerar en kapacitetspool kan du skapa volymer inom den.  
@@ -55,6 +55,6 @@ Du måste redan ha skapat ett NetApp-konto.
 
 ## <a name="next-steps"></a>Nästa steg 
 
-1. [Skapa en volym för Azure NetApp Files](azure-netapp-files-create-volumes.md)
-2. [Konfigurera exportprincipen för en volym (valfritt)](azure-netapp-files-configure-export-policy.md)
+[Delegera ett undernät till Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+
 

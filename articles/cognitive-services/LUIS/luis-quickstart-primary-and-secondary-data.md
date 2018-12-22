@@ -1,21 +1,22 @@
 ---
-title: 'Självstudie 7: Enkel entitet med fraslista i LUIS'
+title: Enkel entitet, fraslista
 titleSuffix: Azure Cognitive Services
-description: Extrahera data från ett uttryck via maskininlärning
+description: I den här självstudien extraherar du data med jobbnamn via maskininlärning ur ett yttrande med hjälp av en enkel entitet. Om du vill öka noggrannheten i extraheringen lägger du till en fraslista med villkor som är specifika för den enkla entiteten.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425267"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166276"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Självstudie 7: Extrahera namn med en enkel entitet och en fraslista
 
@@ -92,7 +93,7 @@ När entiteterna har märkts ut i exempelyttrandena är det viktigt att du lägg
 
 3. I yttrandet `I want to apply for the new accounting job` väljer du `accounting` och anger `Job` i det översta fältet på snabbmenyn. Välj sedan **Create new entity** (Skapa ny entitet) på snabbmenyn. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Skärmbild på LUIS-appen med avsikten ApplyForJob och stegen för att skapa en entitet markerade")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Skärmbild av LUIS med avsikten ”ApplyForJob” med steg för att skapa entiteten markerade](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Skärmbild av LUIS med avsikten ”ApplyForJob” med steg för att skapa entiteten markerade")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 4. Kontrollera entitetsnamnet och -typen i popup-fönstret och välj **Done** (Klar).
 
@@ -100,7 +101,7 @@ När entiteterna har märkts ut i exempelyttrandena är det viktigt att du lägg
 
 5. I yttrandet, `Submit resume for engineering position`, märker du ordet `engineering` som en jobbentitet. Välj ordet `engineering` och välj sedan **Job** (Jobb) i snabbmenyn. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Skärmbild på LUIS-appen med markerad märkning av jobbentitet")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Skärmbild av LUIS med märkningsjobbentiteten markerad](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Skärmbild av LUIS med märkningsjobbentiteten markerad")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
     Alla yttranden är märkta, men fem räcker inte för att lära LUIS tillräckligt många jobbrelaterade ord och fraser. För jobb med nummervärde behövs det inte fler exempel eftersom en entitet för reguljära uttryck används. För jobb som består av ord eller fraser krävs det minst 15 exempel till. 
 
@@ -157,7 +158,7 @@ När du _märker ut_ entiteten visar du för LUIS var entiteten förekommer i ex
 
 2. Gå till slutet av URL:en i adressen och ange `Here is my c.v. for the programmer job`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera yttrandena `ApplyForJob`.
 
-    ```JSON
+    ```json
     {
       "query": "Here is my c.v. for the programmer job",
       "topScoringIntent": {
@@ -226,7 +227,7 @@ LUIS-appen hittade rätt avsikt med hög exakthet och extraherade jobbnamnet, me
 
 I följande JSON svarar LUIS-appen med rätta avsikten `ApplyForJob`, men extraherar inte jobbnamnet `lead welder`. 
 
-```JSON
+```json
 {
   "query": "This is the lead welder paperwork.",
   "topScoringIntent": {
@@ -291,13 +292,13 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
 
 3. Namnge den nya fraslistan `Job` och kopiera listan från jobs-phrase-list.csv till textrutan **Values** (Värden). Välj Retur. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Skärmbild på dialogrutan för att skapa en ny fraslista")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![Skärmbild på dialogrutan för att skapa en ny fraslista](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Skärmbild på dialogrutan för att skapa en ny fraslista")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Om du vill lägga till fler ord i fraslistan kan du gå igenom **Related Values** (Relaterade värden) och lägga till det som behövs. 
 
 4. Välj **Save** (Spara) så aktiveras fraslistan.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Skärmbild på dialogrutan för att skapa en ny fraslista med ord i fraslistans värderuta")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![Skärmbild på dialogrutan för att skapa en ny fraslista med ord i fraslistans värderuta](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Skärmbild på dialogrutan för att skapa en ny fraslista med ord i fraslistans värderuta")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 5. [Träna](#train) och [publicera](#publish) appen igen för att använda fraslistan.
 
@@ -305,7 +306,7 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
 
     JSON-svaret innehåller den extraherade entiteten:
 
-    ```JSON
+    ```json
     {
         "query": "This is the lead welder paperwork.",
         "topScoringIntent": {

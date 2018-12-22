@@ -1,14 +1,11 @@
 ---
-title: 'Snabbstart: Skapa en offentlig grundläggande lastbalanserare med Azure Portal | Microsoft Docs'
+title: 'Snabbstart: Skapa en offentlig grundläggande lastbalanserare med hjälp av Azure-portalen'
+titlesuffix: Azure Load Balancer
 description: Den här snabbstarten visar hur du skapar en offentlig grundläggande lastbalanserare med Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: hero-article
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 2e4e4e7cb1ae49a856bbfed0716936b7b5b13d19
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.custom: seodec18
+ms.openlocfilehash: e7055e016abd06d20206d25cb1d7b9eac35142f0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635109"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260233"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en offentlig grundläggande lastbalanserare med Azure Portal
+# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en offentlig grundläggande lastbalanserare med hjälp av Azure-portalen
 
 Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande begäranden sprids över virtuella datorer. Du kan använda Azure-portalen för att skapa en lastbalanserare och balansera trafik över virtuella datorer. Den här snabbstarten visar hur du skapar och konfigurerar en lastbalanserare, serverdelsservrar och nätverksresurser på prisnivån Grundläggande.
 
@@ -43,7 +40,7 @@ Först skapar du en offentlig grundläggande lastbalanserare med hjälp av porta
    - **Namn**: Skriv *MyLoadBalancer*.
    - **Typ**: Välj **Offentlig**. 
    - **SKU**: Välj **Grundläggande**.
-   - **Offentlig IP-adress:** välj **Skapa ny**. 
+   - **Offentlig IP-adress:** Välj **Skapa ny**. 
      - Fältet **Offentlig IP-adress**: Skriv *MyPublicIP*.
      - **Konfigurera offentlig IP-adress** > **Tilldelning**: Välj **Dynamisk**.
    - **ResourceGroup**: Välj **Skapa ny**, ange *MyResourceGroupLB* och välj **OK**. 
@@ -62,9 +59,9 @@ Sedan skapar du ett virtuellt nätverk och två virtuella datorer för serverdel
    
 1. I fönsterrutan **Skapa virtuellt nätverk** skriver eller väljer du dessa värden:
    
-   - **Namn**: Skriv *MyVnet*.
-   - **ResourceGroup**: i listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
-   - **Undernät** > **Namn**: Skriv *MyBackendSubnet*.
+   - **Namn**: Skriv *MyVNet*.
+   - **ResourceGroup**: I listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
+   - **Undernät** > **namn**: Skriv *MyBackendSubnet*.
    
 1. Välj **Skapa**.
 
@@ -75,16 +72,13 @@ Sedan skapar du ett virtuellt nätverk och två virtuella datorer för serverdel
 1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 Datacenter**. 
    
 1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Prenumeration** > **Resursgrupp**: i listrutan väljer du **MyResourceGroupLB**.
+   - **Prenumeration** > **Resursgrupp**: I listrutan väljer du **MyResourceGroupLB**.
    - **Instansinformation** > **Namn på virtuell dator**: Skriv *MyVM1*.
    - **Instansinformation** > **Tillgänglighetsalternativ**: 
      1. I listrutan väljer du **Tillgänglighetsuppsättning**. 
      2. Välj **Skapa ny**, skriv *MyAvailabilitySet* och välj **OK**.
-   - **Administratörskonto** > **Användarnamn**: Skriv *azureuser*.
-   - **Administratörskonto** > **Lösenord**: Skriv *Azure1234567*. 
-     Skriv lösenordet på nytt i fältet **Bekräfta lösenord**.
-   
-1. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**. 
+  
+1. Välj fliken **Nätverk** fliken eller välj **Nästa: Diskar** och sedan **nästa: Nätverk**. 
    
    Kontrollera att följande har valts:
    - **Virtuellt nätverk**: **MyVnet**
@@ -113,14 +107,14 @@ I det här avsnittet skapar du regler för nätverkssäkerhetsgrupper (NSG) för
    
 1. I dialogrutan **Lägg till ingående säkerhetsregel** för HTTP-regeln skriver eller väljer du följande:
    
-   - **Källa**: Välj **Tjänsttagg**.  
+   - **Källa**: Välj **Service Tag** (Tjänsttagg).  
    - **Källtjänsttagg**: Välj **Internet**. 
    - **Målportintervall**: Skriv *80*.
    - **Protokoll**: Välj **TCP**. 
    - **Åtgärd**: Välj **Tillåt**.  
    - **Prioritet**: Skriv *100*. 
    - **Namn**: Skriv *MyHTTPRule*. 
-   - **Beskrivning**: Skriv *Tillåt HTTP*. 
+   - **Beskrivning**: Skriv *tillåt HTTP*. 
    
 1. Välj **Lägg till**. 
    
@@ -136,7 +130,7 @@ I det här avsnittet skapar du regler för nätverkssäkerhetsgrupper (NSG) för
 
 I det här avsnittet konfigurerar du inställningarna för lastbalanseraren för en serverdelsadresspool, en hälsoavsökning och en belastningsutjämningsregel.
 
-### <a name="create-a-back-end-address-pool"></a>Skapa en backend-adresspool
+### <a name="create-a-backend-address-pool"></a>Skapa en serverdelsadresspool
 
 Lastbalanseraren använder en serverdelsadresspool för att distribuera trafik till de virtuella datorerna. Serverdelsadresspoolen innehåller IP-adresserna för de gränssnitt för virtuella nätverk (NIC) som är anslutna till lastbalanseraren. 
 
@@ -201,7 +195,7 @@ Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80
 1. På sidan **Lägg till belastningsutjämningsregel** skriver eller väljer du följande värden:
    
    - **Namn**: Skriv *MyLoadBalancerRule*.
-   - **Klientdels-IP-adress:** Skriv *LoadBalancerFrontend*.
+   - **Klientdels-API-adress:** Skriv *LoadBalancerFrontend*.
    - **Protokoll**: Välj **TCP**.
    - **Port**: Skriv *80*.
    - **Serverdelsport**: Skriv *80*.
@@ -232,7 +226,7 @@ Installera IIS (Internet Information Services) på de virtuella datorerna för a
    
 1. På skärmen Windows-säkerhet väljer du **Fler alternativ** och sedan **Använd ett annat konto**. 
    
-   Ange användarnamnet *azureuser* och lösenordet *Azure1234567* och välj **OK**.
+   Ange ett användarnamn och ett lösenord, och välj **OK**.
    
 1. Svara **Ja** på eventuella certifikatfrågor. 
    
@@ -258,9 +252,7 @@ Installera IIS (Internet Information Services) på de virtuella datorerna för a
 
 ### <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
-På varje virtuell dator öppnar en webbläsare och svarar **OK** på eventuella konfigurationsfrågor. 
-
-Klistra in lastbalanserarens offentliga IP-adress i webbläsarens adressfält. IIS-webbserverns standardsida bör visas i webbläsaren.
+Öppna en webbläsare och klistra in lastbalanserarens offentliga IP-adress i webbläsarens adressfält. IIS-webbserverns standardsida bör visas i webbläsaren.
 
 ![IIS-webbserver](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 

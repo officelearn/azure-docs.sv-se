@@ -7,14 +7,14 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 61b81602342b910a50c0cc6318746ec85a659a92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582340"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080597"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Självstudie: Distribuera Azure Digital Twins och konfigurera en rumsligt graf
+# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Självstudie: Distribuera Azure Digital Twins och konfigurera ett spatialt diagram
 
 Du kan använda Azure Digital Twins-tjänsten till att samla personer, platser och enheter i ett sammanhängande rumsligt system. Den här serien med självstudier visar hur du använder Azure Digital Twins för att identifiera rumsbeläggning med optimala förhållanden för temperatur och luftkvalitet. 
 
@@ -102,7 +102,7 @@ I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\
 
 1. I Visual Studio Code öppnar du filen **appSettings.json** i projektet **occupancy-quickstart**. Uppdatera följande värden:
    * **ClientId**: Ange program-ID:t för din Azure AD-appregistrering. Du antecknade ID:t i avsnittet där du [anger appbehörigheter](#permissions).
-   * **Klientorganisation**: Ange katalog-ID:t för din [Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Du antecknade även ID:t i avsnittet där du [anger appbehörigheter](#permissions).
+   * **Klientorganisation**: Ange katalog-ID för din [Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Du antecknade även ID:t i avsnittet där du [anger appbehörigheter](#permissions).
    * **BaseUrl**: Ange URL:en för din Digital Twins-instans. Du kan hämta den här URL:en genom att ersätta platshållarna i den här URL:en med värdena för din instans: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. Du kan också hämta URL:en genom att ändra URL:en för API för hantering i [distributionsavsnittet](#deploy). Ersätt **swagger/** med **api/v1.0/**.
 
 1. Se en lista över Digital Twins-funktioner som du kan utforska med hjälp av exemplet. Kör följande kommando:
@@ -136,7 +136,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-Den här funktionen använder **provisionSample.yaml** i samma mapp. Öppna den här filen och notera hierarkin för en kontorsbyggnad: *Venue* (Plats), *Floor* (Våning), *Area* (Område) och *Rooms* (Rum). Vilken som helst av dessa fysiska utrymmen kan innehålla *devices* (enheter) och *sensors* (sensorer). Varje post har en fördefinierad `type`&mdash;, till exempel Floor (Våning), Room (Rum). 
+Den här funktionen använder **provisionSample.yaml** i samma mapp. Öppna den här filen och notera hierarkin för en kontorsbyggnad: *Plats*, *Våning*, *Område* och *Rum*. Vilken som helst av dessa fysiska utrymmen kan innehålla *devices* (enheter) och *sensors* (sensorer). Varje post har en fördefinierad `type`&mdash;, till exempel Floor (Våning), Room (Rum). 
 
 I **yaml**-exempelfilen visas en rumslig graf som använder `Default` Digital Twins-objektmodellen. Den här modellen innehåller allmänna namn för de flesta typer. Allmänna namn är tillräckliga för en byggnad. Exempel är Temperature (Temperatur) för SensorDataType (Sensordatatyp) och Map (Karta) för SpaceBlobType (Utrymmesblobtyp). Ett exempel på utrymmestypen är Room (Rum) med undertyperna FocusRoom (Fokusrum), ConferenceRoom (Konferensrum) och så vidare. 
 
@@ -147,13 +147,13 @@ Mer information om rumsliga grafer och objektmodellerna finns i [Förstå Digita
 ### <a name="modify-the-sample-spatial-graph"></a>Ändra exemplet på rumslig graf
 Filen **provisionSample.yaml** innehåller följande noder:
 
-- **resources** (resurser): Noden `resources` skapar en Azure IoT Hub-resurs för att kommunicera med enheterna i din konfiguration. En IoT-hugg på rotnoden i grafen kan kommunicera med alla enheterna och sensorerna i din graf.  
+- **resurser**: Noden `resources` skapar en Azure IoT Hub-resurs för att kommunicera med enheterna i din konfiguration. En IoT-hugg på rotnoden i grafen kan kommunicera med alla enheterna och sensorerna i din graf.  
 
-- **spaces** (utrymmen): I Digital Twins-objektmodellen representerar `spaces` de fysiska platserna. Varje utrymme har en `Type`&mdash;, till exempel Region, Venue (Plats) eller en Customer (Kund)&mdash;och ett eget `Name`. Utrymmen kan tillhöra andra utrymmen som skapar en hierarkisk struktur. Filen provisionSample.yaml har en rumslig graf av en föreställd byggnad. Observera den logiska kapslingen av utrymmen av typen `Floor` i `Venue`, `Area` på en våning och `Room`-noderna i ett område. 
+- **utrymmen**: I Digital Twins-objektmodellen representerar `spaces` de fysiska platserna. Varje utrymme har en `Type`&mdash;, till exempel Region, Venue (Plats) eller en Customer (Kund)&mdash;och ett eget `Name`. Utrymmen kan tillhöra andra utrymmen som skapar en hierarkisk struktur. Filen provisionSample.yaml har en rumslig graf av en föreställd byggnad. Observera den logiska kapslingen av utrymmen av typen `Floor` i `Venue`, `Area` på en våning och `Room`-noderna i ett område. 
 
-- **devices** (enheter): Utrymmen kan innehålla `devices`, som är fysiska eller virtuella enheter som hanterar ett antal sensorer. Till exempel kan en enhet vara en användares telefon, en Raspberry Pi-sensor eller en gateway. I den föreställda byggnaden i exemplet kan du observera hur rummet med namnet **Focus Room** innehåller en **Raspberry Pi 3 A1**-enhet. Varje enhetsnod identifieras med ett unikt `hardwareId`, som är hårdkodat i exemplet. Om du vill konfigurera det här exemplet för faktisk produktion ersätter du dessa med värden från konfigurationen.  
+- **enheter**: Utrymmen kan innehålla `devices`, som är fysiska eller virtuella enheter som hanterar ett antal sensorer. Till exempel kan en enhet vara en användares telefon, en Raspberry Pi-sensor eller en gateway. I den föreställda byggnaden i exemplet kan du observera hur rummet med namnet **Focus Room** innehåller en **Raspberry Pi 3 A1**-enhet. Varje enhetsnod identifieras med ett unikt `hardwareId`, som är hårdkodat i exemplet. Om du vill konfigurera det här exemplet för faktisk produktion ersätter du dessa med värden från konfigurationen.  
 
-- **sensors** (sensorer): en enhet kan innehålla flera `sensors`. De kan identifiera och registrera fysiska förändringar som temperatur, rörelse och batterinivå. Varje sensornod har unikt identifierats av ett `hardwareId`, hårdkodat här. För en faktisk app ersätter du dessa med hjälp av de unika identifierarna för sensorerna i konfigurationen. Filen provisionSample.yaml har två sensorer för att registrera *Motion* (Rörelse) och *CarbonDioxide* (Koldioxid). Lägg till en annan sensor för att registrera *Temperature* (Temperatur) genom att lägga till följande rader, nedanför raderna för CarbonDioxide-sensorn (Koldioxidsensorn). Observera att dessa tillhandahålls i provisionSample.yaml som kommenterade rader. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad. 
+- **sensorer**: En enhet kan innehålla flera `sensors`. De kan identifiera och registrera fysiska förändringar som temperatur, rörelse och batterinivå. Varje sensornod har unikt identifierats av ett `hardwareId`, hårdkodat här. För en faktisk app ersätter du dessa med hjälp av de unika identifierarna för sensorerna i konfigurationen. Filen provisionSample.yaml har två sensorer för att registrera *Motion* (Rörelse) och *CarbonDioxide* (Koldioxid). Lägg till en annan sensor för att registrera *Temperature* (Temperatur) genom att lägga till följande rader, nedanför raderna för CarbonDioxide-sensorn (Koldioxidsensorn). Observera att dessa tillhandahålls i provisionSample.yaml som kommenterade rader. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad. 
 
     ```yaml
             - dataType: Temperature
@@ -163,6 +163,9 @@ Filen **provisionSample.yaml** innehåller följande noder:
     > Kontrollera att justeringen av nycklarna `dataType` och `hardwareId` är i linje med uttrycken ovanför det här kodavsnittet. Se även till att redigeraren inte ersätter blanksteg med tabbar. 
 
 Spara och stäng filen provisionSample.yaml. I nästa självstudie lägger du till mer information i den här filen och etablerar sedan Azure Digital Twins-exempelbyggnaden.
+
+> [!TIP]
+> Du kan visa och ändra ett spatialt diagram med hjälp av [Visningsprogrammet för Azure Digital Twins Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

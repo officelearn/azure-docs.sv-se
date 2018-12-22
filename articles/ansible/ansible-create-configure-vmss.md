@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8dacfb054a36801c076435037a530daa87c4a89c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918583"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409421"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Skapa VM-skalningsuppsättningar i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina VM-skalningsuppsättningar (VMSS) i Azure på samma sätt som för alla andra Azure-resurser. I den här artikeln får du läsa om hur du använder Ansible för att skapa och skala ut en skalningsuppsättning för virtuell dator. 
@@ -37,7 +37,7 @@ I den här delen finns en Ansible-exempelspelbok som definierar följande resurs
 
 Ange ett eget lösenord för värdet *admin_password*.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -141,7 +141,7 @@ Med kommandot **ansible-playbook** kör du Ansible-spelboken enligt följande:
 
 När du har kört spelboken visar utdata som liknar följande exempel att VM-skalningsuppsättningen har skapats:
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -190,7 +190,7 @@ Du ser resultat som liknar följande utdata:
 
 Nu ska vi skala från två till tre instanser. Följande Ansible-spelbokskod hämtar information om VM-skalningsuppsättningen och ändrar sin kapacitet från två till tre. 
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -225,7 +225,7 @@ Spelboken körs med följande kommando:
 
 Utdata efter körningen av Ansible-spelboken visar att VM-skalningsuppsättningen har skalats ut:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -275,4 +275,6 @@ Resultatet av körningen av kommandot i Cloud Shell visar att det nu finns tre i
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
-> [Ansible-exempelspelbok för VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Distribuera program till VM-skalningsuppsättningar med hjälp av Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
+
+> [Skala en VM-skalningsuppsättning automatiskt med hjälp av Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

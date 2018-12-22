@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 6a96bd7c3d7d02f181a7d7513edb3bb39881274f
-ms.sourcegitcommit: 7de1432648c4ff3bcd09530c079418477d9f4d00
+ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35719446"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111876"
 ---
-1. Om du vill skapa ett cacheminne loggar du först in på [Azure Portal](https://portal.azure.com). Välj sedan **Skapa en resurs** > **Databaser** > **Redis Cache**.
+1. Om du vill skapa ett cacheminne loggar du först in på [Azure Portal](https://portal.azure.com). Välj sedan **Skapa en resurs** > **Databaser** > **Azure Cache for Redis**.
 
     ![Nytt cacheminne](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
-2. I **Nytt Redis-cache**, konfigurerar du inställningarna för ditt nya cacheminne.
+2. I **Ny Azure Cache for Redis** konfigurerar du inställningarna för den nya cachen.
 
     | Inställning      | Föreslaget värde  | Beskrivning |
     | ------------ |  ------- | -------------------------------------------------- |
     | **DNS-namn** | Globalt unikt namn | Cachenamnet. Det måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och tecknet `-`. Cachenamnet får inte inledas eller avslutas med `-`-tecknet eller ha flera `-`-tecken i följd.  | 
-    | **Prenumeration** | Din prenumeration | Prenumerationen där den här nya Azure Redis Cache-instansen skapas. | 
+    | **Prenumeration** | Din prenumeration | Den prenumeration där den här nya Azure Cache for Redis-instansen skapas. | 
     | **Resursgrupp** |  *TestResources* | Namnet på den nya resursgrupp där du vill skapa ditt cacheminne. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen tar du bort alla resurser som är associerade med appen. | 
     | **Plats** | Östra USA | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som använder ditt cacheminne. |
-    | **[Prisnivå](https://azure.microsoft.com/pricing/details/cache/)** |  Basic C0 (250 MB Cache) |  Prisnivån avgör storlek, prestanda och funktioner som är tillgängliga för cacheminnet. Mer information finns i [Översikt över Azure Redis Cache](../articles/redis-cache/cache-overview.md). |
+    | **[Prisnivå](https://azure.microsoft.com/pricing/details/cache/)** |  Basic C0 (250 MB Cache) |  Prisnivån avgör storlek, prestanda och funktioner som är tillgängliga för cacheminnet. Mer information finns i [Översikt över Azure Cache for Redis](../articles/azure-cache-for-redis/cache-overview.md). |
     | **Fäst vid instrumentpanelen** |  Vald | Fäst det nya cacheminnet på din instrumentpanel så att det är enkelt att hitta det. |
 
     ![Skapa ett cacheminne](media/redis-cache-create/redis-cache-cache-create.png) 

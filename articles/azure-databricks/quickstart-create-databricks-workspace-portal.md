@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure-portalen'
+title: 'Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal'
 description: Snabbstarten visar hur du använder Azure-portalen för att skapa en arbetsyta för Azure Databricks och ett Apache Spark-kluster och kör ett Spark-jobb.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 080bf465d65199c54e0d09eab8c7bccbc9616ed7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568962"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259553"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -86,12 +86,12 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 ## <a name="download-a-sample-data-file"></a>Ladda ned en exempeldatafil
 Ladda ned en JSON-exempeldatafil och spara den i Azure-bloblagring.
 
-1. Ladda ned den här JSON-exempeldatafilen [från Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) till din lokala dator. Högerklicka och spara som för att spara rådatafilen lokalt.
+1. Ladda ned den här JSON-exempeldatafilen [från GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) till din lokala dator. Högerklicka och spara som för att spara rådatafilen lokalt.
 
 2. Om du inte redan har ett lagringskonto skapar du ett.
     - I Azure-portalen väljer du **Skapa en resurs**. Välj kategorin **Lagring** och välj **Lagringskonton**
     - Ange ett unikt namn för lagringskontot.
-    - Välj **Typ av konto**: **Blob-lagring**
+    - Välj **Kontotyp**: **Blob Storage**
     - Välj ett namn på **Resursgrupp**. Använd samma resursgrupp där du skapade Databricks-arbetsytan.
     
     Mer information finns i [Skapa ett Azure Blob Storage-konto](../storage/common/storage-quickstart-create-account.md).

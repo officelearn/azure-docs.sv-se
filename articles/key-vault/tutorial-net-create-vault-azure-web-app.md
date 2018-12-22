@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: defe1a109381c7ee44c6fc5e5db4c6f6ecc5ac6f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706848"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322149"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Självstudie: Använda Azure Key Vault med Azure Web App i .NET
+# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Självstudie: Använda Azure Key Vault med en Azure-webbapp i .NET
 
 Med Azure Key Vault kan du skydda hemligheter, till exempel API-nycklar och databasanslutningssträngar. Det ger dig tillgång till dina program, tjänster och IT-resurser.
 
@@ -56,7 +56,7 @@ Innan du fortsätter bör du läsa [grundläggande begrepp om Key Vault](key-vau
 
 Azure Key Vault lagrar autentiseringsuppgifter på ett säkert sätt så att de inte ingår i din kod. Men måste du autentisera till Azure Key Vault för att hämta dina nycklar. För att autentisera till Key Vault behöver du autentiseringsuppgifter. Det är ett klassiskt bootstrap-problem. Hanterad tjänstidentitet (MSI) löser problemet genom att tillhandahålla en _bootstrapidentitet_ som förenklar processen.
 
-När du aktiverar MSI för en Azure-tjänst (till exempel: Virtual Machines, App Service eller Functions) skapar Azure [tjänstens huvudnamn](key-vault-whatis.md#basic-concepts). MSI gör detta för instansen av tjänsten i Azure Active Directory (Azure AD) och lägger in autentiseringsuppgifterna för tjänstens huvudnamn i den instansen.
+När du aktiverar MSI för en Azure-tjänst (till exempel: Virtual Machines, App Service, or Functions) skapar Azure ett [tjänsthuvudnamn](key-vault-whatis.md#basic-concepts). MSI gör detta för instansen av tjänsten i Azure Active Directory (Azure AD) och lägger in autentiseringsuppgifterna för tjänstens huvudnamn i den instansen.
 
 ![MSI-diagram](media/MSI.png)
 
@@ -88,7 +88,7 @@ Du kan använda den här resursgruppen i den här självstudien.
 
 Ange följande information för att skapa ett nyckelvalv i resursgruppen:
 
-* Namn på Key vault: en sträng på 3 till 24 tecken som endast får innehålla siffror, bokstäver och bindestreck (till exempel: 0-9, a – z, A – Z, och -)
+* Namn på nyckelvalv: en sträng med 3 till 24 tecken som endast får innehålla siffror, bokstäver och bindestreck (till exempel: 0-9, a–z, A–Z och -)
 * Namn på resursgrupp
 * Plats: **USA, västra**
 
@@ -132,7 +132,7 @@ Följ den här [självstudien](../app-service/app-service-web-get-started-dotnet
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Importera följande i kod i About.cshtml.cs-filen:
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -140,7 +140,7 @@ Följ den här [självstudien](../app-service/app-service-web-get-started-dotnet
 
 4. Koden i klassen AboutModel bör se ut så här:
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -220,7 +220,7 @@ Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra hemli
 
 1. Anteckna `PrincipalId` när du publicerar programmet till Azure. Kommandot i steg 1 ger utdata i följande format:
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",

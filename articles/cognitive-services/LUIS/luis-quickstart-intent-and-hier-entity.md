@@ -1,23 +1,24 @@
 ---
-title: 'Självstudiekurs 5: Överordnade/underordnade relationer – LUIS-hierarkisk entitet för sammanhangsmässigt inlärda data'
+title: Hierarkisk entitet
 titleSuffix: Azure Cognitive Services
 description: Hitta relaterade datadelar baserat på kontext. Till exempel är ett ursprung och målplatser för en fysisk flytt från en byggnad och ett kontor till en annan byggnad och ett annat kontor relaterade.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424714"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104415"
 ---
-# <a name="tutorial-5-extract-contextually-related-data"></a>Självstudiekurs 5: Extrahera sammanhangsbaserade data
+# <a name="tutorial-5-extract-contextually-related-data"></a>Självstudie 5: Extrahera sammanhangsbaserade data
 I den här självstudien hittar du relaterade datadelar baserat på kontext. Till exempel är ett ursprung och målplatser för en fysisk flytt från en byggnad och ett kontor till en annan byggnad och ett annat kontor relaterade. För att generera en arbetsorder kan båda datadelarna krävas, och de är relaterade till varandra.  
 
 Den här appen bestämmer var en medarbetare ska flyttas från (byggnad och kontor) och till (byggnad och kontor). Den använder den hierarkiska entiteten för att urskilja platser i yttrandet. Syftet med den **hierarkiska** entiteten är att hitta relaterade data inom yttrandet baserat på kontext. 
@@ -32,7 +33,6 @@ Den hierarkiska entiteten passar bra för den här typen av data eftersom följa
 
 **I den här självstudiekursen får du lära du dig att:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Använda en befintlig självstudieapp
 > * Lägga till avsikt 
@@ -55,7 +55,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `hier`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Ta bort fördefinierad nummerentitet från appen
-Om du vill se hela yttrandet och märka de underordnade delarna i hierarkin kan du ta bort den fördefinierade nummerentiteten tillfälligt.
+Om du vill se hela yttrandet och märka de underordnade delarna i hierarkin kan du [ta bort den fördefinierade nummerentiteten temporärt](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -90,7 +90,7 @@ LUIS-appen behöver förstå vad en plats är genom att märka ursprungs- och m�
 
 Ta följande yttrande som exempel:
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
@@ -100,19 +100,19 @@ Om endast ett underordnat element (ursprung eller destination) för en hierarkis
 
 1. I yttrandet `Displace 425-555-0000 away from g-2323 toward hh-2345` väljer du ordet `g-2323`. En listrutemeny visas med en textruta längst upp. Ange entitetsnamnet `Locations` i textrutan och välj sedan **Create new entity** (Skapa ny entitet) i listrutan. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Skärmbild på en ny entitet som skapas på avsiktssidan")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Skärmbild av skapande av ny entitet på avsiktssidan](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Skärmbild av skapande av ny entitet på avsiktssidan")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. I popup-fönstret väljer du entitetstypen **Hierarchical** (Hierarkisk) med `Origin` och `Destination` som underordnade entiteter. Välj **Done** (Klar).
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Skärmbild på dialogruta för att skapa entitet för den nya entiteten Location (Plats)")
+    ![Skärmbild av popup-fönstret för entitetsskapande för den nya platsentiteten](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Skärmbild av popup-fönstret för entitetsskapande för den nya platsentiteten")
 
 3. Etiketten för `g-2323` har märkts som `Locations` eftersom LUIS inte känner till om termen var ursprunget, målet, eller ingetdera. Välj `g-2323`, välj sedan **Locations** (Platser) och följ därefter menyn till höger och välj `Origin`.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Skärmbild på dialogruta för att märka entiteter och ändra underordnad platsentitet")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Skärmbild av popup-fönstret för entitetsetikettering vid ändring av platsentitets underordnad](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Skärmbild av popup-fönstret för entitetsetikettering vid ändring av platsentitets underordnad")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. Märk de andra platserna i alla andra yttranden genom att välja byggnad och kontor i yttrandet, välja Locations (Platser), följa menyn till höger och välja `Origin` eller `Destination`. När alla platser är märkta börjar yttrandena i **Tokens View** (Tokenvy) att få ett mönster. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Skärmbild på entiteten Locations (Platser) märkt i yttranden")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Skärmbild av platsentitet etiketterad i yttranden](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Skärmbild av platsentitet etiketterad i yttranden")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>Lägga till fördefinierad nummerentitet i appen
 Lägg till den fördefinierade nummerentiteten i appen.
@@ -140,7 +140,7 @@ Lägg till den fördefinierade nummerentiteten i appen.
 
 2. Gå till slutet av webbadressen i adressfältet och ange `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `MoveEmployee` med den hierarkiska entiteten extraherad.
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

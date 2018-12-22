@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 07be154f05441c94e32b05fc8354f59b88713929
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456946"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337112"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Snabbstart: Etablera en simulerad enhet med symmetriska nycklar
 
@@ -83,7 +83,7 @@ SDK innehåller exempelkod för en simulerad enhet. Den här simulerade enheten 
 4. Kör följande kommando som skapar en version av SDK:t som är specifik för plattformen i din utvecklingsklient. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Om `cmake` inte hittar din C++-kompilerare kan du få kompileringsfel när du kör kommandot ovan. Om det händer ska du försöka köra det här kommandot i [kommandotolken i Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -91,7 +91,7 @@ SDK innehåller exempelkod för en simulerad enhet. Den här simulerade enheten 
     När bygget är klart ser de sista utdataraderna ut ungefär som följande utdata:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -114,11 +114,11 @@ SDK innehåller exempelkod för en simulerad enhet. Den här simulerade enheten 
 
 3. På **Lägg till registrering** anger du följande information och klickar på knappen **Spara**.
 
-    - **Mekanism:** välj **Symmetrisk nyckel** som identitetsattesterings*mekanism*.
+    - **Mekanism**: Välj **Symmetrisk nyckel** som *identitetsattesteringsmekanism*.
 
     - **Generera nycklar automatiskt**: Markera den här kryssrutan.
 
-    - **Registrerings-ID**: Ange ett registrerings-ID för att identifiera registreringen. Använd endast alfanumeriska gemener och bindestreck (”-”). Till exempel `symm-key-device-007`.
+    - **Registrerings-ID**: Ange ett registrerings-ID som identifierar registreringen. Använd endast alfanumeriska gemener och bindestreck (”-”). Till exempel `symm-key-device-007`.
 
     - **Enhets-ID för IoT Hub:** Ange en enhetsidentifierare. Till exempel **device-007**.
 
@@ -165,22 +165,25 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
-
-7. I fönstret *Solution Explorer* i Visual Studio går du till projektet **hsm\_security\_client** och expanderar det. Expandera **Källfiler** och öppna **hsm\_client\_key.c**. 
-
-    Hitta deklarationen för konstanterna `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE`. Gör följande ändringar i filen och spara filen.
-
-    Uppdatera värdet för konstanten `REGISTRATION_NAME` med ditt **registrerings-ID**.
-    
-    Uppdatera värdet för konstanten `SYMMETRIC_KEY_VALUE` med din **primärnyckel**.
+6. Leta upp anropet till `prov_dev_set_symmetric_key_info()` i **prov\_dev\_client\_sample.c** som har kommenterats bort.
 
     ```c
-    static const char* const REGISTRATION_NAME = "symm-key-device-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "<enter your Symmetric primary key>";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-7. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
+    Avkommentera funktionsanropet och ersätt platshållarvärdena (inklusive hakparenteserna) med ditt registrerings-ID och primärnyckelvärdena.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("symm-key-device-007", "your primary key here");
+    ```
+   
+    Spara filen.
+
+7. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
+
+8. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
 
     Följande utdata är ett exempel på när den simulerade enheten lyckas med starten och ansluter till etableringstjänstinstansen för att tilldelas en IoT-hubb:
 
@@ -198,7 +201,7 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
     Press enter key to exit:
     ```
 
-8. I portalen går du till den IoT-hubb som din simulerade enhet tilldelades och klickar på fliken **IoT-enheter**. Vid lyckad etablering av den simulerade enheten till hubben visas dess enhets-ID på bladet **IoT-enheter** med *STATUS* **aktiverad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
+9. I portalen går du till den IoT-hubb som din simulerade enhet tilldelades och klickar på fliken **IoT-enheter**. Vid lyckad etablering av den simulerade enheten till hubben visas dess enhets-ID på bladet **IoT-enheter** med *STATUS* **aktiverad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
 
     ![Enheten är registrerad på IoT-hubben](./media/quick-create-simulated-device/hub-registration.png) 
 

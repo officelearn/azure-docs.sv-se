@@ -1,5 +1,5 @@
 ---
-title: Azure Policy-exempel – Tillåtna SKU:er för lagringskonton och virtuella datorer
+title: Exempel – Tillåtna SKU:er för lagringskonton och virtuella datorer
 description: Den här exempelprincipen kräver att lagringskonton och virtuella datorer använder godkända SKU:er.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: af660d594e302ecc6b7b0d6c8c3386674b3f973d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 801f8464dc3733a1eb0574455b52865d2f79e8d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982859"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313810"
 ---
 # <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>Tillåtna SKU:er för lagringskonton och virtuella datorer
 
@@ -75,4 +74,4 @@ az policy set-definition delete --name "skus-for-multiple-types"
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel på [Azure Policy-exempel](index.md)
+- Granska fler exempel på [Azure-principexempel](index.md)

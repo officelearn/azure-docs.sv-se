@@ -1,21 +1,21 @@
 ---
-title: Självstudie – Automatisera containeravbildningsversioner med Azure Container Registry Tasks
-description: I självstudien får du lära dig att konfigurera en uppgift till att utlösa containeravbildningsversioner i molnet automatiskt när du checkar in källkod på en Git-lagringsplats.
+title: Självstudie – Automatisera containeravbildningsversioner – Azure Container Registry-uppgifter
+description: I självstudien får du lära dig att konfigurera en Azure Container Registry-uppgift till att utlösa containeravbildningsversioner i molnet automatiskt när du checkar in källkod på en Git-lagringsplats.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 3dc602589dc3a909ea2a2cf2925d37df0a97605b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857235"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436253"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>Självstudie – Automatisera containeravbildningsversioner med Azure Container Registry Tasks
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Självstudie: Automatisera containeravbildningar i molnet när du checkar in källkod
 
 Utöver en [snabbuppgift](container-registry-tutorial-quick-task.md) har ACR Tasks även stöd för automatiserade Docker-containeravbildningsversioner med *versionsuppgiften*. I självstudien använder du Azure CLI till att skapa en uppgift som utlöser avbildningsversioner i molnet automatiskt när du checkar in källkod på en Git-lagringsplats.
 
@@ -41,7 +41,7 @@ Självstudien förutsätter att du redan har slutfört stegen i [föregående sj
 
 ### <a name="container-registry"></a>Containerregister
 
-Du måste ha ett Azure-containerregister i din Azure-prenumeration för att kunna slutföra den här självstudien. Om du behöver ett register kan du gå till [föregående självstudie](container-registry-tutorial-quick-task.md) eller [Snabbstart: Skapa ett containerregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md).
+Du måste ha ett Azure-containerregister i din Azure-prenumeration för att kunna slutföra den här självstudien. Om du behöver ett register kan du titta på en [tidigare självstudie](container-registry-tutorial-quick-task.md) eller på [Snabbstart: Skapa ett containerregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md).
 
 ## <a name="overview-of-acr-tasks"></a>Översikt över ACR Tasks
 
@@ -155,7 +155,7 @@ $ az acr task create \
           "branch": "master",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "Github"
+          "sourceControlType": "GitHub"
         },
         "sourceTriggerEvents": [
           "commit"

@@ -10,12 +10,12 @@ ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a42deb6bc039602c4bda523d2ab1ee5a69bb5644
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cbc86405225cca0d5144b48b113cf41607ce16f4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303544"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434128"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Flytta Azure AD Connect-databasen från SQL Server Express till SQL Server 
 
@@ -30,7 +30,7 @@ Följande är lite kortfattad information om det här scenariot.  I det här sce
 Använd följande steg för att flytta Azure AD Connect-databasen till en fjärransluten SQL Server.
 
 1.  På Azure AD Connect-servern går du till **Tjänster** och stoppar tjänsten **Microsoft Azure AD Sync**.
-2. Leta upp mappen **%Program Files%\Microsoft Azure AD Sync/Data/** och kopiera filerna **ADSync.mdf** and **ADSync_log.mdf** till den fjärrstyrda SQL-servern.
+2. Leta upp mappen **%Program Files%\Microsoft Azure AD Sync/Data/** och kopiera filerna **ADSync.mdf** and **ADSync_log.ldf** till den fjärrstyrda SQL-servern.
 3. Starta om **Microsoft Azure AD Sync** på Azure AD Connect-servern.
 4. Avinstallera Azure AD Connect genom att gå till Kontrollpanelen – program – program och funktioner.  Välj Microsoft Azure AD Connect och klicka på Avinstallera längst upp.
 5. Öppna SQL Server Management Studio på den fjärranslutna SQL-servern.

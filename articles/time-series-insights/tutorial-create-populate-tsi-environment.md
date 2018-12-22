@@ -1,21 +1,22 @@
 ---
-title: Skapa en Azure Time Series Insights-miljö
+title: Skapa en Azure Time Series Insights-miljö | Microsoft Docs
 description: Lär dig hur du skapar en Time Series Insights-miljö, fylld med data från simulerade enheter.
 services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 46fecf6f1b2826f0e23b7b6c4f4511ce9a662d1c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 1a5f9901dfb3b08a068d1051b7ea434f1d5d5412
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365697"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278499"
 ---
-# <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudier: Skapa en Azure Time Series Insights-miljö
+# <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudie: Skapa en Azure Time Series Insights-miljö
 
 Den här självstudien vägleder dig genom processen att skapa en Time Series Insight-miljö (TSI) med data från simulerade enheter. I den här guiden får du lära dig att:
 
@@ -26,9 +27,9 @@ Den här självstudien vägleder dig genom processen att skapa en Time Series In
 > * Kör en enhetssimulering för att strömma data till TSI-miljön
 > * Kontrollera simulerade telemetridata
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
-### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insightsbr"></a>I den här videon visar vi hur du använder en Azure IoT Solution Accelerator för att skapa data som kan användas för att komma igång med Time Series Insights.</br>
+I den här videon visar vi hur du använder en Azure IoT Solution Accelerator för att skapa data som kan användas för att komma igång med Time Series Insights.
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 

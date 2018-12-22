@@ -1,5 +1,5 @@
 ---
-title: Självstudie för Azure Container Service – Skala ut ett program
+title: (INAKTUELL) Självstudie för Azure Container Service – Skala ut ett program
 description: Självstudie för Azure Container Service – Skala ut ett program
 services: container-service
 author: dlepow
@@ -9,16 +9,19 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429890"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993081"
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Skala ut Kubernetes-poddar och Kubernetes-infrastrukturen
+# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(INAKTUELL) Skala ut Kubernetes-poddar och Kubernetes-infrastrukturen
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service finns i [Självstudie: Skala program i Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Om du har följt självstudierna så har du ett fungerande Kubernetes-kluster i Azure Container Service och du har distribuerat appen Azure Voting. 
 

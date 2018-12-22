@@ -1,23 +1,24 @@
 ---
-title: 'Självstudie 1: Hitta avsikter i anpassade LUIS-appar'
+title: Förutsäga avsikter
 titleSuffix: Azure Cognitive Services
 description: Skapa en anpassad app som förutspår en användares avsikt. Den här appen är den enklaste typen av LUIS-app eftersom den inte extraherar olika dataelement från yttranden, som e-postadresser eller datum.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426867"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097802"
 ---
-# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Självstudie 1: Skapa en anpassad app som identifierar vad en användare vill
+# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Självstudie 1: Skapa en anpassad app som identifierar användarens avsikter
 
 I den här självstudien skapar du en anpassad Human Resources-app som förutspår vad en användare vill baserat på yttrandet (text). När du är klar har du en LUIS-slutpunkt som körs i molnet.
 
@@ -43,11 +44,11 @@ När LUIS returnerar JSON-svaret är LUIS färdig med förfrågningen. LUIS svar
 
 2. Välj **Create new app** (Skapa ny app).  
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Skärmbild av LUIS-sidan Mina appar")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+    [![Skärmbild av Language Understanding (LUIS), sidan Mina appar](media/luis-quickstart-intents-only/app-list.png "Skärmbild av Language Understanding (LUIS), sidan Mina appar")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. I dialogrutan anger du namnet `HumanResources` och behåller standardkulturen **Engelska**. Lämna beskrivningen tom.
 
-    ![Ny LUIS-app](./media/luis-quickstart-intents-only/create-app.png)
+    ![Skapa ny LUIS-app för HumanResources](./media/luis-quickstart-intents-only/create-app.png)
 
     Appen visar sedan sidan **Avsikter** med avsikten **Ingen**.
 
@@ -55,7 +56,7 @@ När LUIS returnerar JSON-svaret är LUIS färdig med förfrågningen. LUIS svar
 
 1. Välj **Create new intent** (Skapa ny avsikt). Ange det nya avsiktsnamnet `GetJobInformation`. Den här avsikten förväntas varje gång en användare vill ha information om lediga tjänster på företaget.
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Skärmbild av LUIS-sidan Ny avsikt")
+    ![Skärmbild av Language Understanding (LUIS), dialogrutan Ny avsikt](media/luis-quickstart-intents-only/create-intent.png "Skärmbild av Language Understanding (LUIS), dialogrutan Ny avsikt")
 
 2. Genom att tillhandahålla _exempelyttranden_ tränar du LUIS i vilka typer av yttranden som ska förväntas i samband med den här avsikten. Lägg till flera exempelyttranden till den här avsikten som du förväntar dig att en användare kan fråga, till exempel:
 
@@ -69,7 +70,7 @@ När LUIS returnerar JSON-svaret är LUIS färdig med förfrågningen. LUIS svar
     |Nya jobb?|
     |Finns det lediga tjänster på Seattle-kontoret?|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Skärmbild av hur du anger nya yttranden för avsikten MyStore (MittArkiv)")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![Skärmbild av att ange nya yttranden för MyStore-avsikter](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Skärmbild av att ange nya yttranden för MyStore-avsikter")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
@@ -150,7 +151,7 @@ Gå tillbaka till LUIS-webbplatsen och skapa en ny avsikt för att avgöra om an
     |Här är mitt cv för tjänsten 654234|
     |Jobbet 567890 och mina dokument|
 
-    [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "Skärmbild av hur du anger nya yttranden för avsikten ApplyForJob")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+    [![Skärmbild av att ange nya yttranden för ApplyForJob-avsikter](media/luis-quickstart-intents-only/utterance-applyforjob.png "Skärmbild av att ange nya yttranden för ApplyForJob-avsikter")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
     Den märkta avsikten är markerad i rött eftersom LUIS för närvarande är osäker på om avsikten är korrekt. Genom träning av appen informeras LUIS om att yttrandena gäller rätt avsikt. 
 
@@ -168,7 +169,7 @@ Gå tillbaka till LUIS-webbplatsen och skapa en ny avsikt för att avgöra om an
 
 2. I det nya webbläsarfönstret anger du `Can I submit my resume for job 235986` i slutet av URL:en. 
 
-    ```JSON
+    ```json
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {

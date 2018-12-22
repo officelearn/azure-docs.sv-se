@@ -1,5 +1,5 @@
 ---
-title: Skapa och konfigurera en Azure Database for MySQL-server med hjälp av Ansible (förhandsversion)
+title: Skapa och konfigurera en Azure Database for MySQL-server med hjälp av Ansible
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en Azure Database for MySQL-server
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: b549aeaf24bd774245ee1f2ff6924ac1f6dbeee3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6fd08e21fe0573d48ae7752eb410845062932b5e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427904"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255949"
 ---
-# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible-preview"></a>Skapa och konfigurera en Azure Database for MySQL-server med hjälp av Ansible (förhandsversion)
+# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>Skapa och konfigurera en Azure Database for MySQL-server med hjälp av Ansible
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. 
 
 Den här snabbstarten visar hur du använder Ansible för att skapa en Azure Database for MySQL-server och konfigurera dess brandväggsregeln. Du kan slutföra dessa uppgifter på ungefär fem minuter med hjälp av Azure-portalen.
@@ -25,7 +25,7 @@ Den här snabbstarten visar hur du använder Ansible för att skapa en Azure Dat
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 krävs för att köra följande exempelspelböcker i den här självstudien. Du kan installera Ansible 2.7 RC-versionen genom att köra `sudo pip install ansible[azure]==2.7.0rc2`. När Ansible 2.7 har släppts behöver du inte ange versionen här eftersom standardversionen blir 2.7.
+> Ansible 2.7 krävs för att köra följande exempelspelböcker i den här självstudien. 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.  

@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 48b2cdb26994d01dfced8216bb70493802f672a7
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265278"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413684"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med Azure Databricks
+# <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Självstudie: Extrahera, transformera och läsa in data med Azure Databricks
 
 I den här självstudien får du utföra en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks. Du extraherar data från Azure Data Lake Store till Azure Databricks, kör transformationer av data i Azure Databricks och läser sedan in dessa transformerade data i Azure SQL Data Warehouse.
 
@@ -44,9 +44,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
-- Skapa ett Azure SQL Data Warehouse, skapa en brandväggsregel på servernivå och anslut till servern som en serveradministratör. Följ anvisningarna i [Snabbstart: Skapa ett Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
+- Skapa ett Azure SQL Data Warehouse, skapa en brandväggsregel på servernivå och anslut till servern som en serveradministratör. Följ anvisningarna i [snabbstarten: Skapa ett Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Skapa en databashuvudnyckel för Azure SQL Data Warehouse. Följ anvisningarna i [Skapa en databashuvudnyckel](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Skapa ett Azure Blob Storage-konto och en container i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Följ anvisningarna i [Snabbstart: Skapa ett Azure SQL Blob-lagringskonto](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Skapa ett Azure Blob Storage-konto och en container i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Följ anvisningarna i [snabbstarten: Skapa ett Azure Blob Storage-konto](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
@@ -54,7 +54,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
-I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen. 
+I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 1. Välj **Skapa en resurs** > **Data och analys** > **Azure Databricks** i Azure Portal.
 
@@ -65,7 +65,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     ![Skapa en arbetsyta för Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Skapa en arbetsyta för Azure Databricks")
 
     Ange följande värden:
-     
+    
     |Egenskap  |Beskrivning  |
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
@@ -106,11 +106,11 @@ I det här avsnittet skapar du ett Azure Data Lake Store-konto och associerar et
 
 1. Välj **Skapa en resurs** > **Storage** > **Data Lake Store** i [Azure Portal](https://portal.azure.com).
 3. På bladet **Ny Data Lake Store**, anger du de värden som visas på följande skärmbild:
-   
+
     ![Skapa ett nytt Azure Data Lake Store-konto](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "Skapa ett nytt Azure Data Lake-konto")
 
-    Ange följande värden: 
-     
+    Ange följande värden:
+    
     |Egenskap  |Beskrivning  |
     |---------|---------|
     |**Namn**     | Ange ett unikt namn Data Lake Store-kontot.        |
@@ -125,7 +125,7 @@ I det här avsnittet skapar du ett Azure Data Lake Store-konto och associerar et
 Du skapar nu ett tjänstens huvudnamn för Azure Active Directory och associerar det till det Data Lake Store-konto som du har skapat.
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>Skapa ett tjänstens huvudnamn för Azure Active Directory
-   
+
 1. Välj **Alla tjänster** i [Azure Portal](https://portal.azure.com) och sök sedan efter **Azure Active Directory**.
 
 2. Välj **Appregistreringar**.
@@ -193,7 +193,7 @@ När du loggar in med programmet måste du skicka klientorganisations-ID:t med d
 
 ## <a name="upload-data-to-data-lake-store"></a>Ladda upp data till Data Lake Store
 
-I det här avsnittet kommer du att överföra en exempeldatafil till Data Lake Store. Du kan använda den här filen senare i Azure Databricks om du vill köra vissa transformationer. De exempeldata (**small_radio_json.json**) som du använder i den här kursen är tillgängliga på den här [Github-lagringsplatsen](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+I det här avsnittet kommer du att överföra en exempeldatafil till Data Lake Store. Du kan använda den här filen senare i Azure Databricks om du vill köra vissa transformationer. De exempeldata (**small_radio_json.json**) som du använder i den här självstudien är tillgängliga på den här [Github-lagringsplatsen](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
 1. Välj det Data Lake Store-konto som du skapade i [Azure Portal](https://portal.azure.com).
 
@@ -378,7 +378,7 @@ I det här avsnittet kommer du att överföra de data du transformerade till Azu
 
 Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storage som temporär lagringsplats vid överföring av data mellan Azure Databricks och Azure SQL Data Warehouse. Så du börjar med att tillhandahålla den konfiguration som ska ansluta till lagringskontot. Du måste redan ha skapat kontot som en del av de nödvändiga förutsättningarna för den här artikeln.
 
-1. Ange konfigurationen så att du får åtkomst till Azure Storage-kontot från Azure Databricks. Om du kopierar webbadressen för din bloblagring från portalen måste du ta bort *https://* i början. 
+1. Ange konfigurationen så att du får åtkomst till Azure Storage-kontot från Azure Databricks. Om du kopierar webbadressen för din bloblagring från portalen måste du ta bort *https://* i början.
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -410,7 +410,7 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)

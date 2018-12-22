@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skicka frågor till data i Azure Data Explorer'
+title: 'Snabbstart: Fråga efter data i Azure Data Explorer'
 description: I den här snabbstarten får du lära dig hur du frågar efter och delar data i Azure Data Explorer.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7b9bc52e07bccf931593cd2dbddd68e973d1b26c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394365"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106455"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Snabbstart: Skicka frågor till data i Azure Data Explorer
+# <a name="quickstart-query-data-in-azure-data-explorer"></a>Snabbstart: Fråga efter data i Azure Data Explorer
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller en webbapp som gör att du kan köra och dela frågor. Programmet är tillgängligt i Azure-portalen och som en fristående webbapp. I den här artikeln får arbeta du i den fristående versionen, vilket gör det möjligt att ansluta till flera kluster och dela djuplänkar till dina frågor.
 
@@ -134,7 +134,7 @@ När du har sett hur grundläggande frågor fungerar ska vi titta på hur du kan
 
 1. Kör följande fråga.
 
-    ```Kutso
+    ```Kusto
     StormEvents
     | sort by StartTime desc
     | where DamageProperty > 5000
@@ -148,7 +148,7 @@ När du har sett hur grundläggande frågor fungerar ska vi titta på hur du kan
 
     Den här panelen fungerar på samma sätt som pivottabellens fältlista i Excel, så att du kan göra mer analyser i själva rutnätet.
 
-1. Välj **Pivot-läge** och dra sedan kolumnerna så här: **Tillstånd** till **Radgrupper**; **DamageProperty** till **Värden** och **EventType** till **Kolumnetiketter**.  
+1. Välj **Pivot-läge** och dra sedan kolumnerna så här: **State** (Tillstånd) till **Radgrupper**, **DamageProperty** (Egendomsskada) till **Värden** och **EventTyp** (Händelsetyp) till **Kolumnetiketter**.  
 
     ![Pivot-läge](media/web-query-data/pivot-mode.png)
 

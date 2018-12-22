@@ -1,6 +1,6 @@
 ---
-title: Vad är identitetssäkerhetspoäng i Azure AD? – förhandsversion| Microsoft Docs
-description: Lär dig hur du kan använda identitetssäkerhetspoäng för att för att förbättra säkerhetstatusen för din Azure AD-klientorganisation.
+title: Vad är identitetssäkerhetspoäng? - Azure Active Directory (offentlig förhandsversion) | Microsoft Docs
+description: Anvisningar för att använda identitetssäkerhetspoäng för att förbättra säkerhetspositionen för din Azure AD-klientorganisation.
 services: active-directory
 keywords: identity secure score, Azure AD, secure access to company resources
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a9bb22cae2e9fcd607a81d442f4fb51f12c43454
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro
+ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224145"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092092"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>Vad identitetssäkerhetspoäng i Azure AD? – förhandsversion
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>Vad är identitetssäkerhetspoäng i Azure Active Directory? (Offentlig förhandsversion)
 
 Hur säker är din Azure AD-klientorganisation? Om du inte vet hur du ska besvara den här frågan kan du läsa den här artikeln för att få reda på hur identitetssäkerhetspoäng hjälper dig att övervaka och förbättra din identitetssäkerhetsstatus. 
 

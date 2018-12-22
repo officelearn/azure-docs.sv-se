@@ -1,6 +1,6 @@
 ---
-title: Ta emot händelser från Azure Event Hubs med .NET Standard-bibliotek | Microsoft Docs
-description: Börja ta emot meddelanden med EventProcessorHost i .NET Standard
+title: Ta emot händelser med hjälp av .NET Core – Azure Event Hubs | Microsoft Docs
+description: Den här artikeln innehåller en genomgång för att skapa ett .NET Core-program som tar emot meddelanden med EventProcessorHost.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9adbd8b9e7934ebe454d14ac6e47fe96898c9184
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 18b37fd7c85fced4cc57b57320daf195f6f33e3e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234399"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082389"
 ---
-# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Börja ta emot meddelanden med EventProcessorHost i .NET Standard
+# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-core"></a>Börja ta emot meddelanden med EventProcessorHost i .NET Core
 Händelsehubbar är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i händelsehubbar kan du lagra dem med ett lagringskluster eller omvandla dem med hjälp av en leverantör av realtidsanalys. Den här storskaliga händelseinsamlingen och bearbetningsfunktionen är en viktig komponent inom moderna programarkitekturer som t.ex. sakernas internet. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
 I den här självstudien får du lära dig att skriva ett .NET Core-konsolprogram som tar emot meddelanden från en händelsehubb med [värden för händelsebearbetning](event-hubs-event-processor-host.md). [Värden för händelsebearbetning](event-hubs-event-processor-host.md) är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av värden för händelsebearbetning kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder värden för händelsebearbetning för en enda mottagare. Exemplet [Skala ut händelsebearbetning][Skala ut händelsebearbetning med Event Hubs] visar hur du använder värden för händelsebearbetning med flera mottagare.
@@ -206,7 +207,7 @@ Grattis! Du har nu fått meddelanden från en händelsehubb med värden för hä
 > Den här guiden använder en enda instans av [EventProcessorHost](event-hubs-event-processor-host.md). För att öka genomströmning rekommenderar vi att du kör flera instanser av [EventProcessorHost](event-hubs-event-processor-host.md), enligt exemplet [Utskalad händelsebearbetning](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3). I de fallen koordineras de olika instanserna automatiskt sinsemellan för att kunna belastningsutjämna de mottagna händelserna. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten skapade du ett .NET Standard-program som tog emot meddelanden från en händelsehubb. Om du vill lära dig mer om att skicka händelser till en händelsehubb med .NET Standard kan du läsa avsnittet om att [skicka händelser från en händelsehubb – .NET Standard](event-hubs-dotnet-standard-getstarted-send.md).
+I den här snabbstarten skapade du ett .NET Core-program som tog emot meddelanden från en händelsehubb. Om du vill lära dig mer om att skicka händelser till en händelsehubb med .NET Core kan du läsa avsnittet om att [skicka händelser från en händelsehubb – .NET Core](event-hubs-dotnet-standard-getstarted-send.md).
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614012"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337894"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Containerinstansloggning med Azure Log Analytics
 
@@ -24,7 +24,7 @@ Om du vill skicka containerinstansdata till Log Analytics, måste du skapa en co
 
 Om du vill aktivera loggning i dina containerinstanser, behöver du följande:
 
-* [Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli) (eller [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Hämta Log Analytics-autentiseringsuppgifter
@@ -135,7 +135,7 @@ ContainerInstanceLog_CL
 Mer information om att fråga loggar och konfigurera aviseringar i Azure Log Analytics finns i:
 
 * [Förstå loggsökningar i Log Analytics](../log-analytics/log-analytics-log-search.md)
-* [Enhetliga aviseringar i Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+* [Enhetliga aviseringar i Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Övervaka containerns CPU och minne

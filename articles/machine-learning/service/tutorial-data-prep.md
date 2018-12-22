@@ -1,5 +1,6 @@
 ---
-title: 'Självstudie 1: Förbereda data för modellering med Azure Machine Learning Service'
+title: 'Självstudie om regressionsmodell: Förbereda data'
+titleSuffix: Azure Machine Learning service
 description: I den första delen av den här självstudien lär du dig att förbereda data i Python för regressionsmodellering med Azure ML SDK.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
-ms.openlocfilehash: 700dfa9fded30fd09eab69a15abf54fb420c5c06
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: d20ff1fabfb73c899153cf42bb6f2d7a8f233e21
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884010"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314694"
 ---
-# <a name="tutorial-1-prepare-data-for-regression-modeling"></a>Självstudie 1: Förbereda data för regressionsmodellering
+# <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudie: Förbereda data för regressionsmodellering
 
 I den här självstudien lär du dig hur du förbereder data för regressionsmodellering med Azure Machine Learning Data Prep SDK. Utför olika transformeringar för att filtrera och kombinera två olika datauppsättningar för taxi i New York. Slutmålet för den här självstudien är att förutsäga kostnaden för en taxiresa genom att träna en modell på datafunktioner, till exempel upphämtningstid, veckodag, antal passagerare och koordinater. Den här självstudien är del ett i en självstudieserie i två delar.
 
@@ -73,7 +75,7 @@ Nu kan du fylla i några variabler med genvägstransformeringar som gäller för
 all_columns = dprep.ColumnSelector(term=".*", use_regex=True)
 drop_if_all_null = [all_columns, dprep.ColumnRelationship(dprep.ColumnRelationship.ALL)]
 useful_columns = [
-    "cost", "distance""distance", "dropoff_datetime", "dropoff_latitude", "dropoff_longitude",
+    "cost", "distance", "dropoff_datetime", "dropoff_latitude", "dropoff_longitude",
     "passengers", "pickup_datetime", "pickup_latitude", "pickup_longitude", "store_forward", "vendor"
 ]
 ```
@@ -104,9 +106,6 @@ tmp_df = (green_df
 tmp_df.head(5)
 ```
 
-
-
-
 <div>
 <style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
@@ -131,6 +130,7 @@ tmp_df.head(5)
       <th>dropoff_longitude</th>
       <th>dropoff_latitude</th>
       <th>passengers</th>
+      <th>avstånd</th>
       <th>cost</th>
     </tr>
   </thead>
@@ -146,6 +146,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>21.25</td>
     </tr>
     <tr>
@@ -159,6 +160,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>2</td>
+      <td>.00</td>
       <td>74.5</td>
     </tr>
     <tr>
@@ -172,6 +174,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>1</td>
     </tr>
     <tr>
@@ -185,6 +188,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>3.25</td>
     </tr>
     <tr>
@@ -198,16 +202,14 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>.00</td>
       <td>8.5</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-
-
 Skriv över variabeln `green_df` med de transformeringar som utfördes på `tmp_df` i föregående steg.
-
 
 ```python
 green_df = tmp_df
@@ -632,6 +634,14 @@ I dataprofilutdata för `store_forward` ser du att data är inkonsekventa och at
 combined_df = combined_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
+Kör en annan `replace` funktion, den här gången i fältet `distance`. Detta formaterar om avståndsvärden som är felaktigt märkta som `.00`, och fyller några null-värden med nollor. Konvertera fältet `distance` till numeriskt format.
+
+
+```python
+combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
+combined_df = combined_df.to_number(["distance"])
+```
+
 Dela upp datetime för upphämtning och avlämning i respektive datum- och tidskolumner. Använd `split_column_by_example()` för att utföra delningen. I det här fallet utelämnas den valfria `example`-parametern för `split_column_by_example()`. Därför avgör funktionen automatiskt var delningen ska ske utifrån data.
 
 
@@ -641,9 +651,6 @@ tmp_df = (combined_df
     .split_column_by_example(source_column="dropoff_datetime"))
 tmp_df.head(5)
 ```
-
-
-
 
 <div>
 <style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
@@ -673,6 +680,7 @@ tmp_df.head(5)
       <th>dropoff_longitude</th>
       <th>dropoff_latitude</th>
       <th>passengers</th>
+      <th>avstånd</th>
       <th>cost</th>
     </tr>
   </thead>
@@ -692,6 +700,7 @@ tmp_df.head(5)
       <td>-73.937767</td>
       <td>40.758480</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -709,6 +718,7 @@ tmp_df.head(5)
       <td>-73.937927</td>
       <td>40.757843</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -726,6 +736,7 @@ tmp_df.head(5)
       <td>-73.937721</td>
       <td>40.758369</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -743,6 +754,7 @@ tmp_df.head(5)
       <td>-73.937790</td>
       <td>40.758358</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -760,12 +772,12 @@ tmp_df.head(5)
       <td>-73.937775</td>
       <td>40.758450</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
   </tbody>
 </table>
 </div>
-
 
 
 Ändra namn på kolumnerna som genererats av `split_column_by_example()` till meningsfulla namn.
@@ -836,9 +848,6 @@ tmp_df = (combined_df
 tmp_df.head(5)
 ```
 
-
-
-
 <div>
 <style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
@@ -871,6 +880,7 @@ tmp_df.head(5)
       <th>dropoff_longitude</th>
       <th>dropoff_latitude</th>
       <th>passengers</th>
+      <th>avstånd</th>
       <th>cost</th>
     </tr>
   </thead>
@@ -894,6 +904,7 @@ tmp_df.head(5)
       <td>-73.937767</td>
       <td>40.758480</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -915,6 +926,7 @@ tmp_df.head(5)
       <td>-73.937927</td>
       <td>40.757843</td>
       <td>1</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -936,6 +948,7 @@ tmp_df.head(5)
       <td>-73.937721</td>
       <td>40.758369</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -957,6 +970,7 @@ tmp_df.head(5)
       <td>-73.937790</td>
       <td>40.758358</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -978,13 +992,12 @@ tmp_df.head(5)
       <td>-73.937775</td>
       <td>40.758450</td>
       <td>1</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
   </tbody>
 </table>
 </div>
-
-
 
 I data ovan ser du att datum- och tidskomponenterna för upphämtning och avlämning som skapats från de härledda transformeringarna är korrekta. Ta bort kolumnerna `pickup_datetime` och `dropoff_datetime` eftersom de inte längre behövs.
 
@@ -1002,27 +1015,24 @@ type_infer.learn()
 type_infer
 ```
 
-
-
-
-    {'pickup_weekday': [FieldType.STRING],
-     'pickup_hour': [FieldType.DECIMAL],
-     'pickup_second': [FieldType.DECIMAL],
-     'dropoff_hour': [FieldType.DECIMAL],
-     'dropoff_minute': [FieldType.DECIMAL],
-     'dropoff_second': [FieldType.DECIMAL],
-     'store_forward': [FieldType.STRING],
-     'pickup_minute': [FieldType.DECIMAL],
-     'dropoff_weekday': [FieldType.STRING],
-     'vendor': [FieldType.STRING],
-     'pickup_longitude': [FieldType.DECIMAL],
-     'pickup_latitude': [FieldType.DECIMAL],
-     'dropoff_longitude': [FieldType.DECIMAL],
-     'dropoff_latitude': [FieldType.DECIMAL],
-     'passengers': [FieldType.DECIMAL],
-     'cost': [FieldType.DECIMAL]}
-
-
+    Column types conversion candidates:
+    'pickup_weekday': [FieldType.STRING],
+    'pickup_hour': [FieldType.DECIMAL],
+    'pickup_minute': [FieldType.DECIMAL],
+    'pickup_second': [FieldType.DECIMAL],
+    'dropoff_hour': [FieldType.DECIMAL],
+    'dropoff_minute': [FieldType.DECIMAL],
+    'dropoff_second': [FieldType.DECIMAL],
+    'store_forward': [FieldType.STRING],
+    'pickup_longitude': [FieldType.DECIMAL],
+    'dropoff_longitude': [FieldType.DECIMAL],
+    'passengers': [FieldType.DECIMAL],
+    'distance': [FieldType.DECIMAL],
+    'vendor': [FieldType.STRING],
+    'dropoff_weekday': [FieldType.STRING],
+    'pickup_latitude': [FieldType.DECIMAL],
+    'dropoff_latitude': [FieldType.DECIMAL],
+    'cost': [FieldType.DECIMAL]
 
 Inferensresultatet ser rätt ut baserat på data. Tillämpa nu typkonverteringarna på dataflödet.
 
@@ -1032,18 +1042,27 @@ tmp_df = type_infer.to_dataflow()
 tmp_df.get_profile()
 ```
 
-Nu har du en fullständigt transformerat och förberett dataflödesobjekt som ska användas i en maskininlärningsmodell. SDK:et innehåller objektserialisering, som används på följande sätt.
-
+Innan du paketerar dataflödet ska du placera två sista filter på datauppsättningen. För att minimera felaktiga datapunkter måste du filtrera dataflödet på poster där både `cost` och `distance` är större än noll.
 
 ```python
+tmp_df = tmp_df.filter(dprep.col("distance") > 0)
+tmp_df = tmp_df.filter(dprep.col("cost") > 0)
+```
+
+Nu har du en fullständigt transformerat och förberett dataflödesobjekt som ska användas i en maskininlärningsmodell. SDK:et innehåller objektserialisering, som används på följande sätt.
+
+```python
+import os
+file_path = os.path.join(os.getcwd(), "dflows.dprep")
+
 dflow_prepared = tmp_df
 package = dprep.Package([dflow_prepared])
-package.save(".\dflow")
+package.save(file_path)
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort filen `dflow` (oavsett om du kör lokalt eller i Azure Notebooks) i den aktuella katalogen om du inte vill fortsätta med del två av den här självstudien. Om du fortsätter med del två behöver du filen `dflow` i den aktuella katalogen.
+Ta bort filen `dflows.dprep` (oavsett om du kör lokalt eller i Azure Notebooks) i den aktuella katalogen om du inte vill fortsätta med del två av den här självstudien. Om du fortsätter med del två behöver du filen `dflows.dprep` i den aktuella katalogen.
 
 ## <a name="next-steps"></a>Nästa steg
 

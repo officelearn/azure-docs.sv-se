@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter bilder med API för bildsökning i Bing och Node.js'
+title: 'Snabbstart: Söka efter bilder – SDK för bildsökning i Bing för Node.js'
 description: Använd den här snabbstarten till att göra din första bildsökning med API för bildsökning i Bing, som är en adapterklass för API:t och innehåller samma funktioner. Den här enkla Node.js-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: a1fda703c74549c351d8eb609819198d7e2856cf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: cb01b45e26975d44e30669e066b195f4e3abc90a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311287"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252005"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-nodejs"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och Node.js
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>Snabbstart: Söka efter bilder med SDK för bildsökning i Bing för Node.js
 
 Använd den här snabbstarten till att göra din första bildsökning med API för bildsökning i Bing, som är en adapterklass för API:t och innehåller samma funktioner. Den här enkla JavaScript-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
 

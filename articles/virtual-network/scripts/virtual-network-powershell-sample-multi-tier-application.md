@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
-ms.openlocfilehash: 3a57827616e4722b8520dcddb64e4e67fa8c79c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ebc0e18ecea61705ea8cb925a25d4233bfc9a2cb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599908"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340512"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Skapa ett nätverk för flernivåprogram – skriptexempel
 
@@ -32,10 +32,11 @@ Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/powershe
 
 ## <a name="sample-script"></a>Exempelskript
 
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> Ett undernäts-ID tilldelas när du har skapat ett virtuellt nätverk, mer specifikt med hjälp av cmdleten New-AzureRmVirtualNetwork med alternativet -Undernät. Om du konfigurerar undernätet med hjälp av cmdleten New-AzureRmVirtualNetworkSubnetConfig innan anropet till New-AzureRmVirtualNetwork kan du inte se undernät-ID tills förrän du har anropat New-AzureRmVirtualNetwork.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>Rensa distribution 
+## <a name="clean-up-deployment"></a>Rensa distribution
 
 Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
 

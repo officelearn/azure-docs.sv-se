@@ -1,5 +1,5 @@
 ---
-title: Självstudie om att anropa API:er för kognitiv sökning i Azure Search | Microsoft Docs
+title: Självstudie om att anropa API:er för kognitiv sökning – Azure Search
 description: I den här självstudien går vi igenom ett exempel på dataextrahering, naturliga språk och AI-bearbetning av bilder via Azure Search-indexering för dataextrahering och transformering.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730672"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386238"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Självstudie: Lär dig att anropa API:er för kognitiv sökning (förhandsversion)
 
@@ -34,7 +35,9 @@ Utdata är ett fulltextsökbart index i Azure Search. Du kan förbättra indexet
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Körning av kunskapsuppsättning och extrahering och normalisering av bilder erbjuds för närvarande kostnadsfritt. Priserna för dessa funktioner meddelas vid ett senare tillfälle. 
+> Från och med 21 december 2018 kan du koppla en Cognitive Services-resurs med en färdighet i Azure Search. Detta gör det möjligt för oss att börja debitera för körning av färdigheter. Samma datum börjar vi också debitera bildextrahering som en del av dokumentknäckningsfasen. Textextrahering från dokument kommer fortfarande att kunna användas utan kostnad.
+>
+> Körningen av inbyggda funktioner faktureras till det befintliga [betala per användning-priset för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättningen för bildextrahering följer prissättningen för förhandsversionen. Mer information finns på [prissättningssidan för Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Läs [mer](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -52,30 +55,31 @@ Börja med att registrera dig för Azure Search-tjänsten.
 
 1. Klicka på **Skapa en resurs**, sök efter Azure Search och klicka på **Skapa**. Läs [Skapa en Azure Search-tjänst på portalen](search-create-service-portal.md) om det är första gången du konfigurerar en söktjänst.
 
-  ![Instrumentpanel](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Skapa en Azure Search-tjänst på portalen")
+  ![Instrumentpanel](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Skapa en Azure Search-tjänst på portalen")
 
 1. För Resursgrupp skapar du en resursgrupp som ska innehålla alla resurser som du skapar i den här självstudien. På så sätt blir det enklare att rensa resurserna när du är klar med självstudien.
 
-1. För Plats väljer du antingen **USA, södra centrala** eller **Västeuropa**. Förhandsversionen är för närvarande endast tillgänglig i dessa regioner.
+1. För Plats väljer du en av de [regioner som stöds](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) för Kognitiv sökning.
 
 1. För Prisnivå kan du skapa en **kostnadsfri** tjänst för användning med självstudier och snabbstarter. För djupare analys med egna data väljer du en [betaltjänst](https://azure.microsoft.com/pricing/details/search/) som **Basic** eller **Standard**. 
 
   En kostnadsfri tjänst är begränsad till 3 index, 16 MB maximal blobstorlek och 2 minuters indexering, vilket är otillräckligt för att dra full nytta av funktionerna i kognitiv sökning. Information om gränserna för olika nivåer finns i [Tjänstbegränsningar](search-limits-quotas-capacity.md).
 
-  > [!NOTE]
-  > Kognitiv sökning är tillgängligt i en offentlig förhandsversion. För närvarande kan du köra kunskapsuppsättningar på alla nivåer, inklusive den kostnadsfria nivån. Priserna för den här funktionen kommer att meddelas längre fram.
+  ![Tjänstdefinitionssidan i portalen](./media/cognitive-search-tutorial-blob/create-search-service1.png "Tjänstdefinitionssidan i portalen")
+  ![Tjänstdefinitionssidan i portalen](./media/cognitive-search-tutorial-blob/create-search-service2.png "Tjänstdefinitionssidan i portalen")
 
+ 
 1. Fäst tjänsten vid instrumentpanelen för snabb åtkomst till tjänstinformation.
 
-  ![Tjänstdefinitionssida på portalen](./media/cognitive-search-tutorial-blob/create-search-service.png "Tjänstdefinitionssida på portalen")
+  ![Tjänstdefinitionssida på portalen](./media/cognitive-search-tutorial-blob/create-search-service3.png "Tjänstdefinitionssida på portalen")
 
-1. När en tjänst har skapats samlar du in följande information: **URL** från översiktssidan och **api-nyckeln** (antingen primär eller sekundär) på sidan Nycklar.
+1. När tjänsten har skapats kan du samla in följande information: **URL** från sidan Översikt och **api-key** (primär eller sekundär) från sidan Nycklar.
 
   ![Information om slutpunkt och nyckel i portalen](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Information om slutpunkt och nyckel i portalen")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Konfigurera Azure Blob-tjänsten och läsa in exempeldata
 
-Berikningspipelinen hämtar data från Azure-datakällor. Källdata måste komma från en datakällstyp som stöds av en [Azure Search-indexerare](search-indexer-overview.md). I den här övningen använder vi blogglagring för att demonstrera flera typer av innehåll.
+Berikningspipelinen hämtar data från Azure-datakällor. Källdata måste komma från en datakällstyp som stöds av en [Azure Search-indexerare](search-indexer-overview.md). Observera att Azure Table Storage inte stöds för kognitiv sökning. I den här övningen använder vi blogglagring för att demonstrera flera typer av innehåll.
 
 1. [Hämta exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Exempeldata består av en liten filuppsättning av olika typer. 
 
@@ -127,7 +131,7 @@ Eftersom detta var din första begäran ska du kolla Azure-portalen för att bek
 Om du ser felet 403 eller 404 ska du kontrollera konstruktionen för begäran: `api-version=2017-11-11-Preview` ska vara på slutpunkten, `api-key` ska vara i rubriken efter `Content-Type` och dess värde måste vara giltigt för en söktjänst. Du kan återanvända rubriken för de kvarvarande stegen i den här självstudien.
 
 > [!TIP]
-> Innan du börjar göra allt jobb är det läge att kontrollera att söktjänsten körs på någon av de platser som körs som tillhandahåller förhandsversion: USA, södra centrala eller Europa, västra.
+> Innan du börjar utföra allt arbete bör du kontrollera att söktjänsten körs på någon av de platser som stöds och som tillhandahåller förhandsversionen: USA, södra centrala eller Europa, västra.
 
 ## <a name="create-a-skillset"></a>Skapa en kunskapsuppsättning
 
@@ -523,7 +527,7 @@ Så här indexerar du dokument med de nya definitionerna:
 2. Ändra en kunskapsuppsättning och indexdefinition.
 3. Återskapa ett index och en indexerare på tjänsten för att köra pipelinen. 
 
-Du kan använda portalen för att ta bort index och indexerare. Kunskapsuppsättningar kan endast tas bort med ett HTTP-kommando, om du bestämmer dig för att ta bort dem.
+Du kan använda portalen för att ta bort index, indexerare och färdigheter.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview

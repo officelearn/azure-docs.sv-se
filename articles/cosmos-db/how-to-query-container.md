@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5d64aa8b50cdde23d1bb8980510cfac202204f9a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11c68b61802f6c7b3755da71c176ea777f171e4c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262462"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409844"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>Köra frågor mot containrar i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs hur du kör frågor mot en container (samling, graf
 
 ## <a name="in-partition-query"></a>Frågekörning inom en partition
 
-När du kör frågor mot data från containrar dirigerar Azure Cosmos DB automatiskt frågorna till de partitioner som motsvarar de partitionsnyckelvärden som angetts i filtret (om det finns några). Den här frågan dirigeras till exempel enbart till den partition som innehåller partitionsnyckeln XMS-0001.
+När du frågar efter data från containrar, och partitionsnyckelfiltret har angetts för frågan, dirigerar Azure Cosmos DB automatiskt frågan till de partitioner som motsvarar partitionsnyckelvärdena som angetts i filtret. Till exempel dirigeras följande fråga till DeviceId-partitionen som innehåller alla dokument som motsvarar partitionsnyckelvärdet ”XMS-0001”.
 
 ```csharp
 // Query using partition key into a class called, DeviceReading
@@ -58,9 +58,9 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 Du kan hantera parallell frågekörning genom att justera följande parametrar:
 
-- **MaxDegreeOfParallelism**: Anger det maximala antalet samtidiga nätverksanslutningar till containerns partitioner. Om du anger den här egenskapen till -1 hanteras graden av parallellitet av SDK:n. Om MaxDegreeOfParallelism inte anges eller anges till 0, vilket är standardvärdet, finns det en enda nätverksanslutning till containerns partitioner.
+- **MaxDegreeOfParallelism**: Anger det högsta antalet samtidiga nätverksanslutningar till containerns partitioner. Om du anger den här egenskapen till -1 hanteras graden av parallellitet av SDK:n. Om MaxDegreeOfParallelism inte anges eller anges till 0, vilket är standardvärdet, finns det en enda nätverksanslutning till containerns partitioner.
 
-- **MaxBufferedItemCount**: Avväger frågesvarstid kontra minnesanvändning på klientsidan. Om det här alternativet utelämnas eller anges till -1 hanteras det antal objekt som buffras under parallell frågekörning av SDK:n.
+- **MaxBufferedItemCount**: Gör en avvägning mellan frågesvarstid och minnesanvändning på klientsidan. Om det här alternativet utelämnas eller anges till -1 hanteras det antal objekt som buffras under parallell frågekörning av SDK:n.
 
 Med samma status för samlingen returnerar en parallell fråga resultat i samma ordning som vid seriell körning. När du utför en fråga över partitioner som inkluderar sorteringsoperatorer (ORDER BY och/eller TOP), utfärdar Azure Cosmos DB SDK frågan parallellt mellan partitionerna och sammanfogar delvis sorterade resulterar på klientsidan för att skapa globalt sorterade resultat.
 

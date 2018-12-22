@@ -10,14 +10,14 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ea9083d530d9a94825b8c568ef4c3dbc847c44c0
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887657"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162468"
 ---
-# <a name="tutorial-anomaly-detection-with-c-application"></a>Självstudie: Självstudie: Avvikelseidentifiering med C#-program
+# <a name="tutorial-anomaly-detection-with-c-application"></a>Självstudie: Avvikelseidentifiering med C#-program
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -35,7 +35,7 @@ Exemplet har utvecklats för .NET Framework med hjälp av [Visual Studio 2017, C
 
 ## <a name="get-and-use-the-example"></a>Hämta och använd exemplet
 
-Du kan klona exempelprogrammet för avvikelseidentifiering till din dator från [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
+Du kan klona exempelprogrammet för avvikelseidentifiering till din dator från [GitHub](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
 <a name="Step1"></a>
 ### <a name="install-the-example"></a>Installera exemplet
 

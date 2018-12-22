@@ -1,6 +1,6 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa en virtuell Windows Server 2016-dator med Log Analytics-övervakning | Microsoft Docs
-description: Skriptexempel för Azure CLI – Skapa en virtuell Windows Server 2016-dator med Log Analytics-övervakning
+title: Azure CLI-exempel – skapa en virtuell Azure-dator som kör Log Analytics-övervakning | Microsoft Docs
+description: Azure CLI-exempel – Skapa en virtuell Azure-dator som kör Windows Server 2016 VM och Log Analytics-övervakning.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.custom: mvc
-ms.openlocfilehash: d4b73981e3cb21f7b4caefaf443014853929b708
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: mvc,seodec18
+ms.openlocfilehash: a3dcb7a7c15c3bf8e5578371e05519e802355fdc
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403397"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188171"
 ---
 # <a name="monitor-a-vm-with-log-analytics"></a>Övervaka en virtuell dator med Log Analytics
 

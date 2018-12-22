@@ -1,6 +1,6 @@
 ---
-title: Vad är Dedikerad HSM? | Microsoft Docs
-description: Dedikerad HSM i Azure tillhandahåller funktioner för lagring av nycklar i Azure som uppfyller FIPS 140-2 Level 3-certifiering
+title: Vad är Dedikerad HSM? – Dedikerad HSM i Azure| Microsoft Docs
+description: Översikten över dedikerad HSM i Azure tillhandahåller funktioner för lagring av nycklar i Azure som uppfyller FIPS 140-2 Level 3-certifiering
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
@@ -10,19 +10,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
-ms.date: 11/26/2018
+ms.custom: mvc, seodec18
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 92d77ec886a0f37c28f5e3031a7e14f63299c8aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 1eeafa33c8c1cdbcd7d0e55e3860dda1b8d451fe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427122"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080086"
 ---
-# <a name="what-is-dedicated-hsm"></a>Vad är Dedikerad HSM?
+# <a name="what-is-azure-dedicated-hsm"></a>Vad är Dedikerad HSM i Azure?
 
-Dedikerad HSM i Azure tillhandahåller lagring av kryptografiska nycklar i Azure som uppfyller de strängaste säkerhetskraven. Dedikerad HSM är den perfekta lösningen för kunder som behöver FIPS 140-2 Level 3-verifierade enheter och fullständig och exklusiv kontroll över HSM-apparaten. HSM-enheter distribueras globalt i flera Azure-regioner och enkelt etableras som ett par av enheter och konfigureras för hög tillgänglighet. HSM:er kan även etableras över regioner för att säkerställa redundans på regionsnivå. Microsoft har levererat tjänsten Dedikerad HSM med hjälp av apparaten [SafeNet Luna Network HSM 7 (modell A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) från Gemalto. Den här enheten erbjuder prestanda och alternativ för kryptografisk integrering på högsta nivå. När HSM:er etableras ansluts de direkt till kundens virtuella nätverk och kan även användas av lokala program och hanteringsverktyg med en konfiguration av VPN-anslutning punkt-till-plats eller plats-till-plats. Kunder hämtar programvara och dokumentation för att konfigurera och hantera HSM-enheter från Gemaltos supportportal.
+Dedikerad HSM i Azure är en Azure-tjänst som tillhandahåller lagring av kryptografiska nycklar i Azure. Dedikerad HSM uppfyller de strängaste säkerhetskraven. Det är den perfekta lösningen för kunder som behöver FIPS 140-2 Level 3-verifierade enheter och fullständig och exklusiv kontroll över HSM-apparaten. HSM-enheter distribueras globalt i flera Azure-regioner och enkelt etableras som ett par av enheter och konfigureras för hög tillgänglighet. HSM:er kan även etableras över regioner för att säkerställa redundans på regionsnivå. Microsoft har levererat tjänsten Dedikerad HSM med hjälp av apparaten [SafeNet Luna Network HSM 7 (modell A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) från Gemalto. Den här enheten erbjuder prestanda och alternativ för kryptografisk integrering på högsta nivå. När HSM:er etableras ansluts de direkt till kundens virtuella nätverk och kan även användas av lokala program och hanteringsverktyg med en konfiguration av VPN-anslutning punkt-till-plats eller plats-till-plats. Kunder hämtar programvara och dokumentation för att konfigurera och hantera HSM-enheter från Gemaltos supportportal.
 
 ## <a name="why-use-azure-dedicated-hsm"></a>Varför bör du använda Dedikerad HSM i Azure?
 

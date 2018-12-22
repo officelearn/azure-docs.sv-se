@@ -1,13 +1,12 @@
 ---
-title: Ett enkelt experiment i Machine Learning Studio | Microsoft Docs
+title: Enkelt experiment – Azure Machine Learning Studio | Microsoft Docs
 description: Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
 keywords: experiment, linjär regression,machine learning algoritmer, machine learning självstudier, teknik för förutsägbar modellering, dataexperiment
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425718"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262426"
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Självstudie om Machine Learning: Skapa ditt första dataexperiment i Azure Machine Learning Studio
+# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Självstudie: Skapa ditt första dataexperiment i Azure Machine Learning Studio
 
 Om du aldrig har använt **Azure Machine Learning Studio** tidigare är den här självstudien något för dig.
 
@@ -41,7 +40,7 @@ I den här självstudiekursen går vi igenom hur du använder Studio för först
 - [Machine Learning-grunder med algoritmexempel](basics-infographic-with-algorithm-examples.md) – Den här informationsgrafiken är praktisk om du vill lära dig mer om de olika typerna av algoritmexempel som ingår i Machine Learning Studio.
 - [Machine Learning-guide](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) – I den här guiden finns liknande information som i informationsgrafiken ovan, men i ett interaktivt format.
 - [Machine Learning-algoritmfacit](algorithm-cheat-sheet.md) och [Så här väljer du algoritmer för Microsoft Azure Machine Learning](algorithm-choice.md) – I den här hämtningsbara affischen och medföljande artikeln diskuteras Studio-algoritmerna ingående.
-- [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) (Machine Learning Studio: Hjälp för algoritmer och moduler) – Det här är den fullständiga referensen för alla Studio-moduler, däribland Machine Learning-algoritmer,
+- [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) (Hjälp för algoritmer) – Det här är den fullständiga referensen för alla Studio-moduler, däribland Machine Learning-algoritmer,
 
 
 
@@ -305,8 +304,8 @@ Du visar utdata från modulen [Utvärdera modell][evaluate-model] genom att klic
 För vår modell visas följande statistik:
 
 - **Medelabsolutfel** (MAE): Medelvärdet av absoluta fel (ett *fel* är skillnaden mellan det förväntade och faktiska värdet).
-- **Medelkvadratfel** (RMSE): Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
-- **Relativa absoluta fel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
+- **Medelkvadratsfel** (RMSE): Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
+- **Relativt absolutfel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 - **Relativa kvadratfel**: Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 - **Bestämningskoefficient**: Kallas också för **R-kvadratvärdet** och är ett statistiskt mått som anger hur väl en modell passar data.
 

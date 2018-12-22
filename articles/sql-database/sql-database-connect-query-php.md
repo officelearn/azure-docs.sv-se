@@ -11,14 +11,14 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: be3ac9fab6c89c65ad9673811e108cefe2c80d00
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b768b50af7ad6736e5cc3c885e6ac5016976f48a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724255"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958550"
 ---
-# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Snabbstart: Använda PHP för att köra frågor mot en Azure SQL-databas
+# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Snabbstart: Använd PHP för att fråga en Azure SQL-databas
 
 Den här artikeln visar hur du använder [PHP](http://php.net/manual/en/intro-whatis.php) för att ansluta till en Azure SQL-databas. Du kan sedan använda T-SQL-instruktioner för att köra frågor mot data.
 
@@ -32,9 +32,9 @@ För att kunna slutföra det här exemplet behöver du följande:
 
 - PHP-relaterad programvara installerad för ditt operativsystem:
 
-    - **MacOS**, installera Homebrew och PHP, ODBC-drivrutinen och SQLCMD och installera därefter PHP-drivrutinen för SQL Server. Se [Steg 1.2, 1.3 och 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
+    - **MacOS**, installera PHP, ODBC-drivrutinen och därefter PHP-drivrutinen för SQL Server. Se [Steg 1, 2 och 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-    - **Ubuntu**, installera PHP och andra paket som krävs och installera därefter PHP-drivrutinen för SQL Server. Se [steg 1.2 och 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Linux**, installera PHP, ODBC-drivrutinen och därefter PHP-drivrutinen för SQL Server. Se [Steg 1, 2 och 3](/sql/connect/php/installation-tutorial-linux-mac).
 
     - **Windows**, installera PHP för IIS Express och Chocolatey och installera därefter ODBC-drivrutinen och SQLCMD. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
@@ -75,13 +75,13 @@ För att kunna slutföra det här exemplet behöver du följande:
 
 ## <a name="run-the-code"></a>Kör koden
 
-1. Kör programmet i kommandotolken.
+1. Kör appen i kommandotolken.
 
    ```bash
    php sqltest.php
    ```
 
-1. Kontrollera att de 20 översta raderna returneras och stäng programfönstret.
+1. Kontrollera att de 20 översta raderna returneras och stäng appfönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -91,4 +91,4 @@ För att kunna slutföra det här exemplet behöver du följande:
 
 - [Rapportera problem eller ställ frågor](https://github.com/Microsoft/msphpsql/issues)
 
-- [Exempel på logik för omprövning: Ansluta elastiskt till SQL med PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [Exempel på omprövningslogik: Ansluta elastiskt till SQL med PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

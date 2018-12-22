@@ -9,14 +9,17 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de19b20865127fd37cd7bc1ac854288a95a68091
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45255845d8645391ee33471830ac2ef27870a40d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058196"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408637"
 ---
-# <a name="tutorial-train-a-distributed-model-with-horovod"></a>Självstudier: Träna en distribuerad modell med Horovod
+# <a name="tutorial-train-a-distributed-model-with-horovod"></a>Självstudie: Träna en distribuerad modell med Horovod
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 I den här självstudien tränar du en distribuerad modell för djupinlärning genom att köra den parallellt över flera noder i ett Batch AI-kluster. Batch AI är en hanterad tjänst för träning av modeller för maskininlärning och AI i hög skala på kluster av Azure-GPU:er. 
 

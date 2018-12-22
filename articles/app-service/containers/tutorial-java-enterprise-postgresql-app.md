@@ -1,5 +1,5 @@
 ---
-title: Skapa en Java Enterprise-webbapp i Azure App Service i Linux | Microsoft Docs
+title: Skapa en Java Enterprise-webbapp i Linux – Azure App Service | Microsoft Docs
 description: Lär dig hur du får en Java Enterprise-app att fungera i Wildfly på Azure App Service i Linux.
 author: JasonFreeberg
 manager: routlaw
@@ -10,16 +10,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165466"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344235"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Självstudie: Skapa en Java EE- och Postgres-webbapp i Azure
 
-Den här självstudien visar hur du skapar en webbapp i Java Enterprise Edition (EE) på Azure App Service och ansluter den till en Postgres-databas. När du är klar har du en [WildFly](http://www.wildfly.org/about/)-app som lagrar data i [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) och körs på Azure [App Service för Linux](app-service-linux-intro.md).
+Den här självstudien visar hur du skapar en webbapp i Java Enterprise Edition (EE) på Azure App Service och ansluter den till en Postgres-databas. När du är klar har du en [WildFly](https://www.wildfly.org/about/)-app som lagrar data i [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) och körs på Azure [App Service för Linux](app-service-linux-intro.md).
 
 I den här självstudien får du lära dig hur man:
 > [!div class="checklist"]
@@ -32,8 +33,8 @@ I den här självstudien får du lära dig hur man:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. [Ladda ned och installera Git](https://git-scm.com/)
-1. [Ladda ned och installera Maven 3](https://maven.apache.org/install.html)
-1. [Ladda ned och installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [Ladda ned och installera Maven 3](https://maven.apache.org/install.html)
+3. [Ladda ned och installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="clone-and-edit-the-sample-app"></a>Klona och redigera exempelappen
 
@@ -160,10 +161,10 @@ Därefter behöver vi redigera vår API för JPA-konfiguration för Java-transak
 
 Innan du distribuerar vårt omkonfigurerade program måste vi uppdatera programservern WildFly med Postgres-modulen och dess beroenden. För att konfigurera servern måste de fyra filerna vara i katalogen `wildfly_config/`:
 
-- **postgreSQL-42.2.5.jar**: den här JAR-filen är JDBC-drivrutinen för Postgres. Mer information finns på den [officiella webbplatsen](https://jdbc.postgresql.org/index.html).
-- **postgres-module.xml**: Den här XML-filen anger ett namn för Postgres-modulen (org.postgres). Den anger också de resurser och beroenden som krävs för att modulen ska användas.
+- **postgresql-42.2.5.jar**: Den här JAR-filen är JDBC-drivrutinen för Postgres. Mer information finns på den [officiella webbplatsen](https://jdbc.postgresql.org/index.html).
+- **postgres-module.xml**: Den här XML-filen deklarerar ett namn för Postgres-modulen (org.postgres). Den anger också de resurser och beroenden som krävs för att modulen ska användas.
 - **jboss_cli_commands.cl**: Den här filen innehåller konfigurationskommandon som körs av JBoss CLI. Kommandona lägger till Postgres-modulen till WildFly-programservern, anger autentiseringsuppgifterna, deklarerar ett JNDI-namn, anger tröskelvärde för timeout osv. Om du inte känner till JBoss CLI finns i den [officiella dokumentationen](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- **startup_script.SH**: Slutligen körs detta gränssnittsskript när din App Service-instans startas. Skriptet utför endast en funktion: skicka kommandon i `jboss_cli_commands.cli` till JBoss CLI.
+- **startup_script.sh**: Slutligen körs detta gränssnittsskript när din App Service-instans startas. Skriptet utför endast en funktion: skicka kommandon i `jboss_cli_commands.cli` till JBoss CLI.
 
 Vi rekommenderar starkt att du läser innehållet i filerna, särskilt _jboss_cli_commands.cli_.
 

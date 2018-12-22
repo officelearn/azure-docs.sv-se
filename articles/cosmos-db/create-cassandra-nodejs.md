@@ -10,17 +10,17 @@ ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: e7b4bc51ab71fa1043afdab019d27fd089d0356c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1015331af3b31fa34170db6c1729b8e38bcbd04
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980091"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251069"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med Node.js och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](create-cassandra-dotnet.md)
+> * [NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
@@ -36,7 +36,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Dessutom behöver du:
 * [Node.js](https://nodejs.org/en/) version v0.10.29 eller senare
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -46,9 +46,9 @@ Innan du kan börja skapa en dokumentdatabas måste du skapa ett Cassandra-konto
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi klona en Cassandra API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
+Nu ska vi klona en Cassandra API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-1. Öppna en kommandotolk. Skapa en ny mapp som heter `git-samples`. Stäng kommandotolken.
+1. Öppna en kommandotolk. Skapa en ny mapp med namnet `git-samples`. Stäng kommandotolken.
 
     ```bash
     md "C:\git-samples"
@@ -158,7 +158,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. Anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I [Azure-portalen](http://portal.azure.com/) väljer du **Anslutningssträng**. 
+1. På [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**. 
 
     Använd ![Knappen Kopiera](./media/create-cassandra-nodejs/copy.png) knappen på höger sida av skärmen för att kopiera det övre värdet, KONTAKTPUNKT.
 
@@ -206,9 +206,9 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
     ![Visa och verifiera utdata](./media/create-cassandra-nodejs/output.png)
 
-    Tryck på CTRL + C om du vill stoppa körning av programmet och stänga konsolfönstret. 
+    Tryck på CTRL + C om du vill stoppa körningen av programmet och stänga konsolfönstret. 
 
-4. I **Datautforskaren** i Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
+4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
     ![Visa data i Datautforskaren](./media/create-cassandra-nodejs/data-explorer.png) 
 

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Utföra en sökning med Ruby – API för webbsökning i Bing'
+title: 'Snabbstart: Utföra en webbsökning med Ruby – API för webbsökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten lär du dig att göra ditt första anrop API för webbsökning i Bing med Ruby och att ta emot ett JSON-svar.
+description: Använd den här snabbstarten om du vill skicka begäranden till REST API för webbsökning i Bing med hjälp av Ruby och få ett JSON-svar
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: 41ca3c0c4b80cb3d53a0910afaadd00166d8b9f7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 911d90229473d6972f07ed0a75af487a27008fa5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315774"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249676"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Ruby för att anropa API för webbsökning i Bing  
 

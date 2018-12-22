@@ -1,5 +1,5 @@
 ---
-title: Utforska REST-API:er i Fiddler eller Postman (Azure Search REST) | Microsoft Docs
+title: Utforska REST API:er i Fiddlers eller Postmans HTTP-testverktyg för webben – Azure Search
 description: Så här använder du Fiddler eller Postman för att skicka HTTP-begäranden och REST API-anrop till Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: f73ec81686575efde70b7f90239299ec4deca00c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190193"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312994"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Utforska REST-API:er för Azure Search med hjälp av Fiddler eller Postman
 
@@ -110,13 +111,13 @@ Om HTTP 504 returneras kontrollerar du att HTTPS används i URL:en. Om HTTP 400 
 
 ### <a name="fiddler"></a>Fiddler
 
-Kopiera indexdefinitionen till begärandetexten, ungefär som på skärmbilden nedan, och klicka sedan på **Execute** (Kör) överst till höger för att skicka din färdiga begäran.
+Kopiera indexdefinitionen till begärandetexten, ungefär som på skärmbilden nedan, och klicka sedan på **Kör** överst till höger för att skicka din färdiga begäran.
 
 ![Begärandetext i Fiddler][7]
 
 ### <a name="postman"></a>Postman
 
-Kopiera indexdefinitionen till begärandetexten, ungefär som på skärmbilden nedan, och klicka sedan på **Send** (Skicka) överst till höger för att skicka din färdiga begäran.
+Kopiera indexdefinitionen till begärandetexten, ungefär som på skärmbilden nedan, och klicka sedan på **Skicka** överst till höger för att skicka din färdiga begäran.
 
 ![Begärandetext i Postman][8]
 
@@ -217,7 +218,7 @@ Nu när ett index och dokument har lästs in kan du skicka frågor mot dem. Mer 
 + Ändra slutpunkten och lägg till frågeparametrar, inklusive söksträngar. En fråge-URL kan se ut så här: `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`.
 + Behåll begärandehuvuden i befintligt skick.
 
-Den här frågan söker på termen ”motel” (motell) och returnerar antalet dokument i sökresultaten. Begäran och svar borde se ut som skärmbilden från Postman nedan efter att du klickat på **Send** (Skicka). Statuskoden ska vara 200.
+Den här frågan söker på termen ”motel” (motell) och returnerar antalet dokument i sökresultaten. Begäran och svar bör se ut som skärmbilden från Postman nedan efter att du klickat på **Skicka**. Statuskoden ska vara 200.
 
  ![Frågesvar för Postman][11]
 

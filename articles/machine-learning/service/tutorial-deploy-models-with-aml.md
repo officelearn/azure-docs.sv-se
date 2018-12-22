@@ -1,6 +1,7 @@
 ---
-title: 'Självstudie: Distribuera en bildklassificeringsmodell i Azure Container Instances (ACI) med Azure Machine Learning-tjänsten'
-description: Den här självstudien visar hur du använder Azure Machine Learning-tjänsten till att distribuera en bildklassificeringsmodell med scikit-learn i en Python Jupyter Notebook.  Självstudien är del två i en serie med två delar.
+title: 'Självstudie om bildklassificering: Distribuera modeller'
+titleSuffix: Azure Machine Learning service
+description: Den här självstudien visar hur du använder Azure Machine Learning-tjänsten till att distribuera en bildklassificeringsmodell med scikit-learn i en Python Jupyter Notebook. Den här självstudien är den andra delen i en serie med två delar.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,18 +10,19 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: ea446c89fc74fca444793a5e0f803a54fa251ed1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864068"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312178"
 ---
-# <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Självstudie nr 2: Distribuera en bildklassificeringsmodell i Azure Container Instances (ACI)
+# <a name="tutorial--deploy-an-image-classification-model-in-azure-container-instance"></a>Självstudie:  Distribuera en bildklassificeringsmodell i Azure Container Instances
 
 Självstudien är **del två i en självstudieserie i två delar**. I den [föregående självstudien](tutorial-train-models-with-aml.md) tränade du maskininlärningsmodeller och registrerade sedan en modell på din arbetsyta i molnet.  
 
-Nu är du redo att distribuera modellen som en webbtjänst i [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). En webbtjänst är en avbildning, i det här fallet en Docker-avbildning, som innehåller både bedömningslogiken och själva modellen. 
+Nu är du redo att distribuera modellen som en webbtjänst i [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). En webbtjänst är en avbildning, i det här fallet en Docker-avbildning, som innehåller både bedömningslogiken och själva modellen. 
 
 I den här delen av självstudien använder du Azure Machine Learning-tjänsten för att:
 
@@ -28,23 +30,23 @@ I den här delen av självstudien använder du Azure Machine Learning-tjänsten 
 > * Konfigurera din testmiljö
 > * Hämta modellen från din arbetsyta
 > * Testa modellen lokalt
-> * Distribuera modellen till ACI
+> * Distribuera modellen till Container Instances
 > * Testa den distribuerade modellen
 
-ACI är inte idealiskt för produktionsdistributioner, men den fungerar bra vid testning och för att förstå arbetsflödet. För skalbara produktionsdistributioner kan du använda [Azure Kubernetes Service](how-to-deploy-to-aks.md).
+Container Instances är inte idealiskt för produktionsdistributioner, men det är utmärkt vid testning och för att förstå arbetsflödet. För skalbara produktionsdistributioner kan du använda Azure Kubernetes Service. Mer information finns i [Hur och var man distribuerar](how-to-deploy-and-where.md).
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Kör anteckningsboken `tutorials/img-classification-part2-deploy.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
+Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Kör anteckningsboken `tutorials/img-classification-part2-deploy.ipynb` antingen i Azure Notebooks eller på din egen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.2
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.2.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Slutför modellträningen i anteckningsboken [Självstudie 1: Träna en bildklassificeringsmodell med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).  
+Slutför modellträningen i följande anteckningsboken: [Självstudie nr 1: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).  
 
 
 ## <a name="set-up-the-environment"></a>Konfigurera miljön
@@ -148,7 +150,7 @@ Utdatan visar felmatrisen:
 Använd `matplotlib` till att visa felmatrisen som ett diagram. I det här diagrammet motsvarar X-axeln faktiska värden och Y-axeln visar de förväntade värdena. Färgen i varje rutnät representerar felfrekvensen. Ju ljusare färg, desto högre är felfrekvensen. Till exempel är många 5:or felaktigt klassificerade som 3:or. Därför visas ett ljust rutnät vid (5,3).
 
 ```python
-# normalize the diagnal cells so that they don't overpower the rest of the cells when visualized
+# normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
 row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
@@ -168,23 +170,23 @@ plt.savefig('conf.png')
 plt.show()
 ```
 
-![felmatris](./media/tutorial-deploy-models-with-aml/confusion.png)
+![Diagram som visar felmatris](./media/tutorial-deploy-models-with-aml/confusion.png)
 
 ## <a name="deploy-as-web-service"></a>Distribuera som en webbtjänst
 
-När du har testat modellen och är nöjd med resultatet, ska du distribuera modellen som en webbtjänst i ACI. 
+När du har testat modellen och är nöjd med resultatet distribuerar du modellen som en webbtjänst som hanteras i Container Instances. 
 
-Skapa rätt miljö för ACI genom att ange följande:
+Skapa rätt miljö för Container Instances genom att ange följande:
 * Ett bedömningsskript som visar hur man ska använda modellen
 * En miljöfil som visar vilka paket som måste installeras
-* En konfigurationsfil för att skapa ACI
+* En konfigurationsfil för att skapa containerinstansen
 * Modellen som du tränade tidigare
 
 <a name="make-script"></a>
 
 ### <a name="create-scoring-script"></a>Skapa ett bedömningsskript
 
-Skapa ett bedömningsskript med namnet score.py. Det kommer att användas av webbtjänstanropet för att visa hur modellen ska användas.
+Skapa bedömningsskriptet, som kallas score.py. Webbtjänstanropet använder detta för att visa hur modellen används.
 
 Du måste inkludera två obligatoriska funktioner i bedömningsskriptet:
 * Funktionen `init()`, som vanligtvis läser in modellen i ett globalt objekt. Den här funktionen körs endast en gång när Docker-containern startas. 
@@ -239,7 +241,7 @@ with open("myenv.yml","r") as f:
 
 ### <a name="create-configuration-file"></a>Skapa konfigurationsfilen
 
-Skapa en konfigurationsfil för konfigurationen samt ange hur många processorer och gigabyte RAM-minne som behövs till din ACI-container. Även om det beror på din modell, räcker standardvärdet 1 kärna och 1 GB RAM-minne oftast för de flesta modeller. Om du märker att du behöver fler senare måste du återskapa avbildningen och distribuera om tjänsten.
+Skapa en konfigurationsfil för konfigurationen, och ange hur många processorer och gigabyte RAM som behövs till din Container Instances-container. Även om det beror på din modell, räcker standardvärdet 1 kärna och 1 GB RAM-minne oftast för de flesta modeller. Om du märker att du behöver fler senare måste du återskapa avbildningen och distribuera om tjänsten.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -250,18 +252,18 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Predict MNIST with sklearn')
 ```
 
-### <a name="deploy-in-aci"></a>Distribuera i ACI
+### <a name="deploy-in-container-instances"></a>Distribuera i Container Instances
 Uppskattad tidsåtgång: **cirka 7–8 minuter**
 
 Konfigurera avbildningen och distribuera. Följande kod går igenom de här stegen:
 
 1. Skapa en avbildning med hjälp av:
-   * Bedömningsfilen (`score.py`)
-   * Miljöfilen (`myenv.yml`)
-   * Modellfilen
+   * Bedömningsfilen (`score.py`).
+   * Miljöfilen (`myenv.yml`).
+   * Modellfilen.
 1. Registrera avbildningen på arbetsytan. 
-1. Skicka avbildningen till ACI-containern.
-1. Starta en container i ACI med avbildningen.
+1. Skicka avbildningen till Container Instances-containern.
+1. Starta en container i Container Instances genom att använda avbildningen.
 1. Hämta webbtjänstens HTTP-slutpunkt.
 
 
@@ -284,7 +286,7 @@ service = Webservice.deploy_from_model(workspace=ws,
 service.wait_for_deployment(show_output=True)
 ```
 
-Hämta bedömningswebbtjänstens HTTP-slutpunkt, som accepterar REST-klientanrop. Den här slutpunkten kan delas med alla som vill testa webbtjänsten eller integrera den i ett program. 
+Hämta bedömningswebbtjänstens HTTP-slutpunkt, som accepterar REST-klientanrop. Du kan dela den här slutpunkten med alla som vill testa webbtjänsten eller integrera den i ett program. 
 
 ```python
 print(service.scoring_uri)
@@ -296,9 +298,9 @@ print(service.scoring_uri)
 Tidigare bedömde du alla testdata med den lokala versionen av modellen. Nu kan du testa den distribuerade modellen med ett slumpmässigt urval av 30 bilder från testdatan.  
 
 Följande kod går igenom de här stegen:
-1. Skicka datan som en JSON-matris till webbtjänsten i ACI. 
+1. Skicka data som en JSON-matris till den webbtjänst som hanteras i Container Instances. 
 
-1. Använd SDK:ernas `run`-API till att anropa tjänsten. Du kan också göra rå-anrop med valfritt HTTP-verktyg, till exempel curl.
+1. Använd SDK:ernas `run`-API till att anropa tjänsten. Du kan även göra rå-anrop med valfritt HTTP-verktyg, till exempel curl.
 
 1. Skriv ut de returnerade förutsägelserna och rita dem tillsammans med indatabilderna. Rött teckensnitt och en inverterad bild (vit på svart) används för att visa de felklassificerade exemplen. 
 
@@ -337,7 +339,7 @@ for s in sample_indices:
 plt.show()
 ```
 
-Här är resultatet av ett slumpmässigt urval av testbilder: ![resultat](./media/tutorial-deploy-models-with-aml/results.png)
+Här är resultatet av ett slumpmässigt urval av testbilder: ![Illustration som visar resultat](./media/tutorial-deploy-models-with-aml/results.png)
 
 Du kan också skicka en rå HTTP-begäran för att testa webbtjänsten.
 
@@ -365,7 +367,7 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill behålla resursgruppen och arbetsytan för andra självstudier och undersökningar, kan du nöja dig med att ta bort ACI-distributionen med hjälp av det här API-anropet:
+Om du vill behålla resursgruppen och arbetsytan för andra självstudier och undersökningar kan du nöja dig med att ta bort Container Instances-distributionen med hjälp av det här API-anropet:
 
 ```python
 service.delete()
@@ -376,13 +378,6 @@ service.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien för Azure Machine Learning-tjänsten har du använt Python för att:
++ Lär dig mer om alla [distributionsalternativ för Azure Machine Learning-tjänsten](how-to-deploy-and-where.md), inklusive ACI, Azure Kubernetes Service, FPGA och IoT Edge.
 
-> [!div class="checklist"]
-> * Konfigurera din testmiljö
-> * Hämta modellen från din arbetsyta
-> * Testa modellen lokalt
-> * Distribuera modellen till ACI
-> * Testa den distribuerade modellen
- 
-Du kan också prova självstudien [Automatiskt algoritmval](tutorial-auto-train-models.md) om du vill se hur Azure Machine Learning-tjänsten automatiskt väljer och finjusterar den bästa algoritmen för din modell och sedan skapar modellen åt dig.
++ Se hur Azure Machine Learning-tjänsten automatiskt väljer och finjusterar den bästa algoritmen för din modell och sedan skapar modellen åt dig. Prova självstudien [Automatisk algoritmval](tutorial-auto-train-models.md). 

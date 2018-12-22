@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Hitta alternativa översättningar, Python – Translator Text-API'
+title: 'Snabbstart: Hitta alternativa översättningar, Python – Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att hitta alternativa översättningar och användningsexempel för en angiven text med hjälp av Python och Translator Text REST API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 6e75ceb388b3111ea9ec31ba6bffded4077a019b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ab8a6d5b6d4bb52863e77b844a4008bb80d840be
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248684"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993931"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Snabbstart: Använd Translator Text API för att hämta alternativa översättningar med Python
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Snabbstart: Använda Translator Text API för att hämta alternativa översättningar med Python
 
 I den här snabbstarten lär du dig att hitta alternativa översättningar och användningsexempel för en angiven text med hjälp av Python och Translator Text REST API.
 
@@ -69,7 +69,7 @@ För närvarande är en slutpunkt tillgänglig för Translator Text, och den ang
 `params` används till att ange källan och utdataspråken. I det här exemplet använder vi engelska och spanska: `en` och `es`.
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Ordlista, sökning](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Mer information om slutpunkter, vägar och att begära parametrar finns i [Translator Text API 3.0: Slå upp i ordlista](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -103,7 +103,7 @@ body = [{
 }]
 ```
 
-Nu ska vi skapar en POST-begäran med hjälp av `requests`-modulen. Den tar tre argument: den sammanfogade URL:en, begärandesidhuvudena samt begärandetexten:
+Nu skapar vi en POST-begäran med hjälp av modulen `requests`. Den tar tre argument: den sammanfogade URL:en, begärandesidhuvudena samt begärandetexten:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -167,7 +167,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 
 ## <a name="see-also"></a>Se även
 
-Utöver texttranskribering lär du dig hur du använder Translator Text API för att:
+Lär dig att använda Translator Text API för att:
 
 * [Översätta text](quickstart-python-translate.md)
 * [Translitterera text](quickstart-python-transliterate.md)

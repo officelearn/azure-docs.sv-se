@@ -1,5 +1,5 @@
 ---
-title: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service | Microsoft Docs
+title: Autentisera och auktorisera användare från slutpunkt till slutpunkt – Azure App Service | Microsoft Docs
 description: Lär dig hur du använder App Service-autentisering och auktorisering och skyddar App Service-appar, inklusive åtkomst till fjärr-API:er.
 keywords: app service, azure app service, authN, authZ, säker, säkerhet, flera nivåer, azure active directory, azure ad
 services: app-service\web
@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 7c1e07d73d110d5ef7f681486479ec65ff436b19
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416162"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408862"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
@@ -213,11 +214,11 @@ Navigera till `http://<back_end_app_name>.azurewebsites.net` för att visa de ob
 
 I det här steget aktiverar du autentisering och auktorisering för två appar. Du kan också konfigurera klientdelsappen och generera en åtkomsttoken som du kan använda till att göra autentiserade anrop till serverdelsappen.
 
-Du använder Azure Active Directory som identitetsleverantör. Mer information finns i [Konfigurera Azure Active Directory-autentisering för App Services-appen](app-service-mobile-how-to-configure-active-directory-authentication.md).
+Du använder Azure Active Directory som identitetsleverantör. Mer information finns i [Konfigurera Azure Active Directory-autentisering för App Services-appen](configure-authentication-provider-aad.md).
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Aktivera autentisering och auktorisering för serverdelsapp
 
-I [Azure Portal](https://portal.azure.com) öppnar du hanteringssidan för serverdelsappen genom att klicka via vänster meny: **Resource groups** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_ (resursgrupper, min autentiseringsresursgrupp, namn på serverdelsapp).
+På [Azure-portalen](https://portal.azure.com) öppnar du hanteringssidan för serverdelsappen genom att klicka via vänster meny: **Resursgrupper** > **myAuthResourceGroup** > _\<namn\_på\_serverdels\_app>_.
 
 ![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 

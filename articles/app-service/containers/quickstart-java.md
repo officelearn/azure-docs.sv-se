@@ -1,5 +1,5 @@
 ---
-title: En snabbstart för att skapa en Java-webbapp i Azure App Service i Linux
+title: Skapa Java-webbapp i Linux – Azure App Service
 description: I den här snabbstarten distribuerar du din första Java Hello World med Azure App Service i Linux på bara några minuter.
 services: app-service\web
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247563"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252617"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Snabbstart: Skapa en Java-webbapp i App Service i Linux
 
@@ -108,8 +108,10 @@ När distributionen är klar bläddrar du till den distribuerade tillämpningen 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du Maven för att skapa en Java-webbapp, konfigurerade [Maven-plugin-programmet för Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) och distribuerade sedan en webbarkivpaketerad Java-app till App Service i Linux. Om du vill veta hur du ansluter databaser, konfigurerar loggning och övervakning, konfigurerar säkerhet och anger körningsalternativ fortsätter du till utvecklarguiden för Java för App Service i Linux.
+I den här snabbstarten använde du Maven för att skapa en Java-webbapp, konfigurerade [Maven-plugin-programmet för Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) och distribuerade sedan en webbarkivpaketerad Java-app till App Service i Linux. Mer information om hur du hanterar Java-program i App Service för Linux finns i nedanstående självstudier och instruktionsartiklar.
 
-> [!div class="nextstepaction"]
-> [Utvecklarguide för App Service på Linux Java](app-service-linux-java.md)
+- [Självstudie: Distribuera en Java-företagsapp med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+- [Konfigurera en Tomcat-datakälla](app-service-linux-java.md#connecting-to-data-sources)
+- [CI/CD med Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+- [Konfigurera verktyg för övervakning av programprestanda](how-to-java-apm-monitoring.md)
 

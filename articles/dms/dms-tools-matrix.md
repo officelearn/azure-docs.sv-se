@@ -4,19 +4,19 @@ description: Läs mer om tjänster och verktyg som är tillgängliga att migrera
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 12/13/2018
-ms.openlocfilehash: 2eb263c6776453c4cae217168af969221485bfa3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9887860470632c37a586cb3029e2ef7d455a3a9c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386799"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713293"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Tjänster och verktyg som är tillgängliga för migreringsscenarion
 
@@ -125,4 +125,4 @@ Följande tabeller identifiera tjänsten och verktyg som du kan använda för at
 
 ## <a name="next-steps"></a>Nästa steg
 
-En översikt över Azure Database Migration Service finns i [vad är förhandsversionen av Azure Database Migration Service](dms-overview.md).
+En översikt över Azure Database Migration Service, finns i artikeln [vad är Azure Database Migration Service](dms-overview.md).

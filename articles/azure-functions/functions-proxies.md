@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7c1d3adec6fd718df12abde1b56a89e662de284e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139528"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538998"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions Proxies
 
@@ -80,9 +80,9 @@ Exempel: om en proxy har en flödesmall som `/pets/{petId}`, backend-URL: en kan
 #### <a name="additional-request-parameters"></a>Om ytterligare begäranparametrar
 Följande värden kan användas i konfigurationsvärden förutom mallparametrar väg:
 
-* **{request.method}** : HTTP-metod som används på den ursprungliga begäran.
-* **{request.headers. \<HeaderName\>}**: en rubrik som kan läsas från den ursprungliga begäran. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om sidhuvudet inte finns med på begäran, kommer värdet vara en tom sträng.
-* **{request.querystring. \<ParameterName\>}**: en frågesträngsparameter som kan läsas från den ursprungliga begäran. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns med på begäran, kommer värdet vara en tom sträng.
+* **{request.method}** : HTTP-metoden som används på den ursprungliga begäran.
+* **{request.headers. \<HeaderName\>}**: En rubrik som kan läsas från den ursprungliga begäran. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om sidhuvudet inte finns med på begäran, kommer värdet vara en tom sträng.
+* **{request.querystring. \<ParameterName\>}**: En frågesträngsparameter som kan läsas från den ursprungliga begäran. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns med på begäran, kommer värdet vara en tom sträng.
 
 ### <a name="response-parameters"></a>Referens för backend-svarsparametrar
 
@@ -90,7 +90,7 @@ Svarsparametrar kan användas som en del av ändra svaret till klienten. Följan
 
 * **{backend.response.statusCode}** : HTTP-statuskoden som returneras av backend-svaret.
 * **{backend.response.statusReason}** : HTTP-orsaksfras som returneras av backend-svaret.
-* **{backend.response.headers. \<HeaderName\>}**: en rubrik som kan läsas från backend-svaret. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om rubriken inte ingår i svaret, kommer värdet vara en tom sträng.
+* **{backend.response.headers. \<HeaderName\>}**: En rubrik som kan läsas från backend-svaret. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om rubriken inte ingår i svaret, kommer värdet vara en tom sträng.
 
 ### <a name="use-appsettings"></a>Referens för programinställningar
 
@@ -139,12 +139,12 @@ Proxyservrar som du konfigurerar lagras i en *proxies.json* filen som finns i ro
 
 Varje proxy har ett eget namn som *proxy1* i föregående exempel. Objekt för rättighetsdefinition av motsvarande proxy definieras av följande egenskaper:
 
-* **matchCondition**: krävs – ett objekt som definierar de förfrågningar som utlösa körningen av den här proxyn. Den innehåller två egenskaper som delas med [HTTP-utlösare]:
-    * _metoder_: en matris med HTTP-metoder som proxyn svarar. Om det inte anges svarar proxyn på alla HTTP-metoder på vägen.
-    * _väg_: krävs – definierar flödesmallen styra som begär URL: er proxyn svarar på. Till skillnad från i HTTP-utlösare finns inget standardvärde.
+* **matchCondition**: Krävs – ett objekt som definierar de förfrågningar som utlöser körningen av den här proxyn. Den innehåller två egenskaper som delas med [HTTP-utlösare]:
+    * _metoder_: En matris med HTTP-metoder som proxyn svarar. Om det inte anges svarar proxyn på alla HTTP-metoder på vägen.
+    * _väg_: Krävs – definierar flödesmallen styra som begär URL: er proxyn svarar på. Till skillnad från i HTTP-utlösare finns inget standardvärde.
 * **backendUri**: URL: en för backend-resursen som begäran ska vara via proxy. Det här värdet kan referera till programinställningar och parametrar från den ursprungliga klientbegäran. Om den här egenskapen inte finns, svarar Azure Functions med en HTTP 200 OK.
-* **requestOverrides**: ett objekt som definierar transformationer på backend-begäran. Se [Definiera ett requestOverrides-objekt].
-* **responseOverrides**: ett objekt som definierar transformationer för klient-svaret. Se [Definiera ett responseOverrides-objekt].
+* **requestOverrides**: Ett objekt som definierar transformationer på backend-begäran. Se [Definiera ett requestOverrides-objekt].
+* **responseOverrides**: Ett objekt som definierar transformationer för klient-svaret. Se [Definiera ett responseOverrides-objekt].
 
 > [!NOTE] 
 > Den *väg* -egenskapen i Azure Functions-proxyservrar inte att behandla den *routePrefix* egenskapen för värdkonfigurationen Funktionsapp. Om du vill lägga till ett prefix som `/api`, det måste finnas med i den *väg* egenskapen.
@@ -161,7 +161,7 @@ Du kan inaktivera enskilda proxyservrar genom att lägga till `"disabled": true`
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
@@ -187,9 +187,9 @@ Proxyservrar läsa alla strängar utan tolkning, med undantag av klammerparentes
 
 Objektet requestOverrides definierar ändringar som gjorts på begäran när resursen backend-anropas. Objektet definieras av följande egenskaper:
 
-* **backend.Request.Method**: HTTP-metod som används för att anropa backend-server.
-* **backend.Request.QueryString. \<ParameterName\>**: en frågesträngsparameter som kan ställas in för anrop till serverdelen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill använda. Om den tomma strängen anges, ingår inte parametern på backend-begäran.
-* **backend.Request.headers. \<HeaderName\>**: en rubrik som kan ställas in för anrop till serverdelen. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på backend-begäran.
+* **backend.Request.Method**: HTTP-metoden som används för att anropa backend-server.
+* **backend.Request.QueryString. \<ParameterName\>**: En frågesträngsparameter som kan ställas in för anrop till serverdelen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill använda. Om den tomma strängen anges, ingår inte parametern på backend-begäran.
+* **backend.Request.headers. \<HeaderName\>**: En rubrik som kan ställas in för anrop till serverdelen. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på backend-begäran.
 
 Värden kan referera till programinställningar och parametrar från den ursprungliga klientbegäran.
 
@@ -218,10 +218,10 @@ En exempelkonfiguration kan se ut så här:
 
 Objektet requestOverrides definierar ändringar som görs i ett svar som skickas tillbaka till klienten. Objektet definieras av följande egenskaper:
 
-* **response.statusCode**: HTTP-statuskod som ska returneras till klienten.
-* **response.statusReason**: HTTP orsaksfras ska returneras till klienten.
-* **Response.body**: strängrepresentation av texten som ska returneras till klienten.
-* **Response.headers. \<HeaderName\>**: en rubrik som kan ställas in för svar till klienten. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på ett svar.
+* **response.statusCode**: HTTP-statuskoden ska returneras till klienten.
+* **response.statusReason**: HTTP-orsaksfras som ska returneras till klienten.
+* **Response.body**: Den sträng som innehåller brödtext ska returneras till klienten.
+* **Response.headers. \<HeaderName\>**: En rubrik som kan ställas in för svar till klienten. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på ett svar.
 
 Värden kan referera till programinställningar, parametrar från den ursprungliga klientbegäran och parametrar från backend-svaret.
 

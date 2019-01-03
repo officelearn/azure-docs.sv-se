@@ -4,14 +4,14 @@ description: Vanliga frågor och svar om Azure Migrate adresser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: snehaa
-ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257802"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975482"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -48,12 +48,13 @@ Azure Migrate är ett verktyg för migreringsplanering och Distributionshanterar
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Vilka geografiska Azure-områden som stöds av Azure Migrate?
 
-Azure Migrate stöder för närvarande USA och Azure Government som projektet geografiska områden. Trots att du kan bara skapa migreringsprojekt i dessa geografiska områden, du kan fortfarande utvärdera dina datorer för [flera målplatser](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Projekt-geografi används endast för att lagra de identifierade metadata.
+Azure Migrate stöder för närvarande Europa, USA och Azure Government som projektet geografiska områden. Trots att du kan bara skapa migreringsprojekt i dessa geografiska områden, du kan fortfarande utvärdera dina datorer för [flera målplatser](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Projekt-geografi används endast för att lagra de identifierade metadata.
 
 **Geografi** | **Lagringsplats för metadata**
 --- | ---
-Unites tillstånd | USA, västra centrala eller USA, östra
 Azure Government | Virginia (USA-förvaltad region)
+Europa | Nordeuropa eller Europa, västra
+USA | Östra USA för USA, västra centrala
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hur ansluter en lokal plats till Azure Migrate?
 
@@ -147,7 +148,7 @@ Azure Migrate stöder för närvarande inte kostnadsuppskattning för [erbjudand
 ## <a name="dependency-visualization"></a>Visualisering av beroenden
 
 > [!NOTE]
-> Beroendevisualiseringsfunktionen är inte tillgänglig i Azure Government.
+> Funktionen för beroendevisualisering är inte tillgänglig i Azure Government.
 
 ### <a name="what-is-dependency-visualization"></a>Vad är beroendevisualisering?
 

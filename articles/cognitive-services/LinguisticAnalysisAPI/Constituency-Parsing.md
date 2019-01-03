@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8d6e768e5cf846cb2c34ceb61d269854418e1dc5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238632"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976604"
 ---
 # <a name="constituency-parsing"></a>Parsning av valkrets
 
 > [!IMPORTANT]
-> Förhandsversionen av Lingvistisk analys har ur den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning modulerna för textanalys](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för text-bearbetning och analys.
+> Förhandsversionen av Språkanalys upphörde den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning-textanalysmoduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för textbearbetning och -analys.
 
 Målet med beståndsdelar (även kallat ”frasen struktur parsning”) är att identifiera fraser i texten.
 Detta kan vara användbart vid extrahering av information från text.
@@ -61,7 +61,7 @@ En naturlig representation av dessa fraser är ett träd, till exempel följande
 ![Träd](./Images/tree.png)
 
 I den här trädstrukturen är grenarna markerats ”NP” substantivfraser.
-Det finns flera fraser: *jag*, *en ny bil hybrid*, *Bluetooth*, och *en ny hybrid bil med Bluetooth*.
+Det finns flera fraser: *Jag*, *en ny bil hybrid*, *Bluetooth*, och *en ny hybrid bil med Bluetooth*.
 
 ## <a name="phrase-types"></a>Fras typer
 
@@ -97,4 +97,4 @@ Det finns flera fraser: *jag*, *en ny bil hybrid*, *Bluetooth*, och *en ny hybri
 
 ## <a name="specification"></a>Specifikationen
 
-Träd här använda S-uttryck från den [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Träd här använda S-uttryck från den [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

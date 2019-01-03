@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: ee62e81b8c75200f26dfb5f7303083190f83eb8e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016852"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728490"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -84,19 +84,19 @@ Principer och mönster för perimeternätverket har varit tillgängliga för fle
 
 Här följer bästa praxis för att hantera identitet perimeternätverket.
 
-**Bästa praxis**: skydda nycklar och autentiseringsuppgifter för att skydda PaaS-distribution.   
-**Information om**: att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i HSM: er. Azure ger dig en HSM i molnet med [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Bästa praxis**: Skydda dina nycklar och autentiseringsuppgifter för att skydda PaaS-distribution.   
+**Information om**: Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i HSM: er. Azure ger dig en HSM i molnet med [Azure Key Vault](../key-vault/key-vault-whatis.md).
 
 **Bästa praxis**: Placera inte autentiseringsuppgifter och andra hemligheter i källkoden eller GitHub.   
-**Information om**: enda sämre resultat än att förlora dina nycklar och autentiseringsuppgifter som har en obehörig part få tillgång till dem. Angripare kan dra nytta av bot tekniker för att hitta nycklar och hemligheter som lagras i koddatabaser, till exempel GitHub. Placera inte nyckeln och hemligheter i de här offentliga lagringsplatser.
+**Information om**: Enda sämre resultat än att förlora dina nycklar och autentiseringsuppgifter som har en obehörig part få åtkomst till dem. Angripare kan dra nytta av bot tekniker för att hitta nycklar och hemligheter som lagras i koddatabaser, till exempel GitHub. Placera inte nyckeln och hemligheter i de här offentliga lagringsplatser.
 
-**Bästa praxis**: skydda dina VM-hanteringsgränssnitt på hybrid PaaS och IaaS-tjänster med hjälp av ett hanteringsgränssnitt som gör det möjligt för remote hantera dessa virtuella datorer direkt.   
-**Information om**: fjärrhantering protokoll som [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607), och [PowerShell-fjärrkommunikation](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från internet.
+**Bästa praxis**: Skydda dina VM-hanteringsgränssnitt på hybrid PaaS och IaaS-tjänster med hjälp av ett hanteringsgränssnitt som gör det möjligt för fjärranslutna hantera dessa virtuella datorer direkt.   
+**Information om**: Fjärrhantering protokoll som [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607), och [PowerShell-fjärrkommunikation](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från internet.
 
 Använd om möjligt alternativa metoder som att använda virtuella privata nätverk i Azure-nätverk. Om alternativa metoder inte är tillgängliga, kontrollera att du använder komplexa lösenfraser och tvåfaktorsautentisering (till exempel [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
 
-**Bästa praxis**: använda stark autentisering och auktorisering plattformar.   
-**Information om**: använda federerade identiteter i Azure AD i stället för anpassade användarlager. När du använder federerade identiteter kan du dra nytta av en plattformbaserade metod och du delegera hanteringen av auktoriserade identiteter till dina partner. En federerad identitet-metoden är särskilt viktigt när anställda avslutas och att information behöver återspeglas via flera identiteter och auktorisering system.
+**Bästa praxis**: Använd stark autentisering och auktorisering plattformar.   
+**Information om**: Använda federerade identiteter i Azure AD i stället för anpassade användarlager. När du använder federerade identiteter kan du dra nytta av en plattformbaserade metod och du delegera hanteringen av auktoriserade identiteter till dina partner. En federerad identitet-metoden är särskilt viktigt när anställda avslutas och att information behöver återspeglas via flera identiteter och auktorisering system.
 
 Använd plattform anger mekanismer för autentisering och auktorisering istället för anpassad kod. Anledningen är att utveckla anpassade Autentiseringskod kan vara felbenägna. De flesta av dina utvecklare är inte säkerhetsexperter och är inte troligt att känna till nyanser och den senaste utvecklingen i autentisering och auktorisering. Kommersiella kod (till exempel från Microsoft) är ofta omfattande säkerhet granskas.
 
@@ -116,26 +116,26 @@ I följande tabell visar en lista över STRIDE hot och ger vissa exempel åtgär
 | Repudiation | Oavvislighet | Aktivera Azure [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänsten certifikat](https://docs.microsoft.com/rest/api/appservice/certificates). |
 | Denial of Service | Tillgänglighet | Övervaka prestandamått för potentiell denial of service-villkor. Implementera anslutningsfilter. |
-| Rättighetsökning | Auktorisering | Använd [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
+| Upphöjning av rättigheter | Auktorisering | Använd [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## <a name="develop-on-azure-app-service"></a>Utveckla på Azure App Service
-[Azure App Service](../app-service/app-service-web-overview.md) är en PaaS-erbjudande som låter dig skapa webb- och mobilappar för valfri plattform eller enhet och ansluta till data överallt, i molnet eller lokalt. Apptjänst innehåller webb- och mobilfunktioner som tidigare har levererat separat som Azure Websites och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. En enda integrerad tjänst innehåller App Service en omfattande uppsättning funktioner för webb, mobil- och integrationsscenarier.
+[Azure App Service](../app-service/overview.md) är en PaaS-erbjudande som låter dig skapa webb- och mobilappar för valfri plattform eller enhet och ansluta till data överallt, i molnet eller lokalt. Apptjänst innehåller webb- och mobilfunktioner som tidigare har levererat separat som Azure Websites och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. En enda integrerad tjänst innehåller App Service en omfattande uppsättning funktioner för webb, mobil- och integrationsscenarier.
 
 Nedan följer Metodtips för App Service.
 
-**Bästa praxis**: [autentisera via Azure Active Directory](../app-service/app-service-authentication-overview.md).   
+**Bästa praxis**: [Autentisera via Azure Active Directory](../app-service/overview-authentication-authorization.md).   
 **Information om**: App Service tillhandahåller en OAuth 2.0-tjänst för din identitetsprovider. OAuth 2.0 fokuserar på klienten utvecklare enkelt få tillgång till specifika auktoriseringsflöden för webbprogram, program och mobiltelefoner. Azure AD använder OAuth 2.0 att auktorisera åtkomst till mobila och webbprogram.
 
-**Bästa praxis**: begränsa åtkomst baserat på att känna och minsta privilegium säkerhetsprinciper.   
-**Information om**: begränsa åtkomst är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Du kan använda RBAC för att tilldela behörigheter till användare, grupper och program för ett visst omfång. Läs mer om att bevilja användare åtkomst till program i [Kom igång med åtkomsthantering](../role-based-access-control/overview.md).
+**Bästa praxis**: Begränsa åtkomsten baserat på att känna och minsta privilegium säkerhetsprinciper.   
+**Information om**: Begränsa åtkomst är absolut nödvändigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Du kan använda RBAC för att tilldela behörigheter till användare, grupper och program för ett visst omfång. Läs mer om att bevilja användare åtkomst till program i [Kom igång med åtkomsthantering](../role-based-access-control/overview.md).
 
-**Bästa praxis**: skydda dina nycklar.   
+**Bästa praxis**: Skydda dina nycklar.   
 **Information om**: Azure Key Vault skyddar kryptografiska nycklar och hemligheter som program och tjänster i molnet använder. Med Key Vault kan kryptera du nycklar och hemligheter (till exempel autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar. PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Se [Azure Key Vault](../key-vault/key-vault-whatis.md) vill veta mer. Du kan också använda Key Vault för att hantera din TLS-certifikat med automatisk förnyelse.
 
-**Bästa praxis**: begränsa inkommande IP-källadresser.   
+**Bästa praxis**: Begränsa inkommande IP-källadresser.   
 **Information om**: [App Service Environment](../app-service/environment/intro.md) har en funktion för integrering av virtuellt nätverk som hjälper dig att begränsa inkommande källans IP-adresser via nätverkssäkerhetsgrupper. Virtuella nätverk kan du placera Azure-resurser i ett icke-internet, dirigerbara nätverk som du styr åtkomst till. Mer information finns i [integrera din app med Azure-nätverk](../app-service/web-sites-integrate-with-vnet.md).
 
-**Bästa praxis**: övervaka säkerhetstillståndet för dina App Service-miljöer.   
+**Bästa praxis**: Övervaka säkerhetstillståndet för dina App Service-miljöer.   
 **Information om**: Använd Azure Security Center för att övervaka din App Service-miljöer. När Security Center identifierar potentiella säkerhetsproblem skapas [rekommendationer](../security-center/security-center-virtual-machine-recommendations.md) som vägleder dig genom processen att konfigurera nödvändiga kontroller.
 
 > [!NOTE]

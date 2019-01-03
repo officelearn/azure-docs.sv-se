@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 30546d31e96d7d7fa1009f16a50fe8fda12ead67
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18c9eace306522f9ac9f04e19b9571db67561ae0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105112"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725071"
 ---
 # <a name="configure-containers"></a>Konfigurera containrar
 
@@ -113,10 +113,10 @@ Ansikts-behållaren lagrar blob, cache, metadata och data i kön, beroende på v
   Alla fyra typer av data lagras i minnet. De inte har distribuerats, och inte heller de beständiga. Om Ansikts-behållaren stoppas eller tas bort, förstörs alla data i lagring för den behållaren.  
   Detta är standard storage scenariot för Ansikts-behållaren.
 * Azure  
-  Ansikts-behållare använder Azure Storage och Azure Cosmos DB för att distribuera dessa fyra typer av data till beständig lagring. BLOB-och kön hanteras av Azure Storage. Metadata och cache hanteras av Azure Cosmos DB med MongoDB-API. Om Ansikts-behållaren stoppas eller tas bort, förblir alla data i lagring för den behållaren lagras i Azure Storage och Azure Cosmos DB.  
+  Ansikts-behållare använder Azure Storage och Azure Cosmos DB för att distribuera dessa fyra typer av data till beständig lagring. BLOB-och kön hanteras av Azure Storage. Metadata och cache hanteras av Azure Cosmos DB. Om Ansikts-behållaren stoppas eller tas bort, förblir alla data i lagring för den behållaren lagras i Azure Storage och Azure Cosmos DB.  
   De resurser som används av Azure storage-scenariot har följande ytterligare krav
   * Azure Storage-resursen måste använda StorageV2-kontotyp
-  * Azure Cosmos DB-resursen måste använda MongoDB-API
+  * Azure Cosmos DB-resursen måste använda Azure Cosmos DB för MongoDB-API
 
 Storage-scenarier och tillhörande konfigurationsinställningar som hanteras av den `Storage` objekt under den `CloudAI` konfigurationsavsnittet. Följande inställningar är tillgängliga i den `Storage` objekt:
 
@@ -176,7 +176,7 @@ Den `Logging` konfigurationsinställningar hantera ASP.NET Core loggningsstöd f
 
   | Namn | Datatyp | Beskrivning |
   |------|-----------|-------------|
-  | `Format` | Sträng | Utdataformat för loggfiler.<br/> **Obs:** detta värde måste anges till `json` att aktivera loggning-providern. Ett fel inträffar om det här värdet anges utan att också ange en utdata mount vid instansiering en behållare. |
+  | `Format` | Sträng | Utdataformat för loggfiler.<br/> **Obs!** Det här värdet måste anges till `json` att aktivera loggning-providern. Ett fel inträffar om det här värdet anges utan att också ange en utdata mount vid instansiering en behållare. |
   | `MaxFileSize` | Integer | Den maximala storleken i megabyte (MB) på en loggfil. När storleken på den aktuella loggfilen uppfyller eller överskrider detta värde, har en ny loggfil startats med loggningsprovider. Om -1 anges begränsas storleken på loggfilen bara av den maximala filstorleken för utdata mount. Standardvärdet är 1. |
 
 Läs mer om hur du konfigurerar ASP.NET Core loggningsstöd [inställningar filkonfiguration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).

@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 9dec4314bb99b2cb32d62f40b76591ecb03e4d56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/28/2018
+ms.author: mayg
+ms.openlocfilehash: 5de8bc9acd97016b401bd1c2bcce46f5ab851430
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838760"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811570"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Kör Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
@@ -124,7 +124,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
 ```
 
-#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>Exempel 4: Profilera virtuella datorer i två timmar för ett konceptbevis
+#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>Exempel 4: Profilera virtuella datorer i 2 timmar för ett konceptbevis
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfHoursToProfile 2 -User vCenterUser1
 ```
@@ -137,6 +137,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 ## <a name="generate-report"></a>Generera en rapport
 Verktyget genererar en makroaktiverad Microsoft Excel-fil (XLSM) som rapportutdata med en sammanfattning av alla distributionsrekommendationer. Rapporten har namnet DeploymentPlannerReport_<unique numeric identifier>.xlsm och placeras i den angivna katalogen.
+
+>[!NOTE]
+>Decimaltecken som konfigurerats som krävs för rapporten ””. att producera kostnadsuppskattningar för den server där du kör Distributionshanteraren. I fall har du konfigurera ””, som decimaltecken i en Windows-dator, gå till ”ändra datum, tid eller talformat” på Kontrollpanelen och gå till ”ytterligare inställningar” så här ändrar decimaltecken till ””.
 
 När profileringen är färdig kan köra du verktyget i läget för rapportgenerering. Följande tabell innehåller en lista med obligatoriska och valfria verktygsparametrar som ska köras i läget för rapportgenerering.
 
@@ -160,7 +163,7 @@ När profileringen är färdig kan köra du verktyget i läget för rapportgener
 | -EndDate | (Valfritt) Slutdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *EndDate* måste anges tillsammans med *StartDate*. När du anger EndDate genereras rapporten för profileringsdata som samlats in mellan StartDate och EndDate. |
 | -GrowthFactor | (Valfritt) Tillväxtfaktor, uttryckt i procent. Standardvärdet är 30 procent. |
 | -UseManagedDisks | (Valfritt) UseManagedDisks - Ja/Nej. Standardvärdet är Ja. Antalet virtuella datorer som kan placeras i ett enda lagringskonto beräknas utifrån om redundans/redundanstest för virtuella datorer görs på en hanterad disk istället för en ohanterad disk. |
-|-SubscriptionId |(Valfritt) GUID för prenumerationen. Använd den här parametern för att generera rapporten Kostnadsuppskattning med det senaste priset baserat på din prenumeration, erbjudandet som är associerat med prenumerationen och för din specifika Azure-målregion i den angivna valutan.|
+|-SubscriptionId |(Valfritt) GUID för prenumerationen. Observera att den här parametern krävs när du behöver att generera kostnadsuppskattningsrapporten med det senaste priset baserat på din prenumeration, erbjudandet som är associerat med din prenumeration och för din specifika Azure-regioner i den **angivna valuta**.|
 |-TargetRegion|(Valfritt) Azure-regionen som är mål för replikeringen. Eftersom Azure har olika kostnader för olika regioner ska du använda den här parametern till att generera en rapport för en specifik Azure-region.<br>Standard är usavästra2 eller den senast använda målregionen.<br>Läs mer i listan med [målregioner som stöds](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Valfritt) Erbjudandet som är associerat med den angivna prenumerationen. Standard är MS-AZR-0003P (Betala per användning).|
 |-Currency|(Valfritt) Valutan i vilken kostnaden visas i den genererade rapporten. Standard är amerikanska dollar ($) eller den senast använda valutan.<br>Läs mer i listan med [valutor som stöds](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
@@ -182,7 +185,7 @@ Användaren ska ha läs-/skrivbehörighet för fjärrkatalogen.
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exempel 3: Generera en rapport med specifik bandbredd och specifikt mål för att slutföra IR inom angiven tid
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exempel 3: Generera en rapport med specifik bandbredd och mål för att slutföra IR inom angiven tid
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
@@ -198,12 +201,14 @@ Anta exempelvis att du har profileringsdata för 30 dagar och bara vill generera
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Exempel 6: Generera en rapport för ett återställningspunktmål på 5 minuter
+#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Exempel 6: Generera en rapport för Återställningspunktmål på 5 minuter
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exempel 7: Generera en rapport för Azure-regionen indiensödra med indiska rupier och ett specifikt erbjudande-ID
+#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exempel 7: Generera en rapport för södra Indien Azure-region med indiska rupier och specifika erbjudande-ID
+
+Observera att prenumerations-ID krävs för att generera kostnadsrapporten i en specifik valuta.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```

@@ -15,12 +15,12 @@ ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: d6696d9bdd69b085b9c9ac0804da68cd91612f35
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: b2d834c5f9f46f2ebe3c997c75dc50f30ed4bda7
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386969"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558931"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -98,7 +98,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Nätverksdeltagare](#network-contributor) | Låter dig hantera nätverk, men ger dig inte tillgång till dem. |
 | [Nya Relic APM-Kontodeltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management-konton och program, men ger dig inte tillgång till dem. |
 | [Läsare och dataåtkomst](#reader-and-data-access) | Kan du visa allt, men inte kan du ta bort eller skapa ett lagringskonto eller en resurs. Det gör också att läs-/ skrivåtkomst till alla data i ett lagringskonto via åtkomst till lagringskontonycklarna. |
-| [Azure Cache för Redis-deltagare](#redis-cache-contributor) | Låter dig hantera Azure Cache för Rediss, men inte tillgång till dem. |
+| [Azure Cache för Redis-deltagare](#redis-cache-contributor) | Kan du hantera Azure Cache för Redis, men inte åtkomst till dem. |
 | [Resursprincip (förhandsversion)](#resource-policy-contributor-preview) | (Förhandsversion) Användare från EA med behörighet att skapa/ändra resursprinciper, skapa supportbegäranden och läsa resurser/hierarkier. |
 | [Scheduler-Jobbsamlingsdeltagare](#scheduler-job-collections-contributor) | Låter dig hantera Scheduler-jobbsystem, men ger dig inte tillgång till dem. |
 | [Söktjänstdeltagare](#search-service-contributor) | Låter dig hantera söktjänster, men ger dig inte tillgång till dem. |
@@ -114,7 +114,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Lagringskontodeltagare](#storage-account-contributor) | Låter dig hantera lagringskonton, men ger dig inte åtkomst till dem. |
 | [Tjänstroll som Storage-konto operatör av Lagringskontonyckel](#storage-account-key-operator-service-role) | Operatörer av lagringskontonycklar får lista och återskapa nycklar till lagringskonton |
 | [Storage Blob Data-deltagare (förhandsgranskning)](#storage-blob-data-contributor-preview) | Tillåter läs-, skriv- och borttagningsåtkomst till Azure Storage Blob-containers och data |
-| [Storage Blob Data-ägare (förhandsversion)](#storage-blob-data-owner-preview) | Tillåter läs-, skriv-, borttagnings-, och POSIX-superanvändaråtkomst till Azure Storage Blob-containers och data |
+| [Storage Blob Data-ägare (förhandsversion)](#storage-blob-data-owner-preview) | Tillåter Läs-, Skriv-, delete- och POSIX superanvändare åtkomst till Azure Storage blob-behållare och data |
 | [Storage Blob Data-läsare (förhandsgranskning)](#storage-blob-data-reader-preview) | Tillåter läsåtkomst till Azure Storage Blob-containers och data |
 | [Lagringsködata-deltagare (förhandsgranskning)](#storage-queue-data-contributor-preview) | Tillåter läs-, skriv- och borttagningssåtkomst till Azure Storage-köer och kömeddelanden |
 | [Lagringsködata-läsare (förhandsgranskning)](#storage-queue-data-reader-preview) | Tillåter läsåtkomst till Azure Storage-köer och kömeddelanden |
@@ -1289,11 +1289,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig hantera Azure Cache för Rediss, men inte tillgång till dem. |
+> | **Beskrivning** | Kan du hantera Azure Cache för Redis, men inte åtkomst till dem. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rollen tilldelningar |
-> | Microsoft.Cache/redis/* | Skapa och hantera Azure Cache för Rediss |
+> | Microsoft.Cache/redis/* | Skapa och hantera Azure Cache för Redis |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
@@ -1701,7 +1701,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter läs-, skriv-, borttagnings-, och POSIX-superanvändaråtkomst till Azure Storage Blob-containers och data |
+> | **Beskrivning** | Tillåter Läs-, Skriv-, delete- och POSIX superanvändare åtkomst till Azure Storage blob-behållare och data |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Åtgärder** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en container |

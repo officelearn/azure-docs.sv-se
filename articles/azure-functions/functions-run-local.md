@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3239cbc957d2a79c7a5411604759f86f0268bd70
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409453"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976315"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -68,7 +68,7 @@ Följande steg använda Homebrew för att installera de viktigaste verktygen på
 
     ```bash
     brew tap azure/functions
-    brew install azure-functions-core-tools 
+    brew install azure-functions-core-tools
     ```
 
 #### <a name="linux"></a> Linux (Debian/Ubuntu) med APT
@@ -195,12 +195,12 @@ Funktionen appen inställningsvärden kan också läsa i koden som miljövariabl
 + [C#-förkompilerad version](functions-dotnet-class-library.md#environment-variables)
 + [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
 + [F#skript (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables) 
++ [Java](functions-reference-java.md#environment-variables)
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-När ingen giltig lagringsanslutningssträng har angetts för **AzureWebJobsStorage** och emulatorn inte används, visas följande felmeddelande visas:  
+När ingen giltig lagringsanslutningssträng har angetts för **AzureWebJobsStorage** och emulatorn inte används, visas följande felmeddelande visas:
 
-> Saknas värde för AzureWebJobsStorage i local.settings.json. Detta krävs för alla utlösare än HTTP. Du kan köra ”func azure functionapp fetch-app-settings <functionAppName>' eller ange en anslutningssträng i local.settings.json.
+> Saknas värde för AzureWebJobsStorage i local.settings.json. Detta krävs för alla utlösare än HTTP. Du kan köra ”func azure functionapp fetch-app-settings \<functionAppName\>' eller ange en anslutningssträng i local.settings.json.
 
 ### <a name="get-your-storage-connection-strings"></a>Hämta ditt storage-anslutningssträngar
 
@@ -210,7 +210,7 @@ När ingen giltig lagringsanslutningssträng har angetts för **AzureWebJobsStor
 
   ![Kopiera anslutningssträngen från Azure-portalen](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Använd [Azure Storage Explorer](https://storageexplorer.com/) att ansluta till ditt Azure-konto. I den **Explorer**, expandera din prenumeration, Välj ditt lagringskonto och kopiera primär eller sekundär anslutningssträng. 
++ Använd [Azure Storage Explorer](https://storageexplorer.com/) att ansluta till ditt Azure-konto. I den **Explorer**, expandera din prenumeration, Välj ditt lagringskonto och kopiera primär eller sekundär anslutningssträng.
 
   ![Kopiera anslutningssträngen från Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
@@ -298,16 +298,15 @@ Den `host` kommando krävs endast i version 1.x.
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--build`** | Skapa aktuella projektet innan du kör. Version 2.x och C#-projekt endast. |
+| **`--no-build`** | Gör inga aktuella build-projektet innan du kör. För dotnet-projekt. Standard är inställd på false. Version 2.x endast. |
 | **`--cert`** | Sökvägen till en .pfx-fil som innehåller en privat nyckel. Bara används med `--useHttps`. Version 2.x endast. |
+| **`--cors-credentials`** | Tillåt resursdelning för korsande ursprung autentiserade begäranden (t.ex. cookies och rubriken autentisering) Version 2.x endast. |
 | **`--cors`** | En kommaavgränsad lista över CORS-ursprung, utan blanksteg. |
-| **`--debug`** | Värden med debug-port öppnas så att du kan koppla till den **func.exe** bearbeta från [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) eller [Visual Studio 2017](functions-dotnet-class-library.md). Giltiga värden är `VSCode` och `VS`.  |
 | **`--language-worker`** | Argument konfigurera språk worker. Version 2.x endast. |
 | **`--nodeDebugPort -n`** | Porten för nod-felsökare att använda. Standard: Ett värde från launch.json eller 5858. Version 1.x endast. |
 | **`--password`** | Lösenordet eller en fil som innehåller lösenordet för en .pfx-fil. Bara används med `--cert`. Version 2.x endast. |
 | **`--port -p`** | Lokal port att lyssna på. Standardvärde: 7071. |
 | **`--pause-on-error`** | Pausa för ytterligare indata innan du avslutar processen. Används endast när den startas Core Tools från en integrerad utvecklingsmiljö (IDE).|
-| **`--script-root --prefix`** | Används för att ange sökvägen till roten för funktionsappen som ska köras eller distribueras. Det här används för kompilerade projekt som genererar av projektfiler till en undermapp. Till exempel när du skapar en C#-klassbibliotek projekt, host.json, local.settings.json och function.json filer skapas i en *rot* undermapp med en sökväg som `MyProject/bin/Debug/netstandard2.0`. I så fall, Ange prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Det här är roten av funktionsappen vid körning i Azure. |
 | **`--timeout -t`** | Tidsgränsen för Functions värden startas, i sekunder. Standard: 20 sekunder.|
 | **`--useHttps`** | Binda till `https://localhost:{port}` snarare än till `http://localhost:{port}`. Det här alternativet skapar som standard ett betrott certifikat på datorn.|
 
@@ -324,13 +323,13 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->När du kör lokalt är inte autentisering aktiv för HTTP-slutpunkter. Det innebär att alla lokala HTTP-förfrågningar hanteras som `authLevel = "anonymous"`. Mer information finns i den [HTTP-bindning artikeln](functions-bindings-http-webhook.md#authorization-keys). 
+>När du kör lokalt är inte autentisering aktiv för HTTP-slutpunkter. Det innebär att alla lokala HTTP-förfrågningar hanteras som `authLevel = "anonymous"`. Mer information finns i den [HTTP-bindning artikeln](functions-bindings-http-webhook.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Skicka test-data till en funktion
 
 Testa dina funktioner lokalt, du [startar Functions värden](#start) och anropa slutpunkter på den lokala servern med hjälp av HTTP-begäranden. Den slutpunkt som du anropar beror på vilken typ av funktionen.
 
->[!NOTE]  
+>[!NOTE]
 > Exemplen i det här avsnittet använda verktyget cURL för att skicka HTTP-begäranden från terminalen eller en kommandotolk. Du kan använda ett verktyg för att skicka HTTP-begäranden till den lokala servern. CURL-verktyget är tillgängligt som standard på Linux-baserade system. På Windows, måste du först hämta och installera den [cURL verktyget](https://curl.haxx.se/).
 
 Mer allmän information om att testa functions finns i [strategier för att testa din kod i Azure Functions](functions-test-a-function.md).
@@ -341,9 +340,9 @@ Du anropar följande slutpunkt för att köras lokalt HTTP och webhook-utlösta 
 
     http://localhost:{port}/api/{function_name}
 
-Se till att använda samma servernamn och port som Functions-värden lyssnar på. Du ser du i utdata genereras när du startar funktionen värden. Du kan anropa den här URL: en med hjälp av valfri HTTP-metod som stöds av utlösaren. 
+Se till att använda samma servernamn och port som Functions-värden lyssnar på. Du ser du i utdata genereras när du startar funktionen värden. Du kan anropa den här URL: en med hjälp av valfri HTTP-metod som stöds av utlösaren.
 
-Följande cURL-kommando utlösare den `MyHttpTrigger` Snabbstart funktion från en GET-begäran med den _namn_ -parametern som angavs i frågesträngen. 
+Följande cURL-kommando utlösare den `MyHttpTrigger` Snabbstart funktion från en GET-begäran med den _namn_ -parametern som angavs i frågesträngen.
 
 ```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
@@ -355,11 +354,11 @@ I följande exempel är samma funktion som anropas från en POST-begäran som pa
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-Du kan hämta begäranden från en webbläsare som överföring av data i frågesträngen. Du måste använda cURL, Fiddler, Postman eller ett liknande HTTP-testverktyg för alla HTTP-metoder.  
+Du kan hämta begäranden från en webbläsare som överföring av data i frågesträngen. Du måste använda cURL, Fiddler, Postman eller ett liknande HTTP-testverktyg för alla HTTP-metoder.
 
 #### <a name="non-http-triggered-functions"></a>Icke-HTTP-utlösta funktionerna
 
-För alla typer av funktioner än HTTP-utlösare och webhooks kan testa du dina funktioner lokalt genom att anropa en slutpunkt för administration. Anropa den här slutpunkten med en HTTP POST-begäran på den lokala servern utlöser funktionen. Du kan välja att skicka testdata att körningen i brödtexten i POST-begäran. Den här funktionen liknar den **Test** fliken i Azure-portalen.  
+För alla typer av funktioner än HTTP-utlösare och webhooks kan testa du dina funktioner lokalt genom att anropa en slutpunkt för administration. Anropa den här slutpunkten med en HTTP POST-begäran på den lokala servern utlöser funktionen. Du kan välja att skicka testdata att körningen i brödtexten i POST-begäran. Den här funktionen liknar den **Test** fliken i Azure-portalen.
 
 Du kan anropa följande administratör slutpunkt för att utlösa icke-HTTP-funktioner:
 
@@ -381,10 +380,10 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 #### <a name="using-the-func-run-command-in-version-1x"></a>Med hjälp av den `func run` i version 1.x
 
->[!IMPORTANT]  
+>[!IMPORTANT]
 > Den `func run` kommandot stöds inte i version 2.x av verktygen. Mer information finns i avsnittet [hur du Azure Functions runtime versioner](set-runtime-version.md).
 
-Du kan också anropa en funktion som direkt med hjälp av `func run <FunctionName>` och ange indata för funktionen. Det här kommandot liknar en funktion med hjälp av den **Test** fliken i Azure-portalen. 
+Du kan också anropa en funktion som direkt med hjälp av `func run <FunctionName>` och ange indata för funktionen. Det här kommandot liknar en funktion med hjälp av den **Test** fliken i Azure-portalen.
 
 `func run` stöder följande alternativ:
 
@@ -410,9 +409,9 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Core Tools stöder två typer av distribution, distribuera funktionen projektfilerna direkt till din funktionsapp och distribuera en anpassad Linux-behållare, vilket stöds bara i version 2.x. Du måste redan ha [skapat en funktionsapp i Azure-prenumerationen](functions-cli-samples.md#create).
 
-I version 2.x, måste du ha [registrerad dina tillägg](#register-extensions) i projektet innan du publicerar. Projekt som kräver kompilering ska byggas så att binärfilerna som kan distribueras. 
+I version 2.x, måste du ha [registrerad dina tillägg](#register-extensions) i projektet innan du publicerar. Projekt som kräver kompilering ska byggas så att binärfilerna som kan distribueras.
 
-### <a name="project-file-deployment"></a>Projektet filen distribution  
+### <a name="project-file-deployment"></a>Projektet filen distribution
 
 Den vanligaste distributionsmetoden innebär att med hjälp av Core Tools att paketera ditt funktionsappsprojekt, binärfiler och beroenden och distribuera dem till din funktionsapp. Du kan eventuellt [köra dina funktioner direkt från distributionspaketet](run-functions-from-deployment-package.md).
 
@@ -424,10 +423,10 @@ func azure functionapp publish <FunctionAppName>
 
 Det här kommandot publicerar till en befintlig funktionsapp i Azure. Ett fel uppstår när den `<FunctionAppName>` finns inte i din prenumeration. Läs hur du skapar en funktionsapp från Kommandotolken eller med hjälp av Azure CLI-terminalfönstret i [skapa en Funktionsapp för serverlös körning](./scripts/functions-cli-create-serverless.md).
 
-Den `publish` kommando laddar upp innehållet i projektkatalogen funktioner. Om du tar bort filer lokalt, den `publish` kommandot tar inte bort dem från Azure. Du kan ta bort filer i Azure med hjälp av den [Kudu-verktyget](functions-how-to-use-azure-function-app-settings.md#kudu) i den [Azure Portal].  
+Den `publish` kommando laddar upp innehållet i projektkatalogen funktioner. Om du tar bort filer lokalt, den `publish` kommandot tar inte bort dem från Azure. Du kan ta bort filer i Azure med hjälp av den [Kudu-verktyget](functions-how-to-use-azure-function-app-settings.md#kudu) i den [Azure Portal].
 
->[!IMPORTANT]  
-> När du skapar en funktionsapp i Azure-portalen används version 2.x av funktionskörningen som standard. Att göra funktionen app Använd version 1.x av körning, följer du anvisningarna i [kör version 1.x](functions-versions.md#creating-1x-apps).  
+>[!IMPORTANT]
+> När du skapar en funktionsapp i Azure-portalen används version 2.x av funktionskörningen som standard. Att göra funktionen app Använd version 1.x av körning, följer du anvisningarna i [kör version 1.x](functions-versions.md#creating-1x-apps).
 > Du kan inte ändra runtime-versionen för en funktionsapp som har befintliga funktioner.
 
 Följande projektet publiceringsalternativ tillkommer för versioner, 1.x och 2.x:
@@ -460,7 +459,7 @@ Functions kan du distribuera function-projekt i en anpassad Linux-behållare. Me
 func deploy
 ```
 
-Följande distributionsalternativ för anpassad behållare är tillgängliga: 
+Följande distributionsalternativ för anpassad behållare är tillgängliga:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |

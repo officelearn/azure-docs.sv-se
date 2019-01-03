@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: c08a76711a74f5b0fd119e579c6db54fc13ecfbb
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685828"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723900"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Felsöka problem med SQL Data Sync
 
 Den här artikeln beskriver hur du felsöker kända problem med Azure SQL Data Sync. Om det finns en lösning på problemet, finns den här.
 
 En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync har **inte** stöd för Azure SQL Database Managed Instance just nu.
 
 ## <a name="sync-issues"></a>Synkroniseringsproblem
 
@@ -37,7 +40,7 @@ En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lok
 
 - [Jag ser betydande försämrade prestanda](#sync-perf)
 
-- [Jag ser det här meddelandet ”: Det går inte att infoga värdet NULL i kolumnen <column>. Kolumnen tillåter inte null-värden ”. Vad betyder detta och hur kan jag åtgärda det?](#sync-nulls)
+- [Jag ser följande meddelande: ”Det går inte att infoga värdet NULL i kolumnen <column>. Kolumnen tillåter inte null-värden ”. Vad betyder detta och hur kan jag åtgärda det?](#sync-nulls)
 
 - [Hur hanterar datasynkronisering cirkelreferenser? Det vill säga när samma data synkroniseras i flera synkroniseringsgrupper och ändras som ett resultat?](#sync-circ)
 
@@ -102,7 +105,7 @@ Prestanda försämras avsevärt, eventuellt till den punkt där du även inte ka
 
 - **Lösning**. Bästa korrigeringen är skydd. Se till att du inte har cirkelreferenser i din synkroniseringsgrupper. Alla rader som har synkroniserats med en synkroniseringsgrupp kan inte synkroniseras med en annan synkroniseringsgrupp.
 
-### <a name="sync-nulls"></a> Jag ser det här meddelandet ”: Det går inte att infoga värdet NULL i kolumnen <column>. Kolumnen tillåter inte null-värden ”. Vad betyder detta och hur kan jag åtgärda det? 
+### <a name="sync-nulls"></a> Jag ser följande meddelande: ”Det går inte att infoga värdet NULL i kolumnen <column>. Kolumnen tillåter inte null-värden ”. Vad betyder detta och hur kan jag åtgärda det? 
 Det här felmeddelandet indikerar att en av de två följande problem har uppstått:
 -  En tabell har inte en primärnyckel. Om du vill åtgärda problemet genom att lägga till en primär nyckel till alla tabeller som du synkroniserar.
 -  Det finns en WHERE-sats i CREATE INDEX-instruktionen. Datasynkronisering kan inte hantera det här tillståndet. Om du vill åtgärda problemet genom att ta bort WHERE-satsen eller manuellt gör ändringar i alla databaser. 
@@ -239,18 +242,18 @@ Om du återställer en förlorad eller skadad databas från en säkerhetskopia k
 ## <a name="next-steps"></a>Nästa steg
 Mer information om SQL Data Sync finns:
 
--   Översikt – [synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
--   Konfigurera datasynkronisering
-    - I portalen – [självstudie: Ställ in SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
+-   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
+-   Konfigurera Data Sync
+    - I portalen – [självstudien: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
     - Med PowerShell
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Data synkroniseras Agent - [Data synkroniseras Agent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Övervaka – [övervaka SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)
+-   Övervakning – [Övervaka SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)
 -   Uppdatera synkroniseringsschemat
-    -   Med Transact-SQL - [automatisera replikeringen av schemaändringar i Azure SQL Data Sync](sql-database-update-sync-schema.md)
-    -   Med PowerShell - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/sql-database-sync-update-schema.md)
+    -   Med Transact-SQL – [Automatisera replikeringen av schemaändringar i Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   Med PowerShell – [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/sql-database-sync-update-schema.md)
 
 Mer information om SQL-databas finns:
 

@@ -56,6 +56,12 @@ items:
   items:
   - name: Felsökning av SSH
     href: troubleshoot-ssh-connection.md
+  - name: Felsöka filsystemsfel
+    href: https://support.microsoft.com/help/3213321
+  - name: Felsöka kernelrelaterade startfel
+    href: https://support.microsoft.com/help/4091524
+  - name: Felsöka fstab-fel
+    href: https://support.microsoft.com/help/3206699
   - name: Detaljerad felsökning av SSH
     href: detailed-troubleshoot-ssh-connection.md
 - name: Vanliga felmeddelanden
@@ -105,6 +111,8 @@ items:
   href: unexpected-reboots-attached-vhds.md
 - name: Problem med Windows-aktivering
   href: troubleshoot-activation-problems.md
+- name: Aktiveringsfel med tvingad tunneltrafik
+  href: custom-routes-enable-kms-activation.md
 - name: Problem med programåtkomst
   href: troubleshoot-app-connection.md
 - name: Nya VM-distributioner
@@ -162,9 +170,9 @@ items:
   href: understand-vm-reboot.md
 - name: Fjärrfelsökningsverktyg
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: af1f284108a326b3ce099ee49cb15a8f51cc61af
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b745b9e42c700ea446d934df7d2e3201b555f075
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434868"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976332"

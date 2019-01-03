@@ -19,7 +19,7 @@ ms.lasthandoff: 09/12/2018
 ms.locfileid: "44718099"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL-databas med verktyget för att kopiera data
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](tutorial-copy-data-tool.md)
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 452700593d7145e828155c3bd999ad90e2437ba9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 83c293fe93cd67aca5ef5a3ed766545d2b6d4938
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099009"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970176"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -44,6 +44,7 @@ LUIS förstår yttranden på följande språk:
 | Portugisiska (Brasilien) |`pt-BR` |-| ✔ |✔ |inte alla underordnade kulturer|
 | Spanska (Spanien) |`es-ES` |-| ✔ |✔|✔|
 | Spanska (Mexiko)|`es-MX` |-|  -   |✔|✔|
+| Turkiska | `tr-TR` |-|-|-|Endast sentiment|
 
 
 Språkstöd varierar för [förskapade entiteter](luis-reference-prebuilt-entities.md) och [fördefinierade domäner](luis-reference-prebuilt-domains.md).

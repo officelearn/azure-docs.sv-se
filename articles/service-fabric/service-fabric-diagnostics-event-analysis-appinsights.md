@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: f51d132d3cdc2d8aed65919df5fa225711508c60
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322797"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753103"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelseanalys och visualisering med Application Insights
 
@@ -39,7 +39,7 @@ Application Insights har en omfattande utanför den box experience när du anvä
 
 ![Översikt över Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-Det finns två typer av poster i listan i den högra rutan i den föregående bilden: begäranden och händelser. Anrop till appens API: ets HTTP-begäranden i det här fallet begärandena och händelser är anpassade händelser, som fungerar som telemetri som du kan lägga till var som helst i din kod. Du kan utforska ytterligare instrumentering av dina program i [Application Insights API för anpassade händelser och mått](../application-insights/app-insights-api-custom-events-metrics.md). När du klickar på en begäran skulle visa ytterligare information som visas i följande bild, inklusive data som är specifika för Service Fabric, som har samlats in i Application Insights Service Fabric nuget-paketet. Den här informationen är användbar för felsökning och att känna till vad som är i tillståndet för ditt program och all denna information är sökbart i Application Insights
+Det finns två typer av poster i listan i den högra rutan i den föregående bilden: begäranden och händelser. Anrop till appens API: ets HTTP-begäranden i det här fallet begärandena och händelser är anpassade händelser, som fungerar som telemetri som du kan lägga till var som helst i din kod. Du kan utforska ytterligare instrumentering av dina program i [Application Insights API för anpassade händelser och mått](../azure-monitor/app/api-custom-events-metrics.md). När du klickar på en begäran skulle visa ytterligare information som visas i följande bild, inklusive data som är specifika för Service Fabric, som har samlats in i Application Insights Service Fabric nuget-paketet. Den här informationen är användbar för felsökning och att känna till vad som är i tillståndet för ditt program och all denna information är sökbart i Application Insights
 
 ![Information om Application Insights-begäran](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
@@ -47,7 +47,7 @@ Application Insights har en avsedda vy för att fråga mot alla data som kommer 
 
 ![Information om Application Insights-begäran](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-Om du vill fortsätta för att utforska funktionerna i Application Insights-portalen, gå till den [Programinsikter portaldokumentationen](../application-insights/app-insights-dashboards.md).
+Om du vill fortsätta för att utforska funktionerna i Application Insights-portalen, gå till den [Programinsikter portaldokumentationen](../azure-monitor/app/app-insights-dashboards.md).
 
 ### <a name="configuring-application-insights-with-wad"></a>Konfigurera Application Insights med WAD
 
@@ -114,7 +114,7 @@ Det rekommenderas att använda EventFlow och WAD som aggregering lösningar, eft
 
 [Application Insights-stöd för Mikrotjänster och behållare](https://azure.microsoft.com/blog/app-insights-microservices/) visar några av de nya funktionerna som arbete utförs i (fortfarande för närvarande i beta), som gör att du kan ha bättre out-of the box övervakningsalternativ med Application Insights. Dessa omfattar beroende spårning (används för att skapa en AppMap för alla dina tjänster och program i ett kluster och kommunikationen mellan dem) och bättre korrelation av spårningen från dina tjänster (hjälper i bättre lokalisera ett problem i arbetsflödet för ett program eller tjänst).
 
-Om du utvecklar i .NET och kommer sannolikt att använda några av Service Fabrics programmeringsmodeller och kan använda Application Insights som plattform för att visualisera och analysera händelse-och logga sedan rekommenderar vi att du går via Application Insights SDK-väg som arbetsflödet övervakning och diagnostik. Läs [detta](../application-insights/app-insights-asp-net-more.md) och [detta](../application-insights/app-insights-asp-net-trace-logs.md) att komma igång med Application Insights om du vill samla in och visa dina loggar.
+Om du utvecklar i .NET och kommer sannolikt att använda några av Service Fabrics programmeringsmodeller och kan använda Application Insights som plattform för att visualisera och analysera händelse-och logga sedan rekommenderar vi att du går via Application Insights SDK-väg som arbetsflödet övervakning och diagnostik. Läs [detta](../azure-monitor/app/asp-net-more.md) och [detta](../azure-monitor/app/asp-net-trace-logs.md) att komma igång med Application Insights om du vill samla in och visa dina loggar.
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Navigera Application Insights-resurs i Azure-portalen
 
@@ -122,9 +122,9 @@ När du har konfigurerat Application Insights som utdata för dina händelser oc
 
 *Metrics Explorer* är användbart för att skapa anpassade instrumentpaneler baserat på mått som dina program, tjänster och -kluster kan reporting. Se [utforska mått i Application Insights](../application-insights/app-insights-metrics-explorer.md) att ställa in några diagram för själv baserat på de data som du kan samla in.
 
-Klicka på **Analytics** tar dig till Application Insights Analytics-portalen där du kan fråga efter händelser och spårningar med större omfång och alternativ. Läs mer om detta på [analys i Application Insights](../application-insights/app-insights-analytics.md).
+Klicka på **Analytics** tar dig till Application Insights Analytics-portalen där du kan fråga efter händelser och spårningar med större omfång och alternativ. Läs mer om detta på [analys i Application Insights](../azure-monitor/app/analytics.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera aviseringar i AI](../application-insights/app-insights-alerts.md) meddelas om ändringar i prestanda och användning
+* [Konfigurera aviseringar i AI](../azure-monitor/app/alerts.md) meddelas om ändringar i prestanda och användning
 * [Smart identifiering i Application Insights](../application-insights/app-insights-proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till Application Insights för att varna dig om potentiella prestandaproblem

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6ce51dc9bbcdc7b46593a4800c4fce07a42f3171
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9cb52aea56e9c1183af9ca76201ab65c62a58f22
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346479"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972179"
 ---
 # <a name="offer-settings-tab"></a>Inställningsfliken för erbjudandet
 
@@ -42,9 +42,6 @@ Den här identifieraren är relaterat till ditt konto. När du har loggat in med
 *Namn*
 
 Strängen är vad som visas som erbjudandet namnen på AppSource eller Azure Marketplace. Den *namn* fält är begränsad till 50 tecken.  Granskaren kan behöva redigera din rubrik för att lägga till namnet på erbjudandet med varaktigheten och erbjudandetyp.
-
->[!Note]
->Viktigt: Ange endast namnet på den faktiska servicen här. Omfattar inte varaktighet och typ av tjänst.
 
 I följande exempel av Edgewater Fullscope visas hur erbjudandenamn är klar. Erbjudandenamn visas som:
 

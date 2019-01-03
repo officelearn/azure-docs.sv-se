@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ce2391014eb5e15650c0a81ebb8e2fd4a08ca96b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139232"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599952"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Distribuera en edge-gateway för ansluten fabrik lösningsaccelerator på Windows eller Linux
 
@@ -70,7 +70,7 @@ Mer information finns i den [använda volymer](https://docs.docker.com/engine/ad
 
 Utför följande steg för att förbereda din miljö innan du installerar OPC-komponenter:
 
-1. Du behöver för att slutföra gateway-distribution, den **iothubowner** anslutningssträngen för IoT-hubben i distributionen ansluten fabrik. I den [Azure-portalen](http://portal.azure.com/), navigera till din IoT-hubb i resursgruppen som skapades när du distribuerade lösningen för ansluten fabrik. Klicka på **principer för delad åtkomst** åtkomst till den **iothubowner** anslutningssträng:
+1. Du behöver för att slutföra gateway-distribution, den **iothubowner** anslutningssträngen för IoT-hubben i distributionen ansluten fabrik. I den [Azure-portalen](https://portal.azure.com/), navigera till din IoT-hubb i resursgruppen som skapades när du distribuerade lösningen för ansluten fabrik. Klicka på **principer för delad åtkomst** åtkomst till den **iothubowner** anslutningssträng:
 
     ![Hitta IoT Hub-anslutningssträngen](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 

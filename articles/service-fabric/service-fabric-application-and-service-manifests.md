@@ -12,17 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2018
+ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 78315409c5d83a98321e16913b1090e8996ed8ce
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230292"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653562"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-program och tjänstmanifest
 Den här artikeln beskriver hur Service Fabric-program och tjänster är definierad och version med hjälp av filen ApplicationManifest.xml och ServiceManifest.xml.  Mer detaljerade exempel finns i [och en tjänst manifest exempel](service-fabric-manifest-examples.md).  XML-schemat för dessa manifestfiler dokumenteras i [ServiceFabricServiceModel.xsd schemat dokumentation](service-fabric-service-model-schema.md).
+
+> [!WARNING]
+> XML-manifest filschemat framtvingar rätt ordning av underordnade element.  Som en partiell lösning kan du öppna ”C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd” i Visual Studio när redigering eller ändra någon av Service Fabric-manifest. Detta gör att du kan kontrollera sorteringen i underordnade element och ger tillgång.
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>Beskriv en tjänst i ServiceManifest.xml
 Tjänstmanifestet definierar deklarativt tjänsttyp och version. Den anger tjänstens metadata, till exempel typ av tjänst, health egenskaper, belastningsutjämning mått, binärfiler och konfigurationsfiler.  Placera ett annat sätt, beskriver de kod, konfiguration och data paket som utgör inget tjänstepaket för att stödja en eller flera typer av tjänster. Ett tjänstmanifest kan innehålla flera kod, konfiguration och data-paket, vilka kan versionshanteras oberoende av varandra. Här är ett tjänstmanifest för ASP.NET Core webbtjänsten för klientdelen av den [rösta exempelprogrammet](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (och här är några [mer detaljerade exempel](service-fabric-manifest-examples.md)):

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 860d602ecba257ed9015d1e080e5dcb1aa5ab872
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9c85ee23f433e7b14278d8cc0ca3bff3e1ab4b94
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624632"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752579"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Kom igång med Azure Active Directory reporting API
 
@@ -48,6 +48,11 @@ Detaljerade anvisningar finns i den [krav för att få åtkomst till Azure Activ
 
 Microsoft Graph API-slutpunkten för granskningsloggar är `https://graph.microsoft.com/beta/auditLogs/directoryAudits` och Microsoft Graph API-slutpunkten för inloggningar är `https://graph.microsoft.com/beta/auditLogs/signIns`. Mer information finns i den [gransknings-och API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) och [logga in API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
+Du kan också använda den [Identity Protection riskhändelser API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) för programmässig åtkomst till säkerhetsidentifieringar med hjälp av Microsoft Graph. Mer information finns i [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](../identity-protection/graph-get-started.md). 
+
+> [!NOTE]
+>  Den **https:\/\/domänerna graph.windows.net\/\<-klientnamn\>\/rapporter\/**  slutpunkten är inaktuell. Använd de nya API-slutpunkter som beskrivs ovan programmatisk åtkomst till rapporter för aktiviteten och säkerhet.
+  
 ## <a name="apis-with-graph-explorer"></a>API: er med Graph-testaren
 
 Du kan använda den [MSGraph explorer](https://developer.microsoft.com/graph/graph-explorer) att verifiera din inloggning och granska API-data. Se till att logga in på ditt konto med båda knapparna logga in i Graph Explorer-Gränssnittet och Ställ in **AuditLog.Read.All** och **Directory.Read.All** behörigheter för din klient som visas.   

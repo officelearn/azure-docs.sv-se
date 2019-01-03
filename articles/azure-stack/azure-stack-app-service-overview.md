@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 3015755d8046f72c03cd1a1485d90a7f720a8909
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b1b4ea5775a661712838c1495ef0025a83b8c518
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353038"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607951"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Översikt över App Service på Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Azure App Service i Azure Stack är en platform-as-a-service (PaaS) erbjuds av Microsoft Azure som är tillgängliga för Azure Stack. Tjänsten gör det möjligt för dina interna eller externa kunder att skapa webbappar, API och Azure Functions-program för valfri plattform eller enhet. De kan integrera dina appar med dina lokala program och automatisera sina affärsprocesser. Azure Stack-moln-operatörer kan köra kundappar på helt hanterade virtuella datorer (VM), med deras val av delade VM-resurser eller dedikerade virtuella datorer.
+Azure App Service i Azure Stack är en platform-as-a-service (PaaS) erbjuds av Microsoft Azure som är tillgängliga för Azure Stack. Tjänsten gör det möjligt för dina interna eller externa kunder att skapa webbappar, API och Azure Functions-program för valfri plattform eller enhet. De kan integrera dina appar med lokala program och automatisera sina affärsprocesser. Azure Stack-molnoperatörer kan köra kundappar på helt hanterade virtuella datorer (VM), med valfria delade VM-resurser eller dedikerade virtuella datorer.
 
 Azure App Service kan du automatisera affärsprocesser och vara värd för molnet API: er. Som en enda integrerad tjänst gör kan Azure App Service du kombinera olika komponenter, till exempel webbplatser, REST API: er och affärsprocesser, i en enda lösning.
 
@@ -35,14 +35,14 @@ Här följer några viktiga funktioner och funktioner i Apptjänst:
 
 - **Flera språk och ramverk**: App Service har förstklassigt stöd för ASP.NET, Node.js, Java, PHP och Python. Du kan också köra Windows PowerShell och andra skript och körbara filer på Apptjänstens virtuella datorer.
 - **DevOps-optimering**: Konfigurera kontinuerlig integrering och distribution med GitHub, lokal Git eller BitBucket. Du kan flytta upp uppdateringar via testning och mellanlagringsmiljöer och hantera dina appar i App Service med hjälp av Azure PowerShell eller plattformsoberoende kommandoradsgränssnittet (CLI).
-- **Visual Studio-integration**: dedikerade verktyg i Visual Studio effektiviserar arbetet med att skapa och distribuera program.
+- **Visual Studio-integration**: Dedikerade verktyg i Visual Studio effektiviserar arbetet med att skapa och distribuera program.
 
 ## <a name="app-types-in-app-service"></a>Apptyper i Apptjänst
 
 App Service erbjuder flera typer av appar, som är avsedd att vara värd för en specifik arbetsbelastning:
 
-- [Web Apps](../app-service/app-service-web-overview.md) som värd för webbplatser och webbprogram.
-- [API Apps](../app-service/app-service-web-overview.md) som värd för REST API: er.
+- [Web Apps](../app-service/overview.md) som värd för webbplatser och webbprogram.
+- [API Apps](../app-service/overview.md) som värd för REST API: er.
 - Azure fungerar som värd för händelsedrivna, serverlösa arbetsbelastningar.
 
 Ordet *app* refererar till de värdresurser som är dedikerade för att köra en arbetsbelastning. Tar *webbapp* kan t.ex, är du antagligen van vid att tänker på en webbapp som både beräkningsresurser och program kod som tillsammans ger funktioner till en webbläsare. I App Service är en webbapp beräkningsresurs som Azure Stack tillhandahåller för hantering av programkoden.

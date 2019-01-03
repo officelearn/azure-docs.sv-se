@@ -1,98 +1,95 @@
 ---
-title: Återställa en Server i Azure-databas för PostgreSQL
-description: Den här artikeln beskriver hur du återställer en server i Azure-databas för PostgreSQL med Azure-portalen.
-services: postgresql
+title: Hur du återställer en Server i Azure Database för PostgreSQL
+description: Den här artikeln beskriver hur du återställer en server i Azure Database for PostgreSQL med Azure-portalen.
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: b4fe1151337dc6f5874e6ad102c6e905e90fd963
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 26959425ec42870ec084146380c376d76e7029f3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412764"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542653"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure-databas för PostgreSQL med Azure-portalen
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for PostgreSQL med Azure-portalen
 
 ## <a name="backup-happens-automatically"></a>Säkerhetskopieringen sker automatiskt
-Azure-databas för PostgreSQL servrar säkerhetskopieras regelbundet för att aktivera funktioner för återställning. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare i tidpunkt, på en ny server.
+Azure Database for PostgreSQL-servrar som säkerhetskopieras regelbundet för att aktivera funktioner för återställning. Med den här funktionen kan du återställa servern och dess databaser till en tidigare point-in-time, på en ny server.
 
-## <a name="set-backup-configuration"></a>Ange konfigurationen för säkerhetskopiering
+## <a name="set-backup-configuration"></a>Konfiguration av säkerhetskopiering
 
-Du gör att välja mellan att konfigurera servern för antingen lokalt redundant säkerhetskopiering eller geografiskt redundant säkerhetskopiering när servern skapas i den **prisnivån** fönster.
+Du gör valet mellan att konfigurera servern för lokalt redundant säkerhetskopieringar eller geografiskt redundanta säkerhetskopieringar på servern har skapats, i den **prisnivå** fönster.
 
 > [!NOTE]
-> När en server har skapats kan typ av redundans som finns, kan inte växlas geografiskt redundant jämfört med lokalt redundant.
+> När en server har skapats kan typ av redundans som den har kan geografiskt redundant eller lokalt redundant inte växlas.
 >
 
-När du skapar en server via Azure-portalen på **prisnivån** fönstret är där du väljer antingen **lokalt Redundant** eller **geografiskt Redundant** säkerhetskopieringar för din server. Det här fönstret är också där du väljer den **säkerhetskopiering kvarhållningsperiod** – hur lång tid (i antal dagar) du lagrade för serversäkerhetskopior.
+När du skapar en server via Azure-portalen i **prisnivå** fönstret är här du väljer antingen **lokalt Redundant** eller **geografiskt Redundant** säkerhetskopieringar för din server. Det här fönstret är också där du väljer den **kvarhållningsperiod** – hur lång tid (i antal dagar) som du vill att server-säkerhetskopior som lagras för.
 
-   ![Prisnivån - Välj säkerhetskopiering redundans](./media/howto-restore-server-portal/pricing-tier.png)
+   ![Prisnivån - Välj Säkerhetskopieringsredundans](./media/howto-restore-server-portal/pricing-tier.png)
 
-Mer information om hur du anger dessa värden under skapa finns i [Azure-databas för PostgreSQL server quickstart](quickstart-create-server-database-portal.md).
+Mer information om hur du anger dessa värden under skapa finns i den [Azure Database for PostgreSQL server Snabbstart](quickstart-create-server-database-portal.md).
 
-Säkerhetskopiering kvarhållningsperiod på en server kan ändras genom följande steg:
+Kvarhållningsperiod för en server kan ändras via följande steg:
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj din Azure-databas för PostgreSQL-servern. Den här åtgärden öppnar den **översikt** sidan.
-3. Välj **prisnivån** på menyn under **inställningar**. Med skjutreglaget kan du ändra den **säkerhetskopiering kvarhållningsperiod** enligt önskemål mellan 7 och 35 dagar.
-I skärmbilden här nedan har den ökat till 34 dagar.
-![Ökat period för lagring av säkerhetskopior.](./media/howto-restore-server-portal/3-increase-backup-days.png)
+2. Välj din Azure Database for PostgreSQL-server. Den här åtgärden öppnar den **översikt** sidan.
+3. Välj **prisnivå** från menyn, under **inställningar**. Med hjälp av skjutreglaget som du kan ändra den **kvarhållningsperiod** enligt önskemål mellan 7 och 35 dagar.
+På skärmbilden nedan har den ökat till 34 dagar.
+![Kvarhållningsperiod för säkerhetskopiering ökar](./media/howto-restore-server-portal/3-increase-backup-days.png)
 
 4. Klicka på **OK** att bekräfta ändringen.
 
-Säkerhetskopiering loggperioden styr hur långt tillbaka i tiden en point-in-time-återställning kan hämtas, eftersom den är baserad på säkerhetskopior som är tillgängliga. Point-in-time-återställning är ytterligare beskrivs i följande avsnitt. 
+Kvarhållningsperioden för säkerhetskopior styr hur långt tillbaka i tiden som en point-in-time-återställning kan hämtas, eftersom den är baserad på säkerhetskopior som är tillgängliga. Point-in-time-återställning är beskrivs mer i följande avsnitt. 
 
 ## <a name="point-in-time-restore"></a>Återställning från tidpunkt
-Azure PostgreSQL-databas kan du återställa servern till en i tidpunkt och till att en ny kopia av servern. Du kan använda den här nya servern för att återställa dina data eller har ditt klientprogram som pekar på den här nya servern.
+Azure Database för PostgreSQL kan du återställa servern tillbaka till point-in-time och till att en ny kopia av servern. Du kan använda den nya servern för att återställa dina data eller ha dina klientprogram som pekar på den här nya servern.
 
-Till exempel om en tabell av misstag kan släppas kl. tolv idag, du återställa tiden innan på dagen och hämta saknas tabellen och data från den nya kopian av servern. Point-in-time-återställning är på servern nivån, inte på databasnivå.
+Till exempel om en tabell var av misstag kan bort kl. tolv idag, du återställa till tid innan middagstid och hämta saknas tabellen och data från den nya kopian av servern. Point-in-time-återställning har servern skyddsnivå, inte på databasnivå.
 
-Följande steg återställa exempel servern till en i tidpunkt:
-1. Välj din Azure-databas för PostgreSQL-server i Azure-portalen. 
+Följande steg återställer exempelservern till point-in-time:
+1. Välj din Azure Database for PostgreSQL-server i Azure-portalen. 
 
 2. I verktygsfältet på serverns **översikt** väljer **återställa**.
 
-   ![Azure-databas för knappen PostgreSQL - översikt – Återställ](./media/howto-restore-server-portal/2-server.png)
+   ![Azure Database för PostgreSQL – översikt – återställning knapp](./media/howto-restore-server-portal/2-server.png)
 
 3. Fyll i formuläret återställning med informationen som krävs:
 
-   ![Azure-databas för PostgreSQL - information för återställningspunkter ](./media/howto-restore-server-portal/3-restore.png)
-  - **Återställningspunkt**: Markera den i tidpunkt du vill återställa.
+   ![Azure Database för PostgreSQL - information för återställningspunkter ](./media/howto-restore-server-portal/3-restore.png)
+  - **Återställningspunkt**: Välj du vill återställa till point-in-time.
   - **Målservern**: Ange ett namn för den nya servern.
-  - **Plats**: du kan inte välja regionen. Som standard är det samma som källservern.
-  - **Prisnivån**: du kan inte ändra dessa parametrar när du gör en point-in-time-återställning. Det är samma som källservern. 
+  - **Plats**: Du kan inte välja region. Som standard är det samma som källservern.
+  - **Prisnivå**: Du kan inte ändra dessa parametrar när du gör en point-in-time-återställning. Det är samma som källservern. 
 
-4. Klicka på **OK** att återställa servern att återställa till en i tidpunkt. 
+4. Klicka på **OK** att återställa servern att återställa till point-in-time. 
 
-5. Leta upp den nya servern som har skapats för att verifiera data har återställts korrekt när återställningen är klar.
+5. Leta upp den nya servern som har skapats för att kontrollera dina data har återställts som förväntat när återställningen är klar.
 
 >[!Note]
->Den nya servern som skapats av point-in-time-återställning har samma server admin inloggningsnamnet och lösenordet som användes för den befintliga servern på point-in-time valde. Du kan ändra lösenordet i den nya servern **översikt** sidan.
+>Den nya servern som skapats av point-in-time-återställning har samma serveradministratör och lösenordet som användes för att befintliga server på point-in-time har valt. Du kan ändra lösenordet från den nya servern **översikt** sidan.
 
 ## <a name="geo-restore"></a>GEO-återställning
-Om du har konfigurerat din server för geografiskt redundant säkerhetskopiering till kan en ny server skapas från en säkerhetskopia av den befintliga servern. Den här nya servern kan skapas i en region som Azure-databasen för PostgreSQL är tillgänglig.  
+Om du har konfigurerat din server som geografiskt redundanta säkerhetskopieringar, kan en ny server skapas från en säkerhetskopia av den befintliga servern. Den här nya servern kan skapas i valfri region som Azure Database for PostgreSQL är tillgänglig.  
 
 1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen. Välj **Databaser** > **Azure-databas för PostgreSQL**.
 
    ![Alternativet ”Azure-databas för PostgreSQL”](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
 
-2. I formulärets **Välj källa** listrutan, Välj **säkerhetskopiering**. Den här åtgärden läser in en lista över servrar som har geo-redundant säkerhetskopieringar aktiverad. Välj en av dessa säkerhetskopior som källa för den nya servern.
-   ![Välj källa: Säkerhetskopiering och listan över geo-redundant säkerhetskopieringar](./media/howto-restore-server-portal/2-georestore.png)
+2. I formulärets **Välj källa för** listrutan Välj **Backup**. Den här åtgärden läser in en lista med servrar som har geo redundant säkerhetskopiering aktiverad. Välj en av dessa säkerhetskopior som källa för den nya servern.
+   ![Välj källa: Säkerhetskopiering och listan över geo-redundanta säkerhetskopieringar](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
-   > När en server först skapas kanske det inte omedelbart tillgängliga för geo-återställning. Det kan ta några timmar för nödvändiga metadata fyllas.
+   > När en server skapas kanske det inte omedelbart tillgängliga för geo-återställning. Det kan ta några timmar innan den nödvändiga metadata fyllas i.
    >
 
-3. Fyll i resten av formuläret med dina inställningar. Du kan välja en annan **plats**. Markera platsen och du kan välja **prisnivån**. Parametrarna för den befintliga servern som du återställer från visas som standard. Du kan klicka på **OK** utan ändringar ärver inställningarna. Eller så kan du ändra **Compute Generation** (om tillgänglig i regionen du har valt), antal **vCores**, **säkerhetskopiering kvarhållningsperiod**, och **säkerhetskopiering Redundans alternativet**. Ändra **prisnivån** (Basic, generella eller Minnesoptimerade) eller **lagring** storlek under återställning stöds inte.
+3. Fyll i resten av formuläret med dina inställningar. Du kan välja en annan **plats**. När du har valt platsen, kan du välja **prisnivå**. Som standard visas parametrarna för den befintliga servern som du återställer från. Du kan klicka på **OK** utan några ändringar att ärva inställningarna. Eller du kan ändra **Compute-generering** (om tillgängligt i regionen du har valt), antal **vCores**, **kvarhållningsperiod**, och **säkerhetskopiering Alternativ för dataredundans**. Ändra **prisnivå** (Basic, generell användning eller Minnesoptimerade) eller **Storage** storleken under återställning stöds inte.
 
 >[!Note]
->Den nya servern som skapats av geo återställning har samma server admin inloggningsnamn och lösenord som är giltig för den befintliga servern när återställningen har startats. Lösenordet kan ändras från den nya servern **översikt** sidan.
+>Den nya servern som skapats av geo-återställning har samma inloggningsnamn för serveradministratören och lösenord som var giltig för den befintliga servern vid den tidpunkt som återställningen startades. Lösenordet kan ändras från den nya servern **översikt** sidan.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om tjänstens [säkerhetskopieringar](concepts-backup.md).
-- Lär dig mer om [företagskontinuitet](concepts-business-continuity.md) alternativ.
+- Mer information om tjänstens [säkerhetskopior](concepts-backup.md).
+- Läs mer om [affärskontinuitet](concepts-business-continuity.md) alternativ.

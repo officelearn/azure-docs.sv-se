@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 07/30/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e84e72157726311281994b0e287eda7dfc4b144a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076799"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716762"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack-tilläggsplaner
 
@@ -32,7 +32,7 @@ Det finns tillfällen när du kombinerar allt i ett enda abonnemang är optimala
 Ett annat skäl att använda tilläggsplaner är att hjälpa användarna Tänk också på deras användning. Om du vill göra det, kan du börja med en grundläggande plan som innehåller relativt små kvoter (beroende på vilka tjänster som krävs). Sedan, när användare kommer åt kapacitet måste de skulle bli aviserad om som redan har förbrukat allokeringen av resurser baserat på deras tilldelade plan. Därifrån kan kan användarna sedan välja ett tillägg-abonnemang som innehåller ytterligare resurser.
 
 > [!NOTE]
-> När du inte vill använda en tilläggsplan för att utöka en kvot kan du också välja att [redigera den ursprungliga konfigurationen av kvoten för](azure-stack-quota-types.md#to-edit-a-quota). 
+> När du inte vill använda en tilläggsplan för att utöka en kvot kan du också välja att [redigera den ursprungliga konfigurationen av kvoten för](azure-stack-quota-types.md#edit-a-quota). 
 
 När en användare lägger till en tilläggsplanen till en befintlig prenumeration på erbjudandet, kan de ytterligare resurserna ta upp till en timme visas. 
 

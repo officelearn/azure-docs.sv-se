@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: fdb316f5f5c1f67dbb92fe8847c0ffacce46ae07
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619833"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789100"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory-direktautentisering: Vanliga frågor och svar
 
@@ -62,7 +62,7 @@ För den här funktionen ska fungera måste version 1.1.750.0 eller senare för 
 
 Om du har konfigurerat [tillbakaskrivning av lösenord](../authentication/concept-sspr-writeback.md) för en viss användare, och om användaren loggar in med hjälp av direktautentisering, de kan ändra eller återställa sina lösenord. Lösenorden som skrivs tillbaka till den lokala Active Directory som förväntat.
 
-Om du inte har konfigurerat tillbakaskrivning av lösenord för en viss användare eller om användaren inte har en giltig Azure AD-licens, användaren kan inte uppdatera sina lösenord i molnet. De kan inte uppdatera sina lösenord, även om deras lösenord har upphört att gälla. I stället ser användaren det här meddelandet: ”din organisation tillåter inte att du ändrar ditt lösenord på den här platsen. Uppdatera den enligt den metod som din organisation rekommenderar eller be din administratör om du behöver hjälp ”. Användaren eller administratören måste återställa sina lösenord i den lokala Active Directory.
+Om du inte har konfigurerat tillbakaskrivning av lösenord för en viss användare eller om användaren inte har en giltig Azure AD-licens, användaren kan inte uppdatera sina lösenord i molnet. De kan inte uppdatera sina lösenord, även om deras lösenord har upphört att gälla. I stället ser användaren det här meddelandet: ”Din organisation tillåter inte att du ändrar ditt lösenord på den här platsen. Uppdatera den enligt den metod som din organisation rekommenderar eller be din administratör om du behöver hjälp ”. Användaren eller administratören måste återställa sina lösenord i den lokala Active Directory.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Hur direktautentisering skyddar dig mot lösenord brute force-attacker?
 
@@ -74,7 +74,7 @@ Om du inte har konfigurerat tillbakaskrivning av lösenord för en viss använda
 - Autentisering-agenter gör HTTP-förfrågningar via port 80 för att ladda ned de SSL listor över återkallade certifikat (CRL).
 
      >[!NOTE]
-     >De senaste uppdateringarna minskar antalet portar som kräver funktionen. Om du har äldre versioner av Azure AD Connect eller -Autentiseringsagenten kan ha dessa portar öppna samt: 5671, 8080, 9090, 9091, 9350, 9352 och 10100 10120.
+     >De senaste uppdateringarna minskar antalet portar som kräver funktionen. Om du har äldre versioner av Azure AD Connect eller autentiseringsagent ha dessa portar öppna även: 5671 8080, 9090, 9091, 9350, 9352 och 10100 10120.
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Autentiseringsagenter direktautentisering kan kommunicera via en utgående webbproxyserver?
 
@@ -83,7 +83,7 @@ Ja. Om Web Proxy Auto-Discovery (WPAD) är aktiverad i din lokala miljö, förs�
 Om du inte har WPAD i din miljö kan du lägga till proxyinformation (som visas nedan) för att tillåta en Autentiseringsagenten för direktautentisering att kommunicera med Azure AD:
 - Konfigurera proxyinformation i Internet Explorer innan du installerar Autentiseringsagenten för direktautentisering på servern. Detta gör att du att slutföra installationen av Autentiseringsagenten, men den fortfarande visas som **inaktiv** på administratörsportalen.
 - Navigera till ”C:\Program Files\Microsoft Azure AD Connect-Autentiseringsagenten” på servern.
-- Redigera konfigurationsfilen ”AzureADConnectAuthenticationAgentService” och Lägg till följande rader (Ersätt ”http://contosoproxy.com:8080” med din faktiska proxyadress):
+- Redigera konfigurationsfilen ”AzureADConnectAuthenticationAgentService” och Lägg till följande rader (Ersätt ”http\:/ / contosoproxy.com:8080” med din faktiska proxyadress):
 
 ```
    <system.net>
@@ -156,7 +156,7 @@ Om du avinstallerar en Agent för autentisering av direkt från en server gör s
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Jag har en äldre klient som ursprungligen installationen med hjälp av AD FS.  Vi har nyligen har migreras till PTA men nu kan inte se våra UPN-ändringar synkroniseras med Azure AD.  Varför är vår UPN ändras inte synkroniseras?
 
-S: under följande omständigheter ändringarna lokala UPN kan inte längre synkronisera när:
+S: Under följande omständigheter ändringarna lokala UPN kan inte längre synkronisera när:
 
 - Azure AD-klienten skapades före den 15 juni-2015
 - Inledningsvis har federerat med Azure AD-klienten med hjälp av AD FS för autentisering
@@ -171,13 +171,13 @@ Klienter som skapats efter den 15 juni-2015 har standardbeteendet för synkronis
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs mer om vilka scenarier som stöds och vilka som inte är.
-- [Snabbstart](how-to-connect-pta-quick-start.md): komma igång på Azure AD-direktautentisering.
+- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs om vilka scenarier som stöds och vilka som inte är.
+- [Snabbstart](how-to-connect-pta-quick-start.md): Kom igång på Azure AD-direktautentisering.
 - [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
 - [Teknisk djupdykning](how-to-connect-pta-how-it-works.md): Förstå hur funktionen direktautentisering fungerar.
-- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig att lösa vanliga problem med funktionen direktautentisering.
-- [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): få djupgående teknisk information om funktionen direktautentisering.
-- [Azure AD sömlös SSO](how-to-connect-sso.md): Mer information om den här tilläggsfunktionen.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): använda Azure Active Directory-forumet till filen nya funktionbegäran.
+- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen direktautentisering.
+- [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): Få djupgående teknisk information om funktionen direktautentisering.
+- [Azure AD sömlös SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet till filen nya funktionbegäran.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: e78f0d2012cf4f6152e69fff1bab04f827c0eef7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b9f17ad0ccfd5e58d5b93bde91e6f9c537a15fa6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310896"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606902"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Hur du konfigurerar Apache Kafka på HDInsight för att automatiskt skapa ämnen
 
@@ -55,7 +55,7 @@ Om du vill aktivera automatisk ämnet skapas i ett befintligt kluster via Ambari
 
     ![Bild av val av omstart](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Du kan också ange Ambari värden via Ambari REST API. Detta är vanligtvis svårare, eftersom du behöver göra flera REST-anrop för att hämta den aktuella konfigurationen, ändra den, osv. Mer information finns i den [hantera HDInsight-kluster med Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md) dokumentet.
 
 ## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren

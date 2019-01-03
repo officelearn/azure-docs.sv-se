@@ -10,40 +10,40 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/12/2017
+ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 1c0167fd7f6ef8a66968e70df26d1e7a6ed845b1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323362"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975261"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
 ## <a name="configuration-problems"></a>Konfigurationsproblem
 *Jag har problem med inställningen min:*
 
-* [.NET-app](app-insights-asp-net-troubleshoot-no-data.md)
-* [Övervaka en app redan körs](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [.NET-app](../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [Övervaka en app redan körs](../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Azure-diagnostik](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Java-webbapp](app-insights-java-troubleshoot.md)
+* [Java-webbapp](../azure-monitor/app/java-troubleshoot.md)
 
 *Jag får inga data från Min server*
 
-* [Brandväggsundantag för set](app-insights-ip-addresses.md)
-* [Konfigurera en ASP.NET-server](app-insights-monitor-performance-live-website-now.md)
-* [Konfigurera en server med Java](app-insights-java-agent.md)
+* [Brandväggsundantag för set](../azure-monitor/app/ip-addresses.md)
+* [Konfigurera en ASP.NET-server](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Konfigurera en server med Java](../azure-monitor/app/java-agent.md)
 
 ## <a name="can-i-use-application-insights-with-"></a>Kan jag använda Application Insights med...?
 
-* [Webbappar på en IIS-server – lokalt eller i en virtuell dator](app-insights-asp-net.md)
-* [Java-webbappar](app-insights-java-get-started.md)
+* [Webbappar på en IIS-server – lokalt eller i en virtuell dator](../azure-monitor/app/asp-net.md)
+* [Java-webbappar](../azure-monitor/app/java-get-started.md)
 * [Node.js-appar](app-insights-nodejs.md)
-* [Web apps på Azure](app-insights-azure-web-apps.md)
-* [Molntjänster i Azure](app-insights-cloudservices.md)
-* [App-servrar som körs i Docker](app-insights-docker.md)
-* [Enkelsidigt webbappar](app-insights-javascript.md)
+* [Web apps på Azure](../azure-monitor/app/azure-web-apps.md)
+* [Molntjänster i Azure](../azure-monitor/app/cloudservices.md)
+* [App-servrar som körs i Docker](../azure-monitor/app/docker.md)
+* [Enkelsidigt webbappar](../azure-monitor/app/javascript.md)
 * [SharePoint](app-insights-sharepoint.md)
 * [Windows-skrivbordsapp](app-insights-windows-desktop.md)
 * [Andra plattformar](app-insights-platforms.md)
@@ -60,7 +60,7 @@ Enterprise-avtalet utgår en avgift för varje dag som varje webbservernoden ski
 
 ## <a name="how-much-is-it-costing"></a>Hur mycket det kostar?
 
-* Öppna den **användning och uppskattade kostnader** sida i en Application Insights-resurs. Det finns ett diagram över de senaste användning. Du kan ange ett tak för datavolymen, om du vill.
+* Öppna den **användning och uppskattade kostnader** i en Application Insights-resurs. Det finns ett diagram över de senaste användning. Du kan ange ett tak för datavolymen, om du vill.
 * Öppna den [Azure-fakturering bladet](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) att se dina fakturor över alla resurser.
 
 ## <a name="q14"></a>Vad ändras Application Insights i projektet?
@@ -95,34 +95,33 @@ I Solution Explorer högerklickar du på `ApplicationInsights.config` och välj 
 
 En skrivbordsapp som du kan använda i IIS-webbservern för att konfigurera Application Insights i web apps. Den samlar inte in telemetri: du kan stoppa den när du inte konfigurerar en app. 
 
-[Läs mer](app-insights-monitor-performance-live-website-now.md#questions).
+[Läs mer](../azure-monitor/app/monitor-performance-live-website-now.md#questions).
 
 ## <a name="what-telemetry-is-collected-by-application-insights"></a>Vilken telemetri samlas in av Application Insights?
 
 Från server web apps:
 
 * HTTP-begäranden
-* [Beroenden](app-insights-asp-net-dependencies.md). Anrop till: SQL-databaser. HTTP-anrop till externa tjänster. Azure Cosmos DB, tabell, blob-lagring och kö. 
-* [Undantag](app-insights-asp-net-exceptions.md) och Stacka spårningar.
-* [Prestandaräknare](app-insights-performance-counters.md) – om du använder [statusövervakaren](app-insights-monitor-performance-live-website-now.md), [azureövervakning](app-insights-azure-web-apps.md) eller [Application Insights insamlade skrivaren](app-insights-java-collectd.md).
-* [Anpassade händelser och mått](app-insights-api-custom-events-metrics.md) du koda.
-* [Spårningsloggar](app-insights-asp-net-trace-logs.md) om du konfigurerar lämpliga insamlaren.
+* [Beroenden](../azure-monitor/app/asp-net-dependencies.md). Anrop till: SQL-databaser. HTTP-anrop till externa tjänster. Azure Cosmos DB, tabell, blob-lagring och kö. 
+* [Undantag](../azure-monitor/app/asp-net-exceptions.md) och Stacka spårningar.
+* [Prestandaräknare](app-insights-performance-counters.md) – om du använder [statusövervakaren](../azure-monitor/app/monitor-performance-live-website-now.md), [azureövervakning](../azure-monitor/app/azure-web-apps.md), eller [Application Insights insamlade skrivaren](../azure-monitor/app/java-collectd.md).
+* [Anpassade händelser och mått](../azure-monitor/app/api-custom-events-metrics.md) du koda.
+* [Spårningsloggar](../azure-monitor/app/asp-net-trace-logs.md) om du konfigurerar lämpliga insamlaren.
 
-Från [klienten webbsidor](app-insights-javascript.md):
+Från [klienten webbsidor](../azure-monitor/app/javascript.md):
 
 * [Antal sidvisningar](app-insights-usage-overview.md)
-* [AJAX-anrop](app-insights-asp-net-dependencies.md) begäranden som görs från ett skript som körs.
+* [AJAX-anrop](../azure-monitor/app/asp-net-dependencies.md) begäranden som görs från ett skript som körs.
 * Läs in data om sidvisningar
 * Antal användare och sessioner
-* [Autentiserat användar-ID](app-insights-api-custom-events-metrics.md#authenticated-users)
+* [Autentiserat användar-ID](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)
 
 Från andra källor, om du konfigurerar dem:
 
 * [Azure-diagnostik](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Docker-behållare](app-insights-docker.md)
-* [Importera tabellerna till Analytics](app-insights-analytics-import.md)
-* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
-* [Logstash](app-insights-analytics-import.md)
+* [Importera till Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Logstash](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Kan jag filtrera bort eller ändra telemetri?
 
@@ -131,7 +130,7 @@ Ja, i den server som du kan skriva:
 * Telemetri Processor att filtrera eller lägga till egenskaper i valda telemetri objekt innan de skickas från din app.
 * Telemetriinitieraren att lägga till egenskaper i alla objekt i telemetrin.
 
-Lär dig mer om [ASP.NET](app-insights-api-filtering-sampling.md) eller [Java](app-insights-java-filter-telemetry.md).
+Lär dig mer om [ASP.NET](../azure-monitor/app/api-filtering-sampling.md) eller [Java](../azure-monitor/app/java-filter-telemetry.md).
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Hur beräknas ort, land och andra data för geo-plats?
 
@@ -148,9 +147,9 @@ Du kan [använda Power BI](app-insights-export-power-bi.md) att visa din begära
 ## <a name="data"></a>Hur länge sparas data i portalen? Är den säker?
 Ta en titt på [kvarhållning av Data och sekretess][data].
 
-## <a name="might-personally-identifiable-information-pii-be-sent-in-the-telemetry"></a>Kan personligt identifierbar information (PII) skickas i telemetri?
+## <a name="could-personal-data-be-sent-in-the-telemetry"></a>Det gick personliga data skickas i telemetri?
 
-Detta är möjligt om koden skickar dessa data. Det kan också inträffa om variabler i stackspårningar innehåller personligt identifierbar information. Utvecklingsteamet bör göra riskbedömningar för att säkerställa att personligt identifierbar information hanteras korrekt. [Mer information om kvarhållning av data och sekretess](app-insights-data-retention-privacy.md).
+Detta är möjligt om koden skickar dessa data. Det kan också inträffa om variabler i stackspårningar inkluderar personliga data. Utvecklingsteamet bör göra riskbedömningar för att säkerställa att personliga data hanteras korrekt. [Mer information om kvarhållning av data och sekretess](../azure-monitor/app/data-retention-privacy.md).
 
 **Alla** oktetterna i webbadressen klienten alltid är inställda på 0 när attribut för geoplats slås upp.
 
@@ -174,31 +173,31 @@ Vi inte logga postdata automatiskt, men du kan använda ett TrackTrace anrop: pl
 Använda en enskild resurs för alla komponenter eller roller i en enda affärssystem. Använd separata resurser för utveckling, testning och versioner och för oberoende program.
 
 * [Finns i avsnittet här](app-insights-separate-resources.md)
-* [Exempel – molntjänst med worker och webbtjänst roller](app-insights-cloudservices.md)
+* [Exempel – molntjänst med worker och webbtjänst roller](../azure-monitor/app/cloudservices.md)
 
 ## <a name="how-do-i-dynamically-change-the-instrumentation-key"></a>Hur ändrar jag instrumenteringsnyckeln dynamiskt?
 
 * [Beskrivning här](app-insights-separate-resources.md)
-* [Exempel – molntjänst med worker och webbtjänst roller](app-insights-cloudservices.md)
+* [Exempel – molntjänst med worker och webbtjänst roller](../azure-monitor/app/cloudservices.md)
 
 ## <a name="what-are-the-user-and-session-counts"></a>Vad är användaren och Session räknar?
 
 * JavaScript SDK anger en användare cookie på webbklienten att identifiera användare som återvänder, och en sessions-cookie till gruppaktiviteter.
 * Om det finns inga klientskript, kan du [angetts cookies på servern](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Om en verklig användare använder webbplatsen på olika webbläsare eller via i läget privat/inkognito surfning eller olika datorer och de kommer att räknas mer än en gång.
-* För att identifiera en inloggad användare på alla datorer och webbläsare, lägger du till ett anrop till [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
+* För att identifiera en inloggad användare på alla datorer och webbläsare, lägger du till ett anrop till [setAuthenticatedUserContext()](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Har jag aktiverat allt innehåll i Application Insights?
 | Vad du bör se | Så här hämtar du den | Varför du vill ha dem |
 | --- | --- | --- |
-| Tillgänglighet diagram |[Webbtester](app-insights-monitor-web-app-availability.md) |Vet webbappen är igång |
-| Server app perf: svarstider,... |[Lägg till Application Insights i projektet](app-insights-asp-net.md) eller [installera AI Status Monitor på servern](app-insights-monitor-performance-live-website-now.md) (eller Skriv egen kod till [spåra beroenden](app-insights-api-custom-events-metrics.md#trackdependency)) |Identifiera perf-problem |
-| Beroendetelemetri |[Installera AI Status Monitor på servern](app-insights-monitor-performance-live-website-now.md) |Diagnostisera problem med databaser eller andra externa komponenter |
-| Få stackspårningar från undantag |[Infoga TrackException anrop i din kod](app-insights-asp-net-exceptions.md) (men vissa rapporteras automatiskt) |Identifiera och diagnostisera undantag |
-| Sök loggspårningar |[Lägg till ett kort för loggning](app-insights-asp-net-trace-logs.md) |Diagnostisera undantag, perf-problem |
-| Grunderna för användning av klienten: sidvisningar, sessioner,... |[Initierare JavaScript i webbsidor](app-insights-javascript.md) |Användningsanalys |
-| Klienten anpassade mått |[Spåra anrop i webbsidor](app-insights-api-custom-events-metrics.md) |Förbättra användarupplevelsen |
-| Anpassade mått för Server |[Spårningsanrop i server](app-insights-api-custom-events-metrics.md) |Business Intelligence |
+| Tillgänglighet diagram |[Webbtester](../azure-monitor/app/monitor-web-app-availability.md) |Vet webbappen är igång |
+| Server app perf: svarstider,... |[Lägg till Application Insights i projektet](../azure-monitor/app/asp-net.md) eller [installera AI Status Monitor på servern](../azure-monitor/app/monitor-performance-live-website-now.md) (eller Skriv egen kod till [spåra beroenden](../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |Identifiera perf-problem |
+| Beroendetelemetri |[Installera AI Status Monitor på servern](../azure-monitor/app/monitor-performance-live-website-now.md) |Diagnostisera problem med databaser eller andra externa komponenter |
+| Få stackspårningar från undantag |[Infoga TrackException anrop i din kod](../azure-monitor/app/asp-net-exceptions.md) (men vissa rapporteras automatiskt) |Identifiera och diagnostisera undantag |
+| Sök loggspårningar |[Lägg till ett kort för loggning](../azure-monitor/app/asp-net-trace-logs.md) |Diagnostisera undantag, perf-problem |
+| Grunderna för användning av klienten: sidvisningar, sessioner,... |[Initierare JavaScript i webbsidor](../azure-monitor/app/javascript.md) |Användningsanalys |
+| Klienten anpassade mått |[Spåra anrop i webbsidor](../azure-monitor/app/api-custom-events-metrics.md) |Förbättra användarupplevelsen |
+| Anpassade mått för Server |[Spårningsanrop i server](../azure-monitor/app/api-custom-events-metrics.md) |Business Intelligence |
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Varför är antalen i Sök- och mått som är ojämn?
 
@@ -227,7 +226,7 @@ Du kan inte ställa in en rapport för Metric Explorer eller konfigurera löpand
 
 ### <a name="querying-the-telemetry"></a>Fråga telemetri
 
-Använd den [REST API](https://dev.applicationinsights.io/) att köra [Analytics](app-insights-analytics.md) frågor.
+Använd den [REST API](https://dev.applicationinsights.io/) att köra [Analytics](../azure-monitor/app/analytics.md) frågor.
 
 ## <a name="how-can-i-set-an-alert-on-an-event"></a>Hur kan jag för att ställa in dataaviseringar på en händelse?
 
@@ -242,7 +241,7 @@ Det här inte är beroende där Application Insights-resursen finns. Det beror p
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Kan jag skicka telemetri till Application Insights-portalen?
 
-Vi rekommenderar att du använder våra SDK: er och använder den [SDK API](app-insights-api-custom-events-metrics.md). Det finns olika varianter av SDK för olika [plattformar](app-insights-platforms.md). Dessa SDK: er hantera buffring, komprimering, begränsning, återförsök och så vidare. Men den [inmatning schemat](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) och [endpoint protokollet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) är offentliga.
+Vi rekommenderar att du använder våra SDK: er och använder den [SDK API](../azure-monitor/app/api-custom-events-metrics.md). Det finns olika varianter av SDK för olika [plattformar](app-insights-platforms.md). Dessa SDK: er hantera buffring, komprimering, begränsning, återförsök och så vidare. Men den [inmatning schemat](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) och [endpoint protokollet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) är offentliga.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Kan jag övervaka en intranät-webbserver?
 
@@ -254,7 +253,7 @@ Tillåter webbservern att skicka telemetri till vår slutpunkter https://dc.serv
 
 ### <a name="proxy"></a>Proxy
 
-Dirigera trafik från servern till en gateway i intranätet genom overwritting inställningarna i det här exemplet ApplicationInsights.config. Om egenskaperna ”slutpunkten” inte finns i din konfiguration, använder de här klasserna standardvärden som visas i exemplet nedan.
+Dirigera trafik från servern till en gateway på intranätet, genom att skriva över de här inställningarna i det här exemplet ApplicationInsights.config. Om egenskaperna ”slutpunkten” inte finns i din konfiguration, använder de här klasserna standardvärden som visas i exemplet nedan.
 
 #### <a name="example-applicationinsightsconfig"></a>Exempel ApplicationInsights.config:
 ```xml
@@ -283,22 +282,23 @@ http://<your.gateway.endpoint>/v2/track
 http://<your.gateway.endpoint>/api/profiles/{0}/apiId
 ```
 
-
-
-
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan jag köra webbtester för tillgänglighet på en intranätserver?
 
-Vår [webbtester](app-insights-monitor-web-app-availability.md) körs på anslutningspunkter som distribueras över hela världen. Det finns två lösningar:
+Vår [webbtester](../azure-monitor/app/monitor-web-app-availability.md) körs på anslutningspunkter som distribueras över hela världen. Det finns två lösningar:
 
-* Brandväggen dörren – Tillåt att begäranden till servern från [långa och kan ändras över test Webbagenter](app-insights-ip-addresses.md).
+* Brandväggen dörren – Tillåt att begäranden till servern från [långa och kan ändras över test Webbagenter](../azure-monitor/app/ip-addresses.md).
 * Skriv din egen kod för att skicka regelbundna begäranden till din server i intranätet. Du kan köra Visual Studio-webbtest för detta ändamål. Testaren kunde skicka resultaten till Application Insights med hjälp av TrackAvailability()-API.
+
+## <a name="how-long-does-it-take-for-telemetry-to-be-collected"></a>Hur lång tid tar det för telemetri som samlas in?
+
+De flesta Application Insights-data har en fördröjning på mindre än 5 minuter. Vissa data kan det ta längre; vanligtvis större loggfiler. Mer information finns i den [Application Insights SLA](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
 
 ## <a name="more-answers"></a>Fler svar
 * [Application Insights-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
 
 <!--Link references-->
 
-[data]: app-insights-data-retention-privacy.md
+[data]: ../azure-monitor/app/data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

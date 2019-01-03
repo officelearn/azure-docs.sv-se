@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: e4f15da8464c2103b5f6540d342cb7c741a67c5f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: fc23efb206496bd36922da39adc0ff32abb78907
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994846"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608689"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit.*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit.*
 
 ## <a name="virtual-machine-extensions"></a>Tillägg för virtuell dator
 
@@ -52,7 +52,7 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 
 |  | Namn på konfigurationsobjekt | Beskrivning | Utgivare |
 | --- | --- | --- | --- |
-| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Lösningar i företagsklass som är enkla att distribuera, kostnadseffektiva, programfokuserade och användarcentrerade. Dessa avbildningar uppdateras regelbundet med de senaste uppdateringarna. **Viktig information: avbildningar ned innan den 18 januari 2018 måste tas bort och ersättas med de senaste versionerna.** | Microsoft |
+| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Lösningar i företagsklass som är enkla att distribuera, kostnadseffektiva, programfokuserade och användarcentrerade. Dessa avbildningar uppdateras regelbundet med de senaste uppdateringarna. **Viktig information: Avbildningar hämtas innan den 18 januari 2018 måste tas bort och ersättas med de senaste versionerna.** | Microsoft |
 | ![Utvärderingsversionen av SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Utvärderingsversionen av SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 utvärderingsversion på Windows Server 2012 Datacenter och Visual Studio 2017 community edition. | Microsoft |
 | ![SharePoint Server 2016-utvärderingsversion](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016-utvärderingsversion](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 utvärderingsversion på Windows Server 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 på Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 på Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 servicepack 2. **Obligatorisk nedladdning:** SQL IaaS-tillägget. | Microsoft |
@@ -138,7 +138,7 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | Ramverk för tillförlitlig, skalbar och distribuerad databehandling. | Bitnami |
 | ![HHVM](media/azure-stack-marketplace-azure-items/hhvm.png) | [HHVM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hhvmstack) | Fullständigt integrerade och redo att köra utvecklingsmiljö. | Bitnami |
 | ![Håll Groupware webbaserad e-post](media/azure-stack-marketplace-azure-items/hordegroupwarewebmail.png) | [Håll Groupware webbaserad e-post](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hordegroupwarewebmail) | Kostnadsfri, suite för enterprise-redo, webbläsarbaserad kommunikation. | Bitnami |
-| ![Jenkins](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jenkins) | Integration-server som stöder SCM-verktyg: CVS, Subversion och Git. | Bitnami |
+| ![Jenkins](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jenkins) | Integration server som stöder SCM-verktyg: CVS Subversion och Git. | Bitnami |
 | ![Jenkins-kluster](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins-kluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) | Jenkins CI är en server för kontinuerlig integrering av öppen källkod.  **Den här lösningsmallen kräver också Debian 8 och anpassat skript för Linux 2.0-tillägget.** | Bitnami |
 | ![JFrog Artifactory](media/azure-stack-marketplace-azure-items/jfrogartifactory.png) | [JFrog Artifactory](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.artifactory) | Binär lagringsplats programvara från ledande utgivare. | Bitnami |
 | ![Joomla](media/azure-stack-marketplace-azure-items/joomla.png) | [Joomla!](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.joomla) | Användarvänligt CMS för enkelt webbplats skapar. | Bitnami |
@@ -228,12 +228,13 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | De mest populära och redo att gå CMS. | Bitnami |
 | ![X2Engine försäljning CRM](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine försäljning CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | Compact marknadsföring, försäljning och kunden tjänstprogram. | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS och Web Portal Program som skapar dynamiska webbplatser. | Bitnami |
-| ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | CRM-system med öppen källkod: mobila, sociala och Gamified. | Bitnami |
+| ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | CRM-system med öppen källkod: Mobila, sociala och Gamified. | Bitnami |
 | ![Check Point vSEC säkerhetshantering](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC säkerhetshantering](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC ger avancerade, flera lager threat dataförlustskydd för att skydda kundens tillgångar i Azure från skadlig kod och avancerade hot. **Hämta båda kontrollobjekt punkt vSEC marketplace.** | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Skapa, distribuera och hantera med Chef Automate kontinuerlig Automation-plattformen. **Hämta båda Chef marketplace-objekt**. | Chef-programvara, Inc |
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [CommVault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | En heltäckande lösning för säkerhetskopiering och återställning, program och VM-migrering till Azure Stack och haveriberedskap för Azure Stack-miljöer i en enda lösning. | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Kontrollera, övervaka och kryptera virtuella datorer med enkelt och tryggt. **Hämta alla CloudLink SecureVM-objekt.** | Dell EMC |
 | ![Spårare för avstängningshändelser SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [Spårare för avstängningshändelser SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM är en omfattande säkerhet-plattform som ger avancerad säkerhetsverktyg med funktioner för granskning färdiga för efterlevnad. | Spårare för avstängningshändelser |
+| ![Exivity - Hybridmolnlösning för fakturering](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity - Hybridmolnlösning för fakturering](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | Ett fakturering verktyg som kan tillgodose behovet av i stort sett alla IT-serviceleverans modell om distribuerad på en lokal, offentligt moln eller hybridmiljöer. | Exivity |
 | ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [F5 Big-IP virtuella Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Avancerade belastningsutjämning, GSLB, brandvägg, DNS, WAF och åtkomst till appen. | F5-nätverk |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Drivs av HDP 2,5 plattform med 100% öppen källkod för Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybridmolnsäkerhet](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky Hybrid Cloud Security gör det möjligt för ett sömlöst styrd och anpassningsbar cybersäkerhet ekosystem. | Kaspersky Lab |

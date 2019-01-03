@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497546"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584402"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Hantera kluster för ML-tjänster på Azure HDInsight
 
@@ -22,9 +22,9 @@ I den här artikeln får lära du att hantera ett befintligt kluster för ML-tj�
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **En ML-Services-kluster i HDInsight**: anvisningar finns i [Kom igång med ML-tjänster på HDInsight](r-server-get-started.md).
+* **En ML-Services-kluster i HDInsight**: Anvisningar finns i [Kom igång med ML-tjänster på HDInsight](r-server-get-started.md).
 
-* **En SSH-klient (Secure Shell)**: En SSH-klient används för att fjärransluta till HDInsight-klustret och köra kommandon direkt på klustret. Mer information finns i [använda SSH med HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **En Secure Shell (SSH)-klient**: En SSH-klient används för att ansluta till HDInsight-kluster och köra kommandon direkt i klustret. Mer information finns i [använda SSH med HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Aktivera flera samtidiga användare
@@ -80,7 +80,7 @@ Observera också att de nya användarna inte har rotbehörighet i Linux-systemet
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Fjärransluta till Microsoft ML-tjänster
 
-Du kan konfigurera åtkomst till HDInsight Spark-beräkningskontexten från en fjärrinstans av ML-klienten som körs på skrivbordet. Om du vill göra det måste du ange alternativ (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches och sshProfileScript) när definierar RxSpark-beräkningskontext på skrivbordet: till exempel:
+Du kan konfigurera åtkomst till HDInsight Spark-beräkningskontexten från en fjärrinstans av ML-klienten som körs på skrivbordet. Om du vill göra det måste du ange alternativ (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches och sshProfileScript) när definierar RxSpark-beräkningskontext på skrivbordet: Exempel:
 
     myNameNode <- "default"
     myPort <- 0
@@ -299,10 +299,8 @@ Om du vill installera ytterligare R-paket på kantnoden kan du använda `install
 
 Om du vill installera R-paket på arbetsnoderna för klustret, måste du använda en skriptåtgärd. Skriptåtgärder är bash-skript som används till att göra konfigurationsändringar i HDInsight-klustret eller till att installera ytterligare programvara, som fler R-paket. 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Det går bara att använda skriptåtgärder för att installera ytterligare R-paket när klustret har skapats. Använd inte den här proceduren när du skapar klustret eftersom skriptet förlitar sig på ML-tjänster som konfigurerats helt.
->
->
 
 1. Följ stegen i [anpassa kluster med skriptåtgärd](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -312,11 +310,11 @@ Om du vill installera R-paket på arbetsnoderna för klustret, måste du använd
 
    * För **namn**, ange ett namn för skriptåtgärden.
 
-    * För **Bash-skript-URI: N**, ange `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Det här är de skript som installerar ytterligare R-paket på arbetsnoden
+    * För **Bash-skript-URI: N**, ange `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Det här är de skript som installerar ytterligare R-paket på arbetsnoden
 
    * Markera kryssrutan för **Worker**.
 
-   * **Parametrar**: R-paketen som ska installeras. Till exempel, `bitops stringr arules`
+   * **Parametrar**: R-paket som ska installeras. Till exempel, `bitops stringr arules`
 
    * Markera kryssrutan för att **spara den här skriptåtgärden**.  
 

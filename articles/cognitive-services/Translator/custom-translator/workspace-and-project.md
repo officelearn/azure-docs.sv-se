@@ -10,12 +10,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6f88ff8ecd1aee588cb82c08ae2eda58fe2eb1e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f3d2276c92868bd2f9d98b119bc31aee4db13a81
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627592"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717560"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Vad är en anpassad Translator-arbetsyta?
 
@@ -31,7 +31,7 @@ Ett projekt är en Omslutning för en modell, dokument och tester. Alla projekt 
 
 Kategorin identifierar domänen – området i terminologi och stil du vill använda – för ditt projekt. Välj kategorin som är mest relevant för dina dokument. I vissa fall påverkar ditt val av kategorin direkt beteendet för anpassad Translator.
 
-Vi har inte anpassade modeller för ännu utom ett allmänt baslinje-system. Men vi rekommenderar ändå att användarna kan välja kategorin som är mest användbar för sin domän så att den kan användas som identifierare i CategoryID. För projekt i domänen teknik garanterar att välja ”teknik” att när en baslinje-modellen är tillgänglig, att ditt projekt kommer att kunna använda den.
+Vi har två uppsättningar basmodeller. De är allmän och teknik. Om kategorin **teknik** är markerat, basmodeller tekniken används. För alla andra Kategorival används allmänt basmodeller. Teknik baslinje modellen har bra i teknik domän, men den visar lägre kvalitet om meningar som används för översättning inte faller inom teknik-domänen. Vi rekommenderar att kunder för att välja kategori teknik endast om meningar strikt faller inom teknik-domänen.
 
 På samma arbetsyta kan du skapa projekt för samma språk par i olika kategorier. Anpassade Translator går inte att skapa en duplicerad projekt med samma språk-par och kategori. Tillämpa en etikett till ditt projekt kan du undvika den här begränsningen. Använd inte etiketter, såvida inte du bygger översättningssystem för flera klienter, som att lägga till en unik etikett till ditt projekt återspeglas i dina projekt CategoryID.
 

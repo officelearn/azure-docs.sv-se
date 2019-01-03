@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 06/25/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6c648a9cb6b8d8dbfb60f1a5a6ebc386c57460b0
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4aec7ff560b0695175a18c9c7e429a8ab733345
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887254"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633716"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Hantera Azure Analysis Services med PowerShell
 
 Den här artikeln beskriver PowerShell-cmdletar som används för att utföra Azure Analysis Services-servern och databashanteringsuppgifter. 
 
-Server-hanteringsuppgifter, till exempel skapa eller ta bort en server, pausa eller återuppta serveråtgärder eller ändra servicenivån (nivå) använda cmdlets för Azure Resource Manager (resurs) och Analysis Services (server)-cmdletar. Andra uppgifter för hantering av databaser, till exempel att lägga till eller ta bort rollmedlemmar, behandla eller partitionering använda cmdletar som ingår i samma SqlServer-modulen som SQL Server Analysis Services.
+Server-hanteringsåtgärder som att skapa eller ta bort en server, pausa eller återuppta serveråtgärder eller ändra servicenivån (nivå) använda cmdlets för Azure Resource Manager (resurs) och Analysis Services (server)-cmdletar. Andra uppgifter för hantering av databaser som att lägga till eller ta bort rollmedlemmar, behandla eller partitionering används cmdletar som ingår i samma SqlServer-modulen som SQL Server Analysis Services.
 
 ## <a name="permissions"></a>Behörigheter
 De flesta PowerShell uppgifter kräver att du har Admin-behörighet på Analysis Services-servern som du hanterar. Schemalagda aktiviteter för PowerShell är obevakad åtgärder. Principen till kontot eller tjänsten som kör scheduler måste ha administratörsrättigheter på Analysis Services-servern. 
@@ -50,11 +50,11 @@ Modul - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azur
 |[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Lägger till en autentiserad konto som ska användas för Azure Analysis Services serverbegäranden för cmdlet.| 
 |[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exporterar en logg från en instans av Analysis Services-servern i den för tillfället inloggade miljö som anges i kommandot Add-AzureAnalysisServicesAccount|  
 |[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Startar om en instans av Analysis Services-servern i inloggade miljön. anges i Add-AzureAnalysisServicesAccount kommandot.|  
-|[Synkronisera AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Synkroniserar en angiven databas på den angivna instansen av Analysis Services-servern på alla fråga scaleout-instanser i den för tillfället inloggade miljö som anges i kommandot Add-AzureAnalysisServicesAccount|  
+|[Synkronisera AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Synkroniserar en angiven databas på den angivna instansen av Analysis Services-servern på alla fråga skalbar instanser i den för tillfället inloggade miljö som anges i kommandot Add-AzureAnalysisServicesAccount|  
 
 ## <a name="database-operations"></a>Databasoperationer
 
-Azure Analysis Services-databasåtgärder använder samma [SqlServer-modulen](https://www.powershellgallery.com/packages/SqlServer) som SQL Server Analysis Services. Alla cmdlets har dock stöd för Azure Analysis Services. Läs mer i [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
+Azure Analysis Services-databasåtgärder använder samma [SqlServer-modulen](https://www.powershellgallery.com/packages/SqlServer) som SQL Server Analysis Services. Alla cmdlets har dock stöd för Azure Analysis Services. Mer information finns i [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
 
 SqlServer-modulen innehåller uppgiftsspecifika database management-cmdletar samt den allmänna Invoke-ASCmd-cmdlet som accepterar en fråga Tabular Model Tabellmodellskriptspråket (TMSL) eller ett skript. Följande cmdletar i SqlServer-modulen har stöd för Azure Analysis Services.
 

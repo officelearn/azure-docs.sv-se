@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 99f706a3b24991e7f5a3473d40a568971b71a979
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: bece63c36bf0027524dea051e78d290c407ca349
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451994"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716097"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Metoder för att skydda PaaS-webbprogram och mobilappar med Azure App Service
 
-I den här artikeln diskuterar vi en samling [Azure App Service](../app-service/app-service-web-overview.md) rekommenderade säkerhetsmetoder för att skydda din PaaS-webbprogram och mobilappar. Dessa metodtips härleds från vår erfarenhet av Azure och erfarenheter från kunder som dig själv.
+I den här artikeln diskuterar vi en samling [Azure App Service](../app-service/overview.md) rekommenderade säkerhetsmetoder för att skydda din PaaS-webbprogram och mobilappar. Dessa metodtips härleds från vår erfarenhet av Azure och erfarenheter från kunder som dig själv.
 
 Azure App Service är en platform-as-a-service (PaaS)-erbjudande som låter dig skapa webb- och mobilappar för valfri plattform eller enhet och ansluta till data överallt, i molnet eller lokalt. Apptjänst innehåller webb- och mobilfunktioner som tidigare har levererat separat som Azure Websites och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. En enda integrerad tjänst innehåller App Service en omfattande uppsättning funktioner för webb, mobil- och integrationsscenarier.
 
 ## <a name="authenticate-through-azure-active-directory-ad"></a>Autentisera via Azure Active Directory (AD)
-App Service tillhandahåller en OAuth 2.0-tjänst för din identitetsprovider. OAuth 2.0 fokuserar på klienten utvecklare enkelt få tillgång till specifika auktoriseringsflöden för webbprogram, program och mobiltelefoner. Azure AD använder OAuth 2.0 att auktorisera åtkomst till mobila och webbprogram. Mer information finns i [autentisering och auktorisering i Azure App Service](../app-service/app-service-authentication-overview.md).
+App Service tillhandahåller en OAuth 2.0-tjänst för din identitetsprovider. OAuth 2.0 fokuserar på klienten utvecklare enkelt få tillgång till specifika auktoriseringsflöden för webbprogram, program och mobiltelefoner. Azure AD använder OAuth 2.0 att auktorisera åtkomst till mobila och webbprogram. Mer information finns i [autentisering och auktorisering i Azure App Service](../app-service/overview-authentication-authorization.md).
 
 ## <a name="restrict-access-based-on-role"></a>Begränsa åtkomst baserat på roller 
 Begränsa åtkomst är absolut nödvändigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Du kan använda rollbaserad åtkomstkontroll (RBAC) för att tilldela behörigheter till användare, grupper och program för ett visst omfång, till exempel att känna och minsta privilegium säkerhetsprinciper. Läs mer om att bevilja användare åtkomst till program i [vad är rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).

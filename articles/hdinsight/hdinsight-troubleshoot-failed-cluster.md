@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b298836070a511421f9df25155ff1ee4422e61dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410286"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994376"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Felsöka ett långsamt eller felaktigt HDInsight-kluster
 
@@ -88,7 +88,7 @@ Om du vill öppna en lista över service-vyerna, Välj **Ambari-vyer** på sidan
 
 #### <a name="check-for-azure-service-outages"></a>Sök efter Azure tjänstavbrott
 
-HDInsight är beroende av flera Azure-tjänster. Den körs virtuella servrar på Azure HDInsight lagrar data och skript på Azure Blob storage eller Azure DataLake-Store och index loggfiler i Azure Table storage. Avbrott i tjänsterna, kan även om det är sällsynt, orsaka problem i HDInsight. Om du har oväntat kapacitetssänkningar eller fel i klustret och kontrollera den [instrumentpanelen för Azure](https://azure.microsoft.com/status/). Status för varje tjänst anges per region. Kontrollera ditt kluster region, och som också regioner för eventuella relaterade tjänster.
+HDInsight är beroende av flera Azure-tjänster. Den körs virtuella servrar på Azure HDInsight lagrar data och skript på Azure Blob storage eller Azure Data Lake Storage och index loggfiler i Azure Table storage. Avbrott i tjänsterna, kan även om det är sällsynt, orsaka problem i HDInsight. Om du har oväntat kapacitetssänkningar eller fel i klustret och kontrollera den [instrumentpanelen för Azure](https://azure.microsoft.com/status/). Status för varje tjänst anges per region. Kontrollera ditt kluster region, och som också regioner för eventuella relaterade tjänster.
 
 #### <a name="check-azure-service-usage-limits"></a>Kontrollera Azure-tjänsten användningsbegränsningar
 

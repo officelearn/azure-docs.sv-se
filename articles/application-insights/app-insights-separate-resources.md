@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 77c0baba1c30153730e87181e24137d9a20ea6b1
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fe9c33f5a872c60ad30faf7cc5074004f5d6fc50
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012478"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973813"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Att separera telemetri från utveckling, testning och produktion
 
 När du skapar i nästa version av ett program kan du inte vill blanda ihop den [Application Insights](app-insights-overview.md) telemetri från den nya versionen och den redan utgivna versionen. Skicka telemetri från olika utveckling faser för att separera Application Insights-resurser med separat instrumenteringsnycklar (ikeys) för att undvika förvirring. Om du vill göra det lättare att ändra instrumenteringsnyckeln som en version som flyttar från ett stadium till en annan, kan det vara praktiskt att ange nyckeln i koden i stället för i konfigurationsfilen. 
 
-(Om datorn är en Azure-molntjänst är det [ett annat sätt för att ange olika ikeys](app-insights-cloudservices.md).)
+(Om datorn är en Azure-molntjänst är det [ett annat sätt för att ange olika ikeys](../azure-monitor/app/cloudservices.md).)
 
 ## <a name="about-resources-and-instrumentation-keys"></a>Om resurser och instrumenteringsnycklar
 
@@ -32,7 +32,7 @@ När du har konfigurerat Application Insights-övervakning för din webbapp kan 
 Du väljer normalt att använda separata resurser eller en enda delad resurs i olika scenarier:
 
 * Olika oberoende program - använda en separat resurs och ikey för varje app.
-* Flera komponenter eller roller i ett affärsprogram – Använd en [enkel delad resurs](app-insights-app-map.md) för alla appar som komponenten. Telemetri kan filtreras eller uppdelat efter egenskapen cloud_RoleName.
+* Flera komponenter eller roller i ett affärsprogram – Använd en [enkel delad resurs](../azure-monitor/app/app-map.md) för alla appar som komponenten. Telemetri kan filtreras eller uppdelat efter egenskapen cloud_RoleName.
 * Utveckling, testning och version – Använd en separat resurs och ikey för versioner av systemet i ”stämpel” eller steget i produktion.
 * A | B-testning - använda en enskild resurs. Skapa en TelemetryInitializer om du vill lägga till en egenskap i telemetrin som identifierar varianterna.
 
@@ -56,7 +56,7 @@ Ange nyckeln i en initieringsmetod, till exempel global.aspx.cs i en ASP.NET-tj�
 I det här exemplet placeras ikeys för olika resurser i olika versioner av Webbkonfigurationsfilen. Växlar Webbkonfigurationsfilen – som du kan göra som en del av skriptet release - kommer växla målresursen.
 
 ### <a name="web-pages"></a>Webbsidor
-Nyckeln används också i din app för webbsidor, i den [skript som du fick från Snabbstart-bladet](app-insights-javascript.md). I stället för att koda den bokstavligen till skriptet, generera du den från servern. Till exempel i en ASP.NET-app:
+Nyckeln används också i din app för webbsidor, i den [skript som du fick från Snabbstart-bladet](../azure-monitor/app/javascript.md). I stället för att koda den bokstavligen till skriptet, generera du den från servern. Till exempel i en ASP.NET-app:
 
 *JavaScript i Razor*
 
@@ -98,7 +98,7 @@ Du behöver instrumenteringsnycklar över alla resurser som din app skickar data
 ## <a name="filter-on-build-number"></a>Filtrera på build-nummer
 När du publicerar en ny version av din app kommer du att kunna skilja telemetri från olika versioner.
 
-Du kan ange egenskapen programversion så att du kan filtrera [search](app-insights-diagnostic-search.md) och [metric explorer](app-insights-metrics-explorer.md) resultat.
+Du kan ange egenskapen programversion så att du kan filtrera [search](../azure-monitor/app/diagnostic-search.md) och [metric explorer](app-insights-metrics-explorer.md) resultat.
 
 ![Filtrera efter en egenskap](./media/app-insights-separate-resources/050-filter.png)
 
@@ -107,7 +107,7 @@ Det finns flera olika metoder för att ange egenskapen programversion.
 * Ange direkt:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Omsluter den raden i en [telemetriinitieraren](app-insights-api-custom-events-metrics.md#defaults) att kontrollera att alla TelemetryClient-instanser är konsekvent.
+* Omsluter den raden i en [telemetriinitieraren](../azure-monitor/app/api-custom-events-metrics.md#defaults) att kontrollera att alla TelemetryClient-instanser är konsekvent.
 * [ASP.NET] Ange version `BuildInfo.config`. Webbmodulen tar över versionen från noden BuildLabel. Inkludera den här filen i projektet och Kom ihåg att ange egenskapen Kopiera alltid i Solution Explorer.
 
     ```XML
@@ -148,15 +148,15 @@ Om du vill kunna spåra programversionen, se till att `buildinfo.config` generer
     </PropertyGroup>
 ```
 
-När Application Insights-webbmodulen har fått versionsinformationen läggs **programversionen** automatiskt till som en egenskap för alla telemetriobjekt. Det gör att du kan filtrera baserat på version när du utför [diagnostiksökningar](app-insights-diagnostic-search.md) eller när du [undersöker mätvärden](app-insights-metrics-explorer.md).
+När Application Insights-webbmodulen har fått versionsinformationen läggs **programversionen** automatiskt till som en egenskap för alla telemetriobjekt. Det gör att du kan filtrera baserat på version när du utför [diagnostiksökningar](../azure-monitor/app/diagnostic-search.md) eller när du [undersöker mätvärden](app-insights-metrics-explorer.md).
 
 Observera dock att build-versionsnumret endast genereras av Microsoft Build Engine, och inte av utvecklarversionen i Visual Studio.
 
 ### <a name="release-annotations"></a>Versionsanteckningar
-Om du använder Azure DevOps kan du [få en anteckningsmarkör](app-insights-annotations.md) tillagd i diagrammen när du släpper en ny version. Följande bild visar hur markeringen visas.
+Om du använder Azure DevOps kan du [få en anteckningsmarkör](../azure-monitor/app/annotations.md) tillagd i diagrammen när du släpper en ny version. Följande bild visar hur markeringen visas.
 
 ![Skärmbild av exempel på versionsanteckning i ett diagram](media/app-insights-separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>Nästa steg
 
-* [Delade resurser för flera roller](app-insights-monitor-multi-role-apps.md)
-* [Skapa en telemetri-initierare för att skilja mellan en | B-varianter](app-insights-api-filtering-sampling.md#add-properties)
+* [Delade resurser för flera roller](../azure-monitor/app/app-map.md)
+* [Skapa en telemetri-initierare för att skilja mellan en | B-varianter](../azure-monitor/app/api-filtering-sampling.md#add-properties)

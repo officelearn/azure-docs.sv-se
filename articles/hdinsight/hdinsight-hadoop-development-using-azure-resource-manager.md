@@ -9,25 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7722076c3b0031da8580dd88efdc0b575fd5a3be
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 33bb3186493b2ea2a0d676f250282574b27f7988
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875577"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718543"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster
 
 HDInsight avvecklar Azure Service Manager ASM-baserade verktyg för HDInsight. Om du har använt Azure PowerShell, Azure klassiska CLI eller HDInsight .NET SDK för att arbeta med HDInsight-kluster måste uppmuntras du att använda Azure Resource Manager-versioner av PowerShell, CLI och .NET SDK framöver. Den här artikeln innehåller tips om hur du migrerar till den nya Resource Manager-baserade metoden. Tillämpliga fall visar skillnaderna mellan ASM och Resource Manager-metoder för HDInsight i det här dokumentet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stöd för ASM baserat PowerShell, CLI, och .NET SDK kommer att avbrytas på **1 januari 2017**.
-> 
-> 
 
 ## <a name="migrating-azure-classic-cli-to-azure-resource-manager"></a>Migrera Azure klassiskt CLI till Azure Resource Manager
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure CLI tillhandhåller inte support för att arbeta med HDInsight-kluster. Du kan fortfarande använda klassiska Azure-CLI med HDInsight, men klassiska Azure-CLI är inaktuellt.
 
 Följande är de grundläggande kommandona för att arbeta med HDInsight via klassiska Azure-CLI:
@@ -51,11 +49,11 @@ Nya kommandon som är tillgängliga med Azure Resource Manager är:
 ### <a name="deprecated-commands"></a>Inaktuella kommandon
 Om du använder den `azure hdinsight job` kommandon för att skicka jobb till ditt HDInsight-kluster dessa kommandon är inte tillgängliga via Resource Manager-kommandon. Om du behöver att programmatiskt skicka jobb till HDInsight från skript kan använda du i stället REST API: er tillhandahålls av HDInsight. Mer information om hur du överför jobb med hjälp av REST API: er finns i följande dokument.
 
-* [Kör Apache Hadoop MapReduce-jobb med Hadoop på HDInsight med cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Köra MapReduce-jobb med Hadoop på HDInsight med cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [Kör Apache Hive-frågor med Apache Hadoop på HDInsight med cURL](hadoop/apache-hadoop-use-hive-curl.md)
 * [Kör Apache Pig-jobb med Apache Hadoop på HDInsight med cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
-Information om andra sätt att köra Apache Hadoop MapReduce, Apache Hive och Apache Pig interaktivt finns [använda Apache Hadoop MapReduce med Hadoop i HDInsight](hadoop/hdinsight-use-mapreduce.md), [använda Apache Hive med Apache Hadoop på HDInsight](hadoop/hdinsight-use-hive.md), och [använda Apache Pig med Apache Hadoop på HDInsight](hadoop/hdinsight-use-pig.md).
+Information om andra sätt att köra Apache Hadoop MapReduce, Apache Hive och Apache Pig interaktivt finns [använda MapReduce med Hadoop i HDInsight](hadoop/hdinsight-use-mapreduce.md), [använda Apache Hive med Apache Hadoop på HDInsight](hadoop/hdinsight-use-hive.md), och [använda Apache Pig med Apache Hadoop på HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Exempel
 **Skapa ett kluster**
@@ -73,10 +71,8 @@ Information om andra sätt att köra Apache Hadoop MapReduce, Apache Hive och Ap
 * Gamla kommando (ASM)- `azure hdinsight cluster list`
 * Nytt kommando- `azure hdinsight cluster list`
 
-> [!NOTE]
+> [!NOTE]  
 > Att ange en resurs-grupp med för kommandot lista `-g` returnerar endast kluster i den angivna resursgruppen.
-> 
-> 
 
 **Visa klusterinformation**
 
@@ -135,17 +131,17 @@ Följande är de nya cmdletarna som är tillgängliga i Resource Manager-läge.
 
 **Skriptet åtgärd-relaterade cmdlets:**
 
-* **Get-AzureRmHDInsightPersistedScriptAction**: hämtar beständiga skriptåtgärder för ett kluster och visar dem i kronologisk ordning eller hämtar information för en angiven bestående skriptåtgärd. 
-* **Get-AzureRmHDInsightScriptActionHistory**: hämtar historiken för skriptåtgärder för ett kluster och visas i omvänd kronologisk ordning eller hämtar information om en tidigare utförda skriptåtgärd. 
-* **Ta bort AzureRmHDInsightPersistedScriptAction**: tar bort en bestående skriptåtgärd från ett HDInsight-kluster.
+* **Get-AzureRmHDInsightPersistedScriptAction**: Hämtar de beständiga skriptåtgärder för ett kluster och visar dem i kronologisk ordning eller hämtar information för en angiven bestående skriptåtgärd. 
+* **Get-AzureRmHDInsightScriptActionHistory**: Hämtar historiken för skriptåtgärder för ett kluster och visas i omvänd kronologisk ordning eller hämtar information om en tidigare utförda skriptåtgärd. 
+* **Ta bort AzureRmHDInsightPersistedScriptAction**: Tar bort en bestående skriptåtgärd från ett HDInsight-kluster.
 * **Set-AzureRmHDInsightPersistedScriptAction**: Anger en tidigare utförda skriptåtgärd ska vara en bestående skriptåtgärd.
-* **Skicka AzureRmHDInsightScriptAction**: skickar en ny skriptåtgärd till ett Azure HDInsight-kluster. 
+* **Skicka AzureRmHDInsightScriptAction**: Skickar en ny skriptåtgärd till ett Azure HDInsight-kluster. 
 
 Ytterligare användningsinformation finns i [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Klustrets identitet-relaterade cmdlets:**
 
-* **Lägg till AzureRmHDInsightClusterIdentity**: lägger till en kluster-identitet i ett konfigurationsobjekt för klustret så att HDInsight-klustret kan komma åt Azure Data Lake Stores. Se [skapa ett HDInsight-kluster med Data Lake Store med Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Lägg till AzureRmHDInsightClusterIdentity**: Lägger till en kluster-identitet till ett konfigurationsobjekt för klustret så att HDInsight-klustret kan komma åt Azure Data Lake Storage. Se [skapa ett HDInsight-kluster med Data Lake Storage med hjälp av Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Exempel
 **Skapa kluster**

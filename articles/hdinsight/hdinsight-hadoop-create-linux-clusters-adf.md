@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa Apache Hadoop-kluster på begäran i Azure HDInsight med Data Factory '
+title: 'Självstudier: Skapa på begäran Apache Hadoop-kluster i Azure HDInsight med Data Factory '
 description: Lär dig hur du skapar på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory.
 services: hdinsight
 author: hrasheed-msft
@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: c7ec0b29e200710070cb1243ff8bfadd5e31e8eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7b20ceb61f522bea11e7256c824a851e587cbd49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879417"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975465"
 ---
-# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudie: Skapa på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory
+# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudier: Skapa på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 I den här artikeln får du lära dig hur du skapar en [Apache Hadoop](https://hadoop.apache.org/) kluster på begäran i Azure HDInsight med Azure Data Factory. Du sedan använda datapipelines i Azure Data Factory att köra Hive-jobb och ta bort klustret. I slutet av den här självstudiekursen, kan du se hur att utföra åtgärder för ett jobb för stordata som kör där skapa kluster, kör jobb och klustret borttagning utförs enligt ett schema.
@@ -55,7 +55,7 @@ Det här avsnittet använder en Azure PowerShell-skript för att skapa storage-k
 
 
 **Skapa ett storage-konto och kopiera filerna med hjälp av Azure PowerShell:**
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ange namn för Azure-resursgrupp och Azure storage-kontot som skapas av skriptet.
 > Anteckna **Resursgruppsnamn**, **lagringskontonamn**, och **lagringskontonyckel** utdata av skriptet. Du behöver dem i nästa avsnitt.
 
@@ -166,7 +166,11 @@ I den här artikeln får konfigurera du Hive-aktiviteten för att skapa ett HDIn
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. I Azure-portalen väljer du **skapa en resurs** > **Data och analys** > **Data Factory**.
+1. I den vänstra menyn, Välj **+ skapa en resurs**.
+
+1. Under **Azure Marketplace**väljer **Analytics**.
+
+1.  Under **aktuell**väljer **Data Factory**.
 
     ![Azure Data Factory på portalen](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Azure Data Factory på portalen")
 
@@ -181,19 +185,18 @@ I den här artikeln får konfigurera du Hive-aktiviteten för att skapa ett HDIn
     |**Namn** |  Ange ett namn för data factory. Det här namnet måste vara globalt unikt.|
     |**Prenumeration**     |  Välj din Azure-prenumeration. |
     |**Resursgrupp**     | Välj **Använd befintlig** och välj sedan den resursgrupp du skapade med hjälp av PowerShell-skriptet. |
-    |**Version**     | Välj **V2 (förhandsversion)** |
-    |**Plats**     | Platsen anges automatiskt till den plats du angav när du skapar resursgruppen tidigare. Den här självstudien platsen anges till **östra USA 2**. |
+    |**Version**     | Välj **V2** |
+    |**Plats**     | Platsen anges automatiskt till den plats du angav när du skapar resursgruppen tidigare. Den här självstudien platsen anges till **USA, östra**. |
     
 
-1. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**. Du ser en ny panel som heter **Skicka distribution** på portalens instrumentpanel. Skapa en datafabrik kan ta allt mellan 2 till 4 minuter.
+1. Välj **Skapa**. Skapa en datafabrik kan ta allt mellan 2 till 4 minuter.
 
-    ![Mallen förloppsindikator](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "mall förloppsindikator") 
- 
-1. När datafabriken har skapats, visar portalen översikt för data factory.
 
-    ![Översikt över Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory-översikt")
+1. När datafabriken har skapats får du en **distributionen lyckades** -meddelande med en **gå till resurs** knappen.  Välj **gå till resurs** att öppna standardvyn för Data Factory.
 
 1. Välj **författare och Övervakare** att starta Azure Data Factory skapande och övervakning av portalen.
+
+    ![Översikt över Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory-översikt")
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: dda4e26de74dbd5579f2dd45ea47f42c904f028f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 74776a658c7a0002df40b1b3ccb572e9b9262540
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271733"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972933"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
-Du kan automatisera konfigurationen av [aviseringar](app-insights-alerts.md) i [Application Insights](app-insights-overview.md).
+Du kan automatisera konfigurationen av [aviseringar](../azure-monitor/app/alerts.md) i [Application Insights](app-insights-overview.md).
 
 Dessutom kan du [ange webhooks för att automatisera dina svar på en avisering](../azure-monitor/platform/alerts-webhooks.md).
 
@@ -81,7 +81,7 @@ GUID är prenumerations-ID (inte instrumenteringsnyckeln för programmet).
      -Location "East US" -RuleType Metric
 
 ## <a name="example-2"></a>Exempel 2
-Jag har ett program som jag använder [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) att rapportera ett mått med namnet ”salesPerHour”. Skicka ett e-postmeddelande till min kollegor om ”salesPerHour” sjunker under 100, som ett genomsnitt under 24 timmar.
+Jag har ett program som jag använder [TrackMetric()](../azure-monitor/app/api-custom-events-metrics.md#trackmetric) att rapportera ett mått med namnet ”salesPerHour”. Skicka ett e-postmeddelande till min kollegor om ”salesPerHour” sjunker under 100, som ett genomsnitt under 24 timmar.
 
     Add-AzureRmMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -94,7 +94,7 @@ Jag har ett program som jag använder [TrackMetric()](app-insights-api-custom-ev
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-Samma regel kan användas för det mått som rapporteras med hjälp av den [mätning parametern](app-insights-api-custom-events-metrics.md#properties) i en annan spårnings-anrop, till exempel TrackEvent eller flyttat trackPageView.
+Samma regel kan användas för det mått som rapporteras med hjälp av den [mätning parametern](../azure-monitor/app/api-custom-events-metrics.md#properties) i en annan spårnings-anrop, till exempel TrackEvent eller flyttat trackPageView.
 
 ## <a name="metric-names"></a>Tjänstmåttets namn
 | Måttnamn | Skärmnamn | Beskrivning |
@@ -120,16 +120,16 @@ Samma regel kan användas för det mått som rapporteras med hjälp av den [mät
 | `request.rate` |Förfrågningsfrekvens |Hastighet för alla förfrågningar till programmet per sekund. |
 | `requestFailed.count` |Misslyckade förfrågningar |Antal HTTP-begäranden som resulterade i en svarskoden > = 400 |
 | `view.count` |Sidvisning |Antal klientens användarbegäranden för en webbsida. Syntetisk trafik filtreras. |
-| {din anpassade Måttnamn} |{Måttnamnet} |Din måttvärde rapporteras av [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) eller i den [mätningar av parametern för ett spårnings-anrop](app-insights-api-custom-events-metrics.md#properties). |
+| {din anpassade Måttnamn} |{Måttnamnet} |Din måttvärde rapporteras av [TrackMetric](../azure-monitor/app/api-custom-events-metrics.md#trackmetric) eller i den [mätningar av parametern för ett spårnings-anrop](../azure-monitor/app/api-custom-events-metrics.md#properties). |
 
 Mått som skickas av flera telemetriska moduler:
 
 | Metrisk grupp | Insamlaren modul |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>vy |[Webbläsaren JavaScript](app-insights-javascript.md) |
-| performanceCounter |[Prestanda](app-insights-configuration-with-applicationinsights-config.md) |
-| remoteDependencyFailed |[Beroende](app-insights-configuration-with-applicationinsights-config.md) |
-| begäran<br/>requestFailed |[Serverbegäran](app-insights-configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>vy |[Webbläsaren JavaScript](../azure-monitor/app/javascript.md) |
+| performanceCounter |[Prestanda](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Beroende](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| begäran<br/>requestFailed |[Serverbegäran](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhooks
 Du kan [automatisera dina svar på en avisering](../azure-monitor/platform/alerts-webhooks.md). Azure anropar en webbadress för valfri när en avisering genereras.

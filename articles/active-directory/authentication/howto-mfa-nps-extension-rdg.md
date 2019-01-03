@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 013b63d0eb2cc69893dcb4075c1ca26a31ef2474
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: db7591c98147a5728486843efb0c807b6094557a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277989"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601482"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera fjärrskrivbordsgateway infrastruktur med Network Policy Server (NPS)-tillägget och Azure AD
 
@@ -26,7 +26,7 @@ Nätverksprincipserver (NPS)-tillägget för Azure kan kunderna att skydda Remot
 Den här artikeln innehåller stegvisa instruktioner för att integrera NPS-infrastruktur med Azure MFA med NPS-tillägget för Azure. På så sätt kan säker verifiering för användare som försöker logga in på en fjärrskrivbordsgateway.
 
 > [!NOTE]
-> Den här artikeln bör inte användas tillsammans med MFA Server-distributioner endast Azure MFA (molnbaserade).
+> Den här artikeln bör inte användas tillsammans med MFA Server-distributioner och bör endast användas med Azure MFA (molnbaserade) distributioner.
 
 Nätverksprinciper och Access Services (NPS) gör att organisationer kan du göra följande:
 
@@ -162,7 +162,7 @@ Om du vill använda skriptet, ger du tillägget med dina administratörsautentis
 
 1. Öppna en administrativ Windows PowerShell-prompt.
 1. I PowerShell-Kommandotolken skriver `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`, och tryck på **RETUR**.
-1. Typ `.\AzureMfsNpsExtnConfigSetup.ps1`, och tryck på **RETUR**. Skriptet kontrollerar om Azure Active Directory PowerShell-modulen är installerad. Om inte har installerats installerar skriptet modulen åt dig.
+1. Typ `.\AzureMfaNpsExtnConfigSetup.ps1`, och tryck på **RETUR**. Skriptet kontrollerar om Azure Active Directory PowerShell-modulen är installerad. Om inte har installerats installerar skriptet modulen åt dig.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

@@ -8,20 +8,20 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581008"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651783"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Skapa Apache Spark Streaming jobb med exakt-gång bearbetning
 
 Stream bearbetning program vidta olika metoder för hur de hanterar igen bearbetnings meddelanden efter några fel i systemet:
 
-* Minst en gång: varje meddelande som kommer att bearbetas, men det kan bearbetas mer än en gång.
-* Högst en gång: varje meddelande kan eller inte kan bearbetas. Om meddelandet har bearbetats kan bearbetas det bara en gång.
-* Exakt en gång: varje meddelande som kommer att bearbetas en gång och bara en gång.
+* Minst en gång: Varje meddelande som kommer att bearbetas, men det kan bearbetas mer än en gång.
+* Högst en gång: Varje meddelande kan eller inte kan bearbetas. Om meddelandet har bearbetats kan bearbetas det bara en gång.
+* Exakt en gång: Varje meddelande är säkert att bearbetas en gång och bara en gång.
 
 Den här artikeln visar hur du konfigurerar Spark Streaming för att få exakt-bearbetning av en gång.
 
@@ -29,11 +29,11 @@ Den här artikeln visar hur du konfigurerar Spark Streaming för att få exakt-b
 
 Överväg först hur alla system i felpunkter starta om när du har ett problem och hur du kan undvika dataförlust. Ett program med Spark Streaming har:
 
-* En indatakälla
-* En eller flera mottagare-processer som hämtar data från Indatakällan
-* Uppgifter som bearbetar data
-* En utdatamottagare
-* En drivrutin process som hanterar långvariga jobb
+* Ingen källa.
+* En eller flera mottagare processer som hämtar data från Indatakällan.
+* Uppgifter som bearbetar data.
+* En utdatamottagare.
+* En drivrutin process som hanterar långvariga jobb.
 
 Exakt-när semantik kräver att ingen data går förlorad när som helst och den meddelandebehandling är kan startas om, oavsett där felet inträffade.
 
@@ -41,7 +41,7 @@ Exakt-när semantik kräver att ingen data går förlorad när som helst och den
 
 Spark Streaming programmet läser händelser från måste vara *replayable*. Det innebär att i fall där meddelandet hämtades men sedan systemet misslyckades innan meddelandet kunde sparas eller bearbetas källa måste du ange samma meddelande igen.
 
-I Azure, både Azure Event Hubs och [Apache Kafka](https://kafka.apache.org/) på HDInsight ger replayable källor. Ett annat exempel på en replayable källa är en feltolerant filsystem som [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage-blobbar eller Azure Data Lake Store, där alla data förblir alltid och när som helst kan du uppdatera läser dessa data i sin helhet.
+I Azure, både Azure Event Hubs och [Apache Kafka](https://kafka.apache.org/) på HDInsight ger replayable källor. Ett annat exempel på en replayable källa är en feltolerant filsystem som [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage-blobbar eller Azure Data Lake Storage där alla data förblir alltid och när som helst kan du uppdatera läser dessa data i sin helhet.
 
 ### <a name="reliable-receivers"></a>Tillförlitlig mottagare
 
@@ -49,7 +49,7 @@ Datakällor i Spark Streaming Event Hubs och Kafka har *tillförlitlig mottagare
 
 ### <a name="use-the-write-ahead-log"></a>Använd Write-Ahead loggen
 
-Spark Streaming stöder användning av en Skriv-Ahead loggen, där varje mottagna händelse först skrivs till Sparks kontrollpunkt katalog i feltolerant storage och sedan sparas i en Resilient Distributed Dataset (RDD). I Azure är feltolerant lagringen HDFS som backas upp av Azure Storage eller Azure Data Lake Store. I ditt Spark Streaming-program, Skriv-Ahead loggen är aktiverad för alla mottagare genom att ange den `spark.streaming.receiver.writeAheadLog.enable` konfigurationsinställning till `true`. Skriv-Ahead loggen ger feltolerans för fel i både drivrutinen och executors.
+Spark Streaming stöder användning av en Skriv-Ahead loggen, där varje mottagna händelse först skrivs till Sparks kontrollpunkt katalog i feltolerant storage och sedan sparas i en Resilient Distributed Dataset (RDD). I Azure är feltolerant lagringen HDFS som backas upp av Azure Storage eller Azure Data Lake Storage. I ditt Spark Streaming-program, Skriv-Ahead loggen är aktiverad för alla mottagare genom att ange den `spark.streaming.receiver.writeAheadLog.enable` konfigurationsinställning till `true`. Skriv-Ahead loggen ger feltolerans för fel i både drivrutinen och executors.
 
 Varje RDD är per definition både replikeras och distribueras över flera arbetare för arbeten aktiviteter som körs mot händelsedata. Om en aktivitet misslyckas eftersom den worker som kör den kraschat uppgiften kommer att startas om i en annan arbetsprocess som har en replik av händelsedata, så förloras inte händelsen.
 
@@ -66,7 +66,7 @@ Kontrollpunkter är aktiverade i Spark Streaming i två steg.
     ssc.checkpoint("/path/to/checkpoints")
     ```
 
-    I HDInsight, bör kontrollpunkterna sparas till standardlagring kopplat till ditt kluster, antingen Azure Storage eller Azure Data Lake Store.
+    I HDInsight, bör kontrollpunkterna sparas till standardlagring kopplat till ditt kluster, antingen Azure Storage eller Azure Data Lake Storage.
 
 2. Ange sedan en Kontrollpunktsintervall (i sekunder) på DStream. Vid varje intervall beständiga tillståndsdata som härletts från den inkommande händelsen till lagring. Beständiga data kan minska beräkningen behövs när tillstånd från händelsen som källan.
 
@@ -85,7 +85,7 @@ Du kan skapa idempotenta mottagare genom att implementera logik som först kontr
 
 Du kan till exempel använda en lagrad procedur med Azure SQL Database som infogar händelser i en tabell. Den här lagrade proceduren först letas upp i händelse av nyckelfält, men endast när ingen matchande händelse att hitta posten infogas i tabellen.
 
-Ett annat exempel är att använda en partitionerad filsystem, som Azure Storage-blobbar eller Azure Data Lake store. I det här fallet behöver inte mottagare logik att söka efter förekomsten av en fil. Om filen som representerar händelsen finns skrivs det bara över med samma data. I annat fall skapas en ny fil på den beräknade sökvägen.
+Ett annat exempel är att använda ett partitionerade filsystem, som Azure Storage-blobbar eller Azure Data Lake Storage. I det här fallet behöver inte mottagare logik att söka efter förekomsten av en fil. Om filen som representerar händelsen finns skrivs det bara över med samma data. I annat fall skapas en ny fil på den beräknade sökvägen.
 
 ## <a name="next-steps"></a>Nästa steg
 

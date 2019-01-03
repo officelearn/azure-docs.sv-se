@@ -1,5 +1,5 @@
 ---
-title: Kör Azure Batch-arbetsbelastningar på kostnadseffektiv lågprioriterade virtuella datorer | Microsoft Docs
+title: Köra arbetsbelastningar på kostnadseffektiv lågprioriterade virtuella datorer – Azure Batch | Microsoft Docs
 description: Lär dig hur du etablerar lågprioriterade virtuella datorer för att minska kostnaden för Azure Batch-arbetsbelastningar.
 services: batch
 author: mscurrell
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec18
+ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093011"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546801"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Använda lågprioriterade virtuella datorer med Batch
 
@@ -42,11 +43,11 @@ Angivna egenskaperna för lågprioriterade virtuella datorer, vilka arbetsbelast
 
 Några exempel på batch-bearbetning användningsfall och bäst om du vill använda lågprioriterade virtuella datorer är:
 
--   **Utveckling och testning**: I synnerhet om lösningar för storskaliga håller på att utvecklas, stora besparingar kan realiseras. Alla typer av testning kan vara till fördel, men storskaliga belastningstest och regression testning är bra använder.
+-   **Utveckling och testning**: I synnerhet om lösningar för storskaliga håller på att utvecklas, kan stora besparingar realiseras. Alla typer av testning kan vara till fördel, men storskaliga belastningstest och regression testning är bra använder.
 
--   **Kompletta kapacitet på begäran**: lågprioriterade virtuella datorer som kan användas för att komplettera regular dedikerade virtuella datorer – när det är tillgängligt, jobb kan skala och därför slutföra snabbare till lägre kostnad, när det är inte tillgänglig, baslinje för dedikerade virtuella datorer fortfarande är tillgänglig .
+-   **Kompletta kapacitet på begäran**: Lågprioriterade virtuella datorer som kan användas för att komplettera regular dedikerade virtuella datorer – när det är tillgängligt, jobb skala och därför slutföra snabbare till lägre kostnad; baslinje för dedikerade virtuella datorer fortfarande tillgängligt när det är inte tillgängligt.
 
--   **Körningstiden för flexibla jobben**: om det finns flexibilitet i tid jobben har slutförts, och sedan potentiella fall kapacitet kan tillåtas, men med tillägget av lågprioriterade virtuella datorer jobb ofta köras snabbare och till en lägre kostnad.
+-   **Körningstiden för flexibla jobben**: Om det är flexibilitet i tiden jobb har slutförts och sedan potentiella fall kapacitet kan tolereras, men med tillägget av lågprioriterade virtuella datorer körs jobben ofta snabbare och till en lägre kostnad.
 
 Batch-pooler kan konfigureras för att använda lågprioriterade virtuella datorer på flera sätt, beroende på flexibilitet vid körningstid för jobb:
 

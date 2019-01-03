@@ -1,21 +1,22 @@
 ---
-title: Förstå hur du använder Azure Digital Twins Swagger | Microsoft Docs
-description: Använd Azure Digital Twins Swagger
+title: Förstå hur du använder Azure Digital Twins referens Swagger | Microsoft Docs
+description: För att förstå hur du använder Azure Digital Twins Swagger referensdokumentation.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/31/2018
 ms.author: adgera
-ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624258"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975652"
 ---
-# <a name="use-azure-digital-twins-swagger"></a>Använd Azure Digital Twins Swagger
+# <a name="azure-digital-twins-swagger-reference-documentation"></a>Referensdokumentation för Azure Digital Twins Swagger
 
 Varje etablerade Azure Digital Twins-instans innehåller en egen automatiskt genererade Swagger-referensdokumentation.
 
@@ -34,19 +35,19 @@ Swagger innehåller en interaktiv sammanfattning av ditt API, vilket innefattar:
 * Exempel Svarsinformation som används för att validera och bekräfta HTTP-svar.
 * Information om felet.
 
-Swagger är ett praktiskt verktyg som hjälper till med utveckling och testning anrop till API Management.
+Swagger är ett praktiskt verktyg som hjälper till med utveckling och testning anrop som görs till Azure Digital Twins Management API: erna.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Referensmaterial
 
-Automatiskt genererade referensmaterial förklarar viktiga begrepp och objektmodeller.
+Det automatiskt genererade Swagger-referensmaterialet tillhandahåller en snabb överblick över viktiga begrepp, tillgängliga Management API-slutpunkter och en beskrivning av varje objektmodellen för att hjälpa utveckling och testning.
 
 En kortfattad sammanfattning beskriver API: et.
 
 ![Swagger upp][1]
 
-Core API-objektmodeller visas också.
+Hantering av API-objektmodeller visas också.
 
 ![Swagger-modeller][2]
 
@@ -58,7 +59,7 @@ De genererade Swagger-objektmodellerna bekvämt att se alla tillgängliga Azure 
 
 ## <a name="endpoint-summary"></a>Sammanfattning av slutpunkt
 
-Swagger innehåller också en omfattande översikt över alla slutpunkter som ska utgöra API: et.
+Swagger innehåller också en omfattande översikt över alla slutpunkter som ska utgöra Management-API: er.
 
 Varje listad slutpunkt innehåller också nödvändiga informationen, till exempel den:
 

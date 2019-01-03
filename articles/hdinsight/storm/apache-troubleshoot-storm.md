@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8b0f1cfe56923cbd8a5b1c517cfdc3b174088715
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5634d812b3fbd4e904516767b008f63104b3d7b7
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086147"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632746"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Felsöka Apache Storm med Azure HDInsight
 
@@ -54,7 +54,7 @@ Lib-mappen har .jar-filerna som innehåller implementeringen för export/import-
 
 Kör den [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) skriptet från ZooKeeper-noder att exportera och importera data. Uppdatera skriptet till rätt Hortonworks Data Platform (HDP) version. (Vi arbetar på att göra dessa skript allmän i HDInsight. Allmänt skript kan köras från en nod i klustret utan ändringar av användaren.)
 
-Kommandot Exportera skriver metadata till en Apache Hadoop Distributed File System (HDFS)-sökväg (i en Azure Blob Storage eller Azure Data Lake Store store) på en plats som du anger.
+Kommandot Exportera skriver metadata till en Apache Hadoop Distributed File System (HDFS)-sökväg (i Azure Blob Storage eller Azure Data Lake Storage) på en plats som du anger.
 
 ### <a name="examples"></a>Exempel
 
@@ -87,7 +87,7 @@ Storm-binärfiler för den aktuella HDP-stacken finns i /usr/hdp/current/storm-c
  
 Det kan finnas flera binärfiler för specifika HDP-versioner i /usr/hdp (till exempel /usr/hdp/2.5.0.1233/storm). Mappen /usr/hdp/current/storm-client är symlinked till den senaste versionen som körs på klustret.
 
-Mer information finns i [ansluta till ett HDInsight-kluster med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) och [Storm](http://storm.apache.org/).
+Mer information finns i [ansluta till ett HDInsight-kluster med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) och [Apache Storm](https://storm.apache.org/).
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Hur vet jag topologi för distribution av ett Storm-kluster?
 Först identifiera alla komponenter som installeras med HDInsight Storm. Ett Storm-kluster består av fyra nod kategorier:

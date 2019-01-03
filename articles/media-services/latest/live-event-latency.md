@@ -11,20 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: b167d3424d520cf8be515eec9d495164dd9785ab
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: f4ded67ef964482a2acea0d731b1b154a95168d2
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682103"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741359"
 ---
 # <a name="liveevent-latency-in-media-services"></a>LiveEvent svarstid i Media Services
 
-Den här artikeln visar hur du anger med låg latens för en **LiveEvent**. Det innehåller också information om typiska resultat som visas när du använder med låg latens-inställningar i olika spelare. Resultatet varierar beroende på CDN och nätverksfördröjning. 
+Den här artikeln visar hur du anger med låg latens för en [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents). Det innehåller också information om typiska resultat som visas när du använder med låg latens-inställningar i olika spelare. Resultatet varierar beroende på CDN och nätverksfördröjning.
 
-Du använder den nya **LowLatency** funktionen kan du ange den **StreamOptionsFlag** till **LowLatency** på den **LiveEvent**. När den är igång, kan du använda den [Azure Media Player](http://ampdemo.azureedge.net/) (AMP) demonstration sidan och ange uppspelningsalternativ att använda ”låg latens heuristik profilen”.
+Du använder den nya **LowLatency** funktionen kan du ange den **StreamOptionsFlag** till **LowLatency** på den **LiveEvent**. När du skapar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) HLS uppspelning ange [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) till 1. När den är igång, kan du använda den [Azure Media Player](http://ampdemo.azureedge.net/) (AMP demo sidan) och ange uppspelningsalternativ att använda ”låg latens heuristik profilen”.
+
+> [!NOTE]
+> För närvarande är LowLatency HeuristicProfile i Azure Media Player utformad för att spela strömmar i protokollet DASH eller HLS med CMAF. Om du arbetar med MacOS- eller iOS-enheter via HLS med TS (till exempel `format=m3u8-aapl` eller `format=m3u8-aapl-v3`), bör du inte använda den här inställningen eftersom AMP direkt använder den medföljande spelaren som tillhandahålls av Operativsystemet i det här fallet.
 
 I följande .NET-exempel visas hur du ställer in **LowLatency** på den **LiveEvent**:
 
@@ -34,7 +37,7 @@ LiveEvent liveEvent = new LiveEvent(
             description: "Sample LiveEvent for testing",
             vanityUrl: false,
             encoding: new LiveEventEncoding(
-                        // Set this to Basic to enable a transcoding LiveEvent, and None to enable a pass-through LiveEvent
+                        // Set this to Standard to enable a transcoding LiveEvent, and None to enable a pass-through LiveEvent
                         encodingType:LiveEventEncodingType.None, 
                         presetName:null
                     ),

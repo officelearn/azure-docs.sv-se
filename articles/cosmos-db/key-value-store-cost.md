@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8e04439d63646a8aebe224adbf629491cc2dfbc6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134190"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547226"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB som ett nyckelvärde – kostnaden översikt
 
-Azure Cosmos DB är en globalt distribuerad databastjänst för att bygga högtillgängliga, storskaliga program enkelt. Azure Cosmos DB indexerar automatiskt alla data som den matar in, effektivt som standard. Detta möjliggör snabbt och konsekvent [SQL](how-to-sql-query.md) (och [JavaScript](programming.md)) frågor för alla typer av data. 
+Azure Cosmos DB är en globalt distribuerad databastjänst för att bygga högtillgängliga, storskaliga program enkelt. Azure Cosmos DB indexerar automatiskt alla data som den matar in, effektivt som standard. Detta möjliggör snabbt och konsekvent [SQL](how-to-sql-query.md) (och [JavaScript](stored-procedures-triggers-udfs.md)) frågor för alla typer av data. 
 
 Den här artikeln beskriver kostnaden för Azure Cosmos DB för skrivning enkla och läsåtgärder när den används som en nyckel/värde-lager. Skriva-åtgärder inkluderar infogningar, ersätter, borttagningar och upsertar av dokument. Förutom, vilket ger en 99,99% tillgänglighet för alla och alla konton i flera regioner med Avslappnad konsekvens och 99,999% läsningstillgänglighet för alla databaskonton, Azure Cosmos DB erbjuder garanterad < 10 ms svarstid för läser och < 15 ms svarstid för (indexerade), vid skrivning vid 99: e percentilen. 
 

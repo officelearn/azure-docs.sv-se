@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 2b3e8877713fde088be2147bbfa8969e351a3f06
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: aacfc98a9132a59c90a8f67d5a3877b75fa59dfe
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326361"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605593"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Anpassade mått i Azure Monitor
 
@@ -25,7 +25,7 @@ Anpassade mått kan skickas till Azure Monitor via flera olika sätt:
 - Instrumentera programmet med hjälp av Azure Application Insights SDK och skicka telemetri om anpassade till Azure Monitor. 
 - Installera tillägget Windows Azure Diagnostics SÄKERHETSSPECIFIKA på din [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [virtual machine scale Sets](collect-custom-metrics-guestos-resource-manager-vmss.md), [klassisk virtuell dator](collect-custom-metrics-guestos-vm-classic.md), eller [klassiska molntjänster](collect-custom-metrics-guestos-vm-cloud-service-classic.md) och skicka prestandaräknare till Azure Monitor. 
 - Installera den [InfluxData Telegraf agenten](collect-custom-metrics-linux-telegraf.md) på virtuell Linux-dator och skicka mått med hjälp av Azure Monitor utdata plugin-programmet.
-- Skicka anpassade mått [direkt till Azure Monitor REST API](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Skicka anpassade mått [direkt till Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 När du skickar anpassade mått till Azure Monitor, varje datapunkt, eller värdet som rapporteras måste innehålla följande information.
 
@@ -57,7 +57,7 @@ Den här egenskapen samlar in den resurs som du mått för distribueras i vilka 
 ### <a name="timestamp"></a>Tidsstämpel
 Varje datapunkt som skickas till Azure Monitor måste markeras med en tidsstämpel. Den här tidsstämpeln avbildar datum/tid då mätvärdet mäts eller samlas in. Azure Monitor accepterar måttdata med tidsstämplar som är så långt det är 20 minuter tidigare och 5 minuter i framtiden.
 
-### <a name="namespace"></a>Namnrymd
+### <a name="namespace"></a>Namnområde
 Namnområden är ett sätt att kategorisera eller gruppera liknande mått. Du kan uppnå isolering mellan grupper av mått som kan samla in olika insights eller nyckeltal med hjälp av namnområden. Du kan till exempel ha ett namnområde som kallas **ContosoMemoryMetrics** som spårar minnesanvändning mått som profilera din app. En annan namnrymd som kallas **ContosoAppTransaction** kan spåra alla mått om användartransaktioner i ditt program.
 
 ### <a name="name"></a>Namn
@@ -193,6 +193,6 @@ Använda anpassade mått från olika tjänster:
  - [Virtual machine scale Sets](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure-datorer (klassisk)](collect-custom-metrics-guestos-vm-classic.md)
  - [Linux-dator med hjälp av Telegraf-agent](collect-custom-metrics-linux-telegraf.md)
- - [REST-API](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md)
+ - [REST-API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Klassiska molntjänster](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

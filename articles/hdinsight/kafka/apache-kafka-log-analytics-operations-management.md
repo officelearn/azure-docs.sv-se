@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: bd8bfb8775bc9c988bb7484ac25f189c3ff46991
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 69eaa0028f1115cafbd1ed28b66940d7faaed062
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317287"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608553"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka på HDInsight
 
@@ -30,7 +30,7 @@ Stegen för att aktivera Log Analytics för HDInsight är desamma för alla HDIn
 
 3. Konfigurera Kafka-kluster för att använda Log Analytics. Mer information finns i den [med Log Analytics kan du övervaka HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) dokumentet.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Du kan också konfigurera kluster för att använda Log Analytics med hjälp av den `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Denna cmdlet kräver följande information:
     >
     > * HDInsight-klustrets namn.
@@ -38,7 +38,7 @@ Stegen för att aktivera Log Analytics för HDInsight är desamma för alla HDIn
     > * Den primära nyckeln för Log Analytics-anslutning. För att hitta den primära nyckeln, öppen arbetsytan i Azure portal, Välj __avancerade inställningar__ menyn till vänster. Avancerade inställningar, Välj __anslutna källor__>__Linux-servrar__.
 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Det kan ta cirka 20 minuter innan data är tillgängliga för Log Analytics.
 
 ## <a name="query-logs"></a>Frågeloggar
@@ -57,7 +57,7 @@ Stegen för att aktivera Log Analytics för HDInsight är desamma för alla HDIn
 
     * Utgående byte per sekund: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Ersätt värdena fråga med din specifika information för klustret. Till exempel `ClusterName_s` måste anges till namnet på klustret. `HostName_s` måste anges till domännamnet för en underordnad nod i klustret.
 
     Du kan också ange `*` att söka alla typer som är inloggad. För närvarande är följande loggar tillgängliga för frågor:

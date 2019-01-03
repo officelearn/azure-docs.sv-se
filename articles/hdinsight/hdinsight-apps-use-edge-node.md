@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5994abaf0276d915553494b7272d2a8abed451bb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: da6435c6e3ea5fe88b605bd65c5d0e10f1772450
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498618"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717474"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använda tomma kantnoder på Apache Hadoop-kluster i HDInsight
 
@@ -57,15 +57,15 @@ Edge-nodstorlek för virtuell dator måste uppfylla storlekskraven för HDInsigh
 
 När du har skapat en kantnod, kan du ansluta till gränsnoden via SSH och kör klientverktyg för att komma åt Hadoop-kluster i HDInsight.
 
-> [!WARNING] 
+> [!WARNING]   
 > Anpassade komponenter som är installerade på gränsnoden får kommersiellt rimlig support från Microsoft. Detta kan resultera i att lösa eventuella problem. Eller så kan du hänvisas till community-resurser för ytterligare hjälp. Följande är några av de mest aktiva webbplatser för att få hjälp från communityn:
 >
 > * [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
-> * [http://stackoverflow.com](http://stackoverflow.com).
+> * [https://stackoverflow.com](https://stackoverflow.com).
 >
-> Om du använder en Apache-teknik kan du kanske kan hitta hjälp via Apache project-webbplatser på [ http://apache.org ](http://apache.org), till exempel den [Apache Hadoop](http://hadoop.apache.org/) plats.
+> Om du använder en Apache-teknik kan du kanske kan hitta hjälp via Apache project-webbplatser på [ https://apache.org ](https://apache.org), till exempel den [Apache Hadoop](https://hadoop.apache.org/) plats.
 
-> [!NOTE]
+> [!NOTE]  
 > Precis som andra klusternoder är kantnoder också patch hanteras.  Mer information finns i [OS-korrigering för HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Lägg till en edge-nod i ett befintligt kluster
@@ -80,14 +80,14 @@ I det här avsnittet använder du Resource Manager-mall för att lägga till en 
    
    * **Prenumeration**: Välj en Azure-prenumeration används för att skapa klustret.
    * **Resursgrupp**: Välj den resursgrupp som används för det befintliga HDInsight-klustret.
-   * **Plats**: Välj platsen i det befintliga HDInsight-klustret.
+   * **Plats**: Välj platsen för det befintliga HDInsight-klustret.
    * **Klusternamn**: Ange namnet på ett befintligt HDInsight-kluster.
    * **Edge-nodstorlek**: Välj någon av VM-storlekar. Virtuella datorstorlek måste uppfylla storlekskraven för worker noden vm. Rekommenderade worker noden vm-storlekar finns i [skapa Apache Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
-   * **Edge-nod prefixet**: standardvärdet är **nya**.  Med hjälp av standardvärdet, namnet på edge-noden är **nya edgenode**.  Du kan anpassa prefixet från portalen. Du kan också anpassa det fullständiga namnet från mallen.
+   * **Edge-nod Prefix**: Standardvärdet är **nya**.  Med hjälp av standardvärdet, namnet på edge-noden är **nya edgenode**.  Du kan anpassa prefixet från portalen. Du kan också anpassa det fullständiga namnet från mallen.
 
 4. Kontrollera **jag godkänner villkoren som anges ovan**, och klicka sedan på **köp** att skapa kantnoden.
 
->[!IMPORTANT]
+>[!IMPORTANT]  
 > Se till att välja Azure-resursgrupp för det befintliga HDInsight-klustret.  I annat fall får felmeddelandet ”Det går inte att utföra åtgärden på kapslad resurs. Överordnad resurs '&lt;klusternamn >' hittades inte ”.
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Lägg till en kantnod när du skapar ett kluster
@@ -102,16 +102,16 @@ I det här avsnittet ska använda du Resource Manager-mall för att skapa HDInsi
 3. Konfigurera följande egenskaper:
    
    * **Prenumeration**: Välj en Azure-prenumeration används för att skapa klustret.
-   * **Resursgrupp**: skapa en ny resursgrupp som används för klustret.
+   * **Resursgrupp**: Skapa en ny resursgrupp som används för klustret.
    * **Plats**: Välj en plats för resursgruppen.
    * **Klusternamn**: Ange ett namn för det nya klustret att skapa.
-   * **Kluster-användarnamnet för inloggningen**: Ange det Hadoop-HTTP-användarnamnet.  Standardnamnet är **admin**.
-   * **Kluster inloggningslösenordet**: Ange det Hadoop-HTTP-användarlösenordet.
-   * **SSH användarnamn**: Ange SSH-användarnamn. Standardnamnet är **sshuser**.
-   * **SSH lösenord**: Ange SSH-användarlösenordet.
+   * **Kluster-användarnamnet för inloggningen**: Ange http-Hadoop-användarnamn.  Standardnamnet är **admin**.
+   * **Kluster inloggningslösenordet**: Ange lösenordet för Hadoop-HTTP-användare.
+   * **SSH-användarnamn**: Ange SSH-användarnamn. Standardnamnet är **sshuser**.
+   * **SSH lösenord**: Ange lösenord för SSH-användaren.
    * **Installera skriptåtgärd**: Behåll standardvärdet för att gå igenom den här kursen.
      
-     Vissa egenskaper har hårdkodats i mallen: typ av kluster, antalet klusternoder worker, Edge nodstorlek och Edge nodnamnet.
+     Vissa egenskaper har hårdkodats i mallen: Typ av kluster, antalet klusternoder worker, Edge nodstorlek och Edge nodnamnet.
 4. Kontrollera **jag godkänner villkoren som anges ovan**, och klicka sedan på **köp** att skapa klustret med kantnoden.
 
 ## <a name="add-multiple-edge-nodes"></a>Lägga till flera edge-noder
@@ -155,10 +155,10 @@ Du kan ta bort en kantnod från Azure-portalen.
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du lägger till en kantnod och hur du åtkomst till kantnoden. Mer information finns i följande artiklar:
 
-* [Installera HDInsight-program](hdinsight-apps-install-applications.md): Läs mer om hur du installerar ett HDInsight-program till dina kluster.
+* [Installera HDInsight-program](hdinsight-apps-install-applications.md): Lär dig hur du installerar ett HDInsight-program till dina kluster.
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): Lär dig hur du distribuerar ett Opublicerat HDInsight-program till HDInsight.
-* [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
-* [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): information om hur du definierar HDInsight-program.
+* [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): Lär dig hur du publicerar dina anpassade HDInsight-program på Azure Marketplace.
+* [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): Lär dig hur du definierar HDInsight-program.
 * [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md): information om hur du använder skriptåtgärd till att installera fler program.
 * [Skapa Linux-baserade Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Lär dig hur du anropar Resource Manager-mallar för att skapa HDInsight-kluster.
 

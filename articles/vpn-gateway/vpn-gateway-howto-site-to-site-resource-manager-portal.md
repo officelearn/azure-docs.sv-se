@@ -1,18 +1,18 @@
 ---
-title: 'Ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk: VPN från plats till plats: Portal | Microsoft Docs'
+title: 'Anslut ditt lokala nätverk till ett Azure-nätverk: Plats-till-plats-VPN: Portalen | Microsoft Docs'
 description: Steg för att skapa en IPsec-anslutning från ditt lokala nätverk till ett virtuellt Azure-nätverk via offentligt Internet. Dessa steg hjälper dig att skapa en plats-till-plats-anslutning med VPN Gateway med hjälp av portalen.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: dd29b4af85826e350e116b31fa53031aacaba067
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457127"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651647"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Skapa en plats-till-plats-anslutning på Azure Portal
 
@@ -35,28 +35,28 @@ En VPN-gatewayanslutning från plats till plats används för att ansluta ditt l
 Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
 * Kontrollera att du har en kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter och enhetskonfiguration.
-* Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
+* Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten.
 * Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen. När du skapar den här konfigurationen måste du ange prefix för IP-adressintervall som Azure dirigerar till den lokala platsen. Inget av undernäten i ditt lokala nätverk kan överlappa de virtuella nätverksundernät du vill ansluta till. 
 
 ### <a name="values"></a>Exempelvärden
 
 Vi använder följande värden i exemplen. Du kan använda värdena till att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln. Mer information om VPN-gatewayinställningar finns i [Om VPN Gateway-inställningar](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **VNet-namn:** TestVNet1
+* **Namn på virtuellt nätverk:** TestVNet1
 * **Adressutrymme:** 10.1.0.0/16
-* **Prenumeration:** Ange den prenumeration som du vill använda
+* **Prenumeration:** Den prenumeration som du vill använda
 * **Resursgrupp:** TestRG1
 * **Plats:** Östra USA
-* **Undernät:** FrontEnd (klientdel): 10.1.0.0/24, BackEnd (serverdel): 10.1.1.0/24 (valfritt för den här övningen)
-* **Namn för gateway-undernät:** GatewaySubnet (anges automatiskt i portalen)
-* **Adressintervall för gateway-undernätet:** 10.1.255.0/27
-* **DNS-server:** 8.8.8.8 – valfritt. IP-adressen för din DNS-server.
-* **Namn på virtuell nätverksgateway:** VNet1GW
-* **Offentlig IP:** VNet1GWIP
+* **Undernät:** Klientdel: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (valfritt för den här övningen)
+* **Namn på gateway-undernät:** GatewaySubnet (det här kommer Autofyll i portalen)
+* **Adressintervall för Gatewayundernät:** 10.1.255.0/27
+* **DNS-Server:** 8.8.8.8 – valfritt. IP-adressen för din DNS-server.
+* **Det virtuella nätverkets Gateway Name:** VNet1GW
+* **Offentlig IP-adress:** VNet1GWIP
 * **VPN-typ:** Routningsbaserad
 * **Anslutningstyp:** Plats-till-plats (IPsec)
 * **Gateway-typ:** VPN
-* **Gateway-namn på lokalt nätverk:** Site1
+* **Lokala Gateway-namn:** Site1
 * **Anslutningsnamn:** VNet1toSite1
 * **Delad nyckel:** I det här exemplet använder vi abc123. Men du kan använda det som är kompatibelt med din VPN-maskinvara. Huvudsaken är att värdena matchar på båda sidorna av anslutningen.
 

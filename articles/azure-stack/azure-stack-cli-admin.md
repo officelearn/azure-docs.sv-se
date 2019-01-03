@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: e9309f8cb46b31ded46b705308465ac6f6c89204
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c2827a4badd61aeb8de556795834dee39769e85e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585194"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554511"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Aktivera Azure CLI för Azure Stack-användare
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan ange Certifikatutfärdarens rotcertifikat för användare av Azure Stack så att de kan använda Azure CLI på sina datorer för utveckling. Användarna behöver certifikatet som ska hantera resurser via CLI.
 
@@ -38,7 +38,7 @@ I följande avsnitt beskrivs hur du hämtar dessa värden.
 Du hittar Azure Stack Certifikatutfärdarens rotcertifikat på i development kit och på en virtuell klientdator som kör i kit utvecklingsmiljö. Om du vill exportera rotcertifikatet för Azure Stack i PEM-format, logga in på din development kit eller virtuell klientdator och kör följande skript:
 
 ```powershell
-$label = "AzureStackSelfSignedRootCert"
+$label = "<Your Azure Stack CA root certificate name>"
 Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)

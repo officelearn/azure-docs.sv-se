@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: 1d1bc011de579588567fac3debe9d0b4af5d29f7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c203334b0ea1b47aa1884155f477e34bd8f2e1db
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878356"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724767"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Skydda åtkomst till Azure Cosmos DB-data
 Den här artikeln innehåller en översikt över att skydda åtkomsten till data som lagras i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -129,7 +129,7 @@ En behörighet Cosmos DB-resurs är associerad med en Cosmos DB-användare.  Var
 Det finns två tillgängliga åtkomstnivåer som kan utföras av en resurs för behörighet:
 
 * Alla: Användaren har fullständig behörighet på resursen.
-* Läs: Användaren endast kan läsa innehållet i resursen men det går inte att utföra skrivåtgärder, update eller delete-åtgärder på resursen.
+* Läs: Användaren endast kan läsa innehållet i resursen, men det går inte att utföra skrivåtgärder, update eller delete-åtgärder på resursen.
 
 > [!NOTE]
 > Lagrade procedurer som användaren måste ha alla behörigheter för behållaren där den lagrade proceduren körs för att köra Cosmos DB.
@@ -188,10 +188,10 @@ För att lägga till läsåtkomst i Azure Cosmos DB-konto till ditt användarkon
 Entiteten kan nu läsa Azure Cosmos DB-resurser.
 
 ## <a name="delete-or-export-user-data"></a>Ta bort eller exportera användardata
-Azure Cosmos DB kan du söka efter, Välj, ändra och ta bort personliga data i databasen eller samlingar. Azure Cosmos DB tillhandahåller API: er för att hitta och ta bort personliga data men, är det ditt ansvar att använda API: er och definiera logik som krävs för att radera alla personliga data. Varje flermodells-API (SQL-API, MongoDB-API, Gremlin-API, API för Cassandra, tabell-API) tillhandahåller olika språk i SDK: er som innehåller metoder för att söka och ta bort personliga data. Du kan också aktivera den [till live (TTL)](time-to-live.md) att ta bort data automatiskt efter en angiven tidsperiod, utan några ytterligare kostnader.
+Azure Cosmos DB kan du söka efter, Välj, ändra och ta bort personliga data i databasen eller samlingar. Azure Cosmos DB tillhandahåller API: er för att hitta och ta bort personliga data men, är det ditt ansvar att använda API: er och definiera logik som krävs för att radera alla personliga data. Varje flermodells-API (SQL, MongoDB, Gremlin, Cassandra, tabell) tillhandahåller olika språk i SDK: er som innehåller metoder för att söka och ta bort personliga data. Du kan också aktivera den [till live (TTL)](time-to-live.md) att ta bort data automatiskt efter en angiven tidsperiod, utan några ytterligare kostnader.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om Cosmos DB database-säkerhet i [Cosmos DB: databasen security](database-security.md).
+* Läs mer om Cosmos DB database-säkerhet i [Cosmos DB: Databasen security](database-security.md).
 * Läs hur du skapar Azure Cosmos DB-auktoriseringstoken i [åtkomstkontroll på Azure Cosmos DB-resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

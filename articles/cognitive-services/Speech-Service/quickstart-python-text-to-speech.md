@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Konvertera text till tal, Python – Speech Services'
+title: 'Snabbstart: Omvandla text till tal, Python – Speech Services'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten du lär dig hur du konverterar text till tal med Python och REST-API för text till tal. Exempeltext som ingår i den här guiden är strukturerad som tal syntes Markup Language (SSML). På så sätt kan du välja rösten och språket för tal-svaret.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7512c443c49f1518d6a6f7ace7e981d3508b1d7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00f57ccc0e02c8805e9a41fc5bce8f0ca4a3303a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090065"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542534"
 ---
-# <a name="quickstart-convert-text-to-speech-using-python"></a>Snabbstart: Konvertera text till tal med hjälp av Python
+# <a name="quickstart-convert-text-to-speech-using-python"></a>Snabbstart: Omvandla text till tal med hjälp av Python
 
 I den här snabbstarten du lär dig hur du konverterar text till tal med Python och text till tal REST-API. Det begärda innehållet i den här guiden är strukturerad som [tal syntes Markup Language (SSML)](speech-synthesis-markup.md), vilket gör att du kan välja rösten och språket i svaret.
 
@@ -86,7 +86,7 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> Mer information om autentisering finns i [så här hämtar du en åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> Mer information om autentisering finns i [autentisera med åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="make-a-request-and-save-the-response"></a>Gör en begäran och spara svaret
 

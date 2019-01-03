@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 70feaae718bc6ff8e3f956f0fbc6aa395ba27061
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: ede900e135960141ed65b54dc876b1c0c2b90aaa
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410405"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809275"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Om du har ett DocumentDB-API-konto innan, nu har du en SQL API-konto utan ändri
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Vad hände med Azure DocumentDB som en tjänst?
 
-Azure DocumentDB-tjänsten är nu en del av Azure Cosmos DB-tjänsten och visar sig i form av SQL-API. Program som skapats för Azure DocumentDB körs mot Azure Cosmos DB SQL API utan ändringar. Dessutom stöder Azure Cosmos DB Gremlin-API, tabell-API, API för MongoDB och Cassandra-API (förhandsversion).
+Azure DocumentDB-tjänsten är nu en del av Azure Cosmos DB-tjänsten och visar sig i form av SQL-API. Program som skapats för Azure DocumentDB körs mot Azure Cosmos DB SQL API utan ändringar. Cosmos DB implementerar också [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) och [Azure Table Storage](table-introduction.md) ansluta protokoll direkt i tjänsten. Detta kan du peka klientdrivrutiner (och verktyg) för vanliga NoSQL-APIs direkt till din Cosmos-databas.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Vad är vanliga användningsområden för Azure Cosmos DB?
 
@@ -36,11 +36,11 @@ Azure Cosmos DB är ett bra alternativ för nya webb-, mobil, spel, och IoT-prog
 
 En [begäransenhet](request-units.md) (RU) är måttenheten för dataflöde i Azure Cosmos DB. Ett dataflöde på 1 RU motsvarar dataflödet av GET för ett 1 KB-dokument. Varje åtgärd i Azure Cosmos DB, inklusive läsningar, skrivningar, SQL-frågor och lagrade procedurkörningar har ett deterministiskt RU-värde som baseras på dataflödet som krävs för att slutföra åtgärden. I stället för att tänka på CPU, I/O och minne och hur de påverkar dataflödet i ditt program kan tänka du i termer av ett enda RU-mått.
 
-Du kan reservera varje Azure Cosmos DB-behållare med etablerat dataflöde räknat ru: er av dataflöde per sekund. För appar oavsett skala, kan du jämföra enskilda förfrågningar för att mäta deras RU-värden och etablera en behållare för att hantera det totala antalet av frågeenheter över alla förfrågningar. Du kan även skala upp eller skala ned dataflödet för en behållare som behov utvecklas. Mer information om begäransenheter och hjälp med att fastställa din behållare måste, prova den [dataflöde Kalkylatorn](https://www.documentdb.com/capacityplanner). Termen *behållare* här refererar till en SQL API-samling, Gremlin-API-diagram, MongoDB API-samling och tabell-API-tabellen.
+Du kan konfigurera varje Azure Cosmos DB-behållare med etablerat dataflöde räknat ru: er av dataflöde per sekund. För appar oavsett skala, kan du jämföra enskilda förfrågningar för att mäta deras RU-värden och etablera en behållare för att hantera det totala antalet av frågeenheter över alla förfrågningar. Du kan även skala upp eller skala ned dataflödet för en behållare som behov utvecklas. Mer information om begäransenheter och hjälp med att fastställa din behållare måste, prova den [dataflöde Kalkylatorn](https://www.documentdb.com/capacityplanner).
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Hur stöder olika datamodeller som nyckel/värde, kolumner, dokument och graph i Azure Cosmos DB?
 
-Nyckelvärdedata (tabell), kolumner, dokument och diagramdata modeller internt stöds på grund av ARS (atomer, poster och sekvenser) kan du utforma att Azure Cosmos DB bygger på. Atomer, poster och sekvenser kan enkelt mappas och planerade att olika datamodeller. API: er för en delmängd av modeller är tillgängliga just nu (SQL, MongoDB, Table och Gremlin-API: er) och andra som är specifika för ytterligare datamodeller kommer att finnas i framtiden.
+Nyckelvärdedata (tabell), kolumner, dokument och diagramdata modeller internt stöds på grund av ARS (atomer, poster och sekvenser) kan du utforma att Azure Cosmos DB bygger på. Atomer, poster och sekvenser kan enkelt mappas och planerade att olika datamodeller. API: er för en delmängd av modeller är tillgängliga just nu (SQL, MongoDB, Table och Gremlin) och andra som är specifika för ytterligare datamodeller kommer att finnas i framtiden.
 
 Azure Cosmos DB har en schemat schemaoberoende indexering motor som kan indexera automatiskt alla data den tar in utan att kräva något schema eller sekundära index från utvecklaren. Motorn är beroende av en uppsättning logiskt index layouter (vägar i inverterad, kolumner,-träd) som frikopplar lagringslayout från indexet och frågebearbetning undersystem. Cosmos DB har också möjlighet att stöder en uppsättning wire-protokoll och API: er på ett utökningsbart sätt och effektivt översätta dem till datamodellen core (1) och de logiska index layouter (2) vilket gör det unikt kan stödja flera datamodellen internt.
 
@@ -62,7 +62,7 @@ Ja krypteras alltid helt båda lägena.
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Hur mycket kostar Azure Cosmos DB?
 
-Mer information finns i [prisinformation för Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) sidan. Azure Cosmos DB-användningskostnader bestäms av antalet etablerade behållare, antalet timmar behållarna var online, och det etablerade dataflödet för varje behållare. Beteckningen container här refererar till SQL API-samling, Gremlin-API (graf), MongoDB API-samling och tabeller för tabell-API.
+Mer information finns i [prisinformation för Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) sidan. Azure Cosmos DB-användningskostnader bestäms av antalet etablerade behållare, antalet timmar behållarna var online, och det etablerade dataflödet för varje behållare.
 
 ### <a name="is-a-free-account-available"></a>Är ett kostnadsfritt konto tillgängligt?
 
@@ -105,7 +105,7 @@ Följande villkor gäller för testa Azure Cosmos DB-prenumerationer:
 
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Hur registrerar jag mig för Azure Cosmos DB?
 
-Azure Cosmos DB är tillgängliga i Azure-portalen. Först registrera dig för en Azure-prenumeration. När du har registrerat dig kan du lägga till en SQL-API, Gremlin-API, tabell-API, MongoDB API eller Cassandra API-konto på Azure-prenumerationen.
+Azure Cosmos DB är tillgängliga i Azure-portalen. Först registrera dig för en Azure-prenumeration. När du har registrerat dig kan du lägga till ett Azure Cosmos DB-konto på Azure-prenumerationen.
 
 ### <a name="what-is-a-master-key"></a>Vad är en huvudnyckel?
 
@@ -153,7 +153,7 @@ Ja, SQL-API: et stöder transaktioner mellan dokument uttryckta som JavaScript-l
 
 En behållare är en uppsättning dokument och deras associerade JavaScript-programlogik. En behållare är en fakturerbar enhet där den [kostnaden](performance-levels.md) bestäms av dataflödet och används för lagring. Behållare kan sträcka sig över en eller flera partitioner eller servrar och kan skalas för att hantera praktiskt taget obegränsade volymer av lagring eller dataflöde.
 
-* För SQL- och MongoDB API-konton mappar en behållare till en samling.
+* För SQL-API och Cosmos DB: s API för MongoDB-konton mappar en behållare till en samling.
 * För Cassandra och tabell-API-konton mappar en behållare till en tabell.
 * För Gremlin-API-konton mappar en behållare till ett diagram.
 
@@ -183,7 +183,7 @@ Om du vill använda Optimistisk samtidighet i .NET, använda den [AccessConditio
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Hur gör jag transaktioner i SQL-API: et?
 
-SQL-API: et stöder språkintegrerade transaktioner via JavaScript-lagrade procedurer och utlösare. Alla databasåtgärder i skript körs under ögonblicksbildisolering. Om det är en samling för en partition är körningen begränsad till samlingen. Om samlingen är partitionerad är körningen begränsad till dokument med samma partitionsnyckel värde i samlingen. En ögonblicksbild av dokumentversionerna (ETags) tas i början av transaktionen och verkställs endast om skriptet lyckas. Om JavaScript genererar ett fel återställs transaktionen. Mer information finns i [programmering av serversidan JavaScript för Azure Cosmos DB](programming.md).
+SQL-API: et stöder språkintegrerade transaktioner via JavaScript-lagrade procedurer och utlösare. Alla databasåtgärder i skript körs under ögonblicksbildisolering. Om det är en samling för en partition är körningen begränsad till samlingen. Om samlingen är partitionerad är körningen begränsad till dokument med samma partitionsnyckel värde i samlingen. En ögonblicksbild av dokumentversionerna (ETags) tas i början av transaktionen och verkställs endast om skriptet lyckas. Om JavaScript genererar ett fel återställs transaktionen. Mer information finns i [programmering av serversidan JavaScript för Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Hur kan jag-massinfogning dokument till Cosmos DB?
 
@@ -191,7 +191,7 @@ Du kan-massinfogning dokument till Azure Cosmos DB på något av följande sätt
 
 * Verktyget bulk-executor, enligt beskrivningen i [Using bulk executor .NET-biblioteket](bulk-executor-dot-net.md) och [Using bulk executor Java-bibliotek](bulk-executor-java.md)
 * Datamigreringsverktyget som beskrivs i [verktyg för Azure Cosmos DB](import-data.md).
-* Lagrade procedurer, enligt beskrivningen i [programmering av serversidan JavaScript för Azure Cosmos DB](programming.md).
+* Lagrade procedurer, enligt beskrivningen i [programmering av serversidan JavaScript för Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
 ### <a name="ive-set-up-my-container-to-use-lazy-indexing-i-see-that-my-queries-dont-return-expected-results"></a>Jag har konfigurerat min behållare att använda lazy indexering, visas att frågorna inte returnerar förväntade resultat.
 
@@ -213,32 +213,32 @@ Detta är begränsning JavaScript-kod. JavaScript använder dubbel precision med
 
 Skapa behörigheter med hjälp av ResourceTokens tillåts på behållarenivån och dess underordnade (t.ex dokument, bifogade filer). Detta innebär att försök att skapa en behörighet på databasen eller kontonivå för närvarande är inte tillåten.
 
-## <a name="mongodb-api"></a>MongoDB-API
+## <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB: s API för MongoDB
 
-### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Vad är Azure Cosmos DB API för MongoDB?
+### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>Vad är Azure Cosmos DB: s API för MongoDB?
 
-Azure Cosmos DB API för MongoDB är ett lager för kompatibilitet som gör att program kan enkelt och transparent kommunicerar med inbyggda Azure Cosmos DB-databasmotorn med hjälp av befintliga, community-stöds Apache MongoDB APIs och drivrutiner. Utvecklare kan nu använda kedjor med befintliga MongoDB-verktyg och kunskaper för att bygga program som drar nytta av Azure Cosmos DB. Utvecklare dra nytta av de unika funktionerna i Azure Cosmos DB, bland annat underhåll för automatisk indexering, säkerhetskopiering, ekonomisk servicenivåavtal (SLA) och så vidare.
+Azure Cosmos DB: s API för MongoDB är en kabelprotokoll kompatibilitet skikt som gör att program kan enkelt och transparent kommunicerar med inbyggda Azure Cosmos DB-databasmotorn med hjälp av befintliga, community-stöds SDK: er och drivrutiner för MongoDB.Developers kan nu använda befintliga MongoDB-verktygskedjor och kunskaper för att bygga program som drar nytta av Azure Cosmos DB. Utvecklare förmånen från de unika funktionerna i Azure Cosmos DB, bland annat global distribution med flera huvudservrar replikering, automatisk indexering, säkerhetskopiering underhåll, uppbackning med ekonomisk servicenivåavtal (SLA) osv.
 
-### <a name="how-do-i-connect-to-my-api-for-mongodb-database"></a>Hur ansluter jag till min API för MongoDB-databas?
+### <a name="how-do-i-connect-to-my-database"></a>Hur ansluter jag till min databas?
 
-Det snabbaste sättet att ansluta till Azure Cosmos DB API för MongoDB är att gå över till den [Azure-portalen](https://portal.azure.com). Gå till ditt konto och klicka sedan på den vänstra navigeringsmenyn **Snabbstart**. Snabbstart är det bästa sättet att få kodfragment för att ansluta till databasen.
+Det snabbaste sättet att ansluta till en Cosmos-databas med Azure Cosmos DB API för MongoDB är att gå över till den [Azure-portalen](https://portal.azure.com). Gå till ditt konto och klicka sedan på den vänstra navigeringsmenyn **Snabbstart**. Snabbstart är det bästa sättet att få kodfragment för att ansluta till databasen.
 
 Azure Cosmos DB tillämpar strikta säkerhetskrav och standarder. Azure Cosmos DB-konton kräver autentisering och säker kommunikation via SSL, så var noga med att använda TLSv1.2.
 
-Mer information finns i [Anslut till ditt API för MongoDB-databas](connect-mongodb-account.md).
+Mer information finns i [Anslut till Cosmos-databas med Azure Cosmos DB-API för MongoDB](connect-mongodb-account.md).
 
-### <a name="are-there-additional-error-codes-for-an-api-for-mongodb-database"></a>Finns det ytterligare felkoder för ett API för MongoDB-databas?
+Finns det ytterligare felkoder som jag behöver bry dig om när du använder Azure Cosmos DB API för MongoDB?
 
-Tillsammans med MongoDB vanliga felkoder har MongoDB-API sin egen specifika felkoder:
+Azure Cosmos DB: s API för MongoDB har sin egen specifika felkoder tillsammans med MongoDB vanliga felkoder:
 
 | Fel               | Kod  | Beskrivning  | Lösning  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Det totala antalet enheter för programbegäran som används är högre än den etablerade begäransenhet för samlingen och har begränsats. | Överväg att skala dataflöde som tilldelats till en behållare eller en uppsättning behållare från Azure portal eller omförsök igen. |
 | ExceededMemoryLimit | 16501 | Åtgärden har gått över klientens minne mängd som en tjänst med flera klienter. | Minska omfånget för åtgärd via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {name: ”Andy”}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {ålder: -1}}<br> &nbsp; &nbsp; &nbsp;&nbsp;])*) |
 
-### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>Är Simba drivrutinen för MongoDB som stöds för användning med Azure cosmos DB MongoDB API?
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>Är Simba drivrutinen för MongoDB som stöds för användning med Azure Cosmos DB API för MongoDB?
 
-Ja, du kan använda Simba's Mongo ODBC-drivrutinen med Azure cosmos DB MongoDB API
+Ja, du kan använda Simba's Mongo ODBC-drivrutinen med Azure Cosmos DB API för MongoDB
 
 ## <a id="table"></a>Tabell-API
 

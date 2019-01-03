@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409549"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807694"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Arbeta med Azure Cosmos-databaser, behållare och objekt
 
@@ -24,7 +24,7 @@ När du har skapat en [Azure Cosmos DB-konto](account-overview.md) under din Azu
 
 Du kan skapa en eller flera Azure-Cosmos-databaser under ditt konto. En databas är detsamma som en namnrymd, är det hanteringsenheten för en uppsättning Azure Cosmos-behållare. I följande tabell visas hur en Azure Cosmos-databas är mappad till olika API-specifika entiteter:
 
-| **Azure Cosmos-enhet** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
+| **Azure Cosmos-enhet** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos-databas | Databas | Nyckelutrymme | Databas | Databas | Ej tillämpligt |
 
@@ -35,7 +35,7 @@ Du kan skapa en eller flera Azure-Cosmos-databaser under ditt konto. En databas 
 
 Du kan interagera med en Azure Cosmos-databas med hjälp av de följande Azure-Cosmos API: er:
 
-| **Åtgärd** | **Azure CLI**|**SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
+| **Åtgärd** | **Azure CLI**|**SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
 |Räkna upp alla databaser| Ja | Ja | Ja (database mappas till ett keyspace) | Ja | Ej tillämpligt | Ej tillämpligt |
 |Läsa databas| Ja | Ja | Ja (database mappas till ett keyspace) | Ja | Ej tillämpligt | Ej tillämpligt |
@@ -67,7 +67,7 @@ Du kan ange en unik nyckel för Azure Cosmos-behållaren. Genom att skapa en uni
 
 En Azure Cosmos-behållare är specialiserat till API-specifika entiteter på följande sätt:
 
-| **Azure Cosmos-enhet** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
+| **Azure Cosmos-enhet** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos-behållare | Samling | Tabell | Samling | Graph | Tabell |
 
@@ -75,7 +75,7 @@ En Azure Cosmos-behållare är specialiserat till API-specifika entiteter på f�
 
 En Azure Cosmos-behållare har en uppsättning systemdefinierade egenskaper. Beroende på valet av API: et, kan några av dem inte exponeras direkt. I följande tabell beskrivs i listan över stöds systemdefinierade egenskaper:
 
-| **Systemdefinierade egenskapen** | **Datorer som genererade eller användaren inställbar** | **Syfte** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
+| **Systemdefinierade egenskapen** | **Datorer som genererade eller användaren inställbar** | **Syfte** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__rid | Systemgenererad | Unik identifierare för behållare | Ja | Nej | Nej | Nej | Nej |
 |__etag | Systemgenererad | Enhetstagg som används för optimistisk samtidighetskontroll | Ja | Nej | Nej | Nej | Nej |
@@ -91,7 +91,7 @@ En Azure Cosmos-behållare har en uppsättning systemdefinierade egenskaper. Ber
 
 En Azure Cosmos-behållare har stöd för följande åtgärder med hjälp av någon av Azure Cosmos-API: er.
 
-| **Åtgärd** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
+| **Åtgärd** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Räkna upp behållare i en databas | Ja* | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
 | Läsa en behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
@@ -103,7 +103,7 @@ En Azure Cosmos-behållare har stöd för följande åtgärder med hjälp av nå
 
 Beroende på valet av API: et, kan ett Azure Cosmos-objekt representera antingen ett dokument i en samling, en rad i en tabell eller en nod/edge i ett diagram. I följande tabell visar mappningen mellan API-specifika entiteter till ett Azure Cosmos-objekt:
 
-| **Cosmos-entitet** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
+| **Cosmos-entitet** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos-objekt | Dokument | Rad | Dokument | Nod eller Kanttabell | Objekt |
 
@@ -111,7 +111,7 @@ Beroende på valet av API: et, kan ett Azure Cosmos-objekt representera antingen
 
 Varje Azure Cosmos-objekt har följande systemdefinierade egenskaper. Beroende på valet av API: et, kan några av dem inte exponeras direkt.
 
-|**Systemdefinierade egenskapen** | **Datorer som genererade eller användaren inställbar**| **Syfte** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
+|**Systemdefinierade egenskapen** | **Datorer som genererade eller användaren inställbar**| **Syfte** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__id | Systemgenererad | Unik identifierare för objektet | Ja | Nej | Nej | Nej | Nej |
 |__etag | Systemgenererad | Enhetstagg som används för optimistisk samtidighetskontroll | Ja | Nej | Nej | Nej | Nej |
@@ -124,7 +124,7 @@ Varje Azure Cosmos-objekt har följande systemdefinierade egenskaper. Beroende p
 
 Azure Cosmos-objektet har stöd för följande åtgärder som kan utföras med hjälp av någon av Azure Cosmos-API: er.
 
-| **Åtgärd** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
+| **Åtgärd** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Infoga, Ersätt, ta bort, Upsert, Läs | Nej | Ja | Ja | Ja | Ja | Ja |
 

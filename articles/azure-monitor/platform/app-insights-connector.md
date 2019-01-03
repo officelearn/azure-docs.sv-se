@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8c601bdd7fbba536aa5b8a4d1965f4ef2bb906f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187859"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726236"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
 
@@ -161,8 +161,8 @@ Lösningen tar emot följande telemetrityper av data från dina anslutna Applica
 - Tillgänglighet
 - Undantag
 - Begäranden
-- Sidvisningar – att ta emot sidvyer-arbetsytan måste du konfigurera dina appar för att samla in informationen. Mer information finns i [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Anpassade händelser – att ta emot anpassade händelser-arbetsytan måste du konfigurera dina appar för att samla in informationen. Mer information finns i [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Sidvisningar – att ta emot sidvyer-arbetsytan måste du konfigurera dina appar för att samla in informationen. Mer information finns i [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Anpassade händelser – att ta emot anpassade händelser-arbetsytan måste du konfigurera dina appar för att samla in informationen. Mer information finns i [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Data tas emot av Log Analytics från Application Insights så fort de blir tillgängliga.
 

@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jejiang
 ms.custom: seodec18
-ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: fb758c12d699bb80f81b65db99e1fec68c4efabf
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138134"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809768"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Hantera Azure Cosmos DB-resurser med Azure Storage Explorer
 
-Med hjälp av Azure Cosmos DB i Azure Storage Explorer kan du hantera Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. För tillfället stöder Azure Storage Explorer SQL-, MongoDB-, Graph- och Table-konton.
+Med hjälp av Azure Cosmos DB i Azure Storage Explorer kan du hantera Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. För närvarande stöder Azure Storage Explorer Cosmos-konton som konfigurerats för SQL, MongoDB, diagram och tabell-API: er.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Ett Azure Cosmos DB-konto för SQL-API:et<!--or MongoDB API-->. Om du inte har ett konto kan du skapa en i Azure-portalen, enligt beskrivningen i [Azure Cosmos DB: Skapa en SQL API-webbapp med .NET och Azure Portal](create-sql-api-dotnet.md).
+Ett Cosmos-konto med SQL API eller Azure Cosmos DB API för MongoDB. Om du inte har ett konto kan du skapa en i Azure-portalen, enligt beskrivningen i [Azure Cosmos DB: Skapa en SQL API-webbapp med .NET och Azure-portalen](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Installation
 
-Installera den senaste versionen av Azure Storage Explorer här: [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Nu finns det versioner för Windows, Linux och MAC.
+Installera den senaste Azure Storage Explorer här: [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), nu vi stöd för Windows, Linux och MAC-versionen.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ansluta till en Azure-prenumeration
 
@@ -222,7 +222,7 @@ När Storage Explorer påträffar ett sådant ”självsignerade certifikat” k
 
 1. Installera öppen SSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (någon av de enklare versionerna är ok)
-     - Mac och Linux: ska ingå i ditt operativsystem
+     - Mac och Linux: Ska ingå i ditt operativsystem
 2. Kör öppen SSL
     - Windows: Gå till installationskatalogen, sedan **/bin/**, dubbelklicka på **openssl.exe**.
     - Mac och Linux: kör **openssl** från en terminal
@@ -241,7 +241,7 @@ Om det inte går att hämta dina prenumerationer när du har loggat in:
 - Kontrollera att du har loggat in med rätt miljö ([Azure](https://portal.azure.com/), [Azure Kina](https://portal.azure.cn/), [Azure Tyskland](https://portal.microsoftazure.de/), [Azure som tillhör amerikanska myndigheter](https://portal.azure.us/), eller Anpassad miljö/Azure Stack)
 - Om du är bakom en proxyserver, se till att du har konfigurerat Storage Explorer-proxyservern korrekt
 - Försök att ta bort och lägga till kontot igen
-- Försök att ta bort följande filer från arbetskatalogen (exempel: C:\Users\ContosoUser), och lägg sedan till kontot igen:
+- Försök att ta bort följande filer från arbetskatalogen (till exempel: C:\Users\ContosoUser), och sedan lägga till kontot igen:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -305,6 +305,6 @@ Om ingen av lösningarna fungerar, skicka ett e-postmeddelande till Microsoft Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Titta på följande videoklipp om du vill se hur du använder Azure Cosmos DB i Azure Storage Explorer: [Använda Azure Cosmos-DB i Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* Titta på följande videoklipp om du vill se hur du använder Azure Cosmos DB i Azure Storage Explorer: [Använda Azure Cosmos DB i Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Läs mer om Storage Explorer och om att ansluta fler tjänster i [Kom igång med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

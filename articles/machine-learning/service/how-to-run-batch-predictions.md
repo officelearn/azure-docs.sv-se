@@ -11,27 +11,27 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a711b80471da0677c5e2d0dd0ee5e371e5a16f75
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7b0e3bc14c97c874b9d5936c025f4534665a461e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268657"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752630"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Kör batch förutsägelser på stora datauppsättningar med Azure Machine Learning-tjänsten
 
-I den här artikeln lär du dig att snabbt och effektivt göra förutsägelser på stora mängder data asynkront med hjälp av Azure Machine Learning-tjänsten.
+I den här artikeln lär du dig att göra förutsägelser på stora mängder data asynkront, med hjälp av Azure Machine Learning-tjänsten.
 
-Batch-förutsägelse (eller batchbedömning) tillhandahåller kostnadseffektiv inferens med oöverträffad dataflöde för asynkron program. Batch förutsägelse pipelines kan skala för att utföra inferens på terabyte av produktionsdata. Batch-förutsägelse är optimerad runt stora dataflöden och fire-and-forget förutsägelser för en stor mängd data.
+Batch-förutsägelse (eller batchbedömning) ger kostnadseffektiv inferens med oöverträffad dataflöde för asynkron program. Batch förutsägelse pipelines kan skala för att utföra inferens på terabyte av produktionsdata. Batch-förutsägelse är optimerat för stora dataflöden och fire-and-forget förutsägelser för en stor mängd data.
 
->[!NOTE]
-> Om datorn kräver låg latens bearbetning (process som ett enda dokument eller en liten uppsättning dokument snabbt), använder [i realtid bedömning](how-to-consume-web-service.md) i stället för batch-förutsägelse.
+>[!TIP]
+> Om datorn kräver låg latens bearbetning (för att bearbeta ett enda dokument eller en liten uppsättning dokument snabbt), använder [i realtid bedömning](how-to-consume-web-service.md) i stället för batch-förutsägelse.
 
-I följande steg ska du skapa en [maskininlärningspipeline](concept-ml-pipelines.md) att registrera en tränats modellen för visuellt innehåll ([Start-V3](https://arxiv.org/abs/1512.00567)) och sedan använda pretrained modellen för att batch-bedömning på avbildningar tillgängligt i Azure blob-kontot. Dessa avbildningar som används för bedömning är utan etikett avbildningar från den [ImageNet](http://image-net.org/) datauppsättning.
+I följande steg ska du skapa en [maskininlärningspipeline](concept-ml-pipelines.md) att registrera en tränats modellen för visuellt innehåll ([Start-V3](https://arxiv.org/abs/1512.00567)). Sedan använder du pretrained modellen för att batch-bedömning på avbildningar som är tillgängliga i Azure Blob storage-kontot. Dessa avbildningar som används för bedömning är utan etikett avbildningar från den [ImageNet](http://image-net.org/) datauppsättning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
+- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree).
 
 - Konfigurera din utvecklingsmiljö för att installera Azure Machine Learning-SDK. Mer information finns i [konfigurera en utvecklingsmiljö för Azure Machine Learning](how-to-configure-environment.md).
 
@@ -48,18 +48,18 @@ I följande steg ska du skapa en [maskininlärningspipeline](concept-ml-pipeline
 
 ## <a name="set-up-machine-learning-resources"></a>Konfigurera machine learning-resurser
 
-Följande steg ska ställa in de resurser du behöver för att köra en pipeline:
+Följande steg konfigurerar de resurser du behöver för att köra en pipeline:
 
 - Få åtkomst till databasen som redan har tränats modellen, inkommande etiketter och bilder för att bedöma (detta är redan inställd för dig).
 - Konfigurera ett datalager för att lagra dina utdata.
-- Konfigurera DataReference objekt så att den pekar till data i föregående datalagringen.
+- Konfigurera `DataReference` objekt så att den pekar till data i föregående datalagringen.
 - Ställ in beräkning datorer eller kluster där kör pipeline-stegen.
 
 ### <a name="access-the-datastores"></a>Komma åt datalagringen
 
 Först få åtkomst till databasen med modellen, etiketter och bilder.
 
-Du använder en offentlig blob-behållare med namnet *sampledata* i den *pipelinedata* kontot som innehåller bilder från uppsättningen ImageNet utvärdering. Datastore-namnet för den här offentliga behållare är *images_datastore*. Registrera den här databasen med din arbetsyta:
+Du använder en offentlig blob-behållare med namnet *sampledata*i den *pipelinedata* kontot som innehåller bilder från uppsättningen ImageNet utvärdering. Datastore-namnet för den här offentliga behållare är *images_datastore*. Registrera den här databasen med din arbetsyta:
 
 ```python
 # Public blob container details
@@ -74,9 +74,9 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
                       overwrite=True)
 ```
 
-Därefter setup kan använda standard-datalager för utdata.
+Konfigurera sedan för att använda standard-datalager för utdata.
 
-När du skapar arbetsytan och en [Azure filestorage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) och en [blob-lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) är kopplade till arbetsytan som standard. Azure file storage är ”standard datalager” för en arbetsyta, men du kan också använda blob storage som ett datalager. Läs mer om [Azure-lagringsalternativen](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+När du skapar arbetsytan och [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) och [Blob-lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) är kopplade till arbetsytan som standard. Azure Files är standard-databasen för en arbetsyta, men du kan också använda Blob storage som ett datalager. Mer information finns i [Azure-lagringsalternativen](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -86,7 +86,7 @@ def_data_store = ws.get_default_datastore()
 
 Nu kan referera till data i din pipeline som indata till steg för pipeline.
 
-En datakälla i en pipeline representeras av en [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) objekt. Objektet DataReference pekar på data som finns i eller kan nås från ett datalager. Du behöver DataReference objekt för den katalog som används för indatabilder, den katalog där lagras pretrained modellen, katalogen för etiketter och katalogen.
+En datakälla i en pipeline representeras av en [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) objekt. Den `DataReference` objekt som pekar på data som finns i eller kan nås från ett datalager. Du behöver `DataReference`  objekt för den katalog som används för indatabilder, den katalog där lagras pretrained modellen, katalogen för etiketter och katalogen.
 
 ```python
 input_images = DataReference(datastore=batchscore_blob, 
@@ -111,7 +111,7 @@ output_dir = PipelineData(name="scores",
 
 ### <a name="set-up-compute-target"></a>Konfigurera beräkningsmål
 
-I Azure Machine Learning refererar beräkning (eller beräkningsmål) till datorer eller kluster som utför beräkningssteg i din pipeline för machine learning. Du kan till exempel skapa en `Azure Machine Learning compute`.
+I Azure Machine Learning *compute* (eller *beräkningsmålet*) refererar till datorer eller kluster som utför beräkningssteg i din pipeline för machine learning. Du kan till exempel skapa en `Azure Machine Learning compute`.
 
 ```python
 compute_name = "gpucluster"
@@ -148,7 +148,7 @@ Innan du kan använda pretrained modellen, måste du ladda ned modellen och regi
 
 ### <a name="download-the-pretrained-model"></a>Ladda ned pretrained modellen
 
-Ladda ned tränats modellen för visuellt innehåll (InceptionV3) från <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. När du har hämtat, extrahera det till den `models` undermappen.
+Ladda ned tränats modellen för visuellt innehåll (InceptionV3) från <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Extrahera det till den `models` undermappen.
 
 ```python
 import os
@@ -167,6 +167,8 @@ tar.extractall(model_dir)
 
 ### <a name="register-the-model"></a>Registrera modellen
 
+Nedan visas hur du registrera modellen:
+
 ```python
 import shutil
 from azureml.core.model import Model
@@ -183,7 +185,7 @@ model = Model.register(
 ## <a name="write-your-scoring-script"></a>Skriv din bedömningsskriptet
 
 >[!Warning]
->Följande kod är bara ett exempel på vad som finns i den [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) används av den [exempel notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb) måste du skapa dina egna bedömningsskriptet för ditt scenario.
+>Följande kod är bara ett exempel på vad som finns i den [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) används av den [exempel notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb). Du måste skapa din egen bedömningsskriptet för ditt scenario.
 
 Den `batch_score.py` skriptet tar indatabilder *dataset_path*, tränats modeller i *model_dir,* och matar ut *resultat label.txt* till *output_dir*.
 
@@ -241,7 +243,7 @@ Du har allt du behöver för att skapa pipelinen, så nu lägga ihop.
 
 ### <a name="prepare-the-run-environment"></a>Förbereda körningsmiljön
 
-Ange conda-beroenden för skriptet. Du behöver det här objektet när du skapar pipeline-steg senare.
+Ange conda-beroenden för skriptet. Du behöver det här objektet senare, när du skapar det pipeline-steget.
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
@@ -258,7 +260,7 @@ amlcompute_run_config.environment.spark.precache_packages = False
 
 ### <a name="specify-the-parameter-for-your-pipeline"></a>Ange parametern för din pipeline
 
-Skapa en pipeline-parametern med en [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) objekt med ett standardvärde.
+Skapa en pipeline-parameter med hjälp av en [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) objekt med ett standardvärde.
 
 ```python
 batch_size_param = PipelineParameter(
@@ -268,7 +270,7 @@ batch_size_param = PipelineParameter(
 
 ### <a name="create-the-pipeline-step"></a>Skapa pipeline-steg
 
-Skapa pipeline-steg med skript, miljökonfiguration och parametrar. Ange beräkningsmål som du redan har kopplat till din arbetsyta som mål för körningen av skriptet. Använd [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) att skapa pipeline-steget.
+Skapa pipeline-steg med hjälp av skript, miljökonfiguration och parametrar. Ange beräkningsmål som du redan har kopplat till din arbetsyta som mål för körningen av skriptet. Använd [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) att skapa pipeline-steget.
 
 ```python
 inception_model_name = "inception_v3.ckpt"
@@ -290,14 +292,14 @@ batch_score_step = PythonScriptStep(
 
 ### <a name="run-the-pipeline"></a>Köra en pipeline
 
-Nu kör pipelinen och granska utdata som skapats. Utdata har ett värde som motsvarar varje inmatad bild.
+Nu kör pipelinen och granska utdata som skapats. Utdata har en riskpoäng som motsvarar varje inmatad bild.
 
 ```python
 # Run the pipeline
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
 pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline, pipeline_params={"param_batch_size": 20})
 
-# Wait for the run to finish (this may take several minutes)
+# Wait for the run to finish (this might take several minutes)
 pipeline_run.wait_for_completion(show_output=True)
 
 # Download and review the output
@@ -312,7 +314,7 @@ df.head()
 
 ## <a name="publish-the-pipeline"></a>Publicera pipelinen
 
-När du är nöjd med resultatet av körningen kan du publicera pipelinen så att du kan köra den med olika värden senare. När du publicerar en pipeline kan du få en REST-slutpunkt som accepterar anropar pipeline med uppsättningen parametrar som du redan har införlivat med [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py).
+När du är nöjd med resultatet av körningen kan du publicera pipelinen så att du kan köra den med olika värden senare. När du publicerar en pipeline kan få du en REST-slutpunkt. Den här slutpunkten accepterar anropar pipeline med uppsättningen parametrar som du redan har införlivat med hjälp av [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py).
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline(
@@ -321,9 +323,9 @@ published_pipeline = pipeline_run.publish_pipeline(
     version="1.0")
 ```
 
-## <a name="rerun-the-pipeline-using-the-rest-endpoint"></a>Kör pipelinen med hjälp av REST-slutpunkt
+## <a name="rerun-the-pipeline-by-using-the-rest-endpoint"></a>Kör pipelinen igen med hjälp av REST-slutpunkt
 
-Om du vill köra pipelinen, måste en rubrik för Azure Active Directory autentiseringstoken enligt beskrivningen i [AzureCliAuthentication klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
+Om du vill köra pipelinen du behöver ett Azure Active Directory-huvud autentiseringstoken, enligt beskrivningen i [AzureCliAuthentication klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -344,7 +346,7 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill se den här fungerande slutpunkt till slutpunkt, försök batchbedömnings-anteckningsboken i ([how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). 
+Om du vill se den här fungerande slutpunkt till slutpunkt, försök batchbedömnings-anteckningsboken i [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

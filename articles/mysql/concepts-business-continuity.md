@@ -1,20 +1,17 @@
 ---
 title: Översikt över affärskontinuitet med Azure Database for MySQL
 description: Översikt över affärskontinuitet med Azure Database for MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 8d0a8ac1aedcac26f6ac67e0e1f2a9d265a9b576
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714353"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554545"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Översikt över affärskontinuitet med Azure Database for MySQL
 
@@ -49,7 +46,7 @@ Ett alternativ är att vänta på din server så att du är tillbaka online när
 Ett annat alternativ är att använda Azure Database för MySQL: s geo-återställning funktion som återställer servern med geo-redundanta säkerhetskopieringar. Dessa säkerhetskopior är tillgängliga även om den region som din server är värd för är offline. Du kan återställa från dessa säkerhetskopior till valfri region och ta med din server online igen.
 
 > [!IMPORTANT]
-> GEO-återställning är bara möjligt om du har etablerat på servern med geo-redundant lagring av säkerhetskopior. Om du vill växla från lokalt redundant till geo-redundanta säkerhetskopieringar för en befintlig server måste du ta en dump med pg_dump av din befintliga server och återställer dem till en nyligen skapade server som konfigurerats med geo-redundanta säkerhetskopieringar.
+> GEO-återställning är bara möjligt om du har etablerat på servern med geo-redundant lagring av säkerhetskopior. Om du vill växla från lokalt redundant till geo-redundanta säkerhetskopieringar för en befintlig server måste du ta en dump Använd mysqldump av din befintliga server och återställer dem till en nyligen skapade server som konfigurerats med geo-redundanta säkerhetskopieringar.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,132 +1,285 @@
 ---
-title: Förstå Azure Digital Twins enhetsanslutning och autentisering | Microsoft Docs
-description: Använd Azure Digital Twins att ansluta och autentisera enheter
+title: Skapa och hantera rolltilldelningar i Azure Digital Twins | Microsoft Docs
+description: Skapa och hantera rolltilldelningar i Azure Digital Twins.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/26/2018
 ms.author: lyrana
-ms.openlocfilehash: f032e3ebf6a10411057cd6d41df0cad6248f328b
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.custom: seodec18
+ms.openlocfilehash: 72a42e273029bd42d77531953ff5cbfc0fe5c295
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636245"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810907"
 ---
-# <a name="create-and-manage-role-assignments"></a>Skapa och hantera rolltilldelningar
+# <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Skapa och hantera rolltilldelningar i Azure Digital Twins
 
 Azure Digital Twins använder rollbaserad åtkomstkontroll ([RBAC](./security-role-based-access-control.md)) att hantera åtkomst till resurser.
 
-Varje rolltilldelningen omfattar:
+## <a name="role-assignments-overview"></a>Översikt över webbserverroll tilldelningar
 
-* **Objekt-ID:**: en Azure Active Directory-ID, tjänstens huvudnamn objekt-ID eller domännamn
-* **Typ av identifierare**
-* **Rolldefinitions-ID**
-* **Utrymme sökväg**
-* **Klient-ID**: I de flesta fall en Azure Active Directory klient-ID
+Varje rolltilldelning överensstämmer med följande definition:
+
+```JSON
+{
+  "roleId": "00e00ad7-00d4-4007-853b-b9968ad000d1",
+  "objectId": "be2c6daa-a3a0-0c0a-b0da-c000000fbc5f",
+  "objectIdType": "ServicePrincipalId",
+  "path": "/",
+  "tenantId": "00f000bf-86f1-00aa-91ab-2d7cd000db47"
+}
+```
+
+Tabellen nedan beskrivs alla attribut:
+
+| Attribut | Namn | Krävs | Typ | Beskrivning |
+| --- | --- | --- | --- | --- |
+| RoleId | Identifierare för rollen arbetsflödesdefinition | Ja | Sträng | Unikt ID för den önskade rolltilldelningen. Hitta roll- och deras ID genom att fråga System-API: et eller granskar tabellen nedan. |
+| objekt-ID | Objekt-ID: | Ja | Sträng | ID för Azure Active Directory, service principal objekt-ID eller domännamn. Vad eller vem rolltilldelningen har tilldelats. Rolltilldelningen måste vara formaterad enligt dess associerade typ. För den `DomainName` objectIdType, objectId måste börja med den `“@”` tecken. |
+| objectIdType | Typ av identifierare | Ja | Sträng | Vilken typ av objekt-ID som används. Se **stöds ObjectIdTypes** nedan. |
+| sökväg | Utrymme sökväg | Ja | Sträng | Fullständig åtkomst till sökvägen till den `Space` objekt. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare som behöver rolltilldelningen för hela diagrammet, ange `"/"`. Det här tecknet betecknar roten, men dess användning rekommenderas inte. Alltid följa principen för lägsta behörighet. |
+| TenantId | Klient-ID | Varierar | Sträng | I de flesta fall en Azure Active Directory-klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för DomainName ObjectIdType. |
+
+### <a name="supported-role-definition-identifiers"></a>Identifierare för definition av roll som stöds
+
+Varje rolltilldelning associerar en rolldefinition med en entitet i din digitala Twins för Azure-miljö.
+
+[!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
+
+### <a name="supported-object-identifier-types"></a>Identifieraren objekttyper som stöds
+
+Tidigare den **objectIdType** attributet introducerades.
+
+[!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
+
+## <a name="role-assignment-operations"></a>Rollen tilldelningsåtgärden
+
+Azure Digital Twins stöder fullständig *skapa*, *läsa*, och *ta bort* åtgärder för rolltilldelningar. *Uppdatera* operations hanteras genom att lägga till rolltilldelningar, ta bort rolltilldelningar eller ändra den [Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md) noder som rolltilldelningar ge åtkomst till.
+
+![Rollslutpunkter för tilldelning][1]
+
+Den angivna Swagger-referensdokumentationen innehåller ytterligare information om alla tillgängliga API-slutpunkter, begäran åtgärder och definitioner.
+
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-## <a name="role-definition-identifiers"></a>Rollen definition identifierare
+<div id="grant"></div>
 
-I följande tabell visas vad som kan hämtas genom att fråga system/roller API.
+### <a name="grant-permissions-to-your-service-principal"></a>Ge behörigheter till tjänstens huvudnamn
 
-| **Roll** | **identifierare** |
-| --- | --- |
-| Utrymme administratör | 98e44ad7-28d4-4007-853b-b9968ad132d1 |
-| Användaradministratör| dfaac54c-f583-4dd2-b45d-8d4bbc0aa1ac |
-| Enhetsadministratör | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
-| Nyckel-administratör | 5a0b1afc-e118-4068-969f-b50efb8e5da6 |
-| Token-administratör | 38a3bb21-5424-43b4-b0bf-78ee228840c3 |
-| Användare | b1ffdb77-c635-4E7E-ad25-948237d85b30 |
-| Support-expert | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
-| Installationsprogram för enhet | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| Gateway-enhet | d4c69766-e9bd-4e61-BFC1-d8b6e686c7a8 |
+Bevilja behörighet till tjänstens huvudnamn är ofta en av de första stegen som du behöver vidta när du arbetar med Azure Digital Twins. Det innebär:
 
-## <a name="supported-objectidtypes"></a>Stöds ObjectIdTypes
+1. Logga in på Azure-instansen via PowerShell.
+1. Hämtar din information om tjänstens huvudnamn.
+1. Tilldela rollen till tjänstens huvudnamn.
 
-Den stöds `ObjectIdTypes`:
+Program-ID har angetts till dig i Azure Active Directory. Om du vill veta mer om hur du konfigurerar och etablera en Azure Digital Twins i Active Directory, Läs igenom den [snabbstarten](./quickstart-view-occupancy-dotnet.md).
 
-* `UserId`
-* `DeviceId`
-* `DomainName`
-* `TenantId`
-* `ServicePrincipalId`
-* `UserDefinedFunctionId`
+När du har program-ID, kör du följande PowerShell-kommandon:
 
-## <a name="create-a-role-assignment"></a>Skapa en rolltilldelning
-
-```plaintext
-HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
+```shell
+Login-AzureRmAccount
+Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
-| **Namn** | **Krävs** | **Typ** | **Beskrivning** |
+En användare med den **Admin** rollen kan sedan tilldela utrymme administratörsroll till en användare genom att göra en autentiserad HTTP POST-begäran till URL:
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments
+```
+
+Med följande JSON-texten:
+
+```JSON
+{
+  "roleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+  "objectId": "YOUR_SERVICE_PRINCIPLE_OBJECT_ID",
+  "objectIdType": "ServicePrincipalId",
+  "path": "YOUR_PATH",
+  "tenantId": "YOUR_TENANT_ID"
+}
+```
+
+<div id="all"></div>
+
+### <a name="retrieve-all-roles"></a>Hämta alla roller
+
+![Roller för platssystem][2]
+
+Om du vill visa alla tillgängliga roller (rolldefinitioner), gör du en autentiserad HTTP GET-begäran till:
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/system/roles
+```
+
+En lyckad begäran returnerar en JSON-matris med poster för varje roll som kan tilldelas:
+
+```JSON
+[
+    {
+        "id": "3cdfde07-bc16-40d9-bed3-66d49a8f52ae",
+        "name": "DeviceAdministrator",
+        "permissions": [
+            {
+                "notActions": [],
+                "actions": [
+                    "Read",
+                    "Create",
+                    "Update",
+                    "Delete"
+                ],
+                "condition": "@Resource.Type Any_of {'Device', 'DeviceBlobMetadata', 'DeviceExtendedProperty', 'Sensor', 'SensorBlobMetadata', 'SensorExtendedProperty'} || ( @Resource.Type == 'ExtendedType' && (!Exists @Resource.Category || @Resource.Category Any_of { 'DeviceSubtype', 'DeviceType', 'DeviceBlobType', 'DeviceBlobSubtype', 'SensorBlobSubtype', 'SensorBlobType', 'SensorDataSubtype', 'SensorDataType', 'SensorDataUnitType', 'SensorPortType', 'SensorType' } ) )"
+            },
+            {
+                "notActions": [],
+                "actions": [
+                    "Read"
+                ],
+                "condition": "@Resource.Type == 'Space' && @Resource.Category == 'WithoutSpecifiedRbacResourceTypes' || @Resource.Type Any_of {'ExtendedPropertyKey', 'SpaceExtendedProperty', 'SpaceBlobMetadata', 'SpaceResource', 'Matcher'}"
+            }
+        ],
+        "accessControlPath": "/system",
+        "friendlyPath": "/system",
+        "accessControlType": "System"
+    }
+]
+```
+
+<div id="check"></div>
+
+### <a name="check-a-specific-role-assignment"></a>Kontrollera en viss rolltilldelning
+
+Om du vill kontrollera specifika rolltilldelningen, gör du en autentiserad HTTP GET-begäran till:
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
+```
+
+| **Parametervärde** | **Krävs** |  **Typ** |  **Beskrivning** |
 | --- | --- | --- | --- |
-| RoleId| Ja |Sträng | Rollen definition identifierare. Hitta roll- och deras identifierare genom att fråga systemet API. |
-| objekt-ID | Ja |Sträng | Objekt-ID för den rolltilldelning som måste vara formaterad enligt dess associerade typ. För den `DomainName` ObjectIdType, ObjectId måste börja med den `“@”` tecken. |
-| objectIdType | Ja |Sträng | Typ av rolltilldelningen. Måste vara något av följande rader i den här tabellen. |
-| TenantId | Varierar | Sträng |Klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för DomainName ObjectIdType. |
-| sökvägen * | Ja | Sträng |Fullständig åtkomst till sökvägen till den `Space` objekt. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare som behöver rolltilldelningen för hela diagrammet, ange `"/"`. Det här tecknet betecknar roten, men dess användning rekommenderas inte. Alltid följa principen för lägsta behörighet. |
+| YOUR_USER_ID |  True | Sträng |   ObjectId för användar-ID-objectIdType. |
+| YOUR_PATH | True | Sträng |   Den valda sökvägen att kontrollera åtkomst för. |
+| YOUR_ACCESS_TYPE |  True | Sträng |   Åtkomsttyp att söka efter. |
+| YOUR_RESOURCE_TYPE | True | Sträng |  Resursen att kontrollera. |
 
-## <a name="sample-configuration"></a>Exempel på konfiguration
+En lyckad begäran returnerar ett booleskt värde `true` eller `false` att indikera om vilken åtkomst har tilldelats till användaren för den angivna sökvägen och resursen.
 
-En användare behöver administrativ åtkomst till en våning utrymme för en klient i det här exemplet.
+### <a name="get-role-assignments-by-path"></a>Hämta rolltilldelningar efter sökväg
 
-  ```JSON
-    {
-      "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-      "ObjectId" : " 0fc863bb-eb51-4704-a312-7d635d70e599",
-      "ObjectIdType" : "UserId",
-      "TenantId": " a0c20ae6-e830-4c60-993d-a91ce6032724",
-      "Path": "/ 091e349c-c0ea-43d4-93cf-6b57abd23a44/ d84e82e6-84d5-45a4-bd9d-006a118e3bab"
-    }
-  ```
-
-I det här exemplet kör ett program testscenarier simulerade enheter och sensorer.
-
-  ```JSON
-    {
-      "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-      "ObjectId" : "cabf7acd-af0b-41c5-959a-ce2f4c26565b",
-      "ObjectIdType" : "ServicePrincipalId",
-      "TenantId": " a0c20ae6-e830-4c60-993d-a91ce6032724",
-      "Path": "/"
-    }
-  ```
-
-Alla användare som tillhör en domän får läsbehörighet för blanksteg, sensorer och användare. Den här åtkomsten innehåller motsvarande relaterade objekt.
-
-  ```JSON
-    {
-      "RoleId": " b1ffdb77-c635-4e7e-ad25-948237d85b30",
-      "ObjectId" : "@microsoft.com",
-      "ObjectIdType" : "DomainName",
-      "Path": "/091e349c-c0ea-43d4-93cf-6b57abd23a44"
-    }
-  ```
-
-Använd får att få en rolltilldelning.
+Om du vill hämta alla rolltilldelningar för en sökväg, gör du en autentiserad HTTP GET-begäran till:
 
 ```plaintext
-HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
+YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| **Namn** | **I** | **Krävs** |    **Typ** |  **Beskrivning** |
-| --- | --- | --- | --- | --- |
-| YOUR_PATH | Sökväg | True | Sträng |    Den fullständiga sökvägen till området |
+| Värde | Ersätt med |
+| --- | --- |
+| YOUR_PATH | Den fullständiga sökvägen till området |
 
-Använd ta bort för att ta bort en rolltilldelning.
+En lyckad begäran returnerar en JSON-matris med varje rolltilldelning som är associerade med den valda **sökväg** parameter:
+
+```JSON
+[
+    {
+        "id": "0000c484-698e-46fd-a3fd-c12aa11e53a1",
+        "roleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+        "objectId": "0de38846-1aa5-000c-a46d-ea3d8ca8ee5e",
+        "objectIdType": "UserId",
+        "path": "/"
+    }
+]
+```
+
+### <a name="revoke-a-permission"></a>Återkalla behörighet
+
+Om du vill återkalla en behörigheter från en mottagare tar du bort rolltilldelningen genom att göra en autentiserad HTTP DELETE-begäran:
 
 ```plaintext
-HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
+YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
-| **Namn** | **I** | **Krävs** | **Typ** | **Beskrivning** |
-| --- | --- | --- | --- | --- |
-| YOUR_ROLE_ID | Sökväg | True | Sträng | Tilldelnings-ID |
+| Parameter | Ersätt med |
+| --- | --- |
+| *YOUR_ROLE_ASSIGNMENT_ID* | Den **id** för att ta bort rolltilldelningen |
+
+En lyckad DELETE-begäran returnerar 204 svarsstatusen. Kontrollera borttagningen av rolltilldelningen av [kontrollerar](#check) om rolltilldelningen fortfarande innehåller.
+
+### <a name="create-a-role-assignment"></a>Skapa en rolltilldelning
+
+Om du vill skapa en rolltilldelning, gör du en autentiserad HTTP POST-begäran till URL:
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments
+```
+
+Kontrollera att JSON-texten överensstämmer med följande schema:
+
+```JSON
+{
+  "roleId": "YOUR_ROLE_ID",
+  "objectId": "YOUR_OBJECT_ID",
+  "objectIdType": "YOUR_OBJECT_ID_TYPE",
+  "path": "YOUR_PATH",
+  "tenantId": "YOUR_TENANT_ID"
+}
+```
+
+En lyckad begäran ska returnera statusen 201-svaret tillsammans med den **id** nyligen skapade rolltilldelningen:
+
+```JSON
+"d92c7823-6e65-41d4-aaaa-f5b32e3f01b9"
+```
+
+## <a name="configuration-examples"></a>Konfigurationsexempel
+
+Följande exempel visar hur du konfigurerar din JSON-brödtexten i scenarierna för vanligt förekommande rolltilldelning.
+
+* **Exempel**: En användare behöver administrativ åtkomst till en våning utrymme för en klient.
+
+   ```JSON
+   {
+    "roleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+    "objectId" : " 0fc863aa-eb51-4704-a312-7d635d70e000",
+    "objectIdType" : "UserId",
+    "tenantId": " a0c20ae6-e830-4c60-993d-a00ce6032724",
+    "path": "/ 000e349c-c0ea-43d4-93cf-6b00abd23a44/ d84e82e6-84d5-45a4-bd9d-006a000e3bab"
+   }
+   ```
+
+* **Exempel**: Ett program körs testscenarier simulerade enheter och sensorer.
+
+   ```JSON
+   {
+    "roleId": "98e44ad7-28d4-0007-853b-b9968ad132d1",
+    "objectId" : "cabf7aaa-af0b-41c5-000a-ce2f4c20000b",
+    "objectIdType" : "ServicePrincipalId",
+    "tenantId": " a0c20ae6-e000-4c60-993d-a91ce6000724",
+    "path": "/"
+   }
+    ```
+
+* **Exempel**: Alla användare som tillhör en domän får läsbehörighet för blanksteg, sensorer och användare. Den här åtkomsten innehåller motsvarande relaterade objekt.
+
+   ```JSON
+   {
+    "roleId": " b1ffdb77-c635-4e7e-ad25-948237d85b30",
+    "objectId" : "@microsoft.com",
+    "objectIdType" : "DomainName",
+    "path": "/000e349c-c0ea-43d4-93cf-6b00abd23a00"
+   }
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om Azure Digital Twins säkerhet [API-autentisering](./security-authenticating-apis.md).
+Om du vill granska Azure Digital Twins roll –--åtkomstkontroll läsa [roll-bas-access-control](./security-authenticating-apis.md).
+
+Om du vill veta mer om Azure Digital Twins API-autentisering kan du läsa [API-autentisering](./security-authenticating-apis.md).
+
+<!-- Images -->
+[1]: media/security-roles/roleassignments.png
+[2]: media/security-roles/system.png

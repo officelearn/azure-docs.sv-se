@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a198fa7fe5e1ed81e30987990359f9ecedbe225b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313334"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631557"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Skapa ett index för dokument på flera språk i Azure Search
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Nedan visas skärmdumpar av Azure Portal-blad för Azure Search som tillåter an
 ![][2]
 *Välj en av analysverktyg som stöds för varje fält*
 
-Som standard alla sökbara fält använder den [Standard Lucene analyzer](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) som är språkoberoende. Om du vill visa en fullständig lista över stöds analysverktyg, se [språkstöd i Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+Som standard alla sökbara fält använder den [Standard Lucene analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) som är språkoberoende. Om du vill visa en fullständig lista över stöds analysverktyg, se [språkstöd i Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
 
 När språkanalysverktyg har valts för ett fält, används det med varje begäran för indexering och sökning för det fältet. När en fråga utfärdas mot flera fält med hjälp av olika analysverktyg, bearbetas frågan oberoende av rätt analysverktyg för varje fält.
 
@@ -81,7 +81,7 @@ Ibland är språket i agenten skickar en fråga inte känd, då frågan kan utf�
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
-Om du är en .NET-utvecklare, Observera att du kan konfigurera språkanalysverktyg med hjälp av den [Azure Search .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search). Den senaste versionen innehåller stöd för Microsoft språkanalysverktyg samt.
+Om du är en .NET-utvecklare, Observera att du kan konfigurera språkanalysverktyg med hjälp av den [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search). Den senaste versionen innehåller stöd för Microsoft språkanalysverktyg samt.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

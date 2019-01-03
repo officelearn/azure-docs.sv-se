@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055920"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789476"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduktion till Molntjänsten övervakning
 
@@ -93,13 +93,13 @@ Troligen har två **.cscfg** filer, en med namnet **ServiceConfiguration.cloud.c
 
 ## <a name="use-application-insights"></a>Använda Application Insights
 
-När du publicerar Molntjänsten från Visual Studio har möjlighet att skicka diagnostiska data till Application Insights. Du kan skapa Application Insights Azure-resurser vid den tiden eller skicka data till en befintlig Azure-resurs. Din molntjänst kan övervakas av Application Insights för tillgänglighet, prestanda, fel och användning. Anpassade diagram kan läggas till Application Insights så att du kan se data som är mest viktigt. Rollen instansdata kan samlas in med hjälp av Application Insights SDK i ditt molntjänstprojekt. Mer information om hur du integrerar Application Insights finns i [Application Insights med Cloud Services](../application-insights/app-insights-cloudservices.md).
+När du publicerar Molntjänsten från Visual Studio har möjlighet att skicka diagnostiska data till Application Insights. Du kan skapa Application Insights Azure-resurser vid den tiden eller skicka data till en befintlig Azure-resurs. Din molntjänst kan övervakas av Application Insights för tillgänglighet, prestanda, fel och användning. Anpassade diagram kan läggas till Application Insights så att du kan se data som är mest viktigt. Rollen instansdata kan samlas in med hjälp av Application Insights SDK i ditt molntjänstprojekt. Mer information om hur du integrerar Application Insights finns i [Application Insights med Cloud Services](../azure-monitor/app/cloudservices.md).
 
 Observera att du kan använda Application Insights för att visa prestandaräknare (och andra inställningar) du har angett via Windows Azure Diagnostics-tillägget du bara hämta en rikare upplevelse genom att integrera Application Insights SDK till din Worker och webbtjänst roller.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig mer om Application Insights med Cloud Services](../application-insights/app-insights-cloudservices.md)
+- [Lär dig mer om Application Insights med Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Ställ in prestandaräknare](diagnostics-performance-counters.md)
 

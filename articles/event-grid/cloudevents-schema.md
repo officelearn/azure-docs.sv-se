@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 3865a94192a65a2cb8a761cc1da30317f605548b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287208"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755095"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Använd CloudEvents-schema med Event Grid
 
@@ -21,11 +21,11 @@ Utöver dess [standard Händelseschema](event-schema.md), Azure Event Grid har i
 
 CloudEvents förenklar samverkan genom att tillhandahålla ett gemensamt Händelseschema för publicering och använder molnet baserat på händelser. Det här schemat kan enhetliga verktyg, standard sätt för Routning och hantera händelser och universal sätt att deserialisering av yttre händelseschemat. Du kan enkelt integrera arbete på plattformar med ett gemensamt schema.
 
-CloudEvents håller på att bygga av flera [medarbetare](https://github.com/cloudevents/spec/blob/master/community/contributors.md), inklusive Microsoft, via den [Cloud interna Compute Foundation](https://www.cncf.io/). Det finns för närvarande som version 0.1.
+CloudEvents håller på att skapas av ett flertal [medarbetare](https://github.com/cloudevents/spec/blob/master/community/contributors.md), inklusive Microsoft, via den [Cloud interna Compute Foundation](https://www.cncf.io/). Det finns för närvarande som version 0.1.
 
 Den här artikeln beskriver hur du använder CloudEvents-schema med Event Grid.
 
-## <a name="install-preview-feature"></a>Installera funktionen för förhandsgranskning
+## <a name="install-preview-feature"></a>Installera förhandsversionsfunktionen
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 

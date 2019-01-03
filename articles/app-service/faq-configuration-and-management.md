@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 266c9df095e9153533dbd89b4cd557d12ddcdc66
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408892"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971315"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfiguration och hantering av vanliga frågor och svar för Web Apps i Azure
 
@@ -39,7 +39,7 @@ Svar på vanliga frågor om hur du använder ett anpassat domännamn med Azure-w
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>Hur köper jag en ny anpassad domän för min webbapp?
 
-Om du vill lära dig mer om att köpa och konfigurera en anpassad domän för din App Service web Apps, se [köp och konfigurera ett anpassat domännamn i App Service](custom-dns-web-site-buydomains-web-app.md).
+Om du vill lära dig mer om att köpa och konfigurera en anpassad domän för din App Service web Apps, se [köp och konfigurera ett anpassat domännamn i App Service](manage-custom-dns-buy-domain.md).
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Hur jag för att ladda upp och konfigurera ett befintligt SSL-certifikat för min webbapp?
@@ -72,9 +72,11 @@ Ange serverns tidszon för din webbapp:
     * Värde = *tidszonen som du vill*
 3. Välj **Spara**.
 
+Se den **tidszon** kolumnen i den [standard tidszoner](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) artikel för godkända värden.
+
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Varför min kontinuerliga WebJobs Ibland misslyckas?
 
-Som standard inaktiveras webbappar om de är inaktiva för en angiven tidsperiod. På så sätt kan systemet spara resurser. I Basic och Standard-planer, du kan aktivera den **Always On** inställningen att behålla webbappen lästs in hela tiden. Om ditt webbprogram kör kontinuerliga WebJobs, bör du aktivera **alltid på**, eller WebJobs kanske inte körs på ett tillförlitligt sätt. Mer information finns i [skapa ett Webbjobb som körs kontinuerligt](web-sites-create-web-jobs.md#CreateContinuous).
+Som standard inaktiveras webbappar om de är inaktiva för en angiven tidsperiod. På så sätt kan systemet spara resurser. I Basic och Standard-planer, du kan aktivera den **Always On** inställningen att behålla webbappen lästs in hela tiden. Om ditt webbprogram kör kontinuerliga WebJobs, bör du aktivera **alltid på**, eller WebJobs kanske inte körs på ett tillförlitligt sätt. Mer information finns i [skapa ett Webbjobb som körs kontinuerligt](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Hur hittar jag utgående IP-adressen för min webbapp?
 
@@ -124,7 +126,7 @@ Mer information finns i [Microsoft Azure App Service web app efterleva PCI-Stand
 
 I Standard och Premium App Service-planer när du distribuerar din webbapp till App Service kan du distribuera till en separat distributionsplats i stället för till standard produktionsplatsen. Distributionsplatser är live-webbappar som har sina egna värdnamn. Web app innehåll och konfiguration element kan bytas mellan två distributionsfack, inklusive produktionsplatsen.
 
-Mer information om hur du använder distributionsplatser finns i [ställa in en mellanlagringsmiljö i App Service](web-sites-staged-publishing.md).
+Mer information om hur du använder distributionsplatser finns i [ställa in en mellanlagringsmiljö i App Service](deploy-staging-slots.md).
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>Hur jag för att komma åt och granska WebJob-loggar?
 
@@ -248,7 +250,7 @@ Du kan skapa ett schemalagt Webbjobb med hjälp av Cron-uttryck:
     {month} {day of the week}" }
     ```
 
-Läs mer om schemalagda WebJobs [skapa ett schemalagt Webbjobb med hjälp av ett Cron-uttryck](web-sites-create-web-jobs.md#CreateScheduledCRON).
+Läs mer om schemalagda WebJobs [skapa ett schemalagt Webbjobb med hjälp av ett Cron-uttryck](webjobs-create.md#CreateScheduledCRON).
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Hur utför penetrationstest för min App Service-app?
 

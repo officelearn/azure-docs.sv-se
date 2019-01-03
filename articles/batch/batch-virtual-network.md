@@ -1,19 +1,20 @@
 ---
-title: Etablera Azure Batch-pool i ett virtuellt nätverk | Microsoft Docs
+title: Etablerar en pool i ett virtuellt nätverk – Azure Batch | Microsoft Docs
 description: Hur du skapar en Batch-pool i Azure-nätverk så att beräkningsnoder kan kommunicera säkert med andra virtuella datorer i nätverket, till exempel en filserver.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: danlep
-ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091971"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543922"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch-pool i ett virtuellt nätverk
 
@@ -37,7 +38,7 @@ Ett Azure Batch-pool har inställningar för compute-noder att kommunicera med v
 
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Skapa en pool med ett virtuellt nätverk i portalen
 
-När du har skapat ditt virtuella nätverk och tilldelat ett undernät till det, du kan skapa en Batch-pool med det virtuella nätverket. Följ dessa steg för att skapa en pool från Azure portal: 
+När du har skapat ditt virtuella nätverk och tilldelat ett undernät till det, du kan skapa en Batch-pool med det virtuella nätverket. Följ dessa steg för att skapa en pool från Azure portal: 
 
 1. Navigera till ditt Batch-konto i Azure Portal. Det här kontot måste finnas i samma prenumeration och region som den resursgrupp som innehåller det virtuella nätverket som du tänker använda. 
 2. I den **inställningar** fönstret till vänster, Välj den **pooler** menyalternativ.

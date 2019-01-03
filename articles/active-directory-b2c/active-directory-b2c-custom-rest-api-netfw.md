@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e3d938c4464fc5141b97f85220bf096920e17d00
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339601"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557299"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren
 
@@ -26,19 +26,19 @@ Med Identitetsramverk, som ligger till grund för Azure Active Directory B2C (Az
 ## <a name="introduction"></a>Introduktion
 Med hjälp av Azure AD B2C kan du lägga till egen affärslogik en användarresa genom att anropa ditt eget RESTful-tjänst. Den Identitetsramverk skickar data till RESTful-tjänst i ett *inkommande anspråk* samling och tar emot data från RESTful i en *utgående anspråk* samling. Med RESTful-tjänst-integrering kan du:
 
-* **Verifiera användarens indata**: den här åtgärden förhindrar att felaktigt beständig lagring till Azure AD. Om värdet från användaren inte är giltigt, returnerar RESTful-tjänst ett felmeddelande som anger att användaren anger en post. Du kan till exempel kontrollera att den e-postadress som anges av användaren finns i din kunddatabas.
-* **Skriv över inkommande anspråk**: om en användare anger det första namnet i gemener och versaler bokstäverna kan du formatera namnet med bara den första bokstaven med versaler.
-* **Utöka användardata genom att ytterligare integrera med företagets line-of-business-program**: Your RESTful-tjänst kan ta emot användarens e-postadress, fråga kundens databas och returnera användarens lojalitet talet till Azure AD B2C. Avkastningen anspråk kan lagras i användarens Azure AD-konto utvärderas i nästa *Orchestration-steg*, eller ingår i åtkomsttoken.
-* **Kör anpassad affärslogik**: du kan skicka push-meddelanden, uppdatera företagets databaser, kör en process för migrering av användare, hantera behörigheter, granska databaser och utföra andra åtgärder.
+* **Verifiera användarens indata**: Den här åtgärden förhindrar att felaktigt beständig lagring till Azure AD. Om värdet från användaren inte är giltigt, returnerar RESTful-tjänst ett felmeddelande som anger att användaren anger en post. Du kan till exempel kontrollera att den e-postadress som anges av användaren finns i din kunddatabas.
+* **Skriv över inkommande anspråk**: Om en användare anger det första namnet i alla gemener eller versaler kan formatera du namnet med bara den första bokstaven med versaler.
+* **Utöka användardata genom att ytterligare integrera med företagets line-of-business-program**: RESTful-tjänst kan ta emot användarens e-postadress, fråga kundens databas och returnera användarens lojalitet talet till Azure AD B2C. Avkastningen anspråk kan lagras i användarens Azure AD-konto utvärderas i nästa *Orchestration-steg*, eller ingår i åtkomsttoken.
+* **Kör anpassad affärslogik**: Du kan skicka push-meddelanden, uppdatera företagets databaser, kör en process för migrering av användare, hantera behörigheter, granska databaser och utföra andra åtgärder.
 
 Du kan utforma integrering med RESTful-tjänster på följande sätt:
 
-* **Teknisk verifieringsprofil**: anropet till RESTful-tjänst som sker inom den tekniska profilen verifieringen av den angivna tekniska profilen. Den tekniska profilen verifiering verifierar data från användare innan användarresa flyttar framåt. Med den tekniska profilen verifiering kan du:
+* **Teknisk verifieringsprofil**: Anropet till tjänsten RESTful sker inom den tekniska profilen verifieringen av den angivna tekniska profilen. Den tekniska profilen verifiering verifierar data från användare innan användarresa flyttar framåt. Med den tekniska profilen verifiering kan du:
    * Skicka inkommande anspråk.
    * Validera de inkommande anspråken och utlösa anpassade felmeddelanden.
    * Skicka tillbaka utgående anspråk.
 
-* **Exchange-anspråk**: den här designen liknar den tekniska profilen verifiering, men det sker inom ett orchestration-steg. Den här definitionen är begränsat till:
+* **Exchange-anspråk**: Den här designen liknar den tekniska profilen verifiering, men det sker inom ett orchestration-steg. Den här definitionen är begränsat till:
    * Skicka inkommande anspråk.
    * Skicka tillbaka utgående anspråk.
 
@@ -133,7 +133,7 @@ Skapa en modell som representerar inkommande anspråk genom att göra följande:
     }
     ```
 
-### <a name="step-22-add-a-controller"></a>Steg 2.2: Lägga till en kontrollant
+### <a name="step-22-add-a-controller"></a>Steg 2.2: Lägga till en styrenhet
 I webb-API, en _controller_ är ett objekt som hanterar HTTP-begäranden. Kontrollanten returnerar utdata anspråk eller om det första namnet inte är giltig, utlöser en konflikt HTTP-felmeddelande.
 
 1. I Solution Explorer högerklickar du på mappen **Styrenheter**. Välj sedan **Lägg till** och sedan **Styrenhet**.
@@ -226,7 +226,7 @@ I webb-API, en _controller_ är ett objekt som hanterar HTTP-begäranden. Kontro
 
 6. Kopiera webbappens URL.
 
-## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Steg 4: Lägg till den nya `loyaltyNumber` anspråk i schemat för din TrustFrameworkExtensions.xml-fil
+## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Steg 4: Lägg till de nya `loyaltyNumber` anspråk i schemat för din TrustFrameworkExtensions.xml-fil
 Den `loyaltyNumber` anspråk ännu inte har definierats i vår schemat. Lägg till en definition i den `<BuildingBlocks>` element som du hittar i början av den *TrustFrameworkExtensions.xml* fil.
 
 ```xml
@@ -241,59 +241,59 @@ Den `loyaltyNumber` anspråk ännu inte har definierats i vår schemat. Lägg ti
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>Steg 5: Lägga till en anspråksprovider 
+## <a name="step-5-add-a-claims-provider"></a>Steg 5: Lägg till en anspråksprovider 
 Varje anspråksprovidern måste ha en eller flera tekniska profiler som avgör de slutpunkter och protokoll som behövs för att kommunicera med anspråksprovidern. 
 
 En anspråksprovider kan ha flera tekniska profiler för olika anledningar. Flera tekniska profiler kan exempelvis definieras eftersom anspråksprovidern stöder flera protokoll, slutpunkter kan ha olika funktioner eller versioner kan innehålla anspråk som har en mängd olika förtroendenivåer. Det kan vara att frigöra känsliga anspråk i en användarresa men inte i en annan. 
 
 Följande XML-kodstycke innehåller en anspråk providern nod med två tekniska profiler:
 
-* **Tekniska Id = ”REST-API-SignUp”**: definierar RESTful-tjänst. 
+* **Tekniska Id = ”REST-API-SignUp”**: Definierar RESTful-tjänst. 
    * `Proprietary` beskrivs som protokoll för en RESTful-baserade provider. 
    * `InputClaims` definierar vilka anspråk som skickas från Azure AD B2C till REST-tjänst. 
 
    I det här exemplet innehållet i anspråket `givenName` skickar till REST-tjänst som `firstName`, innehållet i anspråket `surname` skickar till REST-tjänst som `lastName`, och `email` skickar skick. Den `OutputClaims` elementet definierar vilka anspråk som hämtas från RESTful-tjänst tillbaka till Azure AD B2C.
 
-* **Tekniska Id = ”LocalAccountSignUpWithLogonEmail”**: lägger till en profil för tekniska i en befintlig tekniska profil (definieras i basprincipen). Under registreringen vägen anropar den tekniska profilen verifiering föregående tekniska profil. Om tjänsten RESTful returnerar ett HTTP-fel 409 (en konflikt fel), visas ett felmeddelande för användaren. 
+* **Tekniska Id = ”LocalAccountSignUpWithLogonEmail”**: Lägger till en profil för tekniska i en befintlig tekniska profil (definieras i basprincipen). Under registreringen vägen anropar den tekniska profilen verifiering föregående tekniska profil. Om tjänsten RESTful returnerar ett HTTP-fel 409 (en konflikt fel), visas ett felmeddelande för användaren. 
 
 Leta upp den `<ClaimsProviders>` nod, och Lägg sedan till följande XML-kodstycke under den `<ClaimsProviders>` nod:
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
     
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
-        <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        <Metadata>
+      <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
         <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
-        </Metadata>
-        <InputClaims>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />
         <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
         <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-        </InputClaims>
-        <OutputClaims>
+      </InputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
 
-<!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
+    <!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-        <OutputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <ValidationTechnicalProfiles>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
         <ValidationTechnicalProfile ReferenceId="REST-API-SignUp" />
-        </ValidationTechnicalProfiles>
+      </ValidationTechnicalProfiles>
     </TechnicalProfile>
-
-    </TechnicalProfiles>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 

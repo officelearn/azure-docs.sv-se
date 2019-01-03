@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 9f7f7731490467ff32a72507239bfeedc794f2f2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3fe57fe0aac4c355b65b55ee37213221eb854a5c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000541"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976568"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Utvecklaranalys: språk, plattformar och integreringar
 Dessa objekt är implementeringar av [Application Insights](app-insights-overview.md) som vi har hört talas om, inklusive vissa av tredje parter.
 
 ## <a name="languages---officially-supported-by-application-insights-team"></a>Språk – som officiellt stöds av Application Insights-teamet
-* [C#|VB (.NET)](app-insights-asp-net.md)
-* [Java](app-insights-java-get-started.md)
-* [JavaScript-webbsidor](app-insights-javascript.md)
+* [C#|VB (.NET)](../azure-monitor/app/asp-net.md)
+* [Java](../azure-monitor/app/java-get-started.md)
+* [JavaScript-webbsidor](../azure-monitor/app/javascript.md)
 * [Node.js](app-insights-nodejs.md)
 
 ## <a name="languages---community-supported"></a>Språk – som stöds av vårt community
@@ -37,22 +37,22 @@ Dessa objekt är implementeringar av [Application Insights](app-insights-overvie
 * [Annat](#projects)
 
 ## <a name="platforms-and-frameworks"></a>Plattformar och ramverk
-* [ASP.NET](app-insights-asp-net.md)
-* [ASP.NET – för appar som redan är live](app-insights-monitor-performance-live-website-now.md)
-* [ASP.NET Core](app-insights-asp-net-core.md)
+* [ASP.NET](../azure-monitor/app/asp-net.md)
+* [ASP.NET – för appar som redan är live](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [ASP.NET Core](../azure-monitor/app/asp-net-core.md)
 * [Android](app-insights-mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
-* [Azure Web Apps](app-insights-azure-web-apps.md)
-* [Azure Cloud Services](app-insights-cloudservices.md) – inklusive både webb- och arbetarroller
+* [Azure App Service](../azure-monitor/app/azure-web-apps.md)
+* [Azure Cloud Services](../azure-monitor/app/cloudservices.md) – inklusive både webb- och arbetarroller
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
-* [Docker](app-insights-docker.md)
+* [Docker](../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](app-insights-mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
-* [J2EE](app-insights-java-get-started.md)
-* [J2EE – för appar som redan är live](app-insights-java-live.md)
+* [J2EE](../azure-monitor/app/java-get-started.md)
+* [J2EE – för appar som redan är live](../azure-monitor/app/java-live.md)
 * [Node.js](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
@@ -63,8 +63,8 @@ Dessa objekt är implementeringar av [Application Insights](app-insights-overvie
 * [Annat](#projects)
 
 ## <a name="logging-frameworks"></a>Ramverk för loggning
-* [Log4Net, NLog eller System.Diagnostics.Trace](app-insights-asp-net-trace-logs.md)
-* [Java, Log4J eller Logback](app-insights-java-trace-logs.md)
+* [Log4Net, NLog eller System.Diagnostics.Trace](../azure-monitor/app/asp-net-trace-logs.md)
+* [Java, Log4J eller Logback](../azure-monitor/app/java-trace-logs.md)
 * [Semantisk loggning (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) – integrerar med [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Molnbaserad belastningstestning](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)

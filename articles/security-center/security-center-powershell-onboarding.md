@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ecfab15860ffc690d341069b626e5d7579c00da4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 69310e51495cbb91303c3e8837ad42f6a4ac3374
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340376"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972916"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatisera onboarding av Azure Security Center med hjälp av PowerShell
 
@@ -49,37 +49,31 @@ De här stegen bör utföras innan du kör cmdlet: ar för Security Center:
 1.  Kör PowerShell som administratör.
 2.  Kör följande kommandon i PowerShell:
       
-        Install-Module -Name PowerShellGet -Force
         Set-ExecutionPolicy -ExecutionPolicy AllSigned
-        Import-Module PowerShellGet
-6.  Starta om PowerShell
-
-7. I PowerShell kör du följande kommandon:
-
-         Install-Module -Name AzureRM.Security -AllowPrerelease -Force
+        Install-Module -Name Az.Security -Force
 
 ## <a name="onboard-security-center-using-powershell"></a>Integrera Security Center med hjälp av PowerShell
 
 1.  Registrera dina prenumerationer till Security Center Resource Provider:
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.Security' 
+        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
 2.  Valfritt: Ställa in täckning (prisnivå) prenumerationer (om inte har definierats, prisnivån har angetts till ledig):
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Set-AzureRmSecurityPricing -Name "default" -PricingTier "Standard"
+        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
 
 3.  Konfigurera en Log Analytics-arbetsyta som agenterna rapporterar. Du måste ha en Log Analytics-arbetsyta som du redan skapat att prenumerationens virtuella datorer rapporterar till. Du kan definiera flera prenumerationer för att rapportera till samma arbetsyta. Om inte har definierats, används standardarbetsytan.
 
-        Set-AzureRmSecurityWorkspaceSetting -Name "default" -Scope
+        Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
 4.  Automatiskt etablera installationen av Microsoft Monitoring Agent på virtuella datorer i Azure:
     
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     
-        Set-AzureRmSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
+        Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
 
     > [!NOTE]
     > Vi rekommenderar att aktivera automatisk etablering att se till att virtuella datorer i Azure skyddas automatiskt av Azure Security Center.
@@ -87,13 +81,13 @@ De här stegen bör utföras innan du kör cmdlet: ar för Security Center:
 
 5.  Valfritt: Vi rekommenderar starkt att du definierar säkerhetskontaktuppgifter för prenumerationer som du publicerar, som används som mottagare av meddelanden och meddelanden som genereras av Security Center:
 
-        Set-AzureRmSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertsAdmin -NotifyOnAlert 
+        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertsAdmin -NotifyOnAlert 
 
 6.  Tilldela standard Security Center policy initiativ:
 
-        Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzureRmPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
-        New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
+        Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+        $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
+        New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 Du nu har integrerats Azure Security Center med PowerShell!
 
@@ -107,7 +101,7 @@ Du kan nu använda dessa PowerShell-cmdletar med automatiserade skript för att 
 ## <a name="see-also"></a>Se också
 Mer information om hur du kan använda PowerShell för att automatisera Kom igång med Security Center finns i följande artikel:
 
-* [AzureRM.Security](https://www.powershellgallery.com/packages/AzureRM.Security/0.2.0-preview).
+* [Az.Security](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Security/Commands.Security/help/Az.Security.md).
 
 Mer information om Security Center finns i följande artikel:
 

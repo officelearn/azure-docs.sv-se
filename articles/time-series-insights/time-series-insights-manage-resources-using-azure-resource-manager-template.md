@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights mall-hantering – hur du hanterar din Azure Time Series Insights-miljö med Azure Resource Manager-mallar | Microsoft Docs
+title: Hur du hanterar din Azure Time Series Insights-miljö med Azure Resource Manager-mallar | Microsoft Docs
 description: Den här artikeln beskriver hur du hanterar din Azure Time Series Insights-miljö via programmering med Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 70f82c19bced7618027379fcf9451348ac2591eb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9200b3b8cd85bfd94bbc4c66cccb35b78a97aaff
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270628"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554698"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights-resurser med Azure Resource Manager-mallar
 

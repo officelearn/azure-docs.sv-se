@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274572"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993302"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hur du planerar din hybrid Azure Active Directory join-implementering
 
@@ -146,9 +146,9 @@ Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för 
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Stöd för alternativ inloggnings-Id i Hybrid Azure AD-anslutning
 
-Windows 10 Hybrid Azure AD-anslutning har begränsat stöd för [alternativa inloggnings-ID: N](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) baserat på vilken typ av alternativa inloggnings-id, [autentiseringsmetod](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), typ och version av Windows 10. Det finns två typ av alternativa inloggnings-ID som kan finnas i din miljö.
+Windows 10 Hybrid Azure AD-anslutning har begränsat stöd för [alternativa inloggnings-ID: N](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) baserat på vilken typ av alternativa inloggnings-id, [autentiseringsmetod](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), typ och version av Windows 10. Det finns två typ av alternativa inloggnings-ID som kan finnas i din miljö.
 
- - Dirigerbara alternativa inloggnings-id: En dirigerbara alternativa inloggnings-id har en giltig verifierad domän som har registrerats hos en domänregistrator. Till exempel om den primära domänen är contoso.com contoso.org och contoso.co.uk är giltiga domän som ägs av Contoso och [verifierats i Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ - Dirigerbara alternativa inloggnings-id: En dirigerbara alternativa inloggnings-id har en giltig verifierad domän som har registrerats hos en domänregistrator. Till exempel om den primära domänen är contoso.com contoso.org och contoso.co.uk är giltiga domän som ägs av Contoso och [verifierats i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
  - Icke-dirigerbara alternativa inloggnings-id: En icke-dirigerbara alternativa inloggnings-id har inte en verifierad domän. Det gäller endast inom din organisations privata nätverk. Till exempel om den primära domänen är contoso.com contoso.local är inte en verifierbar domän i internet men används i Contoso-nätverket.
  

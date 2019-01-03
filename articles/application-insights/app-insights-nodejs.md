@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: a2ac309afc6b25f7fdb4667b767ead59cae3b696
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9d8b5a487898a81517eb25563fbbef8ffc489d01
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877328"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808544"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
-[Azure Application Insights](app-insights-overview.md) övervakar dina serverdelstjänster och komponenter när du har distribuerat dem för att hjälpa dig att [upptäcka och snabbt diagnostisera problem med prestanda och annat](app-insights-detect-triage-diagnose.md). Du kan använda Application Insights för Node.js-tjänster som finns i ditt datacenter, i virtuella Azure-datorer och webbappar och även i andra offentliga moln.
+[Azure Application Insights](app-insights-overview.md) övervakar dina serverdelstjänster och komponenter när du har distribuerat dem för att hjälpa dig att [upptäcka och snabbt diagnostisera problem med prestanda och annat](../azure-monitor/app/detect-triage-diagnose.md). Du kan använda Application Insights för Node.js-tjänster som finns i ditt datacenter, i virtuella Azure-datorer och webbappar och även i andra offentliga moln.
 
 För att ta emot, lagra, och utforska dina övervakade data inkluderar du SKD:t i koden och konfigurerar en motsvarande Application Insights-resurs i Azure. SDK:t skickar data till den resursen för ytterligare analys och undersökning.
 
@@ -107,8 +107,8 @@ Eftersom SDK:n slår ihop data för sändning kan det uppstå en fördröjning i
 
 * Fortsätta att använda programmet. Vidta fler åtgärder för att generera mer telemetri.
 * Klicka på **Uppdatera** i portalens resursvy. Diagram uppdaterar sig själva regelbundet, men när du trycker på uppdateringsknappen manuellt tvingas de att uppdatera genast.
-* Verifiera att [nödvändiga utgående portar](app-insights-ip-addresses.md) är öppna.
-* Använd [Sök](app-insights-diagnostic-search.md) för att söka efter specifika händelser.
+* Verifiera att [nödvändiga utgående portar](../azure-monitor/app/ip-addresses.md) är öppna.
+* Använd [Sök](../azure-monitor/app/diagnostic-search.md) för att söka efter specifika händelser.
 * Se [Vanliga frågor][FAQ].
 
 
@@ -133,7 +133,7 @@ appInsights.setup("<instrumentation_key>")
 
 ## <a name="telemetryclient-api"></a>TelemetryClient-API
 
-En fullständig beskrivning av TelemetryClient-API:n finns i [Application Insights API for custom events and metrics](app-insights-api-custom-events-metrics.md) (Application Insights-API för anpassade händelser och mått).
+En fullständig beskrivning av TelemetryClient-API:n finns i [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md) (Application Insights-API för anpassade händelser och mått).
 
 Du kan spåra valfri begäran, händelse, mått eller undantag med Node.js-SDK:n i Application Insights. I följande kodexempel visas några av de tillgängliga API:erna som du kan använda:
 
@@ -210,7 +210,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Övervaka din telemetri i portalen](app-insights-dashboards.md)
+* [Övervaka din telemetri i portalen](../azure-monitor/app/app-insights-dashboards.md)
 * [Skriv Analytics-frågor via din telemetri](../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

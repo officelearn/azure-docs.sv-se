@@ -1,20 +1,17 @@
 ---
 title: Konfigurera Data i replikering för att replikera data till Azure Database för MySQL.
 description: Den här artikeln beskriver hur du ställer in Data i replikering för Azure Database för MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 18ef70d64523bc4001fa7d9a35a7f803b8050613
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497934"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539627"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Så här konfigurerar du Azure Database för MySQL-Data i replikering
 
@@ -156,7 +153,7 @@ Följande steg förbereder och konfigurera MySQL-servern körs lokalt, i en virt
    - master_password: lösenordet för huvudservern
    - master_log_file: binära loggfilens namn från att köras `show master status`
    - master_log_pos: binär logg position från att köras `show master status`
-   - master_ssl_ca: kontexten för CA-certifikat. Om du inte använder SSL skicka tom sträng.
+   - master_ssl_ca: CA-certifikat kontext. Om du inte använder SSL skicka tom sträng.
        - Det rekommenderas att skicka den här parametern i som en variabel. Se följande exempel för mer information.
 
 > [!NOTE]

@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: ee0d46cd07de4e9b123357bcc4ee9d1e51926f49
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 58afaacb6e0165582f9f54c3ec3c273e2a063804
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312986"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753258"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
 Vi rekommenderar starkt att du läser [planera för distribution av Azure Files](storage-files-planning.md) och [planera för distribution av Azure File Sync](storage-sync-files-planning.md) innan du slutför stegen som beskrivs i den här artikeln.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Ett Azure storage-konto och ett Azure filresurs i samma region som du vill distribuera Azure File Sync. Mer information finns i:
@@ -36,12 +38,12 @@ Vi rekommenderar starkt att du läser [planera för distribution av Azure Files]
 
     > [!Note]  
     > Azure File Sync stöder ännu inte PowerShell 6 + på Windows Server 2012 R2 eller Windows Server 2016.
-* AzureRM PowerShell-modulen på de servrar som du vill använda med Azure File Sync. Mer information om hur du installerar AzureRM PowerShell-moduler finns i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Du bör alltid använda den senaste versionen av Azure PowerShell-moduler. 
+* Azure PowerShell-modulen på de servrar som du vill använda med Azure File Sync. Mer information om hur du installerar Azure PowerShell-moduler finns i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Du bör alltid använda den senaste versionen av Azure PowerShell-moduler. 
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Förbereda Windows Server för användning med Azure File Sync
 För varje server som du planerar att använda med Azure File Sync, inklusive varje servernoden i ett redundanskluster, inaktivera **Förbättrad säkerhetskonfiguration i Internet Explorer**. Detta krävs endast för inledande serverregistrering. Du kan aktivera det igen när servern har registrerats.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Öppna Serverhanteraren.
 2. Klicka på **lokal Server**:  
     ![”Lokal Server” på vänster sida av Server Manager-UI](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -50,7 +52,7 @@ För varje server som du planerar att använda med Azure File Sync, inklusive va
 4. I den **Förbättrad säkerhetskonfiguration i Internet Explorer** dialogrutan **av** för **administratörer** och **användare**:  
     ![Förbättrad säkerhetskonfiguration i Internet Explorer pop-fönstret med ”av” markerad](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Om du vill inaktivera Förbättrad säkerhetskonfiguration i Internet Explorer, kör du följande från en upphöjd PowerShell-session:
 
 ```PowerShell
@@ -73,7 +75,7 @@ Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 ## <a name="install-the-azure-file-sync-agent"></a>Installera Azure File Sync-agenten
 Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windows Server kan synkroniseras med en Azure-filresurs. 
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Du kan ladda ned agenten från den [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). När nedladdningen är klar dubbelklickar du på MSI-paketet för att starta installationen av Azure File Sync-agenten.
 
 > [!Important]  
@@ -85,7 +87,7 @@ Vi rekommenderar att du gör följande:
 
 När installationen av Azure File Sync-agent är klar öppnas automatiskt Användargränssnittet för registrering av servern. Du måste ha en tjänst för Lagringssynkronisering innan du registrerar; Se nästa avsnitt om hur du skapar en Lagringssynkroniseringstjänst.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Kör följande PowerShell-kod för att hämta den aktuella versionen av Azure File Sync-agenten för ditt operativsystem och installera den på datorn.
 
 > [!Important]  
@@ -131,26 +133,26 @@ Distributionen av Azure File Sync som börjar med att placera en **Lagringssynkr
 > [!Note]
 > Storage Sync-tjänsten ärvda åtkomstbehörigheter från prenumeration och resursgrupp som den har distribuerats till. Vi rekommenderar att du noggrant kontrollera vem som har åtkomst till den. Entiteter med skrivåtkomst kan börja synkronisera nya grupper av filer från servrar som registrerats till den här lagringen synkroniseringstjänsten och orsaka data kan flöda till Azure storage som är tillgänglig för dem.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Om du vill distribuera en tjänst för Lagringssynkronisering, går du till den [Azure-portalen](https://portal.azure.com/), klickar du på *New* och söker sedan efter Azure File Sync. I sökresultaten väljer **Azure File Sync**, och välj sedan **skapa** att öppna den **distribuera synkronisering av lagring** fliken.
 
 I fönstret som öppnas anger du följande information:
 
-- **Namn på**: Ett unikt namn (per prenumeration) för tjänsten för synkronisering av lagring.
+- **Namn**: Ett unikt namn (per prenumeration) för tjänsten för synkronisering av lagring.
 - **Prenumeration**: Den prenumeration där du vill skapa Storage Sync-tjänsten. Beroende på organisationens Konfigurationsstrategi, kanske du har åtkomst till en eller flera prenumerationer. En Azure-prenumeration är den mest grundläggande behållaren för fakturering för varje tjänst i molnet (till exempel Azure Files).
 - **Resursgrupp**: En resursgrupp är en logisk grupp av Azure-resurser, till exempel ett lagringskonto eller en Lagringssynkroniseringstjänst. Du kan skapa en ny resursgrupp eller Använd en befintlig resursgrupp för Azure File Sync. (Vi rekommenderar att använda resursgrupper som behållare för att isolera resurser logiskt för din organisation, till exempel gruppera HR resurser eller resurser för ett specifikt projekt.)
 - **Plats**: Den region där du vill distribuera Azure File Sync. Endast regioner som stöds är tillgängliga i den här listan.
 
 När du är klar väljer du **skapa** att distribuera Storage Sync-tjänsten.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-Innan du interagerar med Azure File Sync management-cmdletar, behöver du importera en DLL-fil och skapa en kontext för hantering av Azure File Sync. Detta är nödvändigt eftersom de Azure File Sync cmdletarna inte ännu en del av AzureRM PowerShell-modulen.
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Innan du interagerar med Azure File Sync management-cmdletar, behöver du importera en DLL-fil och skapa en kontext för hantering av Azure File Sync. Detta är nödvändigt eftersom de Azure File Sync cmdletarna inte ännu en del av Azure PowerShell-moduler.
 
 > [!Note]  
-> StorageSync.Management.PowerShell.Cmdlets.dll paketet, som innehåller management-cmdletar för Azure File Sync (avsiktligt) innehåller en cmdlet med ett icke-godkända verb (`Login`). Namnet `Login-AzureRmStorageSync` valdes för att matcha den `Login-AzureRmAccount` alias för cmdleten i AzureRM PowerShell-modulen. Det här felmeddelandet (och cmdleten) tas bort Azure File Sync-agenten har lagts till i AzureRM PowerShell-modulen.
+> StorageSync.Management.PowerShell.Cmdlets.dll paketet, som innehåller management-cmdletar för Azure File Sync (avsiktligt) innehåller en cmdlet med ett icke-godkända verb (`Login`). Namnet `Login-AzureStorageSync` valdes för att matcha den `Login-AzAccount` alias för cmdleten i Azure PowerShell-modulen. Det här felmeddelandet (och cmdleten) tas bort Azure File Sync-agenten har lagts till i Azure PowerShell-modulen.
 
 ```PowerShell
-$acctInfo = Login-AzureRmAccount
+$acctInfo = Login-AzAccount
 
 # The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
 # agent to a non-standard location, please update this path.
@@ -164,7 +166,7 @@ Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
 $subID = $acctInfo.Context.Subscription.Id
 
 # this variable holds your Azure Active Directory tenant ID
-# use Login-AzureRMAccount to get the ID from that context
+# use Login-AzAccount to get the ID from that context
 $tenantID = $acctInfo.Context.Tenant.Id
 
 # this variable holds the Azure region you want to deploy 
@@ -174,7 +176,7 @@ $region = '<Az_Region>'
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
 $regions = @()
-Get-AzureRmLocation | ForEach-Object { 
+Get-AzLocation | ForEach-Object { 
     if ($_.Providers -contains "Microsoft.StorageSync") { 
         $regions += $_.Location 
     } 
@@ -189,29 +191,29 @@ $resourceGroup = '<RG_Name>'
 
 # Check to ensure resource group exists and create it if doesn't
 $resourceGroups = @()
-Get-AzureRmResourceGroup | ForEach-Object { 
+Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
 }
 
 if ($resourceGroups -notcontains $resourceGroup) {
-    New-AzureRmResourceGroup -Name $resourceGroup -Location $region
+    New-AzResourceGroup -Name $resourceGroup -Location $region
 }
 
 # the following command creates an AFS context 
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
-Login-AzureRmStorageSync `
+Login-AzStorageSync `
     -SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
     -Location $region
 ```
 
-När du har skapat Azure File Sync-kontext med den `Login-AzureRmStorageSync` cmdlet, som du kan skapa Storage Sync-tjänsten. Se till att ersätta `<my-storage-sync-service>` med önskad namnet på Storage Sync-tjänsten.
+När du har skapat Azure File Sync-kontext med den `Login-AzStorageSync` cmdlet, som du kan skapa Storage Sync-tjänsten. Se till att ersätta `<my-storage-sync-service>` med önskad namnet på Storage Sync-tjänsten.
 
 ```PowerShell
 $storageSyncName = "<my-storage-sync-service>"
-New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
+New-AzStorageSyncService -StorageSyncServiceName $storageSyncName
 ```
 
 ---
@@ -222,7 +224,7 @@ När du registrerar Windows Server med en tjänst för synkronisering av lagring
 > [!Note]
 > Registrera servern använder dina Azure-autentiseringsuppgifter för att skapa en förtroenderelation mellan Storage Sync-tjänsten och Windows Server, men sedan servern skapar och använder sin egen identitet som är giltiga så länge som servern är registrerad och aktuell signatur för delad åtkomst-token (Storage SAS) är giltig. En ny SAS-token kan inte utfärdas till servern när servern är avregistrerade, vilket tar bort serverns möjlighet att komma åt Azure-filresurser, stoppar alla synkronisering.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Användargränssnittet för servern registrering ska öppnas automatiskt efter installationen av Azure File Sync-agenten. Om inte kan öppna du den manuellt från dess filplats: C:\Program\Microsoft Files\Azure\StorageSyncAgent\ServerRegistration.exe. När Användargränssnittet för servern registrering öppnas väljer **inloggning** att börja.
 
 När du loggar in uppmanas du att ange följande information:
@@ -235,9 +237,9 @@ När du loggar in uppmanas du att ange följande information:
 
 När du har valt informationen som krävs, Välj **registrera** att slutföra registreringen för servern. Som en del av registreringsprocessen uppmanas du att logga in en ytterligare inloggning.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
-$registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
+$registeredServer = Register-AzStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
 
 ---
@@ -250,7 +252,7 @@ En molnslutpunkt finns en pekare till en Azure-filresurs. Alla serverslutpunkter
 > [!Important]  
 > Du kan göra ändringar till molnslutpunkt eller serverslutpunkt i synkroniseringsgruppen och ha dina filer synkroniseras till de andra slutpunkterna i synkroniseringsgruppen. Om du gör en ändring till molnslutpunkten (Azure-filresurs) direkt, måste ändringar först identifieras av ett jobb med Azure File Sync ändra identifiering. Ett jobb för identifiering av ändring initieras för en molnslutpunkt bara en gång var 24: e timme. Mer information finns i [Azure Files vanliga frågor och svar](storage-files-faq.md#afs-change-detection).
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Skapa en synkroniseringsgrupp i den [Azure-portalen](https://portal.azure.com/)går du till Storage Sync-tjänsten och välj sedan **+ synkroniseringsgruppen**:
 
 ![Skapa en ny synkroniseringsgrupp i Azure-portalen](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
@@ -262,12 +264,12 @@ I fönstret som öppnas anger du följande information för att skapa en synkron
 - **Storage-konto**: Om du väljer **Välj lagringskonto**, ett annat fönster visas där du kan välja det lagringskonto som har Azure-filresursen som du vill synkronisera med.
 - **Azure-filresurs**: Namnet på Azure-filresursen som du vill synkronisera.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Kör följande PowerShell för att skapa synkroniseringsgruppen. Kom ihåg att ersätta `<my-sync-group>` med önskad namnet på synkroniseringsgruppen.
 
 ```PowerShell
 $syncGroupName = "<my-sync-group>"
-New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
+New-AzStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
 ```
 
 När synkroniseringsgruppen har skapats, kan du skapa din slutpunkt i molnet. Se till att ersätta `<my-storage-account>` och `<my-file-share>` med de förväntade värdena.
@@ -275,12 +277,12 @@ När synkroniseringsgruppen har skapats, kan du skapa din slutpunkt i molnet. Se
 ```PowerShell
 # Get or create a storage account with desired name
 $storageAccountName = "<my-storage-account>"
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup | Where-Object {
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object {
     $_.StorageAccountName -eq $storageAccountName
 }
 
 if ($storageAccount -eq $null) {
-    $storageAccount = New-AzureRmStorageAccount `
+    $storageAccount = New-AzStorageAccount `
         -Name $storageAccountName `
         -ResourceGroupName $resourceGroup `
         -Location $region `
@@ -291,16 +293,16 @@ if ($storageAccount -eq $null) {
 
 # Get or create an Azure file share within the desired storage account
 $fileShareName = "<my-file-share>"
-$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
+$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
 }
 
 if ($fileShare -eq $null) {
-    $fileShare = New-AzureStorageShare -Context $storageAccount.Context -Name $fileShareName
+    $fileShare = New-AzStorageShare -Context $storageAccount.Context -Name $fileShareName
 }
 
 # Create the cloud endpoint
-New-AzureRmStorageSyncCloudEndpoint `
+New-AzStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
     -StorageAccountResourceId $storageAccount.Id `
@@ -312,7 +314,7 @@ New-AzureRmStorageSyncCloudEndpoint `
 ## <a name="create-a-server-endpoint"></a>Skapa en serverslutpunkt
 En serverslutpunkt representerar en viss plats på en registrerad server, till exempel en mapp på en servervolym. En serverslutpunkt måste vara en sökväg på en registrerad server (i stället för en ansluten resurs) och om du vill använda lagringsnivåer för moln sökvägen måste finnas på en systemvolym. Nätverksansluten lagring (NAS) stöds inte.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Om du vill lägga till en serverslutpunkt, gå till den nyligen skapade synkroniseringsgruppen och välj sedan **Lägg till serverslutpunkt**.
 
 ![Lägga till en serverslutpunkt i fönstret för synkroniseringsgruppen](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
@@ -320,13 +322,13 @@ Om du vill lägga till en serverslutpunkt, gå till den nyligen skapade synkroni
 I fönstret **Lägg till serverslutpunkt** anger du följande information för att skapa en serverslutpunkt:
 
 - **Registrerad server**: Namnet på servern eller klustret där du vill skapa Serverslutpunkten.
-- **Sökvägen**: Windows Server-sökvägen till synkroniseras som en del av synkroniseringsgruppen.
+- **Sökväg**: Windows Server-sökvägen till synkroniseras som en del av synkroniseringsgruppen.
 - **Molnnivå**: En växel för att aktivera eller inaktivera lagringsnivåer. Med molnet lagringsnivåer, sällan används eller filer kan vara nivåindelad till Azure Files.
 - **Ledigt utrymme på volym**: Mängden ledigt utrymme för att reservera på volymen där Serverslutpunkten finns. Till exempel om volymens lediga utrymme är inställt på 50% på en volym som har en enskild server-slutpunkt, är ungefär hälften av data nivåindelad till Azure Files. Oavsett om molnet lagringsnivåer har aktiverats kan din Azure-filresurs har alltid en fullständig kopia av data i synkroniseringsgruppen.
 
 Om du vill lägga till Serverslutpunkten, Välj **skapa**. Dina filer nu synkroniseras i Azure-filresurs- och Windows Server. 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Kör följande PowerShell-kommandon för att skapa Serverslutpunkten och se till att ersätta `<your-server-endpoint-path>` och `<your-volume-free-space>` med önskade värden.
 
 ```PowerShell
@@ -343,7 +345,7 @@ if ($cloudTieringDesired) {
     }
 
     # Create server endpoint
-    New-AzureRmStorageSyncServerEndpoint `
+    New-AzStorageSyncServerEndpoint `
         -StorageSyncServiceName $storageSyncName `
         -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `
@@ -353,7 +355,7 @@ if ($cloudTieringDesired) {
 }
 else {
     # Create server endpoint
-    New-AzureRmStorageSyncServerEndpoint `
+    New-AzStorageSyncServerEndpoint `
         -StorageSyncServiceName $storageSyncName `
         -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `

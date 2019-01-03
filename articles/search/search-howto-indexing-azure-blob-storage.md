@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d90a4272f843cc9f2b66aa202ddefe54e7b1a361
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317482"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632169"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search att indexera dokument (till exempel PDF: er och Microsoft Office-dokument och flera andra vanliga format) lagras i Azure Blob storage. Först förklarar den grunderna för att installera och konfigurera en blob-indexeraren. Sedan den erbjuder en djupare förklaring av beteenden och scenarier som du kan stöta på.
@@ -334,7 +334,7 @@ Indexera BLOB-objekt kan vara en tidskrävande process. I fall där du har miljo
 
 Du kanske vill ”Assemblera” dokument från flera källor i ditt index. Du kanske exempelvis vill sammanfoga text från BLOB-objekt med andra metadata som lagras i Cosmos DB. Du kan även använda push-meddelandet indexering API tillsammans med olika indexerare för att bygga upp söka efter dokument från flera delar. 
 
-För detta ska fungera måste alla indexerare och andra komponenter komma överens om dokumentnyckeln. En detaljerad genomgång finns i den här externa artikeln: [Kombinera dokument med andra data i Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+För detta ska fungera måste alla indexerare och andra komponenter komma överens om dokumentnyckeln. En detaljerad genomgång finns i den här externa artikeln: [Kombinera dokument med andra data i Azure Search ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexering oformaterad text 

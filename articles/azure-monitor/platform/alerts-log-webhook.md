@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 4502f7232d2bcfaf4a32a384d24556cd668dc50b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e7676213f9eee781fa7b8c19a30c6505ca5bf2ac
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285125"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720313"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
 När en [log aviseringen har skapats i Azure](alerts-log.md), har möjlighet att [konfigurera med åtgärdsgrupper](action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -73,13 +73,13 @@ Den här exempel-nyttolasten löser till något som liknar följande när de ski
 ```
 Eftersom alla variabler i en anpassad webhook måste anges i JSON-hölje som ”#searchinterval”, har också gällande webhooken variabeln data i hölje som ”00: 05:00”.
 
-För att inkludera sökresultat i en anpassad nyttolast, kontrollerar du att **IncudeSearchResults** har angetts som en översta egenskap i json-nyttolast. 
+För att inkludera sökresultat i en anpassad nyttolast, kontrollerar du att **IncludeSearchResults** har angetts som en översta egenskap i json-nyttolast. 
 
 ## <a name="sample-payloads"></a>Exempel-nyttolaster
 Det här avsnittet visas exempel på en nyttolast för webhook för Loggaviseringar, inklusive när nyttolasten är standard och när dess anpassade.
 
 > [!NOTE]
-> För att säkerställa bakåtkompatibilitet standard webhook-nyttolasten för aviseringar med hjälp av Azure Log Analytics är samma som [Log Analytics Avisera management](alerts-metric.md). Men för loggvarningar med [Application Insights](../../application-insights/app-insights-analytics.md), standard webhook-nyttolasten är baserad på åtgärdsgruppen schema.
+> För att säkerställa bakåtkompatibilitet standard webhook-nyttolasten för aviseringar med hjälp av Azure Log Analytics är samma som [Log Analytics Avisera management](alerts-metric.md). Men för loggvarningar med [Application Insights](../../azure-monitor/app/analytics.md), standard webhook-nyttolasten är baserad på åtgärdsgruppen schema.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Standard-Webbhook för Loggaviseringar 
 Båda exemplen ha angett en dummy-nyttolast med bara två kolumner och två rader.
@@ -200,5 +200,5 @@ Följande är ett exempel på en nyttolast för en anpassad webhook-åtgärd fö
 - Lär dig mer om [Loggaviseringar i Azure-aviseringar ](alerts-unified-log.md)
 - Förstå [managaing loggaviseringar i Azure](alerts-log.md)
 - Skapa och hantera [åtgärdsgrupper i Azure](action-groups.md)
-- Läs mer om [Application Insights](../../application-insights/app-insights-analytics.md)
+- Läs mer om [Application Insights](../../azure-monitor/app/analytics.md)
 - Läs mer om [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 

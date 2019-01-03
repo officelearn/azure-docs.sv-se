@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8c114ed137089e70899e601ebdc1d4d39f562601
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: ab3d4cbe8a200e91d02177e49446065cd9c228df
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43383128"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53609080"
 ---
 ## <a name="create-a-consumer-group"></a>Skapa en konsumentgrupp
 
@@ -41,7 +41,7 @@ Följande steg använder Azure CLI i Azure Cloud Shell för att skapa konsumentg
 
 [Azure Time Series Insights](../articles/time-series-insights/time-series-insights-overview.md) är en fullständigt hanterad tjänst för analys, lagring och visualisering för att hantera IoT-skala time series-data i molnet. Skapa en ny Time Series Insights-miljö:
 
-1. Logga in på [Azure Portal](http://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj **skapa en resurs** > **Internet of Things** > **Time Series Insights**:
 
@@ -86,7 +86,7 @@ Skapa en ny händelsekälla att ansluta till din IoT-hubb. Använd konsumentgrup
     | Händelsekälla namn | Följande skärmbild använder namnet **contoso-iot-hub**. Använd ditt eget unika namn när du har slutfört det här steget. |
     | Källa | **IoT Hub** |
     | Importalternativ | **Använd IoT Hub från tillgängliga prenumerationer** |
-    | Prenumerations-ID | I listrutan väljer du din Azure-prenumeration. |
+    | Prenumeration-ID | I listrutan väljer du din Azure-prenumeration. |
     | Namnet på IOT hub | **Contoso-simulation7d894**. Använd namnet på IoT-hubben från utvecklingsacceleratorn Enhetssimulering. |
     | Principnamn för IOT hub | **iothubowner** |
     | Principnyckel för IOT hub | Det här fältet fylls i automatiskt. |

@@ -9,25 +9,26 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2cdeea546e7153c63cb1edfbc53f3644facc4f2
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877878"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743909"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Använd PowerShell för att säkerhetskopiera och återställa virtuella datorer
 
-Den här artikeln visar hur du använder Azure PowerShell-cmdletar för att säkerhetskopiera och återställa en Azure-dator (VM) från ett Recovery Services-valv. Ett Recovery Services-valv är en Azure Resource Manager-resurs som används för att skydda data och tillgångar i Azure Backup och Azure Site Recovery services. 
+Den här artikeln visar hur du använder Azure PowerShell-cmdletar för att säkerhetskopiera och återställa en Azure-dator (VM) från ett Recovery Services-valv. Ett Recovery Services-valv är en Azure Resource Manager-resurs som används för att skydda data och tillgångar i Azure Backup och Azure Site Recovery services.
 
 > [!NOTE]
-> Azure har två distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln handlar om virtuella datorer som skapas med hjälp av Resource Manager-modellen.
+> Azure har två distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln handlar om virtuella datorer som skapas med hjälp av Resource Manager-modellen.
 >
 >
 
 Den här artikeln visar hur du använder PowerShell för att skydda en virtuell dator och återställa data från en återställningspunkt.
 
 ## <a name="concepts"></a>Begrepp
+
 Om du inte är bekant med tjänsten Azure Backup, en översikt över tjänsten, finns i artikeln [vad är Azure Backup?](backup-introduction-to-azure-backup.md) Innan du börjar bör du se till att du beskriver kraven med Azure Backup och begränsningar i aktuell lösning för VM-säkerhetskopiering.
 
 Om du vill använda PowerShell effektivt är det nödvändigt att förstå hierarkin med objekt och var du ska börja.
@@ -43,7 +44,7 @@ Börja:
 1. [Hämta den senaste versionen av PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (den lägsta versionen är: 1.4.0)
 
 2. Hitta Azure Backup PowerShell-cmdletar tillgängliga genom att skriva följande kommando:
-   
+
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
@@ -54,7 +55,7 @@ Börja:
 3. Logga in på ditt Azure-konto med hjälp av **Connect-AzureRmAccount**. Denna cmdlet öppnar en webbsida uppmanar dig att autentiseringsuppgifterna för ditt konto:
 
     * Alternativt kan du kan inkludera autentiseringsuppgifterna för ditt konto som en parameter i den **Connect-AzureRmAccount** cmdlet, med hjälp av den **-Credential** parametern.
-    * Om du är CSP-partner som arbetar för en klient kan du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller -klient. Till exempel: **Connect-AzureRmAccount-klient ”fabrikam.com”**
+    * Om du är CSP-partner som arbetar för en klient kan du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller -klient. Exempel: **Connect-AzureRmAccount-klient ”fabrikam.com”**
 
 4. Koppla den prenumeration du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer:
 
@@ -326,7 +327,7 @@ $rp[0]
 
 Utdata ser ut ungefär så här:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -350,6 +351,7 @@ Att återställa diskar och konfigurationsinformation:
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
+
 #### <a name="restore-managed-disks"></a>Återställa hanterade diskar
 
 > [!NOTE]
@@ -359,16 +361,15 @@ $restorejob
 
 Ange en extra parameter **TargetResourceGroupName** ange RG som hanterade diskar kommer att återställas.
 
-
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
 Den **VMConfig.JSON** filen kommer att återställas till storage-kontot och de hanterade diskarna kommer att återställas till det angivna målet RG.
 
-
 Utdata ser ut ungefär så här:
-```
+
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -397,6 +398,27 @@ När du har återställt diskarna kan du använda följande steg att skapa och k
 > Om du vill skapa krypterade virtuella datorer från återställda diskar, måste dina Azure-roll har behörighet att utföra åtgärden, **Microsoft.KeyVault/vaults/deploy/action**. Om din roll inte har den här behörigheten kan skapa en anpassad roll med den här åtgärden. Mer information finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md).
 >
 >
+
+> [!NOTE]
+> Efter återställning av diskar, kan du nu få en Distributionsmall som du kan använda direkt för att skapa en ny virtuell dator. Inga fler olika PS-cmdletar för att skapa hanterade/ohanterade virtuella datorer som är krypterad/okrypterade.
+
+De resulterande jobbinformation ger mall-URI som kan efterfrågas och distribueras.
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+Distribuera mallen för att skapa en ny virtuell dator som beskrivs bara [här](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil.
+
+> [!NOTE]
+> Vi rekommenderar starkt att använda distributionsmallen som beskrivs ovan för att skapa en virtuell dator. Det här avsnittet (poäng 1 – 6) upphör att gälla snart.
 
 1. Fråga återställda disken egenskaperna för Jobbinformationen.
 
@@ -476,14 +498,14 @@ När du har återställt diskarna kan du använda följande steg att skapa och k
    * **Hanterade och icke-krypterade virtuella datorer** – för hanterade icke-krypterade virtuella datorer, bifoga de återställda hanterade diskarna. Detaljerad information finns i artikeln [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
    * **Hanteras och krypterade virtuella datorer (endast BEK)** – för hanterade krypterade virtuella datorer (krypterad endast med BEK), bifoga de återställda hanterade diskarna. Detaljerad information finns i artikeln [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
-   
-      Använd följande kommando för att manuellt Aktivera kryptering för datadiskar.
+
+     Använd följande kommando för att manuellt Aktivera kryptering för datadiskar.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **Hanteras och krypterade virtuella datorer (BEK och KEK)** – för hanterade krypterade virtuella datorer (krypterad med BEK och KEK), bifoga de återställda hanterade diskarna. Detaljerad information finns i artikeln [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md). 
+   * **Hanteras och krypterade virtuella datorer (BEK och KEK)** – för hanterade krypterade virtuella datorer (krypterad med BEK och KEK), bifoga de återställda hanterade diskarna. Detaljerad information finns i artikeln [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
       Använd följande kommando för att manuellt Aktivera kryptering för datadiskar.
 
@@ -520,7 +542,6 @@ Grundläggande stegen för att återställa en fil från en virtuell Azure-säke
 * Montera diskarna återställningspunkt
 * Kopiera de nödvändiga filerna
 * Demontera disken
-
 
 ### <a name="select-the-vm"></a>Välj den virtuella datorn
 
@@ -575,7 +596,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 Utdata ser ut ungefär så här:
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

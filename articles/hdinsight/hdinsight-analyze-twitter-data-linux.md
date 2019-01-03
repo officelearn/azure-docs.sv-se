@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 01d1ef428804838df4257a4c28dfcddbdd8f156b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a3687a4b8bb4e0d900ee96f52c40352db4e96df6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011002"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635569"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analysera Twitter-data med Apache Hive och Apache Hadoop på HDInsight
 
 Lär dig hur du använder [Apache Hive](https://hive.apache.org/) att bearbeta Twitter-data. Resultatet är en lista över Twitter-användare som skickade de flesta tweets som innehåller ett visst ord.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet har testats på HDInsight 3.6.
 >
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="get-the-data"></a>Hämta data
 
-Twitter kan du hämta data för varje tweet som JavaScript Object Notation (JSON) dokument via ett REST-API. [OAuth](http://oauth.net) krävs för autentisering-API: et.
+Twitter kan du hämta data för varje tweet som JavaScript Object Notation (JSON) dokument via ett REST-API. [OAuth](https://oauth.net) krävs för autentisering-API: et.
 
 ### <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
@@ -41,7 +41,7 @@ Twitter kan du hämta data för varje tweet som JavaScript Object Notation (JSON
    |:--- |:--- |
    | Namn |MyHDInsightApp |
    | Beskrivning |MyHDInsightApp |
-   | Webbplats |http://www.myhdinsightapp.com |
+   | Webbplats |https://www.myhdinsightapp.com |
 
 4. Kontrollera **Ja, jag godkänner**, och klicka sedan på **skapa ditt Twitter-program**.
 
@@ -59,7 +59,7 @@ Twitter kan du hämta data för varje tweet som JavaScript Object Notation (JSON
 
 Följande Python-koden hämtar 10 000 tweets från Twitter och spara dem till en fil med namnet **tweets.txt**.
 
-> [!NOTE]
+> [!NOTE]  
 > Följande steg utförs på HDInsight-klustret eftersom Python redan är installerad.
 
 1. Anslut till HDInsight-klustret med hjälp av SSH:
@@ -70,7 +70,7 @@ Följande Python-koden hämtar 10 000 tweets från Twitter och spara dem till en
 
     Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-3. Använd följande kommandon för att installera [Tweepy](http://www.tweepy.org/), [förloppsindikatorn](https://pypi.python.org/pypi/progressbar/2.2), och andra paket som krävs:
+3. Använd följande kommandon för att installera [Tweepy](https://www.tweepy.org/), [förloppsindikatorn](https://pypi.python.org/pypi/progressbar/2.2), och andra paket som krävs:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -145,7 +145,7 @@ Följande Python-koden hämtar 10 000 tweets från Twitter och spara dem till en
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Ersätt platshållaren för följande objekt med information från ditt twitter-program:
     >
     > * `consumer_secret`
@@ -153,7 +153,7 @@ Följande Python-koden hämtar 10 000 tweets från Twitter och spara dem till en
     > * `access_token`
     > * `access_token_secret`
 
-    > [!TIP]
+    > [!TIP]  
     > Justera filtret ämnen på den sista raden att spåra populära nyckelord. Om du använder populära nyckelord när du kör skriptet får snabbare insamlingen av data.
 
 6. Använd **Ctrl + X**, sedan **Y** att spara filen.
@@ -166,7 +166,7 @@ Följande Python-koden hämtar 10 000 tweets från Twitter och spara dem till en
 
     En förloppsindikator visas. Den räknar upp till 100% eftersom tweets laddas ned.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Om det tar lång tid för förloppsindikatorn att gå vidare, bör du ändra filtret för att spåra populära ämnen. När det finns många tweets om ämnet i filtret, kan du snabbt få 10000 tweets som behövs.
 
 ### <a name="upload-the-data"></a>Ladda upp data
@@ -317,7 +317,7 @@ Dessa kommandon kan du lagra data på en plats som har åtkomst till alla noder 
 
     Den här frågan returnerar högst 10 tweets som innehåller ordet **Azure** i meddelandetexten.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Om du har ändrat filtret i den `gettweets.py` skriptet och Ersätt **Azure** med någon av filter som du använde.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -327,7 +327,7 @@ Du har lärt dig att omvandla en Ostrukturerade JSON-datauppsättning till en st
 * [Kom igång med HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analysera flygförseningsdata med HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial

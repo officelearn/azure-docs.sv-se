@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: a86902d772226be136778d200a37c451b7b7e9a5
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 77a3685f59c7b15473deda1894f6fd6934fafc1f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407260"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993424"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Direktuppspelning i skala i HDInsight
 
 Lösningar för stordata i realtid agera utifrån data i rörelse. Dessa data är vanligtvis mest värdefulla på dess ankomsttid. Om den inkommande dataströmmen blir större än vad som kan hanteras då kan behöva du begränsa resurser ner. Du kan också skalas ett HDInsight-kluster efter din lösning för liveuppspelning genom att lägga till noder på begäran.
 
-En eller flera datakällor som genererar händelser (ibland i miljoner per sekund) som behöver matas in snabbt utan att släppa någon användbar information i en strömmande program. Inkommande händelser hanteras med *strömbuffring*, kallas även *Händelsekö*, av en tjänst som [Apache Kafka](kafka/apache-kafka-introduction.md) eller [Händelsehubbar](https://azure.microsoft.com/services/event-hubs/). När du har samlat in händelserna som du kan sedan analysera data med ett system för analys i realtid inom den *strömbearbetning* olika lager, till exempel [Apache Storm](storm/apache-storm-overview.md) eller [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Bearbetade data kan lagras i långsiktig lagringssystem som [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/), och visas i realtid på en instrumentpanel för business intelligence, till exempel [Power BI](https://powerbi.microsoft.com), Tableau eller en anpassad sida .
+En eller flera datakällor som genererar händelser (ibland i miljoner per sekund) som behöver matas in snabbt utan att släppa någon användbar information i en strömmande program. Inkommande händelser hanteras med *strömbuffring*, kallas även *Händelsekö*, av en tjänst som [Apache Kafka](kafka/apache-kafka-introduction.md) eller [Händelsehubbar](https://azure.microsoft.com/services/event-hubs/). När du har samlat in händelserna som du kan sedan analysera data med ett system för analys i realtid inom den *strömbearbetning* olika lager, till exempel [Apache Storm](storm/apache-storm-overview.md) eller [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Bearbetade data kan lagras i långsiktig lagringssystem som [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), och visas i realtid på en instrumentpanel för business intelligence, till exempel [Power BI](https://powerbi.microsoft.com), Tableau eller en anpassad webbplats sidan.
 
 ![HDInsight Streaming-mönster](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -37,13 +37,13 @@ Mer information finns i [vad är Apache Storm på Azure HDInsight?](storm/apache
 
 ## <a name="spark-streaming"></a>Spark-strömning
 
-Spark Streaming är en utökning av Spark, vilket gör att du kan återanvända samma kod som du använder för batchbearbetning. Du kan kombinera batch- och interaktiva frågor i samma program. Till skillnad från Storm, Spark Streaming ger tillståndskänslig exakt-när bearbetning av semantik. När de används i kombination med den [Kafka direkta API](http://spark.apache.org/docs/latest/streaming-kafka-integration.html), som säkerställer att alla Kafka-data tas emot av Spark Streaming exakt en gång, är det möjligt att uppnå slutpunkt till slutpunkt exakt-garanterar en gång. En av Spark Streaming styrkor är dess feltolerant funktioner, återställa felaktiga noder snabbt när flera noder som används i klustret.
+Spark Streaming är en utökning av Spark, vilket gör att du kan återanvända samma kod som du använder för batchbearbetning. Du kan kombinera batch- och interaktiva frågor i samma program. Till skillnad från Storm, Spark Streaming ger tillståndskänslig exakt-när bearbetning av semantik. När de används i kombination med den [Kafka direkta API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), som säkerställer att alla Kafka-data tas emot av Spark Streaming exakt en gång, är det möjligt att uppnå slutpunkt till slutpunkt exakt-garanterar en gång. En av Spark Streaming styrkor är dess feltolerant funktioner, återställa felaktiga noder snabbt när flera noder som används i klustret.
 
 Mer information finns i [vad är Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
 
 ## <a name="scaling-a-cluster"></a>Skala ett kluster
 
-Men du kan ange antalet noder i klustret när du skapar, kanske du vill öka eller minska klustret så att det matchar arbetsbelastningen. Alla HDInsight-kluster kan du [ändra antalet noder i klustret](hdinsight-administer-use-management-portal.md#scale-clusters). Ta kan bort Spark-kluster utan någon dataförlust, eftersom alla data lagras i Azure Storage eller Data Lake Store.
+Men du kan ange antalet noder i klustret när du skapar, kanske du vill öka eller minska klustret så att det matchar arbetsbelastningen. Alla HDInsight-kluster kan du [ändra antalet noder i klustret](hdinsight-administer-use-management-portal.md#scale-clusters). Ta kan bort Spark-kluster utan någon dataförlust, eftersom alla data lagras i Azure Storage eller Data Lake Storage.
 
 Det finns fördelar med att Frikoppling tekniker. Till exempel Kafka är en händelse som buffring teknik, så det är mycket i/o-intensiva och behöver inte mycket processorkraft. Däremot är strömprocessorer, till exempel Spark Streaming beräkningsintensiva, som kräver mer kraftfulla virtuella datorer. Genom att låta dessa tekniker frikopplad i olika kluster, kan du skala dem oberoende av varandra när av de virtuella datorerna.
 
@@ -55,7 +55,7 @@ Dataströmmen buffring tekniker Event Hubs och Kafka båda använder partitioner
 
 Apache Storm och Spark Streaming stöd för att lägga till arbetsnoder till sina kluster, även medan data bearbetas.
 
-Om du vill dra nytta av nya noder som har lagts till via skalning Storm, behöver du ombalansera de eventuella Storm-topologier som startats innan klusterstorleken ökades. Den här ombalansering kan göras med hjälp av Storm web UI eller dess CLI. Mer information finns i den [Apache Storm-dokumentationen](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+Om du vill dra nytta av nya noder som har lagts till via skalning Storm, behöver du ombalansera de eventuella Storm-topologier som startats innan klusterstorleken ökades. Den här ombalansering kan göras med hjälp av Storm web UI eller dess CLI. Mer information finns i den [Apache Storm-dokumentationen](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 Apache Spark använder tre viktiga parametrar för att konfigurera sin miljö, beroende på programkrav: `spark.executor.instances`, `spark.executor.cores`, och `spark.executor.memory`. En *executor* är en process som har startats för ett Spark-program. En executor körs på arbetsnoden och ansvarar för att utföra uppgifter för det programmet. Standardvärdet för antal executors och executor storleken för varje kluster beräknas baserat på antalet arbetsnoder och nodstorlek worker. Talen lagras i den `spark-defaults.conf`fil på varje klustrets huvudnod.
 

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 0a4d5cf4731932ed72e0dc38c13a5f855a937864
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 21f8d8ad63e8ea7c134477a6171155c40a2b4dc8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317516"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792024"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -331,6 +331,9 @@ Service Bus-utlösare innehåller flera [metadataegenskaper](functions-triggers-
 |`Label`|`string`|Den programspecifik etiketten.|
 |`CorrelationId`|`string`|Korrelations-ID|
 |`UserProperties`|`IDictionary<String,Object>`|Programmet specifika meddelandeegenskaper.|
+
+> [!NOTE]
+> För närvarande fungerar utlösaren bara med köer och prenumerationer som inte använder sessioner. Du spåra [det här objektet om funktionen](https://github.com/Azure/azure-functions-host/issues/563) för eventuella ytterligare uppdateringar om den här funktionen. 
 
 Se [kodexempel](#trigger---example) som använder de här egenskaperna tidigare i den här artikeln.
 

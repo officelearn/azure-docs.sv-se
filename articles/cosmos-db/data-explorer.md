@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c1af73d57255b3c74bbab4c69767d1756b24a6da
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140769"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541582"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Använda Azure Cosmos DB explorer för att hantera dina data 
 
@@ -51,4 +51,4 @@ För närvarande den **öppna helskärm** upplevelse som gör det möjligt att d
 ## <a name="next-steps"></a>Nästa steg
 Bredvid nu när du har lärt dig hur du kommer igång med Azure Cosmos DB explorer för att hantera dina data, kan du:
 
-* Börja definiera [frågor](sql-api-query-reference.md) med SQL-syntax och utföra [server sida programmering](programming.md) genom att använda lagrade procedurer, UDF: er, utlöser. 
+* Börja definiera [frågor](sql-api-query-reference.md) med SQL-syntax och utföra [server sida programmering](stored-procedures-triggers-udfs.md) genom att använda lagrade procedurer, UDF: er, utlöser. 

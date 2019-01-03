@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f4067c73cac4597da3099212c9c04c2544a0b2d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 30bfaad8fcc1a837a37689280149a6dbe20b7c1d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634353"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628159"
 ---
 # <a name="use-apache-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Använda Apache Hive med Windows-baserade HDInsight för att analysera loggar från webbplatser
 Lär dig använda HiveQL med HDInsight för att analysera loggar från en webbplats. Webbplatslogganalys kan användas för att segmentera målgruppen utifrån liknande aktiviteter, kategorisera besökarna genom demografi och ta reda på innehållet de vy, de kommer från webbplatser och så vidare.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet fungerar bara med Windows-baserade HDInsight-kluster. HDInsight är endast tillgänglig på Windows för versioner lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 I det här exemplet använder du ett HDInsight-kluster för att analysera webbplatsloggfiler för att få förståelse för Besöksfrekvensen till webbplatsen från externa webbplatser under en dag. Du kan också skapa en sammanfattning av webbplatsfel som användarna upplever. Lär dig att:
@@ -32,7 +32,7 @@ I det här exemplet använder du ett HDInsight-kluster för att analysera webbpl
 ![HDI. Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Du måste har etablerat ett Hadoop-kluster på Azure HDInsight. Anvisningar finns i [etablera HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
+* Du måste har etablerat ett Apache Hadoop-kluster på Azure HDInsight. Anvisningar finns i [etablera HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
 * Du måste ha Microsoft Excel 2013 eller Excel 2010 installerat.
 * Du måste ha [Microsoft Hive ODBC-drivrutin](https://www.microsoft.com/download/details.aspx?id=40886) att importera data från Hive till Excel.
 
@@ -47,6 +47,6 @@ I det här exemplet använder du ett HDInsight-kluster för att analysera webbpl
 4. Följ instruktionerna på sidan för att slutföra exemplet.
 
 ## <a name="next-steps"></a>Nästa steg
-Prova följande exempel: [analysera sensordata med Hive med HDInsight](apache-hive-analyze-sensor-data.md).
+Prova följande exempel: [Analysera sensordata med Hive med HDInsight](apache-hive-analyze-sensor-data.md).
 
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md

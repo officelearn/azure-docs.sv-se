@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: b667cfad6eb2a2a13e4b84dacaad0bcd3dfa91b9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017141"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794506"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Kom igång med ett Apache HBase-exempel i HDInsight
 
-Lär dig hur du skapar en [Apache HBase](http://hbase.apache.org/) kluster i HDInsight, skapa HBase-tabeller och frågetabeller med [Apache Hive](https://hive.apache.org/).  Allmän HBase-information finns i [HDInsight HBase-översikt][hdinsight-hbase-overview].
+Lär dig hur du skapar en [Apache HBase](https://hbase.apache.org/) kluster i HDInsight, skapa HBase-tabeller och frågetabeller med [Apache Hive](https://hive.apache.org/).  Allmän HBase-information finns i [HDInsight HBase-översikt][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -31,18 +31,18 @@ Innan du testar det här HBase-exemplet måste du ha följande objekt:
 * [curl](https://curl.haxx.se/download.html).
 
 ## <a name="create-apache-hbase-cluster"></a>Skapa Apache HBase-kluster
-Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster och det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Mer information om att använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster och det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Mer information om hur du använder Data Lake Storage Gen2 finns [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/).
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Från bladet **Anpassad distribution** anger du följande värden:
    
-   * **Prenumeration**: Välj den Azure-prenumeration som kommer användas för att skapa klustret.
-   * **Resursgrupp**: skapa en Azure Resource management-grupp eller Använd en befintlig.
+   * **Prenumeration**: Välj din Azure-prenumeration som används för att skapa klustret.
+   * **Resursgrupp**: Skapa en Azure Resource management-grupp eller Använd en befintlig.
    * **Plats**: Ange platsen för resursgruppen. 
-   * **Klusternamn**: Ange ett namn för HBase-klustret.
-   * **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard **admin**.
+   * **Klusternamn**: Ange ett namn för HBase-kluster.
+   * **Klustrets inloggningsnamn och lösenord**: Standardinloggningsnamnet är **admin**.
    * **SSH-användarnamn och lösenord**: Standardanvändarnamnet är **sshuser**.  Du kan byta namn.
      
      Andra parametrar är valfria.  
@@ -50,13 +50,13 @@ Följande procedur använder en Azure Resource Manager-mall för att skapa ett H
      Varje kluster är beroende av ett Azure Storage-konto. När du tar bort ett kluster stannar aktuella data kvar på lagringskontot. Klustrets lagringskonto av standardtyp har det klusternamn som omfattar tillägget ”store”. Det är hårdkodat i avsnittet för mallvariabler.
 3. Välj **Jag godkänner villkoren som anges ovan** och klicka sedan på **Köp**. Det tar cirka 20 minuter att skapa ett kluster.
 
-> [!NOTE]
+> [!NOTE]  
 > När ett HBase-kluster har tagits bort kan du skapa ett annat HBase-kluster med hjälp av samma standard-blob-container. Det nya klustret hämtar de HBase-tabeller som du skapade i det ursprungliga klustret. Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret.
 > 
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Skapa tabeller och infoga data
-Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apache HBase-gränssnittet](http://hbase.apache.org/0.94/book/shell.html) för att skapa HBase-tabeller, infoga data och köra frågor mot data. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apache HBase-gränssnittet](https://hbase.apache.org/0.94/book/shell.html) för att skapa HBase-tabeller, infoga data och köra frågor mot data. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 För de flesta visas data i tabellformat:
 
@@ -109,7 +109,7 @@ I HBase (en implementering av [molnet BigTable](https://cloud.google.com/bigtabl
 
 **För att läsa in data i bulk i HBase-tabellen kontakter**
 
-HBase innehåller flera metoder för att läsa in data i tabeller.  Mer information finns i [Massinläsning](http://hbase.apache.org/book.html#arch.bulk.load).
+HBase innehåller flera metoder för att läsa in data i tabeller.  Mer information finns i [Massinläsning](https://hbase.apache.org/book.html#arch.bulk.load).
 
 En exempeldatafil finns i en offentlig blob-container, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Innehållet i datafilen är:
 
@@ -126,9 +126,8 @@ En exempeldatafil finns i en offentlig blob-container, *wasb://hbasecontacts@hdi
 
 Du kan även skapa en textfil och överföra filen till ditt eget lagringskonto. Anvisningar finns i [överföra data för Apache Hadoop-jobb i HDInsight][hdinsight-upload-data].
 
-> [!NOTE]
+> [!NOTE]  
 > Den här proceduren använder den HBase-tabell för kontakter som du skapade i föregående procedur.
-> 
 
 1. Kör följande kommando från SSH för att omvandla datafilen till StoreFiles och lagra vid en relativ sökväg som anges av Dimporttsv.bulk.output.  Om du är i HBase Shell använder du avslutningskommandot för att avsluta.
 
@@ -209,7 +208,7 @@ REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wik
     Du måste base64-koda de värden som anges i switchen -d. I exemplet:
    
    * MTAwMA ==: 1000
-   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * UGVyc29uYWw6TmFtZQ ==: Personlig: namn
    * Sm9obiBEb2xl: John Dole
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) gör att du kan infoga flera (gruppbaserade) värden.
@@ -224,7 +223,7 @@ REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wik
 
 Mer information om HBase Rest finns i [Referensguiden för Apache HBase](https://hbase.apache.org/book.html#_rest).
 
-> [!NOTE]
+> [!NOTE]  
 > Thrift stöds inte av HBase i HDInsight.
 >
 > När du använder Curl eller annan REST-kommunikation med WebHCat, måste du autentisera begärandena genom att ange användarnamn och lösenord för HDInsight-klustrets administratör. Du måste också använda klustrets namn som en del av den URI (Uniform Resource Identifier) som används för att skicka begäranden till servern.
@@ -265,21 +264,21 @@ Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabe
 
 ## <a name="troubleshoot"></a>Felsöka
 
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](../hdinsight-administer-use-portal-linux.md#create-clusters).
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln beskrivs hur du skapar ett Apache HBase-kluster och hur du skapar tabeller och visar data i dessa tabeller från HBase-gränssnittet. Du har också fått lära dig hur man använder en Hive-fråga på data i HBase-tabeller och hur man använder HBase C# REST-API:er för att skapa en HBase-tabell och hämta data från tabellen.
 
 Du kan läsa mer här:
 
-* [Översikt över HDInsight HBase][hdinsight-hbase-overview]: Apache HBase är en Apache, öppen källkod, NoSQL-databas som bygger på Apache Hadoop och ger direktåtkomst och stark konsekvens för stora mängder Ostrukturerade och semistrukturerade data .
+* [Översikt över HDInsight HBase][hdinsight-hbase-overview]: Apache HBase är en Apache, öppen källkod, NoSQL-databas som bygger på Apache Hadoop och ger direktåtkomst och stark konsekvens för stora mängder Ostrukturerade och semistrukturerade data.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
-[hbase-reference]: http://hbase.apache.org/book.html#importtsv
+[hbase-reference]: https://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf
-[hbase-quick-start]: http://hbase.apache.org/book.html#quickstart
+[hbase-quick-start]: https://hbase.apache.org/book.html#quickstart
 
 
 

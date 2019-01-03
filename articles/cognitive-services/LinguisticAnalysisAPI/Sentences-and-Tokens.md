@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
 ROBOTS: NOINDEX
-ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 96c2bd1c11554481e441662a6051620f4b2e2993
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237882"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972370"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Uppdelning i meningar och Tokenisering
 
 > [!IMPORTANT]
-> Förhandsversionen av Lingvistisk analys har ur den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning modulerna för textanalys](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för text-bearbetning och analys.
+> Förhandsversionen av Språkanalys upphörde den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning-textanalysmoduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för textbearbetning och -analys.
 
 ## <a name="background-and-motivation"></a>Bakgrund och motivationen
 
@@ -75,4 +75,4 @@ Den här tokenisering ger oss möjlighet att hantera ordet *inte* och frasen *in
 ## <a name="specification"></a>Specifikationen
 
 Det är viktigt att fatta konsekvent beslut om vad består av en mening och en token.
-Vi förlitar sig på specifikation från den [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (vissa ytterligare information finns på ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).
+Vi förlitar sig på specifikation från den [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42) (vissa ytterligare information finns på ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).

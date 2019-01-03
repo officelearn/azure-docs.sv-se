@@ -3,7 +3,7 @@ title: 'Utforma effektiv lista: frågor – Azure Batch | Microsoft Docs'
 description: Öka prestandan genom att filtrera dina frågor när du begär information om Batch-resurser som pooler, jobb, uppgifter och beräkningsnoder.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/26/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6bc31e8541797930583e41fb6efbb6473cd4b894
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: fc873f68be3e7aad67980ec2e8ee0b2e473777ec
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004463"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537909"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Skapa frågor för att lista Batch-resurser effektivt
 
@@ -106,9 +106,9 @@ Expandera strängen minskar antalet API-anrop som krävs för att erhålla viss 
 ## <a name="efficient-querying-in-batch-net"></a>Effektiva frågor i Batch .NET
 I den [Batch .NET] [ api_net] API, den [ODATADetailLevel] [ odata] klassen används för att tillhandahålla filter, markera och utöka strängar att lista åtgärder. ODataDetailLevel klassen har tre offentliga strängegenskaper som kan anges i konstruktorn eller ange direkt i objektet. Du sedan skicka ODataDetailLevel-objektet som en parameter till olika åtgärder i listan som [ListPools][net_list_pools], [ListJobs][net_list_jobs], och [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata].[ FilterClause][odata_filter]: begränsa antalet objekt som returneras.
+* [ODATADetailLevel][odata].[ FilterClause][odata_filter]: Begränsa antalet objekt som returneras.
 * [ODATADetailLevel][odata].[ SelectClause][odata_select]: Ange vilka egenskapsvärden som returneras med varje objekt.
-* [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: hämta data för alla objekt i ett enda API anropa istället för separata anrop för varje objekt.
+* [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: Hämta data för alla objekt i ett enda API-anrop i stället för separata anrop för varje objekt.
 
 Följande kodavsnitt använder Batch .NET-API för att effektivt fråga Batch-tjänsten för statistik för en specifik uppsättning pooler. I det här scenariot har Batch-användaren både test- och pooler. Testa poolen ID: N har prefixet ”test” och produktionspoolen ID: N har prefixet ”prod”. I kodfragmentet *myBatchClient* är en korrekt initierad instans av den [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) klass.
 
@@ -147,8 +147,8 @@ List<CloudPool> testPools =
 Egenskapsnamn i filtret, markera och utöka strängar *måste* återspeglar motsvarigheterna REST API, både namn och en fallet. I tabellerna nedan innehåller mappningar mellan .NET och REST API-motsvarigheter.
 
 ### <a name="mappings-for-filter-strings"></a>Mappningar för filtersträngar
-* **Metoder för .NET-listan**: de .NET API-metoderna i den här kolumnen accepterar en [ODATADetailLevel] [ odata] objektet som en parameter.
-* **REST-begäranden för listan**: varje REST API-sida som är länkad till i den här kolumnen innehåller en tabell som anger egenskaper och åtgärder som är tillåtna i *filter* strängar. Du använder dessa egenskapsnamn och åtgärder när du skapar en [ODATADetailLevel.FilterClause] [ odata_filter] sträng.
+* **Metoder för .NET-listan**: Var och en av .NET API-metoder i den här kolumnen accepterar en [ODATADetailLevel] [ odata] objektet som en parameter.
+* **REST-begäranden för listan**: Varje REST API-sida som är länkad till i den här kolumnen innehåller en tabell som anger egenskaper och åtgärder som är tillåtna i *filter* strängar. Du använder dessa egenskapsnamn och åtgärder när du skapar en [ODATADetailLevel.FilterClause] [ odata_filter] sträng.
 
 | Metoder för .NET-lista | REST-begäranden för listan |
 | --- | --- |
@@ -164,8 +164,8 @@ Egenskapsnamn i filtret, markera och utöka strängar *måste* återspeglar mots
 | [PoolOperations.ListPools][net_list_pools] |[Lista pooler i ett konto][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>Mappningar för väljer strängar
-* **Batch .NET-typerna**: Batch .NET-API-typer.
-* **REST API-entiteter**: varje sida i den här kolumnen innehåller en eller flera tabeller med REST API-egenskapsnamn för typen. Dessa egenskapsnamn som används när du skapar *Välj* strängar. Du kommer att använda dessa samma egenskapsnamn när du skapar en [ODATADetailLevel.SelectClause] [ odata_select] sträng.
+* **Batch .NET-typerna**: Batch .NET API-typer.
+* **REST API-entiteter**: Varje sida i den här kolumnen innehåller en eller flera tabeller med REST API-egenskapsnamn för typen. Dessa egenskapsnamn som används när du skapar *Välj* strängar. Du kommer att använda dessa samma egenskapsnamn när du skapar en [ODATADetailLevel.SelectClause] [ odata_select] sträng.
 
 | Batch .NET-typer | REST API-entiteter |
 | --- | --- |
@@ -246,9 +246,9 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [Maximera resursanvändningen för Azure Batch compute med samtidiga nodaktiviteter](batch-parallel-node-tasks.md) är en annan artikel som är relaterade till Batch-programmets prestanda. Vissa typer av arbetsbelastningar kan dra nytta av köra parallella uppgifter på större-- men färre--compute-noder. Kolla in den [Exempelscenario](batch-parallel-node-tasks.md#example-scenario) i artikeln för information om sådant scenario.
 
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
 [github_samples]: https://github.com/Azure/azure-batch-samples

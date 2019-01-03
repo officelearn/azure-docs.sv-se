@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b00982cbc30b2345d9eacea376e3c5164ce1b078
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408688"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745065"
 ---
-# <a name="run-apache-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Kör Apache Hadoop MapReduce-exemplen i Windows-baserade HDInsight
+# <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Köra MapReduce-exemplen i Windows-baserade HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 En uppsättning exempel som tillhandahålls för att få igång MapReduce-jobb som körs i Apache Hadoop-kluster i Azure HDInsight. De här exemplen görs tillgängliga på varje HDInsight som hanterade kluster som du skapar. Köra dessa exempel bekanta dig med hjälp av Azure PowerShell-cmdletar för att köra jobb på Hadoop-kluster.
@@ -167,7 +167,7 @@ Det skript som finns för det här exemplet skickar ett jobb för Hadoop-jar och
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10 GB Graysort
-Det här exemplet används en mycket små 10 GB data så att den kan köras relativt snabbt. Den använder MapReduce-program som har utvecklats av Owen O'Malley och Arun Murthy som vann årliga allmänna (”daytona”) terabyte sortera benchmark 2009 med en hastighet av 0.578 TB per minut (100 TB på 173 minuter). Läs mer om den här och andra sortering prestandamått, den [Sortbenchmark](http://sortbenchmark.org/) plats.
+Det här exemplet används en mycket små 10 GB data så att den kan köras relativt snabbt. Den använder MapReduce-program som har utvecklats av Owen O'Malley och Arun Murthy som vann årliga allmänna (”daytona”) terabyte sortera benchmark 2009 med en hastighet av 0.578 TB per minut (100 TB på 173 minuter). Läs mer om den här och andra sortering prestandamått, den [Sortbenchmark](https://sortbenchmark.org/) plats.
 
 Det här exemplet använder tre uppsättningar MapReduce-program:
 
@@ -383,7 +383,7 @@ Pi-uppskattning Java-kod som innehåller funktionerna mapper och reducer är til
 * "License"); you may not use this file except in compliance
 * with the License. You may obtain a copy of the License at
 *
-* http://www.apache.org/licenses/LICENSE-2.0
+* https://www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -722,7 +722,7 @@ Koden för TeraSort MapReduce-program visas för granskning i det här avsnittet
     * "License"); you may not use this file except in compliance
     * with the License.  You may obtain a copy of the License at
     *
-    *     http://www.apache.org/licenses/LICENSE-2.0
+    *     https://www.apache.org/licenses/LICENSE-2.0
     *
     * Unless required by applicable law or agreed to in writing, software
     * distributed under the License is distributed on an "AS IS" BASIS,

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384213"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718936"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Skriptåtgärdsutveckling med HDInsight
 
@@ -134,7 +134,7 @@ Linux-baserade HDInsight-kluster tillhandahåller två huvudnoder som är aktiva
 
 ### <a name="bPS6"></a>Konfigurera anpassade komponenter om du vill använda Azure Blob storage
 
-Komponenter som du installerar på klustret kan ha en standardkonfiguration som använder Apache Hadoop Distributed File System (HDFS) lagring. HDInsight använder Azure Storage eller Data Lake Store som standardlagring. Båda ger en kompatibel HDFS-filsystemets som data finns kvar även om klustret tas bort. Du kan behöva konfigurera komponenter som du installerar för WASB eller ADL istället för HDFS.
+Komponenter som du installerar på klustret kan ha en standardkonfiguration som använder Apache Hadoop Distributed File System (HDFS) lagring. HDInsight använder Azure Storage eller Data Lake Storage som standardlagring. Båda ger en kompatibel HDFS-filsystemets som data finns kvar även om klustret tas bort. Du kan behöva konfigurera komponenter som du installerar för WASB eller ADL istället för HDFS.
 
 Du behöver inte ange filsystemet för de flesta åtgärder. Till exempel följande giraph-examples.jar filen kopieras från det lokala filsystemet till klusterlagringen:
 
@@ -142,7 +142,7 @@ Du behöver inte ange filsystemet för de flesta åtgärder. Till exempel följa
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-I det här exemplet på `hdfs` kommando använder transparent standardklusterlagringen. För vissa åtgärder, kan du behöva ange URI: N. Till exempel `adl:///example/jars` för Data Lake Store eller `wasb:///example/jars` för Azure Storage.
+I det här exemplet på `hdfs` kommando använder transparent standardklusterlagringen. För vissa åtgärder, kan du behöva ange URI: N. Till exempel `adl:///example/jars` för lagring av Data Lake eller `wasb:///example/jars` för Azure Storage.
 
 ### <a name="bPS7"></a>Skriva information till STDOUT- och STDERR
 
@@ -163,7 +163,7 @@ Som standard `echo` skickar strängen till STDOUT. Om du vill styra den till STD
 >&2 echo "An error occurred installing Foo"
 ```
 
-Detta omdirigerar information skrivs till STDOUT till STDERR (2) i stället. Mer information om i/o-omdirigering finns i [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Detta omdirigerar information skrivs till STDOUT till STDERR (2) i stället. Mer information om i/o-omdirigering finns i [ https://www.tldp.org/LDP/abs/html/io-redirection.html ](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Mer information om hur du visar information som loggas av skriptåtgärder finns i [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
@@ -278,17 +278,17 @@ Skript som används för att anpassa ett kluster behöver lagras i något av fö
 
 * En __offentligt läsbara URI__. Till exempel en URL till data som lagras på OneDrive, Dropbox eller andra filer som är värd för tjänsten.
 
-* En __Azure Data Lake Store-konto__ som är associerad med HDInsight-klustret. Mer information om hur du använder Azure Data Lake Store med HDInsight finns i [snabbstarten: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* En __Azure Data Lake-standardlagringskontot__ som är associerad med HDInsight-klustret. Mer information om hur du använder Azure Data Lake Storage med HDInsight finns i [snabbstarten: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]  
-    > Tjänstens huvudnamn HDInsight använder för att få åtkomst till Data Lake Store måste ha läsbehörighet till skriptet.
+    > Tjänstens huvudnamn HDInsight använder för att få åtkomst till Data Lake Storage måste ha läsbehörighet till skriptet.
 
 Resurser som används av skriptet måste också vara offentligt tillgängliga.
 
-Lagra filer i ett Azure Storage-konto eller Azure Data Lake Store ger snabb åtkomst, som båda i Azure-nätverket.
+Lagra filer i ett Azure Storage-konto eller Azure Data Lake Storage ger snabb åtkomst, som båda i Azure-nätverket.
 
 > [!NOTE]  
-> URI-format som används för att referera till skriptet skiljer sig beroende på tjänsten som används. Storage-konton som är associerade med HDInsight-kluster kan använda `wasb://` eller `wasbs://`. Offentligt läsbara URI: er använder `http://` eller `https://`. Data Lake Store använder `adl://`.
+> URI-format som används för att referera till skriptet skiljer sig beroende på tjänsten som används. Storage-konton som är associerade med HDInsight-kluster kan använda `wasb://` eller `wasbs://`. Offentligt läsbara URI: er använder `http://` eller `https://`. Data Lake Storage använder `adl://`.
 
 ### <a name="checking-the-operating-system-version"></a>Kontrollera versionen av operativsystemet
 

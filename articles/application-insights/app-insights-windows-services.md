@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b760780912642dac664f68c1f2b9d8d4ebf8cbde
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001728"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809904"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Konfigurera Application Insights för .NET manuellt
 
-Du kan konfigurera [Application Insights](app-insights-overview.md) för att övervaka en mängd olika program, programroller, komponenter eller mikrotjänster. Visual Studio erbjuder [enstegskonfiguration](app-insights-asp-net.md) för webbappar och tjänster. För andra typer av .NET-program, som till exempel roller för serverdelar eller skrivbordsprogram, kan du konfigurera Application Insights manuellt.
+Du kan konfigurera [Application Insights](app-insights-overview.md) för att övervaka en mängd olika program, programroller, komponenter eller mikrotjänster. Visual Studio erbjuder [enstegskonfiguration](../azure-monitor/app/asp-net.md) för webbappar och tjänster. För andra typer av .NET-program, som till exempel roller för serverdelar eller skrivbordsprogram, kan du konfigurera Application Insights manuellt.
 
 ![Exempel på prestandaövervakningsdiagram](./media/app-insights-windows-services/10-perf.png)
 
@@ -36,7 +36,7 @@ Du behöver:
 
 Resursen är platsen där dina data samlas in och visas i Azure Portal. Du måste bestämma om du vill skapa en ny eller dela en befintlig.
 
-### <a name="part-of-a-larger-app-use-existing-resource"></a>En del av en större app: Använd en befintlig resurs
+### <a name="part-of-a-larger-app-use-existing-resource"></a>En del av en större app: Använda befintlig resurs
 
 Om din webbapp har flera komponenter, till exempel en klientwebbapp och en eller flera serverdelstjänster så bör du skicka telemetri från alla komponenter till samma resurs. Detta gör det möjligt för dem att visas på en enda programavbildning och gör det möjligt att spåra en begäran från en komponent till en annan.
 
@@ -90,7 +90,7 @@ Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av 
 * Ange instrumenteringsnyckeln i kod, till exempel i `main()`: 
   
     `TelemetryConfiguration.Active.InstrumentationKey = "` *din nyckel* `";` 
-* [Skriv din egen telemetri med hjälp av API](app-insights-api-custom-events-metrics.md#ikey).
+* [Skriv din egen telemetri med hjälp av API](../azure-monitor/app/api-custom-events-metrics.md#ikey).
 
 **Om du har installerat andra Application Insights-paket** kan du, om du så önskar, använda .config-filen för att ange instrumenteringsnyckeln:
 
@@ -119,7 +119,7 @@ Klicka dig vidare i diagrammet om du vill visa mer detaljerade mätvärden. [Lä
 
 ### <a name="no-data"></a>Ser du inga data?
 * Använd programmet och öppna olika sidor så att det genererar telemetri.
-* Öppna panelen [Sök](app-insights-diagnostic-search.md) om du vill visa enskilda händelser. Ibland tar det lite längre tid för händelser att passera genom pipelinen för mätvärden.
+* Öppna panelen [Sök](../azure-monitor/app/diagnostic-search.md) om du vill visa enskilda händelser. Ibland tar det lite längre tid för händelser att passera genom pipelinen för mätvärden.
 * Vänta några sekunder och klicka på **Uppdatera**. Diagrammen uppdateras automatiskt med jämna mellanrum, men du kan uppdatera dem manuellt om du väntar på att vissa data ska visas.
 * Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).
 
@@ -134,7 +134,7 @@ När du kör i felsökningsläge skickas telemetrin genom pipelinen och du bör 
 Öppna portar för utgående trafik i serverns brandvägg. På [den här sidan](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) kan du se listan med begärda adresser 
 
 ### <a name="trouble-on-your-build-server"></a>Har du problem på build-servern?
-Mer information finns i [det här felsökningsavsnittet](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
+Mer information finns i [det här felsökningsavsnittet](../azure-monitor/app/asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
 > Om din app genererar mycket telemetri minskar den anpassningsbara insamlingsmodulen automatiskt den mängd som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som är relaterade till samma begäran markeras eller avmarkeras dock som en grupp, så att du kan navigera mellan relaterade händelser. 
@@ -147,5 +147,5 @@ Mer information finns i [det här felsökningsavsnittet](app-insights-asp-net-tr
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Nästa steg
-* [Lägg till mer telemetri](app-insights-asp-net-more.md)för att få en heltäckande bild av ditt program.
+* [Lägg till mer telemetri](../azure-monitor/app/asp-net-more.md)för att få en heltäckande bild av ditt program.
 

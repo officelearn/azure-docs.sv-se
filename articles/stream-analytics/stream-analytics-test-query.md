@@ -1,21 +1,20 @@
 ---
 title: Testa Azure Stream Analytics-jobb med exempeldata
-description: Hur du testar dina frågor i Stream Analytics-jobb.
-keywords: Den här artikeln beskriver hur du använder Azure-portalen för att testa ett Azure Stream Analytics-jobb, Exempelindata och ladda upp exempeldata.
+description: Den här artikeln beskriver hur du använder Azure-portalen för att testa ett Azure Stream Analytics-jobb, Exempelindata och ladda upp exempeldata.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: 139ad76826f3e67577beba0369f6d4425e242af9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: fca76b632e9bcc27ed762886eaea696a5696ad3f
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978357"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557640"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testa en Stream Analytics-fråga med exempeldata
 

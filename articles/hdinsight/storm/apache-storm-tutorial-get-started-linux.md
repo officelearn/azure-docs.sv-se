@@ -10,20 +10,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498264"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971673"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Kom igång med Apache Storm på HDInsight med storm starter-exempel
 
-Lär dig hur du använder [Apache Storm](http://storm.apache.org/) i HDInsight med storm starter-exempel.
+Lär dig hur du använder [Apache Storm](https://storm.apache.org/) i HDInsight med storm starter-exempel.
 
 Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkningar i realtid för bearbetning av dataströmmar. Du kan skapa ett molnbaserat Storm-kluster som utför analyser av stordata i realtid med Storm på Azure HDInsight.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -38,16 +38,18 @@ Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkni
 
 Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
-1. Från [Azure-portalen](https://portal.azure.com) väljer du **+ Skapa en resurs**, **Data och analys** och sedan **HDInsight**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+
+1. Gå till **+ skapa en resurs** > **Analytics** > **HDInsight**.
 
     ![Skapa ett HDInsight-kluster](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
 2. Ange följande information i avsnittet **Grundläggande inställningar**:
 
     * **Klusternamn**: Namnet på HDInsight-klustret.
-    * **Prenumeration**: Välj den prenumeration som du vill använda.
-    * **Användarnamn för klusterinloggning** och **Lösenord för klusterinloggning**: Inloggningen vid åtkomst till klustret via HTTPS. Du kan använda dessa autentiseringsuppgifter för att få åtkomst till tjänster som Ambari-webbgränssnittet eller REST API.
-    * **Secure Shell-användarnamn (SSH)**: Den inloggning som används vid åtkomst till klustret via SSH. Som standard är lösenordet detsamma som lösenordet för klusterinloggning.
+    * **Prenumeration**: Välj prenumerationen du använder.
+    * **Användarnamn för klusterinloggning** och **inloggningslösenordet för klustret**: Inloggningen vid åtkomst till klustret via HTTPS. Du kan använda dessa autentiseringsuppgifter för att få åtkomst till tjänster som Ambari-webbgränssnittet eller REST API.
+    * **Secure Shell (SSH)-användarnamn**: Den inloggning som används vid åtkomst till klustret via SSH. Som standard är lösenordet detsamma som lösenordet för klusterinloggning.
     * **Resursgrupp**: Resursgruppen som klustret ska skapas i.
     * **Plats**: Azure-region som klustret ska skapas i.
 
@@ -67,7 +69,7 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
 4. När du har valt klustertypen anger du klustertypen med hjälp av knappen __Välj__. Använd sedan knappen __Nästa__ och slutföra den grundläggande konfigurationen.
 
-5. Gå till avsnittet **Lagring** och välj eller skapa ett lagringskonto. Lämna övriga fält i det här avsnittet på standardvärden för anvisningarna i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__. Mer information om att använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+5. Gå till avsnittet **Lagring** och välj eller skapa ett lagringskonto. Lämna övriga fält i det här avsnittet på standardvärden för anvisningarna i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__. Mer information om hur du använder Data Lake Storage Gen2 finns [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Ange inställningarna för lagringskontot för HDInsight](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
@@ -84,10 +86,10 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [!TIP]
+    > [!TIP]  
     > SSH-klienten kan ange att värdens äkthet inte kan fastställas. Ange i så fall `yes` för att fortsätta.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Om du skyddat SSH-användarkontot med lösenord uppmanas du att ange det. Om du använde en offentlig nyckel kan du behöva använda `-i`-parametern för att ange motsvarande privata nyckel. Till exempel `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
@@ -98,7 +100,7 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
     Det här kommandot startar exempeltopologin för WordCount (ordräkning) på klustret. Den här topologin genererar meningar slumpmässigt och räknar hur många gånger ord används. Topologins egna namn är `wordcount`.
 
-    > [!NOTE]
+    > [!NOTE]  
     > När du skickar in dina egna topologier till klustret måste du först kopiera jar-filen som innehåller klustret innan du använder kommandot `storm`. Använd `scp`-kommandot för att kopiera filen. Till exempel, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > WordCount-exemplet, och andra storm-starterexempel ingår redan i ditt kluster på `/usr/hdp/current/storm-client/contrib/storm-starter/`.
@@ -113,7 +115,7 @@ Genomför följande för att övervaka topologin med hjälp av Storm-användargr
 
 1. Visa Storm-användargränssnittet genom att öppna en webbläsare på `https://CLUSTERNAME.azurehdinsight.net/stormui`. Ersätt **CLUSTERNAME** med namnet på klustret.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Om du uppmanas att ange ett användarnamn och lösenord, anger du klusteradministratören (admin) och lösenordet du använde när du skapade klustret.
 
 2. Under **Topology summary** (Topologiöversikt) väljer du posten **wordcount** (ordräkning) i kolumnen **Name** (namn). Detta visar information om topologin.
@@ -124,7 +126,7 @@ Genomför följande för att övervaka topologin med hjälp av Storm-användargr
 
     * **Topology stats** (Topologistatistik) – grundläggande information om topologins prestanda ordnad i tidsfönster.
 
-        > [!NOTE]
+        > [!NOTE]  
         > När du markerar ett specifikt tidsfönster ändras tidsfönstret för information som visas i andra avsnitt på sidan.
 
     * **Spouts** (Kanaler) – grundläggande information om kanaler, inklusive det senaste fel som returnerats för varje kanal.
@@ -139,7 +141,7 @@ Genomför följande för att övervaka topologin med hjälp av Storm-användargr
 
     * **Deactivate**  (Inaktivera) – pausar en topologi som körs.
 
-    * **Rebalance** (Balansera) – justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [förstå parallellitet i en Apache Storm-topologi](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    * **Rebalance** (Balansera) – justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [förstå parallellitet i en Apache Storm-topologi](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     * **Kill** (Avsluta) – avslutar en Storm-topologi efter en angiven tidsgräns.
 
@@ -151,7 +153,7 @@ Genomför följande för att övervaka topologin med hjälp av Storm-användargr
 
     * **Spout/Bolt stats** (Statistik för kanaler/bultar) – grundläggande information om komponentens prestanda, ordnad i tidsfönster.
 
-        > [!NOTE]
+        > [!NOTE]  
         > När du markerar ett specifikt tidsfönster ändras tidsfönstret för information som visas i andra avsnitt på sidan.
 
     * **Input stats** (Statistik för indata) (endast bultar) – information om komponenter som producerar de data som används av bulten.
@@ -183,7 +185,7 @@ Gå tillbaka till sidan **Topology summary** (Topologiöversikt) för ordräknin
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](../hdinsight-administer-use-portal-linux.md#create-clusters).
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a id="next"></a>Nästa steg
 
@@ -198,7 +200,7 @@ Se följande exempel för exempeltopologier som kan användas med Storm på HDIn
 * [Exempeltopologier för Apache Storm på HDInsight](apache-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
-[stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
+[stormdocs]: https://storm.incubator.apache.org/documentation/Documentation.html
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

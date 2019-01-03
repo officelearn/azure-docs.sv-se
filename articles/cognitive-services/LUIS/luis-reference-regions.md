@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5d8d3d4d55d4d03eb6d6a62898823158812d7c1f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 995300fe2a82fb41078d1c66435f0fb006d5f8cf
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135839"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603699"
 ---
-# <a name="regions-and-keys"></a>Regioner och nycklar
+# <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Skapa och publicera regioner och associerade nycklar
 
 Den region där du publicerar appen LUIS motsvarar den region eller plats som du anger i Azure-portalen när du skapar en Azure-LUIS slutpunktsnyckeln. När du [publicera en app](./luis-how-to-publish-app.md), LUIS genererar automatiskt en slutpunkts-URL för den region som är kopplat till nyckeln. Om du vill publicera en LUIS-app till flera regioner, behöver du minst en nyckel per region. 
 

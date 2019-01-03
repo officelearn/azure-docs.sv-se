@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1ad8435626b35859968bdf93589f22dc81e74e02
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101610"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557707"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Skapa och etablera en simulerad TPM-Edge-enhet på Windows
 
@@ -61,14 +61,13 @@ När du har skapat den enskilda registreringen, spara värdet för den **registr
 
 När du har slutfört föregående avsnitt, bör du se den nya enheten visas som en IoT Edge-enhet i IoT Hub. Nu kan behöva du installera IoT Edge-körningen på din enhet. 
 
-IoT Edge-körningen distribueras på alla IoT Edge-enheter. Dess komponenter körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod på gränsen. På enheter som kör Windows kan välja du att antingen använda behållare för Windows eller Linux-behållare. Välj typ av behållare som du vill använda och följ anvisningarna. Se till att konfigurera IoT Edge-körningen för automatisk och manuell och etablering. 
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Dess komponenter körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod på gränsen.  
 
-Följ anvisningarna för att installera IoT Edge-körningen på den enhet som kör den simulerade TPM i föregående avsnitt. 
+Följ anvisningarna för att installera IoT Edge-körningen på den enhet som kör den simulerade TPM i föregående avsnitt. Se till att konfigurera IoT Edge-körningen för automatisk och manuell och etablering.
 
-Vet DPS **ID-omfång** och **registrerings-ID** innan du påbörjar de här artiklarna. 
+Vet DPS **ID-omfång** och **registrerings-ID** innan du installerar IoT Edge på din enhet. 
 
-* [Windows-behållare](how-to-install-iot-edge-windows-with-windows.md)
-* [Linux-behållare](how-to-install-iot-edge-windows-with-linux.md)
+[Installera och automatiskt etablera IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Verifiera installationen
 

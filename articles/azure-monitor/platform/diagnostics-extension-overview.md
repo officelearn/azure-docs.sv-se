@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338166"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789764"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Vad är Azure Diagnostics-tillägget
 Azure Diagnostics-tillägget är en agent i Azure som aktiverar insamlingen av diagnostikdata på ett distribuerat program. Du kan använda diagnostiktillägget från ett antal olika källor. För närvarande är Azure-molntjänst (klassisk) rollerna Web och Worker, virtuella datorer, Virtual Machine Scale sets och Service Fabric. Andra Azure-tjänster har olika diagnostik metoder. Se [översikt över övervakning i Azure](../../azure-monitor/overview.md).
@@ -42,7 +42,7 @@ Azure Diagnostics-tillägget kan samla in följande typer av data:
 ## <a name="data-storage"></a>Datalagring
 Tillägget lagrar data i en [Azure Storage-konto](diagnostics-extension-to-storage.md) som du anger.
 
-Du kan också skicka den till [Application Insights](../../application-insights/app-insights-cloudservices.md). Ett annat alternativ är att strömma det till [Event Hub](../../event-hubs/event-hubs-about.md), som sedan kan du skicka den till övervakning i Azure-tjänster.
+Du kan också skicka den till [Application Insights](../../azure-monitor/app/cloudservices.md). Ett annat alternativ är att strömma det till [Event Hub](../../event-hubs/event-hubs-about.md), som sedan kan du skicka den till övervakning i Azure-tjänster.
 
 ### <a name="azure-monitor"></a>Azure Monitor
 Du har också valet av skickar du data till Azure Monitor. Den här mottagare är för tillfället endast gäller för prestandaräknare. Det kan du skicka prestandaräknare som samlats in på den virtuella datorn, VMSS, eller molntjänster till Azure Monitor som anpassade mått. Azure Monitor-mellanlagringsplatsen har stöd för:
@@ -66,7 +66,7 @@ Välj vilken tjänst som du vill samla in diagnostik på och Använd följande a
 
 Läs mer avancerade ämnen
 
-* [Med hjälp av Azure-diagnostik med Application Insights för Cloud Services](../../application-insights/app-insights-cloudservices.md)
+* [Med hjälp av Azure-diagnostik med Application Insights för Cloud Services](../../azure-monitor/app/cloudservices.md)
 * [Spåra flödet för en Cloud Services-program med Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [Använd PowerShell för att konfigurera diagnostik på molntjänster](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

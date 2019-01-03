@@ -3,17 +3,15 @@ title: Skapa och hantera MariaDB brandväggsregler i Azure Database for MariaDB
 description: Skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure-portalen
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a43c47a1ac143014a7b36f64d72d20bf73c05c92
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 75fc79b582803150f2111efb848d113d52928263
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950292"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544676"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure portal
 Brandväggsregler på servernivå gör att administratörer kan komma åt en Azure-databas för MariaDB-Server från en angiven IP-adress eller ett intervall med IP-adresser. 

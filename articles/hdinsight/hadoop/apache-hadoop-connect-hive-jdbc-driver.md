@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 59ca7a98bfa275502e847a8d2c34ec79141603da
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d57b6edcff5222bb411a74cc86afbbd7819f9d3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433822"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970839"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
 
@@ -31,7 +31,7 @@ Läs mer på gränssnittet Hive JDBC [HiveJDBCInterface](https://cwiki.apache.or
   > [!IMPORTANT]
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight 3.3 tillbakadragande](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [SQuirreL SQL](https://squirrel-sql.sourceforge.net/). SQuirreL är en JDBC-klientprogram.
+* [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL är en JDBC-klientprogram.
 
 * Den [Java Developer Kit (JDK) version 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) eller högre.
 
@@ -88,7 +88,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
 5. Lägg till följande information i dialogrutan Lägg till drivrutin:
 
-    * **Namn på**: Hive
+    * **Namn**: Hive
     * **Exempel-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Extra klassen sökväg**: Använd knappen Lägg till att lägga till i alla jar-filer som hämtats tidigare
     * **Klassnamn**: org.apache.hive.jdbc.HiveDriver
@@ -103,7 +103,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
 7. Använd följande värden för den **lägga till Alias** dialogrutan.
 
-    * **Namn på**: Hive på HDInsight
+    * **Namn**: Hive på HDInsight
 
     * **Drivrutinen**: Använd listrutan för att välja den **Hive** drivrutin
 
@@ -111,9 +111,9 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
         Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.
 
-    * **Användarnamnet**: Klustret konto inloggningsnamnet för ditt HDInsight-kluster. Standardvärdet är `admin`.
+    * **Användarnamn**: Klustret konto inloggningsnamnet för ditt HDInsight-kluster. Standardvärdet är `admin`.
 
-    * **lösenord**: Lösenordet för kontot för klusterinloggning.
+    * **Lösenord**: Lösenordet för kontot för klusterinloggning.
 
  ![Lägg till alias dialogrutan](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 

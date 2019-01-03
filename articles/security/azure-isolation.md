@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311005"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974717"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
@@ -121,7 +121,7 @@ Företagstjänster med granskad certifieringar, till exempel ISO/IEC 27001 kontr
 
 Om du tar bort alla data som Microsoft Azure tar bort data, inklusive alla cachelagrade eller sekundära kopior. För omfattade tjänster som borttagningen utförs inom 90 dagar efter slutet av kvarhållningsperioden. (Omfattade tjänster definieras under bearbetning av villkoren i vår [villkoren för Online Services](https://aka.ms/Online-Services-Terms).)
 
-Om en diskenhet som används för lagring av drabbas av ett maskinvarufel, är det säkert [raderas eller förstörs](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) innan Microsoft tillbaka det till tillverkaren för ersättning eller reparation. Data på enheten över för att säkerställa att data inte kan återställas på något sätt.
+Om en diskenhet som används för lagring av drabbas av ett maskinvarufel, är det säkert [raderas eller förstörs](https://microsoft.com/trustcenter/privacy/you-own-your-data) innan Microsoft tillbaka det till tillverkaren för ersättning eller reparation. Data på enheten över för att säkerställa att data inte kan återställas på något sätt.
 
 ## <a name="compute-isolation"></a>Compute-isolering
 Microsoft Azure tillhandahåller olika molnbaserad databehandling tjänster som omfattar ett brett urval av beräkningsinstanser och tjänster som kan skalas upp och ned automatiskt för att uppfylla behoven i ditt program eller enterprise. Dessa instanser och tjänsten erbjuder isolering på flera nivåer för att skydda data utan att offra flexibilitet i konfigurationen som kunderna kräver.
@@ -238,7 +238,7 @@ Kryptering under överföring är en mekanism för att skydda data när de skick
 -   [Client side encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), att kryptera data innan den överförs till storage och att dekryptera data efter överföringen slut på minne.
 
 #### <a name="encryption-at-rest"></a>Kryptering i vila
-Många organisationer [datakryptering i viloläge](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) är ett obligatoriskt steg för sekretess, efterlevnad och datasuveränitet. Det finns tre Azure-funktioner som tillhandahåller kryptering av data som är ”i vila”:
+Många organisationer [datakryptering i viloläge](https://docs.microsoft.com/azure/security/azure-isolation) är ett obligatoriskt steg för sekretess, efterlevnad och datasuveränitet. Det finns tre Azure-funktioner som tillhandahåller kryptering av data som är ”i vila”:
 
 -   [Kryptering av lagringstjänst](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) kan du begära att lagringstjänsten automatiskt kryptera data när du skriver den till Azure Storage.
 

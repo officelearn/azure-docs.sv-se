@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3eb5b2300ea2af7bc778e0831d105f286eab247c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3808b3e93ed7e3ad374054c3c32fd54930f50972
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721416"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606579"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Profilera live Azure Service Fabric-program med Application Insights
 
 Du kan också distribuera Application Insights profiler på de här tjänsterna:
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
 ## <a name="set-up-the-environment-deployment-definition"></a>Konfigurera distributionsdefinitionen miljö
 
-Application Insights Profiler tas med i Windows Azure Diagnostics SÄKERHETSSPECIFIKA. WAD-tillägget kan installeras med hjälp av en mall i Azure RM för Service Fabric-klustret. Det finns en exempelmall: [ **mall som installerar WAD på ett Service Fabric-kluster.**](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
+Application Insights Profiler tas med i Windows Azure Diagnostics SÄKERHETSSPECIFIKA. WAD-tillägget kan installeras med hjälp av en mall i Azure RM för Service Fabric-klustret. Det finns en exempelmall: [**Mallen som installerar WAD på ett Service Fabric-kluster.**](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
 
 Om du vill konfigurera din miljö måste du vidta följande åtgärder:
 1. Så att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare, så är tillräckliga för att bekräfta att det distribuerade Operativsystemet är `Windows Server 2012 R2` eller senare.

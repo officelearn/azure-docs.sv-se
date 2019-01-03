@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: feb2e2f9f36ab20c0b96fab9432df41faf4f9569
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3131afb31fd08903bb349f86634d2b9e6449c59e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407940"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752664"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systemprestandaräknare i Application Insights
 
@@ -42,7 +42,7 @@ De aktuella standard räknare som samlas in för .NET-webbprogram är:
          - ASP.NET Applications\\Requests In Application Queue
          - Processor(_Total)\\% Processor Time
 
-Om du vill se alla dina mest användbara diagram på samma ställe, skapa en [instrumentpanelen](app-insights-dashboards.md) och fästa dem till den.
+Om du vill se alla dina mest användbara diagram på samma ställe, skapa en [instrumentpanelen](../azure-monitor/app/app-insights-dashboards.md) och fästa dem till den.
 
 ## <a name="add-counters"></a>Lägg till räknare
 
@@ -99,7 +99,7 @@ Eller så kan du göra samma sak med anpassade mått som du skapade:
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Prestandaräknare i Analytics
-Du kan söka efter och visa räknare prestandarapporter i [Analytics](app-insights-analytics.md).
+Du kan söka efter och visa räknare prestandarapporter i [Analytics](../azure-monitor/app/analytics.md).
 
 Den **performanceCounters** schemat exponerar den `category`, `counter` namn, och `instance` för varje prestandaräknare.  I telemetri för varje program visas endast räknarna för programmet. Till exempel om du vill se vilka räknare är tillgängliga: 
 
@@ -120,15 +120,15 @@ Som andra telemetri **performanceCounters** också har en kolumn `cloud_RoleInst
 
 * *Antal undantag* är en system-prestandaräknare. CLR räknar alla hanterade och ohanterade undantag som utlöses och delar det totala antalet i ett exempelintervall med längden på intervallet. Application Insights SDK samlar in det här resultatet och skickar det till portalen.
 
-* *Undantag* antal TrackException rapporterna tas emot av portalen i insamlingsintervall för diagrammet. Den innehåller endast hanterade undantag där du har skrivit TrackException anropar i din kod och inte innehåller alla [ohanterade undantag](app-insights-asp-net-exceptions.md). 
+* *Undantag* antal TrackException rapporterna tas emot av portalen i insamlingsintervall för diagrammet. Den innehåller endast hanterade undantag där du har skrivit TrackException anropar i din kod och inte innehåller alla [ohanterade undantag](../azure-monitor/app/asp-net-exceptions.md). 
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Prestandaräknare i ASP.Net Core-program
 Prestandaräknare stöds bara om programmet är inställd på fullständiga .NET Framework. Det finns ingen möjlighet att samla in prestandaräknare för .net Core program.
 
 ## <a name="alerts"></a>Aviseringar
-Till exempel andra mått, kan du [ställa in en avisering](app-insights-alerts.md) att varna dig om en prestandaräknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
+Till exempel andra mått, kan du [ställa in en avisering](../azure-monitor/app/alerts.md) att varna dig om en prestandaräknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
 
 ## <a name="next"></a>Nästa steg
-* [Beroendespårning](app-insights-asp-net-dependencies.md)
-* [Undantagsspårning](app-insights-asp-net-exceptions.md)
+* [Beroendespårning](../azure-monitor/app/asp-net-dependencies.md)
+* [Undantagsspårning](../azure-monitor/app/asp-net-exceptions.md)
 

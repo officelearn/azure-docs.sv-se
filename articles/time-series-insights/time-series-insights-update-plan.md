@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights Preview planera – planera förhandsversion av Azure Time Series Insights-miljön | Microsoft Docs
+title: Planera förhandsversion av Azure Time Series Insights-miljön | Microsoft Docs
 description: Planera din förhandsversion av Azure Time Series Insights-miljö.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1df4847f20329e924352adfe782faa43d10dde98
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 09fef060a58723624796fe6192fef2444251cc1c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277054"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556092"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera förhandsversion av Azure Time Series Insights-miljön
 
@@ -78,7 +78,7 @@ En bra tumregel:
 
 * Store-metadata i din Time Series-modell
 * Time Series-läge, instansfält och händelser är bara nödvändig information, till exempel:
-  * Time Series-ID
+  * Tidserie-ID
   * Tidsstämpel
 
 Mer information finns i [forma händelser](./time-series-insights-send-events.md#json).
@@ -117,5 +117,5 @@ Följ dessa steg för att skapa och använda en sekundär Time Series Insights-m
 
 Om du vill veta mer kan du läsa om:
 
-- [Azure Time Series Insights Preview storage och ingående](./time-series-insights-update-storage-ingress.md)
+- [Lagring och inkommande för Azure Time Series Insights (förhandsversion)](./time-series-insights-update-storage-ingress.md)
 - [Datamodellering](./time-series-insights-update-tsm.md)

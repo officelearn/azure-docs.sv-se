@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625274"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652157"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -31,7 +31,9 @@ Det finns två platser där du kan granska rapporterade riskhändelser:
  - **Azure AD-rapportering** -riskhändelser är en del av Azure AD-säkerhetsgrupper rapporter. Mer information finns i den [användare i farozonen](concept-user-at-risk.md) och [säkerhetsrapporten för riskfyllda inloggningar](concept-risky-sign-ins.md).
 
  - **Azure AD Identity Protection** -riskhändelser är också en del av rapporteringsfunktionerna i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-    
+
+Du kan också använda den [Identity Protection riskhändelser API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) för programmässig åtkomst till säkerhetsidentifieringar med hjälp av Microsoft Graph. Mer information finns i [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](../identity-protection/graph-get-started.md). 
+
 För närvarande kan identifierar Azure Active Directory sex typer av riskhändelser:
 
 - [Användare med läckta autentiseringsuppgifter](#leaked-credentials) 
@@ -125,11 +127,11 @@ Allvarlighetsgraden för riskhändelsen representerar styrkan hos signalen som e
 
 Exempel: 
 
-* **Hög**: hög exakthet och hög allvarlighetsgrad riskhändelsen. Dessa händelser är starkt indikatorer som användarens identitet har komprometterats och alla användarkonton som påverkas bör åtgärdas omedelbart.
+* **Hög**: Hög exakthet och hög allvarlighetsgrad riskhändelsen. Dessa händelser är starkt indikatorer som användarens identitet har komprometterats och alla användarkonton som påverkas bör åtgärdas omedelbart.
 
 * **Medel**: Hög allvarlighetsgrad, men med lägre förtroende riskhändelse eller vice versa. Dessa händelser är potentiellt riskabla och alla användarkonton som påverkas bör åtgärdas.
 
-* **Låg**: låg förtroende och låg allvarlighetsgrad riskhändelsen. Den här händelsen kan inte kräva en omedelbar åtgärd, men när de kombineras med andra riskhändelser som kan ge en stark indikation på att identiteten har komprometterats.
+* **Låg**: Låg säkert och låg allvarlighetsgrad riskhändelsen. Den här händelsen kan inte kräva en omedelbar åtgärd, men när de kombineras med andra riskhändelser som kan ge en stark indikation på att identiteten har komprometterats.
 
 ![Risknivå](./media/concept-risk-events/01.png)
 

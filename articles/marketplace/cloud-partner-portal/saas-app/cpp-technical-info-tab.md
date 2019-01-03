@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e247cedb732bb1290631ada4c6d423f1b3ed0dbd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: da67213b708b3ff26fe1ddd926c5cb0bba33458d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197489"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788562"
 ---
 # <a name="saas-application-technical-info-tab"></a>Tekniska informationsfliken för SaaS-program
 
@@ -54,7 +54,7 @@ I följande tabell beskrivs de obligatoriska fälten för sälj via Microsoft.
 |     Komma igång-anvisningar              |   Anvisningar för att dela med dina kunder att hjälpa dem att ansluta till din SaaS-app. Grundläggande HTML-taggar är tillåtna, till exempel: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;osv.                |
 |    Webbadress för informationssida  |   Din webbplats-URL som du kommer att dirigera kunderna hamnar på när du hämtar från Azure-portalen. Den här URL: en kommer också att den slutpunkt som ska ta emot anslutningen API: er för att underlätta handel med Microsoft.                |
 |  Anslutningen Webhook    |  För alla asynkrona händelser som behöver skickar till dig för kundens räkning (exempel: Azure-prenumeration har gått ogiltig), vi kräver att du tillhandahåller en anslutning webhook. Om du inte redan har ett webhook-system på plats, är den enklaste konfigurationen att ha en Logikapp för HTTP-slutpunkt som ska lyssna efter alla händelser publiceras till den och hantera dem på rätt sätt. Mer information finns i <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter i logic apps</a>                |
-|  Azure AD-klient-ID och App-ID      |   I Azure-portalen kräver att du skapar en Active Directory-App så att vi kan verifiera anslutningen mellan våra två tjänster som finns bakom en autentiserad kommunikation. För dessa fält, skapa en AD-App och klistra in i motsvarande klient-Id och App-Id krävs.               |
+|  Azure AD-klient-ID och App-ID      |   I Azure-portalen kräver att du skapar en Active Directory-App så att vi kan verifiera anslutningen mellan våra två tjänster som finns bakom en autentiserad kommunikation. För dessa fält, skapa en AD-App och klistra in i motsvarande klient-Id och App-Id krävs. Observera att App-id är kopplad till yoaur publisherID. Därför se till att samma App-ID som i alla erbjudanden.             |
 
 
 Slutligen, om du väljer **sälj via Microsoft**, det finns en annan ny erbjuder flik med namnet **planer**. 
@@ -77,4 +77,4 @@ Mer information om anropet till åtgärdsalternativ finns Välj ett alternativ f
 ## <a name="next-steps"></a>Nästa steg
 
 - [Planer fliken (valfritt)](./cpp-plans-tab.md)
-- [Kanal-informationsfliken](./cpp-channel-info-tab.md)
+- [Fliken Kanalinformation](./cpp-channel-info-tab.md)

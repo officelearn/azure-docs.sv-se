@@ -3,17 +3,17 @@ title: Välja rätt prisnivå för Azure Maps | Microsoft Docs
 description: Lär dig mer om prisnivåer som erbjuds av Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998387"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993968"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Välja rätt prisnivå i Azure Maps
 
@@ -53,9 +53,8 @@ Se tabellen med **prisnivå riktad kunder** att få en bättre uppfattning av pr
 
 | Prisnivå  |        Aktuella kunder                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>S0-prisnivån är för kunder som är små eller medelstora företag. Det är rätt prisnivå du om du inte räknar med stora volymer av samtidiga användare och din systemkrav uppfylls av core geospatiala API: er som anges av tabellen nedan. Den här nivån är allmänt tillgängligt och kan användas för program i alla led i produktion från bevis på koncept utveckling och testning till produktion för program och distribution för tidigt.<p>|
+| S0            |    <p>S0-prisnivån är för kunder som är små eller medelstora företag. Det är rätt prisnivå du om du inte räknar med stora volymer av samtidiga användare och din systemkrav uppfylls av core geospatiala API: er som anges av tabellen ovan. Den här nivån är allmänt tillgängligt och kan användas för program i alla led i produktion från bevis på koncept utveckling och testning till produktion för program och distribution för tidigt.<p>|
 | S1            |    <p>Du prisnivån S1 för kunder behöver stöd för storskaliga enterprise, verksamhetskritiska program och stora volymer av samtidiga användare eller kräver avancerade geospatiala tjänster.</p>|
-
 
 ## <a name="next-steps"></a>Nästa steg
 

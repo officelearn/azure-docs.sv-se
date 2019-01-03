@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 11/27/2018
-ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: de77dfc40306f014a10e1ab11f2581392d3c160b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437076"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993751"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid-förmånen och migrering
 
@@ -33,9 +33,9 @@ vCore-modellen kan du använda [Azure Hybrid-förmånen för SQL Server](https:/
 
 ## <a name="service-tier-characteristics"></a>Tjänstens nivån egenskaper
 
-VCore-modellen innehåller två tjänstnivåer generell användning och affärskritisk. Tjänstnivåer särskiljs med hjälp av olika storlekar, design för hög tillgänglighet, felisolering, typer av lagring och i/o-intervallet. Kunden måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior. Du måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior. I Azure-portalen går du till servern (inte databasen) > hanterade säkerhetskopior > Konfigurera en princip > punkt i tiden Återställ konfiguration > 7-35 dagar.
+VCore-modellen innehåller tre tjänstnivåer generell användning, hyperskala och affärskritisk. Tjänstnivåer särskiljs med hjälp av olika storlekar, design för hög tillgänglighet, felisolering, typer och storleken på lagringsutrymmet för och i/o-intervallet. Du måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior. I Azure-portalen går du till servern (inte databasen) > hanterade säkerhetskopior > Konfigurera en princip > punkt i tiden Återställ konfiguration > 7-35 dagar.
 
-Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
+Tabellen nedan hjälper dig att förstå skillnaderna mellan de tre nivåerna:
 
 ||**Generell användning**|**Affärskritisk**|**Hyperskala (förhandsversion)**|
 |---|---|---|---|
@@ -63,7 +63,7 @@ Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid-förmån
 
-I den vCore-baserade inköpsmodellen, kan du byta dina befintliga licenser för rabatterade priser på SQL-databas med hjälp av den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Den här Azure-förmån kan du använda en lokal SQL Server-licenser för att spara upp till 30% på Azure SQL Database med hjälp av en lokal SQL Server-licenser med Software Assurance.
+I den vCore-baserade inköpsmodellen, kan du byta dina befintliga licenser för rabatterade priser på SQL-databas med hjälp av den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Den här Azure-förmån kan du använda en lokal SQL Server-licenser för att spara upp till 30% på Azure SQL Database med hjälp av en lokal SQL Server-licenser med Software Assurance.
 
 ![prissättning](./media/sql-database-service-tiers/pricing.png)
 

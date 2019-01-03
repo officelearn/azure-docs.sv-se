@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: e7020ef5c1f7411c7226e7a2db489112ee6bf0a4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: fcb49f532d5dfcd340baf017bd55c69d4e81e0e6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945509"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630690"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Översikt över slutpunkt-till-slutpunkt-SSL på Application Gateway
 
@@ -31,7 +31,7 @@ I det här exemplet dirigeras begäranden med TLS1.2 till backend-servrarna i Po
 Application Gateway kommunicerar bara med kända serverdelsinstanser som har vitlistat sina certifikat med Application Gateway. För att aktivera vitlistning av certifikat så behöver du överföra den offentliga nyckeln för serverdels-serverns certifikat till Application Gateway (inte rotcertifikatet). Endast anslutningar till kända och vitlistade serverdelar tillåts sedan. De återstående serverdelar resulterar i ett gateway-fel. Självsignerade certifikat är enbart för testningsändamål och rekommenderas inte för produktions-arbetsbelastningar. Sådana certifikat måste också vitlistas med application gateway såsom beskrivs i föregående steg, innan de kan användas.
 
 > [!NOTE]
-> Ställa in autentisering servercertifikat krävs inte för betrodda Azure-tjänster som Azure Web Apps.
+> Ställa in autentisering servercertifikat krävs inte för betrodda Azure-tjänster, till exempel Azure App Service.
 
 ## <a name="end-to-end-ssl-with-the-v2-sku"></a>Slutpunkt till slutpunkt SSL med v2-SKU
 
@@ -39,7 +39,7 @@ Autentiseringscertifikat har inaktuell och ersatts med betrodda rotcertifikat i 
 
 - Certifikat som signerats av välkända Certifikatutfärdare myndigheter vars CN matchar värdnamnet i serverdelens HTTP-inställningarna kräver inte några ytterligare steg för slutpunkt till slutpunkt SSL ska fungera. 
 
-   Till exempel om backend-certifikat har utfärdats av en välkänd Certifikatutfärdare och har en CN contoso.com och serverdelens http-inställning värden också anges till contoso.com, krävs sedan inga ytterligare åtgärder. Du kan ange i serverdelens http ställa in protokollet HTTPS både hälsotillstånd avsökningen och sökvägen skulle bli SSL aktiverat. Om du använder Azure Web Apps eller andra Azure webbtjänster serversidan dessa är implicit betrodda samt och inga ytterligare steg krävs för slutpunkt till slutpunkt SSL.
+   Till exempel om backend-certifikat har utfärdats av en välkänd Certifikatutfärdare och har en CN contoso.com och serverdelens http-inställning värden också anges till contoso.com, krävs sedan inga ytterligare åtgärder. Du kan ange i serverdelens http ställa in protokollet HTTPS både hälsotillstånd avsökningen och sökvägen skulle bli SSL aktiverat. Om du använder Azure App Service eller andra Azure webbtjänster serversidan dessa är implicit betrodda samt och inga ytterligare steg krävs för slutpunkt till slutpunkt SSL.
 - Om certifikatet är självsignerat eller signerats av okänd mellanhänder, måste sedan för att aktivera SSL för slutpunkt till slutpunkt i v2-SKU ett betrott rotcertifikat definieras. Application Gateway kommunicerar bara med serverdelar vars servercertifikat rotcertifikat matchar ett av listan över betrodda rotcertifikat i serverdelens http-inställnings som hör till poolen.
 - Förutom root certifikat matchar validerar också Application Gateway om värden som anges i serverdelens http-inställnings överensstämmer med det egna namnet (CN) som presenteras av serverdels-serverns SSL-certifikat. När du försöker upprätta en SSL-anslutning till serverdelen anger Application Gateway Server Name Indication (SNI)-tillägget till värden som anges i serverdelens http-inställning.
 - Om **Välj värdnamnet från serverdelsadressen** väljs i stället för fältet värd i serverdelens http-inställnings SNI-huvudet är alltid inställd till serverdelspoolen FQDN- och CN på backend-servern SSL certifikatet måste matcha dess FQDN. Medlemmar i Serverdelspool med IP-adresser stöds inte i det här scenariot.

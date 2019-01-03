@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 097eae37f170a8036ee46652450788faf77c3960
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b44903244147f556e620e9726f6e9884b12ac8a8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967137"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976536"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
 
-Avsökning datorer centralt i webbprogrammet live, i produktion med hjälp av Live Metrics Stream från [Application Insights](app-insights-overview.md). Välja och filtrera statistik och prestandaräknare kan du titta på i realtid, utan störningar i tjänsten. Granska stackspårningar från exemplet misslyckades begäranden och undantag. Tillsammans med [Profiler](app-insights-profiler.md), [Snapshot debugger](app-insights-snapshot-debugger.md), och [prestandatestning](app-insights-monitor-web-app-availability.md#performance-tests), Live Metrics Stream ger en kraftfull och icke-inkräktande diagnostikverktyg för webbplatsen plats.
+Avsökning datorer centralt i webbprogrammet live, i produktion med hjälp av Live Metrics Stream från [Application Insights](app-insights-overview.md). Välja och filtrera statistik och prestandaräknare kan du titta på i realtid, utan störningar i tjänsten. Granska stackspårningar från exemplet misslyckades begäranden och undantag. Tillsammans med [Profiler](app-insights-profiler.md), [Snapshot debugger](app-insights-snapshot-debugger.md), och [prestandatestning](../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Live Metrics Stream ger en kraftfull och icke-inkräktande diagnostikverktyg för webbplatsen plats.
 
 Med Live Metrics Stream kan du:
 
@@ -38,7 +38,7 @@ Med Live Metrics Stream kan du:
 
 ## <a name="get-started"></a>Kom igång
 
-1. Om du inte gjort ännu [installerat Application Insights](app-insights-asp-net.md) i ASP.NET-webbapp eller [Windows server-appen](app-insights-windows-services.md), gör du det nu. 
+1. Om du inte gjort ännu [installerat Application Insights](../azure-monitor/app/asp-net.md) i ASP.NET-webbapp eller [Windows server-appen](app-insights-windows-services.md), gör du det nu. 
 2. **Uppdatera till den senaste versionen** av Application Insights-paketet. I Visual Studio högerklickar du på projektet och välj **hantera Nuget-paket**. Öppna den **uppdateringar** fliken Kontrollera **inkludera förhandsversion**, och välj de Microsoft.ApplicationInsights.* paket.
 
     Distribuera om din app.
@@ -52,7 +52,7 @@ Med Live Metrics Stream kan du:
 
 ### <a name="no-data-check-your-server-firewall"></a>Ser du inga data? Kontrollera serverbrandväggen
 
-Kontrollera den [utgående portar för Live Metrics Stream](app-insights-ip-addresses.md#outgoing-ports) är öppen i brandväggen för dina servrar. 
+Kontrollera den [utgående portar för Live Metrics Stream](../azure-monitor/app/ip-addresses.md#outgoing-ports) är öppen i brandväggen för dina servrar. 
 
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Hur skiljer sig Live Metrics Stream från Metrics Explorer och Analytics?
@@ -60,10 +60,10 @@ Kontrollera den [utgående portar för Live Metrics Stream](app-insights-ip-addr
 | |Direktsänd ström | Metrics Explorer och analys |
 |---|---|---|
 |Svarstid|Data som visas inom en sekund|Sammanlagda minuter|
-|Inga kvarhållning|Data kvarstår medan den i diagrammet och sedan tas bort|[Data bibehålls i 90 dagar](app-insights-data-retention-privacy.md#how-long-is-the-data-kept)|
+|Inga kvarhållning|Data kvarstår medan den i diagrammet och sedan tas bort|[Data bibehålls i 90 dagar](../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |På begäran|Data som strömmas medan du öppna Live Metrics|Informationen skickas när SDK är installerat och aktiverat|
 |Kostnadsfri|Det kostar inget Live Stream-data|Lyder [priser](app-insights-pricing.md)
-|Samling|Alla valda mått och räknare överförs. Fel och stackspår samplas. TelemetryProcessors tillämpas inte.|Händelser kan vara [samplas](app-insights-api-filtering-sampling.md)|
+|Samling|Alla valda mått och räknare överförs. Fel och stackspår samplas. TelemetryProcessors tillämpas inte.|Händelser kan vara [samplas](../azure-monitor/app/api-filtering-sampling.md)|
 |Kontrollkanal|Filterkontroll signaler skickas till SDK: N. Vi rekommenderar att du [skydda den här kanalen](#secure-channel).|Kommunikationen är enkelriktade på portalen|
 
 
@@ -75,7 +75,7 @@ Du kan övervaka anpassade KPI live genom att använda godtyckliga filter på n�
 
 ![Egen begäran KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
 
-Du kan övervaka ett värde som skiljer sig från antalet. Vilka alternativ som beror på vilken typ av strömmar, vilket kan vara någon telemetri med Application Insights: förfrågningar, beroenden, undantag, spår, händelser eller mått. Det kan vara ditt eget [anpassade mått](app-insights-api-custom-events-metrics.md#properties):
+Du kan övervaka ett värde som skiljer sig från antalet. Vilka alternativ som beror på vilken typ av strömmar, vilket kan vara någon telemetri med Application Insights: förfrågningar, beroenden, undantag, spår, händelser eller mått. Det kan vara ditt eget [anpassade mått](../azure-monitor/app/api-custom-events-metrics.md#properties):
 
 ![Värdealternativ för](./media/app-insights-live-stream/live-stream-valueoptions.png)
 
@@ -83,7 +83,7 @@ Du kan också övervaka alla Windows-prestandaräknare genom att välja som stre
 
 Livemått räknas samman på två punkter: lokalt på varje server och sedan på alla servrar. Du kan ändra standardinställningen på antingen genom att välja andra alternativ i respektive listrutorna.
 
-## <a name="sample-telemetry-custom-live-diagnostic-events"></a>: Exempel anpassade Live diagnostiska Telemetrihändelser
+## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Exempel-telemetri: Anpassad Live diagnostikhändelser
 Som standard visar direktsändningen händelser prover av misslyckade begäranden och beroendeanrop, undantag, händelser och spår. Klicka på filterikonen för att se de tillämpade kriterierna när som helst i tid. 
 
 ![Standard direktsändningen](./media/app-insights-live-stream/live-stream-eventsdefault.png)
@@ -92,7 +92,7 @@ Som med mätvärden, kan du ange godtyckliga kriterier för någon av typerna av
 
 ![Anpassade direktsändningen](./media/app-insights-live-stream/live-stream-events.png)
 
-Obs: För närvarande för undantaget meddelandebaserad villkor, använder det yttersta Undantagsmeddelandet. I föregående exempel, att filtrera bort ofarliga undantag med meddelandet om internt Undantagsmeddelande (följer den ”<--” avgränsare) ”klient byl odpojen”. Använd ett meddelande innehåller inte-”fel vid läsning av innehållet i begäran” villkor.
+Obs! För närvarande kan använda det yttersta Undantagsmeddelandet för meddelandebaserad kriterier för undantag. I föregående exempel, att filtrera bort ofarliga undantag med meddelandet om internt Undantagsmeddelande (följer den ”<--” avgränsare) ”klient byl odpojen”. Använd ett meddelande innehåller inte-”fel vid läsning av innehållet i begäran” villkor.
 
 Se information om ett objekt i live flödet genom att klicka på den. Du kan pausa flödet genom att klicka på **pausa** eller helt enkelt bläddra nedåt, eller klickar på ett objekt. Direktsändningen kommer att återupptas när du bläddrar överst på sidan eller genom att klicka på räknaren av objekt som samlas in när den har pausats.
 
@@ -188,7 +188,7 @@ Om du känner igen och litar på alla anslutna servrar, kan du försöka anpassa
 
 ## <a name="generating-a-performance-test-load"></a>Generera en belastning för test av prestanda
 
-Om du vill se effekten av en ökning av belastningen använda bladet prestandatest. Den simulerar begäranden från ett antal samtidiga användare. Det kan köras antingen ”manuella tester” (ping tester) av en enskild URL eller den kan köra en [flerstegstest prestandatest](app-insights-monitor-web-app-availability.md#multi-step-web-tests) som du överför (på samma sätt som ett tillgänglighetstest).
+Om du vill se effekten av en ökning av belastningen använda bladet prestandatest. Den simulerar begäranden från ett antal samtidiga användare. Det kan köras antingen ”manuella tester” (ping tester) av en enskild URL eller den kan köra en [flerstegstest prestandatest](../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) som du överför (på samma sätt som ett tillgänglighetstest).
 
 > [!TIP]
 > När du har skapat prestandatest öppna testet och bladet Live Stream i olika fönster. Du kan se när köade prestandatest startar och titta på live stream samtidigt.
@@ -197,12 +197,12 @@ Om du vill se effekten av en ökning av belastningen använda bladet prestandate
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Ser du inga data? Om programmet är i ett skyddat nätverk: Live Metrics Stream använder en annan IP-adresser än andra Application Insights telemetry. Se till att [de IP-adresserna](app-insights-ip-addresses.md) är öppen i brandväggen.
+Ser du inga data? Om programmet är i ett skyddat nätverk: Live Metrics Stream använder en annan IP-adresser än andra Application Insights telemetry. Se till att [de IP-adresserna](../azure-monitor/app/ip-addresses.md) är öppen i brandväggen.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Övervakning med Application Insights](app-insights-usage-overview.md)
-* [Med hjälp av Diagnostiksökning](app-insights-diagnostic-search.md)
+* [Med hjälp av Diagnostiksökning](../azure-monitor/app/diagnostic-search.md)
 * [Profiler](app-insights-profiler.md)
 * [Felsökning av ögonblicksbild](app-insights-snapshot-debugger.md)

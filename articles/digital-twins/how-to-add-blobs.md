@@ -1,19 +1,20 @@
 ---
-title: Lägg till BLOB-objekt till objekt i Azure Digital Twins | Microsoft Docs
-description: Förstå hur du lägger till BLOB-objekt till objekt i Azure Digital Twins
+title: Hur du lägger till BLOB-objekt till objekt i Azure Digital Twins | Microsoft Docs
+description: Lär dig hur du lägger till BLOB-objekt till objekt i Azure Digital Twins.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
-ms.openlocfilehash: 8a68ba35ddf7caacbf2339d87c5aeef80f470ba4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725632"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974530"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Lägg till BLOB-objekt till objekt i Azure Digital Twins
 
@@ -21,10 +22,7 @@ BLOB-lagring är Ostrukturerade framställningar av vanliga filtyper, t.ex. bild
 
 Azure Digital Twins stöder bifoga blobbar till enheter, blanksteg och användare. Blobar kan representera en profilbild för en användare, ett foto av enhet, en video, en karta eller en logg.
 
-> [!NOTE]
-> Den här artikeln förutsätter:
-> * Att din instans är korrekt konfigurerad för att ta emot Management API-begäranden.
-> * Att du har korrekt autentiseras med hjälp av en REST-klient för ditt val.
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## <a name="uploading-blobs-an-overview"></a>Ladda upp blobar: en översikt
 
@@ -93,9 +91,9 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Parametervärde | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
-| *USER_DEFINED_BOUNDARY* | Ett namn i flera delar innehåll gräns |
+| USER_DEFINED_BOUNDARY | Ett namn i flera delar innehåll gräns |
 
 Följande kod är en .NET-implementering av samma blob överföringen, med hjälp av klassen [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
 
@@ -116,7 +114,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ## <a name="api-endpoints"></a>API-slutpunkter
 
-I följande avsnitt får du via core slutpunkter och deras funktioner.
+I följande avsnitt beskrivs core blob-relaterade API-slutpunkter och deras funktioner.
 
 ### <a name="devices"></a>Enheter
 
@@ -194,7 +192,7 @@ Den returnerade JSON-filen (**UserBlob** objekt) överensstämmer med följande 
 
 ## <a name="common-errors"></a>Vanliga fel
 
-Ett vanligt fel inkluderar inte rätt rubrikinformation:
+Ett vanligt fel är att inte inkludera sidhuvud-information:
 
 ```JSON
 {

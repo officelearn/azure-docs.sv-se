@@ -9,18 +9,40 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d5dd2e2943d78291fc9c4903c15fb4d3767edbea
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b8f77f404a8e5d2d1625a327a1e50c0e169b6135
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442020"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744436"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka problem i Azure Files i Linux
 
-Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure-filer när du ansluter från Linux-klienter. Det ger också möjliga orsaker och lösningar för dessa problem. 
+Den här artikeln innehåller vanliga problem som rör Azure Files när du ansluter från Linux-klienter. Det ger också möjliga orsaker och lösningar för dessa problem. 
 
 Utöver felsökningsstegen i den här artikeln, kan du använda [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) så att den Linux-klienten har rätt krav. AzFileDiagnostics automatiserar identifiering för de flesta av de problem som nämns i den här artikeln. Det hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i den [Azure Files delar felsökare](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). Felsökaren innehåller steg för att hjälpa dig med problem med att ansluta, mappa och montera Azure-filresurser.
+
+<a id="mounterror13"></a>
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>”Montera error(13): Åtkomst nekad ”när du monterar en Azure-filresurs
+
+### <a name="cause-1-unencrypted-communication-channel"></a>Orsak 1: Okrypterade kommunikationskanalen
+
+Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där de Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om de [säker överföring krävs](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot. En krypterade kommunikationskanaler tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
+
+Mer information finns i [krav för att montera en Azure-fil dela med Linux- och cifs-utils-paketet](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+
+### <a name="solution-for-cause-1"></a>Lösning för orsak 1
+
+1. Ansluta från en klient som stöder SMB-kryptering eller ansluta från en virtuell dator i samma datacenter som Azure storage-kontot som används för Azure-filresursen.
+2. Kontrollera den [säker överföring krävs](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på storage-konto om klienten inte har stöd för SMB-kryptering.
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: Virtuella nätverk eller brandvägg regler har aktiverats för lagringskontot 
+
+Om virtuella nätverk (VNET) och brandväggsregler har konfigurerats på lagringskontot, nekas nätverkstrafik åtkomst om inte klientens IP-adress eller virtuella nätverk har åtkomst.
+
+### <a name="solution-for-cause-2"></a>Lösning för orsak 2
+
+Verifiera virtuella nätverk och brandvägg regler har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggen regler som orsakar problemet tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>”[behörighet nekas] diskkvoten har överskridits” när du försöker öppna en fil
@@ -47,7 +69,7 @@ Minska antalet samtidiga öppna referenser genom att stänga några referenser o
     - Använd [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) mellan filresurser på den lokala datorn.
 
 <a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>”Montera error(112): värddatorn är inte tillgänglig” på grund av en återanslutning timeout
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>”Montera error(112): Värddatorn är inte tillgänglig ”på grund av en återanslutning timeout
 
 En ”112” mount-fel uppstår på Linux-klient när klienten har varit inaktiv under en längre tid. När du har en utökad inaktivitetstid klienten kopplas och tidsgränsen uppnås för anslutningen.  
 
@@ -67,7 +89,7 @@ Problemet återanslutning i Linux-kärnan löses nu som en del av följande änd
 - [CIFS: Åtgärda ett möjligt minnet skadas under reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: Åtgärda ett möjligt dubbla låsning av mutex under reconnect (för kernel v4.9 och senare)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-Men kan de här ändringarna inte flyttas ännu till Linux-distributioner. Den här och andra återanslutning korrigeringar som finns i följande populära Linux-kernel: 4.4.40 och 4.8.16 4.9.1. Den här snabbkorrigeringen får du genom att uppgradera till en av dessa rekommenderade kernel-versioner.
+Men kan de här ändringarna inte flyttas ännu till Linux-distributioner. Den här och andra återanslutning korrigeringar finns i följande populära Linux-kernel: 4.4.40 4.8.16 och 4.9.1. Den här snabbkorrigeringen får du genom att uppgradera till en av dessa rekommenderade kernel-versioner.
 
 ### <a name="workaround"></a>Lösning
 
@@ -76,7 +98,7 @@ Du kan undvika det här problemet genom att ange en hård montering. En hård mo
 Om du inte uppgradera till de senaste kernel-versionerna, kan du undvika problemet genom att lagra en fil i Azure-filresursen som du skriver med 30 sekunders mellanrum eller mindre. Detta måste vara en skrivåtgärd, till exempel skriva om skapade eller ändrade datum för filen. Annars kan du få cachelagrade resultat och åtgärden kan inte utlösa återanslutning.
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>”Montera error(115): pågår” när du montera Azure Files med hjälp av SMB 3.0
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>”Montera error(115): Åtgärden pågår ”när du montera Azure Files med hjälp av SMB 3.0
 
 ### <a name="cause"></a>Orsak
 
@@ -87,6 +109,27 @@ Vissa Linux-distributioner stöder inte ännu krypteringsfunktionerna i SMB 3.0.
 Krypteringsfunktionen för SMB 3.0 för Linux introducerades i 4.11 kerneln. Den här funktionen gör det möjligt för montering av en Azure-filresurs från en lokal plats eller från en annan Azure-region. Vid tidpunkten för publiceringen har den här funktionen anpassats till nr 17.04 från Ubuntu och Ubuntu 16,10. 
 
 Om din Linux SMB-klienten inte stöder kryptering kan montera en Azure-filer med hjälp av SMB 2.1 från en virtuell Linux-dator som är i samma datacenter som filresursen. Kontrollera att den [säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på lagringskontot. 
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Felet ”Åtkomst nekad” när du går till en Azure-filresurs i portalen
+
+När du bläddrar till en Azure-filresurs i portalen kan du få följande fel:
+
+Åtkomst nekad  
+Du saknar åtkomst  
+Det verkar som om du inte har åtkomst till det här innehållet. Kontakta ägaren för att få åtkomst.  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 1: Ditt användarkonto har inte åtkomst till lagringskontot
+
+### <a name="solution-for-cause-1"></a>Lösning för orsak 1
+
+Bläddra till det lagringskonto där Azure-filresursen är placerad, klicka på **åtkomstkontroll (IAM)** och verifiera ditt konto har åtkomst till lagringskontot. Mer information finns i [hur du skyddar ditt lagringskonto med rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: Virtuella nätverk eller brandvägg regler har aktiverats för lagringskontot
+
+### <a name="solution-for-cause-2"></a>Lösning för orsak 2
+
+Verifiera virtuella nätverk och brandvägg regler har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggen regler som orsakar problemet tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Långsam prestanda på en Azure-filresursen monteras på en Linux VM
@@ -163,11 +206,11 @@ Lös problemet genom att använda den [felsökningsverktyget för Azure Files-mo
 * Ger vägledning på att åtgärda själv.
 * Samlar in diagnostik-spårningar.
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: Det går inte att komma åt '&lt;sökväg&gt;': / o-fel
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: Det går inte att komma åt '&lt;sökväg&gt;”: I/o-fel
 
 När du försöker listfiler i en Azure-filresurs med hjälp av kommandot ls avbryter kommandot när filer. Du får följande fel:
 
-**ls: Det går inte att komma åt '&lt;sökväg&gt;': / o-fel**
+**ls: Det går inte att komma åt '&lt;sökväg&gt;”: I/o-fel**
 
 
 ### <a name="solution"></a>Lösning
@@ -178,7 +221,7 @@ Uppgradera Linux-kärnan till följande versioner som har en korrigering av det 
 - 4.12.11+
 - Alla versioner som är större än eller lika med 4.13
 
-## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Det går inte att skapa symboliska länkar - ln: Det gick inte att skapa symboliska länken 't': åtgärden stöds inte
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Det går inte att skapa symboliska länkar - ln: Det gick inte att skapa symboliska länken 't': Åtgärden stöds inte
 
 ### <a name="cause"></a>Orsak
 Inte som standard aktivera montera Azure-filresurser på Linux med hjälp av CIFS stöd för symboliska länkar (symlinks). Du ser felmeddelandet Så här:

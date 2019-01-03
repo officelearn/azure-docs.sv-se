@@ -9,21 +9,21 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/22/2018
 ms.author: juliako
-ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d74ce913a2189dd1062b30f9def919cbbabe7b64
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085503"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742532"
 ---
 # <a name="streaming-policies"></a>Principer för direktuppspelning
 
-I Azure Media Services v3 kan Streaming principer du definiera strömningsprotokoll och alternativ för kryptering för din StreamingLocators. Du kan ange namnet på Streaming principen som du skapade, eller så kan du använda en av de fördefinierade principer för direktuppspelning. De fördefinierade Streaming principerna tillgänglig för tillfället är: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' och ' Predefined_ MultiDrmStreaming'.
+I Azure Media Services v3 kan Streaming principer du definiera strömningsprotokoll och alternativ för kryptering för din StreamingLocators. Du kan ange namnet på Streaming principen som du skapade, eller så kan du använda en av de fördefinierade principer för direktuppspelning. De fördefinierade Streaming principerna tillgänglig för tillfället är: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' och 'Predefined_MultiDrmStreaming'.
 
 > [!IMPORTANT]
-> Om du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. Media Service-kontot har en kvot för antalet StreamingPolicy-poster. Du bör inte skapa en ny StreamingPolicy för varje StreamingLocator.
+> När du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), bör du utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ för kryptering och protokoll som behövs. Media Service-konto har en kvot för antalet Streaming åtkomstprincipposter. Du bör inte skapa en ny princip för strömning för varje Strömningspositionerare.
 
 ## <a name="streamingpolicy-definition"></a>StreamingPolicy definition
 

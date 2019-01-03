@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5e13f21971c7babaeaebc9714fe2a040229eebb2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278686"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608451"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -36,6 +36,17 @@ Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgra
 Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
 
 Ladda ned | [Hämta Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="12700"></a>1.2.70.0
+
+### <a name="release-status"></a>Versionsstatus
+
+12/18/2018: Lanserats för nedladdning
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+
+Den här bygger uppdaterar inte är standard kopplingar (till exempel allmän LDAP Connector och allmän SQL-Anslutningsapp) som medföljer Azure AD Connect. Mer information om tillämpliga anslutningsappar finns i version 1.1.911.0 i [versionshistorik för Anslutningsappen](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history).
+
 
 ## <a name="12690"></a>1.2.69.0
 

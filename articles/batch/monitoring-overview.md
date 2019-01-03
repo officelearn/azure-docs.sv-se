@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 3053e136ab08c38d9460d60f64464a17f6f61574
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ee483c19aa59ca98226f77a5e56b1ee4eb4dede5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824091"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543418"
 ---
 # <a name="monitor-batch-solutions"></a>Övervaka Batch-lösningar
 
@@ -26,7 +26,7 @@ En översikt över Azure-komponenter och tjänster som är tillgängliga för at
 
 ## <a name="subscription-level-monitoring"></a>Prenumerationsnivå övervakning
 
-På prenumerationsnivån, vilket innefattar Batch-konton, den [Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) samlar in operativa händelsedata i [flera kategorier](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log).
+På prenumerationsnivån, vilket innefattar Batch-konton, den [Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md) samlar in operativa händelsedata i [flera kategorier](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
 
 Batch-konton mer specifikt aktivitetsloggen samlar du in händelser som rör hantering av skapandet och borttagningen och nyckel.
 
@@ -34,7 +34,7 @@ Ett sätt att hämta händelser från din aktivitetslogg är att använda Azure-
 
 ## <a name="batch-account-level-monitoring"></a>Övervakning av batch-konto på
 
-Övervaka varje Batch-konto med hjälp av funktionerna i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [mått](../azure-monitor/platform/data-collection.md#metrics) och eventuellt [diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) för resurser som är begränsade på nivån för ett Batch-konto, till exempel pooler, jobb och aktiviteter. Samla in och använda dessa data manuellt eller programmässigt att övervaka aktiviteter i Batch-kontot och diagnostisera problem. Mer information finns i [Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning](batch-diagnostics.md).
+Övervaka varje Batch-konto med hjälp av funktionerna i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [mått](../azure-monitor/platform/data-collection.md#metrics) och eventuellt [diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md) för resurser som är begränsade på nivån för ett Batch-konto, till exempel pooler, jobb och aktiviteter. Samla in och använda dessa data manuellt eller programmässigt att övervaka aktiviteter i Batch-kontot och diagnostisera problem. Mer information finns i [Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning](batch-diagnostics.md).
  
 > [!NOTE]
 > Mått är tillgängliga som standard i ditt Batch-konto utan ytterligare konfiguration och de har en rullande 30-dagars historik. Du måste aktivera Diagnostisk loggning för ett Batch-konto och du kan medföra ytterligare kostnader för att lagra eller bearbeta diagnostiklogg data. 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: 16737ed525147968c97ca20a9f4e674a0dee34fc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e0a5d6180c7dfa94abf8dd738c8017a3b332dfd8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955062"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598812"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
 
@@ -102,7 +102,7 @@ Att skapa en ny databas med läsning skalbar aktiverad (Ersätt objekten i hakpa
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST API: Aktivera och inaktivera Lässkalning
+### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST-API: Aktivera och inaktivera Lässkalning
 
 Om du vill skapa en databas med skrivskyddade skalbar aktiverad, eller aktivera eller inaktivera Läs skalbar för en befintlig databas, skapa eller uppdatera motsvarande databasen entiteten med det `readScale` egenskapen `Enabled` eller `Disabled` som i den nedan exemplet begäran.
 

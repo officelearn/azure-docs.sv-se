@@ -12,18 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277944"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632797"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack som hanteringsprincip
+
 Den här artikeln beskriver Underhåll principen för integrerade Azure Stack-system och vad du måste göra för att behålla ditt system i ett läge som stöds. 
+
+## <a name="download-update-packages-for-integrated-systems"></a>Ladda ned uppdateringspaket för integrerade system
+
+Microsoft kommer att släppa både fullständig månatliga uppdateringspaket samt hotfix-paket för att bemöta specifika problem. 
+
+Månatliga uppdateringspaket finns i en säker Azure-slutpunkt. Du kan hämta dem manuellt med hjälp av den [Azure Stack uppdaterar installationshämtaren verktyget](http://aka.ms/azurestackupdatedownload). Om skalningsenheten är ansluten uppdateringen visas automatiskt i administratörsportalen som **uppdatering**. Fullständiga, är varje månad uppdateringspaket väl dokumenterat på varje version. Mer information om varje version kan du klicka på någon version från den [uppdatera paketet frisläppningstakt](#update-package-release-cadence) i den här artikeln.
+
+Snabbkorrigeringen uppdateringspaket finns i samma säkra Azure-slutpunkten. Du kan ladda ned dem manuellt med hjälp av den inbäddade länken i var och en i respektive snabbkorrigering KB-artiklar. till exempel [Azure Stack-snabbkorrigeringen 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Liknar de fullständiga, månatliga uppdateringspaket, Azure Stack-operatörer kan hämta XML-, .bin- och .exe-filer och importera dem med hjälp av proceduren i [tillämpa uppdateringar i Azure Stack](azure-stack-apply-updates.md). Azure Stack-operatörer med anslutna skalningsenheter visas snabbkorrigeringar visas automatiskt i administratörsportalen med meddelandet **uppdatering**.
+
+Om skalningsenheten inte är ansluten och du vill bli meddelad om varje snabbkorrigering version, prenumerera på den [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) eller [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) feed som anges i varje version.  
 
 ## <a name="update-package-types"></a>Uppdatera pakettyper
 
@@ -51,7 +62,7 @@ Snabbkorrigeringar hämtas och installeras precis som vanliga fullständig uppda
 
 
 ## <a name="keep-your-system-under-support"></a>Håll datorn under support
-Om du vill fortsätta att få support, måste du spara distributionen av Azure Stack aktuella. Uppskjutningsperiod principen efter uppdateringar är: för din Azure Stack-distribution ska behållas i support måste den köra den uppdaterade versionen som nyligen utgiven eller köra något av de två föregående Uppdateringsversioner. Snabbkorrigeringar beaktas inte större Uppdateringsversioner. Om Azure Stack-molnet som skyddas av *fler än två uppdateringar*, den anses vara kompatibel och måste uppdatera till minst den lägsta versionen som stöds för att få support. 
+Om du vill fortsätta att få support, måste du spara distributionen av Azure Stack aktuella. Uppskjutningsperiod principen efter uppdateringar är: För din Azure Stack-distribution ska behållas i support måste den köra den uppdaterade versionen som nyligen utgiven eller köra något av de två föregående Uppdateringsversioner. Snabbkorrigeringar beaktas inte större Uppdateringsversioner. Om Azure Stack-molnet som skyddas av *fler än två uppdateringar*, den anses vara kompatibel och måste uppdatera till minst den lägsta versionen som stöds för att få support. 
 
 Till exempel om den senaste tillgängliga uppdateringsversionen är 1805 och föregående två uppdateringspaket har version 1804 och 1803, både 1803 1804 finnas kvar i support. Det är dock 1802 support upphör. Principen gäller när det finns inga versionen för en månad eller två. Om den aktuella versionen är 1805 och det fanns inga 1804-versionen, till exempel kvar de föregående två uppdateringspaket 1803 och 1802 i support.
 

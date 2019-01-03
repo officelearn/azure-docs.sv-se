@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 818801a7f36e82d0065f85b5cf9e36288ccbff32
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422039"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970398"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Förstå implicit beviljande av OAuth2 flödet i Azure Active Directory (AD)
 
@@ -57,11 +57,11 @@ Implicit beviljande av flödet utfärdar inte tokens för användaruppdatering h
 
 Ett JavaScript-program har dock en annan mekanism tillgång för att förnya åtkomsttoken utan att fråga användaren om autentiseringsuppgifter flera gånger. Programmet kan använda en dold iframe för att utföra nya tokenbegäranden mot auktoriseringsslutpunkten av Azure AD: så länge som webbläsaren har fortfarande en aktiv session (Läs: har en sessions-cookie) mot Azure AD-domänen autentiseringsbegäran kan har ske utan interaktion från användaren.
 
-Den här modellen ger JavaScript-program möjlighet att förnya åtkomsttoken oberoende av varandra och även skaffa nya för ett nytt API (förutsatt att du godkänt tidigare för dessa. På så sätt undviker har lagts till bördan med att hämta, hantera och skydda ett högt värde artefakter, till exempel en uppdateringstoken. Den artefakt som gör det möjligt, tyst förnyelsen sessions-cookie Azure AD hanteras utanför programmet. En annan fördel med den här metoden är en användare kan logga ut från Azure AD, med någon av de program som har loggat in på Azure AD, som körs i något av flikarna i webbläsaren. Detta leder till borttagning av Azure AD-sessions-cookie och JavaScript-programmet kommer automatiskt att förlora möjligheten att förnya token för den signerade ut användaren.
+Den här modellen ger JavaScript-program möjlighet att förnya åtkomsttoken oberoende av varandra och även skaffa nya för ett nytt API (förutsatt att du godkänt tidigare för dem). På så sätt undviker har lagts till bördan med att hämta, hantera och skydda ett högt värde artefakter, till exempel en uppdateringstoken. Den artefakt som gör det möjligt, tyst förnyelsen sessions-cookie Azure AD hanteras utanför programmet. En annan fördel med den här metoden är en användare kan logga ut från Azure AD, med någon av de program som har loggat in på Azure AD, som körs i något av flikarna i webbläsaren. Detta leder till borttagning av Azure AD-sessions-cookie och JavaScript-programmet kommer automatiskt att förlora möjligheten att förnya token för den signerade ut användaren.
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>Lämpar sig implicit beviljande för min app?
 
-Implicit beviljande får mer risker än andra stöd och de områden som du bör uppmärksamma till är väl dokumenterat. Till exempel [missbruk av åtkomsttoken att personifiera Resursägaren i Implicit flöde] [ OAuth2-Spec-Implicit-Misuse] och [Hotmodell för OAuth 2.0- och säkerhetsaspekter] [ OAuth2-Threat-Model-And-Security-Implications]). Högre risk profilen är dock i stort sett på grund av att den är avsedd att programmen som kör active kod som hanteras av en fjärransluten resurs till en webbläsare. Om du planerar en SPA-arkitektur har inga backend-komponenter eller avser att anropa ett webb-API via JavaScript, bör du använda det implicita flödet för tokenförvärv.
+Implicit beviljande presenterar flera risker än andra stöd och de områden som du bör uppmärksamma till är väl dokumenterat (till exempel [missbruk av åtkomsttoken att personifiera Resursägaren i Implicit flöde] [ OAuth2-Spec-Implicit-Misuse]och [Hotmodell för OAuth 2.0- och säkerhetsaspekter][OAuth2-Threat-Model-And-Security-Implications]). Högre risk profilen är dock i stort sett på grund av att den är avsedd att programmen som kör active kod som hanteras av en fjärransluten resurs till en webbläsare. Om du planerar en SPA-arkitektur har inga backend-komponenter eller avser att anropa ett webb-API via JavaScript, bör du använda det implicita flödet för tokenförvärv.
 
 Om programmet är en intern klient, är det implicita flödet inte passade bra. Avsaknad av Azure AD-sessions-cookie i samband med en intern klient deprives ditt program från innebär att underhålla en standardlagringen av långlivade session. Vilket innebär att ditt program uppmanas upprepade gånger användaren vid hämtning av åtkomsttoken för nya resurser.
 
